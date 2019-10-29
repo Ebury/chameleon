@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcNavigation should be collapsible when canBeCollapsed is set 1`] = `
+<div
+  class="ec-navigation ec-navigation--can-be-collapsed"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`EcNavigation should be expanded when isExpanded is set 1`] = `
+<div
+  class="ec-navigation ec-navigation--is-expanded"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`EcNavigation should not render branding if logo is given in branding object but showBrandingLogo is set to false 1`] = `
+<div
+  class="ec-navigation"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`EcNavigation should not render branding if no logo is given in branding object 1`] = `
+<div
+  class="ec-navigation"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`EcNavigation should only render mandatory slot if no other slots were given 1`] = `
+<div
+  class="ec-navigation"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`EcNavigation should render all given slots 1`] = `
+<div
+  class="ec-navigation"
+>
+  <!---->
+   
+  <div
+    class="ec-navigation__block ec-navigation__user-info"
+  >
+    <div>
+      User Info
+    </div>
+  </div>
+   
+  <div
+    class="ec-navigation__block ec-navigation__call-to-action"
+  >
+    <div>
+      CTA
+    </div>
+  </div>
+   
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+  >
+    <div>
+      Menu
+    </div>
+  </div>
+   
+  <div
+    class="ec-navigation__block ec-navigation__footer-menu"
+  >
+    <div>
+      Footer Menu
+    </div>
+  </div>
+   
+  <div
+    class="ec-navigation__block ec-navigation__copyright"
+  >
+    <div>
+      Copyright
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcNavigation should render branding logo and name when given 1`] = `
+<div
+  class="ec-navigation"
+>
+  <div
+    class="ec-navigation__branding"
+  >
+    <img
+      alt="My Branding"
+      src="/img/my.png"
+    />
+  </div>
+   
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`EcNavigation should render branding logo and name when given: Branding should have alt and src. 1`] = `
+<div
+  class="ec-navigation__branding"
+>
+  <img
+    alt="My Branding"
+    src="/img/my.png"
+  />
+</div>
+`;

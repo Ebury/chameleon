@@ -2,7 +2,55 @@
 
 exports[`EcNavigationLink as regular anchor should be active when isActive is passed into 1`] = `
 <a
-  class="ec-navigation-link ec-navigation-link--active"
+  class="ec-navigation-link ec-navigation-link--is-active ec-navigation-link--is-expanded"
+  href="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</a>
+`;
+
+exports[`EcNavigationLink as regular anchor should be compact when isCompact is passed into 1`] = `
+<a
+  class="ec-navigation-link ec-navigation-link--is-compact ec-navigation-link--is-expanded"
+  href="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</a>
+`;
+
+exports[`EcNavigationLink as regular anchor should be expanded by default 1`] = `
+<a
+  class="ec-navigation-link ec-navigation-link--is-expanded"
   href="/balances"
 >
   <svg
@@ -51,7 +99,7 @@ exports[`EcNavigationLink as regular anchor should hide the text when is not exp
 
 exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if isRouterLink is set to false 1`] = `
 <a
-  class="ec-navigation-link"
+  class="ec-navigation-link ec-navigation-link--is-expanded"
   href="/balances"
 >
   <svg
@@ -75,7 +123,7 @@ exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if
 
 exports[`EcNavigationLink as regular anchor should show the text when is expanded 1`] = `
 <a
-  class="ec-navigation-link"
+  class="ec-navigation-link ec-navigation-link--is-expanded"
   href="/balances"
 >
   <svg
@@ -99,8 +147,58 @@ exports[`EcNavigationLink as regular anchor should show the text when is expande
 
 exports[`EcNavigationLink as router-link should be active when isActive is passed into 1`] = `
 <router-link-stub
-  active-class="ec-navigation-link--active"
-  class="ec-navigation-link ec-navigation-link--active"
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link ec-navigation-link--is-active ec-navigation-link--is-expanded"
+  to="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</router-link-stub>
+`;
+
+exports[`EcNavigationLink as router-link should be compact when isCompact is passed into 1`] = `
+<router-link-stub
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link ec-navigation-link--is-compact ec-navigation-link--is-expanded"
+  to="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</router-link-stub>
+`;
+
+exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
+<router-link-stub
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link ec-navigation-link--is-expanded"
   to="/balances"
 >
   <svg
@@ -124,7 +222,7 @@ exports[`EcNavigationLink as router-link should be active when isActive is passe
 
 exports[`EcNavigationLink as router-link should hide the text when is not expanded 1`] = `
 <router-link-stub
-  active-class="ec-navigation-link--active"
+  active-class="ec-navigation-link--is-active"
   class="ec-navigation-link"
   to="/balances"
 >
@@ -150,8 +248,8 @@ exports[`EcNavigationLink as router-link should hide the text when is not expand
 
 exports[`EcNavigationLink as router-link should render as a router link if isRouterLink prop set to true 1`] = `
 <router-link-stub
-  active-class="ec-navigation-link--active"
-  class="ec-navigation-link"
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link ec-navigation-link--is-expanded"
   to="/balances"
 >
   <svg
@@ -175,8 +273,8 @@ exports[`EcNavigationLink as router-link should render as a router link if isRou
 
 exports[`EcNavigationLink as router-link should show the text when is expanded 1`] = `
 <router-link-stub
-  active-class="ec-navigation-link--active"
-  class="ec-navigation-link"
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link ec-navigation-link--is-expanded"
   to="/balances"
 >
   <svg

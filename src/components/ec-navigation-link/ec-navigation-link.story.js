@@ -32,6 +32,9 @@ storiesOf('Navigation Link', module)
       isExpanded: {
         default: boolean('isExpanded', false),
       },
+      isCompact: {
+        default: boolean('isCompact', false),
+      },
     },
     template: `
       <ec-navigation-link v-bind="$props" />
