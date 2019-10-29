@@ -1,10 +1,14 @@
 <template>
   <div class="ec-container">
-    <template v-if="title">
-      <h1 class="ec-container__title">{{ title }}</h1>
-      <p class="ec-container__title-intro">{{ titleIntro }}</p>
-    </template>
-    <slot />
+    <div
+      class="ec-container__navigation"
+      :class="{ 'ec-container__navigation--can-be-collapsed': canBeCollapsed }"
+    >
+      <slot name="navigation" />
+    </div>
+    <div class="ec-container__content">
+      <slot name="content" />
+    </div>
   </div>
 </template>
 
@@ -12,39 +16,31 @@
 export default {
   name: 'EcContainer',
   props: {
-    title: {
-      type: String,
-      default: null,
-    },
-    titleIntro: {
-      type: String,
-      default: null,
+    canBeCollapsed: {
+      type: Boolean,
+      default: false,
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import '../../scss/tools/typography';
-@import '../../scss/settings/colors/gray-color-scale';
-
 .ec-container {
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
 
-  &__title {
-    @include h1;
+  &__navigation {
+    position: relative;
+    flex-basis: 280px;
 
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    &--can-be-collapsed {
+      flex-basis: 80px;
+    }
   }
 
-  &__title-intro {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
-    color: $level-4-interactive-elements;
-    margin-top: 0;
-    margin-bottom: 1rem;
+  &__content {
+    flex: 1;
   }
 }
 </style>

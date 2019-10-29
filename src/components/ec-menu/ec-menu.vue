@@ -13,6 +13,7 @@
         class="ec-menu__link"
         v-bind="link"
         :is-expanded="isExpanded"
+        :is-compact="horizontal"
       />
     </li>
   </ul>
@@ -56,8 +57,12 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
+
+  &--horizontal {
+    justify-content: center;
+  }
 
   &__item {
     flex-basis: 100%;
@@ -66,6 +71,11 @@ export default {
     .ec-menu--horizontal & {
       display: inline-block;
       flex-basis: 0%;
+
+      // stylelint-disable-next-line selector-max-class
+      + .ec-menu__item {
+        margin-left: 16px;
+      }
     }
   }
 }
