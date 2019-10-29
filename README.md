@@ -1,7 +1,5 @@
 # Chameleon Components
 
-## Intro
-
 Chameleon components is Ebury's vue.js components library.
 The library is in its initial phase, more components are added regularly.
 
@@ -12,20 +10,20 @@ You can check the current status of the library [here](https://docs.google.com/s
 Install @ebury/chameleon-components in your project with npm:
 
 ```sh
-npm install @ebury/chameleon-components
+npm install @ebury/chameleon-components --save
 ```
 
 ## Usage
 
-All of our components are exported by name from @ebury/chameleon-components/src/components/, so you can import them with:
+All of our components are exported by name from @ebury/chameleon-components, so you can import them with:
 
 ```js
-import ComponentName from '@ebury/chameleon-components/src/components/ComponentName';
+import { ComponentName } from '@ebury/chameleon-components';
 ```
 
 ## Contributing
 
-For the development of chameleon-components we use storybook [Storybook](https://storybook.js.org/).
+For the development of @ebury/chameleon-components we use storybook [Storybook](https://storybook.js.org/).
 If you want to contribute to the library then you must do the following to setup your local environment:
 
 ### Storybook
@@ -47,7 +45,6 @@ npm start
 That's it!
 By now you should be up and running. You can check the existing components or create new ones.
 
-
 ## CSS
 
 For chameleon components we use ITCSS with BEM and currently our preprocessor is SASS.
@@ -55,24 +52,25 @@ Please don't add any css styles without following the above rules.
 
 The single file vue components should not use scoped files as is not necessary since we follow BEM!
 
-
 ### BEM
 
 Is just of methodology on how to name your classes
 http://getbem.com/introduction/
 
+```css
 /* Block component */
 .btn {}
 
-/* Element that depends upon the block */ 
+/* Element that depends upon the block */
 .btn__price {}
 
 /* Modifier that changes the style of the block */
-.btn--orange {} 
+.btn--orange {}
 .btn--big {}
-
+```
 
 ### ITCSS
+
 https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
 
 Following the ITCSS our css structure should look like
@@ -95,7 +93,7 @@ Only pure HTML elements like p, h1, h2, div etc.
 Classes for specific UI components, most likely you want to add your classes in here.
 
 7. utilities
-Extremely specific styles that can overide all the above
+Extremely specific styles that can override all the above
 
 ### Vue app
 
@@ -116,7 +114,7 @@ npm link @ebury/chameleon-components
 4\. All of our components are exported by name so you can import them with:
 
 ```js
-import ComponentName from '@ebury/chameleon-components/src/components/ComponentName';
+import { ComponentName } from '@ebury/chameleon-components';
 ```
 
 ### Testing and Linting
