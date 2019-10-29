@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcInlineActions should render properly when an item was given 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+>
+   
+  <template>
+    <ul
+      class="ec-inline-actions"
+    >
+      <li
+        class="ec-inline-actions__item"
+      >
+        <button
+          class="ec-inline-actions__button"
+        >
+          <!---->
+           
+          <span>
+            test
+          </span>
+        </button>
+      </li>
+    </ul>
+     
+    <!---->
+  </template>
+</ec-popover-stub>
+`;
+
+exports[`EcInlineActions should render the item disabled when an item was given disabled 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+>
+   
+  <template>
+    <ul
+      class="ec-inline-actions"
+    >
+      <li
+        class="ec-inline-actions__item"
+      >
+        <button
+          class="ec-inline-actions__button ec-inline-actions__button--disabled"
+          disabled="disabled"
+        >
+          <!---->
+           
+          <span>
+            test
+          </span>
+        </button>
+      </li>
+    </ul>
+     
+    <!---->
+  </template>
+</ec-popover-stub>
+`;
+
+exports[`EcInlineActions should render the item with an icon when a item was given with an icon 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+>
+   
+  <template>
+    <ul
+      class="ec-inline-actions"
+    >
+      <li
+        class="ec-inline-actions__item"
+      >
+        <button
+          class="ec-inline-actions__button"
+        >
+          <ec-icon-stub
+            class="ec-inline-actions__icon"
+            name="simple-block"
+            size="24"
+            type="warning"
+          />
+           
+          <span>
+            test
+          </span>
+        </button>
+      </li>
+    </ul>
+     
+    <!---->
+  </template>
+</ec-popover-stub>
+`;
+
+exports[`EcInlineActions should render the item with default popover options 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+>
+   
+  <template>
+    <ul
+      class="ec-inline-actions"
+    >
+      <li
+        class="ec-inline-actions__item"
+      >
+        <button
+          class="ec-inline-actions__button"
+        >
+          <ec-icon-stub
+            class="ec-inline-actions__icon ec-inline-actions__icon--no-type"
+            name="simple-block"
+            size="24"
+          />
+           
+          <span>
+            test
+          </span>
+        </button>
+      </li>
+    </ul>
+     
+    <!---->
+  </template>
+</ec-popover-stub>
+`;
+
+exports[`EcInlineActions should render the item with given popover options 1`] = `
+<ec-popover-stub
+  level=""
+  offset="20"
+  placement="top"
+>
+   
+  <template>
+    <ul
+      class="ec-inline-actions"
+    >
+      <li
+        class="ec-inline-actions__item"
+      >
+        <button
+          class="ec-inline-actions__button"
+        >
+          <ec-icon-stub
+            class="ec-inline-actions__icon ec-inline-actions__icon--no-type"
+            name="simple-block"
+            size="24"
+          />
+           
+          <span>
+            test
+          </span>
+        </button>
+      </li>
+    </ul>
+     
+    <!---->
+  </template>
+</ec-popover-stub>
+`;
+
+exports[`EcInlineActions should render with one line break when a different arrays was given 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+>
+   
+  <template>
+    <ul
+      class="ec-inline-actions"
+    >
+      <li
+        class="ec-inline-actions__item"
+      >
+        <button
+          class="ec-inline-actions__button"
+        >
+          <!---->
+           
+          <span>
+            Reject
+          </span>
+        </button>
+      </li>
+    </ul>
+     
+    <hr
+      class="ec-inline-actions__delimiter"
+    />
+  </template>
+  <template>
+    <ul
+      class="ec-inline-actions"
+    >
+      <li
+        class="ec-inline-actions__item"
+      >
+        <button
+          class="ec-inline-actions__button"
+        >
+          <!---->
+           
+          <span>
+            Cancel
+          </span>
+        </button>
+      </li>
+    </ul>
+     
+    <!---->
+  </template>
+</ec-popover-stub>
+`;
+
+exports[`EcInlineActions should render with tooltip 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+>
+   
+  <template>
+    <ul
+      class="ec-inline-actions"
+    >
+      <li
+        class="ec-inline-actions__item ec-has-tooltip"
+        data-original-title="null"
+      >
+        <button
+          class="ec-inline-actions__button"
+        >
+          <!---->
+           
+          <span>
+            test
+          </span>
+        </button>
+      </li>
+    </ul>
+     
+    <!---->
+  </template>
+</ec-popover-stub>
+`;

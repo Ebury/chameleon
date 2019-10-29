@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcDropdownSearch Should render as expected 1`] = `
+<div
+  class="ec-dropdown main-menu__header__account-selector main-menu__header__account"
+>
+  <div
+    class="ec-dropdown-search"
+  >
+    <a
+      aria-haspopup="true"
+      class="ec-dropdown-toggle ec-dropdown-toggle--menu"
+      data-toggle="ec-dropdown"
+      href=""
+    >
+      <span
+        class="title"
+      >
+        Ebury Demo 2
+      </span>
+    </a>
+     
+    <!---->
+  </div>
+</div>
+`;

@@ -1,0 +1,25 @@
+@import '../settings/colors/gray-color-scale';
+@import '../settings/typography';
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+// stylelint-disable selector-max-universal
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+// stylelint-enable
+
+body {
+  @include body-text;
+
+  font-family: $body-font-family;
+  font-variant-ligatures: none;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: auto;
+}

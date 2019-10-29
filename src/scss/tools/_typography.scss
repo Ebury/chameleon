@@ -1,0 +1,89 @@
+@import './../settings/colors/index';
+
+// NOTE: ALL VALUES IN PIXELS WILL BE CHANGED TO BE rem
+// USE HERE IS A FIRST DRAFT FOR CONVENIENCE
+
+@mixin h1 {
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: 400;
+  color: $level-3-body-and-headings;
+}
+
+@mixin h2 {
+  font-size: 25px;
+  line-height: 35px;
+  font-weight: 300;
+  color: $level-3-body-and-headings;
+}
+
+@mixin h3 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 500;
+  color: $level-3-body-and-headings;
+}
+
+@mixin h4 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 300;
+  color: $level-3-body-and-headings;
+}
+
+@mixin h5 {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+  color: $level-3-body-and-headings;
+}
+
+@mixin h6 {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: $level-3-body-and-headings;
+}
+
+@mixin body-text {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: $level-3-body-and-headings;
+}
+
+@mixin body-link {
+  color: $level-4-tech-blue;
+  text-decoration: none;
+
+  &:link,
+  &:active {
+    color: $level-4-tech-blue;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin mini-header {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $level-5-placeholders;
+}
+
+@mixin small-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: $level-3-body-and-headings;
+}
+
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

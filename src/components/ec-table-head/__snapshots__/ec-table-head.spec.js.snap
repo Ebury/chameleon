@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcTableHead Should not render if no columns are supplied 1`] = `<!---->`;
+
+exports[`EcTableHead Should render as expected 1`] = `
+<thead
+  class="ec-table-head"
+>
+  <tr
+    class="ec-table-head__row"
+  >
+    <th
+      class="ec-table-head__cell"
+      scope="col"
+    >
+      Column A
+    </th>
+    <th
+      class="ec-table-head__cell"
+      colspan="2"
+      scope="col"
+    >
+      Column B
+    </th>
+    <th
+      class="ec-table-head__cell"
+      scope="row"
+    >
+      Column C
+    </th>
+  </tr>
+</thead>
+`;

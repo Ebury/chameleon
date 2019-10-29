@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Graphics / 00 Icon / Rounded / Notification</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Graphics-/-00-Icon-/-Rounded-/-Notification" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Warning-Icon" class="ec-icon-rounded-notification__outer-circle" stroke="transparent" stroke-width="3" fill="#E68A00" fill-rule="nonzero" cx="8" cy="8" r="6"></circle>
+    </g>
+</svg>

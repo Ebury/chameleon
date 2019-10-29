@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcNavigationLink as regular anchor should be active when isActive is passed into 1`] = `
+<a
+  class="ec-navigation-link ec-navigation-link--active"
+  href="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</a>
+`;
+
+exports[`EcNavigationLink as regular anchor should hide the text when is not expanded 1`] = `
+<a
+  class="ec-navigation-link"
+  href="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+    style="display: none;"
+  >
+    Link
+  </span>
+</a>
+`;
+
+exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if isRouterLink is set to false 1`] = `
+<a
+  class="ec-navigation-link"
+  href="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</a>
+`;
+
+exports[`EcNavigationLink as regular anchor should show the text when is expanded 1`] = `
+<a
+  class="ec-navigation-link"
+  href="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</a>
+`;
+
+exports[`EcNavigationLink as router-link should be active when isActive is passed into 1`] = `
+<router-link-stub
+  active-class="ec-navigation-link--active"
+  class="ec-navigation-link ec-navigation-link--active"
+  to="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</router-link-stub>
+`;
+
+exports[`EcNavigationLink as router-link should hide the text when is not expanded 1`] = `
+<router-link-stub
+  active-class="ec-navigation-link--active"
+  class="ec-navigation-link"
+  to="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+    style="display: none;"
+  >
+    Link
+  </span>
+</router-link-stub>
+`;
+
+exports[`EcNavigationLink as router-link should render as a router link if isRouterLink prop set to true 1`] = `
+<router-link-stub
+  active-class="ec-navigation-link--active"
+  class="ec-navigation-link"
+  to="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</router-link-stub>
+`;
+
+exports[`EcNavigationLink as router-link should show the text when is expanded 1`] = `
+<router-link-stub
+  active-class="ec-navigation-link--active"
+  class="ec-navigation-link"
+  to="/balances"
+>
+  <svg
+    class="ec-navigation-link__icon ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+   
+  <span
+    class="ec-navigation-link__text"
+    name="ec-navigation-link__text-fade"
+  >
+    Link
+  </span>
+</router-link-stub>
+`;

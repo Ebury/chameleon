@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Graphics / 00 Icon / Rounded / Cancelled</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Graphics-/-00-Icon-/-Rounded-/-Cancelled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8,1 C11.864,1 15,4.136 15,8 C15,11.864 11.864,15 8,15 C4.136,15 1,11.864 1,8 C1,4.136 4.136,1 8,1 Z M8,3 C5.24,3 3,5.24 3,8 C3,10.76 5.24,13 8,13 C10.76,13 13,10.76 13,8 C13,5.24 10.76,3 8,3 Z M11.155,5.55 C11.685,6.225 12,7.075 12,8 C12,10.21 10.21,12 8,12 C7.075,12 6.225,11.685 5.55,11.155 L11.155,5.55 Z M8,4 C8.925,4 9.775,4.315 10.45,4.845 L4.845,10.45 C4.315,9.775 4,8.925 4,8 C4,5.79 5.79,4 8,4 Z" id="Cancelled" fill="#E03F3F" fill-rule="nonzero"></path>
+    </g>
+</svg>

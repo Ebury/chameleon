@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcMenu should not render if links are not supplied 1`] = `<!---->`;
+
+exports[`EcMenu should not render if links are null 1`] = `<!---->`;
+
+exports[`EcMenu should not render if links is an empty array 1`] = `<!---->`;
+
+exports[`EcMenu should render as expanded by default 1`] = `
+<ul
+  class="ec-menu"
+>
+  <li
+    class="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link"
+      href="/foo"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-foo-icon"
+        />
+      </svg>
+       
+      <span
+        class="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
+      >
+        Foo
+      </span>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link"
+      href="/bat"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-baz-icon"
+        />
+      </svg>
+       
+      <span
+        class="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
+      >
+        Bat
+      </span>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`EcMenu should render as expected when set to horizontal 1`] = `
+<ul
+  class="ec-menu ec-menu--horizontal"
+>
+  <li
+    class="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link"
+      href="/foo"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-foo-icon"
+        />
+      </svg>
+       
+      <span
+        class="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
+      >
+        Foo
+      </span>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`EcMenu should render as not expanded when isExpanded is passed into 1`] = `
+<ul
+  class="ec-menu"
+>
+  <li
+    class="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link"
+      href="/foo"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-foo-icon"
+        />
+      </svg>
+       
+      <span
+        class="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
+        style="display: none;"
+      >
+        Foo
+      </span>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link"
+      href="/bat"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-baz-icon"
+        />
+      </svg>
+       
+      <span
+        class="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
+        style="display: none;"
+      >
+        Bat
+      </span>
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`EcMenu should render only links with a url property 1`] = `
+<ul
+  class="ec-menu"
+>
+  <li
+    class="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link"
+      href="/foo"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-foo-icon"
+        />
+      </svg>
+       
+      <span
+        class="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
+      >
+        Foo
+      </span>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link"
+      href="/bat"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-baz-icon"
+        />
+      </svg>
+       
+      <span
+        class="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
+      >
+        Bat
+      </span>
+    </a>
+  </li>
+</ul>
+`;

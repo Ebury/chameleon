@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcTableCell should render as expected 1`] = `
+<td
+  class="ec-table-cell"
+/>
+`;
+
+exports[`EcTableCell should use the slot when given content 1`] = `
+<td
+  class="ec-table-cell"
+>
+  <p>
+    <a
+      href="#"
+    >
+      PO1234A
+    </a>
+  </p>
+  <p>
+    This is a payment reference
+  </p>
+</td>
+`;

@@ -1,0 +1,362 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcTable should not render if no props are supplied 1`] = `<!---->`;
+
+exports[`EcTable should not render if not provided with an empty array of data 1`] = `<!---->`;
+
+exports[`EcTable should not render if not provided with any data 1`] = `<!---->`;
+
+exports[`EcTable should render as expected if provided with data and columns 1`] = `
+<div
+  class="ec-table"
+>
+  <table
+    class="ec-table__table"
+  >
+    <thead
+      class="ec-table-head ec-table__table-head"
+    >
+      <tr
+        class="ec-table-head__row"
+      >
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          lorem
+        </th>
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          ipsum
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          foo
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          bar
+        </td>
+      </tr>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          widgets
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          doodads
+        </td>
+      </tr>
+    </tbody>
+     
+    <!---->
+  </table>
+</div>
+`;
+
+exports[`EcTable should render as expected if provided with data and columns, with footer switched on 1`] = `
+<div
+  class="ec-table"
+>
+  <table
+    class="ec-table__table"
+  >
+    <thead
+      class="ec-table-head ec-table__table-head"
+    >
+      <tr
+        class="ec-table-head__row"
+      >
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          lorem
+        </th>
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          ipsum
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          foo
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          bar
+        </td>
+      </tr>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          widgets
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          doodads
+        </td>
+      </tr>
+    </tbody>
+     
+    <tfoot
+      class="ec-table-footer"
+    >
+      <tr
+        class="ec-table-footer__row"
+      >
+        <td
+          class="ec-table-footer__cell"
+          colspan="2"
+        >
+          <div
+            class="ec-table-footer__contents"
+          >
+            <div
+              class="ec-table-footer__details"
+            >
+              2 items.
+            </div>
+             
+            <!---->
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
+
+exports[`EcTable should render as expected if provided with data but no columns 1`] = `
+<div
+  class="ec-table"
+>
+  <table
+    class="ec-table__table"
+  >
+    <!---->
+     
+    <tbody>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          foo
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          bar
+        </td>
+      </tr>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          widgets
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          doodads
+        </td>
+      </tr>
+    </tbody>
+     
+    <!---->
+  </table>
+</div>
+`;
+
+exports[`EcTable should render as expected if provided with data but no columns, and footer switched on 1`] = `
+<div
+  class="ec-table"
+>
+  <table
+    class="ec-table__table"
+  >
+    <!---->
+     
+    <tbody>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          foo
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          bar
+        </td>
+      </tr>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          widgets
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          doodads
+        </td>
+      </tr>
+    </tbody>
+     
+    <tfoot
+      class="ec-table-footer"
+    >
+      <tr
+        class="ec-table-footer__row"
+      >
+        <td
+          class="ec-table-footer__cell"
+          colspan="2"
+        >
+          <div
+            class="ec-table-footer__contents"
+          >
+            <div
+              class="ec-table-footer__details"
+            >
+              2 items.
+            </div>
+             
+            <!---->
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
+
+exports[`EcTable should render slots as expected 1`] = `
+<div
+  class="ec-table"
+>
+  <table
+    class="ec-table__table"
+  >
+    <thead
+      class="ec-table-head ec-table__table-head"
+    >
+      <tr
+        class="ec-table-head__row"
+      >
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          lorem
+        </th>
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          ipsum
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          foo
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          <p>
+            bar
+          </p>
+        </td>
+      </tr>
+      <tr
+        class="ec-table__table-row"
+      >
+        <td
+          class="ec-table__table-cell"
+        >
+          widgets
+        </td>
+        <td
+          class="ec-table__table-cell"
+        >
+          <p>
+            doodads
+          </p>
+        </td>
+      </tr>
+    </tbody>
+     
+    <tfoot
+      class="ec-table-footer"
+    >
+      <tr
+        class="ec-table-footer__row"
+      >
+        <td
+          class="ec-table-footer__cell"
+          colspan="2"
+        >
+          <div
+            class="ec-table-footer__contents"
+          >
+            <div
+              class="ec-table-footer__details"
+            >
+              2 items.
+            </div>
+             
+            <!---->
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;

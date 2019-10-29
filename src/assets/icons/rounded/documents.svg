@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Graphics / 00 Icon / Rounded / Documents</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 Z M8.83333333,3.83333333 L5.5,3.83333333 C5.04166667,3.83333333 4.66666667,4.20833333 4.66666667,4.66666667 L4.66666667,11.3333333 C4.66666667,11.7916667 5.0375,12.1666667 5.49583333,12.1666667 L10.5,12.1666667 C10.9583333,12.1666667 11.3333333,11.7916667 11.3333333,11.3333333 L11.3333333,6.33333333 L8.83333333,3.83333333 Z M8.41666667,4.66666667 L8.41666667,6.75 L10.5,6.75 L10.5,11.3333333 L5.5,11.3333333 L5.5,4.66666667 L8.41666667,4.66666667 Z M9.66666667,9.66666667 L6.33333333,9.66666667 L6.33333333,10.5 L9.66666667,10.5 L9.66666667,9.66666667 Z M9.66666667,8 L6.33333333,8 L6.33333333,8.83333333 L9.66666667,8.83333333 L9.66666667,8 Z" id="path-1"></path>
+    </defs>
+    <g id="Graphics-/-00-Icon-/-Rounded-/-Documents" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#6C7F84" xlink:href="#path-1"></use>
+    </g>
+</svg>

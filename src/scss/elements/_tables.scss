@@ -1,0 +1,37 @@
+@import '../tools/typography';
+@import '../settings/colors/gray-color-scale';
+
+table {
+  border-spacing: 0;
+  padding: 16px 0 0;
+}
+
+tr {
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid $level-6-disabled-lines;
+}
+
+%common-table-cell {
+  padding: 0 8px;
+
+  &:first-child {
+    padding-left: 16px;
+  }
+
+  &:last-child {
+    padding-right: 16px;
+  }
+}
+
+th {
+  @extend %common-table-cell;
+
+  @include mini-header;
+}
+
+td {
+  @extend %common-table-cell;
+
+  @include body-text;
+}
