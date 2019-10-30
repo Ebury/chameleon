@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcIcon from '@/components/ec-icon';
 
@@ -17,43 +17,33 @@ stories
       hasIcon: {
         default: boolean('Has Icon', false),
       },
-      isSmall: {
-        default: boolean('ec-btn--sm', true),
-      },
-      isMedium: {
-        default: boolean('ec-btn--md', false),
-      },
       isRounded: {
-        default: boolean('ec-btn--rounded', false),
+        default: boolean('Is Rounded', false),
+      },
+      isOutlined: {
+        default: boolean('Is Outlined', false),
       },
       isNegative: {
-        default: boolean('ec-btn--negative', false),
+        default: boolean('Is Negative', false),
       },
-      isPrimary: {
-        default: boolean('ec-btn--primary', false),
+      size: {
+        default: select('Size', ['ec-btn--sm', 'ec-btn--md'], 'ec-btn--sm'),
       },
-      isSecondary: {
-        default: boolean('ec-btn--secondary', false),
-      },
-      isSuccess: {
-        default: boolean('ec-btn--success', false),
-      },
-      isError: {
-        default: boolean('ec-btn--error', false),
+      color: {
+        default: select('Color', ['ec-btn--primary', 'ec-btn--secondary', 'ec-btn--success', 'ec-btn--error'], 'ec-btn--primary'),
       },
     },
     computed: {
       classNames() {
-        return {
-          'ec-btn--primary': this.isPrimary,
-          'ec-btn--secondary': this.isSecondary,
-          'ec-btn--success': this.isSuccess,
-          'ec-btn--error': this.isError,
-          'ec-btn--rounded': this.isRounded,
-          'ec-btn--negative': this.isNegative,
-          'ec-btn--sm': this.isSmall,
-          'ec-btn--md': this.isMedium,
-        };
+        return [
+          this.size,
+          this.color,
+          {
+            'ec-btn--rounded': this.isRounded,
+            'ec-btn--outline': this.isOutlined,
+            'ec-btn--negative': this.isNegative,
+          },
+        ];
       },
     },
     template: `
@@ -76,7 +66,6 @@ stories
             href="https://online.ebury.com/login/?next=/"
             :class="classNames"
             class="ec-m--8 ec-btn"
-            :disabled="isDisabled"
             >
             <ec-icon v-if="hasIcon" name="simple-check" style="margin-right:10px;" :size=20 />
             Click Me
@@ -89,12 +78,13 @@ stories
             to="/someurl"
             :class="classNames"
             class="ec-m--8 ec-btn"
-            :disabled="isDisabled"
             >
             <ec-icon v-if="hasIcon" name="simple-check" style="margin-right:10px;" :size=20 />
             Click Me
           </router-link>
         </div>
+
+        <p class="ec-mt--24">* Please keep in mind there is no disabled attribute for links</p>
       </div>
     `,
   }))

@@ -1,6 +1,6 @@
 // Here we state the default value of each color, if we change a brand
 // we can override the default value with something else
-$ec-white: $white !default;
+$ec-btn-color: $white !default;
 $ec-btn-primary-color: $color-info !default;
 $ec-btn-primary-color-hover: $color-info-hover !default;
 $ec-btn-secondary-color: $level-4-interactive-elements !default;
@@ -14,7 +14,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 .ec-btn {
   @include btn;
 
-  color: $ec-white;
+  color: $ec-btn-color;
   width: 100%;
   max-width: 256px;
   cursor: pointer;
@@ -108,7 +108,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     }
 
     &:hover {
-      color: $ec-white;
+      color: $ec-btn-color;
     }
 
     &:disabled {
@@ -121,28 +121,28 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   }
 
   &--negative {
-    color: $ec-white;
-    border-color: $ec-white;
+    color: $ec-btn-color;
+    border-color: $ec-btn-color;
     background-color: transparent;
 
     &:hover {
-      background-color: $ec-white;
+      background-color: $ec-btn-color;
       color: $ec-btn-primary-color;
     }
 
     &.ec-btn--primary {
-      background-color: $ec-white;
+      background-color: $ec-btn-color;
       color: $ec-btn-primary-color;
 
       &:hover {
         border-color: $ec-btn-primary-color;
         background-color: $ec-btn-primary-color;
-        color: $ec-white;
+        color: $ec-btn-color;
       }
     }
 
     &:disabled {
-      background-color: $ec-white;
+      background-color: $ec-btn-color;
       color: $ec-btn-disabled-color;
     }
   }
