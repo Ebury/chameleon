@@ -15,7 +15,8 @@
     "test": "vue-cli-service test:unit",
     "build-storybook": "build-storybook -s ./public,./src/assets -c .storybook -o .out",
     "prestart": "npm run icons",
-    "start": "start-storybook -s ./public,./src/assets -p 42475"
+    "start": "start-storybook -s ./public,./src/assets -p 42475",
+    "now-build": "build-storybook"
   },
   "dependencies": {
     "@ebury/chameleon-styles": "1.23.2",
