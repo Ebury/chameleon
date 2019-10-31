@@ -70,7 +70,7 @@ stories
           <template #footer-menu>
             <ec-menu :links="footerLinks" :is-collapsed="isCollapsable && isCollapsed" :horizontal="!isCollapsable || (isCollapsable && !isCollapsed)" />
           </template>
-          <template #copyright v-if="!isCollapsable">
+          <template #copyright v-if="!isCollapsed">
             <div>{{ copyrightText }}</div>
           </template>
         </ec-navigation>
