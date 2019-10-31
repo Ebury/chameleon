@@ -73,13 +73,10 @@ export default {
 @import '../../scss/tools/typography';
 
 .ec-navigation {
-  height: 100%;
   width: 280px;
   position: fixed;
   top: 0;
   bottom: 0;
-  left: auto;
-  right: auto;
   z-index: 1;
   background-color: $level-2-bank-blue;
   color: $white;
@@ -114,11 +111,10 @@ export default {
   }
 
   &__copyright {
-    @include small-text;
+    @include caption-text;
 
     padding: 0 24px;
     text-align: center;
-    color: $level-5-placeholders;
   }
 }
 </style>

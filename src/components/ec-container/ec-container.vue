@@ -32,7 +32,6 @@ export default {
   align-items: stretch;
 
   &__navigation {
-    position: relative;
     flex-basis: 280px;
 
     &--is-collapsable {

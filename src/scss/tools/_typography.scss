@@ -82,6 +82,13 @@
   color: $level-3-body-and-headings;
 }
 
+@mixin caption-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: $level-5-placeholders;
+}
+
 @mixin ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;
