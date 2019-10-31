@@ -1,0 +1,32 @@
+// The loops below will create utilities spacer classes with the following format
+//
+// ".ec-m--8" , will give an all round margin of 8px
+// ".ec-my--8" , will give an all top bottom margin of 8px
+// ".ec-mx--8" , will give a left right margin of 8px
+// ".ec-mt--8" , will give a top margin of 8px
+//
+// Similar classes will be created for the paddings
+$space-amounts: (4, 8, 12, 16, 20, 24); // Amend as you wish
+$sides: (top, bottom, left, right); // Don't Amend
+
+@each $space in $space-amounts {
+  .ec-m--#{$space} {
+    margin: $space * 1px;
+  }
+
+  .ec-p--#{$space} {
+    padding: $space * 1px;
+  }
+}
+
+@each $space in $space-amounts {
+  @each $side in $sides {
+    .ec-m#{str-slice($side, 0, 1)}--#{$space} {
+      margin-#{$side}: $space * 1px;
+    }
+
+    .ec-p#{str-slice($side, 0, 1)}--#{$space} {
+      padding-#{$side}: $space * 1px;
+    }
+  }
+}

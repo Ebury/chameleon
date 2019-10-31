@@ -1,0 +1,153 @@
+// Here we state the default value of each color, if we change a brand
+// we can override the default value with something else
+$ec-btn-color: $white !default;
+$ec-btn-primary-color: $color-info !default;
+$ec-btn-primary-color-hover: $color-info-hover !default;
+$ec-btn-secondary-color: $level-4-interactive-elements !default;
+$ec-btn-secondary-color-hover: $level-3-body-and-headings !default;
+$ec-btn-success-color: $color-success !default;
+$ec-btn-success-color-hover: $color-success-hover !default;
+$ec-btn-error-color: $color-error !default;
+$ec-btn-error-color-hover: $color-error-hover !default;
+$ec-btn-disabled-color: $level-6-disabled-lines !default;
+
+.ec-btn {
+  @include btn;
+
+  color: $ec-btn-color;
+  width: 100%;
+  max-width: 256px;
+  cursor: pointer;
+  transition-duration: 0.15s;
+  transition-property: color, background-color;
+  transition-timing-function: ease-out;
+  text-decoration: none;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid transparent;
+  background-color: $ec-btn-secondary-color;
+
+  &--sm {
+    min-width: 96px;
+    padding: 4px 8px;
+  }
+
+  &--md {
+    min-width: 144px;
+    padding: 8px 16px;
+  }
+
+  &--rounded {
+    border-radius: 32px;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($color-info, 0.25);
+  }
+
+  &:disabled {
+    background-color: $ec-btn-disabled-color;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--primary {
+    background-color: $ec-btn-primary-color;
+
+    &:hover {
+      background-color: $ec-btn-primary-color-hover;
+    }
+  }
+
+  &--primary-reverse {
+    color: $ec-btn-primary-color;
+    background-color: $ec-btn-color;
+
+    &:hover {
+      color: $ec-btn-color;
+      background-color: $ec-btn-primary-color;
+    }
+  }
+
+  &--secondary {
+    background-color: $ec-btn-secondary-color;
+
+    &:hover {
+      background-color: $ec-btn-secondary-color-hover;
+    }
+  }
+
+  &--success {
+    background-color: $ec-btn-success-color;
+
+    &:hover {
+      background-color: $ec-btn-success-color-hover;
+    }
+  }
+
+  &--error {
+    background-color: $ec-btn-error-color;
+
+    &:hover {
+      background-color: $ec-btn-error-color-hover;
+    }
+  }
+
+  &--outline {
+    border: 1px;
+    border-style: solid;
+    background-color: transparent;
+
+    &.ec-btn--primary,
+    &.ec-btn--primary-reverse {
+      color: $ec-btn-primary-color;
+      border-color: $ec-btn-primary-color;
+
+      &:hover {
+        background-color: $ec-btn-primary-color;
+      }
+    }
+
+    &.ec-btn--secondary {
+      color: $ec-btn-secondary-color;
+      border-color: $ec-btn-secondary-color;
+
+      &:hover {
+        background-color: $ec-btn-secondary-color;
+      }
+    }
+
+    &.ec-btn--success {
+      color: $ec-btn-success-color;
+      border-color: $ec-btn-success-color;
+
+      &:hover {
+        background-color: $ec-btn-success-color;
+      }
+    }
+
+    &.ec-btn--error {
+      color: $ec-btn-error-color;
+      border-color: $ec-btn-error-color;
+
+      &:hover {
+        background-color: $ec-btn-error-color;
+      }
+    }
+
+    &:hover {
+      color: $ec-btn-color;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      border-color: $ec-btn-disabled-color;
+      color: $ec-btn-disabled-color;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}

@@ -39,19 +39,19 @@ export default {
 
 .ec-icon {
   &--error {
-    fill: $level-2-error;
+    fill: $color-error;
   }
 
   &--info {
-    fill: $level-2-info;
+    fill: $color-info;
   }
 
   &--success {
-    fill: $level-2-success;
+    fill: $color-success;
   }
 
   &--warning {
-    fill: $level-2-warning;
+    fill: $color-warning;
   }
 }
 </style>
