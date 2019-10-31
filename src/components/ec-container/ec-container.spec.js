@@ -2,18 +2,18 @@ import { mount } from '@vue/test-utils';
 import EcContainer from './ec-container.vue';
 
 describe('EcContainer', () => {
-  it('should not have a collapsible navigation by default', () => {
+  it('should not have a collapsable navigation by default', () => {
     const wrapper = mount(EcContainer);
 
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.find('.ec-container__navigation').classes('ec-container__navigation--can-be-collapsed')).toBe(false);
+    expect(wrapper.find('.ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(false);
   });
 
-  it('should make the navigation collapsible when canBeCollapsed is given', () => {
-    const wrapper = mount(EcContainer, { propsData: { canBeCollapsed: true } });
+  it('should make the navigation collapsable when isCollapsable is given', () => {
+    const wrapper = mount(EcContainer, { propsData: { isCollapsable: true } });
 
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.find('.ec-container__navigation').classes('ec-container__navigation--can-be-collapsed')).toBe(true);
+    expect(wrapper.find('.ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(true);
   });
 
   it('should render empty if no slots were given', () => {

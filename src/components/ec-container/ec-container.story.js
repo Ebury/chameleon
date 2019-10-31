@@ -11,7 +11,7 @@ stories
   .add('basic', () => ({
     components: { EcContainer },
     template: `
-    <ec-container :can-be-collapsed="false">
+    <ec-container :is-collapsable="false">
       <template #navigation>
         <div style="background-color: rgb(0, 80, 102); color: #fff; min-height: 100%;">Navigation panel</div>
       </template>
@@ -46,31 +46,31 @@ stories
           { text: 'Link 2', iconName: 'simple-sign-out', url: '/my-url' },
         ]),
       },
-      canBeCollapsed: {
-        default: boolean('canBeCollapsed', false),
+      isCollapsable: {
+        default: boolean('isCollapsable', false),
       },
-      isExpanded: {
-        default: boolean('isExpanded', true),
+      isCollapsed: {
+        default: boolean('isCollapsed', false),
       },
       copyrightText: {
         default: text('copyrightText', 'Copyright text 2019'),
       },
     },
     template: `
-    <ec-container :can-be-collapsed="canBeCollapsed">
+    <ec-container :is-collapsable="isCollapsable">
       <template #navigation>
         <ec-navigation
-          :is-expanded="canBeCollapsed && isExpanded"
-          :can-be-collapsed="canBeCollapsed"
+          :is-collapsed="isCollapsable && isCollapsed"
+          :is-collapsable="isCollapsable"
           :branding="branding"
-          :show-branding-logo="!canBeCollapsed">
+          :show-branding-logo="!isCollapsable">
           <template #menu>
-            <ec-menu :links="menuLinks" :is-expanded="!canBeCollapsed || isExpanded" />
+            <ec-menu :links="menuLinks" :is-collapsed="isCollapsable && isCollapsed" />
           </template>
           <template #footer-menu>
-            <ec-menu :links="footerLinks" :is-expanded="!canBeCollapsed || isExpanded" :horizontal="!canBeCollapsed || isExpanded" />
+            <ec-menu :links="footerLinks" :is-collapsed="isCollapsable && isCollapsed" :horizontal="!isCollapsable || (isCollapsable && !isCollapsed)" />
           </template>
-          <template #copyright v-if="!canBeCollapsed">
+          <template #copyright v-if="!isCollapsable">
             <div>{{ copyrightText }}</div>
           </template>
         </ec-navigation>

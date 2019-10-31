@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcContainer should make the navigation collapsible when canBeCollapsed is given 1`] = `
+exports[`EcContainer should make the navigation collapsable when isCollapsable is given 1`] = `
 <div
   class="ec-container"
 >
   <div
-    class="ec-container__navigation ec-container__navigation--can-be-collapsed"
+    class="ec-container__navigation ec-container__navigation--is-collapsable"
   />
    
   <div
@@ -14,7 +14,7 @@ exports[`EcContainer should make the navigation collapsible when canBeCollapsed 
 </div>
 `;
 
-exports[`EcContainer should not have a collapsible navigation by default 1`] = `
+exports[`EcContainer should not have a collapsable navigation by default 1`] = `
 <div
   class="ec-container"
 >

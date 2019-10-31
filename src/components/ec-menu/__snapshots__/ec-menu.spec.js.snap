@@ -8,7 +8,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
     class="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-expanded"
+      class="ec-navigation-link ec-menu__link"
       href="/foo"
     >
       <svg
@@ -33,7 +33,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
     class="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-expanded"
+      class="ec-navigation-link ec-menu__link"
       href="/bat"
     >
       <svg
@@ -71,7 +71,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
     class="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact ec-navigation-link--is-expanded"
+      class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
       href="/foo"
     >
       <svg
@@ -96,7 +96,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
     class="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact ec-navigation-link--is-expanded"
+      class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
       href="/bat"
     >
       <svg
@@ -120,6 +120,65 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
 </ul>
 `;
 
+exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] = `
+<ul
+  class="ec-menu"
+>
+  <li
+    class="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link ec-navigation-link--is-collapsed"
+      href="/foo"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-foo-icon"
+        />
+      </svg>
+       
+      <span
+        class="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
+        style="display: none;"
+      >
+        Foo
+      </span>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link ec-navigation-link--is-collapsed"
+      href="/bat"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-baz-icon"
+        />
+      </svg>
+       
+      <span
+        class="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
+        style="display: none;"
+      >
+        Bat
+      </span>
+    </a>
+  </li>
+</ul>
+`;
+
 exports[`EcMenu should render as expanded by default 1`] = `
 <ul
   class="ec-menu"
@@ -128,7 +187,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
     class="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-expanded"
+      class="ec-navigation-link ec-menu__link"
       href="/foo"
     >
       <svg
@@ -153,7 +212,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
     class="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-expanded"
+      class="ec-navigation-link ec-menu__link"
       href="/bat"
     >
       <svg
@@ -185,7 +244,7 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
     class="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact ec-navigation-link--is-expanded"
+      class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
       href="/foo"
     >
       <svg
@@ -203,65 +262,6 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
         name="ec-navigation-link__text-fade"
       >
         Foo
-      </span>
-    </a>
-  </li>
-</ul>
-`;
-
-exports[`EcMenu should render as not expanded when isExpanded is passed into 1`] = `
-<ul
-  class="ec-menu"
->
-  <li
-    class="ec-menu__item"
-  >
-    <a
-      class="ec-navigation-link ec-menu__link"
-      href="/foo"
-    >
-      <svg
-        class="ec-navigation-link__icon ec-icon"
-        height="24"
-        width="24"
-      >
-        <use
-          xlink:href="#ec-foo-icon"
-        />
-      </svg>
-       
-      <span
-        class="ec-navigation-link__text"
-        name="ec-navigation-link__text-fade"
-        style="display: none;"
-      >
-        Foo
-      </span>
-    </a>
-  </li>
-  <li
-    class="ec-menu__item"
-  >
-    <a
-      class="ec-navigation-link ec-menu__link"
-      href="/bat"
-    >
-      <svg
-        class="ec-navigation-link__icon ec-icon"
-        height="24"
-        width="24"
-      >
-        <use
-          xlink:href="#ec-baz-icon"
-        />
-      </svg>
-       
-      <span
-        class="ec-navigation-link__text"
-        name="ec-navigation-link__text-fade"
-        style="display: none;"
-      >
-        Bat
       </span>
     </a>
   </li>
@@ -276,7 +276,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
     class="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-expanded"
+      class="ec-navigation-link ec-menu__link"
       href="/foo"
     >
       <svg
@@ -301,7 +301,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
     class="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-expanded"
+      class="ec-navigation-link ec-menu__link"
       href="/bat"
     >
       <svg

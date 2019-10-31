@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcNavigation should be collapsible when canBeCollapsed is set 1`] = `
+exports[`EcNavigation should be collapsable when isCollapsable is set 1`] = `
 <div
-  class="ec-navigation ec-navigation--can-be-collapsed"
+  class="ec-navigation ec-navigation--is-collapsable"
 >
   <!---->
    
@@ -20,9 +20,29 @@ exports[`EcNavigation should be collapsible when canBeCollapsed is set 1`] = `
 </div>
 `;
 
-exports[`EcNavigation should be expanded when isExpanded is set 1`] = `
+exports[`EcNavigation should be collapsed when isCollapsed is set to true 1`] = `
 <div
-  class="ec-navigation ec-navigation--is-expanded"
+  class="ec-navigation ec-navigation--is-collapsed"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`EcNavigation should be expanded when isCollapsed is set to false 1`] = `
+<div
+  class="ec-navigation"
 >
   <!---->
    

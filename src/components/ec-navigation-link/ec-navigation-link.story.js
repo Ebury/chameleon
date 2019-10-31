@@ -29,8 +29,8 @@ storiesOf('Navigation Link', module)
       isRouterLink: {
         default: boolean('isRouterLink', false),
       },
-      isExpanded: {
-        default: boolean('isExpanded', false),
+      isCollapsed: {
+        default: boolean('isCollapsed', true),
       },
       isCompact: {
         default: boolean('isCompact', false),

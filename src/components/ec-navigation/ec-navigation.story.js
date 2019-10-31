@@ -14,11 +14,11 @@ stories
           logo: 'http://ebo.localhost/static/img/branding/EBP/logo-sm-inverse.png',
         }),
       },
-      canBeCollapsed: {
-        default: boolean('canBeCollapsed', true),
+      isCollapsable: {
+        default: boolean('isCollapsable', true),
       },
-      isExpanded: {
-        default: boolean('isExpanded', true),
+      isCollapsed: {
+        default: boolean('isCollapsed', false),
       },
       showBrandingLogo: {
         default: boolean('showBrandingLogo', true),
@@ -42,10 +42,10 @@ stories
     },
     template: `
       <ec-navigation
-        :can-be-collapsed="canBeCollapsed"
         :branding="branding"
-        :is-expanded="isExpanded"
-        :show-branding-logo="showBrandingLogo">
+        :show-branding-logo="showBrandingLogo"
+        :is-collapsable="isCollapsable"
+        :is-collapsed="isCollapsable && isCollapsed">
         <template #user-info>
           <div :style="styles.placeholder">User Info placeholder</div>
         </template>

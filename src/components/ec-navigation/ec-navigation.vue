@@ -1,7 +1,7 @@
 <template>
   <div
     class="ec-navigation"
-    :class="{ 'ec-navigation--can-be-collapsed': canBeCollapsed, 'ec-navigation--is-expanded': isExpanded }"
+    :class="{ 'ec-navigation--is-collapsable': isCollapsable, 'ec-navigation--is-collapsed': isCollapsed }"
   >
     <div
       v-if="showBrandingLogo && branding.logo"
@@ -46,11 +46,12 @@
 export default {
   name: 'EcNavigation',
   props: {
-    isExpanded: {
+    isCollapsed: {
       type: Boolean,
       required: true,
+      default: false,
     },
-    canBeCollapsed: {
+    isCollapsable: {
       type: Boolean,
       required: true,
     },
@@ -87,13 +88,12 @@ export default {
   overflow-y: auto;
   overflow-x: hidden;
 
-  &--can-be-collapsed {
-    transition: width 0.5s;
+  &--is-collapsed {
     width: 80px;
+  }
 
-    &.ec-navigation--is-expanded {
-      width: 280px;
-    }
+  &--is-collapsable {
+    transition: width 0.5s;
   }
 
   &__branding {

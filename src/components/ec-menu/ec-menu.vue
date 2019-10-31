@@ -12,7 +12,7 @@
       <ec-navigation-link
         class="ec-menu__link"
         v-bind="link"
-        :is-expanded="isExpanded"
+        :is-collapsed="isCollapsed"
         :is-compact="horizontal"
         v-on="link.on"
       />
@@ -30,9 +30,9 @@ export default {
     horizontal: {
       type: Boolean,
     },
-    isExpanded: {
+    isCollapsed: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     links: {
       type: Array,

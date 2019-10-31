@@ -136,13 +136,13 @@ describe('EcMenu', () => {
     });
   });
 
-  it('should render as not expanded when isExpanded is passed into', () => {
+  it('should render as collapsed when isCollapsed is passed into', () => {
     const wrapper = mount(
       EcMenu,
       {
         propsData: {
           links,
-          isExpanded: false,
+          isCollapsed: true,
         },
       },
     );

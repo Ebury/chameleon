@@ -28,8 +28,8 @@ stories
       horizontal: {
         default: boolean('horizontal', false),
       },
-      isExpanded: {
-        default: boolean('isExpanded', true),
+      isCollapsed: {
+        default: boolean('isCollapsed', false),
       },
       links: {
         default: object('links', links),
@@ -44,7 +44,7 @@ stories
         <div style="background-color: rgb(0, 80, 102);">
           <EcMenu
             :horizontal="horizontal"
-            :is-expanded="isExpanded"
+            :is-collapsed="isCollapsed"
             :links="links"
           />
         </div>

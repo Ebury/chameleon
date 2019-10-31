@@ -6,8 +6,8 @@ describe('EcNavigation', () => {
   function mountNavigation(opts, mountOpts) {
     return mount(EcNavigation, {
       propsData: {
-        isExpanded: false,
-        canBeCollapsed: false,
+        isCollapsed: false,
+        isCollapsable: false,
         branding: {},
         ...opts,
       },
@@ -20,22 +20,28 @@ describe('EcNavigation', () => {
       mount(EcNavigation);
 
       expect(errorSpy).toHaveBeenCalledTimes(3);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "isExpanded"');
-      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "canBeCollapsed"');
+      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "isCollapsed"');
+      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "isCollapsable"');
       expect(errorSpy.mock.calls[2][0]).toContain('Missing required prop: "branding"');
     });
   });
 
-  it('should be expanded when isExpanded is set', () => {
-    const wrapper = mountNavigation({ isExpanded: true });
+  it('should be expanded when isCollapsed is set to false', () => {
+    const wrapper = mountNavigation({ isCollapsed: false });
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.classes('ec-navigation--is-expanded')).toBe(true);
+    expect(wrapper.classes('ec-navigation--is-collapsed')).toBe(false);
   });
 
-  it('should be collapsible when canBeCollapsed is set', () => {
-    const wrapper = mountNavigation({ canBeCollapsed: true });
+  it('should be collapsed when isCollapsed is set to true', () => {
+    const wrapper = mountNavigation({ isCollapsed: true });
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.classes('ec-navigation--can-be-collapsed')).toBe(true);
+    expect(wrapper.classes('ec-navigation--is-collapsed')).toBe(true);
+  });
+
+  it('should be collapsable when isCollapsable is set', () => {
+    const wrapper = mountNavigation({ isCollapsable: true });
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.classes('ec-navigation--is-collapsable')).toBe(true);
   });
 
   it('should not render branding if no logo is given in branding object', () => {

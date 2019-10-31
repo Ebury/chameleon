@@ -52,17 +52,17 @@ describe('EcNavigationLink', () => {
     it('should be expanded by default', () => {
       const wrapper = mountAsRouterLink();
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--is-expanded')).toBe(true);
+      expect(wrapper.classes('ec-navigation-link--is-collapsed')).toBe(false);
     });
 
-    it('should hide the text when is not expanded', () => {
-      const wrapper = mountAsRouterLink({ isExpanded: false });
+    it('should hide the text when is collapsed', () => {
+      const wrapper = mountAsRouterLink({ isCollapsed: true });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(false);
     });
 
     it('should show the text when is expanded', () => {
-      const wrapper = mountAsRouterLink({ isExpanded: true });
+      const wrapper = mountAsRouterLink({ isCollapsed: false });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(true);
     });
@@ -104,17 +104,17 @@ describe('EcNavigationLink', () => {
     it('should be expanded by default', () => {
       const wrapper = mountAsAnchor();
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--is-expanded')).toBe(true);
+      expect(wrapper.classes('ec-navigation-link--is-collapsed')).toBe(false);
     });
 
-    it('should hide the text when is not expanded', () => {
-      const wrapper = mountAsAnchor({ isExpanded: false });
+    it('should hide the text when is collapsed', () => {
+      const wrapper = mountAsAnchor({ isCollapsed: true });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(false);
     });
 
     it('should show the text when is expanded', () => {
-      const wrapper = mountAsAnchor({ isExpanded: true });
+      const wrapper = mountAsAnchor({ isCollapsed: false });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(true);
     });

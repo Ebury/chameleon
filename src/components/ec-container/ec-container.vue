@@ -2,7 +2,7 @@
   <div class="ec-container">
     <div
       class="ec-container__navigation"
-      :class="{ 'ec-container__navigation--can-be-collapsed': canBeCollapsed }"
+      :class="{ 'ec-container__navigation--is-collapsable': isCollapsable }"
     >
       <slot name="navigation" />
     </div>
@@ -16,7 +16,7 @@
 export default {
   name: 'EcContainer',
   props: {
-    canBeCollapsed: {
+    isCollapsable: {
       type: Boolean,
       default: false,
     },
@@ -34,7 +34,7 @@ export default {
     position: relative;
     flex-basis: 280px;
 
-    &--can-be-collapsed {
+    &--is-collapsable {
       flex-basis: 80px;
     }
   }

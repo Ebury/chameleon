@@ -7,7 +7,7 @@
     :class="{
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
-      'ec-navigation-link--is-expanded': isExpanded
+      'ec-navigation-link--is-collapsed': isCollapsed
     }"
     :exact="isExact"
     :to="url"
@@ -20,7 +20,7 @@
     />
     <transition name="ec-navigation-link__text-fade">
       <span
-        v-show="isExpanded"
+        v-show="!isCollapsed"
         class="ec-navigation-link__text"
       >{{ text }}</span>
     </transition>
@@ -34,7 +34,7 @@
     :class="{
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
-      'ec-navigation-link--is-expanded': isExpanded
+      'ec-navigation-link--is-collapsed': isCollapsed
     }"
     :href="url"
     :target="target"
@@ -47,7 +47,7 @@
     />
     <transition name="ec-navigation-link__text-fade">
       <span
-        v-show="isExpanded"
+        v-show="!isCollapsed"
         class="ec-navigation-link__text"
       >{{ text }}</span>
     </transition>
@@ -87,9 +87,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    isExpanded: {
+    isCollapsed: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     isCompact: {
       type: Boolean,
@@ -118,13 +118,13 @@ $ec-navigation-link-text-color: $white !default;
   text-decoration: none;
   color: $ec-navigation-link-text-color;
 
-  &:not(&--is-expanded) {
-    padding: 12px 28px;
-  }
-
   &--is-compact {
     text-transform: none;
     padding: 0;
+  }
+
+  &--is-collapsed {
+    padding: 12px 28px;
   }
 
   &__icon {
