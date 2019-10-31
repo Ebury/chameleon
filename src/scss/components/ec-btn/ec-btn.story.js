@@ -23,14 +23,11 @@ stories
       isOutlined: {
         default: boolean('Is Outlined', false),
       },
-      isNegative: {
-        default: boolean('Is Negative', false),
-      },
       size: {
         default: select('Size', ['ec-btn--sm', 'ec-btn--md'], 'ec-btn--sm'),
       },
       color: {
-        default: select('Color', ['ec-btn--primary', 'ec-btn--secondary', 'ec-btn--success', 'ec-btn--error'], 'ec-btn--primary'),
+        default: select('Color', ['ec-btn--primary', 'ec-btn--primary-reverse', 'ec-btn--secondary', 'ec-btn--success', 'ec-btn--error'], 'ec-btn--primary'),
       },
     },
     computed: {
@@ -41,7 +38,6 @@ stories
           {
             'ec-btn--rounded': this.isRounded,
             'ec-btn--outline': this.isOutlined,
-            'ec-btn--negative': this.isNegative,
           },
         ];
       },
@@ -112,26 +108,13 @@ stories
         <button class="ec-btn ec-btn--sm ec-btn--outline ec-btn--success ec-m--8">Success</button>
         <button class="ec-btn ec-btn--sm ec-btn--outline ec-btn--error ec-m--8">Error</button>
         <button class="ec-btn ec-btn--sm ec-m--8 ec-btn--outline" disabled>Disabled</button>
-        
+
         <h3 class="ec-m--8">Outline Rounded Buttons</h3>
         <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--outline ec-btn--primary ec-m--8">Primary</button>
         <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--outline ec-btn--secondary ec-m--8">Secondary</button>
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--success ec-m--8">Success</button>
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--error ec-m--8">Error</button>
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-m--8" disabled>Disabled</button>
-      </div>
-    `,
-  }))
-  .add('ghost', () => ({
-    template: `
-      <div style="padding:20px; background:#005166;width:100vw;height:100vh;">
-        <h3 class="ec-m--8" style="color:white;" >Ghost Buttons</h3>
-        <button class="ec-btn ec-btn--negative ec-m--8">Primary</button>
-        <button class="ec-btn ec-btn--negative ec-btn--primary ec-btn--rounded ec-m--8">Primary</button>
-        
-        <h3 class="ec-m--8" style="color:white;" >Disabled Ghost Buttons</h3>
-        <button class="ec-btn ec-btn--negative ec-m--8" disabled>Disabled</button>
-        <button class="ec-btn ec-btn--negative ec-btn--rounded ec-m--8" disabled>Disabled</button>
       </div>
     `,
   }));

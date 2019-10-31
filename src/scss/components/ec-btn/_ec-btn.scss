@@ -45,7 +45,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   }
 
   &:focus {
-    box-shadow: 0 0 0 3.2px rgba($color-info, 0.25);
+    box-shadow: 0 0 0 3px rgba($color-info, 0.25);
   }
 
   &:disabled {
@@ -59,6 +59,16 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
     &:hover {
       background-color: $ec-btn-primary-color-hover;
+    }
+  }
+
+  &--primary-reverse {
+    color: $ec-btn-primary-color;
+    background-color: $ec-btn-color;
+
+    &:hover {
+      color: $ec-btn-color;
+      background-color: $ec-btn-primary-color;
     }
   }
 
@@ -91,20 +101,41 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     border-style: solid;
     background-color: transparent;
 
-    &.ec-btn--primary {
+    &.ec-btn--primary,
+    &.ec-btn--primary-reverse {
       color: $ec-btn-primary-color;
+      border-color: $ec-btn-primary-color;
+
+      &:hover {
+        background-color: $ec-btn-primary-color;
+      }
     }
 
     &.ec-btn--secondary {
       color: $ec-btn-secondary-color;
+      border-color: $ec-btn-secondary-color;
+
+      &:hover {
+        background-color: $ec-btn-secondary-color;
+      }
     }
 
     &.ec-btn--success {
       color: $ec-btn-success-color;
+      border-color: $ec-btn-success-color;
+
+      &:hover {
+        background-color: $ec-btn-success-color;
+      }
     }
 
     &.ec-btn--error {
       color: $ec-btn-error-color;
+      border-color: $ec-btn-error-color;
+
+      &:hover {
+        background-color: $ec-btn-error-color;
+      }
     }
 
     &:hover {
@@ -117,33 +148,6 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
       color: $ec-btn-disabled-color;
       cursor: default;
       pointer-events: none;
-    }
-  }
-
-  &--negative {
-    color: $ec-btn-color;
-    border-color: $ec-btn-color;
-    background-color: transparent;
-
-    &:hover {
-      background-color: $ec-btn-color;
-      color: $ec-btn-primary-color;
-    }
-
-    &.ec-btn--primary {
-      background-color: $ec-btn-color;
-      color: $ec-btn-primary-color;
-
-      &:hover {
-        border-color: $ec-btn-primary-color;
-        background-color: $ec-btn-primary-color;
-        color: $ec-btn-color;
-      }
-    }
-
-    &:disabled {
-      background-color: $ec-btn-color;
-      color: $ec-btn-disabled-color;
     }
   }
 }

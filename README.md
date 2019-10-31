@@ -45,14 +45,14 @@ npm start
 That's it!
 By now you should be up and running. You can check the existing components or create new ones.
 
-## CSS
+### CSS
 
 For chameleon components we use ITCSS with BEM and currently our preprocessor is SASS.
-Please don't add any css styles without following the above rules.
+Please don't add any css styles without following the rules below.
 
 The single file vue components should not use scoped files as is not necessary since we follow BEM!
 
-### BEM
+#### BEM
 
 Is just of methodology on how to name your classes
 http://getbem.com/introduction/
@@ -69,30 +69,30 @@ http://getbem.com/introduction/
 .btn--big {}
 ```
 
-### ITCSS
+#### ITCSS
 
 https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
 
 Following the ITCSS our css structure should look like
 
-1. Settings
+1. Settings -
 only preprosessor stuff in here! Fonts definitions, color definitions and other vars.
 
-2. Tools
+2. Tools -
 Only preprosessor stuff in here! Mixins, functions etc.
 
-3. Generic
+3. Generic -
 No classes ids or elements! CSS resets, box sizing etc.
 
-4. Elements
+4. Elements -
 Only pure HTML elements like p, h1, h2, div etc.
 
 5. Objects
 
-6. Components
+6. Components -
 Classes for specific UI components, most likely you want to add your classes in here.
 
-7. utilities
+7. utilities -
 Extremely specific styles that can override all the above
 
 ### Vue app
