@@ -56,22 +56,24 @@ export default {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 
   &--horizontal {
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
   }
 
   &__item {
-    flex-basis: 100%;
     display: block;
+    min-width: 100%;
 
     .ec-menu--horizontal & {
       display: inline-block;
-      flex-basis: 0%;
+      min-width: 0;
 
       // stylelint-disable-next-line selector-max-class
       + .ec-menu__item {

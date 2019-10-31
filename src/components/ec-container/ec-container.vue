@@ -29,6 +29,7 @@ export default {
   display: flex;
   flex-direction: row;
   min-height: 100vh;
+  align-items: stretch;
 
   &__navigation {
     position: relative;
