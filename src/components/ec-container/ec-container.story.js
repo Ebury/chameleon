@@ -36,7 +36,7 @@ stories
       menuLinks: {
         default: object('menuLinks', [
           { text: 'Link 1', iconName: 'simple-trade', url: '/my-url' },
-          { text: 'Link 2', iconName: 'simple-lending', url: '/my-url' },
+          { text: 'Link 2', iconName: 'simple-trade-finance', url: '/my-url' },
           { text: 'Link 3', iconName: 'simple-dashboard', url: '/my-url' },
         ]),
       },

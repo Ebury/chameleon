@@ -16,7 +16,7 @@ exports[`EcMainContainer should render both titles when they are given in props 
   <h1
     class="ec-main-container__title"
   >
-    Lending
+    Trade Finance
   </h1>
    
   <p
@@ -44,7 +44,7 @@ exports[`EcMainContainer should use given slot 1`] = `
   <h1
     class="ec-main-container__title"
   >
-    Lending
+    Trade Finance
   </h1>
    
   <p

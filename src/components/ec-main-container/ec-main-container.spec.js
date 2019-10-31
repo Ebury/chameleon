@@ -10,7 +10,7 @@ describe('EcMainContainer', () => {
 
   it('should render both titles when they are given in props', () => {
     const propsData = {
-      title: 'Lending',
+      title: 'Trade Finance',
       titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
     };
     const wrapper = mount(EcMainContainer, {
@@ -33,7 +33,7 @@ describe('EcMainContainer', () => {
 
   it('should use given slot', () => {
     const propsData = {
-      title: 'Lending',
+      title: 'Trade Finance',
       titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
     };
     const wrapper = mount(EcMainContainer, {

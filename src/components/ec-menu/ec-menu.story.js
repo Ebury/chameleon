@@ -7,7 +7,7 @@ const links = [
   {
     text: 'Foo',
     url: '/foo',
-    iconName: 'simple-lending',
+    iconName: 'simple-trade-finance',
     isRouterLink: true,
   },
   {

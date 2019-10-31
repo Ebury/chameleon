@@ -29,8 +29,8 @@ const links = [
     isActive: false,
   },
   {
-    text: 'LENDING',
-    url: '/lending/',
+    text: 'TRADE FINANCE',
+    url: '/trade-finance/',
     ico: 'ec-ico-trending-up',
     isActive: false,
   },

@@ -14,7 +14,7 @@ stories.add('basic', () => ({
           {
             text: 'First action',
             iconType: 'warning',
-            icon: 'simple-lending',
+            icon: 'simple-trade-finance',
             tooltip: 'Random tooltip text',
           },
         ],
