@@ -11,6 +11,7 @@
     }"
     :exact="isExact"
     :to="url"
+    v-on="$listeners"
   >
     <ec-icon
       class="ec-navigation-link__icon"
@@ -37,6 +38,7 @@
     }"
     :href="url"
     :target="target"
+    v-on="$listeners"
   >
     <ec-icon
       class="ec-navigation-link__icon"

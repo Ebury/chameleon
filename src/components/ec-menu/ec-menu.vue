@@ -14,6 +14,7 @@
         v-bind="link"
         :is-expanded="isExpanded"
         :is-compact="horizontal"
+        v-on="link.on"
       />
     </li>
   </ul>

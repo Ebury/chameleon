@@ -130,5 +130,15 @@ describe('EcNavigationLink', () => {
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.classes('ec-navigation-link--is-compact')).toBe(true);
     });
+
+    it('should pass listeners from parent to the root', () => {
+      const clickSpy = jest.fn();
+      const wrapper = mountAsAnchor({}, {
+        listeners: { click: clickSpy },
+      });
+
+      wrapper.trigger('click');
+      expect(clickSpy).toHaveBeenCalledTimes(1);
+    });
   });
 });
