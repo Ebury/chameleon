@@ -12,7 +12,9 @@
       <ec-navigation-link
         class="ec-menu__link"
         v-bind="link"
-        :is-expanded="isExpanded"
+        :is-collapsed="isCollapsed"
+        :is-compact="horizontal"
+        v-on="link.on"
       />
     </li>
   </ul>
@@ -28,9 +30,9 @@ export default {
     horizontal: {
       type: Boolean,
     },
-    isExpanded: {
+    isCollapsed: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     links: {
       type: Array,
@@ -54,18 +56,29 @@ export default {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: flex-start;
-  align-items: center;
+
+  &--horizontal {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 
   &__item {
-    flex-basis: 100%;
     display: block;
+    min-width: 100%;
 
     .ec-menu--horizontal & {
       display: inline-block;
-      flex-basis: 0%;
+      min-width: 0;
+
+      // stylelint-disable-next-line selector-max-class
+      + .ec-menu__item {
+        margin-left: 16px;
+      }
     }
   }
 }

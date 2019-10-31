@@ -140,7 +140,7 @@ stories.add('within a text', () => ({
     <p>
       Ipsum laborum laborum consectetur ut sunt commodo ullamco et reprehenderit anim.
       Deserunt labore mollit adipisicing labore id eiusmod veniam anim proident voluptate qui
-      cupidatat culpa. <ec-icon name="simple-lending" style="fill: #C00" size="24" /> Sit ipsum sunt sit velit pariatur velit Lorem nisi.
+      cupidatat culpa. <ec-icon name="simple-trade-finance" style="fill: #C00" size="24" /> Sit ipsum sunt sit velit pariatur velit Lorem nisi.
       Tempor Lorem officia esse consequat exercitation pariatur fugiat esse. Aliquip veniam
       dolore veniam magna tempor ad id aute reprehenderit. Officia dolore veniam velit nisi
       amet ipsum aliqua minim. <ec-icon name="simple-check" style="fill: #00C" size="24" />Consequat pariatur

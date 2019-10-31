@@ -28,134 +28,117 @@ describe('EcNavigationLink', () => {
   });
 
   describe('as router-link', () => {
-    it('should render as a router link if isRouterLink prop set to true', () => {
+    function mountAsRouterLink(opts, mountOpts) {
       const propsData = {
         text: 'Link',
         iconName: 'single-check',
         url: '/balances',
         isRouterLink: true,
+        ...opts,
       };
-      const wrapper = mount(EcNavigationLink, {
+
+      return mount(EcNavigationLink, {
         propsData,
         stubs: ['router-link'],
+        ...mountOpts,
       });
+    }
 
+    it('should render as a router link if isRouterLink prop set to true', () => {
+      const wrapper = mountAsRouterLink({ isRouterLink: true });
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should hide the text when is not expanded', () => {
-      const propsData = {
-        text: 'Link',
-        iconName: 'single-check',
-        url: '/balances',
-        isRouterLink: true,
-        isExpanded: false,
-      };
-      const wrapper = mount(EcNavigationLink, {
-        propsData,
-        stubs: ['router-link'],
-      });
+    it('should be expanded by default', () => {
+      const wrapper = mountAsRouterLink();
+      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.classes('ec-navigation-link--is-collapsed')).toBe(false);
+    });
 
+    it('should hide the text when is collapsed', () => {
+      const wrapper = mountAsRouterLink({ isCollapsed: true });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(false);
     });
 
     it('should show the text when is expanded', () => {
-      const propsData = {
-        text: 'Link',
-        iconName: 'single-check',
-        url: '/balances',
-        isRouterLink: true,
-        isExpanded: true,
-      };
-      const wrapper = mount(EcNavigationLink, {
-        propsData,
-        stubs: ['router-link'],
-      });
-
+      const wrapper = mountAsRouterLink({ isCollapsed: false });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(true);
     });
 
     it('should be active when isActive is passed into', () => {
-      const propsData = {
-        text: 'Link',
-        iconName: 'single-check',
-        url: '/balances',
-        isRouterLink: true,
-        isActive: true,
-      };
-      const wrapper = mount(EcNavigationLink, {
-        propsData,
-        stubs: ['router-link'],
-      });
-
+      const wrapper = mountAsRouterLink({ isActive: true });
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--active')).toBe(true);
+      expect(wrapper.classes('ec-navigation-link--is-active')).toBe(true);
+    });
+
+    it('should be compact when isCompact is passed into', () => {
+      const wrapper = mountAsRouterLink({ isCompact: true });
+      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.classes('ec-navigation-link--is-compact')).toBe(true);
     });
   });
 
   describe('as regular anchor', () => {
-    it('should render as a normal <a> tag if isRouterLink is set to false', () => {
+    function mountAsAnchor(opts, mountOpts) {
       const propsData = {
         text: 'Link',
         iconName: 'single-check',
         url: '/balances',
         isRouterLink: false,
+        ...opts,
       };
-      const wrapper = mount(EcNavigationLink, {
-        propsData,
-      });
 
+      return mount(EcNavigationLink, {
+        propsData,
+        ...mountOpts,
+      });
+    }
+
+    it('should render as a normal <a> tag if isRouterLink is set to false', () => {
+      const wrapper = mountAsAnchor({ isRouterLink: false });
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should hide the text when is not expanded', () => {
-      const propsData = {
-        text: 'Link',
-        iconName: 'single-check',
-        url: '/balances',
-        isRouterLink: false,
-        isExpanded: false,
-      };
-      const wrapper = mount(EcNavigationLink, {
-        propsData,
-      });
+    it('should be expanded by default', () => {
+      const wrapper = mountAsAnchor();
+      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.classes('ec-navigation-link--is-collapsed')).toBe(false);
+    });
 
+    it('should hide the text when is collapsed', () => {
+      const wrapper = mountAsAnchor({ isCollapsed: true });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(false);
     });
 
     it('should show the text when is expanded', () => {
-      const propsData = {
-        text: 'Link',
-        iconName: 'single-check',
-        url: '/balances',
-        isRouterLink: false,
-        isExpanded: true,
-      };
-      const wrapper = mount(EcNavigationLink, {
-        propsData,
-      });
-
+      const wrapper = mountAsAnchor({ isCollapsed: false });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(true);
     });
 
     it('should be active when isActive is passed into', () => {
-      const propsData = {
-        text: 'Link',
-        iconName: 'single-check',
-        url: '/balances',
-        isRouterLink: false,
-        isActive: true,
-      };
-      const wrapper = mount(EcNavigationLink, {
-        propsData,
+      const wrapper = mountAsAnchor({ isActive: true });
+      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.classes('ec-navigation-link--is-active')).toBe(true);
+    });
+
+    it('should be compact when isCompact is passed into', () => {
+      const wrapper = mountAsAnchor({ isCompact: true });
+      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.classes('ec-navigation-link--is-compact')).toBe(true);
+    });
+
+    it('should pass listeners from parent to the root', () => {
+      const clickSpy = jest.fn();
+      const wrapper = mountAsAnchor({}, {
+        listeners: { click: clickSpy },
       });
 
-      expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--active')).toBe(true);
+      wrapper.trigger('click');
+      expect(clickSpy).toHaveBeenCalledTimes(1);
     });
   });
 });

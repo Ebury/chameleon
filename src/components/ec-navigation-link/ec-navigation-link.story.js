@@ -9,16 +9,16 @@ storiesOf('Navigation Link', module)
     components: { EcNavigationLink },
     props: {
       text: {
-        default: text('text', 'Lending'),
+        default: text('text', 'Trade Finance'),
       },
       iconName: {
-        default: text('icon name', 'simple-lending'),
+        default: text('icon name', 'simple-trade-finance'),
       },
       iconSize: {
         default: number('icon size', 30),
       },
       url: {
-        default: text('url', '/lending'),
+        default: text('url', '/trade-finance'),
       },
       isActive: {
         default: boolean('isActive', false),
@@ -29,8 +29,11 @@ storiesOf('Navigation Link', module)
       isRouterLink: {
         default: boolean('isRouterLink', false),
       },
-      isExpanded: {
-        default: boolean('isExpanded', false),
+      isCollapsed: {
+        default: boolean('isCollapsed', true),
+      },
+      isCompact: {
+        default: boolean('isCompact', false),
       },
     },
     template: `

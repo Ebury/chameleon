@@ -2,11 +2,16 @@
   <!-- If it is a router link -->
   <router-link
     v-if="isRouterLink"
-    active-class="ec-navigation-link--active"
+    active-class="ec-navigation-link--is-active"
     class="ec-navigation-link"
-    :class="{ 'ec-navigation-link--active': isActive }"
+    :class="{
+      'ec-navigation-link--is-active': isActive,
+      'ec-navigation-link--is-compact': isCompact,
+      'ec-navigation-link--is-collapsed': isCollapsed
+    }"
     :exact="isExact"
     :to="url"
+    v-on="$listeners"
   >
     <ec-icon
       class="ec-navigation-link__icon"
@@ -15,7 +20,7 @@
     />
     <transition name="ec-navigation-link__text-fade">
       <span
-        v-show="isExpanded"
+        v-show="!isCollapsed"
         class="ec-navigation-link__text"
       >{{ text }}</span>
     </transition>
@@ -26,8 +31,14 @@
   <a
     v-else
     class="ec-navigation-link"
-    :class="{ 'ec-navigation-link--active': isActive }"
+    :class="{
+      'ec-navigation-link--is-active': isActive,
+      'ec-navigation-link--is-compact': isCompact,
+      'ec-navigation-link--is-collapsed': isCollapsed
+    }"
     :href="url"
+    :target="target"
+    v-on="$listeners"
   >
     <ec-icon
       class="ec-navigation-link__icon"
@@ -36,7 +47,7 @@
     />
     <transition name="ec-navigation-link__text-fade">
       <span
-        v-show="isExpanded"
+        v-show="!isCollapsed"
         class="ec-navigation-link__text"
       >{{ text }}</span>
     </transition>
@@ -76,9 +87,16 @@ export default {
       type: Boolean,
       default: false,
     },
-    isExpanded: {
+    isCollapsed: {
       type: Boolean,
-      default: true,
+      default: false,
+    },
+    isCompact: {
+      type: Boolean,
+      default: false,
+    },
+    target: {
+      type: String,
     },
   },
 };
@@ -93,13 +111,21 @@ $ec-navigation-link-text-color: $white !default;
 .ec-navigation-link {
   @include h6;
 
-  font-size: 16px;
   font-style: normal;
   padding: 12px 24px;
   display: flex;
   align-items: center;
   text-decoration: none;
   color: $ec-navigation-link-text-color;
+
+  &--is-compact {
+    text-transform: none;
+    padding: 0;
+  }
+
+  &--is-collapsed {
+    padding: 12px 28px;
+  }
 
   &__icon {
     fill: currentColor;
@@ -112,6 +138,10 @@ $ec-navigation-link-text-color: $white !default;
     flex-shrink: 1;
     margin-left: 16px;
     transition: color 0.5s;
+
+    .ec-navigation-link--is-compact & {
+      margin-left: 8px;
+    }
   }
 
   &__text-fade {
@@ -126,11 +156,11 @@ $ec-navigation-link-text-color: $white !default;
     }
   }
 
-  &--active {
+  &--is-active {
     background-color: $level-4-tech-blue;
   }
 
-  &:hover:not(&--active) {
+  &:hover:not(&--is-active) {
     color: $level-4-tech-blue;
   }
 }

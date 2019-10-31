@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/vue';
 import {
-  withKnobs,
   boolean,
   text,
   number,
@@ -17,7 +16,6 @@ const delay = 100;
 const classes = ['ec-tooltip--level-1'];
 
 const stories = storiesOf('Tooltip', module);
-stories.addDecorator(withKnobs);
 
 stories.add('basic', () => ({
   directives: { EcTooltip },

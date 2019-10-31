@@ -4,6 +4,7 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  min-height: 100%;
 }
 
 // stylelint-disable selector-max-universal
@@ -22,4 +23,32 @@ body {
   text-transform: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: auto;
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+h5 {
+  @include h5;
+}
+
+h6 {
+  @include h6;
+}
+
+strong {
+  font-weight: bolder;
 }

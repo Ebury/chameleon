@@ -1,60 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcContainer should not display the titleIntro when title is not given 1`] = `
+exports[`EcContainer should make the navigation collapsable when isCollapsable is given 1`] = `
 <div
   class="ec-container"
 >
-  <!---->
+  <div
+    class="ec-container__navigation ec-container__navigation--is-collapsable"
+  />
    
+  <div
+    class="ec-container__content"
+  />
 </div>
 `;
 
-exports[`EcContainer should render both titles when they are given in props 1`] = `
+exports[`EcContainer should not have a collapsable navigation by default 1`] = `
 <div
   class="ec-container"
 >
-  <h1
-    class="ec-container__title"
-  >
-    Lending
-  </h1>
+  <div
+    class="ec-container__navigation"
+  />
    
-  <p
-    class="ec-container__title-intro"
-  >
-    Here you will be able to keep track of all your requests to Ebury and of your credit line.
-  </p>
-   
+  <div
+    class="ec-container__content"
+  />
 </div>
 `;
 
-exports[`EcContainer should render empty if no props were given 1`] = `
+exports[`EcContainer should render empty if no slots were given 1`] = `
 <div
   class="ec-container"
 >
-  <!---->
+  <div
+    class="ec-container__navigation"
+  />
    
+  <div
+    class="ec-container__content"
+  />
 </div>
 `;
 
-exports[`EcContainer should use given slot 1`] = `
+exports[`EcContainer should render slot for content 1`] = `
 <div
   class="ec-container"
 >
-  <h1
-    class="ec-container__title"
-  >
-    Lending
-  </h1>
+  <div
+    class="ec-container__navigation"
+  />
    
-  <p
-    class="ec-container__title-intro"
+  <div
+    class="ec-container__content"
   >
-    Here you will be able to keep track of all your requests to Ebury and of your credit line.
-  </p>
+    <div>
+      content template
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcContainer should render slot for navigation 1`] = `
+<div
+  class="ec-container"
+>
+  <div
+    class="ec-container__navigation"
+  >
+    <div>
+      navigation template
+    </div>
+  </div>
    
-  <p>
-    Random text
-  </p>
+  <div
+    class="ec-container__content"
+  />
 </div>
 `;

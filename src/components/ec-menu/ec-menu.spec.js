@@ -85,6 +85,40 @@ describe('EcMenu', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render all items as compact when is horizontal', () => {
+    const wrapper = mount(
+      EcMenu,
+      {
+        propsData: {
+          horizontal: true,
+          links,
+        },
+      },
+    );
+
+    expect(wrapper.element).toMatchSnapshot();
+    wrapper.findAll('.ec-navigation-link').wrappers.forEach((linkWrapper) => {
+      expect(linkWrapper.classes('ec-navigation-link--is-compact')).toBe(true);
+    });
+  });
+
+  it('should not render all items as compact when horizontal is not set', () => {
+    const wrapper = mount(
+      EcMenu,
+      {
+        propsData: {
+          horizontal: false,
+          links,
+        },
+      },
+    );
+
+    expect(wrapper.element).toMatchSnapshot();
+    wrapper.findAll('.ec-navigation-link').wrappers.forEach((linkWrapper) => {
+      expect(linkWrapper.classes('ec-navigation-link--is-compact')).toBe(false);
+    });
+  });
+
   it('should render as expanded by default', () => {
     const wrapper = mount(
       EcMenu,
@@ -102,13 +136,13 @@ describe('EcMenu', () => {
     });
   });
 
-  it('should render as not expanded when isExpanded is passed into', () => {
+  it('should render as collapsed when isCollapsed is passed into', () => {
     const wrapper = mount(
       EcMenu,
       {
         propsData: {
           links,
-          isExpanded: false,
+          isCollapsed: true,
         },
       },
     );

@@ -1,14 +1,10 @@
 import { storiesOf } from '@storybook/vue';
-import {
-  withKnobs,
-  select,
-} from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import EcPopover from './ec-popover.vue';
 import EcClosePopover from '../../directives/ec-close-popover';
 import EcTooltip from '../../directives/ec-tooltip';
 
 const stories = storiesOf('Popover', module);
-stories.addDecorator(withKnobs);
 
 stories.add('basic', () => ({
   components: { EcPopover },

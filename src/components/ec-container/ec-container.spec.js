@@ -2,44 +2,40 @@ import { mount } from '@vue/test-utils';
 import EcContainer from './ec-container.vue';
 
 describe('EcContainer', () => {
-  it('should render empty if no props were given', () => {
+  it('should not have a collapsable navigation by default', () => {
+    const wrapper = mount(EcContainer);
+
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(false);
+  });
+
+  it('should make the navigation collapsable when isCollapsable is given', () => {
+    const wrapper = mount(EcContainer, { propsData: { isCollapsable: true } });
+
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(true);
+  });
+
+  it('should render empty if no slots were given', () => {
     const wrapper = mount(EcContainer);
 
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render both titles when they are given in props', () => {
-    const propsData = {
-      title: 'Lending',
-      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
-    };
+  it('should render slot for navigation', () => {
     const wrapper = mount(EcContainer, {
-      propsData,
-    });
-
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should not display the titleIntro when title is not given', () => {
-    const propsData = {
-      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
-    };
-    const wrapper = mount(EcContainer, {
-      propsData,
-    });
-
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should use given slot', () => {
-    const propsData = {
-      title: 'Lending',
-      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
-    };
-    const wrapper = mount(EcContainer, {
-      propsData,
       slots: {
-        default: '<p>Random text</p>',
+        navigation: '<div>navigation template</div>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render slot for content', () => {
+    const wrapper = mount(EcContainer, {
+      slots: {
+        content: '<div>content template</div>',
       },
     });
 
