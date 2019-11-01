@@ -1,10 +1,9 @@
 import { storiesOf } from '@storybook/vue';
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, number, select } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcIcon from '@/components/ec-icon';
 
 const stories = storiesOf('Button', module);
-
 
 stories
   .addDecorator(StoryRouter())
@@ -23,6 +22,9 @@ stories
       isOutlined: {
         default: boolean('Is Outlined', false),
       },
+      fullWidth: {
+        default: boolean('Full Width', false),
+      },
       size: {
         default: select('Size', ['ec-btn--sm', 'ec-btn--md'], 'ec-btn--sm'),
       },
@@ -38,12 +40,13 @@ stories
           {
             'ec-btn--rounded': this.isRounded,
             'ec-btn--outline': this.isOutlined,
+            'ec-btn--full-width': this.isFullWidth,
           },
         ];
       },
     },
     template: `
-      <div style="margin:20px;">
+      <div class="ec-m--20">
         <div>
           <h3 class="ec-m--8">This is a button tag with a "ec-btn" class</h3>
           <button
@@ -51,7 +54,7 @@ stories
             class="ec-m--8 ec-btn"
             :disabled="isDisabled"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" style="margin-right:10px;" :size=20 />
+            <ec-icon v-if="hasIcon" name="simple-check" class="ec-mr--8" :size="20" />
             Click Me
           </button>
         </div>
@@ -63,7 +66,7 @@ stories
             :class="classNames"
             class="ec-m--8 ec-btn"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" style="margin-right:10px;" :size=20 />
+            <ec-icon v-if="hasIcon" name="simple-check" class="ec-mr--8" :size="20" />
             Click Me
           </a>
         </div>
@@ -75,7 +78,7 @@ stories
             :class="classNames"
             class="ec-m--8 ec-btn"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" style="margin-right:10px;" :size=20 />
+            <ec-icon v-if="hasIcon" name="simple-check" class="ec-mr--8" :size="20" />
             Click Me
           </router-link>
         </div>
@@ -86,7 +89,7 @@ stories
   }))
   .add('all', () => ({
     template: `
-      <div style="margin:20px;">
+      <div class="ec-m--20">
 
         <h3 class="ec-m--8">Solid Buttons</h3>
         <button class="ec-btn ec-btn--md ec-btn--primary ec-m--8">Primary</button>
@@ -117,4 +120,37 @@ stories
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-m--8" disabled>Disabled</button>
       </div>
     `,
+  }))
+  .add('icon buttons', () => ({
+    components: { EcIcon },
+    props: {
+      iconName: {
+        default: select('Icon name', ['simple-check', 'simple-add', 'simple-dashboard', 'simple-sign-out'], 'simple-add'),
+      },
+      iconSize: {
+        default: number('Icon size', 20),
+      },
+    },
+    template: `
+        <div class="ec-m--20">
+          <button class="ec-btn ec-btn--primary ec-btn--icon-only">
+            <ec-icon :name="iconName" :size="iconSize" />
+          </button>
+          <button class="ec-btn ec-btn--primary-reverse ec-btn--icon-only">
+            <ec-icon :name="iconName" :size="iconSize" />
+          </button>
+          <button class="ec-btn ec-btn--secondary ec-btn--icon-only">
+            <ec-icon :name="iconName" :size="iconSize" />
+          </button>
+          <button class="ec-btn ec-btn--success ec-btn--icon-only">
+            <ec-icon :name="iconName" :size="iconSize" />
+          </button>
+          <button class="ec-btn ec-btn--error ec-btn--icon-only">
+            <ec-icon :name="iconName" :size="iconSize" />
+          </button>
+          <button class="ec-btn ec-btn--icon-only" disabled>
+            <ec-icon :name="iconName" :size="iconSize" />
+          </button>
+        </div>
+      `,
   }));

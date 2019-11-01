@@ -15,7 +15,6 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   @include btn;
 
   color: $ec-btn-color;
-  width: 100%;
   max-width: 256px;
   cursor: pointer;
   transition-duration: 0.15s;
@@ -42,6 +41,17 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
   &--rounded {
     border-radius: 32px;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--icon-only {
+    min-width: 0;
+    padding: 8px;
+    border-radius: 32px;
+    fill: currentColor;
   }
 
   &:focus {
