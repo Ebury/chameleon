@@ -17,6 +17,7 @@ $ec-tooltip-width-value: 5px;
     background: $level-2-doc-bodies-bg;
     color: $white;
     padding: 10px 16px;
+    max-width: 260px;
 
     @include shape-border-radius;
   }
