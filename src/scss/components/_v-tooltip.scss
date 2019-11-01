@@ -34,6 +34,7 @@ $ec-tooltip-width-value: 5px;
 
   &[x-placement^='top'] {
     margin-bottom: $ec-tooltip-width-value;
+    text-align: left;
 
     .ec-tooltip__arrow {
       border-width: $ec-tooltip-width-value $ec-tooltip-width-value 0 $ec-tooltip-width-value;
@@ -49,6 +50,7 @@ $ec-tooltip-width-value: 5px;
 
   &[x-placement^='bottom'] {
     margin-top: $ec-tooltip-width-value;
+    text-align: center;
 
     .ec-tooltip__arrow {
       border-width: 0 $ec-tooltip-width-value $ec-tooltip-width-value $ec-tooltip-width-value;
@@ -64,6 +66,7 @@ $ec-tooltip-width-value: 5px;
 
   &[x-placement^='right'] {
     margin-left: $ec-tooltip-width-value;
+    text-align: left;
 
     .ec-tooltip__arrow {
       border-width: $ec-tooltip-width-value $ec-tooltip-width-value $ec-tooltip-width-value 0;
@@ -79,6 +82,7 @@ $ec-tooltip-width-value: 5px;
 
   &[x-placement^='left'] {
     margin-right: $ec-tooltip-width-value;
+    text-align: center;
 
     .ec-tooltip__arrow {
       border-width: $ec-tooltip-width-value 0 $ec-tooltip-width-value $ec-tooltip-width-value;
