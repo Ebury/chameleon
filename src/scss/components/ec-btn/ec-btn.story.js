@@ -1,5 +1,7 @@
 import { storiesOf } from '@storybook/vue';
-import { boolean, number, select } from '@storybook/addon-knobs';
+import {
+  boolean, number, select, text,
+} from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcIcon from '@/components/ec-icon';
 
@@ -10,11 +12,17 @@ stories
   .add('basic', () => ({
     components: { EcIcon },
     props: {
+      btnText: {
+        default: text('Button Text', 'Click Me'),
+      },
       isDisabled: {
         default: boolean('Disabled', false),
       },
       hasIcon: {
         default: boolean('Has Icon', false),
+      },
+      hasIconOnly: {
+        default: boolean('Has Icon Only'),
       },
       isRounded: {
         default: boolean('Is Rounded', false),
@@ -22,8 +30,8 @@ stories
       isOutlined: {
         default: boolean('Is Outlined', false),
       },
-      fullWidth: {
-        default: boolean('Full Width', false),
+      isFullWidth: {
+        default: boolean('is Full Width', false),
       },
       size: {
         default: select('Size', ['ec-btn--sm', 'ec-btn--md'], 'ec-btn--sm'),
@@ -41,6 +49,7 @@ stories
             'ec-btn--rounded': this.isRounded,
             'ec-btn--outline': this.isOutlined,
             'ec-btn--full-width': this.isFullWidth,
+            'ec-btn--icon-only': this.hasIconOnly,
           },
         ];
       },
@@ -54,8 +63,10 @@ stories
             class="ec-m--8 ec-btn"
             :disabled="isDisabled"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" class="ec-mr--8" :size="20" />
-            Click Me
+            <ec-icon v-if="hasIcon" name="simple-check" :size="22" />
+            <template v-if="!hasIconOnly" >
+              <span class="ec-ml--8">{{this.btnText}}</span>
+            </template>
           </button>
         </div>
 
@@ -66,8 +77,10 @@ stories
             :class="classNames"
             class="ec-m--8 ec-btn"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" class="ec-mr--8" :size="20" />
-            Click Me
+            <ec-icon v-if="hasIcon" name="simple-check" :size="22" />
+            <template v-if="!hasIconOnly" >
+              <span class="ec-ml--8">{{this.btnText}}</span>
+            </template>
           </a>
         </div>
 
@@ -78,8 +91,10 @@ stories
             :class="classNames"
             class="ec-m--8 ec-btn"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" class="ec-mr--8" :size="20" />
-            Click Me
+            <ec-icon v-if="hasIcon" name="simple-check" :size="22" />
+            <template v-if="!hasIconOnly" >
+              <span class="ec-ml--8">{{this.btnText}}</span>
+            </template>
           </router-link>
         </div>
 

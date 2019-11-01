@@ -49,9 +49,16 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
   &--icon-only {
     min-width: 0;
-    padding: 8px;
     border-radius: 32px;
     fill: currentColor;
+
+    &.ec-btn--sm {
+      padding: 4px;
+    }
+
+    &.ec-btn--md {
+      padding: 8px;
+    }
   }
 
   &:focus {
