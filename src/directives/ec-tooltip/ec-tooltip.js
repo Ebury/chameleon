@@ -8,7 +8,7 @@ Object.assign(VTooltip.options, {
   defaultInnerSelector: '.ec-tooltip__inner, .ec-tooltip__inner',
   defaultTargetClass: 'ec-has-tooltip',
   defaultContainer: 'body',
-  defaultBoundariesElement: 'body',
+  defaultBoundariesElement: 'viewport',
 });
 
 export default VTooltip;

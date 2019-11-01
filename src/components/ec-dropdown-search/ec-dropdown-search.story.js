@@ -1,84 +1,99 @@
 import { storiesOf } from '@storybook/vue';
-import { text, boolean, object } from '@storybook/addon-knobs';
+import { boolean, object, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import EcDropdownSearch from './ec-dropdown-search.vue';
+import EcIcon from '../ec-icon';
 
-const itemFormat = {
-  disabled: 'disabled',
-  disabledReason: 'disabledReason',
-  id: 'id',
-  text: 'text',
-};
-const user = {
-  clientName: 'Ebury Demo 2',
-  email: 'ebury.demo2@ebury.com',
-  gravatar: 'https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200',
-};
+const stories = storiesOf('Dropdown Search', module);
+
 const items = [
-  {
-    disabled: false,
-    disabledReason: 'This ac+44 (0) 207 197 2421.',
-    id: 'EBPCLI00004',
-    text: 'Ebury Demo',
-  },
-  {
-    disabled: false,
-    disabledReason: 'This ac+44 (0) 207 197 2421.',
-    id: 'EBPCLI00007',
-    text: 'Ebury Demo 2',
-  },
+  { text: 'Item 1' },
+  { text: 'Item 2' },
+  { text: 'Item 3', disabled: true, disabledReason: 'Is disabled for a reason' },
+  { text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod' },
 ];
 
-const stories = storiesOf('Ec dropdown Search', module);
-
 stories.add('basic', () => ({
-  components: { EcDropdownSearch },
+  components: { EcDropdownSearch, EcIcon },
+  data() {
+    return {
+      selectedItem: null,
+    };
+  },
   props: {
-    defaultItemSelected: {
-      default: object('defaultItemSelected', null),
-    },
-    huhaTaskName: {
-      default: text('url', 'applyDropdownAccountSelector'),
-    },
-    huhaTrackOnGoogleAnalytics: {
-      default: boolean('huhaTrackOnGoogleAnalytics', true),
-    },
-    huhaTrackOnIntercom: {
-      default: boolean('huhaTrackOnIntercom', false),
-    },
-    itemFormat: {
-      default: object('itemFormat', itemFormat),
-    },
     items: {
-      default: object('items', items),
+      default: object('Items', items),
     },
-    user: {
-      default: object('user', user),
+    isSearchEnabled: {
+      default: boolean('isSearchEnabled', true),
     },
   },
+  methods: {
+    onItemSelected: action('Item selected'),
+  },
   template: `
-  <div class='ec'>
-    <div class="ec-dropdown main-menu__header__account-selector main-menu__header__account">
-      <a href="" class="ec-dropdown-toggle ec-dropdown-toggle--menu"
-        data-toggle="ec-dropdown"
-        aria-haspopup="true"
-      >
-        <span class="title">Ebury Online 2</span>
-      </a>
+    <div style="width: 100vw; height: 100vh;" class="ec-p--20">
+      <p v-if="selectedItem">Selected item: {{ selectedItem.text }}</p>
+      <p v-else>Selected item: None</p>
       <ec-dropdown-search
-        :user="user"
-        placeholder="Search..."
-        :show="true"
-        :showSearch="true"
-        tooltipPosition="top"
-        :defaultItemSelected="defaultItemSelected"
-        :huhaTaskName="huhaTaskName"
-        :huhaTrackOnGoogleAnalytics="huhaTrackOnGoogleAnalytics"
-        :huhaTrackOnIntercom="huhaTrackOnIntercom"
-        :itemFormat="itemFormat"
         :items="items"
-      />
+        :popover-options="{ placement: 'bottom-end' }"
+        :is-search-enabled="isSearchEnabled"
+        v-model="selectedItem"
+        @change="onItemSelected">
+        <a href="#" @click.prevent>
+          <span>Open</span>
+          <ec-icon name="simple-arrow-drop-down" :size="16" fill="currentColor" />
+        </a>
+      </ec-dropdown-search>
     </div>
-  </div>
+  `,
+}));
+
+stories.add('in container with a dynamic width', () => ({
+  components: { EcDropdownSearch, EcIcon },
+  data() {
+    return {
+      selectedItem: null,
+    };
+  },
+  props: {
+    items: {
+      default: object('Items', items),
+    },
+    isSearchEnabled: {
+      default: boolean('isSearchEnabled', true),
+    },
+    paragraphText: {
+      default: boolean('paragraphText', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.'),
+    },
+    boundariesElement: {
+      default: select('boundariesElement', ['viewport', 'scrollParent'], 'viewport'),
+    },
+  },
+  methods: {
+    onItemSelected: action('Item selected'),
+  },
+  template: `
+    <div style="width: 100vw; height: 100vh;" class="ec-p--20">
+      <p v-if="selectedItem">Selected item: {{ selectedItem.text }}</p>
+      <p v-else>Selected item: None</p>
+      <div style="width: 300px; overflow: auto; resize: horizontal; border: 1px solid #ccc; background-color: #fafafa;" class="ec-p--8">
+        <p class="ec-mb--16"><strong>This is a block wrapper around the dropdown search. You can resize it and check how dropdown adapts.</strong></p>
+        <ec-dropdown-search
+          :items="items"
+          :popover-options="{ placement: 'bottom-end', boundariesElement }"
+          :is-search-enabled="isSearchEnabled"
+          v-model="selectedItem"
+          @change="onItemSelected">
+          <a href="#" @click.prevent>
+            <span>Open</span>
+            <ec-icon name="simple-arrow-drop-down" :size="16" fill="currentColor" />
+          </a>
+        </ec-dropdown-search>
+        <p class="ec-mt--16">{{ paragraphText }}</p>
+      </div>
+    </div>
   `,
 }));
 

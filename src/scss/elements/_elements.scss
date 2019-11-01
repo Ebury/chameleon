@@ -56,3 +56,7 @@ strong {
 a {
   @include body-link;
 }
+
+::placeholder {
+  color: $level-5-placeholders;
+}
