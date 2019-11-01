@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ec-navigation"
+    class="ec-navigation ec-p--8"
     :class="{ 'ec-navigation--is-collapsable': isCollapsable, 'ec-navigation--is-collapsed': isCollapsed }"
   >
     <div
@@ -70,7 +70,7 @@ export default {
 
 <style lang="scss">
 @import '../../scss/settings/colors/index';
-@import '../../scss/tools/typography';
+@import '../../scss/tools/index';
 
 .ec-navigation {
   width: 280px;
@@ -94,8 +94,13 @@ export default {
   }
 
   &__branding {
+    display: none;
     padding: 24px;
     text-align: center;
+
+    @include media__from-1280 {
+      display: block;
+    }
   }
 
   &__block {

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcUserInfo renders correctly 1`] = `
+<div
+  class="ec-user-info"
+>
+  <img
+    class="ec-user-info__image"
+    src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
+  />
+   
+  <div
+    class="ec-ml--8 ec-mr--8"
+  >
+    <a
+      class="ec-user-info__client-name ec-mt--8 ec-mb--8"
+      href="/profile"
+    >
+      Ebury Demo 2
+    </a>
+     
+    <select
+      name="acount selector"
+    >
+      <option
+        value="ebury"
+      >
+        Ebury
+      </option>
+       
+      <option
+        value="eburydemo2"
+      >
+        EburyDemo2
+      </option>
+    </select>
+  </div>
+</div>
+`;
