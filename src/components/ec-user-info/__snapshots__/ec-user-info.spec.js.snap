@@ -22,11 +22,9 @@ exports[`EcUserInfo should render as expected 1`] = `
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
    
-  <div
-    class="ec-ml--8 ec-mr--8"
-  >
+  <div>
     <a
-      class="ec-user-info__client-name ec-mt--8 ec-mb--8"
+      class="ec-user-info__client-name"
       href="/profile"
     >
       Ebury Demo 2
@@ -60,11 +58,9 @@ exports[`EcUserInfo should show text when not collapsed 1`] = `
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
    
-  <div
-    class="ec-ml--8 ec-mr--8"
-  >
+  <div>
     <a
-      class="ec-user-info__client-name ec-mt--8 ec-mb--8"
+      class="ec-user-info__client-name"
       href="/profile"
     >
       Ebury Demo 2

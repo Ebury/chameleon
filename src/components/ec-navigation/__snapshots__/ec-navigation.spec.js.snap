@@ -2,7 +2,7 @@
 
 exports[`EcNavigation should be collapsable when isCollapsable is set 1`] = `
 <div
-  class="ec-navigation ec-p--8 ec-navigation--is-collapsable"
+  class="ec-navigation ec-navigation--is-collapsable"
 >
   <!---->
    
@@ -22,7 +22,7 @@ exports[`EcNavigation should be collapsable when isCollapsable is set 1`] = `
 
 exports[`EcNavigation should be collapsed when isCollapsed is set to true 1`] = `
 <div
-  class="ec-navigation ec-p--8 ec-navigation--is-collapsed"
+  class="ec-navigation ec-navigation--is-collapsed"
 >
   <!---->
    
@@ -42,7 +42,7 @@ exports[`EcNavigation should be collapsed when isCollapsed is set to true 1`] = 
 
 exports[`EcNavigation should be expanded when isCollapsed is set to false 1`] = `
 <div
-  class="ec-navigation ec-p--8"
+  class="ec-navigation"
 >
   <!---->
    
@@ -62,7 +62,7 @@ exports[`EcNavigation should be expanded when isCollapsed is set to false 1`] = 
 
 exports[`EcNavigation should not render branding if logo is given in branding object but showBrandingLogo is set to false 1`] = `
 <div
-  class="ec-navigation ec-p--8"
+  class="ec-navigation"
 >
   <!---->
    
@@ -82,7 +82,7 @@ exports[`EcNavigation should not render branding if logo is given in branding ob
 
 exports[`EcNavigation should not render branding if no logo is given in branding object 1`] = `
 <div
-  class="ec-navigation ec-p--8"
+  class="ec-navigation"
 >
   <!---->
    
@@ -102,7 +102,7 @@ exports[`EcNavigation should not render branding if no logo is given in branding
 
 exports[`EcNavigation should only render mandatory slot if no other slots were given 1`] = `
 <div
-  class="ec-navigation ec-p--8"
+  class="ec-navigation"
 >
   <!---->
    
@@ -122,7 +122,7 @@ exports[`EcNavigation should only render mandatory slot if no other slots were g
 
 exports[`EcNavigation should render all given slots 1`] = `
 <div
-  class="ec-navigation ec-p--8"
+  class="ec-navigation"
 >
   <!---->
    
@@ -170,7 +170,7 @@ exports[`EcNavigation should render all given slots 1`] = `
 
 exports[`EcNavigation should render branding logo and name when given 1`] = `
 <div
-  class="ec-navigation ec-p--8"
+  class="ec-navigation"
 >
   <div
     class="ec-navigation__branding"
