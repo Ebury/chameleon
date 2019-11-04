@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/vue';
 import { object, boolean } from '@storybook/addon-knobs';
 import EcUserInfo from './ec-user-info.vue';
 import EcNavigation from '@/components/ec-navigation/ec-navigation.vue';
-// import EcDropdownSearch from '@/components/ec-dropdown-search/ec-dropdown-search.vue';
 
 const client = {
   name: 'Ebury Demo 2',
@@ -15,23 +14,32 @@ const stories = storiesOf('User Info', module);
 stories.add('basic', () => ({
   components: {
     EcUserInfo,
-    // EcDropdownSearch,
   },
   props: {
     client: {
       default: object('user', client),
     },
+    isCollapsable: {
+      default: boolean('isCollapsable', false),
+    },
+    isCollapsed: {
+      default: boolean('isCollapsed', false),
+    },
   },
   template: `
     <div style="background-color: #005166;width:280px;height:100vh;">
-      <ec-user-info :user="client">
-        <template v-slot:ec-dropdown-search>
+      <ec-user-info
+      :user="client"
+      :is-collapsable="isCollapsable"
+      :is-collapsed="isCollapsable && isCollapsed"
+      @toggle="isCollapsed = !isCollapsed">
+      <template v-slot:dropdown-search>
         <select name="pets" id="pet-select">
           <option value="ebury">Ebury</option>
           <option value="eburydemo2">EburyDemo2</option>
         </select>
-        </template>
-      </ ec-user-info>
+      </template>
+    </ ec-user-info>
     </div>
   `,
 }))
@@ -51,7 +59,7 @@ stories.add('basic', () => ({
         }),
       },
       isCollapsable: {
-        default: boolean('isCollapsable', true),
+        default: boolean('isCollapsable', false),
       },
       isCollapsed: {
         default: boolean('isCollapsed', false),
@@ -83,7 +91,18 @@ stories.add('basic', () => ({
       :is-collapsable="isCollapsable"
       :is-collapsed="isCollapsable && isCollapsed">
       <template #user-info>
-      <ec-user-info :user="client" :isCollapsed="isCollapsed" />
+      <ec-user-info
+        :user="client"
+        :is-collapsable="isCollapsable"
+        :is-collapsed="isCollapsable && isCollapsed"
+        @toggle="isCollapsed = !isCollapsed">
+        <template v-slot:dropdown-search>
+          <select name="pets" id="pet-select">
+            <option value="ebury">Ebury</option>
+            <option value="eburydemo2">EburyDemo2</option>
+          </select>
+        </template>
+      </ ec-user-info>
       </template>
       <template #call-to-action>
         <div :style="styles.placeholder">CTA placeholder</div>

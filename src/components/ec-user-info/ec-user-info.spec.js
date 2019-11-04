@@ -33,7 +33,7 @@ describe('EcUserInfo', () => {
     withMockedConsole((errorSpy) => {
       mount(EcUserInfo);
       expect(errorSpy).toHaveBeenCalled();
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "user"');
+      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop');
     });
   });
 

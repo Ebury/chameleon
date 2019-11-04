@@ -1,9 +1,12 @@
 <template>
-  <div class="ec-user-info">
+  <div
+    class="ec-user-info"
+    :class="{'ec-user-info--is-collapsable': isCollapsable}"
+  >
     <img
       class="ec-user-info__image"
       :src="user.gravatar"
-      @click="this.$emit('toggle')"
+      @click="toggle()"
     >
     <template v-if="!isCollapsed">
       <div>
@@ -12,12 +15,7 @@
           :href="user.profileUrl"
         >{{ user.name }}</a>
 
-        <select
-          name="acount selector"
-        >
-          <option value="ebury">Ebury</option>
-          <option value="eburydemo2">EburyDemo2</option>
-        </select>
+        <slot name="dropdown-search" />
       </div>
     </template>
   </div>
@@ -33,6 +31,9 @@ export default {
       required: true,
     },
     isCollapsed: {
+      type: Boolean,
+    },
+    isCollapsable: {
       type: Boolean,
     },
   },
@@ -52,14 +53,18 @@ $ec-client-text-color-hover: $level-4-tech-blue !default;
 
 .ec-user-info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   font-size: 18px;
   align-items: center;
   color: $white;
-  padding: 16px;
 
-  @include media__from-1280 {
-    flex-direction: column;
+  &--is-collapsable {
+    flex-direction: row;
+    justify-content: center;
+
+    .ec-user-info__image {
+      margin-right: 8px;
+    }
   }
 
   &__image {

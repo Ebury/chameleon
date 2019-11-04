@@ -30,21 +30,6 @@ exports[`EcUserInfo should render as expected 1`] = `
       Ebury Demo 2
     </a>
      
-    <select
-      name="acount selector"
-    >
-      <option
-        value="ebury"
-      >
-        Ebury
-      </option>
-       
-      <option
-        value="eburydemo2"
-      >
-        EburyDemo2
-      </option>
-    </select>
   </div>
 </div>
 `;
@@ -66,21 +51,6 @@ exports[`EcUserInfo should show text when not collapsed 1`] = `
       Ebury Demo 2
     </a>
      
-    <select
-      name="acount selector"
-    >
-      <option
-        value="ebury"
-      >
-        Ebury
-      </option>
-       
-      <option
-        value="eburydemo2"
-      >
-        EburyDemo2
-      </option>
-    </select>
   </div>
 </div>
 `;
