@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcIcon from '@/components/ec-icon';
 
@@ -11,17 +11,11 @@ stories
   .add('basic', () => ({
     components: { EcIcon },
     props: {
-      btnText: {
-        default: text('Button Text', 'Click Me'),
-      },
       isDisabled: {
         default: boolean('Disabled', false),
       },
       hasIcon: {
         default: boolean('Has Icon', false),
-      },
-      hasOnlyIcon: {
-        default: boolean('Has Only Icon', false),
       },
       isRounded: {
         default: boolean('Is Rounded', false),
@@ -58,7 +52,7 @@ stories
             :disabled="isDisabled"
             >
             <ec-icon v-if="hasIcon" name="simple-check" style="margin-right:10px;" :size=20 />
-            {{this.btnText}}
+            Click Me
           </button>
         </div>
 
@@ -70,7 +64,7 @@ stories
             class="ec-m--8 ec-btn"
             >
             <ec-icon v-if="hasIcon" name="simple-check" style="margin-right:10px;" :size=20 />
-            {{this.btnText}}
+            Click Me
           </a>
         </div>
 
@@ -82,7 +76,7 @@ stories
             class="ec-m--8 ec-btn"
             >
             <ec-icon v-if="hasIcon" name="simple-check" style="margin-right:10px;" :size=20 />
-            {{this.btnText}}
+            Click Me
           </router-link>
         </div>
 

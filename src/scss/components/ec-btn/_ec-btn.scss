@@ -13,16 +13,16 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
 .ec-btn {
   @include btn;
-  @include ellipsis;
 
-  display: inline-block;
   color: $ec-btn-color;
+  width: 100%;
   max-width: 256px;
   cursor: pointer;
   transition-duration: 0.15s;
   transition-property: color, background-color;
   transition-timing-function: ease-out;
   text-decoration: none;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -42,12 +42,6 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
   &--rounded {
     border-radius: 32px;
-  }
-
-  &--onlyIcon {
-    &:not(:first-child) {
-      display: none;
-    }
   }
 
   &:focus {
