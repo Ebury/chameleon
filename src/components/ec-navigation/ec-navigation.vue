@@ -1,10 +1,10 @@
 <template>
   <div
-    class="ec-navigation ec-p--8"
+    class="ec-navigation"
     :class="{ 'ec-navigation--is-collapsable': isCollapsable, 'ec-navigation--is-collapsed': isCollapsed }"
   >
     <div
-      v-if="showBrandingLogo && branding.logo"
+      v-if="showBrandingLogo && branding.logo &&!isCollapsed"
       class="ec-navigation__branding"
     >
       <img
@@ -94,13 +94,8 @@ export default {
   }
 
   &__branding {
-    display: none;
     padding: 24px;
     text-align: center;
-
-    @include media__from-1280 {
-      display: block;
-    }
   }
 
   &__block {

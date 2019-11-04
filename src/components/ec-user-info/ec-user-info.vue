@@ -6,9 +6,9 @@
       @click="this.$emit('toggle')"
     >
     <template v-if="!isCollapsed">
-      <div class="ec-ml--8 ec-mr--8">
+      <div>
         <a
-          class="ec-user-info__client-name ec-mt--8 ec-mb--8"
+          class="ec-user-info__client-name"
           :href="user.profileUrl"
         >{{ user.name }}</a>
 
@@ -56,6 +56,7 @@ $ec-client-text-color-hover: $level-4-tech-blue !default;
   font-size: 18px;
   align-items: center;
   color: $white;
+  padding: 16px;
 
   @include media__from-1280 {
     flex-direction: column;
@@ -73,6 +74,7 @@ $ec-client-text-color-hover: $level-4-tech-blue !default;
     font-weight: 300;
     font-size: 18px;
     text-decoration: none;
+    margin: 8px 0;
 
     &:hover {
       color: $ec-client-text-color-hover;
