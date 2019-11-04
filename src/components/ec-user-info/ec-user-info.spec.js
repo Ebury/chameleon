@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import { mount } from '@vue/test-utils';
 import EcUserInfo from '@/components/ec-user-info/ec-user-info.vue';
-// import { withMockedConsole2 } from '../../../tests/utils/console';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 const user = {
   name: 'Ebury Demo 2',
@@ -10,7 +10,7 @@ const user = {
 };
 
 describe('EcUserInfo', () => {
-  it('renders correctly', () => {
+  it('should render as expected', () => {
     const wrapper = mount(EcUserInfo, {
       propsData: {
         user,
@@ -19,22 +19,43 @@ describe('EcUserInfo', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('will emit a toggle event', () => {
+  it('should emit a toggle event', () => {
     const wrapper = mount(EcUserInfo, {
       propsData: {
         user,
       },
     });
     wrapper.vm.toggle();
-    expect(wrapper.emitted().toggle).toBe(true);
+    expect(wrapper.emitted().toggle).toBeTruthy();
   });
 
+  it('should throw an error if no props were given', () => {
+    withMockedConsole((errorSpy) => {
+      mount(EcUserInfo);
+      expect(errorSpy).toHaveBeenCalled();
+      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "user"');
+    });
+  });
 
-  // it('should throw an error if prop object was not given', () => {
-  //   withMockedConsole2((errorSpy) => {
-  //     mount(EcUserInfo);
-  //     expect(errorSpy).toHaveBeenCalled();
-  //     expect(errorSpy.mock.calls[0][0]).toContain('TypeError');
-  //   });
-  // });
+  it('should not show text when collapsed', () => {
+    const wrapper = mount(EcUserInfo, {
+      propsData: {
+        user,
+        isCollapsed: true,
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.contains('.ec-user-info__client-name')).toBe(false);
+  });
+
+  it('should show text when not collapsed', () => {
+    const wrapper = mount(EcUserInfo, {
+      propsData: {
+        user,
+        isCollapsed: false,
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.contains('.ec-user-info__client-name')).toBe(true);
+  });
 });
