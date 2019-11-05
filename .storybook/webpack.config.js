@@ -5,10 +5,12 @@ const loader = require.resolve('@storybook/addon-storysource/loader');
 module.exports = async ({ config }) => {
   config.module.rules.push({
     test: /\.scss$/,
+    sideEffects: true,
     use: ['style-loader', 'css-loader', 'sass-loader'],
     include: path.resolve(__dirname, '../'),
   });
   config.module.rules.push({
+    sideEffects: true,
     test: /\.sass$/,
     use: ['style-loader', 'css-loader', 'sass-loader'],
     include: path.resolve(__dirname, '../'),
