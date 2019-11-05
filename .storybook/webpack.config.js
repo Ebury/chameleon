@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable global-require */
 const path = require('path');
 
 const loader = require.resolve('@storybook/addon-storysource/loader');
@@ -6,7 +8,16 @@ module.exports = async ({ config }) => {
   config.module.rules.push({
     test: /\.scss$/,
     sideEffects: true,
-    use: ['style-loader', 'css-loader', 'sass-loader'],
+    use: [
+      'style-loader',
+      'css-loader',
+      {
+        loader: 'sass-loader',
+        options: {
+          implementation: require('sass'),
+        },
+      },
+    ],
     include: path.resolve(__dirname, '../'),
   });
   config.module.rules.push({
