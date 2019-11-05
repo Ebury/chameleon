@@ -104,7 +104,6 @@ export default {
 
 <style lang="scss">
 @import '../../scss/tools/typography';
-@import '../../scss/tools/media-queries';
 @import '../../scss/settings/colors/index';
 $ec-navigation-link-text-color: $white !default;
 

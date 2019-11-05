@@ -4,8 +4,15 @@ import EcContainer from './ec-container.vue';
 import EcMainContainer from '../ec-main-container';
 import EcNavigation from '../ec-navigation';
 import EcMenu from '../ec-menu';
+import EcUserInfo from '../ec-user-info';
 
 const stories = storiesOf('Container', module);
+
+const client = {
+  name: 'Ebury Demo 2',
+  profileUrl: '/profile',
+  gravatar: 'https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200',
+};
 
 stories
   .add('basic', () => ({
@@ -23,10 +30,31 @@ stories
 
 stories
   .add('with navigation', () => ({
+    data() {
+      return {
+        isCollapsed: null,
+      };
+    },
+    watch: {
+      isCollapsedFromProps: {
+        immediate: true,
+        handler(newValue) {
+          this.isCollapsed = newValue;
+        },
+      },
+    },
     components: {
-      EcContainer, EcMainContainer, EcNavigation, EcMenu,
+      EcContainer, EcMainContainer, EcNavigation, EcMenu, EcUserInfo,
+    },
+    methods: {
+      updateIsCollapsed() {
+        this.isCollapsed = !this.isCollapsed;
+      },
     },
     props: {
+      client: {
+        default: object('user', client),
+      },
       branding: {
         default: object('branding', {
           name: 'My Branding',
@@ -51,11 +79,11 @@ stories
       isCollapsable: {
         default: boolean('isCollapsable', false),
       },
-      isCollapsed: {
-        default: boolean('isCollapsed', false),
-      },
       copyrightText: {
         default: text('copyrightText', 'Copyright text 2019'),
+      },
+      isCollapsedFromProps: {
+        default: boolean('isCollapsed', false),
       },
     },
     template: `
@@ -66,16 +94,36 @@ stories
           :is-collapsable="isCollapsable"
           :branding="branding"
           :show-branding-logo="!isCollapsable">
+
+          <template #user-info>
+            <ec-user-info
+              :user="client"
+              :is-collapsable="isCollapsable"
+              :is-collapsed="isCollapsable && isCollapsed"
+              @toggle="updateIsCollapsed"
+            >
+              <template #client-selector>
+                <select>
+                  <option value="ebury">Ebury</option>
+                  <option value="eburydemo2">EburyDemo2</option>
+                </select>
+              </template>
+            </ ec-user-info>
+          </template>
+
           <template #menu>
             <ec-menu :links="menuLinks" :is-collapsed="isCollapsable && isCollapsed" />
           </template>
+
           <template #footer-menu>
             <ec-menu :links="footerLinks" :is-collapsed="isCollapsable && isCollapsed" :horizontal="!isCollapsable || (isCollapsable && !isCollapsed)" />
           </template>
+
           <template #copyright v-if="!isCollapsed">
             <div>{{ copyrightText }}</div>
           </template>
-        </ec-navigation>
+
+          </ec-navigation>
       </template>
       <template #content>
         <ec-main-container>

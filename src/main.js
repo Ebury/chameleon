@@ -7,5 +7,6 @@ export { default as EcMainContainer } from './components/ec-main-container';
 export { default as EcMenu } from './components/ec-menu';
 export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
+export { default as EcUserInfo } from './components/ec-user-info';
 export { default as EcPopover } from './components/ec-popover';
 export { default as EcTooltip } from './directives/ec-tooltip';

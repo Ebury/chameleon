@@ -70,7 +70,7 @@ export default {
 
 <style lang="scss">
 @import '../../scss/settings/colors/index';
-@import '../../scss/tools/typography';
+@import '../../scss/tools/index';
 
 .ec-navigation {
   width: 280px;
