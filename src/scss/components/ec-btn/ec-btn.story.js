@@ -145,25 +145,47 @@ stories
       iconSize: {
         default: number('Icon size', 20),
       },
+      buttonSize: {
+        default: select('Size', ['ec-btn--sm', 'ec-btn--md'], 'ec-btn--sm'),
+      },
+    },
+    computed: {
+      classNames() {
+        return [
+          this.buttonSize,
+        ];
+      },
     },
     template: `
         <div class="ec-m--20">
-          <button class="ec-btn ec-btn--primary ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--primary ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--primary-reverse ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--primary-reverse ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--secondary ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--secondary ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--success ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--success ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--error ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--error ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--icon-only" disabled>
+          <button
+          :class="classNames"
+            class="ec-btn ec-btn--icon-only" disabled>
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
         </div>

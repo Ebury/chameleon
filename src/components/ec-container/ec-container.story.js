@@ -108,7 +108,7 @@ stories
                   <option value="eburydemo2">EburyDemo2</option>
                 </select>
               </template>
-            </ ec-user-info>
+            </ec-user-info>
           </template>
 
           <template #menu>
