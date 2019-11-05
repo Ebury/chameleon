@@ -13,10 +13,11 @@
     "lint:js": "vue-cli-service lint -- ./",
     "lint:style": "vue-cli-service lint:style",
     "test": "vue-cli-service test:unit",
-    "build-storybook": "build-storybook -s ./public,./src/assets -c .storybook -o .out",
+    "prebuild-storybook": "npm run icons",
+    "build-storybook": "build-storybook -s ./public,./src/assets -o .out --no-dll",
     "prestart": "npm run icons",
     "start": "start-storybook -s ./public,./src/assets -p 42475",
-    "now-build": "build-storybook"
+    "now-build": "npm run build-storybook"
   },
   "dependencies": {
     "@ebury/chameleon-styles": "1.23.2",
