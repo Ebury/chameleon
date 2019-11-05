@@ -102,8 +102,8 @@ stories
               :is-collapsed="isCollapsable && isCollapsed"
               @toggle="updateIsCollapsed"
             >
-              <template v-slot:#client-selector>
-                <select name="pets" id="pet-select">
+              <template #client-selector>
+                <select>
                   <option value="ebury">Ebury</option>
                   <option value="eburydemo2">EburyDemo2</option>
                 </select>
