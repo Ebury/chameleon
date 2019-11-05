@@ -14,6 +14,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 .ec-btn {
   @include btn;
 
+  fill: currentColor;
   color: $ec-btn-color;
   max-width: 256px;
   cursor: pointer;
@@ -50,7 +51,6 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   &--icon-only {
     min-width: 0;
     border-radius: 32px;
-    fill: currentColor;
 
     &.ec-btn--sm {
       padding: 4px;
