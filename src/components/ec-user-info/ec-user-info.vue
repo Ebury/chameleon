@@ -4,8 +4,9 @@
     :class="{'ec-user-info--is-collapsable': isCollapsable}"
   >
     <img
-      class="ec-user-info__image"
+      class="ec-user-info__avatar"
       :src="user.gravatar"
+      :alt="user.name + ' gravatar'"
       @click="toggle()"
     >
     <template v-if="!isCollapsed">
@@ -15,7 +16,7 @@
           :href="user.profileUrl"
         >{{ user.name }}</a>
 
-        <slot name="dropdown-search" />
+        <slot name="client-selector" />
       </div>
     </template>
   </div>
@@ -54,20 +55,18 @@ $ec-client-text-color-hover: $level-4-tech-blue !default;
 .ec-user-info {
   display: flex;
   flex-direction: column;
-  font-size: 18px;
   align-items: center;
-  color: $white;
 
   &--is-collapsable {
     flex-direction: row;
     justify-content: center;
 
-    .ec-user-info__image {
+    .ec-user-info__avatar {
       margin-right: 8px;
     }
   }
 
-  &__image {
+  &__avatar {
     width: 48px;
     height: 48px;
     border-radius: 6px;
@@ -75,9 +74,11 @@ $ec-client-text-color-hover: $level-4-tech-blue !default;
 
   &__client-name {
     display: block;
-    color: $white;
     font-weight: 300;
-    font-size: 18px;
+
+    @include h4;
+
+    color: $ec-client-text-color;
     text-decoration: none;
     margin: 8px 0;
 

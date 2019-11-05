@@ -33,13 +33,13 @@ stories.add('basic', () => ({
       :is-collapsable="isCollapsable"
       :is-collapsed="isCollapsable && isCollapsed"
       @toggle="isCollapsed = !isCollapsed">
-      <template v-slot:dropdown-search>
-        <select name="pets" id="pet-select">
-          <option value="ebury">Ebury</option>
-          <option value="eburydemo2">EburyDemo2</option>
-        </select>
-      </template>
-    </ ec-user-info>
+        <template #client-selector>
+          <select>
+            <option value="ebury">Ebury</option>
+            <option value="eburydemo2">EburyDemo2</option>
+          </select>
+        </template>
+      </ ec-user-info>
     </div>
   `,
 }))
@@ -95,7 +95,7 @@ stories.add('basic', () => ({
         :user="client"
         :is-collapsable="isCollapsable"
         :is-collapsed="isCollapsable && isCollapsed"
-        @toggle="isCollapsed = !isCollapsed">
+      >
         <template v-slot:dropdown-search>
           <select name="pets" id="pet-select">
             <option value="ebury">Ebury</option>

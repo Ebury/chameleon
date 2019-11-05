@@ -4,7 +4,7 @@
     :class="{ 'ec-navigation--is-collapsable': isCollapsable, 'ec-navigation--is-collapsed': isCollapsed }"
   >
     <div
-      v-if="showBrandingLogo && branding.logo &&!isCollapsed"
+      v-if="showBrandingLogo && branding.logo"
       class="ec-navigation__branding"
     >
       <img
