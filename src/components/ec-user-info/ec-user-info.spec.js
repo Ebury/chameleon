@@ -19,13 +19,30 @@ describe('EcUserInfo', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render slot for client selector', () => {
+    const wrapper = mount(EcUserInfo, {
+      propsData: {
+        user,
+      },
+      slots: {
+        'client-selector': `
+          <select>
+            <option value="ebury">Ebury</option>
+            <option value="eburydemo2">EburyDemo2</option>
+          </select>`,
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should emit a toggle event', () => {
     const wrapper = mount(EcUserInfo, {
       propsData: {
         user,
       },
     });
-    wrapper.vm.toggle();
+    wrapper.find('.ec-user-info__avatar').trigger('click');
     expect(wrapper.emitted().toggle).toBeTruthy();
   });
 
@@ -33,7 +50,7 @@ describe('EcUserInfo', () => {
     withMockedConsole((errorSpy) => {
       mount(EcUserInfo);
       expect(errorSpy).toHaveBeenCalled();
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop');
+      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "user"');
     });
   });
 
