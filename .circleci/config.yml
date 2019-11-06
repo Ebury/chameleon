@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/chameleon
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: npm ci
+      - run:
+          name: lint
+          command: npm run lint
+      - run:
+          name: test
+          command: npm run test
+
+workflows:
+  version: 2
+  build_lint_and_test:
+    jobs:
+      - build
