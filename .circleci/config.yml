@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~
+    working_directory: ~/chameleon
     docker:
       - image: circleci/node:lts
     steps:
@@ -20,10 +20,4 @@ workflows:
   version: 2
   build_lint_and_test:
     jobs:
-      - install
-      - test:
-          requires:
-            - install
-      - lint:
-          requires:
-            - install
+      - build
