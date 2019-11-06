@@ -9,8 +9,12 @@
       :alt="user.name + ' gravatar'"
       @click="toggle()"
     >
-    <template v-if="!isCollapsed">
-      <div>
+
+    <transition name="ec-user-info__client-fade">
+      <div
+        v-if="!isCollapsed"
+        class="ec-user-info__client-wrapper"
+      >
         <a
           class="ec-user-info__client-name"
           :href="user.profileUrl"
@@ -18,7 +22,7 @@
 
         <slot name="client-selector" />
       </div>
-    </template>
+    </transition>
   </div>
 </template>
 
@@ -49,47 +53,66 @@ export default {
 <style lang="scss">
 @import '../../scss/settings/colors/index';
 @import '../../scss/tools/index';
+
 $ec-client-text-color: $white !default;
 $ec-client-text-color-hover: $level-4-tech-blue !default;
+$ec-user-info-avatar-size: 48px !default;
 
 .ec-user-info {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 16px;
+  white-space: nowrap;
 
   &--is-collapsable {
     flex-direction: row;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-height: $ec-user-info-avatar-size;
 
     .ec-user-info__avatar {
-      margin-right: 8px;
+      margin-right: 16px;
     }
   }
 
   &__avatar {
-    width: 48px;
-    height: 48px;
+    width: $ec-user-info-avatar-size;
+    height: $ec-user-info-avatar-size;
     border-radius: 6px;
   }
 
   &__client-name {
     @include h4;
+    @include ellipsis;
 
     display: block;
-
-    &:link,
-    &:active {
-      color: $ec-client-text-color;
-      text-decoration: none;
-    }
-
     color: $ec-client-text-color;
     text-decoration: none;
-    margin: 8px 0;
+    margin-top: 8px;
 
     &:hover {
       color: $ec-client-text-color-hover;
+      text-decoration: none;
       transition: color 0.5s ease-out;
+    }
+
+    .ec-user-info--is-collapsable & {
+      margin-top: 0;
+    }
+  }
+
+  &__client-fade {
+    @include fade-transition;
+  }
+
+  &__client-wrapper {
+    min-width: 0;
+    max-width: 100%;
+    text-align: center;
+
+    .ec-user-info--is-collapsable & {
+      text-align: left;
     }
   }
 }

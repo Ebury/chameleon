@@ -1,5 +1,7 @@
 import { storiesOf } from '@storybook/vue';
-import { boolean, object, select } from '@storybook/addon-knobs';
+import {
+  boolean, object, select, text,
+} from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 import EcIcon from '../ec-icon';
@@ -65,7 +67,7 @@ stories.add('in container with a dynamic width', () => ({
       default: boolean('isSearchEnabled', true),
     },
     paragraphText: {
-      default: boolean('paragraphText', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.'),
+      default: text('paragraphText', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.'),
     },
     boundariesElement: {
       default: select('boundariesElement', ['viewport', 'scrollParent'], 'viewport'),

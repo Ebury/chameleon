@@ -102,6 +102,10 @@ export default {
       type: Object,
       default: null,
     },
+    popperModifiers: {
+      type: Object,
+      default: null,
+    },
   },
   data() {
     return {
@@ -110,7 +114,9 @@ export default {
       popperOptions: {
         modifiers: {
           // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
-          preventOverflow: { priority: ['bottom', 'top'] },
+          preventOverflow: {
+            priority: ['bottom', 'top'],
+          },
           setPopperWidth: {
             // Problem:
             // The width of the popover should match the width of the dropdown-search root.
@@ -133,6 +139,7 @@ export default {
               return data;
             },
           },
+          ...this.popperModifiers,
         },
       },
     };
@@ -215,6 +222,7 @@ $ec-dropdown-search-icon-size: 16px;
   &__search-icon {
     position: absolute;
     left: $item-vertical-padding;
+    top: (40px - $ec-dropdown-search-icon-size) / 2;
     width: $ec-dropdown-search-icon-size;
     height: $ec-dropdown-search-icon-size;
     fill: $ec-dropdown-search-icon-color;
