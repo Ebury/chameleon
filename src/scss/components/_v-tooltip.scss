@@ -43,7 +43,7 @@ $ec-tooltip-width-value: 5px;
       border-right-color: transparent;
       border-bottom-color: transparent;
       bottom: -$ec-tooltip-width-value;
-      left: calc(50% - $ec-tooltip-width-value);
+      left: calc(50% - #{$ec-tooltip-width-value});
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -59,7 +59,7 @@ $ec-tooltip-width-value: 5px;
       border-right-color: transparent;
       border-top-color: transparent;
       top: -$ec-tooltip-width-value;
-      left: calc(50% - $ec-tooltip-width-value);
+      left: calc(50% - #{$ec-tooltip-width-value});
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -75,7 +75,7 @@ $ec-tooltip-width-value: 5px;
       border-top-color: transparent;
       border-bottom-color: transparent;
       left: -$ec-tooltip-width-value;
-      top: calc(50% - $ec-tooltip-width-value);
+      top: calc(50% - #{$ec-tooltip-width-value});
       margin-left: 0;
       margin-right: 0;
     }
@@ -91,7 +91,7 @@ $ec-tooltip-width-value: 5px;
       border-right-color: transparent;
       border-bottom-color: transparent;
       right: -$ec-tooltip-width-value;
-      top: calc(50% - $ec-tooltip-width-value);
+      top: calc(50% - #{$ec-tooltip-width-value});
       margin-left: 0;
       margin-right: 0;
     }
