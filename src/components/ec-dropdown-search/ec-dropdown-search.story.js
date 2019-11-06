@@ -13,6 +13,9 @@ const items = [
   { text: 'Item 2' },
   { text: 'Item 3', disabled: true, disabledReason: 'Is disabled for a reason' },
   { text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod' },
+  { text: 'Item 5' },
+  { text: 'Item 6' },
+  { text: 'Item 7' },
 ];
 
 stories.add('basic', () => ({

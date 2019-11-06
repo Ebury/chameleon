@@ -196,7 +196,10 @@ $ec-dropdown-search-color-selected: $white !default;
 $ec-dropdown-search-color-disabled: $level-6-disabled-lines !default;
 $ec-dropdown-search-border-color: $level-6-disabled-lines !default;
 $ec-dropdown-search-icon-color: currentColor !default;
-$ec-dropdown-search-icon-size: 16px;
+$ec-dropdown-search-icon-size: 16px !default;
+$ec-dropdown-search-item-height: 40px !default;
+$ec-dropdown-search-item-delimiter-size: 1px !default;
+$ec-dropdown-search-maximum-number-of-items-visible: 5 !default; // search included
 
 .ec-dropdown-search {
   $item-vertical-padding: 16px;
@@ -213,7 +216,7 @@ $ec-dropdown-search-icon-size: 16px;
   }
 
   &__search-area {
-    border-bottom: 1px solid $ec-dropdown-search-border-color;
+    border-bottom: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;
     position: relative;
     display: flex;
     align-items: center;
@@ -222,7 +225,7 @@ $ec-dropdown-search-icon-size: 16px;
   &__search-icon {
     position: absolute;
     left: $item-vertical-padding;
-    top: (40px - $ec-dropdown-search-icon-size) / 2;
+    top: ($ec-dropdown-search-item-height - $ec-dropdown-search-icon-size) / 2;
     width: $ec-dropdown-search-icon-size;
     height: $ec-dropdown-search-icon-size;
     fill: $ec-dropdown-search-icon-color;
@@ -237,6 +240,14 @@ $ec-dropdown-search-icon-size: 16px;
     padding-left: $item-vertical-padding + $ec-dropdown-search-icon-size + $search-icon-margin-right;
   }
 
+  &__item-list {
+    $content-heihgt: $ec-dropdown-search-maximum-number-of-items-visible * $ec-dropdown-search-item-height;
+    $delimiters-height: ($ec-dropdown-search-maximum-number-of-items-visible - 1) * $ec-dropdown-search-item-delimiter-size;
+
+    max-height: $content-heihgt + $delimiters-height;
+    overflow-y: scroll;
+  }
+
   &__item {
     @include ellipsis;
 
@@ -249,7 +260,7 @@ $ec-dropdown-search-icon-size: 16px;
     }
 
     & + & {
-      border-top: 1px solid $ec-dropdown-search-border-color;
+      border-top: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;
     }
 
     &--is-selected,
