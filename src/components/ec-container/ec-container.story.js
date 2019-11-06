@@ -34,7 +34,7 @@ stories
   .add('with navigation', () => ({
     data() {
       return {
-        selectedClient: null,
+        selectedClient: {},
         isCollapsed: null,
         dropdownSearchWidth: {
           enabled: true,
@@ -140,7 +140,7 @@ stories
                   :popper-modifiers="{ dropdownSearchWidth }"
                   v-model="selectedClient">
                   <a href="#" @click.prevent style="color: #fff; display: inline-flex;">
-                    <span>{{ client.name }}</span>
+                    <span>{{ selectedClient.text || client.name }}</span>
                     <ec-icon name="simple-arrow-drop-down" :size="20" fill="currentColor" />
                   </a>
                 </ec-dropdown-search>
