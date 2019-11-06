@@ -5,6 +5,9 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
   level=""
   offset="10"
   placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
 >
    
   <template>
@@ -36,6 +39,9 @@ exports[`EcInlineActions should render the item disabled when an item was given 
   level=""
   offset="10"
   placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
 >
    
   <template>
@@ -68,6 +74,9 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
   level=""
   offset="10"
   placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
 >
    
   <template>
@@ -104,6 +113,9 @@ exports[`EcInlineActions should render the item with default popover options 1`]
   level=""
   offset="10"
   placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
 >
    
   <template>
@@ -139,6 +151,9 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
   level=""
   offset="20"
   placement="top"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
 >
    
   <template>
@@ -174,6 +189,9 @@ exports[`EcInlineActions should render with one line break when a different arra
   level=""
   offset="10"
   placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
 >
    
   <template>
@@ -228,6 +246,9 @@ exports[`EcInlineActions should render with tooltip 1`] = `
   level=""
   offset="10"
   placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
 >
    
   <template>

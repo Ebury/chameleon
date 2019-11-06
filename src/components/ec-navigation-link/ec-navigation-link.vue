@@ -103,7 +103,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/tools/typography';
+@import '../../scss/tools/index';
 @import '../../scss/settings/colors/index';
 $ec-navigation-link-text-color: $white !default;
 $ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
@@ -116,15 +116,12 @@ $ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
   display: flex;
   align-items: center;
   text-decoration: none;
-
-  &:link,
-  &:active {
-    color: $ec-navigation-link-text-color;
-    text-decoration: none;
-  }
+  color: $ec-navigation-link-text-color;
+  white-space: nowrap;
 
   &:hover {
     color: $ec-navigation-link-text-color-hover;
+    text-decoration: none;
   }
 
   &--is-compact {
@@ -154,15 +151,7 @@ $ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
   }
 
   &__text-fade {
-    &-enter-active,
-    &-leave-active {
-      transition: opacity 0.5s;
-    }
-
-    &-enter,
-    &-leave-to {
-      opacity: 0;
-    }
+    @include fade-transition;
   }
 
   &--is-active {

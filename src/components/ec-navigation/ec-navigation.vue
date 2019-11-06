@@ -8,6 +8,7 @@
       class="ec-navigation__branding"
     >
       <img
+        class="ec-navigation__branding-logo"
         :src="branding.logo"
         :alt="branding.name"
       >
@@ -94,8 +95,13 @@ export default {
   }
 
   &__branding {
-    padding: 24px;
+    padding: 0 24px;
+    margin: 24px 0 8px;
     text-align: center;
+  }
+
+  &__branding-logo {
+    vertical-align: top;
   }
 
   &__block {
@@ -113,6 +119,7 @@ export default {
   &__copyright {
     @include caption-text;
 
+    white-space: nowrap;
     padding: 0 24px;
     text-align: center;
   }

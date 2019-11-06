@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable import/prefer-default-export */
 export function loadSvgSprites(svgSpriteNames, publicPath = '') {
   return svgSpriteNames.map(async (spriteName) => {
     const url = `${publicPath}/${spriteName}-icons.svg`;

@@ -5,7 +5,7 @@ import EcUserInfo from './ec-user-info.vue';
 const client = {
   name: 'Ebury Demo 2',
   profileUrl: '/profile',
-  gravatar: 'https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200',
+  gravatar: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?d=mm&s=200',
 };
 
 const stories = storiesOf('User Info', module);

@@ -20,9 +20,7 @@ module.exports = {
     'jest-serializer-vue',
   ],
   testMatch: [
-    '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)',
-    '**/__tests__/*.(js|jsx|ts|tsx)',
-    '**/src/components/**/*.spec.(js|jsx|ts|tsx)',
+    '<rootDir>/src/**/*.spec.(js|jsx|ts|tsx)',
   ],
   testURL: 'http://localhost/',
   watchPlugins: [
@@ -30,6 +28,6 @@ module.exports = {
     'jest-watch-typeahead/testname',
   ],
   setupFiles: [
-    '<rootDir>/tests/setup/jquery.setup.js',
   ],
+  setupTestFrameworkScriptFile: '<rootDir>/tests/setup/after-env.js',
 };

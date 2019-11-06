@@ -57,11 +57,6 @@
   color: $level-4-tech-blue;
   text-decoration: none;
 
-  &:link,
-  &:active {
-    color: $level-4-tech-blue;
-  }
-
   &:hover {
     text-decoration: underline;
   }

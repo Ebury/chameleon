@@ -12,9 +12,17 @@ describe('EcPopover component', () => {
   });
 
   it('should merge default options with given additional options', () => {
-    const wrapper = shallowMount(EcPopover, { propsData: { popoverClass: 'my-popover' } });
+    const wrapper = shallowMount(EcPopover, {
+      propsData: {
+        popoverClass: 'my-popover',
+        popoverInnerClass: 'my-inner-popover',
+        popoverArrowClass: 'my-arrow',
+      },
+    });
     const attributes = wrapper.find('v-popover-stub').attributes();
-    expect(attributes.popoverclass).toBe('my-popover');
+    expect(attributes.popoverclass).toBe('my-popover ec-popover');
+    expect(attributes.popoverinnerclass).toBe('my-inner-popover ec-popover__inner');
+    expect(attributes.popoverarrowclass).toBe('my-arrow ec-popover__arrow');
   });
 
   it('should update options when additional options are also updated', () => {

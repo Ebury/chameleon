@@ -46,7 +46,7 @@ module.exports = {
     'scss/dollar-variable-colon-space-after': 'always',
     'scss/dollar-variable-colon-space-before': 'never',
     'scss/dollar-variable-default': null,
-    'scss/dollar-variable-empty-line-before': 'never',
+    'scss/dollar-variable-empty-line-before': null,
     'scss/dollar-variable-no-missing-interpolation': true,
     'scss/dollar-variable-pattern': NAMING_PATTERN,
     'scss/double-slash-comment-empty-line-before': null,

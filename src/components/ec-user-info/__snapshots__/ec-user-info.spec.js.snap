@@ -24,7 +24,10 @@ exports[`EcUserInfo should render as expected 1`] = `
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
    
-  <div>
+  <div
+    class="ec-user-info__client-wrapper"
+    name="ec-user-info__client-fade"
+  >
     <a
       class="ec-user-info__client-name"
       href="/profile"
@@ -46,7 +49,10 @@ exports[`EcUserInfo should render slot for client selector 1`] = `
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
    
-  <div>
+  <div
+    class="ec-user-info__client-wrapper"
+    name="ec-user-info__client-fade"
+  >
     <a
       class="ec-user-info__client-name"
       href="/profile"
@@ -81,7 +87,10 @@ exports[`EcUserInfo should show text when not collapsed 1`] = `
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
    
-  <div>
+  <div
+    class="ec-user-info__client-wrapper"
+    name="ec-user-info__client-fade"
+  >
     <a
       class="ec-user-info__client-name"
       href="/profile"

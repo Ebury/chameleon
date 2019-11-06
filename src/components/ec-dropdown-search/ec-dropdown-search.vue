@@ -1,435 +1,280 @@
 <template>
-  <div class="ec-dropdown main-menu__header__account-selector main-menu__header__account">
-    <div
-      class="ec-dropdown-search"
-      @blur="show = false"
+  <div
+    ref="popperWidthReference"
+    class="ec-dropdown-search"
+  >
+    <ec-popover
+      v-bind="{
+        open: isOpen,
+        placement: 'bottom',
+        offset: 8,
+        popoverInnerClass: 'ec-dropdown-search__popover',
+        popperOptions,
+        ...popoverOptions,
+      }"
+      @hide="hide"
+      @show="show"
+      @apply-show="focus"
     >
-      <a
-        href
-        class="ec-dropdown-toggle ec-dropdown-toggle--menu"
-        data-toggle="ec-dropdown"
-        aria-haspopup="true"
-        @click.prevent="show = !show"
-      >
-        <span class="title">{{ user.clientName }}</span>
-      </a>
-      <ul
-        ref="scrollbar"
-        v-if="show"
-        class="ec-scrollbar ec-dropdown-menu ec-show"
-      >
-        <li
-          v-if="showSearch"
-          :class="`ec-dropdown-item ec-dropdown-input`"
-        >
-          <i :class="`ec-ico ec-ico-search ec-input-icon`" />
-          <input
-            v-model="searchText"
-            :placeholder="placeholder"
-            @input="hideTooltipsAndAddInteractionHuha()"
-            @focus="addInteractionHuhaTask()"
+      <slot />
+      <div slot="popover">
+        <ul class="ec-dropdown-search__item-list">
+          <li
+            v-if="isSearchEnabled"
+            class="ec-dropdown-search__search-area"
           >
-        </li>
-
-        <li
-          v-for="item in list"
-          :key="item[itemFormat.id]"
-          :class="['ec-dropdown-item ec-ellipsis', addDisabledClass(item)]"
-          :data-id="item[itemFormat.id]"
-          @click="selectItem(item)"
-        >{{ item[itemFormat.text] }}</li>
-      </ul>
-    </div>
+            <ec-icon
+              class="ec-dropdown-search__search-icon"
+              name="simple-search"
+            />
+            <input
+              ref="searchInput"
+              v-model.trim="filterText"
+              autocomplete="off"
+              class="ec-dropdown-search__search-input"
+              :placeholder="placeholder"
+            >
+          </li>
+          <slot
+            name="items"
+            v-bind="filteredItems"
+          >
+            <li
+              v-for="(item, index) of filteredItems"
+              :key="item.id || index"
+              v-ec-tooltip="{
+                placement: 'right',
+                content: item.disabled ? item.disabledReason : '',
+                ...tooltipOptions,
+                ...item.tooltip,
+              }"
+              :title="item.text"
+              class="ec-dropdown-search__item"
+              :class="{
+                'ec-dropdown-search__item--is-selected': item === selected,
+                'ec-dropdown-search__item--is-disabled': item.disabled
+              }"
+              @click="!item.disabled && select(item)"
+            >{{ item.text }}</li>
+          </slot>
+        </ul>
+      </div>
+    </ec-popover>
   </div>
 </template>
 
 <script>
-import { remove as removeDiacritics } from 'diacritics';
-import $ from 'jquery';
-import 'jquery-ui/ui/widgets/tooltip';
-import Huha from '@ebury/huha';
-import * as Scrollbar from 'perfect-scrollbar';
+import EcIcon from '../ec-icon';
+import EcPopover from '../ec-popover';
+import EcTooltip from '../../directives/ec-tooltip';
+import { removeDiacritics } from '../../utils/diacritics';
 
 export default {
   name: 'EcDropdownSearch',
-
+  components: { EcPopover, EcIcon },
+  directives: { EcTooltip },
+  model: {
+    prop: 'selected',
+    event: 'change',
+  },
   props: {
-    user: {
-      type: Object,
-      required: true,
-    },
-    defaultItemSelected: {
-      type: Object,
-      default: () => null,
-    },
-    items: {
-      type: Array,
-      default: () => [],
-      required: true,
-    },
-    itemFormat: {
-      type: Object,
-      default: () => ({
-        id: 'id',
-        text: 'text',
-        disabled: 'disabled',
-        disabledReason: 'disabledReason',
-      }),
-    },
     placeholder: {
       type: String,
       default: 'Search...',
     },
-    showSearch: {
+    isSearchEnabled: {
       type: Boolean,
       default: true,
     },
-    tooltipContainer: {
-      type: [HTMLElement, String],
-      default: () => 'body',
+    items: {
+      type: Array,
+      default: () => ([]),
     },
-    tooltipPosition: {
-      type: String,
-      default: 'top',
-      validator: (value) => {
-        const placement = ['auto', 'top', 'bottom', 'left', 'right'];
-
-        return placement.indexOf(value) > -1;
-      },
-    },
-    huhaTaskName: {
-      type: String,
+    selected: {
+      type: Object,
       default: null,
     },
-    huhaTrackOnIntercom: {
-      type: Boolean,
-      default: false,
+    popoverOptions: {
+      type: Object,
+      default: null,
     },
-    huhaTrackOnGoogleAnalytics: {
-      type: Boolean,
-      default: false,
+    tooltipOptions: {
+      type: Object,
+      default: null,
+    },
+    popperModifiers: {
+      type: Object,
+      default: null,
     },
   },
-
   data() {
     return {
-      show: false,
-      searchText: '',
-      selected: this.defaultItemSelected,
-      scrollbarInit: true,
+      isOpen: false,
+      filterText: '',
+      popperOptions: {
+        modifiers: {
+          // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
+          preventOverflow: {
+            priority: ['bottom', 'top'],
+          },
+          setPopperWidth: {
+            // Problem:
+            // The width of the popover should match the width of the dropdown-search root.
+            // There is no easy way how to configure it in popover or popper.js. There is an option to set
+            // boundaries element which popover should not escape, unfortunately, these boundaries are applied for
+            // both axis (x and y), but we want to limit it only the horizontal, e.g. if you have div, we don't
+            // want the popover to have width bigger than div, but we don't care about the height of the div and we
+            // want the popover to overflow the div by escaping from it via bottom or top edge.
+            //
+            // Solution: https://github.com/FezVrasta/popper.js/issues/794
+            // Popper.js has modifiers for extending its functionality. We just need to give proper order and execute
+            // function that will calculate new width for the popover. For the reference width, we will use
+            // the root element of the component. Without setting this, the width would be 100% of the boundariesElement,
+            // which is viewport.
+            enabled: true,
+            order: 840,
+            fn: (data) => {
+              // eslint-disable-next-line no-param-reassign
+              data.styles.width = this.$refs.popperWidthReference.offsetWidth;
+              return data;
+            },
+          },
+          ...this.popperModifiers,
+        },
+      },
     };
   },
-
   computed: {
-    list() {
-      return this.search();
-    },
-  },
-
-  watch: {
-    list() {
-      this.$nextTick(() => {
-        this.setUpTooltips();
-        this.updateScrollbar();
-      });
-    },
-  },
-
-  created() {
-    this.huhaInitialize();
-  },
-
-  mounted() {
-    if (this.show) {
-      this.setUpTooltips();
-      this.setUpScrollbar();
-    } else {
-      this.observerShowClass();
-    }
-  },
-
-  methods: {
-    /**
-     * Returns class name 'ec-disabled' if item has text in property disabled
-     * @param item {Object}
-     * @returns {string} Class name
-     */
-    addDisabledClass(item) {
-      if (item[this.itemFormat.disabled]) {
-        return 'ec-disabled';
-      }
-      return '';
-    },
-
-    /**
-     * Returns if element property offsetWidth is greater than scrollWidth
-     * @param el {HTMLElement}
-     * @returns {boolean}
-     */
-    isActiveEllipsis(el) {
-      return el.offsetWidth < el.scrollWidth;
-    },
-
-    /**
-     * Initialize huha
-     */
-    huhaInitialize() {
-      if (this.huhaTaskName) {
-        this.huha = new Huha({
-          trackOnGoogleAnalytics: this.huhaTrackOnGoogleAnalytics,
-          trackOnIntercom: this.huhaTrackOnIntercom,
-        });
-      }
-    },
-
-    /**
-     * Check if exists huha task
-     */
-    existsHuhaTask() {
-      return this.huhaTaskName && this.huhaTask;
-    },
-
-    /**
-     * Create the huha task
-     */
-    createHuhaTask() {
-      if (this.huhaTaskName && !this.huhaTask) {
-        this.huhaTask = this.huha.createTask(this.huhaTaskName);
-      }
-    },
-
-    /**
-     * Add an interaction to the huha task
-     */
-    addInteractionHuhaTask() {
-      if (this.existsHuhaTask()) {
-        this.huhaTask.addInteraction();
-      }
-    },
-
-    /**
-     * Add an error to the huha task
-     */
-    addErrorHuhaTask() {
-      if (this.existsHuhaTask()) {
-        this.huhaTask.addError();
-      }
-    },
-
-    /**
-     * Complete the huha task
-     */
-    completeHuhaTask() {
-      if (this.existsHuhaTask()) {
-        this.huhaTask.complete();
-        this.huhaTask = null;
-      }
-    },
-
-    /**
-     * Abandon the huha task
-     */
-    abandonHuhaTask() {
-      if (this.existsHuhaTask()) {
-        this.huhaTask.abandon();
-        this.huhaTask = null;
-      }
-    },
-
-    /**
-     * Use for optimize component when bootstrap add the class 'show'
-     */
-    observerShowClass() {
-      // const config = { attributes: true, attributeOldValue: true, attributeFilter: ['class'] };
-      // const observer = new MutationObserver((muts) => {
-      //   let el = muts[0].target;
-      //   if (el.classList.contains(`ec-show`) && muts[0].oldValue.indexOf(`ec-show`) === -1) {
-      //     this.createHuhaTask();
-      //     this.setUpTooltips();
-      //     if (this.scrollbarInit) {
-      //       this.scrollbarInit = false;
-      //       this.setUpScrollbar();
-      //     }
-      //   } else if (
-      //     !el.classList.contains(`ec-show`) &&
-      //     muts[0].oldValue.indexOf(`ec-show`) !== -1
-      //   ) {
-      //     this.abandonHuhaTask();
-      //   }
-      // });
-      // observer.observe(this.$el.querySelector(`.ec-dropdown-menu`), config);
-    },
-
-    /**
-     * Action when select item
-     * @param item {Object}
-     */
-    selectItem(item) {
-      if (!item[this.itemFormat.disabled]) {
-        // completed action
-        this.addInteractionHuhaTask();
-
-        this.selected = item;
-        this.$emit('item-selected', item);
-      } else {
-        this.addErrorHuhaTask();
+    filteredItems() {
+      const filterText = removeDiacritics(this.filterText.toLowerCase());
+      if (!filterText) {
+        return this.items;
       }
 
-      this.completeHuhaTask();
-    },
-
-    /**
-     * Returns a list of items searched with diacritics in the name of items
-     * @returns {Array} List of items
-     */
-    search() {
       return this.items.filter((item) => {
-        const itemText = removeDiacritics(
-          item[this.itemFormat.text].toLowerCase(),
-        );
-        const searchText = removeDiacritics(this.searchText.toLowerCase());
-
-        return itemText.indexOf(searchText) > -1;
+        const itemText = removeDiacritics(item.text.trim().toLowerCase());
+        return itemText.includes(filterText);
       });
     },
-
-    /**
-     * Initialize scrollbar
-     */
-    setUpScrollbar() {
-      const element = this.$refs.scrollbar;
-      Scrollbar.initialize(element);
+  },
+  methods: {
+    hide() {
+      this.isOpen = false;
+      this.$emit('close');
     },
-
-    /**
-     * Initialize/set tooltips
-     */
-    setUpTooltips() {
-      this.list.forEach((item) => {
-        const el = this.$el.querySelector(
-          `[data-id='${item[this.itemFormat.id]}']`,
-        );
-
-        this.toggleTooltip(true, el, item);
-      });
+    show() {
+      this.isOpen = true;
+      this.$emit('open');
     },
-
-    /**
-     * Turn on/off bootstrap tooltip for the element with item conditions
-     * @param on {boolean}
-     * @param el {HTMLElement}
-     * @param item {Object}
-     */
-    toggleTooltip(on, el, item) {
-      if (on && el && item) {
-        let title = '';
-
-        if (item[this.itemFormat.disabled]) {
-          title = (this.isActiveEllipsis(el)
-            ? `${item[this.itemFormat.text]}<br/>`
-            : '') + item[this.itemFormat.disabledReason];
-        } else if (this.isActiveEllipsis(el)) {
-          title = item[this.itemFormat.text];
+    focus() {
+      this.$nextTick(() => {
+        if (this.isOpen && this.$refs.searchInput) {
+          this.$refs.searchInput.focus();
         }
-        $(el).tooltip({
-          container: this.tooltipContainer,
-          placement: this.tooltipPosition,
-          html: true,
-          title,
-        });
-      } else {
-        // $(this.$el)
-        //   .find(`.ec-dropdown-item`)
-        //   .tooltip('dispose');
-      }
+      });
     },
-
-    /**
-     * Update scrollbar
-     */
-    updateScrollbar() {
-      // const element = this.$refs.scrollbar;
-      // Scrollbar.update(element);
-    },
-
-    /**
-     * Hide tooltips and add interaction to huha
-     */
-    hideTooltipsAndAddInteractionHuha() {
-      this.addInteractionHuhaTask();
-      this.toggleTooltip(false);
+    select(item) {
+      this.$emit('change', item);
+      this.hide();
     },
   },
 };
 </script>
 
 <style lang="scss">
-// stylelint-disable selector-class-pattern, selector-max-class
+@import '../../scss/tools/v-effetcs';
+@import '../../scss/tools/typography';
+@import '../../scss/settings/colors/index';
 
-.ec-dropdown {
-  width: 100%;
-}
+$ec-dropdown-search-background-color: $white !default;
+$ec-dropdown-search-background-color-hover: $level-7-backgrounds !default;
+$ec-dropdown-search-background-color-selected: $level-4-tech-blue !default;
+$ec-dropdown-search-background-color-disabled: $ec-dropdown-search-background-color !default;
+$ec-dropdown-search-color: null !default;
+$ec-dropdown-search-color-hover: inherit !default;
+$ec-dropdown-search-color-selected: $white !default;
+$ec-dropdown-search-color-disabled: $level-6-disabled-lines !default;
+$ec-dropdown-search-border-color: $level-6-disabled-lines !default;
+$ec-dropdown-search-icon-color: currentColor !default;
+$ec-dropdown-search-icon-size: 16px !default;
+$ec-dropdown-search-item-height: 40px !default;
+$ec-dropdown-search-item-delimiter-size: 1px !default;
+$ec-dropdown-search-maximum-number-of-items-visible: 5 !default; // search included
 
 .ec-dropdown-search {
-  position: relative;
-}
+  $item-vertical-padding: 16px;
+  $item-horizontal-padding: 8px;
+  $search-icon-margin-right: $item-horizontal-padding;
 
-.ec-dropdown-menu {
-  position: absolute;
-  transform: translate3d(0, 31px, 0) translate(-50%, 0);
-  top: 0;
-  left: 50%;
-  width: 100%;
-}
+  &__popover {
+    @include box-shadow-level-1;
+    @include body-text;
 
-.dropdown-menu {
-  // 5 items (Search input + 4 items)
-  max-height: 205px;
-}
+    border: 1px solid $ec-dropdown-search-border-color;
+    background-color: $ec-dropdown-search-background-color;
+    color: $ec-dropdown-search-color;
+  }
 
-.dropdown-input {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border-bottom: 0;
-  cursor: default;
+  &__search-area {
+    border-bottom: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
-  &:active,
-  &:hover {
-    background-color: transparent;
+  &__search-icon {
+    position: absolute;
+    left: $item-vertical-padding;
+    top: ($ec-dropdown-search-item-height - $ec-dropdown-search-icon-size) / 2;
+    width: $ec-dropdown-search-icon-size;
+    height: $ec-dropdown-search-icon-size;
+    fill: $ec-dropdown-search-icon-color;
+  }
+
+  &__search-input {
+    @include body-text;
+
+    width: 100%;
+    border: 0;
+    padding: $item-horizontal-padding $item-vertical-padding;
+    padding-left: $item-vertical-padding + $ec-dropdown-search-icon-size + $search-icon-margin-right;
+  }
+
+  &__item-list {
+    $content-heihgt: $ec-dropdown-search-maximum-number-of-items-visible * $ec-dropdown-search-item-height;
+    $delimiters-height: ($ec-dropdown-search-maximum-number-of-items-visible - 1) * $ec-dropdown-search-item-delimiter-size;
+
+    max-height: $content-heihgt + $delimiters-height;
+    overflow-y: scroll;
+  }
+
+  &__item {
+    @include ellipsis;
+
+    padding: $item-horizontal-padding $item-vertical-padding;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $ec-dropdown-search-background-color-hover;
+      color: $ec-dropdown-search-color-hover;
+    }
+
+    & + & {
+      border-top: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;
+    }
+
+    &--is-selected,
+    &--is-selected:hover {
+      background-color: $ec-dropdown-search-background-color-selected;
+      color: $ec-dropdown-search-color-selected;
+    }
+
+    &--is-disabled,
+    &--is-disabled:hover {
+      color: $ec-dropdown-search-color-disabled;
+      background-color: $ec-dropdown-search-background-color;
+      cursor: default;
+    }
   }
 }
-
-.dropdown-item.disabled {
-  cursor: default;
-}
-
-.input-icon {
-  position: absolute;
-  left: 1rem;
-  top: calc(50% - 0.5em);
-}
-
-input {
-  outline: none;
-  border: none;
-  padding-left: 1.5rem;
-  width: 100%;
-}
-
-.ec .main-menu .main-menu__header .main-menu__header__user-account {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  white-space: nowrap;
-  transition: 0.5s;
-  width: 100%;
-  text-align: center;
-}
-
-.ec .main-menu .main-menu__header .main-menu__header__user {
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-// stylelint-enable
 </style>
