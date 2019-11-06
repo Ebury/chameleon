@@ -63,9 +63,9 @@ stories
             class="ec-m--8 ec-btn"
             :disabled="isDisabled"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" :size="22" />
+            <ec-icon v-if="hasIcon" class="ec-mr--8" name="simple-check" :size="22" />
             <template v-if="!hasIconOnly" >
-              <span class="ec-ml--8">{{this.btnText}}</span>
+              <span>{{this.btnText}}</span>
             </template>
           </button>
         </div>
@@ -77,9 +77,9 @@ stories
             :class="classNames"
             class="ec-m--8 ec-btn"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" :size="22" />
+            <ec-icon v-if="hasIcon" class="ec-mr--8" name="simple-check" :size="22" />
             <template v-if="!hasIconOnly" >
-              <span class="ec-ml--8">{{this.btnText}}</span>
+              <span>{{this.btnText}}</span>
             </template>
           </a>
         </div>
@@ -91,9 +91,9 @@ stories
             :class="classNames"
             class="ec-m--8 ec-btn"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" :size="22" />
+            <ec-icon v-if="hasIcon" class="ec-mr--8" name="simple-check" :size="22" />
             <template v-if="!hasIconOnly" >
-              <span class="ec-ml--8">{{this.btnText}}</span>
+              <span>{{this.btnText}}</span>
             </template>
           </router-link>
         </div>
