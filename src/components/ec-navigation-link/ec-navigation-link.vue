@@ -106,6 +106,7 @@ export default {
 @import '../../scss/tools/typography';
 @import '../../scss/settings/colors/index';
 $ec-navigation-link-text-color: $white !default;
+$ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
 
 .ec-navigation-link {
   @include h6;
@@ -115,7 +116,16 @@ $ec-navigation-link-text-color: $white !default;
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: $ec-navigation-link-text-color;
+
+  &:link,
+  &:active {
+    color: $ec-navigation-link-text-color;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $ec-navigation-link-text-color-hover;
+  }
 
   &--is-compact {
     text-transform: none;

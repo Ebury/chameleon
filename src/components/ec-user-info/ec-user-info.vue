@@ -73,10 +73,15 @@ $ec-client-text-color-hover: $level-4-tech-blue !default;
   }
 
   &__client-name {
-    display: block;
-    font-weight: 300;
-
     @include h4;
+
+    display: block;
+
+    &:link,
+    &:active {
+      color: $ec-client-text-color;
+      text-decoration: none;
+    }
 
     color: $ec-client-text-color;
     text-decoration: none;

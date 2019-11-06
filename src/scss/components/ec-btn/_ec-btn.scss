@@ -21,7 +21,6 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   transition-duration: 0.15s;
   transition-property: color, background-color;
   transition-timing-function: ease-out;
-  text-decoration: none;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -29,6 +28,12 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   text-align: center;
   border: 1px solid transparent;
   background-color: $ec-btn-secondary-color;
+
+  &:link,
+  &:active {
+    color: $ec-btn-color;
+    text-decoration: none;
+  }
 
   &--sm {
     min-width: 96px;
@@ -50,7 +55,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
   &--icon-only {
     min-width: 0;
-    border-radius: 32px;
+    border-radius: 50%;
 
     &.ec-btn--sm {
       padding: 4px;

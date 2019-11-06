@@ -63,9 +63,9 @@ stories
             class="ec-m--8 ec-btn"
             :disabled="isDisabled"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" :size="22" />
+            <ec-icon v-if="hasIcon" class="ec-mr--8" name="simple-check" :size="22" />
             <template v-if="!hasIconOnly" >
-              <span class="ec-ml--8">{{this.btnText}}</span>
+              <span>{{this.btnText}}</span>
             </template>
           </button>
         </div>
@@ -77,9 +77,9 @@ stories
             :class="classNames"
             class="ec-m--8 ec-btn"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" :size="22" />
+            <ec-icon v-if="hasIcon" class="ec-mr--8" name="simple-check" :size="22" />
             <template v-if="!hasIconOnly" >
-              <span class="ec-ml--8">{{this.btnText}}</span>
+              <span>{{this.btnText}}</span>
             </template>
           </a>
         </div>
@@ -91,9 +91,9 @@ stories
             :class="classNames"
             class="ec-m--8 ec-btn"
             >
-            <ec-icon v-if="hasIcon" name="simple-check" :size="22" />
+            <ec-icon v-if="hasIcon" class="ec-mr--8" name="simple-check" :size="22" />
             <template v-if="!hasIconOnly" >
-              <span class="ec-ml--8">{{this.btnText}}</span>
+              <span>{{this.btnText}}</span>
             </template>
           </router-link>
         </div>
@@ -145,25 +145,47 @@ stories
       iconSize: {
         default: number('Icon size', 20),
       },
+      buttonSize: {
+        default: select('Size', ['ec-btn--sm', 'ec-btn--md'], 'ec-btn--sm'),
+      },
+    },
+    computed: {
+      classNames() {
+        return [
+          this.buttonSize,
+        ];
+      },
     },
     template: `
         <div class="ec-m--20">
-          <button class="ec-btn ec-btn--primary ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--primary ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--primary-reverse ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--primary-reverse ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--secondary ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--secondary ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--success ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--success ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--error ec-btn--icon-only">
+          <button
+            :class="classNames"
+            class="ec-btn ec-btn--error ec-btn--icon-only">
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
-          <button class="ec-btn ec-btn--icon-only" disabled>
+          <button
+          :class="classNames"
+            class="ec-btn ec-btn--icon-only" disabled>
             <ec-icon :name="iconName" :size="iconSize" />
           </button>
         </div>
