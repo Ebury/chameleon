@@ -158,8 +158,8 @@ $ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
     background-color: $level-4-tech-blue;
   }
 
-  &:hover:not(&--is-active) {
-    color: $level-4-tech-blue;
+  &--is-active:hover {
+    color: $ec-navigation-link-text-color;
   }
 }
 </style>

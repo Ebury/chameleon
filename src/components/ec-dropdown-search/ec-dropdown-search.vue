@@ -245,7 +245,7 @@ $ec-dropdown-search-maximum-number-of-items-visible: 5 !default; // search inclu
     $delimiters-height: ($ec-dropdown-search-maximum-number-of-items-visible - 1) * $ec-dropdown-search-item-delimiter-size;
 
     max-height: $content-heihgt + $delimiters-height;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   &__item {
