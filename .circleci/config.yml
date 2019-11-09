@@ -15,9 +15,26 @@ jobs:
       - run:
           name: test
           command: npm run test
-
+  visual_tests:
+    docker:
+      - image: zenika/alpine-chrome:with-node
+        environment:
+          - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+          - APPLITOOLS_API_KEY: $APPLITOOLS_API_KEY
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: npm ci
+      - run:
+          name: verify
+          command: npm run test:visual
 workflows:
   version: 2
   build_lint_and_test:
     jobs:
       - build
+      - visual_tests:
+          filters:
+            branches:
+              only: mmmmmaster

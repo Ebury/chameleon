@@ -50,7 +50,7 @@ stories.add('all icons', () => ({
     <div style="padding: 32px; text-align: center;" v-if="isLoading">
       Loading icons...
     </div>
-    <div style="padding: 32px; margin: 0 auto; max-width: 900px;" v-else>
+    <div style="padding: 32px; margin: 0 auto; max-width: 900px;" v-else id="icons-container">
       <input
         v-model="iconFilter"
         placeholder="Search icon by name"
@@ -114,7 +114,7 @@ stories.add('all icons', () => ({
       simpleIcons: [],
     };
   },
-}));
+}), { eyes: { waitBeforeScreenshot: '#icons-container' } });
 
 stories.add('basic', () => ({
   components: { EcIcon },

@@ -173,3 +173,7 @@ Jest:
 SCSS:
 
 [SCSS](https://sass-lang.com/documentation/syntax)
+
+Visual regression testing:
+
+[Applitools](https://applitools.com/)
