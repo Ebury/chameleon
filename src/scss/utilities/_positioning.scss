@@ -1,0 +1,26 @@
+
+// Will push a flex item to the top
+.ec-push-t {
+  margin-bottom: auto;
+}
+
+// Will push a flex item to the bottom
+.ec-push-b {
+  margin-top: auto;
+}
+
+// Will push a flex item to the left
+.ec-push-l {
+  margin-right: auto;
+}
+
+// Will push a flex item to the right
+.ec-push-r {
+  margin-left: auto;
+
+  &-from-1024 {
+    @include media__from-1024 {
+      margin-left: auto;
+    }
+  }
+}

@@ -3,6 +3,7 @@
     :width="size"
     :height="size"
     :class="['ec-icon', typeClass]"
+    v-on="$listeners"
   >
     <use :xlink:href="`#ec-${name}`" />
   </svg>
