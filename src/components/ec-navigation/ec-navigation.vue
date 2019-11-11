@@ -86,12 +86,13 @@ export default {
   overflow-y: auto;
   overflow-x: hidden;
 
-  &--is-collapsed {
-    width: 80px;
+  &--is-collapsable {
+    width: 256px;
+    transition: width 0.5s;
   }
 
-  &--is-collapsable {
-    transition: width 0.5s;
+  &--is-collapsed {
+    width: 80px;
   }
 
   &__branding {
