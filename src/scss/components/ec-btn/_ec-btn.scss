@@ -74,6 +74,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
   &:disabled {
     background-color: $ec-btn-disabled-color;
+    color: $ec-btn-color;
     cursor: default;
     pointer-events: none;
   }
@@ -93,6 +94,11 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     &:hover {
       color: $ec-btn-color;
       background-color: $ec-btn-primary-color;
+    }
+
+    &:disabled {
+      background-color: $ec-btn-color;
+      color: $level-5-placeholders;
     }
   }
 

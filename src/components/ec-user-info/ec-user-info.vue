@@ -113,6 +113,7 @@ $ec-user-info-avatar-size: 48px !default;
 
     .ec-user-info--is-collapsable & {
       text-align: left;
+      align-self: center;
     }
   }
 }
