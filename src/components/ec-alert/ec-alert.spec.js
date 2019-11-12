@@ -26,7 +26,6 @@ describe('EcAlert', () => {
 
   it('should display only with a title given and the type', () => {
     const wrapper = mountAlert({ title: 'Random Title', type: 'info' });
-
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -37,13 +36,11 @@ describe('EcAlert', () => {
 
   it('should display with a button with the text given in the buttonText', () => {
     const wrapper = mountAlert({ buttonText: 'Button text' });
-
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should use the given type for the alert type and for the button too', () => {
     const wrapper = mountAlert({ type: 'error', buttonText: 'Warning button' });
-
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -62,20 +59,17 @@ describe('EcAlert', () => {
 
   it('should render the dismiss icon when is given the prop dismissable', () => {
     const wrapper = mountAlert({ dismissable: true });
-
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should dismiss the alert when user clicks on the dismiss icon ', () => {
     const wrapper = mountAlert({ dismissable: true });
-
     expect(wrapper.find('.ec-alert__dismiss-icon').exists()).toBe(true);
     wrapper.find('.ec-alert__dismiss-icon').trigger('click');
   });
 
   it('should emit the event when user clicks on the button', () => {
     const wrapper = mountAlert({ buttonText: 'Click here' });
-
     wrapper.find('.ec-alert__button').trigger('click');
     expect(wrapper.emitted('action').length).toBe(1);
   });
