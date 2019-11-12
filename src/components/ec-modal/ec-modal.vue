@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="show"
+    v-if="showModal"
     class="ec-modal"
   >
 
@@ -11,7 +11,7 @@
           class="ec-modal__close"
           name="simple-close"
           :size="24"
-          @click="close"
+          @click="negativeAction()"
         />
       </header>
 
@@ -20,7 +20,35 @@
       </main>
 
       <footer class="ec-modal__footer">
-        <slot name="footer" />
+        <div
+          v-if="showHelpLink"
+          v-ec-tooltip="tooltipConfig"
+          class="ec-modal__help-link"
+        >
+          <ec-icon
+            class="ec-mr--8"
+            name="simple-help"
+            :size="18"
+          />
+          Need help?
+        </div>
+
+        <button
+          v-if="this.$slots.negative"
+          class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-push-right"
+          @click="negativeAction()"
+        >
+          <slot name="negative" />
+        </button>
+
+        <button
+          v-if="this.$slots.positive"
+          :class="{'ec-push-right': !this.$slots.negative}"
+          class="ec-modal__positive-btn ec-btn ec-btn--md ec-btn--primary ec-btn--rounded"
+          @click="positiveAction()"
+        >
+          <slot name="positive" />
+        </button>
       </footer>
     </div>
 
@@ -29,21 +57,37 @@
 
 <script>
 import EcIcon from '../ec-icon';
+import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
 
 export default {
   components: {
     EcIcon,
   },
+  directives: { EcTooltip },
   model: {
-    prop: 'show',
-    event: 'change',
+    prop: 'showModal',
+    event: 'negativeAction',
   },
   props: {
-    show: { type: Boolean, default: false },
+    showModal: { type: Boolean, default: false },
+    showHelpLink: { type: Boolean, default: false },
+  },
+  data() {
+    return {
+      tooltipConfig: {
+        content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
+        classes: ['ec-tooltip--bg-white'],
+        trigger: 'click',
+        placement: 'bottom',
+      },
+    };
   },
   methods: {
-    close() {
-      this.$emit('change', !this.show);
+    negativeAction() {
+      this.$emit('negativeAction', !this.showModal);
+    },
+    positiveAction() {
+      this.$emit('positiveAction');
     },
   },
 };
@@ -53,12 +97,14 @@ export default {
 @import '../../scss/settings/colors/index';
 @import '../../scss/tools/index';
 
-$ec-modal-bg: rgba($level-2-doc-bodies-bg, 0.8) !default;
+$ec-modal-bg: rgba($level-2-doc-bodies-bg, 0.2) !default;
 $ec-modal-color: $level-3-body-and-headings !default;
 $ec-modal-content-bg: $white !default;
 $ec-modal-content-footer-bg: $level-7-backgrounds !default;
-$close-btn-fill: $level-4-interactive-elements;
-$close-btn-fill-hover: $level-4-tech-blue;
+$ec-modal-close-btn-fill: $level-4-interactive-elements;
+$ec-modal-close-btn-fill-hover: $level-4-tech-blue;
+$ec-modal-help-link-color: $level-4-tech-blue !default;
+$ec-modal-help-link-color-hover: $level-3-hover !default;
 
 .ec-modal {
   background: $ec-modal-bg;
@@ -72,11 +118,17 @@ $close-btn-fill-hover: $level-4-tech-blue;
   &__content {
     width: calc(100% - 24px);
     max-width: 680px;
+    max-height: calc(100% - 24px);
     position: fixed;
     top: 50%;
     left: 50%;
+    overflow: scroll;
     background: $ec-modal-content-bg;
     transform: translate(-50%, -50%);
+
+    @include media__from-1024 {
+      max-height: 576px;
+    }
   }
 
   &__header {
@@ -93,21 +145,53 @@ $close-btn-fill-hover: $level-4-tech-blue;
   &__footer {
     padding: 16px 12px;
     background: $ec-modal-content-footer-bg;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 
     @include media__from-1024 {
-      display: flex;
       align-items: center;
+      flex-direction: row;
+    }
+  }
+
+  &__positive-btn,
+  &__negative-btn {
+    margin: 12px;
+    width: 100%;
+
+    &.ec-push-right {
+      margin-left: auto;
+    }
+
+    @include media__from-1024 {
+      width: auto;
     }
   }
 
   &__close {
     margin-left: auto;
     transition: fill 0.3s ease-out;
-    fill: $close-btn-fill;
+    fill: $ec-modal-close-btn-fill;
     cursor: pointer;
 
     &:hover {
-      fill: $close-btn-fill-hover;
+      fill: $ec-modal-close-btn-fill-hover;
+    }
+  }
+
+  &__help-link {
+    margin: 12px;
+    display: flex;
+    align-items: center;
+    color: $ec-modal-help-link-color;
+    fill: $ec-modal-help-link-color;
+    transition: color 0.3s ease-out, fill 0.3s ease-out;
+
+    &:hover {
+      color: $ec-modal-help-link-color-hover;
+      fill: $ec-modal-help-link-color-hover;
+      cursor: pointer;
     }
   }
 }

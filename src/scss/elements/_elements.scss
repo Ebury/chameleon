@@ -57,6 +57,10 @@ a {
   @include body-link;
 }
 
+p {
+  margin: 12px 0;
+}
+
 ::placeholder {
   color: $level-5-placeholders;
 }
