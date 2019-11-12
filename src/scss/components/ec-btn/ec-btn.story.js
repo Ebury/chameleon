@@ -125,6 +125,7 @@ stories
         <button class="ec-btn ec-btn--md ec-btn--secondary ec-m--8">Secondary</button>
         <button class="ec-btn ec-btn--sm ec-btn--success ec-m--8">Success</button>
         <button class="ec-btn ec-btn--sm ec-btn--error ec-m--8">Error</button>
+        <button class="ec-btn ec-btn--sm ec-btn--warning ec-m--8">Warning</button>
         <button class="ec-btn ec-btn--sm ec-m--8" disabled>Disabled</button>
 
         <h3 class="ec-m--8">Solid Rounded Buttons</h3>
@@ -132,13 +133,23 @@ stories
         <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary ec-m--8">Secondary</button>
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--success ec-m--8">Success</button>
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--error ec-m--8">Error</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--warning ec-m--8">Warning</button>
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-m--8" disabled>Disabled</button>
+
+        <h3 class="ec-m--8">Rounded Buttons Reverse</h3>
+        <button class="ec-btn ec-btn--md ec-btn--rounded  ec-btn--primary-reverse ec-m--8">Primary</button>
+        <button class="ec-btn ec-btn--md ec-btn--rounded  ec-btn--secondary-reverse ec-m--8">Secondary</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded  ec-btn--success-reverse ec-m--8">Success</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded  ec-btn--error-reverse ec-m--8">Error</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded  ec-btn--warning-reverse ec-m--8">Warning</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded  ec-m--8" disabled>Disabled</button>
 
         <h3 class="ec-m--8">Outline Buttons</h3>
         <button class="ec-btn ec-btn--md ec-btn--outline ec-btn--primary ec-m--8">Primary</button>
         <button class="ec-btn ec-btn--md ec-btn--outline ec-btn--secondary ec-m--8">Secondary</button>
         <button class="ec-btn ec-btn--sm ec-btn--outline ec-btn--success ec-m--8">Success</button>
         <button class="ec-btn ec-btn--sm ec-btn--outline ec-btn--error ec-m--8">Error</button>
+        <button class="ec-btn ec-btn--sm ec-btn--outline ec-btn--warning ec-m--8">Warning</button>
         <button class="ec-btn ec-btn--sm ec-m--8 ec-btn--outline" disabled>Disabled</button>
 
         <h3 class="ec-m--8">Outline Rounded Buttons</h3>
@@ -146,6 +157,15 @@ stories
         <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--outline ec-btn--secondary ec-m--8">Secondary</button>
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--success ec-m--8">Success</button>
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--error ec-m--8">Error</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--warning ec-m--8">Warning</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-m--8" disabled>Disabled</button>
+
+        <h3 class="ec-m--8">Outline Rounded Buttons Reverse</h3>
+        <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--outline ec-btn--primary-reverse ec-m--8">Primary</button>
+        <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--outline ec-btn--secondary-reverse ec-m--8">Secondary</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--success-reverse ec-m--8">Success</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--error-reverse ec-m--8">Error</button>
+        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--warning-reverse ec-m--8">Warning</button>
         <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-m--8" disabled>Disabled</button>
       </div>
     `,
