@@ -37,7 +37,18 @@ stories
         default: select('Size', ['ec-btn--sm', 'ec-btn--md'], 'ec-btn--sm'),
       },
       color: {
-        default: select('Color', ['ec-btn--primary', 'ec-btn--primary-reverse', 'ec-btn--secondary', 'ec-btn--success', 'ec-btn--error'], 'ec-btn--primary'),
+        default: select('Color', [
+          'ec-btn--primary',
+          'ec-btn--primary-reverse',
+          'ec-btn--secondary',
+          'ec-btn--secondary-reverse',
+          'ec-btn--success',
+          'ec-btn--success-reverse',
+          'ec-btn--error',
+          'ec-btn--error-reverse',
+          'ec-btn--warning',
+          'ec-btn--warning-reverse',
+        ], 'ec-btn--primary'),
       },
     },
     computed: {
