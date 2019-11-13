@@ -39,64 +39,98 @@ stories.add('all', () => ({
   components: { EcAlert },
   data() {
     return {
-      showInfo1: true,
-      showSuccess1: true,
-      showWarning1: true,
-      showError1: true,
-      showInfo2: true,
-      showSuccess2: true,
-      showWarning2: true,
-      showError2: true,
+      alerts: [
+        {
+          title: 'Simple Alert',
+          data: [
+            { title: 'Info Alert', type: 'info' },
+            { title: 'Success Alert', type: 'success' },
+            { title: 'Warning Alert', type: 'warning' },
+            { title: 'Error Alert', type: 'error' },
+          ],
+        },
+        {
+          title: 'Dismissable Alert',
+          data: [
+            {
+              title: 'Info Alert', type: 'info', dismissable: true, model: true,
+            },
+            {
+              title: 'Success Alert', type: 'success', dismissable: true, model: true,
+            },
+            {
+              title: 'Warning Alert', type: 'warning', dismissable: true, model: true,
+            },
+            {
+              title: 'Error Alert', type: 'error', dismissable: true, model: true,
+            },
+          ],
+        },
+        {
+          title: 'Button Alert',
+          data: [
+            { title: 'Info Alert', type: 'info', 'button-text': 'Click here' },
+            { title: 'Success Alert', type: 'success', 'button-text': 'Click here' },
+            { title: 'Warning Alert', type: 'warning', 'button-text': 'Click here' },
+            { title: 'Error Alert', type: 'error', 'button-text': 'Click here' },
+          ],
+        },
+        {
+          title: 'Subtitle Alert',
+          data: [
+            { title: 'Info Alert', type: 'info', subtitle: 'subtitle' },
+            { title: 'Success Alert', type: 'success', subtitle: 'subtitle' },
+            { title: 'Warning Alert', type: 'warning', subtitle: 'subtitle' },
+            { title: 'Error Alert', type: 'error', subtitle: 'subtitle' },
+          ],
+        },
+        {
+          title: 'Custom Slot Alert',
+          data: [
+            {
+              title: 'Info Alert', type: 'info', custom: true, subtitle: 'subtitle',
+            },
+            {
+              title: 'Success Alert', type: 'success', custom: true, subtitle: 'subtitle',
+            },
+            {
+              title: 'Warning Alert', type: 'warning', custom: true, subtitle: 'subtitle',
+            },
+            {
+              title: 'Error Alert', type: 'error', custom: true, subtitle: 'subtitle',
+            },
+          ],
+        },
+        {
+          title: 'Complete Alert',
+          data: [
+            {
+              title: 'Info Alert', type: 'info', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            },
+            {
+              title: 'Success Alert', type: 'success', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            },
+            {
+              title: 'Warning Alert', type: 'warning', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            },
+            {
+              title: 'Error Alert', type: 'error', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            },
+          ],
+        },
+      ],
     };
   },
   template: `
-  <div>
-      <ec-alert title="Info Alert" type="info" />
-      <ec-alert title="Success Alert" type="success" />
-      <ec-alert title="Warning Alert" type="warning" />
-      <ec-alert title="Error Alert" type="error" />
-    <hr/>
-      <ec-alert title="Dismissable Info Alert" type="info" :dismissable="true" v-model="showInfo1" />
-      <ec-alert title="Dismissable Success Alert" type="success" :dismissable="true" v-model="showSuccess1" />
-      <ec-alert title="Dismissable Warning Alert" type="warning" :dismissable="true" v-model="showWarning1" />
-      <ec-alert title="Dismissable Error Alert" type="error"  :dismissable="true" v-model="showError1"/>
-    <hr/>
-      <ec-alert title="Button Info Alert" button-text="Action here" type="info"  />
-      <ec-alert title="Button Success Alert" button-text="Action here" type="success" />
-      <ec-alert title="Button Warning Alert" button-text="Action here" type="warning" />
-      <ec-alert title="Button Error Alert" button-text="Action here" type="error" />
-    <hr/>
-      <ec-alert title="Subtitle Info Alert" subtitle="Subtitle" type="info"  />
-      <ec-alert title="Subtitle Success Alert" subtitle="Subtitle" type="success" />
-      <ec-alert title="Subtitle Warning Alert" subtitle="Subtitle" type="warning" />
-      <ec-alert title="Subtitle Error Alert" subtitle="Subtitle" type="error" />
-    <hr/>
-      <ec-alert title="Custom slot Info Alert" subtitle="Subtitle" type="info" >
-        <div slot-scope="{ title, subtitle }">
+  <div class="ec-m--16">
+    <template v-for="(block, indexBlock) in alerts">
+      <h3 class="ec-m--8" :key="indexBlock">{{ block.title }}</h3>
+      <ec-alert v-for="(alert, index) in block.data" :key="indexBlock + '' + index" v-bind="alert" v-model="alert.model">
+        <div v-if="alert.custom" slot-scope="{ title, subtitle }">
           Custom: {{ title }} - {{ subtitle }}
         </div>
       </ec-alert>
-      <ec-alert title="Custom slot Success Alert" subtitle="Subtitle" type="success" >
-        <div slot-scope="{ title, subtitle }">
-          Custom: {{ title }} - {{ subtitle }}
-        </div>
-      </ec-alert>
-      <ec-alert title="Custom slot Warning Alert" subtitle="Subtitle" type="warning" >
-        <div slot-scope="{ title, subtitle }">
-          Custom: {{ title }} - {{ subtitle }}
-        </div>
-      </ec-alert>
-      <ec-alert title="Custom slot Error Alert" subtitle="Subtitle" type="error" >
-        <div slot-scope="{ title, subtitle }">
-          Custom: {{ title }} - {{ subtitle }}
-        </div>
-      </ec-alert>
-    <hr/>
-      <ec-alert title="Complete Info Alert" button-text="Action here" subtitle="Subtitle" type="info" :dismissable="true" v-model="showInfo2" />
-      <ec-alert title="Complete Success Alert" button-text="Action here" subtitle="Subtitle" type="success" :dismissable="true" v-model="showSuccess2" />
-      <ec-alert title="Complete Warning Alert" button-text="Action here" subtitle="Subtitle" type="warning" :dismissable="true" v-model="showWarning2" />
-      <ec-alert title="Complete Error Alert" button-text="Action here" subtitle="Subtitle" type="error" :dismissable="true" v-model="showError2" />
-    <hr/>
+    </template>
     </div>`,
 }));
 
