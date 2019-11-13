@@ -16,6 +16,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 .ec-btn {
   @include btn;
 
+  outline: 0;
   white-space: nowrap;
   overflow: hidden;
   fill: currentColor;
