@@ -28,10 +28,9 @@ stories.add('basic', () => ({
   },
   template: `
     <div>
-    <ec-alert :title="title" :subtitle="subtitle" :type="type" :dismissable="dismissable" :button-text="textButton" v-model="show">
-    </ec-alert>
+      <button class="ec-btn ec-btn--primary ec-btn--rounded ec-btn--sm ec-m--16" @click="show = !show">{{ show ? 'Hide' : 'Show' }}</button>
 
-    <button @click="show = !show">{{ show ? 'Hide' : 'Show' }}</button>
+      <ec-alert :title="title" :subtitle="subtitle" :type="type" :dismissable="dismissable" :button-text="textButton" v-model="show" />
     </div>`,
 }));
 
@@ -123,16 +122,15 @@ stories.add('all', () => ({
   },
   template: `
   <div class="ec-m--16">
-    <template v-for="(block, indexBlock) in alerts">
-      <h3 class="ec-m--8" :key="indexBlock">{{ block.title }}</h3>
-      <ec-alert v-for="(alert, index) in block.data" :key="indexBlock + '' + index" v-bind="alert" v-model="alert.model">
+    <template v-for="(block, blockIndex) in alerts">
+      <h3 class="ec-m--8" :key="blockIndex">{{ block.title }}</h3>
+      <ec-alert v-for="(alert, alertIndex) in block.data" :key="blockIndex + '-' + alertIndex" v-bind="alert" v-model="alert.model" class="ec-m--8">
         <div v-if="alert.custom" slot-scope="{ title, subtitle }">
           Custom: {{ title }} - {{ subtitle }}
         </div>
       </ec-alert>
     </template>
-    </div>`,
+  </div>`,
 }));
-
 
 export default stories;
