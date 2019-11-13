@@ -13,12 +13,12 @@
       @click="$emit('change', !open)"
     />
     <ec-icon
-      class="ec-mr--16 ec-mt--4 ec-mb--4"
+      class="ec-alert__icon"
       :class="{ 'ec-alert__icon--alert-has-subtitle': subtitle }"
       :name="icon"
       :size="24"
     />
-    <div>
+    <div class="ec-alert__content">
       <slot v-bind="{ title, subtitle }">
         <div class="ec-alert__title">{{ title }}</div>
         <div
@@ -110,12 +110,15 @@ export default {
   display: flex;
   align-items: center;
 
+  &__content {
+    flex-grow: 1;
+  }
+
   &__button {
     vertical-align: middle;
     align-items: center;
-    height: fit-content;
     display: inline-flex;
-    margin: auto 24px auto auto;
+    margin-right: 24px;
   }
 
   &__title {
@@ -130,8 +133,12 @@ export default {
     color: $white;
   }
 
-  &__icon--alert-has-subtitle {
-    align-self: flex-start;
+  &__icon {
+    margin: 4px 16px 4px 0;
+
+    &--alert-has-subtitle {
+      align-self: flex-start;
+    }
   }
 
   &__dismiss-icon {

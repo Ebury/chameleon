@@ -66,6 +66,7 @@ describe('EcAlert', () => {
     const wrapper = mountAlert({ dismissable: true });
     expect(wrapper.find('.ec-alert__dismiss-icon').exists()).toBe(true);
     wrapper.find('.ec-alert__dismiss-icon').trigger('click');
+    expect(wrapper.isVisible()).toBe(true);
   });
 
   it('should emit the event when user clicks on the button', () => {
@@ -81,7 +82,7 @@ describe('EcAlert', () => {
         return { isOpen: true };
       },
       template: `
-        <ec-alert v-model="isOpen" type="info" title="Custom random" :dismissable="true" />
+        <ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />
       `,
     }));
 
@@ -92,12 +93,10 @@ describe('EcAlert', () => {
     expect(wrapper.vm.isOpen).toBe(false);
   });
   it('should render with the slot given', () => {
-    const wrapper = mount(EcAlert, {
-      propsData: {
-        title: 'Title example',
-        subtitle: 'Subtitle example',
-        type: 'info',
-      },
+    const wrapper = mountAlert({
+      subtitle: 'Subtitle example',
+    },
+    {
       scopedSlots: {
         default: '<div slot-scope="{ title, subtitle }">Custom: {{ title }} - {{ subtitle }}</div>',
       },

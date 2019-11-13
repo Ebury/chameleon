@@ -39,14 +39,14 @@ stories.add('all', () => ({
   components: { EcAlert },
   data() {
     return {
-      showInfo: true,
-      showSuccess: true,
-      showWarning: true,
-      showError: true,
       showInfo1: true,
       showSuccess1: true,
       showWarning1: true,
       showError1: true,
+      showInfo2: true,
+      showSuccess2: true,
+      showWarning2: true,
+      showError2: true,
     };
   },
   template: `
@@ -56,10 +56,10 @@ stories.add('all', () => ({
       <ec-alert title="Warning Alert" type="warning" />
       <ec-alert title="Error Alert" type="error" />
     <hr/>
-      <ec-alert title="Dismissable Info Alert" type="info" :dismissable="true" v-model="showInfo" />
-      <ec-alert title="Dismissable Success Alert" type="success" :dismissable="true" v-model="showSuccess" />
-      <ec-alert title="Dismissable Warning Alert" type="warning" :dismissable="true" v-model="showWarning" />
-      <ec-alert title="Dismissable Error Alert" type="error"  :dismissable="true" v-model="showError"/>
+      <ec-alert title="Dismissable Info Alert" type="info" :dismissable="true" v-model="showInfo1" />
+      <ec-alert title="Dismissable Success Alert" type="success" :dismissable="true" v-model="showSuccess1" />
+      <ec-alert title="Dismissable Warning Alert" type="warning" :dismissable="true" v-model="showWarning1" />
+      <ec-alert title="Dismissable Error Alert" type="error"  :dismissable="true" v-model="showError1"/>
     <hr/>
       <ec-alert title="Button Info Alert" button-text="Action here" type="info"  />
       <ec-alert title="Button Success Alert" button-text="Action here" type="success" />
@@ -92,10 +92,10 @@ stories.add('all', () => ({
         </div>
       </ec-alert>
     <hr/>
-      <ec-alert title="Complete Info Alert" button-text="Action here" subtitle="Subtitle" type="info" :dismissable="true" v-model="showInfo1" />
-      <ec-alert title="Complete Success Alert" button-text="Action here" subtitle="Subtitle" type="success" :dismissable="true" v-model="showSuccess1" />
-      <ec-alert title="Complete Warning Alert" button-text="Action here" subtitle="Subtitle" type="warning" :dismissable="true" v-model="showWarning1" />
-      <ec-alert title="Complete Error Alert" button-text="Action here" subtitle="Subtitle" type="error" :dismissable="true" v-model="showError1" />
+      <ec-alert title="Complete Info Alert" button-text="Action here" subtitle="Subtitle" type="info" :dismissable="true" v-model="showInfo2" />
+      <ec-alert title="Complete Success Alert" button-text="Action here" subtitle="Subtitle" type="success" :dismissable="true" v-model="showSuccess2" />
+      <ec-alert title="Complete Warning Alert" button-text="Action here" subtitle="Subtitle" type="warning" :dismissable="true" v-model="showWarning2" />
+      <ec-alert title="Complete Error Alert" button-text="Action here" subtitle="Subtitle" type="error" :dismissable="true" v-model="showError2" />
     <hr/>
     </div>`,
 }));
