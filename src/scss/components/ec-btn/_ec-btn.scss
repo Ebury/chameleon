@@ -59,6 +59,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   }
 
   &--icon-only {
+    width: auto;
     border-radius: 50%;
 
     &.ec-btn--sm {

@@ -1,11 +1,14 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-plusplus */
 import { storiesOf } from '@storybook/vue';
-import {
-  boolean, number, select, text,
-} from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcIcon from '@/components/ec-icon';
 
 const stories = storiesOf('Button', module);
+
+const darkTheme = { name: 'dark', value: 'rgb(46,54,56)', default: true };
+const lightTheme = { name: 'light', value: '#fff', default: true };
 
 stories
   .addDecorator(StoryRouter())
@@ -116,112 +119,128 @@ stories
       </div>
     `,
   }))
-  .add('all', () => ({
-    template: `
-      <div class="ec-m--20">
+  .add('all buttons (dark)', generateAllForElement('button'), {
+    backgrounds: [darkTheme],
+  })
+  .add('all buttons (light)', generateAllForElement('button'), {
+    backgrounds: [lightTheme],
+  })
+  .add('all anchors (dark)', generateAllForElement('a'), {
+    backgrounds: [darkTheme],
+  })
+  .add('all anchors (light)', generateAllForElement('a'), {
+    backgrounds: [lightTheme],
+  });
 
-        <h3 class="ec-m--8">Solid Buttons</h3>
-        <button class="ec-btn ec-btn--md ec-btn--primary ec-m--8">Primary</button>
-        <button class="ec-btn ec-btn--md ec-btn--secondary ec-m--8">Secondary</button>
-        <button class="ec-btn ec-btn--sm ec-btn--success ec-m--8">Success</button>
-        <button class="ec-btn ec-btn--sm ec-btn--error ec-m--8">Error</button>
-        <button class="ec-btn ec-btn--sm ec-btn--warning ec-m--8">Warning</button>
-        <button class="ec-btn ec-btn--sm ec-m--8" disabled>Disabled</button>
-
-        <h3 class="ec-m--8">Solid Rounded Buttons</h3>
-        <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-m--8">Primary</button>
-        <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary ec-m--8">Secondary</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--success ec-m--8">Success</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--error ec-m--8">Error</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--warning ec-m--8">Warning</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-m--8" disabled>Disabled</button>
-
-        <h3 class="ec-m--8">Rounded Buttons Reverse</h3>
-        <button class="ec-btn ec-btn--md ec-btn--rounded  ec-btn--primary-reverse ec-m--8">Primary</button>
-        <button class="ec-btn ec-btn--md ec-btn--rounded  ec-btn--secondary-reverse ec-m--8">Secondary</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded  ec-btn--success-reverse ec-m--8">Success</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded  ec-btn--error-reverse ec-m--8">Error</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded  ec-btn--warning-reverse ec-m--8">Warning</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded  ec-m--8" disabled>Disabled</button>
-
-        <h3 class="ec-m--8">Outline Buttons</h3>
-        <button class="ec-btn ec-btn--md ec-btn--outline ec-btn--primary ec-m--8">Primary</button>
-        <button class="ec-btn ec-btn--md ec-btn--outline ec-btn--secondary ec-m--8">Secondary</button>
-        <button class="ec-btn ec-btn--sm ec-btn--outline ec-btn--success ec-m--8">Success</button>
-        <button class="ec-btn ec-btn--sm ec-btn--outline ec-btn--error ec-m--8">Error</button>
-        <button class="ec-btn ec-btn--sm ec-btn--outline ec-btn--warning ec-m--8">Warning</button>
-        <button class="ec-btn ec-btn--sm ec-m--8 ec-btn--outline" disabled>Disabled</button>
-
-        <h3 class="ec-m--8">Outline Rounded Buttons</h3>
-        <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--outline ec-btn--primary ec-m--8">Primary</button>
-        <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--outline ec-btn--secondary ec-m--8">Secondary</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--success ec-m--8">Success</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--error ec-m--8">Error</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--warning ec-m--8">Warning</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-m--8" disabled>Disabled</button>
-
-        <h3 class="ec-m--8">Outline Rounded Buttons Reverse</h3>
-        <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--outline ec-btn--primary-reverse ec-m--8">Primary</button>
-        <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--outline ec-btn--secondary-reverse ec-m--8">Secondary</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--success-reverse ec-m--8">Success</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--error-reverse ec-m--8">Error</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-btn--warning-reverse ec-m--8">Warning</button>
-        <button class="ec-btn ec-btn--sm ec-btn--rounded ec-btn--outline ec-m--8" disabled>Disabled</button>
-      </div>
-    `,
-  }))
-  .add('icon buttons', () => ({
+function generateAllForElement(element) {
+  return () => ({
     components: { EcIcon },
-    props: {
-      iconName: {
-        default: select('Icon name', ['simple-check', 'simple-add', 'simple-dashboard', 'simple-sign-out'], 'simple-add'),
-      },
-      iconSize: {
-        default: number('Icon size', 20),
-      },
-      buttonSize: {
-        default: select('Size', ['ec-btn--sm', 'ec-btn--md'], 'ec-btn--sm'),
-      },
+    data() {
+      return {
+        element,
+        buttons: [
+          {
+            title: 'Solid Buttons',
+            data: [
+              { classes: '', text: 'Primary' },
+            ],
+          },
+        ],
+        types: ['primary', 'secondary', 'success', 'error', 'warning'],
+        disabled: [false, true],
+        rounded: [false, true],
+        outline: [false, true],
+        reverse: [false, true],
+        hasIcon: [false, true],
+        hasIconOnly: [false, true],
+        fullWidth: [false, true],
+        sizes: ['sm', 'md'],
+      };
     },
     computed: {
-      classNames() {
-        return [
-          this.buttonSize,
-        ];
+      blocks() {
+        function cartesian(...args) {
+          const result = [];
+          const max = args.length - 1;
+          function helper(arr, i) {
+            for (let j = 0, l = args[i].length; j < l; j++) {
+              const a = arr.slice(0);
+              a.push(args[i][j]);
+              if (i === max) {
+                result.push(a);
+              } else {
+                helper(a, i + 1);
+              }
+            }
+          }
+          helper([], 0);
+          return result;
+        }
+
+        // generate all possible combinations of props
+        let combinations;
+        if (this.element !== 'a') {
+          combinations = cartesian(this.rounded, this.outline, this.reverse, this.hasIcon, this.hasIconOnly, this.fullWidth, this.sizes, this.disabled);
+        } else {
+          combinations = cartesian(this.rounded, this.outline, this.reverse, this.hasIcon, this.hasIconOnly, this.fullWidth, this.sizes);
+        }
+
+        // each row in the story will represent one combination, and each row will show all button types.
+        return combinations.map(([rounded, outline, reverse, hasIcon, hasIconOnly, fullWidth, size, disabled]) => {
+          const buttons = this.types.map((type) => {
+            const buttonText = type;
+            const classes = {
+              'ec-btn': true,
+              'ec-btn--icon-only': hasIconOnly,
+              'ec-btn--full-width': fullWidth,
+              'ec-btn--rounded': rounded,
+              'ec-btn--outline': outline,
+              [`ec-btn--${type}-reverse`]: reverse,
+              [`ec-btn--${type}`]: !reverse,
+              [`ec-btn--${size}`]: true,
+            };
+
+            return {
+              classes, text: buttonText, hasIcon, hasIconOnly, disabled,
+            };
+          });
+
+          return {
+            buttons,
+            title: [
+              `${size === 'md' ? 'Medium' : 'Small'}`,
+              `${hasIconOnly ? 'icon-only' : ''}`,
+              `${hasIcon ? 'icon' : ''}`,
+              `${outline ? 'outline' : ''}`,
+              `${reverse ? 'reverse' : ''}`,
+              `${fullWidth ? 'full width' : ''}`,
+              `${rounded ? 'rounded' : ''}`,
+              `${disabled ? 'disabled' : ''}`,
+            ].join(' '),
+          };
+        });
       },
     },
     template: `
         <div class="ec-m--20">
-          <button
-            :class="classNames"
-            class="ec-btn ec-btn--primary ec-btn--icon-only">
-            <ec-icon :name="iconName" :size="iconSize" />
-          </button>
-          <button
-            :class="classNames"
-            class="ec-btn ec-btn--primary-reverse ec-btn--icon-only">
-            <ec-icon :name="iconName" :size="iconSize" />
-          </button>
-          <button
-            :class="classNames"
-            class="ec-btn ec-btn--secondary ec-btn--icon-only">
-            <ec-icon :name="iconName" :size="iconSize" />
-          </button>
-          <button
-            :class="classNames"
-            class="ec-btn ec-btn--success ec-btn--icon-only">
-            <ec-icon :name="iconName" :size="iconSize" />
-          </button>
-          <button
-            :class="classNames"
-            class="ec-btn ec-btn--error ec-btn--icon-only">
-            <ec-icon :name="iconName" :size="iconSize" />
-          </button>
-          <button
-          :class="classNames"
-            class="ec-btn ec-btn--icon-only" disabled>
-            <ec-icon :name="iconName" :size="iconSize" />
-          </button>
+        <template v-for="(block, blockIndex) in blocks">
+          <h3 :key="blockIndex" class="ec-m--8" style="color:tomato">{{block.title}}</h3>
+          <component :is="element" v-for="(button, buttonIndex) in block.buttons" :key="blockIndex + '-' + buttonIndex"
+           :class="button.classes"
+           class="ec-m--8"
+           :disabled="button.disabled"
+           >
+            <template v-if="button.hasIconOnly">
+              <ec-icon name="simple-check" :size="24" />
+            </template>
+            <template v-else>
+              <ec-icon v-if="button.hasIcon" class="ec-mr--8" name="simple-check" :size="24" />
+              {{ button.text }}
+            </template>
+           </component>
+        </template>
         </div>
+         
       `,
-  }));
+  });
+}
