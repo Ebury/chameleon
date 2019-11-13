@@ -58,7 +58,10 @@ a {
 }
 
 p {
+  @include body-text;
+
   margin: 12px 0;
+  max-width: 75rem;
 }
 
 ::placeholder {

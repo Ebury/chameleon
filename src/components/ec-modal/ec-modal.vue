@@ -3,15 +3,18 @@
     v-if="showModal"
     class="ec-modal"
   >
-
-    <div class="ec-modal__content">
+    <div
+      class="ec-modal__content"
+      :class="{'ec-modal--lg': large}"
+    >
       <header class="ec-modal__header">
         <slot name="header" />
         <ec-icon
+          v-if="showCloseIcon"
           class="ec-modal__close"
           name="simple-close"
           :size="24"
-          @click="negativeAction()"
+          @click="closeModal()"
         />
       </header>
 
@@ -66,11 +69,25 @@ export default {
   directives: { EcTooltip },
   model: {
     prop: 'showModal',
-    event: 'negativeAction',
+    event: 'closeModal',
   },
   props: {
-    showModal: { type: Boolean, default: false },
-    showHelpLink: { type: Boolean, default: false },
+    showModal: {
+      type: Boolean,
+      default: false,
+    },
+    showHelpLink: {
+      type: Boolean,
+      default: false,
+    },
+    showCloseIcon: {
+      type: Boolean,
+      default: true,
+    },
+    large: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -84,10 +101,13 @@ export default {
   },
   methods: {
     negativeAction() {
-      this.$emit('negativeAction', !this.showModal);
+      this.$emit('negativeAction');
     },
     positiveAction() {
       this.$emit('positiveAction');
+    },
+    closeModal() {
+      this.$emit('closeModal', false);
     },
   },
 };
@@ -122,19 +142,37 @@ $ec-modal-help-link-color-hover: $level-3-hover !default;
     position: fixed;
     top: 50%;
     left: 50%;
-    overflow: scroll;
+    overflow-y: auto;
     background: $ec-modal-content-bg;
     transform: translate(-50%, -50%);
 
     @include media__from-1024 {
-      max-height: 576px;
+      width: 60vw;
+      max-width: 700px;
+      max-height: 80vh;
+    }
+
+    @include media__from-1280 {
+      width: 50vw;
+      max-width: 700px;
+      max-height: 80vh;
+    }
+  }
+
+  &--lg {
+    max-width: 100%;
+
+    @include media__from-1024 {
+      width: 80vw;
+      max-width: 1100px;
+      max-height: 80vh;
     }
   }
 
   &__header {
     display: flex;
     padding: 24px;
-    padding-bottom: 24px;
+    align-items: center;
   }
 
   &__main {
@@ -160,11 +198,11 @@ $ec-modal-help-link-color-hover: $level-3-hover !default;
     margin: 12px;
     width: 100%;
 
-    &.ec-push-right {
-      margin-left: auto;
-    }
-
     @include media__from-1024 {
+      &.ec-push-right {
+        margin-left: auto;
+      }
+
       width: auto;
     }
   }
