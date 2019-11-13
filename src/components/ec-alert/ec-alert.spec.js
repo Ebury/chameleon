@@ -63,10 +63,18 @@ describe('EcAlert', () => {
   });
 
   it('should dismiss the alert when user clicks on the dismiss icon ', () => {
-    const wrapper = mountAlert({ dismissable: true });
+    const wrapper = mount(Vue.extend({
+      components: { EcAlert },
+      data() {
+        return { isOpen: true };
+      },
+      template: `
+        <ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />
+      `,
+    }));
     expect(wrapper.find('.ec-alert__dismiss-icon').exists()).toBe(true);
     wrapper.find('.ec-alert__dismiss-icon').trigger('click');
-    expect(wrapper.isVisible()).toBe(true);
+    expect(wrapper.isVisible()).toBe(false);
   });
 
   it('should emit the event when user clicks on the button', () => {
