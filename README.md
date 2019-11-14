@@ -5,6 +5,8 @@ The library is in its initial phase, more components are added regularly.
 
 You can check the current status of the library [here](https://docs.google.com/spreadsheets/d/101NhAtDJ_6YLybdmWnhTvfem9yCtCeHJK5LtCZcX6Rk/edit#gid=0).
 
+Also check out the latest version deployed in [Storybook](https://chameleon.ebury.now.sh/).
+
 ## Installation
 
 Install @ebury/chameleon-components in your project with npm:
@@ -87,12 +89,13 @@ No classes ids or elements! CSS resets, box sizing etc.
 4. Elements -
 Only pure HTML elements like p, h1, h2, div etc.
 
-5. Objects
+5. Objects -
+Layouts and grids
 
 6. Components -
 Classes for specific UI components, most likely you want to add your classes in here.
 
-7. utilities -
+7. Utilities -
 Extremely specific styles that can override all the above
 
 ### Vue app

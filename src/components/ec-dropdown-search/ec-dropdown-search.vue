@@ -234,6 +234,7 @@ $ec-dropdown-search-maximum-number-of-items-visible: 5 !default; // search inclu
   &__search-input {
     @include body-text;
 
+    outline: 0;
     width: 100%;
     border: 0;
     padding: $item-horizontal-padding $item-vertical-padding;
