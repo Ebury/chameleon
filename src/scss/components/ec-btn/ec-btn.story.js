@@ -25,7 +25,7 @@ stories
         default: boolean('Has Icon', false),
       },
       hasIconOnly: {
-        default: boolean('Has Icon Only'),
+        default: boolean('Has Icon Only', false),
       },
       isRounded: {
         default: boolean('Is Rounded', false),
@@ -222,7 +222,7 @@ function generateAllForElement(element) {
       },
     },
     template: `
-        <div class="ec-m--20">
+      <div class="ec-m--20">
         <template v-for="(block, blockIndex) in blocks">
           <h3 :key="blockIndex" class="ec-m--8" style="color:tomato">{{block.title}}</h3>
           <component :is="element" v-for="(button, buttonIndex) in block.buttons" :key="blockIndex + '-' + buttonIndex"
@@ -239,8 +239,7 @@ function generateAllForElement(element) {
             </template>
            </component>
         </template>
-        </div>
-         
+      </div>
       `,
   });
 }
