@@ -61,7 +61,7 @@ exports[`EcAlert should display with a button with the text given in the buttonT
   </div>
    
   <button
-    class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button ec-alert--info"
+    class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button ec-btn--primary-reverse"
   >
     Button text
   </button>
@@ -201,7 +201,7 @@ exports[`EcAlert should use the given type for the alert type and for the button
   </div>
    
   <button
-    class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button ec-alert--error"
+    class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button ec-btn--error-reverse"
   >
     Warning button
   </button>

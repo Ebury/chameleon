@@ -2,7 +2,7 @@
   <div
     v-show="open"
     class="ec-alert"
-    :class="typeClass"
+    :class="`ec-alert--${type}`"
   >
     <ec-icon
       v-if="dismissable"
@@ -30,7 +30,7 @@
     <button
       v-if="buttonText"
       class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button"
-      :class="typeClass"
+      :class="`ec-btn--${type === 'info' ? 'primary' : type}-reverse`"
       @click="$emit('action')"
     >{{ buttonText }}</button>
   </div>
@@ -88,9 +88,6 @@ export default {
           return 'simple-info';
       }
     },
-    typeClass() {
-      return `ec-alert--${this.type}`;
-    },
   },
 };
 </script>
@@ -115,9 +112,6 @@ export default {
   }
 
   &__button {
-    vertical-align: middle;
-    align-items: center;
-    display: inline-flex;
     margin-right: 24px;
   }
 
