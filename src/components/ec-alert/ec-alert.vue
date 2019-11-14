@@ -2,7 +2,10 @@
   <div
     v-show="open"
     class="ec-alert"
-    :class="`ec-alert--${type}`"
+    :class="{
+      [`ec-alert--${type}`]: type,
+      'ec-alert--is-responsive': responsive
+    }"
   >
     <ec-icon
       v-if="dismissable"
@@ -16,7 +19,6 @@
       class="ec-alert__icon"
       :class="{ 'ec-alert__icon--alert-has-subtitle': subtitle }"
       :name="icon"
-      :size="24"
     />
     <div class="ec-alert__content">
       <slot v-bind="{ title, subtitle }">
@@ -74,6 +76,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    responsive: {
+      type: Boolean,
+      default: true,
+    },
   },
   computed: {
     icon() {
@@ -95,6 +101,7 @@ export default {
 <style lang="scss">
 @import '../../scss/settings/colors';
 @import '../../scss/tools/borders';
+@import '../../scss/tools/ec-alert';
 @import '../../scss/tools/typography';
 
 .ec-alert {
@@ -105,14 +112,22 @@ export default {
   fill: $white;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
 
-  &__content {
-    flex-grow: 1;
+  &--is-responsive {
+    @media (min-width: 480px) {
+      @include ec-alert-responsive;
+    }
   }
 
   &__button {
-    margin-right: 24px;
+    margin-top: 16px;
+  }
+
+  &__content {
+    flex-grow: 1;
+    text-align: center;
   }
 
   &__title {
@@ -128,11 +143,9 @@ export default {
   }
 
   &__icon {
-    margin: 4px 16px 4px 0;
-
-    &--alert-has-subtitle {
-      align-self: flex-start;
-    }
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
   }
 
   &__dismiss-icon {

@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/vue';
 import { boolean, text } from '@storybook/addon-knobs';
 import EcAlert from './ec-alert.vue';
+import './ec-alert.story.scss';
 
 const stories = storiesOf('Alert', module);
 
@@ -8,7 +9,7 @@ stories.add('basic', () => ({
   components: { EcAlert },
   props: {
     title: {
-      default: text('title', 'Error!'),
+      default: text('title', 'Error'),
     },
     subtitle: {
       default: text('subtitle', 'Something was wrong with the update.'),
@@ -22,6 +23,9 @@ stories.add('basic', () => ({
     dismissable: {
       default: boolean('dismissable', true),
     },
+    responsive: {
+      default: boolean('responsive', true),
+    },
   },
   data() {
     return { show: true };
@@ -30,7 +34,24 @@ stories.add('basic', () => ({
     <div>
       <button class="ec-btn ec-btn--primary ec-btn--rounded ec-btn--sm ec-m--16" @click="show = !show">{{ show ? 'Hide' : 'Show' }}</button>
 
-      <ec-alert :title="title" :subtitle="subtitle" :type="type" :dismissable="dismissable" :button-text="textButton" v-model="show" />
+      <ec-alert
+        :title="title"
+        :subtitle="subtitle"
+        :type="type"
+        :dismissable="dismissable"
+        :responsive="responsive"
+        :button-text="textButton"
+        v-model="show" />
+
+      <ec-alert
+        :title="title"
+        subtitle="This alert has custom breakpoint at 640px, so it doesn't break the same way as the alert above with default breakpoint"
+        :type="type"
+        :dismissable="dismissable"
+        :responsive="false"
+        :button-text="textButton"
+        v-model="show"
+        class="my-alert ec-mt--16" />
     </div>`,
 }));
 
