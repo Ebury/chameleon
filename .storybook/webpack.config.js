@@ -2,8 +2,6 @@
 /* eslint-disable global-require */
 const path = require('path');
 
-const loader = require.resolve('@storybook/addon-storysource/loader');
-
 module.exports = async ({ config }) => {
   config.module.rules.push({
     test: /\.scss$/,
@@ -33,7 +31,7 @@ module.exports = async ({ config }) => {
   };
   config.module.rules.push({
     test: /\.story\.jsx?$/,
-    loaders: [loader],
+    loaders: [require.resolve('@storybook/source-loader')],
     enforce: 'pre',
   });
 
