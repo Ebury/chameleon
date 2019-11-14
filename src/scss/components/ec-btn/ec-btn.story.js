@@ -138,14 +138,6 @@ function generateAllForElement(element) {
     data() {
       return {
         element,
-        buttons: [
-          {
-            title: 'Solid Buttons',
-            data: [
-              { classes: '', text: 'Primary' },
-            ],
-          },
-        ],
         types: ['primary', 'secondary', 'success', 'error', 'warning'],
         disabled: [false, true],
         rounded: [false, true],
