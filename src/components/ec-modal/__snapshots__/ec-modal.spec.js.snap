@@ -35,18 +35,6 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
 </div>
 `;
 
-exports[`EcModal should not render by default footer left section 1`] = `
-<footer
-  class="ec-modal__footer"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</footer>
-`;
-
 exports[`EcModal should not render close button when showCloseIcon is set to false 1`] = `
 <header
   class="ec-modal__header"
@@ -92,7 +80,7 @@ exports[`EcModal should not render positive button if slot not passed 1`] = `
 </footer>
 `;
 
-exports[`EcModal should not render the modal 1`] = `<!---->`;
+exports[`EcModal should not render the modal if "showModal" is not set to true 1`] = `<!---->`;
 
 exports[`EcModal should render basic modal 1`] = `
 <div

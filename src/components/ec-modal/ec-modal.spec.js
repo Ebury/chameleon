@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 import EcModal from './ec-modal.vue';
 
 describe('EcModal', () => {
-  it('should not render the modal', () => {
+  it('should not render the modal if "showModal" is not set to true', () => {
     const wrapper = mount(EcModal);
     expect(wrapper.find('.ec-modal').exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
