@@ -107,7 +107,7 @@ export default {
 .ec-alert {
   @include shape-border-radius;
 
-  padding: 16px 24px;
+  padding: 16px;
   color: $white;
   fill: $white;
   position: relative;
@@ -122,6 +122,7 @@ export default {
   }
 
   &__button {
+    flex-shrink: 0;
     margin-top: 16px;
   }
 
@@ -145,6 +146,7 @@ export default {
   &__icon {
     width: 48px;
     height: 48px;
+    flex-shrink: 0;
     margin-bottom: 16px;
   }
 

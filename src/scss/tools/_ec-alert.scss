@@ -1,5 +1,6 @@
 @mixin ec-alert-responsive() {
   flex-direction: row;
+  padding: 16px 24px;
 
   .ec-alert__icon {
     width: 24px;
@@ -16,7 +17,7 @@
   }
 
   .ec-alert__button {
-    margin-right: 24px;
+    margin: 0 24px;
   }
 
   @content;
