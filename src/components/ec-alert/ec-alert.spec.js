@@ -24,7 +24,7 @@ describe('EcAlert', () => {
     });
   });
 
-  it('should display only with a title given and the type', () => {
+  it('should display only with a title and the type given', () => {
     const wrapper = mountAlert({ title: 'Random Title', type: 'info' });
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -111,5 +111,15 @@ describe('EcAlert', () => {
     });
 
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render responsive by default', () => {
+    const wrapper = mountAlert();
+    expect(wrapper.classes('ec-alert--is-responsive')).toBe(true);
+  });
+
+  it('should not render responsive if the responsive prop is set to false', () => {
+    const wrapper = mountAlert({ responsive: false });
+    expect(wrapper.classes('ec-alert--is-responsive')).toBe(false);
   });
 });
