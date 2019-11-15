@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcAlert should display only with a title given and the type 1`] = `
+exports[`EcAlert should display only with a title and the type given 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
 >
