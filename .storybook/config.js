@@ -20,7 +20,9 @@ addParameters({
   ],
 });
 
-addParameters({ viewport: INITIAL_VIEWPORTS });
+addParameters({
+  viewport: { viewports: INITIAL_VIEWPORTS },
+});
 
 addParameters({
   options: {
@@ -30,6 +32,12 @@ addParameters({
       brandUrl: 'https://company-160717.frontify.com/document/271391',
       brandImage: '/ebury-chameleon-logo.png',
     }),
+  },
+});
+
+addParameters({
+  options: {
+    storySort: (a, b) => a[1].id.localeCompare(b[1].id),
   },
 });
 
