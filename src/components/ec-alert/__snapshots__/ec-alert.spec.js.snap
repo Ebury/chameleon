@@ -2,14 +2,12 @@
 
 exports[`EcAlert should display only with a title given and the type 1`] = `
 <div
-  class="ec-alert ec-alert--info"
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
 >
   <!---->
    
   <svg
     class="ec-alert__icon ec-icon"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-info"
@@ -34,14 +32,12 @@ exports[`EcAlert should display only with a title given and the type 1`] = `
 
 exports[`EcAlert should display with a button with the text given in the buttonText 1`] = `
 <div
-  class="ec-alert ec-alert--info"
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
 >
   <!---->
    
   <svg
     class="ec-alert__icon ec-icon"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-info"
@@ -70,14 +66,12 @@ exports[`EcAlert should display with a button with the text given in the buttonT
 
 exports[`EcAlert should display with a subtitle given 1`] = `
 <div
-  class="ec-alert ec-alert--info"
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
 >
   <!---->
    
   <svg
     class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-info"
@@ -106,7 +100,7 @@ exports[`EcAlert should display with a subtitle given 1`] = `
 
 exports[`EcAlert should render the dismiss icon when is given the prop dismissable 1`] = `
 <div
-  class="ec-alert ec-alert--info"
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
 >
   <svg
     class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--info"
@@ -120,8 +114,6 @@ exports[`EcAlert should render the dismiss icon when is given the prop dismissab
    
   <svg
     class="ec-alert__icon ec-icon"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-info"
@@ -146,14 +138,12 @@ exports[`EcAlert should render the dismiss icon when is given the prop dismissab
 
 exports[`EcAlert should render with the slot given 1`] = `
 <div
-  class="ec-alert ec-alert--info"
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
 >
   <!---->
    
   <svg
     class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-info"
@@ -174,14 +164,12 @@ exports[`EcAlert should render with the slot given 1`] = `
 
 exports[`EcAlert should use the given type for the alert type and for the button too 1`] = `
 <div
-  class="ec-alert ec-alert--error"
+  class="ec-alert ec-alert--error ec-alert--is-responsive"
 >
   <!---->
    
   <svg
     class="ec-alert__icon ec-icon"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-error"
@@ -210,14 +198,12 @@ exports[`EcAlert should use the given type for the alert type and for the button
 
 exports[`EcAlert should use the type "error" 1`] = `
 <div
-  class="ec-alert ec-alert--error"
+  class="ec-alert ec-alert--error ec-alert--is-responsive"
 >
   <!---->
    
   <svg
     class="ec-alert__icon ec-icon"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-error"
@@ -242,14 +228,12 @@ exports[`EcAlert should use the type "error" 1`] = `
 
 exports[`EcAlert should use the type "info" 1`] = `
 <div
-  class="ec-alert ec-alert--info"
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
 >
   <!---->
    
   <svg
     class="ec-alert__icon ec-icon"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-info"
@@ -274,14 +258,12 @@ exports[`EcAlert should use the type "info" 1`] = `
 
 exports[`EcAlert should use the type "success" 1`] = `
 <div
-  class="ec-alert ec-alert--success"
+  class="ec-alert ec-alert--success ec-alert--is-responsive"
 >
   <!---->
    
   <svg
     class="ec-alert__icon ec-icon"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-check"
@@ -306,14 +288,12 @@ exports[`EcAlert should use the type "success" 1`] = `
 
 exports[`EcAlert should use the type "warning" 1`] = `
 <div
-  class="ec-alert ec-alert--warning"
+  class="ec-alert ec-alert--warning ec-alert--is-responsive"
 >
   <!---->
    
   <svg
     class="ec-alert__icon ec-icon"
-    height="24"
-    width="24"
   >
     <use
       xlink:href="#ec-simple-error"
