@@ -18,6 +18,7 @@ html {
 body {
   @include body-text;
 
+  color: $level-3-body-and-headings;
   font-family: $body-font-family;
   font-variant-ligatures: none;
   text-transform: none;
@@ -60,24 +61,10 @@ a {
 p {
   @include body-text;
 
-  margin: 12px 0;
-  max-width: 650px;
+  margin: 1em 0;
+  max-width: 75ch;
 }
 
 ::placeholder {
   color: $level-5-placeholders;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: $white;
-  border-radius: 2px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: $level-4-interactive-elements;
 }

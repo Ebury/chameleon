@@ -117,18 +117,35 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
   left: 0;
   color: $ec-modal-color;
 
+  @include z-index-level-3;
+
   &__content {
     display: flex;
     flex-direction: column;
     width: calc(100% - 24px);
     max-width: 680px;
     max-height: calc(100% - 24px);
-    position: fixed;
+    position: relative;
     top: 50%;
     left: 50%;
     background: $ec-modal-content-bg;
     transform: translate(-50%, -50%);
-    overflow: hidden;
+    // overflow: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $white;
+      border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: $level-4-interactive-elements;
+    }
 
     @include shape-border-radius;
 
@@ -164,6 +181,7 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
     flex-grow: 3;
     overflow-y: auto;
     margin: 0 24px 24px 24px;
+    min-height: 120px;
   }
 
   &__footer {
