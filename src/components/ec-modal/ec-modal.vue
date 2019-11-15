@@ -128,6 +128,9 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
     left: 50%;
     background: $ec-modal-content-bg;
     transform: translate(-50%, -50%);
+    overflow: hidden;
+
+    @include shape-border-radius;
 
     @include media__from-1024 {
       width: 60vw;

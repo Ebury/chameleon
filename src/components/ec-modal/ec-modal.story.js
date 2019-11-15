@@ -1,10 +1,9 @@
-/* eslint-disable no-alert, no-console */
 import { storiesOf } from '@storybook/vue';
 import { boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
 import EcIcon from '../ec-icon';
 import EcModal from './ec-modal.vue';
-import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
-
 
 const stories = storiesOf('Modal', module);
 
@@ -56,14 +55,14 @@ stories
     methods: {
       rejected() {
         this.showModal = false;
-        console.log('User rejected');
+        action('User rejected the modal')();
       },
       accepted() {
         this.showModal = false;
-        console.log('Submit a form or similar');
+        action('User accepted the modal')();
       },
       onClose() {
-        console.log('Register the event or similar');
+        action('User closed the modal')();
       },
     },
     template: `
