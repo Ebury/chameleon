@@ -1,0 +1,24 @@
+@mixin ec-alert-responsive() {
+  flex-direction: row;
+  padding: 16px 24px;
+
+  .ec-alert__icon {
+    width: 24px;
+    height: 24px;
+    margin: 4px 16px 4px 0;
+
+    &--alert-has-subtitle {
+      align-self: flex-start;
+    }
+  }
+
+  .ec-alert__content {
+    text-align: left;
+  }
+
+  .ec-alert__button {
+    margin: 0 24px;
+  }
+
+  @content;
+}
