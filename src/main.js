@@ -10,3 +10,4 @@ export { default as EcNavigationLink } from './components/ec-navigation-link';
 export { default as EcUserInfo } from './components/ec-user-info';
 export { default as EcPopover } from './components/ec-popover';
 export { default as EcTooltip } from './directives/ec-tooltip';
+export { default as EcModal } from './components/ec-modal';

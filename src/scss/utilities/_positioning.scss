@@ -17,10 +17,10 @@
 // Will push a flex item to the right
 .ec-push-r {
   margin-left: auto;
+}
 
-  &-from-1024 {
-    @include media__from-1024 {
-      margin-left: auto;
-    }
+.ec-push-r-from-1024 {
+  @include media__from-1024 {
+    margin-left: auto;
   }
 }

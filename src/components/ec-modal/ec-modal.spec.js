@@ -20,6 +20,7 @@ describe('EcModal', () => {
     });
     expect(wrapper.element).toMatchSnapshot();
   });
+
   it('should render close button', () => {
     const wrapper = mount(EcModal, {
       propsData: {
@@ -27,10 +28,10 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.find('.ec-modal__close').exists()).toBe(true);
-    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__header').element).toMatchSnapshot();
   });
 
-  it('should not render close button if set to false', () => {
+  it('should not render close button when showCloseIcon is set to false', () => {
     const wrapper = mount(EcModal, {
       propsData: {
         showModal: true,
@@ -38,28 +39,28 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.find('.ec-modal__close').exists()).toBe(false);
-    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__header').element).toMatchSnapshot();
   });
 
-  it('should not render help link', () => {
+  it('should not render footer left section', () => {
     const wrapper = mount(EcModal, {
       propsData: {
         showModal: true,
       },
     });
-    expect(wrapper.find('.ec-modal__help-link').exists()).toBe(false);
-    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__footer-left-content').exists()).toBe(false);
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
-  it('should render help link when showHelpLink is set to true', () => {
+  it('should render footer left section when "showFooterLeftContent" is set to true', () => {
     const wrapper = mount(EcModal, {
       propsData: {
         showModal: true,
-        showHelpLink: true,
+        showFooterLeftContent: true,
       },
     });
-    expect(wrapper.find('.ec-modal__help-link').exists()).toBe(true);
-    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__footer-left-content').exists()).toBe(true);
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should have the ec-modal--lg class', () => {
@@ -71,9 +72,8 @@ describe('EcModal', () => {
     });
 
     expect(wrapper.find('.ec-modal__content').classes('ec-modal--lg')).toBe(true);
-    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__content').element).toMatchSnapshot();
   });
-
 
   it('should render negative button if slot is passed', () => {
     const wrapper = mount(EcModal, {
@@ -85,7 +85,7 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.find('.ec-modal__negative-btn').exists()).toBe(true);
-    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should not render negative button if slot not passed', () => {
@@ -95,7 +95,7 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.find('.ec-modal__negative-btn').exists()).toBe(false);
-    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should render positive button if slot is passed', () => {
@@ -108,7 +108,7 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.find('.ec-modal__positive-btn').exists()).toBe(true);
-    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should not render positive button if slot not passed', () => {
@@ -118,10 +118,10 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.find('.ec-modal__positive-btn').exists()).toBe(false);
-    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
-  it('should emit a positiveAction event', () => {
+  it('should emit a "positive" event when clicking on the positive button', () => {
     const wrapper = mount(EcModal, {
       propsData: {
         showModal: true,
@@ -132,10 +132,10 @@ describe('EcModal', () => {
     });
 
     wrapper.find('.ec-modal__positive-btn').trigger('click');
-    expect(wrapper.emitted().positiveAction).toBeTruthy();
+    expect(wrapper.emitted().positive).toBeTruthy();
   });
 
-  it('should emit a negativeAction event when clicking the negative button', () => {
+  it('should emit a "negative" event when clicking on the negative button', () => {
     const wrapper = mount(EcModal, {
       propsData: {
         showModal: true,
@@ -146,10 +146,10 @@ describe('EcModal', () => {
     });
 
     wrapper.find('.ec-modal__negative-btn').trigger('click');
-    expect(wrapper.emitted().negativeAction).toBeTruthy();
+    expect(wrapper.emitted().negative).toBeTruthy();
   });
 
-  it('should emit a closeModal event when clicking the close button', () => {
+  it('should emit a "close" event when clicking on the close button', () => {
     const wrapper = mount(EcModal, {
       propsData: {
         showModal: true,
@@ -158,6 +158,6 @@ describe('EcModal', () => {
     });
 
     wrapper.find('.ec-modal__close').trigger('click');
-    expect(wrapper.emitted().closeModal).toBeTruthy();
+    expect(wrapper.emitted().close).toBeTruthy();
   });
 });

@@ -1,19 +1,30 @@
 /* eslint-disable no-alert, no-console */
 import { storiesOf } from '@storybook/vue';
 import { boolean } from '@storybook/addon-knobs';
+import EcIcon from '../ec-icon';
 import EcModal from './ec-modal.vue';
+import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
+
 
 const stories = storiesOf('Modal', module);
 
+const tooltipConfig = {
+  content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
+  classes: ['ec-tooltip--bg-bright'],
+  trigger: 'click',
+  placement: 'bottom',
+};
+
 stories
   .add('basic', () => ({
-    components: { EcModal },
+    components: { EcModal, EcIcon },
+    directives: { EcTooltip },
     props: {
       showModalFromProps: {
         default: boolean('Show Modal', true),
       },
-      showHelpLink: {
-        default: boolean('Help Link', true),
+      showFooterLeftContent: {
+        default: boolean('Footer Right Content', true),
       },
       showCloseIcon: {
         default: boolean('Show Close Icon', true),
@@ -39,18 +50,19 @@ stories
     data() {
       return {
         showModal: false,
+        tooltipConfig,
       };
     },
     methods: {
-      negativeMethod() {
+      rejected() {
+        this.showModal = false;
+        console.log('User rejected');
+      },
+      accepted() {
         this.showModal = false;
         console.log('Submit a form or similar');
       },
-      positiveMethod() {
-        this.showModal = false;
-        console.log('Submit a form or similar');
-      },
-      closeMethod() {
+      onClose() {
         console.log('Register the event or similar');
       },
     },
@@ -59,11 +71,11 @@ stories
         <ec-modal
           v-if="!isLarge"
           :large = "isLarge"
-          :showHelpLink="showHelpLink"
+          :showFooterLeftContent="showFooterLeftContent"
           :showCloseIcon="showCloseIcon"
-          @negativeAction = "negativeMethod()"
-          @positiveAction = "positiveMethod()"
-          @closeModal = "closeMethod()"
+          @negative = "rejected()"
+          @positive = "accepted()"
+          @close = "onClose()"
           v-model="showModal">
 
           <template #header>
@@ -72,8 +84,22 @@ stories
 
           <template #main>
             <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+            <p>Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
           </template>
 
+          <template #footer-left-content>
+            <div 
+              style="display: flex;flex-grow-1;align-items:center;cursor:pointer;"
+              v-ec-tooltip="tooltipConfig"
+            >
+              <ec-icon
+                class="ec-mr--8"
+                name="simple-help"
+                :size="18"
+              />
+              Need help?
+            </div>
+          </template>
           <template #negative v-if="negativeHasText">Skip For Now</template>
           <template #positive v-if="positiveHasText">Update management accounts</template>
         </ec-modal>
@@ -81,11 +107,11 @@ stories
         <ec-modal
           v-if="isLarge"
           :large = "isLarge"
-          :showHelpLink="showHelpLink"
+          :showFooterLeftContent="showFooterLeftContent"
           :showCloseIcon="showCloseIcon"
-          @negativeAction = "negativeMethod()"
-          @positiveAction = "positiveMethod()"
-          @closeModal = "closeMethod()"
+          @negative = "rejected()"
+          @positive = "accepted()"
+          @close = "onClose()"
           v-model="showModal">
           <template #header>
             <h2>Update your management accounts</h2>
@@ -93,16 +119,31 @@ stories
 
           <template #main>
             <div style="display:flex;flex-basis:1;">
-              <div class="ec-mt--0">
-                <p v-for="i in 10">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+              <div>
+                <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+                <p v-for="i in 20">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
               </div>
 
               <div>
-                <p v-for="i in 10">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+                <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+                <p v-for="i in 20">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
               </div>
             </div>
           </template>
 
+          <template #footer-left-content>
+            <div 
+              style="display: flex;flex-grow-1;align-items:center;cursor:pointer;"
+              v-ec-tooltip="tooltipConfig"
+            >
+              <ec-icon
+                class="ec-mr--8"
+                name="simple-help"
+                :size="18"
+              />
+              Need help?
+            </div>
+          </template>
           <template #negative v-if="negativeHasText">Skip for now</template>
           <template #positive v-if="positiveHasText">Update management accounts</template>
         </ec-modal>
