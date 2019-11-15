@@ -32,27 +32,29 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/settings/colors/key-color-scale';
+@import '../../scss/settings/layout';
 @import '../../scss/settings/z-index';
 @import '../../scss/tools/typography';
 @import '../../scss/tools/media-queries';
 
+$ec-privacy-policy-max-width: $body-max-width !default;
+
 .ec-privacy-policy {
-  z-index: $z-index-level-3;
-  padding: 24px;
-  background-color: #ebfbff;
+  z-index: $z-index-level-1;
+  padding: 24px 48px;
+  background-color: rgba($level-7, 0.95);
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
-  opacity: 0.95;
 
   &__content {
-    max-width: 1184px;
+    max-width: $ec-privacy-policy-max-width;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    align-content: center;
     justify-content: space-between;
   }
 
@@ -61,9 +63,9 @@ export default {
   }
 
   &__item {
-    @media screen and (max-width: 1184px) {
+    @media screen and (max-width: $ec-privacy-policy-max-width) {
       width: 100%;
-      margin: 0.25rem auto;
+      margin: 4px auto;
     }
   }
 }
