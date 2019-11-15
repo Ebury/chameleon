@@ -7,7 +7,7 @@
       </div>
       <div class="ec-privacy-policy__item">
         <button
-          class="ec-privacy-policy__item ec-btn ec-btn--rounded ec-btn-secondary ec-btn--sm"
+          class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn-secondary ec-btn--sm"
           @click="$emit('accept')"
         >{{ buttonText }}</button>
       </div>
