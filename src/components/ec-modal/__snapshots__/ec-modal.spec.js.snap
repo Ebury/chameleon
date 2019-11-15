@@ -35,7 +35,7 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
 </div>
 `;
 
-exports[`EcModal should not render close button when showCloseIcon is set to false 1`] = `
+exports[`EcModal should not render close button when isClosable is set to false 1`] = `
 <header
   class="ec-modal__header"
 >

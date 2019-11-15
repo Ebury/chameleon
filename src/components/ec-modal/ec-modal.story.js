@@ -25,7 +25,7 @@ stories
       showFooterLeftContent: {
         default: boolean('Footer Right Content', true),
       },
-      showCloseIcon: {
+      isClosable: {
         default: boolean('Show Close Icon', true),
       },
       isLarge: {
@@ -71,7 +71,7 @@ stories
           v-if="!isLarge"
           :large = "isLarge"
           :showFooterLeftContent="showFooterLeftContent"
-          :showCloseIcon="showCloseIcon"
+          :isClosable="isClosable"
           @negative = "rejected()"
           @positive = "accepted()"
           @close = "onClose()"
@@ -87,8 +87,8 @@ stories
           </template>
 
           <template #footer-left-content>
-            <div 
-              style="display: flex;flex-grow-1;align-items:center;cursor:pointer;"
+            <div
+              style="display: flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0;"
               v-ec-tooltip="tooltipConfig"
             >
               <ec-icon
@@ -107,7 +107,7 @@ stories
           v-if="isLarge"
           :large = "isLarge"
           :showFooterLeftContent="showFooterLeftContent"
-          :showCloseIcon="showCloseIcon"
+          :isClosable="isClosable"
           @negative = "rejected()"
           @positive = "accepted()"
           @close = "onClose()"
@@ -131,8 +131,8 @@ stories
           </template>
 
           <template #footer-left-content>
-            <div 
-              style="display: flex;flex-grow-1;align-items:center;cursor:pointer;"
+            <div
+              style="display: flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0;"
               v-ec-tooltip="tooltipConfig"
             >
               <ec-icon

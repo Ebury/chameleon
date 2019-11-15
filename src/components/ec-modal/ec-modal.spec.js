@@ -36,10 +36,10 @@ describe('EcModal', () => {
     expect(wrapper.find('.ec-modal__header').element).toMatchSnapshot();
   });
 
-  it('should not render close button when showCloseIcon is set to false', () => {
+  it('should not render close button when isClosable is set to false', () => {
     const wrapper = mountModal({
       showModal: true,
-      showCloseIcon: false,
+      isClosable: false,
     });
 
     expect(wrapper.find('.ec-modal__close').exists()).toBe(false);

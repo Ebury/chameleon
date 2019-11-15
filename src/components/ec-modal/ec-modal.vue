@@ -3,6 +3,7 @@
     <div
       v-if="showModal"
       class="ec-modal"
+      @click="closeModal()"
     >
       <div
         class="ec-modal__content"
@@ -11,7 +12,7 @@
         <header class="ec-modal__header">
           <slot name="header" />
           <ec-icon
-            v-if="showCloseIcon"
+            v-if="isClosable"
             class="ec-modal__close"
             name="simple-close"
             :size="24"
@@ -32,7 +33,7 @@
           </div>
 
           <button
-            v-if="this.$slots.negative"
+            v-if="this.$scopedSlots.negative"
             class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn--right"
             @click="negativeAction()"
           >
@@ -40,8 +41,8 @@
           </button>
 
           <button
-            v-if="this.$slots.positive"
-            :class="{'ec-modal__positive-btn--right': !this.$slots.negative}"
+            v-if="this.$scopedSlots.positive"
+            :class="{'ec-modal__positive-btn--right': !this.$scopedSlots.negative}"
             class="ec-modal__positive-btn ec-btn ec-btn--md ec-btn--primary ec-btn--rounded"
             @click="positiveAction()"
           >
@@ -74,7 +75,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    showCloseIcon: {
+    isClosable: {
       type: Boolean,
       default: true,
     },
@@ -91,7 +92,9 @@ export default {
       this.$emit('positive');
     },
     closeModal() {
-      this.$emit('close', false);
+      if (this.isClosable === true) {
+        this.$emit('close');
+      }
     },
   },
 };
@@ -117,37 +120,27 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
   left: 0;
   color: $ec-modal-color;
 
-  @include z-index-level-3;
+  @include z-index-modal;
 
   &__content {
-    display: flex;
-    flex-direction: column;
     width: calc(100% - 24px);
     max-width: 680px;
-    max-height: calc(100% - 24px);
     position: relative;
     top: 50%;
     left: 50%;
     background: $ec-modal-content-bg;
     transform: translate(-50%, -50%);
-    // overflow: hidden;
+    max-height: calc(100% - 24px);
     overflow-y: auto;
 
-    &::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: $white;
-      border-radius: 2px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 5px;
-      background-color: $level-4-interactive-elements;
-    }
-
+    @include box-shadow-level-2;
+    @include scrollbar;
     @include shape-border-radius;
+
+    @media screen and (min-height: 568px) {
+      display: flex;
+      flex-direction: column;
+    }
 
     @include media__from-1024 {
       width: 60vw;
@@ -178,10 +171,16 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
   }
 
   &__main {
-    flex-grow: 3;
-    overflow-y: auto;
     margin: 0 24px 24px 24px;
-    min-height: 120px;
+
+    @media screen and (min-height: 640px) {
+      @include scrollbar;
+
+      overflow-y: auto;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__footer {
