@@ -3,7 +3,7 @@
     <div
       v-if="showModal"
       class="ec-modal"
-      @click="closeModal()"
+      @click.self="closeModal()"
     >
       <div
         class="ec-modal__content"
@@ -16,7 +16,7 @@
             class="ec-modal__close"
             name="simple-close"
             :size="24"
-            @click="closeModal()"
+            @click.stop="closeModal()"
           />
         </header>
 
