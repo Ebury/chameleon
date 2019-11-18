@@ -7,7 +7,7 @@
       </div>
       <div class="ec-privacy-policy__item">
         <button
-          class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn-secondary ec-btn--sm"
+          class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn--sm"
           @click="$emit('accept')"
         >{{ buttonText }}</button>
       </div>
@@ -64,6 +64,10 @@ $ec-privacy-policy-max-width: $body-max-width !default;
 
   &__title {
     @include h4;
+
+    @media screen and (max-width: $ec-privacy-policy-max-width) {
+      display: none;
+    }
   }
 
   &__item {

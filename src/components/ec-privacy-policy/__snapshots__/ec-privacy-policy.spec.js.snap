@@ -21,7 +21,7 @@ exports[`EcPrivacyPolicy should display only with a title and the buttonText giv
       class="ec-privacy-policy__item"
     >
       <button
-        class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn-secondary ec-btn--sm"
+        class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn--sm"
       >
         Click here
       </button>
@@ -55,7 +55,7 @@ exports[`EcPrivacyPolicy should render with the slot given 1`] = `
       class="ec-privacy-policy__item"
     >
       <button
-        class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn-secondary ec-btn--sm"
+        class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn--sm"
       >
         Click here
       </button>
