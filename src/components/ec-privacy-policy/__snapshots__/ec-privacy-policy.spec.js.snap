@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcPrivacyPolicy should display only with a title and the buttonText given 1`] = `
+<div
+  class="ec-privacy-policy"
+>
+  <div
+    class="ec-privacy-policy__content"
+  >
+    <div
+      class="ec-privacy-policy__title ec-privacy-policy__item"
+    >
+      Random Title
+    </div>
+     
+    <div
+      class="ec-privacy-policy__item"
+    />
+     
+    <div
+      class="ec-privacy-policy__item"
+    >
+      <button
+        class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn-secondary ec-btn--sm"
+      >
+        Click here
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcPrivacyPolicy should render with the slot given 1`] = `
+<div
+  class="ec-privacy-policy"
+>
+  <div
+    class="ec-privacy-policy__content"
+  >
+    <div
+      class="ec-privacy-policy__title ec-privacy-policy__item"
+    >
+      Random Title
+    </div>
+     
+    <div
+      class="ec-privacy-policy__item"
+    >
+      <div>
+        Slot default
+      </div>
+    </div>
+     
+    <div
+      class="ec-privacy-policy__item"
+    >
+      <button
+        class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn-secondary ec-btn--sm"
+      >
+        Click here
+      </button>
+    </div>
+  </div>
+</div>
+`;
