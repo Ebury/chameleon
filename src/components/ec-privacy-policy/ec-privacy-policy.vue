@@ -49,6 +49,10 @@ $ec-privacy-policy-max-width: $body-max-width !default;
   width: 100%;
   text-align: center;
 
+  @media screen and (max-width: 640px) {
+    padding: 24px 16px;
+  }
+
   &__content {
     max-width: $ec-privacy-policy-max-width;
     margin: auto;
