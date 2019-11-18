@@ -9,11 +9,14 @@ $ec-btn-success-color: $color-success !default;
 $ec-btn-success-color-hover: $color-success-hover !default;
 $ec-btn-error-color: $color-error !default;
 $ec-btn-error-color-hover: $color-error-hover !default;
+$ec-btn-warning-color: $color-warning !default;
+$ec-btn-warning-color-hover: $color-warning-hover !default;
 $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
 .ec-btn {
   @include btn;
 
+  outline: 0;
   white-space: nowrap;
   overflow: hidden;
   fill: currentColor;
@@ -57,6 +60,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   }
 
   &--icon-only {
+    width: auto;
     border-radius: 50%;
 
     &.ec-btn--sm {
@@ -75,6 +79,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
   &:disabled {
     background-color: $ec-btn-disabled-color;
+    color: $ec-btn-color;
     cursor: default;
     pointer-events: none;
   }
@@ -113,6 +118,16 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     }
   }
 
+  &--secondary-reverse {
+    color: $ec-btn-secondary-color;
+    background-color: $ec-btn-color;
+
+    &:hover {
+      color: $ec-btn-color;
+      background-color: $ec-btn-secondary-color;
+    }
+  }
+
   &--success {
     background-color: $ec-btn-success-color;
 
@@ -122,6 +137,16 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
     &:focus {
       box-shadow: 0 0 0 3px rgba($ec-btn-success-color, 0.25);
+    }
+  }
+
+  &--success-reverse {
+    color: $ec-btn-success-color;
+    background-color: $ec-btn-color;
+
+    &:hover {
+      color: $ec-btn-color;
+      background-color: $ec-btn-success-color;
     }
   }
 
@@ -137,18 +162,55 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     }
   }
 
+  &--error-reverse {
+    color: $ec-btn-error-color;
+    background-color: $ec-btn-color;
+
+    &:hover {
+      color: $ec-btn-color;
+      background-color: $ec-btn-error-color;
+    }
+  }
+
+  &--warning {
+    background-color: $ec-btn-warning-color;
+
+    &:hover {
+      background-color: $ec-btn-warning-color-hover;
+    }
+  }
+
+  &--warning-reverse {
+    color: $ec-btn-warning-color;
+    background-color: $ec-btn-color;
+
+    &:hover {
+      color: $ec-btn-color;
+      background-color: $ec-btn-warning-color;
+    }
+  }
+
   &--outline {
     border: 1px;
     border-style: solid;
     background-color: transparent;
 
-    &.ec-btn--primary,
-    &.ec-btn--primary-reverse {
+    &.ec-btn--primary {
       color: $ec-btn-primary-color;
       border-color: $ec-btn-primary-color;
 
       &:hover {
         background-color: $ec-btn-primary-color;
+      }
+    }
+
+    &.ec-btn--primary-reverse {
+      color: $ec-btn-color;
+      border-color: $ec-btn-color;
+
+      &:hover {
+        color: $ec-btn-primary-color;
+        background-color: $ec-btn-color;
       }
     }
 
@@ -161,6 +223,16 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
       }
     }
 
+    &.ec-btn--secondary-reverse {
+      color: $ec-btn-color;
+      border-color: $ec-btn-color;
+
+      &:hover {
+        color: $ec-btn-secondary-color;
+        background-color: $ec-btn-color;
+      }
+    }
+
     &.ec-btn--success {
       color: $ec-btn-success-color;
       border-color: $ec-btn-success-color;
@@ -170,12 +242,51 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
       }
     }
 
+    &.ec-btn--success-reverse {
+      color: $ec-btn-color;
+      border-color: $ec-btn-color;
+
+      &:hover {
+        color: $ec-btn-success-color;
+        background-color: $ec-btn-color;
+      }
+    }
+
     &.ec-btn--error {
       color: $ec-btn-error-color;
       border-color: $ec-btn-error-color;
 
       &:hover {
         background-color: $ec-btn-error-color;
+      }
+    }
+
+    &.ec-btn--error-reverse {
+      color: $ec-btn-color;
+      border-color: $ec-btn-color;
+
+      &:hover {
+        color: $ec-btn-error-color;
+        background-color: $ec-btn-color;
+      }
+    }
+
+    &.ec-btn--warning {
+      color: $ec-btn-warning-color;
+      border-color: $ec-btn-warning-color;
+
+      &:hover {
+        background-color: $ec-btn-warning-color;
+      }
+    }
+
+    &.ec-btn--warning-reverse {
+      color: $ec-btn-color;
+      border-color: $ec-btn-color;
+
+      &:hover {
+        color: $ec-btn-warning-color;
+        background-color: $ec-btn-color;
       }
     }
 

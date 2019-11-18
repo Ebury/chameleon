@@ -136,18 +136,18 @@ stories.add('basic', () => ({
 
 stories.add('within a text', () => ({
   components: { EcIcon },
-  template: `<div>
+  template: `<div class="ec-p--8">
     <p>
       Ipsum laborum laborum consectetur ut sunt commodo ullamco et reprehenderit anim.
       Deserunt labore mollit adipisicing labore id eiusmod veniam anim proident voluptate qui
-      cupidatat culpa. <ec-icon name="simple-trade-finance" style="fill: #C00" size="24" /> Sit ipsum sunt sit velit pariatur velit Lorem nisi.
+      cupidatat culpa. <ec-icon name="simple-trade-finance" style="fill: #C00" :size="24" /> Sit ipsum sunt sit velit pariatur velit Lorem nisi.
       Tempor Lorem officia esse consequat exercitation pariatur fugiat esse. Aliquip veniam
       dolore veniam magna tempor ad id aute reprehenderit. Officia dolore veniam velit nisi
-      amet ipsum aliqua minim. <ec-icon name="simple-check" style="fill: #00C" size="24" />Consequat pariatur
+      amet ipsum aliqua minim. <ec-icon name="simple-check" style="fill: #00C" :size="24" />Consequat pariatur
       duis labore proident reprehenderit pariatur ex quis incididunt ut ipsum.
     </p>
-    <button class="ec-btn" style="color: #0C0">
-      <ec-icon name="simple-sign-out" style="fill: currentColor; vertical-align: middle" size="24" /> Icon inside a button
+    <button class="ec-btn ec-btn--rounded ec-btn--md ec-btn--primary ec-btn--outline ec-mt--16">
+      <ec-icon name="simple-sign-out" style="fill: currentColor;" class="ec-mr--8" :size="24" /> Icon inside a button
     </button>
   </div>`,
 }));

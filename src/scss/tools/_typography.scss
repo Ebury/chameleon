@@ -46,6 +46,13 @@
   font-weight: 400;
 }
 
+@mixin body-strong {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: $level-3-body-and-headings;
+}
+
 @mixin body-link {
   color: $level-4-tech-blue;
   text-decoration: none;

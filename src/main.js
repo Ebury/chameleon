@@ -1,3 +1,4 @@
+export { default as EcAlert } from './components/ec-alert';
 export { default as EcClosePopover } from './directives/ec-close-popover';
 export { default as EcContainer } from './components/ec-container';
 export { default as EcDropdownSearch } from './components/ec-dropdown-search';
@@ -9,6 +10,7 @@ export { default as EcMenu } from './components/ec-menu';
 export { default as EcModal } from './components/ec-modal';
 export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
+export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
+export { default as EcUserInfo } from './components/ec-user-info';
 export { default as EcPopover } from './components/ec-popover';
 export { default as EcTooltip } from './directives/ec-tooltip';
-export { default as EcUserInfo } from './components/ec-user-info';
