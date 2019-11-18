@@ -84,6 +84,15 @@ export default {
       default: false,
     },
   },
+  created() {
+    const thisM = this;
+
+    document.addEventListener('keyup', (e) => {
+      if (e.keyCode === 27) {
+        thisM.closeModal();
+      }
+    });
+  },
   methods: {
     negativeAction() {
       this.$emit('negative');
