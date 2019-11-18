@@ -7,35 +7,30 @@
   font-size: 35px;
   line-height: 40px;
   font-weight: 400;
-  color: $level-3-body-and-headings;
 }
 
 @mixin h2 {
   font-size: 25px;
   line-height: 35px;
   font-weight: 300;
-  color: $level-3-body-and-headings;
 }
 
 @mixin h3 {
   font-size: 20px;
   line-height: 30px;
   font-weight: 500;
-  color: $level-3-body-and-headings;
 }
 
 @mixin h4 {
   font-size: 18px;
   line-height: 28px;
   font-weight: 300;
-  color: $level-3-body-and-headings;
 }
 
 @mixin h5 {
   font-size: 16px;
   line-height: 26px;
   font-weight: 500;
-  color: $level-3-body-and-headings;
 }
 
 @mixin h6 {
@@ -43,14 +38,12 @@
   line-height: 24px;
   font-weight: 500;
   text-transform: uppercase;
-  color: $level-3-body-and-headings;
 }
 
 @mixin body-text {
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: $level-3-body-and-headings;
 }
 
 @mixin body-strong {
@@ -67,6 +60,10 @@
   &:hover {
     text-decoration: underline;
   }
+
+  &:focus {
+    outline: 1px dashed currentColor;
+  }
 }
 
 @mixin mini-header {
@@ -81,7 +78,6 @@
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
-  color: $level-3-body-and-headings;
 }
 
 @mixin caption-text {

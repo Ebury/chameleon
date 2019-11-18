@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "core-js": "2.6.5",
+    "focus-trap": "5.1.0",
     "v-tooltip": "2.0.2",
     "vue": "2.6.10"
   },

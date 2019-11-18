@@ -20,6 +20,12 @@ $ec-tooltip-width-value: 5px;
     max-width: 260px;
 
     @include shape-border-radius;
+
+    .ec-tooltip--bg-bright & {
+      background: $white;
+      color: $level-3-body-and-headings;
+      border-color: $white;
+    }
   }
 
   &__arrow {
@@ -31,6 +37,10 @@ $ec-tooltip-width-value: 5px;
     position: absolute;
     margin: $ec-tooltip-width-value;
     border-color: $level-2-doc-bodies-bg;
+
+    .ec-tooltip--bg-bright & {
+      border-color: $white;
+    }
   }
 
   &[x-placement^='top'] {

@@ -18,6 +18,7 @@ html {
 body {
   @include body-text;
 
+  color: $level-3-body-and-headings;
   font-family: $body-font-family;
   font-variant-ligatures: none;
   text-transform: none;
@@ -55,6 +56,13 @@ strong {
 
 a {
   @include body-link;
+}
+
+p {
+  @include body-text;
+
+  margin: 1em 0;
+  max-width: 75ch;
 }
 
 ::placeholder {
