@@ -85,11 +85,9 @@ export default {
     },
   },
   created() {
-    const thisM = this;
-
     document.addEventListener('keyup', (e) => {
       if (e.keyCode === 27) {
-        thisM.closeModal();
+        this.closeModal();
       }
     });
   },
@@ -101,7 +99,7 @@ export default {
       this.$emit('positive');
     },
     closeModal() {
-      if (this.isClosable === true) {
+      if (this.isClosable) {
         this.$emit('close');
       }
     },
