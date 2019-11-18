@@ -1,5 +1,3 @@
-
-// import Vue from 'vue';
 import { mount } from '@vue/test-utils';
 import EcPrivacyPolicy from './ec-privacy-policy.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
