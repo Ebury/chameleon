@@ -42,24 +42,24 @@ $ec-privacy-policy-max-width: $body-max-width !default;
 
 .ec-privacy-policy {
   z-index: $z-index-level-1;
-  padding: 24px 48px;
   background-color: rgba($level-7, 0.95);
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
 
-  @media screen and (max-width: 640px) {
-    padding: 24px 16px;
-  }
-
   &__content {
+    padding: 24px 48px;
     max-width: $ec-privacy-policy-max-width;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (max-width: 640px) {
+      padding: 24px 16px;
+    }
   }
 
   &__title {
