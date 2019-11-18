@@ -85,11 +85,11 @@ export default {
     },
   },
   created() {
-    document.addEventListener('keyup', (e) => {
-      if (e.keyCode === 27) {
-        this.closeModal();
-      }
-    });
+    document.addEventListener('keyup', this.escapeIsPressed);
+  },
+  destroyed() {
+    document.removeEventListener('keyup', this.escapeIsPressed);
+    console.log('event removed');
   },
   methods: {
     negativeAction() {
@@ -101,6 +101,13 @@ export default {
     closeModal() {
       if (this.isClosable) {
         this.$emit('close');
+      }
+    },
+    escapeIsPressed(e) {
+      const ESC = 27;
+
+      if (e.keyCode === ESC) {
+        this.closeModal();
       }
     },
   },
