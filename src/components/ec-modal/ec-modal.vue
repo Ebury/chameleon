@@ -2,7 +2,7 @@
   <transition name="ec-modal__fade">
     <div
       v-if="showModal"
-      v-ec-focus-trap="{ clickOutsideDeactivates: isClosable }"
+      v-ec-focus-trap="getFocusTrapOptions()"
       class="ec-modal"
       @click.self="closeModal()"
     >
@@ -19,6 +19,7 @@
             @click.stop.prevent="closeModal()"
           >
             <ec-icon
+              class="ec-modal__close-icon"
               name="simple-close"
               :size="24"
             />
@@ -38,7 +39,8 @@
           </div>
 
           <button
-            v-if="$scopedSlots.negative"
+            ref="negativeButton"
+            v-if="hasNegativeButton()"
             class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn ec-modal__negative-btn--right"
             @click="negativeAction()"
           >
@@ -46,8 +48,9 @@
           </button>
 
           <button
-            v-if="$scopedSlots.positive"
-            :class="{'ec-modal__positive-btn--right': !$scopedSlots.negative}"
+            ref="primaryButton"
+            v-if="hasPrimaryButton()"
+            :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
             class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn"
             @click="positiveAction()"
           >
@@ -63,6 +66,7 @@
 <script>
 import EcIcon from '../ec-icon';
 import EcFocusTrap from '../../directives/ec-focus-trap';
+import * as KeyCode from '../../enums/key-code';
 
 export default {
   components: {
@@ -96,7 +100,6 @@ export default {
   },
   destroyed() {
     document.removeEventListener('keyup', this.escapeIsPressed);
-    console.log('event removed');
   },
   methods: {
     negativeAction() {
@@ -111,11 +114,28 @@ export default {
       }
     },
     escapeIsPressed(e) {
-      const ESC = 27;
-
-      if (e.keyCode === ESC) {
+      if (e.keyCode === KeyCode.ESC) {
         this.closeModal();
       }
+    },
+    getFocusTrapOptions() {
+      const options = {
+        clickOutsideDeactivates: this.isClosable,
+      };
+
+      if (this.hasPrimaryButton()) {
+        options.initialFocus = () => this.$refs.primaryButton;
+      } else if (this.hasNegativeButton()) {
+        options.initialFocus = () => this.$refs.negativeButton;
+      }
+
+      return options;
+    },
+    hasPrimaryButton() {
+      return !!this.$scopedSlots.positive;
+    },
+    hasNegativeButton() {
+      return !!this.$scopedSlots.negative;
     },
   },
 };
@@ -234,12 +254,18 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
   &__close {
     margin-left: auto;
     transition: fill 0.3s ease-out;
-    fill: $ec-modal-close-btn-fill;
+    color: $ec-modal-close-btn-fill;
     cursor: pointer;
 
     &:hover {
-      fill: $ec-modal-close-btn-fill-hover;
+      color: $ec-modal-close-btn-fill-hover;
     }
+  }
+
+  &__close-icon {
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: top;
   }
 
   &__footer-left-content {

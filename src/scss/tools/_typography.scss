@@ -53,6 +53,10 @@
   &:hover {
     text-decoration: underline;
   }
+
+  &:focus {
+    outline: 1px dashed currentColor;
+  }
 }
 
 @mixin mini-header {

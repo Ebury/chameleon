@@ -88,9 +88,9 @@ stories
           </template>
 
           <template #footerLeftContent v-if="showFooterLeftContent">
-            <a href="#" @click.prevent>
-              <div
-                style="display: flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0;"
+            <a href="#" @click.prevent style="display:inline-block;">
+              <span
+                style="display: inline-flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0; vertical-align:top;"
                 v-ec-tooltip="tooltipConfig"
               >
                 <ec-icon
@@ -99,7 +99,7 @@ stories
                   :size="18"
                 />
                 Need help?
-              </div>
+              </span>
             </a>
           </template>
           <template #negative v-if="negativeHasText">Skip For Now</template>
@@ -133,9 +133,9 @@ stories
           </template>
 
           <template #footerLeftContent v-if="showFooterLeftContent">
-            <a href="#" @click.prevent>
-              <div
-                style="display: flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0;"
+            <a href="#" @click.prevent style="display:inline-block;">
+              <span
+                style="display: inline-flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0; vertical-align:top;"
                 v-ec-tooltip="tooltipConfig"
               >
                 <ec-icon
@@ -144,7 +144,7 @@ stories
                   :size="18"
                 />
                 Need help?
-              </div>
+              </span>
             </a>
           </template>
           <template #negative v-if="negativeHasText">Skip for now</template>
