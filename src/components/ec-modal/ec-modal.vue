@@ -2,6 +2,7 @@
   <transition name="ec-modal--fade">
     <div
       v-if="showModal"
+      v-ec-focus-trap="{ clickOutsideDeactivates: isClosable }"
       class="ec-modal"
       @click.self="closeModal()"
     >
@@ -57,11 +58,13 @@
 
 <script>
 import EcIcon from '../ec-icon';
+import EcFocusTrap from '../../directives/ec-focus-trap';
 
 export default {
   components: {
     EcIcon,
   },
+  directives: { EcFocusTrap },
   model: {
     prop: 'showModal',
     event: 'close',

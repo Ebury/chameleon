@@ -1,6 +1,7 @@
 export { default as EcClosePopover } from './directives/ec-close-popover';
 export { default as EcContainer } from './components/ec-container';
 export { default as EcDropdownSearch } from './components/ec-dropdown-search';
+export { default as EcFocusTrap } from './directives/ec-focus-trap';
 export { default as EcIcon } from './components/ec-icon';
 export { default as EcInlineActions } from './components/ec-inline-actions';
 export { default as EcMainContainer } from './components/ec-main-container';
