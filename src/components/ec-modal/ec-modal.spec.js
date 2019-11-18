@@ -2,6 +2,8 @@
 import { mount } from '@vue/test-utils';
 import EcModal from './ec-modal.vue';
 
+jest.mock('../../directives/ec-focus-trap');
+
 function mountModal(props, mountOpts) {
   return mount(EcModal, {
     propsData: { ...props },
@@ -11,7 +13,7 @@ function mountModal(props, mountOpts) {
 
 describe('EcModal', () => {
   it('should not render the modal if "showModal" is not set to true', () => {
-    const wrapper = mount(EcModal);
+    const wrapper = mountModal();
     expect(wrapper.find('.ec-modal').exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -46,25 +48,6 @@ describe('EcModal', () => {
     expect(wrapper.find('.ec-modal__header').element).toMatchSnapshot();
   });
 
-  it('should not render footer left section', () => {
-    const wrapper = mountModal({
-      showModal: true,
-    });
-
-    expect(wrapper.find('.ec-modal__footer-left-content').exists()).toBe(false);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
-  });
-
-  it('should render footer left section when "showFooterLeftContent" is set to true', () => {
-    const wrapper = mountModal({
-      showModal: true,
-      showFooterLeftContent: true,
-    });
-
-    expect(wrapper.find('.ec-modal__footer-left-content').exists()).toBe(true);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
-  });
-
   it('should have the ec-modal--lg class', () => {
     const wrapper = mountModal({
       showModal: true,
@@ -73,6 +56,29 @@ describe('EcModal', () => {
 
     expect(wrapper.find('.ec-modal__content').classes('ec-modal--lg')).toBe(true);
     expect(wrapper.find('.ec-modal__content').element).toMatchSnapshot();
+  });
+
+  it('should not render footer left section if slot not passed', () => {
+    const wrapper = mountModal({
+      showModal: true,
+    });
+
+    expect(wrapper.find('.ec-modal__footer-left-content').exists()).toBe(false);
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
+  });
+
+  it('should render footer left section when slot is passed', () => {
+    const wrapper = mountModal({
+      showModal: true,
+    },
+    {
+      slots: {
+        footerLeftContent: '<p>Need Help ?</p>',
+      },
+    });
+
+    expect(wrapper.find('.ec-modal__footer-left-content').exists()).toBe(true);
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should render negative button if slot is passed', () => {
@@ -105,7 +111,6 @@ describe('EcModal', () => {
     {
       slots: {
         positive: 'Update management accounts',
-
       },
     });
 

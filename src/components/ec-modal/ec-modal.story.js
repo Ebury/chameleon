@@ -23,7 +23,7 @@ stories
         default: boolean('Show Modal', true),
       },
       showFooterLeftContent: {
-        default: boolean('Footer Right Content', true),
+        default: boolean('Footer Left Content', true),
       },
       isClosable: {
         default: boolean('Show Close Icon', true),
@@ -72,7 +72,6 @@ stories
         <ec-modal
           v-if="!isLarge"
           :large = "isLarge"
-          :showFooterLeftContent="showFooterLeftContent"
           :isClosable="isClosable"
           @negative = "rejected()"
           @positive = "accepted()"
@@ -88,18 +87,20 @@ stories
             <p>Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
           </template>
 
-          <template #footer-left-content>
-            <div
-              style="display: flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0;"
-              v-ec-tooltip="tooltipConfig"
-            >
-              <ec-icon
-                class="ec-mr--8"
-                name="simple-help"
-                :size="18"
-              />
-              Need help?
-            </div>
+          <template #footerLeftContent v-if="showFooterLeftContent">
+            <a href="#" @click.prevent>
+              <div
+                style="display: flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0;"
+                v-ec-tooltip="tooltipConfig"
+              >
+                <ec-icon
+                  class="ec-mr--8"
+                  name="simple-help"
+                  :size="18"
+                />
+                Need help?
+              </div>
+            </a>
           </template>
           <template #negative v-if="negativeHasText">Skip For Now</template>
           <template #positive v-if="positiveHasText">Update management accounts</template>
@@ -108,7 +109,6 @@ stories
         <ec-modal
           v-if="isLarge"
           :large = "isLarge"
-          :showFooterLeftContent="showFooterLeftContent"
           :isClosable="isClosable"
           @negative = "rejected()"
           @positive = "accepted()"
@@ -132,29 +132,27 @@ stories
             </div>
           </template>
 
-          <template #footer-left-content>
-            <div
-              style="display: flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0;"
-              v-ec-tooltip="tooltipConfig"
-            >
-              <ec-icon
-                class="ec-mr--8"
-                name="simple-help"
-                :size="18"
-              />
-              Need help?
-            </div>
+          <template #footerLeftContent v-if="showFooterLeftContent">
+            <a href="#" @click.prevent>
+              <div
+                style="display: flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0;"
+                v-ec-tooltip="tooltipConfig"
+              >
+                <ec-icon
+                  class="ec-mr--8"
+                  name="simple-help"
+                  :size="18"
+                />
+                Need help?
+              </div>
+            </a>
           </template>
           <template #negative v-if="negativeHasText">Skip for now</template>
           <template #positive v-if="positiveHasText">Update management accounts</template>
         </ec-modal>
-<<<<<<< HEAD
 
 
         <p>A qui dolorum voluptatibus ratione corrupti dignissimos quia, alias ut excepturi. Reprehenderit quisquam dolorem eius rerum dignissimos porro sunt asperiores architecto, quidem totam necessitatibus voluptas molestiae pariatur consectetur. Ullam architecto minima animi alias aliquam, voluptates dicta. Ea ipsam alias autem laboriosam est accusamus distinctio praesentium minima? Impedit repudiandae provident reprehenderit ut beatae ducimus mollitia eius magni hic, quibusdam, ipsa voluptate porro vel non enim dolores at. Repellat.</p>
-=======
-        <p>A qui dolorum voluptatibus ratione corrupti <a href="#">dignissimos</a> quia, alias ut excepturi. Reprehenderit quisquam dolorem eius rerum dignissimos porro sunt asperiores architecto, quidem totam necessitatibus voluptas molestiae pariatur consectetur. Ullam architecto minima animi alias aliquam, voluptates dicta. Ea ipsam alias autem laboriosam est accusamus distinctio praesentium minima? Impedit repudiandae provident reprehenderit ut beatae ducimus mollitia eius magni hic, quibusdam, ipsa voluptate porro vel non enim dolores at. Repellat.</p>
->>>>>>> 26c3954bc3dba7c49e2abb4f0c9912163eebd7d5
       </div>
       `,
   }));

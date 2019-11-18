@@ -1,5 +1,5 @@
 <template>
-  <transition name="ec-modal--fade">
+  <transition name="ec-modal__fade">
     <div
       v-if="showModal"
       v-ec-focus-trap="{ clickOutsideDeactivates: isClosable }"
@@ -12,13 +12,17 @@
       >
         <header class="ec-modal__header">
           <slot name="header" />
-          <ec-icon
+          <a
             v-if="isClosable"
             class="ec-modal__close"
-            name="simple-close"
-            :size="24"
-            @click.stop="closeModal()"
-          />
+            href="#"
+            @click.stop.prevent="closeModal()"
+          >
+            <ec-icon
+              name="simple-close"
+              :size="24"
+            />
+          </a>
         </header>
 
         <main class="ec-modal__main">
@@ -27,15 +31,15 @@
 
         <footer class="ec-modal__footer">
           <div
-            v-if="showFooterLeftContent"
+            v-if="this.$scopedSlots.footerLeftContent"
             class="ec-modal__footer-left-content"
           >
-            <slot name="footer-left-content" />
+            <slot name="footerLeftContent" />
           </div>
 
           <button
             v-if="this.$scopedSlots.negative"
-            class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn--right"
+            class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn ec-modal__negative-btn--right"
             @click="negativeAction()"
           >
             <slot name="negative" />
@@ -44,7 +48,7 @@
           <button
             v-if="this.$scopedSlots.positive"
             :class="{'ec-modal__positive-btn--right': !this.$scopedSlots.negative}"
-            class="ec-modal__positive-btn ec-btn ec-btn--md ec-btn--primary ec-btn--rounded"
+            class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn"
             @click="positiveAction()"
           >
             <slot name="positive" />
@@ -242,7 +246,7 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
     margin: 12px;
   }
 
-  &--fade {
+  &__fade {
     @include fade-transition;
   }
 

@@ -8,15 +8,20 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
     class="ec-modal__header"
   >
      
-    <svg
-      class="ec-modal__close ec-icon"
-      height="24"
-      width="24"
+    <a
+      class="ec-modal__close"
+      href="#"
     >
-      <use
-        xlink:href="#ec-simple-close"
-      />
-    </svg>
+      <svg
+        class="ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-close"
+        />
+      </svg>
+    </a>
   </header>
    
   <main
@@ -44,7 +49,7 @@ exports[`EcModal should not render close button when isClosable is set to false 
 </header>
 `;
 
-exports[`EcModal should not render footer left section 1`] = `
+exports[`EcModal should not render footer left section if slot not passed 1`] = `
 <footer
   class="ec-modal__footer"
 >
@@ -85,7 +90,7 @@ exports[`EcModal should not render the modal if "showModal" is not set to true 1
 exports[`EcModal should render basic modal 1`] = `
 <div
   class="ec-modal"
-  name="ec-modal--fade"
+  name="ec-modal__fade"
 >
   <div
     class="ec-modal__content"
@@ -94,15 +99,20 @@ exports[`EcModal should render basic modal 1`] = `
       class="ec-modal__header"
     >
        
-      <svg
-        class="ec-modal__close ec-icon"
-        height="24"
-        width="24"
+      <a
+        class="ec-modal__close"
+        href="#"
       >
-        <use
-          xlink:href="#ec-simple-close"
-        />
-      </svg>
+        <svg
+          class="ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
     </header>
      
     <main
@@ -131,25 +141,34 @@ exports[`EcModal should render close button 1`] = `
   class="ec-modal__header"
 >
    
-  <svg
-    class="ec-modal__close ec-icon"
-    height="24"
-    width="24"
+  <a
+    class="ec-modal__close"
+    href="#"
   >
-    <use
-      xlink:href="#ec-simple-close"
-    />
-  </svg>
+    <svg
+      class="ec-icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-close"
+      />
+    </svg>
+  </a>
 </header>
 `;
 
-exports[`EcModal should render footer left section when "showFooterLeftContent" is set to true 1`] = `
+exports[`EcModal should render footer left section when slot is passed 1`] = `
 <footer
   class="ec-modal__footer"
 >
   <div
     class="ec-modal__footer-left-content"
-  />
+  >
+    <p>
+      Need Help ?
+    </p>
+  </div>
    
   <!---->
    
@@ -164,7 +183,7 @@ exports[`EcModal should render negative button if slot is passed 1`] = `
   <!---->
    
   <button
-    class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn--right"
+    class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn ec-modal__negative-btn--right"
   >
     Skip for now
   </button>
@@ -182,7 +201,7 @@ exports[`EcModal should render positive button if slot is passed 1`] = `
   <!---->
    
   <button
-    class="ec-modal__positive-btn ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn--right"
+    class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn ec-modal__positive-btn--right"
   >
     Update management accounts
   </button>
