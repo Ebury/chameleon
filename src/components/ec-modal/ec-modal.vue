@@ -31,14 +31,14 @@
 
         <footer class="ec-modal__footer">
           <div
-            v-if="this.$scopedSlots.footerLeftContent"
+            v-if="$scopedSlots.footerLeftContent"
             class="ec-modal__footer-left-content"
           >
             <slot name="footerLeftContent" />
           </div>
 
           <button
-            v-if="this.$scopedSlots.negative"
+            v-if="$scopedSlots.negative"
             class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn ec-modal__negative-btn--right"
             @click="negativeAction()"
           >
@@ -46,8 +46,8 @@
           </button>
 
           <button
-            v-if="this.$scopedSlots.positive"
-            :class="{'ec-modal__positive-btn--right': !this.$scopedSlots.negative}"
+            v-if="$scopedSlots.positive"
+            :class="{'ec-modal__positive-btn--right': !$scopedSlots.negative}"
             class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn"
             @click="positiveAction()"
           >
