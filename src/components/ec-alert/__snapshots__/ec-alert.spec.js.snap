@@ -102,15 +102,20 @@ exports[`EcAlert should render the dismiss icon when is given the prop dismissab
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
 >
-  <svg
-    class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--info"
-    height="16"
-    width="16"
+  <a
+    class="ec-alert__dismiss-icon ec-alert__dismiss-icon--info"
+    href=""
   >
-    <use
-      xlink:href="#ec-simple-close"
-    />
-  </svg>
+    <svg
+      class="ec-icon"
+      height="16"
+      width="16"
+    >
+      <use
+        xlink:href="#ec-simple-close"
+      />
+    </svg>
+  </a>
    
   <svg
     class="ec-alert__icon ec-icon"
