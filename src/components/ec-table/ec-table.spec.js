@@ -118,6 +118,21 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render as expected if provided with empty row and no columns, with footer switched on', () => {
+    const wrapper = mount(
+      EcTable,
+      {
+        propsData: {
+          columns: [],
+          data: [[]],
+          showFooter: true,
+        },
+      },
+    );
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render slots as expected', () => {
     const wrapper = mount(
       EcTable,

@@ -124,9 +124,9 @@ export default {
       };
 
       if (this.hasPrimaryButton()) {
-        options.initialFocus = () => this.$refs.primaryButton;
+        options.initialFocus = /* istanbul ignore next */ () => this.$refs.primaryButton;
       } else if (this.hasNegativeButton()) {
-        options.initialFocus = () => this.$refs.negativeButton;
+        options.initialFocus = /* istanbul ignore next */ () => this.$refs.negativeButton;
       }
 
       return options;
