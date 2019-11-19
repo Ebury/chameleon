@@ -97,6 +97,11 @@ $ec-user-info-avatar-size: 48px !default;
       transition: color 0.5s ease-out;
     }
 
+    &:focus {
+      outline: 0;
+      color: $ec-client-text-color-hover;
+    }
+
     .ec-user-info--is-collapsable & {
       margin-top: 0;
     }
