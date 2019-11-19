@@ -129,7 +129,7 @@ npm run test
 ```
 
 The test coverage is set to 100%, but if you think the test for a particular piece of code is not necessary, then mark the code with
-`/* istanbul ignore */` flags a get prepared to defend it during the PR. This process gives us visibility that every exclusion has
+`/* istanbul ignore */` flags and get prepared to defend it during the PR. This process gives us visibility that every exclusion has
 been approved. For more information see the [istanbul docs](https://github.com/gotwarlost/istanbul/blob/master/ignoring-code-for-coverage.md)
 
 ### Linting
