@@ -49,6 +49,7 @@ export default {
   },
   computed: {
     itemsOutOfTotalText() {
+      /* istanbul ignore next: It's impossible to trigger this computed property from a test with any combination of itemsInView & totalItems being less than 1 */
       const singularOrPluralItems = `item${this.totalItems > 1 ? 's' : ''}.`;
 
       return `Viewing ${this.itemsInView} of ${this.totalItems} ${singularOrPluralItems}`;

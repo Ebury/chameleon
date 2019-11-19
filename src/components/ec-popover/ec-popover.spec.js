@@ -45,4 +45,14 @@ describe('EcPopover component', () => {
     mount(EcPopover, { listeners: { show: showStub }, stubs: { 'v-popover': VPopoverStub } });
     expect(showStub).toHaveBeenCalledTimes(1);
   });
+
+  it('should add the z-index level class if the level was given', () => {
+    const wrapper = shallowMount(EcPopover, {
+      propsData: {
+        level: 'level-30',
+      },
+    });
+    const attributes = wrapper.find('v-popover-stub').attributes();
+    expect(attributes.popoverclass).toBe('ec-popover ec-popover--level-30');
+  });
 });

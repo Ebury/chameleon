@@ -9,6 +9,7 @@ export default {
     binding.focusTrap.activate();
   },
   unbind(el, binding) {
+    /* istanbul ignore else */
     if (binding.focusTrap) {
       binding.focusTrap.deactivate();
     }
