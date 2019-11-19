@@ -8,7 +8,7 @@ const client = {
   gravatar: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?d=mm&s=200',
 };
 
-const stories = storiesOf('User Info', module);
+const stories = storiesOf('Layout/User Info', module);
 
 stories.add('basic', () => ({
   components: {

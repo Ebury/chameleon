@@ -4,6 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withA11y } from '@storybook/addon-a11y';
 import { create as createTheme } from '@storybook/theming';
+import { getAllBackgrounds } from './backgrounds';
 import { inlineSvgSprites } from '../src/icons/browser';
 import '../src/scss/main.scss';
 
@@ -12,12 +13,7 @@ addDecorator(withKnobs);
 addDecorator(withA11y);
 
 addParameters({
-  backgrounds: [
-    { name: 'light', value: '#fff', default: true },
-    { name: 'dark', value: 'rgb(46,54,56)' },
-    { name: 'light blue ebury', value: 'rgb(0,190,240)' },
-    { name: 'dark blue ebury', value: 'rgb(0,80,102)' },
-  ],
+  backgrounds: getAllBackgrounds('light'),
 });
 
 addParameters({

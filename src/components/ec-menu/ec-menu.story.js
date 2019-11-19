@@ -18,7 +18,7 @@ const links = [
   },
 ];
 
-const stories = storiesOf('Menu', module);
+const stories = storiesOf('Layout/Menu', module);
 
 stories
   .addDecorator(StoryRouter())

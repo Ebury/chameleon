@@ -4,11 +4,9 @@ import { storiesOf } from '@storybook/vue';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcIcon from '@/components/ec-icon';
+import { LIGHT_THEME, DARK_THEME } from '../../../../.storybook/backgrounds';
 
 const stories = storiesOf('Button', module);
-
-const darkTheme = { name: 'dark', value: 'rgb(46,54,56)', default: true };
-const lightTheme = { name: 'light', value: '#fff', default: true };
 
 stories
   .addDecorator(StoryRouter())
@@ -120,16 +118,16 @@ stories
     `,
   }))
   .add('all buttons (dark)', generateAllForElement('button'), {
-    backgrounds: [darkTheme],
+    backgrounds: [{ ...DARK_THEME, default: true }],
   })
   .add('all buttons (light)', generateAllForElement('button'), {
-    backgrounds: [lightTheme],
+    backgrounds: [{ ...LIGHT_THEME, default: true }],
   })
   .add('all anchors (dark)', generateAllForElement('a'), {
-    backgrounds: [darkTheme],
+    backgrounds: [{ ...DARK_THEME, default: true }],
   })
   .add('all anchors (light)', generateAllForElement('a'), {
-    backgrounds: [lightTheme],
+    backgrounds: [{ ...LIGHT_THEME, default: true }],
   });
 
 function generateAllForElement(element) {
