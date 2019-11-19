@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue';
 import { object, boolean } from '@storybook/addon-knobs';
 import EcNavigation from './ec-navigation.vue';
 
-const stories = storiesOf('Navigation', module);
+const stories = storiesOf('Layout/Navigation', module);
 
 stories
   .add('basic', () => ({

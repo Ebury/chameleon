@@ -8,7 +8,7 @@ import EcUserInfo from '../ec-user-info';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcIcon from '../ec-icon';
 
-const stories = storiesOf('Container', module);
+const stories = storiesOf('Layout/Container', module);
 
 const client = {
   name: 'Ebury Demo 2',

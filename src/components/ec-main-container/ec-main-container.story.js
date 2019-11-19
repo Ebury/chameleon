@@ -5,7 +5,7 @@ import EcMainContainer from './ec-main-container.vue';
 const title = 'Trade Finance';
 const titleIntro = 'Here you will be able to keep track of all your requests to Ebury and of your credit line.';
 
-const stories = storiesOf('Main Container', module);
+const stories = storiesOf('Layout/Main Container', module);
 
 stories
   .add('basic', () => ({

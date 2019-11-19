@@ -5,7 +5,7 @@ import EcNavigationLink from './ec-navigation-link.vue';
 
 const darkTheme = { name: 'dark', value: 'rgb(46,54,56)', default: true };
 
-storiesOf('Navigation Link', module)
+storiesOf('Layout/Navigation Link', module)
   .addDecorator(StoryRouter())
   .add('basic', () => ({
     components: { EcNavigationLink },
