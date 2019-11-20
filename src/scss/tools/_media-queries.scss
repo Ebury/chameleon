@@ -1,3 +1,5 @@
+@import './../settings/breakpoints';
+
 @mixin media__only-mobile {
   @media screen and (max-width: 320px) {
     @content;
@@ -6,6 +8,12 @@
 
 @mixin media__up-to-mobile {
   @media screen and (max-width: 319px) {
+    @content;
+  }
+}
+
+@mixin media__from-sm {
+  @media screen and (min-width: #{map-get($grid-breakpoints, 'sm')}) {
     @content;
   }
 }
