@@ -13,7 +13,7 @@
     "lint:js": "vue-cli-service lint -- ./",
     "lint:style": "vue-cli-service lint:style",
     "test": "vue-cli-service test:unit",
-    "test:watch": "vue-cli-service test:unit -- --watch",
+    "test:watch": "vue-cli-service test:unit --watch",
     "prebuild-storybook": "npm run icons",
     "build-storybook": "build-storybook -s ./public,./src/assets -o .out --no-dll",
     "prestart": "npm run icons",
