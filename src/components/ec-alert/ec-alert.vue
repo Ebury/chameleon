@@ -7,14 +7,18 @@
       'ec-alert--is-responsive': responsive
     }"
   >
-    <ec-icon
+    <a
       v-if="dismissable"
+      href="#"
       class="ec-alert__dismiss-icon"
       :class="`ec-alert__dismiss-icon--${type}`"
-      name="simple-close"
-      :size="16"
-      @click="$emit('change', !open)"
-    />
+      @click.stop.prevent="$emit('change', !open)"
+    >
+      <ec-icon
+        name="simple-close"
+        :size="16"
+      />
+    </a>
     <ec-icon
       class="ec-alert__icon"
       :class="{ 'ec-alert__icon--alert-has-subtitle': subtitle }"
@@ -157,23 +161,34 @@ export default {
     top: 8px;
     right: 8px;
     cursor: pointer;
+    line-height: 0;
+    fill: $white;
+
+    &:focus {
+      outline: 0;
+      background: $white;
+    }
 
     &:hover {
       background: $white;
     }
 
+    &--info:focus,
     &--info:hover {
       fill: $color-info;
     }
 
+    &--success:focus,
     &--success:hover {
       fill: $color-success;
     }
 
+    &--warning:focus,
     &--warning:hover {
       fill: $color-warning;
     }
 
+    &--error:focus,
     &--error:hover {
       fill: $color-error;
     }

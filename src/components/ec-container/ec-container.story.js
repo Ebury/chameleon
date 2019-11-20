@@ -7,6 +7,7 @@ import EcMenu from '../ec-menu';
 import EcUserInfo from '../ec-user-info';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcIcon from '../ec-icon';
+import './ec-container.story.scss';
 
 const stories = storiesOf('Layout/Container', module);
 
@@ -139,7 +140,7 @@ stories
                   :items="clientItems"
                   :popper-modifiers="{ dropdownSearchWidth }"
                   v-model="selectedClient">
-                  <a href="#" @click.prevent style="color: #fff; display: inline-flex;">
+                  <a href="#" class="dropdown-search-link" @click.prevent>
                     <span>{{ selectedClient.text || client.name }}</span>
                     <ec-icon name="simple-arrow-drop-down" :size="20" fill="currentColor" />
                   </a>
