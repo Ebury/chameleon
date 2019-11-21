@@ -1,5 +1,8 @@
 <template>
-  <div class="ec-toaster">
+  <div
+    v-if="messages.length > 0"
+    class="ec-toaster"
+  >
     <transition-group
       ref="list"
       name="list"
@@ -72,7 +75,6 @@ export default {
     flex-direction: column;
     align-items: flex-end;
     position: relative;
-    border: 1px solid tomato;
     overflow: visible;
     padding: 10px;
     margin: 0;
@@ -84,16 +86,13 @@ export default {
     max-width: 100%;
     flex-grow: 0;
     flex-shrink: 0;
-    // padding: 8px;
-    // border: 1px solid #ccc;
     transition-property: opacity, transform;
     transition-duration: 1s;
     margin-bottom: 8px;
     pointer-events: auto;
-    // background-color: #fff;
 
     &--swipe-active {
-      transition-duration: 0s; // do not transition while swiping, let the element to follow the finger.
+      transition-duration: 0s;
     }
 
     &--removed-by-swipe {
