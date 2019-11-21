@@ -161,10 +161,15 @@ $ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
 
   &--is-active {
     background-color: $level-4-tech-blue;
-  }
 
-  &--is-active:hover {
-    color: $ec-navigation-link-text-color;
+    &:hover,
+    &:focus {
+      color: $ec-navigation-link-text-color;
+    }
+
+    &:focus {
+      background-color: rgba($level-4-tech-blue, 0.9);
+    }
   }
 }
 </style>
