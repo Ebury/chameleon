@@ -33,6 +33,9 @@ describe('EcToaster', () => {
       expect(wrapper.find('.ec-toaster').exists()).toBe(true);
       expect(wrapper.find('.ec-alert').exists()).toBe(true);
       expect(wrapper.find('.ec-alert').classes('ec-alert--success')).toBe(true);
+      expect(wrapper.find('.ec-alert__title').text()).toBe('This is the title');
+      expect(wrapper.find('.ec-alert__subtitle').text()).toBe('This is the subtitle');
+      expect(wrapper.find('.ec-alert__dismiss-icon').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
   });
