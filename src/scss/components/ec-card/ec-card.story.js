@@ -16,7 +16,7 @@ stories
     </div>
       `,
   }))
-  .add('Lending cards', () => ({
+  .add('Trade finance cards', () => ({
     components: { EcIcon },
     template: `
     <div style="display: flex; height: 100vh; margin: 10px">
