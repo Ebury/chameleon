@@ -1,0 +1,8 @@
+.ec-card {
+  @include box-shadow-level-1;
+  @include shape-border-radius;
+
+  padding: 24px;
+  background: $white;
+  overflow: hidden;
+}
