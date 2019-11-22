@@ -26,7 +26,7 @@ describe('EcToaster', () => {
   describe('messages prop', () => {
     it('should not render the toaster if no props are passed', () => {
       const wrapper = mountToaster();
-      expect(wrapper.find('.ec-toaster').exists()).toBe(false);
+      expect(wrapper.find('.ec-toaster__item').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
 

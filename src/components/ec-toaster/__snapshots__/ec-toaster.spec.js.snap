@@ -1,6 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcToaster messages prop should not render the toaster if no props are passed 1`] = `<!---->`;
+exports[`EcToaster messages prop should not render the toaster if no props are passed 1`] = `
+<div
+  class="ec-toaster"
+>
+  <span
+    class="ec-toaster__list"
+    name="ec-toaster-items-transition"
+    tag="ul"
+  />
+</div>
+`;
 
 exports[`EcToaster messages prop should render a toaster if the messages prop is passed 1`] = `
 <div
@@ -8,7 +18,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
 >
   <span
     class="ec-toaster__list"
-    name="list"
+    name="ec-toaster-items-transition"
     tag="ul"
   >
     <li
