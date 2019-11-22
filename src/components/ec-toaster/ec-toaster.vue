@@ -43,7 +43,6 @@ export default {
   methods: {
     rememberTopItemPositions() {
       if (this.$refs.items) {
-        // eslint-disable-next-line no-restricted-syntax
         for (const item of this.$refs.items) {
           item.style.top = `${item.offsetTop}px`;
         }

@@ -85,8 +85,6 @@ stories.add('basic', () => ({
       </div>
     );
   },
-
-
   mounted() {
     document.addEventListener('click', this.bodyHandler);
   },

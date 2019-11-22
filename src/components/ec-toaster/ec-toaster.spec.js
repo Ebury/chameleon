@@ -11,7 +11,7 @@ const messages = [
   },
 ];
 
-const messagesTypes = ['error', 'success', 'info', 'warning'].map((type, id) => ({
+const allTypeMessages = ['error', 'success', 'info', 'warning'].map((type, id) => ({
   id, type, title: 'random', subtitle: 'random',
 }));
 
@@ -31,7 +31,7 @@ describe('EcToaster', () => {
     });
 
     it('should render a toaster if the messages prop is passed', () => {
-      const wrapper = mountToaster({ messages: messagesTypes });
+      const wrapper = mountToaster({ messages: allTypeMessages });
       expect(wrapper.element).toMatchSnapshot();
     });
   });
