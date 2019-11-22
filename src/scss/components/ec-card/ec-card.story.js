@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue';
 import EcIcon from '@/components/ec-icon';
 
-const stories = storiesOf('card', module);
+const stories = storiesOf('Card', module);
 
 stories
   .add('basic', () => ({
@@ -16,7 +16,7 @@ stories
     </div>
       `,
   }))
-  .add('Trade finance cards', () => ({
+  .add('trade finance cards', () => ({
     components: { EcIcon },
     template: `
     <div style="display: flex; height: 100vh; margin: 10px">
@@ -24,7 +24,7 @@ stories
         <div class="ec-card">
           <div class="ec-p--8">
             <div style="font-size:25px; line-height: 35px;" class="ec-mb--24">
-              Credit line: EUR 1,000,0000.0
+              Credit line: EUR 1,000,000.00
             </div>
             <ec-icon class="ec-mr--8" name="simple-check" :size="108" />
             <ec-icon class="ec-mr--8" name="simple-check" :size="14" />
