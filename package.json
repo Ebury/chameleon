@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -18,7 +18,9 @@
     "build-storybook": "build-storybook -s ./public,./src/assets -o .out --no-dll",
     "prestart": "npm run icons",
     "start": "start-storybook -s ./public,./src/assets -p 42475",
-    "now-build": "npm run build-storybook"
+    "now-build": "npm run build-storybook",
+    "prepublish": "npm run lint && npm run test",
+    "publish": "npm version patch && npm publish && git push --follow-tags"
   },
   "dependencies": {
     "core-js": "2.6.5",
