@@ -16,7 +16,7 @@ export default {
       const touchobj = e.changedTouches[0];
       const distX = touchobj.pageX - startX;
       if (distX > binding.value.minDistance) {
-        vnode.elm.dispatchEvent(new CustomEvent('toaster-touch-remove'));
+        vnode.elm.dispatchEvent(new CustomEvent('ec-toaster-touch-remove'));
         el.classList.add('ec-toaster__item--removed-by-swipe');
       }
 

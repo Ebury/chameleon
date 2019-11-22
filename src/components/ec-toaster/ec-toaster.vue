@@ -1,14 +1,9 @@
 <template>
-  <div
-    v-if="messages.length > 0"
-    class="ec-toaster"
-  >
+  <div class="ec-toaster">
     <transition-group
-      ref="list"
-      name="list"
+      name="ec-toaster-items-transition"
       tag="ul"
       class="ec-toaster__list"
-      appear
       @after-enter="rememberTopItemPositions"
       @before-leave="rememberTopItemPositions"
     >
@@ -16,15 +11,15 @@
         v-for="message of messages"
         :key="message.id"
         ref="items"
-        v-toaster-touch="{ minDistance: 50 }"
+        v-ec-toaster-touch="{ minDistance: 50 }"
         class="ec-toaster__item"
-        @toaster-touch-remove="$emit('remove', message)"
+        @ec-toaster-touch-remove="$emit('remove', message)"
       >
         <ec-alert
           :type="message.type"
           :title="message.title"
           :subtitle="message.subtitle"
-          :dismissable="message.dismissable"
+          dismissable
           @change="$emit('remove', message)"
         />
       </li>
@@ -34,14 +29,14 @@
 
 <script>
 import EcAlert from '../ec-alert';
-import ToasterTouchDirective from '../../directives/ec-toaster-touch';
+import EcToasterTouchDirective from './ec-toaster-touch';
 
 export default {
   name: 'Toaster',
   components: {
     EcAlert,
   },
-  directives: { ToasterTouch: ToasterTouchDirective },
+  directives: { EcToasterTouch: EcToasterTouchDirective },
   props: {
     messages: { type: Array, default: () => [] },
   },
@@ -59,9 +54,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/settings/z-index';
+
 .ec-toaster {
   position: fixed;
-  z-index: 300;
+  z-index: $z-index-notification;
   top: 0;
   right: 0;
   left: auto;
@@ -76,7 +73,7 @@ export default {
     align-items: flex-end;
     position: relative;
     overflow: visible;
-    padding: 10px;
+    padding: 24px;
     margin: 0;
     pointer-events: none;
   }
@@ -101,13 +98,13 @@ export default {
   }
 }
 
-.list-enter,
-.list-leave-to {
+.ec-toaster-items-transition-enter,
+.ec-toaster-items-transition-leave-to {
   opacity: 0;
   transform: translateX(100%);
 }
 
-.list-leave-active {
+.ec-toaster-items-transition-leave-active {
   position: absolute;
 }
 </style>

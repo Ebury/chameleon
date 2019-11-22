@@ -8,9 +8,12 @@ const messages = [
     type: 'success',
     title: 'This is the title',
     subtitle: 'This is the subtitle',
-    dismissable: true,
   },
 ];
+
+const messagesTypes = ['error', 'success', 'info', 'warning'].map((type, id) => ({
+  id, type, title: 'random', subtitle: 'random',
+}));
 
 function mountToaster(props, mountOpts) {
   return mount(EcToaster, {
@@ -28,14 +31,7 @@ describe('EcToaster', () => {
     });
 
     it('should render a toaster if the messages prop is passed', () => {
-      const wrapper = mountToaster({ messages });
-
-      expect(wrapper.find('.ec-toaster').exists()).toBe(true);
-      expect(wrapper.find('.ec-alert').exists()).toBe(true);
-      expect(wrapper.find('.ec-alert').classes('ec-alert--success')).toBe(true);
-      expect(wrapper.find('.ec-alert__title').text()).toBe('This is the title');
-      expect(wrapper.find('.ec-alert__subtitle').text()).toBe('This is the subtitle');
-      expect(wrapper.find('.ec-alert__dismiss-icon').exists()).toBe(true);
+      const wrapper = mountToaster({ messages: messagesTypes });
       expect(wrapper.element).toMatchSnapshot();
     });
   });
@@ -46,6 +42,7 @@ describe('EcToaster', () => {
       swipe(wrapper, 200, 251);
 
       expect(wrapper.emitted('remove')).toBeTruthy();
+      expect(wrapper.emitted('remove')[0]).toEqual([messages[0]]);
     });
     it('should not emit a "remove" event when toaster is swiped for less than 50px to the right', () => {
       const wrapper = mountToaster({ messages });
@@ -85,6 +82,7 @@ describe('EcToaster', () => {
     const wrapper = mountToaster({ messages });
     wrapper.find('.ec-alert__dismiss-icon').trigger('click');
 
+    expect(wrapper.emitted('remove')[0]).toEqual([messages[0]]);
     expect(wrapper.emitted('remove')).toBeTruthy();
   });
 

@@ -7,11 +7,53 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
   class="ec-toaster"
 >
   <span
-    appear=""
     class="ec-toaster__list"
     name="list"
     tag="ul"
   >
+    <li
+      class="ec-toaster__item"
+    >
+      <div
+        class="ec-alert ec-alert--error ec-alert--is-responsive"
+      >
+        <svg
+          class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--error"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+         
+        <svg
+          class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
+        >
+          <use
+            xlink:href="#ec-simple-error"
+          />
+        </svg>
+         
+        <div
+          class="ec-alert__content"
+        >
+          <div
+            class="ec-alert__title"
+          >
+            random
+          </div>
+           
+          <div
+            class="ec-alert__subtitle"
+          >
+            random
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+    </li>
     <li
       class="ec-toaster__item"
     >
@@ -42,13 +84,99 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
           <div
             class="ec-alert__title"
           >
-            This is the title
+            random
           </div>
            
           <div
             class="ec-alert__subtitle"
           >
-            This is the subtitle
+            random
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+    </li>
+    <li
+      class="ec-toaster__item"
+    >
+      <div
+        class="ec-alert ec-alert--info ec-alert--is-responsive"
+      >
+        <svg
+          class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--info"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+         
+        <svg
+          class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
+        >
+          <use
+            xlink:href="#ec-simple-info"
+          />
+        </svg>
+         
+        <div
+          class="ec-alert__content"
+        >
+          <div
+            class="ec-alert__title"
+          >
+            random
+          </div>
+           
+          <div
+            class="ec-alert__subtitle"
+          >
+            random
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+    </li>
+    <li
+      class="ec-toaster__item"
+    >
+      <div
+        class="ec-alert ec-alert--warning ec-alert--is-responsive"
+      >
+        <svg
+          class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--warning"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+         
+        <svg
+          class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
+        >
+          <use
+            xlink:href="#ec-simple-error"
+          />
+        </svg>
+         
+        <div
+          class="ec-alert__content"
+        >
+          <div
+            class="ec-alert__title"
+          >
+            random
+          </div>
+           
+          <div
+            class="ec-alert__subtitle"
+          >
+            random
           </div>
         </div>
          

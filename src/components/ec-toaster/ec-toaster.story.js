@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { text } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcToaster from './ec-toaster.vue';
 
@@ -9,49 +9,43 @@ stories.add('basic', () => ({
   components: { EcToaster },
   data() {
     return {
-      show: true,
       messages: [
         {
           id: 1,
           type: 'success',
           title: 'This is the title',
-          subtitle: 'This is the subtitle',
-          dismissable: true,
+          subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         },
         {
           id: 2,
           type: 'error',
           title: 'This is the title',
-          subtitle: 'This is the subtitffffffle',
-          dismissable: true,
+          subtitle: 'This is the subtitle',
         },
         {
           id: 3,
           type: 'success',
           title: 'This is the title',
           subtitle: 'This is the subtitle',
-          dismissable: true,
         },
         {
           id: 4,
           type: 'error',
           title: 'This is the title',
           subtitle: 'This is the subtitle',
-          dismissable: true,
         },
         {
           id: 5,
           type: 'error',
           title: 'This is the title',
-          subtitle: 'This is the subtitlffffffffffffffffffe',
-          dismissable: true,
+          subtitle: 'This is the subtitle',
         },
       ],
     };
   },
   props: {
     type: {
-      default: text('Type', 'success'),
+      default: select('Type', ['error', 'success', 'warning', 'info'], 'error'),
     },
     title: {
       default: text('Title', 'A new title'),
@@ -71,9 +65,9 @@ stories.add('basic', () => ({
         type: this.type,
         title: this.title,
         subtitle: this.subtitle,
-        dismissable: true,
       });
     },
+    bodyHandler: action('body click'),
   },
 
   // eslint-disable-next-line no-unused-vars
@@ -86,10 +80,18 @@ stories.add('basic', () => ({
         width: '100%',
         maxWidth: '400px',
       }}>
-        <EcToaster messages={this.messages} onRemove={message => this.removeMessage(message)}/>
-        <button style="position:fixed;top:50%;left:50%;transform: translate(-50%, -50%);" class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary" onClick={this.addMessage}>Amend Props and Click </button>
+        <EcToaster messages={this.messages} onRemove={message => this.removeMessage(message)} />
+        <button style="position:fixed;top:50%;left:50%;transform: translate(-50%, -50%);" class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary" onClick={this.addMessage}>Add another message</button>
       </div>
     );
+  },
+
+
+  mounted() {
+    document.addEventListener('click', this.bodyHandler);
+  },
+  beforeDestroy() {
+    document.removeEventListener('click', this.bodyHandler);
   },
 }));
 
