@@ -72,6 +72,51 @@ describe('EcToaster', () => {
       expect(wrapper.find('.ec-toaster__item').classes('ec-toaster__item--swipe-active')).toBe(false);
     });
 
+    it('should stop listening to touch events after being destroyed', () => {
+      const wrapper = mountToaster({ messages });
+      const item = wrapper.find('.ec-toaster__item').element;
+
+      const spy = jest.spyOn(item, 'removeEventListener');
+      wrapper.setProps({ messages: [] });
+      expect(spy).toHaveBeenCalledTimes(4);
+    });
+
+    it('should follow the pointer touching the item when swiping to the right', () => {
+      const wrapper = mountToaster({ messages });
+      const item = wrapper.find('.ec-toaster__item');
+
+      item.trigger('touchstart', { changedTouches: [{ pageX: 0 }] });
+      item.trigger('touchmove', { changedTouches: [{ pageX: 20 }] });
+      expect(item.element.style.transform).toBe('translateX(20px)');
+
+      item.trigger('touchmove', { changedTouches: [{ pageX: 30 }] });
+      expect(item.element.style.transform).toBe('translateX(30px)');
+
+      item.trigger('touchmove', { changedTouches: [{ pageX: 10 }] });
+      expect(item.element.style.transform).toBe('translateX(10px)');
+    });
+
+    it('should not follow the pointer touching the item when swiping to the left', () => {
+      const wrapper = mountToaster({ messages });
+      const item = wrapper.find('.ec-toaster__item');
+
+      item.trigger('touchstart', { changedTouches: [{ pageX: 20 }] });
+      item.trigger('touchmove', { changedTouches: [{ pageX: 0 }] });
+      expect(item.element.style.transform).toBe('');
+    });
+
+    it('should restore the original transform style prop when swipe gets cancelled', () => {
+      const wrapper = mountToaster({ messages });
+      const item = wrapper.find('.ec-toaster__item');
+      item.element.style.transform = 'scale(1.5)';
+
+      item.trigger('touchstart', { changedTouches: [{ pageX: 0 }] });
+      item.trigger('touchmove', { changedTouches: [{ pageX: 20 }] });
+      expect(item.element.style.transform).toBe('translateX(20px)');
+      item.trigger('touchcancel');
+      expect(item.element.style.transform).toBe('scale(1.5)');
+    });
+
     function swipe(wrapper, startX, endX) {
       wrapper.find('.ec-toaster__item').trigger('touchstart', { changedTouches: [{ pageX: startX }] });
       wrapper.find('.ec-toaster__item').trigger('touchend', { changedTouches: [{ pageX: endX }] });

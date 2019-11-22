@@ -27,15 +27,20 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       <div
         class="ec-alert ec-alert--error ec-alert--is-responsive"
       >
-        <svg
-          class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--error"
-          height="16"
-          width="16"
+        <a
+          class="ec-alert__dismiss-icon ec-alert__dismiss-icon--error"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
+          <svg
+            class="ec-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
          
         <svg
           class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
@@ -70,15 +75,20 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       <div
         class="ec-alert ec-alert--success ec-alert--is-responsive"
       >
-        <svg
-          class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--success"
-          height="16"
-          width="16"
+        <a
+          class="ec-alert__dismiss-icon ec-alert__dismiss-icon--success"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
+          <svg
+            class="ec-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
          
         <svg
           class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
@@ -113,15 +123,20 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       <div
         class="ec-alert ec-alert--info ec-alert--is-responsive"
       >
-        <svg
-          class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--info"
-          height="16"
-          width="16"
+        <a
+          class="ec-alert__dismiss-icon ec-alert__dismiss-icon--info"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
+          <svg
+            class="ec-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
          
         <svg
           class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
@@ -156,15 +171,20 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       <div
         class="ec-alert ec-alert--warning ec-alert--is-responsive"
       >
-        <svg
-          class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--warning"
-          height="16"
-          width="16"
+        <a
+          class="ec-alert__dismiss-icon ec-alert__dismiss-icon--warning"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
+          <svg
+            class="ec-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
          
         <svg
           class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
@@ -204,15 +224,20 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
   <div
     class="ec-alert ec-alert--success ec-alert--is-responsive"
   >
-    <svg
-      class="ec-alert__dismiss-icon ec-icon ec-alert__dismiss-icon--success"
-      height="16"
-      width="16"
+    <a
+      class="ec-alert__dismiss-icon ec-alert__dismiss-icon--success"
+      href="#"
     >
-      <use
-        xlink:href="#ec-simple-close"
-      />
-    </svg>
+      <svg
+        class="ec-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-close"
+        />
+      </svg>
+    </a>
      
     <svg
       class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"

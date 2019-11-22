@@ -41,7 +41,7 @@ export default {
     messages: { type: Array, default: () => [] },
   },
   methods: {
-    rememberTopItemPositions() {
+    rememberTopItemPositions: /* istanbul ignore next */ () => {
       if (this.$refs.items) {
         for (const item of this.$refs.items) {
           item.style.top = `${item.offsetTop}px`;
