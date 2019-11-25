@@ -270,6 +270,48 @@ exports[`EcTable should render as expected if provided with data but no columns,
 </div>
 `;
 
+exports[`EcTable should render as expected if provided with empty row and no columns, with footer switched on 1`] = `
+<div
+  class="ec-table"
+>
+  <table
+    class="ec-table__table"
+  >
+    <!---->
+     
+    <tbody>
+      <tr
+        class="ec-table__table-row"
+      />
+    </tbody>
+     
+    <tfoot
+      class="ec-table-footer"
+    >
+      <tr
+        class="ec-table-footer__row"
+      >
+        <td
+          class="ec-table-footer__cell"
+        >
+          <div
+            class="ec-table-footer__contents"
+          >
+            <div
+              class="ec-table-footer__details"
+            >
+              1 item.
+            </div>
+             
+            <!---->
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
+
 exports[`EcTable should render slots as expected 1`] = `
 <div
   class="ec-table"

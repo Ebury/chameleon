@@ -7,8 +7,9 @@ import EcMenu from '../ec-menu';
 import EcUserInfo from '../ec-user-info';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcIcon from '../ec-icon';
+import './ec-container.story.scss';
 
-const stories = storiesOf('Container', module);
+const stories = storiesOf('Layout/Container', module);
 
 const client = {
   name: 'Ebury Demo 2',
@@ -96,7 +97,9 @@ stories
         default: object('menuLinks', [
           { text: 'Link 1', iconName: 'simple-trade', url: '/my-url' },
           { text: 'Link 2', iconName: 'simple-trade-finance', url: '/my-url' },
-          { text: 'Link 3', iconName: 'simple-dashboard', url: '/my-url' },
+          {
+            text: 'Link 3', iconName: 'simple-dashboard', url: '/my-url', isActive: true,
+          },
           { text: 'Link 4', iconName: 'simple-help', url: '/my-url' },
           { text: 'Link 5', iconName: 'simple-calendar', url: '/my-url' },
         ]),
@@ -139,7 +142,7 @@ stories
                   :items="clientItems"
                   :popper-modifiers="{ dropdownSearchWidth }"
                   v-model="selectedClient">
-                  <a href="#" @click.prevent style="color: #fff; display: inline-flex;">
+                  <a href="#" class="dropdown-search-link" @click.prevent>
                     <span>{{ selectedClient.text || client.name }}</span>
                     <ec-icon name="simple-arrow-drop-down" :size="20" fill="currentColor" />
                   </a>
@@ -149,11 +152,11 @@ stories
           </template>
 
           <template #menu>
-            <ec-menu :links="menuLinks" :is-collapsed="isCollapsable && isCollapsed" />
+            <ec-menu :links="menuLinks" :is-collapsed="isCollapsable && isCollapsed" @click.native.stop.prevent />
           </template>
 
           <template #footer-menu>
-            <ec-menu :links="footerLinks" :is-collapsed="isCollapsable && isCollapsed" :horizontal="!isCollapsable || (isCollapsable && !isCollapsed)" />
+            <ec-menu :links="footerLinks" :is-collapsed="isCollapsable && isCollapsed" :horizontal="!isCollapsable || (isCollapsable && !isCollapsed)" @click.native.stop.prevent />
           </template>
 
           <template #copyright v-if="!isCollapsable || !isCollapsed">

@@ -30,4 +30,21 @@ module.exports = {
   setupFiles: [
   ],
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup/after-env.js',
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.{js,vue}',
+    '!src/main.js',
+    '!src/**/*.story.js',
+    '!src/**/index.js',
+    '!src/icons/**',
+    '!src/assets/**',
+  ],
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
 };

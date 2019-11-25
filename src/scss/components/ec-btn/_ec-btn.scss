@@ -74,7 +74,6 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
 
   &:focus {
     outline: 0;
-    box-shadow: 0 0 0 3px rgba($color-info, 0.25);
   }
 
   &:disabled {
@@ -90,10 +89,6 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     &:hover {
       background-color: $ec-btn-primary-color-hover;
     }
-
-    &:focus {
-      box-shadow: 0 0 0 3px rgba($ec-btn-primary-color, 0.25);
-    }
   }
 
   &--primary-reverse {
@@ -106,15 +101,18 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     }
   }
 
+  &--primary,
+  &--primary-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($ec-btn-primary-color, 0.25);
+    }
+  }
+
   &--secondary {
     background-color: $ec-btn-secondary-color;
 
     &:hover {
       background-color: $ec-btn-secondary-color-hover;
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 3px rgba($ec-btn-secondary-color, 0.25);
     }
   }
 
@@ -128,15 +126,18 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     }
   }
 
+  &--secondary,
+  &--secondary-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($ec-btn-secondary-color, 0.25);
+    }
+  }
+
   &--success {
     background-color: $ec-btn-success-color;
 
     &:hover {
       background-color: $ec-btn-success-color-hover;
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 3px rgba($ec-btn-success-color, 0.25);
     }
   }
 
@@ -150,15 +151,18 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     }
   }
 
+  &--success,
+  &--success-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($ec-btn-success-color, 0.25);
+    }
+  }
+
   &--error {
     background-color: $ec-btn-error-color;
 
     &:hover {
       background-color: $ec-btn-error-color-hover;
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 3px rgba($ec-btn-error-color, 0.25);
     }
   }
 
@@ -169,6 +173,13 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     &:hover {
       color: $ec-btn-color;
       background-color: $ec-btn-error-color;
+    }
+  }
+
+  &--error,
+  &--error-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($ec-btn-error-color, 0.25);
     }
   }
 
@@ -187,6 +198,13 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
     &:hover {
       color: $ec-btn-color;
       background-color: $ec-btn-warning-color;
+    }
+  }
+
+  &--warning,
+  &--warning-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($ec-btn-warning-color, 0.25);
     }
   }
 
@@ -287,6 +305,16 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
       &:hover {
         color: $ec-btn-warning-color;
         background-color: $ec-btn-color;
+      }
+    }
+
+    &.ec-btn--primary-reverse,
+    &.ec-btn--secondary-reverse,
+    &.ec-btn--success-reverse,
+    &.ec-btn--error-reverse,
+    &.ec-btn--warning-reverse {
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($ec-btn-color, 0.25);
       }
     }
 

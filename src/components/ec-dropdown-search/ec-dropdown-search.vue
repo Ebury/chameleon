@@ -133,7 +133,7 @@ export default {
             // which is viewport.
             enabled: true,
             order: 840,
-            fn: (data) => {
+            fn: /* istanbul ignore next */ (data) => {
               // eslint-disable-next-line no-param-reassign
               data.styles.width = this.$refs.popperWidthReference.offsetWidth;
               return data;
@@ -168,6 +168,7 @@ export default {
     },
     focus() {
       this.$nextTick(() => {
+        /* istanbul ignore else */
         if (this.isOpen && this.$refs.searchInput) {
           this.$refs.searchInput.focus();
         }

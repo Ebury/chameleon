@@ -159,10 +159,52 @@ describe('EcModal', () => {
   it('should emit a "close" event when clicking on the close button', () => {
     const wrapper = mountModal({
       showModal: true,
-      showCloseIcon: true,
+      isClosable: true,
     });
 
     wrapper.find('.ec-modal__close').trigger('click');
     expect(wrapper.emitted().close).toBeTruthy();
+  });
+
+  it('should close the modal if ESC key is pressed and is closable', () => {
+    const wrapper = mountModal({
+      showModal: true,
+      isClosable: true,
+    }, {
+      attachToDocument: true,
+    });
+
+    wrapper.trigger('keyup.esc');
+    expect(wrapper.emitted().close).toBeTruthy();
+
+    wrapper.destroy(); // because we attached the wrapper to document
+  });
+
+  it('should not close the modal if ESC key is pressed and is not closable', () => {
+    const wrapper = mountModal({
+      showModal: true,
+      isClosable: false,
+    }, {
+      attachToDocument: true,
+    });
+
+    wrapper.trigger('keyup.esc');
+    expect(wrapper.emitted().close).toBeUndefined();
+
+    wrapper.destroy(); // because we attached the wrapper to document
+  });
+
+  it('should not close the modal if key other than ESC is pressed and is closable', () => {
+    const wrapper = mountModal({
+      showModal: true,
+      isClosable: true,
+    }, {
+      attachToDocument: true,
+    });
+
+    wrapper.trigger('keyup', { key: 'a' });
+    expect(wrapper.emitted().close).toBeUndefined();
+
+    wrapper.destroy(); // because we attached the wrapper to document
   });
 });
