@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/vue';
 import { object } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import EcInlineActions from './ec-inline-actions.vue';
 import EcIcon from '../ec-icon/ec-icon.vue';
 
@@ -21,11 +22,11 @@ stories.add('basic', () => ({
         [
           {
             name: 'reject',
-            action: () => console.log('Reject action invoked.'),
+            action: action('Reject action invoked.'),
             text: 'Reject',
           },
           {
-            action: () => console.log('Authorise action invoked.'),
+            action: action('Authorise action invoked.'),
             text: 'Authorise',
             disabled: true,
             tooltip: 'Payment has not been executed yet',
@@ -34,8 +35,8 @@ stories.add('basic', () => ({
           },
         ],
         [
-          { action: () => console.log('Cancel action invoked.'), text: 'Cancel', icon: 'simple-block' },
-          { action: () => console.log('Loremipsum action invoked.'), text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', icon: 'simple-sign-out' },
+          { action: action('Cancel action invoked.'), text: 'Cancel', icon: 'simple-block' },
+          { action: action('Loremipsum action invoked.'), text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', icon: 'simple-sign-out' },
         ],
       ]),
     },
@@ -43,7 +44,7 @@ stories.add('basic', () => ({
   template: `
   <div style="display: flex; height: 100vh">
     <div style="margin: auto">
-      <ec-inline-actions :items="items">
+      <ec-inline-actions :items="items" :popover-options="{ open: true, offset: 10, placement: 'bottom-start' }">
         <ec-icon name="simple-more" :size="24" />
         <template v-slot:item-reject="{ item }">This is a custom {{ item.text }}</template>
       </ec-inline-actions>

@@ -37,4 +37,4 @@ workflows:
       - visual_tests:
           filters:
             branches:
-              only: mmmmmaster
+              only: visual-regression-playground
