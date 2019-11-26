@@ -6,14 +6,14 @@
   }
 }
 
-@mixin media__up-to-mobile {
-  @media screen and (max-width: 319px) {
+@mixin media__up-to-sm {
+  @media screen and (max-width: map-get($grid-breakpoints, 'sm') - 1px) {
     @content;
   }
 }
 
 @mixin media__from-sm {
-  @media screen and (min-width: #{map-get($grid-breakpoints, 'sm')}) {
+  @media screen and (min-width: map-get($grid-breakpoints, 'sm')) {
     @content;
   }
 }

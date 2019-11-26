@@ -33,7 +33,7 @@
           fill="transparent"
           stroke-width="11"
           :stroke-dasharray="dashArray"
-          :stroke-dashoffset="offset"
+          :stroke-dashoffset="dashOffset"
         />
       </svg>
     </div>
@@ -81,6 +81,9 @@ export default {
   },
   computed: {
     percentageUsed() {
+      if (this.used > this.amount) {
+        return 100;
+      }
       return (this.used / this.amount) * 100;
     },
     // Calculate the circumference
@@ -88,7 +91,7 @@ export default {
       return 2 * Math.PI * this.radius;
     },
     // Calculate the how much needs to be offset of the used circle
-    offset() {
+    dashOffset() {
       return this.dashArray * (1 - this.percentageUsed / 100);
     },
   },
@@ -97,14 +100,23 @@ export default {
 
 <style lang="scss">
 @import '../../scss/settings/colors/index';
-@import '../../scss/tools/typography';
+@import '../../scss/tools/';
 
 .ec-donut {
   display: flex;
+  flex-wrap: wrap;
+  // justify-content: center;
 
   &__container {
     margin-right: 24px;
     height: 108px;
+
+    @include media__up-to-sm {
+      width: 100%;
+      margin-right: 0;
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__legend {
@@ -114,10 +126,21 @@ export default {
     flex-wrap: wrap;
     padding: 16px 0;
     color: $level-3-body-and-headings;
+
+    @include media__up-to-sm {
+      padding: 16px 0 0;
+      display: inline-flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
   }
 
   &__legend-used {
     margin-bottom: 24px;
+
+    @include media__up-to-sm {
+      margin-bottom: 12px;
+    }
   }
 
   &__legend-used,

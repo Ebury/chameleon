@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { number, text } from '@storybook/addon-knobs';
+import { number, select } from '@storybook/addon-knobs';
 import EcDonut from './ec-donut.vue';
 
 const stories = storiesOf('Donut chart', module);
@@ -19,19 +19,27 @@ stories.add('basic', () => ({
       default: number('Amount', 10000),
     },
     currency: {
-      default: text('Currency', 'GBP'),
+      default: select('Currency', ['GBP', 'EUR', 'USD', 'CAD'], 'GBP'),
+    },
+  },
+  computed: {
+    reminder() {
+      if (this.used > this.amount) {
+        return 0;
+      }
+      return this.amount - this.used;
     },
   },
   template: `
   <div style="display: flex; height: 100vh">
     <div style="margin: auto" class="ec-card">
-      <div class="ec-mb--24">Credit line: <strong>{{ amount,currency | currencyFormat }}</strong></div>
+      <div style="text-align: center;" class="ec-mb--24">Credit line: <strong>{{ amount | currencyFormat(currency) }}</strong></div>
       <ec-donut class="ec-p--8" :used="used" :amount="amount">
         <template #reminder-legend>
-          <span><strong>Reminder: </strong>{{ amount - used,currency | currencyFormat }}</span>
+          <span><strong>Reminder: </strong>{{ reminder | currencyFormat(currency) }}</span>
         </template>
         <template #used-legend>
-          <span><strong>Used: </strong>{{ used,currency | currencyFormat }}</span>
+          <span><strong>Used: </strong>{{ used | currencyFormat(currency) }}</span>
         </template>
       </ec-donut>
     </div>
