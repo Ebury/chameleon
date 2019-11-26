@@ -12,12 +12,12 @@ module.exports = {
     'max-len': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-param-reassign': ['error', { props: false }],
     'no-restricted-syntax': 'off',
+    'no-use-before-define': 'off',
+
     'import/prefer-default-export': 'off',
-    'vue/require-default-prop': 'off',
-    'vue/multiline-html-element-content-newline': 'off',
-    'vue/singleline-html-element-content-newline': 'off',
-    'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+
     'vue/attributes-order': ['error', {
       order: [
         'GLOBAL',
@@ -29,10 +29,14 @@ module.exports = {
         'TWO_WAY_BINDING',
         'OTHER_DIRECTIVES',
         'OTHER_ATTR',
-        'EVENTS',
         'CONTENT',
+        'EVENTS',
       ],
     }],
+    'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'vue/multiline-html-element-content-newline': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',
@@ -45,13 +49,16 @@ module.exports = {
       env: {
         jest: true,
       },
+      rules: {
+        'global-require': 'off',
+      },
     },
     {
       files: [
         '**/*.story.js',
       ],
       rules: {
-        'import/no-extraneous-dependencies': 0,
+        'import/no-extraneous-dependencies': 'off',
         'vue/require-prop-types': 'off',
       },
     },

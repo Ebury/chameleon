@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 export default {
   bind(el, binding, vnode) {
     let startX;

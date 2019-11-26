@@ -134,7 +134,6 @@ export default {
             enabled: true,
             order: 840,
             fn: /* istanbul ignore next */ (data) => {
-              // eslint-disable-next-line no-param-reassign
               data.styles.width = this.$refs.popperWidthReference.offsetWidth;
               return data;
             },

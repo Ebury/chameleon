@@ -1,7 +1,6 @@
 .browserslistrc
 .editorconfig
 .eslintignore
-.eslintrc.js
 .out
 .storybook
 babel.config.js
