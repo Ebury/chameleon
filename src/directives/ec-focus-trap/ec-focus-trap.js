@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import focusTrap from 'focus-trap';
 
 export default {

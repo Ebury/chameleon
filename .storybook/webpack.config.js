@@ -24,7 +24,6 @@ module.exports = async ({ config }) => {
     use: ['style-loader', 'css-loader', 'sass-loader'],
     include: path.resolve(__dirname, '../'),
   });
-  // eslint-disable-next-line no-param-reassign
   config.resolve.alias = {
     ...config.resolve.alias,
     '@': path.resolve(__dirname, '..', 'src'),

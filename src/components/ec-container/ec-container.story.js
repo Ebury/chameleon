@@ -48,12 +48,10 @@ stories
               const boundaryPadding = 24;
               const width = this.$refs.userInfo.$el.offsetWidth - (2 * boundaryPadding);
               const left = this.$refs.userInfo.$el.offsetLeft + boundaryPadding;
-              /* eslint-disable no-param-reassign */
               data.styles.width = width;
               data.offsets.popper.width = width;
               data.offsets.popper.left = left;
               data.offsets.popper.right = left + width + boundaryPadding;
-              /* eslint-enable */
             }
 
             return data;

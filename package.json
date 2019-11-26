@@ -1,10 +1,10 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "0.1.21",
+  "version": "0.1.23",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -19,8 +19,8 @@
     "prestart": "npm run icons",
     "start": "start-storybook -s ./public,./src/assets -p 42475",
     "now-build": "npm run build-storybook",
-    "prepublish": "npm run lint && npm run test",
-    "publish": "npm version patch && npm publish && git push --follow-tags"
+    "prerelease": "npm run lint && npm run test",
+    "release": "npm version patch && npm publish && git push --follow-tags"
   },
   "dependencies": {
     "core-js": "2.6.5",
