@@ -61,3 +61,12 @@ $sides: (top, bottom, left, right); // Don't Amend
     margin-left: auto;
   }
 }
+
+// for each breakpoint
+@each $breakpoint, $size in $grid-breakpoints {
+  .ec-align-center-#{$breakpoint} {
+    @media screen and (min-width: #{$size}) {
+      align-items: center;
+    }
+  }
+}

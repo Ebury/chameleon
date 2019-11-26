@@ -1,0 +1,69 @@
+.ec-grid {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  // If you want the outer columns to have 0 margin then apply this class
+  &--full-width {
+    @for $i from 1 through 12 {
+      .ec-col-#{$i} {
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@for $i from 1 through 12 {
+  .ec-col-#{$i} {
+    margin: 12px;
+    flex-basis: calc(100% * ( #{$i} / 12));
+  }
+}
+
+// Unitless - Infinite grid
+.ec-col {
+  flex: 1;
+}
+
+// for each breakpoint
+@each $breakpoint, $size in $grid-breakpoints {
+  @media screen and (min-width: #{$size}) {
+    .ec-grid--row {
+      &-#{$breakpoint} {
+        flex-direction: row;
+
+        @for $i from 1 through 12 {
+          .ec-col-#{$i} {
+            margin: 12px;
+          }
+        }
+      }
+
+      &-reverse-#{$breakpoint} {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .ec-grid--col {
+      &-#{$breakpoint} {
+        flex-direction: column;
+
+        @for $i from 1 through 12 {
+          .ec-col-#{$i} {
+            margin: 12px 0;
+          }
+        }
+      }
+
+      &-reverse-#{$breakpoint} {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}
