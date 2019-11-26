@@ -29,7 +29,7 @@ describe('EcDonut', () => {
   });
 
   it('should display with the half used', () => {
-    const wrapper = mountDonut({ used: 50 });
+    const wrapper = mountDonut({ used: 50, amount: 100 });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -39,12 +39,12 @@ describe('EcDonut', () => {
   });
 
   it('should display with the full used', () => {
-    const wrapper = mountDonut({ used: 100 });
+    const wrapper = mountDonut({ used: 100, amount: 100 });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should display with the full used when is more used than amount', () => {
-    const wrapper = mountDonut({ used: 120 });
+    const wrapper = mountDonut({ used: 120, amount: 100 });
     expect(wrapper.element).toMatchSnapshot();
   });
 

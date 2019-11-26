@@ -105,7 +105,6 @@ export default {
 .ec-donut {
   display: flex;
   flex-wrap: wrap;
-  // justify-content: center;
 
   &__container {
     margin-right: 24px;
@@ -178,7 +177,8 @@ export default {
   &__used {
     // This color needs to be discussed with UX team,
     // The color is this one:rgba($color-info, 0.5) but we cannot do opacity in this scenario
-    stroke: #85d0ff;
+    stroke: $white;
+    stroke-opacity: 0.5;
     animation: progress 1s ease-out;
   }
 }
