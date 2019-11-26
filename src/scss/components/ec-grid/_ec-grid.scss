@@ -3,7 +3,7 @@
   width: 100%;
   justify-content: space-between;
 
-  // If you want the outer columns to have 0 margin then apply this class
+  // If you don't want the outer columns to have margins then use .ec-grid--full-width
   &--full-width {
     @for $i from 1 through 12 {
       .ec-col-#{$i} {
@@ -19,19 +19,19 @@
   }
 }
 
-@for $i from 1 through 12 {
-  .ec-col-#{$i} {
-    margin: 12px;
-    flex-basis: calc(100% * ( #{$i} / 12));
-  }
-}
-
-// Unitless - Infinite grid
+// Unitless, no gutters,  infinite grid
 .ec-col {
   flex: 1;
 }
 
-// for each breakpoint
+// Gutters and size of columns for a 12 column grid
+@for $i from 1 through 12 {
+  .ec-col-#{$i} {
+    flex-basis: calc(100% * ( #{$i} / 12));
+  }
+}
+
+// For each breakpoint
 @each $breakpoint, $size in $grid-breakpoints {
   @media screen and (min-width: #{$size}) {
     .ec-grid--row {
