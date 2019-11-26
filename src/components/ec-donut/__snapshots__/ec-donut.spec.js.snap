@@ -65,10 +65,10 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
     </div>
      
     <div
-      class="ec-donut__legend-reminder"
+      class="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
         height="14"
         width="14"
       >
@@ -147,10 +147,10 @@ exports[`EcDonut should display with the empty used 1`] = `
     </div>
      
     <div
-      class="ec-donut__legend-reminder"
+      class="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
         height="14"
         width="14"
       >
@@ -229,10 +229,10 @@ exports[`EcDonut should display with the full used 1`] = `
     </div>
      
     <div
-      class="ec-donut__legend-reminder"
+      class="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
         height="14"
         width="14"
       >
@@ -311,10 +311,10 @@ exports[`EcDonut should display with the full used when is more used than amount
     </div>
      
     <div
-      class="ec-donut__legend-reminder"
+      class="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
         height="14"
         width="14"
       >
@@ -393,10 +393,10 @@ exports[`EcDonut should display with the half used 1`] = `
     </div>
      
     <div
-      class="ec-donut__legend-reminder"
+      class="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
         height="14"
         width="14"
       >
@@ -478,10 +478,10 @@ exports[`EcDonut should render slots as expected 1`] = `
     </div>
      
     <div
-      class="ec-donut__legend-reminder"
+      class="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
         height="14"
         width="14"
       >
@@ -490,9 +490,6 @@ exports[`EcDonut should render slots as expected 1`] = `
         />
       </svg>
        
-      <p>
-        Reminder legend
-      </p>
     </div>
   </div>
 </div>
