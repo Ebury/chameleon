@@ -26,6 +26,8 @@ stories.add('basic', () => ({
     remaining() {
       if (this.used > this.amount) {
         return 0;
+      } if (this.used <= 0) {
+        return this.amount;
       }
       return this.amount - this.used;
     },

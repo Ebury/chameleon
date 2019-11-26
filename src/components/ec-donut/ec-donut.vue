@@ -83,6 +83,8 @@ export default {
     percentageUsed() {
       if (this.used > this.amount) {
         return 100;
+      } if (this.used <= 0) {
+        return 0;
       }
       return (this.used / this.amount) * 100;
     },

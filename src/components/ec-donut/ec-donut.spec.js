@@ -28,6 +28,11 @@ describe('EcDonut', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should display with the half a', () => {
+    const wrapper = mountDonut({ used: -10, amount: 100 });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should display with the half used', () => {
     const wrapper = mountDonut({ used: 50, amount: 100 });
     expect(wrapper.element).toMatchSnapshot();
