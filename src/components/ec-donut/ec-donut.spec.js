@@ -28,7 +28,7 @@ describe('EcDonut', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should display with the half a', () => {
+  it('should display empty with minus number in the used prop', () => {
     const wrapper = mountDonut({ used: -10, amount: 100 });
     expect(wrapper.element).toMatchSnapshot();
   });
