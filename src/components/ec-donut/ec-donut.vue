@@ -46,13 +46,13 @@
         />
         <slot name="used-legend" />
       </div>
-      <div class="ec-donut__legend-reminder">
+      <div class="ec-donut__legend-remaining">
         <ec-icon
           name="rounded-notification"
           :size="14"
-          class="ec-donut__legend-icon ec-donut__legend-icon--reminder"
+          class="ec-donut__legend-icon ec-donut__legend-icon--remaining"
         />
-        <slot name="reminder-legend" />
+        <slot name="remaining-legend" />
       </div>
     </div>
   </div>
@@ -143,7 +143,7 @@ export default {
   }
 
   &__legend-used,
-  &__legend-reminder {
+  &__legend-remaining {
     display: flex;
     align-items: center;
   }
@@ -156,7 +156,7 @@ export default {
       fill: rgba($color-info, 0.5);
     }
 
-    &--reminder {
+    &--remaining {
       fill: $color-info;
     }
   }
@@ -166,7 +166,6 @@ export default {
   }
 
   &__background {
-    // This color need to be discussed with UX team
     stroke: $level-7-backgrounds;
   }
 
@@ -175,8 +174,6 @@ export default {
   }
 
   &__used {
-    // This color needs to be discussed with UX team,
-    // The color is this one:rgba($color-info, 0.5) but we cannot do opacity in this scenario
     stroke: $white;
     stroke-opacity: 0.5;
     animation: progress 1s ease-out;

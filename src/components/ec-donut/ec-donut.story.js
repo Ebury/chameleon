@@ -23,7 +23,7 @@ stories.add('basic', () => ({
     },
   },
   computed: {
-    reminder() {
+    remaining() {
       if (this.used > this.amount) {
         return 0;
       }
@@ -35,8 +35,8 @@ stories.add('basic', () => ({
     <div style="margin: auto" class="ec-card">
       <div style="text-align: center;" class="ec-mb--24">Credit line: <strong>{{ amount | currencyFormat(currency) }}</strong></div>
       <ec-donut class="ec-p--8" :used="used" :amount="amount">
-        <template #reminder-legend>
-          <span><strong>Reminder: </strong>{{ reminder | currencyFormat(currency) }}</span>
+        <template #remaining-legend>
+          <span><strong>Remaining: </strong>{{ remaining | currencyFormat(currency) }}</span>
         </template>
         <template #used-legend>
           <span><strong>Used: </strong>{{ used | currencyFormat(currency) }}</span>
