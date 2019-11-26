@@ -47,13 +47,13 @@ exports[`EcAlert should display only with a the used amount and currency are giv
   </div>
    
   <div
-    class="ec-donut__leyend"
+    class="ec-donut__legend"
   >
     <div
-      class="ec-donut__leyend-used"
+      class="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__leyend-icon--used ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
         height="14"
         width="14"
       >
@@ -62,19 +62,13 @@ exports[`EcAlert should display only with a the used amount and currency are giv
         />
       </svg>
        
-      <span
-        class="ec-donut__text-strong"
-      >
-        Used
-      </span>
-      
-      GBP 20
-    
     </div>
      
-    <div>
+    <div
+      class="ec-donut__legend-reminder"
+    >
       <svg
-        class="ec-donut__leyend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
         height="14"
         width="14"
       >
@@ -83,14 +77,6 @@ exports[`EcAlert should display only with a the used amount and currency are giv
         />
       </svg>
        
-      <span
-        class="ec-donut__text-strong"
-      >
-        Reminder
-      </span>
-      
-      GBP 80
-    
     </div>
   </div>
 </div>
@@ -143,13 +129,13 @@ exports[`EcAlert should display with the empty used 1`] = `
   </div>
    
   <div
-    class="ec-donut__leyend"
+    class="ec-donut__legend"
   >
     <div
-      class="ec-donut__leyend-used"
+      class="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__leyend-icon--used ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
         height="14"
         width="14"
       >
@@ -158,19 +144,13 @@ exports[`EcAlert should display with the empty used 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-donut__text-strong"
-      >
-        Used
-      </span>
-      
-      GBP 0
-    
     </div>
      
-    <div>
+    <div
+      class="ec-donut__legend-reminder"
+    >
       <svg
-        class="ec-donut__leyend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
         height="14"
         width="14"
       >
@@ -179,14 +159,6 @@ exports[`EcAlert should display with the empty used 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-donut__text-strong"
-      >
-        Reminder
-      </span>
-      
-      GBP 100
-    
     </div>
   </div>
 </div>
@@ -239,13 +211,13 @@ exports[`EcAlert should display with the full used 1`] = `
   </div>
    
   <div
-    class="ec-donut__leyend"
+    class="ec-donut__legend"
   >
     <div
-      class="ec-donut__leyend-used"
+      class="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__leyend-icon--used ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
         height="14"
         width="14"
       >
@@ -254,19 +226,13 @@ exports[`EcAlert should display with the full used 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-donut__text-strong"
-      >
-        Used
-      </span>
-      
-      GBP 100
-    
     </div>
      
-    <div>
+    <div
+      class="ec-donut__legend-reminder"
+    >
       <svg
-        class="ec-donut__leyend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
         height="14"
         width="14"
       >
@@ -275,14 +241,6 @@ exports[`EcAlert should display with the full used 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-donut__text-strong"
-      >
-        Reminder
-      </span>
-      
-      GBP 0
-    
     </div>
   </div>
 </div>
@@ -335,13 +293,13 @@ exports[`EcAlert should display with the half used 1`] = `
   </div>
    
   <div
-    class="ec-donut__leyend"
+    class="ec-donut__legend"
   >
     <div
-      class="ec-donut__leyend-used"
+      class="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__leyend-icon--used ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
         height="14"
         width="14"
       >
@@ -350,19 +308,13 @@ exports[`EcAlert should display with the half used 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-donut__text-strong"
-      >
-        Used
-      </span>
-      
-      GBP 50
-    
     </div>
      
-    <div>
+    <div
+      class="ec-donut__legend-reminder"
+    >
       <svg
-        class="ec-donut__leyend-icon--reminder ec-icon"
+        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
         height="14"
         width="14"
       >
@@ -371,14 +323,94 @@ exports[`EcAlert should display with the half used 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-donut__text-strong"
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcAlert should render slots as expected 1`] = `
+<div
+  class="ec-donut"
+>
+  <div
+    class="ec-donut__container"
+  >
+    <svg
+      class="ec-donut__svg"
+      height="108"
+      viewBox="0 0 108 108"
+      width="108"
+    >
+      <circle
+        class="ec-donut__background"
+        cx="54"
+        cy="54"
+        fill="transparent"
+        r="48"
+        stroke-width="11"
+      />
+       
+      <circle
+        class="ec-donut__remaining"
+        cx="54"
+        cy="54"
+        fill="transparent"
+        r="48"
+        stroke-dasharray="301.59289474462014"
+        stroke-dashoffset="0"
+        stroke-width="11"
+      />
+       
+      <circle
+        class="ec-donut__used"
+        cx="54"
+        cy="54"
+        fill="transparent"
+        r="48"
+        stroke-dasharray="301.59289474462014"
+        stroke-dashoffset="241.2743157956961"
+        stroke-width="11"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-donut__legend"
+  >
+    <div
+      class="ec-donut__legend-used"
+    >
+      <svg
+        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
+        height="14"
+        width="14"
       >
-        Reminder
-      </span>
-      
-      GBP 50
-    
+        <use
+          xlink:href="#ec-rounded-notification"
+        />
+      </svg>
+       
+      <p>
+        Used legend
+      </p>
+    </div>
+     
+    <div
+      class="ec-donut__legend-reminder"
+    >
+      <svg
+        class="ec-donut__legend-icon ec-donut__legend-icon--reminder ec-icon"
+        height="14"
+        width="14"
+      >
+        <use
+          xlink:href="#ec-rounded-notification"
+        />
+      </svg>
+       
+      <p>
+        Reminder legend
+      </p>
     </div>
   </div>
 </div>

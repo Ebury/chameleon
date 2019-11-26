@@ -8,7 +8,6 @@ describe('EcAlert', () => {
       propsData: {
         used: 20,
         amount: 100,
-        currency: 'GBP',
         ...props,
       },
       ...mountOpts,
@@ -18,10 +17,9 @@ describe('EcAlert', () => {
   it('should throw if no props were given', () => {
     withMockedConsole((errorSpy) => {
       mount(EcDonut);
-      expect(errorSpy).toHaveBeenCalledTimes(3);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "currency"');
-      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "amount"');
-      expect(errorSpy.mock.calls[2][0]).toContain('Missing required prop: "used"');
+      expect(errorSpy).toHaveBeenCalledTimes(2);
+      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "amount"');
+      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "used"');
     });
   });
 
@@ -52,5 +50,23 @@ describe('EcAlert', () => {
     const offset = circumference * (1 - wrapper.vm.percentageUsed / 100);
     expect(wrapper.vm.dashArray).toBe(circumference);
     expect(wrapper.vm.offset).toBe(offset);
+  });
+
+  it('should render slots as expected', () => {
+    const wrapper = mount(
+      EcDonut,
+      {
+        propsData: {
+          used: 20,
+          amount: 100,
+        },
+        scopedSlots: {
+          'reminder-legend': '<p>Reminder legend</p>',
+          'used-legend': '<p>Used legend</p>',
+        },
+      },
+    );
+
+    expect(wrapper.element).toMatchSnapshot();
   });
 });

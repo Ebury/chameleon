@@ -37,24 +37,22 @@
         />
       </svg>
     </div>
-    <div class="ec-donut__leyend">
-      <div class="ec-donut__leyend-used">
+    <div class="ec-donut__legend">
+      <div class="ec-donut__legend-used">
         <ec-icon
           name="rounded-notification"
           :size="14"
-          class="ec-donut__leyend-icon--used"
+          class="ec-donut__legend-icon ec-donut__legend-icon--used"
         />
-        <span class="ec-donut__text-strong">Used</span>
-        {{ currency }} {{ used }}
+        <slot name="used-legend" />
       </div>
-      <div>
+      <div class="ec-donut__legend-reminder">
         <ec-icon
           name="rounded-notification"
           :size="14"
-          class="ec-donut__leyend-icon--reminder"
+          class="ec-donut__legend-icon ec-donut__legend-icon--reminder"
         />
-        <span class="ec-donut__text-strong">Reminder</span>
-        {{ currency }} {{ amount - used }}
+        <slot name="reminder-legend" />
       </div>
     </div>
   </div>
@@ -67,10 +65,6 @@ export default {
   name: 'EcDonut',
   components: { EcIcon },
   props: {
-    currency: {
-      type: String,
-      required: true,
-    },
     amount: {
       type: Number,
       required: true,
@@ -113,7 +107,7 @@ export default {
     height: 108px;
   }
 
-  &__leyend {
+  &__legend {
     @include h4;
 
     line-height: 24px;
@@ -122,15 +116,20 @@ export default {
     color: $level-3-body-and-headings;
   }
 
-  &__text-strong {
-    @include h5;
-  }
-
-  &__leyend-used {
+  &__legend-used {
     margin-bottom: 24px;
   }
 
-  &__leyend-icon {
+  &__legend-used,
+  &__legend-reminder {
+    display: flex;
+    align-items: center;
+  }
+
+  &__legend-icon {
+    flex-shrink: 0;
+    margin-right: 8px;
+
     &--used {
       fill: rgba($color-info, 0.5);
     }
@@ -151,7 +150,6 @@ export default {
 
   &__remaining {
     stroke: $color-info;
-    animation: progress 1s ease-out;
   }
 
   &__used {
