@@ -29,7 +29,7 @@ describe('EcFocusTrap', () => {
   it('should initialize itself', () => {
     const wrapper = mountTemplate('<div v-ec-focus-trap class="focus-trap-container" />');
     expect(focusTrap).toHaveBeenCalledTimes(1);
-    expect(focusTrap).toHaveBeenCalledWith(wrapper.find('.focus-trap-container').element, { });
+    expect(focusTrap).toHaveBeenCalledWith(wrapper.find('.focus-trap-container').element, undefined);
   });
 
   it('should initialize itself with given options', () => {
@@ -53,5 +53,46 @@ describe('EcFocusTrap', () => {
     expect(focusTrapInstance.deactivate).toHaveBeenCalledTimes(0);
     wrapper.destroy();
     expect(focusTrapInstance.deactivate).toHaveBeenCalledTimes(1);
+  });
+
+  it.each(['escapeDeactivates', 'clickOutsideDeactivates'])('should reinitialize itself if %s changes', (propName) => {
+    const wrapper = mountTemplate('<div v-ec-focus-trap="{ ...options }" />', {
+      data() {
+        return { options: { [propName]: true } };
+      },
+    });
+
+    expect(focusTrap).toHaveBeenCalledTimes(1);
+    const focusTrapInstance = focusTrap.mock.results[0].value;
+    expect(focusTrapInstance.activate).toHaveBeenCalledTimes(1);
+    expect(focusTrapInstance.deactivate).toHaveBeenCalledTimes(0);
+
+    focusTrap.mockClear();
+    wrapper.setData({ options: { [propName]: false } });
+
+    expect(focusTrap).toHaveBeenCalledTimes(1);
+    const newFocusTrapInstance = focusTrap.mock.results[0].value;
+    expect(newFocusTrapInstance).not.toBe(focusTrapInstance);
+
+    expect(newFocusTrapInstance.activate).toHaveBeenCalledTimes(1);
+    expect(focusTrapInstance.deactivate).toHaveBeenCalledTimes(1);
+  });
+
+  it('should not reinitialize itself when other prop change', () => {
+    const wrapper = mountTemplate('<div v-ec-focus-trap="{ ...options }" />', {
+      data() {
+        return { options: { customProp: true } };
+      },
+    });
+
+    expect(focusTrap).toHaveBeenCalledTimes(1);
+    const focusTrapInstance = focusTrap.mock.results[0].value;
+    expect(focusTrapInstance.activate).toHaveBeenCalledTimes(1);
+    expect(focusTrapInstance.deactivate).toHaveBeenCalledTimes(0);
+
+    focusTrap.mockClear();
+    wrapper.setData({ options: { customProp: false } });
+
+    expect(focusTrap).not.toHaveBeenCalled();
   });
 });

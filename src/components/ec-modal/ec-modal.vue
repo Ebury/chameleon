@@ -2,11 +2,11 @@
   <transition name="ec-modal__fade">
     <div
       v-if="showModal"
-      v-ec-focus-trap="getFocusTrapOptions()"
       class="ec-modal"
       @click.self="closeModal()"
     >
       <div
+        v-ec-focus-trap="getFocusTrapOptions()"
         class="ec-modal__content"
         :class="{'ec-modal--lg': large}"
       >
@@ -95,11 +95,17 @@ export default {
       default: false,
     },
   },
-  created() {
-    document.addEventListener('keyup', this.escapeIsPressed);
-  },
-  destroyed() {
-    document.removeEventListener('keyup', this.escapeIsPressed);
+  watch: {
+    showModal: {
+      immediate: true,
+      handler(value) {
+        if (value) {
+          document.addEventListener('keyup', this.escapeIsPressed);
+        } else {
+          document.removeEventListener('keyup', this.escapeIsPressed);
+        }
+      },
+    },
   },
   methods: {
     negativeAction() {
@@ -120,6 +126,7 @@ export default {
     },
     getFocusTrapOptions() {
       const options = {
+        escapeDeactivates: this.isClosable,
         clickOutsideDeactivates: this.isClosable,
       };
 
