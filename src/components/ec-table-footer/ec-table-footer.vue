@@ -56,14 +56,22 @@ export default {
       return `${this.itemsInView} ${singularOrPluralItems}`;
     },
     viewSummaryText() {
-      return (
-        (this.itemsInView
-          && this.totalItems
+      if (this.itemsInView) {
+        if (
+          this.totalItems
           && this.totalItems > this.itemsInView
-          && this.itemsOutOfTotalText)
-        || (this.itemsInView && this.itemsInViewText)
-        || ''
-      );
+          && this.itemsOutOfTotalText
+        ) {
+          return this.itemsOutOfTotalText;
+        }
+
+        /* istanbul ignore else */
+        if (this.itemsInViewText) {
+          return this.itemsInViewText;
+        }
+      }
+
+      return '';
     },
   },
 };
@@ -79,7 +87,7 @@ export default {
   &__cell {
     padding: 0 16px;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     background-color: $level-7-backgrounds;
   }
 
@@ -101,8 +109,7 @@ export default {
   }
 
   &__tooltip-icon {
-    // flex-shrink: 0;
-    fill: #556468;
+    fill: $level-3-body-and-headings;
     display: inline-block;
     vertical-align: top;
   }

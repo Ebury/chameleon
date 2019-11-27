@@ -68,7 +68,7 @@ stories
     template: `
       <div style="display: flex;height: 100vh">
         <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-          <EcTable
+          <ec-table
             :columns="columns"
             :data="data"
             :totalRecords="totalRecords"
@@ -101,7 +101,7 @@ stories
     template: `
     <div style="display: flex;height: 100vh">
       <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-        <EcTable
+        <ec-table
           :columns="columns"
           :data="data"
           :totalRecords="totalRecords"
@@ -119,7 +119,7 @@ stories
             <small>Item is currently</small><br>
             <strong>{{ content }}</strong>
           </template>
-        </EcTable>
+        </ec-table>
       </div>
     </div>
     `,
@@ -149,15 +149,14 @@ stories
     template: `
     <div style="display: flex;height: 100vh">
       <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-        <EcTable
+        <ec-table
           :columns="columns"
           :data="data"
           :totalRecords="totalRecords"
           :showFooter="showFooter"
           :tooltipConfig="tooltip"
           :title="title"
-        >
-        </EcTable>
+        />
       </div>
     </div>
     `,
