@@ -3,15 +3,13 @@
     v-if="numberOfColumns"
     class="ec-table-head"
   >
-    <tr
-      class="ec-table-head__row"
-    >
+    <tr>
       <th
         v-for="column in columns"
         :key="column.name"
         class="ec-table-head__cell"
         :colspan="column.span"
-        :scope="column.scope || 'col'"
+        scope="col"
       >{{ column.name }}</th>
     </tr>
   </thead>
@@ -42,14 +40,11 @@ export default {
 
 .ec-table-head {
   &__cell {
-    padding: 0 8px 8px;
+    padding: 0 0 8px 16px;
+    text-align: left;
     border-bottom: 1px solid $level-6-disabled-lines;
 
     @include mini-header;
-
-    &:first-child {
-      padding-left: 16px;
-    }
 
     &:last-child {
       padding-right: 16px;

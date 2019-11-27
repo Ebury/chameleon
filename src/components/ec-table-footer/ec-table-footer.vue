@@ -1,32 +1,22 @@
 <template>
-  <tfoot
-    class="ec-table-footer"
-  >
-    <tr
-      class="ec-table-footer__row"
-    >
+  <tfoot class="ec-table-footer">
+    <tr>
       <td
         class="ec-table-footer__cell"
         :colspan="colspan"
       >
-        <div
-          class="ec-table-footer__contents"
-        >
+        <div class="ec-table-footer__contents">
+          <div class="ec-table-footer__details">{{ viewSummaryText }}</div>
           <div
-            class="ec-table-footer__details"
-          >{{ viewSummaryText }}</div>
-          <div
-            v-if="hasTooltip"
+            v-if="tooltipConfig"
             class="ec-table-footer__tooltip"
           >
-            <i>i</i>
-            <article
-              class="ec-table-footer__tooltip-content"
-            >
-              <slot
-                name="tooltip"
-              />
-            </article>
+            <ec-icon
+              v-ec-tooltip="tooltipConfig"
+              :size="16"
+              name="simple-info"
+              class="ec-table-footer__tooltip-icon"
+            />
           </div>
         </div>
       </td>
@@ -35,7 +25,12 @@
 </template>
 
 <script>
+import EcIcon from '../ec-icon';
+import EcTooltip from '../../directives/ec-tooltip';
+
 export default {
+  components: { EcIcon },
+  directives: { EcTooltip },
   props: {
     itemsInView: {
       type: Number,
@@ -46,6 +41,7 @@ export default {
     colspan: {
       type: Number,
     },
+    tooltipConfig: Object,
   },
   computed: {
     itemsOutOfTotalText() {
@@ -59,27 +55,23 @@ export default {
 
       return `${this.itemsInView} ${singularOrPluralItems}`;
     },
-    hasTooltip() {
-      return Boolean(this.$scopedSlots.tooltip);
-    },
     viewSummaryText() {
       return (
-        this.itemsInView && this.totalItems && (this.totalItems > this.itemsInView)
-          && this.itemsOutOfTotalText
-      )
-        || (
-          this.itemsInView
-          && this.itemsInViewText
-        )
-        || '';
+        (this.itemsInView
+          && this.totalItems
+          && this.totalItems > this.itemsInView
+          && this.itemsOutOfTotalText)
+        || (this.itemsInView && this.itemsInViewText)
+        || ''
+      );
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import '../../scss/tools/typography';
-@import '../../scss/settings/colors/index';
+@import "../../scss/tools/typography";
+@import "../../scss/settings/colors/index";
 
 .ec-table-footer {
   @include small-text;
@@ -87,19 +79,8 @@ export default {
   &__cell {
     padding: 0 16px;
     width: 100%;
-    border-radius: 0 0 5px 5px;
+    border-radius: 5px;
     background-color: $level-7-backgrounds;
-
-    &--tooltip-cell {
-      position: relative;
-      padding: 12px 16px 12px 24px;
-
-      &:hover {
-        .ec-table-footer__tooltip {
-          display: block;
-        }
-      }
-    }
   }
 
   &__contents {
@@ -114,26 +95,16 @@ export default {
   }
 
   &__tooltip {
-    position: relative;
-    padding: 12px 0 12px 24px;
-
-    &:hover {
-      .ec-table-footer__tooltip-content {
-        display: block;
-      }
-    }
+    display: flex;
+    align-items: center;
+    line-height: 16px;
   }
 
-  &__tooltip-content {
-    // TODO: replace implementation with tooltip component
-    position: absolute;
-    right: 50%;
-    bottom: calc(-100% - 12px);
-    background: #fff;
-    border-radius: 5px;
-    padding: 12px;
-    display: none;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+  &__tooltip-icon {
+    // flex-shrink: 0;
+    fill: #556468;
+    display: inline-block;
+    vertical-align: top;
   }
 }
 </style>
