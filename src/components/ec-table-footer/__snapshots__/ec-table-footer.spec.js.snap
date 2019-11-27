@@ -4,9 +4,7 @@ exports[`EcTableFooter should render an empty row if no props are supplied 1`] =
 <tfoot
   class="ec-table-footer"
 >
-  <tr
-    class="ec-table-footer__row"
-  >
+  <tr>
     <td
       class="ec-table-footer__cell"
     >
@@ -30,9 +28,7 @@ exports[`EcTableFooter should render with \`total items\` text if there are more
 <tfoot
   class="ec-table-footer"
 >
-  <tr
-    class="ec-table-footer__row"
-  >
+  <tr>
     <td
       class="ec-table-footer__cell"
     >
@@ -56,9 +52,7 @@ exports[`EcTableFooter should render with singular text if supplied with 1 item 
 <tfoot
   class="ec-table-footer"
 >
-  <tr
-    class="ec-table-footer__row"
-  >
+  <tr>
     <td
       class="ec-table-footer__cell"
     >
@@ -82,9 +76,7 @@ exports[`EcTableFooter should render with singular text if there is only 1 for t
 <tfoot
   class="ec-table-footer"
 >
-  <tr
-    class="ec-table-footer__row"
-  >
+  <tr>
     <td
       class="ec-table-footer__cell"
     >
@@ -104,13 +96,48 @@ exports[`EcTableFooter should render with singular text if there is only 1 for t
 </tfoot>
 `;
 
+exports[`EcTableFooter should render with the icon of the tooltip if we pass the config 1`] = `
+<tfoot
+  class="ec-table-footer"
+>
+  <tr>
+    <td
+      class="ec-table-footer__cell"
+    >
+      <div
+        class="ec-table-footer__contents"
+      >
+        <div
+          class="ec-table-footer__details"
+        >
+          
+        </div>
+         
+        <div
+          class="ec-table-footer__tooltip"
+        >
+          <svg
+            class="ec-table-footer__tooltip-icon ec-icon ec-has-tooltip"
+            data-original-title="null"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-info"
+            />
+          </svg>
+        </div>
+      </div>
+    </td>
+  </tr>
+</tfoot>
+`;
+
 exports[`EcTableFooter should render with the plural text when supplied with more than 1 item and no total items 1`] = `
 <tfoot
   class="ec-table-footer"
 >
-  <tr
-    class="ec-table-footer__row"
-  >
+  <tr>
     <td
       class="ec-table-footer__cell"
     >
@@ -134,9 +161,7 @@ exports[`EcTableFooter should render without \`total items\` text if there are m
 <tfoot
   class="ec-table-footer"
 >
-  <tr
-    class="ec-table-footer__row"
-  >
+  <tr>
     <td
       class="ec-table-footer__cell"
     >

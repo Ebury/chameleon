@@ -70,8 +70,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../scss/tools/typography";
-@import "../../scss/settings/colors/index";
+@import '../../scss/tools/typography';
+@import '../../scss/settings/colors/index';
 
 .ec-table-footer {
   @include small-text;
