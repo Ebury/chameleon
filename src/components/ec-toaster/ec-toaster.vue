@@ -16,6 +16,7 @@
         @ec-toaster-touch-remove="$emit('remove', message)"
       >
         <ec-alert
+          class="ec-toaster__item-content"
           :type="message.type"
           :title="message.title"
           :subtitle="message.subtitle"
@@ -54,6 +55,7 @@ export default {
 
 <style lang="scss">
 @import '../../scss/settings/z-index';
+@import '../../scss/tools/index';
 
 .ec-toaster {
   position: fixed;
@@ -94,6 +96,10 @@ export default {
     &--removed-by-swipe {
       transition-duration: 0.3s;
     }
+  }
+
+  &__item-content {
+    @include box-shadow-level-2;
   }
 }
 

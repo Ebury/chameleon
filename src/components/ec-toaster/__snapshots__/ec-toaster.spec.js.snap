@@ -25,7 +25,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       class="ec-toaster__item"
     >
       <div
-        class="ec-alert ec-alert--error ec-alert--is-responsive"
+        class="ec-alert ec-toaster__item-content ec-alert--error ec-alert--is-responsive"
       >
         <a
           class="ec-alert__dismiss-icon ec-alert__dismiss-icon--error"
@@ -73,7 +73,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       class="ec-toaster__item"
     >
       <div
-        class="ec-alert ec-alert--success ec-alert--is-responsive"
+        class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
       >
         <a
           class="ec-alert__dismiss-icon ec-alert__dismiss-icon--success"
@@ -121,7 +121,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       class="ec-toaster__item"
     >
       <div
-        class="ec-alert ec-alert--info ec-alert--is-responsive"
+        class="ec-alert ec-toaster__item-content ec-alert--info ec-alert--is-responsive"
       >
         <a
           class="ec-alert__dismiss-icon ec-alert__dismiss-icon--info"
@@ -169,7 +169,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       class="ec-toaster__item"
     >
       <div
-        class="ec-alert ec-alert--warning ec-alert--is-responsive"
+        class="ec-alert ec-toaster__item-content ec-alert--warning ec-alert--is-responsive"
       >
         <a
           class="ec-alert__dismiss-icon ec-alert__dismiss-icon--warning"
@@ -222,7 +222,7 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
   class="ec-toaster__item"
 >
   <div
-    class="ec-alert ec-alert--success ec-alert--is-responsive"
+    class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
   >
     <a
       class="ec-alert__dismiss-icon ec-alert__dismiss-icon--success"
