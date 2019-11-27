@@ -1,0 +1,92 @@
+$gutters: 24px;
+$number-of-columns: 12;
+
+@mixin common {
+  display: flex;
+  justify-content: flex-start;
+  width: calc(100% + #{$gutters});
+  margin-left: calc(#{$gutters} / -2);
+}
+
+.ec-grid {
+  overflow: hidden;
+  width: 100%;
+}
+
+@for $i from 1 through $number-of-columns {
+  .ec-col-#{$i} {
+    margin: calc(#{$gutters} / 2);
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc((100% * ( #{$i} / #{$number-of-columns})) - #{$gutters});
+
+    // For IE11 remove extra 4 px in case we have borders
+    @media all and (-ms-high-contrast: none) {
+      flex-basis: calc((100% * ( #{$i} / #{$number-of-columns})) - #{$gutters} - 4px);
+    }
+  }
+
+  .ec-offset-#{$i} {
+    margin-left: calc(100% * ( #{$i} / $number-of-columns) + #{$gutters});
+  }
+}
+
+.ec-grid__row {
+  @include common;
+
+  flex-direction: row;
+
+  &--reverse {
+    @include common;
+
+    flex-direction: row-reverse;
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.ec-grid__col {
+  @include common;
+
+  flex-direction: column;
+
+  &-reverse {
+    @include common;
+
+    flex-direction: column-reverse;
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}) {
+    .ec-grid__row {
+      &-#{$breakpoint} {
+        @include common;
+
+        flex-direction: row;
+      }
+
+      &-reverse-#{$breakpoint} {
+        @include common;
+
+        flex-direction: row-reverse;
+      }
+    }
+
+    .ec-grid__col {
+      &-#{$breakpoint} {
+        @include common;
+
+        flex-direction: column;
+      }
+
+      &-reverse-#{$breakpoint} {
+        @include common;
+
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}
