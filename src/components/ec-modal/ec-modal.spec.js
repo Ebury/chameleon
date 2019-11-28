@@ -207,4 +207,28 @@ describe('EcModal', () => {
 
     wrapper.destroy(); // because we attached the wrapper to document
   });
+
+  it('should stop listening to keyup events when closed', () => {
+    const addEventListenerSpy = jest.spyOn(document, 'addEventListener');
+    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener');
+
+    expect(addEventListenerSpy).not.toHaveBeenCalled();
+
+    const wrapper = mountModal({
+      showModal: true,
+      isClosable: false,
+    }, {
+      attachToDocument: true,
+    });
+
+    expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
+    expect(addEventListenerSpy).toHaveBeenCalledWith('keyup', expect.any(Function));
+
+    wrapper.setProps({ showModal: false });
+
+    expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
+    expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);
+
+    wrapper.destroy(); // because we attached the wrapper to document
+  });
 });

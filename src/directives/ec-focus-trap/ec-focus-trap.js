@@ -1,16 +1,33 @@
+/* eslint-disable no-underscore-dangle */
 import focusTrap from 'focus-trap';
+
+function attachFocusTrap(el, options) {
+  /* istanbul ignore if */
+  if (el.__focusTrap) {
+    // if there is already previous focus-trap on the element, deactivate it.
+    el.__focusTrap.deactivate();
+  }
+
+  el.__focusTrap = focusTrap(el, options);
+  el.__focusTrap.activate(options);
+}
 
 export default {
   inserted(el, binding) {
-    binding.focusTrap = focusTrap(el, {
-      ...binding.value,
-    });
-    binding.focusTrap.activate();
+    attachFocusTrap(el, binding.value);
   },
-  unbind(el, binding) {
+  update(el, { value, oldValue }) {
     /* istanbul ignore else */
-    if (binding.focusTrap) {
-      binding.focusTrap.deactivate();
+    if (value && oldValue) {
+      if (value.escapeDeactivates !== oldValue.escapeDeactivates || value.clickOutsideDeactivates !== oldValue.clickOutsideDeactivates) {
+        attachFocusTrap(el, value);
+      }
+    }
+  },
+  unbind(el) {
+    /* istanbul ignore else */
+    if (el.__focusTrap) {
+      el.__focusTrap.deactivate();
     }
   },
 };

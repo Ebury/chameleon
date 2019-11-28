@@ -50,10 +50,6 @@ h6 {
   @include h6;
 }
 
-strong {
-  font-weight: bolder;
-}
-
 a {
   @include body-link;
 }
@@ -67,4 +63,9 @@ p {
 
 ::placeholder {
   color: $level-5-placeholders;
+}
+
+textarea {
+  display: block;
+  resize: none;
 }

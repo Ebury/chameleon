@@ -5,7 +5,6 @@ const stories = storiesOf('Card', module);
 
 stories
   .add('basic', () => ({
-    components: { EcIcon },
     template: `
     <div style="display: flex; height: 100vh; margin: 10px">
       <div style="margin: auto; width: 33vw;">

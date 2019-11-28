@@ -2,7 +2,11 @@
   @include box-shadow-level-1;
   @include shape-border-radius;
 
-  padding: 24px;
+  padding: 8px;
   background: $white;
   overflow: hidden;
+
+  @include media__from-sm {
+    padding: 24px;
+  }
 }
