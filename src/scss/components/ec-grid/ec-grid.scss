@@ -1,11 +1,11 @@
-$gutters: 24px;
-$number-of-columns: 12;
+$ec-grid-gutters: 24px;
+$ec-grid-number-of-columns: 12;
 
-@mixin common {
+@mixin ec-grid-common {
   display: flex;
   justify-content: flex-start;
-  width: calc(100% + #{$gutters});
-  margin-left: calc(#{$gutters} / -2);
+  width: calc(100% + #{$ec-grid-gutters});
+  margin-left: calc(#{$ec-grid-gutters} / -2);
 }
 
 .ec-grid {
@@ -13,47 +13,48 @@ $number-of-columns: 12;
   width: 100%;
 }
 
-@for $i from 1 through $number-of-columns {
+@for $i from 1 through $ec-grid-number-of-columns {
   .ec-col-#{$i} {
-    margin: calc(#{$gutters} / 2);
+    margin: calc(#{$ec-grid-gutters} / 2);
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: calc((100% * ( #{$i} / #{$number-of-columns})) - #{$gutters});
+    flex-basis: calc((100% * ( #{$i} / #{$ec-grid-number-of-columns})) - #{$ec-grid-gutters});
 
     // For IE11 remove extra 4 px in case we have borders
     @media all and (-ms-high-contrast: none) {
-      flex-basis: calc((100% * ( #{$i} / #{$number-of-columns})) - #{$gutters} - 4px);
+      // flex-basis: calc((100% * ( #{$i} / #{$ec-grid-number-of-columns})) - #{$ec-grid-gutters} - 4px);
     }
   }
 
   .ec-offset-#{$i} {
-    margin-left: calc(100% * ( #{$i} / $number-of-columns) + #{$gutters});
+    margin-left: calc((100% * ( #{$i} / #{$ec-grid-number-of-columns})) + #{$ec-grid-gutters} / 2);
   }
 }
 
 .ec-grid__row {
-  @include common;
+  @include ec-grid-common;
 
   flex-direction: row;
+  flex-wrap: wrap;
 
   &--reverse {
-    @include common;
+    @include ec-grid-common;
 
     flex-direction: row-reverse;
   }
 
-  &--wrap {
-    flex-wrap: wrap;
+  &--nowrap {
+    flex-wrap: nowrap;
   }
 }
 
 .ec-grid__col {
-  @include common;
+  @include ec-grid-common;
 
   flex-direction: column;
 
-  &-reverse {
-    @include common;
+  &--reverse {
+    @include ec-grid-common;
 
     flex-direction: column-reverse;
   }
@@ -62,28 +63,29 @@ $number-of-columns: 12;
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
     .ec-grid__row {
-      &-#{$breakpoint} {
-        @include common;
+      &\@#{$breakpoint} {
+        @include ec-grid-common;
 
         flex-direction: row;
+        flex-wrap: wrap;
       }
 
-      &-reverse-#{$breakpoint} {
-        @include common;
+      &--reverse\@#{$breakpoint} {
+        @include ec-grid-common;
 
         flex-direction: row-reverse;
       }
     }
 
     .ec-grid__col {
-      &-#{$breakpoint} {
-        @include common;
+      &\@#{$breakpoint} {
+        @include ec-grid-common;
 
         flex-direction: column;
       }
 
-      &-reverse-#{$breakpoint} {
-        @include common;
+      &--reverse\@#{$breakpoint} {
+        @include ec-grid-common;
 
         flex-direction: column-reverse;
       }
