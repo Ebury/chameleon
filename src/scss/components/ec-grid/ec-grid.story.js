@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-plusplus */
 import { storiesOf } from '@storybook/vue';
 import './ec-grid.story.scss';
 
@@ -128,10 +126,10 @@ stories
     <div class="grid-story">
       <h1 class="grid-story__title">Resize to swap between column and row @xs @sm @md @lg @xl breakpoints</h1>
       <h2 class="grid-story__title">Grandparent: ec-grid</h2>
-      <h2 class="grid-story__title"> Parent: ec-grid__col ec-grid__row-xs ec-grid__col-sm ec-grid__row-md ec-grid__col-lg ec-grid__row-xl</h2>
+      <h2 class="grid-story__title"> Parent: ec-grid__col ec-grid__row@xs ec-grid__col@sm ec-grid__row@md ec-grid__col@lg ec-grid__row@xl</h2>
 
       <div class="ec-grid grid-story__container">
-        <div class="ec-grid__col ec-grid__row-xs ec-grid__col-sm ec-grid__row-md ec-grid__col-lg ec-grid__row-xl">
+        <div class="ec-grid__col ec-grid__row@xs ec-grid__col@sm ec-grid__row@md ec-grid__col@lg ec-grid__row@xl">
           <div
             v-for="i in 4"
             class="ec-col-3 grid-story__column">
@@ -146,20 +144,20 @@ stories
     template: `
       <div class="ec-ml--24 ec-mr--24">
         <div class="ec-grid">
-          <div class="ec-grid__col ec-grid__row-md">
+          <div class="ec-grid__col ec-grid__row@md">
             <div class="ec-col-9">
               <h1>Trade Finance</h1>
               <p> Here you will be able to keep track of all your requests.
             </div>
             <div class="ec-col-3" style="align-self: center;text-align:right;">
-              <button class="ec-column ec-btn ec-btn--md ec-btn--rounded ec-btn--primary">New Request</button>
+              <button class="ec-column ec-btn ec-btn-@md ec-btn--rounded ec-btn--primary">New Request</button>
             </div>
           </div>
         </div>
 
         <div class="ec-grid">
-          <div class="ec-grid__col ec-grid__row-md">
-            <div class="ec-col-8" style="height; border: 1px solid black;"> Credit line component</div>
+          <div class="ec-grid__col ec-grid__row@md">
+            <div class="ec-col-8" style="height:200px; border: 1px solid black;"> Credit line component</div>
             <div class="ec-col-4" style="height:200px; border: 1px solid black;"> Management card component</div>
           </div>
         </div>
