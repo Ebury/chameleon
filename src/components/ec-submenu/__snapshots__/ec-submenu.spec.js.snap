@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcSubmenu should not render the arrows if header does not overflow 1`] = `
+<div
+  class="ec-submenu"
+>
+  <svg
+    class="ec-submenu__arrow-left ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-simple-chevron-left"
+    />
+  </svg>
+   
+  <div
+    class="ec-submenu__header-container"
+  >
+    <ul
+      class="ec-submenu__header"
+      size="24"
+    >
+      <li
+        class="ec-submenu__header-item ec-submenu__header-item-active"
+      />
+      <li
+        class="ec-submenu__header-item"
+      />
+      <li
+        class="ec-submenu__header-item"
+      />
+    </ul>
+  </div>
+   
+  <svg
+    class="ec-submenu__arrow-right ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-simple-chevron-right"
+    />
+  </svg>
+   
+  <main
+    class="ec-submenu__main"
+  >
+    <span
+      name="fade"
+      tag="div"
+    >
+      <div
+        class="fade-item isActive"
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.
+        </p>
+      </div>
+      <div
+        class="fade-item"
+        style="display: none;"
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.
+        </p>
+      </div>
+      <div
+        class="fade-item"
+        style="display: none;"
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.
+        </p>
+      </div>
+    </span>
+  </main>
+</div>
+`;
+
+exports[`EcSubmenu should not render the submenu if submenu content not passed 1`] = `<!---->`;
+
+exports[`EcSubmenu should render the arrows if header overflows 1`] = `
+<div
+  class="ec-submenu"
+>
+  <svg
+    class="ec-submenu__arrow-left ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-simple-chevron-left"
+    />
+  </svg>
+   
+  <div
+    class="ec-submenu__header-container"
+  >
+    <ul
+      class="ec-submenu__header"
+      size="24"
+    >
+      <li
+        class="ec-submenu__header-item ec-submenu__header-item-active"
+      />
+      <li
+        class="ec-submenu__header-item"
+      />
+      <li
+        class="ec-submenu__header-item"
+      />
+    </ul>
+  </div>
+   
+  <svg
+    class="ec-submenu__arrow-right ec-icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-simple-chevron-right"
+    />
+  </svg>
+   
+  <main
+    class="ec-submenu__main"
+  >
+    <span
+      name="fade"
+      tag="div"
+    >
+      <div
+        class="fade-item isActive"
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.
+        </p>
+      </div>
+      <div
+        class="fade-item"
+        style="display: none;"
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.
+        </p>
+      </div>
+      <div
+        class="fade-item"
+        style="display: none;"
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.
+        </p>
+      </div>
+    </span>
+  </main>
+</div>
+`;
+
+exports[`EcSubmenu should render the submenu if slots are passed 1`] = `
+<div
+  class="ec-submenu"
+>
+  <!---->
+   
+  <div
+    class="ec-submenu__header-container"
+  >
+    <ul
+      class="ec-submenu__header"
+      size="24"
+    >
+      <li
+        class="ec-submenu__header-item ec-submenu__header-item-active"
+      />
+      <li
+        class="ec-submenu__header-item"
+      />
+      <li
+        class="ec-submenu__header-item"
+      />
+    </ul>
+  </div>
+   
+  <!---->
+   
+  <main
+    class="ec-submenu__main"
+  >
+    <span
+      name="fade"
+      tag="div"
+    >
+      <div
+        class="fade-item isActive"
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.
+        </p>
+      </div>
+      <div
+        class="fade-item"
+        style="display: none;"
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.
+        </p>
+      </div>
+      <div
+        class="fade-item"
+        style="display: none;"
+      >
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.
+        </p>
+      </div>
+    </span>
+  </main>
+</div>
+`;

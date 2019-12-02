@@ -1,6 +1,7 @@
 <template>
   <div
     ref="submenu"
+    v-if="submenu"
     class="ec-submenu"
     :class="{'ec-submenu--tabs': type === 'tabs'}"
   >
