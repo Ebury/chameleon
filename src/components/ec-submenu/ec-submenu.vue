@@ -38,18 +38,23 @@
       :size="24"
       @click="moveRight"
     />
-
     <main class="ec-submenu__main">
-      <div
-        v-for="menuItem in submenu"
-        :key="menuItem.id"
-        v-show="menuItem.isActive"
-        :class="{isActive: menuItem.isActive}"
+      <transition-group
+        name="fade"
+        tag="div"
       >
-        <slot
-          :name="menuItem.mainSlotName"
-        />
-      </div>
+        <div
+          v-for="(menuItem, index ) in submenu"
+          :key="index"
+          v-show="menuItem.isActive"
+          :class="{isActive: menuItem.isActive}"
+          class="fade-item"
+        >
+          <slot
+            :name="menuItem.mainSlotName"
+          />
+        </div>
+      </transition-group>
     </main>
   </div>
 </template>
@@ -100,11 +105,9 @@ export default {
     },
     getWindowWidth() {
       this.windowWidth = this.$refs.submenu.clientWidth;
-      console.log(`to window width einai${this.windowWidth}`);
     },
     headerIsOverflowing() {
       this.headerWidth = this.$refs.header.scrollWidth;
-      console.log(`to header width einai${this.headerWidth}`);
       if (this.headerWidth > this.windowWidth) {
         this.headerOverflows = true;
       } else {
@@ -143,11 +146,11 @@ $ec-submenu-white: $white !default;
   }
 
   &__arrow-left {
-    left: 0;
+    left: -10px;
   }
 
   &__arrow-right {
-    right: 0;
+    right: -10px;
   }
 
   &__header {
@@ -158,6 +161,8 @@ $ec-submenu-white: $white !default;
 
     &-container {
       overflow-x: auto;
+
+      @include scrollbar-thin;
     }
   }
 
@@ -204,8 +209,29 @@ $ec-submenu-white: $white !default;
     }
   }
 
-  // &__fade {
-  //   @include fade-transition;
-  // }
+  &__main {
+    position: relative;
+  }
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .fade-enter-to {
+    transition: opacity 0.3s ease-out;
+    opacity: 1;
+  }
+
+  .fade-leave,
+  .fade-leave-active,
+  .fade-leave-to {
+    position: absolute;
+    top: 0;
+  }
+
+  .fade-leave {
+    opacity: 1;
+  }
 }
 </style>
