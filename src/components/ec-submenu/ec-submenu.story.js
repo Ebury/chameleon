@@ -1,28 +1,30 @@
 import { storiesOf } from '@storybook/vue';
-import { array, select } from '@storybook/addon-knobs';
+import { select, array } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcSubmenu from './ec-submenu.vue';
 
 const stories = storiesOf('Submenu', module);
 
+const activeIndex = 0;
+
 const submenu = [
   {
-    headerSlotName: 'menu-item-1',
-    mainSlotName: 'menu-item-1-content',
-    title: 'Submitted Requests',
-    isActive: true,
+    headerTitle: 'Submitted Requests',
+    href: String,
+    additionalText: '(30)',
+    slotName: 'menu-item-1-content',
   },
   {
-    headerSlotName: 'menu-item-2',
-    mainSlotName: 'menu-item-2-content',
-    title: 'Repayments to Ebury',
-    isActive: false,
+    headerTitle: 'Repayments',
+    route: '/submitted',
+    additionalText: '(30)',
+    slotName: 'menu-item-2-content',
   },
   {
-    headerSlotName: 'menu-item-3',
-    mainSlotName: 'menu-item-3-content',
-    title: 'test',
-    isActive: false,
+    headerTitle: 'Another Request',
+    route: '/submitted',
+    additionalText: '(30)',
+    slotName: 'menu-item-3-content',
   },
 ];
 
@@ -31,16 +33,21 @@ stories
   .add('basic', () => ({
     components: { EcSubmenu },
     props: {
-      submenu: {
-        default: array('submenu', submenu),
-      },
       type: {
         default: select('type', ['submenu', 'tabs'], 'submenu'),
       },
+      submenu: {
+        default: array('submenu', submenu),
+      },
+    },
+    data() {
+      return {
+        activeIndex,
+      };
     },
     template: `
     <div style="margin: 20px;">
-      <ec-submenu :submenu="submenu" :type="type">
+      <ec-submenu :type="type" :submenu="submenu" v-model="activeIndex" >
           <template #menu-item-1>
             <a>Submitted Requests(30)</a>
           </template>

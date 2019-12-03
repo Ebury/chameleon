@@ -5,13 +5,6 @@
     class="ec-submenu"
     :class="{'ec-submenu--tabs': type === 'tabs'}"
   >
-    <ec-icon
-      v-if="headerOverflows"
-      class="ec-submenu__arrow-left"
-      name="simple-chevron-left"
-      :size="24"
-      @click="moveLeft"
-    />
     <div
       ref="header"
       class="ec-submenu__header-container"
@@ -24,35 +17,44 @@
           v-for="(menuItem, index) in submenu"
           :key="menuItem.index"
           class="ec-submenu__header-item"
-          :class="{'ec-submenu__header-item-active': menuItem.isActive}"
-          @click="makeActive(index)"
+          :class="{'ec-submenu__header-item--active': index === activeIndex}"
+          @click="$emit('change', index)"
         >
-          <slot :name="menuItem.headerSlotName" />
+          <a
+            v-if="menuItem.href"
+            :href="menuItem.href"
+            class="ec-submenu__header-title"
+            @click.prevent
+          >
+            {{ menuItem.headerTitle }} + {{ menuItem.additionalText }}
+          </a>
+
+          <router-link
+            v-if="menuItem.route"
+            :to="menuItem.route"
+            class="ec-submenu__header-title"
+            @click.prevent
+          >
+            {{ menuItem.headerTitle }} + {{ menuItem.additionalText }}
+          </router-link>
         </li>
       </ul>
     </div>
 
-    <ec-icon
-      v-if="headerOverflows"
-      class="ec-submenu__arrow-right"
-      name="simple-chevron-right"
-      :size="24"
-      @click="moveRight"
-    />
     <main class="ec-submenu__main">
       <transition-group
-        name="fade"
+        name="ec-submenu__fade"
         tag="div"
       >
         <div
           v-for="(menuItem, index ) in submenu"
           :key="index"
-          v-show="menuItem.isActive"
-          :class="{isActive: menuItem.isActive}"
+          v-show=" index === activeIndex"
+          :class="{isActive: index === activeIndex}"
           class="fade-item"
         >
           <slot
-            :name="menuItem.mainSlotName"
+            :name="menuItem.slotName"
           />
         </div>
       </transition-group>
@@ -61,11 +63,12 @@
 </template>
 
 <script>
-import EcIcon from '@/components/ec-icon';
-
 export default {
   name: 'EcSubmenu',
-  components: { EcIcon },
+  model: {
+    prop: 'activeIndex',
+    event: 'change',
+  },
   props: {
     submenu: {
       type: Array,
@@ -75,51 +78,9 @@ export default {
       type: String,
       default: 'submenu',
     },
-  },
-  data() {
-    return {
-      windowWidth: 0,
-      headerWidth: 0,
-      headerOverflows: false,
-    };
-  },
-  mounted() {
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.getWindowWidth);
-      window.addEventListener('load', this.getWindowWidth);
-      window.addEventListener('resize', this.headerIsOverflowing);
-      window.addEventListener('load', this.headerIsOverflowing);
-    });
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.getWindowWidth);
-    window.removeEventListener('load', this.getWindowWidth);
-    window.removeEventListener('resize', this.headerIsOverflowing);
-    window.removeEventListener('load', this.headerIsOverflowing);
-  },
-  methods: {
-    makeActive(index) {
-      for (const menuItem of this.submenu) {
-        menuItem.isActive = false;
-      }
-      this.submenu[index].isActive = true;
-    },
-    getWindowWidth() {
-      this.windowWidth = this.$refs.submenu.clientWidth;
-    },
-    headerIsOverflowing() {
-      this.headerWidth = this.$refs.header.scrollWidth;
-      if (this.headerWidth > this.windowWidth) {
-        this.headerOverflows = true;
-      } else {
-        this.headerOverflows = false;
-      }
-    },
-    moveRight() {
-      this.$refs.header.scrollBy(100, 0);
-    },
-    moveLeft() {
-      this.$refs.header.scrollBy(-100, 0);
+    activeIndex: {
+      type: Number,
+      default: 0,
     },
   },
 };
@@ -138,32 +99,16 @@ $ec-submenu-white: $white !default;
   position: relative;
   z-index: 0;
 
-  &__arrow-left,
-  &__arrow-right {
-    background: $white;
-    top: 8px;
-    position: absolute;
-    z-index: 1;
-  }
-
-  &__arrow-left {
-    left: -10px;
-  }
-
-  &__arrow-right {
-    right: -10px;
-  }
-
   &__header {
     min-width: 100px;
     border-bottom: 1px solid $ec-submenu-disabled;
     margin-bottom: 12px;
     white-space: nowrap;
+    display: flex;
+    flex-direction: column;
 
-    &-container {
-      overflow-x: auto;
-
-      @include scrollbar-thin;
+    @include media__from-1024 {
+      flex-direction: row;
     }
   }
 
@@ -178,19 +123,25 @@ $ec-submenu-white: $white !default;
     .ec-submenu--tabs & {
       padding-bottom: 8px;
     }
+  }
 
-    a {
+  &__header-title {
+    text-decoration: none;
+    outline: none;
+    color: $ec-submenu-body;
+    transition: color 0.3s ease-out;
+
+    &:focus {
+      outline-width: 0;
+    }
+
+    &:hover {
       text-decoration: none;
-      color: $ec-submenu-body;
-      transition: color 0.3s ease-out;
-
-      &:hover {
-        color: $ec-submenu-hover;
-      }
+      color: $ec-submenu-hover;
     }
   }
 
-  &__header-item-active {
+  &__header-item--active {
     border-bottom-width: 1px;
     border-style: solid;
     border-color: $ec-submenu-hover;
@@ -204,9 +155,16 @@ $ec-submenu-white: $white !default;
       border-top-width: 1px;
       border-left-width: 1px;
       border-right-width: 1px;
-      border-color: $ec-submenu-disabled $ec-submenu-disabled  $ec-submenu-white $ec-submenu-disabled;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+      border-color: $ec-submenu-disabled;
+      border-radius: 5px;
+
+      @include media__from-1024 {
+        border-color: $ec-submenu-disabled $ec-submenu-disabled  $ec-submenu-white $ec-submenu-disabled;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
   }
 
@@ -214,24 +172,24 @@ $ec-submenu-white: $white !default;
     position: relative;
   }
 
-  .fade-enter,
-  .fade-leave-to {
+  &__fade-enter,
+  &__fade-leave-to {
     opacity: 0;
   }
 
-  .fade-enter-to {
+  &__fade-enter-to {
     transition: opacity 0.3s ease-out;
     opacity: 1;
   }
 
-  .fade-leave,
-  .fade-leave-active,
-  .fade-leave-to {
+  &__fade-leave,
+  &__fade-leave-active,
+  &__fade-leave-to {
     position: absolute;
     top: 0;
   }
 
-  .fade-leave {
+  &__fade-leave {
     opacity: 1;
   }
 }

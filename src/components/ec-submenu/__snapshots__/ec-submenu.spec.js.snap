@@ -1,19 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcSubmenu should not render the arrows if header does not overflow 1`] = `
+exports[`EcSubmenu should have the class ec-submenu--tabs if type is set to tabs 1`] = `
 <div
-  class="ec-submenu"
+  class="ec-submenu ec-submenu--tabs"
 >
-  <svg
-    class="ec-submenu__arrow-left ec-icon"
-    height="24"
-    width="24"
-  >
-    <use
-      xlink:href="#ec-simple-chevron-left"
-    />
-  </svg>
-   
   <div
     class="ec-submenu__header-container"
   >
@@ -22,32 +12,55 @@ exports[`EcSubmenu should not render the arrows if header does not overflow 1`] 
       size="24"
     >
       <li
-        class="ec-submenu__header-item ec-submenu__header-item-active"
-      />
+        class="ec-submenu__header-item ec-submenu__header-item--active"
+      >
+        <a
+          class="ec-submenu__header-title"
+          href="function String() { [native code] }"
+        >
+          
+          Submitted Requests + (30)
+        
+        </a>
+         
+        <!---->
+      </li>
       <li
         class="ec-submenu__header-item"
-      />
+      >
+        <!---->
+         
+        <router-link-stub
+          class="ec-submenu__header-title"
+          to="/submitted"
+        >
+          
+          Repayments + (30)
+        
+        </router-link-stub>
+      </li>
       <li
         class="ec-submenu__header-item"
-      />
+      >
+        <!---->
+         
+        <router-link-stub
+          class="ec-submenu__header-title"
+          to="/submitted"
+        >
+          
+          Another Request + (30)
+        
+        </router-link-stub>
+      </li>
     </ul>
   </div>
-   
-  <svg
-    class="ec-submenu__arrow-right ec-icon"
-    height="24"
-    width="24"
-  >
-    <use
-      xlink:href="#ec-simple-chevron-right"
-    />
-  </svg>
    
   <main
     class="ec-submenu__main"
   >
     <span
-      name="fade"
+      name="ec-submenu__fade"
       tag="div"
     >
       <div
@@ -78,22 +91,10 @@ exports[`EcSubmenu should not render the arrows if header does not overflow 1`] 
 </div>
 `;
 
-exports[`EcSubmenu should not render the submenu if submenu content not passed 1`] = `<!---->`;
-
-exports[`EcSubmenu should render the arrows if header overflows 1`] = `
+exports[`EcSubmenu should make the active index equal to 1 if second tabs gets click 1`] = `
 <div
-  class="ec-submenu"
+  class="ec-submenu ec-submenu--tabs"
 >
-  <svg
-    class="ec-submenu__arrow-left ec-icon"
-    height="24"
-    width="24"
-  >
-    <use
-      xlink:href="#ec-simple-chevron-left"
-    />
-  </svg>
-   
   <div
     class="ec-submenu__header-container"
   >
@@ -102,32 +103,55 @@ exports[`EcSubmenu should render the arrows if header overflows 1`] = `
       size="24"
     >
       <li
-        class="ec-submenu__header-item ec-submenu__header-item-active"
-      />
+        class="ec-submenu__header-item ec-submenu__header-item--active"
+      >
+        <a
+          class="ec-submenu__header-title"
+          href="function String() { [native code] }"
+        >
+          
+          Submitted Requests + (30)
+        
+        </a>
+         
+        <!---->
+      </li>
       <li
         class="ec-submenu__header-item"
-      />
+      >
+        <!---->
+         
+        <router-link-stub
+          class="ec-submenu__header-title"
+          to="/submitted"
+        >
+          
+          Repayments + (30)
+        
+        </router-link-stub>
+      </li>
       <li
         class="ec-submenu__header-item"
-      />
+      >
+        <!---->
+         
+        <router-link-stub
+          class="ec-submenu__header-title"
+          to="/submitted"
+        >
+          
+          Another Request + (30)
+        
+        </router-link-stub>
+      </li>
     </ul>
   </div>
-   
-  <svg
-    class="ec-submenu__arrow-right ec-icon"
-    height="24"
-    width="24"
-  >
-    <use
-      xlink:href="#ec-simple-chevron-right"
-    />
-  </svg>
    
   <main
     class="ec-submenu__main"
   >
     <span
-      name="fade"
+      name="ec-submenu__fade"
       tag="div"
     >
       <div
@@ -162,8 +186,6 @@ exports[`EcSubmenu should render the submenu if slots are passed 1`] = `
 <div
   class="ec-submenu"
 >
-  <!---->
-   
   <div
     class="ec-submenu__header-container"
   >
@@ -172,24 +194,55 @@ exports[`EcSubmenu should render the submenu if slots are passed 1`] = `
       size="24"
     >
       <li
-        class="ec-submenu__header-item ec-submenu__header-item-active"
-      />
+        class="ec-submenu__header-item ec-submenu__header-item--active"
+      >
+        <a
+          class="ec-submenu__header-title"
+          href="function String() { [native code] }"
+        >
+          
+          Submitted Requests + (30)
+        
+        </a>
+         
+        <!---->
+      </li>
       <li
         class="ec-submenu__header-item"
-      />
+      >
+        <!---->
+         
+        <router-link-stub
+          class="ec-submenu__header-title"
+          to="/submitted"
+        >
+          
+          Repayments + (30)
+        
+        </router-link-stub>
+      </li>
       <li
         class="ec-submenu__header-item"
-      />
+      >
+        <!---->
+         
+        <router-link-stub
+          class="ec-submenu__header-title"
+          to="/submitted"
+        >
+          
+          Another Request + (30)
+        
+        </router-link-stub>
+      </li>
     </ul>
   </div>
-   
-  <!---->
    
   <main
     class="ec-submenu__main"
   >
     <span
-      name="fade"
+      name="ec-submenu__fade"
       tag="div"
     >
       <div

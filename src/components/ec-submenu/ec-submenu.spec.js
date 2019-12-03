@@ -1,47 +1,49 @@
 import { mount } from '@vue/test-utils';
 import EcSubmenu from './ec-submenu.vue';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 function mountSubmenu(props, mountOpts) {
   return mount(EcSubmenu, {
     propsData: { ...props },
+    stubs: ['router-link'],
     ...mountOpts,
   });
 }
 
 const submenu = [
   {
-    headerSlotName: 'menu-item-1',
-    mainSlotName: 'menu-item-1-content',
-    title: 'Submitted Requests',
-    isActive: true,
+    headerTitle: 'Submitted Requests',
+    href: String,
+    additionalText: '(30)',
+    slotName: 'menu-item-1-content',
   },
   {
-    headerSlotName: 'menu-item-2',
-    mainSlotName: 'menu-item-2-content',
-    title: 'Repayments to Ebury',
-    isActive: false,
+    headerTitle: 'Repayments',
+    route: '/submitted',
+    additionalText: '(30)',
+    slotName: 'menu-item-2-content',
   },
   {
-    headerSlotName: 'menu-item-3',
-    mainSlotName: 'menu-item-3-content',
-    title: 'test',
-    isActive: false,
+    headerTitle: 'Another Request',
+    route: '/submitted',
+    additionalText: '(30)',
+    slotName: 'menu-item-3-content',
   },
 ];
 
 const slots = {
-  'menu-menu-1': '<a> Test 1(30)</a>',
   'menu-item-1-content': '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.</p>',
-  'menu-menu-2': '<a>Test 2(30)</a>',
   'menu-item-2-content': '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.</p>',
-  'menu-menu-3': '<a>Test 3(30)</a>',
   'menu-item-3-content': '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.</p>',
 };
 
 describe('EcSubmenu', () => {
-  it('should not render the submenu if submenu content not passed', () => {
-    const wrapper = mountSubmenu();
-    expect(wrapper.element).toMatchSnapshot();
+  it('should throw an error if we don\'t pass any content', () => {
+    withMockedConsole((errorSpy) => {
+      mount(EcSubmenu);
+      expect(errorSpy).toHaveBeenCalled();
+      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "submenu"');
+    });
   });
 
   it('should render the submenu if slots are passed', () => {
@@ -51,74 +53,24 @@ describe('EcSubmenu', () => {
         slots,
       },
     );
+
+    expect(wrapper.find('.ec-submenu').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should not render the arrows if header does not overflow', () => {
+  it('should have the class ec-submenu--tabs if type is set to tabs', () => {
     const wrapper = mountSubmenu(
-      { submenu },
+      {
+        submenu,
+        type: 'tabs',
+      },
       {
         slots,
       },
     );
 
-    wrapper.vm.headerOverflows = jest.fn(() => false);
-
-    expect(wrapper.find('.ec-submenu__arrow-right').exists()).toBe(true);
-    expect(wrapper.find('.ec-submenu__arrow-left').exists()).toBe(true);
-
+    expect(wrapper.find('.ec-submenu').exists()).toBe(true);
+    expect(wrapper.find('.ec-submenu--tabs').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should render the arrows if header overflows', () => {
-    const wrapper = mountSubmenu(
-      { submenu },
-      {
-        slots,
-      },
-    );
-
-    wrapper.vm.headerOverflows = jest.fn(() => true);
-
-    expect(wrapper.find('.ec-submenu__arrow-right').exists()).toBe(true);
-    expect(wrapper.find('.ec-submenu__arrow-left').exists()).toBe(true);
-
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should move to the right if right arrow is clicked', () => {
-    const wrapper = mountSubmenu(
-      { submenu },
-      {
-        slots,
-      },
-    );
-
-    wrapper.vm.headerOverflows = jest.fn(() => true);
-    wrapper.vm.moveRight = jest.fn();
-
-    expect(wrapper.find('.ec-submenu__arrow-right').exists()).toBe(true);
-
-    wrapper.find('.ec-submenu__arrow-right').trigger('click');
-
-    expect(wrapper.vm.moveRight).toHaveBeenCalled();
-  });
-
-  it('should move to the left if left arrow is clicked', () => {
-    const wrapper = mountSubmenu(
-      { submenu },
-      {
-        slots,
-      },
-    );
-
-    wrapper.vm.headerOverflows = jest.fn(() => true);
-    wrapper.vm.moveLeft = jest.fn();
-
-    expect(wrapper.find('.ec-submenu__arrow-left').exists()).toBe(true);
-
-    wrapper.find('.ec-submenu__arrow-left').trigger('click');
-
-    expect(wrapper.vm.moveLeft).toHaveBeenCalled();
   });
 });
