@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { select, object } from '@storybook/addon-knobs';
+import { object } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcSubmenu from './ec-submenu.vue';
 
@@ -33,9 +33,6 @@ stories
   .add('basic', () => ({
     components: { EcSubmenu },
     props: {
-      type: {
-        default: select('type', ['submenu', 'tabs'], 'submenu'),
-      },
       submenu: {
         default: object('submenu', submenu),
       },
@@ -47,7 +44,7 @@ stories
     },
     template: `
     <div style="margin: 20px;">
-      <ec-submenu :type="type" :submenu="submenu" v-model="activeIndex" >
+      <ec-submenu :submenu="submenu" v-model="activeIndex" >
           <template #menu-item-1>
             <a>Submitted Requests(30)</a>
           </template>

@@ -57,20 +57,4 @@ describe('EcSubmenu', () => {
     expect(wrapper.find('.ec-submenu').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
-
-  it('should have the class ec-submenu--tabs if type is set to tabs', () => {
-    const wrapper = mountSubmenu(
-      {
-        submenu,
-        type: 'tabs',
-      },
-      {
-        slots,
-      },
-    );
-
-    expect(wrapper.find('.ec-submenu').exists()).toBe(true);
-    expect(wrapper.find('.ec-submenu--tabs').exists()).toBe(true);
-    expect(wrapper.element).toMatchSnapshot();
-  });
 });

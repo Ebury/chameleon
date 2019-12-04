@@ -3,7 +3,6 @@
     ref="submenu"
     v-if="submenu"
     class="ec-submenu"
-    :class="{'ec-submenu--tabs': type === 'tabs'}"
   >
     <div
       ref="header"
@@ -74,11 +73,6 @@ export default {
       type: Array,
       required: true,
     },
-    type: {
-      type: String,
-      default: 'submenu',
-      validator(value) { return ['submenu', 'tabs'].includes(value); },
-    },
     activeIndex: {
       type: Number,
       default: 0,
@@ -120,10 +114,6 @@ $ec-submenu-white: $white !default;
     padding: 8px 16px 4px 16px;
     position: relative;
     text-align: center;
-
-    .ec-submenu--tabs & {
-      padding-bottom: 8px;
-    }
   }
 
   &__header-title {
@@ -150,22 +140,6 @@ $ec-submenu-white: $white !default;
 
     a {
       color: $ec-submenu-hover;
-    }
-
-    .ec-submenu--tabs & {
-      border-top-width: 1px;
-      border-left-width: 1px;
-      border-right-width: 1px;
-      border-color: $ec-submenu-disabled;
-      border-radius: 5px;
-
-      @include media__from-1024 {
-        border-color: $ec-submenu-disabled $ec-submenu-disabled  $ec-submenu-white $ec-submenu-disabled;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-      }
     }
   }
 
