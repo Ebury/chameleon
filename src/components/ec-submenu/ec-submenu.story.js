@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { select, array } from '@storybook/addon-knobs';
+import { select, object } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcSubmenu from './ec-submenu.vue';
 
@@ -37,7 +37,7 @@ stories
         default: select('type', ['submenu', 'tabs'], 'submenu'),
       },
       submenu: {
-        default: array('submenu', submenu),
+        default: object('submenu', submenu),
       },
     },
     data() {

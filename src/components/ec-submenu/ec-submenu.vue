@@ -77,6 +77,7 @@ export default {
     type: {
       type: String,
       default: 'submenu',
+      validator(value) { return ['submenu', 'tabs'].includes(value); },
     },
     activeIndex: {
       type: Number,
@@ -101,7 +102,6 @@ $ec-submenu-white: $white !default;
 
   &__header {
     min-width: 100px;
-    border-bottom: 1px solid $ec-submenu-disabled;
     margin-bottom: 12px;
     white-space: nowrap;
     display: flex;
@@ -109,6 +109,7 @@ $ec-submenu-white: $white !default;
 
     @include media__from-1024 {
       flex-direction: row;
+      border-bottom: 1px solid $ec-submenu-disabled;
     }
   }
 
