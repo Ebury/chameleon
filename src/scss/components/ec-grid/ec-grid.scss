@@ -5,7 +5,7 @@ $ec-grid-number-of-columns: 12;
   display: flex;
   justify-content: flex-start;
   width: calc(100% + #{$ec-grid-gutters});
-  margin-left: calc(#{$ec-grid-gutters} / -2);
+  margin-left: $ec-grid-gutters / -2;
 }
 
 .ec-grid {
@@ -15,15 +15,10 @@ $ec-grid-number-of-columns: 12;
 
 @for $i from 1 through $ec-grid-number-of-columns {
   .ec-col-#{$i} {
-    margin: calc(#{$ec-grid-gutters} / 2);
+    margin: $ec-grid-gutters / 2;
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: calc((100% * ( #{$i} / #{$ec-grid-number-of-columns})) - #{$ec-grid-gutters});
-
-    // For IE11 remove extra 4 px in case we have borders
-    @media all and (-ms-high-contrast: none) {
-      // flex-basis: calc((100% * ( #{$i} / #{$ec-grid-number-of-columns})) - #{$ec-grid-gutters} - 4px);
-    }
   }
 
   .ec-offset-#{$i} {
