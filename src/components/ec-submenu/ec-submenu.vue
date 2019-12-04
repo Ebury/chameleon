@@ -46,7 +46,7 @@
         tag="div"
       >
         <div
-          v-for="(menuItem, index ) in submenu"
+          v-for="(menuItem, index) in submenu"
           :key="index"
           v-show=" index === activeIndex"
           :class="{isActive: index === activeIndex}"
