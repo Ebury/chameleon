@@ -16,7 +16,7 @@
           v-for="(menuItem, index) in submenu"
           :key="menuItem.index"
           class="ec-submenu__header-item"
-          :class="{'ec-submenu__header-item--active': index === activeIndex}"
+          :class="{'ec-submenu__header-item--is-active': index === activeIndex}"
           @click="$emit('change', index)"
         >
           <a
@@ -25,7 +25,7 @@
             class="ec-submenu__header-title"
             @click.prevent
           >
-            {{ menuItem.headerTitle }} + {{ menuItem.additionalText }}
+            {{ menuItem.headerTitle }}
           </a>
 
           <router-link
@@ -34,7 +34,7 @@
             class="ec-submenu__header-title"
             @click.prevent
           >
-            {{ menuItem.headerTitle }} + {{ menuItem.additionalText }}
+            {{ menuItem.headerTitle }}
           </router-link>
         </li>
       </ul>
@@ -48,8 +48,7 @@
         <div
           v-for="(menuItem, index) in submenu"
           :key="index"
-          v-show=" index === activeIndex"
-          :class="{isActive: index === activeIndex}"
+          v-show="index === activeIndex"
           class="fade-item"
         >
           <slot
@@ -124,6 +123,7 @@ $ec-submenu-white: $white !default;
 
     &:focus {
       outline-width: 0;
+      color: $ec-submenu-hover;
     }
 
     &:hover {
@@ -132,7 +132,7 @@ $ec-submenu-white: $white !default;
     }
   }
 
-  &__header-item--active {
+  &__header-item--is-active {
     border-bottom-width: 1px;
     border-style: solid;
     border-color: $ec-submenu-hover;

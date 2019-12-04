@@ -9,21 +9,18 @@ const activeIndex = 0;
 
 const submenu = [
   {
-    headerTitle: 'Submitted Requests',
+    headerTitle: 'Submitted Requests (30)',
     href: String,
-    additionalText: '(30)',
     slotName: 'menu-item-1-content',
   },
   {
-    headerTitle: 'Repayments',
+    headerTitle: 'Repayments (30)',
     route: '/submitted',
-    additionalText: '(30)',
     slotName: 'menu-item-2-content',
   },
   {
-    headerTitle: 'Another Request',
+    headerTitle: 'Another Request (30)',
     route: '/submitted',
-    additionalText: '(30)',
     slotName: 'menu-item-3-content',
   },
 ];

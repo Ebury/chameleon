@@ -12,33 +12,28 @@ function mountSubmenu(props, mountOpts) {
 
 const submenu = [
   {
-    headerTitle: 'Submitted Requests',
+    headerTitle: 'Submitted Requests (30)',
     href: String,
-    additionalText: '(30)',
     slotName: 'menu-item-1-content',
   },
   {
-    headerTitle: 'Repayments',
+    headerTitle: 'Repayments (30)',
     route: '/submitted',
-    additionalText: '(30)',
     slotName: 'menu-item-2-content',
   },
   {
-    headerTitle: 'Another Request',
+    headerTitle: 'Another Request (30)',
     route: '/submitted',
-    additionalText: '(30)',
     slotName: 'menu-item-3-content',
   },
 ];
 
-function lorem() {
-  return '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium?</p>';
-}
+const lorem = '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium?</p>';
 
 const slots = {
-  'menu-item-1-content': lorem(),
-  'menu-item-2-content': lorem(),
-  'menu-item-3-content': lorem(),
+  'menu-item-1-content': lorem,
+  'menu-item-2-content': lorem,
+  'menu-item-3-content': lorem,
 };
 
 describe('EcSubmenu', () => {
