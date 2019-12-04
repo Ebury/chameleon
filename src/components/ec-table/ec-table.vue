@@ -1,25 +1,20 @@
 <template>
   <div
     v-if="numberOfRecords"
-    class="ec-table"
+    class="ec-table-scroll-container"
   >
-    <table
-      class="ec-table__table"
-    >
-      <ec-table-head
-        :columns="columns"
-        :class="'ec-table__table-head'"
-      />
+    <table class="ec-table">
+      <caption v-if="title">{{ title }}</caption>
+      <ec-table-head :columns="columns" />
       <tbody>
         <tr
           v-for="(row, rowIndex) in data"
           :key="rowIndex"
-          class="ec-table__table-row"
         >
           <td
             v-for="(content, colIndex) in row"
             :key="colIndex"
-            class="ec-table__table-cell"
+            class="ec-table__cell"
           >
             <slot
               :name="getSlotName(colIndex)"
@@ -34,16 +29,8 @@
         :items-in-view="numberOfRecords"
         :total-items="totalRecords"
         :colspan="numberOfColumns"
-      >
-        <template
-          v-if="hasTooltip"
-          v-slot:tooltip
-        >
-          <slot
-            name="tableTooltip"
-          />
-        </template>
-      </ec-table-footer>
+        :tooltip-config="tooltipConfig"
+      />
     </table>
   </div>
 </template>
@@ -74,18 +61,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    tooltipConfig: Object,
+    title: String,
   },
   computed: {
     numberOfColumns() {
-      return this.columns.length
-        || (this.data[0] && this.data[0].length)
-        || null;
+      return (
+        this.columns.length || (this.data[0] && this.data[0].length) || null
+      );
     },
     numberOfRecords() {
       return this.data.length;
-    },
-    hasTooltip() {
-      return this.$scopedSlots.tableTooltip;
     },
   },
   methods: {
@@ -100,37 +86,29 @@ export default {
 @import '../../scss/tools/typography';
 @import '../../scss/settings/colors/index';
 
+.ec-table-scroll-container {
+  overflow-x: auto;
+}
+
 .ec-table {
-  &__table {
-    border-spacing: 0;
-    border: none;
-    padding-top: 16px;
-  }
+  border-spacing: 0;
+  border: none;
+  padding-top: 16px;
+  width: 100%;
 
   %common-cell-layout {
-    &:first-of-type {
-      padding-left: 16px;
-    }
-
     &:last-of-type {
       padding-right: 16px;
     }
   }
 
-  &__table-cell {
+  &__cell {
     @extend %common-cell-layout;
 
-    padding: 8px;
+    padding: 8px 0 8px 16px;
     border-bottom: 1px solid $level-6-disabled-lines;
 
     @include body-text;
-  }
-
-  &__footer-cell {
-    @extend %common-cell-layout;
-
-    padding-top: 10px;
-    padding-bottom: 10px;
   }
 }
 </style>

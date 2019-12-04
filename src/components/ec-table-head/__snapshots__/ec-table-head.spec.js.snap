@@ -6,9 +6,7 @@ exports[`EcTableHead Should render as expected 1`] = `
 <thead
   class="ec-table-head"
 >
-  <tr
-    class="ec-table-head__row"
-  >
+  <tr>
     <th
       class="ec-table-head__cell"
       scope="col"
@@ -24,7 +22,7 @@ exports[`EcTableHead Should render as expected 1`] = `
     </th>
     <th
       class="ec-table-head__cell"
-      scope="row"
+      scope="col"
     >
       Column C
     </th>

@@ -77,4 +77,21 @@ describe('EcTableFooter', () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('should render with the icon of the tooltip if we pass the config', () => {
+    const wrapper = mount(
+      EcTableFooter,
+      {
+        propsData: {
+          tooltipConfig: {
+            content: 'This is the tooltip info',
+            classes: ['ec-tooltip--bg-bright'],
+            placement: 'bottom',
+          },
+        },
+      },
+    );
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

@@ -8,17 +8,17 @@ exports[`EcTable should not render if not provided with any data 1`] = `<!---->`
 
 exports[`EcTable should render as expected if provided with data and columns 1`] = `
 <div
-  class="ec-table"
+  class="ec-table-scroll-container"
 >
   <table
-    class="ec-table__table"
+    class="ec-table"
   >
+    <!---->
+     
     <thead
-      class="ec-table-head ec-table__table-head"
+      class="ec-table-head"
     >
-      <tr
-        class="ec-table-head__row"
-      >
+      <tr>
         <th
           class="ec-table-head__cell"
           scope="col"
@@ -35,30 +35,26 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
     </thead>
      
     <tbody>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           foo
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           bar
         </td>
       </tr>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           widgets
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           doodads
         </td>
@@ -72,17 +68,17 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
 
 exports[`EcTable should render as expected if provided with data and columns, with footer switched on 1`] = `
 <div
-  class="ec-table"
+  class="ec-table-scroll-container"
 >
   <table
-    class="ec-table__table"
+    class="ec-table"
   >
+    <!---->
+     
     <thead
-      class="ec-table-head ec-table__table-head"
+      class="ec-table-head"
     >
-      <tr
-        class="ec-table-head__row"
-      >
+      <tr>
         <th
           class="ec-table-head__cell"
           scope="col"
@@ -99,30 +95,26 @@ exports[`EcTable should render as expected if provided with data and columns, wi
     </thead>
      
     <tbody>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           foo
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           bar
         </td>
       </tr>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           widgets
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           doodads
         </td>
@@ -132,9 +124,7 @@ exports[`EcTable should render as expected if provided with data and columns, wi
     <tfoot
       class="ec-table-footer"
     >
-      <tr
-        class="ec-table-footer__row"
-      >
+      <tr>
         <td
           class="ec-table-footer__cell"
           colspan="2"
@@ -159,38 +149,36 @@ exports[`EcTable should render as expected if provided with data and columns, wi
 
 exports[`EcTable should render as expected if provided with data but no columns 1`] = `
 <div
-  class="ec-table"
+  class="ec-table-scroll-container"
 >
   <table
-    class="ec-table__table"
+    class="ec-table"
   >
     <!---->
      
+    <!---->
+     
     <tbody>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           foo
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           bar
         </td>
       </tr>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           widgets
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           doodads
         </td>
@@ -204,38 +192,36 @@ exports[`EcTable should render as expected if provided with data but no columns 
 
 exports[`EcTable should render as expected if provided with data but no columns, and footer switched on 1`] = `
 <div
-  class="ec-table"
+  class="ec-table-scroll-container"
 >
   <table
-    class="ec-table__table"
+    class="ec-table"
   >
     <!---->
      
+    <!---->
+     
     <tbody>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           foo
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           bar
         </td>
       </tr>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           widgets
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           doodads
         </td>
@@ -245,9 +231,7 @@ exports[`EcTable should render as expected if provided with data but no columns,
     <tfoot
       class="ec-table-footer"
     >
-      <tr
-        class="ec-table-footer__row"
-      >
+      <tr>
         <td
           class="ec-table-footer__cell"
           colspan="2"
@@ -272,25 +256,23 @@ exports[`EcTable should render as expected if provided with data but no columns,
 
 exports[`EcTable should render as expected if provided with empty row and no columns, with footer switched on 1`] = `
 <div
-  class="ec-table"
+  class="ec-table-scroll-container"
 >
   <table
-    class="ec-table__table"
+    class="ec-table"
   >
     <!---->
      
+    <!---->
+     
     <tbody>
-      <tr
-        class="ec-table__table-row"
-      />
+      <tr />
     </tbody>
      
     <tfoot
       class="ec-table-footer"
     >
-      <tr
-        class="ec-table-footer__row"
-      >
+      <tr>
         <td
           class="ec-table-footer__cell"
         >
@@ -312,19 +294,19 @@ exports[`EcTable should render as expected if provided with empty row and no col
 </div>
 `;
 
-exports[`EcTable should render slots as expected 1`] = `
+exports[`EcTable should render as expected if provided with rows and columns, with footer switched on and the icon of the tooltip 1`] = `
 <div
-  class="ec-table"
+  class="ec-table-scroll-container"
 >
   <table
-    class="ec-table__table"
+    class="ec-table"
   >
+    <!---->
+     
     <thead
-      class="ec-table-head ec-table__table-head"
+      class="ec-table-head"
     >
-      <tr
-        class="ec-table-head__row"
-      >
+      <tr>
         <th
           class="ec-table-head__cell"
           scope="col"
@@ -341,32 +323,218 @@ exports[`EcTable should render slots as expected 1`] = `
     </thead>
      
     <tbody>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           foo
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
+        >
+          bar
+        </td>
+      </tr>
+      <tr>
+        <td
+          class="ec-table__cell"
+        >
+          widgets
+        </td>
+        <td
+          class="ec-table__cell"
+        >
+          doodads
+        </td>
+      </tr>
+    </tbody>
+     
+    <tfoot
+      class="ec-table-footer"
+    >
+      <tr>
+        <td
+          class="ec-table-footer__cell"
+          colspan="2"
+        >
+          <div
+            class="ec-table-footer__contents"
+          >
+            <div
+              class="ec-table-footer__details"
+            >
+              2 items.
+            </div>
+             
+            <div
+              class="ec-table-footer__tooltip"
+            >
+              <svg
+                class="ec-table-footer__tooltip-icon ec-icon ec-has-tooltip"
+                data-original-title="null"
+                height="16"
+                width="16"
+              >
+                <use
+                  xlink:href="#ec-simple-info"
+                />
+              </svg>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
+
+exports[`EcTable should render as expected if provided with rows and columns, with footer switched on, the icon of the tooltip and the title given 1`] = `
+<div
+  class="ec-table-scroll-container"
+>
+  <table
+    class="ec-table"
+  >
+    <caption>
+      Title example
+    </caption>
+     
+    <thead
+      class="ec-table-head"
+    >
+      <tr>
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          lorem
+        </th>
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          ipsum
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody>
+      <tr>
+        <td
+          class="ec-table__cell"
+        >
+          foo
+        </td>
+        <td
+          class="ec-table__cell"
+        >
+          bar
+        </td>
+      </tr>
+      <tr>
+        <td
+          class="ec-table__cell"
+        >
+          widgets
+        </td>
+        <td
+          class="ec-table__cell"
+        >
+          doodads
+        </td>
+      </tr>
+    </tbody>
+     
+    <tfoot
+      class="ec-table-footer"
+    >
+      <tr>
+        <td
+          class="ec-table-footer__cell"
+          colspan="2"
+        >
+          <div
+            class="ec-table-footer__contents"
+          >
+            <div
+              class="ec-table-footer__details"
+            >
+              2 items.
+            </div>
+             
+            <div
+              class="ec-table-footer__tooltip"
+            >
+              <svg
+                class="ec-table-footer__tooltip-icon ec-icon ec-has-tooltip"
+                data-original-title="null"
+                height="16"
+                width="16"
+              >
+                <use
+                  xlink:href="#ec-simple-info"
+                />
+              </svg>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+`;
+
+exports[`EcTable should render slots as expected 1`] = `
+<div
+  class="ec-table-scroll-container"
+>
+  <table
+    class="ec-table"
+  >
+    <!---->
+     
+    <thead
+      class="ec-table-head"
+    >
+      <tr>
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          lorem
+        </th>
+        <th
+          class="ec-table-head__cell"
+          scope="col"
+        >
+          ipsum
+        </th>
+      </tr>
+    </thead>
+     
+    <tbody>
+      <tr>
+        <td
+          class="ec-table__cell"
+        >
+          foo
+        </td>
+        <td
+          class="ec-table__cell"
         >
           <p>
             bar
           </p>
         </td>
       </tr>
-      <tr
-        class="ec-table__table-row"
-      >
+      <tr>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           widgets
         </td>
         <td
-          class="ec-table__table-cell"
+          class="ec-table__cell"
         >
           <p>
             doodads
@@ -378,9 +546,7 @@ exports[`EcTable should render slots as expected 1`] = `
     <tfoot
       class="ec-table-footer"
     >
-      <tr
-        class="ec-table-footer__row"
-      >
+      <tr>
         <td
           class="ec-table-footer__cell"
           colspan="2"
