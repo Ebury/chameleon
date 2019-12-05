@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import EcTableHead from '@/components/ec-table-head/ec-table-head.vue';
-import EcTableFooter from '@/components/ec-table-footer/ec-table-footer.vue';
+import EcTableHead from '../ec-table-head';
+import EcTableFooter from '../ec-table-footer';
 
 export default {
   name: 'EcTable',
