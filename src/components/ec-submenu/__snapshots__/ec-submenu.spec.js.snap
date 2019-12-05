@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcSubmenu should render the submenu if slots are passed 1`] = `
+exports[`EcSubmenu should not render when passing an empty array to submenu 1`] = `<!---->`;
+
+exports[`EcSubmenu should not render when passing null to submenu 1`] = `<!---->`;
+
+exports[`EcSubmenu should render the second panel if the second tab is clicked 1`] = `
 <div
   class="ec-submenu"
 >
@@ -12,21 +16,22 @@ exports[`EcSubmenu should render the submenu if slots are passed 1`] = `
       size="24"
     >
       <li
-        class="ec-submenu__header-item ec-submenu__header-item--active"
+        class="ec-submenu__header-item"
+        data-test="ec-submenu__header-item-0"
       >
         <a
           class="ec-submenu__header-title"
-          href="function String() { [native code] }"
         >
           
-          Submitted Requests + (30)
+          Submitted Requests (30)
         
         </a>
          
         <!---->
       </li>
       <li
-        class="ec-submenu__header-item"
+        class="ec-submenu__header-item ec-submenu__header-item--is-active"
+        data-test="ec-submenu__header-item-1"
       >
         <!---->
          
@@ -35,12 +40,13 @@ exports[`EcSubmenu should render the submenu if slots are passed 1`] = `
           to="/submitted"
         >
           
-          Repayments + (30)
+          Repayments (30)
         
         </router-link-stub>
       </li>
       <li
         class="ec-submenu__header-item"
+        data-test="ec-submenu__header-item-2"
       >
         <!---->
          
@@ -49,7 +55,7 @@ exports[`EcSubmenu should render the submenu if slots are passed 1`] = `
           to="/submitted"
         >
           
-          Another Request + (30)
+          Another Request (30)
         
         </router-link-stub>
       </li>
@@ -64,28 +70,17 @@ exports[`EcSubmenu should render the submenu if slots are passed 1`] = `
       tag="div"
     >
       <div
-        class="fade-item isActive"
-      >
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium?
-        </p>
-      </div>
-      <div
-        class="fade-item"
+        data-test="ec-submenu__panel-0"
         style="display: none;"
-      >
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium?
-        </p>
-      </div>
+      />
       <div
-        class="fade-item"
+        data-test="ec-submenu__panel-1"
+        style=""
+      />
+      <div
+        data-test="ec-submenu__panel-2"
         style="display: none;"
-      >
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium?
-        </p>
-      </div>
+      />
     </span>
   </main>
 </div>

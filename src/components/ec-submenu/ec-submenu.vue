@@ -1,7 +1,7 @@
 <template>
   <div
     ref="submenu"
-    v-if="submenu"
+    v-if="submenu && submenu.length>0"
     class="ec-submenu"
   >
     <div
@@ -14,16 +14,15 @@
       >
         <li
           v-for="(menuItem, index) in submenu"
-          :key="menuItem.index"
+          :key="index"
+          :data-test="'ec-submenu__header-item-' + index"
           class="ec-submenu__header-item"
           :class="{'ec-submenu__header-item--is-active': index === activeIndex}"
           @click="$emit('change', index)"
         >
           <a
-            v-if="menuItem.href"
-            :href="menuItem.href"
+            v-if="!menuItem.route"
             class="ec-submenu__header-title"
-            @click.prevent
           >
             {{ menuItem.headerTitle }}
           </a>
@@ -32,7 +31,6 @@
             v-if="menuItem.route"
             :to="menuItem.route"
             class="ec-submenu__header-title"
-            @click.prevent
           >
             {{ menuItem.headerTitle }}
           </router-link>
@@ -49,7 +47,7 @@
           v-for="(menuItem, index) in submenu"
           :key="index"
           v-show="index === activeIndex"
-          class="fade-item"
+          :data-test="'ec-submenu__panel-' + index"
         >
           <slot
             :name="menuItem.slotName"
