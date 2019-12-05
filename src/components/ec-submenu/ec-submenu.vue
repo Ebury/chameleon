@@ -1,16 +1,13 @@
 <template>
   <div
-    ref="submenu"
     v-if="submenu && submenu.length>0"
     class="ec-submenu"
   >
     <div
-      ref="header"
       class="ec-submenu__header-container"
     >
       <ul
         class="ec-submenu__header"
-        size="24"
       >
         <li
           v-for="(menuItem, index) in submenu"
@@ -85,11 +82,9 @@ export default {
 $ec-submenu-body: $level-3-body-and-headings !default;
 $ec-submenu-hover: $level-4-tech-blue !default;
 $ec-submenu-disabled: $level-6-disabled-lines !default;
-$ec-submenu-white: $white !default;
 
 .ec-submenu {
   position: relative;
-  z-index: 0;
 
   &__header {
     min-width: 100px;
@@ -117,7 +112,8 @@ $ec-submenu-white: $white !default;
     text-decoration: none;
     outline: none;
     color: $ec-submenu-body;
-    transition: color 0.3s ease-out;
+
+    @include transition-ease-out(color);
 
     &:focus {
       outline-width: 0;
@@ -136,7 +132,7 @@ $ec-submenu-white: $white !default;
     border-color: $ec-submenu-hover;
     cursor: auto;
 
-    a {
+    .ec-submenu__header-title {
       color: $ec-submenu-hover;
     }
   }

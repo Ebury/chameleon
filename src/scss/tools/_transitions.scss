@@ -15,3 +15,9 @@
     opacity: 0;
   }
 }
+
+@mixin transition-ease-out(
+  $property: all
+) {
+  transition: $property 0.3s ease-out;
+}

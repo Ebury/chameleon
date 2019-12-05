@@ -13,7 +13,6 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
   >
     <ul
       class="ec-submenu__header"
-      size="24"
     >
       <li
         class="ec-submenu__header-item"

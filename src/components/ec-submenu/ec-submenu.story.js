@@ -39,7 +39,7 @@ stories
       };
     },
     template: `
-    <div style="margin: 20px;">
+    <div class="ec-m--24">
       <ec-submenu :submenu="submenu" v-model="activeIndex" >
           <template #menu-item-1-content>
             <h1> One - 1 </h1>
