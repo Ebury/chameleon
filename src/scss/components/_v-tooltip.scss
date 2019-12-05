@@ -152,12 +152,15 @@ $ec-tooltip-width-value: 5px;
   &[aria-hidden='true'] {
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.15s, visibility 0.15s;
+
+    @include transition-ease-out(opacity, 0.15s);
+    @include transition-ease-out(visibility, 0.15s);
   }
 
   &[aria-hidden='false'] {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.15s;
+
+    @include transition-ease-out(opacity, 0.15s);
   }
 }

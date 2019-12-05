@@ -17,7 +17,8 @@
 }
 
 @mixin transition-ease-out(
-  $property: all
+  $property: all,
+  $duration: 0.3s
 ) {
-  transition: $property 0.3s ease-out;
+  transition: $property $duration ease-out;
 }

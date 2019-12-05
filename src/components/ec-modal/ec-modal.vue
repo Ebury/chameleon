@@ -260,7 +260,9 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
 
   &__close {
     margin-left: auto;
-    transition: fill 0.3s ease-out;
+
+    @include transition-ease-out(color);
+
     color: $ec-modal-close-btn-fill;
     cursor: pointer;
 

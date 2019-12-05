@@ -147,7 +147,8 @@ $ec-submenu-disabled: $level-6-disabled-lines !default;
   }
 
   &__fade-enter-to {
-    transition: opacity 0.3s ease-out;
+    @include transition-ease-out(opacity);
+
     opacity: 1;
   }
 

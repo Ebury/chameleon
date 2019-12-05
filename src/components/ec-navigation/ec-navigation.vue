@@ -88,7 +88,8 @@ export default {
 
   &--is-collapsable {
     width: 256px;
-    transition: width 0.5s;
+
+    @include transition-ease-out(width, 0.5s);
   }
 
   &--is-collapsed {
