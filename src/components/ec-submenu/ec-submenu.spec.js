@@ -107,6 +107,7 @@ describe('EcSubmenu', () => {
 
     wrapper.findByDataTest('ec-submenu__header-item-1').trigger('click');
     expect(wrapper.findByDataTest('ec-submenu__panel-1').isVisible()).toBe(true);
+    expect(wrapper.findByDataTest('ec-submenu__panel-0').isVisible()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

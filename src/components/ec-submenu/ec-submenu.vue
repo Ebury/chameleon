@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="submenu && submenu.length>0"
+    v-if="submenu && submenu.length > 0"
     class="ec-submenu"
   >
     <div
