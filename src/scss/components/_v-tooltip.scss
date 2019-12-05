@@ -21,6 +21,10 @@ $ec-tooltip-width-value: 5px;
 
     @include shape-border-radius;
 
+    .ec-tooltip--shadow & {
+      @include box-shadow-level-1;
+    }
+
     .ec-tooltip--bg-bright & {
       background: $white;
       color: $level-3-body-and-headings;

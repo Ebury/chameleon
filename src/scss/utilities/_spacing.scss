@@ -61,3 +61,11 @@ $sides: (top, bottom, left, right); // Don't Amend
     margin-left: auto;
   }
 }
+
+@each $breakpoint, $size in $breakpoints {
+  .ec-align-center-#{$breakpoint} {
+    @media screen and (min-width: #{$size}) {
+      align-items: center;
+    }
+  }
+}

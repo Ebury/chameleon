@@ -90,6 +90,7 @@ $ec-user-info-avatar-size: 48px !default;
     color: $ec-client-text-color;
     text-decoration: none;
     margin-top: 8px;
+    margin-bottom: 4px;
 
     &:hover {
       color: $ec-client-text-color-hover;
