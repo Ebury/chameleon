@@ -7,13 +7,13 @@
 }
 
 @mixin media__up-to-sm {
-  @media screen and (max-width: map-get($grid-breakpoints, 'sm') - 1px) {
+  @media screen and (max-width: map-get($breakpoints, 'sm') - 1px) {
     @content;
   }
 }
 
 @mixin media__from-sm {
-  @media screen and (min-width: map-get($grid-breakpoints, 'sm')) {
+  @media screen and (min-width: map-get($breakpoints, 'sm')) {
     @content;
   }
 }
