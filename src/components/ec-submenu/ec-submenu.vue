@@ -113,7 +113,7 @@ $ec-submenu-disabled: $level-6-disabled-lines !default;
     outline: none;
     color: $ec-submenu-body;
 
-    @include transition-ease-out(color);
+    @include color-transition;
 
     &:focus {
       outline-width: 0;

@@ -16,8 +16,6 @@
   }
 }
 
-@mixin transition-ease-out(
-  $property: all
-) {
+@mixin color-transition($property: color) {
   transition: $property 0.3s ease-out;
 }
