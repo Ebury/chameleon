@@ -59,6 +59,7 @@ stories
           <div class="ec-col-6 ec-grid-story__column"><p>.ec-col-6</p></div>
         </div>
       </div>
+    </div>
     `,
   }))
   .add('columns', () => ({
@@ -119,6 +120,7 @@ stories
         </div>
       </div>
     </div>
+  </div>
     `,
   }))
   .add('responsive', () => ({
@@ -147,7 +149,7 @@ stories
           <div class="ec-grid__col ec-grid__row@md">
             <div class="ec-col-9">
               <h1>Trade Finance</h1>
-              <p> Here you will be able to keep track of all your requests.
+              <p> Here you will be able to keep track of all your requests.</p>
             </div>
             <div class="ec-col-3" style="align-self: center;text-align:right;">
               <button class="ec-column ec-btn ec-btn-@md ec-btn--rounded ec-btn--primary">New Request</button>
@@ -169,5 +171,6 @@ stories
             </div>
         </div>
       </div>
+    </div>
     `,
   }));
