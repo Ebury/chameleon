@@ -140,8 +140,7 @@ $ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
 
   &__icon {
     fill: currentColor;
-
-    @include transition-ease-out(color, 0.5s);
+    transition: color 0.5s;
   }
 
   &__text {
@@ -149,8 +148,7 @@ $ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
 
     flex-shrink: 1;
     margin-left: 16px;
-
-    @include transition-ease-out(color,0.5s);
+    transition: color 0.5s;
 
     .ec-navigation-link--is-compact & {
       margin-left: 8px;
