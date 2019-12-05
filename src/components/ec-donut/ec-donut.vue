@@ -83,7 +83,8 @@ export default {
     percentageUsed() {
       if (this.used > this.amount) {
         return 100;
-      } if (this.used <= 0) {
+      }
+      if (this.used <= 0) {
         return 0;
       }
       return (this.used / this.amount) * 100;
@@ -147,12 +148,12 @@ export default {
   &__legend-used,
   &__legend-remaining {
     display: flex;
-    align-items: center;
   }
 
   &__legend-icon {
     flex-shrink: 0;
     margin-right: 8px;
+    margin-top: 5px;
 
     &--used {
       fill: rgba($color-info, 0.5);

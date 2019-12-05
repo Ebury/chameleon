@@ -13,6 +13,7 @@ export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
 export { default as EcPopover } from './components/ec-popover';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
+export { default as EcTable } from './components/ec-table';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcTooltip } from './directives/ec-tooltip';
 export { default as EcUserInfo } from './components/ec-user-info';
