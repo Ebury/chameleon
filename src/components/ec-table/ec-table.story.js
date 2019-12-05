@@ -37,12 +37,21 @@ const data = [
   ],
 ];
 
+const tooltipConfig = {
+  content: 'This is the tooltip info',
+  classes: ['ec-tooltip--bg-bright', 'ec-tooltip--shadow'],
+  placement: 'bottom',
+};
+
 const stories = storiesOf('Table', module);
 
 stories
   .add('basic', () => ({
     components: { EcTable },
     props: {
+      title: {
+        default: text('title', 'Title'),
+      },
       columns: {
         default: object('columns', columns),
       },
@@ -57,19 +66,25 @@ stories
       },
     },
     template: `
-      <div>
-        <EcTable
-          :columns="columns"
-          :data="data"
-          :totalRecords="totalRecords"
-          :showFooter="showFooter"
-        />
+      <div style="display: flex;height: 100vh">
+        <div style="margin: auto 20px; width: 100vw" class="ec-card" >
+          <ec-table
+            :columns="columns"
+            :data="data"
+            :totalRecords="totalRecords"
+            :showFooter="showFooter"
+            :title="title"
+          />
+        </div>
       </div>
       `,
   }))
   .add('with a custom column templates', () => ({
     components: { EcTable },
     props: {
+      title: {
+        default: text('title', 'Title'),
+      },
       columns: {
         default: object('columns', columns),
       },
@@ -84,13 +99,15 @@ stories
       },
     },
     template: `
-      <div>
-        <EcTable
+    <div style="display: flex;height: 100vh">
+      <div style="margin: auto 20px; width: 100vw" class="ec-card" >
+        <ec-table
           :columns="columns"
           :data="data"
           :totalRecords="totalRecords"
           :showFooter="showFooter"
-        >
+          :title="title"
+          >
           <template
             v-slot:col2="{ content, row }"
           >
@@ -102,13 +119,17 @@ stories
             <small>Item is currently</small><br>
             <strong>{{ content }}</strong>
           </template>
-        </EcTable>
+        </ec-table>
       </div>
-      `,
+    </div>
+    `,
   }))
   .add('with a footer tooltip content', () => ({
     components: { EcTable },
     props: {
+      title: {
+        default: text('title', 'Title'),
+      },
       columns: {
         default: object('columns', columns),
       },
@@ -122,23 +143,23 @@ stories
         default: boolean('showFooter', true),
       },
       tooltip: {
-        default: text('tooltip', 'Tooltip content goes here'),
+        default: object('tooltip', tooltipConfig),
       },
     },
     template: `
-      <div>
-        <EcTable
+    <div style="display: flex;height: 100vh">
+      <div style="margin: auto 20px; width: 100vw" class="ec-card" >
+        <ec-table
           :columns="columns"
           :data="data"
           :totalRecords="totalRecords"
           :showFooter="showFooter"
-        >
-          <template
-            v-slot:tableTooltip="content"
-          >{{ tooltip }}</template>
-        </EcTable>
+          :tooltipConfig="tooltip"
+          :title="title"
+        />
       </div>
-      `,
+    </div>
+    `,
   }));
 
 export default stories;
