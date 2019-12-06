@@ -32,7 +32,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss">
 @import '../../scss/settings/colors/index';
 

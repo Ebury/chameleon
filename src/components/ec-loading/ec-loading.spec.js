@@ -12,6 +12,7 @@ describe('EcLoading', () => {
       ...mountOpts,
     });
   }
+
   it('should throw if no props were given', () => {
     withMockedConsole((errorSpy) => {
       mount(EcLoading);
@@ -19,10 +20,12 @@ describe('EcLoading', () => {
       expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "show"');
     });
   });
+
   it('should render as expected', () => {
     const wrapper = mountLoading();
     expect(wrapper.element).toMatchSnapshot();
   });
+
   it('should not render the loading if the prop is on false value', () => {
     const wrapper = mountLoading({ show: false });
     expect(wrapper.element).toMatchSnapshot();
