@@ -15,3 +15,7 @@
     opacity: 0;
   }
 }
+
+@mixin color-transition($property: color) {
+  transition: $property 0.3s ease-out;
+}

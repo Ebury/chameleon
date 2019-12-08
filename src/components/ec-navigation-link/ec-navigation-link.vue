@@ -139,16 +139,17 @@ $ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
   }
 
   &__icon {
+    @include color-transition;
+
     fill: currentColor;
-    transition: color 0.5s;
   }
 
   &__text {
     @include ellipsis;
+    @include color-transition;
 
     flex-shrink: 1;
     margin-left: 16px;
-    transition: color 0.5s;
 
     .ec-navigation-link--is-compact & {
       margin-left: 8px;
