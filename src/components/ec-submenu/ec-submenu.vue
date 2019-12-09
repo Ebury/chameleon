@@ -3,12 +3,8 @@
     v-if="submenu && submenu.length > 0"
     class="ec-submenu"
   >
-    <div
-      class="ec-submenu__header-container"
-    >
-      <ul
-        class="ec-submenu__header"
-      >
+    <div class="ec-submenu__header-container">
+      <ul class="ec-submenu__header">
         <li
           v-for="(menuItem, index) in submenu"
           :key="index"
@@ -20,17 +16,13 @@
           <a
             v-if="!menuItem.route"
             class="ec-submenu__header-title"
-          >
-            {{ menuItem.headerTitle }}
-          </a>
+          >{{ menuItem.headerTitle }}</a>
 
           <router-link
             v-if="menuItem.route"
             :to="menuItem.route"
             class="ec-submenu__header-title"
-          >
-            {{ menuItem.headerTitle }}
-          </router-link>
+          >{{ menuItem.headerTitle }}</router-link>
         </li>
       </ul>
     </div>
@@ -46,9 +38,7 @@
           v-show="index === activeIndex"
           :data-test="'ec-submenu__panel-' + index"
         >
-          <slot
-            :name="menuItem.slotName"
-          />
+          <slot :name="menuItem.slotName" />
         </div>
       </transition-group>
     </main>
@@ -103,7 +93,6 @@ $ec-submenu-disabled: $level-6-disabled-lines !default;
     bottom: -1px;
     cursor: pointer;
     display: inline-block;
-    padding: 8px 16px 4px 16px;
     position: relative;
     text-align: center;
   }
@@ -112,6 +101,8 @@ $ec-submenu-disabled: $level-6-disabled-lines !default;
     text-decoration: none;
     outline: none;
     color: $ec-submenu-body;
+    padding: 8px 16px 4px 16px;
+    display: inline-block;
 
     @include color-transition;
 
