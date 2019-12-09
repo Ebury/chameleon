@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcLoading should not render the loading if the prop is on false value 1`] = `
+exports[`EcLoading should not render the loading if the show prop is set to false 1`] = `
 <div
-  class="ec-loading__container"
+  class="ec-loading"
 >
   <!---->
    
@@ -11,21 +11,18 @@ exports[`EcLoading should not render the loading if the prop is on false value 1
 
 exports[`EcLoading should render as expected 1`] = `
 <div
-  class="ec-loading__container"
+  class="ec-loading"
 >
   <div
-    class="ec-loading"
+    class="ec-loading__content"
   >
     <svg
-      class="ec-loading__svg"
-      viewBox="0 0 100 100"
-      xmlns="http://www.w3.org/2000/svg"
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
     >
-      <circle
-        class="ec-loading__circle"
-        cx="50"
-        cy="50"
-        r="45"
+      <use
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>
@@ -33,23 +30,20 @@ exports[`EcLoading should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcLoading should render the slot when is passing 1`] = `
+exports[`EcLoading should render the given slot 1`] = `
 <div
-  class="ec-loading__container"
+  class="ec-loading"
 >
   <div
-    class="ec-loading"
+    class="ec-loading__content"
   >
     <svg
-      class="ec-loading__svg"
-      viewBox="0 0 100 100"
-      xmlns="http://www.w3.org/2000/svg"
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
     >
-      <circle
-        class="ec-loading__circle"
-        cx="50"
-        cy="50"
-        r="45"
+      <use
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>

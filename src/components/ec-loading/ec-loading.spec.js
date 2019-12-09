@@ -26,12 +26,12 @@ describe('EcLoading', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should not render the loading if the prop is on false value', () => {
+  it('should not render the loading if the show prop is set to false', () => {
     const wrapper = mountLoading({ show: false });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render the slot when is passing', () => {
+  it('should render the given slot', () => {
     const wrapper = mountLoading({}, {
       slots: {
         default: '<p>Random text</p>',
