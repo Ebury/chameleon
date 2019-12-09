@@ -31,6 +31,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/settings/z-index';
 @import '../../scss/settings/colors/index';
 
 .ec-loading {
@@ -38,6 +39,7 @@ export default {
 
   &__content {
     position: absolute;
+    z-index: $z-index-loading;
     background: rgba($white, 0.5);
     height: 100%;
     width: 100%;

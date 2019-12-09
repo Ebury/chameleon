@@ -1,5 +1,9 @@
 @import '../settings/z-index';
 
+@mixin z-index-loading {
+  z-index: $z-index-loading;
+}
+
 @mixin z-index-notification {
   z-index: $z-index-notification;
 }
@@ -22,4 +26,8 @@
 
 @mixin z-index-level-3 {
   z-index: $z-index-level-3;
+}
+
+@mixin z-index-level-4 {
+  z-index: $z-index-level-4;
 }
