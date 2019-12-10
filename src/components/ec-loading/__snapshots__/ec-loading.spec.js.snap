@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcLoading should not render the loading if the show prop is set to false 1`] = `
+<div
+  class="ec-loading"
+>
+  <!---->
+   
+</div>
+`;
+
+exports[`EcLoading should render as expected 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__content"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+</div>
+`;
+
+exports[`EcLoading should render the given slot 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__content"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+  <p>
+    Random text
+  </p>
+</div>
+`;
