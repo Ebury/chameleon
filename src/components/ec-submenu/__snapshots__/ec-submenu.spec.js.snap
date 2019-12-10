@@ -21,9 +21,7 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
         <a
           class="ec-submenu__header-title"
         >
-          
           Submitted Requests (30)
-        
         </a>
          
         <!---->
@@ -38,9 +36,7 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
           class="ec-submenu__header-title"
           to="/submitted"
         >
-          
           Repayments (30)
-        
         </router-link-stub>
       </li>
       <li
@@ -53,9 +49,7 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
           class="ec-submenu__header-title"
           to="/submitted"
         >
-          
           Another Request (30)
-        
         </router-link-stub>
       </li>
     </ul>
