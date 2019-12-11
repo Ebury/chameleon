@@ -6,7 +6,7 @@
 %ec-tooltip-common {
   display: block;
 }
-$ec-tooltip-width-value: 5px;
+$ec-tooltip-width-value: 6px;
 
 .ec-tooltip {
   @extend %ec-tooltip-common;
@@ -26,9 +26,11 @@ $ec-tooltip-width-value: 5px;
     }
 
     .ec-tooltip--bg-bright & {
+      @include box-shadow-level-1;
+
       background: $white;
       color: $level-3-body-and-headings;
-      border-color: $white;
+      border: 1px solid $level-6-disabled-lines;
     }
   }
 
@@ -56,7 +58,7 @@ $ec-tooltip-width-value: 5px;
       border-left-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
-      bottom: -$ec-tooltip-width-value;
+      bottom: calc(-#{$ec-tooltip-width-value} + 1px);
       left: calc(50% - #{$ec-tooltip-width-value});
       margin-top: 0;
       margin-bottom: 0;
@@ -72,7 +74,7 @@ $ec-tooltip-width-value: 5px;
       border-left-color: transparent;
       border-right-color: transparent;
       border-top-color: transparent;
-      top: -$ec-tooltip-width-value;
+      top: calc(-#{$ec-tooltip-width-value} + 1px);
       left: calc(50% - #{$ec-tooltip-width-value});
       margin-top: 0;
       margin-bottom: 0;
@@ -88,7 +90,7 @@ $ec-tooltip-width-value: 5px;
       border-left-color: transparent;
       border-top-color: transparent;
       border-bottom-color: transparent;
-      left: -$ec-tooltip-width-value;
+      left: calc(-#{$ec-tooltip-width-value} + 1px);
       top: calc(50% - #{$ec-tooltip-width-value});
       margin-left: 0;
       margin-right: 0;
@@ -104,7 +106,7 @@ $ec-tooltip-width-value: 5px;
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
-      right: -$ec-tooltip-width-value;
+      right: calc(-#{$ec-tooltip-width-value} + 1px);
       top: calc(50% - #{$ec-tooltip-width-value});
       margin-left: 0;
       margin-right: 0;
