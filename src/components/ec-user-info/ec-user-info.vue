@@ -93,9 +93,10 @@ $ec-user-info-avatar-size: 48px !default;
     margin-bottom: 4px;
 
     &:hover {
+      @include color-transition;
+
       color: $ec-client-text-color-hover;
       text-decoration: none;
-      transition: color 0.5s ease-out;
     }
 
     &:focus {
