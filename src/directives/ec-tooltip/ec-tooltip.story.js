@@ -18,12 +18,14 @@ const classes = ['ec-tooltip--level-1'];
 const tooltipConfig = {
   content: '<p>This is the normal tooltip</p>',
   placement: 'bottom',
+  show: true,
 };
 
 const whiteTooltipConfig = {
   content: '<p>This is a popover style tooltip</p>',
   classes: ['ec-tooltip--bg-bright'],
   trigger: 'click',
+  show: true,
   placement: 'bottom',
 };
 
