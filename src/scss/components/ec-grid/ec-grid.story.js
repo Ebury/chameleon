@@ -10,8 +10,8 @@ stories
       <h1 class="ec-grid-story__title">12 Columns - 24 pixel gutters</h1>
       <h2 class="ec-grid-story__title">Grandparent: "ec-grid", Parent: "ec-grid__row" Child: "ec-col-1 to ec-12"</h2>
       <h2 class="ec-grid-story__title">Normal</h2>
-      <div class="ec-grid">
-        <div class="ec-grid__row ec-grid-story__container">
+      <div class="ec-grid ec-grid-story__container">
+        <div class="ec-grid__row">
           <div
             v-for="i in 12"
             class="ec-col-1 ec-grid-story__column">
@@ -21,8 +21,8 @@ stories
       </div>
 
       <h1 class="ec-grid-story__title">Reverse</h1>
-      <div class="ec-grid">
-        <div class="ec-grid__row--reverse ec-grid-story__container">
+      <div class="ec-grid ec-grid-story__container">
+        <div class="ec-grid__row--reverse">
           <div
             v-for="i in 12"
             class="ec-col-1 ec-grid-story__column">
@@ -32,8 +32,8 @@ stories
       </div>
 
       <h1 class="ec-grid-story__title">Wrap</h1>
-      <div class="ec-grid">
-        <div class="ec-grid__row ec-grid__row--wrap ec-grid-story__container">
+      <div class="ec-grid ec-grid-story__container">
+        <div class="ec-grid__row ec-grid__row--wrap ">
           <div
             v-for="i in 18"
             class="ec-col-1 ec-grid-story__column">
@@ -43,8 +43,8 @@ stories
       </div>
 
       <h1 class="ec-grid-story__title">Offset</h1>
-      <div class="ec-grid">
-        <div class="ec-grid__row ec-grid-story__container">
+      <div class="ec-grid ec-grid-story__container">
+        <div class="ec-grid__row">
           <div class="ec-col-1 ec-offset-1 ec-grid-story__column"><p>.ec-offset-1</p></div>
           <div class="ec-col-1 ec-offset-2 ec-grid-story__column"><p>.ec-offset-2</p></div>
           <div class="ec-col-1 ec-offset-4 ec-grid-story__column"><p>.ec-offset-4</p></div>
@@ -52,8 +52,8 @@ stories
       </div>
 
       <h1 class="ec-grid-story__title">Various column combinations</h1>
-      <div class="ec-grid">
-        <div class="ec-grid__row ec-grid-story__container">
+      <div class="ec-grid ec-grid-story__container">
+        <div class="ec-grid__row">
           <div class="ec-col-2 ec-grid-story__column"><p>.ec-col-2</p></div>
           <div class="ec-col-4 ec-grid-story__column"><p>.ec-col-4</p></div>
           <div class="ec-col-6 ec-grid-story__column"><p>.ec-col-6</p></div>
@@ -67,8 +67,8 @@ stories
     <div class="ec-grid-story">
       <h1 class="ec-grid-story__title">12 Columns - 24 pixel gutters</h1>
       <h2 class="ec-grid-story__title">Grandparent: "ec-grid", Parent: "ec-grid__col" Child: "ec-col-1 to ec-12"</h2>
-      <div class="ec-grid">
-        <div class="ec-grid__col ec-grid-story__container">
+      <div class="ec-grid ec-grid-story__container">
+        <div class="ec-grid__col">
           <div
             v-for="i in 12"
             class="ec-col-1 ec-grid-story__column">
