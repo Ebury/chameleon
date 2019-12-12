@@ -1,6 +1,6 @@
 @import '../settings/colors/index';
 @import '../tools/borders';
-@import '../tools/v-effetcs';
+@import '../tools/v-effects';
 @import '../tools/z-index';
 
 %ec-tooltip-common {
@@ -47,7 +47,7 @@ $ec-tooltip-width-value: 6px;
 
   &[x-placement^='top'] {
     margin-bottom: $ec-tooltip-width-value;
-    text-align: left;
+    text-align: center;
 
     .ec-tooltip__arrow {
       border-width: $ec-tooltip-width-value $ec-tooltip-width-value 0 $ec-tooltip-width-value;
@@ -95,7 +95,7 @@ $ec-tooltip-width-value: 6px;
 
   &[x-placement^='left'] {
     margin-right: $ec-tooltip-width-value;
-    text-align: center;
+    text-align: left;
 
     .ec-tooltip__arrow {
       border-width: $ec-tooltip-width-value 0 $ec-tooltip-width-value $ec-tooltip-width-value;
