@@ -11,7 +11,7 @@ $ec-tooltip-width-value: 6px;
 .ec-tooltip {
   @extend %ec-tooltip-common;
   // base z-indexing for the tooltip
-  @include z-index-tooltip;
+  @include z-index-all-levels;
 
   &__inner {
     background: $level-2-doc-bodies-bg;
@@ -20,10 +20,6 @@ $ec-tooltip-width-value: 6px;
     max-width: 260px;
 
     @include shape-border-radius;
-
-    .ec-tooltip--shadow & {
-      @include box-shadow-level-1;
-    }
 
     .ec-tooltip--bg-bright & {
       @include box-shadow-level-1;
@@ -118,27 +114,7 @@ $ec-tooltip-width-value: 6px;
   @extend %ec-tooltip-common;
 
   // base z-indexing for popover and related modifiers
-  @include z-index-level-1;
-
-  &--level-2 {
-    @include z-index-level-2;
-  }
-
-  &--level-3 {
-    @include z-index-level-3;
-  }
-
-  &--modal {
-    @include z-index-modal;
-  }
-
-  &--tooltip {
-    @include z-index-tooltip;
-  }
-
-  &--notification {
-    @include z-index-notification;
-  }
+  @include z-index-all-levels;
 
   &__inner {
     overflow: hidden;

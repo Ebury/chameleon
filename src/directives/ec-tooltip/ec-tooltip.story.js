@@ -16,19 +16,18 @@ const delay = 100;
 const classes = ['ec-tooltip--level-1'];
 
 const tooltipConfig = {
-  content: '<p>This is the normal tooltip</p>',
-  placement: 'bottom',
+  content: '<p>Normal tooltip. Lorem ipsum dolor sit amet</p>',
   show: true,
 };
 
 const whiteTooltipConfig = {
-  content: '<p>This is a popover style tooltip</p>',
+  content: '<p>Popover like tooltip. Lorem ipsum dolor sit amet</p>',
   classes: ['ec-tooltip--bg-bright'],
   trigger: 'click',
   show: true,
-  placement: 'bottom',
 };
 
+const placements = ['right', 'top', 'bottom', 'left'];
 
 const stories = storiesOf('Tooltip', module);
 
@@ -63,20 +62,42 @@ stories
       </div>
     `,
   }))
-  .add('all colors', () => ({
+  .add('all colors & positions', () => ({
     directives: { EcTooltip },
     data() {
       return {
         tooltipConfig,
         whiteTooltipConfig,
+        placements,
       };
     },
     template:
-    ` <div style="background-color:rgb(132, 149, 154); width: 100vw; height: 100vh; display:flex; flex-direction: column; align-items: center;justify-content: center;">
-        <div style="max-width: 200px;margin: 50px;background:rgb(21, 188, 139);color: white; padding: 20px;" v-ec-tooltip="tooltipConfig"> Black background tooltip</div>
-        <div style="max-width: 200px;margin: 50px;background:rgb(21, 188, 139);color: white; padding: 20px;" v-ec-tooltip="whiteTooltipConfig"> White background tooltip</div>
+    ` <div style="background-color:rgb(132, 149, 154); min-height: 100vh;">
+        <div style="display:flex; flex-direction: row; height: 50vh;">
+          <div
+            v-for="placement in placements"
+            style="flex-basis: 25%;display:flex; flex-direction: row; justify-content:center;align-items:center;">
+            <div
+              v-ec-tooltip="{...tooltipConfig, placement: placement}"
+              style="max-width: 80px; min-height: 100px; background:rgb(21, 188, 139); color: white; padding: 20px;">
+              Black tooltip
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction: row; height: 50vh;">
+          <div
+            v-for="placement in placements"
+            style="flex-basis: 25%;display:flex; flex-direction: row; justify-content:center;align-items:center;">
+            <div
+              v-ec-tooltip="{...whiteTooltipConfig, placement: placement}"
+              style="max-width: 80px; min-height: 100px; background:rgb(21, 188, 139); color: white; padding: 20px;">
+              White tooltip
+            </div>
+          </div>
+        </div>
       </div>
-    `,
+        `,
   }));
 
 export default stories;
