@@ -23,3 +23,27 @@
 @mixin z-index-level-3 {
   z-index: $z-index-level-3;
 }
+
+@mixin z-index-all-levels {
+  @include z-index-level-1;
+
+  &--level-2 {
+    @include z-index-level-2;
+  }
+
+  &--level-3 {
+    @include z-index-level-3;
+  }
+
+  &--modal {
+    @include z-index-modal;
+  }
+
+  &--tooltip {
+    @include z-index-tooltip;
+  }
+
+  &--notification {
+    @include z-index-notification;
+  }
+}

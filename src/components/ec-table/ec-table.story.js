@@ -39,7 +39,7 @@ const data = [
 
 const tooltipConfig = {
   content: 'This is the tooltip info',
-  classes: ['ec-tooltip--bg-bright', 'ec-tooltip--shadow'],
+  classes: ['ec-tooltip--bg-bright'],
   placement: 'bottom',
 };
 

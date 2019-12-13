@@ -4,12 +4,11 @@ $ec-grid-number-of-columns: 12;
 @mixin ec-grid-common {
   display: flex;
   justify-content: flex-start;
-  width: calc(100% + #{$ec-grid-gutters});
   margin-left: $ec-grid-gutters / -2;
+  margin-right: $ec-grid-gutters / -2;
 }
 
 .ec-grid {
-  overflow: hidden;
   width: 100%;
 }
 
