@@ -182,7 +182,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/tools/v-effetcs';
+@import '../../scss/tools/v-effects';
 @import '../../scss/tools/typography';
 @import '../../scss/settings/colors/index';
 

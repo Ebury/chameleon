@@ -9,7 +9,7 @@ const stories = storiesOf('Modal', module);
 
 const tooltipConfig = {
   content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
-  classes: ['ec-tooltip--bg-bright'],
+  classes: ['ec-tooltip--bg-bright ec-tooltip--modal'],
   trigger: 'click',
   placement: 'bottom',
 };
