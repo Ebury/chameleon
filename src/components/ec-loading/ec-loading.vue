@@ -18,6 +18,7 @@
 import EcIcon from '../ec-icon';
 
 export default {
+  name: 'EcLoading',
   components: {
     EcIcon,
   },
