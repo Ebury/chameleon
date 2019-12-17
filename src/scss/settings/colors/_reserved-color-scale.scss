@@ -1,8 +1,9 @@
-$color-success: rgb(21, 188, 139); // Level 2 - Success
-$color-success-hover: rgb(16, 142, 104); // Level 2 - Success
-$color-error: rgb(224, 63, 63); // Level 2 - Error
 $color-error-hover: rgb(202, 33, 33); // Level 2 - Error
-$color-warning: rgb(255, 164, 28); //  Level 2 - Warning
-$color-warning-hover: rgb(230, 138, 0); //  Level 2 - Warning
-$color-info: rgb(31, 163, 255); // Level 2 - Error
+$color-error: rgb(224, 63, 63); // Level 2 - Error
 $color-info-hover: rgb(0, 137, 235); // Level 2 - Info
+$color-info: rgb(31, 163, 255); // Level 2 - Error
+$color-interactive: $level-4-interactive-elements;
+$color-success-hover: rgb(16, 142, 104); // Level 2 - Success
+$color-success: rgb(21, 188, 139); // Level 2 - Success
+$color-warning-hover: rgb(230, 138, 0); //  Level 2 - Warning
+$color-warning: rgb(255, 164, 28); //  Level 2 - Warning

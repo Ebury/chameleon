@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/settings/colors/reserved-color-scale';
+@import '../../scss/settings/colors/';
 
 .ec-icon {
   &--error {
@@ -53,6 +53,10 @@ export default {
 
   &--warning {
     fill: $color-warning;
+  }
+
+  &--interactive {
+    fill: $color-interactive;
   }
 }
 </style>
