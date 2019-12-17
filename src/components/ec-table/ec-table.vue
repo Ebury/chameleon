@@ -3,7 +3,9 @@
     v-if="numberOfRecords"
     class="ec-table-scroll-container"
   >
-    <table class="ec-table">
+    <table
+      class="ec-table"
+    >
       <caption v-if="title">{{ title }}</caption>
       <ec-table-head :columns="columns" />
       <tbody>
@@ -14,13 +16,24 @@
           <td
             v-for="(content, colIndex) in row"
             :key="colIndex"
+            :data-test="'ec-table__cell-' + colIndex"
             class="ec-table__cell"
+            :class="{'ec-table__cell--center': content.type === 'icon'}"
           >
+
             <slot
               :name="getSlotName(colIndex)"
               :content="content"
               :row="row"
-            >{{ content }}</slot>
+            >
+              <template v-if="content.text">
+                {{ content.text }}
+              </template>
+
+              <template v-else>
+                {{ content }}
+              </template>
+            </slot>
           </td>
         </tr>
       </tbody>
@@ -109,6 +122,10 @@ export default {
     border-bottom: 1px solid $level-6-disabled-lines;
 
     @include body-text;
+
+    &--center {
+      vertical-align: middle;
+    }
   }
 }
 </style>

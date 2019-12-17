@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import EcTable from './ec-table.vue';
 
 
@@ -19,6 +19,21 @@ function mountTable(props, mountOpts) {
       ],
       ...props,
     },
+    ...mountOpts,
+  });
+}
+
+function mountTableAsTemplate(template, props, mountOpts) {
+  const localVue = createLocalVue();
+
+  const Component = localVue.extend({
+    components: { EcTable },
+    template,
+  });
+
+  return mount(Component, {
+    localVue,
+    propsData: { ...props },
     ...mountOpts,
   });
 }
@@ -78,6 +93,38 @@ describe('EcTable', () => {
 
   it('should render as expected if provided with data and columns', () => {
     const wrapper = mountTable();
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should have class ec-table-cell--center if type of content is icon', () => {
+    const wrapper = mountTableAsTemplate(
+      '<ec-table :columns="columns" :data="data"/>',
+      {},
+      {
+        data() {
+          return {
+            columns: [
+              {
+                name: 'lorem',
+              },
+              {
+                name: 'ipsum',
+              },
+            ],
+            data: [
+              ['foo', 'bar', { type: 'icon', text: 'lorem' }],
+              ['widgets', 'doodads'],
+            ],
+          };
+        },
+      },
+    );
+
+    expect(wrapper.findByDataTest('ec-table__cell-2').isVisible()).toBe(true);
+
+    expect(wrapper.findByDataTest('ec-table__cell-1').classes()).not.toContain('ec-table__cell--center');
+    expect(wrapper.findByDataTest('ec-table__cell-2').classes()).toContain('ec-table__cell--center');
 
     expect(wrapper.element).toMatchSnapshot();
   });

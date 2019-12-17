@@ -6,6 +6,7 @@ import {
   boolean,
 } from '@storybook/addon-knobs';
 import EcTable from './ec-table.vue';
+import EcIcon from '@/components/ec-icon/ec-icon.vue';
 
 const columns = [
   {
@@ -27,13 +28,19 @@ const data = [
     'Lorem',
     'ipsum',
     'dolor',
-    'sit',
+    {
+      text: 'sit',
+      type: 'icon',
+    },
   ],
   [
     'foo',
     'bar',
     'baz',
-    'bat',
+    {
+      text: 'sit',
+      type: 'icon',
+    },
   ],
 ];
 
@@ -80,7 +87,7 @@ stories
       `,
   }))
   .add('with a custom column templates', () => ({
-    components: { EcTable },
+    components: { EcTable, EcIcon },
     props: {
       title: {
         default: text('title', 'Title'),
@@ -112,12 +119,15 @@ stories
             v-slot:col2="{ content, row }"
           >
             <a href="#"><em><strong>{{ content }}</strong></em></a>
+            <div>This</br>is</br>a</br>very</br>tall</br>column</div>
           </template>
           <template
             v-slot:col4="{ content, row }"
           >
-            <small>Item is currently</small><br>
-            <strong>{{ content }}</strong>
+            <small>This cell item has type of 'icon' so will be vertically centered</small>
+            <div>
+              <ec-icon name="rounded-check" size="24">
+            </div>
           </template>
         </ec-table>
       </div>
