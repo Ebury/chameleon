@@ -121,8 +121,6 @@ describe('EcTable', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-table__cell-2').isVisible()).toBe(true);
-
     expect(wrapper.findByDataTest('ec-table__cell-1').classes()).not.toContain('ec-table__cell--center');
     expect(wrapper.findByDataTest('ec-table__cell-2').classes()).toContain('ec-table__cell--center');
 
