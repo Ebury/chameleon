@@ -23,7 +23,7 @@ export default {
     type: {
       type: String,
       validator(value) {
-        return ['error', 'info', 'success', 'warning'].includes(value);
+        return ['error', 'info', 'success', 'warning', 'interactive'].includes(value);
       },
     },
   },
