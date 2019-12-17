@@ -56,7 +56,7 @@ export default {
   }
 
   &--interactive {
-    fill: $level-4-interactive-elements;
+    fill: $color-interactive;
   }
 }
 </style>
