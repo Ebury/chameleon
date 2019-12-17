@@ -43,7 +43,7 @@ stories.add('all icons', () => ({
       default: color('Color', '#333'),
     },
     type: {
-      default: select('Type', ['', 'error', 'success', 'warning', 'info']),
+      default: select('Type', ['', 'error', 'success', 'warning', 'info', 'interactive']),
     },
   },
   template: `
