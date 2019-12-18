@@ -5,9 +5,11 @@
   >
     <tr>
       <th
-        v-for="column in columns"
+        v-for="(column, colIndex) in columns"
         :key="column.name"
+        :data-test="'ec-table-head__cell-' + colIndex"
         class="ec-table-head__cell"
+        :class="{'ec-table-head__cell--text-center': column.type === 'icon'}"
         :colspan="column.span"
         scope="col"
       >{{ column.name }}</th>
@@ -48,6 +50,10 @@ export default {
 
     &:last-child {
       padding-right: 16px;
+    }
+
+    &--text-center {
+      text-align: center;
     }
   }
 }

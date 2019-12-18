@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcTable should have class ec-table-cell--center if type of content is icon 1`] = `
+exports[`EcTable should have class ec-table-cell--text-center if type of column is icon 1`] = `
 <div
   class="ec-table-scroll-container"
 >
@@ -15,12 +15,14 @@ exports[`EcTable should have class ec-table-cell--center if type of content is i
       <tr>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-0"
           scope="col"
         >
           lorem
         </th>
         <th
-          class="ec-table-head__cell"
+          class="ec-table-head__cell ec-table-head__cell--text-center"
+          data-test="ec-table-head__cell-1"
           scope="col"
         >
           ipsum
@@ -34,25 +36,13 @@ exports[`EcTable should have class ec-table-cell--center if type of content is i
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              foo
-            
+          foo
         </td>
         <td
-          class="ec-table__cell"
+          class="ec-table__cell ec-table__cell--text-center"
           data-test="ec-table__cell-1"
         >
-          
-              bar
-            
-        </td>
-        <td
-          class="ec-table__cell ec-table__cell--center"
-          data-test="ec-table__cell-2"
-        >
-          
-              lorem
-            
+          bar
         </td>
       </tr>
       <tr>
@@ -60,17 +50,13 @@ exports[`EcTable should have class ec-table-cell--center if type of content is i
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              widgets
-            
+          widgets
         </td>
         <td
-          class="ec-table__cell"
+          class="ec-table__cell ec-table__cell--text-center"
           data-test="ec-table__cell-1"
         >
-          
-              doodads
-            
+          doodads
         </td>
       </tr>
     </tbody>
@@ -101,12 +87,14 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
       <tr>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-0"
           scope="col"
         >
           lorem
         </th>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-1"
           scope="col"
         >
           ipsum
@@ -120,17 +108,13 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              foo
-            
+          foo
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              bar
-            
+          bar
         </td>
       </tr>
       <tr>
@@ -138,17 +122,13 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              widgets
-            
+          widgets
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              doodads
-            
+          doodads
         </td>
       </tr>
     </tbody>
@@ -173,12 +153,14 @@ exports[`EcTable should render as expected if provided with data and columns, wi
       <tr>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-0"
           scope="col"
         >
           lorem
         </th>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-1"
           scope="col"
         >
           ipsum
@@ -192,17 +174,13 @@ exports[`EcTable should render as expected if provided with data and columns, wi
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              foo
-            
+          foo
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              bar
-            
+          bar
         </td>
       </tr>
       <tr>
@@ -210,17 +188,13 @@ exports[`EcTable should render as expected if provided with data and columns, wi
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              widgets
-            
+          widgets
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              doodads
-            
+          doodads
         </td>
       </tr>
     </tbody>
@@ -268,17 +242,13 @@ exports[`EcTable should render as expected if provided with data but no columns 
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              foo
-            
+          foo
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              bar
-            
+          bar
         </td>
       </tr>
       <tr>
@@ -286,17 +256,13 @@ exports[`EcTable should render as expected if provided with data but no columns 
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              widgets
-            
+          widgets
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              doodads
-            
+          doodads
         </td>
       </tr>
     </tbody>
@@ -323,17 +289,13 @@ exports[`EcTable should render as expected if provided with data but no columns,
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              foo
-            
+          foo
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              bar
-            
+          bar
         </td>
       </tr>
       <tr>
@@ -341,17 +303,13 @@ exports[`EcTable should render as expected if provided with data but no columns,
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              widgets
-            
+          widgets
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              doodads
-            
+          doodads
         </td>
       </tr>
     </tbody>
@@ -437,12 +395,14 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
       <tr>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-0"
           scope="col"
         >
           lorem
         </th>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-1"
           scope="col"
         >
           ipsum
@@ -456,17 +416,13 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              foo
-            
+          foo
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              bar
-            
+          bar
         </td>
       </tr>
       <tr>
@@ -474,17 +430,13 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              widgets
-            
+          widgets
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              doodads
-            
+          doodads
         </td>
       </tr>
     </tbody>
@@ -545,12 +497,14 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
       <tr>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-0"
           scope="col"
         >
           lorem
         </th>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-1"
           scope="col"
         >
           ipsum
@@ -564,17 +518,13 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              foo
-            
+          foo
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              bar
-            
+          bar
         </td>
       </tr>
       <tr>
@@ -582,17 +532,13 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              widgets
-            
+          widgets
         </td>
         <td
           class="ec-table__cell"
           data-test="ec-table__cell-1"
         >
-          
-              doodads
-            
+          doodads
         </td>
       </tr>
     </tbody>
@@ -651,12 +597,14 @@ exports[`EcTable should render slots as expected 1`] = `
       <tr>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-0"
           scope="col"
         >
           lorem
         </th>
         <th
           class="ec-table-head__cell"
+          data-test="ec-table-head__cell-1"
           scope="col"
         >
           ipsum
@@ -670,9 +618,7 @@ exports[`EcTable should render slots as expected 1`] = `
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              foo
-            
+          foo
         </td>
         <td
           class="ec-table__cell"
@@ -688,9 +634,7 @@ exports[`EcTable should render slots as expected 1`] = `
           class="ec-table__cell"
           data-test="ec-table__cell-0"
         >
-          
-              widgets
-            
+          widgets
         </td>
         <td
           class="ec-table__cell"
