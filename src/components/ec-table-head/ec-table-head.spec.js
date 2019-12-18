@@ -41,7 +41,6 @@ describe('EcTableHead', () => {
       propsData,
     });
 
-
     expect(wrapper.findByDataTest('ec-table-head__cell-0').classes()).not.toContain('ec-table-head__cell--text-center');
     expect(wrapper.findByDataTest('ec-table-head__cell-1').classes()).toContain('ec-table-head__cell--text-center');
   });
