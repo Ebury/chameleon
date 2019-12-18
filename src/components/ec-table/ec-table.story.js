@@ -20,6 +20,7 @@ const columns = [
   },
   {
     name: 'Status',
+    type: 'icon',
   },
 ];
 
@@ -28,19 +29,13 @@ const data = [
     'Lorem',
     'ipsum',
     'dolor',
-    {
-      text: 'sit',
-      type: 'icon',
-    },
+    'sit',
   ],
   [
     'foo',
     'bar',
     'baz',
-    {
-      text: 'sit',
-      type: 'icon',
-    },
+    'sit',
   ],
 ];
 
@@ -124,9 +119,9 @@ stories
           <template
             v-slot:col4="{ content, row }"
           >
-            <small>This cell item has type of 'icon' so will be vertically centered</small>
+            <small>This cell item has type of 'icon' so will be horizontally centered</small>
             <div>
-              <ec-icon name="rounded-check" size="24">
+              <ec-icon name="rounded-check" :size="24" />
             </div>
           </template>
         </ec-table>

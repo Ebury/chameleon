@@ -97,7 +97,7 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should have class ec-table-cell--center if type of content is icon', () => {
+  it('should have class ec-table-cell--text-center if type of column is icon', () => {
     const wrapper = mountTableAsTemplate(
       '<ec-table :columns="columns" :data="data"/>',
       {},
@@ -110,10 +110,11 @@ describe('EcTable', () => {
               },
               {
                 name: 'ipsum',
+                type: 'icon',
               },
             ],
             data: [
-              ['foo', 'bar', { type: 'icon', text: 'lorem' }],
+              ['foo', 'bar'],
               ['widgets', 'doodads'],
             ],
           };
@@ -121,8 +122,8 @@ describe('EcTable', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-table__cell-1').classes()).not.toContain('ec-table__cell--center');
-    expect(wrapper.findByDataTest('ec-table__cell-2').classes()).toContain('ec-table__cell--center');
+    expect(wrapper.findByDataTest('ec-table__cell-0').classes()).not.toContain('ec-table__cell--text-center');
+    expect(wrapper.findByDataTest('ec-table__cell-1').classes()).toContain('ec-table__cell--text-center');
 
     expect(wrapper.element).toMatchSnapshot();
   });
