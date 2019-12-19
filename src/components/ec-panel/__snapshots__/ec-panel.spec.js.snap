@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcPanel #slots #header - should render header slot section if slot is passed 1`] = `
+<aside
+  class="ec-panel"
+>
+  <header
+    class="ec-panel__header"
+  >
+    <div
+      class="ec-panel__header-icons"
+    >
+      <svg
+        class="ec-panel__close ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-close"
+        />
+      </svg>
+    </div>
+     
+    <div>
+      Submitted Requests
+    </div>
+  </header>
+   
+  <main />
+</aside>
+`;
+
+exports[`EcPanel #slots #main - should render main slot section if slot is passed 1`] = `
+<aside
+  class="ec-panel"
+>
+  <header
+    class="ec-panel__header"
+  >
+    <div
+      class="ec-panel__header-icons"
+    >
+      <svg
+        class="ec-panel__close ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-close"
+        />
+      </svg>
+    </div>
+     
+    <div />
+  </header>
+   
+  <main>
+    <p>
+      Main content section
+    </p>
+  </main>
+</aside>
+`;
+
+exports[`EcPanel :props :showPanel - should not render the panel when is false 1`] = `<!---->`;
+
+exports[`EcPanel :props :showPanel - should render the panel when is true 1`] = `
+<aside
+  class="ec-panel"
+>
+  <header
+    class="ec-panel__header"
+  >
+    <div
+      class="ec-panel__header-icons"
+    >
+      <svg
+        class="ec-panel__close ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-close"
+        />
+      </svg>
+    </div>
+     
+    <div />
+  </header>
+   
+  <main />
+</aside>
+`;

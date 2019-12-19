@@ -6,6 +6,10 @@
   box-shadow: 0 3px 6px 0 rgba(#000, 0.2);
 }
 
+@mixin left-box-shadow-level-1 {
+  box-shadow: -3px 0 6px 0 rgba(#000, 0.1);
+}
+
 @mixin box-shadow-level-2 {
   box-shadow: 0 10px 20px 0 rgba(#000, 0.2);
 }
