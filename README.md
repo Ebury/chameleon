@@ -173,3 +173,7 @@ Jest:
 SCSS:
 
 [SCSS](https://sass-lang.com/documentation/syntax)
+
+## JIRA integration
+We need to put the JIRA-KEY in the commit message. g.e.:
+ONL-4321 Commit message text
