@@ -68,6 +68,8 @@ $ec-border: $level-5-placeholders !default;
   width: 100%;
 
   &__input {
+    @include body-text;
+
     padding: 8px 12px;
     border: 1px solid $ec-border;
     border-radius: 5px;
