@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcTextField should display properly with the given props 1`] = `
+<div
+  class="ec-text-field"
+>
+  <div
+    class="ec-text-field__label"
+  >
+    label test
+  </div>
+   
+  <input
+    class="ec-text-field__input"
+    type="text"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`EcTextField should display properly with the given state "error" 1`] = `
+<div
+  class="ec-text-field"
+>
+  <div
+    class="ec-text-field__label"
+  >
+    label test
+  </div>
+   
+  <input
+    class="ec-text-field__input ec-text-field__input--error"
+    type="text"
+  />
+   
+  <div
+    class="ec-text-field__error-label"
+  >
+    error msg
+  </div>
+</div>
+`;
+
+exports[`EcTextField should display properly without label 1`] = `
+<div
+  class="ec-text-field"
+>
+  <!---->
+   
+  <input
+    class="ec-text-field__input"
+    type="text"
+  />
+   
+  <!---->
+</div>
+`;

@@ -99,3 +99,9 @@
   line-height: 22px;
   font-size: 16px;
 }
+
+@mixin flags {
+  font-weight: 400;
+  line-height: 20px;
+  font-size: 12px;
+}
