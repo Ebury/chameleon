@@ -37,6 +37,7 @@ export default {
     },
     value: {
       default: '',
+      type: [Number, String, Date],
     },
     label: {
       default: '',

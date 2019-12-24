@@ -8,7 +8,7 @@ stories
   .add('basic', () => ({
     components: { EcTextField },
     props: {
-      value: {
+      valueFromProps: {
         default: text('value', ''),
       },
       label: {
@@ -23,6 +23,19 @@ stories
       type: {
         default: select('type', ['text', 'number', 'date'], 'text'),
       },
+    },
+    watch: {
+      valueFromProps: {
+        immediate: true,
+        handler(newValue) {
+          this.value = newValue;
+        },
+      },
+    },
+    data() {
+      return {
+        value: '',
+      };
     },
     template: `
     <div class="ec-ml--24 ec-mr--24">
