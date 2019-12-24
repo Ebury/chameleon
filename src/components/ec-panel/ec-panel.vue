@@ -29,6 +29,7 @@ import EcIcon from '../ec-icon';
 
 
 export default {
+  name: 'EcPanel',
   components: {
     EcIcon,
   },
@@ -58,6 +59,7 @@ $ec-panel-close-btn-fill-hover: $level-4-tech-blue !default;
   width: 100%;
   max-width: 352px;
   height: 100vh;
+  min-height: 100%;
   position: absolute;
   background: white;
   right: 0;
