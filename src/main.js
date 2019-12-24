@@ -16,6 +16,7 @@ export { default as EcPopover } from './components/ec-popover';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
 export { default as EcSubmenu } from './components/ec-submenu';
 export { default as EcTable } from './components/ec-table';
+export { default as EcTextField } from './components/ec-text-field';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcTooltip } from './directives/ec-tooltip';
 export { default as EcUserInfo } from './components/ec-user-info';
