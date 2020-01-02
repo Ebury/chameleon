@@ -30,7 +30,6 @@ export default {
   flex-direction: row;
   min-height: 100vh;
   align-items: stretch;
-  position: relative;
 
   &__navigation {
     flex-basis: 280px;

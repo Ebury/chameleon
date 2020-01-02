@@ -1,32 +1,33 @@
 <template>
   <aside
-    v-if="showPanel"
+    v-if="show"
     class="ec-panel"
   >
-    <header class="ec-panel__header">
+    <div class="ec-panel__header">
       <div class="ec-panel__header-icons">
-        <ec-icon
+        <a
+          aria-label="close panel"
           class="ec-panel__close"
-          name="simple-close"
-          :size="24"
-          @click="$emit('close')"
-        />
+          href="#"
+          @click.stop.prevent="$emit('close')"
+        >
+          <ec-icon
+            class="ec-panel__close-icon"
+            name="simple-close"
+            :size="24"
+          />
+        </a>
       </div>
 
-      <div>
-        <slot name="header" />
-      </div>
-    </header>
+      <slot name="header" />
+    </div>
 
-    <main>
-      <slot name="main" />
-    </main>
+    <slot name="main" />
   </aside>
 </template>
 
 <script>
 import EcIcon from '../ec-icon';
-
 
 export default {
   name: 'EcPanel',
@@ -34,11 +35,11 @@ export default {
     EcIcon,
   },
   model: {
-    prop: 'showPanel',
+    prop: 'show',
     event: 'close',
   },
   props: {
-    showPanel: {
+    show: {
       type: Boolean,
       default: false,
     },
@@ -48,20 +49,20 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/settings/colors/index';
+@import '../../scss/settings/index';
 @import '../../scss/tools/index';
 
 $ec-panel-close-btn-fill: $level-4-interactive-elements !default;
 $ec-panel-close-btn-fill-hover: $level-4-tech-blue !default;
+$ec-panel-background-color: $white !default;
 
 .ec-panel {
-  display: block;
   width: 100%;
-  max-width: 352px;
+  max-width: $side-panel-max-width;
   height: 100vh;
   min-height: 100%;
   position: absolute;
-  background: white;
+  background: $ec-panel-background-color;
   right: 0;
   top: 0;
   padding: 16px 24px 24px 24px;
@@ -81,16 +82,20 @@ $ec-panel-close-btn-fill-hover: $level-4-tech-blue !default;
 
   &__close {
     margin-left: auto;
-    fill: $ec-panel-close-btn-fill;
     cursor: pointer;
+    color: $ec-panel-close-btn-fill;
+
+    @include color-transition;
 
     &:hover {
-      fill: $ec-panel-close-btn-fill-hover;
+      color: $ec-panel-close-btn-fill-hover;
     }
   }
 
-  &__main {
-    display: block;
+  &__close-icon {
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: top;
   }
 }
 </style>

@@ -4,29 +4,34 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
 <aside
   class="ec-panel"
 >
-  <header
+  <div
     class="ec-panel__header"
   >
     <div
       class="ec-panel__header-icons"
     >
-      <svg
-        class="ec-panel__close ec-icon"
-        height="24"
-        width="24"
+      <a
+        aria-label="close panel"
+        class="ec-panel__close"
+        href="#"
       >
-        <use
-          xlink:href="#ec-simple-close"
-        />
-      </svg>
+        <svg
+          class="ec-panel__close-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
     </div>
      
-    <div>
+    <h2>
       Submitted Requests
-    </div>
-  </header>
+    </h2>
+  </div>
    
-  <main />
 </aside>
 `;
 
@@ -34,60 +39,101 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
 <aside
   class="ec-panel"
 >
-  <header
+  <div
     class="ec-panel__header"
   >
     <div
       class="ec-panel__header-icons"
     >
-      <svg
-        class="ec-panel__close ec-icon"
-        height="24"
-        width="24"
+      <a
+        aria-label="close panel"
+        class="ec-panel__close"
+        href="#"
       >
-        <use
-          xlink:href="#ec-simple-close"
-        />
-      </svg>
+        <svg
+          class="ec-panel__close-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
     </div>
      
-    <div />
-  </header>
+  </div>
    
-  <main>
-    <p>
-      Main content section
-    </p>
-  </main>
+  <p>
+    Main content section
+  </p>
 </aside>
 `;
 
-exports[`EcPanel :props :showPanel - should not render the panel when is false 1`] = `<!---->`;
+exports[`EcPanel :props :show - should not render the panel when is false 1`] = `<!---->`;
 
-exports[`EcPanel :props :showPanel - should render the panel when is true 1`] = `
+exports[`EcPanel :props :show - should render the panel when is true 1`] = `
 <aside
   class="ec-panel"
 >
-  <header
+  <div
     class="ec-panel__header"
   >
     <div
       class="ec-panel__header-icons"
     >
-      <svg
-        class="ec-panel__close ec-icon"
-        height="24"
-        width="24"
+      <a
+        aria-label="close panel"
+        class="ec-panel__close"
+        href="#"
       >
-        <use
-          xlink:href="#ec-simple-close"
-        />
-      </svg>
+        <svg
+          class="ec-panel__close-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
     </div>
      
-    <div />
-  </header>
+  </div>
    
-  <main />
+</aside>
+`;
+
+exports[`EcPanel ec-panel mounted as template should not render the panel when we pass to model false 1`] = `<!---->`;
+
+exports[`EcPanel ec-panel mounted as template should render the panel when we pass to model true 1`] = `
+<aside
+  class="ec-panel"
+>
+  <div
+    class="ec-panel__header"
+  >
+    <div
+      class="ec-panel__header-icons"
+    >
+      <a
+        aria-label="close panel"
+        class="ec-panel__close"
+        href="#"
+      >
+        <svg
+          class="ec-panel__close-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
+    </div>
+     
+  </div>
+   
 </aside>
 `;
