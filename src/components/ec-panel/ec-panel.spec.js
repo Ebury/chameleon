@@ -75,7 +75,7 @@ describe('EcPanel', () => {
     });
   });
 
-  describe('ec-panel mounted as template', () => {
+  describe('v-model', () => {
     it('should render the panel when we pass to model true', () => {
       const wrapper = mountPanelAsTemplate(
         '<ec-panel v-model="show"></ec-panel>',
@@ -90,6 +90,10 @@ describe('EcPanel', () => {
       );
 
       expect(wrapper.find('.ec-panel').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+
+      wrapper.find('.ec-panel__close').trigger('click');
+      expect(wrapper.vm.show).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
 

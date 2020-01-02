@@ -6,10 +6,10 @@
     <div class="ec-panel__header">
       <div class="ec-panel__header-icons">
         <a
-          aria-label="close panel"
+          aria-label="Close panel"
           class="ec-panel__close"
           href="#"
-          @click.stop.prevent="$emit('close')"
+          @click.stop.prevent="$emit('close', false)"
         >
           <ec-icon
             class="ec-panel__close-icon"
