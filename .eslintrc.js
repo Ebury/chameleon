@@ -15,9 +15,8 @@ module.exports = {
     'no-param-reassign': ['error', { props: false }],
     'no-restricted-syntax': 'off',
     'no-use-before-define': 'off',
-
+    'no-multiple-empty-lines': ['error', { max: 1 }],
     'import/prefer-default-export': 'off',
-
     'vue/attributes-order': ['error', {
       order: [
         'GLOBAL',
