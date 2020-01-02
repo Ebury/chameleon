@@ -1,7 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcTable from './ec-table.vue';
 
-
 function mountTable(props, mountOpts) {
   return mount(EcTable, {
     propsData: {
@@ -170,7 +169,6 @@ describe('EcTable', () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
-
 
   it('should render slots as expected', () => {
     const wrapper = mountTable({
