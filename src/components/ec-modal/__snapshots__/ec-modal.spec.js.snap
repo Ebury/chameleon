@@ -207,3 +207,52 @@ exports[`EcModal should render positive button if slot is passed 1`] = `
   </button>
 </footer>
 `;
+
+exports[`EcModal v-model should not render the modal when we pass to model false 1`] = `<!---->`;
+
+exports[`EcModal v-model should render the modal when we pass to model true 1`] = `
+<div
+  class="ec-modal"
+  name="ec-modal__fade"
+>
+  <div
+    class="ec-modal__content"
+  >
+    <header
+      class="ec-modal__header"
+    >
+       
+      <a
+        class="ec-modal__close"
+        href="#"
+      >
+        <svg
+          class="ec-modal__close-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
+    </header>
+     
+    <main
+      class="ec-modal__main"
+    />
+     
+    <footer
+      class="ec-modal__footer"
+    >
+      <!---->
+       
+      <!---->
+       
+      <!---->
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`EcModal v-model should render the modal when we pass to model true 2`] = `<!---->`;

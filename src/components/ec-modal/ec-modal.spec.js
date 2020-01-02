@@ -1,11 +1,26 @@
 /* eslint-disable no-use-before-define */
-import { mount } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import EcModal from './ec-modal.vue';
 
 jest.mock('../../directives/ec-focus-trap');
 
 function mountModal(props, mountOpts) {
   return mount(EcModal, {
+    propsData: { ...props },
+    ...mountOpts,
+  });
+}
+
+function mountModalAsTemplate(template, props, mountOpts) {
+  const localVue = createLocalVue();
+
+  const Component = localVue.extend({
+    components: { EcModal },
+    template,
+  });
+
+  return mount(Component, {
+    localVue,
     propsData: { ...props },
     ...mountOpts,
   });
@@ -230,5 +245,48 @@ describe('EcModal', () => {
     expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);
 
     wrapper.destroy(); // because we attached the wrapper to document
+  });
+
+  describe('v-model', () => {
+    it('should render the modal when we pass to model true', async () => {
+      const wrapper = mountModalAsTemplate(
+        ' <ec-modal is-closable v-model="showModal"></ec-modal>',
+        {},
+        {
+          data() {
+            return {
+              showModal: true,
+            };
+          },
+        },
+      );
+
+      expect(wrapper.find('.ec-modal').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+
+      wrapper.find('.ec-modal__close').trigger('click');
+      await wrapper.vm.$forceUpdate(); // The modal is not updated despite the vm is
+
+      expect(wrapper.vm.showModal).toBe(false);
+      expect(wrapper.find('.ec-modal').exists()).toBe(false);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should not render the modal when we pass to model false', () => {
+      const wrapper = mountModalAsTemplate(
+        ' <ec-modal is-closable v-model="showModal"></ec-modal>',
+        {},
+        {
+          data() {
+            return {
+              showModal: false,
+            };
+          },
+        },
+      );
+
+      expect(wrapper.find('.ec-modal').exists()).toBe(false);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

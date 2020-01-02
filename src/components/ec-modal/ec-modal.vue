@@ -116,7 +116,7 @@ export default {
     },
     closeModal() {
       if (this.isClosable) {
-        this.$emit('close');
+        this.$emit('close', false);
       }
     },
     escapeIsPressed(e) {
