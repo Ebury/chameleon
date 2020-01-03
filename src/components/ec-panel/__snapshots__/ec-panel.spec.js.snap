@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcPanel #slots #header - should render header slot section if slot is passed 1`] = `
+<aside
+  class="ec-panel"
+>
+  <div
+    class="ec-panel__header"
+  >
+    <div
+      class="ec-panel__header-icons"
+    >
+      <a
+        aria-label="Close panel"
+        class="ec-panel__close"
+        href="#"
+      >
+        <svg
+          class="ec-panel__close-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
+    </div>
+     
+    <h2>
+      Submitted Requests
+    </h2>
+  </div>
+   
+</aside>
+`;
+
+exports[`EcPanel #slots #main - should render main slot section if slot is passed 1`] = `
+<aside
+  class="ec-panel"
+>
+  <div
+    class="ec-panel__header"
+  >
+    <div
+      class="ec-panel__header-icons"
+    >
+      <a
+        aria-label="Close panel"
+        class="ec-panel__close"
+        href="#"
+      >
+        <svg
+          class="ec-panel__close-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
+    </div>
+     
+  </div>
+   
+  <p>
+    Main content section
+  </p>
+</aside>
+`;
+
+exports[`EcPanel :props :show - should not render the panel when is false 1`] = `<!---->`;
+
+exports[`EcPanel :props :show - should render the panel when is true 1`] = `
+<aside
+  class="ec-panel"
+>
+  <div
+    class="ec-panel__header"
+  >
+    <div
+      class="ec-panel__header-icons"
+    >
+      <a
+        aria-label="Close panel"
+        class="ec-panel__close"
+        href="#"
+      >
+        <svg
+          class="ec-panel__close-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
+    </div>
+     
+  </div>
+   
+</aside>
+`;
+
+exports[`EcPanel v-model should not render the panel when we pass to model false 1`] = `<!---->`;
+
+exports[`EcPanel v-model should render the panel when we pass to model true 1`] = `
+<aside
+  class="ec-panel"
+>
+  <div
+    class="ec-panel__header"
+  >
+    <div
+      class="ec-panel__header-icons"
+    >
+      <a
+        aria-label="Close panel"
+        class="ec-panel__close"
+        href="#"
+      >
+        <svg
+          class="ec-panel__close-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
+    </div>
+     
+  </div>
+   
+</aside>
+`;
+
+exports[`EcPanel v-model should render the panel when we pass to model true 2`] = `<!---->`;

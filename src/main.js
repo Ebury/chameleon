@@ -13,6 +13,7 @@ export { default as EcMenu } from './components/ec-menu';
 export { default as EcModal } from './components/ec-modal';
 export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
+export { default as EcPanel } from './components/ec-panel';
 export { default as EcPopover } from './components/ec-popover';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
 export { default as EcSubmenu } from './components/ec-submenu';

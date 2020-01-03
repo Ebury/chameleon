@@ -26,7 +26,6 @@ function mountSubmenuAsTemplate(template, props, mountOpts) {
   });
 }
 
-
 const submenu = [
   {
     headerTitle: 'Submitted Requests (30)',
