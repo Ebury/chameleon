@@ -67,8 +67,6 @@ exports[`EcInputField renders properly without label 1`] = `
 exports[`EcInputField renders with the attrs min and max 1`] = `
 <div
   class="ec-input-field"
-  max="10"
-  min="5"
 >
   <label
     class="ec-input-field__label"

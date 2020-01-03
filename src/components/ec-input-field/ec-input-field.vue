@@ -26,9 +26,9 @@
 </template>
 
 <script>
-/* eslint-disable no-underscore-dangle */
 export default {
   name: 'EcInputField',
+  inheritAttrs: false,
   model: {
     prop: 'value',
     event: 'value-change',
@@ -97,7 +97,7 @@ $ec-input-field-border: $level-5-placeholders !default;
       border: 1px solid $color-error-hover;
 
       &:hover,
-      :focus {
+      &:focus {
         border: 1px solid $color-error-hover;
       }
     }

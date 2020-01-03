@@ -85,7 +85,7 @@ describe('EcInputField', () => {
     );
 
     expect(wrapper.find('input').element.value).toBe('');
-    wrapper.vm.text = 'some text';
+    wrapper.setData({ text: 'some text' });
     expect(wrapper.find('input').element.value).toBe('some text');
   });
 
