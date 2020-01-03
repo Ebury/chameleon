@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import { mount } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import EcInputField from './ec-input-field.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
@@ -13,6 +12,20 @@ describe('EcInputField', () => {
         label: 'label test',
         ...props,
       },
+      ...mountOpts,
+    });
+  }
+  function mountInputFieldAsTemplate(template, props, mountOpts) {
+    const localVue = createLocalVue();
+
+    const Component = localVue.extend({
+      components: { EcInputField },
+      template,
+    });
+
+    return mount(Component, {
+      localVue,
+      propsData: { ...props },
       ...mountOpts,
     });
   }
@@ -61,15 +74,15 @@ describe('EcInputField', () => {
   });
 
   it('should set the v-model on the value of the input and change when it changes', () => {
-    const wrapper = mount(Vue.extend({
-      components: { EcInputField },
-      data() {
-        return { text: '' };
+    const wrapper = mountInputFieldAsTemplate(
+      '<ec-input-field v-model="text" type="text" />',
+      {},
+      {
+        data() {
+          return { text: '' };
+        },
       },
-      template: `
-        <ec-input-field v-model="text" type="text" />
-      `,
-    }));
+    );
 
     expect(wrapper.find('input').element.value).toBe('');
     wrapper.vm.text = 'some text';
@@ -77,15 +90,15 @@ describe('EcInputField', () => {
   });
 
   it('should emit the value when you write on the input', () => {
-    const wrapper = mount(Vue.extend({
-      components: { EcInputField },
-      data() {
-        return { text: '' };
+    const wrapper = mountInputFieldAsTemplate(
+      '<ec-input-field v-model="text" type="text" />',
+      {},
+      {
+        data() {
+          return { text: '' };
+        },
       },
-      template: `
-        <ec-input-field v-model="text" type="text" />
-      `,
-    }));
+    );
 
     expect(wrapper.find('input').element.value).toBe('');
     wrapper.find('input').setValue('some text');
