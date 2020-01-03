@@ -87,6 +87,13 @@
   color: $level-5-placeholders;
 }
 
+@mixin caption-text-bold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  color: $level-5-placeholders;
+}
+
 @mixin ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -98,4 +105,10 @@
   font-weight: 400;
   line-height: 22px;
   font-size: 16px;
+}
+
+@mixin flags-text {
+  font-weight: 400;
+  line-height: 20px;
+  font-size: 12px;
 }

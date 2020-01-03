@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue';
 import { number, select } from '@storybook/addon-knobs';
 import EcDonut from './ec-donut.vue';
 
-const stories = storiesOf('Donut chart', module);
+const stories = storiesOf('Donut', module);
 
 stories.add('basic', () => ({
   components: { EcDonut },

@@ -34,7 +34,7 @@
       >
         <div
           v-for="(menuItem, index) in submenu"
-          :key="index"
+          :key="menuItem.headerTitle"
           v-show="index === activeIndex"
           :data-test="'ec-submenu__panel-' + index"
         >

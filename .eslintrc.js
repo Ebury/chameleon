@@ -14,6 +14,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-param-reassign': ['error', { props: false }],
     'no-restricted-syntax': 'off',
+    'no-underscore-dangle': ['error', { allow: ['_uid'] }],
     'no-use-before-define': 'off',
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'import/prefer-default-export': 'off',
