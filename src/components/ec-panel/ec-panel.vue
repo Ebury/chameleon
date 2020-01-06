@@ -98,4 +98,8 @@ $ec-panel-background-color: $white !default;
     vertical-align: top;
   }
 }
+
+.ec-panel-container {
+  position: relative;
+}
 </style>
