@@ -18,8 +18,12 @@
     >
       <slot />
       <div slot="popover">
-        <ul class="ec-dropdown-search__item-list">
+        <ul
+          ref="itemsOverflowContainer"
+          class="ec-dropdown-search__item-list"
+        >
           <li
+            ref="searchArea"
             v-if="isSearchEnabled"
             class="ec-dropdown-search__search-area"
           >
@@ -42,6 +46,7 @@
             <li
               v-for="(item, index) of filteredItems"
               :key="item.id || index"
+              ref="itemElements"
               v-ec-tooltip="{
                 placement: 'right',
                 content: item.disabled ? item.disabledReason : '',
@@ -55,7 +60,10 @@
                 'ec-dropdown-search__item--is-disabled': item.disabled
               }"
               @click="!item.disabled && select(item)"
-            >{{ item.text }}</li>
+            ><slot
+              name="item"
+              v-bind="{ item, index }"
+            >{{ item.text }}</slot></li>
           </slot>
         </ul>
       </div>
@@ -106,6 +114,10 @@ export default {
       type: Object,
       default: null,
     },
+    maxVisibleItems: {
+      type: Number,
+      default: 4,
+    },
   },
   data() {
     return {
@@ -135,6 +147,23 @@ export default {
             order: 840,
             fn: /* istanbul ignore next */ (data) => {
               data.styles.width = this.$refs.popperWidthReference.offsetWidth;
+              return data;
+            },
+          },
+          setOverflowHeight: {
+            enabled: true,
+            order: 845,
+            fn: /* istanbul ignore next */ (data) => {
+              const overflowContainer = this.$refs.itemsOverflowContainer;
+              const items = this.$refs.itemElements;
+              if (items.length > this.maxVisibleItems) {
+                let finalHeight = this.$refs.searchArea ? this.$refs.searchArea.offsetHeight : 0;
+                const visibleItems = Array.prototype.slice.call(items, 0, this.maxVisibleItems);
+                finalHeight = visibleItems.reduce((sum, curr) => sum + curr.offsetHeight, finalHeight);
+                overflowContainer.style.maxHeight = `${finalHeight}px`;
+              } else {
+                overflowContainer.style.maxHeight = 'auto';
+              }
               return data;
             },
           },
@@ -199,7 +228,6 @@ $ec-dropdown-search-icon-color: currentColor !default;
 $ec-dropdown-search-icon-size: 16px !default;
 $ec-dropdown-search-item-height: 40px !default;
 $ec-dropdown-search-item-delimiter-size: 1px !default;
-$ec-dropdown-search-maximum-number-of-items-visible: 5 !default; // search included
 
 .ec-dropdown-search {
   $item-vertical-padding: 16px;
@@ -242,10 +270,6 @@ $ec-dropdown-search-maximum-number-of-items-visible: 5 !default; // search inclu
   }
 
   &__item-list {
-    $content-heihgt: $ec-dropdown-search-maximum-number-of-items-visible * $ec-dropdown-search-item-height;
-    $delimiters-height: ($ec-dropdown-search-maximum-number-of-items-visible - 1) * $ec-dropdown-search-item-delimiter-size;
-
-    max-height: $content-heihgt + $delimiters-height;
     overflow-y: auto;
   }
 
