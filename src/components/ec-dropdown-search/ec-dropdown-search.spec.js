@@ -56,10 +56,36 @@ describe('EcDropdownSearch', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render given slot', () => {
+  it('should render given default slot', () => {
     const wrapper = mountDropdownSearch({}, {
       slots: {
         default: '<a href="#" @click.prevent>Open me</a>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render given items slot', () => {
+    const wrapper = mountDropdownSearch({
+      items,
+    }, {
+      scopedSlots: {
+        items: '<li>Items: <pre>{{ props }}</pre></li>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render given item slot', () => {
+    const wrapper = mountDropdownSearch({
+      items,
+    }, {
+      scopedSlots: {
+        item: `
+          <div><strong>{{ props.index }}.</strong>{{ props.item.text }}</div>
+        `,
       },
     });
 
