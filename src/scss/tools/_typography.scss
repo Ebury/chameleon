@@ -94,6 +94,13 @@
   color: $level-5-placeholders;
 }
 
+@mixin input-text-bold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  color: $level-3-body-and-headings;
+}
+
 @mixin ellipsis {
   text-overflow: ellipsis;
   overflow: hidden;

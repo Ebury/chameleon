@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcCheckbox #slots #errorMessage - should render the error message slot if passed 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    aria-describedby="ec-checkbox-error-7"
+    class="ec-checkbox__input"
+    id="ec-checkbox-7"
+    type="checkbox"
+  />
+   
+  <label
+    class="ec-checkbox__label ec-checkbox__label--has-error"
+    for="ec-checkbox-7"
+  >
+    <!---->
+  </label>
+   
+  <div
+    class="ec-checkbox__error-text"
+    id="ec-checkbox-error-7"
+  >
+    
+    
+    Test error message slot
+  </div>
+</div>
+`;
+
+exports[`EcCheckbox #slots #labelMessage - should render the label message slot if passed 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    id="ec-checkbox-9"
+    type="checkbox"
+  />
+   
+  <label
+    class="ec-checkbox__label"
+    for="ec-checkbox-9"
+  >
+    <span>
+      
+      
+      Test label message slot
+    </span>
+  </label>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :errorMessage - should render the checkbox with an errorMessage 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    aria-describedby="ec-checkbox-error-3"
+    class="ec-checkbox__input"
+    id="ec-checkbox-3"
+    type="checkbox"
+  />
+   
+  <label
+    class="ec-checkbox__label ec-checkbox__label--has-error"
+    for="ec-checkbox-3"
+  >
+    <!---->
+  </label>
+   
+  <div
+    class="ec-checkbox__error-text"
+    id="ec-checkbox-error-3"
+  >
+    
+    Test error message prop
+    
+  </div>
+</div>
+`;
+
+exports[`EcCheckbox :props :labelMessage - should render the checkbox with a label 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+   
+  <label
+    class="ec-checkbox__label"
+    for="ec-checkbox-1"
+  >
+    <span>
+      
+      Test label message prop
+      
+    </span>
+  </label>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :large - should render a large checkbox 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    id="ec-checkbox-5"
+    type="checkbox"
+  />
+   
+  <label
+    class="ec-checkbox__label ec-checkbox__label--large"
+    for="ec-checkbox-5"
+  >
+    <!---->
+  </label>
+   
+  <!---->
+</div>
+`;

@@ -94,11 +94,11 @@ $ec-input-field-border: $level-5-placeholders !default;
     width: inherit;
 
     &--has-error {
-      border: 1px solid $color-error-hover;
+      border: 1px solid $color-error;
 
       &:hover,
       &:focus {
-        border: 1px solid $color-error-hover;
+        border: 1px solid $color-error;
       }
     }
 
@@ -109,13 +109,13 @@ $ec-input-field-border: $level-5-placeholders !default;
   }
 
   &__label {
-    @include caption-text-bold;
+    @include input-text-bold;
   }
 
   &__error-text {
     @include flags-text;
 
-    color: $color-error-hover;
+    color: $color-error;
   }
 }
 </style>
