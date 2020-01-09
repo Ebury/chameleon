@@ -28,15 +28,7 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
     class="ec-modal__main"
   />
    
-  <footer
-    class="ec-modal__footer"
-  >
-    <!---->
-     
-    <!---->
-     
-    <!---->
-  </footer>
+  <!---->
 </div>
 `;
 
@@ -47,42 +39,6 @@ exports[`EcModal should not render close button when isClosable is set to false 
    
   <!---->
 </header>
-`;
-
-exports[`EcModal should not render footer left section if slot not passed 1`] = `
-<footer
-  class="ec-modal__footer"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</footer>
-`;
-
-exports[`EcModal should not render negative button if slot not passed 1`] = `
-<footer
-  class="ec-modal__footer"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</footer>
-`;
-
-exports[`EcModal should not render positive button if slot not passed 1`] = `
-<footer
-  class="ec-modal__footer"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</footer>
 `;
 
 exports[`EcModal should not render the modal if "showModal" is not set to true 1`] = `<!---->`;
@@ -123,15 +79,7 @@ exports[`EcModal should render basic modal 1`] = `
       </p>
     </main>
      
-    <footer
-      class="ec-modal__footer"
-    >
-      <!---->
-       
-      <!---->
-       
-      <!---->
-    </footer>
+    <!---->
   </div>
 </div>
 `;
@@ -242,15 +190,7 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
       class="ec-modal__main"
     />
      
-    <footer
-      class="ec-modal__footer"
-    >
-      <!---->
-       
-      <!---->
-       
-      <!---->
-    </footer>
+    <!---->
   </div>
 </div>
 `;

@@ -206,7 +206,7 @@ exports[`EcDropdownSearch should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcDropdownSearch should render given slot 1`] = `
+exports[`EcDropdownSearch should render given default slot 1`] = `
 <div
   class="ec-dropdown-search"
 >
@@ -247,6 +247,176 @@ exports[`EcDropdownSearch should render given slot 1`] = `
           />
         </li>
          
+      </ul>
+    </div>
+  </ecpopover-stub>
+</div>
+`;
+
+exports[`EcDropdownSearch should render given item slot 1`] = `
+<div
+  class="ec-dropdown-search"
+>
+  <ecpopover-stub
+    level=""
+    offset="8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass="ec-dropdown-search__popover"
+    popperoptions="[object Object]"
+  >
+     
+    <div>
+      <ul
+        class="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-dropdown-search__search-icon ec-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+           
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+         
+        <li
+          class="ec-dropdown-search__item"
+          title="Item 1"
+        >
+          <div>
+            <strong>
+              0.
+            </strong>
+            Item 1
+          </div>
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          title="Item 2"
+        >
+          <div>
+            <strong>
+              1.
+            </strong>
+            Item 2
+          </div>
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          title="Item 3"
+        >
+          <div>
+            <strong>
+              2.
+            </strong>
+            Item 3
+          </div>
+        </li>
+        <li
+          class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+          mocked-tooltip-content="Random text"
+          mocked-tooltip-placement="right"
+          title="Item 4"
+        >
+          <div>
+            <strong>
+              3.
+            </strong>
+            Item 4
+          </div>
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          title="Item 5"
+        >
+          <div>
+            <strong>
+              4.
+            </strong>
+            Item 5
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ecpopover-stub>
+</div>
+`;
+
+exports[`EcDropdownSearch should render given items slot 1`] = `
+<div
+  class="ec-dropdown-search"
+>
+  <ecpopover-stub
+    level=""
+    offset="8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass="ec-dropdown-search__popover"
+    popperoptions="[object Object]"
+  >
+     
+    <div>
+      <ul
+        class="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-dropdown-search__search-icon ec-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+           
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+         
+        <li>
+          Items: 
+          <pre>
+            {
+  "0": {
+    "id": 1,
+    "text": "Item 1"
+  },
+  "1": {
+    "id": 2,
+    "text": "Item 2"
+  },
+  "2": {
+    "id": 3,
+    "text": "Item 3"
+  },
+  "3": {
+    "id": 4,
+    "text": "Item 4",
+    "disabled": true,
+    "disabledReason": "Random text"
+  },
+  "4": {
+    "id": 5,
+    "text": "Item 5"
+  }
+}
+          </pre>
+        </li>
       </ul>
     </div>
   </ecpopover-stub>

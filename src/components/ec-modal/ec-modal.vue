@@ -8,7 +8,7 @@
       <div
         v-ec-focus-trap="getFocusTrapOptions()"
         class="ec-modal__content"
-        :class="{'ec-modal--lg': large}"
+        :class="{ 'ec-modal--lg': large }"
       >
         <header class="ec-modal__header">
           <slot name="header" />
@@ -30,9 +30,12 @@
           <slot name="main" />
         </main>
 
-        <footer class="ec-modal__footer">
+        <footer
+          v-if="hasFooter()"
+          class="ec-modal__footer"
+        >
           <div
-            v-if="$scopedSlots.footerLeftContent"
+            v-if="hasFooterLeftContent()"
             class="ec-modal__footer-left-content"
           >
             <slot name="footerLeftContent" />
@@ -143,6 +146,12 @@ export default {
     },
     hasNegativeButton() {
       return !!this.$scopedSlots.negative;
+    },
+    hasFooterLeftContent() {
+      return !!this.$scopedSlots.footerLeftContent;
+    },
+    hasFooter() {
+      return this.hasFooterLeftContent() || this.hasPrimaryButton() || this.hasNegativeButton();
     },
   },
 };

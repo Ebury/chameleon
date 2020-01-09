@@ -1,10 +1,13 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "0.1.42",
+  "version": "0.1.44",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

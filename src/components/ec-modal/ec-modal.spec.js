@@ -73,13 +73,14 @@ describe('EcModal', () => {
     expect(wrapper.find('.ec-modal__content').element).toMatchSnapshot();
   });
 
-  it('should not render footer left section if slot not passed', () => {
+  it('should not render the footer if slots for left content, positive, nor negative were not passed', () => {
     const wrapper = mountModal({
       showModal: true,
+    }, {
+      slots: {},
     });
 
-    expect(wrapper.find('.ec-modal__footer-left-content').exists()).toBe(false);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
+    expect(wrapper.find('.ec-modal__footer').exists()).toBe(false);
   });
 
   it('should render footer left section when slot is passed', () => {
@@ -110,15 +111,6 @@ describe('EcModal', () => {
     expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
-  it('should not render negative button if slot not passed', () => {
-    const wrapper = mountModal({
-      showModal: true,
-    });
-
-    expect(wrapper.find('.ec-modal__negative-btn').exists()).toBe(false);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
-  });
-
   it('should render positive button if slot is passed', () => {
     const wrapper = mountModal({
       showModal: true,
@@ -130,15 +122,6 @@ describe('EcModal', () => {
     });
 
     expect(wrapper.find('.ec-modal__positive-btn').exists()).toBe(true);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
-  });
-
-  it('should not render positive button if slot not passed', () => {
-    const wrapper = mountModal({
-      showModal: true,
-    });
-
-    expect(wrapper.find('.ec-modal__positive-btn').exists()).toBe(false);
     expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
