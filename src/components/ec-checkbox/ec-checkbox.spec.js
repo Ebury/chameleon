@@ -1,8 +1,23 @@
-import { mount } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import EcCheckbox from './ec-checkbox.vue';
 
 function mountCheckbox(props, mountOpts) {
   return mount(EcCheckbox, {
+    propsData: { ...props },
+    ...mountOpts,
+  });
+}
+
+function mountCheckboxAsTemplate(template, props, mountOpts) {
+  const localVue = createLocalVue();
+
+  const Component = localVue.extend({
+    components: { EcCheckbox },
+    template,
+  });
+
+  return mount(Component, {
+    localVue,
     propsData: { ...props },
     ...mountOpts,
   });
@@ -74,6 +89,28 @@ describe('EcCheckbox', () => {
 
       wrapper.find('input').trigger('click');
       expect(wrapper.emitted('checked-value-change').length).toBe(1);
+    });
+  });
+
+  describe('v-model', () => {
+    it('should render the checkbox and toggle v-model value when we click on input', () => {
+      const wrapper = mountCheckboxAsTemplate(
+        '<ec-checkbox v-model="checked"></ec-checkbox>',
+        {},
+        {
+          data() {
+            return {
+              checked: true,
+            };
+          },
+        },
+      );
+
+      expect(wrapper.find('.ec-checkbox').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+
+      wrapper.find('.ec-checkbox__input').trigger('click');
+      expect(wrapper.vm.checked).toBe(false);
     });
   });
 });

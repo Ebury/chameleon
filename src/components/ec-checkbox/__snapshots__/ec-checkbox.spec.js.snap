@@ -128,3 +128,24 @@ exports[`EcCheckbox :props :large - should render a large checkbox 1`] = `
   <!---->
 </div>
 `;
+
+exports[`EcCheckbox v-model should render the checkbox and toggle v-model value when we click on input 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    id="ec-checkbox-14"
+    type="checkbox"
+  />
+   
+  <label
+    class="ec-checkbox__label"
+    for="ec-checkbox-14"
+  >
+    <!---->
+  </label>
+   
+  <!---->
+</div>
+`;
