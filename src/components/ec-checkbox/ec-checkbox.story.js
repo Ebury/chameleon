@@ -14,14 +14,11 @@ stories
       valueFromPropsChecked2: {
         default: boolean('Checkbox 2'),
       },
-      valueFromPropsLabelMessage: {
-        default: text('Label Message', 'I accept the terms and conditions'),
+      valueFromPropsLabel: {
+        default: text('Label', 'I accept the terms and conditions'),
       },
       valueFromPropsErrorMessage: {
-        default: text('Error Message', 'An error has occured'),
-      },
-      valueFromPropsLarge: {
-        default: boolean('Is Large', false),
+        default: text('Error Message', 'An error has occurred'),
       },
       valueFromPropsHasError: {
         default: boolean('Has Error', false),
@@ -58,17 +55,16 @@ stories
           class="ec-mb--24"
           v-model="checkbox1"
           :disabled="valueFromPropsDisabled"
-          :labelMessage="valueFromPropsLabelMessage"
-          :large="valueFromPropsLarge">
+          :label="valueFromPropsLabel">
         </ec-checkbox>
 
         <ec-checkbox
           v-else="valueFromPropsHasError"
           class="ec-mb--24"
+          v-model="checkbox1"
           :disabled="valueFromPropsDisabled"
-          :labelMessage="valueFromPropsLabelMessage"
-          :errorMessage="valueFromPropsErrorMessage"
-          :large="valueFromPropsLarge">
+          :label="valueFromPropsLabel"
+          :errorMessage="valueFromPropsErrorMessage">
         </ec-checkbox>
 
         <h3> Label and Error messages coming from template</h3>
@@ -76,22 +72,21 @@ stories
         <ec-checkbox
           v-if="!valueFromPropsHasError"
           v-model="checkbox2"
-          :disabled="valueFromPropsDisabled"
-          :large="valueFromPropsLarge">
-          <template #label-message>
+          :disabled="valueFromPropsDisabled">
+          <template #label>
             I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
           </template>
         </ec-checkbox>
 
         <ec-checkbox
           v-else="valueFromPropsHasError"
-          :disabled="valueFromPropsDisabled"
-          :large="valueFromPropsLarge">
-          <template #label-message>
+          v-model="checkbox2"
+          :disabled="valueFromPropsDisabled">
+          <template #label>
             I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
           </template>
           <template #error-message>
-            An error has occured
+            An error has occurred
           </template>
         </ec-checkbox>
       </div>
@@ -101,141 +96,69 @@ stories
     components: { EcCheckbox },
     data() {
       return {
-        errorMessage: 'An error has occured',
+        errorMessage: 'An error has occurred',
         errorMessageMultiline: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.',
       };
     },
     template: `
-      <div class="ec-m--24">
-        <div class="ec-grid">
-          <h3>Not checked</h3>
-          <div class="ec-grid__row">
-            <ec-checkbox class="ec-mb--24 ec-col-6">
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
+      <div class="ec-m--24" style="max-width:500px;">
+        <h3>Not checked</h3>
 
-            <ec-checkbox
-              class="ec-mb--24 ec-col-6"
-              large>
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
-          </div>
+        <ec-checkbox class="ec-mb--24 ec-col-6">
+          <template #label>
+            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+          </template>
+        </ec-checkbox>
 
-          <h3>Not checked - with multiline label text</h3>
-          <div class="ec-grid__row">
-            <ec-checkbox class="ec-mb--24 ec-col-6">
-              <template #label-message>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.
-              </template>
-            </ec-checkbox>
+        <h3>Not checked - with multiline label text</h3>
+        <ec-checkbox class="ec-mb--24 ec-col-6">
+          <template #label>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.
+          </template>
+        </ec-checkbox>
 
-            <ec-checkbox class="ec-mb--24 ec-col-6" large>
-              <template #label-message>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.
-              </template>
-            </ec-checkbox>
-          </div>
+        <h3>Checked</h3>
+        <ec-checkbox
+          checked
+          class="ec-mb--24 ec-col-6">
+          <template #label>
+            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+          </template>
+        </ec-checkbox>
 
-          <h3>Checked</h3>
-          <div class="ec-grid__row">
-            <ec-checkbox
-              checked
-              class="ec-mb--24 ec-col-6">
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
+        <h3>Error</h3>
+        <ec-checkbox class="ec-mb--24 ec-col-6"
+          :errorMessage="errorMessage">
+          <template #label>
+            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+          </template>
+        </ec-checkbox>
 
-            <ec-checkbox
-              class="ec-mb--24 ec-col-6"
-              checked
-              large>
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
-          </div>
+        <h3>Error - with multiline label text</h3>
+        <ec-checkbox
+          :errorMessage="errorMessageMultiline"
+          class="ec-mb--24 ec-col-6">
+          <template #label>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.
+          </template>
+        </ec-checkbox>
 
-          <h3>Error</h3>
-          <div class="ec-grid__row">
-            <ec-checkbox class="ec-mb--24 ec-col-6"
-              :errorMessage="errorMessage">
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
-            <ec-checkbox
-              class="ec-mb--24 ec-col-6"
-              :errorMessage="errorMessage"
-              large>
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
-          </div>
+        <h3>Disabled</h3>
+        <ec-checkbox class="ec-mb--24 ec-col-6"
+          disabled>
+          <template #label>
+            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+          </template>
+        </ec-checkbox>
 
-          <h3>Error - with multiline label text</h3>
-          <div class="ec-grid__row">
-            <ec-checkbox
-              :errorMessage="errorMessageMultiline"
-              class="ec-mb--24 ec-col-6">
-              <template #label-message>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.
-              </template>
-            </ec-checkbox>
-
-            <ec-checkbox
-              :errorMessage="errorMessageMultiline"
-              class="ec-mb--24 ec-col-6"
-              large>
-              <template #label-message>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.
-              </template>
-            </ec-checkbox>
-          </div>
-
-          <h3>Disabled</h3>
-          <div class="ec-grid__row">
-            <ec-checkbox class="ec-mb--24 ec-col-6"
-              disabled>
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
-            <ec-checkbox
-              class="ec-mb--24 ec-col-6"
-              disabled
-              large>
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
-          </div>
-
-          <h3>Disabled - checked</h3>
-          <div class="ec-grid__row">
-            <ec-checkbox class="ec-mb--24 ec-col-6"
-              checked
-              disabled>
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
-            <ec-checkbox
-              class="ec-mb--24 ec-col-6"
-              checked
-              disabled
-              large>
-              <template #label-message>
-                I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
-              </template>
-            </ec-checkbox>
-          </div>
-        <div>
+        <h3>Disabled - checked</h3>
+        <ec-checkbox class="ec-mb--24 ec-col-6"
+          checked
+          disabled>
+          <template #label>
+            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+          </template>
+        </ec-checkbox>
       </div>
     `,
   }));

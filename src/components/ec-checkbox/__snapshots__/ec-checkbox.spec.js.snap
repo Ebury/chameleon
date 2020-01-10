@@ -11,25 +11,33 @@ exports[`EcCheckbox #slots #errorMessage - should render the error message slot 
     type="checkbox"
   />
    
-  <label
-    class="ec-checkbox__label ec-checkbox__label--has-error"
-    for="ec-checkbox-7"
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
   >
-    <!---->
-  </label>
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-7"
+    >
+      
+    </label>
+  </div>
    
   <div
     class="ec-checkbox__error-text"
     id="ec-checkbox-error-7"
   >
-    
-    
     Test error message slot
   </div>
 </div>
 `;
 
-exports[`EcCheckbox #slots #labelMessage - should render the label message slot if passed 1`] = `
+exports[`EcCheckbox #slots #label - should render the label slot if passed 1`] = `
 <div
   class="ec-checkbox"
 >
@@ -39,16 +47,54 @@ exports[`EcCheckbox #slots #labelMessage - should render the label message slot 
     type="checkbox"
   />
    
-  <label
-    class="ec-checkbox__label"
-    for="ec-checkbox-9"
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
   >
-    <span>
-      
-      
-      Test label message slot
+    <span
+      class="ec-checkbox__check-icon-wrapper"
+    >
+      <!---->
     </span>
-  </label>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-9"
+    >
+      Test label message slot
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :disabled - should render the checkbox with a disabled attribute 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    disabled="disabled"
+    id="ec-checkbox-5"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--disabled"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-5"
+    >
+      
+    </label>
+  </div>
    
   <!---->
 </div>
@@ -65,25 +111,33 @@ exports[`EcCheckbox :props :errorMessage - should render the checkbox with an er
     type="checkbox"
   />
    
-  <label
-    class="ec-checkbox__label ec-checkbox__label--has-error"
-    for="ec-checkbox-3"
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
   >
-    <!---->
-  </label>
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-3"
+    >
+      
+    </label>
+  </div>
    
   <div
     class="ec-checkbox__error-text"
     id="ec-checkbox-error-3"
   >
-    
     Test error message prop
-    
   </div>
 </div>
 `;
 
-exports[`EcCheckbox :props :labelMessage - should render the checkbox with a label 1`] = `
+exports[`EcCheckbox :props :label - should render the checkbox with a label 1`] = `
 <div
   class="ec-checkbox"
 >
@@ -93,58 +147,54 @@ exports[`EcCheckbox :props :labelMessage - should render the checkbox with a lab
     type="checkbox"
   />
    
-  <label
-    class="ec-checkbox__label"
-    for="ec-checkbox-1"
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
   >
-    <span>
-      
-      Test label message prop
-      
+    <span
+      class="ec-checkbox__check-icon-wrapper"
+    >
+      <!---->
     </span>
-  </label>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-1"
+    >
+      Test label prop
+    </label>
+  </div>
    
   <!---->
 </div>
 `;
 
-exports[`EcCheckbox :props :large - should render a large checkbox 1`] = `
+exports[`EcCheckbox attrs should have aria-label 1`] = `
 <div
   class="ec-checkbox"
 >
   <input
+    aria-label="Random label"
     class="ec-checkbox__input"
-    id="ec-checkbox-5"
+    id="ec-checkbox-15"
     type="checkbox"
   />
    
-  <label
-    class="ec-checkbox__label ec-checkbox__label--large"
-    for="ec-checkbox-5"
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
   >
-    <!---->
-  </label>
-   
-  <!---->
-</div>
-`;
-
-exports[`EcCheckbox v-model should render the checkbox and toggle v-model value when we click on input 1`] = `
-<div
-  class="ec-checkbox"
->
-  <input
-    class="ec-checkbox__input"
-    id="ec-checkbox-14"
-    type="checkbox"
-  />
-   
-  <label
-    class="ec-checkbox__label"
-    for="ec-checkbox-14"
-  >
-    <!---->
-  </label>
+    <span
+      class="ec-checkbox__check-icon-wrapper"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-15"
+    >
+      
+    </label>
+  </div>
    
   <!---->
 </div>

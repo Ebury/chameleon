@@ -2,40 +2,67 @@
   <div class="ec-checkbox">
     <input
       :id="id"
+      ref="checkboxInput"
       v-model="inputModel"
       :aria-describedby="errorId"
       type="checkbox"
       class="ec-checkbox__input"
       :disabled="disabled"
+      v-bind="$attrs"
+      @focus="inputIsFocused = true"
+      @blur="inputIsFocused = false"
+      v-on="$listeners"
     >
-    <label
-      :for="id"
-      class="ec-checkbox__label"
-      :class="{
-        'ec-checkbox__label--has-error': isInvalid || $slots['error-message'],
-        'ec-checkbox__label--large': large
-      }"
-    >
-      <span v-if="labelMessage || $slots['label-message']">
-        {{ labelMessage }}
-        <slot name="label-message" />
+
+    <div class="ec-checkbox__label-checkbox-wrapper ">
+      <span
+        class="ec-checkbox__check-icon-wrapper"
+        :class="{
+          'ec-checkbox__check-icon-wrapper--focused': inputIsFocused,
+          'ec-checkbox__check-icon-wrapper--checked': inputModel,
+          'ec-checkbox__check-icon-wrapper--checked-and-focused': inputModel && inputIsFocused,
+          'ec-checkbox__check-icon-wrapper--error': (isInvalid || $slots['error-message']) && !inputModel,
+          'ec-checkbox__check-icon-wrapper--disabled': disabled,
+          'ec-checkbox__check-icon-wrapper--checked-and-disabled': disabled && inputModel,
+        }"
+        @click="$refs.checkboxInput.click()"
+      >
+        <ec-icon
+          v-if="inputModel"
+          class="ec-checkbox__check-icon"
+          name="simple-check"
+          :size="16"
+        />
       </span>
-    </label>
+
+      <label
+        :for="id"
+        class="ec-checkbox__label"
+      >
+        <slot name="label">{{ label }}</slot>
+      </label>
+    </div>
 
     <div
       :id="errorId"
       v-if="isInvalid || $slots['error-message']"
       class="ec-checkbox__error-text"
     >
-      {{ errorMessage }}
-      <slot name="error-message" />
+      <slot name="error-message">{{ errorMessage }}</slot>
     </div>
+
   </div>
 </template>
 
 <script>
+import EcIcon from '../ec-icon';
+
 export default {
   name: 'EcCheckbox',
+  components: {
+    EcIcon,
+  },
+  inheritAttrs: false,
   model: {
     prop: 'checked',
     event: 'checked-value-change',
@@ -44,7 +71,7 @@ export default {
     checked: {
       type: Boolean,
     },
-    labelMessage: {
+    label: {
       default: '',
       type: String,
     },
@@ -52,14 +79,15 @@ export default {
       default: '',
       type: String,
     },
-    large: {
-      default: false,
-      type: Boolean,
-    },
     disabled: {
       default: false,
       type: Boolean,
     },
+  },
+  data() {
+    return {
+      inputIsFocused: false,
+    };
   },
   computed: {
     id() {
@@ -87,126 +115,95 @@ export default {
 @import '../../scss/settings/index';
 @import '../../scss/tools/index';
 
-$ec-checkbox-white: $white !default;
-$ec-checkbox-tech-blue: $level-4-tech-blue !default;
-$ec-checkbox-level-4-interactive-elements: $level-4-interactive-elements !default;
-$ec-checkbox-level-3-hover: $level-3-hover !default;
-$ec-checkbox-border: $level-5-placeholders !default;
-$ec-checkbox-color-error: $color-error !default;
-$ec-checkbox-disabled-lines: $level-6-disabled-lines !default;
+$ec-checkbox-default-border-color: $level-4-interactive-elements !default;
+$ec-checkbox-default-background-color: $white !default;
+$ec-checkbox-checked-background-color: $level-4-tech-blue !default;
+$ec-checkbox-checked-background-hover-color: $level-3-hover !default;
+$ec-checkbox-error-color: $color-error !default;
+$ec-checkbox-disabled-color: $level-6-disabled-lines !default;
 
 .ec-checkbox {
   &__input {
     @include ec-screen-reader-only;
   }
 
+  &__label-checkbox-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
   &__label {
     @include input-text-bold;
+  }
 
-    position: relative;
-    padding-left: 24px;
+  &__check-icon-wrapper {
     cursor: pointer;
+    background: $ec-checkbox-default-background-color;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    border: 2px solid $ec-checkbox-default-border-color;
+    position: relative;
+    margin-right: 8px;
 
-    .ec-checkbox__input:disabled:hover ~ & {
-      cursor: default;
-    }
+    @include checkbox-border-radius;
 
-    &:before {
-      background: $ec-checkbox-white;
-      border: 2px solid $ec-checkbox-level-4-interactive-elements;
-      width: 16px;
-      height: 16px;
-      left: 0;
-      top: 0;
-      cursor: pointer;
-
-      @include checkbox-border-radius;
-
-      .ec-checkbox__input:checked ~ & {
-        background: $ec-checkbox-tech-blue;
-        border: $ec-checkbox-tech-blue;
-      }
-
-      .ec-checkbox__input:disabled ~ &,
-      .ec-checkbox__input:disabled:hover ~ & {
-        cursor: default;
-        border-color: $ec-checkbox-disabled-lines;
-      }
-
-      .ec-checkbox__input:disabled:checked ~ &,
-      .ec-checkbox__input:disabled:checked:hover ~ & {
-        background-color: $ec-checkbox-disabled-lines;
-      }
-
-      .ec-checkbox__input:hover:checked ~ &,
-      .ec-checkbox__input:focus:checked ~ & {
-        background-color: $ec-checkbox-level-3-hover;
-      }
-    }
-
-    &:after {
-      display: none;
-      width: 5px;
-      height: 10px;
-      left: 6px;
-      top: 2px;
-      position: absolute;
-      transform: rotate(45deg);
-      border-style: solid;
-      border-color: $white;
-      border-width: 0 2px 2px 0;
-      content: '';
-
-      .ec-checkbox__input:checked ~ & {
-        display: block;
-      }
-    }
-
-    &:before,
-    &:after {
-      position: absolute;
-      display: inline-block;
-      content: '';
-    }
-
+    &--focused,
     &:hover {
-      &:before {
-        border-color: $ec-checkbox-level-3-hover;
+      border-color: $ec-checkbox-checked-background-hover-color;
+    }
+
+    &--checked {
+      border-color: $ec-checkbox-checked-background-color;
+      background-color: $ec-checkbox-checked-background-color;
+
+      &:hover {
+        background-color: $ec-checkbox-checked-background-hover-color;
       }
     }
 
-    &--large {
-      padding: 4px 0 4px 32px;
+    &--checked-and-focused {
+      border-color: $ec-checkbox-checked-background-hover-color;
+      background-color: $ec-checkbox-checked-background-hover-color;
+    }
 
-      &:before {
-        width: 24px;
-        height: 24px;
-      }
+    &--disabled {
+      border-color: $ec-checkbox-disabled-color;
+      cursor: default;
 
-      &:after {
-        width: 8px;
-        height: 13px;
-        top: 3px;
-        left: 8px;
+      &:hover,
+      &:focus {
+        border-color: $ec-checkbox-disabled-color;
       }
     }
 
-    &--has-error {
-      &:before {
-        border-color: $ec-checkbox-color-error;
+    &--checked-and-disabled {
+      background: $ec-checkbox-disabled-color;
 
-        .ec-checkbox__input:hover ~ &,
-        .ec-checkbox__input:focus ~ & {
-          border-color: $ec-checkbox-color-error;
-        }
+      &:hover,
+      &:focus {
+        background: $ec-checkbox-disabled-color;
       }
     }
+
+    &--error {
+      border-color: $ec-checkbox-error-color;
+    }
+  }
+
+  &__check-icon {
+    fill: $ec-checkbox-default-background-color;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &__error-text {
     @include flags-text;
 
-    color: $ec-checkbox-color-error;
+    color: $ec-checkbox-error-color;
   }
 }
+
 </style>
