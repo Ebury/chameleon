@@ -81,6 +81,7 @@ export default {
 
 $ec-input-field-primary-color: $level-4-tech-blue !default;
 $ec-input-field-border: $level-5-placeholders !default;
+$ec-input-background-disabled: $level-7-backgrounds !default;
 
 .ec-input-field {
   width: 100%;
@@ -105,6 +106,10 @@ $ec-input-field-border: $level-5-placeholders !default;
     &:focus {
       border: 1px solid $ec-input-field-primary-color;
       outline: none;
+    }
+
+    &:disabled {
+      background: $ec-input-background-disabled;
     }
   }
 
