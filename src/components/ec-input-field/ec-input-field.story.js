@@ -93,10 +93,8 @@ stories
               </ec-input-field>
             </div>
           </div>
-<<<<<<< HEAD
+        </div>
 
-=======
-        </div>  
         <div class="ec-grid__row">
           <div class="ec-col-6">
               <div class="ec-m--24">
@@ -107,12 +105,11 @@ stories
             <div class="ec-col-6">
               <div class="ec-m--24">
                 <ec-input-field disabled placeholder="My input disabled" v-model="valueDate" label="Input disabled" error-message="Disabled with error">
-               </ec-input-field>
+                </ec-input-field>
               </div>
             </div>
->>>>>>> 42ae39d7097e2da596551977ba25fc14115ccf30
         </div>
-         
+
         <div class="ec-grid__row">
           <div class="ec-col-3">
             Model value number: {{ valueNumber }}
