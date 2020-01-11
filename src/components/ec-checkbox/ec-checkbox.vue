@@ -133,7 +133,7 @@ $ec-checkbox-disabled-color: $level-6-disabled-lines !default;
   }
 
   &__label {
-    @include input-text-bold;
+    @include input-label;
   }
 
   &__check-icon-wrapper {

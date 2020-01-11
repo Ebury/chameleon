@@ -114,7 +114,7 @@ $ec-input-background-disabled: $level-7-backgrounds !default;
   }
 
   &__label {
-    @include input-text-bold;
+    @include input-label;
   }
 
   &__error-text {
