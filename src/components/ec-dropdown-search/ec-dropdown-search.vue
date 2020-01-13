@@ -156,7 +156,7 @@ export default {
             fn: /* istanbul ignore next */ (data) => {
               const overflowContainer = this.$refs.itemsOverflowContainer;
               const items = this.$refs.itemElements;
-              if (items.length > this.maxVisibleItems) {
+              if (items && items.length > this.maxVisibleItems) {
                 let finalHeight = this.$refs.searchArea ? this.$refs.searchArea.offsetHeight : 0;
                 const visibleItems = Array.prototype.slice.call(items, 0, this.maxVisibleItems);
                 finalHeight = visibleItems.reduce((sum, curr) => sum + curr.offsetHeight, finalHeight);
