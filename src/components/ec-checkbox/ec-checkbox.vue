@@ -21,7 +21,7 @@
           'ec-checkbox__check-icon-wrapper--focused': inputIsFocused,
           'ec-checkbox__check-icon-wrapper--checked': inputModel,
           'ec-checkbox__check-icon-wrapper--checked-and-focused': inputModel && inputIsFocused,
-          'ec-checkbox__check-icon-wrapper--error': (isInvalid || $slots['error-message']) && !inputModel,
+          'ec-checkbox__check-icon-wrapper--error': isInvalid && !inputModel,
           'ec-checkbox__check-icon-wrapper--disabled': disabled,
           'ec-checkbox__check-icon-wrapper--checked-and-disabled': disabled && inputModel,
         }"
@@ -45,7 +45,7 @@
 
     <div
       :id="errorId"
-      v-if="isInvalid || $slots['error-message']"
+      v-if="isInvalid"
       class="ec-checkbox__error-text"
     >
       <slot name="error-message">{{ errorMessage }}</slot>

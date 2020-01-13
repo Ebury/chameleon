@@ -34,9 +34,9 @@ describe('EcCheckbox', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':errorMessage - should render the checkbox with an errorMessage', () => {
+    it(':error-message - should render the checkbox with an error message', () => {
       const wrapper = mountCheckbox({
-        errorMessage: 'Test error message prop',
+        'error-message': 'Test error message prop',
       });
 
       expect(wrapper.find('.ec-checkbox__error-text').exists()).toBe(true);
@@ -67,12 +67,44 @@ describe('EcCheckbox', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
+    it('#error-message - should render error-message slot instead of error-message prop when both are passed', () => {
+      const wrapper = mountCheckbox(
+        {
+          'error-message': 'Error message coming from props',
+        },
+        {
+          slots: {
+            'error-message': 'Error message coming from slot',
+          },
+        },
+      );
+
+      expect(wrapper.find('.ec-checkbox__error-text').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it('#label - should render the label slot if passed', () => {
       const wrapper = mountCheckbox(
         {},
         {
           slots: {
             label: 'Test label message slot',
+          },
+        },
+      );
+
+      expect(wrapper.find('.ec-checkbox__label').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('#label - should render label slot instead of label prop when both are passed', () => {
+      const wrapper = mountCheckbox(
+        {
+          label: 'Label message coming from props',
+        },
+        {
+          slots: {
+            label: 'Label message coming from slot',
           },
         },
       );
@@ -104,7 +136,7 @@ describe('EcCheckbox', () => {
   });
 
   describe('attrs', () => {
-    it('should have aria-label', () => {
+    it('should pass all non-prop attributes to the hidden checkbox input', () => {
       const wrapper = mountCheckbox(
         {
           'aria-label': 'Random label',

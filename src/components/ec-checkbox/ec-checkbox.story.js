@@ -64,7 +64,7 @@ stories
           v-model="checkbox1"
           :disabled="valueFromPropsDisabled"
           :label="valueFromPropsLabel"
-          :errorMessage="valueFromPropsErrorMessage">
+          :error-message="valueFromPropsErrorMessage">
         </ec-checkbox>
 
         <h3> Label and Error messages coming from template</h3>
@@ -128,7 +128,7 @@ stories
 
         <h3>Error</h3>
         <ec-checkbox class="ec-mb--24 ec-col-6"
-          :errorMessage="errorMessage">
+          :error-message="errorMessage">
           <template #label>
             I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
           </template>
@@ -136,7 +136,7 @@ stories
 
         <h3>Error - with multiline label text</h3>
         <ec-checkbox
-          :errorMessage="errorMessageMultiline"
+          :error-message="errorMessageMultiline"
           class="ec-mb--24 ec-col-6">
           <template #label>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.
