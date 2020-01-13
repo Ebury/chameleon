@@ -87,11 +87,11 @@
   color: $level-5-placeholders;
 }
 
-@mixin caption-text-bold {
+@mixin input-label {
   font-size: 14px;
   line-height: 20px;
   font-weight: bold;
-  color: $level-5-placeholders;
+  color: $level-3-body-and-headings;
 }
 
 @mixin ellipsis {

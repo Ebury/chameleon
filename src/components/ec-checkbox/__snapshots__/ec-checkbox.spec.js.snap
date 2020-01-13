@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcCheckbox #slots #error-message - should render error-message slot instead of error-message prop when both are passed 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    aria-describedby="ec-checkbox-error-9"
+    class="ec-checkbox__input"
+    id="ec-checkbox-9"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-9"
+    >
+      
+    </label>
+  </div>
+   
+  <div
+    class="ec-checkbox__error-text"
+    id="ec-checkbox-error-9"
+  >
+    Error message coming from slot
+  </div>
+</div>
+`;
+
+exports[`EcCheckbox #slots #errorMessage - should render the error message slot if passed 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    aria-describedby="ec-checkbox-error-7"
+    class="ec-checkbox__input"
+    id="ec-checkbox-7"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-7"
+    >
+      
+    </label>
+  </div>
+   
+  <div
+    class="ec-checkbox__error-text"
+    id="ec-checkbox-error-7"
+  >
+    Test error message slot
+  </div>
+</div>
+`;
+
+exports[`EcCheckbox #slots #label - should render label slot instead of label prop when both are passed 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    id="ec-checkbox-13"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-13"
+    >
+      Label message coming from slot
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox #slots #label - should render the label slot if passed 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    id="ec-checkbox-11"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-11"
+    >
+      Test label message slot
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :disabled - should render the checkbox with a disabled attribute 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    disabled="disabled"
+    id="ec-checkbox-5"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--disabled"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-5"
+    >
+      
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :error-message - should render the checkbox with an error message 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    aria-describedby="ec-checkbox-error-3"
+    class="ec-checkbox__input"
+    id="ec-checkbox-3"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-3"
+    >
+      
+    </label>
+  </div>
+   
+  <div
+    class="ec-checkbox__error-text"
+    id="ec-checkbox-error-3"
+  >
+    Test error message prop
+  </div>
+</div>
+`;
+
+exports[`EcCheckbox :props :label - should render the checkbox with a label 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-1"
+    >
+      Test label prop
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox attrs should pass all non-prop attributes to the hidden checkbox input 1`] = `
+<div
+  class="ec-checkbox"
+>
+  <input
+    aria-label="Random label"
+    class="ec-checkbox__input"
+    id="ec-checkbox-19"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper "
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper"
+    >
+      <!---->
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      for="ec-checkbox-19"
+    >
+      
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;

@@ -95,11 +95,11 @@ $ec-input-background-disabled: $level-7-backgrounds !default;
     width: inherit;
 
     &--has-error {
-      border: 1px solid $color-error-hover;
+      border: 1px solid $color-error;
 
       &:hover,
       &:focus {
-        border: 1px solid $color-error-hover;
+        border: 1px solid $color-error;
       }
     }
 
@@ -114,13 +114,13 @@ $ec-input-background-disabled: $level-7-backgrounds !default;
   }
 
   &__label {
-    @include caption-text-bold;
+    @include input-label;
   }
 
   &__error-text {
     @include flags-text;
 
-    color: $color-error-hover;
+    color: $color-error;
   }
 }
 </style>
