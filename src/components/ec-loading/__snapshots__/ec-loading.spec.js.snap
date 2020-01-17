@@ -53,3 +53,24 @@ exports[`EcLoading should render the given slot 1`] = `
   </p>
 </div>
 `;
+
+exports[`EcLoading should render the loading with a given icon size when the prop size is set to not 48 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__content"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="30"
+      width="30"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+</div>
+`;

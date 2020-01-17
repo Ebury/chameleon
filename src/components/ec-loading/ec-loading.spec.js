@@ -31,6 +31,11 @@ describe('EcLoading', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render the loading with a given icon size when the prop size is set to not 48', () => {
+    const wrapper = mountLoading({ size: 30 });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render the given slot', () => {
     const wrapper = mountLoading({}, {
       slots: {

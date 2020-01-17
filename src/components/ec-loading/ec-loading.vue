@@ -6,7 +6,7 @@
     >
       <ec-icon
         name="simple-loading"
-        :size="48"
+        :size="size"
         class="ec-loading__icon"
       />
     </div>
@@ -26,6 +26,10 @@ export default {
     show: {
       type: Boolean,
       required: true,
+    },
+    size: {
+      type: Number,
+      default: 48,
     },
   },
 };

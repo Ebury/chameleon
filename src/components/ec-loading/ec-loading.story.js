@@ -1,5 +1,6 @@
 import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
+import { number } from '@storybook/addon-knobs';
 import EcLoading from './ec-loading.vue';
 import { DARK_THEME } from '../../../.storybook/backgrounds';
 
@@ -31,6 +32,11 @@ stories.add('with dark background', () => ({
         show: true,
       };
     },
+    props: {
+      size: {
+        default: number('size', 48),
+      },
+    },
     methods: {
       clickBtn() {
         action('Button clicked')();
@@ -39,7 +45,7 @@ stories.add('with dark background', () => ({
     template: `
       <div>
         <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" @click="show = !show">{{ show ? 'Hide loading' : 'Show loading' }}</button>    
-        <ec-loading :show="show"> 
+        <ec-loading :show="show" :size="size"> 
           <div class="ec-card"> 
             <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" @click="clickBtn">Test action</button>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ullam architecto obcaecati, facere corrupti,
