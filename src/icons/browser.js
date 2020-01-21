@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import { loadSvgSprites } from './loader';
 
 export function inlineSvgSprites(spriteNames, publicPath) {

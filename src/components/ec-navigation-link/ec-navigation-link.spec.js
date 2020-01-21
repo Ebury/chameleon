@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import { mount } from '@vue/test-utils';
 import EcNavigationLink from '@/components/ec-navigation-link/ec-navigation-link.vue';
 import { withMockedConsole } from '../../../tests/utils/console';

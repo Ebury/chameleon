@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 const path = require('path');
 const SvgSpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 

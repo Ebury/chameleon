@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-plusplus */
 import { storiesOf } from '@storybook/vue';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';

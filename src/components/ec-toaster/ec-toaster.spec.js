@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import { mount } from '@vue/test-utils';
 import EcToaster from './ec-toaster.vue';
 

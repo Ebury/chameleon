@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcModal from './ec-modal.vue';
 
