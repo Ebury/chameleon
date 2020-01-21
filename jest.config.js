@@ -29,7 +29,9 @@ module.exports = {
   ],
   setupFiles: [
   ],
-  setupTestFrameworkScriptFile: '<rootDir>/tests/setup/after-env.js',
+  setupFilesAfterEnv: [
+    '<rootDir>/tests/setup/after-env.js',
+  ],
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
