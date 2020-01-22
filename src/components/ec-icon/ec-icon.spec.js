@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import { mount } from '@vue/test-utils';
 import EcIcon from './ec-icon.vue';
 import { withMockedConsole } from '../../../tests/utils/console';

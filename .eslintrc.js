@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  reportUnusedDisableDirectives: true,
   env: {
     node: true,
   },
@@ -9,10 +10,12 @@ module.exports = {
     '@vue/airbnb',
   ],
   rules: {
+    'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'max-len': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-param-reassign': ['error', { props: false }],
+    'no-plusplus': 'off', // we don't need this rule, we DO use semicolons!
     'no-restricted-syntax': 'off',
     'no-underscore-dangle': ['error', { allow: ['_uid'] }],
     'no-use-before-define': 'off',
