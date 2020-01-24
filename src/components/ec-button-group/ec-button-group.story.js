@@ -9,19 +9,19 @@ stories
     components: { EcButtonGroup },
     data() {
       return {
-        value: 'si',
+        value: 'yes',
       };
     },
     props: {
       items: {
         default: object('Items', [
-          { text: 'Yes', value: 'si', disabled: true },
-          { text: 'No', value: 'dsa' },
+          { text: 'Yes', value: 'yes', disabled: true },
+          { text: 'No', value: 'no' },
         ]),
       },
     },
     template: `
-      <ec-button-group v-model="value" :items="items" />
+      <ec-button-group class="ec-m--16 v-model="value" :items="items" />
     `,
   }))
   .add('all', () => ({
@@ -76,8 +76,8 @@ stories
             items: [
               { text: 'No', value: 'no', disabled: true },
               { text: 'Yes', value: 'yes' },
-              { text: 'No', value: 'random', disabled: true },
               { text: 'Maybe', value: 'maybe' },
+              { text: 'No', value: 'random', disabled: true },
               { text: 'No', value: 'random2', disabled: true },
             ],
           },

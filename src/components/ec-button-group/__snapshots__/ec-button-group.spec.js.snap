@@ -1,40 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcButtonGroup :props :items - should render the button group with three items with one disabled 1`] = `
-<div
-  class="ec-btn-group"
->
-  <button
-    class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
-  >
-    
-    Yes
-  
-  </button>
-  <button
-    class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
-    disabled="disabled"
-  >
-    
-    No
-  
-  </button>
-  <button
-    class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
-  >
-    
-    Maybe
-  
-  </button>
-</div>
-`;
-
 exports[`EcButtonGroup :props :items - should render the button group with two items all on outline 1`] = `
 <div
   class="ec-btn-group"
 >
   <button
     class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
+    data-test="ec-button-group__btn-0"
   >
     
     Yes
@@ -42,6 +14,7 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
   </button>
   <button
     class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
+    data-test="ec-button-group__btn-1"
   >
     
     No
@@ -56,6 +29,7 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
 >
   <button
     class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
+    data-test="ec-button-group__btn-0"
   >
     
     Yes
@@ -63,6 +37,7 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
   </button>
   <button
     class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
+    data-test="ec-button-group__btn-1"
     disabled="disabled"
   >
     

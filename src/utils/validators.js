@@ -1,12 +1,6 @@
-export const arrayOfObjectsContainsKey = (array, key) => {
+export const arrayOfObjectsContainsKey = (array, keys) => {
   if (!Array.isArray(array)) {
     return false;
   }
-  let isValid = true;
-  array.forEach((obj) => {
-    if (!Object.keys(obj).includes(key)) {
-      isValid = false;
-    }
-  });
-  return isValid;
+  return array.every(obj => keys.every(key => (key in obj)));
 };
