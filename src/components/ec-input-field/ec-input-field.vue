@@ -11,12 +11,23 @@
       class="ec-input-field__input"
       :class="{
         'ec-input-field__input--has-error': isInvalid,
+        'ec-input-field__input--has-icon': !!icon,
       }"
       v-bind="$attrs"
       :type="type"
       :aria-describedby="errorId"
       v-on="$listeners"
     >
+    <div
+      v-if="icon"
+      class="ec-input-field__icon-wrapper"
+    >
+      <ec-icon
+        class="ec-input-field__icon"
+        :name="icon"
+        :size="iconSize"
+      />
+    </div>
     <div
       :id="errorId"
       v-if="isInvalid"
@@ -26,8 +37,11 @@
 </template>
 
 <script>
+import EcIcon from '../ec-icon';
+
 export default {
   name: 'EcInputField',
+  components: { EcIcon },
   inheritAttrs: false,
   model: {
     prop: 'value',
@@ -51,6 +65,14 @@ export default {
     errorMessage: {
       default: '',
       type: String,
+    },
+    icon: {
+      type: String,
+      default: '',
+    },
+    iconSize: {
+      type: Number,
+      default: 20,
     },
   },
   computed: {
@@ -79,28 +101,39 @@ export default {
 @import '../../scss/settings/index';
 @import '../../scss/tools/index';
 
+$ec-input-field-text-color: $level-3-body-and-headings !default;
 $ec-input-field-primary-color: $level-4-tech-blue !default;
-$ec-input-field-border: $level-5-placeholders !default;
-$ec-input-background-disabled: $level-7-backgrounds !default;
+$ec-input-field-border-color: $level-5-placeholders !default;
+$ec-input-field-background-disabled: $level-7-backgrounds !default;
+$ec-input-field-icon-area-size: 42px !default;
+$ec-input-field-icon-color: $ec-input-field-text-color !default;
+$ec-input-field-invalid-color: $color-error !default;
 
 .ec-input-field {
   width: 100%;
+  position: relative;
 
   &__input {
     @include body-text;
     @include shape-border-radius;
 
+    color: $ec-input-field-text-color;
     padding: 8px 12px;
-    border: 1px solid $ec-input-field-border;
+    border: 1px solid $ec-input-field-border-color;
     width: inherit;
+    max-width: 100%;
 
     &--has-error {
-      border: 1px solid $color-error;
+      border: 1px solid $ec-input-field-invalid-color;
 
       &:hover,
       &:focus {
-        border: 1px solid $color-error;
+        border: 1px solid $ec-input-field-invalid-color;
       }
+    }
+
+    &--has-icon {
+      padding-right: $ec-input-field-icon-area-size;
     }
 
     &:focus {
@@ -109,7 +142,13 @@ $ec-input-background-disabled: $level-7-backgrounds !default;
     }
 
     &:disabled {
-      background: $ec-input-background-disabled;
+      background: $ec-input-field-background-disabled;
+    }
+
+    &:read-only,
+    &[readonly] {
+      // :read-only is not supported by IE https://developer.mozilla.org/en-US/docs/Web/CSS/:read-only
+      @include ellipsis;
     }
   }
 
@@ -120,7 +159,25 @@ $ec-input-background-disabled: $level-7-backgrounds !default;
   &__error-text {
     @include flags-text;
 
-    color: $color-error;
+    color: $ec-input-field-invalid-color;
+  }
+
+  &__icon-wrapper {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    height: $ec-input-field-icon-area-size;
+    width: $ec-input-field-icon-area-size;
+    color: $ec-input-field-icon-color;
+    fill: currentColor;
+    line-height: $ec-input-field-icon-area-size;
+    font-size: 0;
+    text-align: center;
+  }
+
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 </style>

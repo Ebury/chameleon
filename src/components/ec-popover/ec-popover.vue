@@ -1,5 +1,6 @@
 <template>
   <v-popover
+    ref="popover"
     v-bind="getOptions()"
     v-on="$listeners"
   >
@@ -46,6 +47,11 @@ export default {
         boundariesElement: 'viewport',
         ...this.$attrs,
       };
+    },
+    update: /* istanbul ignore next */ function update() {
+      if (this.$refs.popover && this.$refs.popover.popperInstance) {
+        this.$refs.popover.popperInstance.scheduleUpdate();
+      }
     },
   },
 };

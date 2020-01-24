@@ -4,8 +4,11 @@
     class="ec-dropdown-search"
   >
     <ec-popover
+      ref="popover"
+      class="ec-dropdown-search__trigger"
       v-bind="{
         open: isOpen,
+        disabled: disabled,
         placement: 'bottom',
         offset: 8,
         popoverInnerClass: 'ec-dropdown-search__popover',
@@ -39,6 +42,24 @@
               :placeholder="placeholder"
             >
           </li>
+          <li
+            ref="ctaArea"
+            v-if="hasCta()"
+            class="ec-dropdown-search__cta-area"
+            @click="hide"
+          >
+            <slot name="cta" />
+          </li>
+          <slot
+            v-if="isEmpty"
+            name="empty"
+            v-bind="{ noResultsText }"
+          >
+            <li
+              class="ec-dropdown-search__no-items"
+              :title="noResultsText"
+            >{{ noResultsText }}</li>
+          </slot>
           <slot
             name="items"
             v-bind="filteredItems"
@@ -99,7 +120,7 @@ export default {
       default: () => ([]),
     },
     selected: {
-      type: Object,
+      type: [Object, Array],
       default: null,
     },
     popoverOptions: {
@@ -117,6 +138,18 @@ export default {
     maxVisibleItems: {
       type: Number,
       default: 4,
+    },
+    keepOpen: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    noResultsText: {
+      type: String,
+      default: 'No results found',
     },
   },
   data() {
@@ -157,7 +190,14 @@ export default {
               const overflowContainer = this.$refs.itemsOverflowContainer;
               const items = this.$refs.itemElements;
               if (items && items.length > this.maxVisibleItems) {
-                let finalHeight = this.$refs.searchArea ? this.$refs.searchArea.offsetHeight : 0;
+                let finalHeight = 0;
+                if (this.$refs.searchArea) {
+                  finalHeight += this.$refs.searchArea.offsetHeight;
+                }
+                if (this.$refs.ctaArea) {
+                  finalHeight += this.$refs.ctaArea.offsetHeight;
+                }
+
                 const visibleItems = Array.prototype.slice.call(items, 0, this.maxVisibleItems);
                 finalHeight = visibleItems.reduce((sum, curr) => sum + curr.offsetHeight, finalHeight);
                 overflowContainer.style.maxHeight = `${finalHeight}px`;
@@ -184,6 +224,9 @@ export default {
         return itemText.includes(filterText);
       });
     },
+    isEmpty() {
+      return this.isSearchEnabled && this.filteredItems.length === 0;
+    },
   },
   methods: {
     hide() {
@@ -204,14 +247,23 @@ export default {
     },
     select(item) {
       this.$emit('change', item);
-      this.hide();
+      if (!this.keepOpen) {
+        this.hide();
+      } else {
+        // selecting an item might affect the position of the popover,
+        // e.g. new item moves the trigger down
+        this.$refs.popover.update();
+      }
+    },
+    hasCta() {
+      return !!this.$scopedSlots.cta;
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import '../../scss/tools/v-effects';
+@import '../../scss/tools/index';
 @import '../../scss/tools/typography';
 @import '../../scss/settings/colors/index';
 
@@ -230,9 +282,7 @@ $ec-dropdown-search-item-height: 40px !default;
 $ec-dropdown-search-item-delimiter-size: 1px !default;
 
 .ec-dropdown-search {
-  $item-vertical-padding: 16px;
-  $item-horizontal-padding: 8px;
-  $search-icon-margin-right: $item-horizontal-padding;
+  $search-icon-margin-right: $ec-dropdown-search-item-horizontal-padding;
 
   &__popover {
     @include box-shadow-level-1;
@@ -243,16 +293,32 @@ $ec-dropdown-search-item-delimiter-size: 1px !default;
     color: $ec-dropdown-search-color;
   }
 
+  &__trigger {
+    // this bit is not configurable in v-tooltip and it's very annoying to deal with
+    // for context:
+    // https://github.com/Akryum/v-tooltip/issues/160
+    // https://github.com/Akryum/v-tooltip/issues/363
+    //
+    // the issue is fixed in v3 alpha, we will remove this hack after updating
+    .trigger {
+      display: block !important;
+    }
+  }
+
   &__search-area {
-    border-bottom: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;
     position: relative;
     display: flex;
     align-items: center;
   }
 
+  &__search-area,
+  &__cta-area {
+    border-bottom: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;
+  }
+
   &__search-icon {
     position: absolute;
-    left: $item-vertical-padding;
+    left: $ec-dropdown-search-item-vertical-padding;
     top: ($ec-dropdown-search-item-height - $ec-dropdown-search-icon-size) / 2;
     width: $ec-dropdown-search-icon-size;
     height: $ec-dropdown-search-icon-size;
@@ -265,18 +331,25 @@ $ec-dropdown-search-item-delimiter-size: 1px !default;
     outline: 0;
     width: 100%;
     border: 0;
-    padding: $item-horizontal-padding $item-vertical-padding;
-    padding-left: $item-vertical-padding + $ec-dropdown-search-icon-size + $search-icon-margin-right;
+    padding: $ec-dropdown-search-item-horizontal-padding $ec-dropdown-search-item-vertical-padding;
+    padding-left: $ec-dropdown-search-item-vertical-padding + $ec-dropdown-search-icon-size + $search-icon-margin-right;
+  }
+
+  &__no-items {
+    @include ellipsis;
+    @include ec-dropdown-search-item;
   }
 
   &__item-list {
     overflow-y: auto;
+    position: relative;
   }
 
   &__item {
     @include ellipsis;
+    @include ec-dropdown-search-item;
 
-    padding: $item-horizontal-padding $item-vertical-padding;
+    min-height: $ec-dropdown-search-item-height + $ec-dropdown-search-item-delimiter-size;
 
     &:hover {
       cursor: pointer;
