@@ -25,7 +25,7 @@ export default {
     event: 'change',
   },
   props: {
-    value: {},
+    value: [Number, String, Boolean],
     items: {
       type: Array,
       required: true,
@@ -51,8 +51,12 @@ $ec-btn-primary-color: $level-4-tech-blue !default;
     border-right: 0;
   }
 
+  &__btn:disabled:not(:first-child) {
+    border-left: 1px solid $ec-btn-primary-color;
+  }
+
   &__btn:last-child {
-    border-radius: 0  32px  32px 0;
+    border-radius: 0 32px 32px 0;
   }
 }
 </style>

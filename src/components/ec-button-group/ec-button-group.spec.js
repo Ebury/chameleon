@@ -145,5 +145,74 @@ describe('EcButtonGroup', () => {
       expect(wrapper.find('.ec-btn--outline').text()).toBe('No');
       expect(wrapper.vm.value).toBe('yes');
     });
+
+    it('should render the button group and not change when click on the disabled item', () => {
+      const wrapper = mountButtonGroupAsTemplate(
+        '<ec-button-group v-model="value" :items="items"></ec-button-group>',
+        {},
+        {
+          data() {
+            return {
+              value: 'yes',
+              items: [
+                { text: 'Yes', value: 'yes' },
+                { text: 'No', value: 'no', disabled: true },
+              ],
+            };
+          },
+        },
+      );
+      expect(wrapper.vm.value).toBe('yes');
+      expect(wrapper.find('.ec-btn--outline').text()).toBe('No');
+      wrapper.find('.ec-btn--outline').trigger('click');
+      expect(wrapper.find('.ec-btn--outline').text()).toBe('No');
+      expect(wrapper.vm.value).toBe('yes');
+    });
+
+    it('should render the button group and change the model when click on the button with a number values', () => {
+      const wrapper = mountButtonGroupAsTemplate(
+        '<ec-button-group v-model="value" :items="items"></ec-button-group>',
+        {},
+        {
+          data() {
+            return {
+              value: 1,
+              items: [
+                { text: 'Yes', value: 1 },
+                { text: 'No', value: 2 },
+              ],
+            };
+          },
+        },
+      );
+      expect(wrapper.vm.value).toBe(1);
+      expect(wrapper.find('.ec-btn--outline').text()).toBe('No');
+      wrapper.find('.ec-btn--outline').trigger('click');
+      expect(wrapper.find('.ec-btn--outline').text()).toBe('Yes');
+      expect(wrapper.vm.value).toBe(2);
+    });
+
+    it('should render the button group and change the model when click on the button with a boolean values', () => {
+      const wrapper = mountButtonGroupAsTemplate(
+        '<ec-button-group v-model="value" :items="items"></ec-button-group>',
+        {},
+        {
+          data() {
+            return {
+              value: true,
+              items: [
+                { text: 'Yes', value: true },
+                { text: 'No', value: false },
+              ],
+            };
+          },
+        },
+      );
+      expect(wrapper.vm.value).toBe(true);
+      expect(wrapper.find('.ec-btn--outline').text()).toBe('No');
+      wrapper.find('.ec-btn--outline').trigger('click');
+      expect(wrapper.find('.ec-btn--outline').text()).toBe('Yes');
+      expect(wrapper.vm.value).toBe(false);
+    });
   });
 });
