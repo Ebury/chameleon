@@ -30,7 +30,7 @@ describe('EcInputField', () => {
     });
   }
 
-  it('validate given props', () => {
+  it('should validate given props', () => {
     withMockedConsole((errorSpy) => {
       mountInputField({ type: 'random' });
       expect(errorSpy).toHaveBeenCalledTimes(1);
@@ -38,7 +38,7 @@ describe('EcInputField', () => {
     });
   });
 
-  it('display properly with the given props', () => {
+  it('should display properly with the given props', () => {
     const wrapper = mountInputField();
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -58,7 +58,7 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('work the same listeners than in an input', () => {
+  it('works with the same listeners as the input', () => {
     const event = jest.fn();
     const wrapper = mountInputField(
       {},
@@ -104,5 +104,21 @@ describe('EcInputField', () => {
     wrapper.find('input').setValue('some text');
     expect(wrapper.vm.text).toBe('some text');
     expect(wrapper.find('input').element.value).toBe('some text');
+  });
+
+  it('should render given icon', () => {
+    const wrapper = mountInputField({ icon: 'simple-check' });
+    expect(wrapper.find('.ec-input-field__icon-wrapper').exists()).toBe(true);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render given icon with given size', () => {
+    const wrapper = mountInputField({ icon: 'simple-check', iconSize: 40 });
+    expect(wrapper.find('.ec-input-field__icon-wrapper').element).toMatchSnapshot();
+  });
+
+  it('should not render any icon if only the icon size is given', () => {
+    const wrapper = mountInputField({ iconSize: 40 });
+    expect(wrapper.find('.ec-input-field__icon-wrapper').exists()).toBe(false);
   });
 });

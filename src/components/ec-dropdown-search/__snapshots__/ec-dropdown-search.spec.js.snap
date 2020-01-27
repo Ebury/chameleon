@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcDropdownSearch filtering should display custom no results message if no item matches 1`] = `
+<li
+  class="ec-dropdown-search__no-items"
+  title="No custom items have been found"
+>
+  No custom items have been found
+</li>
+`;
+
+exports[`EcDropdownSearch filtering should display custom no results slot if no item matches 1`] = `
+<li
+  class="my-slot"
+>
+  <div>
+    Random message - No custom items have been found
+  </div>
+</li>
+`;
+
+exports[`EcDropdownSearch filtering should display no results message if no item matches 1`] = `
+<li
+  class="ec-dropdown-search__no-items"
+  title="No results found"
+>
+  No results found
+</li>
+`;
+
 exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
@@ -21,6 +49,10 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
       placeholder="Search..."
     />
   </li>
+   
+  <!---->
+   
+  <!---->
    
   <li
     class="ec-dropdown-search__item"
@@ -57,16 +89,65 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
 </ul>
 `;
 
+exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = `
+<ecpopover-stub
+  class="ec-dropdown-search__trigger"
+  disabled="true"
+  level=""
+  offset="8"
+  placement="bottom"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass="ec-dropdown-search__popover"
+  popperoptions="[object Object]"
+>
+   
+  <div>
+    <ul
+      class="ec-dropdown-search__item-list"
+    >
+      <li
+        class="ec-dropdown-search__search-area"
+      >
+        <svg
+          class="ec-dropdown-search__search-icon ec-icon"
+        >
+          <use
+            xlink:href="#ec-simple-search"
+          />
+        </svg>
+         
+        <input
+          autocomplete="off"
+          class="ec-dropdown-search__search-input"
+          placeholder="Search..."
+        />
+      </li>
+       
+      <!---->
+       
+      <li
+        class="ec-dropdown-search__no-items"
+        title="No results found"
+      >
+        No results found
+      </li>
+       
+    </ul>
+  </div>
+</ecpopover-stub>
+`;
+
 exports[`EcDropdownSearch should merge given popoverOptions 1`] = `
 "Snapshot Diff:
 - First value
 + Second value
 
-@@ -1,12 +1,12 @@
-  <div
+@@ -2,12 +2,12 @@
     class=\\"ec-dropdown-search\\"
   >
     <ecpopover-stub
+      class=\\"ec-dropdown-search__trigger\\"
       level=\\"\\"
 -     offset=\\"8\\"
 -     placement=\\"bottom\\"
@@ -84,9 +165,9 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -33,12 +33,12 @@
-            />
-          </li>
+@@ -38,12 +38,12 @@
+           
+          <!---->
            
           <li
             class=\\"ec-dropdown-search__item ec-dropdown-search__item--is-disabled\\"
@@ -129,6 +210,10 @@ exports[`EcDropdownSearch should render all given items 1`] = `
     />
   </li>
    
+  <!---->
+   
+  <!---->
+   
   <li
     class="ec-dropdown-search__item"
     title="Item 1"
@@ -169,6 +254,7 @@ exports[`EcDropdownSearch should render as expected 1`] = `
   class="ec-dropdown-search"
 >
   <ecpopover-stub
+    class="ec-dropdown-search__trigger"
     level=""
     offset="8"
     placement="bottom"
@@ -200,6 +286,100 @@ exports[`EcDropdownSearch should render as expected 1`] = `
           />
         </li>
          
+        <!---->
+         
+        <li
+          class="ec-dropdown-search__no-items"
+          title="No results found"
+        >
+          No results found
+        </li>
+         
+      </ul>
+    </div>
+  </ecpopover-stub>
+</div>
+`;
+
+exports[`EcDropdownSearch should render given cta slot 1`] = `
+<div
+  class="ec-dropdown-search"
+>
+  <ecpopover-stub
+    class="ec-dropdown-search__trigger"
+    level=""
+    offset="8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass="ec-dropdown-search__popover"
+    popperoptions="[object Object]"
+  >
+     
+    <div>
+      <ul
+        class="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-dropdown-search__search-icon ec-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+           
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+         
+        <li
+          class="ec-dropdown-search__cta-area"
+        >
+          <button>
+            My CTA
+          </button>
+        </li>
+         
+        <!---->
+         
+        <li
+          class="ec-dropdown-search__item"
+          title="Item 1"
+        >
+          Item 1
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          title="Item 2"
+        >
+          Item 2
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          title="Item 3"
+        >
+          Item 3
+        </li>
+        <li
+          class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+          mocked-tooltip-content="Random text"
+          mocked-tooltip-placement="right"
+          title="Item 4"
+        >
+          Item 4
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          title="Item 5"
+        >
+          Item 5
+        </li>
       </ul>
     </div>
   </ecpopover-stub>
@@ -211,6 +391,7 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
   class="ec-dropdown-search"
 >
   <ecpopover-stub
+    class="ec-dropdown-search__trigger"
     level=""
     offset="8"
     placement="bottom"
@@ -247,6 +428,15 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
           />
         </li>
          
+        <!---->
+         
+        <li
+          class="ec-dropdown-search__no-items"
+          title="No results found"
+        >
+          No results found
+        </li>
+         
       </ul>
     </div>
   </ecpopover-stub>
@@ -258,6 +448,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
   class="ec-dropdown-search"
 >
   <ecpopover-stub
+    class="ec-dropdown-search__trigger"
     level=""
     offset="8"
     placement="bottom"
@@ -288,6 +479,10 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
             placeholder="Search..."
           />
         </li>
+         
+        <!---->
+         
+        <!---->
          
         <li
           class="ec-dropdown-search__item"
@@ -357,6 +552,7 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
   class="ec-dropdown-search"
 >
   <ecpopover-stub
+    class="ec-dropdown-search__trigger"
     level=""
     offset="8"
     placement="bottom"
@@ -387,6 +583,10 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
             placeholder="Search..."
           />
         </li>
+         
+        <!---->
+         
+        <!---->
          
         <li>
           Items: 

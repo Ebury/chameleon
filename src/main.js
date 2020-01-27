@@ -4,6 +4,7 @@ export { default as EcCheckbox } from './components/ec-checkbox';
 export { default as EcClosePopover } from './directives/ec-close-popover';
 export { default as EcContainer } from './components/ec-container';
 export { default as EcDonut } from './components/ec-donut';
+export { default as EcDropdown } from './components/ec-dropdown';
 export { default as EcDropdownSearch } from './components/ec-dropdown-search';
 export { default as EcFocusTrap } from './directives/ec-focus-trap';
 export { default as EcIcon } from './components/ec-icon';

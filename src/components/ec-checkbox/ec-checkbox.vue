@@ -134,6 +134,9 @@ $ec-checkbox-disabled-color: $level-6-disabled-lines !default;
 
   &__label {
     @include input-label;
+
+    flex-grow: 1;
+    min-width: 0;
   }
 
   &__check-icon-wrapper {

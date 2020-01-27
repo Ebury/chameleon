@@ -35,6 +35,15 @@ stories.add('basic', () => ({
     maxVisibleItems: {
       default: number('maxVisibleItems', 3),
     },
+    disabled: {
+      default: boolean('disabled', false),
+    },
+    keepOpen: {
+      default: boolean('keepOpen', false),
+    },
+    noResultsText: {
+      default: text('noResultsText', 'No results found'),
+    },
   },
   methods: {
     onItemSelected: action('Item selected'),
@@ -44,10 +53,8 @@ stories.add('basic', () => ({
       <p v-if="selectedItem">Selected item: {{ selectedItem.text }}</p>
       <p v-else>Selected item: None</p>
       <ec-dropdown-search
-        :items="items"
+        v-bind="$props"
         :popover-options="{ placement: 'bottom-end' }"
-        :is-search-enabled="isSearchEnabled"
-        :max-visible-items="maxVisibleItems"
         v-model="selectedItem"
         @change="onItemSelected">
         <a href="#" @click.prevent>

@@ -92,6 +92,18 @@ describe('EcDropdownSearch', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render given cta slot', () => {
+    const wrapper = mountDropdownSearch({
+      items,
+    }, {
+      scopedSlots: {
+        cta: '<button>My CTA</button>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render all given items', () => {
     const wrapper = mountDropdownSearch({ items });
     expect(wrapper.find('.ec-dropdown-search__item-list').element).toMatchSnapshot();
@@ -110,6 +122,11 @@ describe('EcDropdownSearch', () => {
   it('should use the placeholder for search input if given', () => {
     const wrapper = mountDropdownSearch({ placeholder: 'Random text' });
     expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
+  });
+
+  it('should disable the popover when disabled is set', () => {
+    const wrapper = mountDropdownSearch({ disabled: true });
+    expect(wrapper.find('ecpopover-stub').element).toMatchSnapshot();
   });
 
   it('should use and update the v-model', () => {
@@ -247,6 +264,32 @@ describe('EcDropdownSearch', () => {
       wrapper.find('.ec-dropdown-search__search-input').setValue('č');
       expect(getItemTexts(wrapper)).toEqual(['Item ABČ', 'Item BČD', 'Item cdf']);
     });
+
+    it('should display no results message if no item matches', () => {
+      const wrapper = mountDropdownSearch({ items: itemsToFilter });
+      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      wrapper.find('.ec-dropdown-search__search-input').setValue('dkasldklsakdlsakdlas');
+      expect(getItemTexts(wrapper)).toEqual([]);
+      expect(wrapper.find('.ec-dropdown-search__no-items').element).toMatchSnapshot();
+    });
+
+    it('should display custom no results message if no item matches', () => {
+      const wrapper = mountDropdownSearch({ items: [], noResultsText: 'No custom items have been found' });
+      expect(wrapper.find('.ec-dropdown-search__no-items').element).toMatchSnapshot();
+    });
+
+    it('should display custom no results slot if no item matches', () => {
+      const wrapper = mountDropdownSearch({
+        items: [],
+        noResultsText: 'No custom items have been found',
+      }, {
+        scopedSlots: {
+          empty: '<li class="my-slot"><div>Random message - {{ props.noResultsText }}</div></li>',
+        },
+      });
+      expect(wrapper.find('.my-slot').element).toMatchSnapshot();
+    });
   });
 
   describe('events', () => {
@@ -277,6 +320,23 @@ describe('EcDropdownSearch', () => {
       expect(document.activeElement).toBe(wrapper.find('.ec-dropdown-search__search-input').element);
 
       wrapper.destroy(); // because we attached the wrapper to document
+    });
+
+    it('should hide the popover after item has been selected', () => {
+      const wrapper = mountDropdownSearch({ items });
+      wrapper.findAll('.ec-dropdown-search__item').wrappers[1].trigger('click');
+      expect(wrapper.emitted('close').length).toBe(1);
+    });
+
+    it('should not hide the popover after item has been selected when keepOpen prop is set to true', () => {
+      const wrapper = mountDropdownSearch({ items, keepOpen: true });
+
+      const popoverUpdateStub = jest.fn();
+      wrapper.find('ecpopover-stub').vm.update = popoverUpdateStub;
+
+      wrapper.findAll('.ec-dropdown-search__item').wrappers[1].trigger('click');
+      expect(wrapper.emitted('close')).toBeUndefined();
+      expect(popoverUpdateStub).toHaveBeenCalledTimes(1);
     });
   });
 });
