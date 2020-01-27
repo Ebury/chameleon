@@ -77,7 +77,7 @@ describe('EcDropdown', () => {
       expect(wrapper.find('.ec-dropdown-search__search-area').exists()).toBe(false);
     });
 
-    describe('props', () => {
+    describe(':props', () => {
       it('should not render any label if prop is not given', () => {
         const wrapper = mountDropdownSingleValue({ label: '' });
         expect(wrapper.find('.ec-input-field__label').exists()).toBe(false);
@@ -119,7 +119,7 @@ describe('EcDropdown', () => {
       });
     });
 
-    describe('slots', () => {
+    describe('#slots', () => {
       it('should forward item slot', () => {
         const wrapper = mountDropdownSingleValue({
           items,
@@ -176,7 +176,7 @@ describe('EcDropdown', () => {
       });
     });
 
-    describe('events', () => {
+    describe('@events', () => {
       it('should emit change event when an item is selected', () => {
         const wrapper = mountDropdownSingleValue({ items });
         selectItem(wrapper, 1);
@@ -215,7 +215,7 @@ describe('EcDropdown', () => {
       expect(wrapper1.element).toMatchDiffSnapshot(wrapper2.element);
     });
 
-    describe('props', () => {
+    describe(':props', () => {
       it('should not render any label if prop is not given', () => {
         const wrapper = mountDropdownMultipleValue({ label: '' });
         expect(wrapper.find('.ec-input-field__label').exists()).toBe(false);
@@ -257,7 +257,7 @@ describe('EcDropdown', () => {
       });
     });
 
-    describe('slots', () => {
+    describe('#slots', () => {
       it('should forward item slot', () => {
         const wrapper = mountDropdownMultipleValue({
           items,
@@ -339,7 +339,7 @@ describe('EcDropdown', () => {
       });
     });
 
-    describe('events', () => {
+    describe('@events', () => {
       it('should emit change event when an item is selected', () => {
         const wrapper = mountDropdownMultipleValue({ items });
         selectItem(wrapper, 1);
