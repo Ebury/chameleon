@@ -1,0 +1,6 @@
+$ec-dropdown-search-item-vertical-padding: 16px !default;
+$ec-dropdown-search-item-horizontal-padding: 8px !default;
+
+@mixin ec-dropdown-search-item {
+  padding: $ec-dropdown-search-item-horizontal-padding $ec-dropdown-search-item-vertical-padding;
+}
