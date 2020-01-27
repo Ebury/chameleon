@@ -103,7 +103,7 @@ export default {
 
 $ec-input-field-text-color: $level-3-body-and-headings !default;
 $ec-input-field-primary-color: $level-4-tech-blue !default;
-$ec-input-field-border-color: $level-5-placeholders !default;
+$ec-input-field-border-color: $level-6-disabled-lines !default;
 $ec-input-field-background-disabled: $level-7-backgrounds !default;
 $ec-input-field-icon-area-size: 42px !default;
 $ec-input-field-icon-color: $ec-input-field-text-color !default;
