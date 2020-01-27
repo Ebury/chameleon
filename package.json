@@ -5,6 +5,11 @@
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
   "license": "MIT",
+  "homepage": "https://chameleon.ebury.now.sh/",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ebury/chameleon.git"
+  },
   "engines": {
     "node": "12.x"
   },
