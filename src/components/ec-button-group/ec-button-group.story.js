@@ -21,7 +21,7 @@ stories
       },
     },
     template: `
-      <ec-button-group class="ec-m--16 v-model="value" :items="items" />
+      <ec-button-group class="ec-m--16" v-model="value" :items="items" />
     `,
   }))
   .add('all', () => ({

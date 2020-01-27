@@ -23,14 +23,17 @@ describe('Utils', () => {
       [['text'], [obj1, obj2], true],
       [['value'], [obj1, obj3], true],
       [['name'], [obj2, obj3], true],
-      [['name'], [], true],
+      [['text', 'name'], [obj1, obj1], true],
+      [[], [obj1, obj2, obj3], false],
+      [undefined, [obj1, obj2, obj3], false],
+      [['name'], [], false],
       [['name'], undefined, false],
       [['name'], 'array', false],
       [['name'], {}, false],
       [['name'], true, false],
       [['name'], 13, false],
       [['name'], null, false],
-    ])('should validate if the property "%s" is in all the objects in the array', (str, array, expected) => {
+    ])('should validate if the property "%s" is in all the objects(%s) in the array', (str, array, expected) => {
       expect(arrayOfObjectsContainsKey(array, str)).toEqual(expected);
     });
   });

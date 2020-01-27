@@ -73,19 +73,6 @@ describe('EcButtonGroup', () => {
         expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "items"');
       });
     });
-
-    it(':items - should throw an error when one or more items doesn\'t have value and text property', () => {
-      withMockedConsole((errorSpy) => {
-        mountButtonGroup({
-          items: [
-            { value: 'yes' },
-            { text: 'Maybe' },
-          ],
-        });
-        expect(errorSpy).toHaveBeenCalled();
-        expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "items"');
-      });
-    });
   });
 
   describe('v-model', () => {
