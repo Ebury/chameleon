@@ -32,13 +32,18 @@ storiesOf('Panel', module)
 
         <ec-panel v-model="show">
           <template #header>
-            <h2 class="ec-mb--24">Submit New Request</h2>
+            <h2 class="ec-mb--24">Lorem, ipsum dolor sit amet</h2>
           </template>
+
           <template #main>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae</p>
 
             <div v-if="withOverflowingContent">
               <p v-for="i in 10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae</p>
+            </div>
+
+            <div class="ec-mt--36" style="text-align: center;">
+              <a href="#" class="ec-btn ec-btn--primary ec-btn--rounded ec-btn--md">Lorem, ipsum</a>
             </div>
           </template>
         </ec-panel>
