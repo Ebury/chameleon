@@ -9,6 +9,7 @@
     data-test="ec-dropdown"
     :keep-open="multiple"
     :disabled="disabled"
+    :level="level"
     @change="onSelected"
   >
     <ec-input-field
@@ -92,6 +93,12 @@ export default {
     label: {
       type: String,
       default: '',
+    },
+    level: {
+      type: String,
+      validator(value) {
+        return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
+      },
     },
     errorMessage: {
       type: String,
