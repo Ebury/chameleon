@@ -92,6 +92,7 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
 exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = `
 <ecpopover-stub
   class="ec-dropdown-search__trigger"
+  data-test="ec-popover-dropdown-search"
   disabled="true"
   level=""
   offset="8"
@@ -143,11 +144,11 @@ exports[`EcDropdownSearch should merge given popoverOptions 1`] = `
 - First value
 + Second value
 
-@@ -2,12 +2,12 @@
-    class=\\"ec-dropdown-search\\"
+@@ -3,12 +3,12 @@
   >
     <ecpopover-stub
       class=\\"ec-dropdown-search__trigger\\"
+      data-test=\\"ec-popover-dropdown-search\\"
       level=\\"\\"
 -     offset=\\"8\\"
 -     placement=\\"bottom\\"
@@ -165,7 +166,7 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -38,12 +38,12 @@
+@@ -39,12 +39,12 @@
            
           <!---->
            
@@ -255,6 +256,7 @@ exports[`EcDropdownSearch should render as expected 1`] = `
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search"
     level=""
     offset="8"
     placement="bottom"
@@ -307,6 +309,7 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search"
     level=""
     offset="8"
     placement="bottom"
@@ -392,6 +395,7 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search"
     level=""
     offset="8"
     placement="bottom"
@@ -449,6 +453,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search"
     level=""
     offset="8"
     placement="bottom"
@@ -553,6 +558,7 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search"
     level=""
     offset="8"
     placement="bottom"

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcDropdownSearch', () => {
   const MockedEcTooltipDirective = {
@@ -54,6 +55,27 @@ describe('EcDropdownSearch', () => {
   it('should render as expected', () => {
     const wrapper = mountDropdownSearch();
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it.each([
+    ['modal', false],
+    ['tooltip', false],
+    ['notification', false],
+    ['level-1', false],
+    ['level-2', false],
+    ['level-3', false],
+    ['random', true],
+  ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
+    if (error) {
+      withMockedConsole((errorSpy) => {
+        mountDropdownSearch({ items, level: str });
+        expect(errorSpy).toHaveBeenCalledTimes(1);
+        expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+      });
+    } else {
+      const wrapper = mountDropdownSearch({ items, level: str });
+      expect(wrapper.findByDataTest('ec-popover-dropdown-search').attributes('level')).toBe(str);
+    }
   });
 
   it('should render given default slot', () => {

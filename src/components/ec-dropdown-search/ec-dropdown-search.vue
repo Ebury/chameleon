@@ -6,6 +6,7 @@
     <ec-popover
       ref="popover"
       class="ec-dropdown-search__trigger"
+      data-test="ec-popover-dropdown-search"
       v-bind="{
         open: isOpen,
         disabled: disabled,
@@ -13,6 +14,7 @@
         offset: 8,
         popoverInnerClass: 'ec-dropdown-search__popover',
         popperOptions,
+        level: level,
         ...popoverOptions,
       }"
       @hide="hide"
@@ -110,6 +112,12 @@ export default {
     placeholder: {
       type: String,
       default: 'Search...',
+    },
+    level: {
+      type: String,
+      validator(value) {
+        return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
+      },
     },
     isSearchEnabled: {
       type: Boolean,

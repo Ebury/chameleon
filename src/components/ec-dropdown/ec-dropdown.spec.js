@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcDropdown from './ec-dropdown.vue';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcDropdown', () => {
   const MockedEcPopover = Vue.extend({
@@ -81,6 +82,30 @@ describe('EcDropdown', () => {
       it('should not render any label if prop is not given', () => {
         const wrapper = mountDropdownSingleValue({ label: '' });
         expect(wrapper.find('.ec-input-field__label').exists()).toBe(false);
+      });
+
+      it.each([
+        ['modal', false],
+        ['tooltip', false],
+        ['notification', false],
+        ['level-1', false],
+        ['level-2', false],
+        ['level-3', false],
+        ['random', true],
+      ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
+        if (error) {
+          withMockedConsole((errorSpy) => {
+            mountDropdown({ items, level: str });
+            expect(errorSpy).toHaveBeenCalledTimes(2);
+            // this is the test for the dropdown
+            expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+            // this is the test for the
+            expect(errorSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+          });
+        } else {
+          const wrapper = mountDropdown({ items, level: str });
+          expect(wrapper.findByDataTest('ec-popover-dropdown-search').attributes('level')).toBe(str);
+        }
       });
 
       it('should pass label prop to the triggering input', () => {
