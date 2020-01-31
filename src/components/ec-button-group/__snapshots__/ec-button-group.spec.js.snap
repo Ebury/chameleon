@@ -7,6 +7,7 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
   <button
     class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
     data-test="ec-button-group__btn-0"
+    type="button"
   >
     
     Yes
@@ -15,6 +16,7 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
   <button
     class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
     data-test="ec-button-group__btn-1"
+    type="button"
   >
     
     No
@@ -30,6 +32,7 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
   <button
     class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
     data-test="ec-button-group__btn-0"
+    type="button"
   >
     
     Yes
@@ -39,6 +42,7 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
     class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn ec-btn--outline"
     data-test="ec-button-group__btn-1"
     disabled="disabled"
+    type="button"
   >
     
     No

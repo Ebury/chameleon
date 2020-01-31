@@ -9,6 +9,7 @@
         'ec-btn--outline': value !== item.value
       }"
       :disabled="item.disabled"
+      type="button"
       @click="$emit('change', item.value)"
     >
       {{ item.text }}
