@@ -6,7 +6,7 @@
 // ".ec-mt--8" , will give a top margin of 8px
 //
 // Similar classes will be created for the paddings
-$space-amounts: (0, 4, 8, 12, 16, 20, 24, 36); // Amend as you wish
+$space-amounts: (0, 4, 8, 12, 16, 20, 24, 36, 40); // Amend as you wish
 $sides: (top, bottom, left, right); // Don't Amend
 
 @each $space in $space-amounts {
