@@ -144,7 +144,7 @@ describe('EcDropdown', () => {
       });
 
       it('should not show the items when the loading is set to true', () => {
-        const wrapper = mountDropdownSingleValue({ isLoading: true });
+        const wrapper = mountDropdownSingleValue({ items, isLoading: true });
         expect(wrapper.element).toMatchSnapshot();
       });
     });
@@ -283,6 +283,11 @@ describe('EcDropdown', () => {
 
       it('should get disabled when disabled prop is set', () => {
         const wrapper = mountDropdownMultipleValue({ disabled: true });
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('should not show the items when the loading is set to true', () => {
+        const wrapper = mountDropdownMultipleValue({ items, isLoading: true });
         expect(wrapper.element).toMatchSnapshot();
       });
     });

@@ -231,27 +231,29 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
          
         <!---->
          
-        <div
-          class="ec-loading"
-        >
+        <li>
           <div
-            class="ec-loading__content"
+            class="ec-loading"
           >
-            <svg
-              class="ec-loading__icon ec-icon"
-              height="24"
-              width="24"
+            <div
+              class="ec-loading__content"
             >
-              <use
-                xlink:href="#ec-simple-loading"
-              />
-            </svg>
+              <svg
+                class="ec-loading__icon ec-icon"
+                height="24"
+                width="24"
+              >
+                <use
+                  xlink:href="#ec-simple-loading"
+                />
+              </svg>
+            </div>
+             
+            <div
+              class="ec-dropdown-search__loading"
+            />
           </div>
-           
-          <div
-            class="ec-dropdown-search__loading"
-          />
-        </div>
+        </li>
       </ul>
     </div>
   </ecpopover-stub>

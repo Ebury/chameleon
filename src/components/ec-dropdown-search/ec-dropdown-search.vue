@@ -62,13 +62,14 @@
               :title="noResultsText"
             >{{ noResultsText }}</li>
           </slot>
-          <ec-loading
-            v-if="isLoading"
-            show
-            :size="24"
-          >
-            <div class="ec-dropdown-search__loading" />
-          </ec-loading>
+          <li v-if="isLoading">
+            <ec-loading
+              show
+              :size="24"
+            >
+              <div class="ec-dropdown-search__loading" />
+            </ec-loading>
+          </li>
           <slot
             v-else
             name="items"
@@ -362,7 +363,7 @@ $ec-dropdown-search-item-delimiter-size: 1px !default;
   }
 
   &__loading {
-    height: 40px;
+    height: $ec-dropdown-search-item-height;
   }
 
   &__item-list {

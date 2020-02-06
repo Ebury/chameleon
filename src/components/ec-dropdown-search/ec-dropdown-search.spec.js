@@ -137,7 +137,7 @@ describe('EcDropdownSearch', () => {
   });
 
   it('should not show the items when the loading is set to true', () => {
-    const wrapper = mountDropdownSearch({ isLoading: true });
+    const wrapper = mountDropdownSearch({ items, isLoading: true });
     expect(wrapper.element).toMatchSnapshot();
   });
 
