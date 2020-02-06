@@ -62,7 +62,7 @@
               :title="noResultsText"
             >{{ noResultsText }}</li>
           </slot>
-          <li v-if="isLoading">
+          <li v-else-if="isLoading">
             <ec-loading
               show
               :size="24"

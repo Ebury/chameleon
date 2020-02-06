@@ -18,8 +18,6 @@ exports[`EcDropdown multiple value #slots should forward item slot 1`] = `
    
   <!---->
    
-  <!---->
-   
   <li
     class="ec-dropdown-search__item"
     title="Item 1"
@@ -138,8 +136,6 @@ exports[`EcDropdown multiple value :props should get disabled when disabled prop
          
         <!---->
          
-        <!---->
-         
       </ul>
     </div>
   </div>
@@ -195,8 +191,6 @@ exports[`EcDropdown multiple value :props should not show the items when the loa
       <ul
         class="ec-dropdown-search__item-list"
       >
-        <!---->
-         
         <!---->
          
         <!---->
@@ -325,8 +319,6 @@ exports[`EcDropdown multiple value should render as expected 1`] = `
          
         <!---->
          
-        <!---->
-         
       </ul>
     </div>
   </div>
@@ -337,8 +329,6 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
 >
-  <!---->
-   
   <!---->
    
   <!---->
@@ -550,7 +540,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
           type=\\"text\\"
         />
          
-@@ -59,26 +59,34 @@
+@@ -57,26 +57,34 @@
             <div
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
@@ -589,7 +579,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label\\"
                   >
                     Item 1
-@@ -96,26 +104,34 @@
+@@ -94,26 +102,34 @@
             <div
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
@@ -628,7 +618,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label\\"
                   >
                     Item 2
-@@ -133,26 +149,34 @@
+@@ -131,26 +147,34 @@
             <div
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
@@ -667,7 +657,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label\\"
                   >
                     Item 3
-@@ -171,26 +195,34 @@
+@@ -169,26 +193,34 @@
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
               <input
@@ -706,7 +696,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label ec-dropdown__multiple-item-label--is-disabled\\"
                   >
                     Item 4
-@@ -208,26 +240,34 @@
+@@ -206,26 +238,34 @@
             <div
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
@@ -772,8 +762,6 @@ exports[`EcDropdown single value #slots should forward item slot 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
 >
-  <!---->
-   
   <!---->
    
   <!---->
@@ -896,8 +884,6 @@ exports[`EcDropdown single value :props should get disabled when disabled prop i
          
         <!---->
          
-        <!---->
-         
       </ul>
     </div>
   </div>
@@ -953,8 +939,6 @@ exports[`EcDropdown single value :props should not show the items when the loadi
       <ul
         class="ec-dropdown-search__item-list"
       >
-        <!---->
-         
         <!---->
          
         <!---->
@@ -1079,8 +1063,6 @@ exports[`EcDropdown single value should render as expected 1`] = `
       <ul
         class="ec-dropdown-search__item-list"
       >
-        <!---->
-         
         <!---->
          
         <!---->
