@@ -107,7 +107,7 @@ exports[`EcDropdown multiple value :props should get disabled when disabled prop
         class="ec-input-field__input ec-input-field__input--has-icon"
         data-test="ec-dropdown__input"
         disabled="disabled"
-        id="ec-input-field-259"
+        id="ec-input-field-267"
         placeholder=""
         readonly="readonly"
         type="text"
@@ -151,7 +151,7 @@ exports[`EcDropdown multiple value :props should pass errorMessage prop to the t
 exports[`EcDropdown multiple value :props should pass label prop to the triggering input 1`] = `
 <label
   class="ec-input-field__label"
-  for="ec-input-field-221"
+  for="ec-input-field-229"
 >
   Random label
 </label>
@@ -161,7 +161,7 @@ exports[`EcDropdown multiple value :props should use placeholder prop 1`] = `
 <input
   class="ec-input-field__input ec-input-field__input--has-icon"
   data-test="ec-dropdown__input"
-  id="ec-input-field-246"
+  id="ec-input-field-254"
   placeholder="Random placeholder"
   readonly="readonly"
   type="text"
@@ -210,7 +210,7 @@ exports[`EcDropdown multiple value should render as expected 1`] = `
       <input
         class="ec-input-field__input ec-input-field__input--has-icon"
         data-test="ec-dropdown__input"
-        id="ec-input-field-159"
+        id="ec-input-field-167"
         placeholder=""
         readonly="readonly"
         type="text"
@@ -268,7 +268,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
     >
       <input
         class="ec-checkbox__input"
-        id="ec-checkbox-179"
+        id="ec-checkbox-187"
         type="checkbox"
       />
        
@@ -283,7 +283,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
          
         <label
           class="ec-checkbox__label"
-          for="ec-checkbox-179"
+          for="ec-checkbox-187"
         >
           <div
             class="ec-dropdown__multiple-item-label"
@@ -305,7 +305,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
     >
       <input
         class="ec-checkbox__input"
-        id="ec-checkbox-180"
+        id="ec-checkbox-188"
         type="checkbox"
       />
        
@@ -320,7 +320,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
          
         <label
           class="ec-checkbox__label"
-          for="ec-checkbox-180"
+          for="ec-checkbox-188"
         >
           <div
             class="ec-dropdown__multiple-item-label"
@@ -342,7 +342,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
     >
       <input
         class="ec-checkbox__input"
-        id="ec-checkbox-181"
+        id="ec-checkbox-189"
         type="checkbox"
       />
        
@@ -357,7 +357,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
          
         <label
           class="ec-checkbox__label"
-          for="ec-checkbox-181"
+          for="ec-checkbox-189"
         >
           <div
             class="ec-dropdown__multiple-item-label"
@@ -380,7 +380,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
       <input
         class="ec-checkbox__input"
         disabled="disabled"
-        id="ec-checkbox-182"
+        id="ec-checkbox-190"
         type="checkbox"
       />
        
@@ -395,7 +395,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
          
         <label
           class="ec-checkbox__label"
-          for="ec-checkbox-182"
+          for="ec-checkbox-190"
         >
           <div
             class="ec-dropdown__multiple-item-label ec-dropdown__multiple-item-label--is-disabled"
@@ -417,7 +417,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
     >
       <input
         class="ec-checkbox__input"
-        id="ec-checkbox-183"
+        id="ec-checkbox-191"
         type="checkbox"
       />
        
@@ -432,7 +432,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
          
         <label
           class="ec-checkbox__label"
-          for="ec-checkbox-183"
+          for="ec-checkbox-191"
         >
           <div
             class="ec-dropdown__multiple-item-label"
@@ -459,8 +459,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
         <input
           class=\\"ec-input-field__input ec-input-field__input--has-icon\\"
           data-test=\\"ec-dropdown__input\\"
--         id=\\"ec-input-field-188\\"
-+         id=\\"ec-input-field-199\\"
+-         id=\\"ec-input-field-196\\"
++         id=\\"ec-input-field-207\\"
           placeholder=\\"\\"
           readonly=\\"readonly\\"
           type=\\"text\\"
@@ -472,8 +472,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
             >
               <input
                 class=\\"ec-checkbox__input\\"
--               id=\\"ec-checkbox-190\\"
-+               id=\\"ec-checkbox-201\\"
+-               id=\\"ec-checkbox-198\\"
++               id=\\"ec-checkbox-209\\"
                 type=\\"checkbox\\"
               />
                
@@ -498,8 +498,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                  
                 <label
                   class=\\"ec-checkbox__label\\"
--                 for=\\"ec-checkbox-190\\"
-+                 for=\\"ec-checkbox-201\\"
+-                 for=\\"ec-checkbox-198\\"
++                 for=\\"ec-checkbox-209\\"
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
@@ -511,8 +511,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
             >
               <input
                 class=\\"ec-checkbox__input\\"
--               id=\\"ec-checkbox-191\\"
-+               id=\\"ec-checkbox-203\\"
+-               id=\\"ec-checkbox-199\\"
++               id=\\"ec-checkbox-211\\"
                 type=\\"checkbox\\"
               />
                
@@ -537,8 +537,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                  
                 <label
                   class=\\"ec-checkbox__label\\"
--                 for=\\"ec-checkbox-191\\"
-+                 for=\\"ec-checkbox-203\\"
+-                 for=\\"ec-checkbox-199\\"
++                 for=\\"ec-checkbox-211\\"
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
@@ -550,8 +550,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
             >
               <input
                 class=\\"ec-checkbox__input\\"
--               id=\\"ec-checkbox-192\\"
-+               id=\\"ec-checkbox-205\\"
+-               id=\\"ec-checkbox-200\\"
++               id=\\"ec-checkbox-213\\"
                 type=\\"checkbox\\"
               />
                
@@ -576,8 +576,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                  
                 <label
                   class=\\"ec-checkbox__label\\"
--                 for=\\"ec-checkbox-192\\"
-+                 for=\\"ec-checkbox-205\\"
+-                 for=\\"ec-checkbox-200\\"
++                 for=\\"ec-checkbox-213\\"
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
@@ -589,8 +589,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
               <input
                 class=\\"ec-checkbox__input\\"
                 disabled=\\"disabled\\"
--               id=\\"ec-checkbox-193\\"
-+               id=\\"ec-checkbox-207\\"
+-               id=\\"ec-checkbox-201\\"
++               id=\\"ec-checkbox-215\\"
                 type=\\"checkbox\\"
               />
                
@@ -615,8 +615,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                  
                 <label
                   class=\\"ec-checkbox__label\\"
--                 for=\\"ec-checkbox-193\\"
-+                 for=\\"ec-checkbox-207\\"
+-                 for=\\"ec-checkbox-201\\"
++                 for=\\"ec-checkbox-215\\"
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label ec-dropdown__multiple-item-label--is-disabled\\"
@@ -628,8 +628,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
             >
               <input
                 class=\\"ec-checkbox__input\\"
--               id=\\"ec-checkbox-194\\"
-+               id=\\"ec-checkbox-209\\"
+-               id=\\"ec-checkbox-202\\"
++               id=\\"ec-checkbox-217\\"
                 type=\\"checkbox\\"
               />
                
@@ -654,8 +654,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                  
                 <label
                   class=\\"ec-checkbox__label\\"
--                 for=\\"ec-checkbox-194\\"
-+                 for=\\"ec-checkbox-209\\"
+-                 for=\\"ec-checkbox-202\\"
++                 for=\\"ec-checkbox-217\\"
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
@@ -667,7 +667,7 @@ exports[`EcDropdown multiple value should render readonly input as a trigger 1`]
 <input
   class="ec-input-field__input ec-input-field__input--has-icon"
   data-test="ec-dropdown__input"
-  id="ec-input-field-165"
+  id="ec-input-field-173"
   placeholder=""
   readonly="readonly"
   type="text"
@@ -814,6 +814,88 @@ exports[`EcDropdown single value :props should get disabled when disabled prop i
          
         <!---->
          
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcDropdown single value :props should not show the items when the loading is set to true 1`] = `
+<div
+  class="ec-dropdown-search ec-dropdown"
+  data-test="ec-dropdown"
+>
+  <div
+    class="ec-dropdown-search__trigger"
+    data-popover-stub=""
+    data-test="ec-popover-dropdown-search"
+    offset="8"
+    placement="bottom"
+    popoverinnerclass="ec-dropdown-search__popover"
+    popperoptions="[object Object]"
+  >
+    <div
+      class="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        class="ec-input-field__input ec-input-field__input--has-icon"
+        data-test="ec-dropdown__input"
+        id="ec-input-field-114"
+        placeholder=""
+        readonly="readonly"
+        type="text"
+      />
+       
+      <div
+        class="ec-input-field__icon-wrapper"
+      >
+        <svg
+          class="ec-input-field__icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-arrow-drop-down"
+          />
+        </svg>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div>
+      <ul
+        class="ec-dropdown-search__item-list"
+      >
+        <!---->
+         
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="ec-loading"
+        >
+          <div
+            class="ec-loading__content"
+          >
+            <svg
+              class="ec-loading__icon ec-icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-loading"
+              />
+            </svg>
+          </div>
+           
+          <div
+            class="ec-dropdown-search__loading"
+          />
+        </div>
       </ul>
     </div>
   </div>

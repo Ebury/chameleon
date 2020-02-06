@@ -142,6 +142,11 @@ describe('EcDropdown', () => {
         const wrapper = mountDropdownSingleValue({ disabled: true });
         expect(wrapper.element).toMatchSnapshot();
       });
+
+      it('should not show the items when the loading is set to true', () => {
+        const wrapper = mountDropdownSingleValue({ isLoading: true });
+        expect(wrapper.element).toMatchSnapshot();
+      });
     });
 
     describe('#slots', () => {
