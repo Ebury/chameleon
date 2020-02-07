@@ -41,6 +41,7 @@ export default {
 
   &__content {
     flex: 1;
+    min-width: 0;
   }
 }
 </style>
