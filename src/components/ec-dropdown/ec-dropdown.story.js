@@ -50,6 +50,9 @@ stories.add('basic', () => ({
     disabled: {
       default: boolean('disabled', false),
     },
+    isLoading: {
+      default: boolean('isLoading', false),
+    },
   },
   watch: {
     multiple() {
@@ -176,6 +179,19 @@ stories.add('all', () => ({
             </template>
           </ec-dropdown>
         </div>
+        <div class="ec-col-4">
+          <ec-dropdown
+            :items="items"
+            :is-search-enabled="true"
+            label="Single value - with CTA/Loading/Search"
+            placeholder="Single value - with CTA/Loading/Search"
+            :is-loading="true"
+            v-model="selected">
+            <template #cta>
+              <button @click="cta()" class="ec-m--12">Do something</button>
+            </template>
+          </ec-dropdown>
+        </div>
       </div>
       <div class="ec-grid__row ec-p--12">
         Selected value: {{ selected }}
@@ -266,6 +282,20 @@ stories.add('all', () => ({
             <template #item="{ item, index }">
               <div>00{{ index }}. {{ item.text }}</div>
               <div>{{ item.disabledReason }}</div>
+            </template>
+          </ec-dropdown>
+        </div>
+        <div class="ec-col-4">
+          <ec-dropdown
+            :items="items"
+            :is-search-enabled="true"
+            :is-loading="true"
+            label="Multiple values - with CTA/Loading/Search"
+            placeholder="Multiple values - with CTA"
+            multiple
+            v-model="multiSelected">
+            <template #cta>
+              <button @click="cta()" class="ec-m--12">Do something</button>
             </template>
           </ec-dropdown>
         </div>

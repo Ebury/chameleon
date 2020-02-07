@@ -136,6 +136,11 @@ describe('EcDropdownSearch', () => {
     expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
   });
 
+  it('should not show the items when the loading is set to true', () => {
+    const wrapper = mountDropdownSearch({ items, isLoading: true });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should not render the search if isSearchEnabled is set to false', () => {
     const wrapper = mountDropdownSearch({ isSearchEnabled: false });
     expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
@@ -311,6 +316,14 @@ describe('EcDropdownSearch', () => {
         },
       });
       expect(wrapper.find('.my-slot').element).toMatchSnapshot();
+    });
+
+    it('should not display the filter items if the isLoading prop is set to true', () => {
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, isLoading: true });
+      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(0);
+
+      wrapper.find('.ec-dropdown-search__search-input').setValue('B');
+      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(0);
     });
   });
 

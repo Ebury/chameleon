@@ -52,8 +52,6 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
    
   <!---->
    
-  <!---->
-   
   <li
     class="ec-dropdown-search__item"
     title="Item 1"
@@ -133,7 +131,6 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
       >
         No results found
       </li>
-       
     </ul>
   </div>
 </ecpopover-stub>
@@ -166,7 +163,7 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -39,12 +39,12 @@
+@@ -37,12 +37,12 @@
            
           <!---->
            
@@ -189,6 +186,75 @@ exports[`EcDropdownSearch should not select disabled item 1`] = `undefined`;
 
 exports[`EcDropdownSearch should not select disabled item 2`] = `undefined`;
 
+exports[`EcDropdownSearch should not show the items when the loading is set to true 1`] = `
+<div
+  class="ec-dropdown-search"
+>
+  <ecpopover-stub
+    class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search"
+    level=""
+    offset="8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass="ec-dropdown-search__popover"
+    popperoptions="[object Object]"
+  >
+     
+    <div>
+      <ul
+        class="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-dropdown-search__search-icon ec-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+           
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+         
+        <!---->
+         
+        <li>
+          <div
+            class="ec-loading"
+          >
+            <div
+              class="ec-loading__content"
+            >
+              <svg
+                class="ec-loading__icon ec-icon"
+                height="24"
+                width="24"
+              >
+                <use
+                  xlink:href="#ec-simple-loading"
+                />
+              </svg>
+            </div>
+             
+            <div
+              class="ec-dropdown-search__loading"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ecpopover-stub>
+</div>
+`;
+
 exports[`EcDropdownSearch should render all given items 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
@@ -210,8 +276,6 @@ exports[`EcDropdownSearch should render all given items 1`] = `
       placeholder="Search..."
     />
   </li>
-   
-  <!---->
    
   <!---->
    
@@ -296,7 +360,6 @@ exports[`EcDropdownSearch should render as expected 1`] = `
         >
           No results found
         </li>
-         
       </ul>
     </div>
   </ecpopover-stub>
@@ -348,8 +411,6 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
             My CTA
           </button>
         </li>
-         
-        <!---->
          
         <li
           class="ec-dropdown-search__item"
@@ -440,7 +501,6 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
         >
           No results found
         </li>
-         
       </ul>
     </div>
   </ecpopover-stub>
@@ -484,8 +544,6 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
             placeholder="Search..."
           />
         </li>
-         
-        <!---->
          
         <!---->
          
@@ -589,8 +647,6 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
             placeholder="Search..."
           />
         </li>
-         
-        <!---->
          
         <!---->
          

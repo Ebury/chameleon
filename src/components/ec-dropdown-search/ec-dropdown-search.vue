@@ -52,8 +52,18 @@
           >
             <slot name="cta" />
           </li>
+
+          <li v-if="isLoading">
+            <ec-loading
+              show
+              :size="24"
+            >
+              <div class="ec-dropdown-search__loading" />
+            </ec-loading>
+          </li>
+
           <slot
-            v-if="isEmpty"
+            v-else-if="isEmpty"
             name="empty"
             v-bind="{ noResultsText }"
           >
@@ -62,7 +72,9 @@
               :title="noResultsText"
             >{{ noResultsText }}</li>
           </slot>
+
           <slot
+            v-else
             name="items"
             v-bind="filteredItems"
           >
@@ -97,12 +109,13 @@
 <script>
 import EcIcon from '../ec-icon';
 import EcPopover from '../ec-popover';
+import EcLoading from '../ec-loading';
 import EcTooltip from '../../directives/ec-tooltip';
 import { removeDiacritics } from '../../utils/diacritics';
 
 export default {
   name: 'EcDropdownSearch',
-  components: { EcPopover, EcIcon },
+  components: { EcPopover, EcIcon, EcLoading },
   directives: { EcTooltip },
   model: {
     prop: 'selected',
@@ -152,6 +165,10 @@ export default {
       default: false,
     },
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    isLoading: {
       type: Boolean,
       default: false,
     },
@@ -346,6 +363,10 @@ $ec-dropdown-search-item-delimiter-size: 1px !default;
   &__no-items {
     @include ellipsis;
     @include ec-dropdown-search-item;
+  }
+
+  &__loading {
+    height: $ec-dropdown-search-item-height;
   }
 
   &__item-list {

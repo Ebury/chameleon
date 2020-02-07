@@ -10,6 +10,7 @@
     :keep-open="multiple"
     :disabled="disabled"
     :level="level"
+    :is-loading="isLoading"
     @change="onSelected"
   >
     <ec-input-field
@@ -105,6 +106,10 @@ export default {
       default: '',
     },
     multiple: {
+      type: Boolean,
+      default: false,
+    },
+    isLoading: {
       type: Boolean,
       default: false,
     },

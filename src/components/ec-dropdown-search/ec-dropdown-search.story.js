@@ -44,6 +44,9 @@ stories.add('basic', () => ({
     noResultsText: {
       default: text('noResultsText', 'No results found'),
     },
+    isLoading: {
+      default: boolean('isLoading', false),
+    },
   },
   methods: {
     onItemSelected: action('Item selected'),
