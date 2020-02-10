@@ -163,7 +163,7 @@ stories.add('all', () => ({
             placeholder="Single value - with CTA"
             v-model="selected">
             <template #cta>
-              <button @click="cta()" class="ec-m--12">Do something</button>
+              <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>
             </template>
           </ec-dropdown>
         </div>
@@ -188,7 +188,7 @@ stories.add('all', () => ({
             :is-loading="true"
             v-model="selected">
             <template #cta>
-              <button @click="cta()" class="ec-m--12">Do something</button>
+              <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>
             </template>
           </ec-dropdown>
         </div>
@@ -268,7 +268,7 @@ stories.add('all', () => ({
             multiple
             v-model="multiSelected">
             <template #cta>
-              <button @click="cta()" class="ec-m--12">Do something</button>
+              <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>
             </template>
           </ec-dropdown>
         </div>
@@ -295,7 +295,7 @@ stories.add('all', () => ({
             multiple
             v-model="multiSelected">
             <template #cta>
-              <button @click="cta()" class="ec-m--12">Do something</button>
+              <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>
             </template>
           </ec-dropdown>
         </div>
