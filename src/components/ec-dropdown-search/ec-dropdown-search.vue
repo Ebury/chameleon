@@ -63,7 +63,7 @@
           </li>
 
           <slot
-            v-if="isEmpty && !isLoading"
+            v-else-if="isEmpty"
             name="empty"
             v-bind="{ noResultsText }"
           >
@@ -72,14 +72,7 @@
               :title="noResultsText"
             >{{ noResultsText }}</li>
           </slot>
-          <li v-else-if="isLoading">
-            <ec-loading
-              show
-              :size="24"
-            >
-              <div class="ec-dropdown-search__loading" />
-            </ec-loading>
-          </li>
+
           <slot
             v-else
             name="items"
