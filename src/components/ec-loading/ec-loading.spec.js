@@ -31,14 +31,14 @@ describe('EcLoading', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render the loading with a background white if the transparent prop is set to false', () => {
+  it('should render the loading without the content visible if the transparent prop is set to false', () => {
     const wrapper = mountLoading({ transparent: false });
     expect(wrapper.find('.ec-loading__content--is-transparent').exists()).toBe(false);
     expect(wrapper.find('.ec-loading__backdrop--is-transparent').exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should not render the loading with a background white if the transparent prop is set to false and the show is set to false', () => {
+  it('should render the loading with visible content if the transparent prop is set to false and the show is set to false', () => {
     const wrapper = mountLoading({ transparent: false, show: false });
     expect(wrapper.find('.ec-loading__content--is-transparent').exists()).toBe(true);
     expect(wrapper.find('.ec-loading__backdrop--is-transparent').exists()).toBe(false);
