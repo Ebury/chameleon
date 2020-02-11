@@ -37,8 +37,11 @@ stories
       positiveHasText: {
         default: boolean('Positive Has Text', true),
       },
-      isLoading: {
-        default: object('Loading Positive Button', { positive: true, negative: false }),
+      isPositiveLoading: {
+        default: boolean('Is Positive Loading', true),
+      },
+      isNegativeLoading: {
+        default: object('Is Loading Negative Button', false),
       },
     },
     watch: {
@@ -76,7 +79,7 @@ stories
           v-if="!isLarge"
           :large = "isLarge"
           :isClosable="isClosable"
-          :isLoading="isLoading"
+          :isLoading="{ positive: isPositiveLoading, negative: isNegativeLoading }"
           @negative = "rejected()"
           @positive = "accepted()"
           @close = "onClose()"

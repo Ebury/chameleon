@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     isTransparent() {
-      return this.transparent || (!this.show && !this.transparent);
+      return this.transparent || !this.show;
     },
   },
 };
