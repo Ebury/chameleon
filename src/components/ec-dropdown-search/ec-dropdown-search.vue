@@ -52,6 +52,16 @@
           >
             <slot name="cta" />
           </li>
+
+          <li v-if="isLoading">
+            <ec-loading
+              show
+              :size="24"
+            >
+              <div class="ec-dropdown-search__loading" />
+            </ec-loading>
+          </li>
+
           <slot
             v-if="isEmpty && !isLoading"
             name="empty"
@@ -338,6 +348,13 @@ $ec-dropdown-search-item-delimiter-size: 1px !default;
     border-bottom: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;
   }
 
+  &__cta-area {
+    @include ec-dropdown-search-item-hover-effect(
+      $background-color: $ec-dropdown-search-background-color-hover,
+      $color: $ec-dropdown-search-color-hover,
+    );
+  }
+
   &__search-icon {
     position: absolute;
     left: $ec-dropdown-search-item-vertical-padding;
@@ -374,14 +391,12 @@ $ec-dropdown-search-item-delimiter-size: 1px !default;
   &__item {
     @include ellipsis;
     @include ec-dropdown-search-item;
+    @include ec-dropdown-search-item-hover-effect(
+      $background-color: $ec-dropdown-search-background-color-hover,
+      $color: $ec-dropdown-search-color-hover,
+    );
 
     min-height: $ec-dropdown-search-item-height + $ec-dropdown-search-item-delimiter-size;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $ec-dropdown-search-background-color-hover;
-      color: $ec-dropdown-search-color-hover;
-    }
 
     & + & {
       border-top: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;

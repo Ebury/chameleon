@@ -52,6 +52,8 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
    
   <!---->
    
+  <!---->
+   
   <li
     class="ec-dropdown-search__item"
     title="Item 1"
@@ -125,6 +127,8 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
        
       <!---->
        
+      <!---->
+       
       <li
         class="ec-dropdown-search__no-items"
         title="No results found"
@@ -163,7 +167,7 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -37,12 +37,12 @@
+@@ -39,12 +39,12 @@
            
           <!---->
            
@@ -253,6 +257,34 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
             </div>
           </div>
         </li>
+         
+        <li>
+          <div
+            class="ec-loading"
+          >
+            <div
+              class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+            >
+              <svg
+                class="ec-loading__icon ec-icon"
+                height="24"
+                width="24"
+              >
+                <use
+                  xlink:href="#ec-simple-loading"
+                />
+              </svg>
+            </div>
+             
+            <div
+              class="ec-loading__content ec-loading__content--is-transparent"
+            >
+              <div
+                class="ec-dropdown-search__loading"
+              />
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   </ecpopover-stub>
@@ -280,6 +312,8 @@ exports[`EcDropdownSearch should render all given items 1`] = `
       placeholder="Search..."
     />
   </li>
+   
+  <!---->
    
   <!---->
    
@@ -358,6 +392,8 @@ exports[`EcDropdownSearch should render as expected 1`] = `
          
         <!---->
          
+        <!---->
+         
         <li
           class="ec-dropdown-search__no-items"
           title="No results found"
@@ -415,6 +451,8 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
             My CTA
           </button>
         </li>
+         
+        <!---->
          
         <li
           class="ec-dropdown-search__item"
@@ -499,6 +537,8 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
          
         <!---->
          
+        <!---->
+         
         <li
           class="ec-dropdown-search__no-items"
           title="No results found"
@@ -548,6 +588,8 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
             placeholder="Search..."
           />
         </li>
+         
+        <!---->
          
         <!---->
          
@@ -651,6 +693,8 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
             placeholder="Search..."
           />
         </li>
+         
+        <!---->
          
         <!---->
          
