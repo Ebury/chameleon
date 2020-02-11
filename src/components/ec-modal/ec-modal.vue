@@ -41,24 +41,36 @@
             <slot name="footerLeftContent" />
           </div>
 
-          <button
+          <ec-loading
             ref="negativeButton"
             v-if="hasNegativeButton()"
-            class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn ec-modal__negative-btn--right"
-            @click="negativeAction()"
+            class="ec-modal__btn-loading ec-modal__btn-loading--right"
+            :show="isLoadingNegativeButton"
+            :transparent="!isLoadingNegativeButton"
           >
-            <slot name="negative" />
-          </button>
+            <button
+              class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn "
+              @click="negativeAction()"
+            >
+              <slot name="negative" />
+            </button>
+          </ec-loading>
 
-          <button
+          <ec-loading
             ref="primaryButton"
             v-if="hasPrimaryButton()"
-            :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
-            class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn"
-            @click="positiveAction()"
+            class="ec-modal__btn-loading"
+            :show="isLoadingPositiveButton"
+            :transparent="!isLoadingPositiveButton"
           >
-            <slot name="positive" />
-          </button>
+            <button
+              :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
+              class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn"
+              @click="positiveAction()"
+            >
+              <slot name="positive" />
+            </button>
+          </ec-loading>
         </footer>
       </div>
 
@@ -68,12 +80,14 @@
 
 <script>
 import EcIcon from '../ec-icon';
+import EcLoading from '../ec-loading';
 import EcFocusTrap from '../../directives/ec-focus-trap';
 import * as KeyCode from '../../enums/key-code';
 
 export default {
   components: {
     EcIcon,
+    EcLoading,
   },
   directives: { EcFocusTrap },
   model: {
@@ -96,6 +110,18 @@ export default {
     large: {
       type: Boolean,
       default: false,
+    },
+    isLoading: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+  computed: {
+    isLoadingPositiveButton() {
+      return !!this.isLoading.positive;
+    },
+    isLoadingNegativeButton() {
+      return !!this.isLoading.negative;
     },
   },
   watch: {
@@ -253,10 +279,8 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
     }
   }
 
-  &__positive-btn,
-  &__negative-btn {
+  &__btn-loading {
     margin: 12px;
-    width: 100%;
 
     @include media__from-1024 {
       width: auto;
@@ -265,6 +289,11 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
         margin-left: auto;
       }
     }
+  }
+
+  &__positive-btn,
+  &__negative-btn {
+    width: 100%;
   }
 
   &__close {
