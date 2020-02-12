@@ -42,13 +42,13 @@
           </div>
 
           <ec-loading
-            ref="negativeButton"
             v-if="hasNegativeButton()"
             class="ec-modal__btn-loading ec-modal__btn-loading--right"
             :show="isLoadingNegativeButton"
             :transparent="!isLoadingNegativeButton"
           >
             <button
+              ref="negativeButton"
               class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn "
               @click="negativeAction()"
             >
@@ -57,13 +57,13 @@
           </ec-loading>
 
           <ec-loading
-            ref="primaryButton"
             v-if="hasPrimaryButton()"
             class="ec-modal__btn-loading"
             :show="isLoadingPositiveButton"
             :transparent="!isLoadingPositiveButton"
           >
             <button
+              ref="primaryButton"
               :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
               class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn"
               @click="positiveAction()"
