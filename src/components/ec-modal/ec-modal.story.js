@@ -38,7 +38,7 @@ stories
         default: boolean('Positive Has Text', true),
       },
       isPositiveLoading: {
-        default: boolean('Is Positive Loading', true),
+        default: boolean('Is Loading Positive Button', false),
       },
       isNegativeLoading: {
         default: object('Is Loading Negative Button', false),
