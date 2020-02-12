@@ -6,6 +6,9 @@ exports[`EcLoading should not render the loading if the show prop is set to fals
 >
   <!---->
    
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  />
 </div>
 `;
 
@@ -14,7 +17,7 @@ exports[`EcLoading should render as expected 1`] = `
   class="ec-loading"
 >
   <div
-    class="ec-loading__content"
+    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
   >
     <svg
       class="ec-loading__icon ec-icon"
@@ -27,6 +30,9 @@ exports[`EcLoading should render as expected 1`] = `
     </svg>
   </div>
    
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  />
 </div>
 `;
 
@@ -35,7 +41,7 @@ exports[`EcLoading should render the given slot 1`] = `
   class="ec-loading"
 >
   <div
-    class="ec-loading__content"
+    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
   >
     <svg
       class="ec-loading__icon ec-icon"
@@ -48,9 +54,13 @@ exports[`EcLoading should render the given slot 1`] = `
     </svg>
   </div>
    
-  <p>
-    Random text
-  </p>
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <p>
+      Random text
+    </p>
+  </div>
 </div>
 `;
 
@@ -59,7 +69,7 @@ exports[`EcLoading should render the loading with a given icon size when the pro
   class="ec-loading"
 >
   <div
-    class="ec-loading__content"
+    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
   >
     <svg
       class="ec-loading__icon ec-icon"
@@ -72,5 +82,44 @@ exports[`EcLoading should render the loading with a given icon size when the pro
     </svg>
   </div>
    
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  />
+</div>
+`;
+
+exports[`EcLoading should render the loading with visible content if the transparent prop is set to false and the show is set to false 1`] = `
+<div
+  class="ec-loading"
+>
+  <!---->
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  />
+</div>
+`;
+
+exports[`EcLoading should render the loading without the content visible if the transparent prop is set to false 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__backdrop"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-loading__content"
+  />
 </div>
 `;

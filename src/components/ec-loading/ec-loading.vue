@@ -2,7 +2,8 @@
   <div class="ec-loading">
     <div
       v-if="show"
-      class="ec-loading__content"
+      class="ec-loading__backdrop"
+      :class="{ 'ec-loading__backdrop--is-transparent': isTransparent }"
     >
       <ec-icon
         name="simple-loading"
@@ -10,7 +11,12 @@
         class="ec-loading__icon"
       />
     </div>
-    <slot />
+    <div
+      class="ec-loading__content"
+      :class="{ 'ec-loading__content--is-transparent': isTransparent }"
+    >
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -31,6 +37,15 @@ export default {
       type: Number,
       default: 48,
     },
+    transparent: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  computed: {
+    isTransparent() {
+      return this.transparent || !this.show;
+    },
   },
 };
 </script>
@@ -41,14 +56,25 @@ export default {
 .ec-loading {
   position: relative;
 
-  &__content {
+  &__backdrop {
     position: absolute;
-    background: rgba($white, 0.5);
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &--is-transparent {
+      background: rgba($white, 0.5);
+    }
+  }
+
+  &__content {
+    visibility: hidden;
+
+    &--is-transparent {
+      visibility: visible;
+    }
   }
 
   &__icon {

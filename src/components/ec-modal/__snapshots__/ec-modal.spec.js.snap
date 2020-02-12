@@ -130,11 +130,59 @@ exports[`EcModal should render negative button if slot is passed 1`] = `
 >
   <!---->
    
-  <button
-    class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn ec-modal__negative-btn--right"
+  <div
+    class="ec-loading ec-modal__btn-loading ec-modal__btn-loading--right"
   >
-    Skip for now
-  </button>
+    <!---->
+     
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+    >
+      <button
+        class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn "
+      >
+        Skip for now
+      </button>
+    </div>
+  </div>
+   
+  <!---->
+</footer>
+`;
+
+exports[`EcModal should render negative button with the loading status if slot is passed 1`] = `
+<footer
+  class="ec-modal__footer"
+>
+  <!---->
+   
+  <div
+    class="ec-loading ec-modal__btn-loading ec-modal__btn-loading--right"
+  >
+    <div
+      class="ec-loading__backdrop"
+    >
+      <svg
+        class="ec-loading__icon ec-icon"
+        height="48"
+        width="48"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-loading__content"
+    >
+      <button
+        class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn "
+      >
+        Skip for now
+      </button>
+    </div>
+  </div>
    
   <!---->
 </footer>
@@ -148,11 +196,59 @@ exports[`EcModal should render positive button if slot is passed 1`] = `
    
   <!---->
    
-  <button
-    class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn ec-modal__positive-btn--right"
+  <div
+    class="ec-loading ec-modal__btn-loading"
   >
-    Update management accounts
-  </button>
+    <!---->
+     
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+    >
+      <button
+        class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn ec-modal__positive-btn--right"
+      >
+        Update management accounts
+      </button>
+    </div>
+  </div>
+</footer>
+`;
+
+exports[`EcModal should render positive button with the loading status if slot is passed 1`] = `
+<footer
+  class="ec-modal__footer"
+>
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-loading ec-modal__btn-loading"
+  >
+    <div
+      class="ec-loading__backdrop"
+    >
+      <svg
+        class="ec-loading__icon ec-icon"
+        height="48"
+        width="48"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-loading__content"
+    >
+      <button
+        class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn ec-modal__positive-btn--right"
+      >
+        Update management accounts
+      </button>
+    </div>
+  </div>
 </footer>
 `;
 

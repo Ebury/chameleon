@@ -107,6 +107,25 @@ describe('EcModal', () => {
     });
 
     expect(wrapper.find('.ec-modal__negative-btn').exists()).toBe(true);
+    expect(wrapper.find('.ec-loading__icon').exists()).toBe(false);
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
+  });
+
+  it('should render negative button with the loading status if slot is passed', () => {
+    const wrapper = mountModal({
+      isLoading: {
+        negative: true,
+      },
+      showModal: true,
+    },
+    {
+      slots: {
+        negative: 'Skip for now',
+      },
+    });
+
+    expect(wrapper.find('.ec-modal__negative-btn').exists()).toBe(true);
+    expect(wrapper.find('.ec-loading__icon').exists()).toBe(true);
     expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 
@@ -121,6 +140,25 @@ describe('EcModal', () => {
     });
 
     expect(wrapper.find('.ec-modal__positive-btn').exists()).toBe(true);
+    expect(wrapper.find('.ec-loading__icon').exists()).toBe(false);
+    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
+  });
+
+  it('should render positive button with the loading status if slot is passed', () => {
+    const wrapper = mountModal({
+      isLoading: {
+        positive: true,
+      },
+      showModal: true,
+    },
+    {
+      slots: {
+        positive: 'Update management accounts',
+      },
+    });
+
+    expect(wrapper.find('.ec-modal__positive-btn').exists()).toBe(true);
+    expect(wrapper.find('.ec-loading__icon').exists()).toBe(true);
     expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
   });
 

@@ -31,6 +31,20 @@ describe('EcLoading', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render the loading without the content visible if the transparent prop is set to false', () => {
+    const wrapper = mountLoading({ transparent: false });
+    expect(wrapper.find('.ec-loading__content--is-transparent').exists()).toBe(false);
+    expect(wrapper.find('.ec-loading__backdrop--is-transparent').exists()).toBe(false);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render the loading with visible content if the transparent prop is set to false and the show is set to false', () => {
+    const wrapper = mountLoading({ transparent: false, show: false });
+    expect(wrapper.find('.ec-loading__content--is-transparent').exists()).toBe(true);
+    expect(wrapper.find('.ec-loading__backdrop--is-transparent').exists()).toBe(false);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render the loading with a given icon size when the prop size is set to not 48', () => {
     const wrapper = mountLoading({ size: 30 });
     expect(wrapper.element).toMatchSnapshot();

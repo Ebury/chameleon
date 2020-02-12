@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, object } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
 import EcIcon from '../ec-icon';
@@ -37,6 +37,12 @@ stories
       positiveHasText: {
         default: boolean('Positive Has Text', true),
       },
+      isPositiveLoading: {
+        default: boolean('Is Loading Positive Button', false),
+      },
+      isNegativeLoading: {
+        default: object('Is Loading Negative Button', false),
+      },
     },
     watch: {
       showModalFromProps: {
@@ -73,6 +79,7 @@ stories
           v-if="!isLarge"
           :large = "isLarge"
           :isClosable="isClosable"
+          :isLoading="{ positive: isPositiveLoading, negative: isNegativeLoading }"
           @negative = "rejected()"
           @positive = "accepted()"
           @close = "onClose()"
