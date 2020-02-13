@@ -6,6 +6,17 @@
   background: $white;
   overflow: hidden;
 
+  &--is-interactive {
+    cursor: pointer;
+    transition: transform ease 0.4s, box-shadow ease 0.4s;
+  }
+
+  &--is-interactive:hover {
+    @include box-shadow-level-2;
+
+    transform: translateY(-8px);
+  }
+
   @include media__from-sm {
     padding: 24px;
   }

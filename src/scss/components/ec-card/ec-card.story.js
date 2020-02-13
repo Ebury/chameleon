@@ -15,6 +15,17 @@ stories
     </div>
       `,
   }))
+  .add('interactive card', () => ({
+    template: `
+    <div style="display: flex; height: 100vh; margin: 10px">
+      <div style="margin: auto; width: 33vw;">
+        <div class="ec-card ec-card--is-interactive">
+          Interactive example card
+        </div>
+      </div>
+    </div>
+      `,
+  }))
   .add('trade finance cards', () => ({
     components: { EcIcon },
     template: `
@@ -34,7 +45,7 @@ stories
       <div style="margin: 10px; width: 33vw;">
         <div class="ec-card" >
           <div style="text-align:center; font-size:18px; line-height: 28px;">
-            Management account status 
+            Management account status
           </div>
           <ec-icon class="ec-mt--24 ec-mb--24" name="simple-check" :size="48" />
           <div style="text-align:center;font-size: 14px; line-height: 20px;">
