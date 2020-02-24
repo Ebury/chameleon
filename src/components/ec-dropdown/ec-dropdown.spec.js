@@ -153,9 +153,10 @@ describe('EcDropdown', () => {
       it('should forward item slot', () => {
         const wrapper = mountDropdownSingleValue({
           items,
+          selected: items[2],
         }, {
           scopedSlots: {
-            item: '<div>({{ props.index }}) {{ props.item.text }}</div>',
+            item: '<div>({{ props.index }}) {{ props.item.text }} - {{ props.isSelected }}</div>',
           },
         });
         expect(wrapper.find('.ec-dropdown-search__item-list').element).toMatchSnapshot();
@@ -296,9 +297,10 @@ describe('EcDropdown', () => {
       it('should forward item slot', () => {
         const wrapper = mountDropdownMultipleValue({
           items,
+          selected: [items[0], items[2]],
         }, {
           scopedSlots: {
-            item: '<div>({{ props.index }}) {{ props.item.text }}</div>',
+            item: '<div>({{ props.index }}) {{ props.item.text }} - {{ props.isSelected }}</div>',
           },
         });
         expect(wrapper.find('.ec-dropdown-search__item-list').element).toMatchSnapshot();
