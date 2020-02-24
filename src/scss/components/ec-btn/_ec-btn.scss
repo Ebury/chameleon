@@ -27,6 +27,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   transition-property: color, background-color;
   transition-timing-function: ease-out;
   display: inline-flex;
+  vertical-align: bottom;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -34,6 +35,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   border: 1px solid transparent;
   background-color: $ec-btn-secondary-color;
   text-decoration: none;
+  position: relative;
 
   &:hover {
     text-decoration: none;
@@ -322,7 +324,8 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
       color: $ec-btn-color;
     }
 
-    &:disabled {
+    &:disabled,
+    &--loading {
       background-color: transparent;
       border-color: $ec-btn-disabled-color;
       color: $ec-btn-disabled-color;

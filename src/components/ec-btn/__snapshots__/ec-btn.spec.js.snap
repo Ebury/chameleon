@@ -1,0 +1,323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcBtn :props should render a <button> element by default 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a <button> element with class ".ec-btn--md" when size is set to "md" 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a <button> element with class ".ec-btn--sm" when size is set to "sm" 1`] = `
+<button
+  class="ec-btn ec-btn--sm"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with a spinner loader if loading is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+  disabled="disabled"
+>
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-loading ec-btn__spinner"
+  >
+    <div
+      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    >
+      <svg
+        class="ec-loading__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+    />
+  </div>
+</button>
+`;
+
+exports[`EcBtn :props should render a button with an icon when the icon prop is defined 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--icon-only"
+>
+  <svg
+    class="ec-btn__icon ec-icon"
+    height="22"
+    width="22"
+  >
+    <use
+      xlink:href="#ec-simple-check"
+    />
+  </svg>
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with an outline when "outline" prop is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--outline"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with type "error" when type prop is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--error"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with type "primary" when type prop is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--primary"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with type "secondary" when type prop is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--secondary"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with type "success" when type prop is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--success"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with type "warning" when type prop is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--warning"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with type submit if submit is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a disabled button when disabled is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+  disabled="disabled"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a full width button when "fullWidth" prop is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--full-width"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a reverse button when reverse is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--reverse"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a router link when we define the "to" prop 1`] = `
+<router-link-stub
+  class="ec-btn ec-btn--md"
+  to="trade-finance"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</router-link-stub>
+`;
+
+exports[`EcBtn :props should render a router link with a custom tag when we define the "tag option" 1`] = `
+<ebury-stub
+  class="ec-btn ec-btn--md"
+  to="trade-finance"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</ebury-stub>
+`;
+
+exports[`EcBtn :props should render an <a> element when we define the "href" prop 1`] = `
+<a
+  class="ec-btn ec-btn--md"
+  href="https://ebury.com/"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</a>
+`;
+
+exports[`EcBtn :slots should render a button with "Click me!" text 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+>
+  <!---->
+   
+  <span
+    class=""
+    data-test="ec-btn__default-slot"
+  >
+    Click Me!
+  </span>
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :slots should render a custom loading text instead of a spinner when "text-loader" is set 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+  disabled="disabled"
+>
+  <!---->
+   
+  <span
+    data-test="ec-btn__text-loader-slot"
+  >
+    Loading...
+  </span>
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :slots should render a loading button with a spinner loader and a "Click me!" text set to invisble 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+  disabled="disabled"
+>
+  <!---->
+   
+  <span
+    class="ec-btn__content-invisible"
+    data-test="ec-btn__default-slot"
+  >
+    Click Me!
+  </span>
+   
+  <div
+    class="ec-loading ec-btn__spinner"
+  >
+    <div
+      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    >
+      <svg
+        class="ec-loading__icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+    />
+  </div>
+</button>
+`;
