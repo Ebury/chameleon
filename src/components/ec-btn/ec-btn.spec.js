@@ -222,7 +222,7 @@ describe('EcBtn', () => {
           },
         },
       );
-      expect(wrapper.find('.ec-btn__loading-spinner').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-btn__loading-spinner').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-btn__text').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-btn__loading-text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
