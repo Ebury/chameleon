@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcAmountInput should render properly 1`] = `
+<div
+  class="ec-input-field"
+>
+  <!---->
+   
+  <input
+    class="ec-input-field__input"
+    id="ec-input-field-2"
+    locale="en"
+    type="text"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
