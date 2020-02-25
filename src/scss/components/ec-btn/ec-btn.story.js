@@ -4,7 +4,7 @@ import StoryRouter from 'storybook-vue-router';
 import EcIcon from '@/components/ec-icon';
 import { LIGHT_THEME, DARK_THEME } from '../../../../.storybook/backgrounds';
 
-const stories = storiesOf('Button', module);
+const stories = storiesOf('Button Styles', module);
 
 stories
   .addDecorator(StoryRouter())
