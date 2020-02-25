@@ -1,4 +1,5 @@
 export { default as EcAlert } from './components/ec-alert';
+export { default as EcBtn } from './components/ec-btn';
 export { default as EcButtonGroup } from './components/ec-button-group';
 export { default as EcCheckbox } from './components/ec-checkbox';
 export { default as EcClosePopover } from './directives/ec-close-popover';
