@@ -10,7 +10,7 @@
       class="ec-btn__icon"
       data-test="ec-btn__icon"
       :class="{
-        'ec-btn__icon-with-spacing': this.$slots.default && icon,
+        'ec-btn__icon--with-spacing': this.$slots.default && icon,
         'ec-btn__icon--no-loading-text' : isSpinnerLoaderVisible(),
         'ec-btn__icon--with-loading-text' : isTextLoaderVisible(),
       }"
@@ -28,7 +28,7 @@
     <span
       v-else-if="this.$slots.default"
       data-test="ec-btn__text"
-      :class="{'ec-btn__text-is-loading' : isLoading }"
+      :class="{'ec-btn__text--is-loading' : isLoading }"
     >
       <slot />
     </span>
@@ -162,7 +162,7 @@ export default {
 
 <style lang="scss">
   .ec-btn {
-    &__text-is-loading,
+    &__text--is-loading,
     &__icon--no-loading-text {
       visibility: hidden;
     }

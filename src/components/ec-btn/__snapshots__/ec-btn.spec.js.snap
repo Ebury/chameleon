@@ -378,7 +378,7 @@ exports[`EcBtn :slots should render a button with "Click me!" text and an icon 1
   type="submit"
 >
   <svg
-    class="ec-btn__icon ec-icon ec-btn__icon-with-spacing"
+    class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
     data-test="ec-btn__icon"
     height="22"
     width="22"
@@ -408,7 +408,7 @@ exports[`EcBtn :slots should render a button with a loading-text and a loading s
   <!---->
    
   <span
-    class="ec-btn__text-is-loading"
+    class="ec-btn__text--is-loading"
     data-test="ec-btn__text"
   >
     Click Me!

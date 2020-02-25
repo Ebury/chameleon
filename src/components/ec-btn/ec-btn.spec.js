@@ -208,7 +208,7 @@ describe('EcBtn', () => {
 
       expect(wrapper.attributes('disabled')).toBe('disabled');
       expect(wrapper.findByDataTest('ec-btn__loading-text').exists()).toBe(false);
-      expect(wrapper.findByDataTest('ec-btn__text').classes('ec-btn__text-is-loading')).toBe(true);
+      expect(wrapper.findByDataTest('ec-btn__text').classes('ec-btn__text--is-loading')).toBe(true);
       expect(wrapper.findByDataTest('ec-btn__loading-spinner').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });

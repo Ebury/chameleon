@@ -3,7 +3,7 @@ import { boolean, text, select } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcBtn from './ec-btn.vue';
 
-const stories = storiesOf('Button component', module).addDecorator(StoryRouter());
+const stories = storiesOf('Button Component', module).addDecorator(StoryRouter());
 
 stories
   .add('basic', () => ({
@@ -54,7 +54,7 @@ stories
     },
     template: `
       <div class="ec-m--20">
-        <h3>button tag *</h3>
+        <h3>Button tag *</h3>
 
         <ec-btn
           v-bind="$props"
@@ -72,7 +72,7 @@ stories
           class="ec-ml--20 ec-mt--20"
         />
 
-        <h3 class="ec-mt--20">router-link</h3>
+        <h3 class="ec-mt--20">Router link</h3>
         <ec-btn
           v-bind="{ ...$props, to: '/my/url/' }"
           class="ec-mt--20"
@@ -103,7 +103,7 @@ stories
 
         <p class="ec-mt--40"> * Disabled and loading states apply only to buttons.</p>
         <p> ** Custom loader text will replace the spinner loader if set.</p>
-        <p> *** We have only one category for reverse and cannot be combined with outline.</p>
+        <p> *** Reverse cannot be combined with outline.</p>
       </div>
   `,
   }));
