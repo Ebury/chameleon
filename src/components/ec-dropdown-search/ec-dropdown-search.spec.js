@@ -114,6 +114,21 @@ describe('EcDropdownSearch', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should pass information whether an item is selected to the item slot', () => {
+    const wrapper = mountDropdownSearch({
+      items,
+      selected: items[2],
+    }, {
+      scopedSlots: {
+        item: `
+          <div>{{ props.index }} - {{ props.selected }}</div>
+        `,
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render given cta slot', () => {
     const wrapper = mountDropdownSearch({
       items,

@@ -173,9 +173,10 @@ stories.add('all', () => ({
             label="Single value - custom template"
             placeholder="Single value - custom template"
             v-model="selected">
-            <template #item="{ item, index }">
+            <template #item="{ item, index, isSelected }">
               <div>00{{ index }}. {{ item.text }}</div>
               <div>{{ item.disabledReason }}</div>
+              <div v-if="isSelected">This item is selected</div>
             </template>
           </ec-dropdown>
         </div>
@@ -279,9 +280,10 @@ stories.add('all', () => ({
             placeholder="Multiple values - custom template"
             multiple
             v-model="multiSelected">
-            <template #item="{ item, index }">
+            <template #item="{ item, index, isSelected }">
               <div>00{{ index }}. {{ item.text }}</div>
               <div>{{ item.disabledReason }}</div>
+              <div v-if="isSelected">This item is selected</div>
             </template>
           </ec-dropdown>
         </div>

@@ -3,6 +3,7 @@
 exports[`EcDropdownSearch filtering should display custom no results message if no item matches 1`] = `
 <li
   class="ec-dropdown-search__no-items"
+  data-test="ec-dropdown-search__no-items"
   title="No custom items have been found"
 >
   No custom items have been found
@@ -22,6 +23,7 @@ exports[`EcDropdownSearch filtering should display custom no results slot if no 
 exports[`EcDropdownSearch filtering should display no results message if no item matches 1`] = `
 <li
   class="ec-dropdown-search__no-items"
+  data-test="ec-dropdown-search__no-items"
   title="No results found"
 >
   No results found
@@ -46,6 +48,7 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
     <input
       autocomplete="off"
       class="ec-dropdown-search__search-input"
+      data-test="ec-dropdown-search__search-input"
       placeholder="Search..."
     />
   </li>
@@ -54,24 +57,28 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
    
   <li
     class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
     title="Item 1"
   >
     Item 1
   </li>
   <li
     class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
     title="Item 2"
   >
     Item 2
   </li>
   <li
     class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
     title="Item 3"
   >
     Item 3
   </li>
   <li
     class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
     mocked-tooltip-content="Random text"
     mocked-tooltip-placement="right"
     title="Item 4"
@@ -80,6 +87,7 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
   </li>
   <li
     class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
     title="Item 5"
   >
     Item 5
@@ -119,6 +127,7 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
         <input
           autocomplete="off"
           class="ec-dropdown-search__search-input"
+          data-test="ec-dropdown-search__search-input"
           placeholder="Search..."
         />
       </li>
@@ -127,6 +136,7 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
        
       <li
         class="ec-dropdown-search__no-items"
+        data-test="ec-dropdown-search__no-items"
         title="No results found"
       >
         No results found
@@ -163,12 +173,12 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -37,12 +37,12 @@
-           
+@@ -39,12 +39,12 @@
           <!---->
            
           <li
             class=\\"ec-dropdown-search__item ec-dropdown-search__item--is-disabled\\"
+            data-test=\\"ec-dropdown-search__item ec-dropdown-search__item--0\\"
 -           mocked-tooltip-content=\\"This reason should not be seen because it's overridden by tooltip.content.\\"
 -           mocked-tooltip-placement=\\"right\\"
 +           mocked-tooltip-content=\\"Content overridden by item\\"
@@ -220,6 +230,7 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
             placeholder="Search..."
           />
         </li>
@@ -249,8 +260,103 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
             >
               <div
                 class="ec-dropdown-search__loading"
+                data-test="ec-dropdown-search__loading"
               />
             </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ecpopover-stub>
+</div>
+`;
+
+exports[`EcDropdownSearch should pass information whether an item is selected to the item slot 1`] = `
+<div
+  class="ec-dropdown-search"
+>
+  <ecpopover-stub
+    class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search"
+    level=""
+    offset="8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass="ec-dropdown-search__popover"
+    popperoptions="[object Object]"
+  >
+     
+    <div>
+      <ul
+        class="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-dropdown-search__search-icon ec-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+           
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+         
+        <!---->
+         
+        <li
+          class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+          title="Item 1"
+        >
+          <div>
+            0 - 
+          </div>
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+          title="Item 2"
+        >
+          <div>
+            1 - 
+          </div>
+        </li>
+        <li
+          class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+          title="Item 3"
+        >
+          <div>
+            2 - 
+          </div>
+        </li>
+        <li
+          class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+          mocked-tooltip-content="Random text"
+          mocked-tooltip-placement="right"
+          title="Item 4"
+        >
+          <div>
+            3 - 
+          </div>
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
+          title="Item 5"
+        >
+          <div>
+            4 - 
           </div>
         </li>
       </ul>
@@ -277,6 +383,7 @@ exports[`EcDropdownSearch should render all given items 1`] = `
     <input
       autocomplete="off"
       class="ec-dropdown-search__search-input"
+      data-test="ec-dropdown-search__search-input"
       placeholder="Search..."
     />
   </li>
@@ -285,24 +392,28 @@ exports[`EcDropdownSearch should render all given items 1`] = `
    
   <li
     class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
     title="Item 1"
   >
     Item 1
   </li>
   <li
     class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
     title="Item 2"
   >
     Item 2
   </li>
   <li
     class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
     title="Item 3"
   >
     Item 3
   </li>
   <li
     class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
     mocked-tooltip-content="Random text"
     mocked-tooltip-placement="right"
     title="Item 4"
@@ -311,6 +422,7 @@ exports[`EcDropdownSearch should render all given items 1`] = `
   </li>
   <li
     class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
     title="Item 5"
   >
     Item 5
@@ -352,6 +464,7 @@ exports[`EcDropdownSearch should render as expected 1`] = `
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
             placeholder="Search..."
           />
         </li>
@@ -360,6 +473,7 @@ exports[`EcDropdownSearch should render as expected 1`] = `
          
         <li
           class="ec-dropdown-search__no-items"
+          data-test="ec-dropdown-search__no-items"
           title="No results found"
         >
           No results found
@@ -404,12 +518,14 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
             placeholder="Search..."
           />
         </li>
          
         <li
           class="ec-dropdown-search__cta-area"
+          data-test="ec-dropdown-search__cta-area"
         >
           <button>
             My CTA
@@ -418,24 +534,28 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
          
         <li
           class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
           title="Item 1"
         >
           Item 1
         </li>
         <li
           class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
           title="Item 2"
         >
           Item 2
         </li>
         <li
           class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
           title="Item 3"
         >
           Item 3
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
           mocked-tooltip-content="Random text"
           mocked-tooltip-placement="right"
           title="Item 4"
@@ -444,6 +564,7 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
         </li>
         <li
           class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
           title="Item 5"
         >
           Item 5
@@ -493,6 +614,7 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
             placeholder="Search..."
           />
         </li>
@@ -501,6 +623,7 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
          
         <li
           class="ec-dropdown-search__no-items"
+          data-test="ec-dropdown-search__no-items"
           title="No results found"
         >
           No results found
@@ -545,6 +668,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
             placeholder="Search..."
           />
         </li>
@@ -553,6 +677,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
          
         <li
           class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
           title="Item 1"
         >
           <div>
@@ -564,6 +689,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
         </li>
         <li
           class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
           title="Item 2"
         >
           <div>
@@ -575,6 +701,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
         </li>
         <li
           class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
           title="Item 3"
         >
           <div>
@@ -586,6 +713,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
           mocked-tooltip-content="Random text"
           mocked-tooltip-placement="right"
           title="Item 4"
@@ -599,6 +727,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
         </li>
         <li
           class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
           title="Item 5"
         >
           <div>
@@ -648,6 +777,7 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
             placeholder="Search..."
           />
         </li>
@@ -704,6 +834,7 @@ exports[`EcDropdownSearch should render the search by default 1`] = `
   <input
     autocomplete="off"
     class="ec-dropdown-search__search-input"
+    data-test="ec-dropdown-search__search-input"
     placeholder="Search..."
   />
 </li>
@@ -712,6 +843,7 @@ exports[`EcDropdownSearch should render the search by default 1`] = `
 exports[`EcDropdownSearch should use and update the v-model 1`] = `
 <li
   class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+  data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
   title="Item 1"
 >
   Item 1
@@ -721,6 +853,7 @@ exports[`EcDropdownSearch should use and update the v-model 1`] = `
 exports[`EcDropdownSearch should use and update the v-model 2`] = `
 <li
   class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+  data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
   title="Item 3"
 >
   Item 3
@@ -742,6 +875,7 @@ exports[`EcDropdownSearch should use the placeholder for search input if given 1
   <input
     autocomplete="off"
     class="ec-dropdown-search__search-input"
+    data-test="ec-dropdown-search__search-input"
     placeholder="Random text"
   />
 </li>

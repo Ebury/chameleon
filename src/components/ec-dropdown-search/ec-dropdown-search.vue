@@ -40,14 +40,16 @@
               ref="searchInput"
               v-model.trim="filterText"
               autocomplete="off"
-              class="ec-dropdown-search__search-input"
               :placeholder="placeholder"
+              class="ec-dropdown-search__search-input"
+              data-test="ec-dropdown-search__search-input"
             >
           </li>
           <li
             ref="ctaArea"
             v-if="hasCta()"
             class="ec-dropdown-search__cta-area"
+            data-test="ec-dropdown-search__cta-area"
             @click="hide"
           >
             <slot name="cta" />
@@ -58,7 +60,10 @@
               show
               :size="24"
             >
-              <div class="ec-dropdown-search__loading" />
+              <div
+                class="ec-dropdown-search__loading"
+                data-test="ec-dropdown-search__loading"
+              />
             </ec-loading>
           </li>
 
@@ -69,6 +74,7 @@
           >
             <li
               class="ec-dropdown-search__no-items"
+              data-test="ec-dropdown-search__no-items"
               :title="noResultsText"
             >{{ noResultsText }}</li>
           </slot>
@@ -90,6 +96,7 @@
               }"
               :title="item.text"
               class="ec-dropdown-search__item"
+              :data-test="`ec-dropdown-search__item ec-dropdown-search__item--${index}`"
               :class="{
                 'ec-dropdown-search__item--is-selected': item === selected,
                 'ec-dropdown-search__item--is-disabled': item.disabled
@@ -97,7 +104,7 @@
               @click="!item.disabled && select(item)"
             ><slot
               name="item"
-              v-bind="{ item, index }"
+              v-bind="{ item, index, isSelected: item === selected }"
             >{{ item.text }}</slot></li>
           </slot>
         </ul>
