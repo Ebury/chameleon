@@ -5,20 +5,26 @@ const defaultOptions = {
   decimalSeparator: '.',
   precision: 2,
 };
-describe('Utils EcMoney', () => {
+describe('EcAmount - utils', () => {
   describe('format', () => {
     it.each([
       ['', '', defaultOptions],
       ['abc', '', defaultOptions],
       ['.', '.', defaultOptions],
       ['.1', '.1', defaultOptions],
+      ['.10', '.10', defaultOptions],
       ['0', '0', defaultOptions],
       ['0.', '0.', defaultOptions],
       ['0.0', '0.0', defaultOptions],
       ['0.00', '0.00', defaultOptions],
+      [111, '111', defaultOptions],
       [1111, '1,111', defaultOptions],
       [-1111, '-1,111', defaultOptions],
       ['111a1.11a', '1,111.11', defaultOptions],
+      ['1,1,1,1,', '1,111', defaultOptions],
+      ['111,,111', '111,111', defaultOptions],
+      ['111..111', '111.11', defaultOptions],
+      ['11.3.1', '11.31', defaultOptions],
       [111221, '111,221', undefined],
       [1111.11, '1,111.11', defaultOptions],
       [1111.112, '1,111.11', defaultOptions],
@@ -46,7 +52,7 @@ describe('Utils EcMoney', () => {
       ['1`111`111.00', '1111111.00', '`', '.'],
       ['1,111,111`00', '1111111.00', ',', '`'],
       ['1,111,111.001', '1111111.001', ',', '.'],
-    ])('should unFormat the u %s into a %s', (value, valueUnFormatted, groupSeparator, decimalSeparator) => {
+    ])('should unFormat the %s into a %s', (value, valueUnFormatted, groupSeparator, decimalSeparator) => {
       expect(unFormat(value, groupSeparator, decimalSeparator)).toBe(valueUnFormatted);
     });
   });
@@ -63,7 +69,7 @@ describe('Utils EcMoney', () => {
       ['£1,111,111.00', '111111100'],
       ['1,111,111.00£', '111111100'],
       ['1,111,111.001', '1111111001'],
-    ])('should sanitize the u %s into a %s', (value, valueExpected) => {
+    ])('should sanitize the %s into a %s', (value, valueExpected) => {
       expect(sanitizeInput(value)).toBe(valueExpected);
     });
   });

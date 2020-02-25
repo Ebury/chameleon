@@ -15,11 +15,11 @@ function updateOptions(el, binding) {
     ...options,
   };
 
-  el.__moneyOptions = opts;
+  el.__amountOptions = opts;
 }
 
 function getOptions(el) {
-  return /* istanbul ignore next */ el.__moneyOptions || {};
+  return /* istanbul ignore next */ el.__amountOptions || {};
 }
 
 export default {
@@ -29,13 +29,13 @@ export default {
 
   bind(el, binding, vnode) {
     /* eslint no-param-reassign: "off" */
-    // v-ec-money used on a component that's not a input
+    // v-ec-amount used on a component that's not a input
     if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
       const els = el.getElementsByTagName('input');
       [el] = els;
     }
     if (el === undefined) {
-      throw new TypeError('v-ec-money requires 1 input');
+      throw new TypeError('v-ec-amount requires 1 input');
     }
 
     updateOptions(vnode.elm, binding);
@@ -78,6 +78,6 @@ export default {
     delete el.__keydownHandler;
     delete el.__previousCursorPosition;
     delete el.__previousFormattedValue;
-    delete el.__moneyOptions;
+    delete el.__amountOptions;
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <ec-input-field
     v-model="formattedValue"
-    v-ec-money="getFormattingOptions()"
+    v-ec-amount="getFormattingOptions()"
     v-bind="$props"
     @change="change"
   />
@@ -9,12 +9,12 @@
 
 <script>
 import EcInputField from '../ec-input-field';
-import EcMoney from '../../directives/ec-money/ec-money';
-import { format, unFormat } from '../../directives/ec-money/utils';
+import EcAmount from '../../directives/ec-amount/ec-amount';
+import { format, unFormat } from '../../directives/ec-amount/utils';
 
 export default {
   components: { EcInputField },
-  directives: { EcMoney },
+  directives: { EcAmount },
   model: {
     prop: 'value',
     event: 'change',
@@ -26,7 +26,7 @@ export default {
       required: true,
       default: null,
     },
-    masked: {
+    isMasked: {
       type: Boolean,
       default: false,
     },
@@ -58,7 +58,7 @@ export default {
     value: {
       immediate: true,
       handler(newValue) {
-        if (this.masked) {
+        if (this.isMasked) {
           if (newValue === this.formattedValue) {
             return;
           }
@@ -81,17 +81,17 @@ export default {
       this.formattedValue = format(formatted, this.getFormattingOptions());
     },
     unformattedValue(newValue) {
-      if (!this.masked) {
+      if (!this.isMasked) {
         this.$emit('change', newValue);
       }
     },
     formattedValue(newValue) {
-      if (this.masked) {
+      if (this.isMasked) {
         this.$emit('change', newValue);
       }
     },
-    masked() {
-      this.$emit('change', this.masked ? this.formattedValue : this.unformattedValue);
+    isMasked() {
+      this.$emit('change', this.isMasked ? this.formattedValue : this.unformattedValue);
     },
   },
   methods: {

@@ -33,15 +33,17 @@ describe('EcAmountInput', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should format the value and emit the event to change the v-model on the parent', () => {
+  it('should format the value and emit the event to change the v-model on the parent', async () => {
     const wrapper = mountAmountInput();
     wrapper.find('input').setValue(222);
+    await wrapper.vm.$nextTick();
     expect(wrapper.find('input').element.value).toBe('222');
     wrapper.find('input').setValue(1111.11);
-    expect(wrapper.find('input').element.value).toBe('1,111.11');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.emitted('change').length).toEqual(2);
   });
 
-  it('should formatted the number when we pass it by the v-model', async () => {
+  it('should format the number when we pass it by the v-model', async () => {
     const wrapper = mountAmountInputAsTemplate(
       '<ec-amount-input v-model="valueAmount" />',
       {
@@ -58,13 +60,13 @@ describe('EcAmountInput', () => {
     expect(wrapper.find('input').element.value).toBe('1,111');
   });
 
-  it('should not format the v-model when the masked is given', async () => {
+  it('should format the v-model when the isMasked is given', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" :masked="masked" />',
+      '<ec-amount-input v-model="valueAmount" :isMasked="isMasked" />',
       {
         data() {
           return {
-            masked: true,
+            isMasked: true,
             valueAmount: null,
           };
         },
@@ -76,13 +78,13 @@ describe('EcAmountInput', () => {
     expect(wrapper.vm.valueAmount).toBe('1,111');
   });
 
-  it('should format and unformat the v-model watching the masked property', async () => {
+  it('should format and unformat the v-model when the masked property changes', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" :masked="masked" />',
+      '<ec-amount-input v-model="valueAmount" :isMasked="isMasked" />',
       {
         data() {
           return {
-            masked: true,
+            isMasked: true,
             valueAmount: null,
           };
         },
@@ -93,12 +95,12 @@ describe('EcAmountInput', () => {
     expect(wrapper.find('input').element.value).toBe('1,111');
     expect(wrapper.vm.valueAmount).toBe('1,111');
 
-    wrapper.setData({ masked: false });
+    wrapper.setData({ isMasked: false });
     await wrapper.vm.$nextTick();
     expect(wrapper.find('input').element.value).toBe('1,111');
     expect(wrapper.vm.valueAmount).toBe(1111);
 
-    wrapper.setData({ masked: true });
+    wrapper.setData({ isMasked: true });
     await wrapper.vm.$nextTick();
     expect(wrapper.find('input').element.value).toBe('1,111');
     expect(wrapper.vm.valueAmount).toBe('1,111');

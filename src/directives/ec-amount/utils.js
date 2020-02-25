@@ -27,9 +27,8 @@ function format(input, opt = defaults) {
 }
 
 function parseToStr(number) {
-  /* eslint no-restricted-globals: "off" */
-  const parsed = parseFloat(number);
-  if (isNaN(parsed)) {
+  const parsed = Number.parseFloat(number);
+  if (Number.isNaN(parsed)) {
     return '';
   }
   return parsed.toString();

@@ -13,11 +13,11 @@ stories
       };
     },
     props: {
-      masked: {
-        default: boolean('Masked', false),
+      isMasked: {
+        default: boolean('Is Masked', false),
       },
       locale: {
-        default: select('Country', ['en', 'es', 'de-ch'], 'en'),
+        default: select('Locale', ['en', 'es', 'de-ch'], 'en'),
       },
 
     },
@@ -27,7 +27,7 @@ stories
         <div class="ec-grid__row">
           <div class="ec-col-12">
             <div class="ec-m--24">
-              <ec-amount-input v-bind="$props" label="Currency input" v-model="value" />
+              <ec-amount-input v-bind="$props" label="Amount input" v-model="value" />
             </div>
             <div class="ec-m--24">The input value: {{ value }} (type: {{ typeof value }})</div>
           </div>
