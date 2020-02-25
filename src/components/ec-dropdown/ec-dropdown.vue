@@ -47,12 +47,16 @@
       </ec-checkbox>
     </template>
     <template
-      #item="{ item, index }"
+      #item="{ item, index, isSelected }"
       v-else-if="hasItemSlot()"
     >
       <slot
         name="item"
-        v-bind="{ item, index }"
+        v-bind="{
+          item,
+          index,
+          isSelected: !multiple ? isSelected : isItemSelected(item),
+        }"
       />
     </template>
     <template

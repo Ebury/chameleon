@@ -158,9 +158,10 @@ stories.add('with custom item template', () => ({
           <span>Open</span>
           <ec-icon name="simple-arrow-drop-down" :size="16" fill="currentColor" />
         </a>
-        <template #item="{ item, index }">
+        <template #item="{ item, index, isSelected }">
           <div>{{ index + 1 }}. {{ item.text }}</div>
           <strong>{{ item.disabledReason }}</strong>
+          <div v-if="isSelected">This item is selected</div>
         </template>
       </ec-dropdown-search>
       <p class="ec-mt--16">{{ paragraphText }}</p>
