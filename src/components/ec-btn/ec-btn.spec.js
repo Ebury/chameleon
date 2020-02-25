@@ -12,31 +12,23 @@ describe('EcBtn', () => {
     });
   }
 
+  it('should render a <button> element by default', () => {
+    const wrapper = mountBtn();
+
+    expect(wrapper.is('button')).toBe(true);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   describe(':props', () => {
-    it('should render a <button> element by default', () => {
-      const wrapper = mountBtn();
-
-      expect(wrapper.find('.ec-btn').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it('should render a <button> element with class ".ec-btn--sm" when size is set to "sm"', () => {
+    it.each([
+      ['ec-btn--sm', 'sm'],
+      ['ec-btn--md', 'md'],
+    ])('should render a <button> element with class "%s" when size is set to %s', (expectedClass, size) => {
       const wrapper = mountBtn({
-        size: 'sm',
+        size,
       });
 
-      expect(wrapper.find('.ec-btn--md').exists()).toBe(false);
-      expect(wrapper.find('.ec-btn--sm').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it('should render a <button> element with class ".ec-btn--md" when size is set to "md"', () => {
-      const wrapper = mountBtn({
-        size: 'md',
-      });
-
-      expect(wrapper.find('.ec-btn--sm').exists()).toBe(false);
-      expect(wrapper.find('.ec-btn--md').exists()).toBe(true);
+      expect(wrapper.classes(expectedClass)).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -45,7 +37,8 @@ describe('EcBtn', () => {
         href: 'https://ebury.com/',
       });
 
-      expect(wrapper.attributes().href).toBe('https://ebury.com/');
+      expect(wrapper.is('a')).toBe(true);
+      expect(wrapper.attributes('href')).toBe('https://ebury.com/');
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -57,7 +50,7 @@ describe('EcBtn', () => {
         stubs: ['router-link'],
       });
 
-      expect(wrapper.attributes().to).toBe('trade-finance');
+      expect(wrapper.attributes('to')).toBe('trade-finance');
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -73,67 +66,87 @@ describe('EcBtn', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should render a disabled button when disabled is set to true', () => {
+    it('should render a disabled button when "isDisabled" is set to true', () => {
       const wrapper = mountBtn({
-        disabled: true,
+        isDisabled: true,
       });
 
-      expect(wrapper.attributes().disabled).toBe('disabled');
+      expect(wrapper.attributes('disabled')).toBe('disabled');
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should render a button with an icon when the icon prop is defined', () => {
+    it('should render a button with only an icon when the "icon" is defined but not the slots', () => {
       const wrapper = mountBtn({
         icon: 'simple-check',
       });
 
-      expect(wrapper.find('.ec-btn__icon').exists()).toBe(true);
+      expect(wrapper.classes('ec-btn--icon-only')).toBe(true);
+      expect(wrapper.findByDataTest('ec-btn__icon').classes('ec-btn__icon')).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should render a button with an outline when "outline" prop is set to true', () => {
+    it('should render a button with only a loading spinner when loading is set to true and no slots are passed', () => {
       const wrapper = mountBtn({
-        outline: true,
+        isLoading: true,
       });
 
-      expect(wrapper.find('.ec-btn--outline').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-btn__loading-spinner').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should render a full width button when "fullWidth" prop is set to true', () => {
+    it('should render a rounded button when the "isRounded" is set to true', () => {
       const wrapper = mountBtn({
-        fullWidth: true,
+        isRounded: true,
       });
 
-      expect(wrapper.find('.ec-btn--full-width').exists()).toBe(true);
+      expect(wrapper.classes('ec-btn--rounded')).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it.each(['primary', 'secondary', 'success', 'error', 'warning'])('should render a button with type "%s" when type prop is set', (type) => {
+    it('should render a button with an outline when "isOutline" is set to true', () => {
       const wrapper = mountBtn({
-        type,
+        isOutline: true,
       });
 
-      expect(wrapper.find(`.ec-btn--${type}`).exists()).toBe(true);
+      expect(wrapper.classes('ec-btn--outline')).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should render a reverse button when reverse is set to true', () => {
+    it('should render a full width button when "isFullWidth" prop is set to true', () => {
       const wrapper = mountBtn({
-        reverse: true,
+        isFullWidth: true,
       });
 
-      expect(wrapper.find('.ec-btn--reverse').exists()).toBe(true);
+      expect(wrapper.classes('ec-btn--full-width')).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it.each(['primary', 'secondary', 'success', 'error', 'warning'])('should render a button with category "%s" when category "prop" is set', (category) => {
+      const wrapper = mountBtn({
+        category,
+      });
+
+      expect(wrapper.classes(`ec-btn--${category}`)).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it.each(['primary', 'secondary', 'success', 'error', 'warning'])('should render a reversed button for the "%s" category when "isReverse" prop is set to true', (category) => {
+      const wrapper = mountBtn({
+        isReverse: true,
+        category,
+      });
+
+      expect(wrapper.classes(`ec-btn--${category}-reverse`)).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render a button with a spinner loader if loading is set to true', () => {
       const wrapper = mountBtn({
-        loading: true,
+        isLoading: true,
       });
 
-      expect(wrapper.attributes().disabled).toBe('disabled');
-      expect(wrapper.find('.ec-btn__spinner').exists()).toBe(true);
+      expect(wrapper.attributes('disabled')).toBe('disabled');
+      expect(wrapper.findByDataTest('ec-btn__loading-spinner').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -142,7 +155,7 @@ describe('EcBtn', () => {
         submit: true,
       });
 
-      expect(wrapper.attributes().type).toBe('submit');
+      expect(wrapper.attributes('type')).toBe('submit');
       expect(wrapper.element).toMatchSnapshot();
     });
   });
@@ -157,16 +170,34 @@ describe('EcBtn', () => {
           },
         },
       );
-      expect(wrapper.find('.ec-btn__spinner').exists()).toBe(false);
-      expect(wrapper.findByDataTest('ec-btn__text-loader-slot').exists()).toBe(false);
-      expect(wrapper.findByDataTest('ec-btn__default-slot').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-btn__loading-spinner').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-btn__loading-text').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-btn__text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should render a loading button with a spinner loader and a "Click me!" text set to invisble', () => {
+    it('should render a button with "Click me!" text and an icon', () => {
       const wrapper = mountBtn(
         {
-          loading: true,
+          icon: 'simple-check',
+        },
+        {
+          slots: {
+            default: 'Click Me!',
+          },
+        },
+      );
+      expect(wrapper.findByDataTest('ec-btn__loading-spinner').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-btn__loading-text').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-btn__icon').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-btn__text').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render a button with a loading-text and a loading spinner when "isLoading" is set to true and we set the default slot', () => {
+      const wrapper = mountBtn(
+        {
+          isLoading: true,
         },
         {
           slots: {
@@ -175,25 +206,25 @@ describe('EcBtn', () => {
         },
       );
 
-      expect(wrapper.attributes().disabled).toBe('disabled');
-      expect(wrapper.findByDataTest('ec-btn__text-loader-slot').exists()).toBe(false);
-      expect(wrapper.findByDataTest('ec-btn__default-slot').classes('ec-btn__content-invisible')).toBe(true);
-      expect(wrapper.find('.ec-btn__spinner').exists()).toBe(true);
+      expect(wrapper.attributes('disabled')).toBe('disabled');
+      expect(wrapper.findByDataTest('ec-btn__loading-text').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-btn__text').classes('ec-btn__text-is-loading')).toBe(true);
+      expect(wrapper.findByDataTest('ec-btn__loading-spinner').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render a custom loading text instead of a spinner when "text-loader" is set', () => {
       const wrapper = mountBtn(
-        { loading: true },
+        { isLoading: true },
         {
           slots: {
-            'text-loader': 'Loading...',
+            'loading-text': 'Loading...',
           },
         },
       );
-      expect(wrapper.find('.ec-btn__spinner').exists()).toBe(false);
-      expect(wrapper.findByDataTest('ec-btn__default-slot').exists()).toBe(false);
-      expect(wrapper.findByDataTest('ec-btn__text-loader-slot').exists()).toBe(true);
+      expect(wrapper.find('.ec-btn__loading-spinner').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-btn__text').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-btn__loading-text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
   });

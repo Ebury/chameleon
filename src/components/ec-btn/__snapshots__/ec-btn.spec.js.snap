@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcBtn :props should render a <button> element by default 1`] = `
+exports[`EcBtn :props should render a <button> element with class "ec-btn--md" when size is set to md 1`] = `
 <button
   class="ec-btn ec-btn--md"
+  type="submit"
 >
   <!---->
    
@@ -12,21 +13,10 @@ exports[`EcBtn :props should render a <button> element by default 1`] = `
 </button>
 `;
 
-exports[`EcBtn :props should render a <button> element with class ".ec-btn--md" when size is set to "md" 1`] = `
-<button
-  class="ec-btn ec-btn--md"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</button>
-`;
-
-exports[`EcBtn :props should render a <button> element with class ".ec-btn--sm" when size is set to "sm" 1`] = `
+exports[`EcBtn :props should render a <button> element with class "ec-btn--sm" when size is set to sm 1`] = `
 <button
   class="ec-btn ec-btn--sm"
+  type="submit"
 >
   <!---->
    
@@ -40,21 +30,23 @@ exports[`EcBtn :props should render a button with a spinner loader if loading is
 <button
   class="ec-btn ec-btn--md"
   disabled="disabled"
+  type="submit"
 >
   <!---->
    
   <!---->
    
   <div
-    class="ec-loading ec-btn__spinner"
+    class="ec-loading ec-btn__loading-spinner"
+    data-test="ec-btn__loading-spinner"
   >
     <div
       class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
     >
       <svg
         class="ec-loading__icon ec-icon"
-        height="24"
-        width="24"
+        height="22"
+        width="22"
       >
         <use
           xlink:href="#ec-simple-loading"
@@ -69,12 +61,127 @@ exports[`EcBtn :props should render a button with a spinner loader if loading is
 </button>
 `;
 
-exports[`EcBtn :props should render a button with an icon when the icon prop is defined 1`] = `
+exports[`EcBtn :props should render a button with an outline when "isOutline" is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--outline"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with category "error" when category "prop" is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--error"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with category "primary" when category "prop" is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--primary"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with category "secondary" when category "prop" is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--secondary"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with category "success" when category "prop" is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--success"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with category "warning" when category "prop" is set 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--warning"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a button with only a loading spinner when loading is set to true and no slots are passed 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+  disabled="disabled"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-loading ec-btn__loading-spinner"
+    data-test="ec-btn__loading-spinner"
+  >
+    <div
+      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    >
+      <svg
+        class="ec-loading__icon ec-icon"
+        height="22"
+        width="22"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+    />
+  </div>
+</button>
+`;
+
+exports[`EcBtn :props should render a button with only an icon when the "icon" is defined but not the slots 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--icon-only"
+  type="submit"
 >
   <svg
     class="ec-btn__icon ec-icon"
+    data-test="ec-btn__icon"
     height="22"
     width="22"
   >
@@ -89,81 +196,10 @@ exports[`EcBtn :props should render a button with an icon when the icon prop is 
 </button>
 `;
 
-exports[`EcBtn :props should render a button with an outline when "outline" prop is set to true 1`] = `
-<button
-  class="ec-btn ec-btn--md ec-btn--outline"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</button>
-`;
-
-exports[`EcBtn :props should render a button with type "error" when type prop is set 1`] = `
-<button
-  class="ec-btn ec-btn--md ec-btn--error"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</button>
-`;
-
-exports[`EcBtn :props should render a button with type "primary" when type prop is set 1`] = `
-<button
-  class="ec-btn ec-btn--md ec-btn--primary"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</button>
-`;
-
-exports[`EcBtn :props should render a button with type "secondary" when type prop is set 1`] = `
-<button
-  class="ec-btn ec-btn--md ec-btn--secondary"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</button>
-`;
-
-exports[`EcBtn :props should render a button with type "success" when type prop is set 1`] = `
-<button
-  class="ec-btn ec-btn--md ec-btn--success"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</button>
-`;
-
-exports[`EcBtn :props should render a button with type "warning" when type prop is set 1`] = `
-<button
-  class="ec-btn ec-btn--md ec-btn--warning"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</button>
-`;
-
 exports[`EcBtn :props should render a button with type submit if submit is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md"
+  submit="true"
   type="submit"
 >
   <!---->
@@ -174,10 +210,11 @@ exports[`EcBtn :props should render a button with type submit if submit is set t
 </button>
 `;
 
-exports[`EcBtn :props should render a disabled button when disabled is set to true 1`] = `
+exports[`EcBtn :props should render a disabled button when "isDisabled" is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md"
   disabled="disabled"
+  type="submit"
 >
   <!---->
    
@@ -187,9 +224,10 @@ exports[`EcBtn :props should render a disabled button when disabled is set to tr
 </button>
 `;
 
-exports[`EcBtn :props should render a full width button when "fullWidth" prop is set to true 1`] = `
+exports[`EcBtn :props should render a full width button when "isFullWidth" prop is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--full-width"
+  type="submit"
 >
   <!---->
    
@@ -199,9 +237,75 @@ exports[`EcBtn :props should render a full width button when "fullWidth" prop is
 </button>
 `;
 
-exports[`EcBtn :props should render a reverse button when reverse is set to true 1`] = `
+exports[`EcBtn :props should render a reversed button for the "error" category when "isReverse" prop is set to true 1`] = `
 <button
-  class="ec-btn ec-btn--md ec-btn--reverse"
+  class="ec-btn ec-btn--md ec-btn--error ec-btn--error-reverse"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a reversed button for the "primary" category when "isReverse" prop is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--primary ec-btn--primary-reverse"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a reversed button for the "secondary" category when "isReverse" prop is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--secondary ec-btn--secondary-reverse"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a reversed button for the "success" category when "isReverse" prop is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--success ec-btn--success-reverse"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a reversed button for the "warning" category when "isReverse" prop is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--warning ec-btn--warning-reverse"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn :props should render a rounded button when the "isRounded" is set to true 1`] = `
+<button
+  class="ec-btn ec-btn--md ec-btn--rounded"
+  type="submit"
 >
   <!---->
    
@@ -253,12 +357,13 @@ exports[`EcBtn :props should render an <a> element when we define the "href" pro
 exports[`EcBtn :slots should render a button with "Click me!" text 1`] = `
 <button
   class="ec-btn ec-btn--md"
+  type="submit"
 >
   <!---->
    
   <span
     class=""
-    data-test="ec-btn__default-slot"
+    data-test="ec-btn__text"
   >
     Click Me!
   </span>
@@ -267,47 +372,59 @@ exports[`EcBtn :slots should render a button with "Click me!" text 1`] = `
 </button>
 `;
 
-exports[`EcBtn :slots should render a custom loading text instead of a spinner when "text-loader" is set 1`] = `
+exports[`EcBtn :slots should render a button with "Click me!" text and an icon 1`] = `
 <button
   class="ec-btn ec-btn--md"
-  disabled="disabled"
+  type="submit"
 >
-  <!---->
+  <svg
+    class="ec-btn__icon ec-icon ec-btn__icon-with-spacing"
+    data-test="ec-btn__icon"
+    height="22"
+    width="22"
+  >
+    <use
+      xlink:href="#ec-simple-check"
+    />
+  </svg>
    
   <span
-    data-test="ec-btn__text-loader-slot"
+    class=""
+    data-test="ec-btn__text"
   >
-    Loading...
+    Click Me!
   </span>
    
   <!---->
 </button>
 `;
 
-exports[`EcBtn :slots should render a loading button with a spinner loader and a "Click me!" text set to invisble 1`] = `
+exports[`EcBtn :slots should render a button with a loading-text and a loading spinner when "isLoading" is set to true and we set the default slot 1`] = `
 <button
   class="ec-btn ec-btn--md"
   disabled="disabled"
+  type="submit"
 >
   <!---->
    
   <span
-    class="ec-btn__content-invisible"
-    data-test="ec-btn__default-slot"
+    class="ec-btn__text-is-loading"
+    data-test="ec-btn__text"
   >
     Click Me!
   </span>
    
   <div
-    class="ec-loading ec-btn__spinner"
+    class="ec-loading ec-btn__loading-spinner"
+    data-test="ec-btn__loading-spinner"
   >
     <div
       class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
     >
       <svg
         class="ec-loading__icon ec-icon"
-        height="24"
-        width="24"
+        height="22"
+        width="22"
       >
         <use
           xlink:href="#ec-simple-loading"
@@ -319,5 +436,36 @@ exports[`EcBtn :slots should render a loading button with a spinner loader and a
       class="ec-loading__content ec-loading__content--is-transparent"
     />
   </div>
+</button>
+`;
+
+exports[`EcBtn :slots should render a custom loading text instead of a spinner when "text-loader" is set 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+  disabled="disabled"
+  type="submit"
+>
+  <!---->
+   
+  <span
+    data-test="ec-btn__loading-text"
+  >
+    Loading...
+  </span>
+   
+  <!---->
+</button>
+`;
+
+exports[`EcBtn should render a <button> element by default 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+  type="submit"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
 </button>
 `;

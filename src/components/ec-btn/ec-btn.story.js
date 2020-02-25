@@ -9,46 +9,46 @@ stories
   .add('basic', () => ({
     components: { EcBtn },
     props: {
-      roundedFromProps: {
+      isRounded: {
         default: boolean('rounded', false),
       },
-      outlineFromProps: {
+      isOutline: {
         default: boolean('outline', false),
       },
-      fullWidthFromProps: {
+      isFullWidth: {
         default: boolean('full width', false),
       },
-      reverseFromProps: {
+      isReverse: {
         default: boolean('reverse ***', false),
       },
-      disabledFromProps: {
+      isDisabled: {
         default: boolean('disabled *', false),
       },
-      loadingFromProps: {
+      isLoading: {
         default: boolean('loading *', false),
       },
-      submitFromProps: {
+      isSubmit: {
         default: boolean('submit', false),
       },
-      sizeFromProps: {
-        default: select('Size', ['sm', 'md'], 'md'),
+      size: {
+        default: select('size', ['sm', 'md'], 'md'),
       },
-      typeFromProps: {
+      category: {
         default: select('type', ['primary', 'secondary', 'success', 'error', 'warning'], 'primary'),
       },
-      textFromProps: {
+      text: {
         default: text('text', 'Click Me'),
       },
-      iconFromProps: {
+      icon: {
         default: text('icon', 'simple-check'),
       },
-      customLoaderTextFromProps: {
-        default: text('customer loader text **', ''),
+      loadingText: {
+        default: text('loading text **', ''),
       },
-      toFromProps: {
+      to: {
         default: text('to', ''),
       },
-      hrefFromProps: {
+      href: {
         default: text('href', ''),
       },
     },
@@ -57,100 +57,48 @@ stories
         <h3>button tag *</h3>
 
         <ec-btn
-          :disabled="disabledFromProps"
-          :full-width="fullWidthFromProps"
-          :icon="iconFromProps"
-          :loading="loadingFromProps"
-          :outline="outlineFromProps"
-          :reverse="reverseFromProps"
-          :rounded="roundedFromProps"
-          :size="sizeFromProps"
-          :submit="submitFromProps"
-          :type="typeFromProps"
+          v-bind="$props"
           class="ec-mt--20"
           >
-            <template v-if="customLoaderTextFromProps.length > 0" #text-loader>
-              {{customLoaderTextFromProps}}
+            <template v-if="loadingText" #loading-text>
+              {{loadingText}}
             </template>
-            {{textFromProps}}
+            {{text}}
         </ec-btn>
 
         <ec-btn
-          v-if="iconFromProps.length > 0"
-          :disabled="disabledFromProps"
-          :full-width="fullWidthFromProps"
-          :icon="iconFromProps"
-          :loading="loadingFromProps"
-          :outline="outlineFromProps"
-          :reverse="reverseFromProps"
-          :rounded="roundedFromProps"
-          :size="sizeFromProps"
-          :submit="submitFromProps"
-          :type="typeFromProps"
+          v-if="icon"
+          v-bind="$props"
           class="ec-ml--20 ec-mt--20"
         />
 
         <h3 class="ec-mt--20">router-link</h3>
         <ec-btn
-          :disabled="disabledFromProps"
-          :full-width="fullWidthFromProps"
-          :href="hrefFromProps"
-          :icon="iconFromProps"
-          :outline="outlineFromProps"
-          :reverse="reverseFromProps"
-          :rounded="roundedFromProps"
-          :size="sizeFromProps"
-          :text="textFromProps"
-          :type="typeFromProps"
+          v-bind="{ ...$props, to: '/my/url/' }"
           class="ec-mt--20"
-          to="tradeFinance"
           >
-            {{textFromProps}}
+            {{text}}
         </ec-btn>
 
         <ec-btn
-          v-if="iconFromProps.length > 0"
-          :disabled="disabledFromProps"
-          :full-width="fullWidthFromProps"
-          :href="hrefFromProps"
-          :icon="iconFromProps"
-          :outline="outlineFromProps"
-          :reverse="reverseFromProps"
-          :size="sizeFromProps"
-          :type="typeFromProps"
+          v-if="icon"
+          v-bind="{ ...$props, to: '/my/url/' }"
           class="ec-ml--20 ec-mt--20"
-          to="tradeFinance"
         />
 
-        <h3 class="ec-mt--20">normal link - a tag</h3>
+        <h3 class="ec-mt--20">Anchor link - a tag</h3>
 
         <ec-btn
-          :disabled="disabledFromProps"
-          :full-width="fullWidthFromProps"
-          :icon="iconFromProps"
-          :outline="outlineFromProps"
-          :reverse="reverseFromProps"
-          :rounded="roundedFromProps"
-          :size="sizeFromProps"
-          :text="textFromProps"
-          :type="typeFromProps"
+          v-bind="{ ...$props, href: 'http://www.ebury.com' }"
           class="ec-mt--20"
-          href="http://www.ebury.com"
           >
-            {{textFromProps}}
+            {{text}}
         </ec-btn>
 
         <ec-btn
-          v-if="iconFromProps.length > 0"
-          :disabled="disabledFromProps"
-          :full-width="fullWidthFromProps"
-          :icon="iconFromProps"
-          :outline="outlineFromProps"
-          :reverse="reverseFromProps"
-          :size="sizeFromProps"
-          :type="typeFromProps"
+          v-if="icon"
+          v-bind="{ ...$props, href: 'http://www.ebury.com' }"
           class="ec-ml--20 ec-mt--20"
-            href="http://www.ebury.com"
         />
 
         <p class="ec-mt--40"> * Disabled and loading states apply only to buttons.</p>

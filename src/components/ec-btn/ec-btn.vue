@@ -8,35 +8,37 @@
     <ec-icon
       v-if="icon"
       class="ec-btn__icon"
+      data-test="ec-btn__icon"
       :class="{
-        'ec-btn--icon-with-spacing': this.$slots.default && icon,
-        'ec-btn__content-invisible' : loading && !this.$slots['text-loader'],
-        'ec-btn__content-remove' : loading && this.$slots['text-loader'],
+        'ec-btn__icon-with-spacing': this.$slots.default && icon,
+        'ec-btn__icon--no-loading-text' : isSpinnerLoaderVisible(),
+        'ec-btn__icon--with-loading-text' : isTextLoaderVisible(),
       }"
       :name="icon"
       :size="22"
     />
 
     <span
-      v-if="loading && this.$slots['text-loader']"
-      data-test="ec-btn__text-loader-slot"
+      v-if="isTextLoaderVisible()"
+      data-test="ec-btn__loading-text"
     >
-      <slot name="text-loader" />
+      <slot name="loading-text" />
     </span>
 
     <span
       v-else-if="this.$slots.default"
-      data-test="ec-btn__default-slot"
-      :class="{'ec-btn__content-invisible' : loading }"
+      data-test="ec-btn__text"
+      :class="{'ec-btn__text-is-loading' : isLoading }"
     >
       <slot />
     </span>
 
     <ec-loading
-      v-if="loading && !this.$slots['text-loader']"
-      class="ec-btn__spinner"
+      v-if="isSpinnerLoaderVisible()"
+      class="ec-btn__loading-spinner"
+      data-test="ec-btn__loading-spinner"
       show
-      :size="24"
+      :size="22"
     />
 
   </component>
@@ -69,66 +71,69 @@ export default {
     tag: {
       type: String,
     },
-    disabled: {
+    isDisabled: {
       type: Boolean,
       default: false,
     },
     icon: {
       type: String,
     },
-    rounded: {
+    isRounded: {
       type: Boolean,
       default: false,
     },
-    outline: {
+    isOutline: {
       type: Boolean,
       default: false,
     },
-    fullWidth: {
+    isFullWidth: {
       type: Boolean,
       default: false,
     },
-    type: {
+    category: {
       type: String,
       validator(value) {
         return ['primary', 'secondary', 'success', 'error', 'warning'].includes(value);
       },
     },
-    reverse: {
+    isReverse: {
       type: Boolean,
       default: false,
     },
-    loading: {
+    isLoading: {
       type: Boolean,
       default: false,
     },
-    submit: {
+    isSubmit: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   computed: {
     isRouterLink() {
       return !!this.to;
     },
-    isNormalLink() {
+    isAnchorLink() {
       return !!this.href;
     },
     buttonClasses() {
       return {
         'ec-btn--sm': this.size === 'sm',
         'ec-btn--md': this.size === 'md',
-        'ec-btn--rounded': this.rounded,
-        'ec-btn--full-width': this.fullWidth,
+        'ec-btn--rounded': this.isRounded,
+        'ec-btn--full-width': this.isFullWidth,
         'ec-btn--icon-only': this.icon && !(this.text || this.$slots.default),
-        [`ec-btn--${this.type}`]: this.type,
-        'ec-btn--outline': this.outline,
-        'ec-btn--reverse': this.reverse,
-        'ec-btn--primary-reverse': this.reverse && this.type === 'primary',
+        [`ec-btn--${this.category}`]: this.category,
+        'ec-btn--outline': this.isOutline,
+        'ec-btn--primary-reverse': this.isReverse && this.category === 'primary',
+        'ec-btn--secondary-reverse': this.isReverse && this.category === 'secondary',
+        'ec-btn--success-reverse': this.isReverse && this.category === 'success',
+        'ec-btn--error-reverse': this.isReverse && this.category === 'error',
+        'ec-btn--warning-reverse': this.isReverse && this.category === 'warning',
       };
     },
     componentTag() {
-      if (this.isNormalLink) {
+      if (this.isAnchorLink) {
         return this.tag || 'a';
       } if (this.isRouterLink) {
         return this.tag || 'router-link';
@@ -137,11 +142,19 @@ export default {
     },
     componentProps() {
       return {
-        type: this.submit ? 'submit' : null,
+        type: (this.componentTag === 'button' && this.isSubmit) ? 'submit' : null,
         to: this.to || null,
         href: this.href || null,
-        disabled: !this.isNormalLink && (this.disabled || this.loading),
+        disabled: !this.isAnchorLink && (this.isDisabled || this.isLoading),
       };
+    },
+  },
+  methods: {
+    isSpinnerLoaderVisible() {
+      return this.isLoading && !this.$slots['loading-text'];
+    },
+    isTextLoaderVisible() {
+      return this.isLoading && this.$slots['loading-text'];
     },
   },
 };
@@ -149,20 +162,21 @@ export default {
 
 <style lang="scss">
   .ec-btn {
-    &__content-invisible {
+    &__text-is-loading,
+    &__icon--no-loading-text {
       visibility: hidden;
     }
 
-    &__content-remove {
+    &__icon--with-loading-text {
       display: none;
     }
 
-    &__spinner {
+    &__loading-spinner {
       position: absolute;
       width: 100%;
     }
 
-    &--icon-with-spacing {
+    &__icon-with-spacing {
       margin-right: 8px;
     }
   }
