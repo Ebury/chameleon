@@ -28,6 +28,7 @@ module.exports = {
     'jest-watch-typeahead/testname',
   ],
   setupFiles: [
+    '<rootDir>/tests/setup/intl.js',
   ],
   setupFilesAfterEnv: [
     '<rootDir>/tests/setup/after-env.js',
