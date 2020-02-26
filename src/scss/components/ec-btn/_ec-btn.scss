@@ -27,6 +27,7 @@ $ec-btn-disabled-color: $level-6-disabled-lines !default;
   transition-property: color, background-color;
   transition-timing-function: ease-out;
   display: inline-flex;
+  vertical-align: bottom;
   flex-direction: row;
   align-items: center;
   justify-content: center;
