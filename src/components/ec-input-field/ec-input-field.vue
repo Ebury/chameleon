@@ -1,10 +1,19 @@
 <template>
   <div class="ec-input-field">
     <label
-      v-if="label"
+      v-if="label || note"
       class="ec-input-field__label"
       :for="id"
-    >{{ label }}</label>
+    >
+      <span
+        v-if="label"
+        class="ec-input-field__label-text"
+      >{{ label }}</span>
+      <span
+        v-if="note"
+        class="ec-input-field__note"
+      >{{ note }}</span>
+    </label>
     <input
       :id="id"
       v-model="inputModel"
@@ -62,6 +71,10 @@ export default {
       default: '',
       type: String,
     },
+    note: {
+      default: '',
+      type: String,
+    },
     errorMessage: {
       default: '',
       type: String,
@@ -104,6 +117,7 @@ export default {
 $ec-input-field-text-color: $level-3-body-and-headings !default;
 $ec-input-field-primary-color: $level-4-tech-blue !default;
 $ec-input-field-border-color: $level-6-disabled-lines !default;
+$ec-input-field-note-color: $level-5-placeholders !default;
 $ec-input-field-background-disabled: $level-7-backgrounds !default;
 $ec-input-field-icon-area-size: 42px !default;
 $ec-input-field-icon-color: $ec-input-field-text-color !default;
@@ -153,7 +167,19 @@ $ec-input-field-invalid-color: $color-error !default;
   }
 
   &__label {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__label-text {
     @include input-label;
+
+    flex-grow: 1;
+    margin-right: 6px;
+  }
+
+  &__note {
+    @include caption-text;
   }
 
   &__error-text {

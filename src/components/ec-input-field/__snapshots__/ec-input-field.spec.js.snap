@@ -8,7 +8,17 @@ exports[`EcInputField renders properly with the given state "error" 1`] = `
     class="ec-input-field__label"
     for="ec-input-field-5"
   >
-    label test
+    <span
+      class="ec-input-field__label-text"
+    >
+      label test
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+    >
+      note test
+    </span>
   </label>
    
   <input
@@ -33,11 +43,51 @@ exports[`EcInputField renders properly without label 1`] = `
 <div
   class="ec-input-field"
 >
-  <!---->
+  <label
+    class="ec-input-field__label"
+    for="ec-input-field-7"
+  >
+    <!---->
+     
+    <span
+      class="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
    
   <input
     class="ec-input-field__input"
     id="ec-input-field-7"
+    type="text"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`EcInputField renders properly without note 1`] = `
+<div
+  class="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    for="ec-input-field-9"
+  >
+    <span
+      class="ec-input-field__label-text"
+    >
+      label test
+    </span>
+     
+    <!---->
+  </label>
+   
+  <input
+    class="ec-input-field__input"
+    id="ec-input-field-9"
     type="text"
   />
    
@@ -53,14 +103,24 @@ exports[`EcInputField renders with the attrs min and max 1`] = `
 >
   <label
     class="ec-input-field__label"
-    for="ec-input-field-9"
+    for="ec-input-field-11"
   >
-    label test
+    <span
+      class="ec-input-field__label-text"
+    >
+      label test
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+    >
+      note test
+    </span>
   </label>
    
   <input
     class="ec-input-field__input"
-    id="ec-input-field-9"
+    id="ec-input-field-11"
     max="10"
     min="5"
     type="number"
@@ -80,7 +140,17 @@ exports[`EcInputField should display properly with the given props 1`] = `
     class="ec-input-field__label"
     for="ec-input-field-3"
   >
-    label test
+    <span
+      class="ec-input-field__label-text"
+    >
+      label test
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+    >
+      note test
+    </span>
   </label>
    
   <input
@@ -101,14 +171,24 @@ exports[`EcInputField should render given icon 1`] = `
 >
   <label
     class="ec-input-field__label"
-    for="ec-input-field-19"
+    for="ec-input-field-21"
   >
-    label test
+    <span
+      class="ec-input-field__label-text"
+    >
+      label test
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+    >
+      note test
+    </span>
   </label>
    
   <input
     class="ec-input-field__input ec-input-field__input--has-icon"
-    id="ec-input-field-19"
+    id="ec-input-field-21"
     type="text"
   />
    
