@@ -1,23 +1,30 @@
 <template>
-  <div class="ec-input-field">
+  <div
+    class="ec-input-field"
+    data-test="ec-input-field"
+  >
     <label
       v-if="label || note"
       class="ec-input-field__label"
+      data-test="ec-input-field__label"
       :for="id"
     >
       <span
         v-if="label"
         class="ec-input-field__label-text"
+        data-test="ec-input-field__label-text"
       >{{ label }}</span>
       <span
         v-if="note"
         class="ec-input-field__note"
+        data-test="ec-input-field__note"
       >{{ note }}</span>
     </label>
     <input
       :id="id"
       v-model="inputModel"
       class="ec-input-field__input"
+      data-test="ec-input-field__input"
       :class="{
         'ec-input-field__input--has-error': isInvalid,
         'ec-input-field__input--has-icon': !!icon,
@@ -33,6 +40,7 @@
     >
       <ec-icon
         class="ec-input-field__icon"
+        data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
       />
@@ -41,6 +49,7 @@
       :id="errorId"
       v-if="isInvalid"
       class="ec-input-field__error-text"
+      data-test="ec-input-field__error-text"
     >{{ errorMessage }}</div>
   </div>
 </template>
