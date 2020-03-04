@@ -21,7 +21,7 @@ stories
         default: text('label', 'Number input', GROUPS.NUMBER),
       },
       noteNumber: {
-        default: text('note', 'Max 80 char', GROUPS.NUMBER),
+        default: text('note', 'Max 80 chars', GROUPS.NUMBER),
       },
       errorMessageNumber: {
         default: text('errorMessage', '', GROUPS.NUMBER),
@@ -36,7 +36,7 @@ stories
         default: text('label', 'Text input', GROUPS.TEXT),
       },
       noteText: {
-        default: text('note', 'Max 80 char', GROUPS.TEXT),
+        default: text('note', 'Max 80 chars', GROUPS.TEXT),
       },
       errorMessageText: {
         default: text('errorMessage', '', GROUPS.TEXT),
@@ -51,7 +51,7 @@ stories
         default: text('label', 'Date input', GROUPS.DATE),
       },
       noteDate: {
-        default: text('note', 'Max 80 char', GROUPS.DATE),
+        default: text('note', 'Max 80 chars', GROUPS.DATE),
       },
       errorMessageDate: {
         default: text('errorMessage', '', GROUPS.DATE),

@@ -184,7 +184,7 @@ $ec-input-field-invalid-color: $color-error !default;
     @include input-label;
 
     flex-grow: 1;
-    margin-right: 6px;
+    margin-right: 8px;
   }
 
   &__note {
