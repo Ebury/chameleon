@@ -105,6 +105,7 @@ exports[`EcDropdown multiple value :props should get disabled when disabled prop
   >
     <div
       class="ec-input-field"
+      data-test="ec-input-field"
     >
       <!---->
        
@@ -123,6 +124,7 @@ exports[`EcDropdown multiple value :props should get disabled when disabled prop
       >
         <svg
           class="ec-input-field__icon ec-icon"
+          data-test="ec-input-field__icon"
           height="24"
           width="24"
         >
@@ -165,6 +167,7 @@ exports[`EcDropdown multiple value :props should not show the items when the loa
   >
     <div
       class="ec-input-field"
+      data-test="ec-input-field"
     >
       <!---->
        
@@ -182,6 +185,7 @@ exports[`EcDropdown multiple value :props should not show the items when the loa
       >
         <svg
           class="ec-input-field__icon ec-icon"
+          data-test="ec-input-field__icon"
           height="24"
           width="24"
         >
@@ -241,10 +245,12 @@ exports[`EcDropdown multiple value :props should pass errorMessage prop to the t
 exports[`EcDropdown multiple value :props should pass label prop to the triggering input 1`] = `
 <label
   class="ec-input-field__label"
+  data-test="ec-input-field__label"
   for="ec-input-field-229"
 >
   <span
     class="ec-input-field__label-text"
+    data-test="ec-input-field__label-text"
   >
     Random label
   </span>
@@ -301,6 +307,7 @@ exports[`EcDropdown multiple value should render as expected 1`] = `
   >
     <div
       class="ec-input-field"
+      data-test="ec-input-field"
     >
       <!---->
        
@@ -318,6 +325,7 @@ exports[`EcDropdown multiple value should render as expected 1`] = `
       >
         <svg
           class="ec-input-field__icon ec-icon"
+          data-test="ec-input-field__icon"
           height="24"
           width="24"
         >
@@ -551,7 +559,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
 - First value
 + Second value
 
-@@ -17,11 +17,11 @@
+@@ -18,11 +18,11 @@
         <!---->
          
         <input
@@ -564,7 +572,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
           type=\\"text\\"
         />
          
-@@ -58,26 +58,34 @@
+@@ -60,26 +60,34 @@
             <div
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
@@ -603,7 +611,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label\\"
                   >
                     Item 1
-@@ -96,26 +104,34 @@
+@@ -98,26 +106,34 @@
             <div
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
@@ -642,7 +650,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label\\"
                   >
                     Item 2
-@@ -134,26 +150,34 @@
+@@ -136,26 +152,34 @@
             <div
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
@@ -681,7 +689,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label\\"
                   >
                     Item 3
-@@ -173,26 +197,34 @@
+@@ -175,26 +199,34 @@
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
               <input
@@ -720,7 +728,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label ec-dropdown__multiple-item-label--is-disabled\\"
                   >
                     Item 4
-@@ -211,26 +243,34 @@
+@@ -213,26 +245,34 @@
             <div
               class=\\"ec-checkbox ec-dropdown__multiple-item\\"
             >
@@ -877,6 +885,7 @@ exports[`EcDropdown single value :props should get disabled when disabled prop i
   >
     <div
       class="ec-input-field"
+      data-test="ec-input-field"
     >
       <!---->
        
@@ -895,6 +904,7 @@ exports[`EcDropdown single value :props should get disabled when disabled prop i
       >
         <svg
           class="ec-input-field__icon ec-icon"
+          data-test="ec-input-field__icon"
           height="24"
           width="24"
         >
@@ -937,6 +947,7 @@ exports[`EcDropdown single value :props should not show the items when the loadi
   >
     <div
       class="ec-input-field"
+      data-test="ec-input-field"
     >
       <!---->
        
@@ -954,6 +965,7 @@ exports[`EcDropdown single value :props should not show the items when the loadi
       >
         <svg
           class="ec-input-field__icon ec-icon"
+          data-test="ec-input-field__icon"
           height="24"
           width="24"
         >
@@ -1013,10 +1025,12 @@ exports[`EcDropdown single value :props should pass errorMessage prop to the tri
 exports[`EcDropdown single value :props should pass label prop to the triggering input 1`] = `
 <label
   class="ec-input-field__label"
+  data-test="ec-input-field__label"
   for="ec-input-field-70"
 >
   <span
     class="ec-input-field__label-text"
+    data-test="ec-input-field__label-text"
   >
     Random label
   </span>
@@ -1073,6 +1087,7 @@ exports[`EcDropdown single value should render as expected 1`] = `
   >
     <div
       class="ec-input-field"
+      data-test="ec-input-field"
     >
       <!---->
        
@@ -1090,6 +1105,7 @@ exports[`EcDropdown single value should render as expected 1`] = `
       >
         <svg
           class="ec-input-field__icon ec-icon"
+          data-test="ec-input-field__icon"
           height="24"
           width="24"
         >

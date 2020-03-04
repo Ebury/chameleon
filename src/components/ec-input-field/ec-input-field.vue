@@ -24,7 +24,7 @@
       :id="id"
       v-model="inputModel"
       class="ec-input-field__input"
-      data-test="ec-input-field__input"
+      :data-test="$attrs['data-test'] ? $attrs['data-test'] : 'ec-input-field__input'"
       :class="{
         'ec-input-field__input--has-error': isInvalid,
         'ec-input-field__input--has-icon': !!icon,
