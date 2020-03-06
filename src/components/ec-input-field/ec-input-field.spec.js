@@ -10,6 +10,7 @@ describe('EcInputField', () => {
         type: 'text',
         errorMessage: '',
         label: 'label test',
+        note: 'note test',
         ...props,
       },
       ...mountOpts,
@@ -50,6 +51,11 @@ describe('EcInputField', () => {
 
   it('renders properly without label', () => {
     const wrapper = mountInputField({ label: '' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly without note', () => {
+    const wrapper = mountInputField({ note: '' });
     expect(wrapper.element).toMatchSnapshot();
   });
 

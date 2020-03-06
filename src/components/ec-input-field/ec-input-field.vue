@@ -1,14 +1,30 @@
 <template>
-  <div class="ec-input-field">
+  <div
+    class="ec-input-field"
+    data-test="ec-input-field"
+  >
     <label
-      v-if="label"
+      v-if="label || note"
       class="ec-input-field__label"
+      data-test="ec-input-field__label"
       :for="id"
-    >{{ label }}</label>
+    >
+      <span
+        v-if="label"
+        class="ec-input-field__label-text"
+        data-test="ec-input-field__label-text"
+      >{{ label }}</span>
+      <span
+        v-if="note"
+        class="ec-input-field__note"
+        data-test="ec-input-field__note"
+      >{{ note }}</span>
+    </label>
     <input
       :id="id"
       v-model="inputModel"
       class="ec-input-field__input"
+      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input'"
       :class="{
         'ec-input-field__input--has-error': isInvalid,
         'ec-input-field__input--has-icon': !!icon,
@@ -24,6 +40,7 @@
     >
       <ec-icon
         class="ec-input-field__icon"
+        data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
       />
@@ -32,6 +49,7 @@
       :id="errorId"
       v-if="isInvalid"
       class="ec-input-field__error-text"
+      data-test="ec-input-field__error-text"
     >{{ errorMessage }}</div>
   </div>
 </template>
@@ -59,6 +77,10 @@ export default {
       type: [Number, String, Date],
     },
     label: {
+      default: '',
+      type: String,
+    },
+    note: {
       default: '',
       type: String,
     },
@@ -104,6 +126,7 @@ export default {
 $ec-input-field-text-color: $level-3-body-and-headings !default;
 $ec-input-field-primary-color: $level-4-tech-blue !default;
 $ec-input-field-border-color: $level-6-disabled-lines !default;
+$ec-input-field-note-color: $level-5-placeholders !default;
 $ec-input-field-background-disabled: $level-7-backgrounds !default;
 $ec-input-field-icon-area-size: 42px !default;
 $ec-input-field-icon-color: $ec-input-field-text-color !default;
@@ -153,7 +176,19 @@ $ec-input-field-invalid-color: $color-error !default;
   }
 
   &__label {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__label-text {
     @include input-label;
+
+    flex-grow: 1;
+    margin-right: 8px;
+  }
+
+  &__note {
+    @include caption-text;
   }
 
   &__error-text {
