@@ -5,16 +5,21 @@
   >
     <table class="ec-table">
       <caption v-if="title">{{ title }}</caption>
-      <ec-table-head :columns="columns" />
+      <ec-table-head
+        :columns="columns"
+        :sorts="sorts"
+        @sort="onSort"
+      />
       <tbody>
         <tr
           v-for="(row, rowIndex) in data"
           :key="rowIndex"
+          :data-test="`ec-table__row ec-table__row--${rowIndex}`"
         >
           <td
             v-for="(content, colIndex) in row"
             :key="colIndex"
-            :data-test="'ec-table__cell-' + colIndex"
+            :data-test="`ec-table__cell ec-table__cell--${colIndex}`"
             class="ec-table__cell"
             :class="{'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon'}"
           >
@@ -52,6 +57,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    sorts: {
+      type: Array,
+      default: () => [],
+    },
     data: {
       type: Array,
       default: () => [],
@@ -79,6 +88,9 @@ export default {
   methods: {
     getSlotName(index) {
       return `col${index + 1}`;
+    },
+    onSort(columnName) {
+      this.$emit('sort', columnName);
     },
   },
 };
