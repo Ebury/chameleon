@@ -108,7 +108,7 @@ stories
         default: text('title', 'Title'),
       },
       columns: {
-        default: object('columns', columns),
+        default: object('columns', columns.map(c => ({ ...c, sortable: false }))),
       },
       data: {
         default: object('data', data),
@@ -150,7 +150,7 @@ stories
         default: text('title', 'Title'),
       },
       columns: {
-        default: object('columns', columns),
+        default: object('columns', columns.map(c => ({ ...c, sortable: false }))),
       },
       data: {
         default: object('data', data),
