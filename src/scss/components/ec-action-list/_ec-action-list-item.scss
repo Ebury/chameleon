@@ -1,0 +1,13 @@
+.ec-action-list-item {
+  @include shape-border-radius;
+  @include border-level-6;
+
+  padding: 16px;
+  margin: 4px;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background-color: $level-7-backgrounds;
+  }
+}

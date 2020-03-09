@@ -1,0 +1,7 @@
+.ec-action-list-group {
+  display: flex;
+
+  &--column {
+    flex-direction: column;
+  }
+}
