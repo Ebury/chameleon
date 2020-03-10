@@ -1,4 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
+import * as SortDirection from '../../enums/sort-direction';
 import EcTable from './ec-table.vue';
 
 function mountTable(props, mountOpts) {
@@ -7,9 +8,11 @@ function mountTable(props, mountOpts) {
       columns: [
         {
           name: 'lorem',
+          title: 'Lorem',
         },
         {
           name: 'ipsum',
+          title: 'Ipsum',
         },
       ],
       data: [
@@ -39,11 +42,7 @@ function mountTableAsTemplate(template, props, mountOpts) {
 
 describe('EcTable', () => {
   it('should not render if no props are supplied', () => {
-    const wrapper = mountTable({
-      columns: undefined,
-      data: undefined,
-    });
-
+    const wrapper = mountTable(null, { propsData: {} });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -106,9 +105,11 @@ describe('EcTable', () => {
             columns: [
               {
                 name: 'lorem',
+                title: 'Lorem',
               },
               {
                 name: 'ipsum',
+                title: 'Ipsum',
                 type: 'icon',
               },
             ],
@@ -121,8 +122,8 @@ describe('EcTable', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-table__cell-0').classes()).not.toContain('ec-table__cell--text-center');
-    expect(wrapper.findByDataTest('ec-table__cell-1').classes()).toContain('ec-table__cell--text-center');
+    expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--text-center')).toBe(false);
+    expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--text-center')).toBe(true);
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -175,9 +176,11 @@ describe('EcTable', () => {
       columns: [
         {
           name: 'lorem',
+          title: 'Lorem',
         },
         {
           name: 'ipsum',
+          title: 'Ipsum',
         },
       ],
       data: [
@@ -193,5 +196,47 @@ describe('EcTable', () => {
     });
 
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render sorting as expected', () => {
+    const wrapper = mountTable({
+      sorts: [
+        { column: 'lorem', direction: SortDirection.ASC },
+        { column: 'ipsum', direction: SortDirection.DESC },
+      ],
+      columns: [
+        {
+          name: 'lorem',
+          title: 'Lorem',
+          sortable: true,
+        },
+        {
+          name: 'ipsum',
+          title: 'Ipsum',
+          sortable: true,
+        },
+      ],
+    });
+
+    expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot();
+  });
+
+  it('should notify parent about sorting', () => {
+    const wrapper = mountTable({
+      columns: [
+        {
+          name: 'lorem',
+          title: 'Lorem',
+          sortable: true,
+        },
+        {
+          name: 'ipsum',
+          title: 'Ipsum',
+          sortable: true,
+        },
+      ],
+    });
+    wrapper.findByDataTest('ec-table-head__cell--0').findByDataTest('ec-table-sort__icon').trigger('click');
+    expect(wrapper.emitted('sort')).toEqual([['lorem']]);
   });
 });

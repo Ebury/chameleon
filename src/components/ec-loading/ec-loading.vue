@@ -51,6 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/settings/z-index';
 @import '../../scss/settings/colors/index';
 
 .ec-loading {
@@ -63,6 +64,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: $z-index-loading;
 
     &--is-transparent {
       background: rgba($white, 0.5);

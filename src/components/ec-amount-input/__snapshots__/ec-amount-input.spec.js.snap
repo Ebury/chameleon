@@ -3,11 +3,13 @@
 exports[`EcAmountInput should render properly 1`] = `
 <div
   class="ec-input-field"
+  data-test="ec-input-field"
 >
   <!---->
    
   <input
     class="ec-input-field__input"
+    data-test="ec-input-field__input"
     id="ec-input-field-2"
     locale="en"
     type="text"

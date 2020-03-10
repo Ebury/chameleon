@@ -1,3 +1,5 @@
+import * as SortDirection from './enums/sort-direction';
+
 export { default as EcAlert } from './components/ec-alert';
 export { default as EcAmountInput } from './components/ec-amount-input';
 export { default as EcAmount } from './directives/ec-amount';
@@ -27,3 +29,4 @@ export { default as EcTable } from './components/ec-table';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcTooltip } from './directives/ec-tooltip';
 export { default as EcUserInfo } from './components/ec-user-info';
+export { SortDirection };

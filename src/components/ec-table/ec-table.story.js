@@ -5,22 +5,41 @@ import {
   number,
   boolean,
 } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import EcTable from './ec-table.vue';
 import EcIcon from '@/components/ec-icon/ec-icon.vue';
+import * as SortDirection from '../../enums/sort-direction';
 
 const columns = [
   {
-    name: 'Request details',
+    name: 'request-details',
+    title: 'Request details',
+    sortable: true,
   },
   {
-    name: 'Original amount',
+    name: 'original-amount',
+    title: 'Original amount',
+    sortable: true,
   },
   {
-    name: 'Repayment date',
+    name: 'repayment-date',
+    title: 'Repayment date',
+    sortable: true,
   },
   {
-    name: 'Status',
+    title: 'Status',
     type: 'icon',
+  },
+];
+
+const sorts = [
+  {
+    direction: SortDirection.ASC,
+    column: 'request-details',
+  },
+  {
+    direction: SortDirection.DESC,
+    column: 'original-amount',
   },
 ];
 
@@ -57,6 +76,9 @@ stories
       columns: {
         default: object('columns', columns),
       },
+      sorts: {
+        default: object('sorts', sorts),
+      },
       data: {
         default: object('data', data),
       },
@@ -67,16 +89,14 @@ stories
         default: boolean('showFooter', false),
       },
     },
+    methods: {
+      onSort: action('sort'),
+    },
     template: `
-      <div style="display: flex;height: 100vh">
+      <div style="display: flex; height: 100vh">
         <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-          <ec-table
-            :columns="columns"
-            :data="data"
-            :totalRecords="totalRecords"
-            :showFooter="showFooter"
-            :title="title"
-          />
+          <ec-table v-bind="$props" @sort="onSort" />
+          <p class="ec-mt--40"><em>NOTE:</em> Sorting in this example is not hooked into any functionality, because this is just a basic example. You can change the direction in the knobs panel or if you want to see it working, checkout smart table story instead.</p>
         </div>
       </div>
       `,
@@ -88,7 +108,7 @@ stories
         default: text('title', 'Title'),
       },
       columns: {
-        default: object('columns', columns),
+        default: object('columns', columns.map(c => ({ ...c, sortable: false }))),
       },
       data: {
         default: object('data', data),
@@ -101,15 +121,9 @@ stories
       },
     },
     template: `
-    <div style="display: flex;height: 100vh">
+    <div style="display: flex; height: 100vh">
       <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-        <ec-table
-          :columns="columns"
-          :data="data"
-          :totalRecords="totalRecords"
-          :showFooter="showFooter"
-          :title="title"
-          >
+        <ec-table v-bind="$props">
           <template
             v-slot:col2="{ content, row }"
           >
@@ -136,7 +150,7 @@ stories
         default: text('title', 'Title'),
       },
       columns: {
-        default: object('columns', columns),
+        default: object('columns', columns.map(c => ({ ...c, sortable: false }))),
       },
       data: {
         default: object('data', data),
@@ -147,21 +161,14 @@ stories
       showFooter: {
         default: boolean('showFooter', true),
       },
-      tooltip: {
-        default: object('tooltip', tooltipConfig),
+      tooltipConfig: {
+        default: object('tooltipConfig', tooltipConfig),
       },
     },
     template: `
-    <div style="display: flex;height: 100vh">
+    <div style="display: flex; height: 100vh">
       <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-        <ec-table
-          :columns="columns"
-          :data="data"
-          :totalRecords="totalRecords"
-          :showFooter="showFooter"
-          :tooltipConfig="tooltip"
-          :title="title"
-        />
+        <ec-table v-bind="$props" />
       </div>
     </div>
     `,
