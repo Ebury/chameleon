@@ -86,3 +86,28 @@ $ec-grid-number-of-columns: 12;
     }
   }
 }
+
+// IE11 Flexbugs
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  @for $i from 1 through $ec-grid-number-of-columns {
+    .ec-grid__row > .ec-col-#{$i} {
+      max-width: calc((100% * ( #{$i} / #{$ec-grid-number-of-columns})) - #{$ec-grid-gutters});
+    }
+
+    @each $breakpoint, $size in $breakpoints {
+      @media screen and (min-width: #{$size}) {
+        .ec-grid__row {
+          &\@#{$breakpoint} > .ec-col-#{$i} {
+            max-width: calc((100% * ( #{$i} / #{$ec-grid-number-of-columns})) - #{$ec-grid-gutters});
+          }
+        }
+
+        .ec-grid__col {
+          &\@#{$breakpoint} > .ec-col-#{$i} {
+            max-width: none;
+          }
+        }
+      }
+    }
+  }
+}
