@@ -6,7 +6,7 @@
     <div class="ec-panel__header">
       <div class="ec-panel__header-icons">
         <a
-          v-if="goBackEnabled"
+          v-if="isBackEnabled"
           aria-label="Go back"
           class="ec-panel__header-action ec-panel__header-action--back"
           href="#"
@@ -56,7 +56,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    goBackEnabled: {
+    isBackEnabled: {
       type: Boolean,
       default: false,
     },

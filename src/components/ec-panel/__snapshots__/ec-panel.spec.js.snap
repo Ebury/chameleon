@@ -74,7 +74,7 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
 </aside>
 `;
 
-exports[`EcPanel :props :goBackEnabled - should not render the back button within the panel when is false 1`] = `
+exports[`EcPanel :props :isBackEnabled - should not render the back button within the panel when is false 1`] = `
 <aside
   class="ec-panel"
 >
@@ -108,7 +108,7 @@ exports[`EcPanel :props :goBackEnabled - should not render the back button withi
 </aside>
 `;
 
-exports[`EcPanel :props :goBackEnabled - should render the back button within the panel when is true 1`] = `
+exports[`EcPanel :props :isBackEnabled - should render the back button within the panel when is true 1`] = `
 <aside
   class="ec-panel"
 >

@@ -39,15 +39,15 @@ describe('EcPanel', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':goBackEnabled - should render the back button within the panel when is true', () => {
-      const wrapper = mountPanel({ show: true, goBackEnabled: true });
+    it(':isBackEnabled - should render the back button within the panel when is true', () => {
+      const wrapper = mountPanel({ show: true, isBackEnabled: true });
 
       expect(wrapper.find('.ec-panel__header-action--back').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':goBackEnabled - should not render the back button within the panel when is false', () => {
-      const wrapper = mountPanel({ show: true, goBackEnabled: false });
+    it(':isBackEnabled - should not render the back button within the panel when is false', () => {
+      const wrapper = mountPanel({ show: true, isBackEnabled: false });
 
       expect(wrapper.find('.ec-panel__header-action--back').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
@@ -64,7 +64,7 @@ describe('EcPanel', () => {
     });
 
     it('@back - should emit both "show-panel" and "back" events when the simple-chevron-left icon is clicked', () => {
-      const wrapper = mountPanel({ show: true, goBackEnabled: true });
+      const wrapper = mountPanel({ show: true, isBackEnabled: true });
       wrapper.find('.ec-panel__header-action--back').trigger('click');
 
       expect(wrapper.emitted('show-panel').length).toBe(1);
