@@ -3,6 +3,7 @@
 exports[`EcPanel #slots #header - should render header slot section if slot is passed 1`] = `
 <aside
   class="ec-panel"
+  data-test="ec-panel"
 >
   <div
     class="ec-panel__header"
@@ -15,6 +16,7 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
       <a
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
+        data-test="ec-panel__header-action--close"
         href="#"
       >
         <svg
@@ -40,6 +42,7 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
 exports[`EcPanel #slots #main - should render main slot section if slot is passed 1`] = `
 <aside
   class="ec-panel"
+  data-test="ec-panel"
 >
   <div
     class="ec-panel__header"
@@ -52,6 +55,7 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
       <a
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
+        data-test="ec-panel__header-action--close"
         href="#"
       >
         <svg
@@ -74,9 +78,12 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
 </aside>
 `;
 
-exports[`EcPanel :props :isBackEnabled - should not render the back button within the panel when is false 1`] = `
+exports[`EcPanel :props :show - should not render the panel when is false 1`] = `<!---->`;
+
+exports[`EcPanel :props :show - should render the panel when is true 1`] = `
 <aside
   class="ec-panel"
+  data-test="ec-panel"
 >
   <div
     class="ec-panel__header"
@@ -89,6 +96,7 @@ exports[`EcPanel :props :isBackEnabled - should not render the back button withi
       <a
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
+        data-test="ec-panel__header-action--close"
         href="#"
       >
         <svg
@@ -108,9 +116,46 @@ exports[`EcPanel :props :isBackEnabled - should not render the back button withi
 </aside>
 `;
 
-exports[`EcPanel :props :isBackEnabled - should render the back button within the panel when is true 1`] = `
+exports[`EcPanel @events @back should not render back button when event handler attribute is not present 1`] = `
 <aside
   class="ec-panel"
+  data-test="ec-panel"
+>
+  <div
+    class="ec-panel__header"
+  >
+    <div
+      class="ec-panel__header-icons"
+    >
+      <!---->
+       
+      <a
+        aria-label="Close panel"
+        class="ec-panel__header-action ec-panel__header-action--close"
+        data-test="ec-panel__header-action--close"
+        href="#"
+      >
+        <svg
+          class="ec-panel__header-icon ec-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
+    </div>
+     
+  </div>
+   
+</aside>
+`;
+
+exports[`EcPanel @events @back should render back button when event handler attribute is present 1`] = `
+<aside
+  class="ec-panel"
+  data-test="ec-panel"
 >
   <div
     class="ec-panel__header"
@@ -121,6 +166,7 @@ exports[`EcPanel :props :isBackEnabled - should render the back button within th
       <a
         aria-label="Go back"
         class="ec-panel__header-action ec-panel__header-action--back"
+        data-test="ec-panel__header-action--back"
         href="#"
       >
         <svg
@@ -137,42 +183,7 @@ exports[`EcPanel :props :isBackEnabled - should render the back button within th
       <a
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
-        href="#"
-      >
-        <svg
-          class="ec-panel__header-icon ec-icon"
-          height="24"
-          width="24"
-        >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </a>
-    </div>
-     
-  </div>
-   
-</aside>
-`;
-
-exports[`EcPanel :props :show - should not render the panel when is false 1`] = `<!---->`;
-
-exports[`EcPanel :props :show - should render the panel when is true 1`] = `
-<aside
-  class="ec-panel"
->
-  <div
-    class="ec-panel__header"
-  >
-    <div
-      class="ec-panel__header-icons"
-    >
-      <!---->
-       
-      <a
-        aria-label="Close panel"
-        class="ec-panel__header-action ec-panel__header-action--close"
+        data-test="ec-panel__header-action--close"
         href="#"
       >
         <svg
@@ -197,6 +208,7 @@ exports[`EcPanel v-model should not render the panel when we pass to model false
 exports[`EcPanel v-model should render the panel when we pass to model true 1`] = `
 <aside
   class="ec-panel"
+  data-test="ec-panel"
 >
   <div
     class="ec-panel__header"
@@ -209,6 +221,7 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
       <a
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
+        data-test="ec-panel__header-action--close"
         href="#"
       >
         <svg

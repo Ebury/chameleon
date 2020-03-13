@@ -2,6 +2,7 @@
   <aside
     v-if="show"
     class="ec-panel"
+    data-test="ec-panel"
   >
     <div class="ec-panel__header">
       <div class="ec-panel__header-icons">
@@ -10,6 +11,7 @@
           aria-label="Go back"
           class="ec-panel__header-action ec-panel__header-action--back"
           href="#"
+          data-test="ec-panel__header-action--back"
           @click.stop.prevent="goBack"
         >
           <ec-icon
@@ -22,6 +24,7 @@
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
           href="#"
+          data-test="ec-panel__header-action--close"
           @click.stop.prevent="closePanel"
         >
           <ec-icon
@@ -56,9 +59,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    isBackEnabled: {
-      type: Boolean,
-      default: false,
+  },
+  computed: {
+    isBackEnabled() {
+      return this.$listeners.back;
     },
   },
   methods: {

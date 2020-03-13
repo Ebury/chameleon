@@ -38,20 +38,6 @@ describe('EcPanel', () => {
       expect(wrapper.find('.ec-panel').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
-
-    it(':isBackEnabled - should render the back button within the panel when is true', () => {
-      const wrapper = mountPanel({ show: true, isBackEnabled: true });
-
-      expect(wrapper.find('.ec-panel__header-action--back').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':isBackEnabled - should not render the back button within the panel when is false', () => {
-      const wrapper = mountPanel({ show: true, isBackEnabled: false });
-
-      expect(wrapper.find('.ec-panel__header-action--back').exists()).toBe(false);
-      expect(wrapper.element).toMatchSnapshot();
-    });
   });
 
   describe('@events', () => {
@@ -63,12 +49,66 @@ describe('EcPanel', () => {
       expect(wrapper.emitted('close').length).toBe(1);
     });
 
-    it('@back - should emit both "show-panel" and "back" events when the simple-chevron-left icon is clicked', () => {
-      const wrapper = mountPanel({ show: true, isBackEnabled: true });
-      wrapper.find('.ec-panel__header-action--back').trigger('click');
+    describe('@back', () => {
+      it('should render back button when event handler attribute is present', () => {
+        const wrapper = mountPanelAsTemplate(
+          '<ec-panel v-model="show" @back="anyGivenCallback"></ec-panel>',
+          {},
+          {
+            data() {
+              return {
+                show: true,
+              };
+            },
+            methods: {
+              anyGivenCallback: jest.fn(),
+            },
+          },
+        );
 
-      expect(wrapper.emitted('show-panel').length).toBe(1);
-      expect(wrapper.emitted('back').length).toBe(1);
+        expect(wrapper.find('.ec-panel__header-action--back').exists()).toBeTruthy();
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('should not render back button when event handler attribute is not present', () => {
+        const wrapper = mountPanelAsTemplate(
+          '<ec-panel v-model="show"></ec-panel>',
+          {},
+          {
+            data() {
+              return {
+                show: true,
+              };
+            },
+          },
+        );
+
+        expect(wrapper.find('.ec-panel__header-action--back').exists()).toBeFalsy();
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('should emit a "back" event when the simple-chevron-left icon is clicked', () => {
+        const anyGivenCallback = jest.fn();
+        const wrapper = mountPanelAsTemplate(
+          '<ec-panel v-model="show" @back="anyGivenCallback"></ec-panel>',
+          {},
+          {
+            data() {
+              return {
+                show: true,
+              };
+            },
+            methods: {
+              anyGivenCallback,
+            },
+          },
+        );
+
+        wrapper.find('.ec-panel__header-action--back').trigger('click');
+
+        expect(anyGivenCallback).toHaveBeenCalled();
+        expect(wrapper.find('.ec-panel').exists()).toBeFalsy();
+      });
     });
   });
 
