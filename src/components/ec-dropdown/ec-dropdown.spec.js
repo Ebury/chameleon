@@ -215,6 +215,13 @@ describe('EcDropdown', () => {
         expect(wrapper.emitted('change').length).toEqual(1);
         expect(wrapper.emitted('change')[0]).toEqual([items[1]]);
       });
+
+      it('should emit open event when the input is clicked(click mock)', () => {
+        const wrapper = mountDropdownMultipleValue({ items });
+
+        wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('show');
+        expect(wrapper.emitted('open').length).toBe(1);
+      });
     });
   });
 
@@ -383,6 +390,13 @@ describe('EcDropdown', () => {
 
         expect(wrapper.emitted('change').length).toEqual(1);
         expect(wrapper.emitted('change')[0]).toEqual([[items[1]]]);
+      });
+
+      it('should emit open event when the input is clicked(click mock)', () => {
+        const wrapper = mountDropdownMultipleValue({ items });
+
+        wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('show');
+        expect(wrapper.emitted('open').length).toBe(1);
       });
     });
   });

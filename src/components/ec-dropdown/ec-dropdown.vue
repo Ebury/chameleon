@@ -12,6 +12,7 @@
     :level="level"
     :is-loading="isLoading"
     @change="onSelected"
+    @open="$emit('open')"
   >
     <ec-input-field
       ref="trigger"
