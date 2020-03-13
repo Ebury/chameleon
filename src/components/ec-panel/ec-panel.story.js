@@ -12,6 +12,9 @@ storiesOf('Panel', module)
       withOverflowingContent: {
         default: boolean('With overflowing content', true),
       },
+      displayingBackButton: {
+        default: boolean('With the back button visible', false),
+      },
     },
     watch: {
       showFromProps: {
@@ -20,17 +23,24 @@ storiesOf('Panel', module)
           this.show = newValue;
         },
       },
+      displayingBackButton: {
+        immediate: true,
+        handler(newValue) {
+          this.goBackEnabled = newValue;
+        },
+      },
     },
     data() {
       return {
         show: true,
+        goBackEnabled: true,
       };
     },
     template: `
       <div style="width: 100vw; height: 100vh; position: fixed; top: 0; left: 0;">
         <div v-for="i in 5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore</div>
 
-        <ec-panel v-model="show">
+        <ec-panel v-model="show" :go-back-enabled="goBackEnabled">
           <template #header>
             <h2 class="ec-mb--24">Lorem, ipsum dolor sit amet</h2>
           </template>

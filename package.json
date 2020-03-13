@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "0.1.71",
+  "version": "0.1.72",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",

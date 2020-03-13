@@ -38,14 +38,37 @@ describe('EcPanel', () => {
       expect(wrapper.find('.ec-panel').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it(':goBackEnabled - should render the back button within the panel when is true', () => {
+      const wrapper = mountPanel({ show: true, goBackEnabled: true });
+
+      expect(wrapper.find('.ec-panel__header-action--back').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':goBackEnabled - should not render the back button within the panel when is false', () => {
+      const wrapper = mountPanel({ show: true, goBackEnabled: false });
+
+      expect(wrapper.find('.ec-panel__header-action--back').exists()).toBe(false);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('@events', () => {
-    it('@close - should emit a "close" event when the simple-close icon is clicked', () => {
+    it('@close - should emit both "show-panel" and "close" events when the simple-close icon is clicked', () => {
       const wrapper = mountPanel({ show: true });
-      wrapper.find('.ec-panel__close').trigger('click');
+      wrapper.find('.ec-panel__header-action--close').trigger('click');
 
+      expect(wrapper.emitted('show-panel').length).toBe(1);
       expect(wrapper.emitted('close').length).toBe(1);
+    });
+
+    it('@back - should emit both "show-panel" and "back" events when the simple-chevron-left icon is clicked', () => {
+      const wrapper = mountPanel({ show: true, goBackEnabled: true });
+      wrapper.find('.ec-panel__header-action--back').trigger('click');
+
+      expect(wrapper.emitted('show-panel').length).toBe(1);
+      expect(wrapper.emitted('back').length).toBe(1);
     });
   });
 
@@ -92,7 +115,7 @@ describe('EcPanel', () => {
       expect(wrapper.find('.ec-panel').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
 
-      wrapper.find('.ec-panel__close').trigger('click');
+      wrapper.find('.ec-panel__header-action--close').trigger('click');
       expect(wrapper.vm.show).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
