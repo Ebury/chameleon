@@ -2,17 +2,33 @@
   <aside
     v-if="show"
     class="ec-panel"
+    data-test="ec-panel"
   >
     <div class="ec-panel__header">
       <div class="ec-panel__header-icons">
         <a
-          aria-label="Close panel"
-          class="ec-panel__close"
+          v-if="isBackEnabled"
+          aria-label="Go back"
+          class="ec-panel__header-action ec-panel__header-action--back"
           href="#"
-          @click.stop.prevent="$emit('close', false)"
+          data-test="ec-panel__header-action--back"
+          @click.stop.prevent="goBack"
         >
           <ec-icon
-            class="ec-panel__close-icon"
+            class="ec-panel__header-icon"
+            name="simple-chevron-left"
+            :size="24"
+          />
+        </a>
+        <a
+          aria-label="Close panel"
+          class="ec-panel__header-action ec-panel__header-action--close"
+          href="#"
+          data-test="ec-panel__header-action--close"
+          @click.stop.prevent="closePanel"
+        >
+          <ec-icon
+            class="ec-panel__header-icon"
             name="simple-close"
             :size="24"
           />
@@ -36,7 +52,7 @@ export default {
   },
   model: {
     prop: 'show',
-    event: 'close',
+    event: 'show-panel',
   },
   props: {
     show: {
@@ -44,7 +60,21 @@ export default {
       default: false,
     },
   },
-
+  computed: {
+    isBackEnabled() {
+      return this.$listeners.back;
+    },
+  },
+  methods: {
+    goBack() {
+      this.$emit('show-panel', false);
+      this.$emit('back');
+    },
+    closePanel() {
+      this.$emit('show-panel', false);
+      this.$emit('close');
+    },
+  },
 };
 </script>
 
@@ -52,8 +82,8 @@ export default {
 @import '../../scss/settings/index';
 @import '../../scss/tools/index';
 
-$ec-panel-close-btn-fill: $level-4-interactive-elements !default;
-$ec-panel-close-btn-fill-hover: $level-4-tech-blue !default;
+$ec-panel-header-btn-fill: $level-4-interactive-elements !default;
+$ec-panel-header-btn-fill-hover: $level-4-tech-blue !default;
 $ec-panel-background-color: $white !default;
 
 .ec-panel {
@@ -80,22 +110,29 @@ $ec-panel-background-color: $white !default;
     flex-direction: row;
   }
 
-  &__close {
-    margin-left: auto;
+  &__header-icon {
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__header-action {
     cursor: pointer;
-    color: $ec-panel-close-btn-fill;
+    color: $ec-panel-header-btn-fill;
 
     @include color-transition;
 
     &:hover {
-      color: $ec-panel-close-btn-fill-hover;
+      color: $ec-panel-header-btn-fill-hover;
     }
-  }
 
-  &__close-icon {
-    fill: currentColor;
-    display: inline-block;
-    vertical-align: top;
+    &--back {
+      margin-right: auto;
+    }
+
+    &--close {
+      margin-left: auto;
+    }
   }
 }
 
