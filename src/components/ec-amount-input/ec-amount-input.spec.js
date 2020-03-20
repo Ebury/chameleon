@@ -124,5 +124,42 @@ describe('EcAmountInput', () => {
     await wrapper.vm.$nextTick();
     expect(wrapper.find('input').element.value).toBe('1,111.11');
   });
+
+  it('should format the number for currency without decimals', async () => {
+    const wrapper = mountAmountInputAsTemplate(
+      '<ec-amount-input v-model="valueAmount" locale="en" currency="JPY" />', {
+        data() {
+          return {
+            valueAmount: null,
+          };
+        },
+      },
+    );
+    expect(wrapper.find('input').element.value).toBe('');
+    wrapper.setData({ valueAmount: '1111.11' });
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('input').element.value).toBe('1,111');
+  });
+
+  it('should remove existing decimals if currency changes to one without decimals', async () => {
+    const wrapper = mountAmountInputAsTemplate(
+      '<ec-amount-input v-model="valueAmount" locale="en" :currency="currency" />', {
+        data() {
+          return {
+            currency: 'GBP',
+            valueAmount: null,
+          };
+        },
+      },
+    );
+    wrapper.setData({ valueAmount: 1111.11 });
+    await wrapper.vm.$nextTick();
+    expect(wrapper.vm.valueAmount).toBe(1111.11);
+    expect(wrapper.find('input').element.value).toBe('1,111.11');
+    wrapper.setData({ currency: 'JPY' });
+    await wrapper.vm.$nextTick();
+    expect(wrapper.vm.valueAmount).toBe(1111);
+    expect(wrapper.find('input').element.value).toBe('1,111');
+  });
 });
 

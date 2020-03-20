@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { select, boolean } from '@storybook/addon-knobs';
+import { select, boolean, text } from '@storybook/addon-knobs';
 import EcAmountInput from './ec-amount-input.vue';
 
 const stories = storiesOf('Input Amount', module);
@@ -17,9 +17,14 @@ stories
         default: boolean('Is Masked', false),
       },
       locale: {
-        default: select('Locale', ['en', 'es', 'de-ch'], 'en'),
+        default: select('Locale', ['en', 'es', 'de-ch', 'jp'], 'en'),
       },
-
+      currency: {
+        default: select('Currency', ['GBP', 'EUR', 'JPY', 'INR', 'USD', 'CAD'], 'GBP'),
+      },
+      label: {
+        default: text('Label', 'Amount input'),
+      },
     },
     template: `
     <div class="ec-ml--24 ec-mr--24">
@@ -27,12 +32,12 @@ stories
         <div class="ec-grid__row">
           <div class="ec-col-12">
             <div class="ec-m--24">
-              <ec-amount-input v-bind="$props" label="Amount input" v-model="value" />
+              <ec-amount-input v-bind="$props" v-model="value" />
             </div>
             <div class="ec-m--24">The input value: {{ value }} (type: {{ typeof value }})</div>
           </div>
         </div>
       </div>
-    </div>       
+    </div>
   `,
   }));

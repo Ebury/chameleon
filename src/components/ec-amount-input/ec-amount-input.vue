@@ -34,6 +34,9 @@ export default {
       type: String,
       default: 'en',
     },
+    currency: {
+      type: String,
+    },
   },
   data() {
     return {
@@ -43,8 +46,11 @@ export default {
   },
   computed: {
     precision() {
-      // we use GBP only because Intl requires it in constructor, but we don't use it in the implementation, so it can be hard coded.
-      const options = new Intl.NumberFormat(this.locale, { style: 'currency', currency: 'GBP' }).resolvedOptions();
+      // Precision may vary because of locale and currency
+      // If currency is not given, use only locale and pass non existent currency, e.g. EN -> 2
+      // If currency is present, we might get different result, e.g. precision for EN with GBP is 2,
+      // but EN with JPY is 0.
+      const options = new Intl.NumberFormat(this.locale, { style: 'currency', currency: this.currency || 'XYZ' }).resolvedOptions();
       return options.maximumFractionDigits;
     },
     groupingSeparator() {
@@ -75,6 +81,11 @@ export default {
           this.unformattedValue = newValue;
         }
       },
+    },
+    currency() {
+      const formatted = format(this.value, this.getFormattingOptions());
+      this.formattedValue = formatted;
+      this.unformattedValue = +(unFormat(formatted, this.groupingSeparator, this.decimalSeparator));
     },
     locale() {
       const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
