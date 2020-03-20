@@ -1,13 +1,14 @@
 import * as SortDirection from './enums/sort-direction';
 
 export { default as EcAlert } from './components/ec-alert';
-export { default as EcAmountInput } from './components/ec-amount-input';
 export { default as EcAmount } from './directives/ec-amount';
+export { default as EcAmountInput } from './components/ec-amount-input';
 export { default as EcBtn } from './components/ec-btn';
 export { default as EcButtonGroup } from './components/ec-button-group';
 export { default as EcCheckbox } from './components/ec-checkbox';
 export { default as EcClosePopover } from './directives/ec-close-popover';
 export { default as EcContainer } from './components/ec-container';
+export { default as EcCurrencyInput } from './components/ec-currency-input';
 export { default as EcDonut } from './components/ec-donut';
 export { default as EcDropdown } from './components/ec-dropdown';
 export { default as EcDropdownSearch } from './components/ec-dropdown-search';
