@@ -86,9 +86,6 @@ import EcLoading from '../ec-loading';
 import EcFocusTrap from '../../directives/ec-focus-trap';
 import * as KeyCode from '../../enums/key-code';
 
-let counter = 0;
-console.log(counter);
-
 export default {
   components: {
     EcIcon,
@@ -143,7 +140,6 @@ export default {
       immediate: true,
       handler(value) {
         if (value) {
-          ++counter;
           document.addEventListener('keyup', this.escapeIsPressed);
         } else {
           document.removeEventListener('keyup', this.escapeIsPressed);
