@@ -57,11 +57,23 @@ describe('EcAmount - utils', () => {
       [0.11, '0', optionsWithoutDecimals],
       [-1.11, '-1', optionsWithoutDecimals],
     ])('should format the value %s into a %s without decimal', (value, valueFormatted, options) => {
-      if (options !== undefined) {
-        expect(format(value, options)).toBe(valueFormatted);
-      } else {
-        expect(format(value)).toBe(valueFormatted);
-      }
+      expect(format(value, options)).toBe(valueFormatted);
+    });
+
+    it.each([
+      ['-', '-', defaultOptions],
+      ['--', '-', defaultOptions],
+      ['-1', '-1', defaultOptions],
+      ['-.', '-.', defaultOptions],
+      ['-.1', '-.1', defaultOptions],
+      ['--1', '-1', defaultOptions],
+      ['-1111.11', '-1,111.11', defaultOptions],
+      [-1, '-1', defaultOptions],
+      [-1111.11, '-1,111.11', defaultOptions],
+      ['1-', '1', defaultOptions],
+      ['1-1', '11', defaultOptions],
+    ])('should format negative sign in the value %s into a %s', (value, valueFormatted, options) => {
+      expect(format(value, options)).toBe(valueFormatted);
     });
   });
 

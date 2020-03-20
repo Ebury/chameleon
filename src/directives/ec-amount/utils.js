@@ -9,7 +9,7 @@ function format(input, opt = defaults) {
     input = input.toString();
   }
 
-  const negative = input.includes('-') ? '-' : '';
+  const negative = input.startsWith('-') ? '-' : '';
 
   input = sanitizeInput(input, opt.decimalSeparator);
   if (opt.precision > 0) {

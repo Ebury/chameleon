@@ -161,5 +161,29 @@ describe('EcAmountInput', () => {
     expect(wrapper.vm.valueAmount).toBe(1111);
     expect(wrapper.find('input').element.value).toBe('1,111');
   });
+
+  it('should allow typing only a negative sign into input', async () => {
+    const wrapper = mountAmountInput();
+    wrapper.find('input').setValue('-');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('input').element.value).toBe('-');
+  });
+
+  it('should allow typing only a negative sign into input when there is v-model', async () => {
+    const wrapper = mountAmountInputAsTemplate(
+      '<ec-amount-input v-model="valueAmount" locale="en" />', {
+        data() {
+          return {
+            valueAmount: null,
+          };
+        },
+      },
+    );
+
+    wrapper.find('input').setValue('-');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('input').element.value).toBe('-');
+    expect(wrapper.vm.valueAmount).toBeNaN();
+  });
 });
 

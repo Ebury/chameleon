@@ -76,8 +76,10 @@ export default {
             return;
           }
 
-          const formatted = format(newValue, this.getFormattingOptions());
-          this.formattedValue = formatted;
+          if (!Number.isNaN(newValue) && this.formattedValue !== '-') {
+            const formatted = format(newValue, this.getFormattingOptions());
+            this.formattedValue = formatted;
+          }
           this.unformattedValue = newValue;
         }
       },
