@@ -3,6 +3,8 @@
     <div
       v-if="showModal"
       class="ec-modal"
+      data-test="ec-modal"
+      :class="zIndexClass"
       @click.self="closeModal()"
     >
       <div
@@ -84,6 +86,9 @@ import EcLoading from '../ec-loading';
 import EcFocusTrap from '../../directives/ec-focus-trap';
 import * as KeyCode from '../../enums/key-code';
 
+let counter = 0;
+console.log(counter);
+
 export default {
   components: {
     EcIcon,
@@ -115,6 +120,12 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    zIndex: {
+      type: Number,
+      validator(value) {
+        return value > 200 && value < 250;
+      },
+    },
   },
   computed: {
     isLoadingPositiveButton() {
@@ -123,12 +134,16 @@ export default {
     isLoadingNegativeButton() {
       return !!this.isLoading.negative;
     },
+    zIndexClass() {
+      return this.zIndex ? `ec-modal--z-index-${this.zIndex}` : '';
+    },
   },
   watch: {
     showModal: {
       immediate: true,
       handler(value) {
         if (value) {
+          ++counter;
           document.addEventListener('keyup', this.escapeIsPressed);
         } else {
           document.removeEventListener('keyup', this.escapeIsPressed);
@@ -204,6 +219,13 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
   color: $ec-modal-color;
 
   @include z-index-modal;
+
+  // The z-index will be on between 200 and 250 because the 250 is the z-index for the loading
+  @for $i from 200 through 250 {
+    &--z-index-#{$i} {
+      z-index: $i;
+    }
+  }
 
   &__content {
     width: calc(100% - 24px);

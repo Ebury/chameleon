@@ -1,4 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
+import { withMockedConsole } from '../../../tests/utils/console';
 import EcModal from './ec-modal.vue';
 
 jest.mock('../../directives/ec-focus-trap');
@@ -70,6 +71,32 @@ describe('EcModal', () => {
 
     expect(wrapper.find('.ec-modal__content').classes('ec-modal--lg')).toBe(true);
     expect(wrapper.find('.ec-modal__content').element).toMatchSnapshot();
+  });
+
+  it('should have the ec-modal--z-index-X class when the z-index props is given', () => {
+    const wrapper = mountModal({
+      showModal: true,
+      zIndex: 210,
+    });
+
+    expect(wrapper.findByDataTest('ec-modal').classes('ec-modal--z-index-210')).toBe(true);
+    wrapper.setProps({ zIndex: 235 });
+    expect(wrapper.findByDataTest('ec-modal').classes('ec-modal--z-index-235')).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal').classes('ec-modal--z-index-210')).toBe(false);
+
+    expect(wrapper.find('ec-modal').element).toMatchSnapshot();
+  });
+
+  it('should throw an error when we try to pass a number not allowed on the z-index prop', () => {
+    withMockedConsole((errorSpy) => {
+      // The error can be throw when we don't pass a number between 200 and 250
+      mountModal({
+        showModal: true,
+        zIndex: 200,
+      });
+      expect(errorSpy).toHaveBeenCalledTimes(1);
+      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "zIndex"');
+    });
   });
 
   it('should not render the footer if slots for left content, positive, nor negative were not passed', () => {

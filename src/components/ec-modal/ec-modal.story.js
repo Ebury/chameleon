@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
 import EcIcon from '../ec-icon';
@@ -43,6 +43,9 @@ stories
       isNegativeLoading: {
         default: boolean('Is Loading Negative Button', false),
       },
+      zIndex: {
+        default: number('Z Index', 201),
+      },
     },
     watch: {
       showModalFromProps: {
@@ -83,6 +86,7 @@ stories
           @negative = "rejected()"
           @positive = "accepted()"
           @close = "onClose()"
+          :z-index="zIndex"
           v-model="showModal">
 
           <template #header>
@@ -120,6 +124,7 @@ stories
           @negative = "rejected()"
           @positive = "accepted()"
           @close = "onClose()"
+          :z-index="zIndex"
           v-model="showModal">
           <template #header>
             <h2>Update your management accounts</h2>
