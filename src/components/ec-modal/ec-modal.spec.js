@@ -79,11 +79,9 @@ describe('EcModal', () => {
       zIndex: 210,
     });
 
-    expect(wrapper.findByDataTest('ec-modal').classes('ec-modal--z-index-210')).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal').attributes().style).toBe('z-index: 210;');
     wrapper.setProps({ zIndex: 235 });
-    expect(wrapper.findByDataTest('ec-modal').classes('ec-modal--z-index-235')).toBe(true);
-    expect(wrapper.findByDataTest('ec-modal').classes('ec-modal--z-index-210')).toBe(false);
-
+    expect(wrapper.findByDataTest('ec-modal').attributes().style).toBe('z-index: 235;');
     expect(wrapper.find('ec-modal').element).toMatchSnapshot();
   });
 

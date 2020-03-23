@@ -4,7 +4,7 @@
       v-if="showModal"
       class="ec-modal"
       data-test="ec-modal"
-      :class="zIndexClass"
+      :style="zIndexStyle"
       @click.self="closeModal()"
     >
       <div
@@ -131,8 +131,8 @@ export default {
     isLoadingNegativeButton() {
       return !!this.isLoading.negative;
     },
-    zIndexClass() {
-      return this.zIndex ? `ec-modal--z-index-${this.zIndex}` : '';
+    zIndexStyle() {
+      return this.zIndex ? `z-index: ${this.zIndex}` : '';
     },
   },
   watch: {
@@ -215,13 +215,6 @@ $ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
   color: $ec-modal-color;
 
   @include z-index-modal;
-
-  // The z-index will be on between 200 and 250 because the 250 is the z-index for the loading
-  @for $i from 200 through 250 {
-    &--z-index-#{$i} {
-      z-index: $i;
-    }
-  }
 
   &__content {
     width: calc(100% - 24px);
