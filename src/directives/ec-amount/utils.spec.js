@@ -5,6 +5,12 @@ const defaultOptions = {
   decimalSeparator: '.',
   precision: 2,
 };
+
+const optionsWithoutDecimals = {
+  ...defaultOptions,
+  precision: 0,
+};
+
 describe('EcAmount - utils', () => {
   describe('format', () => {
     it.each([
@@ -38,6 +44,36 @@ describe('EcAmount - utils', () => {
       } else {
         expect(format(value)).toBe(valueFormatted);
       }
+    });
+
+    it.each([
+      ['', '', optionsWithoutDecimals],
+      ['abc', '', optionsWithoutDecimals],
+      ['.', '', optionsWithoutDecimals],
+      ['111.51', '111', optionsWithoutDecimals],
+      ['1111.11', '1,111', optionsWithoutDecimals],
+      ['11.11.11', '11', optionsWithoutDecimals],
+      [1.11, '1', optionsWithoutDecimals],
+      [0.11, '0', optionsWithoutDecimals],
+      [-1.11, '-1', optionsWithoutDecimals],
+    ])('should format the value %s into a %s without decimal', (value, valueFormatted, options) => {
+      expect(format(value, options)).toBe(valueFormatted);
+    });
+
+    it.each([
+      ['-', '-', defaultOptions],
+      ['--', '-', defaultOptions],
+      ['-1', '-1', defaultOptions],
+      ['-.', '-.', defaultOptions],
+      ['-.1', '-.1', defaultOptions],
+      ['--1', '-1', defaultOptions],
+      ['-1111.11', '-1,111.11', defaultOptions],
+      [-1, '-1', defaultOptions],
+      [-1111.11, '-1,111.11', defaultOptions],
+      ['1-', '1', defaultOptions],
+      ['1-1', '11', defaultOptions],
+    ])('should format negative sign in the value %s into a %s', (value, valueFormatted, options) => {
+      expect(format(value, options)).toBe(valueFormatted);
     });
   });
 

@@ -9,10 +9,14 @@ function format(input, opt = defaults) {
     input = input.toString();
   }
 
-  const negative = input.includes('-') ? '-' : '';
+  const negative = input.startsWith('-') ? '-' : '';
 
   input = sanitizeInput(input, opt.decimalSeparator);
-  input = keepOnlyOneDecimalSeparator(input, opt.decimalSeparator);
+  if (opt.precision > 0) {
+    input = keepOnlyOneDecimalSeparator(input, opt.decimalSeparator);
+  } else {
+    input = removeDecimal(input, opt.decimalSeparator);
+  }
   const parts = input.split(opt.decimalSeparator);
   let integer = parseToStr(parts[0]);
   let decimal = parts[1];
@@ -40,6 +44,11 @@ function keepOnlyOneDecimalSeparator(number, decimalSeparator) {
     return split[0] + decimalSeparator + split.slice(1).join('');
   }
   return number;
+}
+
+function removeDecimal(number, decimalSeparator) {
+  const split = number.split(decimalSeparator);
+  return split[0];
 }
 
 function unFormat(input, groupingSeparator, decimalSeparator) {
