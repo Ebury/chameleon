@@ -29,7 +29,7 @@ function mountModalAsTemplate(template, props, mountOpts) {
 describe('EcModal', () => {
   it('should not render the modal if "showModal" is not set to true', () => {
     const wrapper = mountModal();
-    expect(wrapper.find('.ec-modal').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -49,8 +49,8 @@ describe('EcModal', () => {
   it('should render close button', () => {
     const wrapper = mountModal({ showModal: true });
 
-    expect(wrapper.find('.ec-modal__close').exists()).toBe(true);
-    expect(wrapper.find('.ec-modal__header').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__close').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__header').element).toMatchSnapshot();
   });
 
   it('should not render close button when isClosable is set to false', () => {
@@ -59,8 +59,8 @@ describe('EcModal', () => {
       isClosable: false,
     });
 
-    expect(wrapper.find('.ec-modal__close').exists()).toBe(false);
-    expect(wrapper.find('.ec-modal__header').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__close').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-modal__header').element).toMatchSnapshot();
   });
 
   it('should have the ec-modal--lg class', () => {
@@ -79,10 +79,10 @@ describe('EcModal', () => {
       zIndex: 210,
     });
 
-    expect(wrapper.findByDataTest('ec-modal').attributes().style).toBe('z-index: 210;');
+    expect(wrapper.findByDataTest('ec-modal').attributes('style')).toBe('z-index: 210;');
     wrapper.setProps({ zIndex: 235 });
-    expect(wrapper.findByDataTest('ec-modal').attributes().style).toBe('z-index: 235;');
-    expect(wrapper.find('ec-modal').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal').attributes('style')).toBe('z-index: 235;');
+    expect(wrapper.findByDataTest('ec-modal').element).toMatchSnapshot();
   });
 
   it('should throw an error when we try to pass a number not allowed on the z-index prop', () => {
@@ -104,7 +104,7 @@ describe('EcModal', () => {
       slots: {},
     });
 
-    expect(wrapper.find('.ec-modal__footer').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-modal__footer').exists()).toBe(false);
   });
 
   it('should render footer left section when slot is passed', () => {
@@ -118,7 +118,7 @@ describe('EcModal', () => {
     });
 
     expect(wrapper.find('.ec-modal__footer-left-content').exists()).toBe(true);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should render negative button if slot is passed', () => {
@@ -131,9 +131,9 @@ describe('EcModal', () => {
       },
     });
 
-    expect(wrapper.find('.ec-modal__negative-btn').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__negative-btn').exists()).toBe(true);
     expect(wrapper.find('.ec-loading__icon').exists()).toBe(false);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should render negative button with the loading status if slot is passed', () => {
@@ -149,9 +149,9 @@ describe('EcModal', () => {
       },
     });
 
-    expect(wrapper.find('.ec-modal__negative-btn').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__negative-btn').exists()).toBe(true);
     expect(wrapper.find('.ec-loading__icon').exists()).toBe(true);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should render positive button if slot is passed', () => {
@@ -164,9 +164,9 @@ describe('EcModal', () => {
       },
     });
 
-    expect(wrapper.find('.ec-modal__positive-btn').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').exists()).toBe(true);
     expect(wrapper.find('.ec-loading__icon').exists()).toBe(false);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should render positive button with the loading status if slot is passed', () => {
@@ -182,9 +182,9 @@ describe('EcModal', () => {
       },
     });
 
-    expect(wrapper.find('.ec-modal__positive-btn').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').exists()).toBe(true);
     expect(wrapper.find('.ec-loading__icon').exists()).toBe(true);
-    expect(wrapper.find('.ec-modal__footer').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
   it('should emit a "positive" event when clicking on the positive button', () => {
@@ -198,7 +198,7 @@ describe('EcModal', () => {
         },
       },
     );
-    wrapper.find('.ec-modal__positive-btn').trigger('click');
+    wrapper.findByDataTest('ec-modal__positive-btn').trigger('click');
     expect(wrapper.emitted().positive).toBeTruthy();
   });
 
@@ -212,7 +212,7 @@ describe('EcModal', () => {
       },
     });
 
-    wrapper.find('.ec-modal__negative-btn').trigger('click');
+    wrapper.findByDataTest('ec-modal__negative-btn').trigger('click');
     expect(wrapper.emitted().negative).toBeTruthy();
   });
 
@@ -222,7 +222,7 @@ describe('EcModal', () => {
       isClosable: true,
     });
 
-    wrapper.find('.ec-modal__close').trigger('click');
+    wrapper.findByDataTest('ec-modal__close').trigger('click');
     expect(wrapper.emitted().close).toBeTruthy();
   });
 
@@ -306,14 +306,14 @@ describe('EcModal', () => {
         },
       );
 
-      expect(wrapper.find('.ec-modal').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-modal').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
 
-      wrapper.find('.ec-modal__close').trigger('click');
+      wrapper.findByDataTest('ec-modal__close').trigger('click');
       await wrapper.vm.$forceUpdate(); // The modal is not updated despite the vm is
 
       expect(wrapper.vm.showModal).toBe(false);
-      expect(wrapper.find('.ec-modal').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -330,7 +330,7 @@ describe('EcModal', () => {
         },
       );
 
-      expect(wrapper.find('.ec-modal').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
   });

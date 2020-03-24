@@ -15,6 +15,60 @@ const tooltipConfig = {
 };
 
 stories
+
+  .add('stackable', () => ({
+    components: { EcModal },
+    props: {
+
+      zIndex: {
+        default: number('Z Index', 201),
+      },
+    },
+    data() {
+      return {
+        showFirstModal: true,
+        showSecondModal: true,
+      };
+    },
+    methods: {
+      firstModalAction: action('First modal action'),
+      secondModalAction: action('Second modal action'),
+    },
+    template: `
+    <div>
+      <ec-modal
+        is-closable
+        large
+        v-model="showFirstModal">
+
+        <template #header>
+          <h2>First Modal</h2>
+        </template>
+
+        <template #main>
+        <a @click.prevent.stop="firstModalAction()">Action first modal</a>
+          <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+        </template>
+      </ec-modal>
+
+
+      <ec-modal
+      is-closable
+      :z-index="zIndex"
+      v-model="showSecondModal">
+
+      <template #header>
+        <h2>Second Modal</h2>
+      </template>
+
+      <template #main>
+        <a @click.prevent.stop="secondModalAction()">Action second modal</a>
+        <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+      </template>
+    </ec-modal>
+    </div>
+  `,
+  }))
   .add('basic', () => ({
     components: { EcModal, EcIcon },
     directives: { EcTooltip },
@@ -77,7 +131,6 @@ stories
     template: `
       <div>
       <p>A qui dolorum voluptatibus ratione corrupti <a href="#">dignissimos</a> quia, alias ut excepturi. Reprehenderit quisquam dolorem eius rerum dignissimos porro sunt asperiores architecto, quidem totam necessitatibus voluptas molestiae pariatur consectetur. Ullam architecto minima animi alias aliquam, voluptates dicta. Ea ipsam alias autem laboriosam est accusamus distinctio praesentium minima? Impedit repudiandae provident reprehenderit ut beatae ducimus mollitia eius magni hic, quibusdam, ipsa voluptate porro vel non enim dolores at. Repellat.</p>
-
         <ec-modal
           v-if="!isLarge"
           :large = "isLarge"

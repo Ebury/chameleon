@@ -12,11 +12,15 @@
         class="ec-modal__content"
         :class="{ 'ec-modal--lg': large }"
       >
-        <header class="ec-modal__header">
+        <header
+          class="ec-modal__header"
+          data-test="ec-modal__header"
+        >
           <slot name="header" />
           <a
             v-if="isClosable"
             class="ec-modal__close"
+            data-test="ec-modal__close"
             href="#"
             @click.stop.prevent="closeModal()"
           >
@@ -28,13 +32,17 @@
           </a>
         </header>
 
-        <main class="ec-modal__main">
+        <main
+          class="ec-modal__main"
+          data-test="ec-modal__main"
+        >
           <slot name="main" />
         </main>
 
         <footer
           v-if="hasFooter()"
           class="ec-modal__footer"
+          data-test="ec-modal__footer"
         >
           <div
             v-if="hasFooterLeftContent()"
@@ -51,7 +59,8 @@
           >
             <button
               ref="negativeButton"
-              class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn "
+              class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn"
+              data-test="ec-modal__negative-btn"
               @click="negativeAction()"
             >
               <slot name="negative" />
@@ -68,6 +77,7 @@
               ref="primaryButton"
               :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
               class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn"
+              data-test="ec-modal__positive-btn"
               @click="positiveAction()"
             >
               <slot name="positive" />
@@ -132,7 +142,7 @@ export default {
       return !!this.isLoading.negative;
     },
     zIndexStyle() {
-      return this.zIndex ? `z-index: ${this.zIndex}` : '';
+      return this.zIndex ? { zIndex: this.zIndex } : null;
     },
   },
   watch: {
