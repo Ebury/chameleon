@@ -32,7 +32,7 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
 </div>
 `;
 
-exports[`EcModal should have the ec-modal--z-index-X class when the z-index props is given 1`] = `undefined`;
+exports[`EcModal should have the style attribute z-index when the z-index props is given 1`] = `undefined`;
 
 exports[`EcModal should not render close button when isClosable is set to false 1`] = `
 <header

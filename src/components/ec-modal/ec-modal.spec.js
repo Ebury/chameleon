@@ -73,7 +73,7 @@ describe('EcModal', () => {
     expect(wrapper.find('.ec-modal__content').element).toMatchSnapshot();
   });
 
-  it('should have the ec-modal--z-index-X class when the z-index props is given', () => {
+  it('should have the style attribute z-index when the z-index props is given', () => {
     const wrapper = mountModal({
       showModal: true,
       zIndex: 210,
