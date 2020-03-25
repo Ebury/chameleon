@@ -26,6 +26,8 @@
       class="ec-input-field__input"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input'"
       :class="{
+        'ec-input-field__input--is-in-group-right': isInGroup === 'right' ? true : false,
+        'ec-input-field__input--is-in-group-left': isInGroup === 'left' ? true : false,
         'ec-input-field__input--has-error': isInvalid,
         'ec-input-field__input--has-icon': !!icon,
       }"
@@ -47,7 +49,7 @@
     </div>
     <div
       :id="errorId"
-      v-if="isInvalid"
+      v-if="isInvalid && !isInGroup"
       class="ec-input-field__error-text"
       data-test="ec-input-field__error-text"
     >{{ errorMessage }}</div>
@@ -96,9 +98,18 @@ export default {
       type: Number,
       default: 20,
     },
+    isInGroup: {
+      type: String,
+    },
+    idFromParent: {
+      type: String,
+    },
   },
   computed: {
     id() {
+      if (this.idFromParent) {
+        return this.idFromParent;
+      }
       return `ec-input-field-${this._uid}`;
     },
     errorId() {
@@ -153,6 +164,16 @@ $ec-input-field-invalid-color: $color-error !default;
       &:focus {
         border: 1px solid $ec-input-field-invalid-color;
       }
+    }
+
+    &--is-in-group-left {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &--is-in-group-right {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     &--has-icon {

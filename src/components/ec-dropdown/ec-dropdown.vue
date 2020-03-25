@@ -11,22 +11,27 @@
     :disabled="disabled"
     :level="level"
     :is-loading="isLoading"
+    :popper-modifiers="popperModifiers"
+    :popover-options="popoverOptions"
     @change="onSelected"
     @open="$emit('open')"
   >
     <ec-input-field
       ref="trigger"
+      :id-from-parent="idFromParent"
       :value="selectedTextValue"
       :label="label"
       :error-message="errorMessage"
       :placeholder="placeholder"
       :disabled="disabled"
+      :icon-size="24"
       data-test="ec-dropdown__input"
       readonly
       icon="simple-arrow-drop-down"
-      :icon-size="24"
+      :is-in-group="isInGroup"
       @mousedown="onMousedown"
-      @focus="onFocus"
+      @focus="onFocus, $emit('onFocus', true)"
+      @blur="$emit('onFocus', false)"
     />
 
     <template
@@ -138,6 +143,20 @@ export default {
       type: String,
       default: 'No results found',
     },
+    isInGroup: {
+      type: String,
+    },
+    idFromParent: {
+      type: String,
+    },
+    popperModifiers: {
+      type: Object,
+      default: null,
+    },
+    popoverOptions: {
+      type: Object,
+      default: null,
+    },
   },
   computed: {
     selectedModel: {
@@ -185,6 +204,7 @@ export default {
       // the focus was gained by click, don't do anything. If the focus is gained by tabbing into, then
       // open the popover programmatically.
       /* istanbul ignore next */
+      this.$emit('focus');
       if (this.preventFocusToTriggerPopover) {
         this.preventFocusToTriggerPopover = false;
       } else {
