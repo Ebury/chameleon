@@ -8,11 +8,13 @@
     >
       <span
         v-if="label"
+        data-test="ec-currency-input__label-text"
         class="ec-currency-input__label-text"
       >{{ label }}</span>
 
       <span
         v-if="note"
+        data-test="ec-currency-input__note"
         class="ec-currency-input__note"
       >{{ note }}</span>
     </label>
@@ -46,6 +48,7 @@
     <div
       :id="errorId"
       v-if="isInvalid"
+      data-test="ec-currency-input__error-text"
       class="ec-currency-input__error-text"
     >{{ errorMessage }}</div>
   </div>
