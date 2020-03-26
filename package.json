@@ -30,7 +30,6 @@
     "release": "npm version patch && npm publish && git push --follow-tags"
   },
   "dependencies": {
-    "core-js": "2.6.5",
     "focus-trap": "5.1.0",
     "v-tooltip": "2.0.3",
     "vue": "2.6.11",
