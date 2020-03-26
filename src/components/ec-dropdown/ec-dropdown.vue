@@ -6,7 +6,7 @@
     :placeholder="searchPlaceholder"
     :no-results-text="noResultsText"
     :is-search-enabled="isSearchEnabled"
-    data-test="ec-dropdown"
+    v-bind="{ ...$attrs, 'data-test': 'ec-dropdown' }"
     :keep-open="multiple"
     :disabled="disabled"
     :level="level"
@@ -17,15 +17,16 @@
     @open="$emit('open')"
   >
     <ec-input-field
+      :id="id"
       ref="trigger"
-      :id-from-parent="idFromParent"
+      :error-id="errorId"
       :value="selectedTextValue"
       :label="label"
       :error-message="errorMessage"
       :placeholder="placeholder"
       :disabled="disabled"
       :icon-size="24"
-      data-test="ec-dropdown__input"
+      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-dropdown__input` : 'ec-dropdown__input'"
       readonly
       icon="simple-arrow-drop-down"
       :is-in-group="isInGroup"
@@ -84,6 +85,7 @@ export default {
   components: {
     EcDropdownSearch, EcInputField, EcCheckbox,
   },
+  inheritAttrs: false,
   model: {
     prop: 'selected',
     event: 'change',
@@ -146,7 +148,10 @@ export default {
     isInGroup: {
       type: String,
     },
-    idFromParent: {
+    id: {
+      type: String,
+    },
+    errorId: {
       type: String,
     },
     popperModifiers: {
@@ -203,8 +208,8 @@ export default {
       // Input can gain focus by clicking or by tabbing into. Click is handled by the popover, so if
       // the focus was gained by click, don't do anything. If the focus is gained by tabbing into, then
       // open the popover programmatically.
-      /* istanbul ignore next */
       this.$emit('focus');
+      /* istanbul ignore next */
       if (this.preventFocusToTriggerPopover) {
         this.preventFocusToTriggerPopover = false;
       } else {

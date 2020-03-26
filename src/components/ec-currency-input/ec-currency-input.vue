@@ -24,9 +24,10 @@
       class="ec-currency-input__input-group"
     >
       <ec-dropdown
+        :id="id"
         v-model="currencyModel"
-        :class="{'ec-currency-input__currencies--is-focused': currenciesHasFocus}"
-        :id-from-parent="id"
+        :class="{ 'ec-currency-input__currencies--is-focused': currenciesHasFocus }"
+        :error-id="errorId"
         :items="currenciesItems"
         :popper-modifiers="popperModifier"
         :popover-options="popoverOptions"
@@ -34,15 +35,19 @@
         is-in-group="right"
         is-search-enabled
         :error-message="errorMessage"
+        data-test="ec-currency-input__currencies"
         @focus="currenciesHasFocus = true"
         @blur="currenciesHasFocus = false"
       />
       <ec-amount-input
         v-model="amountModel"
         :locale="locale"
-        is-in-group="left"
+        :currency="value.currency"
+        :error-id="errorId"
         :error-message="errorMessage"
+        is-in-group="left"
         class="ec-currency-input__amount"
+        data-test="ec-currency-input__amount"
       />
     </div>
 
@@ -75,6 +80,7 @@ export default {
     },
     locale: {
       type: String,
+      default: 'en',
     },
     label: {
       type: String,
@@ -118,14 +124,14 @@ export default {
       return !!this.errorMessage;
     },
     currenciesItems() {
-      return this.currencies.map(currency => ({ text: currency }));
+      return this.currencies.map(currency => ({ text: currency, value: currency, id: currency }));
     },
     currencyModel: {
       get() {
         return { text: this.value.currency };
       },
       set(item) {
-        this.$emit('change', { ...this.value, currency: item.text });
+        this.$emit('change', { ...this.value, currency: item.value });
       },
     },
     amountModel: {

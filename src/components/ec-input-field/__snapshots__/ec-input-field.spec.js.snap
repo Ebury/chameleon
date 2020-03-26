@@ -53,7 +53,7 @@ exports[`EcInputField renders properly with the id from the parent 1`] = `
   <label
     class="ec-input-field__label"
     data-test="ec-input-field__label"
-    for="idTest"
+    for="id-test"
   >
     <span
       class="ec-input-field__label-text"
@@ -73,7 +73,7 @@ exports[`EcInputField renders properly with the id from the parent 1`] = `
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
-    id="idTest"
+    id="id-test"
     type="text"
   />
    

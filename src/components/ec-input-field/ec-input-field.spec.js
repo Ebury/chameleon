@@ -55,9 +55,11 @@ describe('EcInputField', () => {
   });
 
   it('renders properly with the id from the parent', () => {
-    const wrapper = mountInputField({ idFromParent: 'idTest' });
+    const wrapper = mountInputField({ id: 'id-test' });
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  // Todo errorid as well
 
   it('renders properly without label', () => {
     const wrapper = mountInputField({ label: '' });

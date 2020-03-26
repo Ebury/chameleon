@@ -9,9 +9,8 @@ exports[`EcAmountInput should render properly 1`] = `
    
   <input
     class="ec-input-field__input"
-    data-test="ec-input-field__input"
+    data-test="ec-amount-input ec-input-field__input"
     id="ec-input-field-2"
-    locale="en"
     type="text"
   />
    

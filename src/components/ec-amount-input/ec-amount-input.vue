@@ -2,7 +2,14 @@
   <ec-input-field
     v-model="formattedValue"
     v-ec-amount="getFormattingOptions()"
-    v-bind="$props"
+    v-bind="{
+      ...$attrs,
+      ...$props,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-amount-input` : 'ec-amount-input',
+      locale: null,
+      isMasked: null,
+      currency: null,
+    }"
     @change="change"
   />
 </template>
@@ -15,6 +22,7 @@ import { format, unFormat } from '../../directives/ec-amount/utils';
 export default {
   components: { EcInputField },
   directives: { EcAmount },
+  inheritAttrs: false,
   model: {
     prop: 'value',
     event: 'change',

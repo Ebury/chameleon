@@ -7,7 +7,7 @@
       v-if="label || note"
       class="ec-input-field__label"
       data-test="ec-input-field__label"
-      :for="id"
+      :for="inputId"
     >
       <span
         v-if="label"
@@ -21,7 +21,7 @@
       >{{ note }}</span>
     </label>
     <input
-      :id="id"
+      :id="inputId"
       v-model="inputModel"
       class="ec-input-field__input"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input'"
@@ -32,7 +32,7 @@
       }"
       v-bind="$attrs"
       :type="type"
-      :aria-describedby="errorId"
+      :aria-describedby="errorMessageId"
       v-on="$listeners"
     >
     <div
@@ -47,7 +47,7 @@
       />
     </div>
     <div
-      :id="errorId"
+      :id="errorMessageId"
       v-if="isInvalid && !isInGroup"
       class="ec-input-field__error-text"
       data-test="ec-input-field__error-text"
@@ -100,19 +100,19 @@ export default {
     isInGroup: {
       type: String,
     },
-    idFromParent: {
+    id: {
+      type: String,
+    },
+    errorId: {
       type: String,
     },
   },
   computed: {
-    id() {
-      if (this.idFromParent) {
-        return this.idFromParent;
-      }
-      return `ec-input-field-${this._uid}`;
+    inputId() {
+      return this.id || `ec-input-field-${this._uid}`;
     },
-    errorId() {
-      return this.isInvalid ? `ec-input-field-error-${this._uid}` : null;
+    errorMessageId() {
+      return this.isInvalid ? (this.errorId || `ec-input-field-error-${this._uid}`) : null;
     },
     isInvalid() {
       return !!this.errorMessage;
