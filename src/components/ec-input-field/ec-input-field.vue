@@ -26,8 +26,7 @@
       class="ec-input-field__input"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input'"
       :class="{
-        'ec-input-field__input--is-in-group-right': isInGroup === 'right' ? true : false,
-        'ec-input-field__input--is-in-group-left': isInGroup === 'left' ? true : false,
+        [`ec-input-field__input--is-in-group-${isInGroup}`]: !!isInGroup,
         'ec-input-field__input--has-error': isInvalid,
         'ec-input-field__input--has-icon': !!icon,
       }"

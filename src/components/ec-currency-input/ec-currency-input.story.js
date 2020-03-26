@@ -12,18 +12,18 @@ stories
     data() {
       return {
         value: {},
-        currencies: currencies.map(currency => ({ text: currency })),
+        currencies,
       };
     },
     props: {
       label: {
-        default: text('label', 'Text input'),
+        default: text('label', 'Currency input'),
       },
       note: {
-        default: text('note', 'Max 80 chars'),
+        default: text('note', 'Select currency and set amount'),
       },
       locale: {
-        default: select('Locale', ['en', 'es', 'de-ch', 'jp'], 'en'),
+        default: select('locale', ['en', 'es', 'de-ch', 'jp'], 'en'),
       },
       errorMessage: {
         default: text('error message', ''),
@@ -32,6 +32,7 @@ stories
     template: `
       <div style="max-width: 600px; margin: 60px auto">
         <ec-currency-input v-model="value" :currencies="currencies" v-bind="$props" class="ec-mt--20 ec-mb--20" />
+        Value Object: {{ value }}
       </div>
     `,
   }));

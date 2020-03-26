@@ -30,8 +30,8 @@
       icon="simple-arrow-drop-down"
       :is-in-group="isInGroup"
       @mousedown="onMousedown"
-      @focus="onFocus, $emit('onFocus', true)"
-      @blur="$emit('onFocus', false)"
+      @focus="onFocus"
+      @blur="$emit('blur')"
     />
 
     <template

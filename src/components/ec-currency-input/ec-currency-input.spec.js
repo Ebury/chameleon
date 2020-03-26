@@ -10,7 +10,7 @@ describe('EcCurrencyInput', () => {
     template: '<div data-popover-stub><slot /><slot name="popover" /></div>',
   });
 
-  const currencies = [{ text: 'GBP' }, { text: 'EUR' }, { text: 'USD' }];
+  const currencies = ['GBP', 'EUR', 'USD'];
 
   function mountCurrencyInput(props, mountOpts) {
     const localVue = createLocalVue();
@@ -52,12 +52,12 @@ describe('EcCurrencyInput', () => {
   });
 
   describe(':props', () => {
-    it('should render the label when the label  is given', () => {
+    it('should render the label when the label is given', () => {
       const wrapper = mountCurrencyInput({ label: 'Currency Input' });
       expect(wrapper.findByDataTest('ec-currency-input__label-text').exists()).toBe(true);
     });
 
-    it('should render the note when the note  is given', () => {
+    it('should render the note when the note is given', () => {
       const wrapper = mountCurrencyInput({ note: 'max 80 chars' });
       expect(wrapper.findByDataTest('ec-currency-input__note').exists()).toBe(true);
     });
@@ -82,15 +82,19 @@ describe('EcCurrencyInput', () => {
       const wrapper = mountCurrencyInput();
 
       selectItem(wrapper, 1);
-      // expect(wrapper.emitted('change').length).toEqual(1);
+      expect(wrapper.emitted('change').length).toEqual(1);
+      selectItem(wrapper, 2);
+      expect(wrapper.emitted('change').length).toEqual(2);
     });
 
-    it('should emit change event when amount is set', () => {
-      // const wrapper = mountCurrencyInput();
+    // it('should emit change event when amount is set', () => {
+    //   const wrapper = mountCurrencyInput();
 
-      // type data to the input
-      // expect(wrapper.emitted('change').length).toEqual(1);
-    });
+    //   // wrapper.find('.ec-currency-input__amount input').setValue('11');
+    //   selectItem(wrapper, 1);
+    //   // expect(wrapper.vm.value.amount).toEqual(11);
+    //   expect(wrapper.emitted('change').length).toEqual(1);
+    // });
   });
 
   describe('v-model', () => {

@@ -24,20 +24,21 @@
       class="ec-currency-input__input-group"
     >
       <ec-dropdown
-        v-model="inputModel.currency"
-        :class="{'ec-currency-input__currencies--on-focus': currenciesOnFocus}"
+        v-model="currencyModel"
+        :class="{'ec-currency-input__currencies--is-focused': currenciesHasFocus}"
         :id-from-parent="id"
-        :items="currencies"
+        :items="currenciesItems"
         :popper-modifiers="popperModifier"
         :popover-options="popoverOptions"
         class="ec-currency-input__currencies"
         is-in-group="right"
         is-search-enabled
         :error-message="errorMessage"
-        @onFocus="(value) => currenciesOnFocus = value"
+        @focus="currenciesHasFocus = true"
+        @blur="currenciesHasFocus = false"
       />
       <ec-amount-input
-        v-model="inputModel.amount"
+        v-model="amountModel"
         :locale="locale"
         is-in-group="left"
         :error-message="errorMessage"
@@ -74,7 +75,6 @@ export default {
     },
     locale: {
       type: String,
-      default: 'en',
     },
     label: {
       type: String,
@@ -91,7 +91,7 @@ export default {
   },
   data() {
     return {
-      currenciesOnFocus: false,
+      currenciesHasFocus: false,
       popperModifier: {
         setPopperWidth: {
           enabled: true,
@@ -117,12 +117,23 @@ export default {
     isInvalid() {
       return !!this.errorMessage;
     },
-    inputModel: {
+    currenciesItems() {
+      return this.currencies.map(currency => ({ text: currency }));
+    },
+    currencyModel: {
       get() {
-        return this.value;
+        return { text: this.value.currency };
+      },
+      set(item) {
+        this.$emit('change', { ...this.value, currency: item.text });
+      },
+    },
+    amountModel: {
+      get() {
+        return this.value.amount;
       },
       set(value) {
-        this.$emit('change', value);
+        this.$emit('change', { ...this.value, amount: value });
       },
     },
   },
@@ -136,6 +147,8 @@ export default {
 $ec-currency-input-invalid-color: $color-error !default;
 
 .ec-currency-input {
+  z-index: 0; // When in currencies dropdown is focused gets a high z-index. We set the index here of the whole component to 0 so we eliminate the chance of competing with other components
+
   &__input-group {
     display: flex;
     flex-direction: row;
@@ -147,7 +160,7 @@ $ec-currency-input-invalid-color: $color-error !default;
     max-width: 20%;
   }
 
-  &__currencies--on-focus {
+  &__currencies--is-focused {
     z-index: $z-index-level-1;
   }
 

@@ -277,7 +277,7 @@ exports[`EcCurrencyInput v-model should use the v-model with the amount and emit
           <input
             class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
             data-test="ec-dropdown__input ec-input-field__input"
-            id="ec-currency-input-field-83"
+            id="ec-currency-input-field-73"
             placeholder=""
             readonly="readonly"
             type="text"
@@ -361,7 +361,7 @@ exports[`EcCurrencyInput v-model should use the v-model with the amount and emit
       <input
         class="ec-input-field__input ec-input-field__input--is-in-group-left"
         data-test="ec-input-field__input"
-        id="ec-input-field-91"
+        id="ec-input-field-81"
         locale="en"
         type="text"
       />
