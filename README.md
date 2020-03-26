@@ -5,7 +5,7 @@ The library is in its initial phase, more components are added regularly.
 
 You can check the current status of the library [here](https://docs.google.com/spreadsheets/d/101NhAtDJ_6YLybdmWnhTvfem9yCtCeHJK5LtCZcX6Rk/edit#gid=0).
 
-Also check out the latest version deployed in [Storybook](https://chameleon.ebury.now.sh/).
+Also, check out the latest version deployed in [Storybook](https://chameleon.ebury.now.sh/).
 
 ## Installation
 
@@ -25,8 +25,8 @@ import { ComponentName } from '@ebury/chameleon-components';
 
 ## Contributing
 
-For the development of @ebury/chameleon-components we use storybook [Storybook](https://storybook.js.org/).
-If you want to contribute to the library then you must do the following to setup your local environment:
+For the development of @ebury/chameleon-components, we use storybook [Storybook](https://storybook.js.org/).
+If you want to contribute to the library then you must do the following to set up your local environment:
 
 ### Storybook
 
@@ -49,10 +49,10 @@ By now you should be up and running. You can check the existing components or cr
 
 ### CSS
 
-For chameleon components we use ITCSS with BEM and currently our preprocessor is SASS.
-Please don't add any css styles without following the rules below.
+For chameleon components, we use ITCSS with BEM and currently our preprocessor is SASS.
+Please don't add any CSS styles without following the rules below.
 
-The single file vue components should not use scoped files as is not necessary since we follow BEM!
+The single-file Vue components should not use scoped files as is not necessary since we follow BEM!
 
 #### BEM
 
@@ -75,7 +75,7 @@ http://getbem.com/introduction/
 
 https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
 
-Following the ITCSS our css structure should look like
+Following the ITCSS our CSS structure should look like
 
 1. Settings -
 only preprosessor stuff in here! Fonts definitions, color definitions and other vars.
@@ -84,7 +84,7 @@ only preprosessor stuff in here! Fonts definitions, color definitions and other 
 Only preprosessor stuff in here! Mixins, functions etc.
 
 3. Generic -
-No classes ids or elements! CSS resets, box sizing etc.
+No classes, IDs, or elements! CSS resets, box-sizing etc.
 
 4. Elements -
 Only pure HTML elements like p, h1, h2, div etc.
@@ -148,7 +148,7 @@ To build your Storybook:
 npm run build-storybook
 ```
 
-To build your app (vue cli):
+To build your app (Vue CLI):
 
 ```sh
 npm run build
