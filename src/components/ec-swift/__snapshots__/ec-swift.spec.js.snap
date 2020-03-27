@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcSwift should display only with a title and the type given 1`] = `
+<div
+  class="ec-swift ec-swift--info ec-swift--is-responsive"
+>
+  <!---->
+   
+  <svg
+    class="ec-swift__icon ec-icon"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div
+      class="ec-swift__title"
+    >
+      Random Title
+    </div>
+     
+    <!---->
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcSwift should display with a button with the text given in the buttonText 1`] = `
+<div
+  class="ec-swift ec-swift--info ec-swift--is-responsive"
+>
+  <!---->
+   
+  <svg
+    class="ec-swift__icon ec-icon"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div
+      class="ec-swift__title"
+    >
+      Title example
+    </div>
+     
+    <!---->
+  </div>
+   
+  <button
+    class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-swift__button ec-btn--primary-reverse"
+  >
+    Button text
+  </button>
+</div>
+`;
+
+exports[`EcSwift should display with a subtitle given 1`] = `
+<div
+  class="ec-swift ec-swift--info ec-swift--is-responsive"
+>
+  <!---->
+   
+  <svg
+    class="ec-swift__icon ec-icon ec-swift__icon--swift-has-subtitle"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div
+      class="ec-swift__title"
+    >
+      Title example
+    </div>
+     
+    <div
+      class="ec-swift__subtitle"
+    >
+      Subtitle example
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcSwift should render the dismiss icon when is given the prop dismissable 1`] = `
+<div
+  class="ec-swift ec-swift--info ec-swift--is-responsive"
+>
+  <a
+    class="ec-swift__dismiss-icon ec-swift__dismiss-icon--info"
+    href="#"
+  >
+    <svg
+      class="ec-icon"
+      height="16"
+      width="16"
+    >
+      <use
+        xlink:href="#ec-simple-close"
+      />
+    </svg>
+  </a>
+   
+  <svg
+    class="ec-swift__icon ec-icon"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div
+      class="ec-swift__title"
+    >
+      Title example
+    </div>
+     
+    <!---->
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcSwift should render with the slot given 1`] = `
+<div
+  class="ec-swift ec-swift--info ec-swift--is-responsive"
+>
+  <!---->
+   
+  <svg
+    class="ec-swift__icon ec-icon ec-swift__icon--swift-has-subtitle"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div>
+      Custom: Title example - Subtitle example
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcSwift should use the given type for the swift type and for the button too 1`] = `
+<div
+  class="ec-swift ec-swift--error ec-swift--is-responsive"
+>
+  <!---->
+   
+  <svg
+    class="ec-swift__icon ec-icon"
+  >
+    <use
+      xlink:href="#ec-simple-error"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div
+      class="ec-swift__title"
+    >
+      Title example
+    </div>
+     
+    <!---->
+  </div>
+   
+  <button
+    class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-swift__button ec-btn--error-reverse"
+  >
+    Warning button
+  </button>
+</div>
+`;
+
+exports[`EcSwift should use the type "error" 1`] = `
+<div
+  class="ec-swift ec-swift--error ec-swift--is-responsive"
+>
+  <!---->
+   
+  <svg
+    class="ec-swift__icon ec-icon"
+  >
+    <use
+      xlink:href="#ec-simple-error"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div
+      class="ec-swift__title"
+    >
+      Title example
+    </div>
+     
+    <!---->
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcSwift should use the type "info" 1`] = `
+<div
+  class="ec-swift ec-swift--info ec-swift--is-responsive"
+>
+  <!---->
+   
+  <svg
+    class="ec-swift__icon ec-icon"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div
+      class="ec-swift__title"
+    >
+      Title example
+    </div>
+     
+    <!---->
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcSwift should use the type "success" 1`] = `
+<div
+  class="ec-swift ec-swift--success ec-swift--is-responsive"
+>
+  <!---->
+   
+  <svg
+    class="ec-swift__icon ec-icon"
+  >
+    <use
+      xlink:href="#ec-simple-check"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div
+      class="ec-swift__title"
+    >
+      Title example
+    </div>
+     
+    <!---->
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcSwift should use the type "warning" 1`] = `
+<div
+  class="ec-swift ec-swift--warning ec-swift--is-responsive"
+>
+  <!---->
+   
+  <svg
+    class="ec-swift__icon ec-icon"
+  >
+    <use
+      xlink:href="#ec-simple-error"
+    />
+  </svg>
+   
+  <div
+    class="ec-swift__content"
+  >
+    <div
+      class="ec-swift__title"
+    >
+      Title example
+    </div>
+     
+    <!---->
+  </div>
+   
+  <!---->
+</div>
+`;

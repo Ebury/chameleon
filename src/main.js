@@ -29,4 +29,5 @@ export { default as EcTable } from './components/ec-table';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcTooltip } from './directives/ec-tooltip';
 export { default as EcUserInfo } from './components/ec-user-info';
+export { default as EcSwift } from './components/ec-swift';
 export { SortDirection };

@@ -30,6 +30,7 @@
     "release": "npm version patch && npm publish && git push --follow-tags"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "focus-trap": "5.1.0",
     "v-tooltip": "2.0.3",
     "vue": "2.6.11",
