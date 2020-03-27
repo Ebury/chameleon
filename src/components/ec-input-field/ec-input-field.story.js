@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { text } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import EcInputField from './ec-input-field.vue';
 
 const stories = storiesOf('Input Field', module);
@@ -60,7 +60,7 @@ stories
         default: text('icon', '', GROUPS.DATE),
       },
       isInGroup: {
-        default: text('is in group', ''),
+        default: select('is in group', ['', 'left', 'right'], ''),
       },
     },
     watch: {

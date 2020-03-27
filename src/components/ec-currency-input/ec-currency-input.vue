@@ -34,6 +34,7 @@
         class="ec-currency-input__currencies"
         is-in-group="right"
         is-search-enabled
+        :is-loading="currenciesAreLoading"
         :error-message="errorMessage"
         data-test="ec-currency-input__currencies"
         @focus="currenciesHasFocus = true"
@@ -93,6 +94,10 @@ export default {
     },
     currencies: {
       type: Array,
+    },
+    currenciesAreLoading: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -162,8 +167,7 @@ $ec-currency-input-invalid-color: $color-error !default;
 
   &__currencies {
     margin-right: -1px;
-    min-width: 100px;
-    max-width: 20%;
+    width: 104px;
   }
 
   &__currencies--is-focused {

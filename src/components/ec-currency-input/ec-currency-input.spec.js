@@ -66,15 +66,22 @@ describe('EcCurrencyInput', () => {
       expect(wrapper.findByDataTest('ec-dropdown').element).toMatchSnapshot();
     });
 
-    it.each('should render the amount correctly when we swap locale', async () => {
+    it('should render the amount correctly when we swap locale', async () => {
       const wrapper = mountCurrencyInput({ locale: 'es' });
       wrapper.findByDataTest('ec-currency-input__amount').setValue('1111,11');
 
       await wrapper.vm.$nextTick();
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('1.111,11');
 
-      wrapper.setData({ locale: 'en' });
+      wrapper.setProps({ locale: 'en' });
+      await wrapper.vm.$nextTick();
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('1,111.11');
+    });
+
+    it('should render a loading state when currenciesLoading is set true', () => {
+      const wrapper = mountCurrencyInput({ currenciesAreLoading: true });
+
+      expect(wrapper.findByDataTest('ec-popover-dropdown-search').element).toMatchSnapshot();
     });
   });
 
@@ -146,15 +153,13 @@ describe('EcCurrencyInput', () => {
       );
 
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
-      selectItem(wrapper, 3);
+      selectItem(wrapper, currencies.indexOf('JPY'));
       await wrapper.vm.$nextTick();
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
     });
-
-    // test JPY currency
   });
 });
 
 function selectItem(wrapper, index) {
-  wrapper.findAll('.ec-dropdown-search__item').at(index).trigger('click');
+  wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
 }

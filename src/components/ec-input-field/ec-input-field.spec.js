@@ -59,7 +59,13 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  // Todo errorid as well
+  it('renders properly with the errorId from the parent', () => {
+    const wrapper = mountInputField({
+      errorId: 'error-id-test',
+      errorMessage: 'Test error message',
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
 
   it('renders properly without label', () => {
     const wrapper = mountInputField({ label: '' });

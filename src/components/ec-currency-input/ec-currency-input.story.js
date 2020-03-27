@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import EcCurrencyInput from './ec-currency-input.vue';
 
 const currencies = ['GBP', 'EUR', 'USD', 'CAD', 'JPY', 'AUD', 'NZD', 'CHF', 'SEK', 'NOK', 'AED', 'BBD', 'BGN', 'BHD', 'BSD', 'BWP', 'BZD', 'CNY', 'CZK', 'DKK', 'GHS', 'HKD', 'HRK', 'HUF', 'ILS', 'INR', 'JMD', 'KES', 'LKR', 'MUR', 'MXN', 'NGN', 'PHP', 'PKR', 'PLN', 'QAR', 'RON', 'RSD', 'RUB', 'SAR', 'SGD', 'SZL', 'THB', 'TND', 'TRY', 'TTD', 'UGX', 'XCD', 'ZAR', 'ZMW'];
@@ -24,6 +24,10 @@ stories
       },
       locale: {
         default: select('locale', ['en', 'es', 'de-ch', 'jp'], 'en'),
+      },
+      currenciesLoading: {
+        default: boolean('currencies loading', false),
+
       },
       errorMessage: {
         default: text('error message', ''),
