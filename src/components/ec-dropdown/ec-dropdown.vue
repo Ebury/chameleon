@@ -6,27 +6,33 @@
     :placeholder="searchPlaceholder"
     :no-results-text="noResultsText"
     :is-search-enabled="isSearchEnabled"
-    data-test="ec-dropdown"
+    v-bind="{ ...$attrs, 'data-test': 'ec-dropdown' }"
     :keep-open="multiple"
     :disabled="disabled"
     :level="level"
     :is-loading="isLoading"
+    :popper-modifiers="popperModifiers"
+    :popover-options="popoverOptions"
     @change="onSelected"
     @open="$emit('open')"
   >
     <ec-input-field
+      :id="id"
       ref="trigger"
+      :error-id="errorId"
       :value="selectedTextValue"
       :label="label"
       :error-message="errorMessage"
       :placeholder="placeholder"
       :disabled="disabled"
-      data-test="ec-dropdown__input"
+      :icon-size="24"
+      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-dropdown__input` : 'ec-dropdown__input'"
       readonly
       icon="simple-arrow-drop-down"
-      :icon-size="24"
+      :is-in-group="isInGroup"
       @mousedown="onMousedown"
       @focus="onFocus"
+      @blur="$emit('blur')"
     />
 
     <template
@@ -79,6 +85,7 @@ export default {
   components: {
     EcDropdownSearch, EcInputField, EcCheckbox,
   },
+  inheritAttrs: false,
   model: {
     prop: 'selected',
     event: 'change',
@@ -138,6 +145,23 @@ export default {
       type: String,
       default: 'No results found',
     },
+    isInGroup: {
+      type: String,
+    },
+    id: {
+      type: String,
+    },
+    errorId: {
+      type: String,
+    },
+    popperModifiers: {
+      type: Object,
+      default: null,
+    },
+    popoverOptions: {
+      type: Object,
+      default: null,
+    },
   },
   computed: {
     selectedModel: {
@@ -184,6 +208,7 @@ export default {
       // Input can gain focus by clicking or by tabbing into. Click is handled by the popover, so if
       // the focus was gained by click, don't do anything. If the focus is gained by tabbing into, then
       // open the popover programmatically.
+      this.$emit('focus');
       /* istanbul ignore next */
       if (this.preventFocusToTriggerPopover) {
         this.preventFocusToTriggerPopover = false;

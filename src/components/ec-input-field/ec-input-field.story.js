@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { text } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import EcInputField from './ec-input-field.vue';
 
 const stories = storiesOf('Input Field', module);
@@ -59,6 +59,9 @@ stories
       iconDate: {
         default: text('icon', '', GROUPS.DATE),
       },
+      isInGroup: {
+        default: select('is in group', ['', 'left', 'right'], ''),
+      },
     },
     watch: {
       valueFromPropsNumber: {
@@ -93,40 +96,40 @@ stories
         <div class="ec-grid__row">
           <div class="ec-col-3">
             <div class="ec-m--24">
-              <ec-input-field type="number" min="5" max="10" v-model.number="valueNumber" :note="noteNumber" :label="labelNumber" :error-message="errorMessageNumber" :icon="iconNumber" />
+              <ec-input-field type="number" min="5" max="10" v-model.number="valueNumber" :note="noteNumber" :label="labelNumber" :error-message="errorMessageNumber" :icon="iconNumber" :is-in-group="isInGroup" />
             </div>
           </div>
 
           <div class="ec-col-4">
             <div class="ec-m--24">
-              <ec-input-field type="text" placeholder="My input" v-model="valueText" :note="noteText" :label="labelText" :error-message="errorMessageText" :icon="iconText" />
+              <ec-input-field type="text" placeholder="My input" v-model="valueText" :note="noteText" :label="labelText" :error-message="errorMessageText" :icon="iconText" :is-in-group="isInGroup"/>
             </div>
           </div>
 
           <div class="ec-col-5">
             <div class="ec-m--24">
-              <ec-input-field type="date" placeholder="My input" v-model="valueDate" :note="noteDate" :label="labelDate" :error-message="errorMessageDate" :icon="iconDate" />
+              <ec-input-field type="date" placeholder="My input" v-model="valueDate" :note="noteDate" :label="labelDate" :error-message="errorMessageDate" :icon="iconDate" :is-in-group="isInGroup" />
             </div>
           </div>
 
           <div class="ec-col-6">
             <div class="ec-m--24">
-              <ec-input-field disabled placeholder="My input disabled" v-model="valueText" label="Input disabled" :icon="iconText" />
+              <ec-input-field disabled placeholder="My input disabled" v-model="valueText" label="Input disabled" :icon="iconText" :is-in-group="isInGroup"/>
             </div>
           </div>
 
           <div class="ec-col-6">
             <div class="ec-m--24">
-              <ec-input-field disabled placeholder="My input disabled" v-model="valueText" label="Input disabled" error-message="Disabled with error" :icon="iconText" />
+              <ec-input-field disabled placeholder="My input disabled" v-model="valueText" label="Input disabled" error-message="Disabled with error" :icon="iconText" :is-in-group="isInGroup"/>
             </div>
           </div>
 
           <div class="ec-col-3 ec-p--24">
-            <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Input with icon" />
+            <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Input with icon" :is-in-group="isInGroup" />
           </div>
 
           <div class="ec-col-4 ec-p--24">
-            <ec-input-field readonly placeholder="My input" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores." label="Read only input with long text" :icon="iconText" />
+            <ec-input-field readonly placeholder="My input" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores." label="Read only input with long text" :icon="iconText" :is-in-group="isInGroup"/>
           </div>
         </div>
 

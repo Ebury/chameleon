@@ -44,8 +44,26 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('renders properly with the given state "error"', () => {
+  it('renders properly with the given prop errorMessage', () => {
     const wrapper = mountInputField({ errorMessage: 'error msg' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly without the error when the prop errorMessage is given and the isInGroup prop is not empty', () => {
+    const wrapper = mountInputField({ errorMessage: 'error msg', isInGroup: 'right' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly with the id from the parent', () => {
+    const wrapper = mountInputField({ id: 'id-test' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly with the errorId from the parent', () => {
+    const wrapper = mountInputField({
+      errorId: 'error-id-test',
+      errorMessage: 'Test error message',
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 

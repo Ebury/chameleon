@@ -1,6 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcInputField renders properly with the given state "error" 1`] = `
+exports[`EcInputField renders properly with the errorId from the parent 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="ec-input-field-11"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+   
+  <input
+    aria-describedby="error-id-test"
+    class="ec-input-field__input ec-input-field__input--has-error"
+    data-test="ec-input-field__input"
+    id="ec-input-field-11"
+    type="text"
+  />
+   
+  <!---->
+   
+  <div
+    class="ec-input-field__error-text"
+    data-test="ec-input-field__error-text"
+    id="error-id-test"
+  >
+    Test error message
+  </div>
+</div>
+`;
+
+exports[`EcInputField renders properly with the given prop errorMessage 1`] = `
 <div
   class="ec-input-field"
   data-test="ec-input-field"
@@ -45,6 +90,44 @@ exports[`EcInputField renders properly with the given state "error" 1`] = `
 </div>
 `;
 
+exports[`EcInputField renders properly with the id from the parent 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="id-test"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+   
+  <input
+    class="ec-input-field__input"
+    data-test="ec-input-field__input"
+    id="id-test"
+    type="text"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
 exports[`EcInputField renders properly without label 1`] = `
 <div
   class="ec-input-field"
@@ -53,7 +136,7 @@ exports[`EcInputField renders properly without label 1`] = `
   <label
     class="ec-input-field__label"
     data-test="ec-input-field__label"
-    for="ec-input-field-7"
+    for="ec-input-field-13"
   >
     <!---->
      
@@ -68,7 +151,7 @@ exports[`EcInputField renders properly without label 1`] = `
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
-    id="ec-input-field-7"
+    id="ec-input-field-13"
     type="text"
   />
    
@@ -86,7 +169,7 @@ exports[`EcInputField renders properly without note 1`] = `
   <label
     class="ec-input-field__label"
     data-test="ec-input-field__label"
-    for="ec-input-field-9"
+    for="ec-input-field-15"
   >
     <span
       class="ec-input-field__label-text"
@@ -101,7 +184,46 @@ exports[`EcInputField renders properly without note 1`] = `
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
-    id="ec-input-field-9"
+    id="ec-input-field-15"
+    type="text"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
+exports[`EcInputField renders properly without the error when the prop errorMessage is given and the isInGroup prop is not empty 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="ec-input-field-7"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+   
+  <input
+    aria-describedby="ec-input-field-error-7"
+    class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-error"
+    data-test="ec-input-field__input"
+    id="ec-input-field-7"
     type="text"
   />
    
@@ -119,7 +241,7 @@ exports[`EcInputField renders with the attrs min and max 1`] = `
   <label
     class="ec-input-field__label"
     data-test="ec-input-field__label"
-    for="ec-input-field-11"
+    for="ec-input-field-17"
   >
     <span
       class="ec-input-field__label-text"
@@ -139,7 +261,7 @@ exports[`EcInputField renders with the attrs min and max 1`] = `
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
-    id="ec-input-field-11"
+    id="ec-input-field-17"
     max="10"
     min="5"
     type="number"
@@ -197,7 +319,7 @@ exports[`EcInputField should render given icon 1`] = `
   <label
     class="ec-input-field__label"
     data-test="ec-input-field__label"
-    for="ec-input-field-21"
+    for="ec-input-field-27"
   >
     <span
       class="ec-input-field__label-text"
@@ -217,7 +339,7 @@ exports[`EcInputField should render given icon 1`] = `
   <input
     class="ec-input-field__input ec-input-field__input--has-icon"
     data-test="ec-input-field__input"
-    id="ec-input-field-21"
+    id="ec-input-field-27"
     type="text"
   />
    
