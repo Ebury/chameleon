@@ -26,8 +26,8 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             >
               <span>
                 
-        Lorem 
-      
+          Lorem
+        
               </span>
                
               <!---->
@@ -45,8 +45,8 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             >
               <span>
                 
-        Ipsum 
-      
+          Ipsum
+        
               </span>
                
               <!---->
@@ -130,8 +130,8 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
             >
               <span>
                 
-        Lorem 
-      
+          Lorem
+        
               </span>
                
               <!---->
@@ -149,8 +149,8 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
             >
               <span>
                 
-        Ipsum 
-      
+          Ipsum
+        
               </span>
                
               <!---->
@@ -228,8 +228,8 @@ exports[`EcTable should render as expected if provided with data and columns, wi
             >
               <span>
                 
-        Lorem 
-      
+          Lorem
+        
               </span>
                
               <!---->
@@ -247,8 +247,8 @@ exports[`EcTable should render as expected if provided with data and columns, wi
             >
               <span>
                 
-        Ipsum 
-      
+          Ipsum
+        
               </span>
                
               <!---->
@@ -521,8 +521,8 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             >
               <span>
                 
-        Lorem 
-      
+          Lorem
+        
               </span>
                
               <!---->
@@ -540,8 +540,8 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             >
               <span>
                 
-        Ipsum 
-      
+          Ipsum
+        
               </span>
                
               <!---->
@@ -658,8 +658,8 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             >
               <span>
                 
-        Lorem 
-      
+          Lorem
+        
               </span>
                
               <!---->
@@ -677,8 +677,8 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             >
               <span>
                 
-        Ipsum 
-      
+          Ipsum
+        
               </span>
                
               <!---->
@@ -790,8 +790,8 @@ exports[`EcTable should render slots as expected 1`] = `
             >
               <span>
                 
-        Lorem 
-      
+          Lorem
+        
               </span>
                
               <!---->
@@ -809,8 +809,8 @@ exports[`EcTable should render slots as expected 1`] = `
             >
               <span>
                 
-        Ipsum 
-      
+          Ipsum
+        
               </span>
                
               <!---->
@@ -903,8 +903,8 @@ exports[`EcTable should render sorting as expected 1`] = `
       >
         <span>
           
-        Lorem 
-      
+          Lorem
+        
         </span>
          
         <!---->
@@ -944,8 +944,8 @@ exports[`EcTable should render sorting as expected 1`] = `
       >
         <span>
           
-        Ipsum 
-      
+          Ipsum
+        
         </span>
          
         <!---->

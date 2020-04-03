@@ -18,8 +18,8 @@ exports[`EcTableHead should render as expected 1`] = `
       >
         <span>
           
-        Column A 
-      
+          Column A
+        
         </span>
          
         <!---->
@@ -38,8 +38,8 @@ exports[`EcTableHead should render as expected 1`] = `
       >
         <span>
           
-        Column B 
-      
+          Column B
+        
         </span>
          
         <!---->
@@ -57,8 +57,8 @@ exports[`EcTableHead should render as expected 1`] = `
       >
         <span>
           
-        Column C 
-      
+          Column C
+        
         </span>
          
         <!---->
@@ -86,8 +86,8 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
       >
         <span>
           
-        Column A 
-      
+          Column A
+        
         </span>
          
         <svg
@@ -115,8 +115,8 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
       >
         <span>
           
-        Column B 
-      
+          Column B
+        
         </span>
          
         <svg
@@ -143,8 +143,8 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
       >
         <span>
           
-        Column C 
-      
+          Column C
+        
         </span>
          
         <svg
@@ -181,8 +181,8 @@ exports[`EcTableHead should render sorting as expected 1`] = `
       >
         <span>
           
-        Column A 
-      
+          Column A
+        
         </span>
          
         <!---->
@@ -223,8 +223,8 @@ exports[`EcTableHead should render sorting as expected 1`] = `
       >
         <span>
           
-        Column B 
-      
+          Column B
+        
         </span>
          
         <!---->
@@ -264,8 +264,8 @@ exports[`EcTableHead should render sorting as expected 1`] = `
       >
         <span>
           
-        Column C 
-      
+          Column C
+        
         </span>
          
         <!---->

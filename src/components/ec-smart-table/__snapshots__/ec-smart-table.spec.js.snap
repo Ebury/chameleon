@@ -60,8 +60,8 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
       >
         <span>
           
-        Test 1 
-      
+          Test 1
+        
         </span>
          
         <!---->
@@ -101,8 +101,8 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
       >
         <span>
           
-        Test 2 
-      
+          Test 2
+        
         </span>
          
         <!---->
@@ -120,8 +120,8 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
       >
         <span>
           
-        Test 3 
-      
+          Test 3
+        
         </span>
          
         <!---->
@@ -171,8 +171,8 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
       >
         <span>
           
-        Test 1 
-      
+          Test 1
+        
         </span>
          
         <!---->
@@ -212,8 +212,8 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
       >
         <span>
           
-        Test 2 
-      
+          Test 2
+        
         </span>
          
         <!---->
@@ -231,8 +231,8 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
       >
         <span>
           
-        Test 3 
-      
+          Test 3
+        
         </span>
          
         <!---->
@@ -282,8 +282,8 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
       >
         <span>
           
-        Test 1 
-      
+          Test 1
+        
         </span>
          
         <!---->
@@ -323,8 +323,8 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
       >
         <span>
           
-        Test 2 
-      
+          Test 2
+        
         </span>
          
         <!---->
@@ -342,8 +342,8 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
       >
         <span>
           
-        Test 3 
-      
+          Test 3
+        
         </span>
          
         <!---->
@@ -384,8 +384,8 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC -> DESC 1`] = `
   >
     <span>
       
-        Test 1 
-      
+          Test 1
+        
     </span>
      
     <!---->
@@ -428,8 +428,8 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC 1`] = `
   >
     <span>
       
-        Test 1 
-      
+          Test 1
+        
     </span>
      
     <!---->
@@ -472,8 +472,8 @@ exports[`EcSmartTable sorting multi sort should sort column: DESC -> not sorted 
   >
     <span>
       
-        Test 1 
-      
+          Test 1
+        
     </span>
      
     <!---->
@@ -512,8 +512,8 @@ exports[`EcSmartTable sorting multi sort should sort column: not sorted -> ASC 1
   >
     <span>
       
-        Test 1 
-      
+          Test 1
+        
     </span>
      
     <!---->
@@ -561,8 +561,8 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
       >
         <span>
           
-        Test 1 
-      
+          Test 1
+        
         </span>
          
         <!---->
@@ -598,8 +598,8 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
       >
         <span>
           
-        Test 2 
-      
+          Test 2
+        
         </span>
          
         <!---->
@@ -617,8 +617,8 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
       >
         <span>
           
-        Test 3 
-      
+          Test 3
+        
         </span>
          
         <!---->
@@ -664,8 +664,8 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
       >
         <span>
           
-        Test 1 
-      
+          Test 1
+        
         </span>
          
         <!---->
@@ -705,8 +705,8 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
       >
         <span>
           
-        Test 2 
-      
+          Test 2
+        
         </span>
          
         <!---->
@@ -724,8 +724,8 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
       >
         <span>
           
-        Test 3 
-      
+          Test 3
+        
         </span>
          
         <!---->
@@ -775,8 +775,8 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
       >
         <span>
           
-        Test 1 
-      
+          Test 1
+        
         </span>
          
         <!---->
@@ -816,8 +816,8 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
       >
         <span>
           
-        Test 2 
-      
+          Test 2
+        
         </span>
          
         <!---->
@@ -835,8 +835,8 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
       >
         <span>
           
-        Test 3 
-      
+          Test 3
+        
         </span>
          
         <!---->
@@ -882,8 +882,8 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
       >
         <span>
           
-        Test 1 
-      
+          Test 1
+        
         </span>
          
         <!---->
@@ -919,8 +919,8 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
       >
         <span>
           
-        Test 2 
-      
+          Test 2
+        
         </span>
          
         <!---->
@@ -938,8 +938,8 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
       >
         <span>
           
-        Test 3 
-      
+          Test 3
+        
         </span>
          
         <!---->
@@ -989,8 +989,8 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
       >
         <span>
           
-        Test 1 
-      
+          Test 1
+        
         </span>
          
         <!---->
@@ -1030,8 +1030,8 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
       >
         <span>
           
-        Test 2 
-      
+          Test 2
+        
         </span>
          
         <!---->
@@ -1049,8 +1049,8 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
       >
         <span>
           
-        Test 3 
-      
+          Test 3
+        
         </span>
          
         <!---->
@@ -1091,8 +1091,8 @@ exports[`EcSmartTable sorting single sort should sort column: ASC -> DESC 1`] = 
   >
     <span>
       
-        Test 1 
-      
+          Test 1
+        
     </span>
      
     <!---->
@@ -1135,8 +1135,8 @@ exports[`EcSmartTable sorting single sort should sort column: ASC 1`] = `
   >
     <span>
       
-        Test 1 
-      
+          Test 1
+        
     </span>
      
     <!---->
@@ -1179,8 +1179,8 @@ exports[`EcSmartTable sorting single sort should sort column: DESC -> not sorted
   >
     <span>
       
-        Test 1 
-      
+          Test 1
+        
     </span>
      
     <!---->
@@ -1219,8 +1219,8 @@ exports[`EcSmartTable sorting single sort should sort column: not sorted -> ASC 
   >
     <span>
       
-        Test 1 
-      
+          Test 1
+        
     </span>
      
     <!---->
