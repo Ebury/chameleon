@@ -1,34 +1,26 @@
 <template>
-  <div
+  <a
     class="ec-table-sort"
     data-test="ec-table-sort"
+    href="#"
+    :title="directionTitle"
+    @click.prevent.stop="onSort"
   >
-    <div class="ec-table-sort__title">
-      <slot />
-    </div>
-    <a
-      class="ec-table-sort__icon-wrapper"
-      data-test="ec-table-sort__icon-wrapper"
-      href="#"
-      :title="directionTitle"
-      @click.prevent.stop="onSort"
-    >
-      <ec-icon
-        :size="20"
-        :name="icon"
-        :class="{
-          'ec-table-sort__icon': true,
-          'ec-table-sort__icon--asc': isAsc,
-          'ec-table-sort__icon--desc': isDesc
-        }"
-        data-test="ec-table-sort__icon"
-      />
-      <span
-        v-if="direction"
-        class="ec-table-sort__text"
-      >{{ direction }}</span>
-    </a>
-  </div>
+    <ec-icon
+      :size="16"
+      :name="icon"
+      :class="{
+        'ec-table-sort__icon': true,
+        'ec-table-sort__icon--asc': isAsc,
+        'ec-table-sort__icon--desc': isDesc
+      }"
+      data-test="ec-table-sort__icon"
+    />
+    <span
+      v-if="direction"
+      class="ec-table-sort__text"
+    >{{ direction }}</span>
+  </a>
 </template>
 
 <script>
@@ -83,28 +75,17 @@ export default {
 @import '../../scss/tools/accessibility';
 
 .ec-table-sort {
-  display: flex;
-  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+  user-select: none;
+  cursor: pointer;
+  color: inherit;
 
-  &__title {
-    flex-grow: 0;
-    min-width: 0;
-    margin-right: 4px;
-  }
-
-  &__icon-wrapper {
-    flex-shrink: 0;
-    line-height: 0;
-    user-select: none;
-    cursor: pointer;
-    color: inherit;
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: $level-3-hover;
-      outline: 0;
-    }
+  &:hover,
+  &:focus,
+  &:active {
+    color: $level-3-hover;
+    outline: 0;
   }
 
   &__icon {

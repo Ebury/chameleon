@@ -6,13 +6,6 @@ table {
   padding: 16px 0 0;
 }
 
-caption {
-  @include h2;
-
-  padding-bottom: 24px;
-  text-align: left;
-}
-
 th {
   @include mini-header;
 }

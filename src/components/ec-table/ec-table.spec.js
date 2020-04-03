@@ -239,4 +239,48 @@ describe('EcTable', () => {
     wrapper.findByDataTest('ec-table-head__cell--0').findByDataTest('ec-table-sort__icon').trigger('click');
     expect(wrapper.emitted('sort')).toEqual([['lorem']]);
   });
+
+  it('the first td should have the ec-table__cell--sticky-left class if stickyColumn prop is left', () => {
+    const wrapper = mountTable({ stickyColumn: 'left' });
+
+    expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(true);
+    expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(false);
+    wrapper.setProps({ stickyColumn: 'right' });
+    expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(true);
+    expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(false);
+  });
+
+  it('should have the style height the same as given on the prop', () => {
+    const wrapper = mountTable({ maxHeight: 400 });
+
+    expect(wrapper.findByDataTest('ec-table-scroll-container').attributes('style')).toBe('max-height: 400px;');
+  });
+
+  it('should emit the row-click event when you click on some row', () => {
+    const wrapper = mountTable();
+
+    expect(wrapper.emitted('row-click')).toBe(undefined);
+    wrapper.findByDataTest('ec-table__row--0').trigger('click');
+    expect(wrapper.emitted('row-click').length).toBe(1);
+    wrapper.findByDataTest('ec-table__row--1').trigger('click');
+    expect(wrapper.emitted('row-click').length).toBe(2);
+  });
+
+  it('should render the style with the min-width on each cell of the column that have the prop given', () => {
+    const wrapper = mountTable({
+      columns: [
+        {
+          name: 'lorem',
+          title: 'Lorem',
+          minWidth: '250px',
+        },
+        {
+          name: 'ipsum',
+          title: 'Ipsum',
+        },
+      ],
+    });
+    const wrapperArray = wrapper.findAllByDataTest('ec-table__cell--0');
+    wrapperArray.wrappers.forEach(wrapperItem => expect(wrapperItem.attributes('style')).toBe('min-width: 250px;'));
+  });
 });

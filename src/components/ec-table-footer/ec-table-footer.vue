@@ -88,6 +88,8 @@ export default {
     padding: 0 16px;
     width: 100%;
     border-radius: 0 0 5px 5px;
+    position: sticky;
+    bottom: 0;
     background-color: $level-7-backgrounds;
   }
 
