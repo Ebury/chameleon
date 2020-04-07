@@ -75,7 +75,6 @@ export default {
 @import '../../scss/tools/accessibility';
 
 .ec-table-sort {
-  flex-shrink: 0;
   line-height: 0;
   user-select: none;
   cursor: pointer;

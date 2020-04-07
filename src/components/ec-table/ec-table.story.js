@@ -3,6 +3,7 @@ import {
   object,
   text,
   number,
+  select,
   boolean,
 } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
@@ -21,12 +22,12 @@ const columns = [
     name: 'original-amount',
     title: 'Original amount',
     sortable: true,
+    tooltip: 'This is info test',
   },
   {
     name: 'repayment-date',
     title: 'Repayment date',
     sortable: true,
-    tooltip: 'This is info test',
     minWidth: '300px',
   },
   {
@@ -93,20 +94,20 @@ stories
         default: boolean('showFooter', false),
       },
       maxHeight: {
-        default: number('maxHeight', 400),
+        default: text('maxHeight', '400px'),
       },
       stickyColumn: {
-        default: text('stickyColumn', 'left'),
+        default: select('stickyColumn', ['left', 'right'], 'left'),
       },
     },
     methods: {
       onSort: action('sort'),
-      rowClick: action('rowClick'),
+      onRowClick: action('onRowClick'),
     },
     template: `
       <div style="display: flex; height: 100vh">
         <div style="margin: auto 20px; width: 90vw" class="ec-card" >
-          <ec-table v-bind="$props" @sort="onSort" @row-click="rowClick" />
+          <ec-table v-bind="$props" @sort="onSort" @on-row-click="onRowClick" />
           <p class="ec-mt--40"><em>NOTE:</em> Sorting in this example is not hooked into any functionality, because this is just a basic example. You can change the direction in the knobs panel or if you want to see it working, checkout smart table story instead.</p>
         </div>
       </div>
@@ -184,7 +185,7 @@ stories
     </div>
     `,
   }))
-  .add('with a fix height and sticky column', () => ({
+  .add('with a fixed height and sticky column', () => ({
     components: { EcTable },
     props: {
       title: {
@@ -197,10 +198,10 @@ stories
         default: object('data', [...data, ...data]),
       },
       maxHeight: {
-        default: number('maxHeight', 400),
+        default: number('maxHeight', '400px'),
       },
       stickyColumn: {
-        default: text('stickyColumn', 'left'),
+        default: select('stickyColumn', ['left', 'right'], 'left'),
       },
     },
     template: `

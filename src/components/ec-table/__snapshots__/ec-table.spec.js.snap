@@ -59,6 +59,7 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         >
           <td
@@ -75,6 +76,7 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
           </td>
         </tr>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--1"
         >
           <td
@@ -163,6 +165,7 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         >
           <td
@@ -179,6 +182,7 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
           </td>
         </tr>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--1"
         >
           <td
@@ -261,6 +265,7 @@ exports[`EcTable should render as expected if provided with data and columns, wi
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         >
           <td
@@ -277,6 +282,7 @@ exports[`EcTable should render as expected if provided with data and columns, wi
           </td>
         </tr>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--1"
         >
           <td
@@ -336,6 +342,7 @@ exports[`EcTable should render as expected if provided with data but no columns 
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         >
           <td
@@ -352,6 +359,7 @@ exports[`EcTable should render as expected if provided with data but no columns 
           </td>
         </tr>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--1"
         >
           <td
@@ -390,6 +398,7 @@ exports[`EcTable should render as expected if provided with data but no columns,
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         >
           <td
@@ -406,6 +415,7 @@ exports[`EcTable should render as expected if provided with data but no columns,
           </td>
         </tr>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--1"
         >
           <td
@@ -465,6 +475,7 @@ exports[`EcTable should render as expected if provided with empty row and no col
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         />
       </tbody>
@@ -554,6 +565,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         >
           <td
@@ -570,6 +582,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
           </td>
         </tr>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--1"
         >
           <td
@@ -691,6 +704,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         >
           <td
@@ -707,6 +721,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
           </td>
         </tr>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--1"
         >
           <td
@@ -823,6 +838,7 @@ exports[`EcTable should render slots as expected 1`] = `
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         >
           <td
@@ -841,6 +857,7 @@ exports[`EcTable should render slots as expected 1`] = `
           </td>
         </tr>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--1"
         >
           <td

@@ -15,6 +15,7 @@ exports[`EcSmartTable should render properly 1`] = `
        
       <tbody>
         <tr
+          class=""
           data-test="ec-table__row ec-table__row--0"
         >
           <td

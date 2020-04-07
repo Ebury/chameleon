@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import * as SortDirection from '../../enums/sort-direction';
 import EcTableHead from './ec-table-head.vue';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcTableHead', () => {
   const columns = [
@@ -29,6 +30,14 @@ describe('EcTableHead', () => {
   it('should render as expected', () => {
     const wrapper = mountEcTableHead({ columns });
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should throw if the prop stickyColumn have a invalid value', () => {
+    withMockedConsole((errorSpy) => {
+      mountEcTableHead({ columns, stickyColumn: 'test' });
+      expect(errorSpy).toHaveBeenCalledTimes(1);
+      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "stickyColumn"');
+    });
   });
 
   it('should have class ec-table-head__cell--text-center if type of content is icon', () => {
@@ -78,10 +87,11 @@ describe('EcTableHead', () => {
       columns: columns.map(column => ({ ...column, tooltip: 'tooltip example' })),
     });
 
+    expect(wrapper.findByDataTest('ec-table-head__tooltip-icon ').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left', () => {
+  it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left and the changes to right when the prop is get changed to right', () => {
     const wrapper = mountEcTableHead({
       columns, stickyColumn: 'left',
     });
@@ -102,5 +112,6 @@ describe('EcTableHead', () => {
     });
 
     expect(wrapper.findByDataTest('ec-table-head__cell--1').attributes('style')).toBe('min-width: 250px;');
+    expect(wrapper.findByDataTest('ec-table-head__cell--0').attributes('style')).toBe(undefined);
   });
 });

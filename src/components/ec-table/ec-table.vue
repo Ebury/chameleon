@@ -24,19 +24,18 @@
             v-for="(row, rowIndex) in data"
             :key="rowIndex"
             :data-test="`ec-table__row ec-table__row--${rowIndex}`"
-            @click="$emit('row-click', { data: row, rowIndex })"
+            :class="{ 'ec-table__row--is-clickable': !!$listeners['on-row-click'] }"
+            @click="$emit('on-row-click', { data: row, rowIndex })"
           >
             <td
               v-for="(content, colIndex) in row"
               :key="colIndex"
-              :style="witdhStyleCells(columns[colIndex])"
+              :style="getColumnWidth(columns[colIndex])"
               :data-test="`ec-table__cell ec-table__cell--${colIndex}`"
               class="ec-table__cell"
-              :class="{
-                'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon',
-                'ec-table__cell--sticky-left': stickyColumn === 'left' && colIndex === 0,
-                'ec-table__cell--sticky-right': stickyColumn === 'right' && colIndex === columns.length - 1,
-              }"
+              :class="[
+                getStickyColumnClass(colIndex, columns),
+                { 'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon' }]"
             >
               <slot
                 :name="getSlotName(colIndex)"
@@ -89,7 +88,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    maxHeight: Number,
+    maxHeight: String,
     stickyColumn: {
       type: String,
       validator(value) {
@@ -109,7 +108,7 @@ export default {
       return this.data.length;
     },
     maxHeightStyle() {
-      return this.maxHeight ? { maxHeight: `${this.maxHeight}px` } : null;
+      return this.maxHeight ? { maxHeight: `${this.maxHeight}` } : null;
     },
   },
   methods: {
@@ -119,8 +118,16 @@ export default {
     onSort(columnName) {
       this.$emit('sort', columnName);
     },
-    witdhStyleCells(column) {
+    getColumnWidth(column) {
       return column && column.minWidth ? { minWidth: column.minWidth } : null;
+    },
+    getStickyColumnClass(colIndex, columns) {
+      if (this.stickyColumn === 'left' && colIndex === 0) {
+        return 'ec-table__cell--sticky-left';
+      } if (this.stickyColumn === 'right' && colIndex === columns.length - 1) {
+        return 'ec-table__cell--sticky-right';
+      }
+      return null;
     },
   },
 };
@@ -141,6 +148,8 @@ export default {
   border: none;
   padding-top: 16px;
   width: 100%;
+  position: relative; // We need to reset the z-index so the sticky columns and header will not compete with the outer world
+  z-index: 0;
 
   %common-cell-layout {
     &:last-of-type {
@@ -152,6 +161,11 @@ export default {
     @include h3;
 
     padding-bottom: 16px;
+  }
+
+  &__row--is-clickable:hover {
+    background-color: $level-7;
+    cursor: pointer;
   }
 
   &__cell {
@@ -172,6 +186,10 @@ export default {
       position: sticky;
       left: 0;
       background: $level-7-backgrounds;
+    }
+
+    .ec-table__row--is-clickable:hover & {
+      background: none;
     }
 
     &--sticky-right {

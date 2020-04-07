@@ -8,6 +8,8 @@ table {
 
 th {
   @include mini-header;
+
+  text-transform: none;
 }
 
 td {

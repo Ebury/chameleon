@@ -8,25 +8,22 @@
       <th
         v-for="(column, colIndex) in columns"
         :key="column.name || column.title"
-        :style="widthStyleCells(column)"
+        :style="getWidthStyle(column)"
         :data-test="`ec-table-head__cell ec-table-head__cell--${colIndex}`"
         class="ec-table-head__cell"
-        :class="{
-          'ec-table-head__cell--text-center': column.type === 'icon',
-          'ec-table-head__cell--sticky-left': stickyColumn === 'left' && colIndex === 0,
-          'ec-table-head__cell--sticky-right': stickyColumn === 'right' && colIndex === columns.length - 1,
-        }"
+        :class="[ getStickyColumnClass(colIndex, columns), {'ec-table-head__cell--text-center': column.type === 'icon'}]"
         :colspan="column.span"
         scope="col"
       >
-        <span class="ec-table-head__cell-wrapper"> <!-- flex  -->
+        <span class="ec-table-head__cell-wrapper">
           <span>
             {{ column.title }}
           </span>
           <ec-icon
             v-if="!!column.tooltip"
-            v-ec-tooltip="column.tooltip"
-            class="ec-table-head__info-icon ec-table-head__icon"
+            v-ec-tooltip="{ content:column.tooltip }"
+            class="ec-table-head__icon"
+            data-test="ec-table-head__tooltip-icon"
             type="interactive"
             name="simple-info"
             :size="16"
@@ -81,8 +78,16 @@ export default {
     onSort(column) {
       this.$emit('sort', column.name);
     },
-    widthStyleCells(column) {
+    getWidthStyle(column) {
       return column && column.minWidth ? { minWidth: column.minWidth } : null;
+    },
+    getStickyColumnClass(colIndex, columns) {
+      if (this.stickyColumn === 'left' && colIndex === 0) {
+        return 'ec-table-head__cell--sticky-left';
+      } if (this.stickyColumn === 'right' && colIndex === columns.length - 1) {
+        return 'ec-table-head__cell--sticky-right';
+      }
+      return null;
     },
   },
 };
@@ -93,10 +98,6 @@ export default {
 @import '../../scss/settings/index';
 
 .ec-table-head {
-  &__info-icon {
-    vertical-align: middle;
-  }
-
   &__cell-wrapper {
     display: flex;
     align-items: center;
@@ -117,14 +118,14 @@ export default {
     position: sticky;
     border-collapse: separate;
     top: 0;
-    background: white;
+    background: $white;
     z-index: $z-index-level-1;
 
-    @include table-headers;
+    @include table-header;
 
     &--sticky-left {
-      left: 0;
       z-index: $z-index-level-2;
+      left: 0;
     }
 
     &--sticky-right {
