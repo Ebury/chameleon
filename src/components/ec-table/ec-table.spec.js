@@ -137,6 +137,37 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('the tr should have class ec-table-row--is-clickable if we set the listener on row-click', async () => {
+    const onRowClick = jest.fn();
+    const wrapper = mountTable(
+      {
+        columns: [
+          {
+            name: 'lorem',
+            title: 'Lorem',
+          },
+          {
+            name: 'ipsum',
+            title: 'Ipsum',
+            type: 'icon',
+          },
+        ],
+        data: [
+          ['foo', 'bar'],
+          ['widgets', 'doodads'],
+        ],
+      },
+      {
+        listeners: {
+          'row-click': onRowClick,
+        },
+      },
+    );
+
+    const firstRow = wrapper.findByDataTest('ec-table__row--0');
+    expect(firstRow.classes('ec-table__row--is-clickable')).toBe(true);
+  });
+
   it('should render as expected if provided with data and columns, with footer switched on', () => {
     const wrapper = mountTable({ showFooter: true });
 
