@@ -265,16 +265,16 @@ describe('EcTable', () => {
     expect(wrapper.findByDataTest('ec-table-scroll-container').attributes('style')).toBe('max-height: 400px;');
   });
 
-  it('should emit the on-row-click event when you click on some row', () => {
+  it('should emit the row-click event when you click on some row', () => {
     const wrapper = mountTable();
 
-    expect(wrapper.emitted('on-row-click')).toBe(undefined);
+    expect(wrapper.emitted('row-click')).toBe(undefined);
     wrapper.findByDataTest('ec-table__row--0').trigger('click');
-    expect(wrapper.emitted('on-row-click')[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
-    expect(wrapper.emitted('on-row-click').length).toBe(1);
+    expect(wrapper.emitted('row-click')[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
+    expect(wrapper.emitted('row-click').length).toBe(1);
     wrapper.findByDataTest('ec-table__row--1').trigger('click');
-    expect(wrapper.emitted('on-row-click')[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
-    expect(wrapper.emitted('on-row-click').length).toBe(2);
+    expect(wrapper.emitted('row-click')[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
+    expect(wrapper.emitted('row-click').length).toBe(2);
   });
 
   it('should render the style with the min-width on each cell of the column that have the prop given', () => {

@@ -25,7 +25,7 @@
             :key="rowIndex"
             :data-test="`ec-table__row ec-table__row--${rowIndex}`"
             :class="{ 'ec-table__row--is-clickable': !!$listeners['on-row-click'] }"
-            @click="$emit('on-row-click', { data: row, rowIndex })"
+            @click="$emit('row-click', { data: row, rowIndex })"
           >
             <td
               v-for="(content, colIndex) in row"

@@ -107,7 +107,7 @@ stories
     template: `
       <div style="display: flex; height: 100vh">
         <div style="margin: auto 20px; width: 90vw" class="ec-card" >
-          <ec-table v-bind="$props" @sort="onSort" @on-row-click="onRowClick" />
+          <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick" />
           <p class="ec-mt--40"><em>NOTE:</em> Sorting in this example is not hooked into any functionality, because this is just a basic example. You can change the direction in the knobs panel or if you want to see it working, checkout smart table story instead.</p>
         </div>
       </div>
