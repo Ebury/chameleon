@@ -1,6 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import * as SortDirection from '../../enums/sort-direction';
 import EcTable from './ec-table.vue';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 function mountTable(props, mountOpts) {
   return mount(EcTable, {
@@ -44,6 +45,14 @@ describe('EcTable', () => {
   it('should not render if no props are supplied', () => {
     const wrapper = mountTable(null, { propsData: {} });
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should throw if the prop stickyColumn have a invalid value', () => {
+    withMockedConsole((errorSpy) => {
+      mountTable({ stickyColumn: 'test' });
+      expect(errorSpy).toHaveBeenCalledTimes(2);
+      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "stickyColumn"');
+    });
   });
 
   it('should not render if not provided with any data', () => {
@@ -238,5 +247,51 @@ describe('EcTable', () => {
     });
     wrapper.findByDataTest('ec-table-head__cell--0').findByDataTest('ec-table-sort__icon').trigger('click');
     expect(wrapper.emitted('sort')).toEqual([['lorem']]);
+  });
+
+  it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left and the changes to right when the prop is get changed to right', () => {
+    const wrapper = mountTable({ stickyColumn: 'left' });
+
+    expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(true);
+    expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(false);
+    wrapper.setProps({ stickyColumn: 'right' });
+    expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(true);
+    expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(false);
+  });
+
+  it('should have the style height the same as given on the prop', () => {
+    const wrapper = mountTable({ maxHeight: '400px' });
+
+    expect(wrapper.findByDataTest('ec-table-scroll-container').attributes('style')).toBe('max-height: 400px;');
+  });
+
+  it('should emit the row-click event when you click on some row', () => {
+    const wrapper = mountTable();
+
+    expect(wrapper.emitted('row-click')).toBe(undefined);
+    wrapper.findByDataTest('ec-table__row--0').trigger('click');
+    expect(wrapper.emitted('row-click')[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
+    expect(wrapper.emitted('row-click').length).toBe(1);
+    wrapper.findByDataTest('ec-table__row--1').trigger('click');
+    expect(wrapper.emitted('row-click')[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
+    expect(wrapper.emitted('row-click').length).toBe(2);
+  });
+
+  it('should render the style with the min-width on each cell of the column that have the prop given', () => {
+    const columns = [
+      {
+        name: 'lorem',
+        title: 'Lorem',
+        minWidth: '250px',
+      },
+      {
+        name: 'ipsum',
+        title: 'Ipsum',
+      },
+    ];
+    const wrapper = mountTable({ columns });
+    const wrapperArray = wrapper.findAllByDataTest('ec-table__cell--0');
+    expect(wrapperArray.length).toBe(columns.length);
+    wrapperArray.wrappers.forEach(wrapperItem => expect(wrapperItem.attributes('style')).toBe('min-width: 250px;'));
   });
 });

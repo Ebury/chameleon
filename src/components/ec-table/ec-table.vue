@@ -1,44 +1,60 @@
 <template>
-  <div
-    v-if="numberOfRecords"
-    class="ec-table-scroll-container"
-  >
-    <table class="ec-table">
-      <caption v-if="title">{{ title }}</caption>
-      <ec-table-head
-        :columns="columns"
-        :sorts="sorts"
-        @sort="onSort"
-      />
-      <tbody>
-        <tr
-          v-for="(row, rowIndex) in data"
-          :key="rowIndex"
-          :data-test="`ec-table__row ec-table__row--${rowIndex}`"
-        >
-          <td
-            v-for="(content, colIndex) in row"
-            :key="colIndex"
-            :data-test="`ec-table__cell ec-table__cell--${colIndex}`"
-            class="ec-table__cell"
-            :class="{'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon'}"
+  <div v-if="numberOfRecords">
+    <div
+      v-if="title"
+      class="ec-table__title"
+    >{{ title }}</div>
+    <div
+      data-test="ec-table-scroll-container"
+      class="ec-table-scroll-container"
+      :style="maxHeightStyle"
+    >
+      <table
+        :aria-label="title"
+        class="ec-table"
+      >
+        <ec-table-head
+          :columns="columns"
+          :sorts="sorts"
+          :sticky-column="stickyColumn"
+          @sort="onSort"
+        />
+        <tbody>
+          <tr
+            v-for="(row, rowIndex) in data"
+            :key="rowIndex"
+            :data-test="`ec-table__row ec-table__row--${rowIndex}`"
+            :class="{ 'ec-table__row--is-clickable': !!$listeners['on-row-click'] }"
+            @click="$emit('row-click', { data: row, rowIndex })"
           >
-            <slot
-              :name="getSlotName(colIndex)"
-              :content="content"
-              :row="row"
-            >{{ content }}</slot>
-          </td>
-        </tr>
-      </tbody>
-      <ec-table-footer
-        v-if="showFooter"
-        :items-in-view="numberOfRecords"
-        :total-items="totalRecords"
-        :colspan="numberOfColumns"
-        :tooltip-config="tooltipConfig"
-      />
-    </table>
+            <td
+              v-for="(content, colIndex) in row"
+              :key="colIndex"
+              :style="getColumnWidth(columns[colIndex])"
+              :data-test="`ec-table__cell ec-table__cell--${colIndex}`"
+              class="ec-table__cell"
+              :class="[
+                getStickyColumnClass(colIndex, columns),
+                { 'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon' }]"
+            >
+              <slot
+                :name="getSlotName(colIndex)"
+                :content="content"
+                :row="row"
+              >{{ content }}</slot>
+            </td>
+          </tr>
+        </tbody>
+        <ec-table-footer
+          v-if="showFooter"
+          :items-in-view="numberOfRecords"
+          :total-items="totalRecords"
+          :colspan="numberOfColumns"
+          :tooltip-config="tooltipConfig"
+        />
+      </table>
+
+    </div>
   </div>
 </template>
 
@@ -72,6 +88,13 @@ export default {
       type: Boolean,
       default: false,
     },
+    maxHeight: String,
+    stickyColumn: {
+      type: String,
+      validator(value) {
+        return ['left', 'right'].includes(value);
+      },
+    },
     tooltipConfig: Object,
     title: String,
   },
@@ -84,6 +107,9 @@ export default {
     numberOfRecords() {
       return this.data.length;
     },
+    maxHeightStyle() {
+      return this.maxHeight ? { maxHeight: `${this.maxHeight}` } : null;
+    },
   },
   methods: {
     getSlotName(index) {
@@ -92,16 +118,29 @@ export default {
     onSort(columnName) {
       this.$emit('sort', columnName);
     },
+    getColumnWidth(column) {
+      return column && column.minWidth ? { minWidth: column.minWidth } : null;
+    },
+    getStickyColumnClass(colIndex, columns) {
+      if (this.stickyColumn === 'left' && colIndex === 0) {
+        return 'ec-table__cell--sticky-left';
+      } if (this.stickyColumn === 'right' && colIndex === columns.length - 1) {
+        return 'ec-table__cell--sticky-right';
+      }
+      return null;
+    },
   },
 };
 </script>
 
 <style lang="scss">
-@import '../../scss/tools/typography';
 @import '../../scss/settings/colors/index';
+@import '../../scss/tools/index';
 
 .ec-table-scroll-container {
-  overflow-x: auto;
+  overflow: auto;
+
+  @include small-scrollbar;
 }
 
 .ec-table {
@@ -109,6 +148,8 @@ export default {
   border: none;
   padding-top: 16px;
   width: 100%;
+  position: relative; // We need to reset the z-index so the sticky columns and header will not compete with the outer world
+  z-index: 0;
 
   %common-cell-layout {
     &:last-of-type {
@@ -116,10 +157,22 @@ export default {
     }
   }
 
+  &__title {
+    @include h3;
+
+    padding-bottom: 16px;
+  }
+
+  &__row--is-clickable:hover {
+    background-color: $level-7;
+    cursor: pointer;
+  }
+
   &__cell {
     @extend %common-cell-layout;
 
-    padding: 8px 0 8px 16px;
+    min-width: 100px;
+    padding: 16px 0 16px 16px;
     border-bottom: 1px solid $level-6-disabled-lines;
     vertical-align: middle;
 
@@ -127,6 +180,22 @@ export default {
 
     &--text-center {
       text-align: center;
+    }
+
+    &--sticky-left {
+      position: sticky;
+      left: 0;
+      background: $level-7-backgrounds;
+    }
+
+    .ec-table__row--is-clickable:hover & {
+      background: none;
+    }
+
+    &--sticky-right {
+      position: sticky;
+      right: 0;
+      background: $level-7-backgrounds;
     }
   }
 }

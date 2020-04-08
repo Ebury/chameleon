@@ -3,6 +3,7 @@ import {
   object,
   text,
   number,
+  select,
   boolean,
 } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
@@ -15,20 +16,24 @@ const columns = [
     name: 'request-details',
     title: 'Request details',
     sortable: true,
+    minWidth: '200px',
   },
   {
     name: 'original-amount',
     title: 'Original amount',
     sortable: true,
+    tooltip: 'This is info test',
   },
   {
     name: 'repayment-date',
     title: 'Repayment date',
     sortable: true,
+    minWidth: '300px',
   },
   {
     title: 'Status',
     type: 'icon',
+    tooltip: 'This is info test',
   },
 ];
 
@@ -88,14 +93,21 @@ stories
       showFooter: {
         default: boolean('showFooter', false),
       },
+      maxHeight: {
+        default: text('maxHeight', '400px'),
+      },
+      stickyColumn: {
+        default: select('stickyColumn', ['left', 'right'], 'left'),
+      },
     },
     methods: {
       onSort: action('sort'),
+      onRowClick: action('onRowClick'),
     },
     template: `
       <div style="display: flex; height: 100vh">
-        <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-          <ec-table v-bind="$props" @sort="onSort" />
+        <div style="margin: auto 20px; width: 90vw" class="ec-card" >
+          <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick" />
           <p class="ec-mt--40"><em>NOTE:</em> Sorting in this example is not hooked into any functionality, because this is just a basic example. You can change the direction in the knobs panel or if you want to see it working, checkout smart table story instead.</p>
         </div>
       </div>
@@ -168,6 +180,33 @@ stories
     template: `
     <div style="display: flex; height: 100vh">
       <div style="margin: auto 20px; width: 100vw" class="ec-card" >
+        <ec-table v-bind="$props" />
+      </div>
+    </div>
+    `,
+  }))
+  .add('with a fixed height and sticky column', () => ({
+    components: { EcTable },
+    props: {
+      title: {
+        default: text('title', 'Title'),
+      },
+      columns: {
+        default: object('columns', columns.map(c => ({ ...c, sortable: false, minWidth: '250px' }))),
+      },
+      data: {
+        default: object('data', [...data, ...data]),
+      },
+      maxHeight: {
+        default: number('maxHeight', '400px'),
+      },
+      stickyColumn: {
+        default: select('stickyColumn', ['left', 'right'], 'left'),
+      },
+    },
+    template: `
+    <div style="display: flex; height: 100vh">
+      <div style="margin: auto 20px; width: 90vw" class="ec-card" >
         <ec-table v-bind="$props" />
       </div>
     </div>

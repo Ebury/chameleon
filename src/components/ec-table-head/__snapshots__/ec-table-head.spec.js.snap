@@ -13,9 +13,19 @@ exports[`EcTableHead should render as expected 1`] = `
       data-test="ec-table-head__cell ec-table-head__cell--0"
       scope="col"
     >
-      
-        Column A
-      
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span>
+          
+          Column A
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
     </th>
     <th
       class="ec-table-head__cell"
@@ -23,18 +33,136 @@ exports[`EcTableHead should render as expected 1`] = `
       data-test="ec-table-head__cell ec-table-head__cell--1"
       scope="col"
     >
-      
-        Column B
-      
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span>
+          
+          Column B
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
     </th>
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--2"
       scope="col"
     >
-      
-        Column C
-      
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span>
+          
+          Column C
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
+    </th>
+  </tr>
+</thead>
+`;
+
+exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
+<thead
+  class="ec-table-head"
+  data-test="ec-table-head"
+>
+  <tr>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--0"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span>
+          
+          Column A
+        
+        </span>
+         
+        <svg
+          class="ec-table-head__icon ec-icon ec-icon--interactive ec-has-tooltip"
+          data-original-title="null"
+          data-test="ec-table-head__tooltip-icon"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-info"
+          />
+        </svg>
+         
+        <!---->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      colspan="2"
+      data-test="ec-table-head__cell ec-table-head__cell--1"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span>
+          
+          Column B
+        
+        </span>
+         
+        <svg
+          class="ec-table-head__icon ec-icon ec-icon--interactive ec-has-tooltip"
+          data-original-title="null"
+          data-test="ec-table-head__tooltip-icon"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-info"
+          />
+        </svg>
+         
+        <!---->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--2"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span>
+          
+          Column C
+        
+        </span>
+         
+        <svg
+          class="ec-table-head__icon ec-icon ec-icon--interactive ec-has-tooltip"
+          data-original-title="null"
+          data-test="ec-table-head__tooltip-icon"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-info"
+          />
+        </svg>
+         
+        <!---->
+      </span>
     </th>
   </tr>
 </thead>
@@ -51,27 +179,28 @@ exports[`EcTableHead should render sorting as expected 1`] = `
       data-test="ec-table-head__cell ec-table-head__cell--0"
       scope="col"
     >
-      <div
-        class="ec-table-sort"
-        data-test="ec-table-sort"
+      <span
+        class="ec-table-head__cell-wrapper"
       >
-        <div
-          class="ec-table-sort__title"
-        >
+        <span>
+          
           Column A
-        </div>
+        
+        </span>
+         
+        <!---->
          
         <a
-          class="ec-table-sort__icon-wrapper"
-          data-test="ec-table-sort__icon-wrapper"
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
           href="#"
           title="Sorted ascending"
         >
           <svg
             class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
             data-test="ec-table-sort__icon"
-            height="20"
-            width="20"
+            height="16"
+            width="16"
           >
             <use
               xlink:href="#ec-simple-arrow-drop-down"
@@ -84,7 +213,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
             asc
           </span>
         </a>
-      </div>
+      </span>
     </th>
     <th
       class="ec-table-head__cell"
@@ -92,27 +221,28 @@ exports[`EcTableHead should render sorting as expected 1`] = `
       data-test="ec-table-head__cell ec-table-head__cell--1"
       scope="col"
     >
-      <div
-        class="ec-table-sort"
-        data-test="ec-table-sort"
+      <span
+        class="ec-table-head__cell-wrapper"
       >
-        <div
-          class="ec-table-sort__title"
-        >
+        <span>
+          
           Column B
-        </div>
+        
+        </span>
+         
+        <!---->
          
         <a
-          class="ec-table-sort__icon-wrapper"
-          data-test="ec-table-sort__icon-wrapper"
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
           href="#"
           title="Sorted descending"
         >
           <svg
             class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
             data-test="ec-table-sort__icon"
-            height="20"
-            width="20"
+            height="16"
+            width="16"
           >
             <use
               xlink:href="#ec-simple-arrow-drop-down"
@@ -125,34 +255,35 @@ exports[`EcTableHead should render sorting as expected 1`] = `
             desc
           </span>
         </a>
-      </div>
+      </span>
     </th>
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--2"
       scope="col"
     >
-      <div
-        class="ec-table-sort"
-        data-test="ec-table-sort"
+      <span
+        class="ec-table-head__cell-wrapper"
       >
-        <div
-          class="ec-table-sort__title"
-        >
+        <span>
+          
           Column C
-        </div>
+        
+        </span>
+         
+        <!---->
          
         <a
-          class="ec-table-sort__icon-wrapper"
-          data-test="ec-table-sort__icon-wrapper"
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
           href="#"
           title="Not sorted"
         >
           <svg
             class="ec-icon ec-table-sort__icon"
             data-test="ec-table-sort__icon"
-            height="20"
-            width="20"
+            height="16"
+            width="16"
           >
             <use
               xlink:href="#ec-simple-arrow-up-down"
@@ -161,7 +292,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
            
           <!---->
         </a>
-      </div>
+      </span>
     </th>
   </tr>
 </thead>
