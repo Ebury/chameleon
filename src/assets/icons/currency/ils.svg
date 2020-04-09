@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/ILS</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/ILS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g id="ils-flag" mask="url(#mask-2)">
+                <g transform="translate(-0.500000, -0.500000)">
+                    <polygon id="Fill-1" fill="#FFFFFE" points="0.5 48.5 48.5 48.5 48.5 0.5 36.4112723 0.5 0.5 0.5"></polygon>
+                    <polygon id="Fill-4" fill="#1C4489" points="0.5 14.5 48.5 14.5 48.5 5.5 0.5 5.5"></polygon>
+                    <polygon id="Fill-5" fill="#1C4489" points="0.5 43.5 48.5 43.5 48.5 34.5 0.5 34.5"></polygon>
+                    <path d="M28.88927,25.9161515 L29.6675649,27.3333333 L28.11122,27.3333333 L28.88927,25.9161515 Z M25,30.1666667 L24.222195,28.75 L25.777805,28.75 L25,30.1666667 Z M20.3324351,27.3333333 L21.11073,25.9161515 L21.88878,27.3333333 L20.3324351,27.3333333 Z M20.3324351,21.6666667 L21.88878,21.6666667 L21.11073,23.0838485 L20.3324351,21.6666667 Z M25,18.8333333 L25.777805,20.25 L24.222195,20.25 L25,18.8333333 Z M28.1117099,24.5 L26.555855,27.3333333 L23.444145,27.3333333 L21.8882901,24.5 L23.444145,21.6666667 L26.555855,21.6666667 L28.1117099,24.5 Z M29.6675649,21.6666667 L28.88927,23.0838485 L28.11122,21.6666667 L29.6675649,21.6666667 Z M29.666585,24.5 L32,20.25 L27.333415,20.25 L25,16 L22.666585,20.25 L18,20.25 L20.333415,24.5 L18,28.75 L22.666585,28.75 L25,33 L27.333415,28.75 L32,28.75 L29.666585,24.5 L29.666585,24.5 Z" id="Fill-15" fill="#1C4489"></path>
+                </g>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+    </g>
+</svg>

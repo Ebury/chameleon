@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/TRY</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/TRY" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g id="iStock-472330089" mask="url(#mask-2)">
+                <polygon id="Fill-1" fill="#CF242A" points="0 48 48 48 48 0 0 0"></polygon>
+                <polyline id="Fill-2" fill="#FFFFFE" points="26.0566196 22.056424 23 22.998634 26.0556799 23.9439999 26.0526381 27 27.9421439 24.5278941 30.9975023 25.473943 29.1088126 23.001578 31 20.5304848 27.9437019 21.473943 26.0563723 19 26.0566196 22.056424"></polyline>
+                <path d="M18.8046229,30.3 C14.9813488,30.3 11.8819724,27.2555597 11.8819724,23.5 C11.8819724,19.7444639 14.9813488,16.7 18.8046229,16.7 C20.874255,16.7 22.7314243,17.5924292 24,19.0065222 C22.4717288,16.6007389 19.7528337,15 16.6533131,15 C11.8742325,15 8,18.8055917 8,23.5 C8,28.1944319 11.8742325,32 16.6533131,32 C19.7528337,32 22.4717288,30.3992611 24,27.9934778 C22.7314003,29.4075944 20.874255,30.3 18.8046229,30.3" id="Fill-3" fill="#FFFFFE"></path>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/NOK</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/NOK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <polygon id="Fill-5590" fill="#F30004" mask="url(#mask-2)" points="0 48 47.9724909 48 47.9724909 5.68434189e-14 0 5.68434189e-14"></polygon>
+            <polygon id="Fill-5592" fill="#FFFFFF" mask="url(#mask-2)" points="25.9090909 6.39488462e-14 25.9090909 17.3181818 48 17.3181818 48 30.6818182 25.9090909 30.6818182 25.9090909 48 12.5454545 48 12.5454545 30.6818182 -1.77635684e-13 30.6818182 -1.77635684e-13 17.3181818 12.5454545 17.3181818 12.5454545 6.39488462e-14"></polygon>
+            <polygon id="Fill-5593" fill="#0132BF" mask="url(#mask-2)" points="23.0454545 4.26325641e-14 23.0454545 20.1818182 48 20.1818182 48 27.8181818 23.0454545 27.8181818 22.8280029 48 15.3297175 48 15.4090909 27.8181818 -1.17239551e-13 27.8181818 -1.17239551e-13 20.1818182 15.4090909 20.1818182 15.4090909 4.26325641e-14"></polygon>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+    </g>
+</svg>

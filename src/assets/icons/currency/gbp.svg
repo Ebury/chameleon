@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/GBP</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/GBP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#0132BF" fill-rule="nonzero" xlink:href="#path-1"></use>
+            <g id="Group-8812" mask="url(#mask-2)">
+                <g transform="translate(-12.480000, 0.000000)">
+                    <polygon id="Fill-8806" fill="#0132BF" points="0 48 72.96 48 72.96 0 0 0"></polygon>
+                    <polyline id="Fill-8808" fill="#FFFFFF" points="72.96 42.0608519 45.5046062 23.9978834 72.96 5.93914807 72.96 0 63.9343213 0 36.4793565 18.0629685 9.02524968 0 0 0 0 5.93914807 27.4545358 23.9978834 0 42.0608519 0 48 9.02524968 48 36.4793565 29.9370315 63.9343213 48 72.96 48 72.96 42.0608519"></polyline>
+                    <polyline id="Fill-8809" fill="#F30004" points="72.96 45.7733486 39.863986 23.9978834 72.96 2.22665138 72.96 0 69.5749415 0 36.4793565 21.771232 3.38505847 0 0 0 0 2.22665138 33.095156 23.9978834 0 45.7733486 0 48 3.38505847 48 36.4793565 26.2245348 69.5749415 48 72.96 48 72.96 45.7733486"></polyline>
+                    <polyline id="Fill-8810" fill="#FFFFFF" points="30.4535149 0 42.5056271 0 42.5056271 16.0691419 72.96 16.0691419 72.96 31.9308581 42.5056271 31.9308581 42.5056271 48 30.4535149 48 30.4535149 31.9308581 0 31.9308581 0 16.0691419 30.4535149 16.0691419 30.4535149 0"></polyline>
+                    <polyline id="Fill-8811" fill="#F30004" points="40.2419149 0 40.2419149 19.0492989 72.96 19.0492989 72.96 28.9507011 40.2419149 28.9507011 40.2419149 48 32.7172272 48 32.7172272 28.9507011 0 28.9507011 0 19.0492989 32.7172272 19.0492989 32.7172272 0 40.2419149 0"></polyline>
+                </g>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="46" rx="5"></rect>
+    </g>
+</svg>

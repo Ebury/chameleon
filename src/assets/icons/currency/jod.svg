@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/JOD</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <polygon id="path-3" points="0 0 72 0 72 47.9904 0 47.9904"></polygon>
+    </defs>
+    <g id="Graphics-/-01-Flags/JOD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g id="JOD-flag" mask="url(#mask-2)">
+                <g transform="translate(-15.000000, 0.000000)">
+                    <g id="Group-6" stroke-width="1" fill="none">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <polygon id="Fill-1" fill="#0A0B09" mask="url(#mask-4)" points="15 16 63 16 63 1.42108547e-14 15 1.42108547e-14"></polygon>
+                        <polygon id="Fill-3" fill="#FFFFFE" mask="url(#mask-4)" points="15 32 63 32 63 16 15 16"></polygon>
+                        <polygon id="Fill-4" fill="#4CAE46" mask="url(#mask-4)" points="15 47.99984 63 47.99984 63 31.99984 15 31.99984"></polygon>
+                        <polygon id="Fill-5" fill="#D9252A" mask="url(#mask-4)" points="15 2.31542969 47.86528 23.6067536 15 45.3154297"></polygon>
+                    </g>
+                    <polyline id="Fill-7" fill="#FFFFFE" points="27.5 20 28.257805 22.0682418 30.3068877 21.3865308 29.2029289 23.2837672 31 24.5017685 28.865626 24.7992124 29.0576118 27 27.5 25.4738257 25.9423882 27 26.134374 24.7992124 24 24.5017685 25.7972321 23.2837672 24.6932733 21.3865308 26.742195 22.0682418 27.5 20"></polyline>
+                </g>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+    </g>
+</svg>

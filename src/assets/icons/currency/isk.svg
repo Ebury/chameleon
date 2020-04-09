@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/ISK</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/ISK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g id="iStock-452145465" mask="url(#mask-2)">
+                <g transform="translate(24.000000, 24.000000) scale(1, -1) translate(-24.000000, -24.000000) ">
+                    <polygon id="Fill-1" fill="#FFFFFE" points="0 48 48 48 48 0 0 0"></polygon>
+                    <polygon id="Fill-2" fill="#262D70" points="0 19 13 19 13 0 0 0"></polygon>
+                    <polygon id="Fill-3" fill="#262D70" points="0 48 13 48 13 29 0 29"></polygon>
+                    <polygon id="Fill-4" fill="#262D70" points="24 19 48 19 48 0 24 0"></polygon>
+                    <polygon id="Fill-5" fill="#262D70" points="24 48 48 48 48 29 24 29"></polygon>
+                    <polygon id="Fill-6" fill="#DB352A" points="48 21.3913043 21.105526 21.3913043 21.105526 0 15.793026 0 15.793026 21.3913043 -3.19744231e-14 21.3913043 -3.19744231e-14 26.6086957 15.793026 26.6086957 15.793026 48 21.105526 48 21.105526 26.6086957 48 26.6086957"></polygon>
+                </g>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+    </g>
+</svg>
