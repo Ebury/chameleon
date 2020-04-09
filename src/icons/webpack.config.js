@@ -14,34 +14,16 @@ module.exports = {
       {
         test: /\.(svg)(\?.*)?$/,
         include: [
-          /\/icons\//,
+          /\/icons\/(rounded|simple)\//,
         ],
         use: [
           {
             loader: 'svg-sprite-loader',
             options: {
               extract: true,
-              spriteFilename(svgPath) {
-                if (svgPath.includes('/icons/rounded/')) {
-                  return 'img/rounded-icons.svg';
-                }
-                if (svgPath.includes('/icons/simple/')) {
-                  return 'img/simple-icons.svg';
-                }
-                if (svgPath.includes('/icons/flags/')) {
-                  return 'img/flag-icons.svg';
-                }
-
-                throw new Error(`Unsupported icon sprite for path ${svgPath}.`);
-              },
               runtimeCompat: true,
-              symbolId(filePath) {
-                return [
-                  'ec', // icon prefix
-                  getIconDirectoryName(filePath),
-                  getIconFileName(filePath),
-                ].join('-');
-              },
+              symbolId: symbolIdGenerator,
+              spriteFilename: spriteFilenameGenerator,
             },
           },
           {
@@ -51,6 +33,26 @@ module.exports = {
                 { removeAttrs: { attrs: '(fill)' } },
               ],
             },
+          },
+        ],
+      },
+      {
+        test: /\.(svg)(\?.*)?$/,
+        include: [
+          /\/icons\/(currency|country)\//,
+        ],
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              runtimeCompat: true,
+              symbolId: symbolIdGenerator,
+              spriteFilename: spriteFilenameGenerator,
+            },
+          },
+          {
+            loader: 'svgo-loader',
           },
         ],
       },
@@ -67,4 +69,29 @@ function getIconDirectoryName(iconPath) {
 
 function getIconFileName(iconPath) {
   return path.basename(iconPath.toLowerCase(), '.svg').replace(/\s/g, '-');
+}
+
+function symbolIdGenerator(filePath) {
+  return [
+    'ec', // icon prefix
+    getIconDirectoryName(filePath),
+    getIconFileName(filePath),
+  ].join('-');
+}
+
+function spriteFilenameGenerator(svgPath) {
+  if (svgPath.includes('/icons/rounded/')) {
+    return 'img/rounded-icons.svg';
+  }
+  if (svgPath.includes('/icons/simple/')) {
+    return 'img/simple-icons.svg';
+  }
+  if (svgPath.includes('/icons/currency/')) {
+    return 'img/currency-flags.svg';
+  }
+  if (svgPath.includes('/icons/country/')) {
+    return 'img/country-flags.svg';
+  }
+
+  throw new Error(`Unsupported icon sprite for path ${svgPath}.`);
 }
