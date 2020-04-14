@@ -186,16 +186,20 @@ export default {
       position: sticky;
       left: 0;
       background: $level-7-backgrounds;
-    }
 
-    .ec-table__row--is-clickable:hover & {
-      background: none;
+      .ec-table__row--is-clickable:hover & {
+        background: $level-6;
+      }
     }
 
     &--sticky-right {
       position: sticky;
       right: 0;
       background: $level-7-backgrounds;
+
+      .ec-table__row--is-clickable:hover & {
+        background: $level-6;
+      }
     }
   }
 }
