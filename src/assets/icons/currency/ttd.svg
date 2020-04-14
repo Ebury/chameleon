@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/TTD</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
+        <polygon id="path-3" points="2.18518113e-16 0 48 0 48 48 2.18518113e-16 48"></polygon>
+    </defs>
+    <g id="Graphics-/-01-Flags/TTD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g id="iStock-538932441" mask="url(#mask-2)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="Clip-2" fill="#FFFFFF" xlink:href="#path-3"></use>
+                <path d="M33,48 L0,0 L0,48 L33,48 Z M15,0 L48,0 L48,48 L15,0 L15,0 Z" id="Fill-1" fill="#CA2121" mask="url(#mask-4)"></path>
+                <polygon id="Fill-3" fill="#FFFFFF" mask="url(#mask-4)" points="16.7617188 3 48 48 33.130656 48 3 3"></polygon>
+                <polygon id="Fill-4" fill="#000000" mask="url(#mask-4)" points="14.0973772 6.40757288e-15 47.0226004 48 34.0884487 48 1.3250558 7.47814509e-15"></polygon>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
+    </g>
+</svg>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/ZAR</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/ZAR" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <polygon id="Fill-6987" fill="#FFFFFF" mask="url(#mask-2)" points="0 48 48 48 48 0 0 0"></polygon>
+            <polygon id="Fill-6989" fill="#F30004" mask="url(#mask-2)" points="6.70265643 1.15463195e-14 48 1.15463195e-14 48 15.7906736 31.6321381 15.7906736"></polygon>
+            <polyline id="Fill-6990" fill="#FFDB00" mask="url(#mask-2)" points="-0.398080903 34.7670898 -0.398080903 30.5527344 12.1828746 23.7850339 -0.398080903 17.28 -0.398080903 12.7337958 19.6019191 23.7850339 -0.398080903 34.7670898 15.8151699 31.68"></polyline>
+            <polygon id="Fill-6991" fill="#00723B" mask="url(#mask-2)" points="-0.871582031 3.05371094 0.964355469 1.28027344 29.5087552 19.0180265 48 19.0180265 48 28.58165 29.5688319 28.58165 1.53955078 47.0991211 0.0305667163 44.7900391 -0.871582031 34.7670898 17.5070801 23.7504428 -0.871582031 12.3166504"></polygon>
+            <polygon id="Fill-6992" fill="#0132BF" mask="url(#mask-2)" points="31.6045388 31.7540152 48 31.7540152 48 48 6.70265643 48"></polygon>
+            <polyline id="Fill-6993" fill="#000000" mask="url(#mask-2)" points="-9.37112361 9.47555202 13.6288764 23.7850339 -9.37112361 38.1706525 -9.37112361 9.47555202"></polyline>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
+    </g>
+</svg>
