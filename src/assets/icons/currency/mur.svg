@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/MUR</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/MUR" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#FFFFFF" x="0" y="10" width="48" height="30"></rect>
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g id="iStock-490853246" mask="url(#mask-2)">
+                <polygon id="Fill-1" fill="#D82237" points="0 11 48 11 48 0 0 0"></polygon>
+                <polygon id="Fill-2" fill="#0E2855" points="0 24 48 24 48 14 0 14"></polygon>
+                <polygon id="Fill-3" fill="#FFF101" points="0 34 48 34 48 24 0 24"></polygon>
+                <polygon id="Fill-4" fill="#008E48" points="0 48 48 48 48 37 0 37"></polygon>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
+    </g>
+</svg>

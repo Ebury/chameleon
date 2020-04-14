@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/XCD</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/XCD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g id="iStock-1055645798" mask="url(#mask-2)">
+                <polygon id="Fill-4" fill="#A92534" points="0 48 48 48 48 0 0 0"></polygon>
+                <polygon id="Fill-5" fill="#357357" points="0 39 48 39 48 9 0 9"></polygon>
+                <polyline id="Fill-6" fill="#EECC3C" points="0 39 23.9995919 24 48 39 0 39"></polyline>
+                <polyline id="Fill-7" fill="#EECC3C" points="0 9 23.9995919 24 48 9 0 9"></polyline>
+                <g id="Group" transform="translate(19.000000, 19.000000)">
+                    <path d="M11,5.49990994 C11,2.46347694 8.53634295,0 5.49864911,0 C2.46257635,0 0,2.46347694 0,5.49990994 C0,8.53634295 2.46257635,11 5.49864911,11 C8.53634295,11 11,8.53634295 11,5.49990994" id="Fill-8" fill="#A92534"></path>
+                    <polyline id="Fill-9" fill="#EECC3C" points="1.5 4.05666265 4.55529677 4.05666265 5.49924869 1 6.44455297 4.05666265 9.5 4.05666265 7.02772352 5.94586534 7.97287754 9 5.49924869 7.1131673 3.02817431 9 3.97077385 5.94586534 1.5 4.05666265"></polyline>
+                </g>
+                <polyline id="Fill-10" fill="#EECC3C" points="8 4.90890857 9.91075515 4.90890857 10.5 3 11.0905161 4.90890857 13 4.90890857 11.4544241 6.09059001 12.0441457 8 10.5 6.82049139 8.95490084 8 9.54414569 6.09059001 8 4.90890857"></polyline>
+                <polyline id="Fill-11" fill="#EECC3C" points="22 4.90890857 23.9100302 4.90890857 24.4992847 3 25.0901288 4.90890857 27 4.90890857 25.4546177 6.09059001 26.0460976 8 24.4992847 6.82049139 22.9537434 8 23.5453823 6.09059001 22 4.90890857"></polyline>
+                <polyline id="Fill-12" fill="#EECC3C" points="37 4.90890857 38.9093856 4.90890857 39.5000795 3 40.0891841 4.90890857 42 4.90890857 40.4559641 6.09059001 41.0452277 8 39.5000795 6.82049139 37.9557258 8 38.5454661 6.09059001 37 4.90890857"></polyline>
+                <polyline id="Fill-13" fill="#EECC3C" points="7 41.9106248 8.91075515 41.9106248 9.5 40 10.0905161 41.9106248 12 41.9106248 10.4544241 43.0918811 11.0441457 45 9.5 43.8214166 7.95490084 45 8.54414569 43.0918811 7 41.9106248"></polyline>
+                <polyline id="Fill-14" fill="#EECC3C" points="21 41.9106248 22.9100302 41.9106248 23.4992847 40 24.0901288 41.9106248 26 41.9106248 24.4546177 43.0918811 25.0460976 45 23.4992847 43.8214166 21.9537434 45 22.5453823 43.0918811 21 41.9106248"></polyline>
+                <polyline id="Fill-15" fill="#EECC3C" points="36 41.9106248 37.9093856 41.9106248 38.5000795 40 39.0891841 41.9106248 41 41.9106248 39.4559641 43.0918811 40.0452277 45 38.5000795 43.8214166 36.9557258 45 37.5454661 43.0918811 36 41.9106248"></polyline>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
+    </g>
+</svg>

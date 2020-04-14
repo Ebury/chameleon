@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/XAF</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/XAF" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <rect id="Rectangle" fill="#FFCE00" fill-rule="nonzero" mask="url(#mask-2)" x="0" y="0" width="48" height="48"></rect>
+            <rect id="Rectangle" fill="#289728" fill-rule="nonzero" mask="url(#mask-2)" x="0" y="0" width="48" height="36"></rect>
+            <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)" x="0" y="0" width="48" height="24"></rect>
+            <rect id="Rectangle" fill="#003082" fill-rule="nonzero" mask="url(#mask-2)" x="0" y="0" width="48" height="12"></rect>
+            <rect id="Rectangle" fill="#D21034" fill-rule="nonzero" mask="url(#mask-2)" x="18" y="0" width="12" height="48"></rect>
+            <polygon id="Path" fill="#FFCE00" fill-rule="nonzero" mask="url(#mask-2)" points="9.50299858 2 11.6698288 9 6 4.6774495 13 4.6774495 7.33006215 9"></polygon>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
+    </g>
+</svg>

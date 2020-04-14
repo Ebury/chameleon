@@ -48,6 +48,6 @@ const loadStories = () => {
 };
 
 configure(() => {
-  inlineSvgSprites(['rounded', 'simple'], '/img');
+  inlineSvgSprites(['rounded-icons', 'simple-icons', 'currency-flags'], '/img');
   loadStories();
 }, module);

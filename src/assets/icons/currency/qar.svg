@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/QAR</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0.5" width="48" height="48"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/QAR" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag" transform="translate(0.000000, -1.000000)">
+            <g id="iStock-533962851" transform="translate(0.000000, 0.500000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask" fill-rule="nonzero"></g>
+                <polygon id="Fill-2" fill="#FFFFFE" mask="url(#mask-2)" points="0 48.5 45 48.5 45 0.5 0 0.5"></polygon>
+                <polygon id="Fill-3" fill="#5B1D33" mask="url(#mask-2)" points="17 0.5 21.1783921 3.16560903 17 5.82952167 21.1783921 8.49522495 17 11.1609282 21.1783921 13.8302128 17 16.4977067 21.1783921 19.1633158 17 21.829019 21.1783921 24.4983036 17 27.1640069 21.1783921 29.8278253 17 32.4971098 21.1783921 35.1663002 17 37.8284222 21.1783921 40.4941254 17 43.16341 21.1783921 45.8326003 17 48.5 49 48.4904 49 0.5"></polygon>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
+    </g>
+</svg>

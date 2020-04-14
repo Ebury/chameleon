@@ -18,7 +18,7 @@ function readIconNamesFromSprite(svg) {
 
 const EcIconsGrid = Vue.extend({
   components: { EcIcon },
-  props: ['icons', 'size', 'type', 'color'],
+  props: ['icons', 'size', 'type', 'color', 'borderRadius'],
   methods: {
     copy(iconName) {
       copyToClipboard(iconName);
@@ -27,7 +27,7 @@ const EcIconsGrid = Vue.extend({
   template: `
     <div style="display: flex; flex-wrap: wrap;" :style="{ fill: color }">
       <div style="display: inline-block; padding: 16px;" v-for="icon of icons" :key="icon" :title="icon" @click="copy(icon)">
-        <ec-icon :name="icon" :size="size" :type="type || null" />
+        <ec-icon :name="icon" :size="size" :type="type || null" :style="{ borderRadius }" />
       </div>
     </div>
   `,
@@ -83,7 +83,7 @@ stories.add('all icons', () => ({
   async created() {
     this.isLoading = true;
 
-    const [roundedSvgSprite, simpleSvgSprite] = await Promise.all(loadSvgSprites(['rounded', 'simple'], '/img'));
+    const [roundedSvgSprite, simpleSvgSprite] = await Promise.all(loadSvgSprites(['rounded-icons', 'simple-icons'], '/img'));
     this.roundedIcons = readIconNamesFromSprite(roundedSvgSprite.svg).sort();
     this.simpleIcons = readIconNamesFromSprite(simpleSvgSprite.svg).sort();
 
@@ -112,6 +112,73 @@ stories.add('all icons', () => ({
       iconFilter: '',
       roundedIcons: [],
       simpleIcons: [],
+    };
+  },
+}));
+
+stories.add('all flags', () => ({
+  components: { EcIcon, EcIconsGrid },
+  props: {
+    size: {
+      default: number('Size', 48),
+    },
+    borderRadius: {
+      default: text('Border radius', '0px'),
+    },
+  },
+  template: `
+    <div style="padding: 32px; text-align: center;" v-if="isLoading">
+      Loading icons...
+    </div>
+    <div style="padding: 32px; margin: 0 auto; max-width: 900px;" v-else>
+      <input
+        v-model="flagFilter"
+        placeholder="Search flag by name"
+        aria-label="Search flag by name"
+        style="display: block; width: 80%; margin: 0 auto; margin-bottom: 40px; line-height: 40px; font-size: 24px; padding: 4px 14px; border: 1px solid #ccc; border-radius: 2px;"
+      />
+
+      <template v-if="hasCurrencyFlags">
+        <h2>Currency</h2>
+        <ec-icons-grid :icons="filteredCurrencyFlags" v-bind="$props" />
+      </template>
+
+      <template v-if="!hasIcons">
+        No icons found.
+      </template>
+    </div>
+  `,
+  methods: {
+    filterBy(arr, filterBy) {
+      return filterBy
+        ? arr.filter(item => item.toLowerCase().includes(filterBy.toLowerCase()))
+        : arr;
+    },
+  },
+  async created() {
+    this.isLoading = true;
+
+    const [currencyFlagsSprite] = await Promise.all(loadSvgSprites(['currency-flags'], '/img'));
+    this.currencyFlags = readIconNamesFromSprite(currencyFlagsSprite.svg).sort();
+
+    this.isLoading = false;
+  },
+  computed: {
+    filteredCurrencyFlags() {
+      return this.filterBy(this.currencyFlags, this.flagFilter);
+    },
+    hasCurrencyFlags() {
+      return this.filteredCurrencyFlags.length > 0;
+    },
+    hasIcons() {
+      return this.hasCurrencyFlags;
+    },
+  },
+  data() {
+    return {
+      isLoading: true,
+      flagFilter: '',
+      currencyFlags: [],
     };
   },
 }));

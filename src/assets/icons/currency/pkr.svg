@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Graphics / 01 Flags/PKR</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
+    </defs>
+    <g id="Graphics-/-01-Flags/PKR" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Flag">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask" fill-rule="nonzero"></g>
+            <g id="iStock-472330681" mask="url(#mask-2)">
+                <g transform="translate(-0.500000, 0.000000)">
+                    <polygon id="Fill-1" fill="#FFFFFE" points="0.5 49 13.5 49 13.5 0 0.5 0"></polygon>
+                    <polygon id="Fill-2" fill="#1B3D23" points="12.5 48 48.5 48 48.5 0 12.5 0"></polygon>
+                    <path d="M41.6888871,30.0724555 C37.3138342,34.3445092 30.136389,34.2624588 25.6576319,29.8892284 C21.1789327,25.5159698 21.0949029,18.5075914 25.4699847,14.2355943 C25.9442023,13.7725188 26.4514523,13.3608238 26.9844907,13 C21.7902926,14.4987498 18,19.1919484 18,24.7496189 C18,31.5153261 23.6169837,37 30.5459037,37 C35.6487121,37 40.0398175,34.0252199 42,29.7548921 C41.8986717,29.8621518 41.7955179,29.9683646 41.6888871,30.0724555" id="Fill-3" fill="#FFFFFE"></path>
+                    <polyline id="Fill-4" fill="#FFFFFE" points="30.5568383 18 30.8658032 21.0566516 28 22.2923791 31.0567992 22.943787 31.36359 26 32.9437667 23.3469616 36 24.0006215 33.9194752 21.7093757 35.500188 19.0568052 32.6351293 20.2936147 30.5568383 18"></polyline>
+                </g>
+            </g>
+        </g>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
+    </g>
+</svg>
