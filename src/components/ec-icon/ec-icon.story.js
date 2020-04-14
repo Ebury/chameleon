@@ -18,7 +18,7 @@ function readIconNamesFromSprite(svg) {
 
 const EcIconsGrid = Vue.extend({
   components: { EcIcon },
-  props: ['icons', 'size', 'type', 'color'],
+  props: ['icons', 'size', 'type', 'color', 'borderRadius'],
   methods: {
     copy(iconName) {
       copyToClipboard(iconName);
@@ -27,7 +27,7 @@ const EcIconsGrid = Vue.extend({
   template: `
     <div style="display: flex; flex-wrap: wrap;" :style="{ fill: color }">
       <div style="display: inline-block; padding: 16px;" v-for="icon of icons" :key="icon" :title="icon" @click="copy(icon)">
-        <ec-icon :name="icon" :size="size" :type="type || null" />
+        <ec-icon :name="icon" :size="size" :type="type || null" :style="{ borderRadius }" />
       </div>
     </div>
   `,
@@ -121,6 +121,9 @@ stories.add('all flags', () => ({
   props: {
     size: {
       default: number('Size', 48),
+    },
+    borderRadius: {
+      default: text('Border radius', '0px'),
     },
   },
   template: `
