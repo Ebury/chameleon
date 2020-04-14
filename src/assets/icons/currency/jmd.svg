@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/JMD</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
         <polygon id="path-3" points="0 0 48 0 48 48 0 48"></polygon>
     </defs>
     <g id="Graphics-/-01-Flags/JMD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -23,6 +23,6 @@
                 <polyline id="Fill-4" fill="#F4E92A" mask="url(#mask-4)" points="1.24186375e-13 1.42108547e-14 5.12555804 1.42108547e-14 24 19.0184229 43.3867187 1.42108547e-14 48 1.43892834e-14 48 4.18415179 28.9816381 24 48 43.2293527 48 48 43.3867188 48 24 28.9813943 5.12555804 48 1.2490009e-13 48 0 43.2293527 19.0183619 24 1.24186375e-13 4.18415179"></polyline>
             </g>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/no_flag</title>
     <desc>Created with Sketch.</desc>
     <g id="Graphics-/-01-Flags/no_flag" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
         <g id="Graphics-/-00-Icon-/-Simple-/-Wallet" transform="translate(8.000000, 8.000000)" fill="#DDE2E3">
             <path d="M28,24 L28,25.3333333 C28,26.8 26.8,28 25.3333333,28 L6.66666667,28 C5.18666667,28 4,26.8 4,25.3333333 L4,6.66666667 C4,5.2 5.18666667,4 6.66666667,4 L25.3333333,4 C26.8,4 28,5.2 28,6.66666667 L28,8 L16,8 C14.52,8 13.3333333,9.2 13.3333333,10.6666667 L13.3333333,21.3333333 C13.3333333,22.8 14.52,24 16,24 L28,24 Z M16,21.3333333 L29.3333333,21.3333333 L29.3333333,10.6666667 L16,10.6666667 L16,21.3333333 Z M21.3333333,18 C20.2266667,18 19.3333333,17.1066667 19.3333333,16 C19.3333333,14.8933333 20.2266667,14 21.3333333,14 C22.44,14 23.3333333,14.8933333 23.3333333,16 C23.3333333,17.1066667 22.44,18 21.3333333,18 Z" id="Colour"></path>
         </g>

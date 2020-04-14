@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/XCD</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
     </defs>
     <g id="Graphics-/-01-Flags/XCD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Flag">
@@ -29,6 +29,6 @@
                 <polyline id="Fill-15" fill="#EECC3C" points="36 41.9106248 37.9093856 41.9106248 38.5000795 40 39.0891841 41.9106248 41 41.9106248 39.4559641 43.0918811 40.0452277 45 38.5000795 43.8214166 36.9557258 45 37.5454661 43.0918811 36 41.9106248"></polyline>
             </g>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

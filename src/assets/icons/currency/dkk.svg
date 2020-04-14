@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/DKK</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
     </defs>
     <g id="Graphics-/-01-Flags/DKK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <mask id="mask-2" fill="white">
@@ -13,6 +13,6 @@
         <g id="Mask" fill-rule="nonzero"></g>
         <polygon id="Fill-8442" fill="#F30004" mask="url(#mask-2)" points="0 48 48 48 48 0 0 0"></polygon>
         <path d="M14.2499272,20.9513792 L14.2499272,-3.90798505e-14 L20.2501601,-3.90798505e-14 L20.2501601,20.9513792 L48,20.9513792 L48,27.0486208 L20.2501601,27.0486208 L20.2501601,48 L14.2499272,48 L14.2499272,27.0486208 L-9.86571935e-14,27.0486208 C-0.1401657,26.0532542 -0.1401657,21.9475739 -9.86571935e-14,20.9513792 L14.2499272,20.9513792 Z" id="Fill-4" fill="#FEFEFE" mask="url(#mask-2)"></path>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" mask="url(#mask-2)" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" mask="url(#mask-2)" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

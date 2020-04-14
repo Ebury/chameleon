@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/MGA</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
     </defs>
     <g id="Graphics-/-01-Flags/MGA" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Flag">
@@ -18,6 +18,6 @@
                 <polygon id="Fill-3" fill="#0D8550" points="19 48 48 48 48 24 19 24"></polygon>
             </g>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

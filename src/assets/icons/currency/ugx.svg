@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/UGX</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
     </defs>
     <g id="Graphics-/-01-Flags/UGX" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Flag">
@@ -33,6 +33,6 @@
             <circle id="Oval" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)" cx="23.04" cy="19.04" r="1"></circle>
             <path d="M25.42208,24.2457584 C25.7114416,24.4499944 25.8135272,24.5180944 25.8475776,24.6202456 C25.5837536,24.5607224 25.3454672,24.5776824 25.3454672,24.5776824 C25.3454672,24.5776824 24.775256,24.0330096 24.6731056,23.9904464 C24.5964928,23.9904464 24.1539704,23.7095976 24.1539704,23.7095976 C23.9327088,23.5989344 23.7284728,22.833 24.5454824,23.0542616 C25.3879648,23.4542208 25.5071408,23.488336 25.5071408,23.488336 C25.841924,23.5932808 26.1766424,23.6982912 26.5114264,23.8032352 C26.7043552,24.0188432 26.89722,24.2344512 27.0901496,24.4500592 C27.0901496,24.4500592 26.0603912,23.9393712 25.9327032,23.9308592 C26.213552,24.1606328 26.3752904,24.475532 26.3752904,24.475532 C26.0490192,24.3818936 25.765376,24.2968336 25.42208,24.2457584 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/TTD</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
         <polygon id="path-3" points="2.18518113e-16 0 48 0 48 48 2.18518113e-16 48"></polygon>
     </defs>
     <g id="Graphics-/-01-Flags/TTD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -23,6 +23,6 @@
                 <polygon id="Fill-4" fill="#000000" mask="url(#mask-4)" points="14.0973772 6.40757288e-15 47.0226004 48 34.0884487 48 1.3250558 7.47814509e-15"></polygon>
             </g>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/KWD</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
     </defs>
     <g id="Graphics-/-01-Flags/KWD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Flag">
@@ -19,6 +19,6 @@
                 <polyline id="Fill-5" fill="#0A0B09" points="16 32 0 48 0 0 16 16 16 32"></polyline>
             </g>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

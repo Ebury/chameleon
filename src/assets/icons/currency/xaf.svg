@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/XAF</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
     </defs>
     <g id="Graphics-/-01-Flags/XAF" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Flag">
@@ -19,6 +19,6 @@
             <rect id="Rectangle" fill="#D21034" fill-rule="nonzero" mask="url(#mask-2)" x="18" y="0" width="12" height="48"></rect>
             <polygon id="Path" fill="#FFCE00" fill-rule="nonzero" mask="url(#mask-2)" points="9.50299858 2 11.6698288 9 6 4.6774495 13 4.6774495 7.33006215 9"></polygon>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

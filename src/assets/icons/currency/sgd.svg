@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/SGD</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
     </defs>
     <g id="Graphics-/-01-Flags/SGD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Flag">
@@ -21,6 +21,6 @@
             <polygon id="Path" fill="#FFFFFF" mask="url(#mask-2)" points="24.6046532 16.3392 25.1102628 17.8203321 26.6061491 17.8675019 25.4214072 18.829766 25.8402553 20.3392 24.6046532 19.4524075 23.3690511 20.3392 23.7878993 18.829766 22.6061491 17.8675019 24.0990437 17.8203321"></polygon>
             <path d="M17.6061491,5.4789195 C17.0941627,5.38577317 16.567026,5.3392 16.0274128,5.3392 C11.3763122,5.3392 7.60614911,8.92109997 7.60614911,13.341317 C7.60614911,17.7573 11.3763122,21.3392 16.0274128,21.3392 C16.567026,21.3392 17.0941627,21.2926268 17.6061491,21.1994805 C13.7094376,20.4966491 10.7636217,17.2449952 10.7636217,13.341317 C10.7636217,9.43340482 13.7094376,6.18175094 17.6061491,5.4789195" id="Fill-5401" fill="#FFFFFF" mask="url(#mask-2)"></path>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

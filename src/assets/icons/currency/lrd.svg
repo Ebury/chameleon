@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/LRD</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
     </defs>
     <g id="Graphics-/-01-Flags/LRD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Flag">
@@ -21,6 +21,6 @@
                 <polyline id="Fill-6" fill="#FFFFFF" points="11.5 5 12.7925136 9.21018767 17 9.20173682 13.591329 11.7950941 14.8991989 16 11.5 13.3927592 8.10080109 16 9.40867103 11.7950941 6 9.20173682 10.2074864 9.21018767 11.5 5"></polyline>
             </g>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/TRY</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
     </defs>
     <g id="Graphics-/-01-Flags/TRY" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Flag">
@@ -18,6 +18,6 @@
                 <path d="M18.8046229,30.3 C14.9813488,30.3 11.8819724,27.2555597 11.8819724,23.5 C11.8819724,19.7444639 14.9813488,16.7 18.8046229,16.7 C20.874255,16.7 22.7314243,17.5924292 24,19.0065222 C22.4717288,16.6007389 19.7528337,15 16.6533131,15 C11.8742325,15 8,18.8055917 8,23.5 C8,28.1944319 11.8742325,32 16.6533131,32 C19.7528337,32 22.4717288,30.3992611 24,27.9934778 C22.7314003,29.4075944 20.874255,30.3 18.8046229,30.3" id="Fill-3" fill="#FFFFFE"></path>
             </g>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
     </g>
 </svg>

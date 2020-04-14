@@ -4,7 +4,7 @@
     <title>Graphics / 01 Flags/BZD</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="48" height="48" rx="5"></rect>
+        <rect id="path-1" x="0" y="0" width="48" height="48"></rect>
         <radialGradient cx="29.0443385%" cy="283.01455%" fx="29.0443385%" fy="283.01455%" r="447.137286%" gradientTransform="translate(0.290443,2.830146),scale(0.352148,1.000000),translate(-0.290443,-2.830146)" id="radialGradient-3">
             <stop stop-color="#FCDF58" offset="0%"></stop>
             <stop stop-color="#F37320" offset="100%"></stop>
@@ -35,7 +35,7 @@
                 </g>
             </g>
         </g>
-        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45" rx="5"></rect>
+        <rect id="Rectangle" stroke="#DDE2E3" stroke-width="3" opacity="0" fill-rule="nonzero" x="1.5" y="1.5" width="45" height="45"></rect>
         <g id="Group" transform="translate(19.900000, 21.000000)">
             <path d="M4.02059055,0 L4.02059055,3.68492126 L7.65425197,6.90685039 C7.90786545,6.15324115 8.03579357,5.36304758 8.03291339,4.56791339 L8.03291339,0 L4.02059055,0" id="Path" fill="#FFD83C" fill-rule="nonzero"></path>
             <path d="M0.378661417,6.89031496 L4.01976378,3.68492126 L7.66251969,6.88122047 C7.53005959,7.28145162 7.35254255,7.66533222 7.13338583,8.02547244 L7.10362205,8.07259843 C6.58935547,9.22999549 4,10.4991732 4,10.4991732 C4,10.4991732 1.7956543,9.73553467 0.900354331,8.00893701 L0.892086614,8.00893701 C0.682602157,7.65456697 0.510837436,7.27973203 0.378661417,6.89031496 Z" id="Path" fill="#9DD7FF" fill-rule="nonzero"></path>
