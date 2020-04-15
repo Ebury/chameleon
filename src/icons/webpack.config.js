@@ -1,5 +1,37 @@
 const path = require('path');
+const fs = require('fs');
 const SvgSpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+
+class CurrencyFlagsManifestPlugin {
+  constructor(opts) {
+    this.opts = opts;
+  }
+
+  apply(compiler) {
+    compiler.hooks.compilation.tap('CurrencyFlagsManifestPlugin', (compilation) => {
+      compilation.hooks.afterOptimizeChunkModules.tap('CurrencyFlagsManifestPlugin', (chunks) => {
+        const flags = [];
+        for (const chunk of chunks) {
+          for (const chunkModule of chunk.modulesIterable) {
+            if (chunkModule.resource && chunkModule.resource.includes('/icons/currency/')) {
+              const match = chunkModule.resource.match(/\/icons\/currency\/(?<currency>.+).svg$/i);
+              if (match) {
+                const currencyName = match.groups.currency;
+                if (currencyName !== 'no-flag') {
+                  flags.push(currencyName.toUpperCase());
+                }
+              }
+            }
+          }
+        }
+        fs.writeFileSync(
+          this.opts.manifestPath,
+          `export default ${JSON.stringify(flags.sort(), null, 2)};`,
+        );
+      });
+    });
+  }
+}
 
 module.exports = {
   context: path.resolve(__dirname, '..'),
@@ -60,6 +92,7 @@ module.exports = {
   },
   plugins: [
     new SvgSpriteLoaderPlugin({ plainSprite: true }),
+    new CurrencyFlagsManifestPlugin({ manifestPath: path.resolve(__dirname, 'currency-flags.js') }),
   ],
 };
 
