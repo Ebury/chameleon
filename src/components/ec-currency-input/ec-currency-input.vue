@@ -34,6 +34,7 @@
         class="ec-currency-input__currencies"
         is-in-group="right"
         is-search-enabled
+        :disabled="isDisabledCurrency"
         :is-loading="currenciesAreLoading"
         :error-message="errorMessage"
         data-test="ec-currency-input__currencies"
@@ -96,6 +97,10 @@ export default {
       type: Array,
     },
     currenciesAreLoading: {
+      type: Boolean,
+      default: false,
+    },
+    isDisabledCurrency: {
       type: Boolean,
       default: false,
     },

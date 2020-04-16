@@ -27,7 +27,9 @@ stories
       },
       currenciesLoading: {
         default: boolean('currencies loading', false),
-
+      },
+      isDisabledCurrency: {
+        default: boolean('currencies disabled', false),
       },
       errorMessage: {
         default: text('error message', ''),
