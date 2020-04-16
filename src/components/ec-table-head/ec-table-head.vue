@@ -15,7 +15,10 @@
         :colspan="column.span"
         scope="col"
       >
-        <span class="ec-table-head__cell-wrapper">
+        <span
+          class="ec-table-head__cell-wrapper"
+          :class="{'ec-table-head__cell-wrapper--justify-end': column.align === 'right'}"
+        >
           <span>
             {{ column.title }}
           </span>
@@ -79,7 +82,23 @@ export default {
       this.$emit('sort', column.name);
     },
     getWidthStyle(column) {
-      return column && column.minWidth ? { minWidth: column.minWidth } : null;
+      let widthStyle = {};
+      if (column && column.minWidth) {
+        widthStyle = {
+          ...widthStyle,
+          minWidth: column.minWidth,
+        };
+      }
+      if (column && column.maxWidth) {
+        widthStyle = {
+          ...widthStyle,
+          maxWidth: column.maxWidth,
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+        };
+      }
+      return Object.keys(widthStyle).length ? widthStyle : null;
     },
     getStickyColumnClass(colIndex, columns) {
       if (this.stickyColumn === 'left' && colIndex === 0) {
@@ -101,6 +120,10 @@ export default {
   &__cell-wrapper {
     display: flex;
     align-items: center;
+
+    &--justify-end {
+      justify-content: flex-end;
+    }
   }
 
   &__icon {

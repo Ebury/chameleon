@@ -35,7 +35,10 @@
               class="ec-table__cell"
               :class="[
                 getStickyColumnClass(colIndex, columns),
-                { 'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon' }]"
+                {
+                  'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon',
+                  'ec-table__cell--text-right': columns[colIndex] && columns[colIndex].align === 'right',
+                }]"
             >
               <slot
                 :name="getSlotName(colIndex)"
@@ -119,7 +122,23 @@ export default {
       this.$emit('sort', columnName);
     },
     getColumnWidth(column) {
-      return column && column.minWidth ? { minWidth: column.minWidth } : null;
+      let widthStyle = {};
+      if (column && column.minWidth) {
+        widthStyle = {
+          ...widthStyle,
+          minWidth: column.minWidth,
+        };
+      }
+      if (column && column.maxWidth) {
+        widthStyle = {
+          ...widthStyle,
+          maxWidth: column.maxWidth,
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+        };
+      }
+      return Object.keys(widthStyle).length ? widthStyle : null;
     },
     getStickyColumnClass(colIndex, columns) {
       if (this.stickyColumn === 'left' && colIndex === 0) {
@@ -180,6 +199,10 @@ export default {
 
     &--text-center {
       text-align: center;
+    }
+
+    &--text-right {
+      text-align: right;
     }
 
     &--sticky-left {

@@ -779,6 +779,106 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
 </div>
 `;
 
+exports[`EcTable should render has expected if a column is defined to align to the right 1`] = `
+<div>
+  <!---->
+   
+  <div
+    class="ec-table-scroll-container"
+    data-test="ec-table-scroll-container"
+  >
+    <table
+      class="ec-table"
+    >
+      <thead
+        class="ec-table-head"
+        data-test="ec-table-head"
+      >
+        <tr>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--0"
+            scope="col"
+          >
+            <span
+              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--justify-end"
+            >
+              <span>
+                
+          Lorem
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--1"
+            scope="col"
+          >
+            <span
+              class="ec-table-head__cell-wrapper"
+            >
+              <span>
+                
+          Ipsum
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--0"
+        >
+          <td
+            class="ec-table__cell ec-table__cell--text-right"
+            data-test="ec-table__cell ec-table__cell--0"
+          >
+            foo
+          </td>
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            bar
+          </td>
+        </tr>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--1"
+        >
+          <td
+            class="ec-table__cell ec-table__cell--text-right"
+            data-test="ec-table__cell ec-table__cell--0"
+          >
+            widgets
+          </td>
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            doodads
+          </td>
+        </tr>
+      </tbody>
+       
+      <!---->
+    </table>
+  </div>
+</div>
+`;
+
 exports[`EcTable should render slots as expected 1`] = `
 <div>
   <!---->

@@ -23,6 +23,7 @@ const columns = [
     title: 'Original amount',
     sortable: true,
     tooltip: 'This is info test',
+    align: 'right',
   },
   {
     name: 'repayment-date',
@@ -34,6 +35,11 @@ const columns = [
     title: 'Status',
     type: 'icon',
     tooltip: 'This is info test',
+  },
+  {
+    name: 'text-long',
+    title: 'Text long',
+    maxWidth: '120px',
   },
 ];
 
@@ -54,12 +60,14 @@ const data = [
     'ipsum',
     'dolor',
     'sit',
+    'amet, consectetur adipiscing elit. Vestibulum eget ultricies turpis',
   ],
   [
     'foo',
     'bar',
     'baz',
-    'sit',
+    'qux',
+    'quux',
   ],
 ];
 

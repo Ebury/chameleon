@@ -325,4 +325,40 @@ describe('EcTable', () => {
     expect(wrapperArray.length).toBe(columns.length);
     wrapperArray.wrappers.forEach(wrapperItem => expect(wrapperItem.attributes('style')).toBe('min-width: 250px;'));
   });
+
+  it('should render the style with the max-width on each cell of the column that have the prop given', () => {
+    const columns = [
+      {
+        name: 'lorem',
+        title: 'Lorem',
+        maxWidth: '250px',
+      },
+      {
+        name: 'ipsum',
+        title: 'Ipsum',
+      },
+    ];
+    const wrapper = mountTable({ columns });
+    const wrapperArray = wrapper.findAllByDataTest('ec-table__cell--0');
+    expect(wrapperArray.length).toBe(columns.length);
+    wrapperArray.wrappers.forEach(wrapperItem => expect(wrapperItem.attributes('style')).toBe('max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'));
+  });
+
+  it('should render has expected if a column is defined to align to the right', () => {
+    const wrapper = mountTable({
+      columns: [
+        {
+          name: 'lorem',
+          title: 'Lorem',
+          align: 'right',
+        },
+        {
+          name: 'ipsum',
+          title: 'Ipsum',
+        },
+      ],
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
