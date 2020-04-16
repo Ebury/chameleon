@@ -83,6 +83,18 @@ describe('EcCurrencyInput', () => {
 
       expect(wrapper.findByDataTest('ec-popover-dropdown-search').element).toMatchSnapshot();
     });
+
+    it('should render the component with the dropdown disabled when isCurrenciesDisabled is set true', () => {
+      const wrapper = mountCurrencyInput({ isCurrenciesDisabled: true });
+
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
+    });
+
+    it('should render the component with the input disabled when isAmountDisabled is set true', () => {
+      const wrapper = mountCurrencyInput({ isAmountDisabled: true });
+
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element).toMatchSnapshot();
+    });
   });
 
   describe('@events', () => {

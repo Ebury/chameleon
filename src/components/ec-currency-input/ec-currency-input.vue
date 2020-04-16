@@ -34,6 +34,7 @@
         class="ec-currency-input__currencies"
         is-in-group="right"
         is-search-enabled
+        :disabled="isCurrenciesDisabled"
         :is-loading="currenciesAreLoading"
         :error-message="errorMessage"
         data-test="ec-currency-input__currencies"
@@ -46,6 +47,7 @@
         :currency="value.currency"
         :error-id="errorId"
         :error-message="errorMessage"
+        :disabled="isAmountDisabled"
         is-in-group="left"
         class="ec-currency-input__amount"
         data-test="ec-currency-input__amount"
@@ -96,6 +98,14 @@ export default {
       type: Array,
     },
     currenciesAreLoading: {
+      type: Boolean,
+      default: false,
+    },
+    isCurrenciesDisabled: {
+      type: Boolean,
+      default: false,
+    },
+    isAmountDisabled: {
       type: Boolean,
       default: false,
     },
