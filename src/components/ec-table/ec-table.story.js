@@ -23,7 +23,7 @@ const columns = [
     title: 'Original amount',
     sortable: true,
     tooltip: 'This is info test',
-    align: 'right',
+    type: 'currency',
   },
   {
     name: 'repayment-date',
@@ -37,8 +37,8 @@ const columns = [
     tooltip: 'This is info test',
   },
   {
-    name: 'text-long',
-    title: 'Text long',
+    name: 'long-text',
+    title: 'Text too long to display',
     maxWidth: '120px',
   },
 ];

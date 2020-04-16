@@ -137,6 +137,36 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should have a column align to right if its type is currency', () => {
+    const wrapper = mountTableAsTemplate(
+      '<ec-table :columns="columns" :data="data"/>',
+      {},
+      {
+        data() {
+          return {
+            columns: [
+              {
+                name: 'lorem',
+                title: 'Lorem',
+              },
+              {
+                name: 'ipsum',
+                title: 'Ipsum',
+                type: 'currency',
+              },
+            ],
+            data: [
+              ['foo', 'bar'],
+              ['widgets', 'doodads'],
+            ],
+          };
+        },
+      },
+    );
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('the tr should have class ec-table-row--is-clickable if we set the listener on row-click', async () => {
     const onRowClick = jest.fn();
     const wrapper = mountTable(
@@ -339,25 +369,6 @@ describe('EcTable', () => {
       },
     ];
     const wrapper = mountTable({ columns });
-    const wrapperArray = wrapper.findAllByDataTest('ec-table__cell--0');
-    expect(wrapperArray.length).toBe(columns.length);
-    wrapperArray.wrappers.forEach(wrapperItem => expect(wrapperItem.attributes('style')).toBe('max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'));
-  });
-
-  it('should render has expected if a column is defined to align to the right', () => {
-    const wrapper = mountTable({
-      columns: [
-        {
-          name: 'lorem',
-          title: 'Lorem',
-          align: 'right',
-        },
-        {
-          name: 'ipsum',
-          title: 'Ipsum',
-        },
-      ],
-    });
 
     expect(wrapper.element).toMatchSnapshot();
   });

@@ -1,5 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcTable should have a column align to right if its type is currency 1`] = `
+<div>
+  <!---->
+   
+  <div
+    class="ec-table-scroll-container"
+    data-test="ec-table-scroll-container"
+  >
+    <table
+      class="ec-table"
+    >
+      <thead
+        class="ec-table-head"
+        data-test="ec-table-head"
+      >
+        <tr>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--0"
+            scope="col"
+          >
+            <span
+              class="ec-table-head__cell-wrapper"
+            >
+              <span
+                class=""
+              >
+                
+          Lorem
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--1"
+            scope="col"
+          >
+            <span
+              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--text-right"
+            >
+              <span
+                class=""
+              >
+                
+          Ipsum
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--0"
+        >
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--0"
+          >
+            foo
+          </td>
+          <td
+            class="ec-table__cell ec-table__cell--text-right"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            bar
+          </td>
+        </tr>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--1"
+        >
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--0"
+          >
+            widgets
+          </td>
+          <td
+            class="ec-table__cell ec-table__cell--text-right"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            doodads
+          </td>
+        </tr>
+      </tbody>
+       
+      <!---->
+    </table>
+  </div>
+</div>
+`;
+
 exports[`EcTable should have class ec-table-cell--text-center if type of column is icon 1`] = `
 <div>
   <!---->
@@ -24,7 +128,9 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -41,9 +147,11 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             scope="col"
           >
             <span
-              class="ec-table-head__cell-wrapper"
+              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--text-center"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -130,7 +238,9 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -149,7 +259,9 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -230,7 +342,9 @@ exports[`EcTable should render as expected if provided with data and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -249,7 +363,9 @@ exports[`EcTable should render as expected if provided with data and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -530,7 +646,9 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -549,7 +667,9 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -669,7 +789,9 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -688,7 +810,9 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -779,106 +903,6 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
 </div>
 `;
 
-exports[`EcTable should render has expected if a column is defined to align to the right 1`] = `
-<div>
-  <!---->
-   
-  <div
-    class="ec-table-scroll-container"
-    data-test="ec-table-scroll-container"
-  >
-    <table
-      class="ec-table"
-    >
-      <thead
-        class="ec-table-head"
-        data-test="ec-table-head"
-      >
-        <tr>
-          <th
-            class="ec-table-head__cell"
-            data-test="ec-table-head__cell ec-table-head__cell--0"
-            scope="col"
-          >
-            <span
-              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--justify-end"
-            >
-              <span>
-                
-          Lorem
-        
-              </span>
-               
-              <!---->
-               
-              <!---->
-            </span>
-          </th>
-          <th
-            class="ec-table-head__cell"
-            data-test="ec-table-head__cell ec-table-head__cell--1"
-            scope="col"
-          >
-            <span
-              class="ec-table-head__cell-wrapper"
-            >
-              <span>
-                
-          Ipsum
-        
-              </span>
-               
-              <!---->
-               
-              <!---->
-            </span>
-          </th>
-        </tr>
-      </thead>
-       
-      <tbody>
-        <tr
-          class=""
-          data-test="ec-table__row ec-table__row--0"
-        >
-          <td
-            class="ec-table__cell ec-table__cell--text-right"
-            data-test="ec-table__cell ec-table__cell--0"
-          >
-            foo
-          </td>
-          <td
-            class="ec-table__cell"
-            data-test="ec-table__cell ec-table__cell--1"
-          >
-            bar
-          </td>
-        </tr>
-        <tr
-          class=""
-          data-test="ec-table__row ec-table__row--1"
-        >
-          <td
-            class="ec-table__cell ec-table__cell--text-right"
-            data-test="ec-table__cell ec-table__cell--0"
-          >
-            widgets
-          </td>
-          <td
-            class="ec-table__cell"
-            data-test="ec-table__cell ec-table__cell--1"
-          >
-            doodads
-          </td>
-        </tr>
-      </tbody>
-       
-      <!---->
-    </table>
-  </div>
-</div>
-`;
-
 exports[`EcTable should render slots as expected 1`] = `
 <div>
   <!---->
@@ -903,7 +927,9 @@ exports[`EcTable should render slots as expected 1`] = `
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -922,7 +948,9 @@ exports[`EcTable should render slots as expected 1`] = `
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -1018,7 +1046,9 @@ exports[`EcTable should render sorting as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Lorem
         
@@ -1059,7 +1089,9 @@ exports[`EcTable should render sorting as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Ipsum
         
@@ -1094,4 +1126,111 @@ exports[`EcTable should render sorting as expected 1`] = `
     </th>
   </tr>
 </thead>
+`;
+
+exports[`EcTable should render the style with the max-width on each cell of the column that have the prop given 1`] = `
+<div>
+  <!---->
+   
+  <div
+    class="ec-table-scroll-container"
+    data-test="ec-table-scroll-container"
+  >
+    <table
+      class="ec-table"
+    >
+      <thead
+        class="ec-table-head"
+        data-test="ec-table-head"
+      >
+        <tr>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--0"
+            scope="col"
+            style="max-width: 250px;"
+          >
+            <span
+              class="ec-table-head__cell-wrapper"
+            >
+              <span
+                class="ec-table-head__cell-text--ellipsis"
+              >
+                
+          Lorem
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--1"
+            scope="col"
+          >
+            <span
+              class="ec-table-head__cell-wrapper"
+            >
+              <span
+                class=""
+              >
+                
+          Ipsum
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--0"
+        >
+          <td
+            class="ec-table__cell ec-table__cell--ellipsis"
+            data-test="ec-table__cell ec-table__cell--0"
+            style="max-width: 250px;"
+          >
+            foo
+          </td>
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            bar
+          </td>
+        </tr>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--1"
+        >
+          <td
+            class="ec-table__cell ec-table__cell--ellipsis"
+            data-test="ec-table__cell ec-table__cell--0"
+            style="max-width: 250px;"
+          >
+            widgets
+          </td>
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            doodads
+          </td>
+        </tr>
+      </tbody>
+       
+      <!---->
+    </table>
+  </div>
+</div>
 `;

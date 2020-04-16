@@ -17,9 +17,12 @@
       >
         <span
           class="ec-table-head__cell-wrapper"
-          :class="{'ec-table-head__cell-wrapper--justify-end': column.align === 'right'}"
+          :class="{
+            'ec-table-head__cell-wrapper--text-center': column.type === 'icon',
+            'ec-table-head__cell-wrapper--text-right': column.type === 'currency',
+          }"
         >
-          <span>
+          <span :class="{'ec-table-head__cell-text--ellipsis': column.maxWidth}">
             {{ column.title }}
           </span>
           <ec-icon
@@ -93,9 +96,6 @@ export default {
         widthStyle = {
           ...widthStyle,
           maxWidth: column.maxWidth,
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
         };
       }
       return Object.keys(widthStyle).length ? widthStyle : null;
@@ -121,7 +121,11 @@ export default {
     display: flex;
     align-items: center;
 
-    &--justify-end {
+    &--text-center {
+      justify-content: center;
+    }
+
+    &--text-right {
       justify-content: flex-end;
     }
   }
@@ -163,6 +167,10 @@ export default {
     &--text-center {
       text-align: center;
     }
+  }
+
+  &__cell-text--ellipsis {
+    @include ellipsis;
   }
 }
 </style>

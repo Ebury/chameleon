@@ -37,7 +37,8 @@
                 getStickyColumnClass(colIndex, columns),
                 {
                   'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon',
-                  'ec-table__cell--text-right': columns[colIndex] && columns[colIndex].align === 'right',
+                  'ec-table__cell--text-right': columns[colIndex] && columns[colIndex].type === 'currency',
+                  'ec-table__cell--ellipsis': columns[colIndex] && columns[colIndex].maxWidth,
                 }]"
             >
               <slot
@@ -133,9 +134,6 @@ export default {
         widthStyle = {
           ...widthStyle,
           maxWidth: column.maxWidth,
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
         };
       }
       return Object.keys(widthStyle).length ? widthStyle : null;
@@ -223,6 +221,10 @@ export default {
       .ec-table__row--is-clickable:hover & {
         background: $level-6;
       }
+    }
+
+    &--ellipsis {
+      @include ellipsis;
     }
   }
 }
