@@ -11,18 +11,18 @@
         :style="getWidthStyle(column)"
         :data-test="`ec-table-head__cell ec-table-head__cell--${colIndex}`"
         class="ec-table-head__cell"
-        :class="[ getStickyColumnClass(colIndex, columns), {'ec-table-head__cell--text-center': column.type === 'icon'}]"
+        :class="getStickyColumnClass(colIndex, columns)"
         :colspan="column.span"
         scope="col"
       >
         <span
           class="ec-table-head__cell-wrapper"
           :class="{
-            'ec-table-head__cell-wrapper--text-center': column.type === 'icon',
-            'ec-table-head__cell-wrapper--text-right': column.type === 'currency',
+            'ec-table-head__cell-wrapper--is-type-icon': column.type === 'icon',
+            'ec-table-head__cell-wrapper--is-type-currency': column.type === 'currency',
           }"
         >
-          <span :class="{'ec-table-head__cell-text--ellipsis': column.maxWidth}">
+          <span :class="{'ec-table-head__cell-text--is-ellipsis': column.maxWidth}">
             {{ column.title }}
           </span>
           <ec-icon
@@ -121,11 +121,11 @@ export default {
     display: flex;
     align-items: center;
 
-    &--text-center {
+    &--is-type-icon {
       justify-content: center;
     }
 
-    &--text-right {
+    &--is-type-currency {
       justify-content: flex-end;
     }
   }
@@ -163,13 +163,9 @@ export default {
     &:last-child {
       padding-right: 16px;
     }
-
-    &--text-center {
-      text-align: center;
-    }
   }
 
-  &__cell-text--ellipsis {
+  &__cell-text--is-ellipsis {
     @include ellipsis;
   }
 }

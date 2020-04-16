@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcTable should have a column align to right if its type is currency 1`] = `
+exports[`EcTable should have a column align to center if its type is icon 1`] = `
 <div>
   <!---->
    
@@ -43,7 +43,7 @@ exports[`EcTable should have a column align to right if its type is currency 1`]
             scope="col"
           >
             <span
-              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--text-right"
+              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-icon"
             >
               <span
                 class=""
@@ -73,7 +73,7 @@ exports[`EcTable should have a column align to right if its type is currency 1`]
             foo
           </td>
           <td
-            class="ec-table__cell ec-table__cell--text-right"
+            class="ec-table__cell ec-table__cell--is-type-icon"
             data-test="ec-table__cell ec-table__cell--1"
           >
             bar
@@ -90,7 +90,7 @@ exports[`EcTable should have a column align to right if its type is currency 1`]
             widgets
           </td>
           <td
-            class="ec-table__cell ec-table__cell--text-right"
+            class="ec-table__cell ec-table__cell--is-type-icon"
             data-test="ec-table__cell ec-table__cell--1"
           >
             doodads
@@ -104,7 +104,7 @@ exports[`EcTable should have a column align to right if its type is currency 1`]
 </div>
 `;
 
-exports[`EcTable should have class ec-table-cell--text-center if type of column is icon 1`] = `
+exports[`EcTable should have a column align to the right if its type is currency 1`] = `
 <div>
   <!---->
    
@@ -142,12 +142,12 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             </span>
           </th>
           <th
-            class="ec-table-head__cell ec-table-head__cell--text-center"
+            class="ec-table-head__cell"
             data-test="ec-table-head__cell ec-table-head__cell--1"
             scope="col"
           >
             <span
-              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--text-center"
+              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-currency"
             >
               <span
                 class=""
@@ -177,7 +177,7 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             foo
           </td>
           <td
-            class="ec-table__cell ec-table__cell--text-center"
+            class="ec-table__cell ec-table__cell--is-type-currency"
             data-test="ec-table__cell ec-table__cell--1"
           >
             bar
@@ -194,7 +194,7 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             widgets
           </td>
           <td
-            class="ec-table__cell ec-table__cell--text-center"
+            class="ec-table__cell ec-table__cell--is-type-currency"
             data-test="ec-table__cell ec-table__cell--1"
           >
             doodads
@@ -1154,7 +1154,7 @@ exports[`EcTable should render the style with the max-width on each cell of the 
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class="ec-table-head__cell-text--ellipsis"
+                class="ec-table-head__cell-text--is-ellipsis"
               >
                 
           Lorem
@@ -1196,7 +1196,7 @@ exports[`EcTable should render the style with the max-width on each cell of the 
           data-test="ec-table__row ec-table__row--0"
         >
           <td
-            class="ec-table__cell ec-table__cell--ellipsis"
+            class="ec-table__cell ec-table__cell--is-ellipsis"
             data-test="ec-table__cell ec-table__cell--0"
             style="max-width: 250px;"
           >
@@ -1214,7 +1214,7 @@ exports[`EcTable should render the style with the max-width on each cell of the 
           data-test="ec-table__row ec-table__row--1"
         >
           <td
-            class="ec-table__cell ec-table__cell--ellipsis"
+            class="ec-table__cell ec-table__cell--is-ellipsis"
             data-test="ec-table__cell ec-table__cell--0"
             style="max-width: 250px;"
           >

@@ -36,9 +36,9 @@
               :class="[
                 getStickyColumnClass(colIndex, columns),
                 {
-                  'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon',
-                  'ec-table__cell--text-right': columns[colIndex] && columns[colIndex].type === 'currency',
-                  'ec-table__cell--ellipsis': columns[colIndex] && columns[colIndex].maxWidth,
+                  'ec-table__cell--is-type-icon': columns[colIndex] && columns[colIndex].type === 'icon',
+                  'ec-table__cell--is-type-currency': columns[colIndex] && columns[colIndex].type === 'currency',
+                  'ec-table__cell--is-ellipsis': columns[colIndex] && columns[colIndex].maxWidth,
                 }]"
             >
               <slot
@@ -195,11 +195,11 @@ export default {
 
     @include body-text;
 
-    &--text-center {
+    &--is-type-icon {
       text-align: center;
     }
 
-    &--text-right {
+    &--is-type-currency {
       text-align: right;
     }
 
@@ -223,7 +223,7 @@ export default {
       }
     }
 
-    &--ellipsis {
+    &--is-ellipsis {
       @include ellipsis;
     }
   }

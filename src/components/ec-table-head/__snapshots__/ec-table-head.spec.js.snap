@@ -28,13 +28,13 @@ exports[`EcTableHead should have a column align to center if its type is icon 1`
       </span>
     </th>
     <th
-      class="ec-table-head__cell ec-table-head__cell--text-center"
+      class="ec-table-head__cell"
       colspan="2"
       data-test="ec-table-head__cell ec-table-head__cell--1"
       scope="col"
     >
       <span
-        class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--text-center"
+        class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-icon"
       >
         <span
           class=""
@@ -108,7 +108,7 @@ exports[`EcTableHead should have a column align to the right if its type is curr
       scope="col"
     >
       <span
-        class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--text-right"
+        class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-currency"
       >
         <span
           class=""
@@ -502,7 +502,7 @@ exports[`EcTableHead should render with max-width and ellipsis on the column tha
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class="ec-table-head__cell-text--ellipsis"
+          class="ec-table-head__cell-text--is-ellipsis"
         >
           
           Column B

@@ -104,7 +104,7 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should have class ec-table-cell--text-center if type of column is icon', () => {
+  it('should have a column align to center if its type is icon', () => {
     const wrapper = mountTableAsTemplate(
       '<ec-table :columns="columns" :data="data"/>',
       {},
@@ -131,13 +131,10 @@ describe('EcTable', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--text-center')).toBe(false);
-    expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--text-center')).toBe(true);
-
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should have a column align to right if its type is currency', () => {
+  it('should have a column align to the right if its type is currency', () => {
     const wrapper = mountTableAsTemplate(
       '<ec-table :columns="columns" :data="data"/>',
       {},
