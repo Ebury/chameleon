@@ -28,7 +28,10 @@ stories
       currenciesLoading: {
         default: boolean('currencies loading', false),
       },
-      isDisabledCurrency: {
+      isAmountDisabled: {
+        default: boolean('amount disabled', false),
+      },
+      isCurrenciesDisabled: {
         default: boolean('currencies disabled', false),
       },
       errorMessage: {
@@ -37,7 +40,7 @@ stories
     },
     template: `
       <div style="max-width: 600px; margin: 60px auto">
-        <ec-currency-input v-model="value" :currencies="currencies" v-bind="$props" class="ec-mt--20 ec-mb--20" />
+        <ec-currency-input :disabled="true" v-model="value" :currencies="currencies" v-bind="$props" class="ec-mt--20 ec-mb--20" />
         Value Object: {{ value }}
       </div>
     `,
