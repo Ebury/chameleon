@@ -22,7 +22,7 @@
             'ec-table-head__cell-wrapper--is-type-currency': column.type === 'currency',
           }"
         >
-          <span :class="{'ec-table-head__cell-text--is-ellipsis': column.maxWidth}">
+          <span :class="{'ec-table-head__cell-text--has-max-width': column.maxWidth}">
             {{ column.title }}
           </span>
           <ec-icon
@@ -85,20 +85,10 @@ export default {
       this.$emit('sort', column.name);
     },
     getWidthStyle(column) {
-      let widthStyle = {};
-      if (column && column.minWidth) {
-        widthStyle = {
-          ...widthStyle,
-          minWidth: column.minWidth,
-        };
+      if (column && (column.maxWidth || column.minWidth)) {
+        return { maxWidth: column.maxWidth, minWidth: column.minWidth };
       }
-      if (column && column.maxWidth) {
-        widthStyle = {
-          ...widthStyle,
-          maxWidth: column.maxWidth,
-        };
-      }
-      return Object.keys(widthStyle).length ? widthStyle : null;
+      return null;
     },
     getStickyColumnClass(colIndex, columns) {
       if (this.stickyColumn === 'left' && colIndex === 0) {
@@ -165,7 +155,7 @@ export default {
     }
   }
 
-  &__cell-text--is-ellipsis {
+  &__cell-text--has-max-width {
     @include ellipsis;
   }
 }

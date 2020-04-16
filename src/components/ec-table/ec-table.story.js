@@ -57,17 +57,17 @@ const sorts = [
 const data = [
   [
     'Lorem',
+    'EUR 100',
     'ipsum',
     'dolor',
-    'sit',
-    'amet, consectetur adipiscing elit. Vestibulum eget ultricies turpis',
+    'sit amet, consectetur adipiscing elit. Vestibulum eget ultricies turpis',
   ],
   [
     'foo',
+    'GBP 200',
     'bar',
     'baz',
     'qux',
-    'quux',
   ],
 ];
 

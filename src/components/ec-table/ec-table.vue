@@ -38,7 +38,7 @@
                 {
                   'ec-table__cell--is-type-icon': columns[colIndex] && columns[colIndex].type === 'icon',
                   'ec-table__cell--is-type-currency': columns[colIndex] && columns[colIndex].type === 'currency',
-                  'ec-table__cell--is-ellipsis': columns[colIndex] && columns[colIndex].maxWidth,
+                  'ec-table__cell--has-max-width': columns[colIndex] && columns[colIndex].maxWidth,
                 }]"
             >
               <slot
@@ -123,20 +123,10 @@ export default {
       this.$emit('sort', columnName);
     },
     getColumnWidth(column) {
-      let widthStyle = {};
-      if (column && column.minWidth) {
-        widthStyle = {
-          ...widthStyle,
-          minWidth: column.minWidth,
-        };
+      if (column && (column.maxWidth || column.minWidth)) {
+        return { maxWidth: column.maxWidth, minWidth: column.minWidth };
       }
-      if (column && column.maxWidth) {
-        widthStyle = {
-          ...widthStyle,
-          maxWidth: column.maxWidth,
-        };
-      }
-      return Object.keys(widthStyle).length ? widthStyle : null;
+      return null;
     },
     getStickyColumnClass(colIndex, columns) {
       if (this.stickyColumn === 'left' && colIndex === 0) {
@@ -223,7 +213,7 @@ export default {
       }
     }
 
-    &--is-ellipsis {
+    &--has-max-width {
       @include ellipsis;
     }
   }

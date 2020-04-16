@@ -1154,7 +1154,7 @@ exports[`EcTable should render the style with the max-width on each cell of the 
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class="ec-table-head__cell-text--is-ellipsis"
+                class="ec-table-head__cell-text--has-max-width"
               >
                 
           Lorem
@@ -1196,7 +1196,7 @@ exports[`EcTable should render the style with the max-width on each cell of the 
           data-test="ec-table__row ec-table__row--0"
         >
           <td
-            class="ec-table__cell ec-table__cell--is-ellipsis"
+            class="ec-table__cell ec-table__cell--has-max-width"
             data-test="ec-table__cell ec-table__cell--0"
             style="max-width: 250px;"
           >
@@ -1214,7 +1214,7 @@ exports[`EcTable should render the style with the max-width on each cell of the 
           data-test="ec-table__row ec-table__row--1"
         >
           <td
-            class="ec-table__cell ec-table__cell--is-ellipsis"
+            class="ec-table__cell ec-table__cell--has-max-width"
             data-test="ec-table__cell ec-table__cell--0"
             style="max-width: 250px;"
           >

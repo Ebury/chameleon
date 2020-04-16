@@ -502,7 +502,7 @@ exports[`EcTableHead should render with max-width and ellipsis on the column tha
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class="ec-table-head__cell-text--is-ellipsis"
+          class="ec-table-head__cell-text--has-max-width"
         >
           
           Column B
