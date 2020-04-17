@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcTable should have class ec-table-cell--text-center if type of column is icon 1`] = `
+exports[`EcTable should have a column align to center if its type is icon 1`] = `
 <div>
   <!---->
    
@@ -24,7 +24,9 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -36,14 +38,16 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             </span>
           </th>
           <th
-            class="ec-table-head__cell ec-table-head__cell--text-center"
+            class="ec-table-head__cell"
             data-test="ec-table-head__cell ec-table-head__cell--1"
             scope="col"
           >
             <span
-              class="ec-table-head__cell-wrapper"
+              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-icon"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -69,7 +73,7 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             foo
           </td>
           <td
-            class="ec-table__cell ec-table__cell--text-center"
+            class="ec-table__cell ec-table__cell--is-type-icon"
             data-test="ec-table__cell ec-table__cell--1"
           >
             bar
@@ -86,7 +90,111 @@ exports[`EcTable should have class ec-table-cell--text-center if type of column 
             widgets
           </td>
           <td
-            class="ec-table__cell ec-table__cell--text-center"
+            class="ec-table__cell ec-table__cell--is-type-icon"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            doodads
+          </td>
+        </tr>
+      </tbody>
+       
+      <!---->
+    </table>
+  </div>
+</div>
+`;
+
+exports[`EcTable should have a column align to the right if its type is currency 1`] = `
+<div>
+  <!---->
+   
+  <div
+    class="ec-table-scroll-container"
+    data-test="ec-table-scroll-container"
+  >
+    <table
+      class="ec-table"
+    >
+      <thead
+        class="ec-table-head"
+        data-test="ec-table-head"
+      >
+        <tr>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--0"
+            scope="col"
+          >
+            <span
+              class="ec-table-head__cell-wrapper"
+            >
+              <span
+                class=""
+              >
+                
+          Lorem
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--1"
+            scope="col"
+          >
+            <span
+              class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-currency"
+            >
+              <span
+                class=""
+              >
+                
+          Ipsum
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--0"
+        >
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--0"
+          >
+            foo
+          </td>
+          <td
+            class="ec-table__cell ec-table__cell--is-type-currency"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            bar
+          </td>
+        </tr>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--1"
+        >
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--0"
+          >
+            widgets
+          </td>
+          <td
+            class="ec-table__cell ec-table__cell--is-type-currency"
             data-test="ec-table__cell ec-table__cell--1"
           >
             doodads
@@ -130,7 +238,9 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -149,7 +259,9 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -230,7 +342,9 @@ exports[`EcTable should render as expected if provided with data and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -249,7 +363,9 @@ exports[`EcTable should render as expected if provided with data and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -530,7 +646,9 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -549,7 +667,9 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -669,7 +789,9 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -688,7 +810,9 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -803,7 +927,9 @@ exports[`EcTable should render slots as expected 1`] = `
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Lorem
         
@@ -822,7 +948,9 @@ exports[`EcTable should render slots as expected 1`] = `
             <span
               class="ec-table-head__cell-wrapper"
             >
-              <span>
+              <span
+                class=""
+              >
                 
           Ipsum
         
@@ -918,7 +1046,9 @@ exports[`EcTable should render sorting as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Lorem
         
@@ -959,7 +1089,9 @@ exports[`EcTable should render sorting as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Ipsum
         
@@ -994,4 +1126,111 @@ exports[`EcTable should render sorting as expected 1`] = `
     </th>
   </tr>
 </thead>
+`;
+
+exports[`EcTable should render the style with the max-width on each cell of the column that have the prop given 1`] = `
+<div>
+  <!---->
+   
+  <div
+    class="ec-table-scroll-container"
+    data-test="ec-table-scroll-container"
+  >
+    <table
+      class="ec-table"
+    >
+      <thead
+        class="ec-table-head"
+        data-test="ec-table-head"
+      >
+        <tr>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--0"
+            scope="col"
+            style="max-width: 250px;"
+          >
+            <span
+              class="ec-table-head__cell-wrapper"
+            >
+              <span
+                class="ec-table-head__cell-text--has-max-width"
+              >
+                
+          Lorem
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+          <th
+            class="ec-table-head__cell"
+            data-test="ec-table-head__cell ec-table-head__cell--1"
+            scope="col"
+          >
+            <span
+              class="ec-table-head__cell-wrapper"
+            >
+              <span
+                class=""
+              >
+                
+          Ipsum
+        
+              </span>
+               
+              <!---->
+               
+              <!---->
+            </span>
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--0"
+        >
+          <td
+            class="ec-table__cell ec-table__cell--has-max-width"
+            data-test="ec-table__cell ec-table__cell--0"
+            style="max-width: 250px;"
+          >
+            foo
+          </td>
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            bar
+          </td>
+        </tr>
+        <tr
+          class=""
+          data-test="ec-table__row ec-table__row--1"
+        >
+          <td
+            class="ec-table__cell ec-table__cell--has-max-width"
+            data-test="ec-table__cell ec-table__cell--0"
+            style="max-width: 250px;"
+          >
+            widgets
+          </td>
+          <td
+            class="ec-table__cell"
+            data-test="ec-table__cell ec-table__cell--1"
+          >
+            doodads
+          </td>
+        </tr>
+      </tbody>
+       
+      <!---->
+    </table>
+  </div>
+</div>
 `;

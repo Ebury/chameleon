@@ -104,7 +104,7 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should have class ec-table-cell--text-center if type of column is icon', () => {
+  it('should have a column align to center if its type is icon', () => {
     const wrapper = mountTableAsTemplate(
       '<ec-table :columns="columns" :data="data"/>',
       {},
@@ -131,8 +131,35 @@ describe('EcTable', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--text-center')).toBe(false);
-    expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--text-center')).toBe(true);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should have a column align to the right if its type is currency', () => {
+    const wrapper = mountTableAsTemplate(
+      '<ec-table :columns="columns" :data="data"/>',
+      {},
+      {
+        data() {
+          return {
+            columns: [
+              {
+                name: 'lorem',
+                title: 'Lorem',
+              },
+              {
+                name: 'ipsum',
+                title: 'Ipsum',
+                type: 'currency',
+              },
+            ],
+            data: [
+              ['foo', 'bar'],
+              ['widgets', 'doodads'],
+            ],
+          };
+        },
+      },
+    );
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -324,5 +351,22 @@ describe('EcTable', () => {
     const wrapperArray = wrapper.findAllByDataTest('ec-table__cell--0');
     expect(wrapperArray.length).toBe(columns.length);
     wrapperArray.wrappers.forEach(wrapperItem => expect(wrapperItem.attributes('style')).toBe('min-width: 250px;'));
+  });
+
+  it('should render the style with the max-width on each cell of the column that have the prop given', () => {
+    const columns = [
+      {
+        name: 'lorem',
+        title: 'Lorem',
+        maxWidth: '250px',
+      },
+      {
+        name: 'ipsum',
+        title: 'Ipsum',
+      },
+    ];
+    const wrapper = mountTable({ columns });
+
+    expect(wrapper.element).toMatchSnapshot();
   });
 });

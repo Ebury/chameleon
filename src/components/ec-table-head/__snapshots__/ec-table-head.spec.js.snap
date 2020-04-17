@@ -1,5 +1,153 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcTableHead should have a column align to center if its type is icon 1`] = `
+<thead
+  class="ec-table-head"
+  data-test="ec-table-head"
+>
+  <tr>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--0"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class=""
+        >
+          
+          Column A
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      colspan="2"
+      data-test="ec-table-head__cell ec-table-head__cell--1"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-icon"
+      >
+        <span
+          class=""
+        >
+          
+          Column B
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--2"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class=""
+        >
+          
+          Column C
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
+    </th>
+  </tr>
+</thead>
+`;
+
+exports[`EcTableHead should have a column align to the right if its type is currency 1`] = `
+<thead
+  class="ec-table-head"
+  data-test="ec-table-head"
+>
+  <tr>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--0"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class=""
+        >
+          
+          Column A
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      colspan="2"
+      data-test="ec-table-head__cell ec-table-head__cell--1"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-currency"
+      >
+        <span
+          class=""
+        >
+          
+          Column B
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--2"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class=""
+        >
+          
+          Column C
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
+    </th>
+  </tr>
+</thead>
+`;
+
 exports[`EcTableHead should not render if no columns are supplied 1`] = `<!---->`;
 
 exports[`EcTableHead should render as expected 1`] = `
@@ -16,7 +164,9 @@ exports[`EcTableHead should render as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Column A
         
@@ -36,7 +186,9 @@ exports[`EcTableHead should render as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Column B
         
@@ -55,7 +207,9 @@ exports[`EcTableHead should render as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Column C
         
@@ -84,7 +238,9 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Column A
         
@@ -114,7 +270,9 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Column B
         
@@ -143,7 +301,9 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Column C
         
@@ -182,7 +342,9 @@ exports[`EcTableHead should render sorting as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Column A
         
@@ -224,7 +386,9 @@ exports[`EcTableHead should render sorting as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Column B
         
@@ -265,7 +429,9 @@ exports[`EcTableHead should render sorting as expected 1`] = `
       <span
         class="ec-table-head__cell-wrapper"
       >
-        <span>
+        <span
+          class=""
+        >
           
           Column C
         
@@ -292,6 +458,81 @@ exports[`EcTableHead should render sorting as expected 1`] = `
            
           <!---->
         </a>
+      </span>
+    </th>
+  </tr>
+</thead>
+`;
+
+exports[`EcTableHead should render with max-width and ellipsis on the column that has the prop given 1`] = `
+<thead
+  class="ec-table-head"
+  data-test="ec-table-head"
+>
+  <tr>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--0"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class=""
+        >
+          
+          Column A
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      colspan="2"
+      data-test="ec-table-head__cell ec-table-head__cell--1"
+      scope="col"
+      style="max-width: 250px;"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text--has-max-width"
+        >
+          
+          Column B
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--2"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class=""
+        >
+          
+          Column C
+        
+        </span>
+         
+        <!---->
+         
+        <!---->
       </span>
     </th>
   </tr>

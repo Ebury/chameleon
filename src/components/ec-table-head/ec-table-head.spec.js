@@ -40,7 +40,7 @@ describe('EcTableHead', () => {
     });
   });
 
-  it('should have class ec-table-head__cell--text-center if type of content is icon', () => {
+  it('should have a column align to center if its type is icon', () => {
     const wrapper = mountEcTableHead({
       columns: columns.map(column => ({
         ...column,
@@ -48,8 +48,18 @@ describe('EcTableHead', () => {
       })),
     });
 
-    expect(wrapper.findByDataTest('ec-table-head__cell--0').classes('ec-table-head__cell--text-center')).toBe(false);
-    expect(wrapper.findByDataTest('ec-table-head__cell--1').classes('ec-table-head__cell--text-center')).toBe(true);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should have a column align to the right if its type is currency', () => {
+    const wrapper = mountEcTableHead({
+      columns: columns.map(column => ({
+        ...column,
+        type: column.name === 'column-b' ? 'currency' : null,
+      })),
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should not render if no columns are supplied', () => {
@@ -113,5 +123,16 @@ describe('EcTableHead', () => {
 
     expect(wrapper.findByDataTest('ec-table-head__cell--1').attributes('style')).toBe('min-width: 250px;');
     expect(wrapper.findByDataTest('ec-table-head__cell--0').attributes('style')).toBe(undefined);
+  });
+
+  it('should render with max-width and ellipsis on the column that has the prop given', () => {
+    const wrapper = mountEcTableHead({
+      columns: columns.map(column => ({
+        ...column,
+        maxWidth: column.name === 'column-b' ? '250px' : null,
+      })),
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
   });
 });

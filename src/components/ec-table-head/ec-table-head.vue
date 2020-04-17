@@ -11,12 +11,18 @@
         :style="getWidthStyle(column)"
         :data-test="`ec-table-head__cell ec-table-head__cell--${colIndex}`"
         class="ec-table-head__cell"
-        :class="[ getStickyColumnClass(colIndex, columns), {'ec-table-head__cell--text-center': column.type === 'icon'}]"
+        :class="getStickyColumnClass(colIndex, columns)"
         :colspan="column.span"
         scope="col"
       >
-        <span class="ec-table-head__cell-wrapper">
-          <span>
+        <span
+          class="ec-table-head__cell-wrapper"
+          :class="{
+            'ec-table-head__cell-wrapper--is-type-icon': column.type === 'icon',
+            'ec-table-head__cell-wrapper--is-type-currency': column.type === 'currency',
+          }"
+        >
+          <span :class="{'ec-table-head__cell-text--has-max-width': column.maxWidth}">
             {{ column.title }}
           </span>
           <ec-icon
@@ -79,7 +85,10 @@ export default {
       this.$emit('sort', column.name);
     },
     getWidthStyle(column) {
-      return column && column.minWidth ? { minWidth: column.minWidth } : null;
+      if (column && (column.maxWidth || column.minWidth)) {
+        return { maxWidth: column.maxWidth, minWidth: column.minWidth };
+      }
+      return null;
     },
     getStickyColumnClass(colIndex, columns) {
       if (this.stickyColumn === 'left' && colIndex === 0) {
@@ -101,6 +110,14 @@ export default {
   &__cell-wrapper {
     display: flex;
     align-items: center;
+
+    &--is-type-icon {
+      justify-content: center;
+    }
+
+    &--is-type-currency {
+      justify-content: flex-end;
+    }
   }
 
   &__icon {
@@ -136,10 +153,10 @@ export default {
     &:last-child {
       padding-right: 16px;
     }
+  }
 
-    &--text-center {
-      text-align: center;
-    }
+  &__cell-text--has-max-width {
+    @include ellipsis;
   }
 }
 </style>

@@ -35,7 +35,11 @@
               class="ec-table__cell"
               :class="[
                 getStickyColumnClass(colIndex, columns),
-                { 'ec-table__cell--text-center': columns[colIndex] && columns[colIndex].type === 'icon' }]"
+                {
+                  'ec-table__cell--is-type-icon': columns[colIndex] && columns[colIndex].type === 'icon',
+                  'ec-table__cell--is-type-currency': columns[colIndex] && columns[colIndex].type === 'currency',
+                  'ec-table__cell--has-max-width': columns[colIndex] && columns[colIndex].maxWidth,
+                }]"
             >
               <slot
                 :name="getSlotName(colIndex)"
@@ -119,7 +123,10 @@ export default {
       this.$emit('sort', columnName);
     },
     getColumnWidth(column) {
-      return column && column.minWidth ? { minWidth: column.minWidth } : null;
+      if (column && (column.maxWidth || column.minWidth)) {
+        return { maxWidth: column.maxWidth, minWidth: column.minWidth };
+      }
+      return null;
     },
     getStickyColumnClass(colIndex, columns) {
       if (this.stickyColumn === 'left' && colIndex === 0) {
@@ -178,8 +185,12 @@ export default {
 
     @include body-text;
 
-    &--text-center {
+    &--is-type-icon {
       text-align: center;
+    }
+
+    &--is-type-currency {
+      text-align: right;
     }
 
     &--sticky-left {
@@ -200,6 +211,10 @@ export default {
       .ec-table__row--is-clickable:hover & {
         background: $level-6;
       }
+    }
+
+    &--has-max-width {
+      @include ellipsis;
     }
   }
 }
