@@ -65,8 +65,8 @@ export default {
 
       setCursor(el, positionFromStart);
 
-      // because we changed the el.value in the middle of the input event, we have re-trigger it
-      // using event('input') so the event.target.value will be the new value.
+      // because we changed the el.value in the middle of the input event, we have to re-trigger it
+      // using the event('input') so the event.target.value will be the new value.
       // the problem is that this directive listens for the input event too, so it will
       // run an infinite loop. To prevent that, let's signal we want to skip next input event
       // by setting __preventHandlingNextInputEvent to true.
