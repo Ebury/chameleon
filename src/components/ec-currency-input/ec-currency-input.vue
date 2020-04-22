@@ -40,7 +40,7 @@
         data-test="ec-currency-input__currencies"
         @focus="currenciesHasFocus = true"
         @blur="currenciesHasFocus = false"
-        @change="onChanged"
+        @change="onChange"
       />
       <ec-amount-input
         v-model="amountModel"
@@ -52,7 +52,7 @@
         is-in-group="left"
         class="ec-currency-input__amount"
         data-test="ec-currency-input__amount"
-        @change="onChanged"
+        @change="onChange"
       />
     </div>
 
@@ -161,7 +161,7 @@ export default {
     },
   },
   methods: {
-    onChanged(evt) {
+    onChange(evt) {
       this.$emit('change', evt);
     },
   },

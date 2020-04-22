@@ -31,7 +31,7 @@ stories
       getValueType() {
         return typeof this.value;
       },
-      onChanged: action('change'),
+      onChange: action('change'),
       onInput: action('input'),
     },
     template: `
@@ -40,7 +40,7 @@ stories
         <div class="ec-grid__row">
           <div class="ec-col-12">
             <div class="ec-m--24">
-              <ec-amount-input v-bind="$props" v-model="value" @change="onChanged" @input="onInput" />
+              <ec-amount-input v-bind="$props" v-model="value" @change="onChange" @input="onInput" />
             </div>
             <div class="ec-m--24">The input value: {{ value }} (type: {{ getValueType() }})</div>
           </div>
