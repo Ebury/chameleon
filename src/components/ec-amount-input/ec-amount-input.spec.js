@@ -40,7 +40,7 @@ describe('EcAmountInput', () => {
     expect(wrapper.find('input').element.value).toBe('222');
     wrapper.find('input').setValue(1111.11);
     await wrapper.vm.$nextTick();
-    expect(wrapper.emitted('change').length).toEqual(2);
+    expect(wrapper.emitted('value-change').length).toEqual(2);
   });
 
   it('should format the number when we pass it by the v-model', async () => {
@@ -119,6 +119,7 @@ describe('EcAmountInput', () => {
       },
     );
     wrapper.find('input').setValue('1111,11');
+    await wrapper.vm.$nextTick();
     expect(wrapper.find('input').element.value).toBe('1.111,11');
     wrapper.setData({ locale: 'en' });
     await wrapper.vm.$nextTick();

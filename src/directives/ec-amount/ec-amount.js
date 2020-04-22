@@ -41,6 +41,11 @@ export default {
     updateOptions(vnode.elm, binding);
 
     el.__inputHandler = function inputHandler() {
+      if (el.__preventHandlingNextInputEvent) {
+        el.__preventHandlingNextInputEvent = false;
+        return;
+      }
+
       const options = getOptions(vnode.elm);
 
       let positionFromStart = el.selectionStart;
@@ -59,7 +64,14 @@ export default {
       el.__previousFormattedValue = newValue;
 
       setCursor(el, positionFromStart);
-      el.dispatchEvent(event('change')); // v-model.lazy
+
+      // because we changed the el.value in the middle of the input event, we have re-trigger it
+      // using event('input') so the event.target.value will be the new value.
+      // the problem is that this directive listens for the input event too, so it will
+      // run an infinite loop. To prevent that, let's signal we want to skip next input event
+      // by setting __preventHandlingNextInputEvent to true.
+      el.__preventHandlingNextInputEvent = true;
+      el.dispatchEvent(event('input'));
     };
 
     el.addEventListener('input', el.__inputHandler);
@@ -79,5 +91,6 @@ export default {
     delete el.__previousCursorPosition;
     delete el.__previousFormattedValue;
     delete el.__amountOptions;
+    delete el.__preventHandlingNextInputEvent;
   },
 };

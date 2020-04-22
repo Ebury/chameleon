@@ -98,24 +98,26 @@ describe('EcCurrencyInput', () => {
   });
 
   describe('@events', () => {
-    it('should emit change event when an item is selected', () => {
+    it('should emit change events when an item is selected', () => {
       const wrapper = mountCurrencyInput();
 
       selectItem(wrapper, 1);
       expect(wrapper.emitted('change').length).toEqual(1);
+      expect(wrapper.emitted('value-change').length).toEqual(1);
       selectItem(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
+      expect(wrapper.emitted('value-change').length).toEqual(2);
     });
 
-    it('should emit change event when amount is set', async () => {
+    it('should emit value-change event when amount is set', async () => {
       const wrapper = mountCurrencyInput();
 
       wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
       await wrapper.vm.$nextTick();
-      expect(wrapper.emitted('change').length).toEqual(1);
+      expect(wrapper.emitted('value-change').length).toEqual(1);
       wrapper.findByDataTest('ec-currency-input__amount').setValue('111');
       await wrapper.vm.$nextTick();
-      expect(wrapper.emitted('change').length).toEqual(2);
+      expect(wrapper.emitted('value-change').length).toEqual(2);
     });
   });
 
