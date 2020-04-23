@@ -40,6 +40,7 @@
         data-test="ec-currency-input__currencies"
         @focus="currenciesHasFocus = true"
         @blur="currenciesHasFocus = false"
+        @change="onCurrencyChange"
       />
       <ec-amount-input
         v-model="amountModel"
@@ -51,6 +52,7 @@
         is-in-group="left"
         class="ec-currency-input__amount"
         data-test="ec-currency-input__amount"
+        @change="onAmountChange"
       />
     </div>
 
@@ -75,7 +77,7 @@ export default {
   },
   model: {
     prop: 'value',
-    event: 'change',
+    event: 'value-change',
   },
   props: {
     value: {
@@ -146,7 +148,7 @@ export default {
         return { text: this.value.currency };
       },
       set(item) {
-        this.$emit('change', { ...this.value, currency: item.value });
+        this.$emit('value-change', { ...this.value, currency: item.value });
       },
     },
     amountModel: {
@@ -154,8 +156,18 @@ export default {
         return this.value.amount;
       },
       set(value) {
-        this.$emit('change', { ...this.value, amount: value });
+        this.$emit('value-change', { ...this.value, amount: value });
       },
+    },
+  },
+  methods: {
+    onAmountChange(evt) {
+      this.$emit('change', evt);
+      this.$emit('amount-change', evt);
+    },
+    onCurrencyChange(evt) {
+      this.$emit('change', evt);
+      this.$emit('currency-change', evt);
     },
   },
 };

@@ -10,7 +10,7 @@
       isMasked: null,
       currency: null,
     }"
-    @change="change"
+    v-on="{ ...$listeners, 'value-change': null }"
   />
 </template>
 
@@ -25,7 +25,7 @@ export default {
   inheritAttrs: false,
   model: {
     prop: 'value',
-    event: 'change',
+    event: 'value-change',
   },
   props: {
     ...EcInputField.props,
@@ -95,24 +95,17 @@ export default {
     currency() {
       const formatted = format(this.value, this.getFormattingOptions());
       this.formattedValue = formatted;
-      this.unformattedValue = +(unFormat(formatted, this.groupingSeparator, this.decimalSeparator));
     },
     locale() {
       const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
       this.formattedValue = format(formatted, this.getFormattingOptions());
     },
-    unformattedValue(newValue) {
-      if (!this.isMasked) {
-        this.$emit('change', newValue);
-      }
-    },
     formattedValue(newValue) {
-      if (this.isMasked) {
-        this.$emit('change', newValue);
-      }
+      this.unformattedValue = +(unFormat(newValue, this.groupingSeparator, this.decimalSeparator));
+      this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
     },
     isMasked() {
-      this.$emit('change', this.isMasked ? this.formattedValue : this.unformattedValue);
+      this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
     },
   },
   methods: {
@@ -129,11 +122,6 @@ export default {
         decimalSeparator: this.decimalSeparator,
         groupingSeparator: this.groupingSeparator,
       };
-    },
-    change(evt) {
-      const newValue = evt.target.value;
-      this.formattedValue = format(newValue, this.getFormattingOptions());
-      this.unformattedValue = +(unFormat(newValue, this.groupingSeparator, this.decimalSeparator));
     },
   },
 };
