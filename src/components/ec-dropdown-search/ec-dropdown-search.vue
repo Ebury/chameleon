@@ -19,7 +19,7 @@
       }"
       @hide="hide"
       @show="show"
-      @apply-show="focus"
+      @apply-show="afterShow"
     >
       <slot />
       <div slot="popover">
@@ -269,13 +269,17 @@ export default {
       this.isOpen = true;
       this.$emit('open');
     },
-    focus() {
+    focusSearch() {
       this.$nextTick(() => {
         /* istanbul ignore else */
         if (this.isOpen && this.$refs.searchInput) {
           this.$refs.searchInput.focus();
         }
       });
+    },
+    afterShow() {
+      this.$emit('after-open');
+      this.focusSearch();
     },
     select(item) {
       this.$emit('change', item);

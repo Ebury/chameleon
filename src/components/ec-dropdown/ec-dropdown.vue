@@ -15,6 +15,7 @@
     :popover-options="popoverOptions"
     @change="onSelected"
     @open="$emit('open')"
+    @after-open="$emit('after-open')"
   >
     <ec-input-field
       :id="id"
@@ -203,12 +204,16 @@ export default {
     },
     onMousedown: /* istanbul ignore next */ function onMousedown() {
       this.preventFocusToTriggerPopover = true;
+      this.shouldEmitFocus = true;
     },
     onFocus() {
       // Input can gain focus by clicking or by tabbing into. Click is handled by the popover, so if
       // the focus was gained by click, don't do anything. If the focus is gained by tabbing into, then
       // open the popover programmatically.
-      this.$emit('focus');
+      if (this.shouldEmitFocus) {
+        this.$emit('focus');
+        this.shouldEmitFocus = false;
+      }
       /* istanbul ignore next */
       if (this.preventFocusToTriggerPopover) {
         this.preventFocusToTriggerPopover = false;
