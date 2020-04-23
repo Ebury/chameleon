@@ -104,9 +104,11 @@ describe('EcCurrencyInput', () => {
       selectItem(wrapper, 1);
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(1);
+      expect(wrapper.emitted('currency-change').length).toEqual(1);
       selectItem(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);
+      expect(wrapper.emitted('currency-change').length).toEqual(2);
     });
 
     it('should emit value-change event when amount is set', async () => {
@@ -114,9 +116,16 @@ describe('EcCurrencyInput', () => {
 
       wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
       await wrapper.vm.$nextTick();
+      wrapper.findByDataTest('ec-currency-input__amount').trigger('change');
+      expect(wrapper.emitted('change').length).toEqual(1);
+      expect(wrapper.emitted('amount-change').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(1);
+
       wrapper.findByDataTest('ec-currency-input__amount').setValue('111');
       await wrapper.vm.$nextTick();
+      wrapper.findByDataTest('ec-currency-input__amount').trigger('change');
+      expect(wrapper.emitted('change').length).toEqual(2);
+      expect(wrapper.emitted('amount-change').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);
     });
   });
