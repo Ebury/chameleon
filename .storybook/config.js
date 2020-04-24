@@ -6,7 +6,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import { create as createTheme } from '@storybook/theming';
 import { getAllBackgrounds } from './backgrounds';
 import { inlineSvgSprites } from '../src/icons/browser';
-import '../src/scss/main.scss';
+import '../src/styles';
 
 addDecorator(withKnobs);
 

@@ -34,5 +34,8 @@ module.exports = async ({ config }) => {
     enforce: 'pre',
   });
 
+  const babelRule = config.module.rules[0];
+  babelRule.exclude = /node_modules\/(?!(css-tree)\/).*/;
+
   return config;
 };
