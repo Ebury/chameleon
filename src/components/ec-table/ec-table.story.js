@@ -7,8 +7,8 @@ import {
   boolean,
 } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import EcTable from './ec-table.vue';
 import EcIcon from '@/components/ec-icon/ec-icon.vue';
+import EcTable from './ec-table.vue';
 import * as SortDirection from '../../enums/sort-direction';
 
 const columns = [
