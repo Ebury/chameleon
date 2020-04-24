@@ -103,10 +103,12 @@ describe('EcCurrencyInput', () => {
 
       selectItem(wrapper, 1);
       expect(wrapper.emitted('change').length).toEqual(1);
+      expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(1);
       expect(wrapper.emitted('currency-change').length).toEqual(1);
       selectItem(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
+      expect(wrapper.emitted('focus').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);
       expect(wrapper.emitted('currency-change').length).toEqual(2);
     });
@@ -184,5 +186,7 @@ describe('EcCurrencyInput', () => {
 });
 
 function selectItem(wrapper, index) {
+  wrapper.findByDataTest('ec-currency-input__currencies').trigger('mousedown');
+  wrapper.findByDataTest('ec-currency-input__currencies').trigger('focus');
   wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
 }

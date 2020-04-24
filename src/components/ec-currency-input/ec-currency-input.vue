@@ -38,9 +38,11 @@
         :is-loading="currenciesAreLoading"
         :error-message="errorMessage"
         data-test="ec-currency-input__currencies"
-        @focus="currenciesHasFocus = true"
+        @focus="onFocusCurrency"
         @blur="currenciesHasFocus = false"
         @change="onCurrencyChange"
+        @open="$emit('open')"
+        @after-open="$emit('after-open')"
       />
       <ec-amount-input
         v-model="amountModel"
@@ -53,6 +55,7 @@
         class="ec-currency-input__amount"
         data-test="ec-currency-input__amount"
         @change="onAmountChange"
+        @focus="$emit('focus')"
       />
     </div>
 
@@ -169,6 +172,10 @@ export default {
       this.$emit('change', evt);
       this.$emit('currency-change', evt);
     },
+    onFocusCurrency() {
+      this.currenciesHasFocus = true;
+      this.$emit('focus');
+    },
   },
 };
 </script>
@@ -190,6 +197,7 @@ $ec-currency-input-invalid-color: $color-error !default;
   &__currencies {
     margin-right: -1px;
     width: 104px;
+    flex-shrink: 0;
   }
 
   &__currencies--is-focused {

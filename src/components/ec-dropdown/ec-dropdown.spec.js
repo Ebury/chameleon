@@ -389,6 +389,7 @@ describe('EcDropdown', () => {
         selectItem(wrapper, 1);
 
         expect(wrapper.emitted('change').length).toEqual(1);
+        expect(wrapper.emitted('focus').length).toEqual(1);
         expect(wrapper.emitted('change')[0]).toEqual([[items[1]]]);
       });
 
@@ -403,5 +404,7 @@ describe('EcDropdown', () => {
 });
 
 function selectItem(wrapper, index) {
+  wrapper.findByDataTest('ec-dropdown__input').trigger('mousedown');
+  wrapper.findByDataTest('ec-dropdown__input').trigger('click');
   wrapper.findAll('.ec-dropdown-search__item').at(index).trigger('click');
 }
