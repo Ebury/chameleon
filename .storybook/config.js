@@ -6,7 +6,20 @@ import { withA11y } from '@storybook/addon-a11y';
 import { create as createTheme } from '@storybook/theming';
 import { getAllBackgrounds } from './backgrounds';
 import { inlineSvgSprites } from '../src/icons/browser';
-import '../src/styles';
+// TODO: once the SASS is gone, import just the main.css from styles folder.
+import '../src/scss/settings/_index.scss';
+// import '../src/styles/settings/index.css';
+import '../src/scss/tools/_index.scss';
+// import '../src/styles/tools/index.css';
+import '../src/scss/generic/_index.scss';
+import '../src/styles/generic/index.css';
+import '../src/scss/elements/_index.scss';
+// import '../src/scss/objects/_index.scss';
+// import '../src/styles/objects/index.css';
+import '../src/scss/components/_index.scss';
+import '../src/styles/components/index.css';
+import '../src/scss/utilities/_index.scss';
+import '../src/styles/utilities/index.css';
 
 addDecorator(withKnobs);
 
