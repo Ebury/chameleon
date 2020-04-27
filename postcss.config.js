@@ -6,11 +6,9 @@ module.exports = ({ file }) => {
     plugins: {
       'postcss-import': {},
       'postcss-mixins': {},
+      tailwindcss: {},
       'postcss-nested': {},
       'postcss-preset-env': {},
-      'postcss-color-function': {},
-      tailwindcss: {},
-      autoprefixer: {},
     },
   };
 };
