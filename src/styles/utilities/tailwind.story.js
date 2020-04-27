@@ -28,6 +28,9 @@ function cleanUpSelector(selector) {
 const stories = storiesOf('CSS/Tailwind', module);
 
 stories
+  .addParameters({
+    a11y: { disabled: true }, // a11y addon, checking a story with a table of 3000+ rows, crashes the browser. we don't need this addon in here.
+  })
   .add('all', () => ({
     template: `
       <div class="tw-max-w-screen-lg tw-m-auto tw-mt-20">
