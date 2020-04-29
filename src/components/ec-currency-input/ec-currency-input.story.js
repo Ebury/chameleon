@@ -26,8 +26,8 @@ stories
       locale: {
         default: select('locale', ['en', 'es', 'de-ch', 'jp'], 'en'),
       },
-      currenciesLoading: {
-        default: boolean('currencies loading', false),
+      currenciesAreLoading: {
+        default: boolean('currencies are loading', false),
       },
       isAmountDisabled: {
         default: boolean('amount disabled', false),
@@ -49,5 +49,3 @@ stories
       </div>
     `,
   }));
-
-export default stories;

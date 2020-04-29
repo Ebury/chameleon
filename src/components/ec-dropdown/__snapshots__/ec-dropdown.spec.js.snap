@@ -120,7 +120,7 @@ exports[`EcDropdown multiple value :props should get disabled when disabled prop
       />
        
       <div
-        class="ec-input-field__icon-wrapper"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
       >
         <svg
           class="ec-input-field__icon ec-icon"
@@ -900,7 +900,7 @@ exports[`EcDropdown single value :props should get disabled when disabled prop i
       />
        
       <div
-        class="ec-input-field__icon-wrapper"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
       >
         <svg
           class="ec-input-field__icon ec-icon"

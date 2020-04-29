@@ -100,16 +100,13 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
 </ecpopover-stub>
 `;
 
-exports[`EcCurrencyInput :props should render the component with the dropdown disabled when isCurrenciesDisabled is set true 1`] = `
-<input
-  class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-  data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
-  disabled="disabled"
-  id="ec-currency-input-field-73"
-  placeholder=""
-  readonly="readonly"
-  type="text"
-/>
+exports[`EcCurrencyInput :props should render the component with the dropdown part disabled when isCurrenciesDisabled is set true 1`] = `
+<div
+  class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
+  data-test="ec-currency-input__currencies"
+>
+  EUR
+</div>
 `;
 
 exports[`EcCurrencyInput :props should render the component with the input disabled when isAmountDisabled is set true 1`] = `
@@ -117,7 +114,7 @@ exports[`EcCurrencyInput :props should render the component with the input disab
   class="ec-input-field__input ec-input-field__input--is-in-group-left"
   data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
   disabled="disabled"
-  id="ec-input-field-91"
+  id="ec-input-field-85"
   type="text"
 />
 `;

@@ -145,4 +145,14 @@ describe('EcInputField', () => {
     const wrapper = mountInputField({ iconSize: 40 });
     expect(wrapper.find('.ec-input-field__icon-wrapper').exists()).toBe(false);
   });
+
+  it('renders properly when disabled', () => {
+    const wrapper = mountInputField({}, { attrs: { disabled: true } });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly the icon when disabled', () => {
+    const wrapper = mountInputField({ icon: 'simple-check' }, { attrs: { disabled: true } });
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
