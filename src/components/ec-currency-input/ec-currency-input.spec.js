@@ -84,8 +84,8 @@ describe('EcCurrencyInput', () => {
       expect(wrapper.findByDataTest('ec-popover-dropdown-search').element).toMatchSnapshot();
     });
 
-    it('should render the component with the dropdown disabled when isCurrenciesDisabled is set true', () => {
-      const wrapper = mountCurrencyInput({ isCurrenciesDisabled: true });
+    it('should render the component with the dropdown part disabled when isCurrenciesDisabled is set true', () => {
+      const wrapper = mountCurrencyInput({ isCurrenciesDisabled: true, value: { currency: 'EUR' } });
 
       expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
     });
@@ -148,6 +148,21 @@ describe('EcCurrencyInput', () => {
       expect(wrapper.vm.value.currency).toEqual(currencies[0]);
       selectItem(wrapper, 1);
       expect(wrapper.vm.value.currency).toEqual(currencies[1]);
+    });
+
+    it('should preselect the currency item in the dropdown and the amount in the input from the v-model', () => {
+      const wrapper = mountCurrencyInputAsTemplate(
+        '<ec-currency-input :currencies="currencies" v-model="value" />',
+        {},
+        {
+          data() {
+            return { currencies, value: { currency: currencies[1], amount: 1234.56 } };
+          },
+        },
+      );
+
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').element.value).toBe(currencies[1]);
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toBe('1,234.56');
     });
 
     it('should use the v-model with the amount and emit the changes', async () => {

@@ -23,8 +23,15 @@
       ref="popperWidthReference"
       class="ec-currency-input__input-group"
     >
+      <div
+        v-if="isCurrenciesDisabled"
+        class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
+        :class="{ 'ec-currency-input__currencies--is-disabled-and-has-error': isInvalid }"
+        data-test="ec-currency-input__currencies"
+      >{{ currencyModel && currencyModel.text }}</div>
       <ec-dropdown
         :id="id"
+        v-else
         v-model="currencyModel"
         :class="{ 'ec-currency-input__currencies--is-focused': currenciesHasFocus }"
         :error-id="errorId"
@@ -34,7 +41,6 @@
         class="ec-currency-input__currencies"
         is-in-group="right"
         is-search-enabled
-        :disabled="isCurrenciesDisabled"
         :is-loading="currenciesAreLoading"
         :error-message="errorMessage"
         data-test="ec-currency-input__currencies"
@@ -148,7 +154,7 @@ export default {
     },
     currencyModel: {
       get() {
-        return { text: this.value.currency };
+        return this.currenciesItems.find(item => item.value === this.value.currency);
       },
       set(item) {
         this.$emit('value-change', { ...this.value, currency: item.value });
@@ -195,9 +201,29 @@ $ec-currency-input-invalid-color: $color-error !default;
   }
 
   &__currencies {
+    $currencies-width: 104px;
+
     margin-right: -1px;
-    width: 104px;
+    width: $currencies-width;
     flex-shrink: 0;
+
+    &--is-disabled {
+      @include shape-border-radius;
+
+      width: auto;
+      flex-grow: 0;
+      min-width: 48px;
+      max-width: $currencies-width;
+      padding: 8px 12px;
+      border: 1px solid $level-6-disabled-lines;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: $level-6-disabled-lines;
+    }
+
+    &--is-disabled-and-has-error {
+      border: 1px solid $ec-currency-input-invalid-color;
+    }
   }
 
   &__currencies--is-focused {

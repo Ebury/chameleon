@@ -38,6 +38,7 @@
     <div
       v-if="icon"
       class="ec-input-field__icon-wrapper"
+      :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
     >
       <ec-icon
         class="ec-input-field__icon"
@@ -117,6 +118,9 @@ export default {
     isInvalid() {
       return !!this.errorMessage;
     },
+    isDisabled() {
+      return !!this.$attrs.disabled;
+    },
     inputModel: {
       get() {
         return this.value;
@@ -140,6 +144,7 @@ $ec-input-field-note-color: $level-5-placeholders !default;
 $ec-input-field-background-disabled: $level-7-backgrounds !default;
 $ec-input-field-icon-area-size: 42px !default;
 $ec-input-field-icon-color: $ec-input-field-text-color !default;
+$ec-input-field-icon-disabled-color: $level-6-disabled-lines !default;
 $ec-input-field-invalid-color: $color-error !default;
 
 .ec-input-field {
@@ -228,6 +233,10 @@ $ec-input-field-invalid-color: $color-error !default;
     line-height: $ec-input-field-icon-area-size;
     font-size: 0;
     text-align: center;
+
+    &--is-disabled {
+      color: $ec-input-field-icon-disabled-color;
+    }
   }
 
   &__icon {
