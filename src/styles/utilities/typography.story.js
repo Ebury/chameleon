@@ -18,7 +18,7 @@ stories.add('basic', () => ({
     <div>
       <p v-for="type of types"
         :key="type"
-        :class="'tw-px-24 ' + type">{{ type }} - Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">elit</a>. Donec sodales felis nec libero vehicula, sit amet gravida dolor cursus</p>
+        :class="'tw-px-24 ' + type">{{ type.replace('tw-', '') }} - Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">elit</a>. Donec sodales felis nec libero vehicula, sit amet gravida dolor cursus</p>
     </div>
   `,
 }));

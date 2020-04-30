@@ -4,6 +4,13 @@ const plugin = require('tailwindcss/plugin');
 // see https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 // for reference config
 module.exports = {
+  // we don't use built-in purge because:
+  // 1. we have specific scenarios which we don't want to be purged -> tailwind.story.css
+  // 2. we need to tweak the purgecss config in the real application
+  // 3. we want to have purgecss available for other parts of the code in the future, e.g. purging other 3rd party libraries
+  // so we set up purgecss manually. see: https://tailwindcss.com/docs/controlling-file-size/#setting-up-purgecss-manually
+  purge: [],
+  target: 'ie11',
   prefix: 'tw-',
   important: false,
   separator: ':',
@@ -119,6 +126,7 @@ module.exports = {
       ...theme('colors'),
       default: theme('colors.gray.level-4', 'currentColor'),
     }),
+    // borderOpacity: theme => theme('opacity'),
     borderRadius: {
       none: '0',
       sm: '2px',
@@ -160,6 +168,7 @@ module.exports = {
       'not-allowed': 'not-allowed',
     },
     // divideColor: theme => theme('borderColor'),
+    // divideOpacity: theme => theme('borderOpacity'),
     // divideWidth: theme => theme('borderWidth'),
     fill: theme => theme('colors'),
     flex: {
@@ -329,6 +338,7 @@ module.exports = {
     },
     padding: theme => theme('spacing'),
     // placeholderColor: theme => theme('colors'),
+    // placeholderOpacity: theme => theme('opacity'),
     // space: (theme, { negative }) => ({
     //   ...theme('spacing'),
     //   ...negative(theme('spacing')),
@@ -342,6 +352,7 @@ module.exports = {
       2: '2',
     },
     textColor: theme => theme('colors'),
+    // textOpacity: theme => theme('opacity'),
     width: theme => ({
       auto: 'auto',
       ...theme('spacing'),
@@ -613,11 +624,13 @@ module.exports = {
     appearance: [ /* 'responsive' */ ],
     backgroundAttachment: [ /* 'responsive' */ ],
     backgroundColor: [ /* 'responsive', */ 'hover', 'focus' ],
+    backgroundOpacity: [ /* 'responsive', 'hover', 'focus' */ ],
     backgroundPosition: [ /* 'responsive' */ ],
     backgroundRepeat: [ /* 'responsive' */ ],
     backgroundSize: [ /* 'responsive' */ ],
     borderCollapse: [ /* 'responsive' */ ],
     borderColor: [ /* 'responsive', 'hover', 'focus' */ ],
+    borderOpacity: [ /* 'responsive', 'hover', 'focus' */ ],
     borderRadius: [ /* 'responsive' */ ],
     borderStyle: [ /* 'responsive' */ ],
     borderWidth: [ /* 'responsive' */ ],
@@ -626,6 +639,7 @@ module.exports = {
     cursor: [ /* 'responsive' */ ],
     display: [ 'responsive' ],
     divideColor: [ /* 'responsive' */ ],
+    divideOpacity: [ /* 'responsive' */ ],
     divideWidth: [ /* 'responsive' */ ],
     fill: [ /* 'responsive', */ 'hover', 'focus' ],
     flex: [ 'responsive' ],
@@ -660,6 +674,7 @@ module.exports = {
     overflow: [ /* 'responsive' */ ],
     padding: [ 'responsive' ],
     placeholderColor: [ /* 'responsive', 'focus' */ ],
+    placeholderOpacity: [ /* 'responsive', 'focus' */ ],
     pointerEvents: [ /* 'responsive' */ ],
     position: [ /* 'responsive' */ ],
     resize: [ /* 'responsive' */ ],
@@ -669,6 +684,7 @@ module.exports = {
     tableLayout: [ /* 'responsive' */ ],
     textAlign: [ 'responsive' ],
     textColor: [ /* 'responsive', */ 'hover', 'focus' ],
+    textOpacity: [ /* 'responsive', 'hover', 'focus' */ ],
     textDecoration: [ /* 'responsive', 'hover', 'focus' */ ],
     textTransform: [ /* 'responsive' */ ],
     userSelect: [ /* 'responsive' */ ],
@@ -706,6 +722,7 @@ module.exports = {
     space: false, // it's going against BEM
     divideColor: false, // it's going against BEM
     divideWidth: false, // it's going against BEM
+    divideOpacity: false, // it's going against BEM
 
     accessibility: true,
     alignContent: true,
@@ -714,11 +731,13 @@ module.exports = {
     appearance: false, // we build custom components
     backgroundAttachment: false,
     backgroundColor: true,
+    backgroundOpacity: false, // uses local css variables - not supported by polyfill in IE11
     backgroundPosition: false, // very rarely used
     backgroundRepeat: true,
     backgroundSize: false, // very rarely used
     borderCollapse: false, // we need this only for a table
     borderColor: true,
+    borderOpacity: false, // uses local css variables - not supported by polyfill in IE11
     borderRadius: true,
     borderStyle: true,
     borderWidth: true,
@@ -759,6 +778,7 @@ module.exports = {
     overflow: true,
     padding: true,
     placeholderColor: false, // very rarely used
+    placeholderOpacity: false, // uses local css variables - not supported by polyfill in IE11
     pointerEvents: true,
     position: true,
     resize: true,
@@ -767,6 +787,7 @@ module.exports = {
     tableLayout: true,
     textAlign: true,
     textColor: true,
+    textOpacity: false, // uses local css variables - not supported by polyfill in IE11
     textDecoration: true,
     textTransform: true,
     userSelect: true,
