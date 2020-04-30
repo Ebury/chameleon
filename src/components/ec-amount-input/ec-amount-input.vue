@@ -49,7 +49,7 @@ export default {
   data() {
     return {
       formattedValue: '',
-      unformattedValue: 0,
+      unformattedValue: null,
     };
   },
   computed: {
@@ -101,7 +101,11 @@ export default {
       this.formattedValue = format(formatted, this.getFormattingOptions());
     },
     formattedValue(newValue) {
-      this.unformattedValue = +(unFormat(newValue, this.groupingSeparator, this.decimalSeparator));
+      if (newValue) {
+        this.unformattedValue = +(unFormat(newValue, this.groupingSeparator, this.decimalSeparator));
+      } else {
+        this.unformattedValue = null;
+      }
       this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
     },
     isMasked() {

@@ -186,5 +186,30 @@ describe('EcAmountInput', () => {
     expect(wrapper.find('input').element.value).toBe('-');
     expect(wrapper.vm.valueAmount).toBeNaN();
   });
+
+  it('should allow to reset the value from the v-model', async () => {
+    const wrapper = mountAmountInputAsTemplate(
+      '<ec-amount-input v-model="valueAmount" locale="en" />', {
+        data() {
+          return {
+            valueAmount: null,
+          };
+        },
+      },
+    );
+
+    expect(wrapper.find('input').element.value).toBe('');
+    expect(wrapper.vm.valueAmount).toBe(null);
+
+    wrapper.find('input').setValue('2.11');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('input').element.value).toBe('2.11');
+    expect(wrapper.vm.valueAmount).toBe(2.11);
+
+    wrapper.find('input').setValue('');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('input').element.value).toBe('');
+    expect(wrapper.vm.valueAmount).toBe(null);
+  });
 });
 
