@@ -4,11 +4,15 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withA11y } from '@storybook/addon-a11y';
 import { create as createTheme } from '@storybook/theming';
+import cssVars from 'css-vars-ponyfill';
 import { getAllBackgrounds } from './backgrounds';
 import { inlineSvgSprites } from '../src/icons/browser';
+
+// TODO: add theme switcher
+import '../src/styles/themes/blue.css';
 // TODO: once the SASS is gone, import just the main.css from styles folder.
-import '../src/scss/settings/_index.scss';
-// import '../src/styles/settings/index.css';
+// import '../src/scss/settings/_index.scss';
+import '../src/styles/settings/index.css';
 import '../src/scss/tools/_index.scss';
 // import '../src/styles/tools/index.css';
 import '../src/scss/generic/_index.scss';
@@ -61,6 +65,7 @@ const loadStories = () => {
 };
 
 configure(() => {
+  cssVars();
   inlineSvgSprites(['rounded-icons', 'simple-icons', 'currency-flags'], '/img');
   loadStories();
 }, module);

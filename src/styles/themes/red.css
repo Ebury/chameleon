@@ -1,0 +1,16 @@
+:root {
+  --ec-theme-key-color-level-1: 1, 40%, 12%;
+  --ec-theme-key-color-level-2: 1, 40%, 20%;
+  --ec-theme-key-color-level-3: 1, 40%, 37%;
+  --ec-theme-key-color-level-4: 1, 40%, 47%;
+  --ec-theme-key-color-level-5: 1, 40%, 57%;
+  --ec-theme-key-color-level-6: 1, 40%, 88%;
+  --ec-theme-key-color-level-7: 1, 40%, 96%;
+  --ec-theme-gray-color-level-1: 1, 10%, 12%;
+  --ec-theme-gray-color-level-2: 1, 10%, 20%;
+  --ec-theme-gray-color-level-3: 1, 10%, 37%;
+  --ec-theme-gray-color-level-4: 1, 10%, 47%;
+  --ec-theme-gray-color-level-5: 1, 10%, 57%;
+  --ec-theme-gray-color-level-6: 1, 10%, 88%;
+  --ec-theme-gray-color-level-7: 1, 10%, 96%;
+}

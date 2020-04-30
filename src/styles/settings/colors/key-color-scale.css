@@ -1,0 +1,9 @@
+:root {
+  --ec-key-color-level-1: var(--ec-theme-key-color-level-1);
+  --ec-key-color-level-2: var(--ec-theme-key-color-level-2);
+  --ec-key-color-level-3: var(--ec-theme-key-color-level-3);
+  --ec-key-color-level-4: var(--ec-theme-key-color-level-4);
+  --ec-key-color-level-5: var(--ec-theme-key-color-level-5);
+  --ec-key-color-level-6: var(--ec-theme-key-color-level-6);
+  --ec-key-color-level-7: var(--ec-theme-key-color-level-7);
+}

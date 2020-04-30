@@ -1,0 +1,11 @@
+:root {
+  --ec-light-color: var(--ec-theme-light-color, 0, 0%, 100%);
+  --ec-dark-color: var(--ec-theme-dark-color, 0, 0%, 0%);
+  --ec-gray-color-level-1: var(--ec-theme-gray-color-level-1);
+  --ec-gray-color-level-2: var(--ec-theme-gray-color-level-2);
+  --ec-gray-color-level-3: var(--ec-theme-gray-color-level-3);
+  --ec-gray-color-level-4: var(--ec-theme-gray-color-level-4);
+  --ec-gray-color-level-5: var(--ec-theme-gray-color-level-5);
+  --ec-gray-color-level-6: var(--ec-theme-gray-color-level-6);
+  --ec-gray-color-level-7: var(--ec-theme-gray-color-level-7);
+}
