@@ -23,6 +23,20 @@ All of our components are exported by name from @ebury/chameleon-components, so 
 import { ComponentName } from '@ebury/chameleon-components';
 ```
 
+## Theming
+
+The components can use a custom theme. There are four color palettes used by the CSS, two of them can be adjusted via
+CSS variables, e.g. the default blue color is defined as `--ec-key-color-level-4` and can be configured via `--ec-theme-key-color-level-4`.
+
+Checkout the list of possible variables in the [storybook colors story](https://chameleon.ebury.now.sh/?path=/story/css-colors-all).
+
+A few examples of a theme can be found in the [src/styles/themes/](src/styles/themes/) folder.
+
+### CSS variables polyfill
+
+If you support **IE11** browser, you have to include the [CSS vars ponyfill](https://jhildenbiddle.github.io/css-vars-ponyfill/#/) when using our components. 
+Follow their instructions how to [install it](https://jhildenbiddle.github.io/css-vars-ponyfill/#/?id=installation) an [used it](https://jhildenbiddle.github.io/css-vars-ponyfill/#/?id=usage).
+
 ## Contributing
 
 For the development of @ebury/chameleon-components, we use storybook [Storybook](https://storybook.js.org/).
@@ -185,3 +199,5 @@ npm run build
 [TailwindCSS](https://tailwindcss.com/)
 
 [PurgeCSS](https://purgecss.com/plugins/postcss.html)
+
+[CSS vars ponyfill](https://jhildenbiddle.github.io/css-vars-ponyfill/#/)

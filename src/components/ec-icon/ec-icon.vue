@@ -56,6 +56,7 @@ export default {
   }
 
   &--interactive {
+    // TODO $color-interactive has been deprecated -> use gray-color-level-4 instead - that's the same color
     fill: $color-interactive;
   }
 }

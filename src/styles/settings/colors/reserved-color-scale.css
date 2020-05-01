@@ -1,0 +1,10 @@
+:root {
+  --ec-reserved-color-error: 0, 72%, 56%;
+  --ec-reserved-color-error-hover: 0, 72%, 46%;
+  --ec-reserved-color-info: 205, 100%, 56%;
+  --ec-reserved-color-info-hover: 205, 100%, 46%;
+  --ec-reserved-color-success: 162, 80%, 41%;
+  --ec-reserved-color-success-hover: 162, 80%, 31%;
+  --ec-reserved-color-warning: 36, 100%, 55%;
+  --ec-reserved-color-warning-hover: 36, 100%, 45%;
+}

@@ -82,10 +82,6 @@ module.exports = {
         default: 'hsl(var(--ec-reserved-color-warning))',
         hover: 'hsl(var(--ec-reserved-color-warning-hover))',
       },
-
-      interactive: {
-        default: 'hsl(var(--ec-reserved-color-interactive))',
-      },
     },
     spacing: {
       // px: '1px',
