@@ -40,7 +40,22 @@ the name doesn't reflect the usage e.g. the color `$level-6-disabled-lines` is u
 
 ### tools
 
-None (yet)
+* mixin `ec-screen-reader-only` removed, use `tw-sr-only` instead.
+* mixins `checkbox-border-radius`, `shape-border-radius` and `button-border-radius` removed, use `tw-rounded-sm`, `tw-rounded` and `tw-rounded-button`.
+* mixin `border-level-6` removed, use `tw-border tw-border-solid tw-border-gray-6` instead.
+* mixins from `media-queries.scss` removed, use `@screen <breakpoint>` or `<breakpoint>:<utility>` instead.
+Mixins like `media__up-to-*` and `media__only-mobile` will not be used in the future as tailwind is strictly
+[mobile first](https://tailwindcss.com/docs/responsive-design/#mobile-first).
+* mixins `media__orientation-landscape` and `media__orientation-portrait` removed without replacement. They were not used anywhere in the code.
+* mixin `color-transition` renamed to `ec-text-color-transition` so it matches tailwind naming.
+* mixin `fade-transition` renamed to `ec-fade-transition`.
+* mixins from `typography.scss` removed, use `tw-h1`, `tw-body-text`, `tw-input-label` instead.
+Only mixin `body-link` was preserved, but it was renamed to `ec-body-link`.
+* mixin `ellipsis` removed, use `tw-truncate` instead.
+* mixin `body-strong` - removed color declaration to match the `body-text`.
+* mixin `btn` renamed in tailwind to `tw-btn-text`. The name `btn` was just too generic.
+* mixins from `v-effects` removed, use `tw-shadow-level-X`. `left-box-shadow-level-1` renamed to `tw-shadow-level-1-rtl`. Fixed the opacity of `tw-shadow-level-1-rtl` not matching `tw-shadow-level-1` (0.1 -> 0.2).
+* mixins from `z-index` removed, use `tw-z-<name_of_level>`, e.g. `tw-z-notification`.
 
 ### generic
 

@@ -1,0 +1,13 @@
+@define-mixin ec-body-link {
+  @apply tw-text-key-4 tw-no-underline;
+
+  &:hover {
+    @apply tw-underline;
+  }
+
+  &:focus {
+    outline: 1px dashed currentColor;
+  }
+
+  @mixin-content;
+}

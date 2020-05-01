@@ -13,8 +13,8 @@ import '../src/styles/themes/blue.css';
 // TODO: once the SASS is gone, import just the main.css from styles folder.
 // import '../src/scss/settings/_index.scss';
 import '../src/styles/settings/index.css';
-import '../src/scss/tools/_index.scss';
-// import '../src/styles/tools/index.css';
+// import '../src/scss/tools/_index.scss';
+import '../src/styles/tools/index.css';
 import '../src/scss/generic/_index.scss';
 import '../src/styles/generic/index.css';
 import '../src/scss/elements/_index.scss';
