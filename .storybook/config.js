@@ -15,7 +15,7 @@ import '../src/styles/themes/blue.css';
 import '../src/styles/settings/index.css';
 // import '../src/scss/tools/_index.scss';
 import '../src/styles/tools/index.css';
-import '../src/scss/generic/_index.scss';
+// import '../src/scss/generic/_index.scss';
 import '../src/styles/generic/index.css';
 import '../src/scss/elements/_index.scss';
 // import '../src/scss/objects/_index.scss';
