@@ -1,0 +1,32 @@
+@define-mixin scrollbar {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply tw-bg-light;
+    @apply tw-rounded-sm;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply tw-bg-gray-4;
+    @apply tw-rounded;
+  }
+}
+
+@define-mixin small-scrollbar {
+  &::-webkit-scrollbar-track {
+    @apply tw-bg-transparent;
+  }
+
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply tw-bg-gray-4;
+
+    border-radius: 10px;
+  }
+}

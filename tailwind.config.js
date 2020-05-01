@@ -547,6 +547,7 @@ module.exports = {
       all: 'all',
       default: 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform',
       colors: 'background-color, border-color, color, fill, stroke',
+      text: 'color',
       opacity: 'opacity',
       shadow: 'box-shadow',
       transform: 'transform',

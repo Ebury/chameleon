@@ -1,0 +1,21 @@
+@define-mixin ec-fade-transition
+  $transition-duration: 0.5s,
+  $transition-timing-function: ease,
+  $transition-delay: null {
+  &-enter-active,
+  &-leave-active {
+    transition-property: opacity;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-timing-function;
+    transition-delay: $transition-delay;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+@define-mixin ec-text-color-transition {
+  @apply tw-transition-text tw-duration-300 tw-ease-out;
+}
