@@ -24,7 +24,7 @@ stories
         default: text('note', 'Select currency and set amount'),
       },
       locale: {
-        default: select('locale', ['en', 'es', 'de-ch', 'jp', 'se'], 'en'),
+        default: select('locale', ['en', 'es', 'de-ch', 'jp', 'sv'], 'en'),
       },
       currenciesAreLoading: {
         default: boolean('currencies are loading', false),
