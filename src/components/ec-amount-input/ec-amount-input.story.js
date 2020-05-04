@@ -18,7 +18,7 @@ stories
         default: boolean('Is Masked', false),
       },
       locale: {
-        default: select('Locale', ['en', 'es', 'de-ch', 'jp'], 'en'),
+        default: select('Locale', ['en', 'es', 'de-ch', 'jp', 'se'], 'en'),
       },
       currency: {
         default: select('Currency', ['GBP', 'EUR', 'JPY', 'INR', 'USD', 'CAD'], 'GBP'),
