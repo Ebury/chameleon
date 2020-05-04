@@ -1,0 +1,13 @@
+table {
+  @apply tw-p-0 tw-pt-16;
+
+  border-spacing: 0;
+}
+
+th {
+  @apply tw-mini-header tw-normal-case;
+}
+
+td {
+  @apply tw-body-text;
+}

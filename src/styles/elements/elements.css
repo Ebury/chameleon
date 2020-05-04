@@ -1,0 +1,67 @@
+@import '../tools/typography.css';
+
+html {
+  @apply tw-min-h-full;
+
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* stylelint-disable selector-max-universal */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* stylelint-enable */
+
+body {
+  @apply tw-font-sans tw-body-text tw-text-gray-3 tw-normal-case;
+
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+h1 {
+  @apply tw-h1;
+}
+
+h2 {
+  @apply tw-h2;
+}
+
+h3 {
+  @apply tw-h3;
+}
+
+h4 {
+  @apply tw-h4;
+}
+
+h5 {
+  @apply tw-h5;
+}
+
+h6 {
+  @apply tw-h6;
+}
+
+a {
+  @mixin ec-body-link;
+}
+
+p {
+  @apply tw-body-text tw-max-w-paragraph;
+
+  margin: 1em 0;
+}
+
+::placeholder {
+  @apply tw-text-gray-5;
+}
+
+textarea {
+  @apply tw-block;
+  @apply tw-resize-none;
+}
