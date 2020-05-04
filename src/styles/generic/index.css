@@ -1,1 +1,4 @@
 @import 'tailwindcss/base';
+@import 'css-reset';
+@import 'fonts';
+@import 'normalize';
