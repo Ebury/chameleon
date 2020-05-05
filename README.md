@@ -32,6 +32,18 @@ Checkout the list of possible variables in the [storybook colors story](https://
 
 A few examples of a theme can be found in the [src/styles/themes/](src/styles/themes/) folder.
 
+## I18n
+
+Some components, e.g. `ec-amount-input` or `ec-donut` require `Intl` API to format values properly or to detect
+what is the decimal/grouping separator for a current locale. They both do that via [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
+which might have issues in some browsers for not having all locales set up properly. See the issues we discovered in this [PR](https://github.com/Ebury/chameleon/pull/156#issuecomment-623705733).
+If you need to support every single locale on the planet, we recommend to polyfill the Intl API using [intl](https://www.npmjs.com/package/intl) package
+so it's consistent across all browsers.
+
+```html
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en|always"></script>
+```
+
 ### CSS variables polyfill
 
 If you support **IE11** browser, you have to include the [CSS vars ponyfill](https://jhildenbiddle.github.io/css-vars-ponyfill/#/) when using our components. 
