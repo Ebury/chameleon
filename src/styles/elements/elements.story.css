@@ -1,0 +1,15 @@
+.ec-elements-story {
+  > * {
+    /* insert a line break after every element in the story  */
+    &:after {
+      @apply tw-block;
+
+      content: '';
+    }
+  }
+
+  &__heading {
+    @apply tw-mt-24;
+    @apply tw-border-b tw-border-solid tw-border-gray-5;
+  }
+}
