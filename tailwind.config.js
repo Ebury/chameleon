@@ -582,36 +582,36 @@ module.exports = {
       700: '700ms',
       1000: '1000ms',
     },
-    typography: {
+    typography: theme => ({
       h1: { fontSize: '35px', lineHeight: '40px', fontWeight: 400 },
       h2: { fontSize: '25px', lineHeight: '35px', fontWeight: 300 },
       h3: { fontSize: '20px', lineHeight: '30px', fontWeight: 500 },
       h4: { fontSize: '18px', lineHeight: '24px', fontWeight: 300 },
       h5: { fontSize: '16px', lineHeight: '26px', fontWeight: 500 },
       h6: {
-        fontSize: '14px', lineHeight: '24px', fontWeight: 500, '@apply uppercase': '',
+        fontSize: '14px', lineHeight: '24px', fontWeight: 500, textTransform: 'uppercase',
       },
       'body-text': { fontSize: '16px', lineHeight: '24px', fontWeight: 400 },
       'body-strong': { fontSize: '16px', lineHeight: '24px', fontWeight: 700 },
       'body-condensed': {
-        fontSize: '16px', lineHeight: '24px', fontWeight: 400, '@apply font-sans-condensed': '',
+        fontSize: '16px', lineHeight: '24px', fontWeight: 400, fontFamily: theme('fontFamily.sans-condensed').join(', '),
       },
       'small-text': { fontSize: '14px', lineHeight: '20px', fontWeight: 400 },
       'mini-header': {
-        fontSize: '14px', lineHeight: '20px', fontWeight: 400, '@apply uppercase text-gray-5': '',
+        fontSize: '14px', lineHeight: '20px', fontWeight: 400, color: theme('textColor.gray.5'), textTransform: 'uppercase',
       },
       'caption-text': {
-        fontSize: '14px', lineHeight: '20px', fontWeight: 400, '@apply text-gray-5': '',
+        fontSize: '14px', lineHeight: '20px', fontWeight: 400, color: theme('textColor.gray.5'),
       },
       'input-label': {
-        fontSize: '14px', lineHeight: '20px', fontWeight: 700, '@apply text-gray-3': '',
+        fontSize: '14px', lineHeight: '20px', fontWeight: 700, color: theme('textColor.gray.3'),
       },
       'table-header': {
-        fontSize: '14px', lineHeight: '20px', fontWeight: 700, '@apply text-gray-5': '',
+        fontSize: '14px', lineHeight: '20px', fontWeight: 700, color: theme('textColor.gray.5'),
       },
       'btn-text': { fontSize: '16px', lineHeight: '22px', fontWeight: 400 },
       'flags-text': { fontSize: '12px', lineHeight: '20px', fontWeight: 400 },
-    },
+    }),
   },
   variants: {
     accessibility: [ /* 'responsive', 'focus' */ ],
