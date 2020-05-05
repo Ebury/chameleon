@@ -7,7 +7,7 @@ stories.add('basic', () => ({
     return {
       types: [
         'tw-h1', 'tw-h2', 'tw-h3', 'tw-h4', 'tw-h5', 'tw-h6',
-        'tw-body-text', 'tw-body-strong',
+        'tw-body-text', 'tw-body-strong', 'tw-body-condensed',
         'tw-mini-header', 'tw-table-header',
         'tw-small-text', 'tw-caption-text',
         'tw-input-label', 'tw-btn-text', 'tw-flags-text',
