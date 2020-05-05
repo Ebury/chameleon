@@ -197,6 +197,61 @@ describe('EcCurrencyInput', () => {
       await wrapper.vm.$nextTick();
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
     });
+
+    it('should not add decimal back when switching from JPY back to GBP', async () => {
+      const wrapper = mountCurrencyInputAsTemplate(
+        '<ec-currency-input :currencies="currencies" v-model="value" />',
+        {},
+        {
+          data() {
+            return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
+          },
+        },
+      );
+
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
+      selectItem(wrapper, currencies.indexOf('JPY'));
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
+
+      selectItem(wrapper, currencies.indexOf('GBP'));
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
+    });
+
+    it('should preserve same format when currency changes', async () => {
+      const wrapper = mountCurrencyInputAsTemplate(
+        '<ec-currency-input :currencies="currencies" v-model="value" locale="en" />',
+        {},
+        {
+          data() {
+            return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
+          },
+        },
+      );
+
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
+      selectItem(wrapper, currencies.indexOf('EUR'));
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
+    });
+
+    it('should preserve same format when currency changes and the locale does not use dot as a decimal separator', async () => {
+      const wrapper = mountCurrencyInputAsTemplate(
+        '<ec-currency-input :currencies="currencies" v-model="value" locale="es" />',
+        {},
+        {
+          data() {
+            return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
+          },
+        },
+      );
+
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11.111,11');
+      selectItem(wrapper, currencies.indexOf('EUR'));
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11.111,11');
+    });
   });
 });
 

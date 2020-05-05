@@ -80,16 +80,19 @@ export default {
           }
 
           if (!Number.isNaN(newValue) && this.formattedValue !== '-') {
-            const formatted = format(newValue, this.getFormattingOptions());
-            this.formattedValue = formatted;
+            if (typeof newValue === 'number') {
+              this.formattedValue = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.value);
+            } else {
+              this.formattedValue = format(newValue, this.getFormattingOptions());
+            }
           }
           this.unformattedValue = newValue;
         }
       },
     },
     currency() {
-      const formatted = format(this.value, this.getFormattingOptions());
-      this.formattedValue = formatted;
+      const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
+      this.formattedValue = format(formatted, this.getFormattingOptions());
     },
     locale() {
       const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
