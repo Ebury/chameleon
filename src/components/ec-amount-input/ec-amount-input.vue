@@ -18,6 +18,7 @@
 import EcInputField from '../ec-input-field';
 import EcAmount from '../../directives/ec-amount/ec-amount';
 import { format, unFormat } from '../../directives/ec-amount/utils';
+import { getDecimalSeparator, getGroupingSeparator } from '../../utils/number-format';
 
 export default {
   components: { EcInputField },
@@ -61,12 +62,6 @@ export default {
       const options = new Intl.NumberFormat(this.locale, { style: 'currency', currency: this.currency || 'XYZ' }).resolvedOptions();
       return options.maximumFractionDigits;
     },
-    groupingSeparator() {
-      return this.getSeparator('group');
-    },
-    decimalSeparator() {
-      return this.getSeparator('decimal');
-    },
   },
   watch: {
     value: {
@@ -78,7 +73,7 @@ export default {
           }
 
           this.formattedValue = newValue;
-          this.unformattedValue = +(unFormat(newValue, this.groupingSeparator, this.decimalSeparator));
+          this.unformattedValue = +(unFormat(newValue, this.getGroupingSeparator(), this.getDecimalSeparator()));
         } else {
           if (newValue === this.unformattedValue) {
             return;
@@ -102,7 +97,7 @@ export default {
     },
     formattedValue(newValue) {
       if (newValue) {
-        this.unformattedValue = +(unFormat(newValue, this.groupingSeparator, this.decimalSeparator));
+        this.unformattedValue = +(unFormat(newValue, this.getGroupingSeparator(), this.getDecimalSeparator()));
       } else {
         this.unformattedValue = null;
       }
@@ -113,19 +108,18 @@ export default {
     },
   },
   methods: {
-    getSeparator(type) {
-      const numberWithDecimalSeparator = 11111.1;
-      return new Intl.NumberFormat(this.locale)
-        .formatToParts(numberWithDecimalSeparator)
-        .find(part => part.type === type)
-        .value;
-    },
     getFormattingOptions() {
       return {
         precision: this.precision,
-        decimalSeparator: this.decimalSeparator,
-        groupingSeparator: this.groupingSeparator,
+        decimalSeparator: this.getDecimalSeparator(),
+        groupingSeparator: this.getGroupingSeparator(),
       };
+    },
+    getGroupingSeparator() {
+      return getGroupingSeparator(this.locale);
+    },
+    getDecimalSeparator() {
+      return getDecimalSeparator(this.locale);
     },
   },
 };

@@ -212,4 +212,3 @@ describe('EcAmountInput', () => {
     expect(wrapper.vm.valueAmount).toBe(null);
   });
 });
-
