@@ -835,7 +835,7 @@ function typographyPlugin({ addUtilities, theme, e }) {
   addUtilities(newUtilities);
 }
 
-function flexboxGridPlugin({ addComponents, theme }) {
+function flexboxGridPlugin({ addUtilities, theme }) {
   // see https://getbootstrap.com/docs/4.0/layout/grid/ for reference
   const { gutter = 24, numberOfColumns = 12 } = theme('flexboxGrid', {});
 
@@ -895,5 +895,5 @@ function flexboxGridPlugin({ addComponents, theme }) {
     width: 'auto',
   };
 
-  addComponents(grid, ['responsive']);
+  addUtilities(grid, ['responsive']);
 }
