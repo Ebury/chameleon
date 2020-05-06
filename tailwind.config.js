@@ -9,7 +9,7 @@ module.exports = {
   // 2. we need to tweak the purgecss config in the real application
   // 3. we want to have purgecss available for other parts of the code in the future, e.g. purging other 3rd party libraries
   // so we set up purgecss manually. see: https://tailwindcss.com/docs/controlling-file-size/#setting-up-purgecss-manually
-  purge: [],
+  purge: false,
   target: 'ie11',
   prefix: 'tw-',
   important: false,
