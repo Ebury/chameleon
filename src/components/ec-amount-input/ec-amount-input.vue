@@ -91,12 +91,16 @@ export default {
       },
     },
     currency() {
-      const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
-      this.formattedValue = format(formatted, this.getFormattingOptions());
+      if (this.formattedValue) {
+        const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
+        this.formattedValue = format(formatted, this.getFormattingOptions());
+      }
     },
     locale() {
-      const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
-      this.formattedValue = format(formatted, this.getFormattingOptions());
+      if (this.formattedValue) {
+        const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
+        this.formattedValue = format(formatted, this.getFormattingOptions());
+      }
     },
     formattedValue(newValue) {
       if (newValue) {
