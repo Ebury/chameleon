@@ -181,15 +181,16 @@ stories
   .add('margins', () => ({
     template: `
       <div class="ec-grid-story">
-      <h1 class="ec-grid-story__title">Margins</h1>
+        <h1 class="ec-grid-story__title">Margins</h1>
 
-      <div class="ec-grid-story__container">
-        <div class="tw-grid">
-          <div class="tw-col-2"><div class="ec-grid-story__column">.tw-col-2</div></div>
-          <div class="tw-col-2 tw-ml-auto"><div class="ec-grid-story__column">.tw-col-2.tw-ml-auto</div></div>
-          <div class="tw-w-full"></div>
-          <div class="tw-col-2 tw-mr-auto"><div class="ec-grid-story__column">.tw-col-2.tw-mr-auto</div></div>
-          <div class="tw-col-2"><div class="ec-grid-story__column">.tw-col-2</div></div>
+        <div class="ec-grid-story__container">
+          <div class="tw-grid">
+            <div class="tw-col-2"><div class="ec-grid-story__column">.tw-col-2</div></div>
+            <div class="tw-col-2 tw-ml-auto"><div class="ec-grid-story__column">.tw-col-2.tw-ml-auto</div></div>
+            <div class="tw-w-full"></div>
+            <div class="tw-col-2 tw-mr-auto"><div class="ec-grid-story__column">.tw-col-2.tw-mr-auto</div></div>
+            <div class="tw-col-2"><div class="ec-grid-story__column">.tw-col-2</div></div>
+          </div>
         </div>
       </div>
     `,
@@ -284,31 +285,4 @@ stories
       </div>
     </div>
   `,
-  }))
-  .add('tf example', () => ({
-    template: `
-      <div class="tw-grid-container">
-        <div class="tw-grid">
-          <div class="tw-col-full md:tw-col-9">
-            <h1>Trade Finance</h1>
-            Here you will be able to keep track of all your requests.
-          </div>
-          <div class="tw-col-full md:tw-col-3 tw-text-center md:tw-text-right tw-self-center">
-            <button class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary">New Request</button>
-          </div>
-
-          <div class="tw-col-full md:tw-col-8">
-            <div class="tw-border tw-border-solid tw-border-gray-1 tw-p-24" style="height: 200px;">Credit line component</div>
-          </div>
-          <div class="tw-col-full md:tw-col-4">
-            <div class="tw-border tw-border-solid tw-border-gray-1 tw-p-24" style="height: 200px;">Management card component</div>
-          </div>
-
-          <div class="tw-col-12">
-            <div class="tw-border tw-border-solid tw-border-gray-1 tw-p-24" style="height: 200px;">This is the requests container</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    `,
   }));
