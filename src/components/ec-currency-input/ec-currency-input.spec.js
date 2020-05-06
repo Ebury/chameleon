@@ -252,6 +252,40 @@ describe('EcCurrencyInput', () => {
       await wrapper.vm.$nextTick();
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11.111,11');
     });
+
+    it('should preserve empty value in amount when changing currency', async () => {
+      const wrapper = mountCurrencyInputAsTemplate(
+        '<ec-currency-input :currencies="currencies" v-model="value" />',
+        {},
+        {
+          data() {
+            return { currencies, value: { currency: 'GBP' } };
+          },
+        },
+      );
+
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
+      selectItem(wrapper, currencies.indexOf('EUR'));
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
+    });
+
+    it('should preserve empty value in amount when changing locale', async () => {
+      const wrapper = mountCurrencyInputAsTemplate(
+        '<ec-currency-input :currencies="currencies" v-model="value" :locale="locale" />',
+        {},
+        {
+          data() {
+            return { currencies, locale: 'en', value: { currency: 'GBP' } };
+          },
+        },
+      );
+
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
+      wrapper.setData({ locale: 'es' });
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
+    });
   });
 });
 
