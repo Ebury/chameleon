@@ -72,14 +72,14 @@ describe('EcAlert', () => {
         <ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />
       `,
     }));
-    expect(wrapper.find('.ec-alert__dismiss-icon').exists()).toBe(true);
-    wrapper.find('.ec-alert__dismiss-icon').trigger('click');
+    expect(wrapper.findByDataTest('ec-alert__dismiss-icon').exists()).toBe(true);
+    wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
     expect(wrapper.isVisible()).toBe(false);
   });
 
   it('should emit the event when user clicks on the button', () => {
     const wrapper = mountAlert({ buttonText: 'Click here' });
-    wrapper.find('.ec-alert__button').trigger('click');
+    wrapper.findByDataTest('ec-alert__button').trigger('click');
     expect(wrapper.emitted('action').length).toBe(1);
   });
 
@@ -96,7 +96,7 @@ describe('EcAlert', () => {
 
     expect(wrapper.vm.isOpen).toBe(true);
     expect(wrapper.isVisible()).toBe(true);
-    wrapper.find('.ec-alert__dismiss-icon').trigger('click');
+    wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
     expect(wrapper.isVisible()).toBe(false);
     expect(wrapper.vm.isOpen).toBe(false);
   });

@@ -35,29 +35,26 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/';
-
+<style>
 .ec-icon {
   &--error {
-    fill: $color-error;
+    @apply tw-fill-error;
   }
 
   &--info {
-    fill: $color-info;
+    @apply tw-fill-info;
   }
 
   &--success {
-    fill: $color-success;
+    @apply tw-fill-success;
   }
 
   &--warning {
-    fill: $color-warning;
+    @apply tw-fill-warning;
   }
 
   &--interactive {
-    // TODO $color-interactive has been deprecated -> use gray-color-level-4 instead - that's the same color
-    fill: $color-interactive;
+    @apply tw-fill-gray-4;
   }
 }
 </style>

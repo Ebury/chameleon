@@ -25,8 +25,8 @@ const EcIconsGrid = Vue.extend({
     },
   },
   template: `
-    <div style="display: flex; flex-wrap: wrap;" :style="{ fill: color }">
-      <div style="display: inline-block; padding: 16px;" v-for="icon of icons" :key="icon" :title="icon" @click="copy(icon)">
+    <div class="tw-flex tw-flex-wrap" :style="{ fill: color }">
+      <div class="tw-inline-block tw-p-16" v-for="icon of icons" :key="icon" :title="icon" @click="copy(icon)">
         <ec-icon :name="icon" :size="size" :type="type || null" :style="{ borderRadius }" />
       </div>
     </div>
@@ -47,15 +47,15 @@ stories.add('all icons', () => ({
     },
   },
   template: `
-    <div style="padding: 32px; text-align: center;" v-if="isLoading">
+    <div class="tw-p-32 tw-text-center" v-if="isLoading">
       Loading icons...
     </div>
-    <div style="padding: 32px; margin: 0 auto; max-width: 900px;" v-else>
+    <div class="tw-p-32 tw-mx-auto" style="max-width: 900px;" v-else>
       <input
         v-model="iconFilter"
         placeholder="Search icon by name"
         aria-label="Search icon by name"
-        style="display: block; width: 80%; margin: 0 auto; margin-bottom: 40px; line-height: 40px; font-size: 24px; padding: 4px 14px; border: 1px solid #ccc; border-radius: 2px;"
+        class="tw-block tw-w-4/5 tw-my-0 tw-mx-auto tw-mb-40 tw-h2 tw-py-4 tw-px-12 tw-border tw-border-solid tw-border-gray-6 tw-rounded-sm"
       />
 
       <div class="search-results">
@@ -138,15 +138,15 @@ stories.add('all flags', () => ({
     },
   },
   template: `
-    <div style="padding: 32px; text-align: center;" v-if="isLoading">
+    <div class="tw-p-32 tw-text-center" v-if="isLoading">
       Loading icons...
     </div>
-    <div style="padding: 32px; margin: 0 auto; max-width: 900px;" v-else>
+    <div class="tw-p-32 tw-mx-auto" style="max-width: 900px;" v-else>
       <input
         v-model="flagFilter"
         placeholder="Search flag by name"
         aria-label="Search flag by name"
-        style="display: block; width: 80%; margin: 0 auto; margin-bottom: 40px; line-height: 40px; font-size: 24px; padding: 4px 14px; border: 1px solid #ccc; border-radius: 2px;"
+        class="tw-block tw-w-4/5 tw-my-0 tw-mx-auto tw-mb-40 tw-h2 tw-py-4 tw-px-12 tw-border tw-border-solid tw-border-gray-6 tw-rounded-sm"
       />
 
       <div class="search-results">
@@ -209,8 +209,10 @@ stories.add('all flags', () => ({
 stories.add('basic', () => ({
   components: { EcIcon },
   template: `
-      <ec-icon v-bind="$props" />
-    `,
+    <div class="tw-h-screen tw-flex">
+      <ec-icon v-bind="$props" class="tw-m-auto" />
+    </div>
+  `,
   props: {
     name: {
       default: text('Name', 'simple-check'),
@@ -228,20 +230,22 @@ stories.add('basic', () => ({
 
 stories.add('within a text', () => ({
   components: { EcIcon },
-  template: `<div class="ec-p--8">
-    <p>
-      Ipsum laborum laborum consectetur ut sunt commodo ullamco et reprehenderit anim.
-      Deserunt labore mollit adipisicing labore id eiusmod veniam anim proident voluptate qui
-      cupidatat culpa. <ec-icon name="simple-trade-finance" style="fill: #C00" :size="24" /> Sit ipsum sunt sit velit pariatur velit Lorem nisi.
-      Tempor Lorem officia esse consequat exercitation pariatur fugiat esse. Aliquip veniam
-      dolore veniam magna tempor ad id aute reprehenderit. Officia dolore veniam velit nisi
-      amet ipsum aliqua minim. <ec-icon name="simple-check" style="fill: #00C" :size="24" />Consequat pariatur
-      duis labore proident reprehenderit pariatur ex quis incididunt ut ipsum.
-    </p>
-    <button class="ec-btn ec-btn--rounded ec-btn--md ec-btn--primary ec-btn--outline ec-mt--16">
-      <ec-icon name="simple-sign-out" style="fill: currentColor;" class="ec-mr--8" :size="24" /> Icon inside a button
-    </button>
-  </div>`,
+  template: `
+    <div class="tw-p-8">
+      <p>
+        Ipsum laborum laborum consectetur ut sunt commodo ullamco et reprehenderit anim.
+        Deserunt labore mollit adipisicing labore id eiusmod veniam anim proident voluptate qui
+        cupidatat culpa. <ec-icon name="simple-trade-finance" class="tw-fill-error" :size="24" /> Sit ipsum sunt sit velit pariatur velit Lorem nisi.
+        Tempor Lorem officia esse consequat exercitation pariatur fugiat esse. Aliquip veniam
+        dolore veniam magna tempor ad id aute reprehenderit. Officia dolore veniam velit nisi
+        amet ipsum aliqua minim. <ec-icon name="simple-check" class="tw-fill-success" :size="24" />Consequat pariatur
+        duis labore proident reprehenderit pariatur ex quis incididunt ut ipsum.
+      </p>
+      <button class="ec-btn ec-btn--rounded ec-btn--md ec-btn--primary ec-btn--outline tw-mt-16">
+        <ec-icon name="simple-sign-out" class="tw-fill-current tw-mr-8" :size="24" /><span>Icon inside of a button</span>
+      </button>
+    </div>
+  `,
 }));
 
 export default stories;
