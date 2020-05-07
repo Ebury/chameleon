@@ -61,7 +61,11 @@ stories
         </div>
       </div>
     `,
-  }))
+  }), {
+    visualRegressionTests: {
+      enabled: false,
+    },
+  })
   .add('all colors & positions', () => ({
     directives: { EcTooltip },
     data() {

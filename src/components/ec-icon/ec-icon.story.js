@@ -58,19 +58,21 @@ stories.add('all icons', () => ({
         style="display: block; width: 80%; margin: 0 auto; margin-bottom: 40px; line-height: 40px; font-size: 24px; padding: 4px 14px; border: 1px solid #ccc; border-radius: 2px;"
       />
 
-      <template v-if="hasRoundedIcons">
-        <h2>Rounded icons</h2>
-        <ec-icons-grid :icons="filteredRoundedIcons" v-bind="$props" />
-      </template>
+      <div class="search-results">
+        <template v-if="hasRoundedIcons">
+          <h2>Rounded icons</h2>
+          <ec-icons-grid :icons="filteredRoundedIcons" v-bind="$props" />
+        </template>
 
-      <template v-if="hasSimpleIcons">
-        <h2>Simple icons</h2>
-        <ec-icons-grid :icons="filteredSimpleIcons" v-bind="$props" />
-      </template>
+        <template v-if="hasSimpleIcons">
+          <h2>Simple icons</h2>
+          <ec-icons-grid :icons="filteredSimpleIcons" v-bind="$props" />
+        </template>
 
-      <template v-if="!hasIcons">
-        No icons found.
-      </template>
+        <template v-if="!hasIcons">
+          No icons found.
+        </template>
+      </div>
     </div>
   `,
   methods: {
@@ -114,7 +116,16 @@ stories.add('all icons', () => ({
       simpleIcons: [],
     };
   },
-}));
+}), {
+  visualRegressionTests: {
+    waitOn: '.search-results',
+    snapshotElement: '.search-results',
+    knobs: {
+      large: { Size: 64 },
+      'type-error': { Type: 'error' },
+    },
+  },
+});
 
 stories.add('all flags', () => ({
   components: { EcIcon, EcIconsGrid },
@@ -138,14 +149,17 @@ stories.add('all flags', () => ({
         style="display: block; width: 80%; margin: 0 auto; margin-bottom: 40px; line-height: 40px; font-size: 24px; padding: 4px 14px; border: 1px solid #ccc; border-radius: 2px;"
       />
 
-      <template v-if="hasCurrencyFlags">
-        <h2>Currency</h2>
-        <ec-icons-grid :icons="filteredCurrencyFlags" v-bind="$props" />
-      </template>
+      <div class="search-results">
 
-      <template v-if="!hasIcons">
-        No icons found.
-      </template>
+        <template v-if="hasCurrencyFlags">
+          <h2>Currency</h2>
+          <ec-icons-grid :icons="filteredCurrencyFlags" v-bind="$props" />
+        </template>
+
+        <template v-if="!hasIcons">
+          No icons found.
+        </template>
+      </div>
     </div>
   `,
   methods: {
@@ -181,7 +195,16 @@ stories.add('all flags', () => ({
       currencyFlags: [],
     };
   },
-}));
+}), {
+  visualRegressionTests: {
+    waitOn: '.search-results',
+    snapshotElement: '.search-results',
+    knobs: {
+      large: { Size: 64 },
+      rounded: { 'Border radius': '50%' },
+    },
+  },
+});
 
 stories.add('basic', () => ({
   components: { EcIcon },
@@ -199,7 +222,9 @@ stories.add('basic', () => ({
       default: select('Type', ['', 'error', 'success', 'warning', 'info']),
     },
   },
-}));
+}), {
+  visualRegressionTests: { enabled: false },
+});
 
 stories.add('within a text', () => ({
   components: { EcIcon },

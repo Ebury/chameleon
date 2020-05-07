@@ -6,7 +6,6 @@ module.exports = {
   },
   extends: [
     'plugin:vue/recommended',
-    'plugin:jest/recommended',
     '@vue/airbnb',
   ],
   rules: {
@@ -47,7 +46,7 @@ module.exports = {
   overrides: [
     {
       files: [
-        '**/*.spec.js',
+        '**/src/**/*.spec.js',
       ],
       env: {
         jest: true,

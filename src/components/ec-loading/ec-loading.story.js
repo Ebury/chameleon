@@ -47,9 +47,9 @@ stories.add('with dark background', () => ({
     },
     template: `
       <div>
-        <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" @click="show = !show">{{ show ? 'Hide loading' : 'Show loading' }}</button>    
-        <div class="ec-card"> 
-          <ec-loading :transparent="transparent" :show="show" :size="size"> 
+        <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" @click="show = !show">{{ show ? 'Hide loading' : 'Show loading' }}</button>
+        <div class="ec-card">
+          <ec-loading :transparent="transparent" :show="show" :size="size">
             <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" @click="clickBtn">Test action</button>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ullam architecto obcaecati, facere corrupti,
               repellat veniam quam odit esse eum soluta sequi ea minus itaque exercitationem dignissimos rerum dicta earum iste,
@@ -61,6 +61,12 @@ stories.add('with dark background', () => ({
             </ec-loading>
           </div>
       </div>`,
-  }));
+  }), {
+    visualRegressionTests: {
+      knobs: {
+        transparent: { transparent: true },
+      },
+    },
+  });
 
 export default stories;

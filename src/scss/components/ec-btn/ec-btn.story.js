@@ -8,6 +8,9 @@ const stories = storiesOf('Button Styles', module);
 
 stories
   .addDecorator(StoryRouter())
+  .addParameters({
+    visualRegressionTests: { enabled: false },
+  })
   .add('basic', () => ({
     components: { EcIcon },
     props: {

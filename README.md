@@ -154,6 +154,8 @@ import { ComponentName } from '@ebury/chameleon-components';
 
 ### Testing
 
+#### Unit tests
+
 To run your tests:
 
 ```sh
@@ -163,6 +165,50 @@ npm run test
 The test coverage is set to 100%, but if you think the test for a particular piece of code is not necessary, then mark the code with
 `/* istanbul ignore */` flags and get prepared to defend it during the PR. This process gives us visibility that every exclusion has
 been approved. For more information see the [istanbul docs](https://github.com/gotwarlost/istanbul/blob/master/ignoring-code-for-coverage.md)
+
+#### Visual regression tests
+
+To run visual regression tests:
+
+```sh
+make cypress-integration
+```
+
+You can also just run `make cypress-install` and then `make cypress-run` as many times as you want. 
+It will skip the installation part before each run.
+
+To run tests only for specific story, you can use `storyIdFilter`. The ID of the story can be found in the URL of the storybook, e.g.
+"Icon / basic" story has ID `icon--basic`, "Layout / Container / with navigation" has ID `layout-container--with-navigation`.
+`storyIdFilter` accepts any regex.
+
+```json
+// update in package.json
+{
+  "test:visual:all": "cypress run -e storyIdFilter=icon ..."
+}
+```
+
+Visual regression tests run in headless Chrome and Firefox.
+
+NOTE: Because of bugs in Cypress, visual regression tests cannot run All Specs mode. See https://github.com/cypress-io/cypress/issues/3090 for reference.
+
+NOTE2: Because of another bugs in Cypress, visual regression tests can run only in headless mode. See https://github.com/cypress-io/cypress/issues/3324 for reference.
+
+To configure visual regression tests for the story, you can use storybook parameters to do so:
+
+```js
+{
+  visualRegressionTests: {
+    enabled: true, // true by default, if set to false, it will skip the story.
+    waitOn: '.search-results', // wait on this element to appear before taking snapshot (cy.get(waitOn)). defaults to #root
+    snapshotElement: '.search-results', // take snapshot of this element only. defaults to entire viewport
+    knobs: { // you can run the tests using custom knobs, if the story supports them.
+      large: { Size: 64 }, // "large" is the name of test, it will be used in the name of the snapshot file. "Size" is the label of the knob, e.g. size: { default: number('Size', 48) }
+      'type-error': { Type: 'error' },
+    },
+  },
+}
+```
 
 ### Linting
 
@@ -198,9 +244,11 @@ npm run build
 
 [Storybook](https://storybook.js.org/)
 
-### Jest
+### Testing
 
 [Jest](https://jestjs.io/)
+
+[Cypress](https://www.cypress.io/)
 
 ### CSS
 
