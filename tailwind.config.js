@@ -355,18 +355,22 @@ module.exports = {
       '1/2': '50%',
       '1/3': '33.333333%',
       '2/3': '66.666667%',
+      '3/3': '100%',
       '1/4': '25%',
       '2/4': '50%',
       '3/4': '75%',
+      '4/4': '100%',
       '1/5': '20%',
       '2/5': '40%',
       '3/5': '60%',
       '4/5': '80%',
+      '5/5': '100%',
       '1/6': '16.666667%',
       '2/6': '33.333333%',
       '3/6': '50%',
       '4/6': '66.666667%',
       '5/6': '83.333333%',
+      '6/6': '100%',
       '1/12': '8.333333%',
       '2/12': '16.666667%',
       '3/12': '25%',
@@ -378,6 +382,7 @@ module.exports = {
       '9/12': '75%',
       '10/12': '83.333333%',
       '11/12': '91.666667%',
+      '12/12': '100%',
       full: '100%',
       screen: '100vw',
     }),
@@ -680,7 +685,7 @@ module.exports = {
     strokeWidth: [ /* 'responsive' */ ],
     tableLayout: [ /* 'responsive' */ ],
     textAlign: [ 'responsive' ],
-    textColor: [ /* 'responsive', */ 'hover', 'focus' ],
+    textColor: [ 'responsive', 'hover', 'focus' ],
     textOpacity: [ /* 'responsive', 'hover', 'focus' */ ],
     textDecoration: [ /* 'responsive', 'hover', 'focus' */ ],
     textTransform: [ /* 'responsive' */ ],
@@ -817,6 +822,7 @@ module.exports = {
   },
   plugins: [
     plugin(typographyPlugin),
+    plugin(flexboxGridPlugin),
   ],
 };
 
@@ -827,4 +833,67 @@ function typographyPlugin({ addUtilities, theme, e }) {
     newUtilities[`.${e(name)}`] = style;
   }
   addUtilities(newUtilities);
+}
+
+function flexboxGridPlugin({ addUtilities, theme }) {
+  // see https://getbootstrap.com/docs/4.0/layout/grid/ for reference
+  const { gutter = 24, numberOfColumns = 12 } = theme('flexboxGrid', {});
+
+  if (gutter % 2 !== 0) {
+    throw new Error('Gutter must be divisible by 2');
+  }
+
+  if (numberOfColumns <= 0) {
+    throw new Error('Number of columns must be a positive number');
+  }
+
+  const colClasses = [];
+  for (let i = 1; i <= numberOfColumns; i++) {
+    colClasses.push(`.col-${i}`);
+  }
+
+  const grid = {
+    '.grid-container': {
+      width: '100%',
+      paddingRight: theme(`padding.${gutter / 2}`),
+      paddingLeft: theme(`padding.${gutter / 2}`),
+    },
+    '.grid': {
+      display: 'flex',
+      flexWrap: 'wrap',
+      marginRight: theme(`margin.${gutter / -2}`),
+      marginLeft: theme(`margin.${gutter / -2}`),
+    },
+    [`.col-full, .col, .col-auto, ${colClasses.join(', ')}`]: {
+      width: '100%',
+      position: 'relative',
+      padding: theme(`padding.${gutter / 2}`),
+      minHeight: theme('minHeight.1'),
+    },
+    [`.col, ${colClasses.join(', ')}`]: {
+      maxWidth: '100%',
+      flexGrow: 1,
+      flexBasis: 0,
+    },
+  };
+
+  for (let i = 1; i <= numberOfColumns; i++) {
+    const percentage = theme(`width.${i}/${numberOfColumns}`);
+    grid[`.col-${i}`] = {
+      flex: `0 0 ${percentage}`,
+      maxWidth: `${percentage}`,
+    };
+
+    grid[`.offset-${i}`] = {
+      marginLeft: `${percentage}`,
+    };
+  }
+
+  grid['.col-auto'] = {
+    flex: '0 0 auto',
+    maxWidth: 'none',
+    width: 'auto',
+  };
+
+  addUtilities(grid, ['responsive']);
 }

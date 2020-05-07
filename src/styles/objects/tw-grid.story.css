@@ -1,0 +1,27 @@
+.ec-grid-story {
+  @apply tw-p-24;
+  @apply tw-bg-key-6;
+
+  &__container {
+    @apply tw-text-center tw-text-light;
+    @apply tw-bg-key-2;
+
+    &--with-border {
+      @apply tw-border tw-border-solid tw-border-key-4;
+    }
+  }
+
+  &__column {
+    @apply tw-border tw-border-solid tw-border-key-4;
+    @apply tw-text-center tw-break-all;
+    @apply tw-min-h-full;
+    @apply tw-bg-key-3;
+    @apply tw-py-24;
+  }
+
+  &__title {
+    @apply tw-h2 tw-text-center tw-text-light;
+    @apply tw-mt-24;
+    @apply tw-bg-key-2;
+  }
+}

@@ -67,7 +67,7 @@ None
 
 ### components
 
-None (yet)
+* deprecated `ec-grid` and replaced with bootstrap/tailwind grid based on flexbox. Use `tw-grid` instead.
 
 ### utilities
 
