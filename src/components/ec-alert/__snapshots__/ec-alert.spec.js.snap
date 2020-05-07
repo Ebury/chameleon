@@ -3,6 +3,7 @@
 exports[`EcAlert should display only with a title and the type given 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <!---->
    
@@ -19,6 +20,7 @@ exports[`EcAlert should display only with a title and the type given 1`] = `
   >
     <div
       class="ec-alert__title"
+      data-test="ec-alert__title"
     >
       Random Title
     </div>
@@ -33,6 +35,7 @@ exports[`EcAlert should display only with a title and the type given 1`] = `
 exports[`EcAlert should display with a button with the text given in the buttonText 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <!---->
    
@@ -49,6 +52,7 @@ exports[`EcAlert should display with a button with the text given in the buttonT
   >
     <div
       class="ec-alert__title"
+      data-test="ec-alert__title"
     >
       Title example
     </div>
@@ -58,6 +62,7 @@ exports[`EcAlert should display with a button with the text given in the buttonT
    
   <button
     class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button ec-btn--primary-reverse"
+    data-test="ec-alert__button"
   >
     Button text
   </button>
@@ -67,6 +72,7 @@ exports[`EcAlert should display with a button with the text given in the buttonT
 exports[`EcAlert should display with a subtitle given 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <!---->
    
@@ -83,12 +89,14 @@ exports[`EcAlert should display with a subtitle given 1`] = `
   >
     <div
       class="ec-alert__title"
+      data-test="ec-alert__title"
     >
       Title example
     </div>
      
     <div
       class="ec-alert__subtitle"
+      data-test="ec-alert__subtitle"
     >
       Subtitle example
     </div>
@@ -101,9 +109,11 @@ exports[`EcAlert should display with a subtitle given 1`] = `
 exports[`EcAlert should render the dismiss icon when is given the prop dismissable 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <a
     class="ec-alert__dismiss-icon ec-alert__dismiss-icon--info"
+    data-test="ec-alert__dismiss-icon"
     href="#"
   >
     <svg
@@ -130,6 +140,7 @@ exports[`EcAlert should render the dismiss icon when is given the prop dismissab
   >
     <div
       class="ec-alert__title"
+      data-test="ec-alert__title"
     >
       Title example
     </div>
@@ -144,6 +155,7 @@ exports[`EcAlert should render the dismiss icon when is given the prop dismissab
 exports[`EcAlert should render with the slot given 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <!---->
    
@@ -170,6 +182,7 @@ exports[`EcAlert should render with the slot given 1`] = `
 exports[`EcAlert should use the given type for the alert type and for the button too 1`] = `
 <div
   class="ec-alert ec-alert--error ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <!---->
    
@@ -186,6 +199,7 @@ exports[`EcAlert should use the given type for the alert type and for the button
   >
     <div
       class="ec-alert__title"
+      data-test="ec-alert__title"
     >
       Title example
     </div>
@@ -195,6 +209,7 @@ exports[`EcAlert should use the given type for the alert type and for the button
    
   <button
     class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button ec-btn--error-reverse"
+    data-test="ec-alert__button"
   >
     Warning button
   </button>
@@ -204,6 +219,7 @@ exports[`EcAlert should use the given type for the alert type and for the button
 exports[`EcAlert should use the type "error" 1`] = `
 <div
   class="ec-alert ec-alert--error ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <!---->
    
@@ -220,6 +236,7 @@ exports[`EcAlert should use the type "error" 1`] = `
   >
     <div
       class="ec-alert__title"
+      data-test="ec-alert__title"
     >
       Title example
     </div>
@@ -234,6 +251,7 @@ exports[`EcAlert should use the type "error" 1`] = `
 exports[`EcAlert should use the type "info" 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <!---->
    
@@ -250,6 +268,7 @@ exports[`EcAlert should use the type "info" 1`] = `
   >
     <div
       class="ec-alert__title"
+      data-test="ec-alert__title"
     >
       Title example
     </div>
@@ -264,6 +283,7 @@ exports[`EcAlert should use the type "info" 1`] = `
 exports[`EcAlert should use the type "success" 1`] = `
 <div
   class="ec-alert ec-alert--success ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <!---->
    
@@ -280,6 +300,7 @@ exports[`EcAlert should use the type "success" 1`] = `
   >
     <div
       class="ec-alert__title"
+      data-test="ec-alert__title"
     >
       Title example
     </div>
@@ -294,6 +315,7 @@ exports[`EcAlert should use the type "success" 1`] = `
 exports[`EcAlert should use the type "warning" 1`] = `
 <div
   class="ec-alert ec-alert--warning ec-alert--is-responsive"
+  data-test="ec-alert"
 >
   <!---->
    
@@ -310,6 +332,7 @@ exports[`EcAlert should use the type "warning" 1`] = `
   >
     <div
       class="ec-alert__title"
+      data-test="ec-alert__title"
     >
       Title example
     </div>

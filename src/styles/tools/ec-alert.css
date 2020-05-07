@@ -1,0 +1,23 @@
+@define-mixin ec-alert-responsive {
+  @apply tw-flex-row;
+  @apply tw-py-16 tw-px-24;
+
+  .ec-alert__icon {
+    @apply tw-w-24 tw-h-24;
+    @apply tw-my-4 tw-mr-16 tw-ml-0;
+
+    &--alert-has-subtitle {
+      @apply tw-self-start;
+    }
+  }
+
+  .ec-alert__content {
+    @apply tw-text-left;
+  }
+
+  .ec-alert__button {
+    @apply tw-my-0 tw-mx-24;
+  }
+
+  @mixin-content;
+}

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue';
 import { boolean, text } from '@storybook/addon-knobs';
 import EcAlert from './ec-alert.vue';
-import './ec-alert.story.scss';
+import './ec-alert.story.css';
 
 const stories = storiesOf('Alert', module);
 
@@ -17,8 +17,8 @@ stories.add('basic', () => ({
     type: {
       default: text('type', 'error'),
     },
-    textButton: {
-      default: text('textButton', 'Read more'),
+    buttonText: {
+      default: text('buttonText', 'Read more'),
     },
     dismissable: {
       default: boolean('dismissable', true),
@@ -32,7 +32,7 @@ stories.add('basic', () => ({
   },
   template: `
     <div>
-      <button class="ec-btn ec-btn--primary ec-btn--rounded ec-btn--sm ec-m--16" @click="show = !show">{{ show ? 'Hide' : 'Show' }}</button>
+      <button class="ec-btn ec-btn--primary ec-btn--rounded ec-btn--sm tw-m-16" @click="show = !show">{{ show ? 'Hide' : 'Show' }}</button>
 
       <ec-alert
         :title="title"
@@ -40,7 +40,7 @@ stories.add('basic', () => ({
         :type="type"
         :dismissable="dismissable"
         :responsive="responsive"
-        :button-text="textButton"
+        :button-text="buttonText"
         v-model="show" />
 
       <ec-alert
@@ -49,9 +49,9 @@ stories.add('basic', () => ({
         :type="type"
         :dismissable="dismissable"
         :responsive="false"
-        :button-text="textButton"
+        :button-text="buttonText"
         v-model="show"
-        class="my-alert ec-mt--16" />
+        class="my-alert tw-mt-16" />
     </div>`,
 }));
 
@@ -142,10 +142,10 @@ stories.add('all', () => ({
     };
   },
   template: `
-  <div class="ec-m--16">
+  <div class="tw-m-16">
     <template v-for="(block, blockIndex) in alerts">
-      <h3 class="ec-m--8" :key="blockIndex">{{ block.title }}</h3>
-      <ec-alert v-for="(alert, alertIndex) in block.data" :key="blockIndex + '-' + alertIndex" v-bind="alert" v-model="alert.model" class="ec-m--8">
+      <h3 class="tw-m-8" :key="blockIndex">{{ block.title }}</h3>
+      <ec-alert v-for="(alert, alertIndex) in block.data" :key="blockIndex + '-' + alertIndex" v-bind="alert" v-model="alert.model" class="tw-m-8">
         <div v-if="alert.custom" slot-scope="{ title, subtitle }">
           Custom: {{ title }} - {{ subtitle }}
         </div>
@@ -153,5 +153,3 @@ stories.add('all', () => ({
     </template>
   </div>`,
 }));
-
-export default stories;

@@ -1,0 +1,7 @@
+@import '../../styles/tools/ec-alert.css';
+
+.my-alert {
+  @media (min-width: 640px) {
+    @mixin ec-alert-responsive;
+  }
+}

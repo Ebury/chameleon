@@ -26,9 +26,11 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
     >
       <div
         class="ec-alert ec-toaster__item-content ec-alert--error ec-alert--is-responsive"
+        data-test="ec-alert"
       >
         <a
           class="ec-alert__dismiss-icon ec-alert__dismiss-icon--error"
+          data-test="ec-alert__dismiss-icon"
           href="#"
         >
           <svg
@@ -55,12 +57,14 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
         >
           <div
             class="ec-alert__title"
+            data-test="ec-alert__title"
           >
             random
           </div>
            
           <div
             class="ec-alert__subtitle"
+            data-test="ec-alert__subtitle"
           >
             random
           </div>
@@ -74,9 +78,11 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
     >
       <div
         class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
+        data-test="ec-alert"
       >
         <a
           class="ec-alert__dismiss-icon ec-alert__dismiss-icon--success"
+          data-test="ec-alert__dismiss-icon"
           href="#"
         >
           <svg
@@ -103,12 +109,14 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
         >
           <div
             class="ec-alert__title"
+            data-test="ec-alert__title"
           >
             random
           </div>
            
           <div
             class="ec-alert__subtitle"
+            data-test="ec-alert__subtitle"
           >
             random
           </div>
@@ -122,9 +130,11 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
     >
       <div
         class="ec-alert ec-toaster__item-content ec-alert--info ec-alert--is-responsive"
+        data-test="ec-alert"
       >
         <a
           class="ec-alert__dismiss-icon ec-alert__dismiss-icon--info"
+          data-test="ec-alert__dismiss-icon"
           href="#"
         >
           <svg
@@ -151,12 +161,14 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
         >
           <div
             class="ec-alert__title"
+            data-test="ec-alert__title"
           >
             random
           </div>
            
           <div
             class="ec-alert__subtitle"
+            data-test="ec-alert__subtitle"
           >
             random
           </div>
@@ -170,9 +182,11 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
     >
       <div
         class="ec-alert ec-toaster__item-content ec-alert--warning ec-alert--is-responsive"
+        data-test="ec-alert"
       >
         <a
           class="ec-alert__dismiss-icon ec-alert__dismiss-icon--warning"
+          data-test="ec-alert__dismiss-icon"
           href="#"
         >
           <svg
@@ -199,12 +213,14 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
         >
           <div
             class="ec-alert__title"
+            data-test="ec-alert__title"
           >
             random
           </div>
            
           <div
             class="ec-alert__subtitle"
+            data-test="ec-alert__subtitle"
           >
             random
           </div>
@@ -223,9 +239,11 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
 >
   <div
     class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
+    data-test="ec-alert"
   >
     <a
       class="ec-alert__dismiss-icon ec-alert__dismiss-icon--success"
+      data-test="ec-alert__dismiss-icon"
       href="#"
     >
       <svg
@@ -252,12 +270,14 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
     >
       <div
         class="ec-alert__title"
+        data-test="ec-alert__title"
       >
         This is the title
       </div>
        
       <div
         class="ec-alert__subtitle"
+        data-test="ec-alert__subtitle"
       >
         This is the subtitle
       </div>

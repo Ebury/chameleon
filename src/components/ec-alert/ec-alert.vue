@@ -2,6 +2,7 @@
   <div
     v-show="open"
     class="ec-alert"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-alert` : 'ec-alert'"
     :class="{
       [`ec-alert--${type}`]: type,
       'ec-alert--is-responsive': responsive
@@ -12,6 +13,7 @@
       href="#"
       class="ec-alert__dismiss-icon"
       :class="`ec-alert__dismiss-icon--${type}`"
+      data-test="ec-alert__dismiss-icon"
       @click.stop.prevent="$emit('change', !open)"
     >
       <ec-icon
@@ -26,10 +28,14 @@
     />
     <div class="ec-alert__content">
       <slot v-bind="{ title, subtitle }">
-        <div class="ec-alert__title">{{ title }}</div>
+        <div
+          class="ec-alert__title"
+          data-test="ec-alert__title"
+        >{{ title }}</div>
         <div
           v-if="subtitle"
           class="ec-alert__subtitle"
+          data-test="ec-alert__subtitle"
         >{{ subtitle }}</div>
       </slot>
     </div>
@@ -37,6 +43,7 @@
       v-if="buttonText"
       class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button"
       :class="`ec-btn--${type === 'info' ? 'primary' : type}-reverse`"
+      data-test="ec-alert__button"
       @click="$emit('action')"
     >{{ buttonText }}</button>
   </div>
@@ -102,112 +109,98 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors';
-@import '../../scss/tools/borders';
-@import '../../scss/tools/ec-alert';
-@import '../../scss/tools/typography';
+<style>
+@import '../../styles/tools/ec-alert.css';
 
 .ec-alert {
-  @include shape-border-radius;
-
-  padding: 16px;
-  color: $white;
-  fill: $white;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @apply tw-rounded;
+  @apply tw-p-16;
+  @apply tw-text-light tw-fill-current;
+  @apply tw-relative;
+  @apply tw-flex tw-flex-col tw-items-center;
 
   &--is-responsive {
     @media (min-width: 480px) {
-      @include ec-alert-responsive;
+      @mixin ec-alert-responsive;
     }
   }
 
   &__button {
-    flex-shrink: 0;
-    margin-top: 16px;
+    @apply tw-flex-shrink-0;
+    @apply tw-mt-16;
   }
 
   &__content {
-    flex-grow: 1;
-    text-align: center;
+    @apply tw-flex-grow;
+    @apply tw-text-center;
   }
 
   &__title {
-    @include body-strong;
-
-    color: $white;
+    @apply tw-body-strong tw-text-light;
   }
 
   &__subtitle {
-    @include body-text;
-
-    color: $white;
+    @apply tw-body-text tw-text-light;
   }
 
   &__icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    margin-bottom: 16px;
+    @apply tw-w-40 tw-h-40;
+    @apply tw-flex-shrink-0;
+    @apply tw-mb-16;
   }
 
   &__dismiss-icon {
-    @include shape-border-radius;
+    @apply tw-rounded;
+    @apply tw-absolute tw-top-8 tw-right-8;
+    @apply tw-cursor-pointer;
+    @apply tw-fill-light;
 
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    cursor: pointer;
     line-height: 0;
-    fill: $white;
 
     &:focus {
-      outline: 0;
-      background: $white;
+      @apply tw-outline-none;
+      @apply tw-bg-light;
     }
 
     &:hover {
-      background: $white;
+      @apply tw-bg-light;
     }
 
     &--info:focus,
     &--info:hover {
-      fill: $color-info;
+      @apply tw-fill-info;
     }
 
     &--success:focus,
     &--success:hover {
-      fill: $color-success;
+      @apply tw-fill-success;
     }
 
     &--warning:focus,
     &--warning:hover {
-      fill: $color-warning;
+      @apply tw-fill-warning;
     }
 
     &--error:focus,
     &--error:hover {
-      fill: $color-error;
+      @apply tw-fill-error;
     }
   }
 
   &--info {
-    background: $color-info;
+    @apply tw-bg-info;
   }
 
   &--success {
-    background: $color-success;
+    @apply tw-bg-success;
   }
 
   &--warning {
-    background: $color-warning;
+    @apply tw-bg-warning;
   }
 
   &--error {
-    background: $color-error;
+    @apply tw-bg-error;
   }
 }
 </style>

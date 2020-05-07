@@ -1,7 +1,0 @@
-@import '../../scss/tools/ec-alert';
-
-.my-alert {
-  @media (min-width: 640px) {
-    @include ec-alert-responsive;
-  }
-}
