@@ -1,6 +1,7 @@
 !.storybook
 !.stylelintrc.js
 !.eslintrc.js
+!.eslintrc.*.js
 dist
 coverage
 svg-sprites.js

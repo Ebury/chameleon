@@ -11,7 +11,7 @@ stories
       branding: {
         default: object('branding', {
           name: 'My Branding',
-          logo: 'http://ebo.localhost/static/img/branding/EBP/logo-sm-inverse.png',
+          logo: '/ebury-logo-sm-inverse.png',
         }),
       },
       isCollapsable: {

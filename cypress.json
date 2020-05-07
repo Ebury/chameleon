@@ -1,0 +1,42 @@
+{
+    "baseUrl": "http://localhost:42475",
+    
+    "integrationFolder": "tests/integration/specs/",
+    "testFiles": "**/*.spec.js",
+    "ignoreTestFiles": [
+        "tests/integration/snapshots/**/*",
+        "tests/integration/**/__snapshots__/**/*",
+        "tests/integration/**/__image_snapshots__/**/*"
+    ],
+    
+    "supportFile": "tests/integration/support/index.js",
+    "pluginsFile": "tests/integration/plugins/index.js",
+    
+    "screenshotsFolder": "tests/integration/screenshots/",
+    "videosFolder": "tests/integration/videos/",
+    "video": false,
+    "videoCompression": false,
+    "trashAssetsBeforeRuns": true,
+    
+    "fixturesFolder": "tests/integration/fixtures/",
+    
+    "viewportWidth": 1280,
+    "viewportHeight": 720,
+    
+    "watchForFileChanges": true,
+    
+    "pageLoadTimeout": 3000,
+    "taskTimeout": 3000,
+    "responseTimeout": 10000,
+    "execTimeout": 3000,
+    "defaultCommandTimeout": 3000,
+    
+    "reporter": "junit",
+    "reporterOptions": {
+        "mochaFile": "tests/integration/reports/junit.xml",
+        "includePending": true,
+        "useFullSuiteTitle": true,
+        "testsuitesTitle": "Chameleon integration tests",
+        "jenkinsMode": false
+    }
+}

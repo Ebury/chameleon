@@ -1,0 +1,26 @@
+version: '2.4'
+
+services:
+  ec-cypress:
+    image: ec-cypress:latest
+    mem_limit: 4g
+    memswap_limit: 4g
+    build:
+      context: ..
+      dockerfile: docker/cypress/Dockerfile
+      args:
+        - UID=${USER_ID:-1000}
+        - GID=${GROUP_ID:-1000}
+    environment:
+      SSH_AUTH_SOCK:
+      CYPRESS_CACHE_FOLDER: /home/node/app/.cypress-cache
+      CYPRESS_RESPONSE_TIMEOUT: 20000
+    volumes:
+      - "..:/home/node/app"
+      - "${HOME}/.ssh/known_hosts:/home/node/.ssh/known_hosts"
+      - "${SSH_AUTH_SOCK-/tmp}:${SSH_AUTH_SOCK-/tmp}"
+
+  ec-cypress-shell:
+    extends: ec-cypress
+    stdin_open: true
+    tty: true
