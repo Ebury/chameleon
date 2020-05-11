@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "focus-trap": "5.1.0",
-    "tailwindcss": "1.4.5",
+    "tailwindcss": "1.4.6",
     "v-tooltip": "2.0.3",
     "vue": "2.6.11",
     "vue-hoc": "0.4.7"
