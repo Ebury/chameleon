@@ -102,6 +102,8 @@ stories
     },
     methods: {
       onSort: action('sort'),
+      onAborted: action('aborted'),
+      onError: action('error'),
     },
     data() {
       return {
@@ -112,7 +114,7 @@ stories
             // return myService.getData(sorts, pagination, cancelToken);
             // and pass the cancelToken into a fetch() call
             // e.g.
-            // getData: (sorts, cancelToken) => fetch('/my/url', { body: { sorts }, signal: cancelToken });
+            // getData: (sorts, pagination, cancelToken) => fetch('/my/url', { body: { sorts, pagination }, signal: cancelToken });
 
             action('fetching')(sorts);
 
@@ -160,7 +162,9 @@ stories
             :sticky-column="stickyColumn || null"
             :error-message="errorMessage || undefined"
             :empty-message="emptyMessage || undefined"
-            @sort="onSort">
+            @sort="onSort"
+            @abort="onAborted"
+            @error="onError">
             <template #error="{ errorMessage }">
               <div class="tw-text-error">Error state template - {{ errorMessage }}</div>
             </template>
