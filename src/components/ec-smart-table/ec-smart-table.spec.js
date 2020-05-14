@@ -9,101 +9,200 @@ describe('EcSmartTable', () => {
     { name: 'test3', title: 'Test 3', sortable: true },
   ];
 
-  const data = [[1, 2, 3]];
+  const data = {
+    count: 3,
+    total: 3,
+    items: [[1, 2, 3]],
+  };
+
+  const emptyData = {
+    count: 0,
+    total: 0,
+    items: [],
+  };
+
+  const dataSource = {
+    fetch: jest.fn(),
+  };
 
   function mountEcSmartTable(props, mountOpts) {
     return mount(EcSmartTable, {
-      propsData: { ...props },
+      propsData: { dataSource, ...props },
+      sync: false,
       ...mountOpts,
     });
   }
 
-  function sortColumnByIndex(wrapper, index) {
-    wrapper.findByDataTest(`ec-table-head__cell--${index}`).findByDataTest('ec-table-sort__icon').trigger('click');
+  async function mountEcSmartTableWithResolvedData(resolvedData, props, mountOpts) {
+    const resolvedDataSource = {
+      fetch: jest.fn().mockResolvedValue(resolvedData),
+    };
+    const wrapper = mountEcSmartTable({ ...props, dataSource: resolvedDataSource }, mountOpts);
+    await flushPromises();
+    wrapper.vm.$forceUpdate();
+    return wrapper;
   }
 
-  it('should render properly', () => {
-    const wrapper = mountEcSmartTable({ data });
+  async function mountEcSmartTableWithRejectedData(error, props, mountOpts) {
+    const rejectedDataSource = {
+      fetch: jest.fn().mockRejectedValue(error),
+    };
+    const wrapper = mountEcSmartTable({ ...props, dataSource: rejectedDataSource }, mountOpts);
+    await flushPromises();
+    wrapper.vm.$forceUpdate();
+    return wrapper;
+  }
+
+  it('should render in loading state by default', () => {
+    const wrapper = mountEcSmartTable({ columns });
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render resolved data properly', async () => {
+    const wrapper = await mountEcSmartTableWithResolvedData(data, { columns });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render empty data properly', async () => {
+    const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render error properly', async () => {
+    const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'));
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  describe('#slots', () => {
+    it('should render empty data with custom template', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns }, {
+        scopedSlots: {
+          empty: '<div>Custom template - {{ props.emptyMessage }}</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render empty data with custom template and custom emptyMessage prop', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns, emptyMessage: 'No data' }, {
+        scopedSlots: {
+          empty: '<div>Custom template - {{ props.emptyMessage }}</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render error with custom template', async () => {
+      const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'), { columns }, {
+        scopedSlots: {
+          error: '<div>Custom template - {{ props.errorMessage }}</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render error with custom template and custom errorMessage prop', async () => {
+      const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'), { columns, errorMessage: 'Unexpected error' }, {
+        scopedSlots: {
+          error: '<div>Custom template - {{ props.errorMessage }}</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
   describe('sorting', () => {
-    it('should render sortable columns', () => {
-      const wrapper = mountEcSmartTable({ columns, data });
+    async function sortColumnByIndex(wrapper, index) {
+      wrapper.findByDataTest(`ec-table-head__cell--${index}`).findByDataTest('ec-table-sort__icon').trigger('click');
+      await wrapper.vm.$nextTick();
+    }
+
+    it('should render sortable columns', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(data, { columns });
       expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot();
     });
 
-    it('should render sorted columns', () => {
+    it('should render sorted columns', async () => {
       const sorts = [
         { column: 'test1', direction: SortDirection.ASC },
         { column: 'test3', direction: SortDirection.DESC },
       ];
-      const wrapper = mountEcSmartTable({ columns, data, sorts });
+      const wrapper = await mountEcSmartTableWithResolvedData(data, { columns, sorts });
       expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot();
     });
 
     describe('single sort', () => {
-      it('should sort column', () => {
+      it('should sort column', async () => {
         const sorts = [
           { column: 'test1', direction: SortDirection.ASC },
         ];
-        const wrapper = mountEcSmartTable({
-          columns, data, sorts, multiSort: false,
+        const wrapper = await mountEcSmartTableWithResolvedData(data, {
+          columns, sorts, multiSort: false,
         });
         expect(wrapper.findByDataTest('ec-table-head__cell--0').element).toMatchSnapshot('ASC');
-        sortColumnByIndex(wrapper, 0);
+        await sortColumnByIndex(wrapper, 0);
         expect(wrapper.findByDataTest('ec-table-head__cell--0').element).toMatchSnapshot('ASC -> DESC');
-        sortColumnByIndex(wrapper, 0);
+        await sortColumnByIndex(wrapper, 0);
         expect(wrapper.findByDataTest('ec-table-head__cell--0').element).toMatchSnapshot('DESC -> not sorted');
-        sortColumnByIndex(wrapper, 0);
+        await sortColumnByIndex(wrapper, 0);
         expect(wrapper.findByDataTest('ec-table-head__cell--0').element).toMatchSnapshot('not sorted -> ASC');
       });
 
-      it('should allow sorting only one column', () => {
+      it('should allow sorting only one column', async () => {
         const sorts = [
           { column: 'test1', direction: SortDirection.ASC },
         ];
-        const wrapper = mountEcSmartTable({
-          columns, data, sorts, multiSort: false,
+        const wrapper = await mountEcSmartTableWithResolvedData(data, {
+          columns, sorts, multiSort: false,
         });
         expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot('Initial state ([ASC, null, null])');
-        sortColumnByIndex(wrapper, 2);
+        await sortColumnByIndex(wrapper, 2);
         expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot('After sorting different column ([null, null, ASC])');
-        sortColumnByIndex(wrapper, 0);
+        await sortColumnByIndex(wrapper, 0);
         expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot('After sorting different column #2 ([ASC, null, null])');
       });
     });
 
     describe('multi sort', () => {
-      it('should sort column', () => {
+      it('should sort column', async () => {
         const sorts = [
           { column: 'test1', direction: SortDirection.ASC },
         ];
-        const wrapper = mountEcSmartTable({
-          columns, data, sorts, multiSort: true,
+        const wrapper = await mountEcSmartTableWithResolvedData(data, {
+          columns, sorts, multiSort: true,
         });
         expect(wrapper.findByDataTest('ec-table-head__cell--0').element).toMatchSnapshot('ASC');
-        sortColumnByIndex(wrapper, 0);
+        await sortColumnByIndex(wrapper, 0);
         expect(wrapper.findByDataTest('ec-table-head__cell--0').element).toMatchSnapshot('ASC -> DESC');
-        sortColumnByIndex(wrapper, 0);
+        await sortColumnByIndex(wrapper, 0);
         expect(wrapper.findByDataTest('ec-table-head__cell--0').element).toMatchSnapshot('DESC -> not sorted');
-        sortColumnByIndex(wrapper, 0);
+        await sortColumnByIndex(wrapper, 0);
         expect(wrapper.findByDataTest('ec-table-head__cell--0').element).toMatchSnapshot('not sorted -> ASC');
       });
 
-      it('should allow sorting multiple columns', () => {
+      it('should allow sorting multiple columns', async () => {
         const sorts = [
           { column: 'test1', direction: SortDirection.ASC },
         ];
-        const wrapper = mountEcSmartTable({
-          columns, data, sorts, multiSort: true,
+        const wrapper = await mountEcSmartTableWithResolvedData(data, {
+          columns, sorts, multiSort: true,
         });
         expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot('Initial state ([ASC, null, null])');
-        sortColumnByIndex(wrapper, 2);
+        await sortColumnByIndex(wrapper, 2);
         expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot('After sorting different column ([ASC, null, ASC])');
-        sortColumnByIndex(wrapper, 0);
+        await sortColumnByIndex(wrapper, 0);
         expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot('After sorting different column #2 ([DESC, null, ASC])');
       });
     });
   });
 });
+
+function flushPromises() {
+  // better than calling nextTick multiple times.
+  // await wrapper.vm.$nextTick();
+  // await wrapper.vm.$nextTick();
+  // await wrapper.vm.$nextTick();
+  return new Promise((resolve) => {
+    setTimeout(resolve);
+  });
+}

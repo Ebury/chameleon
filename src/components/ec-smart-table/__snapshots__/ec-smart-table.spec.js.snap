@@ -1,46 +1,247 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcSmartTable should render properly 1`] = `
+exports[`EcSmartTable #slots should render empty data with custom template 1`] = `
 <div>
-  <!---->
+  <div>
+    Custom template - No items found
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable #slots should render empty data with custom template and custom emptyMessage prop 1`] = `
+<div>
+  <div>
+    Custom template - No data
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable #slots should render error with custom template 1`] = `
+<div>
+  <div>
+    Custom template - Unexpected error while fetching data
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable #slots should render error with custom template and custom errorMessage prop 1`] = `
+<div>
+  <div>
+    Custom template - Unexpected error
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable should render empty data properly 1`] = `
+<div
+  data-test="ec-smart-table-empty"
+>
+  No items found
+</div>
+`;
+
+exports[`EcSmartTable should render error properly 1`] = `
+<div
+  data-test="ec-smart-table-error"
+>
+  Unexpected error while fetching data
+</div>
+`;
+
+exports[`EcSmartTable should render in loading state by default 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__backdrop"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
    
   <div
-    class="ec-table-scroll-container"
-    data-test="ec-table-scroll-container"
+    class="ec-loading__content"
   >
-    <table
-      class="ec-table"
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable should render resolved data properly 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
     >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <div>
       <!---->
        
-      <tbody>
-        <tr
-          class=""
-          data-test="ec-table__row ec-table__row--0"
+      <div
+        class="ec-table-scroll-container"
+        data-test="ec-table-scroll-container"
+      >
+        <table
+          class="ec-table"
         >
-          <td
-            class="ec-table__cell"
-            data-test="ec-table__cell ec-table__cell--0"
+          <thead
+            class="ec-table-head"
+            data-test="ec-table-head"
           >
-            1
-          </td>
-          <td
-            class="ec-table__cell"
-            data-test="ec-table__cell ec-table__cell--1"
-          >
-            2
-          </td>
-          <td
-            class="ec-table__cell"
-            data-test="ec-table__cell ec-table__cell--2"
-          >
-            3
-          </td>
-        </tr>
-      </tbody>
-       
-      <!---->
-    </table>
+            <tr>
+              <th
+                class="ec-table-head__cell"
+                data-test="ec-table-head__cell ec-table-head__cell--0"
+                scope="col"
+              >
+                <span
+                  class="ec-table-head__cell-wrapper"
+                >
+                  <span
+                    class=""
+                  >
+                    
+          Test 1
+        
+                  </span>
+                   
+                  <!---->
+                   
+                  <a
+                    class="ec-table-sort ec-table-head__icon"
+                    data-test="ec-table-sort"
+                    href="#"
+                    title="Not sorted"
+                  >
+                    <svg
+                      class="ec-icon ec-table-sort__icon"
+                      data-test="ec-table-sort__icon"
+                      height="16"
+                      width="16"
+                    >
+                      <use
+                        xlink:href="#ec-simple-arrow-up-down"
+                      />
+                    </svg>
+                     
+                    <!---->
+                  </a>
+                </span>
+              </th>
+              <th
+                class="ec-table-head__cell"
+                data-test="ec-table-head__cell ec-table-head__cell--1"
+                scope="col"
+              >
+                <span
+                  class="ec-table-head__cell-wrapper"
+                >
+                  <span
+                    class=""
+                  >
+                    
+          Test 2
+        
+                  </span>
+                   
+                  <!---->
+                   
+                  <!---->
+                </span>
+              </th>
+              <th
+                class="ec-table-head__cell"
+                data-test="ec-table-head__cell ec-table-head__cell--2"
+                scope="col"
+              >
+                <span
+                  class="ec-table-head__cell-wrapper"
+                >
+                  <span
+                    class=""
+                  >
+                    
+          Test 3
+        
+                  </span>
+                   
+                  <!---->
+                   
+                  <a
+                    class="ec-table-sort ec-table-head__icon"
+                    data-test="ec-table-sort"
+                    href="#"
+                    title="Not sorted"
+                  >
+                    <svg
+                      class="ec-icon ec-table-sort__icon"
+                      data-test="ec-table-sort__icon"
+                      height="16"
+                      width="16"
+                    >
+                      <use
+                        xlink:href="#ec-simple-arrow-up-down"
+                      />
+                    </svg>
+                     
+                    <!---->
+                  </a>
+                </span>
+              </th>
+            </tr>
+          </thead>
+           
+          <tbody>
+            <tr
+              class=""
+              data-test="ec-table__row ec-table__row--0"
+            >
+              <td
+                class="ec-table__cell"
+                data-test="ec-table__cell ec-table__cell--0"
+              >
+                1
+              </td>
+              <td
+                class="ec-table__cell"
+                data-test="ec-table__cell ec-table__cell--1"
+              >
+                2
+              </td>
+              <td
+                class="ec-table__cell"
+                data-test="ec-table__cell ec-table__cell--2"
+              >
+                3
+              </td>
+            </tr>
+          </tbody>
+           
+          <!---->
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 `;

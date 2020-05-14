@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcWithLoading :props should hide loading when isLoading prop is not set 1`] = `
+<div
+  class="ec-loading"
+>
+  <!---->
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <div
+      data-custom="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`EcWithLoading :props should hide loading when isLoading prop is set to false 1`] = `
+<div
+  class="ec-loading"
+>
+  <!---->
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <div
+      data-custom="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`EcWithLoading :props should not render transparent when isLoadingTransparent is set to false 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__backdrop"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-loading__content"
+  >
+    <div
+      data-custom="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`EcWithLoading :props should pass rest of the props to the wrapped component 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <div
+      data-custom="2"
+    />
+  </div>
+</div>
+`;
+
+exports[`EcWithLoading :props should render transparent by default 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <div
+      data-custom="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`EcWithLoading :props should render transparent when isLoadingTransparent is set to true 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <div
+      data-custom="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`EcWithLoading :props should show loading when isLoading prop is set to true 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="48"
+      width="48"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <div
+      data-custom="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`EcWithLoading :props should use iconSize prop 1`] = `
+<div
+  class="ec-loading"
+>
+  <div
+    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+  >
+    <svg
+      class="ec-loading__icon ec-icon"
+      height="64"
+      width="64"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <div
+      data-custom="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`EcWithLoading should render properly 1`] = `
+<div
+  class="ec-loading"
+>
+  <!---->
+   
+  <div
+    class="ec-loading__content ec-loading__content--is-transparent"
+  >
+    <div
+      data-custom="1"
+    />
+  </div>
+</div>
+`;
