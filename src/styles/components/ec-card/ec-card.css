@@ -1,0 +1,33 @@
+.ec-card {
+  @apply tw-rounded tw-p-8 tw-bg-light tw-shadow-level-1;
+
+  word-break: break-word;
+
+  &--is-interactive {
+    @apply tw-relative tw-cursor-pointer;
+
+    transition: transform 0.4 ease;
+
+    &:after {
+      content: '';
+
+      @apply tw-shadow-level-2 tw-absolute tw-top-0 tw-left-0 tw-h-full tw-opacity-0;
+
+      width: 100%;
+      z-index: -1;
+      transition: opacity 0.4 ease;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+
+      &:after {
+        @apply tw-opacity-100;
+      }
+    }
+  }
+
+  @screen sm {
+    @apply tw-p-24;
+  }
+}
