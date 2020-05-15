@@ -28,24 +28,21 @@ describe('EcWithAbortableFetch', () => {
   it('should throw an error if dataSource prop is missing', () => {
     withMockedConsole((errorSpy) => {
       mountEcWithAbortableFetch();
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "dataSource"');
+      expect(errorSpy).toMatchSnapshot();
     });
   });
 
   it('should throw an error if dataSource.fetch function is missing', () => {
     withMockedConsole((errorSpy) => {
       mountEcWithAbortableFetch({ dataSource: {} });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "dataSource"');
+      expect(errorSpy).toMatchSnapshot();
     });
   });
 
   it('should throw an error if dataSource.fetch is not a function', () => {
     withMockedConsole((errorSpy) => {
       mountEcWithAbortableFetch({ dataSource: { fetch: true } });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "dataSource"');
+      expect(errorSpy).toMatchSnapshot();
     });
   });
 

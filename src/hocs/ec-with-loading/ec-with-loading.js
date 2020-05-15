@@ -6,17 +6,9 @@ const withLoading = (Component, options = {}, renderOptions = {}) => createHOC(C
   name: 'EcWithLoading',
   functional: true,
   props: {
-    isLoading: {
-      type: Boolean,
-      default: false,
-    },
-    isLoadingTransparent: {
-      type: Boolean,
-      default: true,
-    },
-    loadingIconSize: {
-      type: Number,
-    },
+    isLoading: {},
+    isLoadingTransparent: {},
+    loadingIconSize: {},
     ...options.props,
   },
   render(h, context) {

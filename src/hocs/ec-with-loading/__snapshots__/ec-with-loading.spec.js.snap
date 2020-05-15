@@ -1,21 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcWithLoading :props should hide loading when isLoading prop is not set 1`] = `
-<div
-  class="ec-loading"
->
-  <!---->
-   
-  <div
-    class="ec-loading__content ec-loading__content--is-transparent"
-  >
-    <div
-      data-custom="1"
-    />
-  </div>
-</div>
-`;
-
 exports[`EcWithLoading :props should hide loading when isLoading prop is set to false 1`] = `
 <div
   class="ec-loading"
@@ -172,6 +156,27 @@ exports[`EcWithLoading :props should show loading when isLoading prop is set to 
 </div>
 `;
 
+exports[`EcWithLoading :props should throw an error when isLoading prop is not set 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[Vue warn]: Invalid prop: type check failed for prop \\"show\\". Expected Boolean, got Undefined 
+
+found in
+
+---> <EcLoading>
+       <Root>",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
 exports[`EcWithLoading :props should use iconSize prop 1`] = `
 <div
   class="ec-loading"
@@ -189,22 +194,6 @@ exports[`EcWithLoading :props should use iconSize prop 1`] = `
       />
     </svg>
   </div>
-   
-  <div
-    class="ec-loading__content ec-loading__content--is-transparent"
-  >
-    <div
-      data-custom="1"
-    />
-  </div>
-</div>
-`;
-
-exports[`EcWithLoading should render properly 1`] = `
-<div
-  class="ec-loading"
->
-  <!---->
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
