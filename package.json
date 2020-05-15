@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "0.1.91",
+  "version": "0.1.92",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -70,7 +70,7 @@
     "cypress-image-snapshot": "3.1.1",
     "eslint": "6.8.0",
     "eslint-plugin-cypress": "2.10.3",
-    "eslint-plugin-jest": "23.10.0",
+    "eslint-plugin-jest": "23.11.0",
     "eslint-plugin-vue": "6.2.2",
     "intl": "1.2.5",
     "lint-staged": "10.2.2",
