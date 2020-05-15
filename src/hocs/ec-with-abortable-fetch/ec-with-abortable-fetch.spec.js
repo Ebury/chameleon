@@ -1,6 +1,7 @@
 import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
 import { withMockedConsole } from '../../../tests/utils/console';
 import withAbortableFetch from './ec-with-abortable-fetch';
+import flushPromises from '../../../tests/utils/flush-promises';
 
 describe('EcWithAbortableFetch', () => {
   function mountEcWithAbortableFetch(props, mountOpts) {
@@ -64,8 +65,8 @@ describe('EcWithAbortableFetch', () => {
       fetch: jest.fn().mockResolvedValueOnce(data),
     };
 
-    const { hocWrapper, componentWrapper } = mountEcWithAbortableFetch({ dataSource });
-    await hocWrapper.vm.$nextTick();
+    const { componentWrapper } = mountEcWithAbortableFetch({ dataSource });
+    await flushPromises();
     expect(getWrappedComponentState(componentWrapper).data).toBe(data);
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(dataSource.fetch).toMatchSnapshot();
@@ -79,12 +80,12 @@ describe('EcWithAbortableFetch', () => {
 
     const errorSpy = jest.fn();
 
-    const { hocWrapper, componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
+    const { componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
       listeners: {
         error: errorSpy,
       },
     });
-    await hocWrapper.vm.$nextTick();
+    await flushPromises();
     expect(getWrappedComponentState(componentWrapper).error).toBe(error);
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(dataSource.fetch).toMatchSnapshot();
@@ -112,7 +113,7 @@ describe('EcWithAbortableFetch', () => {
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(dataSource.fetch).toMatchSnapshot();
 
-    await hocWrapper.vm.$nextTick();
+    await flushPromises();
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
 
     dataSource.fetch.mockClear();
@@ -124,7 +125,7 @@ describe('EcWithAbortableFetch', () => {
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(dataSource.fetch).toMatchSnapshot();
 
-    await hocWrapper.vm.$nextTick();
+    await flushPromises();
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
   });
 
@@ -151,7 +152,7 @@ describe('EcWithAbortableFetch', () => {
     });
 
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
-    await hocWrapper.vm.$nextTick();
+    await flushPromises();
     expect(abortSpy).toHaveBeenCalledTimes(2);
   });
 
@@ -188,12 +189,12 @@ describe('EcWithAbortableFetch', () => {
 
     const errorSpy = jest.fn();
 
-    const { hocWrapper, componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
+    const { componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
       listeners: {
         error: errorSpy,
       },
     });
-    await hocWrapper.vm.$nextTick();
+    await flushPromises();
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(dataSource.fetch).toHaveBeenCalledTimes(1);
     expect(errorSpy).not.toHaveBeenCalled();

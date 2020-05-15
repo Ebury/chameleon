@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import * as SortDirection from '../../enums/sort-direction';
 import EcSmartTable from './ec-smart-table.vue';
+import flushPromises from '../../../tests/utils/flush-promises';
 
 describe('EcSmartTable', () => {
   const columns = [
@@ -196,13 +197,3 @@ describe('EcSmartTable', () => {
     });
   });
 });
-
-function flushPromises() {
-  // better than calling nextTick multiple times.
-  // await wrapper.vm.$nextTick();
-  // await wrapper.vm.$nextTick();
-  // await wrapper.vm.$nextTick();
-  return new Promise((resolve) => {
-    setTimeout(resolve);
-  });
-}
