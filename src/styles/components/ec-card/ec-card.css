@@ -1,3 +1,8 @@
+:root {
+  --ec-card-interactive-transition-duration: 0.4s;
+  --ec-card-interactive-transition-timing-function: ease;
+}
+
 .ec-card {
   @apply tw-rounded tw-p-8 tw-bg-light tw-shadow-level-1;
 
@@ -6,7 +11,7 @@
   &--is-interactive {
     @apply tw-relative tw-cursor-pointer;
 
-    transition: transform 0.4 ease;
+    transition: transform var(--ec-card-interactive-transition-duration) var(--ec-card-interactive-transition-timing-function);
 
     &:after {
       content: '';
@@ -15,7 +20,7 @@
 
       width: 100%;
       z-index: -1;
-      transition: opacity 0.4 ease;
+      transition: opacity var(--ec-card-interactive-transition-duration) var(--ec-card-interactive-transition-timing-function);
     }
 
     &:hover {
