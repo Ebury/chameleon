@@ -1,30 +1,31 @@
-:root {
-  --ec-card-interactive-transition-duration: 0.4s;
-  --ec-card-interactive-transition-timing-function: ease;
+.ec-card-transition {
+  @apply tw-ease tw-duration-400;
 }
 
 .ec-card {
-  @apply tw-rounded tw-p-8 tw-bg-light tw-shadow-level-1;
-
-  word-break: break-word;
+  @apply tw-rounded tw-shadow-level-1;
+  @apply tw-p-8;
+  @apply tw-bg-light;
+  @apply tw-break-words;
 
   &--is-interactive {
-    @apply tw-relative tw-cursor-pointer;
-
-    transition: transform var(--ec-card-interactive-transition-duration) var(--ec-card-interactive-transition-timing-function);
+    @apply tw-relative;
+    @apply tw-cursor-pointer;
+    @apply tw-transition-transform ec-card-transition;
 
     &:after {
       content: '';
-
-      @apply tw-shadow-level-2 tw-absolute tw-top-0 tw-left-0 tw-h-full tw-opacity-0;
-
-      width: 100%;
       z-index: -1;
-      transition: opacity var(--ec-card-interactive-transition-duration) var(--ec-card-interactive-transition-timing-function);
+
+      @apply tw-shadow-level-2;
+      @apply tw-absolute tw-top-0 tw-left-0;
+      @apply tw-h-full tw-w-full;
+      @apply tw-opacity-0;
+      @apply tw-transition-opacity ec-card-transition;
     }
 
     &:hover {
-      transform: translateY(-8px);
+      transform: translateY(calc(-1 * theme('spacing.8')));
 
       &:after {
         @apply tw-opacity-100;
