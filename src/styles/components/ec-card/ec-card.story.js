@@ -1,11 +1,9 @@
 import { storiesOf } from '@storybook/vue';
-import EcIcon from '@/components/ec-icon';
 
 const stories = storiesOf('Card', module);
 
 stories
   .add('all', () => ({
-    components: { EcIcon },
     data() {
       return {
         list: [
