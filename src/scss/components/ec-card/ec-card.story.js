@@ -4,54 +4,63 @@ import EcIcon from '@/components/ec-icon';
 const stories = storiesOf('Card', module);
 
 stories
-  .add('basic', () => ({
-    template: `
-    <div style="display: flex; height: 100vh; margin: 10px">
-      <div style="margin: auto; width: 33vw;">
-        <div class="ec-card">
-          Basic example card
-        </div>
-      </div>
-    </div>
-      `,
-  }))
-  .add('interactive card', () => ({
-    template: `
-    <div style="display: flex; height: 100vh; margin: 10px">
-      <div style="margin: auto; width: 33vw;">
-        <div class="ec-card ec-card--is-interactive">
-          Interactive example card
-        </div>
-      </div>
-    </div>
-      `,
-  }))
-  .add('trade finance cards', () => ({
+  .add('all', () => ({
     components: { EcIcon },
+    data() {
+      return {
+        list: [
+          {
+            title: 'Basic',
+            text: 'Basic example card',
+            class: '',
+          },
+          {
+            title: 'Interactive card',
+            text: 'Interactive example card',
+            class: 'ec-card--is-interactive',
+          },
+        ],
+      };
+    },
     template: `
-    <div style="display: flex; height: 100vh; margin: 10px">
-      <div style="margin: 10px; width: 66vw;">
-        <div class="ec-card">
-          <div class="ec-p--8">
-            <div style="font-size:25px; line-height: 35px;" class="ec-mb--24">
-              Credit line: EUR 1,000,000.00
+    <div class="tw-p-16">
+      <div v-for="(card, index) in list" :key="index">
+        <h3>{{ card.title }}</h3>
+        <div class="tw-flex tw-m-12">
+          <div style="width: 33vw;">
+            <div class="ec-card" :class="card.class">
+              {{ card.text }}
             </div>
-            <ec-icon class="ec-mr--8" name="simple-check" :size="108" />
-            <ec-icon class="ec-mr--8" name="simple-check" :size="14" />
-            Used EUR 0.00
           </div>
         </div>
       </div>
-      <div style="margin: 10px; width: 33vw;">
-        <div class="ec-card" >
-          <div style="text-align:center; font-size:18px; line-height: 28px;">
-            Management account status
+      <!-- Trade finance cards -->
+      <h3>Trade finance cards</h3>
+      <div class="tw-flex tw-m-12">
+        <div style="width: 66vw;">
+          <div class="ec-card">
+            <div class="tw-p-8">
+              <div class="tw-mb-24" style="font-size:25px; line-height: 35px;">
+                Credit line: EUR 1,000,000.00
+              </div>
+              <ec-icon class="tw-mr-8" name="simple-check" :size="108" />
+              <ec-icon class="tw-mr-8" name="simple-check" :size="14" />
+              Used EUR 0.00
+            </div>
           </div>
-          <ec-icon class="ec-mt--24 ec-mb--24" name="simple-check" :size="48" />
-          <div style="text-align:center;font-size: 14px; line-height: 20px;">
-            Here we will display the status of your management accounts, so you can update them when necessary.
+        </div>
+        <div class="tw-m-12" style="width: 33vw;">
+          <div class="ec-card" >
+            <div class="tw-text-center" style="font-size:18px; line-height: 28px;">
+              Management account status
+            </div>
+            <ec-icon class="tw-my-24" name="simple-check" :size="48" />
+            <div class="tw-text-center tw-small-text">
+              Here we will display the status of your management accounts, so you can update them when necessary.
+            </div>
           </div>
         </div>
       </div>
-    </div>`,
+    </div>
+      `,
   }));
