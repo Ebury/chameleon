@@ -25,9 +25,15 @@ export { default as EcNavigationLink } from './components/ec-navigation-link';
 export { default as EcPanel } from './components/ec-panel';
 export { default as EcPopover } from './components/ec-popover';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
+export { default as EcSmartTable } from './components/ec-smart-table';
 export { default as EcSubmenu } from './components/ec-submenu';
 export { default as EcTable } from './components/ec-table';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcTooltip } from './directives/ec-tooltip';
 export { default as EcUserInfo } from './components/ec-user-info';
+
+export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
+export { default as ecWithLoading } from './hocs/ec-with-loading';
+export { default as ecWithSorting } from './hocs/ec-with-sorting';
+
 export { SortDirection };

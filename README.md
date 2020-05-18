@@ -46,8 +46,13 @@ so it's consistent across all browsers.
 
 ### CSS variables polyfill
 
-If you support **IE11** browser, you have to include the [CSS vars ponyfill](https://jhildenbiddle.github.io/css-vars-ponyfill/#/) when using our components. 
+If you support **IE11** browser, you have to include the [CSS vars ponyfill](https://jhildenbiddle.github.io/css-vars-ponyfill/#/) when using our components.
 Follow their instructions how to [install it](https://jhildenbiddle.github.io/css-vars-ponyfill/#/?id=installation) an [used it](https://jhildenbiddle.github.io/css-vars-ponyfill/#/?id=usage).
+
+### AbortController polyfill
+
+`ec-smart-table` component uses `withAbortableFetch` HOC, which uses [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) to
+abort previous requests. If you support **IE11** browser, you have to include [AbortController polyfill](https://www.npmjs.com/package/abortcontroller-polyfill) in your code.
 
 ## Contributing
 
@@ -80,7 +85,7 @@ Please don't add any CSS styles without following the rules below.
 
 #### Vue
 
-The single-file Vue components should not use scoped files as is not necessary since we follow BEM.
+The single-file Vue components should not use scoped styles as is not necessary since we follow BEM.
 
 #### BEM
 
