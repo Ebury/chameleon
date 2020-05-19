@@ -66,6 +66,7 @@ export default {
 </script>
 
 <style>
+@import '../../styles/tools/transitions.css';
 
 .ec-submenu {
   @apply tw-relative;
@@ -74,10 +75,10 @@ export default {
     min-width: 100px;
 
     @apply tw-mb-12;
-    @apply tw-flex tw-whitespace-no-wrap;
-    @apply tw-flex-col;
+    @apply tw-flex tw-flex-col;
+    @apply tw-whitespace-no-wrap;
 
-    @media (min-width: 1024px) {
+    @screen lg {
       @apply tw-flex-row;
       @apply tw-border-b tw-border-solid tw-text-gray-6;
     }
@@ -92,12 +93,12 @@ export default {
   }
 
   &__header-title {
-    @apply tw-no-underline;
-    @apply tw-outline-none;
+    @apply tw-no-underline tw-outline-none;
     @apply tw-text-gray-3;
     @apply tw-pt-8 tw-px-16 tw-pb-4;
     @apply tw-inline-block;
-    @apply tw-transition-text tw-duration-300 tw-ease-out;
+
+    @mixin ec-text-color-transition;
 
     &:focus {
       @apply tw-outline-none;
@@ -111,9 +112,7 @@ export default {
   }
 
   &__header-item--is-active {
-    @apply tw-border-b;
-    @apply tw-border-solid;
-    @apply tw-border-key-4;
+    @apply tw-border-b tw-border-solid tw-border-key-4;
     @apply tw-cursor-auto;
 
     .ec-submenu__header-title {
