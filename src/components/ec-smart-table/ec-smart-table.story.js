@@ -175,4 +175,8 @@ stories
         </div>
       </div>
     `,
-  }));
+  }), {
+    visualRegressionTests: {
+      waitOn: '.ec-table',
+    },
+  });
