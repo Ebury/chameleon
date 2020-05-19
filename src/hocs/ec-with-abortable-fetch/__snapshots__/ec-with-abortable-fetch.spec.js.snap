@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcWithAbortableFetch should abort fetch call when destroyed 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should abort previous fetch calls 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should abort previous fetch calls 2`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should re-fetch the data if arguments change 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should re-fetch the data if arguments change 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "prop": 1,
+      },
+      AbortSignal {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Object {
+        "result": 2,
+      },
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should re-fetch the data if arguments change 3`] = `
+Object {
+  "data": Object {
+    "result": 2,
+  },
+  "error": null,
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should re-fetch the data if arguments change 4`] = `
+Object {
+  "data": Object {
+    "result": 2,
+  },
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should re-fetch the data if arguments change 5`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "anotherProp": 2,
+      },
+      AbortSignal {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Object {
+        "result": 2,
+      },
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should re-fetch the data if arguments change 6`] = `
+Object {
+  "data": Object {
+    "result": 2,
+  },
+  "error": null,
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should send the given fetch arguments 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should send the given fetch arguments 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "prop": 1,
+      },
+      AbortSignal {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should start fetching when created 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should start fetching when created 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      undefined,
+      AbortSignal {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should stop fetching and keep the state intact if fetch for rejected because of AbortError 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should stop fetching and pass the data to the component after dataSource gets resolved 1`] = `
+Object {
+  "data": Object {
+    "prop": 1,
+  },
+  "error": null,
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should stop fetching and pass the data to the component after dataSource gets resolved 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      undefined,
+      AbortSignal {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should stop fetching and pass the error to the component after dataSource gets rejected 1`] = `
+Object {
+  "data": null,
+  "error": [Error: Random error],
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should stop fetching and pass the error to the component after dataSource gets rejected 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      undefined,
+      AbortSignal {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should stop fetching and pass the error to the component after dataSource gets rejected 3`] = `
+Array [
+  Array [
+    [Error: Random error],
+  ],
+]
+`;
+
+exports[`EcWithAbortableFetch should throw an error if dataSource prop is missing 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[Vue warn]: Missing required prop: \\"dataSource\\"
+
+found in
+
+---> <EcWithAbortableFetch>
+       <Root>",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should throw an error if dataSource.fetch function is missing 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[Vue warn]: Invalid prop: custom validator check failed for prop \\"dataSource\\".
+
+found in
+
+---> <EcWithAbortableFetch>
+       <Root>",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should throw an error if dataSource.fetch is not a function 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "[Vue warn]: Invalid prop: custom validator check failed for prop \\"dataSource\\".
+
+found in
+
+---> <EcWithAbortableFetch>
+       <Root>",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
