@@ -65,92 +65,85 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/index';
-@import '../../scss/tools/index';
-
-$ec-submenu-body: $level-3-body-and-headings !default;
-$ec-submenu-hover: $level-4-tech-blue !default;
-$ec-submenu-disabled: $level-6-disabled-lines !default;
+<style>
 
 .ec-submenu {
-  position: relative;
+  @apply tw-relative;
 
   &__header {
     min-width: 100px;
-    margin-bottom: 12px;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
 
-    @include media__from-1024 {
-      flex-direction: row;
-      border-bottom: 1px solid $ec-submenu-disabled;
+    @apply tw-mb-12;
+    @apply tw-flex tw-whitespace-no-wrap;
+    @apply tw-flex-col;
+
+    @media (min-width: 1024px) {
+      @apply tw-flex-row;
+      @apply tw-border-b tw-border-solid tw-text-gray-6;
     }
   }
 
   &__header-item {
-    bottom: -1px;
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    text-align: center;
+    @apply tw--bottom-1;
+    @apply tw-cursor-pointer;
+    @apply tw-inline-block;
+    @apply tw-relative;
+    @apply tw-text-center;
   }
 
   &__header-title {
-    text-decoration: none;
-    outline: none;
-    color: $ec-submenu-body;
-    padding: 8px 16px 4px 16px;
-    display: inline-block;
-
-    @include color-transition;
+    @apply tw-no-underline;
+    @apply tw-outline-none;
+    @apply tw-text-gray-3;
+    @apply tw-pt-8 tw-px-16 tw-pb-4;
+    @apply tw-inline-block;
+    @apply tw-transition-text tw-duration-300 tw-ease-out;
 
     &:focus {
-      outline-width: 0;
-      color: $ec-submenu-hover;
+      @apply tw-outline-none;
+      @apply tw-text-key-4;
     }
 
     &:hover {
-      text-decoration: none;
-      color: $ec-submenu-hover;
+      @apply tw-no-underline;
+      @apply tw-text-key-4;
     }
   }
 
   &__header-item--is-active {
-    border-bottom-width: 1px;
-    border-style: solid;
-    border-color: $ec-submenu-hover;
-    cursor: auto;
+    @apply tw-border-b;
+    @apply tw-border-solid;
+    @apply tw-border-key-4;
+    @apply tw-cursor-auto;
 
     .ec-submenu__header-title {
-      color: $ec-submenu-hover;
+      @apply tw-text-key-4;
     }
   }
 
   &__main {
-    position: relative;
+    @apply tw-relative;
   }
 
   &__fade-enter,
   &__fade-leave-to {
-    opacity: 0;
+    @apply tw-opacity-0;
   }
 
   &__fade-enter-to {
-    transition: opacity 0.3s ease-out;
-    opacity: 1;
+    @apply tw-transition-opacity tw-duration-300 tw-ease-out;
+    @apply tw-opacity-100;
   }
 
   &__fade-leave,
   &__fade-leave-active,
   &__fade-leave-to {
-    position: absolute;
-    top: 0;
+    @apply tw-absolute;
+    @apply tw-top-0;
   }
 
   &__fade-leave {
-    opacity: 1;
+    @apply tw-opacity-100;
   }
 }
 </style>
