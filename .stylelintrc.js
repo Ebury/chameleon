@@ -38,7 +38,7 @@ module.exports = {
     'scss/at-mixin-pattern': NAMING_PATTERN,
     'scss/at-each-key-value-single-line': true,
     'scss/at-rule-conditional-no-parentheses': true,
-    'scss/at-rule-no-unknown': [true, { ignoreAtRules: 'define-mixin' }], // define-mixin used in postcss-import
+    'scss/at-rule-no-unknown': [true, { ignoreAtRules: ['define-mixin', 'screen'] }], // define-mixin, screen used in postcss-import
     'scss/comment-no-loud': null, // disabled because of PostCSS migration
     'scss/declaration-nested-properties': null,
     'scss/declaration-nested-properties-no-divided-groups': true,

@@ -1,0 +1,39 @@
+.ec-card-transition {
+  @apply tw-ease tw-duration-400;
+}
+
+.ec-card {
+  @apply tw-rounded tw-shadow-level-1;
+  @apply tw-p-8;
+  @apply tw-bg-light;
+  @apply tw-break-words;
+
+  &--is-interactive {
+    @apply tw-relative;
+    @apply tw-cursor-pointer;
+    @apply tw-transition-transform ec-card-transition;
+
+    &:after {
+      content: '';
+      z-index: -1;
+
+      @apply tw-shadow-level-2;
+      @apply tw-absolute tw-top-0 tw-left-0;
+      @apply tw-h-full tw-w-full;
+      @apply tw-opacity-0;
+      @apply tw-transition-opacity ec-card-transition;
+    }
+
+    &:hover {
+      transform: translateY(calc(-1 * theme('spacing.8')));
+
+      &:after {
+        @apply tw-opacity-100;
+      }
+    }
+  }
+
+  @screen sm {
+    @apply tw-p-24;
+  }
+}
