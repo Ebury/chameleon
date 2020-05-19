@@ -8,13 +8,15 @@ import EcUserInfo from '../ec-user-info';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcIcon from '../ec-icon';
 import './ec-container.story.scss';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import gravatar from '!!url-loader!../../../public/empty-gravatar.png';
 
 const stories = storiesOf('Layout/Container', module);
 
 const client = {
   name: 'Ebury Demo 2',
   profileUrl: '/profile',
-  gravatar: 'https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200',
+  gravatar,
 };
 
 stories
