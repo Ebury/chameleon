@@ -1,11 +1,13 @@
 import { storiesOf } from '@storybook/vue';
 import { object, boolean } from '@storybook/addon-knobs';
 import EcUserInfo from './ec-user-info.vue';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import gravatar from '!!url-loader!../../../public/empty-gravatar.png';
 
 const client = {
   name: 'Ebury Demo 2',
   profileUrl: '/profile',
-  gravatar: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?d=mm&s=200',
+  gravatar,
 };
 
 const stories = storiesOf('Layout/User Info', module);
