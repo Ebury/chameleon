@@ -230,8 +230,9 @@ module.exports = {
       full: '100%',
       screen: '100vh',
     }),
-    inset: theme => ({
+    inset: (theme, { negative }) => ({
       ...theme('spacing'),
+      ...negative(theme('spacing')),
       auto: 'auto',
     }),
     // letterSpacing: {
