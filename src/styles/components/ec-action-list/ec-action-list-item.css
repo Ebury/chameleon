@@ -1,0 +1,12 @@
+.ec-action-list-item {
+  @apply tw-rounded;
+  @apply tw-border tw-border-solid tw-border-gray-6;
+  @apply tw-p-16;
+  @apply tw-m-4;
+  @apply tw-cursor-pointer;
+
+  &:hover,
+  &:active {
+    @apply tw-bg-gray-7;
+  }
+}

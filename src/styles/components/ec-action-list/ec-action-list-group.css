@@ -1,7 +1,7 @@
 .ec-action-list-group {
-  display: flex;
+  @apply tw-flex;
 
   &--column {
-    flex-direction: column;
+    @apply tw-flex-col;
   }
 }
