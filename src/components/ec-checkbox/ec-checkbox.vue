@@ -1,5 +1,8 @@
 <template>
-  <div class="ec-checkbox">
+  <div
+    :class="$attrs['class'] ? `${$attrs['class']} ec-checkbox` : 'ec-checkbox'"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-checkbox` : 'ec-checkbox'"
+  >
     <input
       :id="id"
       ref="checkboxInput"
@@ -9,6 +12,7 @@
       class="ec-checkbox__input"
       :disabled="disabled"
       v-bind="$attrs"
+      data-test="ec-checkbox__input"
       @focus="inputIsFocused = true"
       @blur="inputIsFocused = false"
       v-on="$listeners"
@@ -38,6 +42,7 @@
       <label
         :for="id"
         class="ec-checkbox__label"
+        data-test="ec-checkbox__label"
       >
         <slot name="label">{{ label }}</slot>
       </label>
@@ -47,6 +52,7 @@
       :id="errorId"
       v-if="isInvalid"
       class="ec-checkbox__error-text"
+      data-test="ec-checkbox__error-text"
     >
       <slot name="error-message">{{ errorMessage }}</slot>
     </div>
