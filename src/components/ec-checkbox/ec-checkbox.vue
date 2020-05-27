@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="$attrs['class'] ? `${$attrs['class']} ec-checkbox` : 'ec-checkbox'"
+    class="ec-checkbox"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-checkbox` : 'ec-checkbox'"
   >
     <input

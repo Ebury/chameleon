@@ -366,7 +366,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
     title="Item 1"
   >
     <div
-      class="ec-dropdown__multiple-item ec-checkbox"
+      class="ec-checkbox ec-dropdown__multiple-item"
       data-test="ec-checkbox"
     >
       <input
@@ -407,7 +407,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
     title="Item 2"
   >
     <div
-      class="ec-dropdown__multiple-item ec-checkbox"
+      class="ec-checkbox ec-dropdown__multiple-item"
       data-test="ec-checkbox"
     >
       <input
@@ -448,7 +448,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
     title="Item 3"
   >
     <div
-      class="ec-dropdown__multiple-item ec-checkbox"
+      class="ec-checkbox ec-dropdown__multiple-item"
       data-test="ec-checkbox"
     >
       <input
@@ -489,7 +489,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
     data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
   >
     <div
-      class="ec-dropdown__multiple-item ec-checkbox"
+      class="ec-checkbox ec-dropdown__multiple-item"
       data-test="ec-checkbox"
     >
       <input
@@ -531,7 +531,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
     title="Item 5"
   >
     <div
-      class="ec-dropdown__multiple-item ec-checkbox"
+      class="ec-checkbox ec-dropdown__multiple-item"
       data-test="ec-checkbox"
     >
       <input
