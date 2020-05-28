@@ -6,7 +6,7 @@
 
 ## Changed
 
-* Updated the `inset` key within the `theme` object map in order extend the range of possible values in properties like `top`, `bottom`, `right` or `left`. Until now we used those defined in `spacing` (and their corresponding in negative), from now on we will use those defined in `width`, which already includes `spacing` and adds values in percentages.
+* Updated the `inset` key within the `theme` object map in order to extend the range of possible values in properties like `top`, `bottom`, `right` or `left`. Until now we used those defined in `spacing` (and their corresponding in negative), from now on we will use those defined in `width`, which already includes `spacing` and adds values in percentages.
 
 # 0.1.86 - 0.1.XX - Goodbye SASS, welcome PostCSS and TailwindCSS
 
