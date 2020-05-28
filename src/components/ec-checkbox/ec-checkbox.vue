@@ -189,11 +189,10 @@ export default {
 
   &__check-icon {
     fill: white;
-    left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
 
     @apply tw-absolute;
+    @apply tw-left-1/2 tw-top-1/2;
   }
 
   &__error-text {

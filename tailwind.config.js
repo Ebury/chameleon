@@ -231,9 +231,8 @@ module.exports = {
       screen: '100vh',
     }),
     inset: (theme, { negative }) => ({
-      ...theme('spacing'),
-      ...negative(theme('spacing')),
-      auto: 'auto',
+      ...theme('width'),
+      ...negative(theme('width')),
     }),
     // letterSpacing: {
     //   tighter: '-0.05em',
