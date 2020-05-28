@@ -117,102 +117,87 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/index';
-@import '../../scss/tools/index';
-
-$ec-checkbox-default-border-color: $level-4-interactive-elements !default;
-$ec-checkbox-default-background-color: $white !default;
-$ec-checkbox-checked-background-color: $level-4-tech-blue !default;
-$ec-checkbox-checked-background-hover-color: $level-3-hover !default;
-$ec-checkbox-error-color: $color-error !default;
-$ec-checkbox-disabled-color: $level-6-disabled-lines !default;
-
+<style>
 .ec-checkbox {
   &__input {
-    @include ec-screen-reader-only;
+    @apply tw-sr-only;
   }
 
   &__label-checkbox-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
+    @apply tw-flex tw-flex-no-wrap;
   }
 
   &__label {
-    @include input-label;
-
-    flex-grow: 1;
-    min-width: 0;
+    @apply tw-input-label;
+    @apply tw-flex-grow;
+    @apply tw-min-w-0;
   }
 
   &__check-icon-wrapper {
-    cursor: pointer;
-    background: $ec-checkbox-default-background-color;
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    border: 2px solid $ec-checkbox-default-border-color;
-    position: relative;
-    margin-right: 8px;
+    background: white;
 
-    @include checkbox-border-radius;
+    @apply tw-cursor-pointer;
+    @apply tw-w-20 tw-h-20;
+    @apply tw-flex-shrink-0;
+    @apply tw-border-2 tw-border-solid tw-border-gray-4;
+    @apply tw-relative;
+    @apply tw-mr-8;
+    @apply tw-rounded-sm;
 
     &--focused,
     &:hover {
-      border-color: $ec-checkbox-checked-background-hover-color;
+      @apply tw-border-key-3;
     }
 
     &--checked {
-      border-color: $ec-checkbox-checked-background-color;
-      background-color: $ec-checkbox-checked-background-color;
+      @apply tw-border-key-4;
+      @apply tw-bg-key-4;
 
       &:hover {
-        background-color: $ec-checkbox-checked-background-hover-color;
+        @apply tw-bg-key-3;
       }
     }
 
     &--checked-and-focused {
-      border-color: $ec-checkbox-checked-background-hover-color;
-      background-color: $ec-checkbox-checked-background-hover-color;
+      @apply tw-border-key-3;
+      @apply tw-bg-key-3;
     }
 
     &--disabled {
-      border-color: $ec-checkbox-disabled-color;
-      cursor: default;
+      @apply tw-border-gray-6;
+      @apply tw-cursor-default;
 
       &:hover,
       &:focus {
-        border-color: $ec-checkbox-disabled-color;
+        @apply tw-border-gray-6;
       }
     }
 
     &--checked-and-disabled {
-      background: $ec-checkbox-disabled-color;
+      @apply tw-bg-gray-6;
 
       &:hover,
       &:focus {
-        background: $ec-checkbox-disabled-color;
+        @apply tw-bg-gray-6;
       }
     }
 
     &--error {
-      border-color: $ec-checkbox-error-color;
+      @apply tw-border-error;
     }
   }
 
   &__check-icon {
-    fill: $ec-checkbox-default-background-color;
-    position: absolute;
+    fill: white;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
+    @apply tw-absolute;
   }
 
   &__error-text {
-    @include flags-text;
-
-    color: $ec-checkbox-error-color;
+    @apply tw-flags-text tw-text-error;
   }
 }
-
 </style>

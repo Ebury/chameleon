@@ -1,3 +1,9 @@
+# 0.1.98 - Minor changes in tailwind.config.js
+
+## Added
+
+* Enable the utility class `tw-border-2` to be able to define a 2px border width.
+
 # 0.1.86 - 0.1.XX - Goodbye SASS, welcome PostCSS and TailwindCSS
 
 We've started a process of replacing SASS with PostCSS to be able to create custom themes using CSS variables.
