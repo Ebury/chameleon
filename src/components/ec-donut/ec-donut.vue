@@ -1,6 +1,12 @@
 <template>
-  <div class="ec-donut">
-    <div class="ec-donut__container">
+  <div
+    class="ec-donut"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-donut` : 'ec-donut'"
+  >
+    <div
+      class="ec-donut__container"
+      data-test="ec-donut-container"
+    >
       <svg
         width="108"
         height="108"
@@ -37,8 +43,14 @@
         />
       </svg>
     </div>
-    <div class="ec-donut__legend">
-      <div class="ec-donut__legend-used">
+    <div
+      class="ec-donut__legend"
+      data-test="ec-donut__legend"
+    >
+      <div
+        class="ec-donut__legend-used"
+        data-test="ec-donut__legend-used"
+      >
         <ec-icon
           name="rounded-notification"
           :size="14"
@@ -46,7 +58,10 @@
         />
         <slot name="used-legend" />
       </div>
-      <div class="ec-donut__legend-remaining">
+      <div
+        class="ec-donut__legend-remaining"
+        data-test="ec-donut__legend-remaining"
+      >
         <ec-icon
           name="rounded-notification"
           :size="14"
