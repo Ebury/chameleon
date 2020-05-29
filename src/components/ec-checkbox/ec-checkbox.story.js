@@ -9,22 +9,25 @@ stories
     components: { EcCheckbox },
     props: {
       valueFromPropsChecked1: {
-        default: boolean('"Label and Error messages coming from props" Checkbox'),
+        default: boolean('Checkbox', false, 'Label and Error messages coming from props'),
       },
       valueFromPropsChecked2: {
-        default: boolean('"Label and Error messages coming from template" Checkbox'),
+        default: boolean('Checkbox', false, 'Label and Error messages coming from template'),
       },
       valueFromPropsLabel: {
-        default: text('"Label and Error messages coming from props" Checkbox Label', 'I accept the terms and conditions'),
+        default: text('Checkbox Label', 'I accept the terms and conditions', 'Label and Error messages coming from props'),
       },
       valueFromPropsErrorMessage: {
-        default: text('"Label and Error messages coming from props" Error Message', 'An error has occurred'),
+        default: text('Error Message', 'An error has occurred', 'Label and Error messages coming from props'),
       },
       valueFromPropsHasError: {
-        default: boolean('"Label and Error messages coming from props" Has Error', false),
+        default: boolean('Has Error', false, 'Label and Error messages coming from props'),
       },
-      valueFromPropsDisabled: {
-        default: boolean('Both "Label and Error" Checkboxes Are Disabled', false),
+      valueFromPropsDisabled1: {
+        default: boolean('Is Disabled', false, 'Label and Error messages coming from props'),
+      },
+      valueFromPropsDisabled2: {
+        default: boolean('Is Disabled', false, 'Label and Error messages coming from template'),
       },
     },
     watch: {
@@ -113,14 +116,14 @@ stories
           v-if="!valueFromPropsHasError"
           class="tw-mb-24"
           v-model="checkbox1"
-          :disabled="valueFromPropsDisabled"
+          :disabled="valueFromPropsDisabled1"
           :label="valueFromPropsLabel">
         </ec-checkbox>
         <ec-checkbox
           v-else="valueFromPropsHasError"
           class="tw-mb-24"
           v-model="checkbox1"
-          :disabled="valueFromPropsDisabled"
+          :disabled="valueFromPropsDisabled1"
           :label="valueFromPropsLabel"
           :error-message="valueFromPropsErrorMessage">
         </ec-checkbox>
@@ -129,7 +132,7 @@ stories
         <ec-checkbox
           v-if="!valueFromPropsHasError"
           v-model="checkbox2"
-          :disabled="valueFromPropsDisabled">
+          :disabled="valueFromPropsDisabled2">
           <template #label>
             I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
           </template>
@@ -137,7 +140,7 @@ stories
         <ec-checkbox
           v-else="valueFromPropsHasError"
           v-model="checkbox2"
-          :disabled="valueFromPropsDisabled">
+          :disabled="valueFromPropsDisabled2">
           <template #label>
             I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
           </template>
@@ -147,13 +150,4 @@ stories
         </ec-checkbox>
       </div>
     `,
-  }), {
-    visualRegressionTests: {
-      knobs: {
-        'change-by-props': {
-          '"Label and Error messages coming from props" Checkbox': true,
-          '"Label and Error messages coming from props" Has Error': true,
-        },
-      },
-    },
-  });
+  }));

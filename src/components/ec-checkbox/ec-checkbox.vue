@@ -134,9 +134,8 @@ export default {
   }
 
   &__check-icon-wrapper {
-    background: white;
-
     @apply tw-cursor-pointer;
+    @apply tw-bg-light;
     @apply tw-w-20 tw-h-20;
     @apply tw-flex-shrink-0;
     @apply tw-border-2 tw-border-solid tw-border-gray-4;
@@ -188,9 +187,9 @@ export default {
   }
 
   &__check-icon {
-    fill: white;
     transform: translate(-50%, -50%);
 
+    @apply tw-fill-light;
     @apply tw-absolute;
     @apply tw-left-1/2 tw-top-1/2;
   }
