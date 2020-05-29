@@ -1,3 +1,13 @@
+# 0.1.98 - Minor changes in tailwind.config.js
+
+## Added
+
+* Enable the utility class `tw-border-2` to be able to define a 2px border width.
+
+## Changed
+
+* Updated the `inset` key within the `theme` object map in order to extend the range of possible values in properties like `top`, `bottom`, `right` or `left`. Until now we used those defined in `spacing` (and their corresponding in negative), from now on we will use those defined in `width`, which already includes `spacing` and adds values in percentages. In this way, we can use utility classes like `tw-left-1/2`.
+
 # 0.1.86 - 0.1.XX - Goodbye SASS, welcome PostCSS and TailwindCSS
 
 We've started a process of replacing SASS with PostCSS to be able to create custom themes using CSS variables.
