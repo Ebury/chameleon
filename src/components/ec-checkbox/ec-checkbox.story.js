@@ -53,18 +53,18 @@ stories
       };
     },
     template: `
-      <div class="tw-m-24" style="max-width:500px;">
+      <div class="tw-max-w-screen-sm tw-m-24">
         <h3>Not checked</h3>
         <ec-checkbox class="tw-mb-24 tw-col-12">
           <template #label>
-            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+            I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
           </template>
         </ec-checkbox>
 
         <h3>Not checked - with multiline label text</h3>
         <ec-checkbox class="tw-mb-24 tw-col-12">
           <template #label>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
           </template>
         </ec-checkbox>
 
@@ -73,7 +73,7 @@ stories
           checked
           class="tw-mb-24 tw-col-12">
           <template #label>
-            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+            I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
           </template>
         </ec-checkbox>
 
@@ -81,7 +81,7 @@ stories
         <ec-checkbox class="tw-mb-24 tw-col-12"
           :error-message="errorMessage">
           <template #label>
-            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+            I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
           </template>
         </ec-checkbox>
 
@@ -90,7 +90,7 @@ stories
           :error-message="errorMessageMultiline"
           class="tw-mb-24 tw-col-12">
           <template #label>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
           </template>
         </ec-checkbox>
 
@@ -98,7 +98,7 @@ stories
         <ec-checkbox class="tw-mb-24 tw-col-12"
           disabled>
           <template #label>
-            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+            I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
           </template>
         </ec-checkbox>
 
@@ -107,7 +107,7 @@ stories
           checked
           disabled>
           <template #label>
-            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+            I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
           </template>
         </ec-checkbox>
 
@@ -134,7 +134,7 @@ stories
           v-model="checkbox2"
           :disabled="valueFromPropsDisabled2">
           <template #label>
-            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+            I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
           </template>
         </ec-checkbox>
         <ec-checkbox
@@ -142,7 +142,7 @@ stories
           v-model="checkbox2"
           :disabled="valueFromPropsDisabled2">
           <template #label>
-            I accept the <a href="#" @click.stop.prevent="$emit('OpenTerms')"> terms and conditions </a>
+            I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
           </template>
           <template #error-message>
             An error has occurred
