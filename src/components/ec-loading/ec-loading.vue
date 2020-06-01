@@ -50,48 +50,45 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/z-index';
-@import '../../scss/settings/colors/index';
-
+<style>
 .ec-loading {
-  position: relative;
+  @apply tw-relative;
 
   &__backdrop {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: $z-index-loading;
+    @apply tw-absolute;
+    @apply tw-h-full tw-w-full;
+    @apply tw-flex;
+    @apply tw-justify-center;
+    @apply tw-items-center;
+    @apply tw-z-loading;
 
     &--is-transparent {
-      background: rgba($white, 0.5);
+      background: hsla(var(--ec-light-color), 0.5);
     }
   }
 
   &__content {
-    visibility: hidden;
+    @apply tw-invisible;
 
     &--is-transparent {
-      visibility: visible;
+      @apply tw-visible;
     }
   }
 
   &__icon {
+    @apply tw-fill-key-4;
+
     animation: 1s linear infinite both ec-loading__animation;
-    fill: $level-4-tech-blue;
   }
 }
 
 @keyframes ec-loading__animation {
   0% {
-    transform: rotate(0);
+    @apply tw-rotate-0;
   }
 
   100% {
-    transform: rotate(360deg);
+    @apply tw-rotate-360;
   }
 }
 </style>

@@ -522,6 +522,7 @@ module.exports = {
     //   150: '1.5',
     // },
     rotate: {
+      '-360': '-360deg',
       '-180': '-180deg',
       '-90': '-90deg',
       '-45': '-45deg',
@@ -529,6 +530,7 @@ module.exports = {
       45: '45deg',
       90: '90deg',
       180: '180deg',
+      360: '360deg',
     },
     // translate: (theme, { negative }) => ({
     translate: {
