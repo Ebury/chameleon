@@ -1,19 +1,25 @@
 <template>
-  <div class="ec-loading">
+  <div
+    class="ec-loading"
+    data-test="ec-loading"
+  >
     <div
       v-if="show"
       class="ec-loading__backdrop"
       :class="{ 'ec-loading__backdrop--is-transparent': isTransparent }"
+      data-test="ec-loading__backdrop"
     >
       <ec-icon
         name="simple-loading"
         :size="size"
         class="ec-loading__icon"
+        data-test="ec-loading__icon"
       />
     </div>
     <div
       class="ec-loading__content"
       :class="{ 'ec-loading__content--is-transparent': isTransparent }"
+      data-test="ec-loading__content"
     >
       <slot />
     </div>
