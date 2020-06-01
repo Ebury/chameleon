@@ -2,7 +2,7 @@
 
 exports[`EcMainContainer should not display the titleIntro when title is not given 1`] = `
 <div
-  class="ec-main-container"
+  class="tw-p-24 tw-min-h-full ec-main-container"
 >
   <!---->
    
@@ -11,16 +11,20 @@ exports[`EcMainContainer should not display the titleIntro when title is not giv
 
 exports[`EcMainContainer should render both titles when they are given in props 1`] = `
 <div
-  class="ec-main-container"
+  class="tw-p-24 tw-min-h-full ec-main-container"
 >
   <h1
-    class="ec-main-container__title"
+    class="tw-h1 tw-mt-0 tw-mb-8"
+    data-test="ec-main-container__title"
   >
-    Trade Finance
+    
+      Trade Finance
+    
   </h1>
    
   <p
-    class="ec-main-container__title-intro"
+    class="tw-body-text tw-text-gray-4 tw-mt-0 tw-mb-16"
+    data-test="ec-main-container__title-intro"
   >
     Here you will be able to keep track of all your requests to Ebury and of your credit line.
   </p>
@@ -30,7 +34,7 @@ exports[`EcMainContainer should render both titles when they are given in props 
 
 exports[`EcMainContainer should render empty if no props were given 1`] = `
 <div
-  class="ec-main-container"
+  class="tw-p-24 tw-min-h-full ec-main-container"
 >
   <!---->
    
@@ -39,16 +43,20 @@ exports[`EcMainContainer should render empty if no props were given 1`] = `
 
 exports[`EcMainContainer should use given slot 1`] = `
 <div
-  class="ec-main-container"
+  class="tw-p-24 tw-min-h-full ec-main-container"
 >
   <h1
-    class="ec-main-container__title"
+    class="tw-h1 tw-mt-0 tw-mb-8"
+    data-test="ec-main-container__title"
   >
-    Trade Finance
+    
+      Trade Finance
+    
   </h1>
    
   <p
-    class="ec-main-container__title-intro"
+    class="tw-body-text tw-text-gray-4 tw-mt-0 tw-mb-16"
+    data-test="ec-main-container__title-intro"
   >
     Here you will be able to keep track of all your requests to Ebury and of your credit line.
   </p>
