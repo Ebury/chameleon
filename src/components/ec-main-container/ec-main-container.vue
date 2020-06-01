@@ -4,6 +4,9 @@
       <h1 class="ec-main-container__title">{{ title }}</h1>
       <p class="ec-main-container__title-intro">{{ titleIntro }}</p>
     </template>
+    <template v-if="containerCta">
+      <slot name="ec-container__cta" />
+    </template>
     <slot />
   </div>
 </template>
@@ -20,6 +23,10 @@ export default {
       type: String,
       default: null,
     },
+    containerCta: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -29,6 +36,8 @@ export default {
 @import '../../scss/settings/colors/gray-color-scale';
 
 .ec-main-container {
+  @apply tw-flex;
+
   padding: 24px;
   min-height: 100%;
 

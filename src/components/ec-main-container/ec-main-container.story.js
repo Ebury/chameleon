@@ -18,7 +18,7 @@ stories
         default: text('Title intro', titleIntro),
       },
     },
-    template: '<ec-main-container :title="title" :title-intro="titleIntro" />',
+    template: '<ec-main-container :title="title" :title-intro="titleIntro" :containerCta="true"><template v-slot:ec-container__cta>ciao</template></ec-main-container>',
   }));
 
 export default stories;
