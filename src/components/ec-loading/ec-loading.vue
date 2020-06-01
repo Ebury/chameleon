@@ -57,9 +57,7 @@ export default {
   &__backdrop {
     @apply tw-absolute;
     @apply tw-h-full tw-w-full;
-    @apply tw-flex;
-    @apply tw-justify-center;
-    @apply tw-items-center;
+    @apply tw-flex tw-justify-center tw-items-center;
     @apply tw-z-loading;
 
     &--is-transparent {
