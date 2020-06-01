@@ -1,16 +1,8 @@
 <template>
-  <div class="tw-p-24 tw-min-h-full ec-main-container">
+  <div class="ec-main-container">
     <template v-if="title">
-      <h1
-        class="tw-h1 tw-mt-0 tw-mb-8"
-        data-test="ec-main-container__title"
-      >
-        {{ title }}
-      </h1>
-      <p
-        class="tw-body-text tw-text-gray-4 tw-mt-0 tw-mb-16"
-        data-test="ec-main-container__title-intro"
-      >{{ titleIntro }}</p>
+      <h1 class="ec-main-container__title">{{ title }}</h1>
+      <p class="ec-main-container__title-intro">{{ titleIntro }}</p>
     </template>
     <slot />
   </div>
@@ -31,3 +23,21 @@ export default {
   },
 };
 </script>
+
+<style>
+.ec-main-container {
+  @apply tw-p-24;
+  @apply tw-min-h-full;
+
+  &__title {
+    @apply tw-h1;
+    @apply tw-mt-0 tw-mb-8;
+  }
+
+  &__title-intro {
+    @apply tw-body-text;
+    @apply tw-text-gray-4;
+    @apply tw-mt-0 tw-mb-16;
+  }
+}
+</style>
