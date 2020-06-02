@@ -3,11 +3,13 @@
 exports[`EcWithLoading :props should hide loading when isLoading prop is set to false 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <!---->
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   >
     <div
       data-custom="1"
@@ -19,12 +21,15 @@ exports[`EcWithLoading :props should hide loading when isLoading prop is set to 
 exports[`EcWithLoading :props should not render transparent when isLoadingTransparent is set to false 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -36,6 +41,7 @@ exports[`EcWithLoading :props should not render transparent when isLoadingTransp
    
   <div
     class="ec-loading__content"
+    data-test="ec-loading__content"
   >
     <div
       data-custom="1"
@@ -47,12 +53,15 @@ exports[`EcWithLoading :props should not render transparent when isLoadingTransp
 exports[`EcWithLoading :props should pass rest of the props to the wrapped component 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -64,6 +73,7 @@ exports[`EcWithLoading :props should pass rest of the props to the wrapped compo
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   >
     <div
       data-custom="2"
@@ -75,12 +85,15 @@ exports[`EcWithLoading :props should pass rest of the props to the wrapped compo
 exports[`EcWithLoading :props should render transparent by default 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -92,6 +105,7 @@ exports[`EcWithLoading :props should render transparent by default 1`] = `
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   >
     <div
       data-custom="1"
@@ -103,12 +117,15 @@ exports[`EcWithLoading :props should render transparent by default 1`] = `
 exports[`EcWithLoading :props should render transparent when isLoadingTransparent is set to true 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -120,6 +137,7 @@ exports[`EcWithLoading :props should render transparent when isLoadingTransparen
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   >
     <div
       data-custom="1"
@@ -131,12 +149,15 @@ exports[`EcWithLoading :props should render transparent when isLoadingTransparen
 exports[`EcWithLoading :props should show loading when isLoading prop is set to true 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -148,6 +169,7 @@ exports[`EcWithLoading :props should show loading when isLoading prop is set to 
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   >
     <div
       data-custom="1"
@@ -180,12 +202,15 @@ found in
 exports[`EcWithLoading :props should use iconSize prop 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="64"
       width="64"
     >
@@ -197,6 +222,7 @@ exports[`EcWithLoading :props should use iconSize prop 1`] = `
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   >
     <div
       data-custom="1"

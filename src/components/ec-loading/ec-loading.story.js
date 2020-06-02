@@ -9,7 +9,7 @@ const stories = storiesOf('Loading', module);
 stories.add('with dark background', () => ({
   components: { EcLoading },
   template: `
-  <div style="height: 100vh">
+  <div class="tw-h-screen">
     <ec-loading :show="true">
       <div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ullam architecto obcaecati, facere corrupti,

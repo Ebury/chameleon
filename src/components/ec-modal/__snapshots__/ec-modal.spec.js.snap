@@ -186,11 +186,13 @@ exports[`EcModal should render negative button if slot is passed 1`] = `
    
   <div
     class="ec-loading ec-modal__btn-loading ec-modal__btn-loading--right"
+    data-test="ec-loading"
   >
     <!---->
      
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
     >
       <button
         class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn"
@@ -214,12 +216,15 @@ exports[`EcModal should render negative button with the loading status if slot i
    
   <div
     class="ec-loading ec-modal__btn-loading ec-modal__btn-loading--right"
+    data-test="ec-loading"
   >
     <div
       class="ec-loading__backdrop"
+      data-test="ec-loading__backdrop"
     >
       <svg
         class="ec-loading__icon ec-icon"
+        data-test="ec-loading__icon"
         height="48"
         width="48"
       >
@@ -231,6 +236,7 @@ exports[`EcModal should render negative button with the loading status if slot i
      
     <div
       class="ec-loading__content"
+      data-test="ec-loading__content"
     >
       <button
         class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn"
@@ -256,11 +262,13 @@ exports[`EcModal should render positive button if slot is passed 1`] = `
    
   <div
     class="ec-loading ec-modal__btn-loading"
+    data-test="ec-loading"
   >
     <!---->
      
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
     >
       <button
         class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn ec-modal__positive-btn--right"
@@ -284,12 +292,15 @@ exports[`EcModal should render positive button with the loading status if slot i
    
   <div
     class="ec-loading ec-modal__btn-loading"
+    data-test="ec-loading"
   >
     <div
       class="ec-loading__backdrop"
+      data-test="ec-loading__backdrop"
     >
       <svg
         class="ec-loading__icon ec-icon"
+        data-test="ec-loading__icon"
         height="48"
         width="48"
       >
@@ -301,6 +312,7 @@ exports[`EcModal should render positive button with the loading status if slot i
      
     <div
       class="ec-loading__content"
+      data-test="ec-loading__content"
     >
       <button
         class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn ec-modal__positive-btn--right"
