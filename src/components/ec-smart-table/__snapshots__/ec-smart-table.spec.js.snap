@@ -51,12 +51,15 @@ exports[`EcSmartTable should render error properly 1`] = `
 exports[`EcSmartTable should render in loading state by default 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -68,6 +71,7 @@ exports[`EcSmartTable should render in loading state by default 1`] = `
    
   <div
     class="ec-loading__content"
+    data-test="ec-loading__content"
   >
     <!---->
   </div>
@@ -77,12 +81,15 @@ exports[`EcSmartTable should render in loading state by default 1`] = `
 exports[`EcSmartTable should render resolved data properly 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -94,6 +101,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   >
     <div>
       <!---->

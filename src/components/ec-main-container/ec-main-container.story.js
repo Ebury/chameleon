@@ -18,7 +18,27 @@ stories
         default: text('Title intro', titleIntro),
       },
     },
-    template: '<ec-main-container :title="title" :title-intro="titleIntro" :containerCta="true"><template v-slot:ec-container__cta>ciao</template></ec-main-container>',
+    template: '<ec-main-container :title="title" :title-intro="titleIntro" />',
+  }))
+  .add('with cta slot', () => ({
+    components: { EcMainContainer },
+    props: {
+      title: {
+        default: text('Title', title),
+      },
+      titleIntro: {
+        default: text('Title intro', titleIntro),
+      },
+    },
+    template: `
+    <ec-main-container :title="title" :title-intro="titleIntro">
+      <template #cta>
+        <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width">
+          Test Cta
+        </button>
+      </template>
+    </ec-main-container>
+    `,
   }));
 
 export default stories;
