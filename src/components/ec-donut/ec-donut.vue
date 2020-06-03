@@ -116,83 +116,82 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/index';
-@import '../../scss/tools/';
-
+<style>
 .ec-donut {
-  display: flex;
-  flex-wrap: wrap;
+  @apply tw-flex;
+  @apply tw-flex-wrap;
 
   &__container {
-    margin-right: 24px;
+    @apply tw-mr-24;
+
     height: 108px;
 
-    @include media__up-to-sm {
-      width: 100%;
-      margin-right: 0;
-      display: flex;
-      justify-content: center;
+    @media screen and (max-width: theme('screens.sm')) {
+      @apply tw-w-full;
+      @apply tw-mr-0;
+      @apply tw-flex;
+      @apply tw-justify-center;
     }
   }
 
   &__legend {
-    @include h4;
+    @apply tw-h4;
+    @apply tw-flex-wrap;
+    @apply tw-p-16;
+    @apply tw-text-gray-3;
 
-    line-height: 24px;
-    flex-wrap: wrap;
-    padding: 16px 0;
-    color: $level-3-body-and-headings;
-
-    @include media__up-to-sm {
-      padding: 16px 0 0;
-      display: inline-flex;
-      flex-direction: column;
-      margin: 0 auto;
+    @media screen and (max-width: theme('screens.sm')) {
+      @apply tw-pt-16;
+      @apply tw-px-0;
+      @apply tw-pb-0;
+      @apply tw-inline-flex;
+      @apply tw-flex-col;
+      @apply tw-my-0;
+      @apply tw-mx-auto;
     }
   }
 
   &__legend-used {
-    margin-bottom: 24px;
+    @apply tw-mb-24;
 
-    @include media__up-to-sm {
-      margin-bottom: 12px;
+    @media screen and (max-width: theme('screens.sm')) {
+      @apply tw-mb-12;
     }
   }
 
   &__legend-used,
   &__legend-remaining {
-    display: flex;
+    @apply tw-flex;
   }
 
   &__legend-icon {
-    flex-shrink: 0;
-    margin-right: 8px;
-    margin-top: 5px;
+    @apply tw-flex-shrink-0;
+    @apply tw-mr-8;
+    @apply tw-mt-4;
 
     &--used {
-      fill: rgba($color-info, 0.5);
+      fill: hsla(var(--ec-reserved-color-info), 0.5);
     }
 
     &--remaining {
-      fill: $color-info;
+      @apply tw-fill-info;
     }
   }
 
   &__svg {
-    transform: rotate(-90deg);
+    @apply tw--rotate-90;
   }
 
   &__background {
-    stroke: $level-7-backgrounds;
+    @apply tw-bg-key-7;
   }
 
   &__remaining {
-    stroke: $color-info;
+    stroke: hsl(var(--ec-reserved-color-info));
   }
 
   &__used {
-    stroke: $white;
+    stroke: hsl(var(--ec-light-color));
     stroke-opacity: 0.5;
     animation: progress 1s ease-out;
   }
@@ -200,8 +199,8 @@ export default {
 
 @keyframes progress {
   0% {
-    // This number is the (2 * Math.PI * radius)
     stroke-dashoffset: 301.59289474462014;
   }
 }
+
 </style>
