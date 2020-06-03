@@ -3,9 +3,11 @@
 exports[`EcDonut should display empty with minus number in the used prop 1`] = `
 <div
   class="ec-donut"
+  data-test="ec-donut"
 >
   <div
     class="ec-donut__container"
+    data-test="ec-donut-container"
   >
     <svg
       class="ec-donut__svg"
@@ -48,9 +50,11 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
    
   <div
     class="ec-donut__legend"
+    data-test="ec-donut__legend"
   >
     <div
       class="ec-donut__legend-used"
+      data-test="ec-donut__legend-used"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
@@ -66,6 +70,7 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
      
     <div
       class="ec-donut__legend-remaining"
+      data-test="ec-donut__legend-remaining"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
@@ -85,9 +90,11 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
 exports[`EcDonut should display only with a the used and amount are given 1`] = `
 <div
   class="ec-donut"
+  data-test="ec-donut"
 >
   <div
     class="ec-donut__container"
+    data-test="ec-donut-container"
   >
     <svg
       class="ec-donut__svg"
@@ -130,9 +137,11 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
    
   <div
     class="ec-donut__legend"
+    data-test="ec-donut__legend"
   >
     <div
       class="ec-donut__legend-used"
+      data-test="ec-donut__legend-used"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
@@ -148,6 +157,7 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
      
     <div
       class="ec-donut__legend-remaining"
+      data-test="ec-donut__legend-remaining"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
@@ -167,9 +177,11 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
 exports[`EcDonut should display with the empty used 1`] = `
 <div
   class="ec-donut"
+  data-test="ec-donut"
 >
   <div
     class="ec-donut__container"
+    data-test="ec-donut-container"
   >
     <svg
       class="ec-donut__svg"
@@ -212,9 +224,11 @@ exports[`EcDonut should display with the empty used 1`] = `
    
   <div
     class="ec-donut__legend"
+    data-test="ec-donut__legend"
   >
     <div
       class="ec-donut__legend-used"
+      data-test="ec-donut__legend-used"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
@@ -230,6 +244,7 @@ exports[`EcDonut should display with the empty used 1`] = `
      
     <div
       class="ec-donut__legend-remaining"
+      data-test="ec-donut__legend-remaining"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
@@ -249,9 +264,11 @@ exports[`EcDonut should display with the empty used 1`] = `
 exports[`EcDonut should display with the full used 1`] = `
 <div
   class="ec-donut"
+  data-test="ec-donut"
 >
   <div
     class="ec-donut__container"
+    data-test="ec-donut-container"
   >
     <svg
       class="ec-donut__svg"
@@ -294,9 +311,11 @@ exports[`EcDonut should display with the full used 1`] = `
    
   <div
     class="ec-donut__legend"
+    data-test="ec-donut__legend"
   >
     <div
       class="ec-donut__legend-used"
+      data-test="ec-donut__legend-used"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
@@ -312,6 +331,7 @@ exports[`EcDonut should display with the full used 1`] = `
      
     <div
       class="ec-donut__legend-remaining"
+      data-test="ec-donut__legend-remaining"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
@@ -331,9 +351,11 @@ exports[`EcDonut should display with the full used 1`] = `
 exports[`EcDonut should display with the full used when is more used than amount 1`] = `
 <div
   class="ec-donut"
+  data-test="ec-donut"
 >
   <div
     class="ec-donut__container"
+    data-test="ec-donut-container"
   >
     <svg
       class="ec-donut__svg"
@@ -376,9 +398,11 @@ exports[`EcDonut should display with the full used when is more used than amount
    
   <div
     class="ec-donut__legend"
+    data-test="ec-donut__legend"
   >
     <div
       class="ec-donut__legend-used"
+      data-test="ec-donut__legend-used"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
@@ -394,6 +418,7 @@ exports[`EcDonut should display with the full used when is more used than amount
      
     <div
       class="ec-donut__legend-remaining"
+      data-test="ec-donut__legend-remaining"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
@@ -413,9 +438,11 @@ exports[`EcDonut should display with the full used when is more used than amount
 exports[`EcDonut should display with the half used 1`] = `
 <div
   class="ec-donut"
+  data-test="ec-donut"
 >
   <div
     class="ec-donut__container"
+    data-test="ec-donut-container"
   >
     <svg
       class="ec-donut__svg"
@@ -458,9 +485,11 @@ exports[`EcDonut should display with the half used 1`] = `
    
   <div
     class="ec-donut__legend"
+    data-test="ec-donut__legend"
   >
     <div
       class="ec-donut__legend-used"
+      data-test="ec-donut__legend-used"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
@@ -476,6 +505,7 @@ exports[`EcDonut should display with the half used 1`] = `
      
     <div
       class="ec-donut__legend-remaining"
+      data-test="ec-donut__legend-remaining"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
@@ -495,9 +525,11 @@ exports[`EcDonut should display with the half used 1`] = `
 exports[`EcDonut should render slots as expected 1`] = `
 <div
   class="ec-donut"
+  data-test="ec-donut"
 >
   <div
     class="ec-donut__container"
+    data-test="ec-donut-container"
   >
     <svg
       class="ec-donut__svg"
@@ -540,9 +572,11 @@ exports[`EcDonut should render slots as expected 1`] = `
    
   <div
     class="ec-donut__legend"
+    data-test="ec-donut__legend"
   >
     <div
       class="ec-donut__legend-used"
+      data-test="ec-donut__legend-used"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
@@ -561,6 +595,7 @@ exports[`EcDonut should render slots as expected 1`] = `
      
     <div
       class="ec-donut__legend-remaining"
+      data-test="ec-donut__legend-remaining"
     >
       <svg
         class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"

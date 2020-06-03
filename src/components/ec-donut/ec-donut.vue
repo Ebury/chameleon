@@ -137,7 +137,7 @@ export default {
   &__legend {
     @apply tw-h4;
     @apply tw-flex-wrap;
-    @apply tw-p-16;
+    @apply tw-py-16;
     @apply tw-text-gray-3;
 
     @media screen and (max-width: theme('screens.sm')) {
