@@ -199,6 +199,7 @@ export default {
 
 @keyframes progress {
   0% {
+    /* This number is the (2 * Math.PI * radius) */
     stroke-dashoffset: 301.59289474462014;
   }
 }
