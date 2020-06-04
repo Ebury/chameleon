@@ -1,6 +1,7 @@
 import { createHOCc } from 'vue-hoc';
 
 import * as SortDirection from '../../enums/sort-direction';
+import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 
 const withSorting = createHOCc({
   name: 'EcWithSorting',
@@ -13,9 +14,12 @@ const withSorting = createHOCc({
       type: Array,
       default: () => [],
     },
-    defaultSortCycle: {
+    sortCycle: {
       type: Array,
-      default: () => [null, SortDirection.ASC, SortDirection.DESC],
+      default: () => SortDirectionCycle.LOWEST_FIRST,
+      validator(directions) {
+        return directions.every(direction => direction === SortDirection.ASC || direction === SortDirection.DESC);
+      },
     },
   },
   data() {
@@ -24,7 +28,7 @@ const withSorting = createHOCc({
     };
   },
   methods: {
-    sortBy(columnName, sortCycle = this.defaultSortCycle) {
+    sortBy(columnName, sortCycle = this.sortCycle) {
       let sorts = this.internalSorts;
 
       const existingSort = sorts.find(sort => sort.column === columnName);
@@ -34,19 +38,15 @@ const withSorting = createHOCc({
           sorts = sorts.filter(sort => sort !== existingSort);
         }
       } else if (this.multiSort) {
-        sorts.push({ column: columnName, direction: sortCycle[1] });
+        sorts.push({ column: columnName, direction: sortCycle[0] });
       } else {
-        sorts = [{ column: columnName, direction: sortCycle[1] }];
+        sorts = [{ column: columnName, direction: sortCycle[0] }];
       }
 
       this.internalSorts = sorts;
     },
     nextDirection(current, sortCycle) {
       const nextDirectionIndex = sortCycle.indexOf(current) + 1;
-      if (nextDirectionIndex >= sortCycle.length) {
-        return sortCycle[0];
-      }
-
       return sortCycle[nextDirectionIndex];
     },
   },
@@ -59,10 +59,12 @@ const withSorting = createHOCc({
     },
   },
 }, {
-  props: {
-    sorts() {
-      return this.internalSorts;
-    },
+  props(props) {
+    return {
+      ...props,
+      sorts: this.internalSorts,
+      sortCycle: null,
+    };
   },
   listeners: {
     sort(column) {

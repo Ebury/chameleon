@@ -1,6 +1,8 @@
 import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
 import * as SortDirection from '../../enums/sort-direction';
+import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 import withSorting from './ec-with-sorting';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcWithSorting', () => {
   function mountEcWithSorting(props, mountOpts) {
@@ -32,6 +34,13 @@ describe('EcWithSorting', () => {
   it('should render properly', () => {
     const { hocWrapper } = mountEcWithSorting();
     expect(hocWrapper.element).toMatchSnapshot();
+  });
+
+  it('should throw an error if sort direction cycle is not valid', () => {
+    withMockedConsole((errorSpy) => {
+      mountEcWithSorting({ sortCycle: ['HI', 'LO'] });
+      expect(errorSpy).toMatchSnapshot();
+    });
   });
 
   describe('multi sort', () => {
@@ -125,7 +134,7 @@ describe('EcWithSorting', () => {
 
     describe('with default sort cycle: desc -> asc', () => {
       function mountMultiEcWithSortingDesc(props, mountOpts) {
-        return mountEcWithSorting({ multiSort: true, defaultSortCycle: [null, 'desc', 'asc'], ...props }, mountOpts);
+        return mountEcWithSorting({ multiSort: true, sortCycle: SortDirectionCycle.HIGHEST_FIRST, ...props }, mountOpts);
       }
       it('should use default sort direction when column is not sorted yet', () => {
         const { componentWrapper } = mountMultiEcWithSortingDesc();
@@ -186,7 +195,6 @@ describe('EcWithSorting', () => {
             { column: 'test-column-2', direction: SortDirection.DESC },
             { column: 'test-column-3', direction: SortDirection.ASC },
           ],
-          defaultSortCycle: [null, 'desc', 'asc'],
         });
 
         // sorting test-column-1 3 times should move it to bottom of the sorts array
@@ -251,7 +259,7 @@ describe('EcWithSorting', () => {
     });
     describe('with default sort cycle: desc -> asc', () => {
       function mountSingleEcWithSortingDesc(props, mountOpts) {
-        return mountEcWithSorting({ defaultSortCycle: [null, 'desc', 'asc'], multiSort: false, ...props }, mountOpts);
+        return mountEcWithSorting({ sortCycle: SortDirectionCycle.HIGHEST_FIRST, multiSort: false, ...props }, mountOpts);
       }
 
       it('should use default sort direction when column is not sorted yet', () => {
