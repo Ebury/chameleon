@@ -133,7 +133,7 @@ module.exports = {
     borderWidth: {
       default: '1px',
       0: '0',
-      // 2: '2px',
+      2: '2px',
       // 4: '4px',
       // 8: '8px',
     },
@@ -231,9 +231,8 @@ module.exports = {
       screen: '100vh',
     }),
     inset: (theme, { negative }) => ({
-      ...theme('spacing'),
-      ...negative(theme('spacing')),
-      auto: 'auto',
+      ...theme('width'),
+      ...negative(theme('width')),
     }),
     // letterSpacing: {
     //   tighter: '-0.05em',
@@ -522,6 +521,7 @@ module.exports = {
     //   150: '1.5',
     // },
     rotate: {
+      '-360': '-360deg',
       '-180': '-180deg',
       '-90': '-90deg',
       '-45': '-45deg',
@@ -529,6 +529,7 @@ module.exports = {
       45: '45deg',
       90: '90deg',
       180: '180deg',
+      360: '360deg',
     },
     // translate: (theme, { negative }) => ({
     translate: {

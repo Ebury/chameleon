@@ -1,8 +1,17 @@
 <template>
   <div class="ec-main-container">
     <template v-if="title">
-      <h1 class="ec-main-container__title">{{ title }}</h1>
-      <p class="ec-main-container__title-intro">{{ titleIntro }}</p>
+      <div
+        :class="{ 'tw-col-full': true, 'sm:tw-col-9': hasCtaSlot() }"
+      >
+        <h1 class="ec-main-container__title">{{ title }}</h1>
+        <p class="ec-main-container__title-intro">{{ titleIntro }}</p>
+      </div>
+    </template>
+    <template v-if="hasCtaSlot()">
+      <div class="tw-col-full sm:tw-col-3">
+        <slot name="cta" />
+      </div>
     </template>
     <slot />
   </div>
@@ -21,30 +30,29 @@ export default {
       default: null,
     },
   },
+  methods: {
+    hasCtaSlot() {
+      return !!this.$scopedSlots.cta;
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/tools/typography';
-@import '../../scss/settings/colors/gray-color-scale';
-
+<style>
 .ec-main-container {
-  padding: 24px;
-  min-height: 100%;
+  @apply tw-grid tw-items-center tw-justify-between;
+  @apply tw-p-24;
+  @apply tw-min-h-full;
 
   &__title {
-    @include h1;
-
-    margin-top: 0;
-    margin-bottom: 8px;
+    @apply tw-h1;
+    @apply tw-mt-0 tw-mb-8;
   }
 
   &__title-intro {
-    @include body-text;
-
-    color: $level-4-interactive-elements;
-    margin-top: 0;
-    margin-bottom: 16px;
+    @apply tw-body-text;
+    @apply tw-text-gray-4;
+    @apply tw-mt-0 tw-mb-16;
   }
 }
 </style>

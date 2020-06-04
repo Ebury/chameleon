@@ -30,7 +30,7 @@ describe('EcCheckbox', () => {
         label: 'Test label prop',
       });
 
-      expect(wrapper.find('.ec-checkbox__label').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-checkbox__label').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -39,7 +39,7 @@ describe('EcCheckbox', () => {
         'error-message': 'Test error message prop',
       });
 
-      expect(wrapper.find('.ec-checkbox__error-text').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-checkbox__error-text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -63,7 +63,7 @@ describe('EcCheckbox', () => {
         },
       );
 
-      expect(wrapper.find('.ec-checkbox__error-text').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-checkbox__error-text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -79,7 +79,7 @@ describe('EcCheckbox', () => {
         },
       );
 
-      expect(wrapper.find('.ec-checkbox__error-text').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-checkbox__error-text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -93,7 +93,7 @@ describe('EcCheckbox', () => {
         },
       );
 
-      expect(wrapper.find('.ec-checkbox__label').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-checkbox__label').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -109,7 +109,7 @@ describe('EcCheckbox', () => {
         },
       );
 
-      expect(wrapper.find('.ec-checkbox__label').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-checkbox__label').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
   });
@@ -118,7 +118,7 @@ describe('EcCheckbox', () => {
     it('@checked-value-change - should be emitted when input is clicked', () => {
       const wrapper = mountCheckbox();
 
-      wrapper.find('.ec-checkbox__input').trigger('click');
+      wrapper.findByDataTest('ec-checkbox__input').trigger('click');
       expect(wrapper.emitted('checked-value-change').length).toBe(1);
     });
 
@@ -130,7 +130,7 @@ describe('EcCheckbox', () => {
         },
       });
 
-      wrapper.find('.ec-checkbox__input').trigger('click');
+      wrapper.findByDataTest('ec-checkbox__input').trigger('click');
       expect(changeSpy).toHaveBeenCalledTimes(1);
     });
   });
@@ -160,9 +160,9 @@ describe('EcCheckbox', () => {
         },
       );
 
-      expect(wrapper.find('.ec-checkbox').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-checkbox').exists()).toBe(true);
       expect(wrapper.vm.checked).toBe(true);
-      wrapper.find('.ec-checkbox__input').trigger('click');
+      wrapper.findByDataTest('ec-checkbox__input').trigger('click');
       expect(wrapper.vm.checked).toBe(false);
     });
 
@@ -179,9 +179,9 @@ describe('EcCheckbox', () => {
         },
       );
 
-      expect(wrapper.find('.ec-checkbox__label').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-checkbox__label').exists()).toBe(true);
       expect(wrapper.vm.checked).toBe(true);
-      wrapper.find('.ec-checkbox__label').trigger('click');
+      wrapper.findByDataTest('ec-checkbox__label').trigger('click');
       expect(wrapper.vm.checked).toBe(false);
     });
 
@@ -199,7 +199,7 @@ describe('EcCheckbox', () => {
       );
 
       expect(wrapper.vm.checked).toBe(true);
-      wrapper.find('.ec-checkbox__input').trigger('click');
+      wrapper.findByDataTest('ec-checkbox__input').trigger('click');
       expect(wrapper.vm.checked).toBe(true);
     });
 
@@ -217,7 +217,7 @@ describe('EcCheckbox', () => {
       );
 
       expect(wrapper.vm.checked).toBe(true);
-      wrapper.find('.ec-checkbox__label').trigger('click');
+      wrapper.findByDataTest('ec-checkbox__label').trigger('click');
       expect(wrapper.vm.checked).toBe(true);
     });
   });

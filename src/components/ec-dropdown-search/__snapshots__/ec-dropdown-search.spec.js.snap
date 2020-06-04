@@ -240,12 +240,15 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
         <li>
           <div
             class="ec-loading"
+            data-test="ec-loading"
           >
             <div
               class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+              data-test="ec-loading__backdrop"
             >
               <svg
                 class="ec-loading__icon ec-icon"
+                data-test="ec-loading__icon"
                 height="24"
                 width="24"
               >
@@ -257,6 +260,7 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
              
             <div
               class="ec-loading__content ec-loading__content--is-transparent"
+              data-test="ec-loading__content"
             >
               <div
                 class="ec-dropdown-search__loading"

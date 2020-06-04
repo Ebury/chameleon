@@ -42,9 +42,11 @@ exports[`EcBtn :props should render a button with a spinner loader if loading is
   >
     <div
       class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+      data-test="ec-loading__backdrop"
     >
       <svg
         class="ec-loading__icon ec-icon"
+        data-test="ec-loading__icon"
         height="22"
         width="22"
       >
@@ -56,6 +58,7 @@ exports[`EcBtn :props should render a button with a spinner loader if loading is
      
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
     />
   </div>
 </button>
@@ -155,9 +158,11 @@ exports[`EcBtn :props should render a button with only a loading spinner when lo
   >
     <div
       class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+      data-test="ec-loading__backdrop"
     >
       <svg
         class="ec-loading__icon ec-icon"
+        data-test="ec-loading__icon"
         height="22"
         width="22"
       >
@@ -169,6 +174,7 @@ exports[`EcBtn :props should render a button with only a loading spinner when lo
      
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
     />
   </div>
 </button>
@@ -420,9 +426,11 @@ exports[`EcBtn :slots should render a button with a loading-text and a loading s
   >
     <div
       class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+      data-test="ec-loading__backdrop"
     >
       <svg
         class="ec-loading__icon ec-icon"
+        data-test="ec-loading__icon"
         height="22"
         width="22"
       >
@@ -434,6 +442,7 @@ exports[`EcBtn :slots should render a button with a loading-text and a loading s
      
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
     />
   </div>
 </button>

@@ -3,11 +3,13 @@
 exports[`EcLoading should not render the loading if the show prop is set to false 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <!---->
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   />
 </div>
 `;
@@ -15,12 +17,15 @@ exports[`EcLoading should not render the loading if the show prop is set to fals
 exports[`EcLoading should render as expected 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -32,6 +37,7 @@ exports[`EcLoading should render as expected 1`] = `
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   />
 </div>
 `;
@@ -39,12 +45,15 @@ exports[`EcLoading should render as expected 1`] = `
 exports[`EcLoading should render the given slot 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -56,6 +65,7 @@ exports[`EcLoading should render the given slot 1`] = `
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   >
     <p>
       Random text
@@ -67,12 +77,15 @@ exports[`EcLoading should render the given slot 1`] = `
 exports[`EcLoading should render the loading with a given icon size when the prop size is set to not 48 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="30"
       width="30"
     >
@@ -84,6 +97,7 @@ exports[`EcLoading should render the loading with a given icon size when the pro
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   />
 </div>
 `;
@@ -91,11 +105,13 @@ exports[`EcLoading should render the loading with a given icon size when the pro
 exports[`EcLoading should render the loading with visible content if the transparent prop is set to false and the show is set to false 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <!---->
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"
+    data-test="ec-loading__content"
   />
 </div>
 `;
@@ -103,12 +119,15 @@ exports[`EcLoading should render the loading with visible content if the transpa
 exports[`EcLoading should render the loading without the content visible if the transparent prop is set to false 1`] = `
 <div
   class="ec-loading"
+  data-test="ec-loading"
 >
   <div
     class="ec-loading__backdrop"
+    data-test="ec-loading__backdrop"
   >
     <svg
       class="ec-loading__icon ec-icon"
+      data-test="ec-loading__icon"
       height="48"
       width="48"
     >
@@ -120,6 +139,7 @@ exports[`EcLoading should render the loading without the content visible if the 
    
   <div
     class="ec-loading__content"
+    data-test="ec-loading__content"
   />
 </div>
 `;
