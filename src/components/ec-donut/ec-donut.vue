@@ -1,6 +1,12 @@
 <template>
-  <div class="ec-donut">
-    <div class="ec-donut__container">
+  <div
+    class="ec-donut"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-donut` : 'ec-donut'"
+  >
+    <div
+      class="ec-donut__container"
+      data-test="ec-donut__container"
+    >
       <svg
         width="108"
         height="108"
@@ -37,8 +43,14 @@
         />
       </svg>
     </div>
-    <div class="ec-donut__legend">
-      <div class="ec-donut__legend-used">
+    <div
+      class="ec-donut__legend"
+      data-test="ec-donut__legend"
+    >
+      <div
+        class="ec-donut__legend-used"
+        data-test="ec-donut__legend-used"
+      >
         <ec-icon
           name="rounded-notification"
           :size="14"
@@ -46,7 +58,10 @@
         />
         <slot name="used-legend" />
       </div>
-      <div class="ec-donut__legend-remaining">
+      <div
+        class="ec-donut__legend-remaining"
+        data-test="ec-donut__legend-remaining"
+      >
         <ec-icon
           name="rounded-notification"
           :size="14"
@@ -101,83 +116,80 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/index';
-@import '../../scss/tools/';
-
+<style>
 .ec-donut {
-  display: flex;
-  flex-wrap: wrap;
+  @apply tw-flex tw-flex-wrap;
 
   &__container {
-    margin-right: 24px;
     height: 108px;
 
-    @include media__up-to-sm {
-      width: 100%;
-      margin-right: 0;
-      display: flex;
-      justify-content: center;
+    @apply tw-w-full;
+    @apply tw-mr-0;
+    @apply tw-flex tw-justify-center;
+
+    @screen sm {
+      @apply tw-w-auto;
+      @apply tw-mr-24;
+      @apply tw-block;
+      @apply justify-start;
     }
   }
 
   &__legend {
-    @include h4;
+    @apply tw-h4;
+    @apply tw-text-gray-3;
+    @apply tw-pt-16 tw-px-0 tw-pb-0;
+    @apply tw-inline-flex tw-flex-col tw-flex-wrap;
+    @apply tw-my-0 tw-mx-auto;
 
-    line-height: 24px;
-    flex-wrap: wrap;
-    padding: 16px 0;
-    color: $level-3-body-and-headings;
-
-    @include media__up-to-sm {
-      padding: 16px 0 0;
-      display: inline-flex;
-      flex-direction: column;
-      margin: 0 auto;
+    @screen sm {
+      @apply tw-py-16;
+      @apply tw-block;
+      @apply tw-flex-row;
+      @apply tw-m-0;
     }
   }
 
   &__legend-used {
-    margin-bottom: 24px;
+    @apply tw-mb-12;
 
-    @include media__up-to-sm {
-      margin-bottom: 12px;
+    @screen sm {
+      @apply tw-mb-24;
     }
   }
 
   &__legend-used,
   &__legend-remaining {
-    display: flex;
+    @apply tw-flex;
   }
 
   &__legend-icon {
-    flex-shrink: 0;
-    margin-right: 8px;
-    margin-top: 5px;
+    @apply tw-flex-shrink-0;
+    @apply tw-mr-8 tw-mt-4;
 
     &--used {
-      fill: rgba($color-info, 0.5);
+      fill: hsla(var(--ec-reserved-color-info), 0.5);
     }
 
     &--remaining {
-      fill: $color-info;
+      @apply tw-fill-info;
     }
   }
 
   &__svg {
-    transform: rotate(-90deg);
+    @apply tw--rotate-90;
   }
 
   &__background {
-    stroke: $level-7-backgrounds;
+    stroke: hsl(var(--ec-gray-color-level-7));
   }
 
   &__remaining {
-    stroke: $color-info;
+    stroke: hsl(var(--ec-reserved-color-info));
   }
 
   &__used {
-    stroke: $white;
+    stroke: hsl(var(--ec-light-color));
     stroke-opacity: 0.5;
     animation: progress 1s ease-out;
   }
@@ -185,8 +197,9 @@ export default {
 
 @keyframes progress {
   0% {
-    // This number is the (2 * Math.PI * radius)
+    /* This number is the (2 * Math.PI * radius) */
     stroke-dashoffset: 301.59289474462014;
   }
 }
+
 </style>

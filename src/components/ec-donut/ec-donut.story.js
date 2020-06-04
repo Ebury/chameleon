@@ -33,10 +33,10 @@ stories.add('basic', () => ({
     },
   },
   template: `
-  <div style="display: flex; height: 100vh">
-    <div style="margin: auto" class="ec-card">
-      <div style="text-align: center;" class="ec-mb--24">Credit line: <strong>{{ amount | currencyFormat(currency) }}</strong></div>
-      <ec-donut class="ec-p--8" :used="used" :amount="amount">
+  <div class="tw-flex tw-h-screen">
+    <div class="tw-m-auto ec-card">
+      <div class="tw-text-center tw-mb-24">Credit line: <strong>{{ amount | currencyFormat(currency) }}</strong></div>
+      <ec-donut class="tw-p-8" :used="used" :amount="amount">
         <template #remaining-legend>
           <span><strong>Remaining: </strong>{{ remaining | currencyFormat(currency) }}</span>
         </template>
