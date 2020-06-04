@@ -5,7 +5,7 @@
   >
     <div
       class="ec-donut__container"
-      data-test="ec-donut-container"
+      data-test="ec-donut__container"
     >
       <svg
         width="108"
@@ -118,44 +118,43 @@ export default {
 
 <style>
 .ec-donut {
-  @apply tw-flex;
-  @apply tw-flex-wrap;
+  @apply tw-flex tw-flex-wrap;
 
   &__container {
-    @apply tw-mr-24;
-
     height: 108px;
 
-    @media screen and (max-width: theme('screens.sm')) {
-      @apply tw-w-full;
-      @apply tw-mr-0;
-      @apply tw-flex;
-      @apply tw-justify-center;
+    @apply tw-w-full;
+    @apply tw-mr-0;
+    @apply tw-flex tw-justify-center;
+
+    @screen sm {
+      @apply tw-w-auto;
+      @apply tw-mr-24;
+      @apply tw-block;
+      @apply justify-start;
     }
   }
 
   &__legend {
     @apply tw-h4;
-    @apply tw-flex-wrap;
-    @apply tw-py-16;
     @apply tw-text-gray-3;
+    @apply tw-pt-16 tw-px-0 tw-pb-0;
+    @apply tw-inline-flex tw-flex-col tw-flex-wrap;
+    @apply tw-my-0 tw-mx-auto;
 
-    @media screen and (max-width: theme('screens.sm')) {
-      @apply tw-pt-16;
-      @apply tw-px-0;
-      @apply tw-pb-0;
-      @apply tw-inline-flex;
-      @apply tw-flex-col;
-      @apply tw-my-0;
-      @apply tw-mx-auto;
+    @screen sm {
+      @apply tw-py-16;
+      @apply tw-block;
+      @apply tw-flex-row;
+      @apply tw-m-0;
     }
   }
 
   &__legend-used {
-    @apply tw-mb-24;
+    @apply tw-mb-12;
 
-    @media screen and (max-width: theme('screens.sm')) {
-      @apply tw-mb-12;
+    @screen sm {
+      @apply tw-mb-24;
     }
   }
 
@@ -166,8 +165,7 @@ export default {
 
   &__legend-icon {
     @apply tw-flex-shrink-0;
-    @apply tw-mr-8;
-    @apply tw-mt-4;
+    @apply tw-mr-8 tw-mt-4;
 
     &--used {
       fill: hsla(var(--ec-reserved-color-info), 0.5);
@@ -183,7 +181,7 @@ export default {
   }
 
   &__background {
-    @apply tw-bg-key-7;
+    stroke: hsl(var(--ec-gray-color-level-7));
   }
 
   &__remaining {

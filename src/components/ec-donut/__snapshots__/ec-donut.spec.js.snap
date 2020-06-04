@@ -7,7 +7,7 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
 >
   <div
     class="ec-donut__container"
-    data-test="ec-donut-container"
+    data-test="ec-donut__container"
   >
     <svg
       class="ec-donut__svg"
@@ -94,7 +94,7 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
 >
   <div
     class="ec-donut__container"
-    data-test="ec-donut-container"
+    data-test="ec-donut__container"
   >
     <svg
       class="ec-donut__svg"
@@ -181,7 +181,7 @@ exports[`EcDonut should display with the empty used 1`] = `
 >
   <div
     class="ec-donut__container"
-    data-test="ec-donut-container"
+    data-test="ec-donut__container"
   >
     <svg
       class="ec-donut__svg"
@@ -268,7 +268,7 @@ exports[`EcDonut should display with the full used 1`] = `
 >
   <div
     class="ec-donut__container"
-    data-test="ec-donut-container"
+    data-test="ec-donut__container"
   >
     <svg
       class="ec-donut__svg"
@@ -355,7 +355,7 @@ exports[`EcDonut should display with the full used when is more used than amount
 >
   <div
     class="ec-donut__container"
-    data-test="ec-donut-container"
+    data-test="ec-donut__container"
   >
     <svg
       class="ec-donut__svg"
@@ -442,7 +442,7 @@ exports[`EcDonut should display with the half used 1`] = `
 >
   <div
     class="ec-donut__container"
-    data-test="ec-donut-container"
+    data-test="ec-donut__container"
   >
     <svg
       class="ec-donut__svg"
@@ -529,7 +529,7 @@ exports[`EcDonut should render slots as expected 1`] = `
 >
   <div
     class="ec-donut__container"
-    data-test="ec-donut-container"
+    data-test="ec-donut__container"
   >
     <svg
       class="ec-donut__svg"
