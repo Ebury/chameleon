@@ -13,6 +13,10 @@ const withSorting = createHOCc({
       type: Array,
       default: () => [],
     },
+    defaultSortCycle: {
+      type: Array,
+      default: () => [null, SortDirection.ASC, SortDirection.DESC],
+    },
   },
   data() {
     return {
@@ -20,33 +24,30 @@ const withSorting = createHOCc({
     };
   },
   methods: {
-    sortBy(columnName) {
+    sortBy(columnName, sortCycle = this.defaultSortCycle) {
       let sorts = this.internalSorts;
 
       const existingSort = sorts.find(sort => sort.column === columnName);
       if (existingSort) {
-        existingSort.direction = this.nextDirection(existingSort.direction);
+        existingSort.direction = this.nextDirection(existingSort.direction, sortCycle);
         if (!existingSort.direction) {
           sorts = sorts.filter(sort => sort !== existingSort);
         }
       } else if (this.multiSort) {
-        sorts.push({ column: columnName, direction: SortDirection.ASC });
+        sorts.push({ column: columnName, direction: sortCycle[1] });
       } else {
-        sorts = [{ column: columnName, direction: SortDirection.ASC }];
+        sorts = [{ column: columnName, direction: sortCycle[1] }];
       }
 
       this.internalSorts = sorts;
     },
-    nextDirection(current) {
-      if (current === SortDirection.ASC) {
-        return SortDirection.DESC;
+    nextDirection(current, sortCycle) {
+      const nextDirectionIndex = sortCycle.indexOf(current) + 1;
+      if (nextDirectionIndex >= sortCycle.length) {
+        return sortCycle[0];
       }
-      /* istanbul ignore else */
-      if (current === SortDirection.DESC) {
-        return null;
-      }
-      /* istanbul ignore next */
-      return SortDirection.ASC;
+
+      return sortCycle[nextDirectionIndex];
     },
   },
   watch: {
@@ -64,8 +65,9 @@ const withSorting = createHOCc({
     },
   },
   listeners: {
-    sort(columnName) {
-      this.sortBy(columnName);
+    sort(column) {
+      const { name: columnName, sortCycle } = column;
+      this.sortBy(columnName, sortCycle);
       this.$emit('sort', this.internalSorts);
     },
   },

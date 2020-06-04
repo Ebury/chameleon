@@ -103,7 +103,9 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
     class="ec-loading__content ec-loading__content--is-transparent"
     data-test="ec-loading__content"
   >
-    <div>
+    <div
+      defaultsortcycle=",asc,desc"
+    >
       <!---->
        
       <div

@@ -20,6 +20,7 @@ const columns = [
     name: 'original-amount',
     title: 'Original amount',
     sortable: true,
+    sortCycle: [null, 'desc', 'asc'],
   },
   {
     name: 'repayment-date',
@@ -99,6 +100,12 @@ stories
       fetchEmptyList: {
         default: boolean('fetchEmptyList', false),
       },
+      defaultSortCycle: {
+        default: select('Sort Cycle by default', {
+          ascFirst: [null, 'asc', 'desc'],
+          descFirst: [null, 'desc', 'asc'],
+        }),
+      },
     },
     methods: {
       onSort: action('sort'),
@@ -162,6 +169,7 @@ stories
             :sticky-column="stickyColumn || null"
             :error-message="errorMessage || undefined"
             :empty-message="emptyMessage || undefined"
+            :default-sort-cycle="defaultSortCycle"
             @sort="onSort"
             @abort="onAborted"
             @error="onError">

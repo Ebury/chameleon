@@ -304,7 +304,7 @@ describe('EcTable', () => {
       ],
     });
     wrapper.findByDataTest('ec-table-head__cell--0').findByDataTest('ec-table-sort__icon').trigger('click');
-    expect(wrapper.emitted('sort')).toEqual([['lorem']]);
+    expect(wrapper.emitted('sort')).toEqual([[{ name: 'lorem', sortable: true, title: 'Lorem' }]]);
   });
 
   it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left and the changes to right when the prop is get changed to right', () => {
