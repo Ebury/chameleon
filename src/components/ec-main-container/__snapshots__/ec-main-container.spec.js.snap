@@ -6,8 +6,6 @@ exports[`EcMainContainer should not display the titleIntro when title is not giv
 >
   <!---->
    
-  <!---->
-   
 </div>
 `;
 
@@ -16,22 +14,26 @@ exports[`EcMainContainer should render both titles when they are given in props 
   class="ec-main-container"
 >
   <div
-    class="tw-col-full"
+    class="ec-main-container__header"
   >
-    <h1
-      class="ec-main-container__title"
+    <div
+      class="tw-col-full"
     >
-      Trade Finance
-    </h1>
+      <h1
+        class="ec-main-container__title"
+      >
+        Trade Finance
+      </h1>
+       
+      <p
+        class="ec-main-container__title-intro"
+      >
+        Here you will be able to keep track of all your requests to Ebury and of your credit line.
+      </p>
+    </div>
      
-    <p
-      class="ec-main-container__title-intro"
-    >
-      Here you will be able to keep track of all your requests to Ebury and of your credit line.
-    </p>
+    <!---->
   </div>
-   
-  <!---->
    
 </div>
 `;
@@ -42,8 +44,6 @@ exports[`EcMainContainer should render empty if no props were given 1`] = `
 >
   <!---->
    
-  <!---->
-   
 </div>
 `;
 
@@ -52,22 +52,26 @@ exports[`EcMainContainer should use given slot 1`] = `
   class="ec-main-container"
 >
   <div
-    class="tw-col-full"
+    class="ec-main-container__header"
   >
-    <h1
-      class="ec-main-container__title"
+    <div
+      class="tw-col-full"
     >
-      Trade Finance
-    </h1>
+      <h1
+        class="ec-main-container__title"
+      >
+        Trade Finance
+      </h1>
+       
+      <p
+        class="ec-main-container__title-intro"
+      >
+        Here you will be able to keep track of all your requests to Ebury and of your credit line.
+      </p>
+    </div>
      
-    <p
-      class="ec-main-container__title-intro"
-    >
-      Here you will be able to keep track of all your requests to Ebury and of your credit line.
-    </p>
+    <!---->
   </div>
-   
-  <!---->
    
   <p>
     Random text
@@ -80,29 +84,33 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
   class="ec-main-container"
 >
   <div
-    class="tw-col-full sm:tw-col-9"
+    class="ec-main-container__header"
   >
-    <h1
-      class="ec-main-container__title"
+    <div
+      class="tw-col-full sm:tw-col-9"
     >
-      Trade Finance
-    </h1>
+      <h1
+        class="ec-main-container__title"
+      >
+        Trade Finance
+      </h1>
+       
+      <p
+        class="ec-main-container__title-intro"
+      >
+        Here you will be able to keep track of all your requests to Ebury and of your credit line.
+      </p>
+    </div>
      
-    <p
-      class="ec-main-container__title-intro"
+    <div
+      class="ec-main-container__cta tw-col-full sm:tw-col-3"
     >
-      Here you will be able to keep track of all your requests to Ebury and of your credit line.
-    </p>
-  </div>
-   
-  <div
-    class="tw-col-full sm:tw-col-3"
-  >
-    <button
-      class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width"
-    >
-      Test cta
-    </button>
+      <button
+        class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width"
+      >
+        Test cta
+      </button>
+    </div>
   </div>
    
 </div>
