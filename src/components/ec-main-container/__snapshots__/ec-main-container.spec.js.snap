@@ -4,8 +4,17 @@ exports[`EcMainContainer should not display the titleIntro when title is not giv
 <div
   class="ec-main-container"
 >
-  <!---->
-   
+  <div
+    class="tw-grid"
+  >
+    <!---->
+     
+    <!---->
+     
+    <div
+      class="tw-col-full"
+    />
+  </div>
 </div>
 `;
 
@@ -14,7 +23,7 @@ exports[`EcMainContainer should render both titles when they are given in props 
   class="ec-main-container"
 >
   <div
-    class="ec-main-container__header"
+    class="tw-grid"
   >
     <div
       class="tw-col-full"
@@ -33,8 +42,11 @@ exports[`EcMainContainer should render both titles when they are given in props 
     </div>
      
     <!---->
+     
+    <div
+      class="tw-col-full"
+    />
   </div>
-   
 </div>
 `;
 
@@ -42,8 +54,17 @@ exports[`EcMainContainer should render empty if no props were given 1`] = `
 <div
   class="ec-main-container"
 >
-  <!---->
-   
+  <div
+    class="tw-grid"
+  >
+    <!---->
+     
+    <!---->
+     
+    <div
+      class="tw-col-full"
+    />
+  </div>
 </div>
 `;
 
@@ -52,7 +73,7 @@ exports[`EcMainContainer should use given slot 1`] = `
   class="ec-main-container"
 >
   <div
-    class="ec-main-container__header"
+    class="tw-grid"
   >
     <div
       class="tw-col-full"
@@ -71,11 +92,15 @@ exports[`EcMainContainer should use given slot 1`] = `
     </div>
      
     <!---->
+     
+    <div
+      class="tw-col-full"
+    >
+      <p>
+        Random text
+      </p>
+    </div>
   </div>
-   
-  <p>
-    Random text
-  </p>
 </div>
 `;
 
@@ -84,7 +109,7 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
   class="ec-main-container"
 >
   <div
-    class="ec-main-container__header"
+    class="tw-grid"
   >
     <div
       class="tw-col-full sm:tw-col-9"
@@ -103,7 +128,7 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
     </div>
      
     <div
-      class="ec-main-container__cta tw-col-full sm:tw-col-3"
+      class="tw-col-full sm:tw-col-3"
     >
       <button
         class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width"
@@ -111,7 +136,10 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
         Test cta
       </button>
     </div>
+     
+    <div
+      class="tw-col-full"
+    />
   </div>
-   
 </div>
 `;
