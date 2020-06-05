@@ -1,19 +1,25 @@
 <template>
   <div class="ec-main-container">
-    <template v-if="title">
-      <div
-        :class="{ 'tw-col-full': true, 'sm:tw-col-9': hasCtaSlot() }"
-      >
-        <h1 class="ec-main-container__title">{{ title }}</h1>
-        <p class="ec-main-container__title-intro">{{ titleIntro }}</p>
+    <div
+      class="tw-grid"
+    >
+      <template v-if="title">
+        <div
+          :class="{ 'tw-col-full': true, 'sm:tw-col-9': hasCtaSlot() }"
+        >
+          <h1 class="ec-main-container__title">{{ title }}</h1>
+          <p class="ec-main-container__title-intro">{{ titleIntro }}</p>
+        </div>
+      </template>
+      <template v-if="hasCtaSlot()">
+        <div class="tw-col-full sm:tw-col-3">
+          <slot name="cta" />
+        </div>
+      </template>
+      <div class="tw-col-full">
+        <slot />
       </div>
-    </template>
-    <template v-if="hasCtaSlot()">
-      <div class="tw-col-full sm:tw-col-3">
-        <slot name="cta" />
-      </div>
-    </template>
-    <slot />
+    </div>
   </div>
 </template>
 
@@ -40,7 +46,6 @@ export default {
 
 <style>
 .ec-main-container {
-  @apply tw-grid tw-items-center tw-justify-between;
   @apply tw-p-24;
   @apply tw-min-h-full;
 

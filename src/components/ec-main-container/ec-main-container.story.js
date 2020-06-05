@@ -33,9 +33,11 @@ stories
     template: `
     <ec-main-container :title="title" :title-intro="titleIntro">
       <template #cta>
-        <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width">
-          Test Cta
-        </button>
+        <div class="tw-text-center">
+          <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width">
+            Test Cta
+          </button>
+        </div>
       </template>
     </ec-main-container>
     `,
