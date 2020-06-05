@@ -78,7 +78,7 @@
     "postcss-mixins": "6.2.3",
     "postcss-nested": "4.2.1",
     "postcss-preset-env": "6.7.0",
-    "sass": "1.26.7",
+    "sass": "1.26.8",
     "sass-loader": "8.0.2",
     "snapshot-diff": "0.8.0",
     "storybook-vue-router": "1.0.7",
