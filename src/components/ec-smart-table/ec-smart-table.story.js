@@ -9,6 +9,7 @@ import {
 import { action } from '@storybook/addon-actions';
 import EcSmartTable from './ec-smart-table.vue';
 import * as SortDirection from '../../enums/sort-direction';
+import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 
 const columns = [
   {
@@ -20,6 +21,7 @@ const columns = [
     name: 'original-amount',
     title: 'Original amount',
     sortable: true,
+    sortCycle: SortDirectionCycle.HIGHEST_FIRST,
   },
   {
     name: 'repayment-date',
@@ -99,6 +101,12 @@ stories
       fetchEmptyList: {
         default: boolean('fetchEmptyList', false),
       },
+      sortCycle: {
+        default: select('sortCycle', {
+          lowestFirst: SortDirectionCycle.LOWEST_FIRST,
+          highestFirst: SortDirectionCycle.HIGHEST_FIRST,
+        }),
+      },
     },
     methods: {
       onSort: action('sort'),
@@ -162,6 +170,7 @@ stories
             :sticky-column="stickyColumn || null"
             :error-message="errorMessage || undefined"
             :empty-message="emptyMessage || undefined"
+            :sort-cycle="sortCycle"
             @sort="onSort"
             @abort="onAborted"
             @error="onError">

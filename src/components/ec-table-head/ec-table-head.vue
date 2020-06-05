@@ -82,7 +82,7 @@ export default {
       return existingSort && existingSort.direction;
     },
     onSort(column) {
-      this.$emit('sort', column.name);
+      this.$emit('sort', column);
     },
     getWidthStyle(column) {
       if (column && (column.maxWidth || column.minWidth)) {

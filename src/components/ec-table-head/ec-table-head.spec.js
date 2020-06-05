@@ -89,7 +89,7 @@ describe('EcTableHead', () => {
     });
 
     wrapper.findByDataTest('ec-table-head__cell--0').findByDataTest('ec-table-sort__icon').trigger('click');
-    expect(wrapper.emitted('sort')).toEqual([['column-a']]);
+    expect(wrapper.emitted('sort')).toEqual([[{ name: 'column-a', sortable: true, title: 'Column A' }]]);
   });
 
   it('should render info icon with a tooltip as expected', () => {
