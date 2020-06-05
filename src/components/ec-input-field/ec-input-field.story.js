@@ -136,6 +136,10 @@ stories
           <div class="ec-col-4 ec-p--24">
             <ec-input-field readonly placeholder="My input" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores." label="Read only input with long text" :icon="iconText" :is-in-group="isInGroup" @change="onChange" @input="onInput" />
           </div>
+
+          <div class="ec-col-3 ec-p--24">
+            <ec-input-field placeholder="An other input" v-model="valueText" label="Input tooltip on the label" :is-in-group="isInGroup" tooltipLabel="I'm a tooltip text" @change="onChange" @input="onInput" />
+          </div>
         </div>
 
         <div class="ec-grid__row">
