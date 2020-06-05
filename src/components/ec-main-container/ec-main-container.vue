@@ -1,8 +1,7 @@
 <template>
   <div class="ec-main-container">
     <div
-      v-if="title || hasCtaSlot()"
-      class="ec-main-container__header"
+      class="tw-grid"
     >
       <template v-if="title">
         <div
@@ -13,12 +12,14 @@
         </div>
       </template>
       <template v-if="hasCtaSlot()">
-        <div class="ec-main-container__cta tw-col-full sm:tw-col-3">
+        <div class="tw-col-full sm:tw-col-3">
           <slot name="cta" />
         </div>
       </template>
+      <div class="tw-col-full">
+        <slot />
+      </div>
     </div>
-    <slot />
   </div>
 </template>
 
@@ -47,14 +48,6 @@ export default {
 .ec-main-container {
   @apply tw-p-24;
   @apply tw-min-h-full;
-
-  &__header {
-    @apply tw-grid tw-items-center tw-justify-between;
-  }
-
-  &__cta {
-    @apply tw-flex tw-justify-center tw-self-start;
-  }
 
   &__title {
     @apply tw-h1;

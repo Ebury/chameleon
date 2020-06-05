@@ -3,7 +3,7 @@ module.exports = ({ file }) => {
     plugins: {
       'postcss-import': {},
       'postcss-mixins': {},
-      tailwindcss: {},
+      tailwindcss: require.resolve('./tailwind.config.js'),
       'postcss-nested': {},
       'postcss-preset-env': {},
     },
