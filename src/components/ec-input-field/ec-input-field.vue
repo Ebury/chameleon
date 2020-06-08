@@ -11,19 +11,19 @@
     >
       <span
         v-if="label"
-        :class="{'ec-input-field__label-text': true, 'ec-input-field__label-text--has-tooltip': labelTooltip}"
+        :class="{'ec-input-field__label-text': true }"
         data-test="ec-input-field__label-text"
       >{{ label }}
+        <ec-icon
+          v-if="labelTooltip"
+          v-ec-tooltip="{ content: labelTooltip }"
+          class="ec-input-field__tooltip"
+          data-test="ec-input-field__tooltip"
+          type="interactive"
+          name="simple-info"
+          :size="14"
+        />
       </span>
-      <ec-icon
-        v-if="labelTooltip"
-        v-ec-tooltip="{ content: labelTooltip }"
-        class="ec-input-field__tooltip"
-        data-test="ec-input-field__tooltip"
-        type="interactive"
-        name="simple-info"
-        :size="14"
-      />
       <span
         v-if="note"
         class="ec-input-field__note"
@@ -223,18 +223,15 @@ $ec-input-field-invalid-color: $color-error !default;
 
   &__tooltip {
     align-self: center;
-    margin-right: 8px;
+    margin-left: 4px;
   }
 
   &__label-text {
     @include input-label;
 
+    display: flex;
     flex-grow: 1;
     margin-right: 8px;
-
-    &--has-tooltip {
-      flex-grow: 0;
-    }
   }
 
   &__note {

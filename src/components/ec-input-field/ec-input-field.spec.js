@@ -160,6 +160,5 @@ describe('EcInputField', () => {
   it('renders properly when the given prop is set', () => {
     const wrapper = mountInputField({ labelTooltip: 'Testing the labelTooltip prop' });
     expect(wrapper.props().labelTooltip).toBe('Testing the labelTooltip prop');
-    expect(wrapper.find('.ec-input-field__label-text--has-tooltip').exists()).toBe(true);
   });
 });
