@@ -11,7 +11,7 @@
     >
       <span
         v-if="label"
-        :class="{'ec-input-field__label-text': true }"
+        class="ec-input-field__label-text"
         data-test="ec-input-field__label-text"
       >{{ label }}
         <ec-icon
