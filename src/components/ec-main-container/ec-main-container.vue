@@ -1,6 +1,7 @@
 <template>
   <div class="ec-main-container">
     <div
+      v-if="title || hasCtaSlot()"
       class="tw-grid"
     >
       <template v-if="title">
@@ -16,10 +17,8 @@
           <slot name="cta" />
         </div>
       </template>
-      <div class="tw-col-full">
-        <slot />
-      </div>
     </div>
+    <slot />
   </div>
 </template>
 
