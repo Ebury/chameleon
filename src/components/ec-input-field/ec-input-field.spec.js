@@ -157,8 +157,8 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('renders properly when the given prop is set', () => {
+  it('renders properly when the labelTooltip prop is set', () => {
     const wrapper = mountInputField({ labelTooltip: 'Testing the labelTooltip prop' });
-    expect(wrapper.props().labelTooltip).toBe('Testing the labelTooltip prop');
+    expect(wrapper.element).toMatchSnapshot();
   });
 });

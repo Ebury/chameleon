@@ -95,6 +95,56 @@ exports[`EcInputField renders properly when disabled 1`] = `
 </div>
 `;
 
+exports[`EcInputField renders properly when the labelTooltip prop is set 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="ec-input-field-40"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+      
+      <svg
+        class="ec-input-field__tooltip ec-icon ec-icon--interactive ec-has-tooltip"
+        data-original-title="null"
+        data-test="ec-input-field__tooltip"
+        height="14"
+        width="14"
+      >
+        <use
+          xlink:href="#ec-simple-info"
+        />
+      </svg>
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+   
+  <input
+    class="ec-input-field__input"
+    data-test="ec-input-field__input"
+    id="ec-input-field-40"
+    type="text"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
+
 exports[`EcInputField renders properly with the errorId from the parent 1`] = `
 <div
   class="ec-input-field"
