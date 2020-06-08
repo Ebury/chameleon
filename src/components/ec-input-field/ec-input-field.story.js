@@ -9,6 +9,7 @@ const GROUPS = {
   NUMBER: 'Number input props',
   TEXT: 'Text input props',
   DATE: 'Date input props',
+  TOOLTIP: 'Tooltip Text',
 };
 
 stories
@@ -50,6 +51,9 @@ stories
       },
       labelDate: {
         default: text('label', 'Date input', GROUPS.DATE),
+      },
+      labelTooltip: {
+        default: text('tooltip lable text', 'Tooltip text', GROUPS.TOOLTIP),
       },
       noteDate: {
         default: text('note', 'Max 80 chars', GROUPS.DATE),
@@ -138,7 +142,10 @@ stories
           </div>
 
           <div class="ec-col-3 ec-p--24">
-            <ec-input-field placeholder="An other input" v-model="valueText" label="Input tooltip on the label" :is-in-group="isInGroup" tooltipLabel="I'm a tooltip text" @change="onChange" @input="onInput" />
+            <ec-input-field placeholder="An other input" v-model="valueText" label="Input tooltip on the label" :is-in-group="isInGroup" :label-tooltip="labelTooltip" @change="onChange" @input="onInput" />
+          </div>
+          <div class="ec-col-3 ec-p--24">
+            <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Short Label" :is-in-group="isInGroup" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
           </div>
         </div>
 

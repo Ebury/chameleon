@@ -11,13 +11,13 @@
     >
       <span
         v-if="label"
-        :class="{'ec-input-field__label-text': true, 'ec-input-field__label-text--tooltip': tooltipLabel}"
+        :class="{'ec-input-field__label-text': true, 'ec-input-field__label-text--has-tooltip': labelTooltip}"
         data-test="ec-input-field__label-text"
       >{{ label }}
       </span>
       <ec-icon
-        v-if="tooltipLabel"
-        v-ec-tooltip="{ content: tooltipLabel }"
+        v-if="labelTooltip"
+        v-ec-tooltip="{ content: labelTooltip }"
         class="ec-input-field__tooltip"
         data-test="ec-input-field__tooltip"
         type="interactive"
@@ -94,7 +94,7 @@ export default {
       default: '',
       type: String,
     },
-    tooltipLabel: {
+    labelTooltip: {
       default: '',
       type: String,
     },
@@ -223,6 +223,7 @@ $ec-input-field-invalid-color: $color-error !default;
 
   &__tooltip {
     align-self: center;
+    margin-right: 8px;
   }
 
   &__label-text {
@@ -231,7 +232,7 @@ $ec-input-field-invalid-color: $color-error !default;
     flex-grow: 1;
     margin-right: 8px;
 
-    &--tooltip {
+    &--has-tooltip {
       flex-grow: 0;
     }
   }
