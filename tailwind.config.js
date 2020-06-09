@@ -869,7 +869,6 @@ function flexboxGridPlugin({ addUtilities, theme }) {
     },
     [`.col-full, .col, .col-auto, ${colClasses.join(', ')}`]: {
       width: '100%',
-      position: 'relative',
       padding: theme(`padding.${gutter / 2}`),
       minHeight: theme('minHeight.1'),
     },
