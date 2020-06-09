@@ -13,7 +13,17 @@
         v-if="label"
         class="ec-input-field__label-text"
         data-test="ec-input-field__label-text"
-      >{{ label }}</span>
+      >{{ label }}
+        <ec-icon
+          v-if="labelTooltip"
+          v-ec-tooltip="{ content: labelTooltip }"
+          class="ec-input-field__tooltip"
+          data-test="ec-input-field__tooltip"
+          type="interactive"
+          name="simple-info"
+          :size="14"
+        />
+      </span>
       <span
         v-if="note"
         class="ec-input-field__note"
@@ -58,10 +68,12 @@
 
 <script>
 import EcIcon from '../ec-icon';
+import EcTooltip from '../../directives/ec-tooltip';
 
 export default {
   name: 'EcInputField',
   components: { EcIcon },
+  directives: { EcTooltip },
   inheritAttrs: false,
   model: {
     prop: 'value',
@@ -79,6 +91,10 @@ export default {
       type: [Number, String, Date],
     },
     label: {
+      default: '',
+      type: String,
+    },
+    labelTooltip: {
       default: '',
       type: String,
     },
@@ -205,9 +221,15 @@ $ec-input-field-invalid-color: $color-error !default;
     flex-wrap: wrap;
   }
 
+  &__tooltip {
+    align-self: center;
+    margin-left: 4px;
+  }
+
   &__label-text {
     @include input-label;
 
+    display: flex;
     flex-grow: 1;
     margin-right: 8px;
   }

@@ -11,6 +11,7 @@ describe('EcInputField', () => {
         errorMessage: '',
         label: 'label test',
         note: 'note test',
+        labelTooltip: '',
         ...props,
       },
       ...mountOpts,
@@ -153,6 +154,11 @@ describe('EcInputField', () => {
 
   it('renders properly the icon when disabled', () => {
     const wrapper = mountInputField({ icon: 'simple-check' }, { attrs: { disabled: true } });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly when the labelTooltip prop is set', () => {
+    const wrapper = mountInputField({ labelTooltip: 'Testing the labelTooltip prop' });
     expect(wrapper.element).toMatchSnapshot();
   });
 });
