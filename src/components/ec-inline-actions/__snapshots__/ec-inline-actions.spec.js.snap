@@ -10,15 +10,20 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
   popoverinnerclass=""
 >
    
-  <template>
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
     <ul
-      class="ec-inline-actions"
+      data-test="ec-inline-actions__list"
     >
       <li
         class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item"
       >
         <button
           class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
         >
           <!---->
            
@@ -30,7 +35,7 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
     </ul>
      
     <!---->
-  </template>
+  </div>
 </ec-popover-stub>
 `;
 
@@ -44,15 +49,20 @@ exports[`EcInlineActions should render the item disabled when an item was given 
   popoverinnerclass=""
 >
    
-  <template>
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
     <ul
-      class="ec-inline-actions"
+      data-test="ec-inline-actions__list"
     >
       <li
         class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item"
       >
         <button
           class="ec-inline-actions__button ec-inline-actions__button--disabled"
+          data-test="ec-inline-actions__button"
           disabled="disabled"
         >
           <!---->
@@ -65,7 +75,7 @@ exports[`EcInlineActions should render the item disabled when an item was given 
     </ul>
      
     <!---->
-  </template>
+  </div>
 </ec-popover-stub>
 `;
 
@@ -79,18 +89,24 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
   popoverinnerclass=""
 >
    
-  <template>
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
     <ul
-      class="ec-inline-actions"
+      data-test="ec-inline-actions__list"
     >
       <li
         class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item"
       >
         <button
           class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
         >
           <ec-icon-stub
             class="ec-inline-actions__icon"
+            data-test="ec-inline-actions__icon"
             name="simple-block"
             size="24"
             type="warning"
@@ -104,7 +120,7 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
     </ul>
      
     <!---->
-  </template>
+  </div>
 </ec-popover-stub>
 `;
 
@@ -118,18 +134,24 @@ exports[`EcInlineActions should render the item with default popover options 1`]
   popoverinnerclass=""
 >
    
-  <template>
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
     <ul
-      class="ec-inline-actions"
+      data-test="ec-inline-actions__list"
     >
       <li
         class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item"
       >
         <button
           class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
         >
           <ec-icon-stub
             class="ec-inline-actions__icon ec-inline-actions__icon--no-type"
+            data-test="ec-inline-actions__icon"
             name="simple-block"
             size="24"
           />
@@ -142,7 +164,7 @@ exports[`EcInlineActions should render the item with default popover options 1`]
     </ul>
      
     <!---->
-  </template>
+  </div>
 </ec-popover-stub>
 `;
 
@@ -156,18 +178,24 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
   popoverinnerclass=""
 >
    
-  <template>
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
     <ul
-      class="ec-inline-actions"
+      data-test="ec-inline-actions__list"
     >
       <li
         class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item"
       >
         <button
           class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
         >
           <ec-icon-stub
             class="ec-inline-actions__icon ec-inline-actions__icon--no-type"
+            data-test="ec-inline-actions__icon"
             name="simple-block"
             size="24"
           />
@@ -180,7 +208,7 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
     </ul>
      
     <!---->
-  </template>
+  </div>
 </ec-popover-stub>
 `;
 
@@ -194,15 +222,20 @@ exports[`EcInlineActions should render with one line break when a different arra
   popoverinnerclass=""
 >
    
-  <template>
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
     <ul
-      class="ec-inline-actions"
+      data-test="ec-inline-actions__list"
     >
       <li
         class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item"
       >
         <button
           class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
         >
           <!---->
            
@@ -215,17 +248,18 @@ exports[`EcInlineActions should render with one line break when a different arra
      
     <hr
       class="ec-inline-actions__delimiter"
+      data-test="ec-inline-actions__delimiter"
     />
-  </template>
-  <template>
     <ul
-      class="ec-inline-actions"
+      data-test="ec-inline-actions__list"
     >
       <li
         class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item"
       >
         <button
           class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
         >
           <!---->
            
@@ -237,7 +271,7 @@ exports[`EcInlineActions should render with one line break when a different arra
     </ul>
      
     <!---->
-  </template>
+  </div>
 </ec-popover-stub>
 `;
 
@@ -251,16 +285,21 @@ exports[`EcInlineActions should render with tooltip 1`] = `
   popoverinnerclass=""
 >
    
-  <template>
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
     <ul
-      class="ec-inline-actions"
+      data-test="ec-inline-actions__list"
     >
       <li
         class="ec-inline-actions__item ec-has-tooltip"
         data-original-title="null"
+        data-test="ec-inline-actions__item"
       >
         <button
           class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
         >
           <!---->
            
@@ -272,6 +311,6 @@ exports[`EcInlineActions should render with tooltip 1`] = `
     </ul>
      
     <!---->
-  </template>
+  </div>
 </ec-popover-stub>
 `;
