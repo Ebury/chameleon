@@ -1,50 +1,57 @@
 <template>
   <ec-popover v-bind="popoverOptions">
     <slot />
-    <template
-      v-for="(list, index) in items"
+    <div
       slot="popover"
+      class="ec-inline-actions"
+      data-test="ec-inline-actions"
     >
-      <ul
-        :key="`${index}__list`"
-        class="ec-inline-actions"
-      >
-        <li
-          v-for="item in list"
-          :key="item.text"
-          v-ec-tooltip.left="item.tooltip"
-          class="ec-inline-actions__item"
+      <template v-for="(list, index) in items">
+        <ul
+          :key="`${index}__list`"
+          data-test="ec-inline-actions__list"
         >
-          <button
-            v-ec-close-popover="!item.disabled"
-            class="ec-inline-actions__button"
-            :class="item.disabled ? 'ec-inline-actions__button--disabled' : ''"
-            :disabled="item.disabled"
-            @click="item.action && item.action()"
+          <li
+            v-for="item in list"
+            :key="item.text"
+            v-ec-tooltip.left="item.tooltip"
+            class="ec-inline-actions__item"
+            data-test="ec-inline-actions__item"
           >
-            <slot
-              :name="`item-${item.name}`"
-              :item="item"
+            <button
+              v-ec-close-popover="!item.disabled"
+              class="ec-inline-actions__button"
+              data-test="ec-inline-actions__button"
+              :class="item.disabled ? 'ec-inline-actions__button--disabled' : ''"
+              :disabled="item.disabled"
+              @click="item.action && item.action()"
             >
-              <ec-icon
-                v-if="item.icon"
-                :name="item.icon"
-                :size="24"
-                :type="item.iconType ? item.iconType : null"
-                class="ec-inline-actions__icon"
-                :class="{ 'ec-inline-actions__icon--no-type': !item.iconType || item.disabled }"
-              />
-              <span>{{ item.text }}</span>
-            </slot>
-          </button>
-        </li>
-      </ul>
-      <hr
-        :key="`${index}__delimiter`"
-        v-if="items.length !== index + 1"
-        class="ec-inline-actions__delimiter"
-      >
-    </template>
+              <slot
+                :name="`item-${item.name}`"
+                :item="item"
+              >
+                <ec-icon
+                  v-if="item.icon"
+                  :name="item.icon"
+                  :size="24"
+                  :type="item.iconType ? item.iconType : null"
+                  class="ec-inline-actions__icon"
+                  data-test="ec-inline-actions__icon"
+                  :class="{ 'ec-inline-actions__icon--no-type': !item.iconType || item.disabled }"
+                />
+                <span>{{ item.text }}</span>
+              </slot>
+            </button>
+          </li>
+        </ul>
+        <hr
+          :key="`${index}__delimiter`"
+          v-if="items.length !== index + 1"
+          class="ec-inline-actions__delimiter"
+          data-test="ec-inline-actions__delimiter"
+        >
+      </template>
+    </div>
   </ec-popover>
 </template>
 
