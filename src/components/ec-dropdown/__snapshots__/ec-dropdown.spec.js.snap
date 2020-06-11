@@ -257,7 +257,6 @@ exports[`EcDropdown multiple value :props should pass label prop to the triggeri
     data-test="ec-input-field__label-text"
   >
     Random label
-      
     <!---->
   </span>
    
@@ -1063,7 +1062,6 @@ exports[`EcDropdown single value :props should pass label prop to the triggering
     data-test="ec-input-field__label-text"
   >
     Random label
-      
     <!---->
   </span>
    
