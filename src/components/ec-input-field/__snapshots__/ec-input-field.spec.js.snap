@@ -15,7 +15,6 @@ exports[`EcInputField renders properly the icon when disabled 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
@@ -69,7 +68,6 @@ exports[`EcInputField renders properly when disabled 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
@@ -110,7 +108,6 @@ exports[`EcInputField renders properly when the labelTooltip prop is set 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <svg
         class="ec-input-field__tooltip ec-icon ec-icon--interactive ec-has-tooltip"
         data-original-title="null"
@@ -160,7 +157,6 @@ exports[`EcInputField renders properly with the errorId from the parent 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
@@ -207,7 +203,6 @@ exports[`EcInputField renders properly with the given prop errorMessage 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
@@ -254,7 +249,6 @@ exports[`EcInputField renders properly with the id from the parent 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
@@ -327,7 +321,6 @@ exports[`EcInputField renders properly without note 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
@@ -362,7 +355,6 @@ exports[`EcInputField renders properly without the error when the prop errorMess
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
@@ -403,7 +395,6 @@ exports[`EcInputField renders with the attrs min and max 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
@@ -445,7 +436,6 @@ exports[`EcInputField should display properly with the given props 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
@@ -485,7 +475,6 @@ exports[`EcInputField should render given icon 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      
       <!---->
     </span>
      
