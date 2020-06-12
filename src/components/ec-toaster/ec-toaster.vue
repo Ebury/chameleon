@@ -4,6 +4,7 @@
       name="ec-toaster-items-transition"
       tag="ul"
       class="ec-toaster__list"
+      data-test="ec-toaster__list"
       @after-enter="rememberTopItemPositions"
       @before-leave="rememberTopItemPositions"
     >
@@ -13,6 +14,7 @@
         ref="items"
         v-ec-toaster-touch="{ minDistance: 50 }"
         class="ec-toaster__item"
+        data-test="ec-toaster__item"
         @ec-toaster-touch-remove="$emit('remove', message)"
       >
         <ec-alert
