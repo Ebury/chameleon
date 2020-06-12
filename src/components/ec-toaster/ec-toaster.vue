@@ -75,8 +75,6 @@ export default {
   }
 
   &__item {
-    display: inline-block;
-
     @apply tw-inline-block;
     @apply tw-max-w-full;
     @apply tw-flex-grow-0 tw-flex-shrink-0;
