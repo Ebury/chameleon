@@ -8,6 +8,7 @@
       <div class="ec-privacy-policy__item">
         <button
           class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn--sm"
+          data-test="ec-privacy-policy__btn"
           @click="$emit('accept')"
         >{{ buttonText }}</button>
       </div>
@@ -31,49 +32,41 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/key-color-scale';
-@import '../../scss/settings/layout';
-@import '../../scss/settings/z-index';
-@import '../../scss/tools/typography';
-@import '../../scss/tools/media-queries';
-
-$ec-privacy-policy-max-width: $body-max-width !default;
-
+<style>
 .ec-privacy-policy {
-  z-index: $z-index-level-1;
-  background-color: rgba($level-7, 0.95);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+  @apply tw-z-level-1;
+
+  background: hsla(var(--ec-key-color-level-7), 0.95);
+
+  @apply tw-fixed tw-bottom-0;
+  @apply tw-w-full;
+  @apply tw-text-center;
 
   &__content {
-    padding: 24px 48px;
-    max-width: $ec-privacy-policy-max-width;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    @apply tw-py-24 tw-px-48;
+
+    max-width: var(--ec-body-max-width);
+
+    @apply tw-m-auto;
+    @apply tw-flex tw-flex-wrap tw-items-center tw-justify-between;
 
     @media screen and (max-width: 640px) {
-      padding: 24px 16px;
+      @apply tw-py-24 tw-px-16;
     }
   }
 
   &__title {
-    @include h4;
+    @apply tw-h4;
 
-    @media screen and (max-width: $ec-privacy-policy-max-width) {
-      display: none;
+    @media screen and (max-width: var(--ec-body-max-width)) {
+      @apply tw-hidden;
     }
   }
 
   &__item {
-    @media screen and (max-width: $ec-privacy-policy-max-width) {
-      width: 100%;
-      margin: 4px auto;
+    @media screen and (max-width: var(--ec-body-max-width)) {
+      @apply tw-w-full;
+      @apply tw-my-4 tw-mx-auto;
     }
   }
 }
