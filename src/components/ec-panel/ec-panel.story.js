@@ -45,7 +45,7 @@ storiesOf('Panel', module)
         <div class="tw-max-w-screen-lg tw-my-0 tw-mx-auto tw-bg-light ec-panel-container tw-p-24">
           <h1 class="tw-m-24">Panel story</h1>
 
-          <div v-for="i in 20" class="tw-m-24">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore</div>
+          <div v-for="i in 12" class="tw-m-24">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore</div>
 
           <ec-panel v-model="show" @back="clickBackButton()">
             <template v-if="isHeaderEnabled" #header>

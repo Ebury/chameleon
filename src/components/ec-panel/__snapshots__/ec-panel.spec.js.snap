@@ -1,41 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcPanel #slots #footer - should render footer slot section if slot is passed 1`] = `
+<aside
+  class="ec-panel"
+  data-test="ec-panel"
+>
+  <div
+    class="ec-panel__content"
+    data-test="ec-panel__content"
+  >
+    <div
+      class="ec-panel__header"
+      data-test="ec-panel__header"
+    >
+      <div
+        class="ec-panel__header-icons"
+        data-test="ec-panel__header-icons"
+      >
+        <!---->
+         
+        <a
+          aria-label="Close panel"
+          class="ec-panel__header-action ec-panel__header-action--close"
+          data-test="ec-panel__header-action--close"
+          href="#"
+        >
+          <svg
+            class="ec-panel__header-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </div>
+       
+    </div>
+     
+    <div
+      class="ec-panel__main-scrollbar-container"
+    >
+      <div
+        class="ec-panel__main"
+        data-test="ec-panel__main"
+      />
+    </div>
+     
+    <div
+      class="ec-panel__footer"
+      data-test="ec-panel__footer"
+    >
+      <h2>
+        Footer Section
+      </h2>
+    </div>
+  </div>
+</aside>
+`;
+
 exports[`EcPanel #slots #header - should render header slot section if slot is passed 1`] = `
 <aside
   class="ec-panel"
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__header"
+    class="ec-panel__content"
+    data-test="ec-panel__content"
   >
     <div
-      class="ec-panel__header-icons"
+      class="ec-panel__header"
+      data-test="ec-panel__header"
     >
-      <!---->
-       
-      <a
-        aria-label="Close panel"
-        class="ec-panel__header-action ec-panel__header-action--close"
-        data-test="ec-panel__header-action--close"
-        href="#"
+      <div
+        class="ec-panel__header-icons"
+        data-test="ec-panel__header-icons"
       >
-        <svg
-          class="ec-panel__header-icon ec-icon"
-          height="24"
-          width="24"
+        <!---->
+         
+        <a
+          aria-label="Close panel"
+          class="ec-panel__header-action ec-panel__header-action--close"
+          data-test="ec-panel__header-action--close"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </a>
+          <svg
+            class="ec-panel__header-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </div>
+       
+      <h2>
+        Header Section
+      </h2>
     </div>
      
-    <h2>
-      Submitted Requests
-    </h2>
+    <div
+      class="ec-panel__main-scrollbar-container"
+    >
+      <div
+        class="ec-panel__main"
+        data-test="ec-panel__main"
+      />
+    </div>
+     
+    <!---->
   </div>
-   
 </aside>
 `;
 
@@ -45,36 +122,54 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__header"
+    class="ec-panel__content"
+    data-test="ec-panel__content"
   >
     <div
-      class="ec-panel__header-icons"
+      class="ec-panel__header"
+      data-test="ec-panel__header"
     >
-      <!---->
-       
-      <a
-        aria-label="Close panel"
-        class="ec-panel__header-action ec-panel__header-action--close"
-        data-test="ec-panel__header-action--close"
-        href="#"
+      <div
+        class="ec-panel__header-icons"
+        data-test="ec-panel__header-icons"
       >
-        <svg
-          class="ec-panel__header-icon ec-icon"
-          height="24"
-          width="24"
+        <!---->
+         
+        <a
+          aria-label="Close panel"
+          class="ec-panel__header-action ec-panel__header-action--close"
+          data-test="ec-panel__header-action--close"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </a>
+          <svg
+            class="ec-panel__header-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </div>
+       
     </div>
      
+    <div
+      class="ec-panel__main-scrollbar-container"
+    >
+      <div
+        class="ec-panel__main"
+        data-test="ec-panel__main"
+      >
+        <p>
+          Main content section
+        </p>
+      </div>
+    </div>
+     
+    <!---->
   </div>
-   
-  <p>
-    Main content section
-  </p>
 </aside>
 `;
 
@@ -86,33 +181,50 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__header"
+    class="ec-panel__content"
+    data-test="ec-panel__content"
   >
     <div
-      class="ec-panel__header-icons"
+      class="ec-panel__header"
+      data-test="ec-panel__header"
     >
-      <!---->
-       
-      <a
-        aria-label="Close panel"
-        class="ec-panel__header-action ec-panel__header-action--close"
-        data-test="ec-panel__header-action--close"
-        href="#"
+      <div
+        class="ec-panel__header-icons"
+        data-test="ec-panel__header-icons"
       >
-        <svg
-          class="ec-panel__header-icon ec-icon"
-          height="24"
-          width="24"
+        <!---->
+         
+        <a
+          aria-label="Close panel"
+          class="ec-panel__header-action ec-panel__header-action--close"
+          data-test="ec-panel__header-action--close"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </a>
+          <svg
+            class="ec-panel__header-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </div>
+       
     </div>
      
+    <div
+      class="ec-panel__main-scrollbar-container"
+    >
+      <div
+        class="ec-panel__main"
+        data-test="ec-panel__main"
+      />
+    </div>
+     
+    <!---->
   </div>
-   
 </aside>
 `;
 
@@ -122,33 +234,50 @@ exports[`EcPanel @events @back should not render back button when event handler 
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__header"
+    class="ec-panel__content"
+    data-test="ec-panel__content"
   >
     <div
-      class="ec-panel__header-icons"
+      class="ec-panel__header"
+      data-test="ec-panel__header"
     >
-      <!---->
-       
-      <a
-        aria-label="Close panel"
-        class="ec-panel__header-action ec-panel__header-action--close"
-        data-test="ec-panel__header-action--close"
-        href="#"
+      <div
+        class="ec-panel__header-icons"
+        data-test="ec-panel__header-icons"
       >
-        <svg
-          class="ec-panel__header-icon ec-icon"
-          height="24"
-          width="24"
+        <!---->
+         
+        <a
+          aria-label="Close panel"
+          class="ec-panel__header-action ec-panel__header-action--close"
+          data-test="ec-panel__header-action--close"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </a>
+          <svg
+            class="ec-panel__header-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </div>
+       
     </div>
      
+    <div
+      class="ec-panel__main-scrollbar-container"
+    >
+      <div
+        class="ec-panel__main"
+        data-test="ec-panel__main"
+      />
+    </div>
+     
+    <!---->
   </div>
-   
 </aside>
 `;
 
@@ -158,48 +287,65 @@ exports[`EcPanel @events @back should render back button when event handler attr
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__header"
+    class="ec-panel__content"
+    data-test="ec-panel__content"
   >
     <div
-      class="ec-panel__header-icons"
+      class="ec-panel__header"
+      data-test="ec-panel__header"
     >
-      <a
-        aria-label="Go back"
-        class="ec-panel__header-action ec-panel__header-action--back"
-        data-test="ec-panel__header-action--back"
-        href="#"
+      <div
+        class="ec-panel__header-icons"
+        data-test="ec-panel__header-icons"
       >
-        <svg
-          class="ec-panel__header-icon ec-icon"
-          height="24"
-          width="24"
+        <a
+          aria-label="Go back"
+          class="ec-panel__header-action ec-panel__header-action--back"
+          data-test="ec-panel__header-action--back"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-chevron-left"
-          />
-        </svg>
-      </a>
+          <svg
+            class="ec-panel__header-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-left"
+            />
+          </svg>
+        </a>
+         
+        <a
+          aria-label="Close panel"
+          class="ec-panel__header-action ec-panel__header-action--close"
+          data-test="ec-panel__header-action--close"
+          href="#"
+        >
+          <svg
+            class="ec-panel__header-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </div>
        
-      <a
-        aria-label="Close panel"
-        class="ec-panel__header-action ec-panel__header-action--close"
-        data-test="ec-panel__header-action--close"
-        href="#"
-      >
-        <svg
-          class="ec-panel__header-icon ec-icon"
-          height="24"
-          width="24"
-        >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </a>
     </div>
      
+    <div
+      class="ec-panel__main-scrollbar-container"
+    >
+      <div
+        class="ec-panel__main"
+        data-test="ec-panel__main"
+      />
+    </div>
+     
+    <!---->
   </div>
-   
 </aside>
 `;
 
@@ -211,33 +357,50 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__header"
+    class="ec-panel__content"
+    data-test="ec-panel__content"
   >
     <div
-      class="ec-panel__header-icons"
+      class="ec-panel__header"
+      data-test="ec-panel__header"
     >
-      <!---->
-       
-      <a
-        aria-label="Close panel"
-        class="ec-panel__header-action ec-panel__header-action--close"
-        data-test="ec-panel__header-action--close"
-        href="#"
+      <div
+        class="ec-panel__header-icons"
+        data-test="ec-panel__header-icons"
       >
-        <svg
-          class="ec-panel__header-icon ec-icon"
-          height="24"
-          width="24"
+        <!---->
+         
+        <a
+          aria-label="Close panel"
+          class="ec-panel__header-action ec-panel__header-action--close"
+          data-test="ec-panel__header-action--close"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </a>
+          <svg
+            class="ec-panel__header-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </div>
+       
     </div>
      
+    <div
+      class="ec-panel__main-scrollbar-container"
+    >
+      <div
+        class="ec-panel__main"
+        data-test="ec-panel__main"
+      />
+    </div>
+     
+    <!---->
   </div>
-   
 </aside>
 `;
 

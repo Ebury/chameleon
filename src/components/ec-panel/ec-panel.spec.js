@@ -118,7 +118,7 @@ describe('EcPanel', () => {
         { show: true },
         {
           slots: {
-            header: '<h2>Submitted Requests</h2>',
+            header: '<h2>Header Section</h2>',
           },
         },
       );
@@ -131,6 +131,18 @@ describe('EcPanel', () => {
         {
           slots: {
             main: '<p>Main content section</p>',
+          },
+        },
+      );
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('#footer - should render footer slot section if slot is passed', () => {
+      const wrapper = mountPanel(
+        { show: true },
+        {
+          slots: {
+            footer: '<h2>Footer Section</h2>',
           },
         },
       );
