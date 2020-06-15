@@ -2,43 +2,61 @@
   <aside
     v-if="show"
     class="ec-panel"
-    data-test="ec-panel"
   >
-    <div class="ec-panel__header">
-      <div class="ec-panel__header-icons">
-        <a
-          v-if="isBackEnabled"
-          aria-label="Go back"
-          class="ec-panel__header-action ec-panel__header-action--back"
-          href="#"
-          data-test="ec-panel__header-action--back"
-          @click.stop.prevent="goBack"
-        >
-          <ec-icon
-            class="ec-panel__header-icon"
-            name="simple-chevron-left"
-            :size="24"
-          />
-        </a>
-        <a
-          aria-label="Close panel"
-          class="ec-panel__header-action ec-panel__header-action--close"
-          href="#"
-          data-test="ec-panel__header-action--close"
-          @click.stop.prevent="closePanel"
-        >
-          <ec-icon
-            class="ec-panel__header-icon"
-            name="simple-close"
-            :size="24"
-          />
-        </a>
+    <div
+      class="ec-panel__content"
+    >
+      <div class="ec-panel__header">
+        <div class="ec-panel__header-icons">
+          <a
+            v-if="isBackEnabled"
+            aria-label="Go back"
+            class="ec-panel__header-action ec-panel__header-action--back"
+            href="#"
+            data-test="ec-panel__header-action--back"
+            @click.stop.prevent="goBack"
+          >
+            <ec-icon
+              class="ec-panel__header-icon"
+              name="simple-chevron-left"
+              :size="24"
+            />
+          </a>
+          <a
+            aria-label="Close panel"
+            class="ec-panel__header-action ec-panel__header-action--close"
+            href="#"
+            data-test="ec-panel__header-action--close"
+            @click.stop.prevent="closePanel"
+          >
+            <ec-icon
+              class="ec-panel__header-icon"
+              name="simple-close"
+              :size="24"
+            />
+          </a>
+        </div>
+
+        <slot name="header" />
       </div>
 
-      <slot name="header" />
-    </div>
+      <div class="ec-panel__main-scrollbar-container">
+        <div
+          class="ec-panel__main"
+          data-test="ec-panel__main"
+        >
+          <slot name="main" />
+        </div>
+      </div>
 
-    <slot name="main" />
+      <div
+        v-if="hasFooter()"
+        class="ec-panel__footer"
+        data-test="ec-panel__footer"
+      >
+        <slot name="footer" />
+      </div>
+    </div>
   </aside>
 </template>
 
@@ -66,6 +84,9 @@ export default {
     },
   },
   methods: {
+    hasFooter() {
+      return !!this.$scopedSlots.footer;
+    },
     goBack() {
       this.$emit('show-panel', false);
       this.$emit('back');
@@ -85,24 +106,25 @@ export default {
 $ec-panel-header-btn-fill: $level-4-interactive-elements !default;
 $ec-panel-header-btn-fill-hover: $level-4-tech-blue !default;
 $ec-panel-background-color: $white !default;
+$ec-panel-gutter: 24px;
 
 .ec-panel {
   width: 100%;
   max-width: $side-panel-max-width;
-  height: 100vh;
-  min-height: 100%;
   position: absolute;
-  background: $ec-panel-background-color;
   right: 0;
   top: 0;
-  padding: 16px 24px 24px 24px;
-  overflow-y: auto;
 
-  @include scrollbar;
-  @include left-box-shadow-level-1;
+  &__content {
+    width: 100%;
+    height: 100vh;
+    max-width: $side-panel-max-width;
+    background: $ec-panel-background-color;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
 
-  &__header {
-    display: block;
+    @include left-box-shadow-level-1;
   }
 
   &__header-icons {
@@ -133,6 +155,36 @@ $ec-panel-background-color: $white !default;
     &--close {
       margin-left: auto;
     }
+  }
+
+  &__header {
+    display: block;
+    margin-top: 16px;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  &__main-scrollbar-container {
+    overflow-y: scroll;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    padding-right: 8px;
+
+    @media screen and (min-width: map-get($breakpoints, 'sm')) {
+      margin-right: 8px;
+    }
+
+    @include md-scrollbar;
+  }
+
+  &__main {
+    max-width: calc(#{$side-panel-max-width} - (#{$ec-panel-gutter} * 2));
+  }
+
+  &__footer {
+    margin: auto 24px 24px 24px;
   }
 }
 
