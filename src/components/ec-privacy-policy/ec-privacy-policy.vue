@@ -58,13 +58,13 @@ export default {
   &__title {
     @apply tw-h4;
 
-    @media screen and (max-width: var(--ec-body-max-width)) {
+    @media screen and (max-width: 1260px) {
       @apply tw-hidden;
     }
   }
 
   &__item {
-    @media screen and (max-width: var(--ec-body-max-width)) {
+    @media screen and (max-width: 1260px) {
       @apply tw-w-full;
       @apply tw-my-4 tw-mx-auto;
     }
