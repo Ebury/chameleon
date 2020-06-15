@@ -101,7 +101,7 @@ export default {
 .ec-toaster-items-transition-enter,
 .ec-toaster-items-transition-leave-to {
   @apply tw-opacity-0;
-  @apply tw--translate-x-full;
+  @apply tw-translate-x-full;
 }
 
 .ec-toaster-items-transition-leave-active {
