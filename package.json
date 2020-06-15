@@ -93,7 +93,7 @@
     "vue-loader": "15.9.2",
     "vue-router": "3.3.4",
     "vue-template-compiler": "2.6.11",
-    "wait-on": "5.0.0",
+    "wait-on": "5.0.1",
     "webpack-cli": "3.3.11",
     "yorkie": "2.0.0"
   },
