@@ -2,122 +2,18 @@ import { storiesOf } from '@storybook/vue';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcIcon from '@/components/ec-icon';
+import EcBtn from '@/components/ec-btn';
 import { LIGHT_THEME, DARK_THEME } from '../../../../.storybook/backgrounds';
 
-const stories = storiesOf('Button Styles', module);
+const stories = storiesOf('Button', module);
 
 stories
   .addDecorator(StoryRouter())
   .addParameters({
     visualRegressionTests: { enabled: false },
   })
-  .add('basic', () => ({
-    components: { EcIcon },
-    props: {
-      btnText: {
-        default: text('Button Text', 'Click Me'),
-      },
-      isDisabled: {
-        default: boolean('Disabled', false),
-      },
-      hasIcon: {
-        default: boolean('Has Icon', false),
-      },
-      hasIconOnly: {
-        default: boolean('Has Icon Only', false),
-      },
-      isRounded: {
-        default: boolean('Is Rounded', false),
-      },
-      isOutlined: {
-        default: boolean('Is Outlined', false),
-      },
-      isFullWidth: {
-        default: boolean('is Full Width', false),
-      },
-      size: {
-        default: select('Size', ['ec-btn--sm', 'ec-btn--md'], 'ec-btn--sm'),
-      },
-      color: {
-        default: select('Color', [
-          'ec-btn--primary',
-          'ec-btn--primary-reverse',
-          'ec-btn--secondary',
-          'ec-btn--secondary-reverse',
-          'ec-btn--success',
-          'ec-btn--success-reverse',
-          'ec-btn--error',
-          'ec-btn--error-reverse',
-          'ec-btn--warning',
-          'ec-btn--warning-reverse',
-        ], 'ec-btn--primary'),
-      },
-    },
-    computed: {
-      classNames() {
-        return [
-          this.size,
-          this.color,
-          {
-            'ec-btn--rounded': this.isRounded,
-            'ec-btn--outline': this.isOutlined,
-            'ec-btn--full-width': this.isFullWidth,
-            'ec-btn--icon-only': this.hasIconOnly,
-          },
-        ];
-      },
-    },
-    template: `
-      <div class="ec-m--20">
-        <div>
-          <h3 class="ec-m--8">This is a button tag with a "ec-btn" class</h3>
-          <button
-            :class="classNames"
-            class="ec-m--8 ec-btn"
-            :disabled="isDisabled"
-            >
-            <template v-if="!hasIconOnly">
-              <ec-icon v-if="hasIcon" class="ec-mr--8" name="simple-check" :size="22" />
-              <span>{{this.btnText}}</span>
-            </template>
-            <ec-icon v-else name="simple-check" :size="22" />
-          </button>
-        </div>
-
-        <div>
-          <h3 class="ec-m--8">This is an a tag with a "ec-btn" class</h3>
-          <a
-            href="https://online.ebury.com/login/?next=/"
-            :class="classNames"
-            class="ec-m--8 ec-btn"
-            >
-            <template v-if="!hasIconOnly">
-              <ec-icon v-if="hasIcon" class="ec-mr--8" name="simple-check" :size="22" />
-              <span>{{this.btnText}}</span>
-            </template>
-            <ec-icon v-else name="simple-check" :size="22" />
-          </a>
-        </div>
-
-        <div>
-          <h3 class="ec-m--8">This is a router-link tag with a "ec-btn" class</h3>
-          <router-link
-            to="/someurl"
-            :class="classNames"
-            class="ec-m--8 ec-btn"
-            >
-            <template v-if="!hasIconOnly">
-              <ec-icon v-if="hasIcon" class="ec-mr--8" name="simple-check" :size="22" />
-              <span>{{this.btnText}}</span>
-            </template>
-            <ec-icon v-else name="simple-check" :size="22" />
-          </router-link>
-        </div>
-
-        <p class="ec-mt--24">* Please keep in mind there is no disabled attribute for links</p>
-      </div>
-    `,
-  }))
+  .add('props (dark)', ...generatePropsStory(DARK_THEME))
+  .add('props (light)', ...generatePropsStory(LIGHT_THEME))
   .add('all buttons (dark)', generateAllForElement('button'), {
     backgrounds: [{ ...DARK_THEME, default: true }],
   })
@@ -130,6 +26,68 @@ stories
   .add('all anchors (light)', generateAllForElement('a'), {
     backgrounds: [{ ...LIGHT_THEME, default: true }],
   });
+
+function generatePropsStory(theme) {
+  return [
+    () => ({
+      components: { EcIcon, EcBtn },
+      props: {
+        tag: {
+          default: select('tag', ['button', 'a'], 'button'),
+        },
+        isDisabled: {
+          default: boolean('isDisabled', false),
+        },
+        btnText: {
+          default: text('btnText', 'Click me'),
+        },
+      },
+      // eslint-disable-next-line no-unused-vars
+      render(h) {
+        function renderSection(title, { btnText, ...props } = {}) {
+          const types = ['primary', 'secondary', 'success', 'error', 'warning'];
+          const icon = !btnText ? 'simple-check' : undefined;
+
+          return (
+            <div class="tw-col-full">
+              <h3 class="tw-text-additional-18">{title}</h3>
+              {types.map(type => (
+                <EcBtn category={type} key={type} {...{ props: { icon, ...props } }} class="ec-mr--8">{btnText}</EcBtn>
+              ))}
+            </div>
+          );
+        }
+
+        const icon = 'simple-check';
+
+        return (
+          <div class="tw-grid-container">
+            <div class="tw-grid">
+              {renderSection('Default', { ...this.$props })}
+              {renderSection('Small', { size: 'sm', ...this.$props })}
+              {renderSection('With icon', { icon, ...this.$props })}
+              {renderSection('Rounded', { isRounded: true, ...this.$props })}
+              {renderSection('Full width', { isFullWidth: true, ...this.$props })}
+              {renderSection('Outline', { isOutline: true, ...this.$props })}
+              {renderSection('Loading', { isLoading: true, ...this.$props })}
+              {renderSection('Reversed', { isReverse: true, ...this.$props })}
+            </div>
+          </div>
+        );
+      },
+    }), {
+      backgrounds: [{ ...theme, default: true }],
+      visualRegressionTests: {
+        enabled: true,
+        knobs: {
+          anchors: { tag: 'a' },
+          disabled: { isDisabled: true },
+          'icon-only': { btnText: '' },
+        },
+      },
+    },
+  ];
+}
 
 function generateAllForElement(element) {
   return () => ({
@@ -215,7 +173,7 @@ function generateAllForElement(element) {
     template: `
       <div class="ec-m--20">
         <template v-for="(block, blockIndex) in blocks">
-          <h3 :key="blockIndex" class="ec-m--8" style="color:tomato">{{block.title}}</h3>
+          <h3 :key="blockIndex" class="ec-m--8 tw-text-additional-18">{{block.title}}</h3>
           <component :is="element" v-for="(button, buttonIndex) in block.buttons" :key="blockIndex + '-' + buttonIndex"
            :class="button.classes"
            class="ec-m--8"
