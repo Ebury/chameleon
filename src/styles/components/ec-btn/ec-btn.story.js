@@ -30,7 +30,6 @@ stories
 function generatePropsStory(theme) {
   return [
     () => ({
-      components: { EcIcon, EcBtn },
       props: {
         tag: {
           default: select('tag', ['button', 'a'], 'button'),
@@ -52,7 +51,7 @@ function generatePropsStory(theme) {
             <div class="tw-col-full">
               <h3 class="tw-text-additional-18">{title}</h3>
               {types.map(type => (
-                <EcBtn category={type} key={type} {...{ props: { icon, ...props } }} class="ec-mr--8">{btnText}</EcBtn>
+                <EcBtn category={type} key={type} {...{ props: { icon, ...props } }} class="tw-mr-8">{btnText}</EcBtn>
               ))}
             </div>
           );
@@ -171,19 +170,19 @@ function generateAllForElement(element) {
       },
     },
     template: `
-      <div class="ec-m--20">
+      <div class="tw-m-20">
         <template v-for="(block, blockIndex) in blocks">
-          <h3 :key="blockIndex" class="ec-m--8 tw-text-additional-18">{{block.title}}</h3>
+          <h3 :key="blockIndex" class="tw-m-8 tw-text-additional-18">{{block.title}}</h3>
           <component :is="element" v-for="(button, buttonIndex) in block.buttons" :key="blockIndex + '-' + buttonIndex"
            :class="button.classes"
-           class="ec-m--8"
+           class="tw-m-8"
            :disabled="button.disabled"
            >
             <template v-if="button.hasIconOnly">
               <ec-icon name="simple-check" :size="24" />
             </template>
             <template v-else>
-              <ec-icon v-if="button.hasIcon" class="ec-mr--8" name="simple-check" :size="24" />
+              <ec-icon v-if="button.hasIcon" class="tw-mr-8" name="simple-check" :size="24" />
               {{ button.text }}
             </template>
            </component>

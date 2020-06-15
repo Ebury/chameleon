@@ -60,12 +60,12 @@ stories
       onClick: action('clicked'),
     },
     template: `
-      <div class="ec-m--20">
+      <div class="tw-m-20">
         <h3>Button tag *</h3>
 
         <ec-btn
           v-bind="$props"
-          class="ec-mt--20"
+          class="tw-mt-20"
           @click="onClick()"
           >
             <template v-if="loadingText" #loading-text>
@@ -77,14 +77,14 @@ stories
         <ec-btn
           v-if="icon"
           v-bind="$props"
-          class="ec-ml--20 ec-mt--20"
+          class="tw-ml-20 tw-mt-20"
           @click="onClick()"
         />
 
-        <h3 class="ec-mt--20">Router link</h3>
+        <h3 class="tw-mt-20">Router link</h3>
         <ec-btn
           v-bind="{ ...$props, to: '/my/url/' }"
-          class="ec-mt--20"
+          class="tw-mt-20"
           @click.native="onClick()"
           >
             {{text}}
@@ -93,26 +93,26 @@ stories
         <ec-btn
           v-if="icon"
           v-bind="{ ...$props, to: '/my/url/' }"
-          class="ec-ml--20 ec-mt--20"
+          class="tw-ml-20 tw-mt-20"
           @click.native="onClick()"
         />
 
-        <h3 class="ec-mt--20">Anchor link - a tag</h3>
+        <h3 class="tw-mt-20">Anchor link - a tag</h3>
 
         <ec-btn
           v-bind="{ ...$props, href: 'http://www.ebury.com' }"
-          class="ec-mt--20"
+          class="tw-mt-20"
           @click.prevent.stop="onClick()"
           >{{text}}</ec-btn>
 
         <ec-btn
           v-if="icon"
           v-bind="{ ...$props, href: 'http://www.ebury.com' }"
-          class="ec-ml--20 ec-mt--20"
+          class="tw-ml-20 tw-mt-20"
           @click.prevent.stop="onClick()"
         />
 
-        <p class="ec-mt--40"> * Disabled and loading states apply only to buttons.</p>
+        <p class="tw-mt-40"> * Disabled and loading states apply only to buttons.</p>
         <p> ** Custom loader text will replace the spinner loader if set.</p>
         <p> *** Reverse cannot be combined with outline.</p>
       </div>

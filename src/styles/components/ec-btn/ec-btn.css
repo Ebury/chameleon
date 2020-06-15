@@ -1,0 +1,294 @@
+.ec-btn {
+  @apply tw-outline-none;
+  @apply tw-btn-text tw-text-light tw-fill-current tw-text-center tw-no-underline;
+  @apply tw-inline-flex tw-align-bottom tw-flex-row tw-items-center tw-justify-center;
+  @apply tw-cursor-pointer;
+  @apply tw-border tw-border-solid tw-border-transparent;
+  @apply tw-bg-gray-4;
+  @apply tw-whitespace-no-wrap tw-overflow-hidden;
+  @apply tw-transition-colors tw-duration-150 tw-ease-out;
+
+  max-width: 256px;
+
+  &:hover {
+    @apply tw-no-underline;
+  }
+
+  &--sm {
+    @apply tw-min-w-32 tw-min-h-32;
+    @apply tw-py-4 tw-px-24;
+  }
+
+  &--md {
+    @apply tw-min-w-40 tw-min-h-40;
+    @apply tw-py-8 tw-px-24;
+  }
+
+  &--rounded {
+    @apply tw-rounded-button;
+  }
+
+  &--full-width {
+    @apply tw-w-full;
+  }
+
+  &--icon-only {
+    @apply tw-w-auto;
+    @apply tw-rounded-1/2;
+
+    &.ec-btn--sm {
+      @apply tw-p-4;
+    }
+
+    &.ec-btn--md {
+      @apply tw-p-8;
+    }
+  }
+
+  &:focus {
+    @apply tw-outline-none;
+  }
+
+  &:disabled {
+    @apply tw-bg-gray-6;
+    @apply tw-text-light;
+    @apply tw-cursor-default;
+    @apply tw-pointer-events-none;
+  }
+
+  &--primary {
+    @apply tw-bg-key-4;
+
+    &:hover {
+      @apply tw-bg-key-3;
+    }
+  }
+
+  &--primary-reverse {
+    @apply tw-bg-light;
+    @apply tw-text-key-4;
+
+    &:hover {
+      @apply tw-bg-key-4;
+      @apply tw-text-light;
+    }
+  }
+
+  &--primary,
+  &--primary-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px hsla(var(--ec-key-color-level-4), 0.25);
+    }
+  }
+
+  &--secondary {
+    @apply tw-bg-gray-4;
+
+    &:hover {
+      @apply tw-bg-gray-3;
+    }
+  }
+
+  &--secondary-reverse {
+    @apply tw-bg-light;
+    @apply tw-text-gray-4;
+
+    &:hover {
+      @apply tw-bg-gray-4;
+      @apply tw-text-light;
+    }
+  }
+
+  &--secondary,
+  &--secondary-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px hsla(var(--ec-gray-color-level-4), 0.25);
+    }
+  }
+
+  &--success {
+    @apply tw-bg-success;
+
+    &:hover {
+      @apply tw-bg-success-hover;
+    }
+  }
+
+  &--success-reverse {
+    @apply tw-bg-light;
+    @apply tw-text-success;
+
+    &:hover {
+      @apply tw-bg-success;
+      @apply tw-text-light;
+    }
+  }
+
+  &--success,
+  &--success-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px hsla(var(--ec-reserved-color-success), 0.25);
+    }
+  }
+
+  &--error {
+    @apply tw-bg-error;
+
+    &:hover {
+      @apply tw-bg-error-hover;
+    }
+  }
+
+  &--error-reverse {
+    @apply tw-bg-light;
+    @apply tw-text-error;
+
+    &:hover {
+      @apply tw-bg-error;
+      @apply tw-text-light;
+    }
+  }
+
+  &--error,
+  &--error-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px hsla(var(--ec-reserved-color-error), 0.25);
+    }
+  }
+
+  &--warning {
+    @apply tw-bg-warning;
+
+    &:hover {
+      @apply tw-bg-warning-hover;
+    }
+  }
+
+  &--warning-reverse {
+    @apply tw-bg-light;
+    @apply tw-text-warning;
+
+    &:hover {
+      @apply tw-bg-warning;
+      @apply tw-text-light;
+    }
+  }
+
+  &--warning,
+  &--warning-reverse {
+    &:focus {
+      box-shadow: 0 0 0 3px hsla(var(--ec-reserved-color-warning), 0.25);
+    }
+  }
+
+  &--outline {
+    @apply tw-border tw-border-solid tw-border-current;
+    @apply tw-bg-transparent;
+
+    &.ec-btn--primary {
+      @apply tw-text-key-4;
+
+      &:hover {
+        @apply tw-bg-key-4;
+      }
+    }
+
+    &.ec-btn--primary-reverse {
+      @apply tw-text-light;
+
+      &:hover {
+        @apply tw-bg-light;
+        @apply tw-text-key-4;
+      }
+    }
+
+    &.ec-btn--secondary {
+      @apply tw-text-gray-4;
+
+      &:hover {
+        @apply tw-bg-gray-4;
+      }
+    }
+
+    &.ec-btn--secondary-reverse {
+      @apply tw-text-light;
+
+      &:hover {
+        @apply tw-bg-light;
+        @apply tw-text-gray-4;
+      }
+    }
+
+    &.ec-btn--success {
+      @apply tw-text-success;
+
+      &:hover {
+        @apply tw-bg-success;
+      }
+    }
+
+    &.ec-btn--success-reverse {
+      @apply tw-text-light;
+
+      &:hover {
+        @apply tw-text-success;
+        @apply tw-bg-light;
+      }
+    }
+
+    &.ec-btn--error {
+      @apply tw-text-error;
+
+      &:hover {
+        @apply tw-bg-error;
+      }
+    }
+
+    &.ec-btn--error-reverse {
+      @apply tw-text-light;
+
+      &:hover {
+        @apply tw-text-error;
+        @apply tw-bg-light;
+      }
+    }
+
+    &.ec-btn--warning {
+      @apply tw-text-warning;
+
+      &:hover {
+        @apply tw-bg-warning;
+      }
+    }
+
+    &.ec-btn--warning-reverse {
+      @apply tw-text-light;
+
+      &:hover {
+        @apply tw-text-warning;
+        @apply tw-bg-light;
+      }
+    }
+
+    &.ec-btn--primary-reverse,
+    &.ec-btn--secondary-reverse,
+    &.ec-btn--success-reverse,
+    &.ec-btn--error-reverse,
+    &.ec-btn--warning-reverse {
+      &:focus {
+        box-shadow: 0 0 0 3px hsla(var(--ec-light-color), 0.25);
+      }
+    }
+
+    &:hover {
+      @apply tw-text-light;
+    }
+
+    &:disabled {
+      @apply tw-bg-transparent;
+      @apply tw-text-gray-6;
+      @apply tw-border-gray-6;
+      @apply tw-cursor-default tw-pointer-events-none;
+    }
+  }
+}

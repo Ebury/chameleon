@@ -161,24 +161,24 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
   .ec-btn {
     &__text--is-loading,
     &__icon--no-loading-text {
-      visibility: hidden;
+      @apply tw-invisible;
     }
 
     &__icon--with-loading-text {
-      display: none;
+      @apply tw-hidden;
     }
 
     &__loading-spinner {
-      position: absolute;
-      width: 100%;
+      @apply tw-absolute;
+      @apply tw-w-full;
     }
 
     &__icon--with-spacing {
-      margin-right: 8px;
+      @apply tw-mr-8;
     }
   }
 </style>
