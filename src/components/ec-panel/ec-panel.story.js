@@ -41,14 +41,15 @@ storiesOf('Panel', module)
       },
     },
     template: `
-      <div style="width:100vw;min-height:100vh;background-color: hsl(var(--ec-gray-color-level-7));">
-        <div class="ec-panel-container" style="max-width: 1024px;margin: 0 auto;background-color: hsl(var(--ec-light-color)); padding:24px;">
-          <h1 style="margin:24px;">Panel story</h1>
-          <div v-for="i in 10" style="margin:24px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore</div>
+      <div class="tw-bg-gray-7 tw-min-h-screen">
+        <div class="tw-max-w-screen-lg tw-my-0 tw-mx-auto tw-bg-light ec-panel-container tw-p-24">
+          <h1 class="tw-m-24">Panel story</h1>
+
+          <div v-for="i in 20" class="tw-m-24">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore</div>
 
           <ec-panel v-model="show" @back="clickBackButton()">
             <template v-if="isHeaderEnabled" #header>
-              <h3 class="ec-mb--24">Header</h3>
+              <h3 class="tw-mb-24">Header</h3>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </template>
 
@@ -61,7 +62,7 @@ storiesOf('Panel', module)
                 <p v-for="i in 10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae</p>
               </div>
 
-              <div class="ec-mt--36" style="text-align: center;">
+              <div class="tw-mt-36 tw-text-center">
                 <a href="#" class="ec-btn ec-btn--primary ec-btn--rounded ec-btn--md">Lorem, ipsum</a>
               </div>
             </template>
@@ -71,7 +72,7 @@ storiesOf('Panel', module)
 
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 
-              <div class="ec-mt--36" style="text-align: center;">
+              <div class="tw-mt-36 tw-text-center">
                 <a href="#" class="ec-btn ec-btn--primary ec-btn--rounded ec-btn--md">Lorem, ipsum</a>
               </div>
             </template>
