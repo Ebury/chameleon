@@ -2,12 +2,20 @@
   <aside
     v-if="show"
     class="ec-panel"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-panel` : 'ec-panel'"
   >
     <div
       class="ec-panel__content"
+      data-test="ec-panel__content"
     >
-      <div class="ec-panel__header">
-        <div class="ec-panel__header-icons">
+      <div
+        class="ec-panel__header"
+        data-test="ec-panel__header"
+      >
+        <div
+          class="ec-panel__header-icons"
+          data-test="ec-panel__header-icons"
+        >
           <a
             v-if="isBackEnabled"
             aria-label="Go back"
@@ -99,96 +107,94 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/index';
-@import '../../scss/tools/index';
-
-$ec-panel-header-btn-fill: $level-4-interactive-elements !default;
-$ec-panel-header-btn-fill-hover: $level-4-tech-blue !default;
-$ec-panel-background-color: $white !default;
-$ec-panel-gutter: 24px;
-
+<style>
 .ec-panel {
-  width: 100%;
-  max-width: $side-panel-max-width;
-  position: absolute;
-  right: 0;
-  top: 0;
+  max-width: 352px;
+
+  @apply tw-w-full;
+  @apply tw-absolute tw-right-0 tw-top-0;
 
   &__content {
-    width: 100%;
-    height: 100vh;
-    max-width: $side-panel-max-width;
-    background: $ec-panel-background-color;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
+    max-width: 352px;
 
-    @include left-box-shadow-level-1;
+    @apply tw-w-full;
+    @apply tw-h-screen;
+    @apply tw-fixed;
+    @apply tw-flex tw-flex-col;
+    @apply tw-bg-light;
+    @apply tw-shadow-level-1-rtl;
   }
 
   &__header-icons {
-    display: flex;
-    flex-direction: row;
+    @apply tw-flex tw-flex-row;
   }
 
   &__header-icon {
-    fill: currentColor;
-    display: inline-block;
-    vertical-align: top;
+    @apply tw-fill-current;
+    @apply inline-block;
+    @apply tw-align-top;
   }
 
   &__header-action {
-    cursor: pointer;
-    color: $ec-panel-header-btn-fill;
-
-    @include color-transition;
+    @apply tw-cursor-pointer;
+    @apply tw-text-gray-4;
+    @apply tw-transition-text tw-duration-300 tw-ease-out;
 
     &:hover {
-      color: $ec-panel-header-btn-fill-hover;
+      @apply tw-text-key-4;
     }
 
     &--back {
-      margin-right: auto;
+      @apply tw-mr-auto;
     }
 
     &--close {
-      margin-left: auto;
+      @apply tw-ml-auto;
     }
   }
 
   &__header {
-    display: block;
-    margin-top: 16px;
-    margin-left: 24px;
-    margin-right: 24px;
+    @apply tw-block;
+    @apply tw-mt-16 tw-mx-24;
   }
 
   &__main-scrollbar-container {
-    overflow-y: scroll;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    margin-left: 24px;
-    margin-right: 24px;
-    padding-right: 8px;
+    @apply tw-overflow-y-auto;
+    @apply tw-m-24;
+    @apply tw-pr-8;
 
-    @media screen and (min-width: map-get($breakpoints, 'sm')) {
-      margin-right: 8px;
+    @screen sm {
+      @apply tw-mr-8;
     }
 
-    @include md-scrollbar;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--ec-gray-color-level-4)) transparent;
+
+    &::-webkit-scrollbar {
+      @apply tw-w-8;
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply tw-bg-transparent;
+      @apply tw-rounded;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply tw-rounded;
+      @apply tw-bg-gray-4;
+    }
   }
 
   &__main {
-    max-width: calc(#{$side-panel-max-width} - (#{$ec-panel-gutter} * 2));
+    max-width: calc(352px - 48px);
   }
 
   &__footer {
-    margin: auto 24px 24px 24px;
+    @apply tw-mt-auto tw-mb-24 tw-mx-24;
   }
 }
 
 .ec-panel-container {
-  position: relative;
+  @apply tw-relative;
 }
 </style>
