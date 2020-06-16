@@ -45,9 +45,11 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
   <div>
     <ul
       class="ec-dropdown-search__item-list"
+      data-test="ec-dropdown-search__item-list"
     >
       <li
         class="ec-dropdown-search__search-area"
+        data-test="ec-dropdown-search__search-area"
       >
         <svg
           class="ec-dropdown-search__search-icon ec-icon"
@@ -200,9 +202,11 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <li
           class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
         >
           <svg
             class="ec-dropdown-search__search-icon ec-icon"
@@ -292,9 +296,11 @@ exports[`EcCurrencyInput should render properly 1`] = `
         <div>
           <ul
             class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
           >
             <li
               class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
             >
               <svg
                 class="ec-dropdown-search__search-icon ec-icon"

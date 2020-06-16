@@ -70,18 +70,18 @@ describe('EcDropdown', () => {
 
     it('should render readonly input as a trigger', () => {
       const wrapper = mountDropdownSingleValue();
-      expect(wrapper.find('.ec-input-field__input').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-input-field__input').element).toMatchSnapshot();
     });
 
     it('should not enable searching by default', () => {
       const wrapper = mountDropdownSingleValue();
-      expect(wrapper.find('.ec-dropdown-search__search-area').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-dropdown-search__search-area').exists()).toBe(false);
     });
 
     describe(':props', () => {
       it('should not render any label if prop is not given', () => {
         const wrapper = mountDropdownSingleValue({ label: '' });
-        expect(wrapper.find('.ec-input-field__label').exists()).toBe(false);
+        expect(wrapper.findByDataTest('ec-input-field__label').exists()).toBe(false);
       });
 
       it.each([
@@ -110,32 +110,32 @@ describe('EcDropdown', () => {
 
       it('should pass label prop to the triggering input', () => {
         const wrapper = mountDropdownSingleValue({ label: 'Random label' });
-        expect(wrapper.find('.ec-input-field__label').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-input-field__label').element).toMatchSnapshot();
       });
 
       it('should not render any error message if prop is not given', () => {
         const wrapper = mountDropdownSingleValue({ errorMessage: '' });
-        expect(wrapper.find('.ec-input-field__error-text').exists()).toBe(false);
+        expect(wrapper.findByDataTest('ec-input-field__error-text').exists()).toBe(false);
       });
 
       it('should pass errorMessage prop to the triggering input', () => {
         const wrapper = mountDropdownSingleValue({ error: 'Random error' });
-        expect(wrapper.find('.ec-input-field__error-text').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-input-field__error-text').element).toMatchSnapshot();
       });
 
       it('should enable search when isSearchEnabled is set to true', () => {
         const wrapper = mountDropdownSingleValue({ isSearchEnabled: true });
-        expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
       });
 
       it('should use placeholder prop', () => {
         const wrapper = mountDropdownSingleValue({ placeholder: 'Random placeholder' });
-        expect(wrapper.find('.ec-input-field__input').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-input-field__input').element).toMatchSnapshot();
       });
 
       it('should use searchPlaceholder prop if search is enabled', () => {
         const wrapper = mountDropdownSingleValue({ searchPlaceholder: 'Random search placeholder', isSearchEnabled: true });
-        expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
       });
 
       it('should get disabled when disabled prop is set', () => {
@@ -159,7 +159,7 @@ describe('EcDropdown', () => {
             item: '<div>({{ props.index }}) {{ props.item.text }} - {{ props.isSelected }}</div>',
           },
         });
-        expect(wrapper.find('.ec-dropdown-search__item-list').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
       });
 
       it('should forward CTA slot', () => {
@@ -168,7 +168,7 @@ describe('EcDropdown', () => {
             cta: '<button>My CTA</button>',
           },
         });
-        expect(wrapper.find('.ec-dropdown-search__cta-area').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-dropdown-search__cta-area').element).toMatchSnapshot();
       });
     });
 
@@ -193,17 +193,17 @@ describe('EcDropdown', () => {
 
       it('should display selected text in the readonly input', () => {
         const wrapper = mountDropdownSingleValue({ items, selected: items[0] });
-        expect(wrapper.find('.ec-input-field__input').element.value).toBe(items[0].text);
+        expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe(items[0].text);
       });
 
       it('should display selectedText instead of selected item text if the prop is given', () => {
         const wrapper = mountDropdownSingleValue({ items, selected: items[0], selectedText: 'Random text' });
-        expect(wrapper.find('.ec-input-field__input').element.value).toBe('Random text');
+        expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('Random text');
       });
 
       it('should display empty text in the readonly input when nothing is selected', () => {
         const wrapper = mountDropdownSingleValue({ items, selected: null });
-        expect(wrapper.find('.ec-input-field__input').element.value).toBe('');
+        expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
       });
     });
 
@@ -233,17 +233,17 @@ describe('EcDropdown', () => {
 
     it('should render readonly input as a trigger', () => {
       const wrapper = mountDropdownMultipleValue();
-      expect(wrapper.find('.ec-input-field__input').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-input-field__input').element).toMatchSnapshot();
     });
 
     it('should not enable searching by default', () => {
       const wrapper = mountDropdownMultipleValue();
-      expect(wrapper.find('.ec-dropdown-search__search-area').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-dropdown-search__search-area').exists()).toBe(false);
     });
 
     it('should render checkbox for each item', () => {
       const wrapper = mountDropdownMultipleValue({ items });
-      expect(wrapper.find('.ec-dropdown-search__item-list').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
     });
 
     it('should render preselected checkbox for each selected item', () => {
@@ -256,37 +256,37 @@ describe('EcDropdown', () => {
     describe(':props', () => {
       it('should not render any label if prop is not given', () => {
         const wrapper = mountDropdownMultipleValue({ label: '' });
-        expect(wrapper.find('.ec-input-field__label').exists()).toBe(false);
+        expect(wrapper.findByDataTest('ec-input-field__label').exists()).toBe(false);
       });
 
       it('should pass label prop to the triggering input', () => {
         const wrapper = mountDropdownMultipleValue({ label: 'Random label' });
-        expect(wrapper.find('.ec-input-field__label').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-input-field__label').element).toMatchSnapshot();
       });
 
       it('should not render any error message if prop is not given', () => {
         const wrapper = mountDropdownMultipleValue({ errorMessage: '' });
-        expect(wrapper.find('.ec-input-field__error-text').exists()).toBe(false);
+        expect(wrapper.findByDataTest('ec-input-field__error-text').exists()).toBe(false);
       });
 
       it('should pass errorMessage prop to the triggering input', () => {
         const wrapper = mountDropdownMultipleValue({ error: 'Random error' });
-        expect(wrapper.find('.ec-input-field__error-text').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-input-field__error-text').element).toMatchSnapshot();
       });
 
       it('should enable search when isSearchEnabled is set to true', () => {
         const wrapper = mountDropdownMultipleValue({ isSearchEnabled: true });
-        expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
       });
 
       it('should use placeholder prop', () => {
         const wrapper = mountDropdownMultipleValue({ placeholder: 'Random placeholder' });
-        expect(wrapper.find('.ec-input-field__input').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-input-field__input').element).toMatchSnapshot();
       });
 
       it('should use searchPlaceholder prop if search is enabled', () => {
         const wrapper = mountDropdownMultipleValue({ searchPlaceholder: 'Random search placeholder', isSearchEnabled: true });
-        expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
       });
 
       it('should get disabled when disabled prop is set', () => {
@@ -310,7 +310,7 @@ describe('EcDropdown', () => {
             item: '<div>({{ props.index }}) {{ props.item.text }} - {{ props.isSelected }}</div>',
           },
         });
-        expect(wrapper.find('.ec-dropdown-search__item-list').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
       });
 
       it('should forward CTA slot', () => {
@@ -319,7 +319,7 @@ describe('EcDropdown', () => {
             cta: '<button>My CTA</button>',
           },
         });
-        expect(wrapper.find('.ec-dropdown-search__cta-area').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-dropdown-search__cta-area').element).toMatchSnapshot();
       });
     });
 
@@ -364,22 +364,22 @@ describe('EcDropdown', () => {
 
       it('should display selected text in the readonly input', () => {
         const wrapper = mountDropdownMultipleValue({ items, selected: [items[0]] });
-        expect(wrapper.find('.ec-input-field__input').element.value).toBe(items[0].text);
+        expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe(items[0].text);
       });
 
       it('should display selectedText instead of selected item text if the prop is given', () => {
         const wrapper = mountDropdownMultipleValue({ items, selected: [items[0]], selectedText: 'Random text' });
-        expect(wrapper.find('.ec-input-field__input').element.value).toBe('Random text');
+        expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('Random text');
       });
 
       it('should display empty text in the readonly input when nothing is selected', () => {
         const wrapper = mountDropdownMultipleValue({ items, selected: [] });
-        expect(wrapper.find('.ec-input-field__input').element.value).toBe('');
+        expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
       });
 
       it('should join the selected items in selected text', () => {
         const wrapper = mountDropdownMultipleValue({ items, selected: [...items] });
-        expect(wrapper.find('.ec-input-field__input').element.value).toBe(items.map(item => item.text).join(', '));
+        expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe(items.map(item => item.text).join(', '));
       });
     });
 

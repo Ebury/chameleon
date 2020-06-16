@@ -163,7 +163,7 @@ stories.add('all', () => ({
             placeholder="Single value - with CTA"
             v-model="selected">
             <template #cta>
-              <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>
+              <a href="#" @click.prevent="cta()" class="tw-block tw-py-8 tw-my-16">Do something</a>
             </template>
           </ec-dropdown>
         </div>
