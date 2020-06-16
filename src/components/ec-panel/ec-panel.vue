@@ -48,7 +48,7 @@
         <slot name="header" />
       </div>
 
-      <div class="ec-panel__main-scrollbar-container">
+      <div class="ec-panel__main-container">
         <div
           class="ec-panel__main"
           data-test="ec-panel__main"
@@ -117,8 +117,7 @@ export default {
   &__content {
     max-width: 352px;
 
-    @apply tw-w-full;
-    @apply tw-h-screen;
+    @apply tw-w-full tw-h-screen;
     @apply tw-fixed;
     @apply tw-flex tw-flex-col;
     @apply tw-bg-light;
@@ -158,7 +157,7 @@ export default {
     @apply tw-mt-16 tw-mx-24;
   }
 
-  &__main-scrollbar-container {
+  &__main-container {
     @apply tw-overflow-y-auto;
     @apply tw-m-24;
     @apply tw-pr-8;
@@ -186,7 +185,7 @@ export default {
   }
 
   &__main {
-    max-width: calc(352px - 48px);
+    max-width: 304px;
   }
 
   &__footer {

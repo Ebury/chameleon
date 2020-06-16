@@ -11,8 +11,8 @@ storiesOf('Panel', module)
       showFromProps: {
         default: boolean('Show Panel', true),
       },
-      isContentOverflowing: {
-        default: boolean('Overflow content', true),
+      isMainContentOverflowing: {
+        default: boolean('Large main content', true),
       },
       isHeaderEnabled: {
         default: boolean('Show Header', true),
@@ -50,15 +50,16 @@ storiesOf('Panel', module)
           <ec-panel v-model="show" @back="clickBackButton()">
             <template v-if="isHeaderEnabled" #header>
               <h3 class="tw-mb-24">Header</h3>
+
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </template>
 
             <template #main>
               <h3>Main</h3>
 
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
 
-              <div v-if="isContentOverflowing">
+              <div v-if="isMainContentOverflowing">
                 <p v-for="i in 10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae</p>
               </div>
 
