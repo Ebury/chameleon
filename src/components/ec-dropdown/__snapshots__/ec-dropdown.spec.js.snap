@@ -397,6 +397,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 1
           </div>
@@ -438,6 +439,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 2
           </div>
@@ -479,6 +481,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 3
           </div>
@@ -521,6 +524,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label ec-dropdown__multiple-item-label--is-disabled"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 4
           </div>
@@ -562,6 +566,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 5
           </div>
@@ -630,9 +635,9 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-                    Item 1
-@@ -103,27 +111,35 @@
+@@ -104,27 +112,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -670,9 +675,9 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-                    Item 2
-@@ -144,27 +160,35 @@
+@@ -146,27 +162,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -710,9 +715,9 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-                    Item 3
-@@ -186,27 +210,35 @@
+@@ -189,27 +213,35 @@
             >
               <input
                 class=\\"ec-checkbox__input\\"
@@ -750,9 +755,9 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label ec-dropdown__multiple-item-label--is-disabled\\"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-                    Item 4
-@@ -227,27 +259,35 @@
+@@ -231,27 +263,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -790,8 +795,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
-                  >
-                    Item 5"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
+                  >"
 `;
 
 exports[`EcDropdown multiple value should render readonly input as a trigger 1`] = `
