@@ -24,13 +24,13 @@ stories.add('basic', () => ({
         },
         {
           id: 3,
-          type: 'success',
+          type: 'warning',
           title: 'This is the title',
           subtitle: 'This is the subtitle',
         },
         {
           id: 4,
-          type: 'error',
+          type: 'info',
           title: 'This is the title',
           subtitle: 'This is the subtitle',
         },
@@ -73,15 +73,16 @@ stories.add('basic', () => ({
   // eslint-disable-next-line no-unused-vars
   render(h) {
     return (
-      <div style={{
-        position: 'fixed',
-        right: 0,
-        top: 0,
-        width: '100%',
-        maxWidth: '400px',
-      }}>
-        <EcToaster messages={this.messages} onRemove={message => this.removeMessage(message)} />
-        <button style="position:fixed;top:50%;left:50%;transform: translate(-50%, -50%);" class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary" onClick={this.addMessage}>Add another message</button>
+      <div class="tw-flex tw-items-center tw-justify-center tw-h-screen">
+        <div class="tw-fixed tw-right-0 tw-top-0 tw-w-full" style={{
+          maxWidth: '400px',
+        }}>
+          <EcToaster messages={this.messages} onRemove={message => this.removeMessage(message)} />
+        </div>
+        <button
+          class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary"
+          onClick={this.addMessage}>Add another message</button>
+
       </div>
     );
   },

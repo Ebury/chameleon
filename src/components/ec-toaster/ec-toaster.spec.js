@@ -25,7 +25,7 @@ describe('EcToaster', () => {
   describe('messages prop', () => {
     it('should not render the toaster if no props are passed', () => {
       const wrapper = mountToaster();
-      expect(wrapper.find('.ec-toaster__item').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-toaster__item').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -59,21 +59,21 @@ describe('EcToaster', () => {
 
     it('should add a class of "ec-toaster__item--swipe-active" when swap starts', () => {
       const wrapper = mountToaster({ messages });
-      wrapper.find('.ec-toaster__item').trigger('touchstart', { changedTouches: [{ pageX: 200 }] });
+      wrapper.findByDataTest('ec-toaster__item').trigger('touchstart', { changedTouches: [{ pageX: 200 }] });
 
-      expect(wrapper.find('.ec-toaster__item').classes('ec-toaster__item--swipe-active')).toBe(true);
+      expect(wrapper.findByDataTest('ec-toaster__item').classes('ec-toaster__item--swipe-active')).toBe(true);
     });
 
     it('should remove the class of "ec-toaster__item--swipe-active" when swap finish', () => {
       const wrapper = mountToaster({ messages });
-      wrapper.find('.ec-toaster__item').trigger('touchend', { changedTouches: [{ pageX: 300 }] });
+      wrapper.findByDataTest('ec-toaster__item').trigger('touchend', { changedTouches: [{ pageX: 300 }] });
 
-      expect(wrapper.find('.ec-toaster__item').classes('ec-toaster__item--swipe-active')).toBe(false);
+      expect(wrapper.findByDataTest('ec-toaster__item').classes('ec-toaster__item--swipe-active')).toBe(false);
     });
 
     it('should stop listening to touch events after being destroyed', () => {
       const wrapper = mountToaster({ messages });
-      const item = wrapper.find('.ec-toaster__item').element;
+      const item = wrapper.findByDataTest('ec-toaster__item').element;
 
       const spy = jest.spyOn(item, 'removeEventListener');
       wrapper.setProps({ messages: [] });
@@ -82,7 +82,7 @@ describe('EcToaster', () => {
 
     it('should follow the pointer touching the item when swiping to the right', () => {
       const wrapper = mountToaster({ messages });
-      const item = wrapper.find('.ec-toaster__item');
+      const item = wrapper.findByDataTest('ec-toaster__item');
 
       item.trigger('touchstart', { changedTouches: [{ pageX: 0 }] });
       item.trigger('touchmove', { changedTouches: [{ pageX: 20 }] });
@@ -97,7 +97,7 @@ describe('EcToaster', () => {
 
     it('should not follow the pointer touching the item when swiping to the left', () => {
       const wrapper = mountToaster({ messages });
-      const item = wrapper.find('.ec-toaster__item');
+      const item = wrapper.findByDataTest('ec-toaster__item');
 
       item.trigger('touchstart', { changedTouches: [{ pageX: 20 }] });
       item.trigger('touchmove', { changedTouches: [{ pageX: 0 }] });
@@ -106,7 +106,7 @@ describe('EcToaster', () => {
 
     it('should restore the original transform style prop when swipe gets cancelled', () => {
       const wrapper = mountToaster({ messages });
-      const item = wrapper.find('.ec-toaster__item');
+      const item = wrapper.findByDataTest('ec-toaster__item');
       item.element.style.transform = 'scale(1.5)';
 
       item.trigger('touchstart', { changedTouches: [{ pageX: 0 }] });
@@ -117,14 +117,14 @@ describe('EcToaster', () => {
     });
 
     function swipe(wrapper, startX, endX) {
-      wrapper.find('.ec-toaster__item').trigger('touchstart', { changedTouches: [{ pageX: startX }] });
-      wrapper.find('.ec-toaster__item').trigger('touchend', { changedTouches: [{ pageX: endX }] });
+      wrapper.findByDataTest('ec-toaster__item').trigger('touchstart', { changedTouches: [{ pageX: startX }] });
+      wrapper.findByDataTest('ec-toaster__item').trigger('touchend', { changedTouches: [{ pageX: endX }] });
     }
   });
 
   it('should emit a "remove" event when dismiss button is clicked', () => {
     const wrapper = mountToaster({ messages });
-    wrapper.find('.ec-alert__dismiss-icon').trigger('click');
+    wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
 
     expect(wrapper.emitted('remove')[0]).toEqual([messages[0]]);
     expect(wrapper.emitted('remove')).toBeTruthy();
@@ -133,7 +133,7 @@ describe('EcToaster', () => {
   it('should not contain initially a class of "ec-toaster__item--swipe-active" ', () => {
     const wrapper = mountToaster({ messages });
 
-    expect(wrapper.find('.ec-toaster__item').classes('ec-toaster__item--swipe-active')).toBe(false);
-    expect(wrapper.find('.ec-toaster__item').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-toaster__item').classes('ec-toaster__item--swipe-active')).toBe(false);
+    expect(wrapper.findByDataTest('ec-toaster__item').element).toMatchSnapshot();
   });
 });
