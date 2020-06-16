@@ -63,7 +63,7 @@ stories.add('basic', () => ({
     onSelected: action('Selected'),
   },
   template: `
-    <div class="ec-p--20">
+    <div class="tw-p-20">
       <p v-if="selected && multiple">Selected items:
         <ul>
           <li v-for="item of selected">{{ item.text }}</li>
@@ -98,10 +98,10 @@ stories.add('all', () => ({
     cta: action('CTA'),
   },
   template: `
-    <div class="ec-grid ec-p--20">
+    <div class="tw-grid tw-p-20">
       <h2>Single</h2>
-      <div class="ec-grid__row">
-        <div class="ec-col-4">
+      <div class="tw-grid">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="false"
@@ -110,7 +110,7 @@ stories.add('all', () => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="true"
@@ -119,7 +119,7 @@ stories.add('all', () => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="false"
@@ -129,7 +129,7 @@ stories.add('all', () => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="false"
@@ -139,7 +139,7 @@ stories.add('all', () => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             disabled
@@ -148,7 +148,7 @@ stories.add('all', () => ({
             v-model="preselected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="itemsIncludingEmpty"
             label="Single value - with empty item"
@@ -156,7 +156,7 @@ stories.add('all', () => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             label="Single value - with CTA"
@@ -167,7 +167,7 @@ stories.add('all', () => ({
             </template>
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             label="Single value - custom template"
@@ -180,7 +180,7 @@ stories.add('all', () => ({
             </template>
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="true"
@@ -194,12 +194,12 @@ stories.add('all', () => ({
           </ec-dropdown>
         </div>
       </div>
-      <div class="ec-grid__row ec-p--12">
+      <div class="tw-grid tw-p-12">
         Selected value: {{ selected }}
       </div>
-      <h2 class="ec-mt--24">Multiple</h2>
-      <div class="ec-grid__row">
-        <div class="ec-col-4">
+      <h2 class="tw-mt-24">Multiple</h2>
+      <div class="tw-grid">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="false"
@@ -209,7 +209,7 @@ stories.add('all', () => ({
             v-model="multiSelected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="true"
@@ -219,7 +219,7 @@ stories.add('all', () => ({
             v-model="multiSelected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="true"
@@ -230,7 +230,7 @@ stories.add('all', () => ({
             v-model="multiSelected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="true"
@@ -241,7 +241,7 @@ stories.add('all', () => ({
             v-model="multiSelected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="true"
@@ -252,7 +252,7 @@ stories.add('all', () => ({
             v-model="multiPreselected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="itemsIncludingEmpty"
             label="Multiple values - with empty item"
@@ -261,7 +261,7 @@ stories.add('all', () => ({
             v-model="multiSelected">
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             label="Multiple values - with CTA"
@@ -273,7 +273,7 @@ stories.add('all', () => ({
             </template>
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             label="Multiple values - custom template"
@@ -287,7 +287,7 @@ stories.add('all', () => ({
             </template>
           </ec-dropdown>
         </div>
-        <div class="ec-col-4">
+        <div class="tw-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="true"
@@ -302,7 +302,7 @@ stories.add('all', () => ({
           </ec-dropdown>
         </div>
       </div>
-      <div class="ec-grid__row ec-p--12">
+      <div class="tw-grid tw-p-12">
         Selected value: {{ multiSelected }}
       </div>
     </div>

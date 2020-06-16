@@ -50,6 +50,7 @@
           <div
             class="ec-dropdown__multiple-item-label"
             :class="{ 'ec-dropdown__multiple-item-label--is-disabled': item.disabled }"
+            data-test="ec-dropdown__multiple-item-label"
           >{{ item.text }}</div>
         </template>
       </ec-checkbox>
@@ -236,23 +237,18 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/tools/typography';
-@import '../../scss/settings/colors/index';
-
-$ec-dropdown-color-disabled: $level-6-disabled-lines !default;
-
+<style>
 .ec-dropdown {
   &__input-wrapper {
-    position: relative;
+    @apply tw-relative;
   }
 
   &__multiple-item-label {
-    @include ellipsis;
-    @include body-text;
+    @apply tw-truncate;
+    @apply tw-body-text;
 
     &--is-disabled {
-      color: $ec-dropdown-color-disabled;
+      @apply tw-text-gray-6;
     }
   }
 }
