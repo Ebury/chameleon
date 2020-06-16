@@ -6,8 +6,8 @@ exports[`EcPanel #slots #footer - should render footer slot section if slot is p
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__content"
-    data-test="ec-panel__content"
+    class="ec-panel__content-container"
+    data-test="ec-panel__content-container"
   >
     <div
       class="ec-panel__header"
@@ -19,11 +19,11 @@ exports[`EcPanel #slots #footer - should render footer slot section if slot is p
       >
         <!---->
          
-        <a
+        <button
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
           data-test="ec-panel__header-action--close"
-          href="#"
+          type="button"
         >
           <svg
             class="ec-panel__header-icon ec-icon"
@@ -34,7 +34,7 @@ exports[`EcPanel #slots #footer - should render footer slot section if slot is p
               xlink:href="#ec-simple-close"
             />
           </svg>
-        </a>
+        </button>
       </div>
        
     </div>
@@ -66,8 +66,8 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__content"
-    data-test="ec-panel__content"
+    class="ec-panel__content-container"
+    data-test="ec-panel__content-container"
   >
     <div
       class="ec-panel__header"
@@ -79,11 +79,11 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
       >
         <!---->
          
-        <a
+        <button
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
           data-test="ec-panel__header-action--close"
-          href="#"
+          type="button"
         >
           <svg
             class="ec-panel__header-icon ec-icon"
@@ -94,7 +94,7 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
               xlink:href="#ec-simple-close"
             />
           </svg>
-        </a>
+        </button>
       </div>
        
       <h2>
@@ -122,8 +122,8 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__content"
-    data-test="ec-panel__content"
+    class="ec-panel__content-container"
+    data-test="ec-panel__content-container"
   >
     <div
       class="ec-panel__header"
@@ -135,11 +135,11 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
       >
         <!---->
          
-        <a
+        <button
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
           data-test="ec-panel__header-action--close"
-          href="#"
+          type="button"
         >
           <svg
             class="ec-panel__header-icon ec-icon"
@@ -150,7 +150,7 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
               xlink:href="#ec-simple-close"
             />
           </svg>
-        </a>
+        </button>
       </div>
        
     </div>
@@ -181,8 +181,8 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__content"
-    data-test="ec-panel__content"
+    class="ec-panel__content-container"
+    data-test="ec-panel__content-container"
   >
     <div
       class="ec-panel__header"
@@ -194,11 +194,11 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
       >
         <!---->
          
-        <a
+        <button
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
           data-test="ec-panel__header-action--close"
-          href="#"
+          type="button"
         >
           <svg
             class="ec-panel__header-icon ec-icon"
@@ -209,7 +209,7 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
               xlink:href="#ec-simple-close"
             />
           </svg>
-        </a>
+        </button>
       </div>
        
     </div>
@@ -234,8 +234,8 @@ exports[`EcPanel @events @back should not render back button when event handler 
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__content"
-    data-test="ec-panel__content"
+    class="ec-panel__content-container"
+    data-test="ec-panel__content-container"
   >
     <div
       class="ec-panel__header"
@@ -247,11 +247,11 @@ exports[`EcPanel @events @back should not render back button when event handler 
       >
         <!---->
          
-        <a
+        <button
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
           data-test="ec-panel__header-action--close"
-          href="#"
+          type="button"
         >
           <svg
             class="ec-panel__header-icon ec-icon"
@@ -262,7 +262,7 @@ exports[`EcPanel @events @back should not render back button when event handler 
               xlink:href="#ec-simple-close"
             />
           </svg>
-        </a>
+        </button>
       </div>
        
     </div>
@@ -287,8 +287,8 @@ exports[`EcPanel @events @back should render back button when event handler attr
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__content"
-    data-test="ec-panel__content"
+    class="ec-panel__content-container"
+    data-test="ec-panel__content-container"
   >
     <div
       class="ec-panel__header"
@@ -298,11 +298,11 @@ exports[`EcPanel @events @back should render back button when event handler attr
         class="ec-panel__header-icons"
         data-test="ec-panel__header-icons"
       >
-        <a
+        <button
           aria-label="Go back"
           class="ec-panel__header-action ec-panel__header-action--back"
           data-test="ec-panel__header-action--back"
-          href="#"
+          type="button"
         >
           <svg
             class="ec-panel__header-icon ec-icon"
@@ -313,13 +313,13 @@ exports[`EcPanel @events @back should render back button when event handler attr
               xlink:href="#ec-simple-chevron-left"
             />
           </svg>
-        </a>
+        </button>
          
-        <a
+        <button
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
           data-test="ec-panel__header-action--close"
-          href="#"
+          type="button"
         >
           <svg
             class="ec-panel__header-icon ec-icon"
@@ -330,7 +330,7 @@ exports[`EcPanel @events @back should render back button when event handler attr
               xlink:href="#ec-simple-close"
             />
           </svg>
-        </a>
+        </button>
       </div>
        
     </div>
@@ -357,8 +357,8 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
   data-test="ec-panel"
 >
   <div
-    class="ec-panel__content"
-    data-test="ec-panel__content"
+    class="ec-panel__content-container"
+    data-test="ec-panel__content-container"
   >
     <div
       class="ec-panel__header"
@@ -370,11 +370,11 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
       >
         <!---->
          
-        <a
+        <button
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
           data-test="ec-panel__header-action--close"
-          href="#"
+          type="button"
         >
           <svg
             class="ec-panel__header-icon ec-icon"
@@ -385,7 +385,7 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
               xlink:href="#ec-simple-close"
             />
           </svg>
-        </a>
+        </button>
       </div>
        
     </div>

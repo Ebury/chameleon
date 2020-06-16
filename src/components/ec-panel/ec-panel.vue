@@ -5,8 +5,8 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-panel` : 'ec-panel'"
   >
     <div
-      class="ec-panel__content"
-      data-test="ec-panel__content"
+      class="ec-panel__content-container"
+      data-test="ec-panel__content-container"
     >
       <div
         class="ec-panel__header"
@@ -16,11 +16,11 @@
           class="ec-panel__header-icons"
           data-test="ec-panel__header-icons"
         >
-          <a
+          <button
             v-if="isBackEnabled"
+            type="button"
             aria-label="Go back"
             class="ec-panel__header-action ec-panel__header-action--back"
-            href="#"
             data-test="ec-panel__header-action--back"
             @click.stop.prevent="goBack"
           >
@@ -29,11 +29,12 @@
               name="simple-chevron-left"
               :size="24"
             />
-          </a>
-          <a
+          </button>
+
+          <button
+            type="button"
             aria-label="Close panel"
             class="ec-panel__header-action ec-panel__header-action--close"
-            href="#"
             data-test="ec-panel__header-action--close"
             @click.stop.prevent="closePanel"
           >
@@ -42,7 +43,7 @@
               name="simple-close"
               :size="24"
             />
-          </a>
+          </button>
         </div>
 
         <slot name="header" />
@@ -108,14 +109,16 @@ export default {
 </script>
 
 <style>
+@import '../../styles/tools/scrollbars.css';
+
 .ec-panel {
-  max-width: 352px;
+  max-width: var(--ec-side-panel-max-width);
 
   @apply tw-w-full;
   @apply tw-absolute tw-right-0 tw-top-0;
 
-  &__content {
-    max-width: 352px;
+  &__content-container {
+    max-width: var(--ec-side-panel-max-width);
 
     @apply tw-w-full tw-h-screen;
     @apply tw-fixed;
@@ -137,7 +140,10 @@ export default {
   &__header-action {
     @apply tw-cursor-pointer;
     @apply tw-text-gray-4;
-    @apply tw-transition-text tw-duration-300 tw-ease-out;
+    @apply tw-bg-transparent;
+    @apply tw-border-none;
+
+    @mixin ec-text-color-transition;
 
     &:hover {
       @apply tw-text-key-4;
@@ -166,26 +172,11 @@ export default {
       @apply tw-mr-8;
     }
 
-    scrollbar-width: thin;
-    scrollbar-color: hsl(var(--ec-gray-color-level-4)) transparent;
-
-    &::-webkit-scrollbar {
-      @apply tw-w-8;
-    }
-
-    &::-webkit-scrollbar-track {
-      @apply tw-bg-transparent;
-      @apply tw-rounded;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      @apply tw-rounded;
-      @apply tw-bg-gray-4;
-    }
+    @mixin md-scrollbar;
   }
 
   &__main {
-    max-width: 304px;
+    max-width: var(--ec-side-panel-content-max-width);
   }
 
   &__footer {

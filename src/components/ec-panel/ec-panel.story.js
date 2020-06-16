@@ -81,4 +81,9 @@ storiesOf('Panel', module)
         </div>
       </div>
     `,
-  }));
+  }),
+  {
+    visualRegressionTests: {
+      snapshotElement: '.ec-panel',
+    },
+  });
