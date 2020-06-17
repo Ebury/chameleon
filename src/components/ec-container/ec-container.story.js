@@ -7,7 +7,7 @@ import EcMenu from '../ec-menu';
 import EcUserInfo from '../ec-user-info';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcIcon from '../ec-icon';
-import './ec-container.story.scss';
+import './ec-container.story.css';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import gravatar from '!!url-loader!../../../public/empty-gravatar.png';
 
@@ -25,10 +25,10 @@ stories
     template: `
     <ec-container :is-collapsable="false">
       <template #navigation>
-        <div style="background-color: rgb(0, 80, 102); color: #fff; min-height: 100vh;">Navigation panel</div>
+        <div class="tw-bg-key-2 tw-text-light tw-min-h-screen">Navigation panel</div>
       </template>
       <template #content>
-      <div style="background-color: rgb(194, 242, 255); color: #333; min-height: 100vh;">Main content panel</div>
+      <div class="tw-bg-key-6 tw-text-gray-2 tw-min-h-screen">Main content panel</div>
       </template>
     </ec-container>`,
   }));
@@ -167,7 +167,7 @@ stories
       </template>
       <template #content>
         <ec-main-container>
-          <p style="margin-bottom: 16px;">Lorem ipsum dolor sit amet, consectetur <a href="//google.co.uk">adipiscing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Proin nibh nisl condimentum id venenatis a. Pellentesque habitant morbi tristique senectus et netus et. Sapien eget mi proin sed. Dui faucibus in ornare quam. Ut ornare lectus sit amet est. Sed enim ut sem viverra aliquet eget sit. Dui sapien eget mi proin. Nunc aliquet bibendum enim facilisis gravida.</p>
+          <p class="tw-mb-16">Lorem ipsum dolor sit amet, consectetur <a href="//google.co.uk">adipiscing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse interdum consectetur libero id faucibus nisl tincidunt. Proin nibh nisl condimentum id venenatis a. Pellentesque habitant morbi tristique senectus et netus et. Sapien eget mi proin sed. Dui faucibus in ornare quam. Ut ornare lectus sit amet est. Sed enim ut sem viverra aliquet eget sit. Dui sapien eget mi proin. Nunc aliquet bibendum enim facilisis gravida.</p>
           <p>Sem integer vitae justo eget magna. Neque convallis a cras semper auctor. Velit euismod in pellentesque massa placerat duis ultricies. Tincidunt dui ut ornare lectus sit amet est. Nunc sed id semper risus in. Senectus et netus et malesuada fames ac turpis egestas maecenas. Turpis nunc eget lorem dolor sed viverra. Leo integer malesuada nunc vel risus commodo. Tellus at urna condimentum mattis pellentesque id nibh tortor id. Ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Tempus egestas sed sed risus pretium quam vulputate dignissim.</p>
         </ec-main-container>
       </template>

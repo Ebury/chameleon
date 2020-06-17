@@ -1,12 +1,19 @@
 <template>
-  <div class="ec-container">
+  <div
+    class="ec-container"
+    data-test="ec-container"
+  >
     <div
       class="ec-container__navigation"
       :class="{ 'ec-container__navigation--is-collapsable': isCollapsable }"
+      data-class="ec-container__navigation"
     >
       <slot name="navigation" />
     </div>
-    <div class="ec-container__content">
+    <div
+      class="ec-container__content"
+      data-test="ec-container__content"
+    >
       <slot name="content" />
     </div>
   </div>
@@ -24,12 +31,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .ec-container {
-  display: flex;
-  flex-direction: row;
-  min-height: 100vh;
-  align-items: stretch;
+  @apply tw-flex tw-flex-row tw-items-stretch;
+  @apply tw-min-h-screen;
 
   &__navigation {
     flex-basis: 280px;
@@ -40,8 +45,8 @@ export default {
   }
 
   &__content {
-    flex: 1;
-    min-width: 0;
+    @apply tw-flex-1;
+    @apply tw-min-w-0;
   }
 }
 </style>
