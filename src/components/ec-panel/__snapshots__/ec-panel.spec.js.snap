@@ -40,13 +40,9 @@ exports[`EcPanel #slots #footer - should render footer slot section if slot is p
     </div>
      
     <div
-      class="ec-panel__main-container"
-    >
-      <div
-        class="ec-panel__main"
-        data-test="ec-panel__main"
-      />
-    </div>
+      class="ec-panel__main"
+      data-test="ec-panel__main"
+    />
      
     <div
       class="ec-panel__footer"
@@ -103,13 +99,9 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
     </div>
      
     <div
-      class="ec-panel__main-container"
-    >
-      <div
-        class="ec-panel__main"
-        data-test="ec-panel__main"
-      />
-    </div>
+      class="ec-panel__main"
+      data-test="ec-panel__main"
+    />
      
     <!---->
   </div>
@@ -156,16 +148,12 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
     </div>
      
     <div
-      class="ec-panel__main-container"
+      class="ec-panel__main"
+      data-test="ec-panel__main"
     >
-      <div
-        class="ec-panel__main"
-        data-test="ec-panel__main"
-      >
-        <p>
-          Main content section
-        </p>
-      </div>
+      <p>
+        Main content section
+      </p>
     </div>
      
     <!---->
@@ -215,13 +203,9 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
     </div>
      
     <div
-      class="ec-panel__main-container"
-    >
-      <div
-        class="ec-panel__main"
-        data-test="ec-panel__main"
-      />
-    </div>
+      class="ec-panel__main"
+      data-test="ec-panel__main"
+    />
      
     <!---->
   </div>
@@ -268,13 +252,9 @@ exports[`EcPanel @events @back should not render back button when event handler 
     </div>
      
     <div
-      class="ec-panel__main-container"
-    >
-      <div
-        class="ec-panel__main"
-        data-test="ec-panel__main"
-      />
-    </div>
+      class="ec-panel__main"
+      data-test="ec-panel__main"
+    />
      
     <!---->
   </div>
@@ -336,13 +316,9 @@ exports[`EcPanel @events @back should render back button when event handler attr
     </div>
      
     <div
-      class="ec-panel__main-container"
-    >
-      <div
-        class="ec-panel__main"
-        data-test="ec-panel__main"
-      />
-    </div>
+      class="ec-panel__main"
+      data-test="ec-panel__main"
+    />
      
     <!---->
   </div>
@@ -391,13 +367,9 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
     </div>
      
     <div
-      class="ec-panel__main-container"
-    >
-      <div
-        class="ec-panel__main"
-        data-test="ec-panel__main"
-      />
-    </div>
+      class="ec-panel__main"
+      data-test="ec-panel__main"
+    />
      
     <!---->
   </div>

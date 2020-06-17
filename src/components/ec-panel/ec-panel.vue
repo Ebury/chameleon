@@ -49,13 +49,11 @@
         <slot name="header" />
       </div>
 
-      <div class="ec-panel__main-container">
-        <div
-          class="ec-panel__main"
-          data-test="ec-panel__main"
-        >
-          <slot name="main" />
-        </div>
+      <div
+        class="ec-panel__main"
+        data-test="ec-panel__main"
+      >
+        <slot name="main" />
       </div>
 
       <div
@@ -164,20 +162,13 @@ export default {
     @apply tw-mt-16 tw-mx-24;
   }
 
-  &__main-container {
+  &__main {
     @apply tw-overflow-y-auto;
-    @apply tw-m-24;
-    @apply tw-pr-8;
-
-    @screen sm {
-      @apply tw-mr-8;
-    }
+    @apply tw-my-24;
+    @apply tw-ml-24;
+    @apply tw-pr-16;
 
     @mixin md-scrollbar;
-  }
-
-  &__main {
-    max-width: var(--ec-side-panel-content-max-width);
   }
 
   &__footer {
