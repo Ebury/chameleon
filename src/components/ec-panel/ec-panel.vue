@@ -5,63 +5,67 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-panel` : 'ec-panel'"
   >
     <div
-      class="ec-panel__content-container"
-      data-test="ec-panel__content-container"
+      class="ec-panel__fixed-container"
+      data-test="ec-panel__fixed-container"
     >
       <div
-        class="ec-panel__header"
-        data-test="ec-panel__header"
+        class="ec-panel__header-icons"
+        data-test="ec-panel__header-icons"
       >
-        <div
-          class="ec-panel__header-icons"
-          data-test="ec-panel__header-icons"
+        <button
+          v-if="isBackEnabled"
+          type="button"
+          aria-label="Go back"
+          class="ec-panel__header-action ec-panel__header-action--back"
+          data-test="ec-panel__header-action--back"
+          @click.stop.prevent="goBack"
         >
-          <button
-            v-if="isBackEnabled"
-            type="button"
-            aria-label="Go back"
-            class="ec-panel__header-action ec-panel__header-action--back"
-            data-test="ec-panel__header-action--back"
-            @click.stop.prevent="goBack"
-          >
-            <ec-icon
-              class="ec-panel__header-icon"
-              name="simple-chevron-left"
-              :size="24"
-            />
-          </button>
+          <ec-icon
+            class="ec-panel__header-icon"
+            name="simple-arrow-left"
+            :size="24"
+          />
+        </button>
 
-          <button
-            type="button"
-            aria-label="Close panel"
-            class="ec-panel__header-action ec-panel__header-action--close"
-            data-test="ec-panel__header-action--close"
-            @click.stop.prevent="closePanel"
-          >
-            <ec-icon
-              class="ec-panel__header-icon"
-              name="simple-close"
-              :size="24"
-            />
-          </button>
+        <button
+          type="button"
+          aria-label="Close panel"
+          class="ec-panel__header-action ec-panel__header-action--close"
+          data-test="ec-panel__header-action--close"
+          @click.stop.prevent="closePanel"
+        >
+          <ec-icon
+            class="ec-panel__header-icon"
+            name="simple-close"
+            :size="24"
+          />
+        </button>
+      </div>
+
+      <div class="ec-panel__content-container">
+        <div
+          v-if="hasHeader()"
+          class="ec-panel__header"
+          data-test="ec-panel__header"
+        >
+
+          <slot name="header" />
         </div>
 
-        <slot name="header" />
-      </div>
+        <div
+          class="ec-panel__main"
+          data-test="ec-panel__main"
+        >
+          <slot name="main" />
+        </div>
 
-      <div
-        class="ec-panel__main"
-        data-test="ec-panel__main"
-      >
-        <slot name="main" />
-      </div>
-
-      <div
-        v-if="hasFooter()"
-        class="ec-panel__footer"
-        data-test="ec-panel__footer"
-      >
-        <slot name="footer" />
+        <div
+          v-if="hasFooter()"
+          class="ec-panel__footer"
+          data-test="ec-panel__footer"
+        >
+          <slot name="footer" />
+        </div>
       </div>
     </div>
   </aside>
@@ -91,6 +95,9 @@ export default {
     },
   },
   methods: {
+    hasHeader() {
+      return !!this.$scopedSlots.header;
+    },
     hasFooter() {
       return !!this.$scopedSlots.footer;
     },
@@ -116,7 +123,7 @@ export default {
   @apply tw-w-full;
   @apply tw-absolute tw-right-0 tw-top-0;
 
-  &__content-container {
+  &__fixed-container {
     max-width: var(--ec-side-panel-max-width);
 
     @apply tw-w-full tw-h-screen;
@@ -128,6 +135,7 @@ export default {
 
   &__header-icons {
     @apply tw-flex tw-flex-row;
+    @apply tw-mt-24 tw-mb-16 tw-mx-24;
   }
 
   &__header-icon {
@@ -141,6 +149,7 @@ export default {
     @apply tw-text-gray-4;
     @apply tw-bg-transparent;
     @apply tw-border-none;
+    @apply tw-p-0;
 
     @mixin ec-text-color-transition;
 
@@ -157,18 +166,33 @@ export default {
     }
   }
 
+  &__content-container {
+    @apply tw-flex tw-flex-col;
+    @apply tw-h-full;
+    @apply tw-overflow-scroll;
+
+    @mixin md-scrollbar;
+
+    @screen md {
+      @apply tw-overflow-y-hidden;
+    }
+  }
+
   &__header {
     @apply tw-block;
-    @apply tw-mt-16 tw-mx-24;
+    @apply tw-mx-24;
   }
 
   &__main {
-    @apply tw-overflow-y-auto;
-    @apply tw-my-24;
+    @apply tw-mb-24;
     @apply tw-ml-24;
     @apply tw-pr-16;
 
-    @mixin md-scrollbar;
+    @screen md {
+      @apply tw-overflow-scroll;
+
+      @mixin md-scrollbar;
+    }
   }
 
   &__footer {
