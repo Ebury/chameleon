@@ -26,11 +26,13 @@
         <ul
           ref="itemsOverflowContainer"
           class="ec-dropdown-search__item-list"
+          data-test="ec-dropdown-search__item-list"
         >
           <li
             ref="searchArea"
             v-if="isSearchEnabled"
             class="ec-dropdown-search__search-area"
+            data-test="ec-dropdown-search__search-area"
           >
             <ec-icon
               class="ec-dropdown-search__search-icon"

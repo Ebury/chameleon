@@ -98,7 +98,7 @@ stories.add('all', () => ({
     cta: action('CTA'),
   },
   template: `
-    <div class="tw-grid tw-p-20">
+    <div class="tw-p-20">
       <h2>Single</h2>
       <div class="tw-grid">
         <div class="tw-col-4">
@@ -163,7 +163,7 @@ stories.add('all', () => ({
             placeholder="Single value - with CTA"
             v-model="selected">
             <template #cta>
-              <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>
+              <a href="#" @click.prevent="cta()" class="tw-block tw-py-8 tw-px-16">Do something</a>
             </template>
           </ec-dropdown>
         </div>
@@ -193,9 +193,9 @@ stories.add('all', () => ({
             </template>
           </ec-dropdown>
         </div>
-      </div>
-      <div class="tw-grid tw-p-12">
-        Selected value: {{ selected }}
+        <div class="tw-col-12 tw-p-12">
+          Selected value: {{ selected }}
+        </div>
       </div>
       <h2 class="tw-mt-24">Multiple</h2>
       <div class="tw-grid">
