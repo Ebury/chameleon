@@ -135,7 +135,7 @@ export default {
 
   &__header-icons {
     @apply tw-flex tw-flex-row;
-    @apply tw-mt-24 tw-mb-16 tw-mx-24;
+    @apply tw-mt-24 tw-mb-8 tw-mx-24;
   }
 
   &__header-icon {
@@ -169,7 +169,7 @@ export default {
   &__content-container {
     @apply tw-flex tw-flex-col;
     @apply tw-h-full;
-    @apply tw-overflow-scroll;
+    @apply tw-overflow-y-scroll;
 
     @mixin md-scrollbar;
 
@@ -189,7 +189,7 @@ export default {
     @apply tw-pr-16;
 
     @screen md {
-      @apply tw-overflow-scroll;
+      @apply tw-overflow-y-scroll;
 
       @mixin md-scrollbar;
     }
