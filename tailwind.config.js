@@ -558,6 +558,7 @@ module.exports = {
       opacity: 'opacity',
       shadow: 'box-shadow',
       transform: 'transform',
+      'transform-opacity': 'transform, opacity',
     },
     transitionTimingFunction: {
       linear: 'linear',
@@ -570,6 +571,7 @@ module.exports = {
       // 'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
     },
     transitionDuration: {
+      0: '0ms',
       75: '75ms',
       100: '100ms',
       150: '150ms',

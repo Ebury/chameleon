@@ -33,9 +33,11 @@ exports[`EcDropdownSearch filtering should display no results message if no item
 exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
+  data-test="ec-dropdown-search__item-list"
 >
   <li
     class="ec-dropdown-search__search-area"
+    data-test="ec-dropdown-search__search-area"
   >
     <svg
       class="ec-dropdown-search__search-icon ec-icon"
@@ -112,9 +114,11 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
   <div>
     <ul
       class="ec-dropdown-search__item-list"
+      data-test="ec-dropdown-search__item-list"
     >
       <li
         class="ec-dropdown-search__search-area"
+        data-test="ec-dropdown-search__search-area"
       >
         <svg
           class="ec-dropdown-search__search-icon ec-icon"
@@ -173,7 +177,7 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -39,12 +39,12 @@
+@@ -41,12 +41,12 @@
           <!---->
            
           <li
@@ -215,9 +219,11 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <li
           class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
         >
           <svg
             class="ec-dropdown-search__search-icon ec-icon"
@@ -294,9 +300,11 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <li
           class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
         >
           <svg
             class="ec-dropdown-search__search-icon ec-icon"
@@ -372,9 +380,11 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
 exports[`EcDropdownSearch should render all given items 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
+  data-test="ec-dropdown-search__item-list"
 >
   <li
     class="ec-dropdown-search__search-area"
+    data-test="ec-dropdown-search__search-area"
   >
     <svg
       class="ec-dropdown-search__search-icon ec-icon"
@@ -453,9 +463,11 @@ exports[`EcDropdownSearch should render as expected 1`] = `
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <li
           class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
         >
           <svg
             class="ec-dropdown-search__search-icon ec-icon"
@@ -507,9 +519,11 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <li
           class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
         >
           <svg
             class="ec-dropdown-search__search-icon ec-icon"
@@ -603,9 +617,11 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <li
           class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
         >
           <svg
             class="ec-dropdown-search__search-icon ec-icon"
@@ -657,9 +673,11 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <li
           class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
         >
           <svg
             class="ec-dropdown-search__search-icon ec-icon"
@@ -766,9 +784,11 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <li
           class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
         >
           <svg
             class="ec-dropdown-search__search-icon ec-icon"
@@ -826,6 +846,7 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
 exports[`EcDropdownSearch should render the search by default 1`] = `
 <li
   class="ec-dropdown-search__search-area"
+  data-test="ec-dropdown-search__search-area"
 >
   <svg
     class="ec-dropdown-search__search-icon ec-icon"
@@ -867,6 +888,7 @@ exports[`EcDropdownSearch should use and update the v-model 2`] = `
 exports[`EcDropdownSearch should use the placeholder for search input if given 1`] = `
 <li
   class="ec-dropdown-search__search-area"
+  data-test="ec-dropdown-search__search-area"
 >
   <svg
     class="ec-dropdown-search__search-icon ec-icon"

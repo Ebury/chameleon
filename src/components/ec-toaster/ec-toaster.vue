@@ -4,6 +4,7 @@
       name="ec-toaster-items-transition"
       tag="ul"
       class="ec-toaster__list"
+      data-test="ec-toaster__list"
       @after-enter="rememberTopItemPositions"
       @before-leave="rememberTopItemPositions"
     >
@@ -13,6 +14,7 @@
         ref="items"
         v-ec-toaster-touch="{ minDistance: 50 }"
         class="ec-toaster__item"
+        data-test="ec-toaster__item"
         @ec-toaster-touch-remove="$emit('remove', message)"
       >
         <ec-alert
@@ -53,63 +55,56 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/z-index';
-@import '../../scss/tools/index';
+<style>
 
 .ec-toaster {
-  position: fixed;
-  z-index: $z-index-notification;
-  top: 0;
-  right: 0;
-  left: auto;
-  pointer-events: none;
+  @apply tw-fixed;
+  @apply tw-z-notification;
+  @apply tw-top-0 tw-right-0 tw-left-auto;
+  @apply tw-pointer-events-none;
+  @apply tw-w-full;
+
   max-width: 400px;
-  width: 100%;
 
   &__list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    position: relative;
-    overflow: visible;
-    padding: 24px;
-    margin: 0;
-    pointer-events: none;
+    @apply tw-w-full;
+    @apply tw-flex tw-flex-col tw-items-end;
+    @apply tw-relative;
+    @apply tw-overflow-visible;
+    @apply tw-p-24;
+    @apply tw-m-0;
+    @apply tw-pointer-events-none;
   }
 
   &__item {
-    display: inline-block;
-    max-width: 100%;
-    flex-grow: 0;
-    flex-shrink: 0;
-    transition-property: opacity, transform;
-    transition-duration: 1s;
-    margin-bottom: 8px;
-    pointer-events: auto;
+    @apply tw-inline-block;
+    @apply tw-max-w-full;
+    @apply tw-flex-grow-0 tw-flex-shrink-0;
+    @apply tw-transition-transform-opacity tw-duration-1000;
+    @apply tw-mb-8;
+    @apply tw-pointer-events-auto;
 
     &--swipe-active {
-      transition-duration: 0s;
+      @apply tw-duration-0;
     }
 
     &--removed-by-swipe {
-      transition-duration: 0.3s;
+      @apply tw-duration-300;
     }
   }
 
   &__item-content {
-    @include box-shadow-level-2;
+    @apply tw-shadow-level-2;
   }
 }
 
 .ec-toaster-items-transition-enter,
 .ec-toaster-items-transition-leave-to {
-  opacity: 0;
-  transform: translateX(100%);
+  @apply tw-opacity-0;
+  @apply tw-translate-x-full;
 }
 
 .ec-toaster-items-transition-leave-active {
-  position: absolute;
+  @apply tw-absolute;
 }
 </style>

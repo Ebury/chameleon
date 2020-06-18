@@ -14,6 +14,7 @@ exports[`EcDropdown multiple value #slots should forward CTA slot 1`] = `
 exports[`EcDropdown multiple value #slots should forward item slot 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
+  data-test="ec-dropdown-search__item-list"
 >
   <!---->
    
@@ -70,6 +71,7 @@ exports[`EcDropdown multiple value #slots should forward item slot 1`] = `
 exports[`EcDropdown multiple value :props should enable search when isSearchEnabled is set to true 1`] = `
 <li
   class="ec-dropdown-search__search-area"
+  data-test="ec-dropdown-search__search-area"
 >
   <svg
     class="ec-dropdown-search__search-icon ec-icon"
@@ -140,6 +142,7 @@ exports[`EcDropdown multiple value :props should get disabled when disabled prop
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <!---->
          
@@ -201,6 +204,7 @@ exports[`EcDropdown multiple value :props should not show the items when the loa
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <!---->
          
@@ -278,6 +282,7 @@ exports[`EcDropdown multiple value :props should use placeholder prop 1`] = `
 exports[`EcDropdown multiple value :props should use searchPlaceholder prop if search is enabled 1`] = `
 <li
   class="ec-dropdown-search__search-area"
+  data-test="ec-dropdown-search__search-area"
 >
   <svg
     class="ec-dropdown-search__search-icon ec-icon"
@@ -346,6 +351,7 @@ exports[`EcDropdown multiple value should render as expected 1`] = `
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <!---->
          
@@ -360,6 +366,7 @@ exports[`EcDropdown multiple value should render as expected 1`] = `
 exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
+  data-test="ec-dropdown-search__item-list"
 >
   <!---->
    
@@ -397,6 +404,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 1
           </div>
@@ -438,6 +446,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 2
           </div>
@@ -479,6 +488,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 3
           </div>
@@ -521,6 +531,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label ec-dropdown__multiple-item-label--is-disabled"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 4
           </div>
@@ -562,6 +573,7 @@ exports[`EcDropdown multiple value should render checkbox for each item 1`] = `
         >
           <div
             class="ec-dropdown__multiple-item-label"
+            data-test="ec-dropdown__multiple-item-label"
           >
             Item 5
           </div>
@@ -592,7 +604,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
           type=\\"text\\"
         />
          
-@@ -62,27 +62,35 @@
+@@ -63,27 +63,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -630,9 +642,9 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-                    Item 1
-@@ -103,27 +111,35 @@
+@@ -105,27 +113,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -670,9 +682,9 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-                    Item 2
-@@ -144,27 +160,35 @@
+@@ -147,27 +163,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -710,9 +722,9 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-                    Item 3
-@@ -186,27 +210,35 @@
+@@ -190,27 +214,35 @@
             >
               <input
                 class=\\"ec-checkbox__input\\"
@@ -750,9 +762,9 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label ec-dropdown__multiple-item-label--is-disabled\\"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-                    Item 4
-@@ -227,27 +259,35 @@
+@@ -232,27 +264,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -790,8 +802,8 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                 >
                   <div
                     class=\\"ec-dropdown__multiple-item-label\\"
-                  >
-                    Item 5"
+                    data-test=\\"ec-dropdown__multiple-item-label\\"
+                  >"
 `;
 
 exports[`EcDropdown multiple value should render readonly input as a trigger 1`] = `
@@ -819,6 +831,7 @@ exports[`EcDropdown single value #slots should forward CTA slot 1`] = `
 exports[`EcDropdown single value #slots should forward item slot 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
+  data-test="ec-dropdown-search__item-list"
 >
   <!---->
    
@@ -875,6 +888,7 @@ exports[`EcDropdown single value #slots should forward item slot 1`] = `
 exports[`EcDropdown single value :props should enable search when isSearchEnabled is set to true 1`] = `
 <li
   class="ec-dropdown-search__search-area"
+  data-test="ec-dropdown-search__search-area"
 >
   <svg
     class="ec-dropdown-search__search-icon ec-icon"
@@ -945,6 +959,7 @@ exports[`EcDropdown single value :props should get disabled when disabled prop i
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <!---->
          
@@ -1006,6 +1021,7 @@ exports[`EcDropdown single value :props should not show the items when the loadi
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <!---->
          
@@ -1083,6 +1099,7 @@ exports[`EcDropdown single value :props should use placeholder prop 1`] = `
 exports[`EcDropdown single value :props should use searchPlaceholder prop if search is enabled 1`] = `
 <li
   class="ec-dropdown-search__search-area"
+  data-test="ec-dropdown-search__search-area"
 >
   <svg
     class="ec-dropdown-search__search-icon ec-icon"
@@ -1151,6 +1168,7 @@ exports[`EcDropdown single value should render as expected 1`] = `
     <div>
       <ul
         class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
       >
         <!---->
          

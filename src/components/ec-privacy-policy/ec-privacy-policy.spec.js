@@ -40,7 +40,7 @@ describe('EcPrivacyPolicy', () => {
 
   it('should emitted the event when the click on the button is fired', () => {
     const wrapper = mountPrivacyPolicy();
-    wrapper.find('.ec-privacy-policy__btn').trigger('click');
+    wrapper.findByDataTest('ec-privacy-policy__btn').trigger('click');
     expect(wrapper.emitted('accept')).toBeTruthy();
   });
 });
