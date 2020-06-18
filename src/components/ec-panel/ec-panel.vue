@@ -2,28 +2,35 @@
   <aside
     v-if="show"
     class="ec-panel"
-    data-test="ec-panel"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-panel` : 'ec-panel'"
   >
-    <div class="ec-panel__header">
-      <div class="ec-panel__header-icons">
-        <a
+    <div
+      class="ec-panel__fixed-container"
+      data-test="ec-panel__fixed-container"
+    >
+      <div
+        class="ec-panel__header-icons"
+        data-test="ec-panel__header-icons"
+      >
+        <button
           v-if="isBackEnabled"
+          type="button"
           aria-label="Go back"
           class="ec-panel__header-action ec-panel__header-action--back"
-          href="#"
           data-test="ec-panel__header-action--back"
           @click.stop.prevent="goBack"
         >
           <ec-icon
             class="ec-panel__header-icon"
-            name="simple-chevron-left"
+            name="simple-arrow-left"
             :size="24"
           />
-        </a>
-        <a
+        </button>
+
+        <button
+          type="button"
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
-          href="#"
           data-test="ec-panel__header-action--close"
           @click.stop.prevent="closePanel"
         >
@@ -32,13 +39,35 @@
             name="simple-close"
             :size="24"
           />
-        </a>
+        </button>
       </div>
 
-      <slot name="header" />
-    </div>
+      <div class="ec-panel__content-container">
+        <div
+          v-if="hasHeader()"
+          class="ec-panel__header"
+          data-test="ec-panel__header"
+        >
 
-    <slot name="main" />
+          <slot name="header" />
+        </div>
+
+        <div
+          class="ec-panel__main"
+          data-test="ec-panel__main"
+        >
+          <slot name="main" />
+        </div>
+
+        <div
+          v-if="hasFooter()"
+          class="ec-panel__footer"
+          data-test="ec-panel__footer"
+        >
+          <slot name="footer" />
+        </div>
+      </div>
+    </div>
   </aside>
 </template>
 
@@ -66,6 +95,12 @@ export default {
     },
   },
   methods: {
+    hasHeader() {
+      return !!this.$scopedSlots.header;
+    },
+    hasFooter() {
+      return !!this.$scopedSlots.footer;
+    },
     goBack() {
       this.$emit('show-panel', false);
       this.$emit('back');
@@ -78,65 +113,94 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/index';
-@import '../../scss/tools/index';
-
-$ec-panel-header-btn-fill: $level-4-interactive-elements !default;
-$ec-panel-header-btn-fill-hover: $level-4-tech-blue !default;
-$ec-panel-background-color: $white !default;
+<style>
+@import '../../styles/tools/scrollbars.css';
+@import '../../styles/tools/transitions.css';
 
 .ec-panel {
-  width: 100%;
-  max-width: $side-panel-max-width;
-  height: 100vh;
-  min-height: 100%;
-  position: absolute;
-  background: $ec-panel-background-color;
-  right: 0;
-  top: 0;
-  padding: 16px 24px 24px 24px;
-  overflow-y: auto;
+  max-width: var(--ec-side-panel-max-width);
 
-  @include scrollbar;
-  @include left-box-shadow-level-1;
+  @apply tw-w-full;
+  @apply tw-absolute tw-right-0 tw-top-0;
 
-  &__header {
-    display: block;
+  &__fixed-container {
+    max-width: var(--ec-side-panel-max-width);
+
+    @apply tw-w-full tw-h-screen;
+    @apply tw-fixed;
+    @apply tw-flex tw-flex-col;
+    @apply tw-bg-light;
+    @apply tw-shadow-level-1-rtl;
   }
 
   &__header-icons {
-    display: flex;
-    flex-direction: row;
+    @apply tw-flex tw-flex-row;
+    @apply tw-mt-24 tw-mb-8 tw-mx-24;
   }
 
   &__header-icon {
-    fill: currentColor;
-    display: inline-block;
-    vertical-align: top;
+    @apply tw-fill-current;
+    @apply inline-block;
+    @apply tw-align-top;
   }
 
   &__header-action {
-    cursor: pointer;
-    color: $ec-panel-header-btn-fill;
+    @apply tw-cursor-pointer;
+    @apply tw-text-gray-4;
+    @apply tw-bg-transparent;
+    @apply tw-border-none;
+    @apply tw-p-0;
 
-    @include color-transition;
+    @mixin ec-text-color-transition;
 
     &:hover {
-      color: $ec-panel-header-btn-fill-hover;
+      @apply tw-text-key-4;
     }
 
     &--back {
-      margin-right: auto;
+      @apply tw-mr-auto;
     }
 
     &--close {
-      margin-left: auto;
+      @apply tw-ml-auto;
     }
+  }
+
+  &__content-container {
+    @apply tw-flex tw-flex-col;
+    @apply tw-h-full;
+    @apply tw-overflow-y-scroll;
+
+    @mixin md-scrollbar;
+
+    @screen md {
+      @apply tw-overflow-y-hidden;
+    }
+  }
+
+  &__header {
+    @apply tw-block;
+    @apply tw-mx-24;
+  }
+
+  &__main {
+    @apply tw-mb-24;
+    @apply tw-ml-24;
+    @apply tw-pr-16;
+
+    @screen md {
+      @apply tw-overflow-y-scroll;
+
+      @mixin md-scrollbar;
+    }
+  }
+
+  &__footer {
+    @apply tw-mt-auto tw-mb-24 tw-mx-24;
   }
 }
 
 .ec-panel-container {
-  position: relative;
+  @apply tw-relative;
 }
 </style>

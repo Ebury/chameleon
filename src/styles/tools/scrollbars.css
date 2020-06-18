@@ -14,6 +14,25 @@
   }
 }
 
+@define-mixin md-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--ec-gray-color-level-4)) transparent;
+
+  &::-webkit-scrollbar {
+    @apply tw-w-8;
+  }
+
+  &::-webkit-scrollbar-track {
+    @apply tw-bg-transparent;
+    @apply tw-rounded;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply tw-rounded;
+    @apply tw-bg-gray-4;
+  }
+}
+
 @define-mixin small-scrollbar {
   &::-webkit-scrollbar-track {
     @apply tw-bg-transparent;
