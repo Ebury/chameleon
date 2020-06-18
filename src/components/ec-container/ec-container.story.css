@@ -1,0 +1,9 @@
+.dropdown-search-link {
+  @apply tw-text-light;
+  @apply tw-inline-flex;
+}
+
+.dropdown-search-link:focus {
+  @apply tw-outline-none;
+  @apply tw-text-key-4;
+}

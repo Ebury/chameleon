@@ -123,6 +123,7 @@ exports[`EcDropdown multiple value :props should get disabled when disabled prop
        
       <div
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
+        data-test="ec-input-field__icon-wrapper"
       >
         <svg
           class="ec-input-field__icon ec-icon"
@@ -185,6 +186,7 @@ exports[`EcDropdown multiple value :props should not show the items when the loa
        
       <div
         class="ec-input-field__icon-wrapper"
+        data-test="ec-input-field__icon-wrapper"
       >
         <svg
           class="ec-input-field__icon ec-icon"
@@ -332,6 +334,7 @@ exports[`EcDropdown multiple value should render as expected 1`] = `
        
       <div
         class="ec-input-field__icon-wrapper"
+        data-test="ec-input-field__icon-wrapper"
       >
         <svg
           class="ec-input-field__icon ec-icon"
@@ -604,7 +607,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
           type=\\"text\\"
         />
          
-@@ -63,27 +63,35 @@
+@@ -64,27 +64,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -644,7 +647,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label\\"
                     data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-@@ -105,27 +113,35 @@
+@@ -106,27 +114,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -684,7 +687,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label\\"
                     data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-@@ -147,27 +163,35 @@
+@@ -148,27 +164,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -724,7 +727,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label\\"
                     data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-@@ -190,27 +214,35 @@
+@@ -191,27 +215,35 @@
             >
               <input
                 class=\\"ec-checkbox__input\\"
@@ -764,7 +767,7 @@ exports[`EcDropdown multiple value should render preselected checkbox for each s
                     class=\\"ec-dropdown__multiple-item-label ec-dropdown__multiple-item-label--is-disabled\\"
                     data-test=\\"ec-dropdown__multiple-item-label\\"
                   >
-@@ -232,27 +264,35 @@
+@@ -233,27 +265,35 @@
               data-test=\\"ec-checkbox\\"
             >
               <input
@@ -940,6 +943,7 @@ exports[`EcDropdown single value :props should get disabled when disabled prop i
        
       <div
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
+        data-test="ec-input-field__icon-wrapper"
       >
         <svg
           class="ec-input-field__icon ec-icon"
@@ -1002,6 +1006,7 @@ exports[`EcDropdown single value :props should not show the items when the loadi
        
       <div
         class="ec-input-field__icon-wrapper"
+        data-test="ec-input-field__icon-wrapper"
       >
         <svg
           class="ec-input-field__icon ec-icon"
@@ -1149,6 +1154,7 @@ exports[`EcDropdown single value should render as expected 1`] = `
        
       <div
         class="ec-input-field__icon-wrapper"
+        data-test="ec-input-field__icon-wrapper"
       >
         <svg
           class="ec-input-field__icon ec-icon"

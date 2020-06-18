@@ -133,18 +133,18 @@ describe('EcInputField', () => {
 
   it('should render given icon', () => {
     const wrapper = mountInputField({ icon: 'simple-check' });
-    expect(wrapper.find('.ec-input-field__icon-wrapper').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render given icon with given size', () => {
     const wrapper = mountInputField({ icon: 'simple-check', iconSize: 40 });
-    expect(wrapper.find('.ec-input-field__icon-wrapper').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').element).toMatchSnapshot();
   });
 
   it('should not render any icon if only the icon size is given', () => {
     const wrapper = mountInputField({ iconSize: 40 });
-    expect(wrapper.find('.ec-input-field__icon-wrapper').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').exists()).toBe(false);
   });
 
   it('renders properly when disabled', () => {

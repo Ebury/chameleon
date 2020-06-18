@@ -26,6 +26,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
      
     <div
       class="ec-input-field__icon-wrapper"
+      data-test="ec-input-field__icon-wrapper"
     >
       <svg
         class="ec-input-field__icon ec-icon"
@@ -183,6 +184,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
        
       <div
         class="ec-input-field__icon-wrapper"
+        data-test="ec-input-field__icon-wrapper"
       >
         <svg
           class="ec-input-field__icon ec-icon"
@@ -277,6 +279,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
            
           <div
             class="ec-input-field__icon-wrapper"
+            data-test="ec-input-field__icon-wrapper"
           >
             <svg
               class="ec-input-field__icon ec-icon"

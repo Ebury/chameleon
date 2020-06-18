@@ -3,13 +3,16 @@
 exports[`EcContainer should make the navigation collapsable when isCollapsable is given 1`] = `
 <div
   class="ec-container"
+  data-test="ec-container"
 >
   <div
     class="ec-container__navigation ec-container__navigation--is-collapsable"
+    data-test="ec-container__navigation"
   />
    
   <div
     class="ec-container__content"
+    data-test="ec-container__content"
   />
 </div>
 `;
@@ -17,13 +20,16 @@ exports[`EcContainer should make the navigation collapsable when isCollapsable i
 exports[`EcContainer should not have a collapsable navigation by default 1`] = `
 <div
   class="ec-container"
+  data-test="ec-container"
 >
   <div
     class="ec-container__navigation"
+    data-test="ec-container__navigation"
   />
    
   <div
     class="ec-container__content"
+    data-test="ec-container__content"
   />
 </div>
 `;
@@ -31,13 +37,16 @@ exports[`EcContainer should not have a collapsable navigation by default 1`] = `
 exports[`EcContainer should render empty if no slots were given 1`] = `
 <div
   class="ec-container"
+  data-test="ec-container"
 >
   <div
     class="ec-container__navigation"
+    data-test="ec-container__navigation"
   />
    
   <div
     class="ec-container__content"
+    data-test="ec-container__content"
   />
 </div>
 `;
@@ -45,13 +54,16 @@ exports[`EcContainer should render empty if no slots were given 1`] = `
 exports[`EcContainer should render slot for content 1`] = `
 <div
   class="ec-container"
+  data-test="ec-container"
 >
   <div
     class="ec-container__navigation"
+    data-test="ec-container__navigation"
   />
    
   <div
     class="ec-container__content"
+    data-test="ec-container__content"
   >
     <div>
       content template
@@ -63,9 +75,11 @@ exports[`EcContainer should render slot for content 1`] = `
 exports[`EcContainer should render slot for navigation 1`] = `
 <div
   class="ec-container"
+  data-test="ec-container"
 >
   <div
     class="ec-container__navigation"
+    data-test="ec-container__navigation"
   >
     <div>
       navigation template
@@ -74,6 +88,7 @@ exports[`EcContainer should render slot for navigation 1`] = `
    
   <div
     class="ec-container__content"
+    data-test="ec-container__content"
   />
 </div>
 `;
