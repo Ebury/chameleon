@@ -302,7 +302,11 @@ stories.add('all', () => ({
           </ec-dropdown>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="tw-grid tw-p-12">
+=======
+      <div class="tw-col-12 tw-p-12">
+>>>>>>> 544792bdd6271ed5752cd97971bbabb5d2d78f22
         Selected value: {{ multiSelected }}
       </div>
     </div>

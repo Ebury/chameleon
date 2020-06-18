@@ -6,7 +6,7 @@
     <div
       class="ec-container__navigation"
       :class="{ 'ec-container__navigation--is-collapsable': isCollapsable }"
-      data-class="ec-container__navigation"
+      data-test="ec-container__navigation"
     >
       <slot name="navigation" />
     </div>

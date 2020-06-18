@@ -6,14 +6,14 @@ describe('EcContainer', () => {
     const wrapper = mount(EcContainer);
 
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.find('.ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(false);
+    expect(wrapper.findByDataTest('ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(false);
   });
 
   it('should make the navigation collapsable when isCollapsable is given', () => {
     const wrapper = mount(EcContainer, { propsData: { isCollapsable: true } });
 
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.find('.ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(true);
+    expect(wrapper.findByDataTest('ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(true);
   });
 
   it('should render empty if no slots were given', () => {

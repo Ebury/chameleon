@@ -7,7 +7,7 @@ exports[`EcContainer should make the navigation collapsable when isCollapsable i
 >
   <div
     class="ec-container__navigation ec-container__navigation--is-collapsable"
-    data-class="ec-container__navigation"
+    data-test="ec-container__navigation"
   />
    
   <div
@@ -24,7 +24,7 @@ exports[`EcContainer should not have a collapsable navigation by default 1`] = `
 >
   <div
     class="ec-container__navigation"
-    data-class="ec-container__navigation"
+    data-test="ec-container__navigation"
   />
    
   <div
@@ -41,7 +41,7 @@ exports[`EcContainer should render empty if no slots were given 1`] = `
 >
   <div
     class="ec-container__navigation"
-    data-class="ec-container__navigation"
+    data-test="ec-container__navigation"
   />
    
   <div
@@ -58,7 +58,7 @@ exports[`EcContainer should render slot for content 1`] = `
 >
   <div
     class="ec-container__navigation"
-    data-class="ec-container__navigation"
+    data-test="ec-container__navigation"
   />
    
   <div
@@ -79,7 +79,7 @@ exports[`EcContainer should render slot for navigation 1`] = `
 >
   <div
     class="ec-container__navigation"
-    data-class="ec-container__navigation"
+    data-test="ec-container__navigation"
   >
     <div>
       navigation template
