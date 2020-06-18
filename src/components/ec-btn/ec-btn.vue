@@ -3,7 +3,8 @@
     :is="componentTag"
     v-bind="componentProps"
     class="ec-btn"
-    :class="buttonClasses"
+    :class="getButtonClasses()"
+    v-on="$listeners"
   >
     <ec-icon
       v-if="icon"
@@ -116,22 +117,6 @@ export default {
     isAnchorLink() {
       return !!this.href;
     },
-    buttonClasses() {
-      return {
-        'ec-btn--sm': this.size === 'sm',
-        'ec-btn--md': this.size === 'md',
-        'ec-btn--rounded': this.isRounded,
-        'ec-btn--full-width': this.isFullWidth,
-        'ec-btn--icon-only': this.icon && !(this.text || this.$slots.default),
-        [`ec-btn--${this.category}`]: this.category,
-        'ec-btn--outline': this.isOutline,
-        'ec-btn--primary-reverse': this.isReverse && this.category === 'primary',
-        'ec-btn--secondary-reverse': this.isReverse && this.category === 'secondary',
-        'ec-btn--success-reverse': this.isReverse && this.category === 'success',
-        'ec-btn--error-reverse': this.isReverse && this.category === 'error',
-        'ec-btn--warning-reverse': this.isReverse && this.category === 'warning',
-      };
-    },
     componentTag() {
       if (this.isAnchorLink) {
         return this.tag || 'a';
@@ -156,28 +141,44 @@ export default {
     isTextLoaderVisible() {
       return this.isLoading && this.$slots['loading-text'];
     },
+    getButtonClasses() {
+      return {
+        'ec-btn--sm': this.size === 'sm',
+        'ec-btn--md': this.size === 'md',
+        'ec-btn--rounded': this.isRounded,
+        'ec-btn--full-width': this.isFullWidth,
+        'ec-btn--icon-only': this.icon && !this.$slots.default,
+        [`ec-btn--${this.category}`]: this.category,
+        'ec-btn--outline': this.isOutline,
+        'ec-btn--primary-reverse': this.isReverse && this.category === 'primary',
+        'ec-btn--secondary-reverse': this.isReverse && this.category === 'secondary',
+        'ec-btn--success-reverse': this.isReverse && this.category === 'success',
+        'ec-btn--error-reverse': this.isReverse && this.category === 'error',
+        'ec-btn--warning-reverse': this.isReverse && this.category === 'warning',
+      };
+    },
   },
 };
 </script>
 
-<style lang="scss">
+<style>
   .ec-btn {
     &__text--is-loading,
     &__icon--no-loading-text {
-      visibility: hidden;
+      @apply tw-invisible;
     }
 
     &__icon--with-loading-text {
-      display: none;
+      @apply tw-hidden;
     }
 
     &__loading-spinner {
-      position: absolute;
-      width: 100%;
+      @apply tw-absolute;
+      @apply tw-w-full;
     }
 
-    &__icon-with-spacing {
-      margin-right: 8px;
+    &__icon--with-spacing {
+      @apply tw-mr-8;
     }
   }
 </style>
