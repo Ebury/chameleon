@@ -48,6 +48,7 @@
       v-if="icon"
       class="ec-input-field__icon-wrapper"
       :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
+      data-test="ec-input-field__icon-wrapper"
     >
       <ec-icon
         class="ec-input-field__icon"

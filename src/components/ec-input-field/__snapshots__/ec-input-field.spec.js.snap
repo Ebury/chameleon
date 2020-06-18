@@ -36,6 +36,7 @@ exports[`EcInputField renders properly the icon when disabled 1`] = `
    
   <div
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
+    data-test="ec-input-field__icon-wrapper"
   >
     <svg
       class="ec-input-field__icon ec-icon"
@@ -495,6 +496,7 @@ exports[`EcInputField should render given icon 1`] = `
    
   <div
     class="ec-input-field__icon-wrapper"
+    data-test="ec-input-field__icon-wrapper"
   >
     <svg
       class="ec-input-field__icon ec-icon"
@@ -515,6 +517,7 @@ exports[`EcInputField should render given icon 1`] = `
 exports[`EcInputField should render given icon with given size 1`] = `
 <div
   class="ec-input-field__icon-wrapper"
+  data-test="ec-input-field__icon-wrapper"
 >
   <svg
     class="ec-input-field__icon ec-icon"
