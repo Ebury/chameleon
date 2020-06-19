@@ -276,7 +276,7 @@
     &.ec-btn--error-reverse,
     &.ec-btn--warning-reverse {
       &:focus {
-        box-shadow: 0 0 0 3px hsla(var(--ec-light-color), 0.25);
+        box-shadow: 0 0 0 3px hsla(var(--ec-gray-color-level-8), 0.25);
       }
     }
 

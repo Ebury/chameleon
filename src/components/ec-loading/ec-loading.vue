@@ -67,7 +67,7 @@ export default {
     @apply tw-z-loading;
 
     &--is-transparent {
-      background: hsla(var(--ec-light-color), 0.5);
+      background: hsla(var(--ec-gray-color-level-8), 0.5);
     }
   }
 
