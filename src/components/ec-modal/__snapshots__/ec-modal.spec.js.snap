@@ -195,10 +195,58 @@ exports[`EcModal should render negative button if slot is passed 1`] = `
       data-test="ec-loading__content"
     >
       <button
-        class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn"
+        class="ec-btn ec-modal__negative-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
         data-test="ec-modal__negative-btn"
       >
-        Skip for now
+        <!---->
+         
+        <span
+          class=""
+          data-test="ec-btn__text"
+        >
+          Skip for now
+        </span>
+         
+        <!---->
+      </button>
+    </div>
+  </div>
+   
+  <!---->
+</footer>
+`;
+
+exports[`EcModal should render negative button with given category 1`] = `
+<footer
+  class="ec-modal__footer"
+  data-test="ec-modal__footer"
+>
+  <!---->
+   
+  <div
+    class="ec-loading ec-modal__btn-loading ec-modal__btn-loading--right"
+    data-test="ec-loading"
+  >
+    <!---->
+     
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      <button
+        class="ec-btn ec-modal__negative-btn ec-btn--md ec-btn--rounded ec-btn--warning"
+        data-test="ec-modal__negative-btn"
+      >
+        <!---->
+         
+        <span
+          class=""
+          data-test="ec-btn__text"
+        >
+          Negative button
+        </span>
+         
+        <!---->
       </button>
     </div>
   </div>
@@ -239,10 +287,19 @@ exports[`EcModal should render negative button with the loading status if slot i
       data-test="ec-loading__content"
     >
       <button
-        class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn"
+        class="ec-btn ec-modal__negative-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
         data-test="ec-modal__negative-btn"
       >
-        Skip for now
+        <!---->
+         
+        <span
+          class=""
+          data-test="ec-btn__text"
+        >
+          Skip for now
+        </span>
+         
+        <!---->
       </button>
     </div>
   </div>
@@ -271,10 +328,58 @@ exports[`EcModal should render positive button if slot is passed 1`] = `
       data-test="ec-loading__content"
     >
       <button
-        class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn ec-modal__positive-btn--right"
+        class="ec-btn ec-modal__positive-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-modal__positive-btn--right"
         data-test="ec-modal__positive-btn"
       >
-        Update management accounts
+        <!---->
+         
+        <span
+          class=""
+          data-test="ec-btn__text"
+        >
+          Update management accounts
+        </span>
+         
+        <!---->
+      </button>
+    </div>
+  </div>
+</footer>
+`;
+
+exports[`EcModal should render positive button with given category 1`] = `
+<footer
+  class="ec-modal__footer"
+  data-test="ec-modal__footer"
+>
+  <!---->
+   
+  <!---->
+   
+  <div
+    class="ec-loading ec-modal__btn-loading"
+    data-test="ec-loading"
+  >
+    <!---->
+     
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      <button
+        class="ec-btn ec-modal__positive-btn ec-btn--md ec-btn--rounded ec-btn--error ec-modal__positive-btn--right"
+        data-test="ec-modal__positive-btn"
+      >
+        <!---->
+         
+        <span
+          class=""
+          data-test="ec-btn__text"
+        >
+          Positive button
+        </span>
+         
+        <!---->
       </button>
     </div>
   </div>
@@ -315,10 +420,19 @@ exports[`EcModal should render positive button with the loading status if slot i
       data-test="ec-loading__content"
     >
       <button
-        class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn ec-modal__positive-btn--right"
+        class="ec-btn ec-modal__positive-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-modal__positive-btn--right"
         data-test="ec-modal__positive-btn"
       >
-        Update management accounts
+        <!---->
+         
+        <span
+          class=""
+          data-test="ec-btn__text"
+        >
+          Update management accounts
+        </span>
+         
+        <!---->
       </button>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { boolean, number } from '@storybook/addon-knobs';
+import { boolean, number, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
 import EcIcon from '../ec-icon';
@@ -14,12 +14,15 @@ const tooltipConfig = {
   placement: 'bottom',
 };
 
-stories
+const NEGATIVE_BUTTON_GROUP_ID = 'Negative Button';
+const POSITIVE_BUTTON_GROUP_ID = 'Positive Button';
 
+const buttonCategories = ['', 'primary', 'secondary', 'success', 'error', 'warning'];
+
+stories
   .add('stackable', () => ({
     components: { EcModal },
     props: {
-
       zIndex: {
         default: number('Z Index', 201),
       },
@@ -51,21 +54,20 @@ stories
         </template>
       </ec-modal>
 
-
       <ec-modal
-      is-closable
-      :z-index="zIndex"
-      v-model="showSecondModal">
+        is-closable
+        :z-index="zIndex"
+        v-model="showSecondModal">
 
-      <template #header>
-        <h2>Second Modal</h2>
-      </template>
+        <template #header>
+          <h2>Second Modal</h2>
+        </template>
 
-      <template #main>
-        <a @click.prevent.stop="secondModalAction()">Action second modal</a>
-        <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
-      </template>
-    </ec-modal>
+        <template #main>
+          <a @click.prevent.stop="secondModalAction()">Action second modal</a>
+          <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+        </template>
+      </ec-modal>
     </div>
   `,
   }))
@@ -85,20 +87,26 @@ stories
       isLarge: {
         default: boolean('Is large', false),
       },
-      negativeHasText: {
-        default: boolean('Negative Button Has Text', true),
-      },
-      positiveHasText: {
-        default: boolean('Positive Has Text', true),
-      },
-      isPositiveLoading: {
-        default: boolean('Is Loading Positive Button', false),
-      },
-      isNegativeLoading: {
-        default: boolean('Is Loading Negative Button', false),
-      },
       zIndex: {
         default: number('Z Index', 201),
+      },
+      negativeHasText: {
+        default: boolean('Has Text', true, NEGATIVE_BUTTON_GROUP_ID),
+      },
+      isNegativeLoading: {
+        default: boolean('Is Loading', false, NEGATIVE_BUTTON_GROUP_ID),
+      },
+      negativeButtonCategory: {
+        default: select('Button Category', buttonCategories, '', NEGATIVE_BUTTON_GROUP_ID),
+      },
+      positiveHasText: {
+        default: boolean('Has Text', true, POSITIVE_BUTTON_GROUP_ID),
+      },
+      isPositiveLoading: {
+        default: boolean('Is Loading', false, POSITIVE_BUTTON_GROUP_ID),
+      },
+      positiveButtonCategory: {
+        default: select('Button Category', buttonCategories, '', POSITIVE_BUTTON_GROUP_ID),
       },
     },
     watch: {
@@ -130,12 +138,13 @@ stories
     },
     template: `
       <div>
-      <p>A qui dolorum voluptatibus ratione corrupti <a href="#">dignissimos</a> quia, alias ut excepturi. Reprehenderit quisquam dolorem eius rerum dignissimos porro sunt asperiores architecto, quidem totam necessitatibus voluptas molestiae pariatur consectetur. Ullam architecto minima animi alias aliquam, voluptates dicta. Ea ipsam alias autem laboriosam est accusamus distinctio praesentium minima? Impedit repudiandae provident reprehenderit ut beatae ducimus mollitia eius magni hic, quibusdam, ipsa voluptate porro vel non enim dolores at. Repellat.</p>
+        <p>A qui dolorum voluptatibus ratione corrupti <a href="#">dignissimos</a> quia, alias ut excepturi. Reprehenderit quisquam dolorem eius rerum dignissimos porro sunt asperiores architecto, quidem totam necessitatibus voluptas molestiae pariatur consectetur. Ullam architecto minima animi alias aliquam, voluptates dicta. Ea ipsam alias autem laboriosam est accusamus distinctio praesentium minima? Impedit repudiandae provident reprehenderit ut beatae ducimus mollitia eius magni hic, quibusdam, ipsa voluptate porro vel non enim dolores at. Repellat.</p>
         <ec-modal
           v-if="!isLarge"
           :large = "isLarge"
           :is-closable="isClosable"
           :is-loading="{ positive: isPositiveLoading, negative: isNegativeLoading }"
+          :category="{ positive: positiveButtonCategory || null, negative: negativeButtonCategory || null }"
           @negative = "rejected()"
           @positive = "accepted()"
           @close = "onClose()"
@@ -220,6 +229,12 @@ stories
         <p>A qui dolorum voluptatibus ratione corrupti dignissimos quia, alias ut excepturi. Reprehenderit quisquam dolorem eius rerum dignissimos porro sunt asperiores architecto, quidem totam necessitatibus voluptas molestiae pariatur consectetur. Ullam architecto minima animi alias aliquam, voluptates dicta. Ea ipsam alias autem laboriosam est accusamus distinctio praesentium minima? Impedit repudiandae provident reprehenderit ut beatae ducimus mollitia eius magni hic, quibusdam, ipsa voluptate porro vel non enim dolores at. Repellat.</p>
       </div>
       `,
-  }));
-
-export default stories;
+  }), {
+    visualRegressionTests: {
+      knobs: {
+        large: { 'Is large': true },
+        'no-texts': { [`Has Text_${NEGATIVE_BUTTON_GROUP_ID}`]: false, [`Has Text_${POSITIVE_BUTTON_GROUP_ID}`]: false },
+        category: { [`Button Category_${NEGATIVE_BUTTON_GROUP_ID}`]: buttonCategories[3], [`Button Category_${POSITIVE_BUTTON_GROUP_ID}`]: buttonCategories[4] },
+      },
+    },
+  });
