@@ -94,7 +94,7 @@
     "vue-router": "3.3.4",
     "vue-template-compiler": "2.6.11",
     "wait-on": "5.0.1",
-    "webpack-cli": "3.3.11",
+    "webpack-cli": "3.3.12",
     "yorkie": "2.0.0"
   },
   "gitHooks": {
