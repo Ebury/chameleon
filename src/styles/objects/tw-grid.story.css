@@ -3,7 +3,7 @@
   @apply tw-bg-key-6;
 
   &__container {
-    @apply tw-text-center tw-text-light;
+    @apply tw-text-center tw-text-gray-8;
     @apply tw-bg-key-2;
 
     &--with-border {
@@ -20,7 +20,7 @@
   }
 
   &__title {
-    @apply tw-h2 tw-text-center tw-text-light;
+    @apply tw-h2 tw-text-center tw-text-gray-8;
     @apply tw-mt-24;
     @apply tw-bg-key-2;
   }

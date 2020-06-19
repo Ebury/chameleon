@@ -27,9 +27,6 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
 
-      dark: 'hsl(var(--ec-gray-color-level-0))',
-      light: 'hsl(var(--ec-gray-color-level-8))',
-
       key: {
         1: 'hsl(var(--ec-key-color-level-1))',
         2: 'hsl(var(--ec-key-color-level-2))',

@@ -25,7 +25,7 @@ stories
     template: `
     <ec-container :is-collapsable="false">
       <template #navigation>
-        <div class="tw-bg-key-2 tw-text-light tw-min-h-screen">Navigation panel</div>
+        <div class="tw-bg-key-2 tw-text-gray-8 tw-min-h-screen">Navigation panel</div>
       </template>
       <template #content>
       <div class="tw-bg-key-6 tw-text-gray-2 tw-min-h-screen">Main content panel</div>
