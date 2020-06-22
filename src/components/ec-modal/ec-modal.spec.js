@@ -154,6 +154,24 @@ describe('EcModal', () => {
     expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
+  it('should render negative button with given category', () => {
+    const wrapper = mountModal({
+      category: {
+        negative: 'warning',
+      },
+      showModal: true,
+    },
+    {
+      slots: {
+        negative: 'Negative button',
+      },
+    });
+
+    expect(wrapper.findByDataTest('ec-modal__negative-btn').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__negative-btn').classes('ec-btn--warning')).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
+  });
+
   it('should render positive button if slot is passed', () => {
     const wrapper = mountModal({
       showModal: true,
@@ -184,6 +202,24 @@ describe('EcModal', () => {
 
     expect(wrapper.findByDataTest('ec-modal__positive-btn').exists()).toBe(true);
     expect(wrapper.find('.ec-loading__icon').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
+  });
+
+  it('should render positive button with given category', () => {
+    const wrapper = mountModal({
+      category: {
+        positive: 'error',
+      },
+      showModal: true,
+    },
+    {
+      slots: {
+        positive: 'Positive button',
+      },
+    });
+
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').classes('ec-btn--error')).toBe(true);
     expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 

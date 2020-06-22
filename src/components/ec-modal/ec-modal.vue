@@ -57,31 +57,37 @@
             :show="isLoadingNegativeButton"
             :transparent="!isLoadingNegativeButton"
           >
-            <button
+            <ec-btn
               ref="negativeButton"
-              class="ec-btn ec-btn--md ec-btn--secondary ec-btn--rounded ec-modal__negative-btn"
+              is-rounded
+              :is-submit="false"
+              :category="negativeButtonCategory"
+              class="ec-modal__negative-btn"
               data-test="ec-modal__negative-btn"
               @click="negativeAction()"
             >
               <slot name="negative" />
-            </button>
+            </ec-btn>
           </ec-loading>
 
           <ec-loading
-            v-if="hasPrimaryButton()"
+            v-if="hasPositiveButton()"
             class="ec-modal__btn-loading"
             :show="isLoadingPositiveButton"
             :transparent="!isLoadingPositiveButton"
           >
-            <button
-              ref="primaryButton"
+            <ec-btn
+              ref="positiveButton"
+              :category="positiveButtonCategory"
+              is-rounded
+              :is-submit="false"
               :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
-              class="ec-btn ec-btn--md ec-btn--primary ec-btn--rounded ec-modal__positive-btn"
+              class="ec-modal__positive-btn"
               data-test="ec-modal__positive-btn"
               @click="positiveAction()"
             >
               <slot name="positive" />
-            </button>
+            </ec-btn>
           </ec-loading>
         </footer>
       </div>
@@ -91,6 +97,7 @@
 </template>
 
 <script>
+import EcBtn from '../ec-btn';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
 import EcFocusTrap from '../../directives/ec-focus-trap';
@@ -98,6 +105,7 @@ import * as KeyCode from '../../enums/key-code';
 
 export default {
   components: {
+    EcBtn,
     EcIcon,
     EcLoading,
   },
@@ -133,6 +141,10 @@ export default {
         return value > 200 && value < 250;
       },
     },
+    category: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   computed: {
     isLoadingPositiveButton() {
@@ -140,6 +152,12 @@ export default {
     },
     isLoadingNegativeButton() {
       return !!this.isLoading.negative;
+    },
+    positiveButtonCategory() {
+      return this.category.positive || 'primary';
+    },
+    negativeButtonCategory() {
+      return this.category.negative || 'secondary';
     },
     zIndexStyle() {
       return this.zIndex ? { zIndex: this.zIndex } : null;
@@ -180,15 +198,15 @@ export default {
         clickOutsideDeactivates: this.isClosable,
       };
 
-      if (this.hasPrimaryButton()) {
-        options.initialFocus = /* istanbul ignore next */ () => this.$refs.primaryButton;
+      if (this.hasPositiveButton()) {
+        options.initialFocus = /* istanbul ignore next */ () => this.$refs.positiveButton.$el;
       } else if (this.hasNegativeButton()) {
-        options.initialFocus = /* istanbul ignore next */ () => this.$refs.negativeButton;
+        options.initialFocus = /* istanbul ignore next */ () => this.$refs.negativeButton.$el;
       }
 
       return options;
     },
-    hasPrimaryButton() {
+    hasPositiveButton() {
       return !!this.$scopedSlots.positive;
     },
     hasNegativeButton() {
@@ -198,7 +216,7 @@ export default {
       return !!this.$scopedSlots.footerLeftContent;
     },
     hasFooter() {
-      return this.hasFooterLeftContent() || this.hasPrimaryButton() || this.hasNegativeButton();
+      return this.hasFooterLeftContent() || this.hasPositiveButton() || this.hasNegativeButton();
     },
   },
 };
