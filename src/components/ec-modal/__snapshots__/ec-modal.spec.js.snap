@@ -196,7 +196,8 @@ exports[`EcModal should render negative button if slot is passed 1`] = `
     >
       <button
         class="ec-btn ec-modal__negative-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
-        data-test="ec-modal__negative-btn"
+        data-test="ec-modal__negative-btn ec-btn"
+        type="button"
       >
         <!---->
          
@@ -235,7 +236,8 @@ exports[`EcModal should render negative button with given category 1`] = `
     >
       <button
         class="ec-btn ec-modal__negative-btn ec-btn--md ec-btn--rounded ec-btn--warning"
-        data-test="ec-modal__negative-btn"
+        data-test="ec-modal__negative-btn ec-btn"
+        type="button"
       >
         <!---->
          
@@ -288,7 +290,8 @@ exports[`EcModal should render negative button with the loading status if slot i
     >
       <button
         class="ec-btn ec-modal__negative-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
-        data-test="ec-modal__negative-btn"
+        data-test="ec-modal__negative-btn ec-btn"
+        type="button"
       >
         <!---->
          
@@ -329,7 +332,8 @@ exports[`EcModal should render positive button if slot is passed 1`] = `
     >
       <button
         class="ec-btn ec-modal__positive-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-modal__positive-btn--right"
-        data-test="ec-modal__positive-btn"
+        data-test="ec-modal__positive-btn ec-btn"
+        type="button"
       >
         <!---->
          
@@ -368,7 +372,8 @@ exports[`EcModal should render positive button with given category 1`] = `
     >
       <button
         class="ec-btn ec-modal__positive-btn ec-btn--md ec-btn--rounded ec-btn--error ec-modal__positive-btn--right"
-        data-test="ec-modal__positive-btn"
+        data-test="ec-modal__positive-btn ec-btn"
+        type="button"
       >
         <!---->
          
@@ -421,7 +426,8 @@ exports[`EcModal should render positive button with the loading status if slot i
     >
       <button
         class="ec-btn ec-modal__positive-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-modal__positive-btn--right"
-        data-test="ec-modal__positive-btn"
+        data-test="ec-modal__positive-btn ec-btn"
+        type="button"
       >
         <!---->
          

@@ -1,27 +1,33 @@
 <template>
-  <div class="ec-btn-group">
-    <button
+  <div
+    class="ec-btn-group"
+    v-bind="{
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-btn-group` : 'ec-btn-group',
+    }"
+  >
+    <ec-btn
       v-for="(item, index) in items"
       :key="item.id || index"
-      :data-test="`ec-button-group__btn-${index}`"
-      class="ec-btn ec-btn--md ec-btn--primary ec-btn-group__btn"
-      :class="{
-        'ec-btn--outline': value !== item.value
-      }"
-      :disabled="item.disabled"
-      type="button"
+      :data-test="`ec-button-group__btn ec-button-group__btn-${index}`"
+      category="primary"
+      class="ec-btn-group__btn"
+      :is-submit="false"
+      :is-outline="value !== item.value"
+      :is-disabled="item.disabled"
       @click="$emit('change', item.value)"
-    >
-      {{ item.text }}
-    </button>
+    >{{ item.text }}</ec-btn>
   </div>
 </template>
 
 <script>
 import { arrayOfObjectsContainsKey } from '../../utils/validators';
+import EcBtn from '../ec-btn';
 
 export default {
   name: 'EcButtonGroup',
+  components: {
+    EcBtn,
+  },
   model: {
     prop: 'value',
     event: 'change',
@@ -38,27 +44,24 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/index';
-
-$ec-btn-primary-color: $level-4-tech-blue !default;
-$ec-btn-border-radius: 32px;
-
+<style>
 .ec-btn-group {
   &__btn:first-child {
-    border-radius: $ec-btn-border-radius 0 0 $ec-btn-border-radius;
+    @apply tw-rounded-l-button;
   }
 
   &__btn:not(:last-child) {
-    border-right: 0;
+    @apply tw-border-r-0;
   }
 
   &__btn:not(:disabled) + &__btn:disabled:not(:first-child) {
-    border-left: 1px solid $ec-btn-primary-color;
+    @apply tw-border-l tw-border-solid;
+
+    border-left-color: theme('colors.key.4');
   }
 
   &__btn:last-child {
-    border-radius: 0 $ec-btn-border-radius $ec-btn-border-radius 0;
+    @apply tw-rounded-r-button;
   }
 }
 </style>
