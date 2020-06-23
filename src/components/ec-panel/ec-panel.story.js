@@ -45,7 +45,7 @@ storiesOf('Panel', module)
     },
     template: `
       <div class="tw-bg-gray-7 tw-min-h-screen">
-        <div class="tw-max-w-screen-lg tw-my-0 tw-mx-auto tw-bg-light ec-panel-container tw-p-24">
+        <div class="tw-max-w-screen-lg tw-my-0 tw-mx-auto tw-bg-gray-8 ec-panel-container tw-p-24">
           <h1 class="tw-m-24">Panel story</h1>
 
           <div v-for="i in numberOfBodyParagraphs" class="tw-m-24">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore</div>

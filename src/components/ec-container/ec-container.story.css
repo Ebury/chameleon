@@ -1,5 +1,5 @@
 .dropdown-search-link {
-  @apply tw-text-light;
+  @apply tw-text-gray-8;
   @apply tw-inline-flex;
 }
 

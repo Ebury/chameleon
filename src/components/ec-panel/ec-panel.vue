@@ -129,7 +129,7 @@ export default {
     @apply tw-w-full tw-h-screen;
     @apply tw-fixed;
     @apply tw-flex tw-flex-col;
-    @apply tw-bg-light;
+    @apply tw-bg-gray-8;
     @apply tw-shadow-level-1-rtl;
   }
 

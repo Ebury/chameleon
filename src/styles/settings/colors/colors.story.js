@@ -25,22 +25,13 @@ stories
         <h2>Gray colors (themable)</h2>
         <table class="tw-mb-12 tw-w-full tw-border tw-border-solid tw-border-gray-6 tw-font-mono">
           <tbody>
-            <tr v-for="i in 7">
-              <td class="tw-w-1/6" :style="{ backgroundColor: 'hsl(var(--ec-gray-color-level-' + i + '))' }"></td>
+            <tr v-for="(i, index) in 9">
+              <td class="tw-w-1/6" :style="{ backgroundColor: 'hsl(var(--ec-gray-color-level-' + index + '))' }"></td>
               <td class="tw-w-2/6 tw-p-4 tw-border-b tw-border-solid tw-border-gray-6">
-                <span>{{ '--ec-gray-color-level-' + i }}</span>
+                <span>{{ '--ec-gray-color-level-' + index }}</span>
               </td>
               <td class="tw-w-3/6 tw-p-4 tw-border-b tw-border-solid tw-border-gray-6">
-                <span>{{ getInfo('--ec-gray-color-level-' + i) }}</span>
-              </td>
-            </tr>
-            <tr v-for="color in ['light', 'dark']">
-              <td class="tw-w-1/6" :style="{ backgroundColor: 'hsl(var(--ec-' + color + '-color))' }"></td>
-              <td class="tw-w-2/6 tw-p-4 tw-border-b tw-border-solid tw-border-gray-6">
-                <span>{{ '--ec-' + color + '-color' }}</span>
-              </td>
-              <td class="tw-w-3/6 tw-p-4 tw-border-b tw-border-solid tw-border-gray-6">
-                <span>{{ getInfo('--ec-' + color + '-color') }}</span>
+                <span>{{ getInfo('--ec-gray-color-level-' + index) }}</span>
               </td>
             </tr>
           </tbody>

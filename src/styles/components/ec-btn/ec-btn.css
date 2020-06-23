@@ -1,6 +1,6 @@
 .ec-btn {
   @apply tw-outline-none;
-  @apply tw-btn-text tw-text-light tw-fill-current tw-text-center tw-no-underline;
+  @apply tw-btn-text tw-text-gray-8 tw-fill-current tw-text-center tw-no-underline;
   @apply tw-inline-flex tw-align-bottom tw-flex-row tw-items-center tw-justify-center;
   @apply tw-cursor-pointer;
   @apply tw-border tw-border-solid tw-border-transparent;
@@ -51,7 +51,7 @@
 
   &:disabled {
     @apply tw-bg-gray-6;
-    @apply tw-text-light;
+    @apply tw-text-gray-8;
     @apply tw-cursor-default;
     @apply tw-pointer-events-none;
   }
@@ -65,12 +65,12 @@
   }
 
   &--primary-reverse {
-    @apply tw-bg-light;
+    @apply tw-bg-gray-8;
     @apply tw-text-key-4;
 
     &:hover {
       @apply tw-bg-key-4;
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
     }
   }
 
@@ -90,12 +90,12 @@
   }
 
   &--secondary-reverse {
-    @apply tw-bg-light;
+    @apply tw-bg-gray-8;
     @apply tw-text-gray-4;
 
     &:hover {
       @apply tw-bg-gray-4;
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
     }
   }
 
@@ -115,12 +115,12 @@
   }
 
   &--success-reverse {
-    @apply tw-bg-light;
+    @apply tw-bg-gray-8;
     @apply tw-text-success;
 
     &:hover {
       @apply tw-bg-success;
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
     }
   }
 
@@ -140,12 +140,12 @@
   }
 
   &--error-reverse {
-    @apply tw-bg-light;
+    @apply tw-bg-gray-8;
     @apply tw-text-error;
 
     &:hover {
       @apply tw-bg-error;
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
     }
   }
 
@@ -165,12 +165,12 @@
   }
 
   &--warning-reverse {
-    @apply tw-bg-light;
+    @apply tw-bg-gray-8;
     @apply tw-text-warning;
 
     &:hover {
       @apply tw-bg-warning;
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
     }
   }
 
@@ -194,10 +194,10 @@
     }
 
     &.ec-btn--primary-reverse {
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
 
       &:hover {
-        @apply tw-bg-light;
+        @apply tw-bg-gray-8;
         @apply tw-text-key-4;
       }
     }
@@ -211,10 +211,10 @@
     }
 
     &.ec-btn--secondary-reverse {
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
 
       &:hover {
-        @apply tw-bg-light;
+        @apply tw-bg-gray-8;
         @apply tw-text-gray-4;
       }
     }
@@ -228,11 +228,11 @@
     }
 
     &.ec-btn--success-reverse {
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
 
       &:hover {
         @apply tw-text-success;
-        @apply tw-bg-light;
+        @apply tw-bg-gray-8;
       }
     }
 
@@ -245,11 +245,11 @@
     }
 
     &.ec-btn--error-reverse {
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
 
       &:hover {
         @apply tw-text-error;
-        @apply tw-bg-light;
+        @apply tw-bg-gray-8;
       }
     }
 
@@ -262,11 +262,11 @@
     }
 
     &.ec-btn--warning-reverse {
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
 
       &:hover {
         @apply tw-text-warning;
-        @apply tw-bg-light;
+        @apply tw-bg-gray-8;
       }
     }
 
@@ -276,12 +276,12 @@
     &.ec-btn--error-reverse,
     &.ec-btn--warning-reverse {
       &:focus {
-        box-shadow: 0 0 0 3px hsla(var(--ec-light-color), 0.25);
+        box-shadow: 0 0 0 3px hsla(var(--ec-gray-color-level-8), 0.25);
       }
     }
 
     &:hover {
-      @apply tw-text-light;
+      @apply tw-text-gray-8;
     }
 
     &:disabled {

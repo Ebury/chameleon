@@ -115,7 +115,7 @@ export default {
 .ec-alert {
   @apply tw-rounded;
   @apply tw-p-16;
-  @apply tw-text-light tw-fill-current;
+  @apply tw-text-gray-8 tw-fill-current;
   @apply tw-relative;
   @apply tw-flex tw-flex-col tw-items-center;
 
@@ -136,11 +136,11 @@ export default {
   }
 
   &__title {
-    @apply tw-body-strong tw-text-light;
+    @apply tw-body-strong tw-text-gray-8;
   }
 
   &__subtitle {
-    @apply tw-body-text tw-text-light;
+    @apply tw-body-text tw-text-gray-8;
   }
 
   &__icon {
@@ -153,17 +153,17 @@ export default {
     @apply tw-rounded;
     @apply tw-absolute tw-top-8 tw-right-8;
     @apply tw-cursor-pointer;
-    @apply tw-fill-light;
+    @apply tw-fill-gray-8;
 
     line-height: 0;
 
     &:focus {
       @apply tw-outline-none;
-      @apply tw-bg-light;
+      @apply tw-bg-gray-8;
     }
 
     &:hover {
-      @apply tw-bg-light;
+      @apply tw-bg-gray-8;
     }
 
     &--info:focus,

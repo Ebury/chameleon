@@ -27,9 +27,6 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
 
-      dark: 'hsl(var(--ec-dark-color))',
-      light: 'hsl(var(--ec-light-color))',
-
       key: {
         1: 'hsl(var(--ec-key-color-level-1))',
         2: 'hsl(var(--ec-key-color-level-2))',
@@ -41,6 +38,7 @@ module.exports = {
       },
 
       gray: {
+        0: 'hsl(var(--ec-gray-color-level-0))',
         1: 'hsl(var(--ec-gray-color-level-1))',
         2: 'hsl(var(--ec-gray-color-level-2))',
         3: 'hsl(var(--ec-gray-color-level-3))',
@@ -48,6 +46,7 @@ module.exports = {
         5: 'hsl(var(--ec-gray-color-level-5))',
         6: 'hsl(var(--ec-gray-color-level-6))',
         7: 'hsl(var(--ec-gray-color-level-7))',
+        8: 'hsl(var(--ec-gray-color-level-8))',
       },
 
       additional: {

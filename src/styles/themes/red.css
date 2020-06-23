@@ -6,6 +6,7 @@
   --ec-theme-key-color-level-5: 1, 40%, 57%;
   --ec-theme-key-color-level-6: 1, 40%, 88%;
   --ec-theme-key-color-level-7: 1, 40%, 96%;
+  --ec-theme-gray-color-level-0: 1, 10%, 0%;
   --ec-theme-gray-color-level-1: 1, 10%, 12%;
   --ec-theme-gray-color-level-2: 1, 10%, 20%;
   --ec-theme-gray-color-level-3: 1, 10%, 37%;
@@ -13,4 +14,5 @@
   --ec-theme-gray-color-level-5: 1, 10%, 57%;
   --ec-theme-gray-color-level-6: 1, 10%, 88%;
   --ec-theme-gray-color-level-7: 1, 10%, 96%;
+  --ec-theme-gray-color-level-8: 1, 10%, 100%;
 }

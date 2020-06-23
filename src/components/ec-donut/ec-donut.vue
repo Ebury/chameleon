@@ -189,7 +189,7 @@ export default {
   }
 
   &__used {
-    stroke: hsl(var(--ec-light-color));
+    stroke: hsl(var(--ec-gray-color-level-8));
     stroke-opacity: 0.5;
     animation: progress 1s ease-out;
   }
