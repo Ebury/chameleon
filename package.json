@@ -59,7 +59,7 @@
     "@vue/test-utils": "1.0.0-beta.29",
     "autoprefixer": "9.8.2",
     "babel-eslint": "10.1.0",
-    "babel-jest": "26.0.1",
+    "babel-jest": "26.1.0",
     "babel-loader": "8.1.0",
     "babel-preset-vue": "2.0.2",
     "clipboard-copy": "3.1.0",
