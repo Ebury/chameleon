@@ -12,11 +12,11 @@
           data-test="ec-inline-actions__list"
         >
           <li
-            v-for="item in list"
+            v-for="(item, indexList) in list"
             :key="item.text"
             v-ec-tooltip.left="item.tooltip"
             class="ec-inline-actions__item"
-            data-test="ec-inline-actions__item"
+            :data-test="`ec-inline-actions__item ec-inline-actions__item-${index}${indexList}`"
           >
             <button
               v-ec-close-popover="!item.disabled"
