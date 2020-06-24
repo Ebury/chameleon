@@ -19,7 +19,7 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item-00"
       >
         <button
           class="ec-inline-actions__button"
@@ -58,7 +58,7 @@ exports[`EcInlineActions should render the item disabled when an item was given 
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item-00"
       >
         <button
           class="ec-inline-actions__button ec-inline-actions__button--disabled"
@@ -98,7 +98,7 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item-00"
       >
         <button
           class="ec-inline-actions__button"
@@ -143,7 +143,7 @@ exports[`EcInlineActions should render the item with default popover options 1`]
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item-00"
       >
         <button
           class="ec-inline-actions__button"
@@ -187,7 +187,7 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item-00"
       >
         <button
           class="ec-inline-actions__button"
@@ -231,7 +231,7 @@ exports[`EcInlineActions should render with one line break when a different arra
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item-00"
       >
         <button
           class="ec-inline-actions__button"
@@ -255,7 +255,7 @@ exports[`EcInlineActions should render with one line break when a different arra
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item-10"
       >
         <button
           class="ec-inline-actions__button"
@@ -295,7 +295,7 @@ exports[`EcInlineActions should render with tooltip 1`] = `
       <li
         class="ec-inline-actions__item ec-has-tooltip"
         data-original-title="null"
-        data-test="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item-00"
       >
         <button
           class="ec-inline-actions__button"
