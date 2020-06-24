@@ -152,10 +152,28 @@ describe('EcBtn', () => {
 
     it('should render a button with type submit if submit is set to true', () => {
       const wrapper = mountBtn({
-        submit: true,
+        isSubmit: true,
       });
 
       expect(wrapper.attributes('type')).toBe('submit');
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render a button with type button if submit is set to false', () => {
+      const wrapper = mountBtn({
+        isSubmit: false,
+      });
+
+      expect(wrapper.attributes('type')).toBe('button');
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render given HTML attributes', () => {
+      const wrapper = mountBtn({
+        formtarget: 'my-form',
+        name: 'test-name',
+      });
+
       expect(wrapper.element).toMatchSnapshot();
     });
   });

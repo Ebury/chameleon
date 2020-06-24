@@ -1,7 +1,11 @@
 <template>
   <component
     :is="componentTag"
-    v-bind="componentProps"
+    v-bind="{
+      ...$attrs,
+      ...componentProps,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-btn` : 'ec-btn',
+    }"
     class="ec-btn"
     :class="getButtonClasses()"
     v-on="$listeners"
@@ -55,6 +59,7 @@ export default {
     EcIcon,
     EcLoading,
   },
+  inheritAttrs: false,
   props: {
     size: {
       type: String,
@@ -126,8 +131,13 @@ export default {
       return this.tag || 'button';
     },
     componentProps() {
+      let type = null;
+      if (this.componentTag === 'button') {
+        type = this.isSubmit ? 'submit' : 'button';
+      }
+
       return {
-        type: (this.componentTag === 'button' && this.isSubmit) ? 'submit' : null,
+        type,
         to: this.to || null,
         href: this.href || null,
         disabled: !this.isAnchorLink && (this.isDisabled || this.isLoading),
