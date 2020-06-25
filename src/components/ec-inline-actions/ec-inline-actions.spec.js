@@ -27,6 +27,41 @@ describe('EcInlineActions', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render properly with the anchor when the item have a href', () => {
+    const wrapper = shallowMount(EcInlineActions,
+      {
+        propsData: {
+          items: [
+            [
+              {
+                text: 'test',
+                href: 'random',
+              },
+            ],
+          ],
+        },
+      });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render properly the item with the download attr', () => {
+    const wrapper = shallowMount(EcInlineActions,
+      {
+        propsData: {
+          items: [
+            [
+              {
+                text: 'test',
+                href: 'random',
+                download: 'random.jpg',
+              },
+            ],
+          ],
+        },
+      });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render the item disabled when an item was given disabled', () => {
     const wrapper = shallowMount(EcInlineActions,
       {

@@ -16,14 +16,17 @@
             :key="item.text"
             v-ec-tooltip.left="item.tooltip"
             class="ec-inline-actions__item"
-            :data-test="`ec-inline-actions__item ec-inline-actions__item-${index}${indexList}`"
+            :data-test="`ec-inline-actions__item ec-inline-actions__item--${index}-${indexList}`"
           >
-            <button
+            <component
+              :is="componentTag(item)"
               v-ec-close-popover="!item.disabled"
               class="ec-inline-actions__button"
               data-test="ec-inline-actions__button"
               :class="item.disabled ? 'ec-inline-actions__button--disabled' : ''"
               :disabled="item.disabled"
+              :href="!!item.href ? item.href : null"
+              :download="getDownloadText(item)"
               @click="item.action && item.action()"
             >
               <slot
@@ -41,7 +44,7 @@
                 />
                 <span>{{ item.text }}</span>
               </slot>
-            </button>
+            </component>
           </li>
         </ul>
         <hr
@@ -60,9 +63,10 @@ import EcPopover from '../ec-popover';
 import EcClosePopover from '../../directives/ec-close-popover';
 import EcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
+import EcBtn from '../ec-btn';
 
 export default {
-  components: { EcPopover, EcIcon },
+  components: { EcPopover, EcIcon, EcBtn },
   directives: { EcClosePopover, EcTooltip },
   props: {
     items: {
@@ -74,61 +78,78 @@ export default {
       default: () => ({ offset: 10, placement: 'bottom-start' }),
     },
   },
+  methods: {
+    componentTag(item) {
+      if (item.href) {
+        return 'a';
+      }
+      return 'button';
+    },
+    getDownloadText(item) {
+      const hasHrefAndDowload = !!item.href && !!item.download;
+      if (hasHrefAndDowload) {
+        return item.download;
+      }
+      if (item.href) {
+        return '';
+      }
+      return null;
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/index';
-
+<style>
 .ec-inline-actions {
-  margin: 0;
-  padding: 0;
+  @apply tw-m-0;
+  @apply tw-p-0;
+
   min-width: 160px;
   max-width: 320px;
 
   &__item {
-    list-style: none;
-    width: 100%;
+    @apply tw-list-none;
+    @apply tw-w-full;
   }
 
   &__button {
-    text-align: left;
-    width: 100%;
-    background: $white;
-    color: $level-3-body-and-headings;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
+    @apply tw-text-left;
+    @apply tw-w-full;
+    @apply tw-bg-gray-8;
+    @apply tw-text-gray-3;
+    @apply tw-border-none;
+    @apply tw-btn-text;
+    @apply tw-cursor-pointer;
+    @apply tw-py-8 tw-px-16;
+    @apply tw-flex tw-items-center;
 
     &:hover {
-      background: $level-7-backgrounds;
+      @apply tw-bg-gray-7;
+      @apply tw-no-underline;
     }
 
     &--disabled {
-      color: $level-6-disabled-lines;
-      cursor: default;
+      @apply tw-text-gray-6;
+      @apply tw-cursor-auto;
 
       &:hover {
-        background: $white;
+        @apply tw-bg-gray-8;
       }
     }
   }
 
   &__delimiter {
-    margin: 0;
-    border: 0;
-    border-top: 1px solid $level-6-disabled-lines;
+    @apply tw-border-none;
+    @apply tw-m-0;
+    @apply tw-border-t tw-border-solid tw-border-gray-6;
   }
 
   &__icon {
-    margin-right: 8px;
-    flex-shrink: 0;
+    @apply tw-mr-8;
+    @apply tw-flex-shrink-0;
 
     &--no-type {
-      fill: currentColor;
+      @apply tw-fill-current;
     }
   }
 }
