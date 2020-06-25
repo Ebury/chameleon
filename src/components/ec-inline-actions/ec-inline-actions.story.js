@@ -17,7 +17,7 @@ stories.add('basic', () => ({
             icon: 'simple-trade-finance',
             tooltip: 'Random tooltip text',
             href: '/example.jpg',
-            download: 'component.jpg',
+            download: 'example.jpg',
           },
         ],
         [

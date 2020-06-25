@@ -63,10 +63,9 @@ import EcPopover from '../ec-popover';
 import EcClosePopover from '../../directives/ec-close-popover';
 import EcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
-import EcBtn from '../ec-btn';
 
 export default {
-  components: { EcPopover, EcIcon, EcBtn },
+  components: { EcPopover, EcIcon },
   directives: { EcClosePopover, EcTooltip },
   props: {
     items: {
