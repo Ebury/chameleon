@@ -18,6 +18,7 @@ stories.add('basic', () => ({
             tooltip: 'Random tooltip text',
             href: '/example.jpg',
             download: 'example.jpg',
+            disabled: true,
           },
         ],
         [
@@ -45,7 +46,7 @@ stories.add('basic', () => ({
   template: `
   <div style="display: flex; height: 100vh">
     <div style="margin: auto">
-      <ec-inline-actions :items="items">
+      <ec-inline-actions :items="items" :popoverOptions="{ open: true }">
         <ec-icon name="simple-more" :size="24" />
         <template v-slot:item-reject="{ item }">This is a custom {{ item.text }}</template>
       </ec-inline-actions>

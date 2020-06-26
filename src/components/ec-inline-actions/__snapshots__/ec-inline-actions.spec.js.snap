@@ -41,6 +41,47 @@ exports[`EcInlineActions should render properly the item with the download attr 
 </ec-popover-stub>
 `;
 
+exports[`EcInlineActions should render properly the item with the download attr empty 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
+>
+   
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
+    <ul
+      data-test="ec-inline-actions__list"
+    >
+      <li
+        class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+      >
+        <a
+          class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
+          download=""
+          href="random"
+        >
+          <!---->
+           
+          <span>
+            test
+          </span>
+        </a>
+      </li>
+    </ul>
+     
+    <!---->
+  </div>
+</ec-popover-stub>
+`;
+
 exports[`EcInlineActions should render properly when an item was given 1`] = `
 <ec-popover-stub
   level=""
@@ -80,6 +121,45 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
 </ec-popover-stub>
 `;
 
+exports[`EcInlineActions should render properly with out the disabled href and download attrs 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
+>
+   
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
+    <ul
+      data-test="ec-inline-actions__list"
+    >
+      <li
+        class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+      >
+        <a
+          class="ec-inline-actions__button ec-inline-actions__button--disabled"
+          data-test="ec-inline-actions__button"
+        >
+          <!---->
+           
+          <span>
+            test
+          </span>
+        </a>
+      </li>
+    </ul>
+     
+    <!---->
+  </div>
+</ec-popover-stub>
+`;
+
 exports[`EcInlineActions should render properly with the anchor when the item have a href 1`] = `
 <ec-popover-stub
   level=""
@@ -104,7 +184,6 @@ exports[`EcInlineActions should render properly with the anchor when the item ha
         <a
           class="ec-inline-actions__button"
           data-test="ec-inline-actions__button"
-          download=""
           href="random"
         >
           <!---->

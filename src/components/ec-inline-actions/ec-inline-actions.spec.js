@@ -62,6 +62,43 @@ describe('EcInlineActions', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render properly the item with the download attr empty', () => {
+    const wrapper = shallowMount(EcInlineActions,
+      {
+        propsData: {
+          items: [
+            [
+              {
+                text: 'test',
+                href: 'random',
+                download: '',
+              },
+            ],
+          ],
+        },
+      });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render properly with out the disabled href and download attrs', () => {
+    const wrapper = shallowMount(EcInlineActions,
+      {
+        propsData: {
+          items: [
+            [
+              {
+                text: 'test',
+                href: 'random',
+                download: '',
+                disabled: true,
+              },
+            ],
+          ],
+        },
+      });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render the item disabled when an item was given disabled', () => {
     const wrapper = shallowMount(EcInlineActions,
       {
@@ -75,7 +112,7 @@ describe('EcInlineActions', () => {
           ],
         },
       });
-    expect(wrapper.find('.ec-inline-actions__button').attributes('disabled')).toBe('disabled');
+    expect(wrapper.findByDataTest('ec-inline-actions__button').attributes('disabled')).toBe('disabled');
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -96,7 +133,7 @@ describe('EcInlineActions', () => {
         },
       });
 
-    expect(wrapper.find('.ec-inline-actions__delimiter').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-inline-actions__delimiter').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -133,8 +170,8 @@ describe('EcInlineActions', () => {
         },
       });
     expect(mockCallBack).toHaveBeenCalledTimes(0);
-    expect(wrapper.find('.ec-inline-actions__button').exists()).toBe(true);
-    wrapper.find('.ec-inline-actions__button').trigger('click');
+    expect(wrapper.findByDataTest('ec-inline-actions__button').exists()).toBe(true);
+    wrapper.findByDataTest('ec-inline-actions__button').trigger('click');
     expect(mockCallBack).toHaveBeenCalledTimes(1);
   });
 
@@ -153,8 +190,8 @@ describe('EcInlineActions', () => {
           },
         });
 
-      expect(wrapper.find('.ec-inline-actions__button').exists()).toBe(true);
-      wrapper.find('.ec-inline-actions__button').trigger('click');
+      expect(wrapper.findByDataTest('ec-inline-actions__button').exists()).toBe(true);
+      wrapper.findByDataTest('ec-inline-actions__button').trigger('click');
       expect(errorSpy).not.toHaveBeenCalled();
     });
   });

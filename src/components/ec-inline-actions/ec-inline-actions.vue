@@ -1,5 +1,5 @@
 <template>
-  <ec-popover v-bind="popoverOptions">
+  <ec-popover v-bind="getPopoverOptions">
     <slot />
     <div
       slot="popover"
@@ -23,10 +23,12 @@
               v-ec-close-popover="!item.disabled"
               class="ec-inline-actions__button"
               data-test="ec-inline-actions__button"
-              :class="item.disabled ? 'ec-inline-actions__button--disabled' : ''"
-              :disabled="item.disabled"
-              :href="!!item.href ? item.href : null"
-              :download="getDownloadText(item)"
+              :class="{
+                'ec-inline-actions__button--disabled' : item.disabled
+              }"
+              :disabled="getDisabledAttr(item)"
+              :href="getHrefAttr(item)"
+              :download="getDownloadAttr(item)"
               @click="item.action && item.action()"
             >
               <slot
@@ -74,7 +76,15 @@ export default {
     },
     popoverOptions: {
       type: Object,
-      default: () => ({ offset: 10, placement: 'bottom-start' }),
+    },
+  },
+  computed: {
+    getPopoverOptions() {
+      return {
+        offset: 10,
+        placement: 'bottom-start',
+        ...this.popoverOptions,
+      };
     },
   },
   methods: {
@@ -84,15 +94,23 @@ export default {
       }
       return 'button';
     },
-    getDownloadText(item) {
-      const hasHrefAndDowload = !!item.href && !!item.download;
-      if (hasHrefAndDowload) {
+    getDownloadAttr(item) {
+      if (item.disabled) {
+        return null;
+      }
+      if (!!item.href && !!item.download) {
         return item.download;
       }
-      if (item.href) {
+      if (!!item.href && item.download === '') {
         return '';
       }
       return null;
+    },
+    getHrefAttr(item) {
+      return !!item.href && !item.disabled ? item.href : null;
+    },
+    getDisabledAttr(item) {
+      return !item.href ? item.disabled : null;
     },
   },
 };
@@ -112,12 +130,10 @@ export default {
   }
 
   &__button {
-    @apply tw-text-left;
+    @apply tw-text-left tw-text-gray-3 tw-btn-text;
     @apply tw-w-full;
     @apply tw-bg-gray-8;
-    @apply tw-text-gray-3;
     @apply tw-border-none;
-    @apply tw-btn-text;
     @apply tw-cursor-pointer;
     @apply tw-py-8 tw-px-16;
     @apply tw-flex tw-items-center;
