@@ -35,10 +35,10 @@ describe('EcAmountInput', () => {
 
   it('should format the value and emit the event to change the v-model on the parent', async () => {
     const wrapper = mountAmountInput();
-    wrapper.find('input').setValue(222);
+    wrapper.findByDataTest('ec-amount-input').setValue(222);
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('222');
-    wrapper.find('input').setValue(1111.11);
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('222');
+    wrapper.findByDataTest('ec-amount-input').setValue(1111.11);
     await wrapper.vm.$nextTick();
     expect(wrapper.emitted('value-change').length).toEqual(2);
   });
@@ -57,7 +57,7 @@ describe('EcAmountInput', () => {
 
     wrapper.setData({ valueAmount: 1111 });
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('1,111');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111');
   });
 
   it('should format the v-model when the isMasked is given', async () => {
@@ -72,9 +72,9 @@ describe('EcAmountInput', () => {
         },
       },
     );
-    wrapper.find('input').setValue(1111);
+    wrapper.findByDataTest('ec-amount-input').setValue(1111);
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('1,111');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111');
     expect(wrapper.vm.valueAmount).toBe('1,111');
   });
 
@@ -90,19 +90,19 @@ describe('EcAmountInput', () => {
         },
       },
     );
-    wrapper.find('input').setValue(1111);
+    wrapper.findByDataTest('ec-amount-input').setValue(1111);
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('1,111');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111');
     expect(wrapper.vm.valueAmount).toBe('1,111');
 
     wrapper.setData({ isMasked: false });
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('1,111');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111');
     expect(wrapper.vm.valueAmount).toBe(1111);
 
     wrapper.setData({ isMasked: true });
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('1,111');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111');
     expect(wrapper.vm.valueAmount).toBe('1,111');
   });
 
@@ -118,12 +118,12 @@ describe('EcAmountInput', () => {
         },
       },
     );
-    wrapper.find('input').setValue('1111,11');
+    wrapper.findByDataTest('ec-amount-input').setValue('1111,11');
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('1.111,11');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1.111,11');
     wrapper.setData({ locale: 'en' });
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('1,111.11');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111.11');
   });
 
   it('should format the number for currency without decimals', async () => {
@@ -136,10 +136,10 @@ describe('EcAmountInput', () => {
         },
       },
     );
-    expect(wrapper.find('input').element.value).toBe('');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('');
     wrapper.setData({ valueAmount: '1111.11' });
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('1,111');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111');
   });
 
   it('should remove existing decimals if currency changes to one without decimals', async () => {
@@ -156,18 +156,18 @@ describe('EcAmountInput', () => {
     wrapper.setData({ valueAmount: 1111.11 });
     await wrapper.vm.$nextTick();
     expect(wrapper.vm.valueAmount).toBe(1111.11);
-    expect(wrapper.find('input').element.value).toBe('1,111.11');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111.11');
     wrapper.setData({ currency: 'JPY' });
     await wrapper.vm.$nextTick();
     expect(wrapper.vm.valueAmount).toBe(1111);
-    expect(wrapper.find('input').element.value).toBe('1,111');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111');
   });
 
   it('should allow typing only a negative sign into input', async () => {
     const wrapper = mountAmountInput();
-    wrapper.find('input').setValue('-');
+    wrapper.findByDataTest('ec-amount-input').setValue('-');
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('-');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('-');
   });
 
   it('should allow typing only a negative sign into input when there is v-model', async () => {
@@ -181,9 +181,9 @@ describe('EcAmountInput', () => {
       },
     );
 
-    wrapper.find('input').setValue('-');
+    wrapper.findByDataTest('ec-amount-input').setValue('-');
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('-');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('-');
     expect(wrapper.vm.valueAmount).toBeNaN();
   });
 
@@ -198,17 +198,17 @@ describe('EcAmountInput', () => {
       },
     );
 
-    expect(wrapper.find('input').element.value).toBe('');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('');
     expect(wrapper.vm.valueAmount).toBe(null);
 
-    wrapper.find('input').setValue('2.11');
+    wrapper.findByDataTest('ec-amount-input').setValue('2.11');
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('2.11');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('2.11');
     expect(wrapper.vm.valueAmount).toBe(2.11);
 
-    wrapper.find('input').setValue('');
+    wrapper.findByDataTest('ec-amount-input').setValue('');
     await wrapper.vm.$nextTick();
-    expect(wrapper.find('input').element.value).toBe('');
+    expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('');
     expect(wrapper.vm.valueAmount).toBe(null);
   });
 });
