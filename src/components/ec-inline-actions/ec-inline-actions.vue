@@ -1,5 +1,5 @@
 <template>
-  <ec-popover v-bind="popoverOptions">
+  <ec-popover v-bind="getPopoverOptions">
     <slot />
     <div
       slot="popover"
@@ -16,14 +16,19 @@
             :key="item.text"
             v-ec-tooltip.left="item.tooltip"
             class="ec-inline-actions__item"
-            :data-test="`ec-inline-actions__item ec-inline-actions__item-${index}${indexList}`"
+            :data-test="`ec-inline-actions__item ec-inline-actions__item--${index}-${indexList}`"
           >
-            <button
+            <component
+              :is="componentTag(item)"
               v-ec-close-popover="!item.disabled"
               class="ec-inline-actions__button"
               data-test="ec-inline-actions__button"
-              :class="item.disabled ? 'ec-inline-actions__button--disabled' : ''"
-              :disabled="item.disabled"
+              :class="{
+                'ec-inline-actions__button--disabled' : item.disabled
+              }"
+              :disabled="getDisabledAttr(item)"
+              :href="getHrefAttr(item)"
+              :download="getDownloadAttr(item)"
               @click="item.action && item.action()"
             >
               <slot
@@ -41,7 +46,7 @@
                 />
                 <span>{{ item.text }}</span>
               </slot>
-            </button>
+            </component>
           </li>
         </ul>
         <hr
@@ -71,64 +76,95 @@ export default {
     },
     popoverOptions: {
       type: Object,
-      default: () => ({ offset: 10, placement: 'bottom-start' }),
+    },
+  },
+  computed: {
+    getPopoverOptions() {
+      return {
+        offset: 10,
+        placement: 'bottom-start',
+        ...this.popoverOptions,
+      };
+    },
+  },
+  methods: {
+    componentTag(item) {
+      if (item.href) {
+        return 'a';
+      }
+      return 'button';
+    },
+    getDownloadAttr(item) {
+      if (item.disabled) {
+        return null;
+      }
+      if (!!item.href && !!item.download) {
+        return item.download;
+      }
+      if (!!item.href && item.download === '') {
+        return '';
+      }
+      return null;
+    },
+    getHrefAttr(item) {
+      return !!item.href && !item.disabled ? item.href : null;
+    },
+    getDisabledAttr(item) {
+      return !item.href ? item.disabled : null;
     },
   },
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/index';
-
+<style>
 .ec-inline-actions {
-  margin: 0;
-  padding: 0;
+  @apply tw-m-0;
+  @apply tw-p-0;
+
   min-width: 160px;
   max-width: 320px;
 
   &__item {
-    list-style: none;
-    width: 100%;
+    @apply tw-list-none;
+    @apply tw-w-full;
   }
 
   &__button {
-    text-align: left;
-    width: 100%;
-    background: $white;
-    color: $level-3-body-and-headings;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
+    @apply tw-text-left tw-text-gray-3 tw-btn-text;
+    @apply tw-w-full;
+    @apply tw-bg-gray-8;
+    @apply tw-border-none;
+    @apply tw-cursor-pointer;
+    @apply tw-py-8 tw-px-16;
+    @apply tw-flex tw-items-center;
 
     &:hover {
-      background: $level-7-backgrounds;
+      @apply tw-bg-gray-7;
+      @apply tw-no-underline;
     }
 
     &--disabled {
-      color: $level-6-disabled-lines;
-      cursor: default;
+      @apply tw-text-gray-6;
+      @apply tw-cursor-auto;
 
       &:hover {
-        background: $white;
+        @apply tw-bg-gray-8;
       }
     }
   }
 
   &__delimiter {
-    margin: 0;
-    border: 0;
-    border-top: 1px solid $level-6-disabled-lines;
+    @apply tw-border-none;
+    @apply tw-m-0;
+    @apply tw-border-t tw-border-solid tw-border-gray-6;
   }
 
   &__icon {
-    margin-right: 8px;
-    flex-shrink: 0;
+    @apply tw-mr-8;
+    @apply tw-flex-shrink-0;
 
     &--no-type {
-      fill: currentColor;
+      @apply tw-fill-current;
     }
   }
 }
