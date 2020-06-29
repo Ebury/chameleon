@@ -43,8 +43,8 @@ stories
       onChange: action('change'),
     },
     template: `
-      <div style="max-width: 600px; margin: 60px auto">
-        <ec-currency-input v-model="value" :currencies="currencies" v-bind="$props" @change="onChange" class="ec-mt--20 ec-mb--20" />
+      <div class="tw-my-64 tw-mx-auto" style="max-width: 600px;">
+        <ec-currency-input v-model="value" :currencies="currencies" v-bind="$props" @change="onChange" class="tw-mt-20 tw-mb-20" />
         Value Object: {{ value }}
       </div>
     `,
