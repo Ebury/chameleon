@@ -44,7 +44,7 @@ stories.add('basic', () => ({
     },
   },
   template: `
-  <div class="tw-flex tw-max-h-screen">
+  <div class="tw-flex tw-h-screen">
     <div class="tw-m-auto">
       <ec-inline-actions :items="items" :popoverOptions="{ open: true }">
         <ec-icon name="simple-more" :size="24" />
