@@ -44,8 +44,8 @@ stories.add('basic', () => ({
     },
   },
   template: `
-  <div style="display: flex; height: 100vh">
-    <div style="margin: auto">
+  <div class="tw-flex tw-max-h-screen">
+    <div class="tw-m-auto">
       <ec-inline-actions :items="items" :popoverOptions="{ open: true }">
         <ec-icon name="simple-more" :size="24" />
         <template v-slot:item-reject="{ item }">This is a custom {{ item.text }}</template>
