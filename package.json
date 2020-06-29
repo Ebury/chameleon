@@ -80,7 +80,7 @@
     "postcss-preset-env": "6.7.0",
     "sass": "1.26.8",
     "sass-loader": "8.0.2",
-    "snapshot-diff": "0.8.0",
+    "snapshot-diff": "0.8.1",
     "storybook-vue-router": "1.0.7",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
