@@ -195,7 +195,7 @@ export default {
   }
 
   &__currencies {
-    width: var(--currencies-width);
+    width: var(--ec-currency-input-currencies-width);
 
     @apply tw--mr-1;
     @apply tw-flex-shrink-0;
@@ -210,7 +210,7 @@ export default {
       @apply tw-rounded-r-none;
       @apply tw-bg-gray-6;
 
-      max-width: var(--currencies-width);
+      max-width: var(--ec-currency-input-currencies-width);
     }
 
     &--is-disabled-and-has-error {
