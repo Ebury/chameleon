@@ -149,122 +149,100 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/index';
-@import '../../scss/tools/index';
-
-$ec-input-field-text-color: $level-3-body-and-headings !default;
-$ec-input-field-primary-color: $level-4-tech-blue !default;
-$ec-input-field-border-color: $level-6-disabled-lines !default;
-$ec-input-field-note-color: $level-5-placeholders !default;
-$ec-input-field-background-disabled: $level-7-backgrounds !default;
-$ec-input-field-icon-area-size: 42px !default;
-$ec-input-field-icon-color: $ec-input-field-text-color !default;
-$ec-input-field-icon-disabled-color: $level-6-disabled-lines !default;
-$ec-input-field-invalid-color: $color-error !default;
+<style>
+:root {
+  --ec-input-field-icon-area-size: 42px;
+}
 
 .ec-input-field {
-  width: 100%;
-  position: relative;
+  @apply tw-w-full;
+  @apply tw-relative;
 
   &__input {
-    @include body-text;
-    @include shape-border-radius;
+    @apply tw-body-text tw-text-gray-3;
+    @apply tw-rounded;
+    @apply tw-py-8 tw-px-12;
+    @apply tw-border tw-border-solid tw-border-gray-6;
+    @apply tw-max-w-full;
 
-    color: $ec-input-field-text-color;
-    padding: 8px 12px;
-    border: 1px solid $ec-input-field-border-color;
     width: inherit;
-    max-width: 100%;
 
     &--has-error {
-      border: 1px solid $ec-input-field-invalid-color;
+      @apply tw-border tw-border-solid tw-border-error;
 
       &:hover,
       &:focus {
-        border: 1px solid $ec-input-field-invalid-color;
+        @apply tw-border tw-border-solid tw-border-error;
       }
     }
 
     &--is-in-group-left {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+      @apply tw-rounded-l-none;
     }
 
     &--is-in-group-right {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      @apply tw-rounded-r-none;
     }
 
     &--has-icon {
-      padding-right: $ec-input-field-icon-area-size;
+      padding-right: var(--ec-input-field-icon-area-size);
     }
 
     &:focus {
-      border: 1px solid $ec-input-field-primary-color;
-      outline: none;
+      @apply tw-border tw-border-solid tw-border-key-4;
+      @apply tw-outline-none;
     }
 
     &:disabled {
-      background: $ec-input-field-background-disabled;
+      @apply tw-bg-gray-7;
     }
 
     &:read-only,
     &[readonly] {
-      // :read-only is not supported by IE https://developer.mozilla.org/en-US/docs/Web/CSS/:read-only
-      @include ellipsis;
+      /* :read-only is not supported by IE https://developer.mozilla.org/en-US/docs/Web/CSS/:read-only */
+      @apply tw-truncate;
     }
   }
 
   &__label {
-    display: flex;
-    flex-wrap: wrap;
+    @apply tw-flex tw-flex-wrap;
   }
 
   &__tooltip {
-    flex-shrink: 0;
-    align-self: center;
-    margin-left: 4px;
+    @apply tw-flex-shrink-0 tw-self-center;
+    @apply tw-ml-4;
   }
 
   &__label-text {
-    @include input-label;
-
-    display: flex;
-    flex-grow: 1;
-    margin-right: 8px;
+    @apply tw-flex tw-flex-grow;
+    @apply tw-input-label;
+    @apply tw-mr-8;
   }
 
   &__note {
-    @include caption-text;
+    @apply tw-caption-text;
   }
 
   &__error-text {
-    @include flags-text;
-
-    color: $ec-input-field-invalid-color;
+    @apply tw-flags-text tw-text-error;
   }
 
   &__icon-wrapper {
-    position: absolute;
-    right: 0;
-    display: inline-block;
-    height: $ec-input-field-icon-area-size;
-    width: $ec-input-field-icon-area-size;
-    color: $ec-input-field-icon-color;
-    fill: currentColor;
-    line-height: $ec-input-field-icon-area-size;
-    font-size: 0;
-    text-align: center;
+    @apply tw-absolute tw-right-0;
+    @apply tw-inline-block;
+    @apply tw-text-gray-3 tw-fill-current tw-text-center;
+
+    height: var(--ec-input-field-icon-area-size);
+    width: var(--ec-input-field-icon-area-size);
+    line-height: var(--ec-input-field-icon-area-size);
 
     &--is-disabled {
-      color: $ec-input-field-icon-disabled-color;
+      @apply tw-text-gray-6;
     }
   }
 
   &__icon {
-    display: inline-block;
-    vertical-align: middle;
+    @apply tw-inline-block tw-align-middle;
   }
 }
 </style>
