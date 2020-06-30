@@ -2,6 +2,7 @@
   <div
     ref="popperWidthReference"
     class="ec-dropdown-search"
+    data-test="ec-dropdown-search"
   >
     <ec-popover
       ref="popover"

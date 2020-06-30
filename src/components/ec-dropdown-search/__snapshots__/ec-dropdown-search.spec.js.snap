@@ -155,7 +155,7 @@ exports[`EcDropdownSearch should merge given popoverOptions 1`] = `
 - First value
 + Second value
 
-@@ -3,12 +3,12 @@
+@@ -4,12 +4,12 @@
   >
     <ecpopover-stub
       class=\\"ec-dropdown-search__trigger\\"
@@ -177,7 +177,7 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -41,12 +41,12 @@
+@@ -42,12 +42,12 @@
           <!---->
            
           <li
@@ -203,6 +203,7 @@ exports[`EcDropdownSearch should not select disabled item 2`] = `undefined`;
 exports[`EcDropdownSearch should not show the items when the loading is set to true 1`] = `
 <div
   class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
@@ -284,6 +285,7 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
 exports[`EcDropdownSearch should pass information whether an item is selected to the item slot 1`] = `
 <div
   class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
@@ -447,6 +449,7 @@ exports[`EcDropdownSearch should render all given items 1`] = `
 exports[`EcDropdownSearch should render as expected 1`] = `
 <div
   class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
@@ -503,6 +506,7 @@ exports[`EcDropdownSearch should render as expected 1`] = `
 exports[`EcDropdownSearch should render given cta slot 1`] = `
 <div
   class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
@@ -596,6 +600,7 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
 exports[`EcDropdownSearch should render given default slot 1`] = `
 <div
   class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
@@ -657,6 +662,7 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
 exports[`EcDropdownSearch should render given item slot 1`] = `
 <div
   class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"
@@ -768,6 +774,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
 exports[`EcDropdownSearch should render given items slot 1`] = `
 <div
   class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
 >
   <ecpopover-stub
     class="ec-dropdown-search__trigger"

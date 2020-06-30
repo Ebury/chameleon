@@ -18,11 +18,40 @@ const items = [
   { text: 'Item 7' },
 ];
 
-stories.add('basic', () => ({
+stories.add('all', () => ({
   components: { EcDropdownSearch, EcIcon },
   data() {
     return {
       selectedItem: null,
+      list: [
+        {
+          title: 'Basic',
+          popoverOptions: { placement: 'bottom-end' },
+          style: {},
+          instructions: '',
+        },
+        {
+          title: 'In container with a dynamic width',
+          popoverOptions: { placement: 'bottom-end', boundariesElement: this.boundariesElement },
+          style: {
+            width: '300px',
+            overflow: 'auto',
+            resize: 'horizontal',
+            border: '1px solid #ccc',
+            backgroundColor: '#fafafa',
+          },
+          instructions: 'This is a block wrapper around the dropdown search. You can resize it and check how dropdown adapts.',
+          hasParagraph: true,
+        },
+        {
+          title: 'With custom item template',
+          popoverOptions: { placement: 'bottom-end', boundariesElement: this.boundariesElement },
+          style: {},
+          instructions: '',
+          hasParagraph: true,
+          hasCustomTemplate: true,
+        },
+      ],
     };
   },
   props: {
@@ -47,124 +76,48 @@ stories.add('basic', () => ({
     isLoading: {
       default: boolean('isLoading', false),
     },
-  },
-  methods: {
-    onItemSelected: action('Item selected'),
-  },
-  template: `
-    <div style="width: 100vw; height: 100vh;" class="ec-p--20">
-      <p v-if="selectedItem">Selected item: {{ selectedItem.text }}</p>
-      <p v-else>Selected item: None</p>
-      <ec-dropdown-search
-        v-bind="$props"
-        :popover-options="{ placement: 'bottom-end' }"
-        v-model="selectedItem"
-        @change="onItemSelected">
-        <a href="#" @click.prevent>
-          <span>Open</span>
-          <ec-icon name="simple-arrow-drop-down" :size="16" fill="currentColor" />
-        </a>
-      </ec-dropdown-search>
-    </div>
-  `,
-}));
-
-stories.add('in container with a dynamic width', () => ({
-  components: { EcDropdownSearch, EcIcon },
-  data() {
-    return {
-      selectedItem: null,
-    };
-  },
-  props: {
-    items: {
-      default: object('Items', items),
-    },
-    isSearchEnabled: {
-      default: boolean('isSearchEnabled', true),
+    boundariesElement: {
+      default: select('boundariesElement', ['viewport', 'scrollParent'], 'viewport'),
     },
     paragraphText: {
       default: text('paragraphText', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.'),
     },
-    boundariesElement: {
-      default: select('boundariesElement', ['viewport', 'scrollParent'], 'viewport'),
-    },
-    maxVisibleItems: {
-      default: number('maxVisibleItems', 3),
-    },
   },
   methods: {
     onItemSelected: action('Item selected'),
   },
   template: `
-    <div style="width: 100vw; height: 100vh;" class="ec-p--20">
-      <p v-if="selectedItem">Selected item: {{ selectedItem.text }}</p>
-      <p v-else>Selected item: None</p>
-      <div style="width: 300px; overflow: auto; resize: horizontal; border: 1px solid #ccc; background-color: #fafafa;" class="ec-p--8">
-        <p class="ec-mb--16"><strong>This is a block wrapper around the dropdown search. You can resize it and check how dropdown adapts.</strong></p>
-        <ec-dropdown-search
-          :items="items"
-          :popover-options="{ placement: 'bottom-end', boundariesElement }"
-          :is-search-enabled="isSearchEnabled"
-          :max-visible-items="maxVisibleItems"
-          v-model="selectedItem"
-          @change="onItemSelected">
-          <a href="#" @click.prevent>
-            <span>Open</span>
-            <ec-icon name="simple-arrow-drop-down" :size="16" fill="currentColor" />
-          </a>
-        </ec-dropdown-search>
-        <p class="ec-mt--16">{{ paragraphText }}</p>
+    <div class="tw-grid-container">
+      <div class="tw-grid">
+        <div class="tw-col-12" >
+          <p v-if="selectedItem">Selected item: {{ selectedItem.text }}</p>
+          <p v-else>Selected item: None</p>
+          <div v-for="(dropdownSearch, index) in list" :key="index" class="tw-my-20">
+            <h3>{{ dropdownSearch.title }}</h3>
+            <div :style="dropdownSearch.style">
+              <p class="tw-mb-8"><strong>{{dropdownSearch.instructions}}</strong></p>
+              <ec-dropdown-search
+                v-bind="$props"
+                :popover-options="dropdownSearch.popoverOptions"
+                :is-search-enabled="isSearchEnabled"
+                :max-visible-items="maxVisibleItems"
+                v-model="selectedItem"
+                @change="onItemSelected">
+                <a href="#" @click.prevent>
+                  <span>Open</span>
+                  <ec-icon name="simple-arrow-drop-down" :size="16" fill="currentColor" />
+                </a>
+                <template v-if="dropdownSearch.hasCustomTemplate" #item="{ item, index, isSelected }">
+                  <div>{{ index + 1 }}. {{ item.text }}</div>
+                  <strong>{{ item.disabledReason }}</strong>
+                  <div v-if="isSelected">This item is selected</div>
+                </template>
+              </ec-dropdown-search>
+              <p v-if="dropdownSearch.hasParagraph" class="tw-mt-16">{{ paragraphText }}</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  `,
-}));
-
-stories.add('with custom item template', () => ({
-  components: { EcDropdownSearch, EcIcon },
-  data() {
-    return {
-      selectedItem: null,
-    };
-  },
-  props: {
-    items: {
-      default: object('Items', items),
-    },
-    isSearchEnabled: {
-      default: boolean('isSearchEnabled', true),
-    },
-    paragraphText: {
-      default: text('paragraphText', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.'),
-    },
-    boundariesElement: {
-      default: select('boundariesElement', ['viewport', 'scrollParent'], 'viewport'),
-    },
-    maxVisibleItems: {
-      default: number('maxVisibleItems', 3),
-    },
-  },
-  template: `
-    <div style="width: 100vw; height: 100vh;" class="ec-p--20">
-      <p v-if="selectedItem">Selected item: {{ selectedItem.text }}</p>
-      <p v-else>Selected item: None</p>
-      <ec-dropdown-search
-        :items="items"
-        :popover-options="{ placement: 'bottom-end', boundariesElement }"
-        :is-search-enabled="isSearchEnabled"
-        :max-visible-items="maxVisibleItems"
-        v-model="selectedItem">
-        <a href="#" @click.prevent>
-          <span>Open</span>
-          <ec-icon name="simple-arrow-drop-down" :size="16" fill="currentColor" />
-        </a>
-        <template #item="{ item, index, isSelected }">
-          <div>{{ index + 1 }}. {{ item.text }}</div>
-          <strong>{{ item.disabledReason }}</strong>
-          <div v-if="isSelected">This item is selected</div>
-        </template>
-      </ec-dropdown-search>
-      <p class="ec-mt--16">{{ paragraphText }}</p>
     </div>
   `,
 }));
