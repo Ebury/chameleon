@@ -175,6 +175,7 @@ export default {
       this.$emit('amount-change', evt);
     },
     onCurrencyChange(evt) {
+      this.currenciesHasFocus = true;
       this.$emit('change', evt);
       this.$emit('currency-change', evt);
     },
