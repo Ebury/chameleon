@@ -94,7 +94,7 @@ describe('EcInputField', () => {
       },
     );
 
-    wrapper.find('input').trigger('click');
+    wrapper.findByDataTest('ec-input-field__input').trigger('click');
     expect(event).toHaveBeenCalledTimes(1);
   });
 
@@ -109,9 +109,9 @@ describe('EcInputField', () => {
       },
     );
 
-    expect(wrapper.find('input').element.value).toBe('');
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
     wrapper.setData({ text: 'some text' });
-    expect(wrapper.find('input').element.value).toBe('some text');
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('some text');
   });
 
   it('should emit the value when you write on the input', () => {
@@ -125,10 +125,10 @@ describe('EcInputField', () => {
       },
     );
 
-    expect(wrapper.find('input').element.value).toBe('');
-    wrapper.find('input').setValue('some text');
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
+    wrapper.findByDataTest('ec-input-field__input').setValue('some text');
     expect(wrapper.vm.text).toBe('some text');
-    expect(wrapper.find('input').element.value).toBe('some text');
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('some text');
   });
 
   it('should render given icon', () => {

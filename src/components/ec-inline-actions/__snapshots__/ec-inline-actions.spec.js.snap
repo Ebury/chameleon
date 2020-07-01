@@ -1,5 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcInlineActions should render properly the item with the download attr 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
+>
+   
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
+    <ul
+      data-test="ec-inline-actions__list"
+    >
+      <li
+        class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+      >
+        <a
+          class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
+          download="random.jpg"
+          href="random"
+        >
+          <!---->
+           
+          <span>
+            test
+          </span>
+        </a>
+      </li>
+    </ul>
+     
+    <!---->
+  </div>
+</ec-popover-stub>
+`;
+
+exports[`EcInlineActions should render properly the item with the download attr empty 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
+>
+   
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
+    <ul
+      data-test="ec-inline-actions__list"
+    >
+      <li
+        class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+      >
+        <a
+          class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
+          download=""
+          href="random"
+        >
+          <!---->
+           
+          <span>
+            test
+          </span>
+        </a>
+      </li>
+    </ul>
+     
+    <!---->
+  </div>
+</ec-popover-stub>
+`;
+
 exports[`EcInlineActions should render properly when an item was given 1`] = `
 <ec-popover-stub
   level=""
@@ -19,7 +101,7 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item-00"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
       >
         <button
           class="ec-inline-actions__button"
@@ -31,6 +113,85 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
             test
           </span>
         </button>
+      </li>
+    </ul>
+     
+    <!---->
+  </div>
+</ec-popover-stub>
+`;
+
+exports[`EcInlineActions should render properly with out the disabled href and download attrs 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
+>
+   
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
+    <ul
+      data-test="ec-inline-actions__list"
+    >
+      <li
+        class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+      >
+        <a
+          class="ec-inline-actions__button ec-inline-actions__button--disabled"
+          data-test="ec-inline-actions__button"
+        >
+          <!---->
+           
+          <span>
+            test
+          </span>
+        </a>
+      </li>
+    </ul>
+     
+    <!---->
+  </div>
+</ec-popover-stub>
+`;
+
+exports[`EcInlineActions should render properly with the anchor when the item have a href 1`] = `
+<ec-popover-stub
+  level=""
+  offset="10"
+  placement="bottom-start"
+  popoverarrowclass=""
+  popoverclass=""
+  popoverinnerclass=""
+>
+   
+  <div
+    class="ec-inline-actions"
+    data-test="ec-inline-actions"
+  >
+    <ul
+      data-test="ec-inline-actions__list"
+    >
+      <li
+        class="ec-inline-actions__item"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+      >
+        <a
+          class="ec-inline-actions__button"
+          data-test="ec-inline-actions__button"
+          href="random"
+        >
+          <!---->
+           
+          <span>
+            test
+          </span>
+        </a>
       </li>
     </ul>
      
@@ -58,7 +219,7 @@ exports[`EcInlineActions should render the item disabled when an item was given 
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item-00"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
       >
         <button
           class="ec-inline-actions__button ec-inline-actions__button--disabled"
@@ -98,7 +259,7 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item-00"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
       >
         <button
           class="ec-inline-actions__button"
@@ -143,7 +304,7 @@ exports[`EcInlineActions should render the item with default popover options 1`]
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item-00"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
       >
         <button
           class="ec-inline-actions__button"
@@ -187,7 +348,7 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item-00"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
       >
         <button
           class="ec-inline-actions__button"
@@ -231,7 +392,7 @@ exports[`EcInlineActions should render with one line break when a different arra
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item-00"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
       >
         <button
           class="ec-inline-actions__button"
@@ -255,7 +416,7 @@ exports[`EcInlineActions should render with one line break when a different arra
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item-10"
+        data-test="ec-inline-actions__item ec-inline-actions__item--1-0"
       >
         <button
           class="ec-inline-actions__button"
@@ -295,7 +456,7 @@ exports[`EcInlineActions should render with tooltip 1`] = `
       <li
         class="ec-inline-actions__item ec-has-tooltip"
         data-original-title="null"
-        data-test="ec-inline-actions__item ec-inline-actions__item-00"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
       >
         <button
           class="ec-inline-actions__button"
