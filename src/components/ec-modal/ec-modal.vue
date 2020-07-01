@@ -3,13 +3,14 @@
     <div
       v-if="showModal"
       class="ec-modal"
-      data-test="ec-modal"
+      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-modal` : 'ec-modal'"
       :style="zIndexStyle"
       @click.self="closeModal()"
     >
       <div
         v-ec-focus-trap="getFocusTrapOptions()"
         class="ec-modal__content"
+        data-test="ec-modal__content"
         :class="{ 'ec-modal--lg': large }"
       >
         <header
@@ -26,6 +27,7 @@
           >
             <ec-icon
               class="ec-modal__close-icon"
+              data-test="ec-modal__close-icon"
               name="simple-close"
               :size="24"
             />
@@ -47,6 +49,7 @@
           <div
             v-if="hasFooterLeftContent()"
             class="ec-modal__footer-left-content"
+            data-test="ec-modal__footer-left-content"
           >
             <slot name="footerLeftContent" />
           </div>
