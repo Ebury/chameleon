@@ -1,0 +1,13 @@
+@define-mixin ec-dropdown-search-item
+  $item-horizontal-padding: 8px,
+  $item-vertical-padding: 16px {
+  padding: $item-horizontal-padding $item-vertical-padding;
+}
+
+@define-mixin ec-dropdown-search-item-hover-effect $background-color, $color {
+  &:hover {
+    cursor: pointer;
+    background-color: $background-color;
+    color: $color;
+  }
+}

@@ -11,3 +11,9 @@
 
   @mixin-content;
 }
+
+@define-mixin ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
