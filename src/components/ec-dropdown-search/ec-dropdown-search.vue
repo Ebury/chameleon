@@ -306,15 +306,6 @@ export default {
 @import '../../styles/tools/typography';
 
 :root {
-  --ec-dropdown-search-background-color: theme('colors.gray.8');
-  --ec-dropdown-search-background-color-hover: theme('colors.gray.7');
-  --ec-dropdown-search-background-color-selected: theme('colors.key.4');
-  --ec-dropdown-search-background-color-disabled: theme('colors.gray.8');
-  --ec-dropdown-search-color-hover: inherit;
-  --ec-dropdown-search-color-selected: theme('colors.gray.8');
-  --ec-dropdown-search-color-disabled: theme('colors.gray.6');
-  --ec-dropdown-search-border-color: theme('colors.gray.6');
-  --ec-dropdown-search-icon-color: currentColor;
   --ec-dropddown-search-icon-margin-right: 8px;
   --ec-dropdown-search-icon-size: 16px;
   --ec-dropdown-search-item-height: 40px;
@@ -327,10 +318,8 @@ export default {
   &__popover {
     @apply tw-shadow-level-1;
     @apply tw-body-text;
-
-    border: 1px solid var(--ec-dropdown-search-border-color);
-    background-color: var(--ec-dropdown-search-background-color);
-    color: var(--ec-dropdown-search-color);
+    @apply tw-bg-gray-8;
+    @apply tw-border-gray-6;
   }
 
   &__trigger {
@@ -353,36 +342,36 @@ export default {
 
   &__search-area,
   &__cta-area {
-    border-bottom: var(--ec-dropdown-search-item-delimiter-size) solid var(--ec-dropdown-search-border-color);
+    @apply tw-border-b tw-border-solid tw-border-gray-6;
   }
 
   &__cta-area {
-    /* stylelint-disable */
-    @mixin ec-dropdown-search-item-hover-effect var(--ec-dropdown-search-background-color-hover), var(--ec-dropdown-search-color-hover);
+    @mixin ec-dropdown-search-item-hover-effect;
   }
 
   &__search-icon {
     @apply tw-absolute;
+    @apply tw-fill-current;
 
     left: var(--ec-dropdown-search-item-vertical-padding);
     top: calc((var(--ec-dropdown-search-item-height) - var(--ec-dropdown-search-icon-size)) / 2);
     width: var(--ec-dropdown-search-icon-size);
     height: var(--ec-dropdown-search-icon-size);
-    fill: var(--ec-dropdown-search-icon-color);
   }
 
   &__search-input {
     @apply tw-body-text;
     @apply tw-outline-none;
     @apply tw-border-0;
+    @apply tw-px-16 tw-py-8;
 
-    width: 100%;
-    padding: var(--ec-dropdown-search-item-horizontal-padding) var(--ec-dropdown-search-item-vertical-padding);
     padding-left: calc(var(--ec-dropdown-search-item-vertical-padding) + var(--ec-dropdown-search-icon-size) + var(--ec-dropddown-search-icon-margin-right));
+    width: 100%;
   }
 
   &__no-items {
-    @mixin ellipsis;
+    @apply tw-truncate;
+
     @mixin ec-dropdown-search-item;
   }
 
@@ -396,28 +385,28 @@ export default {
   }
 
   &__item {
-    @mixin ellipsis;
+    @apply tw-truncate;
+
     @mixin ec-dropdown-search-item;
-    @mixin ec-dropdown-search-item-hover-effect var(--ec-dropdown-search-background-color-hover), var(--ec-dropdown-search-color-hover);
+    @mixin ec-dropdown-search-item-hover-effect;
 
     min-height: calc(var(--ec-dropdown-search-item-height) + var(--ec-dropdown-search-item-delimiter-size));
 
     & + & {
-      border-top: var(--ec-dropdown-search-item-delimiter-size) solid var(--ec-dropdown-search-border-color);
+      @apply tw-border-t tw-border-solid tw-border-gray-6;
     }
 
     &--is-selected,
     &--is-selected:hover {
-      background-color: var(--ec-dropdown-search-background-color-selected);
-      color: var(--ec-dropdown-search-color-selected);
+      @apply tw-bg-key-4;
+      @apply tw-text-gray-8;
     }
 
     &--is-disabled,
     &--is-disabled:hover {
       @apply tw-cursor-default;
-
-      color: var(--ec-dropdown-search-color-disabled);
-      background-color: var(--ec-dropdown-search-background-color);
+      @apply tw-bg-gray-8;
+      @apply tw-text-gray-6;
     }
   }
 }
