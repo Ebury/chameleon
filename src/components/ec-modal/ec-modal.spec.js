@@ -69,8 +69,8 @@ describe('EcModal', () => {
       large: true,
     });
 
-    expect(wrapper.find('.ec-modal__content').classes('ec-modal--lg')).toBe(true);
-    expect(wrapper.find('.ec-modal__content').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__content').classes('ec-modal--lg')).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__content').element).toMatchSnapshot();
   });
 
   it('should have the style attribute z-index when the z-index props is given', () => {
@@ -117,7 +117,7 @@ describe('EcModal', () => {
       },
     });
 
-    expect(wrapper.find('.ec-modal__footer-left-content').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__footer-left-content').exists()).toBe(true);
     expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
@@ -132,7 +132,7 @@ describe('EcModal', () => {
     });
 
     expect(wrapper.findByDataTest('ec-modal__negative-btn').exists()).toBe(true);
-    expect(wrapper.find('.ec-loading__icon').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-loading__icon').exists()).toBe(false);
     expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
@@ -150,7 +150,7 @@ describe('EcModal', () => {
     });
 
     expect(wrapper.findByDataTest('ec-modal__negative-btn').exists()).toBe(true);
-    expect(wrapper.find('.ec-loading__icon').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-loading__icon').exists()).toBe(true);
     expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
@@ -183,7 +183,7 @@ describe('EcModal', () => {
     });
 
     expect(wrapper.findByDataTest('ec-modal__positive-btn').exists()).toBe(true);
-    expect(wrapper.find('.ec-loading__icon').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-loading__icon').exists()).toBe(false);
     expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
@@ -201,7 +201,7 @@ describe('EcModal', () => {
     });
 
     expect(wrapper.findByDataTest('ec-modal__positive-btn').exists()).toBe(true);
-    expect(wrapper.find('.ec-loading__icon').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-loading__icon').exists()).toBe(true);
     expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
