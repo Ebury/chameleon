@@ -1,4 +1,6 @@
 :root {
   --ec-body-max-width: 1260px;
   --ec-side-panel-max-width: 352px;
+  --ec-modal-sm-max-width: 680px;
+  --ec-modal-lg-max-width: 1100px;
 }

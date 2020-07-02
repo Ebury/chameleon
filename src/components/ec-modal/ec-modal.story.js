@@ -183,6 +183,8 @@ stories
           v-if="isLarge"
           :large = "isLarge"
           :isClosable="isClosable"
+          :is-loading="{ positive: isPositiveLoading, negative: isNegativeLoading }"
+          :category="{ positive: positiveButtonCategory || null, negative: negativeButtonCategory || null }"
           @negative = "rejected()"
           @positive = "accepted()"
           @close = "onClose()"
@@ -193,7 +195,7 @@ stories
           </template>
 
           <template #main>
-            <div>
+            <div class="tw-flex">
               <div>
                 <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
                 <p v-for="i in 20">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
