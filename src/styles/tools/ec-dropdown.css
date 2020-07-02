@@ -4,7 +4,8 @@
 
 @define-mixin ec-dropdown-search-item-hover-effect {
   &:hover {
-    cursor: pointer;
+    @apply tw-cursor-pointer;
+
     background-color: theme('colors.gray.7');
     color: inherit;
   }
