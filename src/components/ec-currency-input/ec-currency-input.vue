@@ -175,6 +175,7 @@ export default {
       this.$emit('amount-change', evt);
     },
     onCurrencyChange(evt) {
+      this.currenciesHasFocus = true;
       this.$emit('change', evt);
       this.$emit('currency-change', evt);
     },
@@ -186,70 +187,59 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/tools/index';
-@import '../../scss/settings/index';
-
-$ec-currency-input-invalid-color: $color-error !default;
-
+<style>
 .ec-currency-input {
-  z-index: 0; // When in currencies dropdown is focused gets a high z-index. We set the index here of the whole component to 0 so we eliminate the chance of competing with other components
+  z-index: 0; /* When in currencies dropdown is focused gets a high z-index. We set the index here of the whole component to 0 so we eliminate the chance of competing with other components */
 
   &__input-group {
-    display: flex;
-    flex-direction: row;
+    @apply tw-flex tw-flex-row;
   }
 
   &__currencies {
-    $currencies-width: 104px;
+    width: var(--ec-currency-input-currencies-width);
 
-    margin-right: -1px;
-    width: $currencies-width;
-    flex-shrink: 0;
+    @apply tw--mr-1;
+    @apply tw-flex-shrink-0;
 
     &--is-disabled {
-      @include shape-border-radius;
+      @apply tw-rounded;
+      @apply tw-w-auto;
+      @apply tw-flex-grow-0;
+      @apply tw-min-w-48;
+      @apply tw-py-8 tw-px-12;
+      @apply tw-border tw-border-solid tw-border-gray-6;
+      @apply tw-rounded-r-none;
+      @apply tw-bg-gray-6;
 
-      width: auto;
-      flex-grow: 0;
-      min-width: 48px;
-      max-width: $currencies-width;
-      padding: 8px 12px;
-      border: 1px solid $level-6-disabled-lines;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      background-color: $level-6-disabled-lines;
+      max-width: var(--ec-currency-input-currencies-width);
     }
 
     &--is-disabled-and-has-error {
-      border: 1px solid $ec-currency-input-invalid-color;
+      @apply tw-border tw-border-solid tw-border-error;
     }
   }
 
   &__currencies--is-focused {
-    z-index: $z-index-level-1;
+    @apply tw-z-level-1;
   }
 
   &__label {
-    display: flex;
-    flex-wrap: wrap;
+    @apply tw-flex tw-flex-wrap;
   }
 
   &__label-text {
-    @include input-label;
-
-    flex-grow: 1;
-    margin-right: 8px;
+    @apply tw-input-label;
+    @apply tw-flex-grow;
+    @apply tw-mr-8;
   }
 
   &__note {
-    @include caption-text;
+    @apply tw-caption-text;
   }
 
   &__error-text {
-    @include flags-text;
-
-    color: $ec-currency-input-invalid-color;
+    @apply tw-flags-text;
+    @apply tw-text-error;
   }
 }
 </style>
