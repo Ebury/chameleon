@@ -3,6 +3,7 @@
 exports[`EcModal should have the ec-modal--lg class 1`] = `
 <div
   class="ec-modal__content ec-modal--lg"
+  data-test="ec-modal__content"
 >
   <header
     class="ec-modal__header"
@@ -16,6 +17,7 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
     >
       <svg
         class="ec-modal__close-icon ec-icon"
+        data-test="ec-modal__close-icon"
         height="24"
         width="24"
       >
@@ -44,6 +46,7 @@ exports[`EcModal should have the style attribute z-index when the z-index props 
 >
   <div
     class="ec-modal__content"
+    data-test="ec-modal__content"
   >
     <header
       class="ec-modal__header"
@@ -57,6 +60,7 @@ exports[`EcModal should have the style attribute z-index when the z-index props 
       >
         <svg
           class="ec-modal__close-icon ec-icon"
+          data-test="ec-modal__close-icon"
           height="24"
           width="24"
         >
@@ -97,6 +101,7 @@ exports[`EcModal should render basic modal 1`] = `
 >
   <div
     class="ec-modal__content"
+    data-test="ec-modal__content"
   >
     <header
       class="ec-modal__header"
@@ -110,6 +115,7 @@ exports[`EcModal should render basic modal 1`] = `
       >
         <svg
           class="ec-modal__close-icon ec-icon"
+          data-test="ec-modal__close-icon"
           height="24"
           width="24"
         >
@@ -147,6 +153,7 @@ exports[`EcModal should render close button 1`] = `
   >
     <svg
       class="ec-modal__close-icon ec-icon"
+      data-test="ec-modal__close-icon"
       height="24"
       width="24"
     >
@@ -165,6 +172,7 @@ exports[`EcModal should render footer left section when slot is passed 1`] = `
 >
   <div
     class="ec-modal__footer-left-content"
+    data-test="ec-modal__footer-left-content"
   >
     <p>
       Need Help ?
@@ -455,6 +463,7 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
 >
   <div
     class="ec-modal__content"
+    data-test="ec-modal__content"
   >
     <header
       class="ec-modal__header"
@@ -468,6 +477,7 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
       >
         <svg
           class="ec-modal__close-icon ec-icon"
+          data-test="ec-modal__close-icon"
           height="24"
           width="24"
         >

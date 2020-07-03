@@ -3,13 +3,14 @@
     <div
       v-if="showModal"
       class="ec-modal"
-      data-test="ec-modal"
+      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-modal` : 'ec-modal'"
       :style="zIndexStyle"
       @click.self="closeModal()"
     >
       <div
         v-ec-focus-trap="getFocusTrapOptions()"
         class="ec-modal__content"
+        data-test="ec-modal__content"
         :class="{ 'ec-modal--lg': large }"
       >
         <header
@@ -26,6 +27,7 @@
           >
             <ec-icon
               class="ec-modal__close-icon"
+              data-test="ec-modal__close-icon"
               name="simple-close"
               :size="24"
             />
@@ -47,6 +49,7 @@
           <div
             v-if="hasFooterLeftContent()"
             class="ec-modal__footer-left-content"
+            data-test="ec-modal__footer-left-content"
           >
             <slot name="footerLeftContent" />
           </div>
@@ -222,151 +225,133 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/index';
-@import '../../scss/tools/index';
-
-$ec-modal-bg: rgba($level-2-doc-bodies-bg, 0.2) !default;
-$ec-modal-color: $level-3-body-and-headings !default;
-$ec-modal-content-bg: $white !default;
-$ec-modal-content-footer-bg: $level-7-backgrounds !default;
-$ec-modal-close-btn-fill: $level-4-interactive-elements !default;
-$ec-modal-close-btn-fill-hover: $level-4-tech-blue !default;
+<style>
+@import '../../styles/tools/scrollbars.css';
+@import '../../styles/tools/transitions.css';
 
 .ec-modal {
-  background: $ec-modal-bg;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  color: $ec-modal-color;
+  background: hsla(var(--ec-gray-color-level-2), 0.2);
 
-  @include z-index-modal;
+  @apply tw-w-screen;
+  @apply tw-h-screen;
+  @apply tw-fixed;
+  @apply tw-inset-0;
+  @apply tw-text-gray-3;
+  @apply tw-z-modal;
 
   &__content {
-    width: calc(100% - 24px);
-    max-width: 680px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    background: $ec-modal-content-bg;
+    width: calc(100% - theme('spacing.24'));
+    max-width: var(--ec-modal-sm-max-width);
+    max-height: calc(100% - theme('spacing.24'));
     transform: translate(-50%, -50%);
-    max-height: calc(100% - 24px);
-    overflow-y: auto;
 
-    @include box-shadow-level-2;
-    @include scrollbar;
-    @include shape-border-radius;
+    @apply tw-relative;
+    @apply tw-inset-1/2;
+    @apply tw-bg-gray-8;
+    @apply tw-overflow-y-auto;
+    @apply tw-shadow-level-2;
+    @apply tw-rounded;
 
-    @media screen and (min-height: 568px) {
-      display: flex;
-      flex-direction: column;
+    @mixin md-scrollbar;
+
+    @media screen and (min-height: theme('screens.sm')) {
+      @apply tw-flex tw-flex-col;
     }
 
-    @include media__from-1024 {
+    @screen lg {
       width: 60vw;
-      max-width: 700px;
       max-height: 80vh;
     }
 
-    @include media__from-1280 {
+    @screen xl {
       width: 50vw;
-      max-width: 700px;
-      max-height: 80vh;
     }
   }
 
   &__header {
-    flex-grow: 1;
-    display: flex;
-    padding: 24px;
-    align-items: center;
+    @apply tw-flex tw-flex-grow;
+    @apply tw-p-24;
+    @apply tw-items-center;
 
     .ec-modal--lg & {
-      margin-bottom: 24px;
+      @apply tw-mb-24;
 
-      @include media__from-1024 {
-        border-bottom: 1px solid $ec-modal-content-footer-bg;
+      @screen lg {
+        @apply tw-border-b tw-border-solid tw-border-gray-7;
       }
     }
   }
 
   &__main {
-    margin: 0 24px 24px 24px;
+    @apply tw-mt-0 tw-mb-24 tw-mx-24;
 
-    @media screen and (min-height: 640px) {
-      @include scrollbar;
+    @media screen and (min-height: theme('screens.sm')) {
+      @mixin md-scrollbar;
 
-      overflow-y: auto;
-      min-height: 120px;
-      display: flex;
-      flex-direction: column;
+      @apply tw-overflow-y-auto;
+      @apply tw-flex tw-flex-col;
     }
   }
 
   &__footer {
-    padding: 16px 12px;
-    background: $ec-modal-content-footer-bg;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+    @apply tw-py-16 tw-px-12;
+    @apply tw-bg-gray-7;
+    @apply tw-flex tw-flex-col-reverse tw-items-center;
 
-    @include media__from-1024 {
-      align-items: center;
-      flex-direction: row;
+    @screen lg {
+      @apply tw-flex-row;
     }
   }
 
   &__btn-loading {
-    margin: 12px;
+    @apply tw-m-12;
 
-    @include media__from-1024 {
-      width: auto;
+    @screen lg {
+      @apply tw-w-auto;
 
       &--right {
-        margin-left: auto;
+        @apply tw-ml-auto;
       }
     }
   }
 
   &__positive-btn,
   &__negative-btn {
-    width: 100%;
+    @apply tw-w-full;
   }
 
   &__close {
-    @include color-transition;
+    @mixin ec-text-color-transition;
 
-    margin-left: auto;
-    color: $ec-modal-close-btn-fill;
-    cursor: pointer;
+    @apply tw-ml-auto;
+    @apply tw-text-gray-4;
+    @apply tw-cursor-pointer;
 
     &:hover {
-      color: $ec-modal-close-btn-fill-hover;
+      @apply tw-text-key-4;
     }
   }
 
   &__close-icon {
-    fill: currentColor;
-    display: inline-block;
-    vertical-align: top;
+    @apply tw-fill-current;
+    @apply tw-inline-block;
+    @apply tw-align-top;
   }
 
   &__footer-left-content {
-    margin: 12px;
+    @apply tw-m-12;
   }
 
   &__fade {
-    @include fade-transition;
+    @mixin ec-fade-transition;
   }
 
   &--lg {
-    max-width: 100%;
+    @apply tw-max-w-full;
 
-    @include media__from-1024 {
+    @screen lg {
       width: 80vw;
-      max-width: 1100px;
+      max-width: var(--ec-modal-lg-max-width);
       max-height: 80vh;
     }
   }

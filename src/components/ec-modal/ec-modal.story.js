@@ -50,7 +50,7 @@ stories
 
         <template #main>
         <a @click.prevent.stop="firstModalAction()">Action first modal</a>
-          <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
         </template>
       </ec-modal>
 
@@ -65,7 +65,7 @@ stories
 
         <template #main>
           <a @click.prevent.stop="secondModalAction()">Action second modal</a>
-          <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
         </template>
       </ec-modal>
     </div>
@@ -156,18 +156,18 @@ stories
           </template>
 
           <template #main>
-            <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+            <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
             <p>Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
           </template>
 
           <template #footerLeftContent v-if="showFooterLeftContent">
-            <a href="#" @click.prevent style="display:inline-block;">
+            <a href="#" @click.prevent class="tw-inline-block">
               <span
-                style="display: inline-flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0; vertical-align:top;"
+                class="tw-inline-flex tw-flex-grow tw-items-center tw-cursor-pointer tw-align-top tw-fill-key-4 tw-text-key-4"
                 v-ec-tooltip="tooltipConfig"
               >
                 <ec-icon
-                  class="ec-mr--8"
+                  class="tw-mr-8"
                   name="simple-help"
                   :size="18"
                 />
@@ -183,6 +183,8 @@ stories
           v-if="isLarge"
           :large = "isLarge"
           :isClosable="isClosable"
+          :is-loading="{ positive: isPositiveLoading, negative: isNegativeLoading }"
+          :category="{ positive: positiveButtonCategory || null, negative: negativeButtonCategory || null }"
           @negative = "rejected()"
           @positive = "accepted()"
           @close = "onClose()"
@@ -193,27 +195,27 @@ stories
           </template>
 
           <template #main>
-            <div style="display:flex;flex-basis:1;">
+            <div class="tw-flex">
               <div>
-                <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+                <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
                 <p v-for="i in 20">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
               </div>
 
               <div>
-                <p class="ec-mt--0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+                <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
                 <p v-for="i in 20">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
               </div>
             </div>
           </template>
 
           <template #footerLeftContent v-if="showFooterLeftContent">
-            <a href="#" @click.prevent style="display:inline-block;">
+            <a href="#" @click.prevent class="tw-inline-block">
               <span
-                style="display: inline-flex;flex-grow-1;align-items:center;cursor:pointer;color: #00bef0;fill:#00bef0; vertical-align:top;"
+                class="tw-inline-flex tw-flex-grow tw-items-center tw-cursor-pointer tw-align-top tw-fill-key-4 tw-text-key-4"
                 v-ec-tooltip="tooltipConfig"
               >
                 <ec-icon
-                  class="ec-mr--8"
+                  class="tw-mr-8"
                   name="simple-help"
                   :size="18"
                 />
