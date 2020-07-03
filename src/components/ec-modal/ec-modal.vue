@@ -296,8 +296,7 @@ export default {
   &__footer {
     @apply tw-py-16 tw-px-12;
     @apply tw-bg-gray-7;
-    @apply tw-flex tw-flex-col-reverse;
-    @apply tw-items-center;
+    @apply tw-flex tw-flex-col-reverse tw-items-center;
 
     @screen lg {
       @apply tw-flex-row;
@@ -351,8 +350,7 @@ export default {
     @apply tw-max-w-full;
 
     @screen lg {
-      @apply tw-w-4/5;
-
+      width: 80vw;
       max-width: var(--ec-modal-lg-max-width);
       max-height: 80vh;
     }
