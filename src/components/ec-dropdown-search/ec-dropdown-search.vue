@@ -2,6 +2,7 @@
   <div
     ref="popperWidthReference"
     class="ec-dropdown-search"
+    data-test="ec-dropdown-search"
   >
     <ec-popover
       ref="popover"
@@ -300,125 +301,111 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/tools/index';
-@import '../../scss/tools/typography';
-@import '../../scss/settings/colors/index';
+<style>
+@import '../../styles/tools/ec-dropdown';
 
-$ec-dropdown-search-background-color: $white !default;
-$ec-dropdown-search-background-color-hover: $level-7-backgrounds !default;
-$ec-dropdown-search-background-color-selected: $level-4-tech-blue !default;
-$ec-dropdown-search-background-color-disabled: $ec-dropdown-search-background-color !default;
-$ec-dropdown-search-color: null !default;
-$ec-dropdown-search-color-hover: inherit !default;
-$ec-dropdown-search-color-selected: $white !default;
-$ec-dropdown-search-color-disabled: $level-6-disabled-lines !default;
-$ec-dropdown-search-border-color: $level-6-disabled-lines !default;
-$ec-dropdown-search-icon-color: currentColor !default;
-$ec-dropdown-search-icon-size: 16px !default;
-$ec-dropdown-search-item-height: 40px !default;
-$ec-dropdown-search-item-delimiter-size: 1px !default;
+:root {
+  --ec-dropddown-search-icon-margin-right: theme('margin.8');
+  --ec-dropdown-search-icon-size: theme('spacing.16');
+  --ec-dropdown-search-item-height: theme('spacing.40');
+  --ec-dropdown-search-item-delimiter-size: theme('spacing.1');
+  --ec-dropdown-search-item-horizontal-padding: theme('padding.8');
+  --ec-dropdown-search-item-vertical-padding: theme('padding.16');
+}
 
 .ec-dropdown-search {
-  $search-icon-margin-right: $ec-dropdown-search-item-horizontal-padding;
-
   &__popover {
-    @include box-shadow-level-1;
-    @include body-text;
-
-    border: 1px solid $ec-dropdown-search-border-color;
-    background-color: $ec-dropdown-search-background-color;
-    color: $ec-dropdown-search-color;
+    @apply tw-shadow-level-1;
+    @apply tw-body-text;
+    @apply tw-bg-gray-8;
+    @apply tw-border-gray-6;
   }
 
   &__trigger {
-    // this bit is not configurable in v-tooltip and it's very annoying to deal with
-    // for context:
-    // https://github.com/Akryum/v-tooltip/issues/160
-    // https://github.com/Akryum/v-tooltip/issues/363
-    //
-    // the issue is fixed in v3 alpha, we will remove this hack after updating
+    /* this bit is not configurable in v-tooltip and it's very annoying to deal with
+       for context:
+       https://github.com/Akryum/v-tooltip/issues/160
+       https://github.com/Akryum/v-tooltip/issues/363
+
+       the issue is fixed in v3 alpha, we will remove this hack after updating
+    */
     .trigger {
-      display: block !important;
+      @apply tw-block !important;
     }
   }
 
   &__search-area {
-    position: relative;
-    display: flex;
-    align-items: center;
+    @apply tw-relative;
+    @apply tw-flex tw-items-center;
   }
 
   &__search-area,
   &__cta-area {
-    border-bottom: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;
+    @apply tw-border-b tw-border-solid tw-border-gray-6;
   }
 
   &__cta-area {
-    @include ec-dropdown-search-item-hover-effect(
-      $background-color: $ec-dropdown-search-background-color-hover,
-      $color: $ec-dropdown-search-color-hover,
-    );
+    @mixin ec-dropdown-search-item-hover-effect;
   }
 
   &__search-icon {
-    position: absolute;
-    left: $ec-dropdown-search-item-vertical-padding;
-    top: ($ec-dropdown-search-item-height - $ec-dropdown-search-icon-size) / 2;
-    width: $ec-dropdown-search-icon-size;
-    height: $ec-dropdown-search-icon-size;
-    fill: $ec-dropdown-search-icon-color;
+    @apply tw-absolute;
+    @apply tw-fill-current;
+
+    left: var(--ec-dropdown-search-item-vertical-padding);
+    top: calc((var(--ec-dropdown-search-item-height) - var(--ec-dropdown-search-icon-size)) / 2);
+    width: var(--ec-dropdown-search-icon-size);
+    height: var(--ec-dropdown-search-icon-size);
   }
 
   &__search-input {
-    @include body-text;
+    @apply tw-body-text;
+    @apply tw-outline-none;
+    @apply tw-border-0;
+    @apply tw-px-16 tw-py-8;
+    @apply tw-w-full;
 
-    outline: 0;
-    width: 100%;
-    border: 0;
-    padding: $ec-dropdown-search-item-horizontal-padding $ec-dropdown-search-item-vertical-padding;
-    padding-left: $ec-dropdown-search-item-vertical-padding + $ec-dropdown-search-icon-size + $search-icon-margin-right;
+    padding-left: calc(var(--ec-dropdown-search-item-vertical-padding) + var(--ec-dropdown-search-icon-size) + var(--ec-dropddown-search-icon-margin-right));
   }
 
   &__no-items {
-    @include ellipsis;
-    @include ec-dropdown-search-item;
+    @apply tw-truncate;
+
+    @mixin ec-dropdown-search-item;
   }
 
   &__loading {
-    height: $ec-dropdown-search-item-height;
+    height: var(--ec-dropdown-search-item-height);
   }
 
   &__item-list {
-    overflow-y: auto;
-    position: relative;
+    @apply tw-overflow-y-auto;
+    @apply tw-relative;
   }
 
   &__item {
-    @include ellipsis;
-    @include ec-dropdown-search-item;
-    @include ec-dropdown-search-item-hover-effect(
-      $background-color: $ec-dropdown-search-background-color-hover,
-      $color: $ec-dropdown-search-color-hover,
-    );
+    @apply tw-truncate;
 
-    min-height: $ec-dropdown-search-item-height + $ec-dropdown-search-item-delimiter-size;
+    @mixin ec-dropdown-search-item;
+    @mixin ec-dropdown-search-item-hover-effect;
+
+    min-height: calc(var(--ec-dropdown-search-item-height) + var(--ec-dropdown-search-item-delimiter-size));
 
     & + & {
-      border-top: $ec-dropdown-search-item-delimiter-size solid $ec-dropdown-search-border-color;
+      @apply tw-border-t tw-border-solid tw-border-gray-6;
     }
 
     &--is-selected,
     &--is-selected:hover {
-      background-color: $ec-dropdown-search-background-color-selected;
-      color: $ec-dropdown-search-color-selected;
+      @apply tw-bg-key-4;
+      @apply tw-text-gray-8;
     }
 
     &--is-disabled,
     &--is-disabled:hover {
-      color: $ec-dropdown-search-color-disabled;
-      background-color: $ec-dropdown-search-background-color;
-      cursor: default;
+      @apply tw-cursor-default;
+      @apply tw-bg-gray-8;
+      @apply tw-text-gray-6;
     }
   }
 }
