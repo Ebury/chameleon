@@ -1,12 +1,12 @@
 @define-mixin ec-dropdown-search-item {
-  padding: 8px 16px;
+  @apply tw-py-8 tw-px-16;
 }
 
 @define-mixin ec-dropdown-search-item-hover-effect {
   &:hover {
     @apply tw-cursor-pointer;
+    @apply tw-bg-gray-7;
 
-    background-color: theme('colors.gray.7');
     color: inherit;
   }
 }
