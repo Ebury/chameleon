@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcTableFooter should render an empty row if no props are supplied 1`] = `
+exports[`EcTableFooter should render with footer slot 1`] = `
 <tfoot
   class="ec-table-footer"
 >
@@ -11,20 +11,16 @@ exports[`EcTableFooter should render an empty row if no props are supplied 1`] =
       <div
         class="ec-table-footer__contents"
       >
-        <div
-          class="ec-table-footer__details"
-        >
-          
-        </div>
-         
-        <!---->
+        <p>
+          Random text
+        </p>
       </div>
     </td>
   </tr>
 </tfoot>
 `;
 
-exports[`EcTableFooter should render with \`total items\` text if there are more total items supplied than items in view 1`] = `
+exports[`EcTableFooter should render without footer slot 1`] = `
 <tfoot
   class="ec-table-footer"
 >
@@ -34,148 +30,7 @@ exports[`EcTableFooter should render with \`total items\` text if there are more
     >
       <div
         class="ec-table-footer__contents"
-      >
-        <div
-          class="ec-table-footer__details"
-        >
-          Viewing 17 of 21 items.
-        </div>
-         
-        <!---->
-      </div>
-    </td>
-  </tr>
-</tfoot>
-`;
-
-exports[`EcTableFooter should render with singular text if supplied with 1 item and no total items 1`] = `
-<tfoot
-  class="ec-table-footer"
->
-  <tr>
-    <td
-      class="ec-table-footer__cell"
-    >
-      <div
-        class="ec-table-footer__contents"
-      >
-        <div
-          class="ec-table-footer__details"
-        >
-          1 item.
-        </div>
-         
-        <!---->
-      </div>
-    </td>
-  </tr>
-</tfoot>
-`;
-
-exports[`EcTableFooter should render with singular text if there is only 1 for total items 1`] = `
-<tfoot
-  class="ec-table-footer"
->
-  <tr>
-    <td
-      class="ec-table-footer__cell"
-    >
-      <div
-        class="ec-table-footer__contents"
-      >
-        <div
-          class="ec-table-footer__details"
-        >
-          1 item.
-        </div>
-         
-        <!---->
-      </div>
-    </td>
-  </tr>
-</tfoot>
-`;
-
-exports[`EcTableFooter should render with the icon of the tooltip if we pass the config 1`] = `
-<tfoot
-  class="ec-table-footer"
->
-  <tr>
-    <td
-      class="ec-table-footer__cell"
-    >
-      <div
-        class="ec-table-footer__contents"
-      >
-        <div
-          class="ec-table-footer__details"
-        >
-          
-        </div>
-         
-        <div
-          class="ec-table-footer__tooltip"
-        >
-          <svg
-            class="ec-table-footer__tooltip-icon ec-icon ec-has-tooltip"
-            data-original-title="null"
-            height="16"
-            width="16"
-          >
-            <use
-              xlink:href="#ec-simple-info"
-            />
-          </svg>
-        </div>
-      </div>
-    </td>
-  </tr>
-</tfoot>
-`;
-
-exports[`EcTableFooter should render with the plural text when supplied with more than 1 item and no total items 1`] = `
-<tfoot
-  class="ec-table-footer"
->
-  <tr>
-    <td
-      class="ec-table-footer__cell"
-    >
-      <div
-        class="ec-table-footer__contents"
-      >
-        <div
-          class="ec-table-footer__details"
-        >
-          2 items.
-        </div>
-         
-        <!---->
-      </div>
-    </td>
-  </tr>
-</tfoot>
-`;
-
-exports[`EcTableFooter should render without \`total items\` text if there are more items supplied than total items 1`] = `
-<tfoot
-  class="ec-table-footer"
->
-  <tr>
-    <td
-      class="ec-table-footer__cell"
-    >
-      <div
-        class="ec-table-footer__contents"
-      >
-        <div
-          class="ec-table-footer__details"
-        >
-          13 items.
-        </div>
-         
-        <!---->
-      </div>
+      />
     </td>
   </tr>
 </tfoot>
