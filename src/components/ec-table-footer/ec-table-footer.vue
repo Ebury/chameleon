@@ -6,18 +6,7 @@
         :colspan="colspan"
       >
         <div class="ec-table-footer__contents">
-          <div class="ec-table-footer__details">{{ viewSummaryText }}</div>
-          <div
-            v-if="tooltipConfig"
-            class="ec-table-footer__tooltip"
-          >
-            <ec-icon
-              v-ec-tooltip="tooltipConfig"
-              :size="16"
-              name="simple-info"
-              class="ec-table-footer__tooltip-icon"
-            />
-          </div>
+          <slot />
         </div>
       </td>
     </tr>
@@ -25,53 +14,10 @@
 </template>
 
 <script>
-import EcIcon from '../ec-icon';
-import EcTooltip from '../../directives/ec-tooltip';
-
 export default {
-  components: { EcIcon },
-  directives: { EcTooltip },
   props: {
-    itemsInView: {
-      type: Number,
-    },
-    totalItems: {
-      type: Number,
-    },
     colspan: {
       type: Number,
-    },
-    tooltipConfig: Object,
-  },
-  computed: {
-    itemsOutOfTotalText() {
-      /* istanbul ignore next: It's impossible to trigger this computed property from a test with any combination of itemsInView & totalItems being less than 1 */
-      const singularOrPluralItems = `item${this.totalItems > 1 ? 's' : ''}.`;
-
-      return `Viewing ${this.itemsInView} of ${this.totalItems} ${singularOrPluralItems}`;
-    },
-    itemsInViewText() {
-      const singularOrPluralItems = `item${this.itemsInView > 1 ? 's' : ''}.`;
-
-      return `${this.itemsInView} ${singularOrPluralItems}`;
-    },
-    viewSummaryText() {
-      if (this.itemsInView) {
-        if (
-          this.totalItems
-          && this.totalItems > this.itemsInView
-          && this.itemsOutOfTotalText
-        ) {
-          return this.itemsOutOfTotalText;
-        }
-
-        /* istanbul ignore else */
-        if (this.itemsInViewText) {
-          return this.itemsInViewText;
-        }
-      }
-
-      return '';
     },
   },
 };
@@ -96,24 +42,6 @@ export default {
   &__contents {
     display: flex;
     justify-content: space-between;
-  }
-
-  &__details {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-  }
-
-  &__tooltip {
-    display: flex;
-    align-items: center;
-    line-height: 16px;
-  }
-
-  &__tooltip-icon {
-    fill: $level-3-body-and-headings;
-    display: inline-block;
-    vertical-align: top;
   }
 }
 </style>

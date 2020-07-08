@@ -50,12 +50,11 @@
           </tr>
         </tbody>
         <ec-table-footer
-          v-if="showFooter"
-          :items-in-view="numberOfRecords"
-          :total-items="totalRecords"
+          v-if="hasFooterSlot()"
           :colspan="numberOfColumns"
-          :tooltip-config="tooltipConfig"
-        />
+        >
+          <slot name="footer" />
+        </ec-table-footer>
       </table>
 
     </div>
@@ -88,10 +87,6 @@ export default {
     totalRecords: {
       type: Number,
     },
-    showFooter: {
-      type: Boolean,
-      default: false,
-    },
     maxHeight: String,
     stickyColumn: {
       type: String,
@@ -99,7 +94,6 @@ export default {
         return ['left', 'right'].includes(value);
       },
     },
-    tooltipConfig: Object,
     title: String,
   },
   computed: {
@@ -135,6 +129,9 @@ export default {
         return 'ec-table__cell--sticky-right';
       }
       return null;
+    },
+    hasFooterSlot() {
+      return !!this.$scopedSlots.footer;
     },
   },
 };
