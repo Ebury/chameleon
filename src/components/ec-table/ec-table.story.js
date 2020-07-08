@@ -4,7 +4,6 @@ import {
   text,
   number,
   select,
-  boolean,
 } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcIcon from '@/components/ec-icon/ec-icon.vue';
@@ -71,12 +70,6 @@ const data = [
   ],
 ];
 
-const tooltipConfig = {
-  content: 'This is the tooltip info',
-  classes: ['ec-tooltip--bg-bright'],
-  placement: 'bottom',
-};
-
 const stories = storiesOf('Table', module);
 
 stories
@@ -97,9 +90,6 @@ stories
       },
       totalRecords: {
         default: number('totalRecords', undefined),
-      },
-      showFooter: {
-        default: boolean('showFooter', false),
       },
       maxHeight: {
         default: text('maxHeight', '400px'),
@@ -136,9 +126,6 @@ stories
       totalRecords: {
         default: number('totalRecords', undefined),
       },
-      showFooter: {
-        default: boolean('showFooter', false),
-      },
     },
     template: `
     <div style="display: flex; height: 100vh">
@@ -163,7 +150,7 @@ stories
     </div>
     `,
   }))
-  .add('with a footer tooltip content', () => ({
+  .add('with footer slot', () => ({
     components: { EcTable },
     props: {
       title: {
@@ -178,17 +165,18 @@ stories
       totalRecords: {
         default: number('totalRecords', undefined),
       },
-      showFooter: {
-        default: boolean('showFooter', true),
-      },
-      tooltipConfig: {
-        default: object('tooltipConfig', tooltipConfig),
-      },
     },
     template: `
     <div style="display: flex; height: 100vh">
       <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-        <ec-table v-bind="$props" />
+        <ec-table v-bind="$props"
+        >
+          <template #footer>
+            <div class="tw-py-8">
+              <a href="#">View all</a>
+            </div>
+          </template>
+        </ec-table>
       </div>
     </div>
     `,

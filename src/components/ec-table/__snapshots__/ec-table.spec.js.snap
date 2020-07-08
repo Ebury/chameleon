@@ -427,13 +427,9 @@ exports[`EcTable should render as expected if provided with data and columns, wi
             <div
               class="ec-table-footer__contents"
             >
-              <div
-                class="ec-table-footer__details"
-              >
-                2 items.
-              </div>
-               
-              <!---->
+              <p>
+                Random text
+              </p>
             </div>
           </td>
         </tr>
@@ -560,13 +556,9 @@ exports[`EcTable should render as expected if provided with data but no columns,
             <div
               class="ec-table-footer__contents"
             >
-              <div
-                class="ec-table-footer__details"
-              >
-                2 items.
-              </div>
-               
-              <!---->
+              <p>
+                Random text
+              </p>
             </div>
           </td>
         </tr>
@@ -606,13 +598,9 @@ exports[`EcTable should render as expected if provided with empty row and no col
             <div
               class="ec-table-footer__contents"
             >
-              <div
-                class="ec-table-footer__details"
-              >
-                1 item.
-              </div>
-               
-              <!---->
+              <p>
+                Random text
+              </p>
             </div>
           </td>
         </tr>
@@ -622,145 +610,7 @@ exports[`EcTable should render as expected if provided with empty row and no col
 </div>
 `;
 
-exports[`EcTable should render as expected if provided with rows and columns, with footer switched on and the icon of the tooltip 1`] = `
-<div>
-  <!---->
-   
-  <div
-    class="ec-table-scroll-container"
-    data-test="ec-table-scroll-container"
-  >
-    <table
-      class="ec-table"
-    >
-      <thead
-        class="ec-table-head"
-        data-test="ec-table-head"
-      >
-        <tr>
-          <th
-            class="ec-table-head__cell"
-            data-test="ec-table-head__cell ec-table-head__cell--0"
-            scope="col"
-          >
-            <span
-              class="ec-table-head__cell-wrapper"
-            >
-              <span
-                class=""
-              >
-                
-          Lorem
-        
-              </span>
-               
-              <!---->
-               
-              <!---->
-            </span>
-          </th>
-          <th
-            class="ec-table-head__cell"
-            data-test="ec-table-head__cell ec-table-head__cell--1"
-            scope="col"
-          >
-            <span
-              class="ec-table-head__cell-wrapper"
-            >
-              <span
-                class=""
-              >
-                
-          Ipsum
-        
-              </span>
-               
-              <!---->
-               
-              <!---->
-            </span>
-          </th>
-        </tr>
-      </thead>
-       
-      <tbody>
-        <tr
-          class=""
-          data-test="ec-table__row ec-table__row--0"
-        >
-          <td
-            class="ec-table__cell"
-            data-test="ec-table__cell ec-table__cell--0"
-          >
-            foo
-          </td>
-          <td
-            class="ec-table__cell"
-            data-test="ec-table__cell ec-table__cell--1"
-          >
-            bar
-          </td>
-        </tr>
-        <tr
-          class=""
-          data-test="ec-table__row ec-table__row--1"
-        >
-          <td
-            class="ec-table__cell"
-            data-test="ec-table__cell ec-table__cell--0"
-          >
-            widgets
-          </td>
-          <td
-            class="ec-table__cell"
-            data-test="ec-table__cell ec-table__cell--1"
-          >
-            doodads
-          </td>
-        </tr>
-      </tbody>
-       
-      <tfoot
-        class="ec-table-footer"
-      >
-        <tr>
-          <td
-            class="ec-table-footer__cell"
-            colspan="2"
-          >
-            <div
-              class="ec-table-footer__contents"
-            >
-              <div
-                class="ec-table-footer__details"
-              >
-                2 items.
-              </div>
-               
-              <div
-                class="ec-table-footer__tooltip"
-              >
-                <svg
-                  class="ec-table-footer__tooltip-icon ec-icon ec-has-tooltip"
-                  data-original-title="null"
-                  height="16"
-                  width="16"
-                >
-                  <use
-                    xlink:href="#ec-simple-info"
-                  />
-                </svg>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`EcTable should render as expected if provided with rows and columns, with footer switched on, the icon of the tooltip and the title given 1`] = `
+exports[`EcTable should render as expected if provided with rows and columns, with footer switched on and the title given 1`] = `
 <div>
   <div
     class="ec-table__title"
@@ -874,26 +724,9 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <div
               class="ec-table-footer__contents"
             >
-              <div
-                class="ec-table-footer__details"
-              >
-                2 items.
-              </div>
-               
-              <div
-                class="ec-table-footer__tooltip"
-              >
-                <svg
-                  class="ec-table-footer__tooltip-icon ec-icon ec-has-tooltip"
-                  data-original-title="null"
-                  height="16"
-                  width="16"
-                >
-                  <use
-                    xlink:href="#ec-simple-info"
-                  />
-                </svg>
-              </div>
+              <p>
+                Random text
+              </p>
             </div>
           </td>
         </tr>
@@ -1016,13 +849,9 @@ exports[`EcTable should render slots as expected 1`] = `
             <div
               class="ec-table-footer__contents"
             >
-              <div
-                class="ec-table-footer__details"
-              >
-                2 items.
-              </div>
-               
-              <!---->
+              <p>
+                Random text
+              </p>
             </div>
           </td>
         </tr>

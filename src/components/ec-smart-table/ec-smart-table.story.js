@@ -74,9 +74,6 @@ stories
       data: {
         default: object('data', data),
       },
-      showFooter: {
-        default: boolean('showFooter', true),
-      },
       multiSort: {
         default: boolean('multiSort', false),
       },
@@ -163,7 +160,6 @@ stories
             :title="title"
             :columns="columns"
             :sorts="sorts"
-            :show-footer="showFooter"
             :multi-sort="multiSort"
             :data-source="dataSource"
             :max-height="maxHeight"

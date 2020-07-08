@@ -92,7 +92,11 @@ describe('EcTable', () => {
         ['foo', 'bar'],
         ['widgets', 'doodads'],
       ],
-      showFooter: true,
+    },
+    {
+      slots: {
+        footer: '<p>Random text</p>',
+      },
     });
 
     expect(wrapper.element).toMatchSnapshot();
@@ -196,7 +200,11 @@ describe('EcTable', () => {
   });
 
   it('should render as expected if provided with data and columns, with footer switched on', () => {
-    const wrapper = mountTable({ showFooter: true });
+    const wrapper = mountTable({}, {
+      slots: {
+        footer: '<p>Random text</p>',
+      },
+    });
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -205,34 +213,22 @@ describe('EcTable', () => {
     const wrapper = mountTable({
       columns: [],
       data: [[]],
-      showFooter: true,
-    });
-
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should render as expected if provided with rows and columns, with footer switched on and the icon of the tooltip', () => {
-    const wrapper = mountTable({
-      showFooter: true,
-      tooltipConfig: {
-        content: 'This is the tooltip info',
-        classes: ['ec-tooltip--bg-bright'],
-        placement: 'bottom',
+    }, {
+      slots: {
+        footer: '<p>Random text</p>',
       },
     });
 
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render as expected if provided with rows and columns, with footer switched on, the icon of the tooltip and the title given', () => {
+  it('should render as expected if provided with rows and columns, with footer switched on and the title given', () => {
     const wrapper = mountTable({
-      showFooter: true,
-      tooltipConfig: {
-        content: 'This is the tooltip info',
-        classes: ['ec-tooltip--bg-bright'],
-        placement: 'bottom',
-      },
       title: 'Title example',
+    }, {
+      slots: {
+        footer: '<p>Random text</p>',
+      },
     });
 
     expect(wrapper.element).toMatchSnapshot();
@@ -254,11 +250,13 @@ describe('EcTable', () => {
         ['foo', 'bar'],
         ['widgets', 'doodads'],
       ],
-      showFooter: true,
     },
     {
       scopedSlots: {
         col2: '<p>{{ props.content }}</p>',
+      },
+      slots: {
+        footer: '<p>Random text</p>',
       },
     });
 
