@@ -172,7 +172,7 @@ stories
         <ec-table v-bind="$props"
         >
           <template #footer>
-            <div class="tw-text-center tw-py-8">
+            <div class="tw-py-8">
               <a href="#">View all</a>
             </div>
           </template>
