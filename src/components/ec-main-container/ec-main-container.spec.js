@@ -31,6 +31,17 @@ describe('EcMainContainer', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should display only the title when the titleIntro is not given', () => {
+    const propsData = {
+      title: 'Trade Finance',
+    };
+    const wrapper = mount(EcMainContainer, {
+      propsData,
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should use given slot', () => {
     const propsData = {
       title: 'Trade Finance',
