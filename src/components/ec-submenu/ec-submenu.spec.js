@@ -70,7 +70,7 @@ describe('EcSubmenu', () => {
       );
       expect(errorSpy).toHaveBeenCalled();
       expect(errorSpy.mock.calls[0][0]).toContain('Expected Array, got Null ');
-      expect(wrapper.find('.ec-submenu').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-submenu').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
   });
@@ -83,7 +83,7 @@ describe('EcSubmenu', () => {
       },
     );
 
-    expect(wrapper.find('.ec-submenu').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-submenu').exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -104,9 +104,10 @@ describe('EcSubmenu', () => {
     expect(wrapper.findByDataTest('ec-submenu__panel-0').isVisible()).toBe(true);
     expect(wrapper.findByDataTest('ec-submenu__panel-1').isVisible()).toBe(false);
 
-    wrapper.findByDataTest('ec-submenu__header-item-1').trigger('click');
+    wrapper.findByDataTest('ec-submenu__header-title-1').trigger('click');
     expect(wrapper.findByDataTest('ec-submenu__panel-1').isVisible()).toBe(true);
     expect(wrapper.findByDataTest('ec-submenu__panel-0').isVisible()).toBe(false);
+    expect(wrapper.vm.activeIndex).toBe(1);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

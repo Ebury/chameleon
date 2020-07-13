@@ -7,6 +7,7 @@ exports[`EcSubmenu should not render when passing null to submenu 1`] = `<!---->
 exports[`EcSubmenu should render the second panel if the second tab is clicked 1`] = `
 <div
   class="ec-submenu"
+  data-test="ec-submenu"
 >
   <div
     class="ec-submenu__header-container"
@@ -16,24 +17,23 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
     >
       <li
         class="ec-submenu__header-item"
-        data-test="ec-submenu__header-item-0"
+        data-test="ec-submenu__header-item"
       >
         <a
           class="ec-submenu__header-title"
+          data-test="ec-submenu__header-title-0"
+          href="#"
         >
           Submitted Requests (30)
         </a>
-         
-        <!---->
       </li>
       <li
         class="ec-submenu__header-item ec-submenu__header-item--is-active"
-        data-test="ec-submenu__header-item-1"
+        data-test="ec-submenu__header-item"
       >
-        <!---->
-         
         <router-link-stub
           class="ec-submenu__header-title"
+          data-test="ec-submenu__header-title-1"
           to="/submitted"
         >
           Repayments (30)
@@ -41,12 +41,11 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
       </li>
       <li
         class="ec-submenu__header-item"
-        data-test="ec-submenu__header-item-2"
+        data-test="ec-submenu__header-item"
       >
-        <!---->
-         
         <router-link-stub
           class="ec-submenu__header-title"
+          data-test="ec-submenu__header-title-2"
           to="/submitted"
         >
           Another Request (30)
