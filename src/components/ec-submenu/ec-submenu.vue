@@ -2,26 +2,31 @@
   <div
     v-if="submenu && submenu.length > 0"
     class="ec-submenu"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-submenu` : 'ec-submenu'"
   >
     <div class="ec-submenu__header-container">
       <ul class="ec-submenu__header">
         <li
           v-for="(menuItem, index) in submenu"
           :key="index"
-          :data-test="'ec-submenu__header-item-' + index"
+          data-test="ec-submenu__header-item"
           class="ec-submenu__header-item"
           :class="{'ec-submenu__header-item--is-active': index === activeIndex}"
-          @click="$emit('change', index)"
         >
           <a
             v-if="!menuItem.route"
+            href="#"
             class="ec-submenu__header-title"
+            :data-test="`ec-submenu__header-title-${index}`"
+            @click.prevent.stop="$emit('change', index)"
           >{{ menuItem.headerTitle }}</a>
 
           <router-link
-            v-if="menuItem.route"
+            v-else
             :to="menuItem.route"
             class="ec-submenu__header-title"
+            :data-test="`ec-submenu__header-title-${index}`"
+            @click.native="$emit('change', index)"
           >{{ menuItem.headerTitle }}</router-link>
         </li>
       </ul>
@@ -90,6 +95,7 @@ export default {
     @apply tw-inline-block;
     @apply tw-relative;
     @apply tw-text-center;
+    @apply tw-border-b tw-border-solid tw-border-transparent;
   }
 
   &__header-title {
@@ -112,7 +118,7 @@ export default {
   }
 
   &__header-item--is-active {
-    @apply tw-border-b tw-border-solid tw-border-key-4;
+    @apply tw-border-key-4;
     @apply tw-cursor-auto;
 
     .ec-submenu__header-title {

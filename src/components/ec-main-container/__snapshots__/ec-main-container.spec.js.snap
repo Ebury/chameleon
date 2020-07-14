@@ -3,6 +3,7 @@
 exports[`EcMainContainer should not display the titleIntro when title is not given 1`] = `
 <div
   class="ec-main-container"
+  data-test="ec-main-container"
 >
   <!---->
    
@@ -12,6 +13,7 @@ exports[`EcMainContainer should not display the titleIntro when title is not giv
 exports[`EcMainContainer should render both titles when they are given in props 1`] = `
 <div
   class="ec-main-container"
+  data-test="ec-main-container"
 >
   <div
     class="tw-grid"
@@ -21,12 +23,14 @@ exports[`EcMainContainer should render both titles when they are given in props 
     >
       <h1
         class="ec-main-container__title"
+        data-test="ec-main-container__title"
       >
         Trade Finance
       </h1>
        
       <p
         class="ec-main-container__title-intro"
+        data-test="ec-main-container__title-intro"
       >
         Here you will be able to keep track of all your requests to Ebury and of your credit line.
       </p>
@@ -41,15 +45,17 @@ exports[`EcMainContainer should render both titles when they are given in props 
 exports[`EcMainContainer should render empty if no props were given 1`] = `
 <div
   class="ec-main-container"
+  data-test="ec-main-container"
 >
   <!---->
    
 </div>
 `;
 
-exports[`EcMainContainer should use given slot 1`] = `
+exports[`EcMainContainer should render without title intro when the titleIntro prop is not given 1`] = `
 <div
   class="ec-main-container"
+  data-test="ec-main-container"
 >
   <div
     class="tw-grid"
@@ -59,12 +65,41 @@ exports[`EcMainContainer should use given slot 1`] = `
     >
       <h1
         class="ec-main-container__title"
+        data-test="ec-main-container__title"
+      >
+        Trade Finance
+      </h1>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
+   
+</div>
+`;
+
+exports[`EcMainContainer should use given slot 1`] = `
+<div
+  class="ec-main-container"
+  data-test="ec-main-container"
+>
+  <div
+    class="tw-grid"
+  >
+    <div
+      class="tw-col-full"
+    >
+      <h1
+        class="ec-main-container__title"
+        data-test="ec-main-container__title"
       >
         Trade Finance
       </h1>
        
       <p
         class="ec-main-container__title-intro"
+        data-test="ec-main-container__title-intro"
       >
         Here you will be able to keep track of all your requests to Ebury and of your credit line.
       </p>
@@ -82,6 +117,7 @@ exports[`EcMainContainer should use given slot 1`] = `
 exports[`EcMainContainer should use the given named cta slot 1`] = `
 <div
   class="ec-main-container"
+  data-test="ec-main-container"
 >
   <div
     class="tw-grid"
@@ -91,12 +127,14 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
     >
       <h1
         class="ec-main-container__title"
+        data-test="ec-main-container__title"
       >
         Trade Finance
       </h1>
        
       <p
         class="ec-main-container__title-intro"
+        data-test="ec-main-container__title-intro"
       >
         Here you will be able to keep track of all your requests to Ebury and of your credit line.
       </p>
@@ -104,6 +142,7 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
      
     <div
       class="tw-col-full sm:tw-col-3"
+      data-test="ec-main-container__cta"
     >
       <button
         class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width"
