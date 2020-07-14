@@ -31,7 +31,7 @@ describe('EcMainContainer', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should display only the title when the titleIntro is not given', () => {
+  it('should render without title intro when the titleIntro prop is not given', () => {
     const propsData = {
       title: 'Trade Finance',
     };
