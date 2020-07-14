@@ -1,32 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcMainContainer should display only the title when the titleIntro is not given 1`] = `
-<div
-  class="ec-main-container"
-  data-test="ec-main-container"
->
-  <div
-    class="tw-grid"
-  >
-    <div
-      class="tw-col-full"
-    >
-      <h1
-        class="ec-main-container__title"
-        data-test="ec-main-container__title"
-      >
-        Trade Finance
-      </h1>
-       
-      <!---->
-    </div>
-     
-    <!---->
-  </div>
-   
-</div>
-`;
-
 exports[`EcMainContainer should not display the titleIntro when title is not given 1`] = `
 <div
   class="ec-main-container"
@@ -75,6 +48,33 @@ exports[`EcMainContainer should render empty if no props were given 1`] = `
   data-test="ec-main-container"
 >
   <!---->
+   
+</div>
+`;
+
+exports[`EcMainContainer should render without title intro when the titleIntro prop is not given 1`] = `
+<div
+  class="ec-main-container"
+  data-test="ec-main-container"
+>
+  <div
+    class="tw-grid"
+  >
+    <div
+      class="tw-col-full"
+    >
+      <h1
+        class="ec-main-container__title"
+        data-test="ec-main-container__title"
+      >
+        Trade Finance
+      </h1>
+       
+      <!---->
+    </div>
+     
+    <!---->
+  </div>
    
 </div>
 `;
