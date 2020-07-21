@@ -58,12 +58,12 @@ export default {
   @apply tw-list-none;
   @apply tw-p-0;
   @apply tw-m-0;
-  @apply tw-flex tw-flex-column tw-flex-wrap;
+  @apply tw-flex tw-flex-col tw-flex-wrap;
   @apply tw-items-start tw-justify-start;
 
   &--horizontal {
     @apply tw-flex-row;
-    @apply tw-items-start tw-justify-start;
+    @apply tw-items-center tw-justify-center;
   }
 
   &__item {

@@ -39,10 +39,10 @@ stories
       },
     },
     template: `
-      <div style="margin: 0 auto;" :style="{ maxWidth: width + 'px' }">
+      <div class="tw-my-auto tw-mx-auto" :style="{ maxWidth: width + 'px' }">
         <p>Current path: {{ $route.fullPath }}</p>
-        <div style="background-color: rgb(0, 80, 102);">
-          <EcMenu
+        <div class="tw-bg-key-2">
+          <ec-menu
             :horizontal="horizontal"
             :is-collapsed="isCollapsed"
             :links="links"
