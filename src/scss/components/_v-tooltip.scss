@@ -110,36 +110,38 @@ $ec-tooltip-width-value: 6px;
   }
 }
 
-.ec-popover {
-  @extend %ec-tooltip-common;
+// This will be deleted once we complete also the ec-tooltip migration into the _v-tooltip.css
 
-  // base z-indexing for popover and related modifiers
-  @include z-index-all-levels;
+// .ec-popover {
+//   @extend %ec-tooltip-common;
 
-  &__inner {
-    overflow: hidden;
+//   // base z-indexing for popover and related modifiers
+//   @include z-index-all-levels;
 
-    @include shape-border-radius;
-    @include box-shadow-level-0;
+//   &__inner {
+//     overflow: hidden;
 
-    &--shadow-1 {
-      @include box-shadow-level-1;
-    }
+//     @include shape-border-radius;
+//     @include box-shadow-level-0;
 
-    &--shadow-2 {
-      @include box-shadow-level-2;
-    }
-  }
+//     &--shadow-1 {
+//       @include box-shadow-level-1;
+//     }
 
-  &[aria-hidden='true'] {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.15s, visibility 0.15s;
-  }
+//     &--shadow-2 {
+//       @include box-shadow-level-2;
+//     }
+//   }
 
-  &[aria-hidden='false'] {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.15s;
-  }
-}
+//   &[aria-hidden='true'] {
+//     visibility: hidden;
+//     opacity: 0;
+//     transition: opacity 0.15s, visibility 0.15s;
+//   }
+
+//   &[aria-hidden='false'] {
+//     visibility: visible;
+//     opacity: 1;
+//     transition: opacity 0.15s;
+//   }
+// }
