@@ -2,7 +2,7 @@
   @apply tw-block;
 
   /* base z-indexing for popover and related modifiers */
-  @apply tw-z-level-1;
+  @apply ec-z-level-all;
 
   &__inner {
     @apply tw-overflow-hidden;
