@@ -39,7 +39,7 @@ stories
       },
     },
     template: `
-      <div class="tw-my-auto tw-mx-auto" :style="{ maxWidth: width + 'px' }">
+      <div class="tw-my-0 tw-mx-auto" :style="{ maxWidth: width + 'px' }">
         <p>Current path: {{ $route.fullPath }}</p>
         <div class="tw-bg-key-2">
           <ec-menu
