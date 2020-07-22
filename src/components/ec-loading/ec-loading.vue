@@ -59,6 +59,7 @@ export default {
 <style>
 .ec-loading {
   @apply tw-relative;
+  @apply tw-z-0; /* backdrop of the loading gets z-index of tw-z-loading. Do not allow that backdrop to cover anything from the outer world of ec-loading. e.g. if <ec-loading /> is a sibling of </ec-panel>, then the backdrop should not cover the content of the <ec-panel> too. */
 
   &__backdrop {
     @apply tw-absolute;
