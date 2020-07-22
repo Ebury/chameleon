@@ -77,29 +77,33 @@ stories
     },
     template:
     ` <div class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-min-h-screen tw-bg-gray-5">
-        <div class="tw-flex tw-flex-row tw-justify-between">
-          <div
-            v-for="placement in placements"
-            class="tw-col-2">
+        <div class="tw-w-full tw-p-64 tw-my-40">
+          <div class="tw-flex tw-flex-row tw-justify-between">
             <div
-              v-ec-tooltip="{...tooltipConfig, placement: placement}"
-              class="tw-min-h-64 tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
-              Black tooltip
+              v-for="placement in placements"
+              class="tw-col-2">
+              <div
+                v-ec-tooltip="{...tooltipConfig, placement: placement}"
+                class="tw-min-h-64 tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
+                Black tooltip
+              </div>
             </div>
           </div>
-        </div>
+        </div>  
 
-        <div class="tw-flex tw-flex-row tw-justify-between">
-          <div
-            v-for="placement in placements"
-            class="tw-col-2">
+        <div class="tw-w-full tw-p-64 tw-my-40">
+          <div class="tw-flex tw-flex-row tw-justify-between">
             <div
-              v-ec-tooltip="{...whiteTooltipConfig, placement: placement}"
-              class="tw-min-h-64 tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
-              White tooltip
+              v-for="placement in placements"
+              class="tw-col-2">
+              <div
+                v-ec-tooltip="{...whiteTooltipConfig, placement: placement}"
+                class="tw-min-h-64 tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
+                White tooltip
+              </div>
             </div>
           </div>
-        </div>
+        </div>  
       </div>
         `,
   }));
