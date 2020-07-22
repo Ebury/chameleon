@@ -11,10 +11,9 @@
     @apply tw-bg-gray-2;
     @apply tw-text-gray-8;
     @apply tw-py-12 tw-px-16;
+    @apply tw-rounded;
 
     max-width: 260px;
-
-    @apply tw-rounded;
 
     .ec-tooltip--bg-bright & {
       @apply tw-shadow-level-1;
@@ -30,10 +29,9 @@
     @apply tw-h-0;
     @apply tw-border-solid;
     @apply tw-absolute;
+    @apply tw-border-gray-2;
 
     margin: var(--ec-tooltip-width-value);
-
-    @apply tw-border-gray-2;
 
     .ec-tooltip--bg-bright & {
       @apply tw-border-gray-8;
@@ -41,19 +39,19 @@
   }
 
   &[x-placement^='top'] {
-    margin-bottom: var(--ec-tooltip-width-value);
-
     @apply tw-text-center;
 
+    margin-bottom: var(--ec-tooltip-width-value);
+
     .ec-tooltip__arrow {
+      @apply tw-my-0;
+
       border-width: var(--ec-tooltip-width-value) var(--ec-tooltip-width-value) 0 var(--ec-tooltip-width-value);
       border-left-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
       bottom: calc(-1 * var(--ec-tooltip-width-value) + 1px);
       left: calc(50% - var(--ec-tooltip-width-value));
-
-      @apply tw-mt-0 tw-mb-0;
     }
   }
 
@@ -62,48 +60,48 @@
     text-align: center;
 
     .ec-tooltip__arrow {
+      @apply tw-my-0;
+
       border-width: 0 var(--ec-tooltip-width-value) var(--ec-tooltip-width-value) var(--ec-tooltip-width-value);
       border-left-color: transparent;
       border-right-color: transparent;
       border-top-color: transparent;
       top: calc(-1 * var(--ec-tooltip-width-value) + 1px);
       left: calc(50% - var(--ec-tooltip-width-value));
-
-      @apply tw-mt-0 tw-mb-0;
     }
   }
 
   &[x-placement^='right'] {
-    margin-left: var(--ec-tooltip-width-value);
-
     @apply tw-text-center;
 
+    margin-left: var(--ec-tooltip-width-value);
+
     .ec-tooltip__arrow {
+      @apply tw-mx-0;
+
       border-width: var(--ec-tooltip-width-value) var(--ec-tooltip-width-value) var(--ec-tooltip-width-value) 0;
       border-left-color: transparent;
       border-top-color: transparent;
       border-bottom-color: transparent;
       left: calc(-1 * var(--ec-tooltip-width-value) + 1px);
       top: calc(50% - var(--ec-tooltip-width-value));
-
-      @apply tw-ml-0 tw-mr-0;
     }
   }
 
   &[x-placement^='left'] {
-    margin-right: var(--ec-tooltip-width-value);
-
     @apply tw-text-center;
 
+    margin-right: var(--ec-tooltip-width-value);
+
     .ec-tooltip__arrow {
+      @apply tw-mx-0;
+
       border-width: var(--ec-tooltip-width-value) 0 var(--ec-tooltip-width-value) var(--ec-tooltip-width-value);
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
       right: calc(-1 * var(--ec-tooltip-width-value) + 1px);
       top: calc(50% - var(--ec-tooltip-width-value));
-
-      @apply tw-ml-0 tw-mr-0;
     }
   }
 }
