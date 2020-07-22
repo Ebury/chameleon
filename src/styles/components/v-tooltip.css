@@ -50,7 +50,7 @@
       border-left-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
-      bottom: calc(var(--ec-tooltip-width-value) + 1px);
+      bottom: calc(-1 * var(--ec-tooltip-width-value) + 1px);
       left: calc(50% - var(--ec-tooltip-width-value));
 
       @apply tw-mt-0 tw-mb-0;
@@ -66,7 +66,7 @@
       border-left-color: transparent;
       border-right-color: transparent;
       border-top-color: transparent;
-      top: calc(var(--ec-tooltip-width-value) + 1px);
+      top: calc(-1 * var(--ec-tooltip-width-value) + 1px);
       left: calc(50% - var(--ec-tooltip-width-value));
 
       @apply tw-mt-0 tw-mb-0;
@@ -83,7 +83,7 @@
       border-left-color: transparent;
       border-top-color: transparent;
       border-bottom-color: transparent;
-      left: calc(var(--ec-tooltip-width-value) + 1px);
+      left: calc(-1 * var(--ec-tooltip-width-value) + 1px);
       top: calc(50% - var(--ec-tooltip-width-value));
 
       @apply tw-ml-0 tw-mr-0;
@@ -100,7 +100,7 @@
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: transparent;
-      right: calc(var(--ec-tooltip-width-value) + 1px);
+      right: calc(-1 * var(--ec-tooltip-width-value) + 1px);
       top: calc(50% - var(--ec-tooltip-width-value));
 
       @apply tw-ml-0 tw-mr-0;
