@@ -55,7 +55,7 @@ stories
     `
       <div class="tw-m-48">
         <div
-          class="tw-p-10 tw-rounded tw-text-gray-8 tw-my-auto tw-mx-20" background: rgb(109, 81, 44);"
+          class="tw-p-10 tw-rounded tw-text-gray-8 tw-my-auto tw-mx-20 tw-bg-additional-18"
           v-ec-tooltip="{ content, show, placement, delay, classes }">
           Here is a tooltip with all the options that you set in the knobs
         </div>
