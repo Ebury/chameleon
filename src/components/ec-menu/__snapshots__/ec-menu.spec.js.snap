@@ -3,12 +3,15 @@
 exports[`EcMenu should not render all items as compact when horizontal is not set 1`] = `
 <ul
   class="ec-menu"
+  data-test="ec-menu"
 >
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link"
+      data-test="ec-menu__link"
       href="/foo"
     >
       <svg
@@ -31,9 +34,11 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
   </li>
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link"
+      data-test="ec-menu__link"
       href="/bat"
     >
       <svg
@@ -66,12 +71,15 @@ exports[`EcMenu should not render if links is an empty array 1`] = `<!---->`;
 exports[`EcMenu should render all items as compact when is horizontal 1`] = `
 <ul
   class="ec-menu ec-menu--horizontal"
+  data-test="ec-menu"
 >
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
+      data-test="ec-menu__link"
       href="/foo"
     >
       <svg
@@ -94,9 +102,11 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
   </li>
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
+      data-test="ec-menu__link"
       href="/bat"
     >
       <svg
@@ -123,12 +133,15 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
 exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] = `
 <ul
   class="ec-menu"
+  data-test="ec-menu"
 >
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link ec-navigation-link--is-collapsed"
+      data-test="ec-menu__link"
       href="/foo"
     >
       <svg
@@ -152,9 +165,11 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
   </li>
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link ec-navigation-link--is-collapsed"
+      data-test="ec-menu__link"
       href="/bat"
     >
       <svg
@@ -182,12 +197,15 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
 exports[`EcMenu should render as expanded by default 1`] = `
 <ul
   class="ec-menu"
+  data-test="ec-menu"
 >
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link"
+      data-test="ec-menu__link"
       href="/foo"
     >
       <svg
@@ -210,9 +228,11 @@ exports[`EcMenu should render as expanded by default 1`] = `
   </li>
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link"
+      data-test="ec-menu__link"
       href="/bat"
     >
       <svg
@@ -239,12 +259,15 @@ exports[`EcMenu should render as expanded by default 1`] = `
 exports[`EcMenu should render as expected when set to horizontal 1`] = `
 <ul
   class="ec-menu ec-menu--horizontal"
+  data-test="ec-menu"
 >
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
+      data-test="ec-menu__link"
       href="/foo"
     >
       <svg
@@ -271,12 +294,15 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
 exports[`EcMenu should render only links with a url property 1`] = `
 <ul
   class="ec-menu"
+  data-test="ec-menu"
 >
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link"
+      data-test="ec-menu__link"
       href="/foo"
     >
       <svg
@@ -299,9 +325,11 @@ exports[`EcMenu should render only links with a url property 1`] = `
   </li>
   <li
     class="ec-menu__item"
+    data-test="ec-menu__item"
   >
     <a
       class="ec-navigation-link ec-menu__link"
+      data-test="ec-menu__link"
       href="/bat"
     >
       <svg
