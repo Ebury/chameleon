@@ -54,7 +54,7 @@ describe('Visual regression tests', () => {
 });
 
 function visitStory(uuid, story, knobs) {
-  const { waitOn, snapshotElement } = getStoryTestOptions(story);
+  const { waitOn, snapshotElement, waitForDOM = 200 } = getStoryTestOptions(story);
 
   cy.visit(getStoryUrl(story, knobs), { log: false });
   cy.log('Creating story snapshot', story);
@@ -68,7 +68,7 @@ function visitStory(uuid, story, knobs) {
     cy.get(waitOn);
   }
 
-  cy.wait(200); // give a DOM chance to load fonts too.
+  cy.wait(waitForDOM); // give a DOM chance to load fonts too.
 
   if (snapshotElement) {
     cy.get(snapshotElement).matchImageSnapshot(uuid);
