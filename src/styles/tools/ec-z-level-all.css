@@ -1,0 +1,23 @@
+@define-mixin ec-z-level-all {
+  @apply tw-z-level-1;
+
+  &--level-2 {
+    @apply tw-z-level-2;
+  }
+
+  &--level-3 {
+    @apply tw-z-level-3;
+  }
+
+  &--modal {
+    @apply tw-z-modal;
+  }
+
+  &--tooltip {
+    @apply tw-z-tooltip;
+  }
+
+  &--notification {
+    @apply tw-z-notification;
+  }
+}
