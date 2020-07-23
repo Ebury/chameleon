@@ -28,6 +28,9 @@ module.exports = ({ file }) => {
         /data-v-.*/,
         /^ec-/,
       ],
+      whitelistPatternsChildren: [
+        /^ec-/,
+      ],
     };
   }
 
