@@ -2,15 +2,18 @@
   <ul
     v-if="hasLinks"
     class="ec-menu"
+    data-test="ec-menu"
     :class="{'ec-menu--horizontal': horizontal }"
   >
     <li
       v-for="(link, index) of validLinks"
       :key="index"
       class="ec-menu__item"
+      data-test="ec-menu__item"
     >
       <ec-navigation-link
         class="ec-menu__link"
+        data-test="ec-menu__link"
         v-bind="link"
         :is-collapsed="isCollapsed"
         :is-compact="horizontal"
@@ -50,34 +53,29 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 .ec-menu {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
+  @apply tw-list-none;
+  @apply tw-p-0;
+  @apply tw-m-0;
+  @apply tw-flex tw-flex-col tw-flex-wrap;
+  @apply tw-items-start tw-justify-start;
 
   &--horizontal {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @apply tw-flex-row;
+    @apply tw-items-center tw-justify-center;
   }
 
   &__item {
-    display: block;
-    min-width: 100%;
+    @apply tw-block;
+    @apply tw-min-w-full;
 
     .ec-menu--horizontal & {
-      display: inline-block;
-      min-width: 0;
+      @apply tw-inline-block;
+      @apply tw-min-w-0;
 
-      // stylelint-disable-next-line selector-max-class
       + .ec-menu__item {
-        margin-left: 16px;
+        @apply tw-ml-16;
       }
     }
   }
