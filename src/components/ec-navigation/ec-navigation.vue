@@ -19,34 +19,34 @@
     <div
       v-if="$slots['user-info']"
       class="ec-navigation__block ec-navigation__user-info"
-      data-test="ec-navigation__user-info"
+      data-test="ec-navigation__block ec-navigation__user-info"
     >
       <slot name="user-info" />
     </div>
     <div
       v-if="$slots['call-to-action']"
       class="ec-navigation__block ec-navigation__call-to-action"
-      data-test="ec-navigation__call-to-action"
+      data-test="ec-navigation__block ec-navigation__call-to-action"
     >
       <slot name="call-to-action" />
     </div>
     <div
       class="ec-navigation__block ec-navigation__menu"
-      data-test="ec-navigation__menu"
+      data-test="ec-navigation__block ec-navigation__menu"
     >
       <slot name="menu" />
     </div>
     <div
       v-if="$slots['footer-menu']"
       class="ec-navigation__block ec-navigation__footer-menu"
-      data-test="ec-navigation__footer-menu"
+      data-test="ec-navigation__block ec-navigation__footer-menu"
     >
       <slot name="footer-menu" />
     </div>
     <div
       v-if="$slots.copyright"
       class="ec-navigation__block ec-navigation__copyright"
-      data-test="ec-navigation__copyright"
+      data-test="ec-navigation__block ec-navigation__copyright"
     >
       <slot name="copyright" />
     </div>
