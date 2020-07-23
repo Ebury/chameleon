@@ -134,6 +134,6 @@
   &[aria-hidden='false'] {
     @apply tw-visible;
     @apply tw-opacity-100;
-    @apply tw-transition-opacity tw-duration-150;
+    @apply tw-duration-150 tw-transition-opacity ;
   }
 }
