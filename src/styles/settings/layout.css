@@ -4,4 +4,7 @@
   --ec-modal-sm-max-width: 680px;
   --ec-modal-lg-max-width: 1100px;
   --ec-currency-input-currencies-width: 104px;
+  --ec-navigation-width: 280px;
+  --ec-navigation-collapsable-width: 256px;
+  --ec-navigation-is-collapsed-width: 80px;
 }
