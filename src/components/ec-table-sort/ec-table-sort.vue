@@ -76,6 +76,7 @@ export default {
   @apply tw-select-none;
   @apply tw-cursor-pointer;
 
+  line-height: 0;
   color: inherit;
 
   &:hover,

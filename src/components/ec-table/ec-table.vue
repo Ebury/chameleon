@@ -142,7 +142,7 @@ export default {
 
 .common-cell-layout {
   &:last-of-type {
-    padding-right: 16px;
+    @apply tw-pr-16;
   }
 }
 
@@ -177,8 +177,7 @@ export default {
     @apply tw-border-b tw-border-solid tw-border-gray-6;
     @apply tw-align-middle;
     @apply tw-body-text;
-
-    min-width: 100px;
+    @apply tw-min-w-104;
 
     &--is-type-icon {
       @apply tw-text-center;

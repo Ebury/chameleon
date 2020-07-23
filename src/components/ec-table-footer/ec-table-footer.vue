@@ -33,8 +33,8 @@ export default {
     @apply tw-w-full;
     @apply tw-bottom-0;
     @apply tw-bg-gray-7;
+    @apply tw-rounded-b;
 
-    border-radius: 0 0 5px 5px;
     position: sticky;
   }
 

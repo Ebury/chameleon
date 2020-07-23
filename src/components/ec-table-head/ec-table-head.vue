@@ -103,9 +103,6 @@ export default {
 </script>
 
 <style>
-/* @import '../../scss/tools/typography'; */
-
-/* @import '../../scss/settings/index'; */
 
 .ec-table-head {
   &__cell-wrapper {
@@ -132,11 +129,11 @@ export default {
     @apply tw-bg-gray-8;
     @apply tw-z-level-1;
     @apply tw-table-header;
+    @apply tw-min-w-104;
 
     box-shadow:
       inset 0 1px 0 theme('colors.gray.6'),
       inset 0 -1px 0 theme('colors.gray.6');
-    min-width: 100px;
     position: sticky;
     border-collapse: separate;
 

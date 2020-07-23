@@ -73,9 +73,6 @@ const data = [
 const stories = storiesOf('Table', module);
 
 stories
-  .addParameters({
-    visualRegressionTests: { waitForDOM: 1000 },
-  })
   .add('all', () => ({
     components: { EcTable, EcIcon },
     props: {
@@ -107,12 +104,12 @@ stories
     },
     template: `
       <div class="tw-flex tw-flex-col tw-h-screen">
-        <h2 class="feature-title tw-m-24">Basic</h2>
+        <h2 class="tw-m-24">Basic</h2>
         <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
           <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick" />
           <p class="ec-mt--40"><em>NOTE:</em> Sorting in this example is not hooked into any functionality, because this is just a basic example. You can change the direction in the knobs panel or if you want to see it working, checkout smart table story instead.</p>
         </div>
-        <h2 class="feature-title tw-m-24">With custom column templates</h2>
+        <h2 class="tw-m-24">With custom column templates</h2>
         <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
           <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick"
           >
@@ -132,7 +129,7 @@ stories
             </template>
           </ec-table>
         </div>
-        <h2 class="feature-title tw-m-24">With footer slot</h2>
+        <h2 class="tw-m-24">With footer slot</h2>
         <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
           <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick"
           >
@@ -143,7 +140,7 @@ stories
             </template>
           </ec-table>
         </div>
-        <h2 class="feature-title tw-m-24">With a fixed height and sticky column</h2>
+        <h2 class="tw-m-24">With a fixed height and sticky column</h2>
         <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
           <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick" sticky-column="left"/>
         </div>
