@@ -2,6 +2,7 @@
   <v-popover
     ref="popover"
     v-bind="getOptions()"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-popover` : 'ec-popover'"
     v-on="$listeners"
   >
     <slot />

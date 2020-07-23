@@ -391,6 +391,7 @@ module.exports = {
       screen: '100vw',
     }),
     zIndex: {
+      0: 0,
       auto: 'auto',
       notification: 300,
       loading: 250,

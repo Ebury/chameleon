@@ -1,0 +1,36 @@
+
+@import '../../styles/tools/ec-z-level-all.css';
+
+.ec-popover {
+  @apply tw-block;
+
+  /* base z-indexing for popover and related modifiers */
+  @mixin ec-z-level-all;
+
+  &__inner {
+    @apply tw-overflow-hidden;
+    @apply tw-rounded;
+    @apply tw-shadow-level-0;
+
+    &--shadow-1 {
+      @apply tw-shadow-level-1;
+    }
+
+    &--shadow-2 {
+      @apply tw-shadow-level-2;
+    }
+  }
+
+  &[aria-hidden='true'] {
+    @apply tw-invisible;
+    @apply tw-opacity-0;
+
+    transition: opacity 0.15s, visibility 0.15s;
+  }
+
+  &[aria-hidden='false'] {
+    @apply tw-visible;
+    @apply tw-opacity-100;
+    @apply tw-transition-opacity tw-duration-150;
+  }
+}
