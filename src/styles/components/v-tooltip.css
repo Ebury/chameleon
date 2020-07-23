@@ -25,11 +25,9 @@
 
   &__arrow {
     @apply tw-z-tooltip;
-    @apply tw-w-0;
-    @apply tw-h-0;
-    @apply tw-border-solid;
+    @apply tw-w-0 tw-h-0;
+    @apply tw-border-solid tw-border-gray-2;
     @apply tw-absolute;
-    @apply tw-border-gray-2;
 
     margin: var(--ec-tooltip-width-value);
 
