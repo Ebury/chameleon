@@ -30,7 +30,6 @@ module.exports = ({ file }) => {
       ],
       whitelistPatternsChildren: [
         /^ec-/,
-        /^ebo-/,
       ],
     };
   }
