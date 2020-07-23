@@ -157,9 +157,9 @@ export default {
   @apply tw-pt-16;
   @apply tw-w-full;
   @apply tw-relative;
+  @apply tw-z-0; /* We need to reset the z-index so the sticky columns and header will not compete with the outer world */
 
   border-spacing: 0;
-  z-index: 0; /* We need to reset the z-index so the sticky columns and header will not compete with the outer world */
 
   &__title {
     @apply tw-h3;
