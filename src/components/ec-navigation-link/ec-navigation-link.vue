@@ -169,7 +169,7 @@ export default {
     }
 
     &:focus {
-      background: hsla(var(--ec-key-color-level-4), 0.9);
+      background-color: hsla(var(--ec-key-color-level-4), 0.9);
     }
   }
 }
