@@ -28,7 +28,7 @@ stories.add('basic', () => ({
     },
   },
   template: `
-    <div style="background-color: #005166;width:280px;height:100vh;">
+    <div class="tw-bg-key-2 tw-w-1/4 tw-h-screen">
       <ec-user-info
       :user="client"
       :is-collapsable="isCollapsable"

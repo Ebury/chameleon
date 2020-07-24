@@ -41,7 +41,7 @@ describe('EcUserInfo', () => {
         user,
       },
     });
-    wrapper.find('.ec-user-info__avatar').trigger('click');
+    wrapper.findByDataTest('ec-user-info__avatar').trigger('click');
     expect(wrapper.emitted().toggle).toBeTruthy();
   });
 
