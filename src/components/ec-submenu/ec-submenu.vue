@@ -77,8 +77,7 @@ export default {
   @apply tw-relative;
 
   &__header {
-    min-width: 100px;
-
+    @apply tw-min-w-104;
     @apply tw-mb-12;
     @apply tw-flex tw-flex-col;
     @apply tw-whitespace-no-wrap;

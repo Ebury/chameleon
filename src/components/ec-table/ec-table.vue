@@ -137,81 +137,80 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/index';
-@import '../../scss/tools/index';
+<style>
+@import '../../styles/tools/scrollbars';
+
+.common-cell-layout {
+  &:last-of-type {
+    @apply tw-pr-16;
+  }
+}
 
 .ec-table-scroll-container {
-  overflow: auto;
+  @apply tw-overflow-auto;
 
-  @include small-scrollbar;
+  @mixin small-scrollbar;
 }
 
 .ec-table {
-  border-spacing: 0;
-  border: none;
-  padding-top: 16px;
-  width: 100%;
-  position: relative; // We need to reset the z-index so the sticky columns and header will not compete with the outer world
-  z-index: 0;
+  @apply tw-border-none;
+  @apply tw-pt-16;
+  @apply tw-w-full;
+  @apply tw-relative;
+  @apply tw-z-0; /* We need to reset the z-index so the sticky columns and header will not compete with the outer world */
 
-  %common-cell-layout {
-    &:last-of-type {
-      padding-right: 16px;
-    }
-  }
+  border-spacing: 0;
 
   &__title {
-    @include h3;
-
-    padding-bottom: 16px;
+    @apply tw-h3;
+    @apply tw-pb-16;
   }
 
   &__row--is-clickable:hover {
-    background-color: $level-7;
-    cursor: pointer;
+    @apply tw-bg-gray-7;
+    @apply tw-cursor-pointer;
   }
 
   &__cell {
-    @extend %common-cell-layout;
-
-    min-width: 100px;
-    padding: 16px 0 16px 16px;
-    border-bottom: 1px solid $level-6-disabled-lines;
-    vertical-align: middle;
-
-    @include body-text;
+    @apply .common-cell-layout;
+    @apply tw-pt-16 tw-pr-0 tw-pb-16 tw-pl-16;
+    @apply tw-border-b tw-border-solid tw-border-gray-6;
+    @apply tw-align-middle;
+    @apply tw-body-text;
+    @apply tw-min-w-104;
 
     &--is-type-icon {
-      text-align: center;
+      @apply tw-text-center;
     }
 
     &--is-type-currency {
-      text-align: right;
+      @apply tw-text-right;
     }
 
     &--sticky-left {
+      @apply tw-left-0;
+      @apply tw-bg-gray-7;
+
       position: sticky;
-      left: 0;
-      background: $level-7-backgrounds;
 
       .ec-table__row--is-clickable:hover & {
-        background: $level-6;
+        @apply tw-bg-key-6;
       }
     }
 
     &--sticky-right {
+      @apply tw-right-0;
+      @apply tw-bg-gray-7;
+
       position: sticky;
-      right: 0;
-      background: $level-7-backgrounds;
 
       .ec-table__row--is-clickable:hover & {
-        background: $level-6;
+        @apply tw-bg-key-6;
       }
     }
 
     &--has-max-width {
-      @include ellipsis;
+      @apply tw-truncate;
     }
   }
 }
