@@ -131,7 +131,7 @@ describe('EcMenu', () => {
 
     expect(wrapper.element).toMatchSnapshot();
 
-    wrapper.findAll('.ec-navigation-link__text').wrappers.forEach((textWrapper) => {
+    wrapper.findAllByDataTest('ec-navigation-link__text').wrappers.forEach((textWrapper) => {
       expect(textWrapper.isVisible()).toBe(true);
     });
   });
@@ -149,7 +149,7 @@ describe('EcMenu', () => {
 
     expect(wrapper.element).toMatchSnapshot();
 
-    wrapper.findAll('.ec-navigation-link__text').wrappers.forEach((textWrapper) => {
+    wrapper.findAllByDataTest('ec-navigation-link__text').wrappers.forEach((textWrapper) => {
       expect(textWrapper.isVisible()).toBe(false);
     });
   });
