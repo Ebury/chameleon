@@ -55,7 +55,7 @@ export default {
 @import '../../styles/tools/transitions.css';
 
 :root {
-  --ec-user-info-avatar-size: 48px;
+  --ec-user-info-avatar-size: theme('spacing.48');
 }
 
 .ec-user-info {
