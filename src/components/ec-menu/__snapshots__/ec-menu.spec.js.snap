@@ -28,6 +28,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
       >
         Foo
       </span>
@@ -56,6 +57,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
       >
         Bat
       </span>
@@ -98,6 +100,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
       >
         Foo
       </span>
@@ -126,6 +129,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
       >
         Bat
       </span>
@@ -162,6 +166,7 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
         style="display: none;"
       >
         Foo
@@ -191,6 +196,7 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
         style="display: none;"
       >
         Bat
@@ -228,6 +234,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
       >
         Foo
       </span>
@@ -256,6 +263,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
       >
         Bat
       </span>
@@ -292,6 +300,7 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
       >
         Foo
       </span>
@@ -328,6 +337,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
       >
         Foo
       </span>
@@ -356,6 +366,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
       <span
         class="ec-navigation-link__text"
         data-test="ec-navigation-link__text"
+        name="ec-navigation-link__text-fade"
       >
         Bat
       </span>

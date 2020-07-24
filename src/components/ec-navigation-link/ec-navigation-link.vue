@@ -20,11 +20,13 @@
       :name="iconName"
       :size="iconSize"
     />
-    <span
-      v-show="!isCollapsed"
-      class="ec-navigation-link__text"
-      data-test="ec-navigation-link__text"
-    >{{ text }}</span>
+    <transition name="ec-navigation-link__text-fade">
+      <span
+        v-show="!isCollapsed"
+        class="ec-navigation-link__text"
+        data-test="ec-navigation-link__text"
+      >{{ text }}</span>
+    </transition>
 
   </router-link>
 
@@ -48,11 +50,13 @@
       :name="iconName"
       :size="iconSize"
     />
-    <span
-      v-show="!isCollapsed"
-      class="ec-navigation-link__text"
-      data-test="ec-navigation-link__text"
-    >{{ text }}</span>
+    <transition name="ec-navigation-link__text-fade">
+      <span
+        v-show="!isCollapsed"
+        class="ec-navigation-link__text"
+        data-test="ec-navigation-link__text"
+      >{{ text }}</span>
+    </transition>
   </a>
 </template>
 
@@ -105,6 +109,8 @@ export default {
 </script>
 
 <style >
+@import '../../styles/tools/transitions.css';
+
 .ec-navigation-link {
   @apply tw-h6;
   @apply tw-py-12 tw-px-24;
@@ -146,6 +152,10 @@ export default {
     .ec-navigation-link--is-compact & {
       @apply tw-ml-8;
     }
+  }
+
+  &__text-fade {
+    @mixin ec-fade-transition;
   }
 
   &--is-active {
