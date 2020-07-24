@@ -53,9 +53,9 @@ stories
     },
     template:
     `
-      <div style="margin: 50px;">
+      <div class="tw-m-48">
         <div
-          style="padding: 10px; border-radius: 5px; color: white; margin: auto 20px; background: rgb(109, 81, 44);"
+          class="tw-p-12 tw-rounded tw-text-gray-8 tw-my-auto tw-mx-20 tw-bg-additional-18"
           v-ec-tooltip="{ content, show, placement, delay, classes }">
           Here is a tooltip with all the options that you set in the knobs
         </div>
@@ -76,30 +76,34 @@ stories
       };
     },
     template:
-    ` <div style="background-color:rgb(132, 149, 154); min-height: 100vh;">
-        <div style="display:flex; flex-direction: row; height: 50vh;">
-          <div
-            v-for="placement in placements"
-            style="flex-basis: 25%;display:flex; flex-direction: row; justify-content:center;align-items:center;">
+    ` <div class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-min-h-screen tw-bg-gray-5">
+        <div class="tw-w-full tw-p-64 tw-my-40">
+          <div class="tw-flex tw-flex-row tw-justify-between">
             <div
-              v-ec-tooltip="{...tooltipConfig, placement: placement}"
-              style="max-width: 80px; min-height: 100px; background:rgb(21, 188, 139); color: white; padding: 20px;">
-              Black tooltip
+              v-for="placement in placements"
+              class="tw-col-2">
+              <div
+                v-ec-tooltip="{...tooltipConfig, placement: placement}"
+                class="tw-min-h-64 tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
+                Black tooltip
+              </div>
             </div>
           </div>
-        </div>
+        </div>  
 
-        <div style="display:flex; flex-direction: row; height: 50vh;">
-          <div
-            v-for="placement in placements"
-            style="flex-basis: 25%;display:flex; flex-direction: row; justify-content:center;align-items:center;">
+        <div class="tw-w-full tw-p-64 tw-my-40">
+          <div class="tw-flex tw-flex-row tw-justify-between">
             <div
-              v-ec-tooltip="{...whiteTooltipConfig, placement: placement}"
-              style="max-width: 80px; min-height: 100px; background:rgb(21, 188, 139); color: white; padding: 20px;">
-              White tooltip
+              v-for="placement in placements"
+              class="tw-col-2">
+              <div
+                v-ec-tooltip="{...whiteTooltipConfig, placement: placement}"
+                class="tw-min-h-64 tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
+                White tooltip
+              </div>
             </div>
           </div>
-        </div>
+        </div>  
       </div>
         `,
   }));

@@ -23,25 +23,23 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/tools/typography';
-@import '../../scss/settings/colors/index';
+<style>
 
 .ec-table-footer {
-  @include small-text;
+  @apply tw-small-text;
 
   &__cell {
-    padding: 0 16px;
-    width: 100%;
-    border-radius: 0 0 5px 5px;
+    @apply tw-py-0 tw-px-16;
+    @apply tw-w-full;
+    @apply tw-bottom-0;
+    @apply tw-bg-gray-7;
+    @apply tw-rounded-b;
+
     position: sticky;
-    bottom: 0;
-    background-color: $level-7-backgrounds;
   }
 
   &__contents {
-    display: flex;
-    justify-content: space-between;
+    @apply tw-flex tw-justify-between;
   }
 }
 </style>
