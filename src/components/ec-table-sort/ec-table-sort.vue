@@ -70,25 +70,24 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/index';
-@import '../../scss/tools/accessibility';
+<style>
 
 .ec-table-sort {
+  @apply tw-select-none;
+  @apply tw-cursor-pointer;
+
   line-height: 0;
-  user-select: none;
-  cursor: pointer;
   color: inherit;
 
   &:hover,
   &:focus,
   &:active {
-    color: $level-3-hover;
-    outline: 0;
+    @apply tw-text-key-3;
+    @apply tw-outline-none;
   }
 
   &__icon {
-    fill: currentColor;
+    @apply tw-fill-current;
 
     &--asc {
       transform: rotateX(180deg);
@@ -96,7 +95,7 @@ export default {
   }
 
   &__text {
-    @include ec-screen-reader-only;
+    @apply tw-sr-only;
   }
 }
 </style>

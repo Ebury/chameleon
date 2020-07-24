@@ -102,61 +102,58 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/tools/typography';
-@import '../../scss/settings/index';
+<style>
 
 .ec-table-head {
   &__cell-wrapper {
-    display: flex;
-    align-items: center;
+    @apply tw-flex tw-items-center;
 
     &--is-type-icon {
-      justify-content: center;
+      @apply tw-justify-center;
     }
 
     &--is-type-currency {
-      justify-content: flex-end;
+      @apply tw-justify-end;
     }
   }
 
   &__icon {
-    flex-shrink: 0;
-    margin-left: 4px;
+    @apply tw-flex-shrink-0;
+    @apply tw-ml-4;
   }
 
   &__cell {
-    padding: 16px 0 16px 16px;
-    text-align: left;
+    @apply tw-pt-16 tw-pr-0 tw-pb-16 tw-pl-16;
+    @apply tw-text-left;
+    @apply tw-top-0;
+    @apply tw-bg-gray-8;
+    @apply tw-z-level-1;
+    @apply tw-table-header;
+    @apply tw-min-w-104;
+
     box-shadow:
-      inset 0 1px 0 $level-6-disabled-lines,
-      inset 0 -1px 0 $level-6-disabled-lines;
-    min-width: 100px;
+      inset 0 1px 0 theme('colors.gray.6'),
+      inset 0 -1px 0 theme('colors.gray.6');
     position: sticky;
     border-collapse: separate;
-    top: 0;
-    background: $white;
-    z-index: $z-index-level-1;
-
-    @include table-header;
 
     &--sticky-left {
-      z-index: $z-index-level-2;
-      left: 0;
+      @apply tw-left-0;
+      @apply tw-z-level-2;
     }
 
     &--sticky-right {
-      right: 0;
-      z-index: $z-index-level-2;
+      @apply tw-right-0;
+      @apply tw-z-level-2;
     }
 
     &:last-child {
-      padding-right: 16px;
+      @apply tw-pr-16;
     }
   }
 
   &__cell-text--has-max-width {
-    @include ellipsis;
+    @apply tw-truncate;
   }
 }
 </style>

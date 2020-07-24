@@ -73,8 +73,8 @@ const data = [
 const stories = storiesOf('Table', module);
 
 stories
-  .add('basic', () => ({
-    components: { EcTable },
+  .add('all', () => ({
+    components: { EcTable, EcIcon },
     props: {
       title: {
         default: text('title', 'Title'),
@@ -95,7 +95,7 @@ stories
         default: text('maxHeight', '400px'),
       },
       stickyColumn: {
-        default: select('stickyColumn', ['left', 'right'], 'left'),
+        default: select('stickyColumn', { none: undefined, left: 'left', right: 'right' }, undefined),
       },
     },
     methods: {
@@ -103,108 +103,47 @@ stories
       onRowClick: action('onRowClick'),
     },
     template: `
-      <div style="display: flex; height: 100vh">
-        <div style="margin: auto 20px; width: 90vw" class="ec-card" >
+      <div class="tw-flex tw-flex-col tw-h-screen">
+        <h2 class="tw-m-24">Basic</h2>
+        <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
           <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick" />
           <p class="ec-mt--40"><em>NOTE:</em> Sorting in this example is not hooked into any functionality, because this is just a basic example. You can change the direction in the knobs panel or if you want to see it working, checkout smart table story instead.</p>
         </div>
-      </div>
-      `,
-  }))
-  .add('with a custom column templates', () => ({
-    components: { EcTable, EcIcon },
-    props: {
-      title: {
-        default: text('title', 'Title'),
-      },
-      columns: {
-        default: object('columns', columns.map(c => ({ ...c, sortable: false }))),
-      },
-      data: {
-        default: object('data', data),
-      },
-      totalRecords: {
-        default: number('totalRecords', undefined),
-      },
-    },
-    template: `
-    <div style="display: flex; height: 100vh">
-      <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-        <ec-table v-bind="$props">
-          <template
-            v-slot:col2="{ content, row }"
+        <h2 class="tw-m-24">With custom column templates</h2>
+        <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+          <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick"
           >
-            <a href="#"><em><strong>{{ content }}</strong></em></a>
-            <div>This</br>is</br>a</br>very</br>tall</br>column</div>
-          </template>
-          <template
-            v-slot:col4="{ content, row }"
+            <template
+              v-slot:col2="{ content, row }"
+            >
+              <a href="#"><em><strong>{{ content }}</strong></em></a>
+              <div>This</br>is</br>a</br>very</br>tall</br>column</div>
+            </template>
+            <template
+              v-slot:col4="{ content, row }"
+            >
+              <small>This cell item has type of 'icon' so will be horizontally centered</small>
+              <div>
+                <ec-icon name="rounded-check" :size="24" />
+              </div>
+            </template>
+          </ec-table>
+        </div>
+        <h2 class="tw-m-24">With footer slot</h2>
+        <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+          <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick"
           >
-            <small>This cell item has type of 'icon' so will be horizontally centered</small>
-            <div>
-              <ec-icon name="rounded-check" :size="24" />
-            </div>
-          </template>
-        </ec-table>
-      </div>
-    </div>
-    `,
-  }))
-  .add('with footer slot', () => ({
-    components: { EcTable },
-    props: {
-      title: {
-        default: text('title', 'Title'),
-      },
-      columns: {
-        default: object('columns', columns.map(c => ({ ...c, sortable: false }))),
-      },
-      data: {
-        default: object('data', data),
-      },
-      totalRecords: {
-        default: number('totalRecords', undefined),
-      },
-    },
-    template: `
-    <div style="display: flex; height: 100vh">
-      <div style="margin: auto 20px; width: 100vw" class="ec-card" >
-        <ec-table v-bind="$props"
-        >
-          <template #footer>
-            <div class="tw-py-8">
-              <a href="#">View all</a>
-            </div>
-          </template>
-        </ec-table>
-      </div>
-    </div>
-    `,
-  }))
-  .add('with a fixed height and sticky column', () => ({
-    components: { EcTable },
-    props: {
-      title: {
-        default: text('title', 'Title'),
-      },
-      columns: {
-        default: object('columns', columns.map(c => ({ ...c, sortable: false, minWidth: '250px' }))),
-      },
-      data: {
-        default: object('data', [...data, ...data]),
-      },
-      maxHeight: {
-        default: number('maxHeight', '400px'),
-      },
-      stickyColumn: {
-        default: select('stickyColumn', ['left', 'right'], 'left'),
-      },
-    },
-    template: `
-    <div style="display: flex; height: 100vh">
-      <div style="margin: auto 20px; width: 90vw" class="ec-card" >
-        <ec-table v-bind="$props" />
-      </div>
+            <template #footer>
+              <div class="tw-py-8">
+                <a href="#">View all</a>
+              </div>
+            </template>
+          </ec-table>
+        </div>
+        <h2 class="tw-m-24">With a fixed height and sticky column</h2>
+        <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+          <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick" sticky-column="left"/>
+        </div>
     </div>
     `,
   }));
