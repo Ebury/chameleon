@@ -80,6 +80,12 @@ export default {
 </script>
 
 <style>
+:root {
+  --ec-navigation-width: 280px;
+  --ec-navigation-collapsable-width: 256px;
+  --ec-navigation-is-collapsed-width: 80px;
+}
+
 .ec-navigation {
   width: var(--ec-navigation-width);
 
@@ -93,7 +99,9 @@ export default {
 
   &--is-collapsable {
     width: var(--ec-navigation-collapsable-width);
-    transition: width 0.5s;
+    transition-property: width;
+
+    @apply tw-duration-500;
   }
 
   &--is-collapsed {
