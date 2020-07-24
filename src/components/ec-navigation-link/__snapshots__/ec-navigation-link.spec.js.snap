@@ -20,7 +20,6 @@ exports[`EcNavigationLink as regular anchor should be active when isActive is pa
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
@@ -47,7 +46,6 @@ exports[`EcNavigationLink as regular anchor should be compact when isCompact is 
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
@@ -74,7 +72,6 @@ exports[`EcNavigationLink as regular anchor should be expanded by default 1`] = 
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
@@ -101,7 +98,6 @@ exports[`EcNavigationLink as regular anchor should hide the text when is collaps
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
     style="display: none;"
   >
     Link
@@ -129,7 +125,6 @@ exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
@@ -156,7 +151,6 @@ exports[`EcNavigationLink as regular anchor should show the text when is expande
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
@@ -184,7 +178,6 @@ exports[`EcNavigationLink as router-link should be active when isActive is passe
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
@@ -212,7 +205,6 @@ exports[`EcNavigationLink as router-link should be compact when isCompact is pas
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
@@ -240,7 +232,6 @@ exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
@@ -268,7 +259,6 @@ exports[`EcNavigationLink as router-link should hide the text when is collapsed 
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
     style="display: none;"
   >
     Link
@@ -297,7 +287,6 @@ exports[`EcNavigationLink as router-link should render as a router link if isRou
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
@@ -325,7 +314,6 @@ exports[`EcNavigationLink as router-link should show the text when is expanded 1
   <span
     class="ec-navigation-link__text"
     data-test="ec-navigation-link__text"
-    name="ec-navigation-link__text-fade"
   >
     Link
   </span>
