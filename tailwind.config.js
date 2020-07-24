@@ -393,6 +393,7 @@ module.exports = {
     zIndex: {
       0: 0,
       auto: 'auto',
+      navigation: 1,
       notification: 300,
       loading: 250,
       modal: 200,
