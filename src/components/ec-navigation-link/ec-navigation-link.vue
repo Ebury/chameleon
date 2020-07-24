@@ -4,6 +4,7 @@
     v-if="isRouterLink"
     active-class="ec-navigation-link--is-active"
     class="ec-navigation-link"
+    data-test="ec-navigation-link"
     :class="{
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
@@ -15,6 +16,7 @@
   >
     <ec-icon
       class="ec-navigation-link__icon"
+      data-test="ec-navigation-link__icon"
       :name="iconName"
       :size="iconSize"
     />
@@ -22,6 +24,7 @@
       <span
         v-show="!isCollapsed"
         class="ec-navigation-link__text"
+        data-test="ec-navigation-link__text"
       >{{ text }}</span>
     </transition>
 
@@ -31,6 +34,7 @@
   <a
     v-else
     class="ec-navigation-link"
+    data-test="ec-navigation-link"
     :class="{
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
@@ -42,6 +46,7 @@
   >
     <ec-icon
       class="ec-navigation-link__icon"
+      data-test="ec-navigation-link__icon"
       :name="iconName"
       :size="iconSize"
     />
@@ -49,6 +54,7 @@
       <span
         v-show="!isCollapsed"
         class="ec-navigation-link__text"
+        data-test="ec-navigation-link__text"
       >{{ text }}</span>
     </transition>
   </a>
@@ -102,74 +108,66 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/tools/index';
-@import '../../scss/settings/colors/index';
-$ec-navigation-link-text-color: $white !default;
-$ec-navigation-link-text-color-hover: $level-4-tech-blue !default;
+<style >
+@import '../../styles/tools/transitions.css';
 
 .ec-navigation-link {
-  @include h6;
+  @apply tw-h6;
+  @apply tw-py-12 tw-px-24;
+  @apply tw-flex tw-items-center;
+  @apply tw-no-underline;
+  @apply tw-text-gray-8;
+  @apply tw-whitespace-no-wrap;
 
   font-style: normal;
-  padding: 12px 24px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: $ec-navigation-link-text-color;
-  white-space: nowrap;
 
   &:hover {
-    color: $ec-navigation-link-text-color-hover;
-    text-decoration: none;
+    @apply tw-text-key-4;
+    @apply tw-no-underline;
   }
 
   &:focus {
-    outline: 0;
-    color: $ec-navigation-link-text-color-hover;
+    @apply tw-outline-none;
+    @apply tw-text-key-4;
   }
 
   &--is-compact {
-    text-transform: none;
-    padding: 0;
+    @apply tw-normal-case;
+    @apply tw-p-0;
   }
 
   &--is-collapsed {
-    padding: 12px 28px;
+    @apply tw-py-12 tw-px-28;
   }
 
   &__icon {
-    @include color-transition;
-
-    fill: currentColor;
+    @apply tw-fill-current;
   }
 
   &__text {
-    @include ellipsis;
-    @include color-transition;
-
-    flex-shrink: 1;
-    margin-left: 16px;
+    @apply tw-truncate;
+    @apply tw-flex-shrink;
+    @apply tw-ml-16;
 
     .ec-navigation-link--is-compact & {
-      margin-left: 8px;
+      @apply tw-ml-8;
     }
   }
 
   &__text-fade {
-    @include fade-transition;
+    @mixin ec-fade-transition;
   }
 
   &--is-active {
-    background-color: $level-4-tech-blue;
+    @apply tw-bg-key-4;
 
     &:hover,
     &:focus {
-      color: $ec-navigation-link-text-color;
+      @apply tw-text-gray-8;
     }
 
     &:focus {
-      background-color: rgba($level-4-tech-blue, 0.9);
+      background-color: hsla(var(--ec-key-color-level-4), 0.9);
     }
   }
 }
