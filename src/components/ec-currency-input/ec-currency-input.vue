@@ -188,6 +188,10 @@ export default {
 </script>
 
 <style>
+:root {
+  --ec-currency-input-currencies-width: 104px;
+}
+
 .ec-currency-input {
   @apply tw-z-0; /* When currencies dropdown is focused, it gets a high z-index. We set the index here of the whole component to 0 so we eliminate the chance of competing with other components */
 

@@ -117,6 +117,10 @@ export default {
 @import '../../styles/tools/scrollbars.css';
 @import '../../styles/tools/transitions.css';
 
+:root {
+  --ec-side-panel-max-width: 352px;
+}
+
 .ec-panel {
   max-width: var(--ec-side-panel-max-width);
 

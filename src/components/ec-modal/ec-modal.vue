@@ -229,6 +229,11 @@ export default {
 @import '../../styles/tools/scrollbars.css';
 @import '../../styles/tools/transitions.css';
 
+:root {
+  --ec-modal-lg-max-width: 1100px;
+  --ec-modal-sm-max-width: 680px;
+}
+
 .ec-modal {
   background: hsla(var(--ec-gray-color-level-2), 0.2);
 

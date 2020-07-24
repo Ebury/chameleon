@@ -54,6 +54,10 @@ export default {
 <style>
 @import '../../styles/tools/transitions.css';
 
+:root {
+  --ec-user-info-avatar-size: 48px;
+}
+
 .ec-user-info {
   @apply tw-flex tw-flex-col tw-items-center;
   @apply tw-py-0 tw-px-16;
