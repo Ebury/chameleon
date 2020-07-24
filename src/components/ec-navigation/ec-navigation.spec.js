@@ -47,7 +47,7 @@ describe('EcNavigation', () => {
   it('should not render branding if no logo is given in branding object', () => {
     const wrapper = mountNavigation({ branding: { logo: null } });
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.find('.ec-navigation__branding').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-navigation__branding').exists()).toBe(false);
   });
 
   it('should not render branding if logo is given in branding object but showBrandingLogo is set to false', () => {
@@ -56,7 +56,7 @@ describe('EcNavigation', () => {
       showBrandingLogo: false,
     });
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.find('.ec-navigation__branding').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-navigation__branding').exists()).toBe(false);
   });
 
   it('should render branding logo and name when given', () => {
@@ -64,14 +64,14 @@ describe('EcNavigation', () => {
       branding: { logo: '/img/my.png', name: 'My Branding' },
     });
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.find('.ec-navigation__branding').element).toMatchSnapshot('Branding should have alt and src.');
+    expect(wrapper.findByDataTest('ec-navigation__branding').element).toMatchSnapshot('Branding should have alt and src.');
   });
 
   it('should only render mandatory slot if no other slots were given', () => {
     const wrapper = mountNavigation();
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.findAll('.ec-navigation__block').length).toBe(1);
-    expect(wrapper.find('.ec-navigation__menu').exists()).toBe(true);
+    expect(wrapper.findAllByDataTest('ec-navigation__block').length).toBe(1);
+    expect(wrapper.findByDataTest('ec-navigation__menu').exists()).toBe(true);
   });
 
   it('should render all given slots', () => {
@@ -86,6 +86,6 @@ describe('EcNavigation', () => {
     });
 
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.findAll('.ec-navigation__block').length).toBe(5);
+    expect(wrapper.findAllByDataTest('ec-navigation__block').length).toBe(5);
   });
 });

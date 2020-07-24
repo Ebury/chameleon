@@ -3,6 +3,7 @@
 exports[`EcNavigation should be collapsable when isCollapsable is set 1`] = `
 <div
   class="ec-navigation ec-navigation--is-collapsable"
+  data-test="ec-navigation"
 >
   <!---->
    
@@ -12,6 +13,7 @@ exports[`EcNavigation should be collapsable when isCollapsable is set 1`] = `
    
   <div
     class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
   />
    
   <!---->
@@ -23,6 +25,7 @@ exports[`EcNavigation should be collapsable when isCollapsable is set 1`] = `
 exports[`EcNavigation should be collapsed when isCollapsed is set to true 1`] = `
 <div
   class="ec-navigation ec-navigation--is-collapsed"
+  data-test="ec-navigation"
 >
   <!---->
    
@@ -32,6 +35,7 @@ exports[`EcNavigation should be collapsed when isCollapsed is set to true 1`] = 
    
   <div
     class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
   />
    
   <!---->
@@ -43,6 +47,7 @@ exports[`EcNavigation should be collapsed when isCollapsed is set to true 1`] = 
 exports[`EcNavigation should be expanded when isCollapsed is set to false 1`] = `
 <div
   class="ec-navigation"
+  data-test="ec-navigation"
 >
   <!---->
    
@@ -52,6 +57,7 @@ exports[`EcNavigation should be expanded when isCollapsed is set to false 1`] = 
    
   <div
     class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
   />
    
   <!---->
@@ -63,6 +69,7 @@ exports[`EcNavigation should be expanded when isCollapsed is set to false 1`] = 
 exports[`EcNavigation should not render branding if logo is given in branding object but showBrandingLogo is set to false 1`] = `
 <div
   class="ec-navigation"
+  data-test="ec-navigation"
 >
   <!---->
    
@@ -72,6 +79,7 @@ exports[`EcNavigation should not render branding if logo is given in branding ob
    
   <div
     class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
   />
    
   <!---->
@@ -83,6 +91,7 @@ exports[`EcNavigation should not render branding if logo is given in branding ob
 exports[`EcNavigation should not render branding if no logo is given in branding object 1`] = `
 <div
   class="ec-navigation"
+  data-test="ec-navigation"
 >
   <!---->
    
@@ -92,6 +101,7 @@ exports[`EcNavigation should not render branding if no logo is given in branding
    
   <div
     class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
   />
    
   <!---->
@@ -103,6 +113,7 @@ exports[`EcNavigation should not render branding if no logo is given in branding
 exports[`EcNavigation should only render mandatory slot if no other slots were given 1`] = `
 <div
   class="ec-navigation"
+  data-test="ec-navigation"
 >
   <!---->
    
@@ -112,6 +123,7 @@ exports[`EcNavigation should only render mandatory slot if no other slots were g
    
   <div
     class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
   />
    
   <!---->
@@ -123,11 +135,13 @@ exports[`EcNavigation should only render mandatory slot if no other slots were g
 exports[`EcNavigation should render all given slots 1`] = `
 <div
   class="ec-navigation"
+  data-test="ec-navigation"
 >
   <!---->
    
   <div
     class="ec-navigation__block ec-navigation__user-info"
+    data-test="ec-navigation__block ec-navigation__user-info"
   >
     <div>
       User Info
@@ -136,6 +150,7 @@ exports[`EcNavigation should render all given slots 1`] = `
    
   <div
     class="ec-navigation__block ec-navigation__call-to-action"
+    data-test="ec-navigation__block ec-navigation__call-to-action"
   >
     <div>
       CTA
@@ -144,6 +159,7 @@ exports[`EcNavigation should render all given slots 1`] = `
    
   <div
     class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
   >
     <div>
       Menu
@@ -152,6 +168,7 @@ exports[`EcNavigation should render all given slots 1`] = `
    
   <div
     class="ec-navigation__block ec-navigation__footer-menu"
+    data-test="ec-navigation__block ec-navigation__footer-menu"
   >
     <div>
       Footer Menu
@@ -160,6 +177,7 @@ exports[`EcNavigation should render all given slots 1`] = `
    
   <div
     class="ec-navigation__block ec-navigation__copyright"
+    data-test="ec-navigation__block ec-navigation__copyright"
   >
     <div>
       Copyright
@@ -171,13 +189,16 @@ exports[`EcNavigation should render all given slots 1`] = `
 exports[`EcNavigation should render branding logo and name when given 1`] = `
 <div
   class="ec-navigation"
+  data-test="ec-navigation"
 >
   <div
     class="ec-navigation__branding"
+    data-test="ec-navigation__branding"
   >
     <img
       alt="My Branding"
       class="ec-navigation__branding-logo"
+      data-test="ec-navigation__branding-logo"
       src="/img/my.png"
     />
   </div>
@@ -188,6 +209,7 @@ exports[`EcNavigation should render branding logo and name when given 1`] = `
    
   <div
     class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
   />
    
   <!---->
@@ -199,10 +221,12 @@ exports[`EcNavigation should render branding logo and name when given 1`] = `
 exports[`EcNavigation should render branding logo and name when given: Branding should have alt and src. 1`] = `
 <div
   class="ec-navigation__branding"
+  data-test="ec-navigation__branding"
 >
   <img
     alt="My Branding"
     class="ec-navigation__branding-logo"
+    data-test="ec-navigation__branding-logo"
     src="/img/my.png"
   />
 </div>

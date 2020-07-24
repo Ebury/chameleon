@@ -57,13 +57,13 @@ describe('EcNavigationLink', () => {
     it('should hide the text when is collapsed', () => {
       const wrapper = mountAsRouterLink({ isCollapsed: true });
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(false);
+      expect(wrapper.findByDataTest('ec-navigation-link__text').isVisible()).toBe(false);
     });
 
     it('should show the text when is expanded', () => {
       const wrapper = mountAsRouterLink({ isCollapsed: false });
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(true);
+      expect(wrapper.findByDataTest('ec-navigation-link__text').isVisible()).toBe(true);
     });
 
     it('should be active when isActive is passed into', () => {
@@ -109,13 +109,13 @@ describe('EcNavigationLink', () => {
     it('should hide the text when is collapsed', () => {
       const wrapper = mountAsAnchor({ isCollapsed: true });
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(false);
+      expect(wrapper.findByDataTest('ec-navigation-link__text').isVisible()).toBe(false);
     });
 
     it('should show the text when is expanded', () => {
       const wrapper = mountAsAnchor({ isCollapsed: false });
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.find('.ec-navigation-link__text').isVisible()).toBe(true);
+      expect(wrapper.findByDataTest('ec-navigation-link__text').isVisible()).toBe(true);
     });
 
     it('should be active when isActive is passed into', () => {

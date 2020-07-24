@@ -2,41 +2,51 @@
   <div
     class="ec-navigation"
     :class="{ 'ec-navigation--is-collapsable': isCollapsable, 'ec-navigation--is-collapsed': isCollapsed }"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-navigation` : 'ec-navigation'"
   >
     <div
       v-if="showBrandingLogo && branding.logo"
       class="ec-navigation__branding"
+      data-test="ec-navigation__branding"
     >
       <img
         class="ec-navigation__branding-logo"
         :src="branding.logo"
         :alt="branding.name"
+        data-test="ec-navigation__branding-logo"
       >
     </div>
     <div
       v-if="$slots['user-info']"
       class="ec-navigation__block ec-navigation__user-info"
+      data-test="ec-navigation__block ec-navigation__user-info"
     >
       <slot name="user-info" />
     </div>
     <div
       v-if="$slots['call-to-action']"
       class="ec-navigation__block ec-navigation__call-to-action"
+      data-test="ec-navigation__block ec-navigation__call-to-action"
     >
       <slot name="call-to-action" />
     </div>
-    <div class="ec-navigation__block ec-navigation__menu">
+    <div
+      class="ec-navigation__block ec-navigation__menu"
+      data-test="ec-navigation__block ec-navigation__menu"
+    >
       <slot name="menu" />
     </div>
     <div
       v-if="$slots['footer-menu']"
       class="ec-navigation__block ec-navigation__footer-menu"
+      data-test="ec-navigation__block ec-navigation__footer-menu"
     >
       <slot name="footer-menu" />
     </div>
     <div
       v-if="$slots.copyright"
       class="ec-navigation__block ec-navigation__copyright"
+      data-test="ec-navigation__block ec-navigation__copyright"
     >
       <slot name="copyright" />
     </div>
@@ -69,60 +79,62 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/index';
-@import '../../scss/tools/index';
+<style>
+:root {
+  --ec-navigation-width: 280px;
+  --ec-navigation-collapsable-width: 256px;
+  --ec-navigation-is-collapsed-width: 80px;
+}
 
 .ec-navigation {
-  width: 280px;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  background-color: $level-2-bank-blue;
-  color: $white;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
+  width: var(--ec-navigation-width);
+
+  @apply tw-fixed;
+  @apply tw-top-0 tw-bottom-0;
+  @apply tw-z-navigation;
+  @apply tw-bg-key-2;
+  @apply tw-text-gray-8;
+  @apply tw-flex tw-flex-col;
+  @apply tw-overflow-y-auto tw-overflow-x-hidden;
 
   &--is-collapsable {
-    width: 256px;
-    transition: width 0.5s;
+    width: var(--ec-navigation-collapsable-width);
+    transition-property: width;
+
+    @apply tw-duration-500;
   }
 
   &--is-collapsed {
-    width: 80px;
+    width: var(--ec-navigation-is-collapsed-width);
   }
 
   &__branding {
-    padding: 0 24px;
-    margin: 24px 0 8px;
-    text-align: center;
+    @apply tw-py-0 tw-px-24;
+    @apply tw-mt-24 tw-mb-8 tw-mx-0;
+    @apply tw-text-center;
   }
 
   &__branding-logo {
-    vertical-align: top;
+    @apply tw-align-top;
   }
 
   &__block {
-    margin-top: 16px;
+    @apply tw-mt-16;
 
     &:last-child {
-      margin-bottom: 16px;
+      @apply tw-mb-16;
     }
   }
 
   &__menu {
-    flex-grow: 1;
+    @apply tw-flex-grow;
   }
 
   &__copyright {
-    @include caption-text;
-
-    white-space: nowrap;
-    padding: 0 24px;
-    text-align: center;
+    @apply tw-caption-text;
+    @apply tw-whitespace-no-wrap;
+    @apply tw-py-0 tw-px-24;
+    @apply tw-text-center;
   }
 }
 </style>
