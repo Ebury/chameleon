@@ -1,7 +1,7 @@
-export const LIGHT_THEME = { name: 'light', value: '#fff' };
-export const DARK_THEME = { name: 'dark', value: 'rgb(46,54,56)' };
-export const LIGHT_BLUE_THEME = { name: 'light blue ebury', value: 'rgb(0,190,240)' };
-export const DARK_BLUE_THEME = { name: 'dark blue ebury', value: 'rgb(0,80,102)' };
+export const LIGHT_THEME = { name: 'light', value: 'hsl(192.5, 10%, 100%)' }; // --ec-theme-gray-color-level-8
+export const DARK_THEME = { name: 'dark', value: 'hsl(192.5, 10%, 20%)' }; // --ec-theme-gray-color-level-2
+export const LIGHT_BLUE_THEME = { name: 'light blue', value: 'hsl(192.5, 100%, 47%)' }; // --ec-theme-key-color-level-4
+export const DARK_BLUE_THEME = { name: 'dark blue', value: 'hsl(192.5, 100%, 20%)' }; // --ec-theme-key-color-level-2
 
 export function getAllBackgrounds(defaultName) {
   return [

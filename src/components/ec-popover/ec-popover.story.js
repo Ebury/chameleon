@@ -45,48 +45,46 @@ stories.add('basic', () => ({
   <div class="tw-flex tw-h-screen">
     <div class="tw-m-auto">
       <h1>Header</h1>
-      <ec-popover class="ec-mb-2" popoverClass="ec-popover custompop1" :placement="placement" :trigger="trigger">
-        <button v-ec-tooltip="'Custom'" class="ec-mb--16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Custom</button>
+      <ec-popover class="tw-mb-4" popoverClass="ec-popover" :placement="placement" :trigger="trigger">
+        <button v-ec-tooltip="'Custom'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Custom</button>
         <div slot="popover" class="tw-bg-gray-8">
           <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" v-ec-close-popover>close</button>
           <h1 v-ec-tooltip="'Custom pop tooltip'">Now you see me!</h1>
         </div>
       </ec-popover>
-      <ec-popover class="ec-mb-2" popoverClass="ec-popover custompop2" placement="top" :trigger="trigger">
-        <button v-ec-tooltip="'Top'" class="ec-mb--16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Top</button>
+      <ec-popover class="tw-mb-4" popoverClass="ec-popover" placement="top" :trigger="trigger">
+        <button v-ec-tooltip="'Top'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Top</button>
         <div slot="popover" class="tw-bg-gray-8">
           <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" v-ec-close-popover>close</button>
           <h1 v-ec-tooltip="'Top pop tooltip'">Now you see me!</h1>
         </div>
       </ec-popover>
-      <ec-popover class="ec-mb-2" popoverClass="ec-popover custompop3" placement="bottom" :trigger="trigger">
-        <button v-ec-tooltip="'Bottom'" class="ec-mb--16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Bottom</button>
+      <ec-popover class="tw-mb-4" popoverClass="ec-popover" placement="bottom" :trigger="trigger">
+        <button v-ec-tooltip="'Bottom'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Bottom</button>
         <div slot="popover" class="tw-bg-gray-8">
           <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" v-ec-close-popover>close</button>
           <h1 v-ec-tooltip="'Bottom pop tooltip'">Now you see me!</h1>
         </div>
       </ec-popover>
-      <ec-popover class="ec-mb-2" level="modal" placement="right" :trigger="trigger">
-        <button v-ec-tooltip="'Right'" class="ec-mb--16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Right</button>
+      <ec-popover class="tw-mb-4" level="modal" placement="right" :trigger="trigger">
+        <button v-ec-tooltip="'Right'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Right</button>
         <div slot="popover" class="tw-bg-gray-8">
           <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" v-ec-close-popover>close</button>
           <h1 v-ec-tooltip="'Right pop tooltip'">Now you see me!</h1>
         </div>
       </ec-popover>
-      <ec-popover class="ec-mb-2" popoverClass="ec-popover custompop5" placement="left" :trigger="trigger">
-        <button v-ec-tooltip="'Left'" class="ec-mb--16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Left</button>
+      <ec-popover class="tw-mb-4" popoverClass="ec-popover" placement="left" :trigger="trigger">
+        <button v-ec-tooltip="'Left'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Left</button>
         <div slot="popover" class="tw-bg-gray-8">
           <button v-ec-close-popover class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded">close</button>
           <h1 v-ec-tooltip="'Left pop tooltip'">Now you see me!</h1>
-          <ec-popover class="ec-innerpop" placement="top" :trigger="trigger">
+          <ec-popover placement="top" :trigger="trigger">
               <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded">Foo</button>
               <h2 slot="popover" class="tw-bg-gray-8" v-ec-tooltip="'Foo bar tooltip'">Fooo bar</h2>
           </ec-popover>
         </div>
       </ec-popover>
-      <h1>Bottom</h1>
-      </div>
+      <h1>Footer</h1>
+    </div>
   </div>`,
 }));
-
-export default stories;

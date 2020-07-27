@@ -74,9 +74,11 @@ export default {
       @apply tw-inline-block;
       @apply tw-min-w-0;
 
+      /* stylelint-disable selector-max-class */
       + .ec-menu__item {
         @apply tw-ml-16;
       }
+      /* stylelint-enable */
     }
   }
 }
