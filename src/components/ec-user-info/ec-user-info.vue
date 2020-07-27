@@ -5,6 +5,7 @@
   >
     <img
       class="ec-user-info__avatar"
+      data-test="ec-user-info__avatar"
       :src="user.gravatar"
       :alt="user.name + ' gravatar'"
       @click="toggle()"
@@ -50,77 +51,71 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../scss/settings/colors/index';
-@import '../../scss/tools/index';
+<style>
+@import '../../styles/tools/transitions.css';
 
-$ec-client-text-color: $white !default;
-$ec-client-text-color-hover: $level-4-tech-blue !default;
-$ec-user-info-avatar-size: 48px !default;
+:root {
+  --ec-user-info-avatar-size: theme('spacing.48');
+}
 
 .ec-user-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 16px;
-  white-space: nowrap;
+  @apply tw-flex tw-flex-col tw-items-center;
+  @apply tw-py-0 tw-px-16;
+  @apply tw-whitespace-no-wrap;
 
   &--is-collapsable {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    max-height: $ec-user-info-avatar-size;
+    @apply tw-flex-row tw-items-start tw-justify-start;
+
+    max-height: var(--ec-user-info-avatar-size);
 
     .ec-user-info__avatar {
-      margin-right: 16px;
+      @apply tw-mr-16;
     }
   }
 
   &__avatar {
-    width: $ec-user-info-avatar-size;
-    height: $ec-user-info-avatar-size;
-    border-radius: 6px;
+    @apply tw-rounded;
+
+    width: var(--ec-user-info-avatar-size);
+    height: var(--ec-user-info-avatar-size);
   }
 
   &__client-name {
-    @include h4;
-    @include ellipsis;
-
-    display: block;
-    color: $ec-client-text-color;
-    text-decoration: none;
-    margin-top: 8px;
-    margin-bottom: 4px;
+    @apply tw-h4;
+    @apply tw-truncate;
+    @apply tw-block;
+    @apply tw-text-gray-8;
+    @apply tw-no-underline;
+    @apply tw-mt-8 tw-mb-4;
 
     &:hover {
-      @include color-transition;
+      @mixin ec-text-color-transition;
 
-      color: $ec-client-text-color-hover;
-      text-decoration: none;
+      @apply tw-text-key-4;
+      @apply tw-no-underline;
     }
 
     &:focus {
-      outline: 0;
-      color: $ec-client-text-color-hover;
+      @apply tw-outline-none;
+      @apply tw-text-key-4;
     }
 
     .ec-user-info--is-collapsable & {
-      margin-top: 0;
+      @apply tw-mt-0;
     }
   }
 
   &__client-fade {
-    @include fade-transition;
+    @mixin ec-fade-transition;
   }
 
   &__client-wrapper {
-    min-width: 0;
-    max-width: 100%;
-    text-align: center;
+    @apply tw-min-w-0 tw-max-w-full;
+    @apply tw-text-center;
 
     .ec-user-info--is-collapsable & {
-      text-align: left;
-      align-self: center;
+      @apply tw-text-left;
+      @apply tw-self-center;
     }
   }
 }

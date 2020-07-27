@@ -1,6 +1,10 @@
 
 @import '../../styles/tools/ec-z-level-all.css';
 
+:root {
+  --ec-tooltip-width-value: 6px;
+}
+
 .ec-tooltip {
   @apply tw-block;
 
