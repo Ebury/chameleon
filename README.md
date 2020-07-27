@@ -80,7 +80,7 @@ By now you should be up and running. You can check the existing components or cr
 
 ### CSS
 
-For chameleon components, we use ITCSS architecture with BEM naming, TailwindCSS for Utilities, SASS as a preprocessor (deprecated - will be removed in the future) and PostCSS as a postprocessor.
+For chameleon components, we use ITCSS architecture with BEM naming, TailwindCSS for Utilities, and PostCSS as a postprocessor.
 Please don't add any CSS styles without following the rules below.
 
 #### Vue
@@ -179,7 +179,7 @@ To run visual regression tests:
 make cypress-integration
 ```
 
-You can also just run `make cypress-install` and then `make cypress-run` as many times as you want. 
+You can also just run `make cypress-install` and then `make cypress-run` as many times as you want.
 It will skip the installation part before each run.
 
 To run tests only for specific story, you can use `storyIdFilter`. The ID of the story can be found in the URL of the storybook, e.g.
