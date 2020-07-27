@@ -231,12 +231,6 @@ To build your Storybook:
 npm run build-storybook
 ```
 
-To build your app (Vue CLI):
-
-```sh
-npm run build
-```
-
 ## References
 
 ### Vue.js
