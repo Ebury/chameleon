@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
 const path = require('path');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = async ({ config }) => {
   config.module.rules.push({
@@ -33,6 +34,12 @@ module.exports = async ({ config }) => {
     loaders: [require.resolve('@storybook/source-loader')],
     enforce: 'pre',
   });
+
+  config.plugins.push(new StyleLintPlugin({
+    files: ['**/*.{vue,htm,html,css}'],
+    emitError: true,
+    emitWarning: true,
+  }));
 
   const babelRule = config.module.rules[0];
   babelRule.exclude = /node_modules\/(?!(css-tree)\/).*/;

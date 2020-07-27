@@ -1,1 +1,5 @@
 # .gitignore syntax (uses node-ignore behind the scenes)
+coverage
+node_modules
+dist
+.out

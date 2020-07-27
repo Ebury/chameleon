@@ -1,4 +1,5 @@
 .ec-elements-story {
+  /* stylelint-disable selector-max-universal */
   > * {
     /* insert a line break after every element in the story  */
     &:after {
@@ -7,6 +8,7 @@
       content: '';
     }
   }
+  /* stylelint-enable */
 
   &__heading {
     @apply tw-mt-24;
