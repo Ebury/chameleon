@@ -251,8 +251,6 @@ npm run build-storybook
 
 ### CSS
 
-[SCSS](https://sass-lang.com/documentation/syntax)
-
 [PostCSS](https://postcss.org/)
 
 [TailwindCSS](https://tailwindcss.com/)

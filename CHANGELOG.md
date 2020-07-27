@@ -1,3 +1,9 @@
+# 1.0.0 - Initial release
+
+## BREAKING CHANGES
+
+* removed SASS from the project
+
 # 0.1.98 - Minor changes in tailwind.config.js
 
 ## Added
