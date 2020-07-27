@@ -1,5 +1,4 @@
-
-@import '../../styles/tools/ec-z-level-all.css';
+@import '../../styles/tools/z-index.css';
 
 :root {
   --ec-tooltip-width-value: 6px;
@@ -138,6 +137,6 @@
   &[aria-hidden='false'] {
     @apply tw-visible;
     @apply tw-opacity-100;
-    @apply tw-duration-150 tw-transition-opacity ;
+    @apply tw-duration-150 tw-transition-opacity;
   }
 }
