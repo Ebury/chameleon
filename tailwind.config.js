@@ -343,13 +343,13 @@ module.exports = {
     //   ...theme('spacing'),
     //   ...negative(theme('spacing')),
     // }),
-    stroke: {
-      current: 'currentColor',
-    },
+    stroke: theme => theme('colors'),
     strokeWidth: {
       0: '0',
       1: '1',
       2: '2',
+      3: '3',
+      4: '4',
     },
     textColor: theme => theme('colors'),
     // textOpacity: theme => theme('opacity'),
