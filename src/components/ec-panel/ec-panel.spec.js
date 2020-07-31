@@ -41,9 +41,11 @@ describe('EcPanel', () => {
   });
 
   describe('@events', () => {
-    it('@close - should emit both "show-panel" and "close" events when the simple-close icon is clicked', () => {
+    it('@close - should emit both "show-panel" and "close" events once when the simple-close icon is clicked', () => {
       const wrapper = mountPanel({ show: true });
-      wrapper.findByDataTest('ec-panel__header-action--close').trigger('click');
+      const closeCTA = wrapper.findByDataTest('ec-panel__header-action--close');
+      closeCTA.trigger('click');
+      closeCTA.trigger('click');
 
       expect(wrapper.emitted('show-panel').length).toBe(1);
       expect(wrapper.emitted('close').length).toBe(1);
@@ -87,7 +89,7 @@ describe('EcPanel', () => {
         expect(wrapper.element).toMatchSnapshot();
       });
 
-      it('should emit a "back" event when the simple-chevron-left icon is clicked', () => {
+      it('should execute callback once when the simple-chevron-left icon is clicked', () => {
         const anyGivenCallback = jest.fn();
         const wrapper = mountPanelAsTemplate(
           '<ec-panel v-model="show" @back="anyGivenCallback"></ec-panel>',
@@ -103,10 +105,11 @@ describe('EcPanel', () => {
             },
           },
         );
+        const backCTA = wrapper.findByDataTest('ec-panel__header-action--back');
+        backCTA.trigger('click');
+        backCTA.trigger('click');
 
-        wrapper.findByDataTest('ec-panel__header-action--back').trigger('click');
-
-        expect(anyGivenCallback).toHaveBeenCalled();
+        expect(anyGivenCallback).toHaveBeenCalledTimes(1);
         expect(wrapper.findByDataTest('ec-panel').exists()).toBeFalsy();
       });
     });

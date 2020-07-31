@@ -18,7 +18,7 @@
           aria-label="Go back"
           class="ec-panel__header-action ec-panel__header-action--back"
           data-test="ec-panel__header-action--back"
-          @click.stop.prevent="goBack"
+          @click.once.stop.prevent="goBack"
         >
           <ec-icon
             class="ec-panel__header-icon"
@@ -32,7 +32,7 @@
           aria-label="Close panel"
           class="ec-panel__header-action ec-panel__header-action--close"
           data-test="ec-panel__header-action--close"
-          @click.stop.prevent="closePanel"
+          @click.once.stop.prevent="closePanel"
         >
           <ec-icon
             class="ec-panel__header-icon"
