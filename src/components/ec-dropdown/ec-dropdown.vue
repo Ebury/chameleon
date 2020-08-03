@@ -11,10 +11,11 @@
     :disabled="disabled"
     :level="level"
     :is-loading="isLoading"
+    :is-multiple="multiple"
     :popper-modifiers="popperModifiers"
     :popover-options="popoverOptions"
     @change="onSelected"
-    @open="$emit('open')"
+    @open="onOpen"
     @after-open="$emit('after-open')"
   >
     <ec-input-field
@@ -221,6 +222,10 @@ export default {
       } else {
         this.$refs.trigger.$el.click();
       }
+    },
+    onOpen() {
+      this.$emit('open');
+      this.$refs.trigger.$el.querySelector('input').focus();
     },
     onSelected() {
       // return focus back to readonly input, but that will re-open the dropdown, so prevent that.

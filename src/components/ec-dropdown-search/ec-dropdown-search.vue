@@ -3,6 +3,9 @@
     ref="popperWidthReference"
     class="ec-dropdown-search"
     data-test="ec-dropdown-search"
+    @keyup.down="onArrowDown"
+    @keyup.up="onArrowUp"
+    @keyup.enter="onEnter"
   >
     <ec-popover
       ref="popover"
@@ -46,6 +49,10 @@
               :placeholder="placeholder"
               class="ec-dropdown-search__search-input"
               data-test="ec-dropdown-search__search-input"
+              @keyup.down="onArrowDown"
+              @keyup.up="onArrowUp"
+              @keydown.down.prevent
+              @keydown.up.prevent
             >
           </li>
           <li
@@ -123,6 +130,9 @@ import EcLoading from '../ec-loading';
 import EcTooltip from '../../directives/ec-tooltip';
 import { removeDiacritics } from '../../utils/diacritics';
 
+const KEY_ARROW_UP = 'up';
+const KEY_ARROW_DOWN = 'down';
+
 export default {
   name: 'EcDropdownSearch',
   components: { EcPopover, EcIcon, EcLoading },
@@ -186,6 +196,10 @@ export default {
       type: String,
       default: 'No results found',
     },
+    isMultiple: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -245,6 +259,7 @@ export default {
           ...this.popperModifiers,
         },
       },
+      visibleWindow: null,
     };
   },
   computed: {
@@ -282,11 +297,15 @@ export default {
     },
     afterShow() {
       this.$emit('after-open');
+      if (this.selected) {
+        const selectedItemIndex = this.filteredItems.indexOf(this.selected);
+        this.updateScroll(selectedItemIndex);
+      }
       this.focusSearch();
     },
-    select(item) {
+    select(item, keyboardNavigation) {
       this.$emit('change', item);
-      if (!this.keepOpen) {
+      if (!this.keepOpen && !keyboardNavigation) {
         this.hide();
       } else {
         // selecting an item might affect the position of the popover,
@@ -296,6 +315,69 @@ export default {
     },
     hasCta() {
       return !!this.$scopedSlots.cta;
+    },
+    onArrowKey(key) {
+      if (!this.isMultiple) {
+        const selectedItemIndex = this.filteredItems.indexOf(this.selected);
+        const keyboardNavigation = true;
+        let selectableItems = [];
+
+        if (selectedItemIndex >= 0) {
+          if (key === KEY_ARROW_DOWN) {
+            selectableItems = this.filteredItems.slice(selectedItemIndex + 1).filter(item => !item.disabled);
+          } else {
+            selectableItems = this.filteredItems.slice(0, selectedItemIndex).filter(item => !item.disabled);
+          }
+        } else {
+          selectableItems = this.filteredItems.filter(item => !item.disabled);
+        }
+
+        if (selectableItems.length) {
+          const nextItem = key === KEY_ARROW_DOWN ? selectableItems[0] : selectableItems[selectableItems.length - 1];
+          this.select(nextItem, keyboardNavigation);
+          this.updateScroll(this.filteredItems.indexOf(nextItem));
+        }
+      }
+    },
+    onArrowDown() {
+      this.onArrowKey(KEY_ARROW_DOWN);
+    },
+    onArrowUp() {
+      this.onArrowKey(KEY_ARROW_UP);
+    },
+    updateScroll(index) {
+      this.$nextTick(() => {
+        const items = this.$refs.itemElements;
+        if (items && items.length && index >= 0) {
+          const itemHeight = items[index].clientHeight;
+          const itemTop = itemHeight * index;
+          const itemBottom = (itemHeight * index) + itemHeight;
+          const visibleWindowHeight = this.maxVisibleItems * itemHeight;
+
+          if (!this.visibleWindow) {
+            // Initial visibleWindow setup
+            this.visibleWindow = { top: 0, bottom: visibleWindowHeight };
+          }
+
+          if (itemBottom > this.visibleWindow.bottom) {
+            this.visibleWindow.top = itemBottom - visibleWindowHeight;
+            this.visibleWindow.bottom = itemBottom;
+          } else if (itemTop < this.visibleWindow.top) {
+            this.visibleWindow.top = itemTop;
+            this.visibleWindow.bottom = itemTop + visibleWindowHeight;
+          }
+          this.$refs.itemsOverflowContainer.scrollTop = this.visibleWindow.top;
+        }
+      });
+    },
+    onEnter() {
+      if (!this.isSearchEnabled) {
+        if (this.isOpen) {
+          this.hide();
+        } else {
+          this.show();
+        }
+      }
     },
   },
 };
