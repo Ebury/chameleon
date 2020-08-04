@@ -258,6 +258,11 @@ export default {
           },
           ...this.popperModifiers,
         },
+        onUpdate: () => {
+          // Updating the scroll here rather than immediately after selecting an item as the popover is updated when
+          // an item is selected, and this can cause its dimensions to change when their items are dynamically sized
+          this.updateScroll();
+        },
       },
       visibleWindow: null,
     };
@@ -276,6 +281,19 @@ export default {
     },
     isEmpty() {
       return this.isSearchEnabled && this.filteredItems.length === 0;
+    },
+    isFirstItemCustom() {
+      return this.isSearchEnabled || this.hasCta();
+    },
+    initialItemHeight() {
+      let height = 0;
+      if (this.isSearchEnabled && this.$refs.searchArea) {
+        height += this.$refs.searchArea.offsetHeight;
+      }
+      if (this.hasCta() && this.$refs.ctaArea) {
+        height += this.$refs.ctaArea.offsetHeight;
+      }
+      return height;
     },
   },
   methods: {
@@ -297,10 +315,6 @@ export default {
     },
     afterShow() {
       this.$emit('after-open');
-      if (this.selected) {
-        const selectedItemIndex = this.filteredItems.indexOf(this.selected);
-        this.updateScroll(selectedItemIndex);
-      }
       this.focusSearch();
     },
     select(item, keyboardNavigation) {
@@ -335,7 +349,6 @@ export default {
         if (selectableItems.length) {
           const nextItem = key === KEY_ARROW_DOWN ? selectableItems[0] : selectableItems[selectableItems.length - 1];
           this.select(nextItem, keyboardNavigation);
-          this.updateScroll(this.filteredItems.indexOf(nextItem));
         }
       }
     },
@@ -345,33 +358,37 @@ export default {
     onArrowUp() {
       this.onArrowKey(KEY_ARROW_UP);
     },
-    updateScroll(index) {
-      this.$nextTick(() => {
+    updateScroll() {
+      if (this.selected) {
+        const selectedItemIndex = this.filteredItems.indexOf(this.selected);
         const items = this.$refs.itemElements;
-        if (items && items.length && index >= 0) {
-          const itemHeight = items[index].clientHeight;
-          const itemTop = itemHeight * index;
-          const itemBottom = (itemHeight * index) + itemHeight;
-          const visibleWindowHeight = this.maxVisibleItems * itemHeight;
+        if (items && items.length && selectedItemIndex >= 0) {
+          const itemTop = items.slice(0, selectedItemIndex).reduce((sum, item) => sum + item.offsetHeight, this.initialItemHeight);
+          const itemBottom = itemTop + items[selectedItemIndex].offsetHeight;
+          const visibleWindowHeight = this.$refs.itemsOverflowContainer.clientHeight;
 
           if (!this.visibleWindow) {
             // Initial visibleWindow setup
             this.visibleWindow = { top: 0, bottom: visibleWindowHeight };
           }
 
-          if (itemBottom > this.visibleWindow.bottom) {
+          if (itemBottom >= this.visibleWindow.bottom) {
             this.visibleWindow.top = itemBottom - visibleWindowHeight;
             this.visibleWindow.bottom = itemBottom;
-          } else if (itemTop < this.visibleWindow.top) {
-            this.visibleWindow.top = itemTop;
-            this.visibleWindow.bottom = itemTop + visibleWindowHeight;
+          } else if (itemTop <= this.visibleWindow.top) {
+            if (this.isFirstItemCustom && selectedItemIndex === 0) {
+              this.visibleWindow.top = 0;
+            } else {
+              this.visibleWindow.top = itemTop;
+            }
+            this.visibleWindow.bottom = this.visibleWindow.top + visibleWindowHeight;
           }
           this.$refs.itemsOverflowContainer.scrollTop = this.visibleWindow.top;
         }
-      });
+      }
     },
     onEnter() {
-      if (!this.isSearchEnabled) {
+      if (!this.isFirstItemCustom) {
         if (this.isOpen) {
           this.hide();
         } else {
