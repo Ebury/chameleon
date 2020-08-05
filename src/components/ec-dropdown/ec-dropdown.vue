@@ -14,8 +14,9 @@
     :is-multiple="multiple"
     :popper-modifiers="popperModifiers"
     :popover-options="popoverOptions"
+    :is-focus-active="isFocusActive"
     @change="onSelected"
-    @open="onOpen"
+    @open="$emit('open')"
     @after-open="$emit('after-open')"
   >
     <ec-input-field
@@ -32,9 +33,10 @@
       readonly
       icon="simple-arrow-drop-down"
       :is-in-group="isInGroup"
-      @mousedown="onMousedown"
       @focus="onFocus"
-      @blur="$emit('blur')"
+      @blur="onBlur"
+      @keyup.enter="openDropdownByKeyPress"
+      @keyup.space="openDropdownByKeyPress"
     />
 
     <template
@@ -166,6 +168,12 @@ export default {
       default: null,
     },
   },
+  data() {
+    return {
+      isFocusActive: false,
+      shouldEmitFocus: true,
+    };
+  },
   computed: {
     selectedModel: {
       get() {
@@ -204,39 +212,37 @@ export default {
     isItemSelected(item) {
       return this.selected && this.selected.includes(item);
     },
-    onMousedown: /* istanbul ignore next */ function onMousedown() {
-      this.preventFocusToTriggerPopover = true;
-      this.shouldEmitFocus = true;
-    },
     onFocus() {
-      // Input can gain focus by clicking or by tabbing into. Click is handled by the popover, so if
-      // the focus was gained by click, don't do anything. If the focus is gained by tabbing into, then
-      // open the popover programmatically.
+      // when an item has been selected the readonly input will regain the focus,
+      // but in that scenario we don't want to emit the event
       if (this.shouldEmitFocus) {
         this.$emit('focus');
-        this.shouldEmitFocus = false;
-      }
-      /* istanbul ignore next */
-      if (this.preventFocusToTriggerPopover) {
-        this.preventFocusToTriggerPopover = false;
       } else {
-        this.$refs.trigger.$el.click();
+        this.shouldEmitFocus = true;
       }
-    },
-    onOpen() {
-      this.$emit('open');
-      this.$refs.trigger.$el.querySelector('input').focus();
+      this.isFocusActive = true;
     },
     onSelected() {
-      // return focus back to readonly input, but that will re-open the dropdown, so prevent that.
-      this.preventFocusToTriggerPopover = true;
-      this.$refs.trigger.$el.querySelector('input').focus();
+      if (!this.$refs.trigger.$el.querySelector('input:focus')) {
+        // return focus back to readonly input
+        this.shouldEmitFocus = false;
+        this.$refs.trigger.$el.querySelector('input').focus();
+      }
+    },
+    onBlur() {
+      this.$emit('blur');
+      this.isFocusActive = false;
     },
     hasCtaSlot() {
       return !!this.$scopedSlots.cta;
     },
     hasItemSlot() {
       return !!this.$scopedSlots.item;
+    },
+    openDropdownByKeyPress() {
+      // if the space or enter keys are pressed (it means user wants to open the dropdown),
+      // then open the popover programmatically
+      this.$refs.trigger.$el.click();
     },
   },
 };

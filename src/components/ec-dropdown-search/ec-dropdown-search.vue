@@ -3,9 +3,9 @@
     ref="popperWidthReference"
     class="ec-dropdown-search"
     data-test="ec-dropdown-search"
-    @keyup.down="onArrowDown"
-    @keyup.up="onArrowUp"
-    @keyup.enter="onEnter"
+    @keyup.down="onKeyUpArrowDown"
+    @keyup.up="onKeyUpArrowUp"
+    @keyup.space="onKeyUpSpace"
   >
     <ec-popover
       ref="popover"
@@ -24,6 +24,7 @@
       @hide="hide"
       @show="show"
       @apply-show="afterShow"
+      @resize="resize"
     >
       <slot />
       <div slot="popover">
@@ -49,10 +50,13 @@
               :placeholder="placeholder"
               class="ec-dropdown-search__search-input"
               data-test="ec-dropdown-search__search-input"
-              @keyup.down="onArrowDown"
-              @keyup.up="onArrowUp"
+              @keyup.down="onKeyUpArrowDown"
+              @keyup.up="onKeyUpArrowUp"
+              @keyup.tab="onKeyUpTab"
               @keydown.down.prevent
               @keydown.up.prevent
+              @keydown.tab.prevent
+              @blur="onBlur"
             >
           </li>
           <li
@@ -200,6 +204,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    isFocusActive: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -296,14 +304,28 @@ export default {
       return height;
     },
   },
+  watch: {
+    isFocusActive: {
+      immediate: true,
+      handler(active) {
+        if (this.isOpen && !active) {
+          this.hide();
+        }
+      },
+    },
+  },
   methods: {
     hide() {
-      this.isOpen = false;
-      this.$emit('close');
+      if (this.isOpen) {
+        this.isOpen = false;
+        this.$emit('close');
+      }
     },
     show() {
-      this.isOpen = true;
-      this.$emit('open');
+      if (!this.isOpen) {
+        this.isOpen = true;
+        this.$emit('open');
+      }
     },
     focusSearch() {
       this.$nextTick(() => {
@@ -315,6 +337,12 @@ export default {
     },
     afterShow() {
       this.$emit('after-open');
+      this.focusSearch();
+    },
+    resize() {
+      // the first time the VPopover component is opened, after emitting the `apply-show`
+      // event, the component resizes and the focus on the search input field is lost, so
+      // the input field must regain the focus after this happens
       this.focusSearch();
     },
     select(item, keyboardNavigation) {
@@ -352,11 +380,25 @@ export default {
         }
       }
     },
-    onArrowDown() {
+    onKeyUpArrowDown() {
       this.onArrowKey(KEY_ARROW_DOWN);
     },
-    onArrowUp() {
+    onKeyUpArrowUp() {
       this.onArrowKey(KEY_ARROW_UP);
+    },
+    onKeyUpTab() {
+      // return focus back to Popover's anchor
+      this.$refs.popover.$el.querySelector('a').focus();
+    },
+    onKeyUpSpace() {
+      if (!this.isOpen) {
+        this.show();
+      }
+    },
+    onBlur() {
+      if (this.isOpen) {
+        this.hide();
+      }
     },
     updateScroll() {
       if (this.selected) {
@@ -384,15 +426,6 @@ export default {
             this.visibleWindow.bottom = this.visibleWindow.top + visibleWindowHeight;
           }
           this.$refs.itemsOverflowContainer.scrollTop = this.visibleWindow.top;
-        }
-      }
-    },
-    onEnter() {
-      if (!this.isFirstItemCustom) {
-        if (this.isOpen) {
-          this.hide();
-        } else {
-          this.show();
         }
       }
     },
