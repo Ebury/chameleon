@@ -372,9 +372,12 @@ describe('EcDropdownSearch', () => {
       wrapper.destroy(); // because we attached the wrapper to document
     });
 
-    it('should hide the popover after item has been selected', () => {
+    it('should hide the popover after item has been selected', async () => {
       const wrapper = mountDropdownSearch({ items });
+      wrapper.find('ecpopover-stub').vm.$emit('show');
       wrapper.findAll('.ec-dropdown-search__item').wrappers[1].trigger('click');
+      await wrapper.vm.$nextTick();
+
       expect(wrapper.emitted('close').length).toBe(1);
     });
 

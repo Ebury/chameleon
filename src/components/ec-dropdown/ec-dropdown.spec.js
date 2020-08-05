@@ -386,10 +386,10 @@ describe('EcDropdown', () => {
     describe('@events', () => {
       it('should emit change event when an item is selected', () => {
         const wrapper = mountDropdownMultipleValue({ items });
+        wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('show');
         selectItem(wrapper, 1);
 
         expect(wrapper.emitted('change').length).toEqual(1);
-        expect(wrapper.emitted('focus').length).toEqual(1);
         expect(wrapper.emitted('change')[0]).toEqual([[items[1]]]);
       });
 
