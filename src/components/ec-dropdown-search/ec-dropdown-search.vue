@@ -3,9 +3,11 @@
     ref="popperWidthReference"
     class="ec-dropdown-search"
     data-test="ec-dropdown-search"
-    @keyup.down="onKeyUpArrowDown"
-    @keyup.up="onKeyUpArrowUp"
-    @keyup.space="onKeyUpSpace"
+    @keydown.enter.prevent="onEnterOrSpaceKeyDown"
+    @keydown.space.prevent="onEnterOrSpaceKeyDown"
+    @keydown.up.prevent="onArrowUpKeyDown"
+    @keydown.down.prevent="onArrowDownKeyDown"
+    @keydown.tab="onTabKeyDown"
   >
     <ec-popover
       ref="popover"
@@ -50,13 +52,10 @@
               :placeholder="placeholder"
               class="ec-dropdown-search__search-input"
               data-test="ec-dropdown-search__search-input"
-              @keyup.down="onKeyUpArrowDown"
-              @keyup.up="onKeyUpArrowUp"
-              @keyup.tab="onKeyUpTab"
-              @keydown.down.prevent
-              @keydown.up.prevent
-              @keydown.tab.prevent
-              @blur="onBlur"
+              @keydown.enter="onSearchFieldEnterKeyDown"
+              @keydown.up.prevent="onArrowUpKeyDown"
+              @keydown.down.prevent="onArrowDownKeyDown"
+              @keydown.tab="onTabKeyDown"
             >
           </li>
           <li
@@ -113,9 +112,11 @@
               :data-test="`ec-dropdown-search__item ec-dropdown-search__item--${index}`"
               :class="{
                 'ec-dropdown-search__item--is-selected': item === selected,
-                'ec-dropdown-search__item--is-disabled': item.disabled
+                'ec-dropdown-search__item--is-disabled': item.disabled,
+                'ec-dropdown-search__item--is-active': item === active,
               }"
               @click="!item.disabled && select(item)"
+              @mouseover="removeActiveItem"
             ><slot
               name="item"
               v-bind="{ item, index, isSelected: item === selected }"
@@ -204,15 +205,13 @@ export default {
       type: Boolean,
       default: false,
     },
-    isFocusActive: {
-      type: Boolean,
-      default: false,
-    },
   },
   data() {
     return {
       isOpen: false,
       filterText: '',
+      visibleWindow: null,
+      active: null,
       popperOptions: {
         modifiers: {
           // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
@@ -272,7 +271,6 @@ export default {
           this.updateScroll();
         },
       },
-      visibleWindow: null,
     };
   },
   computed: {
@@ -303,20 +301,17 @@ export default {
       }
       return height;
     },
-  },
-  watch: {
-    isFocusActive: {
-      immediate: true,
-      handler(active) {
-        if (this.isOpen && !active) {
-          this.hide();
-        }
-      },
+    currentActiveItem() {
+      if (this.isMultiple) {
+        return this.active;
+      }
+      return this.selected;
     },
   },
   methods: {
     hide() {
       if (this.isOpen) {
+        this.removeActiveItem();
         this.isOpen = false;
         this.$emit('close');
       }
@@ -359,75 +354,98 @@ export default {
       return !!this.$scopedSlots.cta;
     },
     onArrowKey(key) {
-      if (!this.isMultiple) {
-        const selectedItemIndex = this.filteredItems.indexOf(this.selected);
-        const keyboardNavigation = true;
-        let selectableItems = [];
+      const currentItemIndex = this.filteredItems.indexOf(this.currentActiveItem);
+      let nextItem;
 
-        if (selectedItemIndex >= 0) {
-          if (key === KEY_ARROW_DOWN) {
-            selectableItems = this.filteredItems.slice(selectedItemIndex + 1).filter(item => !item.disabled);
-          } else {
-            selectableItems = this.filteredItems.slice(0, selectedItemIndex).filter(item => !item.disabled);
-          }
-        } else {
-          selectableItems = this.filteredItems.filter(item => !item.disabled);
+      if (currentItemIndex >= 0) {
+        if (key === KEY_ARROW_DOWN) {
+          [nextItem] = this.filteredItems.slice(currentItemIndex + 1).filter(item => !item.disabled);
+        } else if (key === KEY_ARROW_UP) {
+          const selectableItems = this.filteredItems.slice(0, currentItemIndex).filter(item => !item.disabled);
+          nextItem = selectableItems[selectableItems.length - 1];
         }
-
-        if (selectableItems.length) {
-          const nextItem = key === KEY_ARROW_DOWN ? selectableItems[0] : selectableItems[selectableItems.length - 1];
-          this.select(nextItem, keyboardNavigation);
-        }
+      } else {
+        [nextItem] = this.filteredItems.filter(item => !item.disabled);
+      }
+      this.activateItemViaKeyboardNavigation(nextItem);
+    },
+    onArrowUpKeyDown() {
+      if (!this.isMultiple || this.isOpen) {
+        this.onArrowKey(KEY_ARROW_UP);
       }
     },
-    onKeyUpArrowDown() {
-      this.onArrowKey(KEY_ARROW_DOWN);
+    onArrowDownKeyDown() {
+      if (!this.isMultiple || this.isOpen) {
+        this.onArrowKey(KEY_ARROW_DOWN);
+      }
     },
-    onKeyUpArrowUp() {
-      this.onArrowKey(KEY_ARROW_UP);
-    },
-    onKeyUpTab() {
-      // return focus back to Popover's anchor
-      this.$refs.popover.$el.querySelector('a').focus();
-    },
-    onKeyUpSpace() {
-      if (!this.isOpen) {
+    onEnterOrSpaceKeyDown() {
+      if (this.isOpen) {
+        if (!this.isMultiple || !this.currentActiveItem) {
+          this.hide();
+        } else {
+          const keyboardNavigation = true;
+          this.select(this.currentActiveItem, keyboardNavigation);
+        }
+      } else {
         this.show();
       }
     },
-    onBlur() {
+    onSearchFieldEnterKeyDown() {
+      if (this.isOpen) {
+        if (!this.isMultiple || !this.currentActiveItem) {
+          this.hide();
+          this.$emit('after-close');
+        }
+      }
+    },
+    onTabKeyDown() {
       if (this.isOpen) {
         this.hide();
+        this.$emit('after-close');
+      }
+    },
+    activateItemViaKeyboardNavigation(item) {
+      if (item) {
+        if (this.isMultiple) {
+          this.active = item;
+          this.$refs.popover.update();
+        } else {
+          const keyboardNavigation = true;
+          this.select(item, keyboardNavigation);
+        }
       }
     },
     updateScroll() {
-      if (this.selected) {
-        const selectedItemIndex = this.filteredItems.indexOf(this.selected);
-        const items = this.$refs.itemElements;
-        if (items && items.length && selectedItemIndex >= 0) {
-          const itemTop = items.slice(0, selectedItemIndex).reduce((sum, item) => sum + item.offsetHeight, this.initialItemHeight);
-          const itemBottom = itemTop + items[selectedItemIndex].offsetHeight;
-          const visibleWindowHeight = this.$refs.itemsOverflowContainer.clientHeight;
+      const currentItemIndex = this.filteredItems.indexOf(this.currentActiveItem);
+      const $elItems = this.$refs.itemElements;
 
-          if (!this.visibleWindow) {
-            // Initial visibleWindow setup
-            this.visibleWindow = { top: 0, bottom: visibleWindowHeight };
-          }
+      if ($elItems && $elItems.length && currentItemIndex >= 0) {
+        const itemTop = $elItems[currentItemIndex].offsetTop;
+        const itemBottom = itemTop + $elItems[currentItemIndex].offsetHeight;
+        const visibleWindowHeight = this.$refs.itemsOverflowContainer.clientHeight;
 
-          if (itemBottom >= this.visibleWindow.bottom) {
-            this.visibleWindow.top = itemBottom - visibleWindowHeight;
-            this.visibleWindow.bottom = itemBottom;
-          } else if (itemTop <= this.visibleWindow.top) {
-            if (this.isFirstItemCustom && selectedItemIndex === 0) {
-              this.visibleWindow.top = 0;
-            } else {
-              this.visibleWindow.top = itemTop;
-            }
-            this.visibleWindow.bottom = this.visibleWindow.top + visibleWindowHeight;
-          }
-          this.$refs.itemsOverflowContainer.scrollTop = this.visibleWindow.top;
+        if (!this.visibleWindow) {
+          // Initial visibleWindow setup
+          this.visibleWindow = { top: 0, bottom: visibleWindowHeight };
         }
+
+        if (itemBottom >= this.visibleWindow.bottom) {
+          this.visibleWindow.top = itemBottom - visibleWindowHeight;
+          this.visibleWindow.bottom = itemBottom;
+        } else if (itemTop <= this.visibleWindow.top) {
+          if (this.isFirstItemCustom && currentItemIndex === 0) {
+            this.visibleWindow.top = 0;
+          } else {
+            this.visibleWindow.top = itemTop;
+          }
+          this.visibleWindow.bottom = this.visibleWindow.top + visibleWindowHeight;
+        }
+        this.$refs.itemsOverflowContainer.scrollTop = this.visibleWindow.top;
       }
+    },
+    removeActiveItem() {
+      this.active = null;
     },
   },
 };
@@ -538,6 +556,12 @@ export default {
       @apply tw-cursor-default;
       @apply tw-bg-gray-8;
       @apply tw-text-gray-6;
+    }
+
+    &--is-active {
+      @apply tw-bg-gray-7;
+
+      color: inherit;
     }
   }
 }

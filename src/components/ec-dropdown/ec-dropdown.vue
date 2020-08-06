@@ -14,10 +14,10 @@
     :is-multiple="multiple"
     :popper-modifiers="popperModifiers"
     :popover-options="popoverOptions"
-    :is-focus-active="isFocusActive"
-    @change="onSelected"
+    @change="focusToReadOnlyInput"
     @open="$emit('open')"
     @after-open="$emit('after-open')"
+    @after-close="focusToReadOnlyInput"
   >
     <ec-input-field
       :id="id"
@@ -34,9 +34,7 @@
       icon="simple-arrow-drop-down"
       :is-in-group="isInGroup"
       @focus="onFocus"
-      @blur="onBlur"
-      @keyup.enter="openDropdownByKeyPress"
-      @keyup.space="openDropdownByKeyPress"
+      @blur="$emit('blur')"
     />
 
     <template
@@ -170,7 +168,6 @@ export default {
   },
   data() {
     return {
-      isFocusActive: false,
       shouldEmitFocus: true,
     };
   },
@@ -220,29 +217,18 @@ export default {
       } else {
         this.shouldEmitFocus = true;
       }
-      this.isFocusActive = true;
     },
-    onSelected() {
+    focusToReadOnlyInput() {
       if (!this.$refs.trigger.$el.querySelector('input:focus')) {
-        // return focus back to readonly input
         this.shouldEmitFocus = false;
         this.$refs.trigger.$el.querySelector('input').focus();
       }
-    },
-    onBlur() {
-      this.$emit('blur');
-      this.isFocusActive = false;
     },
     hasCtaSlot() {
       return !!this.$scopedSlots.cta;
     },
     hasItemSlot() {
       return !!this.$scopedSlots.item;
-    },
-    openDropdownByKeyPress() {
-      // if the space or enter keys are pressed (it means user wants to open the dropdown),
-      // then open the popover programmatically
-      this.$refs.trigger.$el.click();
     },
   },
 };
