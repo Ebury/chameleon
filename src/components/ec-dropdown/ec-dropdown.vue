@@ -14,7 +14,7 @@
     :is-multiple="multiple"
     :popper-modifiers="popperModifiers"
     :popover-options="popoverOptions"
-    @change="focusToReadOnlyInput"
+    @change="onSelected"
     @open="$emit('open')"
     @after-open="$emit('after-open')"
   >
@@ -217,7 +217,8 @@ export default {
         this.shouldEmitFocus = true;
       }
     },
-    focusToReadOnlyInput() {
+    onSelected() {
+      // return focus back to readonly input
       if (!this.$refs.trigger.$el.querySelector('input:focus')) {
         this.shouldEmitFocus = false;
         this.$refs.trigger.$el.querySelector('input').focus();

@@ -265,7 +265,7 @@ export default {
           ...this.popperModifiers,
         },
         onUpdate: () => {
-          // Updating the scroll here rather than immediately after selecting an item as the popover is updated when
+          // updating the scroll here rather than immediately after selecting an item as the popover is updated when
           // an item is selected, and this can cause its dimensions to change when their items are dynamically sized
           this.updateScroll();
         },
@@ -290,16 +290,6 @@ export default {
     isFirstItemCustom() {
       return this.isSearchEnabled || this.hasCta();
     },
-    initialItemHeight() {
-      let height = 0;
-      if (this.isSearchEnabled && this.$refs.searchArea) {
-        height += this.$refs.searchArea.offsetHeight;
-      }
-      if (this.hasCta() && this.$refs.ctaArea) {
-        height += this.$refs.ctaArea.offsetHeight;
-      }
-      return height;
-    },
     currentActiveItem() {
       if (this.isMultiple) {
         return this.active;
@@ -316,11 +306,12 @@ export default {
       }
     },
     show() {
-      const focusedElement = this.$refs.popover.$el.querySelector(':focus');
-      if (focusedElement) {
-        this.initialFocusedElementType = focusedElement.localName;
-      }
       if (!this.isOpen) {
+        const focusedElement = this.$refs.popover.$el.querySelector(':focus');
+        if (focusedElement) {
+          // necessary to regain the focus after tab/enter keyboard event if search feature is active
+          this.initialFocusedElementType = focusedElement.localName;
+        }
         this.isOpen = true;
         this.$emit('open');
       }
@@ -441,12 +432,11 @@ export default {
         if (itemBottom >= this.visibleWindow.bottom) {
           this.visibleWindow.top = itemBottom - visibleWindowHeight;
           this.visibleWindow.bottom = itemBottom;
+        } else if (this.isFirstItemCustom && currentItemIndex === 0) {
+          this.visibleWindow.top = 0;
+          this.visibleWindow.bottom = visibleWindowHeight;
         } else if (itemTop <= this.visibleWindow.top) {
-          if (this.isFirstItemCustom && currentItemIndex === 0) {
-            this.visibleWindow.top = 0;
-          } else {
-            this.visibleWindow.top = itemTop;
-          }
+          this.visibleWindow.top = itemTop;
           this.visibleWindow.bottom = this.visibleWindow.top + visibleWindowHeight;
         }
         this.$refs.itemsOverflowContainer.scrollTop = this.visibleWindow.top;
