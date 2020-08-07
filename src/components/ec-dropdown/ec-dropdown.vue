@@ -209,8 +209,8 @@ export default {
       return this.selected && this.selected.includes(item);
     },
     onFocus() {
-      // when an item has been selected the readonly input will regain the focus,
-      // but in that scenario we don't want to emit the event
+      // when an item has been selected the readonly input will regain the focus.
+      // The `focus` event should not be emitted in this scenario
       if (this.shouldEmitFocus) {
         this.$emit('focus');
       } else {
