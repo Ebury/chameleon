@@ -129,14 +129,12 @@
 </template>
 
 <script>
+import { ARROW_UP, ARROW_DOWN } from '@/enums/key-code';
 import EcIcon from '../ec-icon';
 import EcPopover from '../ec-popover';
 import EcLoading from '../ec-loading';
 import EcTooltip from '../../directives/ec-tooltip';
 import { removeDiacritics } from '../../utils/diacritics';
-
-const KEY_ARROW_UP = 'up';
-const KEY_ARROW_DOWN = 'down';
 
 export default {
   name: 'EcDropdownSearch',
@@ -212,6 +210,7 @@ export default {
       filterText: '',
       visibleWindow: null,
       active: null,
+      initialFocusedElementType: null,
       popperOptions: {
         modifiers: {
           // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
@@ -317,6 +316,10 @@ export default {
       }
     },
     show() {
+      const focusedElement = this.$refs.popover.$el.querySelector(':focus');
+      if (focusedElement) {
+        this.initialFocusedElementType = focusedElement.localName;
+      }
       if (!this.isOpen) {
         this.isOpen = true;
         this.$emit('open');
@@ -358,9 +361,9 @@ export default {
       let nextItem;
 
       if (currentItemIndex >= 0) {
-        if (key === KEY_ARROW_DOWN) {
+        if (key === ARROW_DOWN) {
           [nextItem] = this.filteredItems.slice(currentItemIndex + 1).filter(item => !item.disabled);
-        } else if (key === KEY_ARROW_UP) {
+        } else if (key === ARROW_UP) {
           const selectableItems = this.filteredItems.slice(0, currentItemIndex).filter(item => !item.disabled);
           nextItem = selectableItems[selectableItems.length - 1];
         }
@@ -371,18 +374,18 @@ export default {
     },
     onArrowUpKeyDown() {
       if (!this.isMultiple || this.isOpen) {
-        this.onArrowKey(KEY_ARROW_UP);
+        this.onArrowKey(ARROW_UP);
       }
     },
     onArrowDownKeyDown() {
       if (!this.isMultiple || this.isOpen) {
-        this.onArrowKey(KEY_ARROW_DOWN);
+        this.onArrowKey(ARROW_DOWN);
       }
     },
     onEnterOrSpaceKeyDown() {
       if (this.isOpen) {
         if (!this.isMultiple || !this.currentActiveItem) {
-          this.hide();
+          this.closeViaKeyboardNavigation();
         } else {
           const keyboardNavigation = true;
           this.select(this.currentActiveItem, keyboardNavigation);
@@ -392,18 +395,10 @@ export default {
       }
     },
     onSearchFieldEnterKeyDown() {
-      if (this.isOpen) {
-        if (!this.isMultiple || !this.currentActiveItem) {
-          this.hide();
-          this.$emit('after-close');
-        }
-      }
+      this.closeViaKeyboardNavigation();
     },
     onTabKeyDown() {
-      if (this.isOpen) {
-        this.hide();
-        this.$emit('after-close');
-      }
+      this.closeViaKeyboardNavigation();
     },
     activateItemViaKeyboardNavigation(item) {
       if (item) {
@@ -413,6 +408,19 @@ export default {
         } else {
           const keyboardNavigation = true;
           this.select(item, keyboardNavigation);
+        }
+      }
+    },
+    closeViaKeyboardNavigation() {
+      if (this.isOpen) {
+        this.hide();
+        if (this.isSearchEnabled) {
+          // if the search is active the focus is lost from the trigger, then it must regain the focus
+          const $el = this.$refs.popover.$el.querySelector(this.initialFocusedElementType);
+          if ($el) {
+            $el.focus();
+          }
+          this.initialFocusedElementType = null;
         }
       }
     },

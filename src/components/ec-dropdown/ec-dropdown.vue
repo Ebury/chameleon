@@ -17,7 +17,6 @@
     @change="focusToReadOnlyInput"
     @open="$emit('open')"
     @after-open="$emit('after-open')"
-    @after-close="focusToReadOnlyInput"
   >
     <ec-input-field
       :id="id"
