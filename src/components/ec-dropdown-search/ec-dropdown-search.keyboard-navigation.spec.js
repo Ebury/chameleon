@@ -61,48 +61,109 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
   });
 
   describe('when dropdown is open and the arrow down key is pressed', () => {
-    it('should select the first item when no item is selected yet', async () => {
-      const expectedItem = items[0];
-      const wrapper = mountDropdownSearch({ items });
-      await openDropdown(wrapper);
+    describe('when is not multi-selectable', () => {
+      it('should select the first item when no item is selected yet', async () => {
+        const expectedItem = items[0];
+        const wrapper = mountDropdownSearch({ items });
+        await openDropdown(wrapper);
 
-      expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
-      expect(wrapper.emitted('change')).toBeUndefined();
+        expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
+        expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+        expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      });
+
+      it('should select the next item when another is already selected', async () => {
+        const selected = items[1];
+        const expectedItem = items[2];
+        const wrapper = mountDropdownSearch({ items, selected });
+        await openDropdown(wrapper);
+
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+        expect(wrapper.emitted('change')).toBeUndefined();
+
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      });
+
+      it('should skip those items that are disabled', async () => {
+        const selected = items[2];
+        const expectedItem = items[4];
+        const wrapper = mountDropdownSearch({ items, selected });
+        await openDropdown(wrapper);
+
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+        expect(wrapper.emitted('change')).toBeUndefined();
+
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      });
     });
 
-    it('should select the next item when another is already selected', async () => {
-      const selected = items[1];
-      const expectedItem = items[2];
-      const wrapper = mountDropdownSearch({ items, selected });
-      await openDropdown(wrapper);
+    describe('when is multi-selectable', () => {
+      it('should activate the first item when no item is active yet', async () => {
+        const wrapper = mountDropdownSearch({ items, isMultiple: true });
+        const updateSpy = jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').vm, 'update');
+        await openDropdown(wrapper);
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
-      expect(wrapper.emitted('change')).toBeUndefined();
+        expect(wrapper.find('.ec-dropdown-search__item--is-active').exists()).toBeFalsy();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
-    });
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--0').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
+        expect(updateSpy).toHaveBeenCalledTimes(1);
+        updateSpy.mockRestore();
+      });
 
-    it('should skip those items that are disabled', async () => {
-      const selected = items[2];
-      const expectedItem = items[4];
-      const wrapper = mountDropdownSearch({ items, selected });
-      await openDropdown(wrapper);
+      it('should activate the next item when another is already active', async () => {
+        const active = items[1];
+        const wrapper = mountDropdownSearch({ items, isMultiple: true }, {
+          data() {
+            return { active };
+          },
+        });
+        const updateSpy = jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').vm, 'update');
+        await openDropdown(wrapper);
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
-      expect(wrapper.emitted('change')).toBeUndefined();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-active')).toBeFalsy();
+        expect(updateSpy).toHaveBeenCalledTimes(1);
+        updateSpy.mockRestore();
+      });
+
+      it('should skip those items that are disabled', async () => {
+        const active = items[2];
+        const wrapper = mountDropdownSearch({ items, isMultiple: true }, {
+          data() {
+            return { active };
+          },
+        });
+        const updateSpy = jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').vm, 'update');
+        await openDropdown(wrapper);
+
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
+
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-active')).toBeFalsy();
+        expect(updateSpy).toHaveBeenCalledTimes(1);
+        updateSpy.mockRestore();
+      });
     });
   });
 
@@ -198,6 +259,18 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
   });
 
+  describe('when dropdown is open and the tab key is pressed', () => {
+    it('should be closed', async () => {
+      const wrapper = mountDropdownSearch({ items });
+      await openDropdown(wrapper);
+
+      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted('close').length).toBeTruthy();
+    });
+  });
+
   describe('when dropdown is closed and the enter or space key is pressed', () => {
     it.each([
       ['enter'],
@@ -213,7 +286,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
   });
 
-  describe('when dropdown is open and the enter key is pressed', () => {
+  describe('when dropdown is open and the enter or space key is pressed', () => {
     describe('when the search feature is not active', () => {
       it.each([
         ['enter'],
@@ -273,11 +346,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       });
     });
 
-    describe('when the search feature is active', () => {
-      it.each([
-        ['enter'],
-        ['space'],
-      ])('should be closed and the focus should be regained by the field that originally had it (by %s key)', async (key) => {
+    describe('when the search feature is active (only enter key case)', () => {
+      it('should be closed and the focus should be regained by the field that originally had it', async () => {
         const wrapper = mountDropdownSearch({
           items,
           selected: items[0],
@@ -287,15 +357,28 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
         const focus = jest.fn();
         jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').element, 'querySelector')
           .mockImplementation(() => ({ localName: 'input', focus }));
-
         await openDropdown(wrapper);
 
-        wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
+        wrapper.findByDataTest('ec-dropdown-search__search-input').trigger('keydown.enter');
         await wrapper.vm.$nextTick();
 
         expect(wrapper.emitted('close').length).toBeTruthy();
         expect(focus).toHaveBeenCalledTimes(1);
       });
+    });
+  });
+
+  describe('when the popover inside the dropdown is resized', () => {
+    it('should gain the focus the search input field', async () => {
+      const wrapper = mountDropdownSearch({ items });
+      const focusSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__search-input').element, 'focus');
+      await openDropdown(wrapper);
+
+      wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('resize');
+      await wrapper.vm.$nextTick();
+
+      expect(focusSpy).toHaveBeenCalledTimes(1);
+      focusSpy.mockRestore();
     });
   });
 
