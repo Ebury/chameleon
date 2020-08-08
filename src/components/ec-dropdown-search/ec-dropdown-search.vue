@@ -353,13 +353,21 @@ export default {
 
       if (currentItemIndex >= 0) {
         if (key === ARROW_DOWN) {
-          [nextItem] = this.filteredItems.slice(currentItemIndex + 1).filter(item => !item.disabled);
-        } else if (key === ARROW_UP) {
+          const selectableItems = this.filteredItems.slice(currentItemIndex + 1).filter(item => !item.disabled);
+          if (selectableItems.length) {
+            [nextItem] = selectableItems;
+          }
+        } else {
           const selectableItems = this.filteredItems.slice(0, currentItemIndex).filter(item => !item.disabled);
-          nextItem = selectableItems[selectableItems.length - 1];
+          if (selectableItems.length) {
+            nextItem = selectableItems[selectableItems.length - 1];
+          }
         }
       } else {
-        [nextItem] = this.filteredItems.filter(item => !item.disabled);
+        const selectableItems = this.filteredItems.filter(item => !item.disabled);
+        if (selectableItems.length) {
+          [nextItem] = selectableItems;
+        }
       }
       this.activateItemViaKeyboardNavigation(nextItem);
     },

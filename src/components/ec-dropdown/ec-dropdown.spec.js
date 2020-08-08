@@ -222,6 +222,17 @@ describe('EcDropdown', () => {
         wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('show');
         expect(wrapper.emitted('open').length).toBe(1);
       });
+
+      it('should not return focus back to readonly input if it already has it', () => {
+        const wrapper = mountDropdownSingleValue({ items });
+        const focusSpy = jest.spyOn(wrapper.find({ ref: 'trigger' }).element, 'querySelector')
+          .mockImplementation(() => true);
+        selectItem(wrapper, 1);
+
+        expect(focusSpy).toHaveBeenCalledTimes(1);
+        expect(wrapper.emitted('change')[0]).toEqual([items[1]]);
+        focusSpy.mockRestore();
+      });
     });
   });
 

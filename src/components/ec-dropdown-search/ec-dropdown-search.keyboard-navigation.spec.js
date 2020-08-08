@@ -58,6 +58,15 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
     });
+
+    it('should not do anything if is multi-selectable', async () => {
+      const wrapper = mountDropdownSearch({ items, isMultiple: true });
+      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted('open')).toBeUndefined();
+      expect(wrapper.emitted('change')).toBeUndefined();
+    });
   });
 
   describe('when dropdown is open and the arrow down key is pressed', () => {
@@ -104,6 +113,33 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
         await wrapper.vm.$nextTick();
 
         expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      });
+
+      it('should not do anything if there is no items', async () => {
+        const wrapper = mountDropdownSearch({ items: [] });
+        await openDropdown(wrapper);
+
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.emitted('change')).toBeUndefined();
+      });
+
+      it('should not do anything if there is no selectable items', async () => {
+        const allItemsDisabled = [
+          { id: 1, text: 'Item 1', disabled: true },
+          { id: 2, text: 'Item 2' },
+          { id: 3, text: 'Item 3', disabled: true },
+        ];
+        const wrapper = mountDropdownSearch({ items: allItemsDisabled, selected: allItemsDisabled[1] });
+        await openDropdown(wrapper);
+
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.emitted('change')).toBeUndefined();
       });
     });
 
@@ -211,6 +247,15 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
     });
+
+    it('should not do anything if is multi-selectable', async () => {
+      const wrapper = mountDropdownSearch({ items, isMultiple: true });
+      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted('open')).toBeUndefined();
+      expect(wrapper.emitted('change')).toBeUndefined();
+    });
   });
 
   describe('when dropdown is open and the arrow up key is pressed', () => {
@@ -257,10 +302,37 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
     });
+
+    it('should not do anything if there is no items', async () => {
+      const wrapper = mountDropdownSearch({ items: [] });
+      await openDropdown(wrapper);
+
+      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted('change')).toBeUndefined();
+    });
+
+    it('should not do anything if there is no selectable items', async () => {
+      const allItemsDisabled = [
+        { id: 1, text: 'Item 1', disabled: true },
+        { id: 2, text: 'Item 2' },
+        { id: 3, text: 'Item 3', disabled: true },
+      ];
+      const wrapper = mountDropdownSearch({ items: allItemsDisabled, selected: allItemsDisabled[1] });
+      await openDropdown(wrapper);
+
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+
+      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted('change')).toBeUndefined();
+    });
   });
 
-  describe('when dropdown is open and the tab key is pressed', () => {
-    it('should be closed', async () => {
+  describe('when the tab key is pressed over the dropdown', () => {
+    it('should close it if is open', async () => {
       const wrapper = mountDropdownSearch({ items });
       await openDropdown(wrapper);
 
@@ -268,6 +340,14 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       await wrapper.vm.$nextTick();
 
       expect(wrapper.emitted('close').length).toBeTruthy();
+    });
+
+    it('should not do anything if is closed', async () => {
+      const wrapper = mountDropdownSearch({ items });
+      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted('close')).toBeUndefined();
     });
   });
 
@@ -493,6 +573,26 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       );
 
       mockElementOffsetTop(wrapper, itemIndex, 100);
+      await openDropdown(wrapper);
+      wrapper.vm.popperOptions.onUpdate();
+
+      expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element.scrollTop).toBe(0);
+    });
+
+    it('should scroll fully up if the selected item is the first one', async () => {
+      const visibleWindow = { top: 200, bottom: 400 };
+      const itemIndex = 0;
+      const wrapper = mountDropdownSearch(
+        {
+          items,
+          selected: items[itemIndex],
+          isSearchEnabled: false,
+        }, {
+          data() {
+            return { visibleWindow };
+          },
+        },
+      );
       await openDropdown(wrapper);
       wrapper.vm.popperOptions.onUpdate();
 
