@@ -468,15 +468,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
   });
 
   describe('scrollTop', () => {
-    beforeAll(() => {
-      const itemHeight = 50;
-      const visibleWindowHeight = 200;
-      const options = {
-        offsetTop: 0,
-        offsetHeight: itemHeight,
-        clientHeight: visibleWindowHeight,
-      };
-      mockHtmlElementPosition(options);
+    beforeEach(() => {
+      mockHtmlElementPosition();
     });
 
     it('should not scroll if there is not selected item', async () => {
@@ -521,24 +514,22 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     it.each([
-      [8, 350, 200],
-      [7, 300, 200],
-      [6, 250, 200],
-      [5, 200, 200],
-    ])('should not scroll up if the selected item is visible (Item position: %d)', async (itemPosition, offsetTop, expectedScrollTop) => {
-      const visibleWindow = { top: 200, bottom: 400 };
+      [8, 350],
+      [7, 300],
+      [6, 250],
+      [5, 200],
+    ])('should not scroll up if the selected item is visible (Item position: %d)', async (itemPosition, offsetTop) => {
       const itemIndex = itemPosition - 1;
-      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex] }, {
-        data() {
-          return { visibleWindow };
-        },
-      });
+      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex] });
+      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+      jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
       wrapper.vm.popperOptions.onUpdate();
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element.scrollTop).toBe(expectedScrollTop);
+      expect(setScrollTopSpy).toHaveBeenCalledTimes(0);
+      setScrollTopSpy.mockRestore();
     });
 
     it.each([
@@ -547,61 +538,65 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       [2, 50, 50],
       [1, 0, 0],
     ])('should scroll up if the selected item is above the visible ones (Item position: %d)', async (itemPosition, offsetTop, expectedScrollTop) => {
-      const visibleWindow = { top: 200, bottom: 400 };
       const itemIndex = itemPosition - 1;
-      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex] }, {
-        data() {
-          return { visibleWindow };
-        },
-      });
+      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex] });
+      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+      jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
       wrapper.vm.popperOptions.onUpdate();
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element.scrollTop).toBe(expectedScrollTop);
+      expect(setScrollTopSpy).toHaveBeenCalledTimes(1);
+      expect(setScrollTopSpy).toHaveBeenCalledWith(expectedScrollTop);
+      setScrollTopSpy.mockRestore();
     });
 
     it('should scroll fully up if the selected item is the first one and there is some non-selectable item above it', async () => {
-      const visibleWindow = { top: 200, bottom: 400 };
       const itemIndex = 0;
-      const wrapper = mountDropdownSearch(
-        {
-          items,
-          selected: items[itemIndex],
-          isSearchEnabled: true,
-        }, {
-          data() {
-            return { visibleWindow };
-          },
-        },
-      );
+      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex], isSearchEnabled: true });
+      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+      jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
       mockElementOffsetTop(wrapper, itemIndex, 100);
       await openDropdown(wrapper);
       wrapper.vm.popperOptions.onUpdate();
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element.scrollTop).toBe(0);
+      expect(setScrollTopSpy).toHaveBeenCalledTimes(1);
+      expect(setScrollTopSpy).toHaveBeenCalledWith(0);
+      setScrollTopSpy.mockRestore();
     });
 
     it('should scroll fully up if the selected item is the first one', async () => {
-      const visibleWindow = { top: 200, bottom: 400 };
       const itemIndex = 0;
-      const wrapper = mountDropdownSearch(
-        {
-          items,
-          selected: items[itemIndex],
-          isSearchEnabled: false,
-        }, {
-          data() {
-            return { visibleWindow };
-          },
-        },
-      );
+      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex], isSearchEnabled: false });
+      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+      jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
+
       await openDropdown(wrapper);
       wrapper.vm.popperOptions.onUpdate();
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element.scrollTop).toBe(0);
+      expect(setScrollTopSpy).toHaveBeenCalledTimes(1);
+      expect(setScrollTopSpy).toHaveBeenCalledWith(0);
+      setScrollTopSpy.mockRestore();
+    });
+
+    it.each([
+      ['"higher than" case', 200, 100],
+      ['"equal to" case', 100, 100],
+    ])('should not do anything if container\'s clientHeight is greater than or equal to container\'s scrollHeight (%s)', async (title, scrollHeight, clientHeight) => {
+      mockHtmlElementPosition({
+        scrollHeight,
+        clientHeight,
+      });
+      const wrapper = mountDropdownSearch({ items });
+      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+
+      await openDropdown(wrapper);
+      wrapper.vm.popperOptions.onUpdate();
+
+      expect(setScrollTopSpy).toHaveBeenCalledTimes(0);
+      setScrollTopSpy.mockRestore();
     });
   });
 });
@@ -619,14 +614,26 @@ function mockElementOffsetTop(wrapper, index, value) {
 
 function mockHtmlElementPosition(options) {
   Object.defineProperties(global.HTMLElement.prototype, {
-    offsetTop: {
-      get() { return (options && options.offsetTop) || 0; },
+    clientHeight: {
+      configurable: true,
+      get() {
+        if (this.className.includes('ec-dropdown-search__item-list')) {
+          return (options && options.containerClientHeight) || 200;
+        }
+        return (options && options.clientHeight) || 50;
+      },
     },
     offsetHeight: {
+      configurable: true,
       get() { return (options && options.offsetHeight) || 50; },
     },
-    clientHeight: {
-      get() { return (options && options.clientHeight) || 200; },
+    offsetTop: {
+      configurable: true,
+      get() { return (options && options.offsetTop) || 0; },
+    },
+    scrollHeight: {
+      configurable: true,
+      get() { return (options && options.scrollHeight) || 400; },
     },
   });
 }

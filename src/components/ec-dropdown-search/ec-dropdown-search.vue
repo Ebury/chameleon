@@ -207,7 +207,6 @@ export default {
     return {
       isOpen: false,
       filterText: '',
-      visibleWindow: null,
       lastHighlightedItem: null,
       initialFocusedElement: null,
       popperOptions: {
@@ -400,30 +399,27 @@ export default {
       }
     },
     updateScroll() {
-      const currentHighligthedItemIndex = this.filteredItems.indexOf(this.lastHighlightedItem || this.selected);
-      const $elItems = this.$refs.itemElements;
+      const containerHeight = this.$refs.itemsOverflowContainer.clientHeight;
+      const containerScrollHeight = this.$refs.itemsOverflowContainer.scrollHeight;
 
-      if ($elItems && $elItems.length && currentHighligthedItemIndex >= 0) {
-        const itemTop = $elItems[currentHighligthedItemIndex].offsetTop;
-        const itemBottom = itemTop + $elItems[currentHighligthedItemIndex].offsetHeight;
-        const visibleWindowHeight = this.$refs.itemsOverflowContainer.clientHeight;
+      if (containerHeight < containerScrollHeight) {
+        const currentHighligthedItemIndex = this.filteredItems.indexOf(this.lastHighlightedItem || this.selected);
+        const $elItems = this.$refs.itemElements;
 
-        if (!this.visibleWindow) {
-          // Initial visibleWindow setup
-          this.visibleWindow = { top: 0, bottom: visibleWindowHeight };
+        if ($elItems && $elItems.length && currentHighligthedItemIndex >= 0) {
+          const itemTopEdge = $elItems[currentHighligthedItemIndex].offsetTop;
+          const itemBottomEdge = itemTopEdge + $elItems[currentHighligthedItemIndex].clientHeight;
+          const containerTopEdge = this.$refs.itemsOverflowContainer.scrollTop;
+          const containerBottomEdge = containerTopEdge + containerHeight;
+
+          if (itemBottomEdge > containerBottomEdge) {
+            this.$refs.itemsOverflowContainer.scrollTop = itemBottomEdge - containerHeight;
+          } else if (this.isFirstItemSelectable && currentHighligthedItemIndex === 0) {
+            this.$refs.itemsOverflowContainer.scrollTop = 0;
+          } else if (itemTopEdge < containerTopEdge) {
+            this.$refs.itemsOverflowContainer.scrollTop = itemTopEdge;
+          }
         }
-
-        if (itemBottom >= this.visibleWindow.bottom) {
-          this.visibleWindow.top = itemBottom - visibleWindowHeight;
-          this.visibleWindow.bottom = itemBottom;
-        } else if (this.isFirstItemSelectable && currentHighligthedItemIndex === 0) {
-          this.visibleWindow.top = 0;
-          this.visibleWindow.bottom = visibleWindowHeight;
-        } else if (itemTop <= this.visibleWindow.top) {
-          this.visibleWindow.top = itemTop;
-          this.visibleWindow.bottom = this.visibleWindow.top + visibleWindowHeight;
-        }
-        this.$refs.itemsOverflowContainer.scrollTop = this.visibleWindow.top;
       }
     },
     clearLastHighligthedItem() {
