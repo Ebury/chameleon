@@ -143,59 +143,59 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     describe('when is multi-selectable', () => {
-      it('should activate the first item when no item is active yet', async () => {
+      it('should highlight the first item when no item is highlighted yet', async () => {
         const wrapper = mountDropdownSearch({ items, isMultiple: true });
         const updateSpy = jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').vm, 'update');
         await openDropdown(wrapper);
 
-        expect(wrapper.find('.ec-dropdown-search__item--is-active').exists()).toBeFalsy();
+        expect(wrapper.find('.ec-dropdown-search__item--is-highlighted').exists()).toBeFalsy();
 
         wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
         await wrapper.vm.$nextTick();
 
-        expect(wrapper.findByDataTest('ec-dropdown-search__item--0').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--0').classes('ec-dropdown-search__item--is-highlighted')).toBeTruthy();
         expect(updateSpy).toHaveBeenCalledTimes(1);
         updateSpy.mockRestore();
       });
 
-      it('should activate the next item when another is already active', async () => {
-        const active = items[1];
+      it('should highlight the next item when another is already highlighted', async () => {
+        const lastHighlightedItem = items[1];
         const wrapper = mountDropdownSearch({ items, isMultiple: true }, {
           data() {
-            return { active };
+            return { lastHighlightedItem };
           },
         });
         const updateSpy = jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').vm, 'update');
         await openDropdown(wrapper);
 
-        expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-highlighted')).toBeTruthy();
 
         wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
         await wrapper.vm.$nextTick();
 
-        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
-        expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-active')).toBeFalsy();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-highlighted')).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-highlighted')).toBeFalsy();
         expect(updateSpy).toHaveBeenCalledTimes(1);
         updateSpy.mockRestore();
       });
 
       it('should skip those items that are disabled', async () => {
-        const active = items[2];
+        const lastHighlightedItem = items[2];
         const wrapper = mountDropdownSearch({ items, isMultiple: true }, {
           data() {
-            return { active };
+            return { lastHighlightedItem };
           },
         });
         const updateSpy = jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').vm, 'update');
         await openDropdown(wrapper);
 
-        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-highlighted')).toBeTruthy();
 
         wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
         await wrapper.vm.$nextTick();
 
-        expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-active')).toBeTruthy();
-        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-active')).toBeFalsy();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-highlighted')).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-highlighted')).toBeFalsy();
         expect(updateSpy).toHaveBeenCalledTimes(1);
         updateSpy.mockRestore();
       });
@@ -419,7 +419,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
           isMultiple: true,
         }, {
           data() {
-            return { active: item };
+            return { lastHighlightedItem: item };
           },
         });
         await openDropdown(wrapper);

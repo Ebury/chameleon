@@ -112,7 +112,7 @@
               :class="{
                 'ec-dropdown-search__item--is-selected': item === selected,
                 'ec-dropdown-search__item--is-disabled': item.disabled,
-                'ec-dropdown-search__item--is-active': item === active,
+                'ec-dropdown-search__item--is-highlighted': item !== selected && item === lastHighlightedItem,
               }"
               @click="!item.disabled && select(item)"
               @mouseover="clearLastHighligthedItem"
@@ -208,7 +208,7 @@ export default {
       isOpen: false,
       filterText: '',
       visibleWindow: null,
-      active: null,
+      lastHighlightedItem: null,
       initialFocusedElementType: null,
       popperOptions: {
         modifiers: {
@@ -289,12 +289,6 @@ export default {
     isFirstItemSelectable() {
       return this.isSearchEnabled || this.hasCta();
     },
-    currentActiveItem() {
-      if (this.isMultiple) {
-        return this.active;
-      }
-      return this.selected;
-    },
   },
   methods: {
     hide() {
@@ -334,6 +328,7 @@ export default {
       this.focusSearch();
     },
     select(item, keyboardNavigation) {
+      this.lastHighlightedItem = item;
       this.$emit('change', item);
       if (!this.keepOpen && !keyboardNavigation) {
         this.hide();
@@ -347,7 +342,7 @@ export default {
       return !!this.$scopedSlots.cta;
     },
     onArrowKey(key) {
-      const currentHighligthedItemIndex = this.filteredItems.indexOf(this.currentActiveItem);
+      const currentHighligthedItemIndex = this.filteredItems.indexOf(this.lastHighlightedItem || this.selected);
       let nextItem;
 
       if (currentHighligthedItemIndex >= 0) {
@@ -374,11 +369,11 @@ export default {
     },
     onEnterOrSpaceKeyDown() {
       if (this.isOpen) {
-        if (!this.isMultiple || !this.currentActiveItem) {
+        if (!this.isMultiple || !this.lastHighlightedItem) {
           this.closeViaKeyboardNavigation();
         } else {
           const keyboardNavigation = true;
-          this.select(this.currentActiveItem, keyboardNavigation);
+          this.select(this.lastHighlightedItem, keyboardNavigation);
         }
       } else {
         this.show();
@@ -387,7 +382,7 @@ export default {
     activateItemViaKeyboardNavigation(item) {
       if (item) {
         if (this.isMultiple) {
-          this.active = item;
+          this.lastHighlightedItem = item;
           this.$refs.popover.update();
         } else {
           const keyboardNavigation = true;
@@ -409,7 +404,7 @@ export default {
       }
     },
     updateScroll() {
-      const currentHighligthedItemIndex = this.filteredItems.indexOf(this.currentActiveItem);
+      const currentHighligthedItemIndex = this.filteredItems.indexOf(this.lastHighlightedItem || this.selected);
       const $elItems = this.$refs.itemElements;
 
       if ($elItems && $elItems.length && currentHighligthedItemIndex >= 0) {
@@ -436,7 +431,7 @@ export default {
       }
     },
     clearLastHighligthedItem() {
-      this.active = null;
+      this.lastHighlightedItem = null;
     },
   },
 };
@@ -549,7 +544,7 @@ export default {
       @apply tw-text-gray-6;
     }
 
-    &--is-active {
+    &--is-highlighted {
       @apply tw-bg-gray-7;
 
       color: inherit;
