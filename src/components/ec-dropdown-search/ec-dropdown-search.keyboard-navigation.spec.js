@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
-import { setUpHTMLElement } from '../../../tests/utils/html-element';
 
 describe('EcDropdownSearch - Keyboard navigation', () => {
   const items = [
@@ -331,20 +330,26 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
   });
 
-  describe('when the tab key is pressed over the dropdown', () => {
-    it('should close it if is open', async () => {
+  describe('when the tab or esc key is pressed over the dropdown', () => {
+    it.each([
+      ['tab'],
+      ['esc'],
+    ])('should close it if is open (by %s key)', async (key) => {
       const wrapper = mountDropdownSearch({ items });
       await openDropdown(wrapper);
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+      wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
       await wrapper.vm.$nextTick();
 
       expect(wrapper.emitted('close').length).toBeTruthy();
     });
 
-    it('should not do anything if is closed', async () => {
+    it.each([
+      ['tab'],
+      ['esc'],
+    ])('should not do anything if is closed (by %s key)', async (key) => {
       const wrapper = mountDropdownSearch({ items });
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+      wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
       await wrapper.vm.$nextTick();
 
       expect(wrapper.emitted('close')).toBeUndefined();
@@ -471,7 +476,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
         offsetHeight: itemHeight,
         clientHeight: visibleWindowHeight,
       };
-      setUpHTMLElement(options);
+      mockHtmlElementPosition(options);
     });
 
     it('should not scroll if there is not selected item', async () => {
@@ -557,7 +562,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element.scrollTop).toBe(expectedScrollTop);
     });
 
-    it('should scroll fully up if the selected item is the first one and there is some custom field above it', async () => {
+    it('should scroll fully up if the selected item is the first one and there is some non-selectable item above it', async () => {
       const visibleWindow = { top: 200, bottom: 400 };
       const itemIndex = 0;
       const wrapper = mountDropdownSearch(
@@ -610,6 +615,20 @@ function mountDropdownSearch(props, mountOpts) {
 
 function mockElementOffsetTop(wrapper, index, value) {
   jest.spyOn(wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).element, 'offsetTop', 'get').mockReturnValueOnce(value);
+}
+
+function mockHtmlElementPosition(options) {
+  Object.defineProperties(global.HTMLElement.prototype, {
+    offsetTop: {
+      get() { return (options && options.offsetTop) || 0; },
+    },
+    offsetHeight: {
+      get() { return (options && options.offsetHeight) || 50; },
+    },
+    clientHeight: {
+      get() { return (options && options.clientHeight) || 200; },
+    },
+  });
 }
 
 async function openDropdown(wrapper) {

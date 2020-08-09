@@ -3,11 +3,10 @@
     ref="popperWidthReference"
     class="ec-dropdown-search"
     data-test="ec-dropdown-search"
-    @keydown.enter.prevent="onEnterOrSpaceKeyDown"
-    @keydown.space.prevent="onEnterOrSpaceKeyDown"
+    @keydown.enter.space.prevent="onEnterOrSpaceKeyDown"
     @keydown.up.prevent="onArrowUpKeyDown"
     @keydown.down.prevent="onArrowDownKeyDown"
-    @keydown.tab="onTabKeyDown"
+    @keydown.tab.esc="closeViaKeyboardNavigation"
   >
     <ec-popover
       ref="popover"
@@ -52,10 +51,10 @@
               :placeholder="placeholder"
               class="ec-dropdown-search__search-input"
               data-test="ec-dropdown-search__search-input"
-              @keydown.enter="onSearchFieldEnterKeyDown"
+              @keydown.enter="onEnterOrSpaceKeyDown"
               @keydown.up.prevent="onArrowUpKeyDown"
               @keydown.down.prevent="onArrowDownKeyDown"
-              @keydown.tab="onTabKeyDown"
+              @keydown.tab.esc="closeViaKeyboardNavigation"
             >
           </li>
           <li
@@ -116,7 +115,7 @@
                 'ec-dropdown-search__item--is-active': item === active,
               }"
               @click="!item.disabled && select(item)"
-              @mouseover="removeActiveItem"
+              @mouseover="clearLastHighligthedItem"
             ><slot
               name="item"
               v-bind="{ item, index, isSelected: item === selected }"
@@ -287,7 +286,7 @@ export default {
     isEmpty() {
       return this.isSearchEnabled && this.filteredItems.length === 0;
     },
-    isFirstItemCustom() {
+    isFirstItemSelectable() {
       return this.isSearchEnabled || this.hasCta();
     },
     currentActiveItem() {
@@ -300,7 +299,7 @@ export default {
   methods: {
     hide() {
       if (this.isOpen) {
-        this.removeActiveItem();
+        this.clearLastHighligthedItem();
         this.isOpen = false;
         this.$emit('close');
       }
@@ -348,26 +347,18 @@ export default {
       return !!this.$scopedSlots.cta;
     },
     onArrowKey(key) {
-      const currentItemIndex = this.filteredItems.indexOf(this.currentActiveItem);
+      const currentHighligthedItemIndex = this.filteredItems.indexOf(this.currentActiveItem);
       let nextItem;
 
-      if (currentItemIndex >= 0) {
+      if (currentHighligthedItemIndex >= 0) {
         if (key === ARROW_DOWN) {
-          const selectableItems = this.filteredItems.slice(currentItemIndex + 1).filter(item => !item.disabled);
-          if (selectableItems.length) {
-            [nextItem] = selectableItems;
-          }
+          nextItem = this.filteredItems.find((item, i) => !item.disabled && i > currentHighligthedItemIndex);
         } else {
-          const selectableItems = this.filteredItems.slice(0, currentItemIndex).filter(item => !item.disabled);
-          if (selectableItems.length) {
-            nextItem = selectableItems[selectableItems.length - 1];
-          }
+          const reversedItems = this.filteredItems.slice(0, currentHighligthedItemIndex).reverse();
+          nextItem = reversedItems.find(item => !item.disabled);
         }
       } else {
-        const selectableItems = this.filteredItems.filter(item => !item.disabled);
-        if (selectableItems.length) {
-          [nextItem] = selectableItems;
-        }
+        nextItem = this.filteredItems.find(item => !item.disabled);
       }
       this.activateItemViaKeyboardNavigation(nextItem);
     },
@@ -392,12 +383,6 @@ export default {
       } else {
         this.show();
       }
-    },
-    onSearchFieldEnterKeyDown() {
-      this.closeViaKeyboardNavigation();
-    },
-    onTabKeyDown() {
-      this.closeViaKeyboardNavigation();
     },
     activateItemViaKeyboardNavigation(item) {
       if (item) {
@@ -424,12 +409,12 @@ export default {
       }
     },
     updateScroll() {
-      const currentItemIndex = this.filteredItems.indexOf(this.currentActiveItem);
+      const currentHighligthedItemIndex = this.filteredItems.indexOf(this.currentActiveItem);
       const $elItems = this.$refs.itemElements;
 
-      if ($elItems && $elItems.length && currentItemIndex >= 0) {
-        const itemTop = $elItems[currentItemIndex].offsetTop;
-        const itemBottom = itemTop + $elItems[currentItemIndex].offsetHeight;
+      if ($elItems && $elItems.length && currentHighligthedItemIndex >= 0) {
+        const itemTop = $elItems[currentHighligthedItemIndex].offsetTop;
+        const itemBottom = itemTop + $elItems[currentHighligthedItemIndex].offsetHeight;
         const visibleWindowHeight = this.$refs.itemsOverflowContainer.clientHeight;
 
         if (!this.visibleWindow) {
@@ -440,7 +425,7 @@ export default {
         if (itemBottom >= this.visibleWindow.bottom) {
           this.visibleWindow.top = itemBottom - visibleWindowHeight;
           this.visibleWindow.bottom = itemBottom;
-        } else if (this.isFirstItemCustom && currentItemIndex === 0) {
+        } else if (this.isFirstItemSelectable && currentHighligthedItemIndex === 0) {
           this.visibleWindow.top = 0;
           this.visibleWindow.bottom = visibleWindowHeight;
         } else if (itemTop <= this.visibleWindow.top) {
@@ -450,7 +435,7 @@ export default {
         this.$refs.itemsOverflowContainer.scrollTop = this.visibleWindow.top;
       }
     },
-    removeActiveItem() {
+    clearLastHighligthedItem() {
       this.active = null;
     },
   },
