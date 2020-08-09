@@ -209,7 +209,7 @@ export default {
       filterText: '',
       visibleWindow: null,
       lastHighlightedItem: null,
-      initialFocusedElementType: null,
+      initialFocusedElement: null,
       popperOptions: {
         modifiers: {
           // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
@@ -300,11 +300,8 @@ export default {
     },
     show() {
       if (!this.isOpen) {
-        const focusedElement = this.$refs.popover.$el.querySelector(':focus');
-        if (focusedElement) {
-          // necessary to regain the focus after tab/enter keyboard event if search feature is active
-          this.initialFocusedElementType = focusedElement.localName;
-        }
+        // necessary to regain the focus after tab/enter keyboard event if search feature is active
+        this.initialFocusedElement = this.$refs.popover.$el.querySelector(':focus');
         this.isOpen = true;
         this.$emit('open');
       }
@@ -395,11 +392,10 @@ export default {
         this.hide();
         if (this.isSearchEnabled) {
           // if the search is active the focus is lost from the trigger, then it must regain the focus
-          const $el = this.$refs.popover.$el.querySelector(this.initialFocusedElementType);
-          if ($el) {
-            $el.focus();
+          if (this.initialFocusedElement) {
+            this.initialFocusedElement.focus();
+            this.initialFocusedElement = null;
           }
-          this.initialFocusedElementType = null;
         }
       }
     },
