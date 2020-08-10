@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcDropdown single value #slots should forward CTA slot 1`] = `
+exports[`EcDropdown #slots should forward CTA slot 1`] = `
 <li
   class="ec-dropdown-search__cta-area"
   data-test="ec-dropdown-search__cta-area"
@@ -11,7 +11,7 @@ exports[`EcDropdown single value #slots should forward CTA slot 1`] = `
 </li>
 `;
 
-exports[`EcDropdown single value #slots should forward item slot 1`] = `
+exports[`EcDropdown #slots should forward item slot 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
   data-test="ec-dropdown-search__item-list"
@@ -68,7 +68,7 @@ exports[`EcDropdown single value #slots should forward item slot 1`] = `
 </ul>
 `;
 
-exports[`EcDropdown single value :props should enable search when isSearchEnabled is set to true 1`] = `
+exports[`EcDropdown :props should enable search when isSearchEnabled is set to true 1`] = `
 <li
   class="ec-dropdown-search__search-area"
   data-test="ec-dropdown-search__search-area"
@@ -90,7 +90,7 @@ exports[`EcDropdown single value :props should enable search when isSearchEnable
 </li>
 `;
 
-exports[`EcDropdown single value :props should get disabled when disabled prop is set 1`] = `
+exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
 <div
   class="ec-dropdown-search ec-dropdown"
   data-test="ec-dropdown"
@@ -155,7 +155,7 @@ exports[`EcDropdown single value :props should get disabled when disabled prop i
 </div>
 `;
 
-exports[`EcDropdown single value :props should not show the items when the loading is set to true 1`] = `
+exports[`EcDropdown :props should not show the items when the loading is set to true 1`] = `
 <div
   class="ec-dropdown-search ec-dropdown"
   data-test="ec-dropdown"
@@ -250,9 +250,9 @@ exports[`EcDropdown single value :props should not show the items when the loadi
 </div>
 `;
 
-exports[`EcDropdown single value :props should pass errorMessage prop to the triggering input 1`] = `undefined`;
+exports[`EcDropdown :props should pass errorMessage prop to the triggering input 1`] = `undefined`;
 
-exports[`EcDropdown single value :props should pass label prop to the triggering input 1`] = `
+exports[`EcDropdown :props should pass label prop to the triggering input 1`] = `
 <label
   class="ec-input-field__label"
   data-test="ec-input-field__label"
@@ -270,7 +270,7 @@ exports[`EcDropdown single value :props should pass label prop to the triggering
 </label>
 `;
 
-exports[`EcDropdown single value :props should use placeholder prop 1`] = `
+exports[`EcDropdown :props should use placeholder prop 1`] = `
 <input
   class="ec-input-field__input ec-input-field__input--has-icon"
   data-test="ec-dropdown__input ec-input-field__input"
@@ -281,7 +281,7 @@ exports[`EcDropdown single value :props should use placeholder prop 1`] = `
 />
 `;
 
-exports[`EcDropdown single value :props should use searchPlaceholder prop if search is enabled 1`] = `
+exports[`EcDropdown :props should use searchPlaceholder prop if search is enabled 1`] = `
 <li
   class="ec-dropdown-search__search-area"
   data-test="ec-dropdown-search__search-area"
@@ -303,7 +303,7 @@ exports[`EcDropdown single value :props should use searchPlaceholder prop if sea
 </li>
 `;
 
-exports[`EcDropdown single value should render as expected 1`] = `
+exports[`EcDropdown should render as expected 1`] = `
 <div
   class="ec-dropdown-search ec-dropdown"
   data-test="ec-dropdown"
@@ -366,7 +366,7 @@ exports[`EcDropdown single value should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcDropdown single value should render readonly input as a trigger 1`] = `
+exports[`EcDropdown should render readonly input as a trigger 1`] = `
 <input
   class="ec-input-field__input ec-input-field__input--has-icon"
   data-test="ec-dropdown__input ec-input-field__input"

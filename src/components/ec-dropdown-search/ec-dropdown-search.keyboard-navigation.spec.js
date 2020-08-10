@@ -130,6 +130,72 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(wrapper.emitted('change')).toBeUndefined();
     });
+
+    describe('when CTA area feature is enabled and there is no item selected', () => {
+      it.each([
+        ['an anchor', 'a', '<a href="#">My CTA</a>'],
+        ['a button', 'button', '<button>My CTA</button>'],
+      ])('should give the focus to the CTA area if it contains %s', async (title, tagName, cta) => {
+        const wrapper = mountDropdownSearch({ items }, { scopedSlots: { cta } });
+        const focusSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__cta-area').find(tagName).element, 'focus');
+        await openDropdown(wrapper);
+
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
+
+        expect(focusSpy).toHaveBeenCalledTimes(1);
+        focusSpy.mockRestore();
+        expect(wrapper.emitted('cta-focus')).toBeUndefined();
+      });
+
+      it('should emit a `cta-focus` event if CTA area does not contains an anchor or button', async () => {
+        const wrapper = mountDropdownSearch({ items }, {
+          scopedSlots: {
+            cta: '<span>My CTA</span>',
+          },
+        });
+        await openDropdown(wrapper);
+
+        expect(wrapper.emitted('cta-focus')).toBeUndefined();
+
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.emitted('cta-focus').length).toBeTruthy();
+      });
+    });
+  });
+
+  describe('when dropdown is open, CTA area has the focus and the arrow down key is pressed', () => {
+    it('should select the first item if there is any selectable item', async () => {
+      const expectedItem = items[0];
+      const wrapper = mountDropdownSearch({ items }, {
+        scopedSlots: {
+          cta: '<a href="#">My CTA</a>',
+        },
+      });
+
+      expect(wrapper.emitted('change')).toBeUndefined();
+
+      wrapper.findByDataTest('ec-dropdown-search__cta-area').trigger('keydown.down');
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+    });
+
+    it('should not do anything if there is no selectable items', async () => {
+      const wrapper = mountDropdownSearch({ items: [] }, {
+        scopedSlots: {
+          cta: '<a href="#">My CTA</a>',
+        },
+      });
+      await openDropdown(wrapper);
+
+      wrapper.findByDataTest('ec-dropdown-search__cta-area').trigger('keydown.down');
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted('change')).toBeUndefined();
+    });
   });
 
   describe('when dropdown is closed and the arrow up key is pressed', () => {
@@ -249,6 +315,40 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(wrapper.emitted('change')).toBeUndefined();
     });
+
+    describe('when CTA area feature is enabled and the selected item is the first one', () => {
+      it.each([
+        ['an anchor', 'a', '<a href="#">My CTA</a>'],
+        ['a button', 'button', '<button>My CTA</button>'],
+      ])('should give the focus to the CTA area if it contains %s', async (title, tagName, cta) => {
+        const wrapper = mountDropdownSearch({ items, selected: items[0] }, { scopedSlots: { cta } });
+        const focusSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__cta-area').find(tagName).element, 'focus');
+        await openDropdown(wrapper);
+
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
+        await wrapper.vm.$nextTick();
+
+        expect(focusSpy).toHaveBeenCalledTimes(1);
+        focusSpy.mockRestore();
+        expect(wrapper.emitted('cta-focus')).toBeUndefined();
+      });
+
+      it('should emit a `cta-focus` event if CTA area does not contains an anchor or button', async () => {
+        const wrapper = mountDropdownSearch({ items, selected: items[0] }, {
+          scopedSlots: {
+            cta: '<span>My CTA</span>',
+          },
+        });
+        await openDropdown(wrapper);
+
+        expect(wrapper.emitted('cta-focus')).toBeUndefined();
+
+        wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.emitted('cta-focus').length).toBeTruthy();
+      });
+    });
   });
 
   describe('when the tab or esc key is pressed over the dropdown', () => {
@@ -320,15 +420,15 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
           isSearchEnabled: true,
         });
         const focus = jest.fn();
-        jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').element, 'querySelector')
-          .mockImplementation(() => ({ localName: 'input', focus }));
+        const popoverMock = jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').element, 'querySelector').mockImplementation(() => ({ focus }));
         await openDropdown(wrapper);
 
         wrapper.findByDataTest('ec-dropdown-search__search-input').trigger('keydown.enter');
         await wrapper.vm.$nextTick();
 
-        expect(wrapper.emitted('close').length).toBeTruthy();
         expect(focus).toHaveBeenCalledTimes(1);
+        expect(wrapper.emitted('close').length).toBeTruthy();
+        popoverMock.mockRestore();
       });
     });
   });
