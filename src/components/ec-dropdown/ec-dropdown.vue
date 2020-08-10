@@ -7,11 +7,9 @@
     :no-results-text="noResultsText"
     :is-search-enabled="isSearchEnabled"
     v-bind="{ ...$attrs, 'data-test': 'ec-dropdown' }"
-    :keep-open="multiple"
     :disabled="disabled"
     :level="level"
     :is-loading="isLoading"
-    :is-multiple="multiple"
     :popper-modifiers="popperModifiers"
     :popover-options="popoverOptions"
     @change="onSelected"
@@ -37,34 +35,15 @@
     />
 
     <template
-      #item="{ item }"
-      v-if="multiple && !hasItemSlot()"
-    >
-      <ec-checkbox
-        :checked="isItemSelected(item)"
-        :disabled="item.disabled"
-        class="ec-dropdown__multiple-item"
-        @click.prevent.stop
-      >
-        <template #label>
-          <div
-            class="ec-dropdown__multiple-item-label"
-            :class="{ 'ec-dropdown__multiple-item-label--is-disabled': item.disabled }"
-            data-test="ec-dropdown__multiple-item-label"
-          >{{ item.text }}</div>
-        </template>
-      </ec-checkbox>
-    </template>
-    <template
       #item="{ item, index, isSelected }"
-      v-else-if="hasItemSlot()"
+      v-if="hasItemSlot()"
     >
       <slot
         name="item"
         v-bind="{
           item,
           index,
-          isSelected: !multiple ? isSelected : isItemSelected(item),
+          isSelected,
         }"
       />
     </template>
@@ -78,14 +57,13 @@
 </template>
 
 <script>
-import EcCheckbox from '../ec-checkbox';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcDropdown',
   components: {
-    EcDropdownSearch, EcInputField, EcCheckbox,
+    EcDropdownSearch, EcInputField,
   },
   inheritAttrs: false,
   model: {
@@ -118,10 +96,6 @@ export default {
     errorMessage: {
       type: String,
       default: '',
-    },
-    multiple: {
-      type: Boolean,
-      default: false,
     },
     isLoading: {
       type: Boolean,
@@ -176,19 +150,7 @@ export default {
         return this.selected;
       },
       set(selectedItem) {
-        if (this.multiple) {
-          if (this.selected) {
-            if (this.selected.includes(selectedItem)) {
-              this.$emit('change', this.selected.filter(item => item !== selectedItem));
-            } else {
-              this.$emit('change', [...this.selected, selectedItem]);
-            }
-          } else {
-            this.$emit('change', [selectedItem]);
-          }
-        } else {
-          this.$emit('change', selectedItem);
-        }
+        this.$emit('change', selectedItem);
       },
     },
     selectedTextValue() {
@@ -196,18 +158,12 @@ export default {
         return this.selectedText;
       }
       if (this.selected) {
-        if (this.multiple) {
-          return this.selected.map(item => item.text).join(', ');
-        }
         return this.selected.text;
       }
       return '';
     },
   },
   methods: {
-    isItemSelected(item) {
-      return this.selected && this.selected.includes(item);
-    },
     onFocus() {
       // when an item has been selected the readonly input will regain the focus.
       // The `focus` event should not be emitted in this scenario
@@ -238,15 +194,6 @@ export default {
 .ec-dropdown {
   &__input-wrapper {
     @apply tw-relative;
-  }
-
-  &__multiple-item-label {
-    @apply tw-truncate;
-    @apply tw-body-text;
-
-    &--is-disabled {
-      @apply tw-text-gray-6;
-    }
   }
 }
 </style>

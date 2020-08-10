@@ -380,16 +380,5 @@ describe('EcDropdownSearch', () => {
 
       expect(wrapper.emitted('close').length).toBe(1);
     });
-
-    it('should not hide the popover after item has been selected when keepOpen prop is set to true', () => {
-      const wrapper = mountDropdownSearch({ items, keepOpen: true });
-
-      const popoverUpdateStub = jest.fn();
-      wrapper.find('ecpopover-stub').vm.update = popoverUpdateStub;
-
-      wrapper.findAll('.ec-dropdown-search__item').wrappers[1].trigger('click');
-      expect(wrapper.emitted('close')).toBeUndefined();
-      expect(popoverUpdateStub).toHaveBeenCalledTimes(1);
-    });
   });
 });

@@ -44,9 +44,6 @@ stories.add('basic', () => ({
     noResultsText: {
       default: text('noResultsText', 'No results found'),
     },
-    multiple: {
-      default: boolean('multiple', false),
-    },
     disabled: {
       default: boolean('disabled', false),
     },
@@ -54,22 +51,12 @@ stories.add('basic', () => ({
       default: boolean('isLoading', false),
     },
   },
-  watch: {
-    multiple() {
-      this.selected = null;
-    },
-  },
   methods: {
     onSelected: action('Selected'),
   },
   template: `
     <div class="tw-p-20">
-      <p v-if="selected && multiple">Selected items:
-        <ul>
-          <li v-for="item of selected">{{ item.text }}</li>
-        </ul>
-      </p>
-      <p v-else-if="selected && !multiple">{{ selected.text }}</p>
+      <p v-if="selected">{{ selected.text }}</p>
       <p v-else>Selected item: None</p>
       <div style="width: 300px;">
         <ec-dropdown
@@ -90,8 +77,6 @@ stories.add('all', () => ({
       itemsIncludingEmpty: [{ text: '' }, ...items],
       selected: null,
       preselected: items[1],
-      multiSelected: null,
-      multiPreselected: [items[1], items[4]],
     };
   },
   methods: {
@@ -196,114 +181,6 @@ stories.add('all', () => ({
         <div class="tw-col-12 tw-p-12">
           Selected value: {{ selected }}
         </div>
-      </div>
-      <h2 class="tw-mt-24">Multiple</h2>
-      <div class="tw-grid">
-        <div class="tw-col-4">
-          <ec-dropdown
-            :items="items"
-            :is-search-enabled="false"
-            multiple
-            label="Multiple values"
-            placeholder="Multiple values"
-            v-model="multiSelected">
-          </ec-dropdown>
-        </div>
-        <div class="tw-col-4">
-          <ec-dropdown
-            :items="items"
-            :is-search-enabled="true"
-            multiple
-            label="Multiple values - with search"
-            placeholder="Multiple values"
-            v-model="multiSelected">
-          </ec-dropdown>
-        </div>
-        <div class="tw-col-4">
-          <ec-dropdown
-            :items="items"
-            :is-search-enabled="true"
-            multiple
-            label="Multiple values - with error"
-            placeholder="Multiple values"
-            error-message="Something went wrong"
-            v-model="multiSelected">
-          </ec-dropdown>
-        </div>
-        <div class="tw-col-4">
-          <ec-dropdown
-            :items="items"
-            :is-search-enabled="true"
-            multiple
-            disabled
-            label="Multiple values - disabled"
-            placeholder="Multiple values - disabled"
-            v-model="multiSelected">
-          </ec-dropdown>
-        </div>
-        <div class="tw-col-4">
-          <ec-dropdown
-            :items="items"
-            :is-search-enabled="true"
-            multiple
-            disabled
-            label="Multiple values - disabled and preselected"
-            placeholder="Multiple values - disabled and preselected"
-            v-model="multiPreselected">
-          </ec-dropdown>
-        </div>
-        <div class="tw-col-4">
-          <ec-dropdown
-            :items="itemsIncludingEmpty"
-            label="Multiple values - with empty item"
-            placeholder="Multiple values - with empty item"
-            multiple
-            v-model="multiSelected">
-          </ec-dropdown>
-        </div>
-        <div class="tw-col-4">
-          <ec-dropdown
-            :items="items"
-            label="Multiple values - with CTA"
-            placeholder="Multiple values - with CTA"
-            multiple
-            v-model="multiSelected">
-            <template #cta>
-              <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>
-            </template>
-          </ec-dropdown>
-        </div>
-        <div class="tw-col-4">
-          <ec-dropdown
-            :items="items"
-            label="Multiple values - custom template"
-            placeholder="Multiple values - custom template"
-            multiple
-            v-model="multiSelected">
-            <template #item="{ item, index, isSelected }">
-              <div>00{{ index }}. {{ item.text }}</div>
-              <div>{{ item.disabledReason }}</div>
-              <div v-if="isSelected">This item is selected</div>
-            </template>
-          </ec-dropdown>
-        </div>
-        <div class="tw-col-4">
-          <ec-dropdown
-            :items="items"
-            :is-search-enabled="true"
-            :is-loading="true"
-            label="Multiple values - with CTA/Loading/Search"
-            placeholder="Multiple values - with CTA"
-            multiple
-            v-model="multiSelected">
-            <template #cta>
-              <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>
-            </template>
-          </ec-dropdown>
-        </div>
-      </div>
-      <div class="tw-col-12 tw-p-12">
-        Selected value: {{ multiSelected }}
       </div>
     </div>
   `,

@@ -112,10 +112,8 @@
               :class="{
                 'ec-dropdown-search__item--is-selected': item === selected,
                 'ec-dropdown-search__item--is-disabled': item.disabled,
-                'ec-dropdown-search__item--is-highlighted': item !== selected && item === lastHighlightedItem,
               }"
               @click="!item.disabled && select(item)"
-              @mouseover="clearLastHighligthedItem"
             ><slot
               name="item"
               v-bind="{ item, index, isSelected: item === selected }"
@@ -182,10 +180,6 @@ export default {
       type: Number,
       default: 4,
     },
-    keepOpen: {
-      type: Boolean,
-      default: false,
-    },
     disabled: {
       type: Boolean,
       default: false,
@@ -198,16 +192,11 @@ export default {
       type: String,
       default: 'No results found',
     },
-    isMultiple: {
-      type: Boolean,
-      default: false,
-    },
   },
   data() {
     return {
       isOpen: false,
       filterText: '',
-      lastHighlightedItem: null,
       initialFocusedElement: null,
       popperOptions: {
         modifiers: {
@@ -292,7 +281,6 @@ export default {
   methods: {
     hide() {
       if (this.isOpen) {
-        this.clearLastHighligthedItem();
         this.isOpen = false;
         this.$emit('close');
       }
@@ -323,10 +311,9 @@ export default {
       // the input field must regain the focus after this happens
       this.focusSearch();
     },
-    select(item, keyboardNavigation) {
-      this.lastHighlightedItem = item;
+    select(item, options) {
       this.$emit('change', item);
-      if (!this.keepOpen && !keyboardNavigation) {
+      if (!options || !options.keyboardNavigation) {
         this.hide();
       } else {
         // selecting an item might affect the position of the popover,
@@ -338,52 +325,34 @@ export default {
       return !!this.$scopedSlots.cta;
     },
     onArrowKey(key) {
-      const currentHighligthedItemIndex = this.filteredItems.indexOf(this.lastHighlightedItem || this.selected);
+      const selectedItemIndex = this.filteredItems.indexOf(this.selected);
       let nextItem;
 
-      if (currentHighligthedItemIndex >= 0) {
+      if (selectedItemIndex >= 0) {
         if (key === ARROW_DOWN) {
-          nextItem = this.filteredItems.find((item, i) => !item.disabled && i > currentHighligthedItemIndex);
+          nextItem = this.filteredItems.find((item, i) => !item.disabled && i > selectedItemIndex);
         } else {
-          const reversedItems = this.filteredItems.slice(0, currentHighligthedItemIndex).reverse();
+          const reversedItems = this.filteredItems.slice(0, selectedItemIndex).reverse();
           nextItem = reversedItems.find(item => !item.disabled);
         }
       } else {
         nextItem = this.filteredItems.find(item => !item.disabled);
       }
-      this.activateItemViaKeyboardNavigation(nextItem);
+      if (nextItem) {
+        this.select(nextItem, { keyboardNavigation: true });
+      }
     },
     onArrowUpKeyDown() {
-      if (!this.isMultiple || this.isOpen) {
-        this.onArrowKey(ARROW_UP);
-      }
+      this.onArrowKey(ARROW_UP);
     },
     onArrowDownKeyDown() {
-      if (!this.isMultiple || this.isOpen) {
-        this.onArrowKey(ARROW_DOWN);
-      }
+      this.onArrowKey(ARROW_DOWN);
     },
     onEnterOrSpaceKeyDown() {
       if (this.isOpen) {
-        if (!this.isMultiple || !this.lastHighlightedItem) {
-          this.closeViaKeyboardNavigation();
-        } else {
-          const keyboardNavigation = true;
-          this.select(this.lastHighlightedItem, keyboardNavigation);
-        }
+        this.closeViaKeyboardNavigation();
       } else {
         this.show();
-      }
-    },
-    activateItemViaKeyboardNavigation(item) {
-      if (item) {
-        if (this.isMultiple) {
-          this.lastHighlightedItem = item;
-          this.$refs.popover.update();
-        } else {
-          const keyboardNavigation = true;
-          this.select(item, keyboardNavigation);
-        }
       }
     },
     closeViaKeyboardNavigation() {
@@ -403,27 +372,24 @@ export default {
       const containerScrollHeight = this.$refs.itemsOverflowContainer.scrollHeight;
 
       if (containerHeight < containerScrollHeight) {
-        const currentHighligthedItemIndex = this.filteredItems.indexOf(this.lastHighlightedItem || this.selected);
+        const selectedItemIndex = this.filteredItems.indexOf(this.selected);
         const $elItems = this.$refs.itemElements;
 
-        if ($elItems && $elItems.length && currentHighligthedItemIndex >= 0) {
-          const itemTopEdge = $elItems[currentHighligthedItemIndex].offsetTop;
-          const itemBottomEdge = itemTopEdge + $elItems[currentHighligthedItemIndex].clientHeight;
+        if ($elItems && $elItems.length && selectedItemIndex >= 0) {
+          const itemTopEdge = $elItems[selectedItemIndex].offsetTop;
+          const itemBottomEdge = itemTopEdge + $elItems[selectedItemIndex].clientHeight;
           const containerTopEdge = this.$refs.itemsOverflowContainer.scrollTop;
           const containerBottomEdge = containerTopEdge + containerHeight;
 
           if (itemBottomEdge > containerBottomEdge) {
             this.$refs.itemsOverflowContainer.scrollTop = itemBottomEdge - containerHeight;
-          } else if (this.isFirstItemSelectable && currentHighligthedItemIndex === 0) {
+          } else if (this.isFirstItemSelectable && selectedItemIndex === 0) {
             this.$refs.itemsOverflowContainer.scrollTop = 0;
           } else if (itemTopEdge < containerTopEdge) {
             this.$refs.itemsOverflowContainer.scrollTop = itemTopEdge;
           }
         }
       }
-    },
-    clearLastHighligthedItem() {
-      this.lastHighlightedItem = null;
     },
   },
 };
@@ -534,12 +500,6 @@ export default {
       @apply tw-cursor-default;
       @apply tw-bg-gray-8;
       @apply tw-text-gray-6;
-    }
-
-    &--is-highlighted {
-      @apply tw-bg-gray-7;
-
-      color: inherit;
     }
   }
 }
