@@ -63,9 +63,6 @@
             class="ec-dropdown-search__cta-area"
             data-test="ec-dropdown-search__cta-area"
             @click="hide"
-            @keydown.up.prevent
-            @keydown.down.prevent="onCtaAreaArrowDownKeyDown"
-            @keydown.tab.esc="closeViaKeyboardNavigation"
           >
             <slot name="cta" />
           </li>
@@ -334,17 +331,10 @@ export default {
       if (selectedItemIndex >= 0) {
         if (key === ARROW_DOWN) {
           nextItem = this.filteredItems.find((item, i) => !item.disabled && i > selectedItemIndex);
-        } else if (selectedItemIndex === 0 && this.hasCta()) {
-          this.select(null, { keyboardNavigation: true });
-          this.$nextTick(() => {
-            this.focusToCtaArea();
-          });
         } else {
           const reversedItems = this.filteredItems.slice(0, selectedItemIndex).reverse();
           nextItem = reversedItems.find(item => !item.disabled);
         }
-      } else if (this.hasCta()) {
-        this.focusToCtaArea();
       } else {
         nextItem = this.filteredItems.find(item => !item.disabled);
       }
@@ -358,12 +348,6 @@ export default {
     onArrowDownKeyDown() {
       this.onArrowKey(ARROW_DOWN);
     },
-    onCtaAreaArrowDownKeyDown() {
-      const nextItem = this.filteredItems.find(item => !item.disabled);
-      if (nextItem) {
-        this.select(nextItem, { keyboardNavigation: true });
-      }
-    },
     onEnterOrSpaceKeyDown() {
       if (this.isOpen) {
         this.closeViaKeyboardNavigation();
@@ -374,7 +358,7 @@ export default {
     closeViaKeyboardNavigation() {
       if (this.isOpen) {
         this.hide();
-        if (this.isSearchEnabled || this.hasCta()) {
+        if (this.isSearchEnabled) {
           // if the search is active the focus is lost from the trigger, then it must regain the focus
           if (this.initialFocusedElement) {
             this.initialFocusedElement.focus();
@@ -405,14 +389,6 @@ export default {
             this.$refs.itemsOverflowContainer.scrollTop = itemTopEdge;
           }
         }
-      }
-    },
-    focusToCtaArea() {
-      const $el = this.$refs.ctaArea.querySelector('a') || this.$refs.ctaArea.querySelector('button');
-      if ($el) {
-        $el.focus();
-      } else {
-        this.$emit('cta-focus');
       }
     },
   },
