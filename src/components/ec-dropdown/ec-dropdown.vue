@@ -7,7 +7,6 @@
     :no-results-text="noResultsText"
     :is-search-enabled="isSearchEnabled"
     v-bind="{ ...$attrs, 'data-test': 'ec-dropdown' }"
-    :keep-open="multiple"
     :disabled="disabled"
     :level="level"
     :is-loading="isLoading"
@@ -31,40 +30,20 @@
       readonly
       icon="simple-arrow-drop-down"
       :is-in-group="isInGroup"
-      @mousedown="onMousedown"
       @focus="onFocus"
       @blur="$emit('blur')"
     />
 
     <template
-      #item="{ item }"
-      v-if="multiple && !hasItemSlot()"
-    >
-      <ec-checkbox
-        :checked="isItemSelected(item)"
-        :disabled="item.disabled"
-        class="ec-dropdown__multiple-item"
-        @click.prevent.stop
-      >
-        <template #label>
-          <div
-            class="ec-dropdown__multiple-item-label"
-            :class="{ 'ec-dropdown__multiple-item-label--is-disabled': item.disabled }"
-            data-test="ec-dropdown__multiple-item-label"
-          >{{ item.text }}</div>
-        </template>
-      </ec-checkbox>
-    </template>
-    <template
       #item="{ item, index, isSelected }"
-      v-else-if="hasItemSlot()"
+      v-if="hasItemSlot()"
     >
       <slot
         name="item"
         v-bind="{
           item,
           index,
-          isSelected: !multiple ? isSelected : isItemSelected(item),
+          isSelected,
         }"
       />
     </template>
@@ -78,14 +57,13 @@
 </template>
 
 <script>
-import EcCheckbox from '../ec-checkbox';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcDropdown',
   components: {
-    EcDropdownSearch, EcInputField, EcCheckbox,
+    EcDropdownSearch, EcInputField,
   },
   inheritAttrs: false,
   model: {
@@ -118,10 +96,6 @@ export default {
     errorMessage: {
       type: String,
       default: '',
-    },
-    multiple: {
-      type: Boolean,
-      default: false,
     },
     isLoading: {
       type: Boolean,
@@ -165,25 +139,18 @@ export default {
       default: null,
     },
   },
+  data() {
+    return {
+      shouldEmitFocus: true,
+    };
+  },
   computed: {
     selectedModel: {
       get() {
         return this.selected;
       },
       set(selectedItem) {
-        if (this.multiple) {
-          if (this.selected) {
-            if (this.selected.includes(selectedItem)) {
-              this.$emit('change', this.selected.filter(item => item !== selectedItem));
-            } else {
-              this.$emit('change', [...this.selected, selectedItem]);
-            }
-          } else {
-            this.$emit('change', [selectedItem]);
-          }
-        } else {
-          this.$emit('change', selectedItem);
-        }
+        this.$emit('change', selectedItem);
       },
     },
     selectedTextValue() {
@@ -191,41 +158,27 @@ export default {
         return this.selectedText;
       }
       if (this.selected) {
-        if (this.multiple) {
-          return this.selected.map(item => item.text).join(', ');
-        }
         return this.selected.text;
       }
       return '';
     },
   },
   methods: {
-    isItemSelected(item) {
-      return this.selected && this.selected.includes(item);
-    },
-    onMousedown: /* istanbul ignore next */ function onMousedown() {
-      this.preventFocusToTriggerPopover = true;
-      this.shouldEmitFocus = true;
-    },
     onFocus() {
-      // Input can gain focus by clicking or by tabbing into. Click is handled by the popover, so if
-      // the focus was gained by click, don't do anything. If the focus is gained by tabbing into, then
-      // open the popover programmatically.
+      // when an item has been selected the readonly input will regain the focus.
+      // The `focus` event should not be emitted in this scenario
       if (this.shouldEmitFocus) {
         this.$emit('focus');
-        this.shouldEmitFocus = false;
-      }
-      /* istanbul ignore next */
-      if (this.preventFocusToTriggerPopover) {
-        this.preventFocusToTriggerPopover = false;
       } else {
-        this.$refs.trigger.$el.click();
+        this.shouldEmitFocus = true;
       }
     },
     onSelected() {
-      // return focus back to readonly input, but that will re-open the dropdown, so prevent that.
-      this.preventFocusToTriggerPopover = true;
-      this.$refs.trigger.$el.querySelector('input').focus();
+      // return focus back to readonly input
+      if (!this.$refs.trigger.$el.querySelector('input:focus')) {
+        this.shouldEmitFocus = false;
+        this.$refs.trigger.$el.querySelector('input').focus();
+      }
     },
     hasCtaSlot() {
       return !!this.$scopedSlots.cta;
@@ -241,15 +194,6 @@ export default {
 .ec-dropdown {
   &__input-wrapper {
     @apply tw-relative;
-  }
-
-  &__multiple-item-label {
-    @apply tw-truncate;
-    @apply tw-body-text;
-
-    &--is-disabled {
-      @apply tw-text-gray-6;
-    }
   }
 }
 </style>

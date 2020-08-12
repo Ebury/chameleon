@@ -3,6 +3,10 @@
     ref="popperWidthReference"
     class="ec-dropdown-search"
     data-test="ec-dropdown-search"
+    @keydown.enter.space.prevent="onEnterOrSpaceKeyDown"
+    @keydown.up.prevent="onArrowUpKeyDown"
+    @keydown.down.prevent="onArrowDownKeyDown"
+    @keydown.tab.esc="closeViaKeyboardNavigation"
   >
     <ec-popover
       ref="popover"
@@ -21,6 +25,7 @@
       @hide="hide"
       @show="show"
       @apply-show="afterShow"
+      @resize="resize"
     >
       <slot />
       <div slot="popover">
@@ -46,6 +51,10 @@
               :placeholder="placeholder"
               class="ec-dropdown-search__search-input"
               data-test="ec-dropdown-search__search-input"
+              @keydown.enter="onEnterOrSpaceKeyDown"
+              @keydown.up.prevent="onArrowUpKeyDown"
+              @keydown.down.prevent="onArrowDownKeyDown"
+              @keydown.tab.esc="closeViaKeyboardNavigation"
             >
           </li>
           <li
@@ -102,7 +111,7 @@
               :data-test="`ec-dropdown-search__item ec-dropdown-search__item--${index}`"
               :class="{
                 'ec-dropdown-search__item--is-selected': item === selected,
-                'ec-dropdown-search__item--is-disabled': item.disabled
+                'ec-dropdown-search__item--is-disabled': item.disabled,
               }"
               @click="!item.disabled && select(item)"
             ><slot
@@ -117,6 +126,7 @@
 </template>
 
 <script>
+import { ARROW_UP, ARROW_DOWN } from '@/enums/key-code';
 import EcIcon from '../ec-icon';
 import EcPopover from '../ec-popover';
 import EcLoading from '../ec-loading';
@@ -170,10 +180,6 @@ export default {
       type: Number,
       default: 4,
     },
-    keepOpen: {
-      type: Boolean,
-      default: false,
-    },
     disabled: {
       type: Boolean,
       default: false,
@@ -191,6 +197,7 @@ export default {
     return {
       isOpen: false,
       filterText: '',
+      initialFocusedElement: null,
       popperOptions: {
         modifiers: {
           // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
@@ -244,6 +251,11 @@ export default {
           },
           ...this.popperModifiers,
         },
+        onUpdate: () => {
+          // updating the scroll here rather than immediately after selecting an item as the popover is updated when
+          // an item is selected, and this can cause its dimensions to change when their items are dynamically sized
+          this.updateScroll();
+        },
       },
     };
   },
@@ -262,15 +274,24 @@ export default {
     isEmpty() {
       return this.isSearchEnabled && this.filteredItems.length === 0;
     },
+    isFirstItemSelectable() {
+      return this.isSearchEnabled || this.hasCta();
+    },
   },
   methods: {
     hide() {
-      this.isOpen = false;
-      this.$emit('close');
+      if (this.isOpen) {
+        this.isOpen = false;
+        this.$emit('close');
+      }
     },
     show() {
-      this.isOpen = true;
-      this.$emit('open');
+      if (!this.isOpen) {
+        // necessary to regain the focus after tab/enter keyboard event if search feature is active
+        this.initialFocusedElement = this.$refs.popover.$el.querySelector(':focus');
+        this.isOpen = true;
+        this.$emit('open');
+      }
     },
     focusSearch() {
       this.$nextTick(() => {
@@ -284,9 +305,15 @@ export default {
       this.$emit('after-open');
       this.focusSearch();
     },
-    select(item) {
+    resize() {
+      // the first time the VPopover component is opened, after emitting the `apply-show`
+      // event, the component resizes and the focus on the search input field is lost, so
+      // the input field must regain the focus after this happens
+      this.focusSearch();
+    },
+    select(item, options) {
       this.$emit('change', item);
-      if (!this.keepOpen) {
+      if (!options || !options.keyboardNavigation) {
         this.hide();
       } else {
         // selecting an item might affect the position of the popover,
@@ -296,6 +323,73 @@ export default {
     },
     hasCta() {
       return !!this.$scopedSlots.cta;
+    },
+    onArrowKey(key) {
+      const selectedItemIndex = this.filteredItems.indexOf(this.selected);
+      let nextItem;
+
+      if (selectedItemIndex >= 0) {
+        if (key === ARROW_DOWN) {
+          nextItem = this.filteredItems.find((item, i) => !item.disabled && i > selectedItemIndex);
+        } else {
+          const reversedItems = this.filteredItems.slice(0, selectedItemIndex).reverse();
+          nextItem = reversedItems.find(item => !item.disabled);
+        }
+      } else {
+        nextItem = this.filteredItems.find(item => !item.disabled);
+      }
+      if (nextItem) {
+        this.select(nextItem, { keyboardNavigation: true });
+      }
+    },
+    onArrowUpKeyDown() {
+      this.onArrowKey(ARROW_UP);
+    },
+    onArrowDownKeyDown() {
+      this.onArrowKey(ARROW_DOWN);
+    },
+    onEnterOrSpaceKeyDown() {
+      if (this.isOpen) {
+        this.closeViaKeyboardNavigation();
+      } else {
+        this.show();
+      }
+    },
+    closeViaKeyboardNavigation() {
+      if (this.isOpen) {
+        this.hide();
+        if (this.isSearchEnabled) {
+          // if the search is active the focus is lost from the trigger, then it must regain the focus
+          if (this.initialFocusedElement) {
+            this.initialFocusedElement.focus();
+            this.initialFocusedElement = null;
+          }
+        }
+      }
+    },
+    updateScroll() {
+      const containerHeight = this.$refs.itemsOverflowContainer.clientHeight;
+      const containerScrollHeight = this.$refs.itemsOverflowContainer.scrollHeight;
+
+      if (containerHeight < containerScrollHeight) {
+        const selectedItemIndex = this.filteredItems.indexOf(this.selected);
+        const $elItems = this.$refs.itemElements;
+
+        if ($elItems && $elItems.length && selectedItemIndex >= 0) {
+          const itemTopEdge = $elItems[selectedItemIndex].offsetTop;
+          const itemBottomEdge = itemTopEdge + $elItems[selectedItemIndex].clientHeight;
+          const containerTopEdge = this.$refs.itemsOverflowContainer.scrollTop;
+          const containerBottomEdge = containerTopEdge + containerHeight;
+
+          if (itemBottomEdge > containerBottomEdge) {
+            this.$refs.itemsOverflowContainer.scrollTop = itemBottomEdge - containerHeight;
+          } else if (this.isFirstItemSelectable && selectedItemIndex === 0) {
+            this.$refs.itemsOverflowContainer.scrollTop = 0;
+          } else if (itemTopEdge < containerTopEdge) {
+            this.$refs.itemsOverflowContainer.scrollTop = itemTopEdge;
+          }
+        }
+      }
     },
   },
 };
