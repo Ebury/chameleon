@@ -1,17 +1,15 @@
 <template>
-  <div class="tw-w-full tw-flex">
-    <div class="tw-w-full tw-border tw-border-solid tw-border-gray-6 tw-rounded">
-      <div class="tw-flex">
-        <span class="tw-flex-grow tw-text-gray-5 tw-pl-12 tw-py-8 tw-truncate">{{ value }}</span>
-        <ec-loading
-          show
-          :size="24"
-        >
-          <div class="tw-w-40" />
-        </ec-loading>
-      </div>
+  <div class="tw-flex">
+    <div class="tw-flex tw-flex-grow tw-truncate tw-border tw-border-solid tw-border-gray-6 tw-rounded">
+      <span class="tw-flex-grow tw-truncate tw-text-gray-5 tw-pl-12 tw-py-8">{{ value }}</span>
+      <ec-loading
+        show
+        :size="24"
+      >
+        <div class="tw-w-40" />
+      </ec-loading>
     </div>
-    <div class="tw-flex tw-items-end tw-ml-20 tw-mb-16 tw-fill-gray-6">
+    <div class="tw-flex tw-items-center tw-ml-20 tw-fill-gray-6">
       <ec-icon
         name="simple-check"
         :size="16"
