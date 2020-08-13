@@ -1,5 +1,7 @@
 import { storiesOf } from '@storybook/vue';
+import { text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { EDIT, LOADING, READ_ONLY } from '@/enums/input-status';
 import EcInlineInputField from './ec-inline-input-field.vue';
 
 const stories = storiesOf('Inline input Field', module);
@@ -8,51 +10,47 @@ stories
   .add('basic', () => ({
     components: { EcInlineInputField },
     props: {
+      valueFromKnob: {
+        default: text('Initial value', 'Initial value'),
+      },
       isEditable: {
-        default: true,
+        default: boolean('Is editable?', true),
+      },
+      error: {
+        default: boolean('Error when saving?', false),
       },
     },
     data() {
       return {
-        value: 'Initial value',
-        statusSuccessCase: 'read-only',
-        statusErrorCase: 'read-only',
-        errorMessage: null,
+        value: this.valueFromKnob,
+        status: READ_ONLY,
       };
     },
+    watch: {
+      valueFromKnob(value) {
+        this.value = value;
+      },
+    },
     methods: {
-      onSuccessCaseEdit() {
+      onEdit() {
         action('edit');
-        this.statusSuccessCase = 'edit';
+        this.status = EDIT;
       },
-      onSuccessCaseCancel() {
+      onCancel() {
         action('cancel');
-        this.statusSuccessCase = 'read-only';
+        this.status = READ_ONLY;
       },
-      onSuccessCaseAccept(value) {
-        action('accept');
-        this.statusSuccessCase = 'loading';
+      onSubmit(value) {
+        action('submit');
+        this.status = LOADING;
 
         setTimeout(() => {
-          this.value = value;
-          this.statusSuccessCase = 'read-only';
-        }, 1000);
-      },
-      onErrorCaseEdit() {
-        action('edit');
-        this.statusErrorCase = 'edit';
-      },
-      onErrorCaseCancel() {
-        action('cancel');
-        this.statusErrorCase = 'read-only';
-      },
-      onErrorCaseAccept() {
-        action('accept');
-        this.statusErrorCase = 'loading';
-
-        setTimeout(() => {
-          this.statusErrorCase = 'edit';
-          this.errorMessage = 'Input field with error';
+          if (this.error) {
+            this.value = this.valueFromKnob;
+          } else {
+            this.value = value;
+          }
+          this.status = READ_ONLY;
         }, 1000);
       },
     },
@@ -61,33 +59,15 @@ stories
       <div class="tw-grid">
         <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field
-            label="Inline input field - Success case"
+            label="Inline input field"
             :is-editable="isEditable"
-            :status="statusSuccessCase"
-            @cancel="onSuccessCaseCancel"
-            @edit="onSuccessCaseEdit"
-            @submit="onSuccessCaseAccept"
+            :status="status"
+            @cancel="onCancel"
+            @edit="onEdit"
+            @submit="onSubmit"
           >
             {{ value }}
           </ec-inline-input-field>
-        </div>
-
-        <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field
-            label="Inline input field - Error case"
-            :is-editable="true"
-            :status="statusErrorCase"
-            :error-message="errorMessage"
-            @cancel="onErrorCaseCancel"
-            @edit="onErrorCaseEdit"
-            @submit="onErrorCaseAccept"
-          >
-            {{ value }}
-          </ec-inline-input-field>
-        </div>
-
-        <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field label="Inline input field - Uneditable case">{{ value }}</ec-inline-input-field>
         </div>
 
         <div class="tw-col-full"></div>

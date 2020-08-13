@@ -91,6 +91,7 @@ export default {
       this.$emit('edit');
     },
     submit(newValue) {
+      this.value = newValue;
       this.$emit('submit', newValue);
     },
   },

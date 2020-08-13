@@ -11,17 +11,15 @@
         </ec-loading>
       </div>
     </div>
-    <div class="tw-flex tw-items-end tw-ml-20 tw-mb-16">
+    <div class="tw-flex tw-items-end tw-ml-20 tw-mb-16 tw-fill-gray-6">
       <ec-icon
         name="simple-check"
         :size="16"
-        type="interactive"
       />
       <ec-icon
         class="tw-ml-8"
         name="simple-close"
         :size="16"
-        type="interactive"
       />
     </div>
   </div>
