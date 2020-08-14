@@ -9,18 +9,28 @@
       @keydown.esc="cancelViaKeyboard"
     />
     <div class="tw-flex tw-ml-20 tw-mt-12">
-      <ec-icon
-        class="ec-inline-input-field-edit__action-icon"
-        name="simple-check"
-        :size="16"
+      <button
+        class="ec-inline-input-field-edit__action"
         @click="submit"
-      />
-      <ec-icon
-        class="ec-inline-input-field-edit__action-icon tw-ml-8"
-        name="simple-close"
-        :size="16"
+        @keydown.enter.space.prevent="submitViaKeyboard"
+      >
+        <ec-icon
+          class="ec-inline-input-field-edit__action-icon"
+          name="simple-check"
+          :size="16"
+        />
+      </button>
+      <button
+        class="ec-inline-input-field-edit__action tw-ml-8"
         @click="cancel"
-      />
+        @keydown.enter.space.prevent="cancelViaKeyboard"
+      >
+        <ec-icon
+          class="ec-inline-input-field-edit__action-icon"
+          name="simple-close"
+          :size="16"
+        />
+      </button>
     </div>
   </div>
 </template>
@@ -88,11 +98,23 @@ export default {
 </script>
 
 <style>
-.ec-inline-input-field-edit__action-icon {
-  @apply tw-fill-key-4;
+.ec-inline-input-field-edit {
+  &__action {
+    @apply tw-border-0;
+    @apply tw-bg-transparent;
+    @apply tw-outline-none;
+  }
 
-  &:hover {
-    @apply tw-cursor-pointer;
+  &__action-icon {
+    @apply tw-fill-key-4;
+
+    &:hover {
+      @apply tw-cursor-pointer;
+      @apply tw-fill-key-3;
+    }
+  }
+
+  &__action:focus &__action-icon {
     @apply tw-fill-key-3;
   }
 }

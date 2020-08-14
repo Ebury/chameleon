@@ -4,7 +4,8 @@
     <button
       ref="editButton"
       class="ec-inline-input-field-read-only__action"
-      @click.enter="edit"
+      @click="edit"
+      @keydown.enter.space.prevent="edit"
     >
       <ec-icon
         class="ec-inline-input-field-read-only__edit-icon"
