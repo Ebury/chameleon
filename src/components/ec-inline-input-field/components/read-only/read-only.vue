@@ -2,6 +2,7 @@
   <div class="tw-w-full tw-flex tw-justify-between tw-items-center">
     <span class="tw-truncate">{{ value }}</span>
     <button
+      ref="editButton"
       class="ec-inline-input-field-read-only__action"
       @click.enter="edit"
     >
@@ -26,6 +27,15 @@ export default {
       default: '',
       type: String,
     },
+    gainFocus: {
+      default: false,
+      type: Boolean,
+    },
+  },
+  mounted() {
+    if (this.gainFocus) {
+      this.$refs.editButton.focus();
+    }
   },
   methods: {
     edit() {

@@ -1,10 +1,14 @@
 <template>
-  <div data-test="ec-inline-input-field">
-    <div class="ec-inline-input-field__label">{{ label }}</div>
+  <div
+    class="tw-truncate"
+    data-test="ec-inline-input-field"
+  >
+    <div class="tw-mini-header">{{ label }}</div>
     <div v-if="isEditable">
       <ec-inline-input-field-read-only
         v-if="isReadOnly"
         :value="value"
+        :gain-focus="gainFocus"
         @edit="edit"
       />
       <ec-inline-input-field-edit
@@ -17,7 +21,7 @@
       />
       <ec-inline-input-field-loading
         v-else
-        :value="value"
+        :value="innerValue"
       />
     </div>
     <slot v-else />
@@ -57,10 +61,15 @@ export default {
         return [READ_ONLY, EDIT, LOADING].includes(value);
       },
     },
+    value: {
+      default: '',
+      type: String,
+    },
   },
   data() {
     return {
-      value: null,
+      innerValue: null,
+      gainFocus: false,
     };
   },
   computed: {
@@ -72,36 +81,26 @@ export default {
     },
   },
   watch: {
-    status: {
+    value: {
       immediate: true,
-      handler(currentStatus) {
-        if (currentStatus === READ_ONLY) {
-          if (this.$slots.default) {
-            this.value = this.$slots.default[0].text.trim();
-          }
-        }
+      handler(newValue) {
+        this.innerValue = newValue;
       },
     },
   },
   methods: {
-    cancel() {
+    cancel(data) {
       this.$emit('cancel');
+      this.gainFocus = data.isKeyboardEvent;
     },
     edit() {
       this.$emit('edit');
     },
-    submit(newValue) {
-      this.value = newValue;
-      this.$emit('submit', newValue);
+    submit(data) {
+      this.innerValue = data.value;
+      this.$emit('submit', data.value);
+      this.gainFocus = data.isKeyboardEvent;
     },
   },
 };
 </script>
-
-<style>
-.ec-inline-input-field {
-  &__label {
-    @apply tw-mini-header;
-  }
-}
-</style>

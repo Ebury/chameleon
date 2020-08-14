@@ -5,8 +5,8 @@
       v-model="value"
       type="text"
       :error-message="errorMessage"
-      @keydown.enter="submit"
-      @keydown.esc="cancel"
+      @keydown.enter="submitViaKeyboard"
+      @keydown.esc="cancelViaKeyboard"
     />
     <div class="tw-flex tw-ml-20 tw-mt-12">
       <ec-icon
@@ -70,17 +70,18 @@ export default {
       },
     },
   },
-  created() {
-    if (this.$slots.default) {
-      this.value = this.$slots.default[0].text.trim();
-    }
-  },
   methods: {
     cancel() {
-      this.$emit('cancel');
+      this.$emit('cancel', {});
+    },
+    cancelViaKeyboard() {
+      this.$emit('cancel', { isKeyboardEvent: true });
     },
     submit() {
-      this.$emit('submit', this.value);
+      this.$emit('submit', { value: this.value });
+    },
+    submitViaKeyboard() {
+      this.$emit('submit', { value: this.value, isKeyboardEvent: true });
     },
   },
 };

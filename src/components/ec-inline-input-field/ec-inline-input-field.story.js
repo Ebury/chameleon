@@ -45,9 +45,7 @@ stories
         this.status = LOADING;
 
         setTimeout(() => {
-          if (this.error) {
-            this.value = this.valueFromKnob;
-          } else {
+          if (!this.error) {
             this.value = value;
           }
           this.status = READ_ONLY;
@@ -62,6 +60,7 @@ stories
             label="Inline input field"
             :is-editable="isEditable"
             :status="status"
+            :value="value"
             @cancel="onCancel"
             @edit="onEdit"
             @submit="onSubmit"
@@ -69,9 +68,17 @@ stories
             {{ value }}
           </ec-inline-input-field>
         </div>
-
+        <div class="tw-col-full md:tw-col-4">
+          <ec-inline-input-field label="Inline input field - Uneditable">
+            {{ value }}
+          </ec-inline-input-field>
+        </div>
+        <div class="tw-col-full md:tw-col-4">
+          <ec-inline-input-field label="Inline input field - Uneditable / No plain text">
+            <a href="#">{{ value }}</a>
+          </ec-inline-input-field>
+        </div>
         <div class="tw-col-full"></div>
-
         <div class="tw-col-full md:tw-col-4">
           Model value text: {{ value }}
         </div>
