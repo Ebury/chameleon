@@ -13,7 +13,6 @@
       />
       <ec-inline-input-field-edit
         v-else-if="isEditing"
-        :error-message="errorMessage"
         :original-value="value"
         :status="status"
         @cancel="cancel"
@@ -29,7 +28,7 @@
 </template>
 
 <script>
-import { EDIT, LOADING, READ_ONLY } from '@/enums/input-status';
+import { EDITING, LOADING, READ_ONLY } from '@/enums/input-status';
 import EcInlineInputFieldEdit from './components/edit';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldReadOnly from './components/read-only';
@@ -46,10 +45,6 @@ export default {
       default: '',
       type: String,
     },
-    errorMessage: {
-      default: '',
-      type: String,
-    },
     isEditable: {
       type: Boolean,
       default: false,
@@ -58,7 +53,7 @@ export default {
       type: String,
       default: READ_ONLY,
       validator(value) {
-        return [READ_ONLY, EDIT, LOADING].includes(value);
+        return [READ_ONLY, EDITING, LOADING].includes(value);
       },
     },
     value: {
@@ -74,7 +69,7 @@ export default {
   },
   computed: {
     isEditing() {
-      return this.isEditable && this.status === EDIT;
+      return this.isEditable && this.status === EDITING;
     },
     isReadOnly() {
       return this.isEditable && this.status === READ_ONLY;

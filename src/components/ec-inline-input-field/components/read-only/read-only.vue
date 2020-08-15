@@ -1,9 +1,13 @@
 <template>
-  <div class="tw-w-full tw-flex tw-justify-between tw-items-center">
+  <div
+    class="tw-w-full tw-flex tw-justify-between tw-items-center"
+    data-test="ec-inline-input-field-read-only"
+  >
     <span class="tw-truncate">{{ value }}</span>
     <button
       ref="editButton"
       class="ec-inline-input-field-read-only__action"
+      data-test="ec-inline-input-field-read-only__action"
       @click="edit"
       @keydown.enter.space.prevent="edit"
     >
@@ -33,10 +37,17 @@ export default {
       type: Boolean,
     },
   },
-  mounted() {
-    if (this.gainFocus) {
-      this.$refs.editButton.focus();
-    }
+  watch: {
+    gainFocus: {
+      immediate: true,
+      handler(value) {
+        if (value) {
+          this.$nextTick(() => {
+            this.$refs.editButton.focus();
+          });
+        }
+      },
+    },
   },
   methods: {
     edit() {

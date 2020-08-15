@@ -1,5 +1,8 @@
 <template>
-  <div class="tw-flex">
+  <div
+    class="tw-flex"
+    data-test="ec-inline-input-field-loading"
+  >
     <div class="tw-flex tw-flex-grow tw-truncate tw-border tw-border-solid tw-border-gray-6 tw-rounded">
       <span class="tw-flex-grow tw-truncate tw-text-gray-5 tw-pl-12 tw-py-8">{{ value }}</span>
       <ec-loading

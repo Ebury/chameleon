@@ -1,16 +1,20 @@
 <template>
-  <div class="tw-w-full tw-flex">
+  <div
+    class="tw-w-full tw-flex"
+    data-test="ec-inline-input-field-edit"
+  >
     <ec-input-field
       ref="input"
       v-model="value"
       type="text"
-      :error-message="errorMessage"
+      data-test="ec-inline-input-field-edit__input"
       @keydown.enter="submitViaKeyboard"
       @keydown.esc="cancelViaKeyboard"
     />
     <div class="tw-flex tw-ml-20 tw-mt-12">
       <button
         class="ec-inline-input-field-edit__action"
+        data-test="ec-inline-input-field-edit__submit-action"
         @click="submit"
         @keydown.enter.space.prevent="submitViaKeyboard"
       >
@@ -22,6 +26,7 @@
       </button>
       <button
         class="ec-inline-input-field-edit__action tw-ml-8"
+        data-test="ec-inline-input-field-edit__cancel-action"
         @click="cancel"
         @keydown.enter.space.prevent="cancelViaKeyboard"
       >
@@ -36,7 +41,7 @@
 </template>
 
 <script>
-import { EDIT, LOADING, READ_ONLY } from '@/enums/input-status';
+import { EDITING, LOADING, READ_ONLY } from '@/enums/input-status';
 import EcIcon from '@/components/ec-icon';
 import EcInputField from '@/components/ec-input-field';
 
@@ -48,15 +53,11 @@ export default {
       default: '',
       type: String,
     },
-    errorMessage: {
-      default: '',
-      type: String,
-    },
     status: {
       type: String,
       default: READ_ONLY,
       validator(value) {
-        return [READ_ONLY, EDIT, LOADING].includes(value);
+        return [READ_ONLY, EDITING, LOADING].includes(value);
       },
     },
   },
@@ -68,15 +69,11 @@ export default {
   watch: {
     status: {
       immediate: true,
-      handler(currentStatus) {
-        if (currentStatus === EDIT) {
-          this.value = this.originalValue;
-          this.$nextTick(() => {
-            if (this.$refs.input && this.$refs.input.$el.querySelector('input')) {
-              this.$refs.input.$el.querySelector('input').focus();
-            }
-          });
-        }
+      handler() {
+        this.value = this.originalValue;
+        this.$nextTick(() => {
+          this.$refs.input.$el.querySelector('input').focus();
+        });
       },
     },
   },

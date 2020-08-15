@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue';
 import { text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { EDIT, LOADING, READ_ONLY } from '@/enums/input-status';
+import { EDITING, LOADING, READ_ONLY } from '@/enums/input-status';
 import EcInlineInputField from './ec-inline-input-field.vue';
 
 const stories = storiesOf('Inline input Field', module);
@@ -34,7 +34,7 @@ stories
     methods: {
       onEdit() {
         action('edit');
-        this.status = EDIT;
+        this.status = EDITING;
       },
       onCancel() {
         action('cancel');
@@ -80,7 +80,7 @@ stories
         </div>
         <div class="tw-col-full"></div>
         <div class="tw-col-full md:tw-col-4">
-          Model value text: {{ value }}
+          Value: {{ value }}
         </div>
       </div>
     </div>

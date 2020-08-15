@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcInlineInputField when component is editable when the component's status is editing should render as expected 1`] = `
+<div
+  class="tw-truncate"
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="tw-mini-header"
+  >
+    Label
+  </div>
+   
+  <div>
+    <div
+      class="tw-w-full tw-flex"
+      data-test="ec-inline-input-field-edit"
+    >
+      <div
+        class="ec-input-field"
+        data-test="ec-input-field"
+      >
+        <!---->
+         
+        <input
+          class="ec-input-field__input"
+          data-test="ec-inline-input-field-edit__input ec-input-field__input"
+          id="ec-input-field-25"
+          type="text"
+        />
+         
+        <!---->
+         
+        <!---->
+      </div>
+       
+      <div
+        class="tw-flex tw-ml-20 tw-mt-12"
+      >
+        <button
+          class="ec-inline-input-field-edit__action"
+          data-test="ec-inline-input-field-edit__submit-action"
+        >
+          <svg
+            class="ec-inline-input-field-edit__action-icon ec-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-check"
+            />
+          </svg>
+        </button>
+         
+        <button
+          class="ec-inline-input-field-edit__action tw-ml-8"
+          data-test="ec-inline-input-field-edit__cancel-action"
+        >
+          <svg
+            class="ec-inline-input-field-edit__action-icon ec-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcInlineInputField when component is editable when the component's status is loading should render as expected 1`] = `
+<div
+  class="tw-truncate"
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="tw-mini-header"
+  >
+    Label
+  </div>
+   
+  <div>
+    <div
+      class="tw-flex"
+      data-test="ec-inline-input-field-loading"
+    >
+      <div
+        class="tw-flex tw-flex-grow tw-truncate tw-border tw-border-solid tw-border-gray-6 tw-rounded"
+      >
+        <span
+          class="tw-flex-grow tw-truncate tw-text-gray-5 tw-pl-12 tw-py-8"
+        >
+          Input field value
+        </span>
+         
+        <div
+          class="ec-loading"
+          data-test="ec-loading"
+        >
+          <div
+            class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+            data-test="ec-loading__backdrop"
+          >
+            <svg
+              class="ec-loading__icon ec-icon"
+              data-test="ec-loading__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-loading"
+              />
+            </svg>
+          </div>
+           
+          <div
+            class="ec-loading__content ec-loading__content--is-transparent"
+            data-test="ec-loading__content"
+          >
+            <div
+              class="tw-w-40"
+            />
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="tw-flex tw-items-center tw-ml-20 tw-fill-gray-6"
+      >
+        <svg
+          class="ec-icon"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-check"
+          />
+        </svg>
+         
+        <svg
+          class="tw-ml-8 ec-icon"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcInlineInputField when component is editable when the component's status is read-only (initial status) should render as expected 1`] = `
+<div
+  class="tw-truncate"
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="tw-mini-header"
+  >
+    Label
+  </div>
+   
+  <div>
+    <div
+      class="tw-w-full tw-flex tw-justify-between tw-items-center"
+      data-test="ec-inline-input-field-read-only"
+    >
+      <span
+        class="tw-truncate"
+      >
+        Input field value
+      </span>
+       
+      <button
+        class="ec-inline-input-field-read-only__action"
+        data-test="ec-inline-input-field-read-only__action"
+      >
+        <svg
+          class="ec-inline-input-field-read-only__edit-icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-edit"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcInlineInputField when component is non-editable should render as expected 1`] = `
+<div
+  class="tw-truncate"
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="tw-mini-header"
+  >
+    Label
+  </div>
+   
+  <a
+    href="#"
+  >
+    Link
+  </a>
+</div>
+`;
