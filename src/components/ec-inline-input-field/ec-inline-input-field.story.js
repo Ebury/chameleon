@@ -1,10 +1,9 @@
 import { storiesOf } from '@storybook/vue';
 import { text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { EDITING, LOADING, READ_ONLY } from '@/enums/input-status';
 import EcInlineInputField from './ec-inline-input-field.vue';
 
-const stories = storiesOf('Inline input Field', module);
+const stories = storiesOf('Inline Input Field', module);
 
 stories
   .add('basic', () => ({
@@ -14,16 +13,17 @@ stories
         default: text('Initial value', 'Initial value'),
       },
       isEditable: {
-        default: boolean('Is editable?', true),
+        default: boolean('Is editable', true),
       },
       error: {
-        default: boolean('Error when saving?', false),
+        default: boolean('Show error when saving', false),
       },
     },
     data() {
       return {
         value: this.valueFromKnob,
-        status: READ_ONLY,
+        isEditing: false,
+        isLoading: false,
       };
     },
     watch: {
@@ -34,21 +34,22 @@ stories
     methods: {
       onEdit() {
         action('edit');
-        this.status = EDITING;
+        this.isEditing = true;
       },
       onCancel() {
         action('cancel');
-        this.status = READ_ONLY;
+        this.isEditing = false;
       },
       onSubmit(value) {
         action('submit');
-        this.status = LOADING;
+        this.isEditing = false;
+        this.isLoading = true;
 
         setTimeout(() => {
           if (!this.error) {
             this.value = value;
           }
-          this.status = READ_ONLY;
+          this.isLoading = false;
         }, 1000);
       },
     },
@@ -57,10 +58,11 @@ stories
       <div class="tw-grid">
         <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field
-            label="Inline input field"
+            label="Inline Input Field"
             :is-editable="isEditable"
-            :status="status"
-            :value="value"
+            :is-editing="isEditing"
+            :is-loading="isLoading"
+            v-model="value"
             @cancel="onCancel"
             @edit="onEdit"
             @submit="onSubmit"
@@ -69,12 +71,12 @@ stories
           </ec-inline-input-field>
         </div>
         <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field label="Inline input field - Uneditable">
+          <ec-inline-input-field label="Inline Input Field - Uneditable">
             {{ value }}
           </ec-inline-input-field>
         </div>
         <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field label="Inline input field - Uneditable / No plain text">
+          <ec-inline-input-field label="Inline Input Field - Uneditable / No Plain Text">
             <a href="#">{{ value }}</a>
           </ec-inline-input-field>
         </div>

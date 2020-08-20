@@ -1,44 +1,48 @@
 <template>
-  <div
-    class="tw-truncate"
-    data-test="ec-inline-input-field"
-  >
-    <div class="tw-mini-header">{{ label }}</div>
-    <div v-if="isEditable">
-      <ec-inline-input-field-read-only
-        v-if="isReadOnly"
-        :value="value"
-        :gain-focus="gainFocus"
-        @edit="edit"
+  <div data-test="ec-inline-input-field">
+    <div
+      v-if="!isEditing"
+      class="ec-inline-input-field__label"
+    >{{ label }}</div>
+    <template v-if="isEditable">
+      <ec-inline-input-field-loading
+        v-if="isLoading"
+        :value="valueForLoading"
       />
       <ec-inline-input-field-edit
         v-else-if="isEditing"
-        :original-value="value"
-        :status="status"
+        v-model="value"
+        :label="label"
         @cancel="cancel"
         @submit="submit"
       />
-      <ec-inline-input-field-loading
+      <ec-inline-input-field-value-text
+        ref="valueText"
         v-else
-        :value="innerValue"
+        :value="value"
+        @edit="edit"
       />
+    </template>
+    <div
+      v-else
+      class="ec-inline-input-field__slot"
+    >
+      <slot />
     </div>
-    <slot v-else />
   </div>
 </template>
 
 <script>
-import { EDITING, LOADING, READ_ONLY } from '@/enums/input-status';
 import EcInlineInputFieldEdit from './components/edit';
 import EcInlineInputFieldLoading from './components/loading';
-import EcInlineInputFieldReadOnly from './components/read-only';
+import EcInlineInputFieldValueText from './components/value-text';
 
 export default {
   name: 'EcInlineInputField',
   components: {
     EcInlineInputFieldEdit,
     EcInlineInputFieldLoading,
-    EcInlineInputFieldReadOnly,
+    EcInlineInputFieldValueText,
   },
   props: {
     label: {
@@ -49,12 +53,13 @@ export default {
       type: Boolean,
       default: false,
     },
-    status: {
-      type: String,
-      default: READ_ONLY,
-      validator(value) {
-        return [READ_ONLY, EDITING, LOADING].includes(value);
-      },
+    isEditing: {
+      type: Boolean,
+      default: false,
+    },
+    isLoading: {
+      type: Boolean,
+      default: false,
     },
     value: {
       default: '',
@@ -63,39 +68,54 @@ export default {
   },
   data() {
     return {
-      innerValue: null,
-      gainFocus: false,
+      valueForLoading: this.value,
+      shouldValueTextGainFocus: false,
     };
   },
   computed: {
-    isEditing() {
-      return this.isEditable && this.status === EDITING;
-    },
     isReadOnly() {
-      return this.isEditable && this.status === READ_ONLY;
+      return this.isEditable && !this.isEditing && !this.isLoading;
     },
   },
   watch: {
-    value: {
+    isReadOnly: {
       immediate: true,
-      handler(newValue) {
-        this.innerValue = newValue;
+      handler() {
+        if (this.shouldValueTextGainFocus) {
+          this.shouldValueTextGainFocus = false;
+          this.$nextTick(() => {
+            this.$refs.valueText.focus();
+          });
+        }
       },
     },
   },
   methods: {
     cancel(data) {
       this.$emit('cancel');
-      this.gainFocus = data.isKeyboardEvent;
+      this.shouldValueTextGainFocus = data.isKeyboardEvent;
     },
     edit() {
       this.$emit('edit');
     },
     submit(data) {
-      this.innerValue = data.value;
+      this.valueForLoading = data.value;
       this.$emit('submit', data.value);
-      this.gainFocus = data.isKeyboardEvent;
+      this.shouldValueTextGainFocus = data.isKeyboardEvent;
     },
   },
 };
 </script>
+
+<style>
+.ec-inline-input-field {
+  &__label {
+    @apply tw-mini-header;
+    @apply tw-inline-block;
+  }
+
+  &__slot {
+    @apply tw-truncate;
+  }
+}
+</style>

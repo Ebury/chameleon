@@ -1,94 +1,91 @@
 <template>
-  <div
-    class="tw-w-full tw-flex"
-    data-test="ec-inline-input-field-edit"
-  >
-    <ec-input-field
-      ref="input"
-      v-model="value"
-      type="text"
-      data-test="ec-inline-input-field-edit__input"
-      @keydown.enter="submitViaKeyboard"
-      @keydown.esc="cancelViaKeyboard"
-    />
-    <div class="tw-flex tw-ml-20 tw-mt-12">
-      <button
-        class="ec-inline-input-field-edit__action"
-        data-test="ec-inline-input-field-edit__submit-action"
-        @click="submit"
-        @keydown.enter.space.prevent="submitViaKeyboard"
-      >
-        <ec-icon
-          class="ec-inline-input-field-edit__action-icon"
-          name="simple-check"
-          :size="16"
-        />
-      </button>
-      <button
-        class="ec-inline-input-field-edit__action tw-ml-8"
-        data-test="ec-inline-input-field-edit__cancel-action"
-        @click="cancel"
-        @keydown.enter.space.prevent="cancelViaKeyboard"
-      >
-        <ec-icon
-          class="ec-inline-input-field-edit__action-icon"
-          name="simple-close"
-          :size="16"
-        />
-      </button>
+  <div data-test="ec-inline-input-field-edit">
+    <label
+      class="ec-inline-input-field-edit__label"
+      :for="inputId"
+    >{{ label }}</label>
+    <div class="ec-inline-input-field-edit__edit-panel">
+      <ec-input-field
+        :id="inputId"
+        ref="input"
+        v-model="inputModel"
+        type="text"
+        data-test="ec-inline-input-field-edit__input"
+        @keydown.enter="submit"
+        @keydown.esc="cancel"
+      />
+      <div class="ec-inline-input-field-edit__actions">
+        <button
+          type="button"
+          class="ec-inline-input-field-edit__action"
+          data-test="ec-inline-input-field-edit__submit-action"
+          @click="submit"
+          @keydown.enter.space.prevent="submit"
+        >
+          <ec-icon
+            class="ec-inline-input-field-edit__action-icon"
+            name="simple-check"
+            :size="16"
+          />
+        </button>
+        <button
+          type="button"
+          class="ec-inline-input-field-edit__action"
+          data-test="ec-inline-input-field-edit__cancel-action"
+          @click="cancel"
+          @keydown.enter.space.prevent="cancel"
+        >
+          <ec-icon
+            class="ec-inline-input-field-edit__action-icon"
+            name="simple-close"
+            :size="16"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { EDITING, LOADING, READ_ONLY } from '@/enums/input-status';
 import EcIcon from '@/components/ec-icon';
 import EcInputField from '@/components/ec-input-field';
 
 export default {
   name: 'EcInlineInputFieldEdit',
   components: { EcIcon, EcInputField },
+  model: {
+    prop: 'value',
+    event: 'value-change',
+  },
   props: {
-    originalValue: {
+    label: {
       default: '',
       type: String,
     },
-    status: {
+    value: {
+      default: '',
       type: String,
-      default: READ_ONLY,
-      validator(value) {
-        return [READ_ONLY, EDITING, LOADING].includes(value);
-      },
     },
   },
   data() {
     return {
-      value: null,
+      inputId: `ec-inline-input-field-edit__input-${this._uid}`,
+      inputModel: this.value,
     };
   },
-  watch: {
-    status: {
-      immediate: true,
-      handler() {
-        this.value = this.originalValue;
-        this.$nextTick(() => {
-          this.$refs.input.$el.querySelector('input').focus();
-        });
-      },
-    },
+  mounted() {
+    this.$nextTick(() => {
+      this.$refs.input.focus();
+    });
   },
   methods: {
-    cancel() {
-      this.$emit('cancel', {});
+    cancel($event) {
+      const isKeyboardEvent = !!$event.code;
+      this.$emit('cancel', { isKeyboardEvent });
     },
-    cancelViaKeyboard() {
-      this.$emit('cancel', { isKeyboardEvent: true });
-    },
-    submit() {
-      this.$emit('submit', { value: this.value });
-    },
-    submitViaKeyboard() {
-      this.$emit('submit', { value: this.value, isKeyboardEvent: true });
+    submit($event) {
+      const isKeyboardEvent = !!$event.code;
+      this.$emit('submit', { value: this.inputModel, isKeyboardEvent });
     },
   },
 };
@@ -96,22 +93,37 @@ export default {
 
 <style>
 .ec-inline-input-field-edit {
-  &__action {
-    @apply tw-border-0;
-    @apply tw-bg-transparent;
-    @apply tw-outline-none;
+  &__label {
+    @apply tw-mini-header;
   }
 
-  &__action-icon {
-    @apply tw-fill-key-4;
+  &__edit-panel {
+    @apply tw-w-full;
+    @apply tw-flex;
+  }
 
-    &:hover {
-      @apply tw-cursor-pointer;
+  &__actions {
+    @apply tw-flex tw-items-center;
+    @apply tw-ml-20;
+  }
+
+  &__action {
+    @apply tw-border-0;
+    @apply tw-p-0;
+    @apply tw-bg-transparent tw-fill-key-4;
+    @apply tw-outline-none;
+
+    &:focus {
       @apply tw-fill-key-3;
+    }
+
+    &:not(:first-child) {
+      @apply tw-ml-8;
     }
   }
 
-  &__action:focus &__action-icon {
+  &__action-icon:hover {
+    @apply tw-cursor-pointer;
     @apply tw-fill-key-3;
   }
 }

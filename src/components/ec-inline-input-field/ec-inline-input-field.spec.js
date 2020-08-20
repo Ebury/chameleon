@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { EDITING, LOADING, READ_ONLY } from '@/enums/input-status';
+import { EDITING, LOADING, READ_ONLY } from './enums/status';
 import EcInlineInputField from './ec-inline-input-field.vue';
 
 describe('EcInlineInputField', () => {
@@ -37,7 +37,7 @@ describe('EcInlineInputField', () => {
         await wrapper.vm.$nextTick();
 
         expect(wrapper.element).toMatchSnapshot();
-        expect(wrapper.findByDataTest('ec-inline-input-field-read-only').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
       });
 
       it('should gain focus the edit button', async () => {
@@ -48,7 +48,7 @@ describe('EcInlineInputField', () => {
             };
           },
         });
-        const focusSpy = jest.spyOn(wrapper.findByDataTest('ec-inline-input-field-read-only__action').element, 'focus');
+        const focusSpy = jest.spyOn(wrapper.findByDataTest('ec-inline-input-field-value-text__action').element, 'focus');
         await wrapper.vm.$nextTick();
 
         expect(focusSpy).toHaveBeenCalledTimes(1);
@@ -56,16 +56,12 @@ describe('EcInlineInputField', () => {
       });
 
       describe('@events', () => {
-        it.each([
-          ['click', 'click'],
-          ['enter key', 'keydown.enter'],
-          ['space key', 'keydown.space'],
-        ])('should emit `edit` event when the edit button is pressed (via %s)', async (method, event) => {
+        it('should emit `edit` event when the edit button is clicked', async () => {
           const wrapper = mountInlineInputField();
           await wrapper.vm.$nextTick();
 
           expect(wrapper.emitted('edit')).toBeUndefined();
-          wrapper.findByDataTest('ec-inline-input-field-read-only__action').trigger(event);
+          wrapper.findByDataTest('ec-inline-input-field-value-text__action').trigger('click');
           await wrapper.vm.$nextTick();
 
           expect(wrapper.emitted('edit').length).toBeTruthy();

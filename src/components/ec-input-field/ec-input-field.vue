@@ -31,6 +31,7 @@
     </label>
     <input
       :id="inputId"
+      ref="input"
       v-model="inputModel"
       class="ec-input-field__input"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input'"
@@ -144,6 +145,11 @@ export default {
       set(value) {
         this.$emit('value-change', value);
       },
+    },
+  },
+  methods: {
+    focus() {
+      this.$refs.input.focus();
     },
   },
 };

@@ -2,18 +2,18 @@
 
 exports[`EcInlineInputField when component is editable when the component's status is editing should render as expected 1`] = `
 <div
-  class="tw-truncate"
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
-    class="tw-mini-header"
+    class="ec-inline-input-field__label"
   >
     Label
   </div>
    
   <div>
     <div
-      class="tw-w-full tw-flex"
+      class="ec-inline-input-field-edit"
       data-test="ec-inline-input-field-edit"
     >
       <div
@@ -25,7 +25,7 @@ exports[`EcInlineInputField when component is editable when the component's stat
         <input
           class="ec-input-field__input"
           data-test="ec-inline-input-field-edit__input ec-input-field__input"
-          id="ec-input-field-25"
+          id="ec-input-field-17"
           type="text"
         />
          
@@ -35,11 +35,12 @@ exports[`EcInlineInputField when component is editable when the component's stat
       </div>
        
       <div
-        class="tw-flex tw-ml-20 tw-mt-12"
+        class="ec-inline-input-field-edit__actions"
       >
         <button
           class="ec-inline-input-field-edit__action"
           data-test="ec-inline-input-field-edit__submit-action"
+          type="button"
         >
           <svg
             class="ec-inline-input-field-edit__action-icon ec-icon"
@@ -53,8 +54,9 @@ exports[`EcInlineInputField when component is editable when the component's stat
         </button>
          
         <button
-          class="ec-inline-input-field-edit__action tw-ml-8"
+          class="ec-inline-input-field-edit__action"
           data-test="ec-inline-input-field-edit__cancel-action"
+          type="button"
         >
           <svg
             class="ec-inline-input-field-edit__action-icon ec-icon"
@@ -74,25 +76,25 @@ exports[`EcInlineInputField when component is editable when the component's stat
 
 exports[`EcInlineInputField when component is editable when the component's status is loading should render as expected 1`] = `
 <div
-  class="tw-truncate"
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
-    class="tw-mini-header"
+    class="ec-inline-input-field__label"
   >
     Label
   </div>
    
   <div>
     <div
-      class="tw-flex"
+      class="ec-inline-input-field-loading"
       data-test="ec-inline-input-field-loading"
     >
       <div
-        class="tw-flex tw-flex-grow tw-truncate tw-border tw-border-solid tw-border-gray-6 tw-rounded"
+        class="ec-inline-input-field-loading__simulated-input"
       >
         <span
-          class="tw-flex-grow tw-truncate tw-text-gray-5 tw-pl-12 tw-py-8"
+          class="ec-inline-input-field-loading__text"
         >
           Input field value
         </span>
@@ -122,14 +124,14 @@ exports[`EcInlineInputField when component is editable when the component's stat
             data-test="ec-loading__content"
           >
             <div
-              class="tw-w-40"
+              class="ec-inline-input-field-loading__spinner"
             />
           </div>
         </div>
       </div>
        
       <div
-        class="tw-flex tw-items-center tw-ml-20 tw-fill-gray-6"
+        class="ec-inline-input-field-loading__buttons"
       >
         <svg
           class="ec-icon"
@@ -142,7 +144,7 @@ exports[`EcInlineInputField when component is editable when the component's stat
         </svg>
          
         <svg
-          class="tw-ml-8 ec-icon"
+          class="ec-inline-input-field-loading__close-button ec-icon"
           height="16"
           width="16"
         >
@@ -158,32 +160,33 @@ exports[`EcInlineInputField when component is editable when the component's stat
 
 exports[`EcInlineInputField when component is editable when the component's status is read-only (initial status) should render as expected 1`] = `
 <div
-  class="tw-truncate"
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
-    class="tw-mini-header"
+    class="ec-inline-input-field__label"
   >
     Label
   </div>
    
   <div>
     <div
-      class="tw-w-full tw-flex tw-justify-between tw-items-center"
-      data-test="ec-inline-input-field-read-only"
+      class="ec-inline-input-field-value-text"
+      data-test="ec-inline-input-field-value-text"
     >
       <span
-        class="tw-truncate"
+        class="ec-inline-input-field-value-text__text"
       >
         Input field value
       </span>
        
       <button
-        class="ec-inline-input-field-read-only__action"
-        data-test="ec-inline-input-field-read-only__action"
+        class="ec-inline-input-field-value-text__action"
+        data-test="ec-inline-input-field-value-text__action"
+        type="button"
       >
         <svg
-          class="ec-inline-input-field-read-only__edit-icon ec-icon ec-icon--interactive"
+          class="ec-inline-input-field-value-text__edit-icon ec-icon ec-icon--interactive"
           height="16"
           width="16"
         >
@@ -199,11 +202,11 @@ exports[`EcInlineInputField when component is editable when the component's stat
 
 exports[`EcInlineInputField when component is non-editable should render as expected 1`] = `
 <div
-  class="tw-truncate"
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
-    class="tw-mini-header"
+    class="ec-inline-input-field__label"
   >
     Label
   </div>
