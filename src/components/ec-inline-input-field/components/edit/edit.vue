@@ -20,7 +20,6 @@
           class="ec-inline-input-field-edit__action"
           data-test="ec-inline-input-field-edit__submit-action"
           @click="submit"
-          @keydown.enter.space.prevent="submit"
         >
           <ec-icon
             class="ec-inline-input-field-edit__action-icon"
@@ -33,7 +32,6 @@
           class="ec-inline-input-field-edit__action"
           data-test="ec-inline-input-field-edit__cancel-action"
           @click="cancel"
-          @keydown.enter.space.prevent="cancel"
         >
           <ec-icon
             class="ec-inline-input-field-edit__action-icon"
@@ -79,13 +77,11 @@ export default {
     });
   },
   methods: {
-    cancel($event) {
-      const isKeyboardEvent = !!$event.code;
-      this.$emit('cancel', { isKeyboardEvent });
+    cancel() {
+      this.$emit('cancel');
     },
-    submit($event) {
-      const isKeyboardEvent = !!$event.code;
-      this.$emit('submit', { value: this.inputModel, isKeyboardEvent });
+    submit() {
+      this.$emit('submit', { value: this.inputModel });
     },
   },
 };

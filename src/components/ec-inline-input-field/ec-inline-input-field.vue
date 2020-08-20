@@ -69,31 +69,11 @@ export default {
   data() {
     return {
       valueForLoading: this.value,
-      shouldValueTextGainFocus: false,
     };
   },
-  computed: {
-    isReadOnly() {
-      return this.isEditable && !this.isEditing && !this.isLoading;
-    },
-  },
-  watch: {
-    isReadOnly: {
-      immediate: true,
-      handler() {
-        if (this.shouldValueTextGainFocus) {
-          this.shouldValueTextGainFocus = false;
-          this.$nextTick(() => {
-            this.$refs.valueText.focus();
-          });
-        }
-      },
-    },
-  },
   methods: {
-    cancel(data) {
+    cancel() {
       this.$emit('cancel');
-      this.shouldValueTextGainFocus = data.isKeyboardEvent;
     },
     edit() {
       this.$emit('edit');
@@ -101,7 +81,6 @@ export default {
     submit(data) {
       this.valueForLoading = data.value;
       this.$emit('submit', data.value);
-      this.shouldValueTextGainFocus = data.isKeyboardEvent;
     },
   },
 };

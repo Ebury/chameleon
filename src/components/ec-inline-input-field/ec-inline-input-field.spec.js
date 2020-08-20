@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils';
-import { EDITING, LOADING, READ_ONLY } from './enums/status';
 import EcInlineInputField from './ec-inline-input-field.vue';
 
 describe('EcInlineInputField', () => {
@@ -31,28 +30,13 @@ describe('EcInlineInputField', () => {
   });
 
   describe('when component is editable', () => {
-    describe(`when the component's status is ${READ_ONLY} (initial status)`, () => {
+    describe('when the component is in its initial state', () => {
       it('should render as expected', async () => {
         const wrapper = mountInlineInputField();
         await wrapper.vm.$nextTick();
 
         expect(wrapper.element).toMatchSnapshot();
         expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
-      });
-
-      it('should gain focus the edit button', async () => {
-        const wrapper = mountInlineInputField({}, {
-          data() {
-            return {
-              gainFocus: true,
-            };
-          },
-        });
-        const focusSpy = jest.spyOn(wrapper.findByDataTest('ec-inline-input-field-value-text__action').element, 'focus');
-        await wrapper.vm.$nextTick();
-
-        expect(focusSpy).toHaveBeenCalledTimes(1);
-        focusSpy.mockRestore();
       });
 
       describe('@events', () => {
@@ -69,9 +53,9 @@ describe('EcInlineInputField', () => {
       });
     });
 
-    describe(`when the component's status is ${EDITING}`, () => {
+    describe('when the component is in editing mode', () => {
       it('should render as expected', async () => {
-        const wrapper = mountInlineInputField({ status: EDITING });
+        const wrapper = mountInlineInputField({ isEditing: true });
         await wrapper.vm.$nextTick();
 
         expect(wrapper.element).toMatchSnapshot();
@@ -79,7 +63,7 @@ describe('EcInlineInputField', () => {
       });
 
       it('should gain focus the input field', async () => {
-        const wrapper = mountInlineInputField({ status: EDITING });
+        const wrapper = mountInlineInputField({ isEditing: true });
         const focusSpy = jest.spyOn(wrapper.findByDataTest('ec-inline-input-field-edit__input').element, 'focus');
         await wrapper.vm.$nextTick();
 
@@ -89,7 +73,7 @@ describe('EcInlineInputField', () => {
 
       describe('@events', () => {
         it('should emit `cancel` event when esc key is pressed in the input field', async () => {
-          const wrapper = mountInlineInputField({ status: EDITING });
+          const wrapper = mountInlineInputField({ isEditing: true });
           const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
           await wrapper.vm.$nextTick();
 
@@ -98,30 +82,26 @@ describe('EcInlineInputField', () => {
           wrapper.findByDataTest('ec-inline-input-field-edit__input').trigger('keydown.esc');
           await wrapper.vm.$nextTick();
 
-          expect(editComponentWrapper.emitted('cancel')[0]).toEqual([{ isKeyboardEvent: true }]);
+          expect(editComponentWrapper.emitted('cancel')[0]).toEqual([]);
           expect(wrapper.emitted('cancel')[0]).toEqual([]);
         });
 
-        it.each([
-          ['click', 'click', {}],
-          ['enter key', 'keydown.enter', { isKeyboardEvent: true }],
-          ['space key', 'keydown.space', { isKeyboardEvent: true }],
-        ])('should emit `cancel` event when the cancel button is pressed (via %s)', async (method, event, emittedInfo) => {
-          const wrapper = mountInlineInputField({ status: EDITING });
+        it('should emit `cancel` event when the cancel button is clicked', async () => {
+          const wrapper = mountInlineInputField({ isEditing: true });
           const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
           await wrapper.vm.$nextTick();
 
           expect(editComponentWrapper.emitted('cancel')).toBeUndefined();
           expect(wrapper.emitted('cancel')).toBeUndefined();
-          wrapper.findByDataTest('ec-inline-input-field-edit__cancel-action').trigger(event);
+          wrapper.findByDataTest('ec-inline-input-field-edit__cancel-action').trigger('click');
           await wrapper.vm.$nextTick();
 
-          expect(editComponentWrapper.emitted('cancel')[0]).toEqual([emittedInfo]);
+          expect(editComponentWrapper.emitted('cancel')[0]).toEqual([]);
           expect(wrapper.emitted('cancel')[0]).toEqual([]);
         });
 
         it('should emit `submit` event when enter key is pressed in the input field', async () => {
-          const wrapper = mountInlineInputField({ status: EDITING });
+          const wrapper = mountInlineInputField({ isEditing: true });
           const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
           await wrapper.vm.$nextTick();
 
@@ -130,33 +110,29 @@ describe('EcInlineInputField', () => {
           wrapper.findByDataTest('ec-inline-input-field-edit__input').trigger('keydown.enter');
           await wrapper.vm.$nextTick();
 
-          expect(editComponentWrapper.emitted('submit')[0]).toEqual([{ value: inputFieldValue, isKeyboardEvent: true }]);
+          expect(editComponentWrapper.emitted('submit')[0]).toEqual([{ value: inputFieldValue }]);
           expect(wrapper.emitted('submit')[0]).toEqual([inputFieldValue]);
         });
 
-        it.each([
-          ['click', 'click', { value: inputFieldValue }],
-          ['enter key', 'keydown.enter', { value: inputFieldValue, isKeyboardEvent: true }],
-          ['space key', 'keydown.space', { value: inputFieldValue, isKeyboardEvent: true }],
-        ])('should emit `submit` event when the submit button is pressed (via %s)', async (method, event, emittedInfo) => {
-          const wrapper = mountInlineInputField({ status: EDITING });
+        it('should emit `submit` event when the submit button is clicked', async () => {
+          const wrapper = mountInlineInputField({ isEditing: true });
           const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
           await wrapper.vm.$nextTick();
 
           expect(editComponentWrapper.emitted('submit')).toBeUndefined();
           expect(wrapper.emitted('submit')).toBeUndefined();
-          wrapper.findByDataTest('ec-inline-input-field-edit__submit-action').trigger(event);
+          wrapper.findByDataTest('ec-inline-input-field-edit__submit-action').trigger('click');
           await wrapper.vm.$nextTick();
 
-          expect(editComponentWrapper.emitted('submit')[0]).toEqual([emittedInfo]);
+          expect(editComponentWrapper.emitted('submit')[0]).toEqual([{ value: inputFieldValue }]);
           expect(wrapper.emitted('submit')[0]).toEqual([inputFieldValue]);
         });
       });
     });
 
-    describe(`when the component's status is ${LOADING}`, () => {
+    describe('when the component is loading', () => {
       it('should render as expected', async () => {
-        const wrapper = mountInlineInputField({ status: LOADING });
+        const wrapper = mountInlineInputField({ isLoading: true });
         await wrapper.vm.$nextTick();
 
         expect(wrapper.element).toMatchSnapshot();

@@ -5,7 +5,6 @@
   >
     <span class="ec-inline-input-field-value-text__text">{{ value }}</span>
     <button
-      ref="editButton"
       type="button"
       class="ec-inline-input-field-value-text__action"
       data-test="ec-inline-input-field-value-text__action"
@@ -39,9 +38,6 @@ export default {
   methods: {
     edit() {
       this.$emit('edit');
-    },
-    focus() {
-      this.$refs.editButton.focus();
     },
   },
 };

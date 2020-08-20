@@ -1,20 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcInlineInputField when component is editable when the component's status is editing should render as expected 1`] = `
+exports[`EcInlineInputField when component is editable when the component is in editing mode should render as expected 1`] = `
 <div
-  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
-  <div
-    class="ec-inline-input-field__label"
-  >
-    Label
-  </div>
+  <!---->
    
-  <div>
+  <div
+    data-test="ec-inline-input-field-edit"
+  >
+    <label
+      class="ec-inline-input-field-edit__label"
+      for="ec-inline-input-field-edit__input-12"
+    >
+      Label
+    </label>
+     
     <div
-      class="ec-inline-input-field-edit"
-      data-test="ec-inline-input-field-edit"
+      class="ec-inline-input-field-edit__edit-panel"
     >
       <div
         class="ec-input-field"
@@ -25,7 +28,7 @@ exports[`EcInlineInputField when component is editable when the component's stat
         <input
           class="ec-input-field__input"
           data-test="ec-inline-input-field-edit__input ec-input-field__input"
-          id="ec-input-field-17"
+          id="ec-inline-input-field-edit__input-12"
           type="text"
         />
          
@@ -74,9 +77,8 @@ exports[`EcInlineInputField when component is editable when the component's stat
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component's status is loading should render as expected 1`] = `
+exports[`EcInlineInputField when component is editable when the component is in its initial state should render as expected 1`] = `
 <div
-  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -85,82 +87,37 @@ exports[`EcInlineInputField when component is editable when the component's stat
     Label
   </div>
    
-  <div>
-    <div
-      class="ec-inline-input-field-loading"
-      data-test="ec-inline-input-field-loading"
+  <div
+    class="ec-inline-input-field-value-text"
+    data-test="ec-inline-input-field-value-text"
+  >
+    <span
+      class="ec-inline-input-field-value-text__text"
     >
-      <div
-        class="ec-inline-input-field-loading__simulated-input"
+      Input field value
+    </span>
+     
+    <button
+      class="ec-inline-input-field-value-text__action"
+      data-test="ec-inline-input-field-value-text__action"
+      type="button"
+    >
+      <svg
+        class="ec-inline-input-field-value-text__edit-icon ec-icon"
+        height="16"
+        width="16"
       >
-        <span
-          class="ec-inline-input-field-loading__text"
-        >
-          Input field value
-        </span>
-         
-        <div
-          class="ec-loading"
-          data-test="ec-loading"
-        >
-          <div
-            class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-            data-test="ec-loading__backdrop"
-          >
-            <svg
-              class="ec-loading__icon ec-icon"
-              data-test="ec-loading__icon"
-              height="24"
-              width="24"
-            >
-              <use
-                xlink:href="#ec-simple-loading"
-              />
-            </svg>
-          </div>
-           
-          <div
-            class="ec-loading__content ec-loading__content--is-transparent"
-            data-test="ec-loading__content"
-          >
-            <div
-              class="ec-inline-input-field-loading__spinner"
-            />
-          </div>
-        </div>
-      </div>
-       
-      <div
-        class="ec-inline-input-field-loading__buttons"
-      >
-        <svg
-          class="ec-icon"
-          height="16"
-          width="16"
-        >
-          <use
-            xlink:href="#ec-simple-check"
-          />
-        </svg>
-         
-        <svg
-          class="ec-inline-input-field-loading__close-button ec-icon"
-          height="16"
-          width="16"
-        >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </div>
-    </div>
+        <use
+          xlink:href="#ec-simple-edit"
+        />
+      </svg>
+    </button>
   </div>
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component's status is read-only (initial status) should render as expected 1`] = `
+exports[`EcInlineInputField when component is editable when the component is loading should render as expected 1`] = `
 <div
-  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -169,32 +126,72 @@ exports[`EcInlineInputField when component is editable when the component's stat
     Label
   </div>
    
-  <div>
+  <div
+    class="ec-inline-input-field-loading"
+    data-test="ec-inline-input-field-loading"
+  >
     <div
-      class="ec-inline-input-field-value-text"
-      data-test="ec-inline-input-field-value-text"
+      class="ec-inline-input-field-loading__simulated-input"
     >
       <span
-        class="ec-inline-input-field-value-text__text"
+        class="ec-inline-input-field-loading__text"
       >
         Input field value
       </span>
        
-      <button
-        class="ec-inline-input-field-value-text__action"
-        data-test="ec-inline-input-field-value-text__action"
-        type="button"
+      <div
+        class="ec-loading"
+        data-test="ec-loading"
       >
-        <svg
-          class="ec-inline-input-field-value-text__edit-icon ec-icon ec-icon--interactive"
-          height="16"
-          width="16"
+        <div
+          class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+          data-test="ec-loading__backdrop"
         >
-          <use
-            xlink:href="#ec-simple-edit"
+          <svg
+            class="ec-loading__icon ec-icon"
+            data-test="ec-loading__icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-loading"
+            />
+          </svg>
+        </div>
+         
+        <div
+          class="ec-loading__content ec-loading__content--is-transparent"
+          data-test="ec-loading__content"
+        >
+          <div
+            class="ec-inline-input-field-loading__spinner"
           />
-        </svg>
-      </button>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="ec-inline-input-field-loading__buttons"
+    >
+      <svg
+        class="ec-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-check"
+        />
+      </svg>
+       
+      <svg
+        class="ec-inline-input-field-loading__close-button ec-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-close"
+        />
+      </svg>
     </div>
   </div>
 </div>
@@ -202,7 +199,6 @@ exports[`EcInlineInputField when component is editable when the component's stat
 
 exports[`EcInlineInputField when component is non-editable should render as expected 1`] = `
 <div
-  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -211,10 +207,14 @@ exports[`EcInlineInputField when component is non-editable should render as expe
     Label
   </div>
    
-  <a
-    href="#"
+  <div
+    class="ec-inline-input-field__slot"
   >
-    Link
-  </a>
+    <a
+      href="#"
+    >
+      Link
+    </a>
+  </div>
 </div>
 `;
