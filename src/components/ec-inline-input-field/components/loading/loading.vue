@@ -12,13 +12,13 @@
         <div class="ec-inline-input-field-loading__spinner" />
       </ec-loading>
     </div>
-    <div class="ec-inline-input-field-loading__buttons">
+    <div class="ec-inline-input-field-loading__ghost-actions">
       <ec-icon
         name="simple-check"
         :size="16"
       />
       <ec-icon
-        class="ec-inline-input-field-loading__close-button"
+        class="ec-inline-input-field-loading__close-action"
         name="simple-close"
         :size="16"
       />
@@ -63,13 +63,13 @@ export default {
     @apply tw-w-40;
   }
 
-  &__buttons {
+  &__ghost-actions {
     @apply tw-flex tw-items-center;
     @apply tw-ml-20;
     @apply tw-fill-gray-6;
   }
 
-  &__close-button {
+  &__close-action {
     @apply tw-ml-8;
   }
 }

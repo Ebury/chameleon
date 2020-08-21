@@ -30,10 +30,6 @@ export default {
       default: '',
       type: String,
     },
-    gainFocus: {
-      default: false,
-      type: Boolean,
-    },
   },
   methods: {
     edit() {

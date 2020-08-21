@@ -25,7 +25,7 @@
     </template>
     <div
       v-else
-      class="ec-inline-input-field__slot"
+      class="ec-inline-input-field__content"
     >
       <slot />
     </div>
@@ -93,7 +93,7 @@ export default {
     @apply tw-inline-block;
   }
 
-  &__slot {
+  &__content {
     @apply tw-truncate;
   }
 }

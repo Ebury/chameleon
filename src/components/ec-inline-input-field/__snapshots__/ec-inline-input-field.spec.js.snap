@@ -171,7 +171,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
     </div>
      
     <div
-      class="ec-inline-input-field-loading__buttons"
+      class="ec-inline-input-field-loading__ghost-actions"
     >
       <svg
         class="ec-icon"
@@ -184,7 +184,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
       </svg>
        
       <svg
-        class="ec-inline-input-field-loading__close-button ec-icon"
+        class="ec-inline-input-field-loading__close-action ec-icon"
         height="16"
         width="16"
       >
@@ -208,7 +208,7 @@ exports[`EcInlineInputField when component is non-editable should render as expe
   </div>
    
   <div
-    class="ec-inline-input-field__slot"
+    class="ec-inline-input-field__content"
   >
     <a
       href="#"
