@@ -3,15 +3,11 @@
     class="ec-inline-input-field-loading"
     data-test="ec-inline-input-field-loading"
   >
-    <div class="ec-inline-input-field-loading__simulated-input">
-      <span class="ec-inline-input-field-loading__text">{{ value }}</span>
-      <ec-loading
-        show
-        :size="24"
-      >
-        <div class="ec-inline-input-field-loading__spinner" />
-      </ec-loading>
-    </div>
+    <ec-input-field
+      readonly
+      :value="value"
+      :is-loading="true"
+    />
     <div class="ec-inline-input-field-loading__ghost-actions">
       <ec-icon
         name="simple-check"
@@ -28,11 +24,11 @@
 
 <script>
 import EcIcon from '@/components/ec-icon';
-import EcLoading from '@/components/ec-loading';
+import EcInputField from '@/components/ec-input-field';
 
 export default {
   name: 'EcInlineInputFieldLoading',
-  components: { EcIcon, EcLoading },
+  components: { EcIcon, EcInputField },
   props: {
     value: {
       default: '',
@@ -45,23 +41,6 @@ export default {
 <style>
 .ec-inline-input-field-loading {
   @apply tw-flex;
-
-  &__simulated-input {
-    @apply tw-flex tw-flex-grow;
-    @apply tw-border tw-border-solid tw-border-gray-6 tw-rounded;
-    @apply tw-truncate;
-  }
-
-  &__text {
-    @apply tw-flex-grow;
-    @apply tw-text-gray-5;
-    @apply tw-pl-12 tw-py-8;
-    @apply tw-truncate;
-  }
-
-  &__spinner {
-    @apply tw-w-40;
-  }
 
   &__ghost-actions {
     @apply tw-flex tw-items-center;

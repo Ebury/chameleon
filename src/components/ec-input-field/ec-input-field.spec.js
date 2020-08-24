@@ -161,4 +161,9 @@ describe('EcInputField', () => {
     const wrapper = mountInputField({ labelTooltip: 'Testing the labelTooltip prop' });
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('renders properly when is loading', () => {
+    const wrapper = mountInputField({ isLoading: true });
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

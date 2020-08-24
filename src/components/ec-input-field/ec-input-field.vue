@@ -37,6 +37,7 @@
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input'"
       :class="{
         [`ec-input-field__input--is-in-group-${isInGroup}`]: !!isInGroup,
+        'ec-input-field__input--is-loading': isLoading,
         'ec-input-field__input--has-error': isInvalid,
         'ec-input-field__input--has-icon': !!icon,
       }"
@@ -46,12 +47,18 @@
       v-on="$listeners"
     >
     <div
-      v-if="icon"
+      v-if="isIconWrapperVisible"
       class="ec-input-field__icon-wrapper"
       :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
       data-test="ec-input-field__icon-wrapper"
     >
+      <ec-loading-icon
+        v-if="isLoading"
+        class="ec-input-field__icon"
+        :size="24"
+      />
       <ec-icon
+        v-else
         class="ec-input-field__icon"
         data-test="ec-input-field__icon"
         :name="icon"
@@ -68,12 +75,13 @@
 </template>
 
 <script>
+import EcLoadingIcon from '@/components/ec-loading-icon';
 import EcIcon from '../ec-icon';
 import EcTooltip from '../../directives/ec-tooltip';
 
 export default {
   name: 'EcInputField',
-  components: { EcIcon },
+  components: { EcIcon, EcLoadingIcon },
   directives: { EcTooltip },
   inheritAttrs: false,
   model: {
@@ -124,6 +132,10 @@ export default {
     errorId: {
       type: String,
     },
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     inputId() {
@@ -145,6 +157,9 @@ export default {
       set(value) {
         this.$emit('value-change', value);
       },
+    },
+    isIconWrapperVisible() {
+      return this.isLoading || this.icon;
     },
   },
   methods: {
@@ -188,6 +203,10 @@ export default {
 
     &--is-in-group-right {
       @apply tw-rounded-r-none;
+    }
+
+    &--is-loading {
+      @apply tw-text-gray-5;
     }
 
     &--has-icon {
