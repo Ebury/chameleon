@@ -6,7 +6,7 @@ import {
   select,
 } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import EcIcon from '@/components/ec-icon/ec-icon.vue';
+import EcIcon from '../ec-icon/ec-icon.vue';
 import EcTable from './ec-table.vue';
 import * as SortDirection from '../../enums/sort-direction';
 
