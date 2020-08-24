@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/vue';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
-import EcIcon from '@/components/ec-icon';
-import EcBtn from '@/components/ec-btn';
+import EcIcon from '../../../components/ec-icon';
+import EcBtn from '../../../components/ec-btn';
 import { LIGHT_THEME, DARK_THEME } from '../../../../.storybook/backgrounds';
 
 const stories = storiesOf('Button', module);

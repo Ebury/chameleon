@@ -72,7 +72,7 @@ export default {
       type: String,
     },
     to: {
-      type: String,
+      type: [String, Object],
     },
     tag: {
       type: String,
@@ -131,17 +131,21 @@ export default {
       return this.tag || 'button';
     },
     componentProps() {
-      let type = null;
-      if (this.componentTag === 'button') {
-        type = this.isSubmit ? 'submit' : 'button';
-      }
-
-      return {
-        type,
-        to: this.to || null,
-        href: this.href || null,
+      const props = {
         disabled: !this.isAnchorLink && (this.isDisabled || this.isLoading),
       };
+
+      if (this.componentTag === 'button') {
+        props.type = this.isSubmit ? 'submit' : 'button';
+      }
+      if (this.to) {
+        props.to = this.to;
+      }
+      if (this.href) {
+        props.href = this.href;
+      }
+
+      return props;
     },
   },
   methods: {

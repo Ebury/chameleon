@@ -1,11 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = async ({ config }) => {
   config.resolve.alias = {
     ...config.resolve.alias,
-    '@': path.resolve(__dirname, '..', 'src'),
   };
 
   config.module.rules.push({

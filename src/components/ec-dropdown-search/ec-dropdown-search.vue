@@ -126,7 +126,7 @@
 </template>
 
 <script>
-import { ARROW_UP, ARROW_DOWN } from '@/enums/key-code';
+import { ARROW_UP, ARROW_DOWN } from '../../enums/key-code';
 import EcIcon from '../ec-icon';
 import EcPopover from '../ec-popover';
 import EcLoading from '../ec-loading';

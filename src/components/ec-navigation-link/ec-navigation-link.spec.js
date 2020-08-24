@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import EcNavigationLink from '@/components/ec-navigation-link/ec-navigation-link.vue';
+import EcNavigationLink from './ec-navigation-link.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcNavigationLink', () => {
