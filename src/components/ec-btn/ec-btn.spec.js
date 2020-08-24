@@ -54,6 +54,19 @@ describe('EcBtn', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
+    it('should render a router link with route object', () => {
+      const wrapper = mountBtn({
+        to: {
+          name: 'trade-finance',
+          toString() { return `Route with name '${this.name}'`; },
+        },
+      }, {
+        stubs: ['router-link'],
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it('should render a router link with a custom tag when we define the "tag option"', () => {
       const wrapper = mountBtn({
         to: 'trade-finance',
