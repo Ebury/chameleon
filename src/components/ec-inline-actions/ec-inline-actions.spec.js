@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import EcInlineActions from '@/components/ec-inline-actions/ec-inline-actions.vue';
+import EcInlineActions from './ec-inline-actions.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcInlineActions', () => {

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import EcUserInfo from '@/components/ec-user-info/ec-user-info.vue';
+import EcUserInfo from './ec-user-info.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
 const user = {

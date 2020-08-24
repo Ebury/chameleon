@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { shallowMount, mount } from '@vue/test-utils';
-import EcPopover from '@/components/ec-popover/ec-popover.vue';
+import EcPopover from './ec-popover.vue';
 
 describe('EcPopover component', () => {
   it('should pass default options when no additional props are given', () => {
