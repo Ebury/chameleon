@@ -382,6 +382,20 @@ exports[`EcBtn :props should render a router link with a custom tag when we defi
 </ebury-stub>
 `;
 
+exports[`EcBtn :props should render a router link with route object 1`] = `
+<router-link-stub
+  class="ec-btn ec-btn--md"
+  data-test="ec-btn"
+  to="Route with name 'trade-finance'"
+>
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</router-link-stub>
+`;
+
 exports[`EcBtn :props should render an <a> element when we define the "href" prop 1`] = `
 <a
   class="ec-btn ec-btn--md"
