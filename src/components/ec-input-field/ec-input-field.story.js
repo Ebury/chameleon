@@ -137,6 +137,10 @@ stories
           <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Short Label" :is-in-group="isInGroup" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
         </div>
 
+        <div class="tw-col-full md:tw-col-4">
+          <ec-input-field readonly placeholder="My input" :value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-loading="true" />
+        </div>
+
         <div class="tw-col-full"></div>
 
         <div class="tw-col-full md:tw-col-4">
