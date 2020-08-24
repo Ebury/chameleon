@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import EcIcon from '@/components/ec-icon';
-import EcInputField from '@/components/ec-input-field';
+import EcIcon from '../../../ec-icon';
+import EcInputField from '../../../ec-input-field';
 
 export default {
   name: 'EcInlineInputFieldEdit',

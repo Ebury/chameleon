@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import EcIcon from '@/components/ec-icon';
+import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcLoadingIcon',

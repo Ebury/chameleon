@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import EcLoadingIcon from '@/components/ec-loading-icon';
+import EcLoadingIcon from '../ec-loading-icon';
 import EcIcon from '../ec-icon';
 import EcTooltip from '../../directives/ec-tooltip';
 
