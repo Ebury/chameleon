@@ -15,6 +15,7 @@ export { default as EcDropdownSearch } from './components/ec-dropdown-search';
 export { default as EcFocusTrap } from './directives/ec-focus-trap';
 export { default as EcIcon } from './components/ec-icon';
 export { default as EcInlineActions } from './components/ec-inline-actions';
+export { default as EcInlineInputField } from './components/ec-inline-input-field';
 export { default as EcInputField } from './components/ec-input-field';
 export { default as EcLoading } from './components/ec-loading';
 export { default as EcMainContainer } from './components/ec-main-container';
