@@ -1,5 +1,8 @@
 import { mount } from '@vue/test-utils';
+import clipboardCopy from 'clipboard-copy';
 import EcInlineInputField from './ec-inline-input-field.vue';
+
+jest.mock('clipboard-copy');
 
 describe('EcInlineInputField', () => {
   const inputFieldValue = 'Input field value';
@@ -137,6 +140,30 @@ describe('EcInlineInputField', () => {
 
         expect(wrapper.element).toMatchSnapshot();
         expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBeTruthy();
+      });
+    });
+
+    describe('when component is copiable', () => {
+      it('should render as expected', async () => {
+        const wrapper = mountInlineInputField({ isEditable: false, isCopiable: true });
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBeTruthy();
+      });
+
+      it('should trigger copy method after clicking on the copy button', async () => {
+        const wrapper = mountInlineInputField(
+          {
+            isEditable: false,
+            isCopiable: true,
+          },
+        );
+        await wrapper.vm.$nextTick();
+        wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
+        await wrapper.vm.$nextTick();
+
+        expect(clipboardCopy).toHaveBeenCalledTimes(1);
       });
     });
   });

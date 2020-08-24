@@ -36,7 +36,8 @@
     "tailwindcss": "1.7.3",
     "v-tooltip": "2.0.3",
     "vue": "2.6.12",
-    "vue-hoc": "0.4.7"
+    "vue-hoc": "0.4.7",
+    "clipboard-copy": "3.1.0"
   },
   "devDependencies": {
     "@ascendancyy/vue-cli-plugin-stylelint": "1.1.2",
@@ -61,7 +62,6 @@
     "babel-jest": "26.3.0",
     "babel-loader": "8.1.0",
     "babel-preset-vue": "2.0.2",
-    "clipboard-copy": "3.1.0",
     "color": "3.1.2",
     "css-tree": "1.0.0-alpha.39",
     "css-vars-ponyfill": "2.3.2",

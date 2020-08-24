@@ -1,5 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcInlineInputField when component is editable when component is copiable should render as expected 1`] = `
+<div
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="ec-inline-input-field__label"
+  >
+    Label
+  </div>
+   
+  <div
+    class="ec-inline-input-field-copy"
+    data-test="ec-inline-input-field-copy"
+  >
+    <span
+      class="ec-inline-input-field-copy__text"
+    >
+      
+    Input field value
+  
+    </span>
+     
+    <button
+      class="ec-inline-input-field-copy__action"
+      data-test="ec-inline-input-field-copy__action"
+      type="button"
+    >
+      <svg
+        class="ec-inline-input-field-copy__icon ec-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-copy"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`EcInlineInputField when component is editable when the component is in editing mode should render as expected 1`] = `
 <div
   data-test="ec-inline-input-field"
