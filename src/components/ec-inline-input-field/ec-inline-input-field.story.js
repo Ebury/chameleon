@@ -12,6 +12,9 @@ stories
       valueFromKnob: {
         default: text('Initial value', 'Initial value'),
       },
+      isCopiable: {
+        default: boolean('Is copiable (available only when non editable)', false),
+      },
       isEditable: {
         default: boolean('Is editable', true),
       },
@@ -59,6 +62,7 @@ stories
         <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field
             label="Inline Input Field"
+            :is-copiable="isCopiable"
             :is-editable="isEditable"
             :is-editing="isEditing"
             :is-loading="isLoading"

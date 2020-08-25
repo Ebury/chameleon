@@ -23,6 +23,12 @@
         @edit="edit"
       />
     </template>
+
+    <ec-inline-input-field-copy
+      v-else-if="isCopiable"
+      :value="value"
+    />
+
     <div
       v-else
       class="ec-inline-input-field__content"
@@ -33,6 +39,7 @@
 </template>
 
 <script>
+import EcInlineInputFieldCopy from './components/copy';
 import EcInlineInputFieldEdit from './components/edit';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldValueText from './components/value-text';
@@ -40,6 +47,7 @@ import EcInlineInputFieldValueText from './components/value-text';
 export default {
   name: 'EcInlineInputField',
   components: {
+    EcInlineInputFieldCopy,
     EcInlineInputFieldEdit,
     EcInlineInputFieldLoading,
     EcInlineInputFieldValueText,
@@ -50,6 +58,10 @@ export default {
       type: String,
     },
     isEditable: {
+      type: Boolean,
+      default: false,
+    },
+    isCopiable: {
       type: Boolean,
       default: false,
     },
