@@ -23,9 +23,8 @@
 </template>
 
 <script>
+import clipboardCopy from 'clipboard-copy';
 import EcIcon from '../../../ec-icon';
-
-const clipboardCopy = require('clipboard-copy');
 
 export default {
   name: 'EcInlineInputFieldCopy',
