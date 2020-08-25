@@ -25,7 +25,7 @@
     </template>
 
     <ec-inline-input-field-copy
-      v-else-if="isCopyingAllowed"
+      v-else-if="isCopiable"
       :value="value"
     />
 
@@ -82,11 +82,6 @@ export default {
     return {
       valueForLoading: this.value,
     };
-  },
-  computed: {
-    isCopyingAllowed() {
-      return this.isCopiable && !this.isEditable;
-    },
   },
   methods: {
     cancel() {
