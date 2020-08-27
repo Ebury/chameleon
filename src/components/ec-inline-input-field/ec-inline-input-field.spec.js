@@ -189,26 +189,6 @@ describe('EcInlineInputField', () => {
       expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBeTruthy();
     });
 
-    it('should trigger successfully the copy method after clicking on the copy button', async () => {
-      mockClipboardCopySuccess();
-      const wrapper = mountInlineInputField(
-        {
-          isEditable: false,
-          isCopiable: true,
-          tooltipTextSuccess,
-          tooltipTextError,
-        },
-      );
-
-      await wrapper.vm.$nextTick();
-      wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
-      await wrapper.vm.$nextTick();
-
-      expect(clipboardCopy).toHaveBeenCalledTimes(1);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe(tooltipTextSuccess);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).toBe('ec-tooltip--bg-success');
-    });
-
     it('should show the success tooltip after succesfully triggering the copy method', async () => {
       mockClipboardCopySuccess();
       const wrapper = mountInlineInputField(
@@ -225,12 +205,14 @@ describe('EcInlineInputField', () => {
       await wrapper.vm.$nextTick();
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).not.toBe(tooltipTextError);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe(tooltipTextSuccess);
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).not.toBe('ec-tooltip--bg-error');
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).toBe('ec-tooltip--bg-success');
     });
 
     it('should show the error tooltip after unsuccesfully triggering the copy method', async () => {
-      mockClipboardCopySuccess();
+      mockClipboardCopyError();
       const wrapper = mountInlineInputField(
         {
           isEditable: false,
@@ -245,12 +227,18 @@ describe('EcInlineInputField', () => {
       await wrapper.vm.$nextTick();
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).not.toBe(tooltipTextSuccess);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe(tooltipTextError);
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).not.toBe('ec-tooltip--bg-success');
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).toBe('ec-tooltip--bg-error');
     });
   });
 });
 
 function mockClipboardCopySuccess() {
-  clipboardCopy.mockResolvedValue(true);
+  clipboardCopy.mockResolvedValue();
+}
+
+function mockClipboardCopyError() {
+  clipboardCopy.mockRejectedValue();
 }
