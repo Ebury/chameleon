@@ -43,7 +43,7 @@
     "@ascendancyy/vue-cli-plugin-stylelint": "1.1.2",
     "@fullhuman/postcss-purgecss": "2.3.0",
     "@storybook/addon-a11y": "5.3.19",
-    "@storybook/addon-actions": "5.3.19",
+    "@storybook/addon-actions": "5.3.20",
     "@storybook/addon-backgrounds": "5.3.19",
     "@storybook/addon-cssresources": "5.3.19",
     "@storybook/addon-knobs": "5.3.19",
