@@ -1,5 +1,5 @@
 <template>
-  <div data-test="ec-inline-input-field">
+  <div :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-inline-input-field` : 'ec-inline-input-field'">
     <div
       v-if="!isEditing"
       class="ec-inline-input-field__label"
