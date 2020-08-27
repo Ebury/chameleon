@@ -51,12 +51,10 @@ export default {
       default: null,
     },
     tooltipTextSuccess: {
-      default: '',
       type: String,
       required: true,
     },
     tooltipTextError: {
-      default: '',
       type: String,
       required: true,
     },
