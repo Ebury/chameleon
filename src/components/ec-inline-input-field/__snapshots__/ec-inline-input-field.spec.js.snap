@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcInlineInputField when component is editable when component is copiable should render as expected 1`] = `
+exports[`EcInlineInputField when component is copiable should render as expected 1`] = `
 <div
   data-test="ec-inline-input-field"
 >
@@ -28,7 +28,9 @@ exports[`EcInlineInputField when component is editable when component is copiabl
       type="button"
     >
       <svg
-        class="ec-inline-input-field-copy__icon ec-icon"
+        class="ec-inline-input-field-copy__icon ec-icon ec-has-tooltip"
+        data-original-title="null"
+        data-test="ec-inline-input-field-copy__icon"
         height="16"
         width="16"
       >
