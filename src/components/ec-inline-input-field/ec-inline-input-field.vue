@@ -26,6 +26,8 @@
 
     <ec-inline-input-field-copy
       v-else-if="isCopiable"
+      :tooltip-text-success="tooltipTextSuccess"
+      :tooltip-text-error="tooltipTextError"
       :value="value"
     />
 
@@ -75,6 +77,12 @@ export default {
     },
     value: {
       default: '',
+      type: String,
+    },
+    tooltipTextSuccess: {
+      type: String,
+    },
+    tooltipTextError: {
       type: String,
     },
   },
