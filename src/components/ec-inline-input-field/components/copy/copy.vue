@@ -61,7 +61,7 @@ export default {
   },
   data() {
     return {
-      isCopied: false,
+      isCopied: null,
     };
   },
   computed: {
@@ -88,7 +88,6 @@ export default {
   },
   methods: {
     hideTooltip() {
-      this.showTooltip = false;
       this.isCopied = null;
     },
     copy() {

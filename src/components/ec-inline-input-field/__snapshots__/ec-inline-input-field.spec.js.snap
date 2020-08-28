@@ -31,8 +31,8 @@ exports[`EcInlineInputField when component is copiable should render as expected
         class="ec-inline-input-field-copy__icon ec-icon"
         data-test="ec-inline-input-field-copy__icon"
         height="16"
-        mocked-tooltip-classes="ec-tooltip--bg-error"
-        mocked-tooltip-content="Unable to copy"
+        mocked-tooltip-classes=""
+        mocked-tooltip-content=""
         width="16"
       >
         <use
