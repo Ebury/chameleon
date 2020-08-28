@@ -7,17 +7,12 @@ jest.mock('clipboard-copy');
 jest.mock('../../directives/ec-tooltip', () => {
   const MockedTooltipDirective = {
     bind(el, { value }) {
-      // this can be undefined that's why we check it
-      if (value.content) {
-        el.setAttribute('mocked-tooltip-content', value.content);
-        el.setAttribute('mocked-tooltip-classes', value.classes);
-      }
+      el.setAttribute('mocked-tooltip-content', value.content);
+      el.setAttribute('mocked-tooltip-classes', value.classes);
     },
     update(el, { value }) {
-      if (value.content) {
-        el.setAttribute('mocked-tooltip-content', value.content);
-        el.setAttribute('mocked-tooltip-classes', value.classes);
-      }
+      el.setAttribute('mocked-tooltip-content', value.content);
+      el.setAttribute('mocked-tooltip-classes', value.classes);
     },
   };
   return MockedTooltipDirective;

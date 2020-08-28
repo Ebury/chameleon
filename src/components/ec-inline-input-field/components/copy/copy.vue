@@ -17,7 +17,7 @@
       <ec-icon
         v-ec-tooltip="{
           placement: 'left',
-          show: showTooltip,
+          show: !!tooltipContent,
           trigger: 'manual',
           content: tooltipContent ,
           classes: tooltipClasses,
@@ -61,7 +61,6 @@ export default {
   },
   data() {
     return {
-      showTooltip: false,
       isCopied: false,
     };
   },
@@ -99,9 +98,6 @@ export default {
         })
         .catch(() => {
           this.isCopied = false;
-        })
-        .finally(() => {
-          this.showTooltip = true;
         });
     },
   },
