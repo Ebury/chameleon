@@ -12,15 +12,15 @@
       class="ec-inline-input-field-copy__action"
       data-test="ec-inline-input-field-copy__action"
       @click="copy"
-      @mouseout="hideTooltip"
+      @mouseleave="hideTooltip"
     >
       <ec-icon
         v-ec-tooltip="{
           placement: 'left',
           show: showTooltip,
           trigger: 'manual',
-          content: isCopied ? tooltipTextSuccess : tooltipTextError ,
-          classes: [isCopied ? 'ec-tooltip--bg-success' : 'ec-tooltip--bg-error'],
+          content: tooltipContent ,
+          classes: tooltipClasses,
           ...tooltipOptions,
         }"
         class="ec-inline-input-field-copy__icon"
@@ -65,10 +65,32 @@ export default {
       isCopied: false,
     };
   },
+  computed: {
+    tooltipContent() {
+      switch (this.isCopied) {
+        case true:
+          return this.tooltipTextSuccess;
+        case false:
+          return this.tooltipTextError;
+        default:
+          return '';
+      }
+    },
+    tooltipClasses() {
+      switch (this.isCopied) {
+        case true:
+          return 'ec-tooltip--bg-success';
+        case false:
+          return 'ec-tooltip--bg-error';
+        default:
+          return '';
+      }
+    },
+  },
   methods: {
     hideTooltip() {
       this.showTooltip = false;
-      this.isCopied = false;
+      this.isCopied = null;
     },
     copy() {
       clipboardCopy(this.value)

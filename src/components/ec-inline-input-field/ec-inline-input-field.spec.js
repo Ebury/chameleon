@@ -238,6 +238,26 @@ describe('EcInlineInputField', () => {
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).not.toBe('ec-tooltip--bg-success');
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).toBe('ec-tooltip--bg-error');
     });
+
+    it('should hide the tooltip after we move the cursor away from the copy button', async () => {
+      mockClipboardCopySuccess();
+      const wrapper = mountInlineInputField(
+        {
+          isEditable: false,
+          isCopiable: true,
+          tooltipTextSuccess,
+          tooltipTextError,
+        },
+      );
+
+      await wrapper.vm.$nextTick();
+      wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('mouseenter');
+      wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
+      await wrapper.vm.$nextTick();
+      wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('mouseleave');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe('');
+    });
   });
 });
 
