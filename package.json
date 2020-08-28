@@ -18,7 +18,7 @@
     "lint": "npm run lint:js && npm run lint:style",
     "lint:js": "vue-cli-service lint -- ./",
     "lint:style": "vue-cli-service lint:style",
-    "test": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit --max-workers=2",
     "test:watch": "vue-cli-service test:unit --watch",
     "test:visual": "cypress open",
     "test:visual:ci": "npm run start & wait-on http://localhost:42475/ && npm run test:visual:all",
