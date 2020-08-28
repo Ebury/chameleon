@@ -47,4 +47,5 @@ module.exports = {
       statements: 100,
     },
   },
+  clearMocks: true,
 };
