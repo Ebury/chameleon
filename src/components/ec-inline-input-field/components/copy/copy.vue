@@ -74,10 +74,11 @@ export default {
       clipboardCopy(this.value)
         .then(() => {
           this.isCopied = true;
-          this.showTooltip = true;
         })
         .catch(() => {
           this.isCopied = false;
+        })
+        .finally(() => {
           this.showTooltip = true;
         });
     },

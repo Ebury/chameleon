@@ -13,6 +13,12 @@ jest.mock('../../directives/ec-tooltip', () => {
         el.setAttribute('mocked-tooltip-classes', value.classes);
       }
     },
+    update(el, { value }) {
+      if (value.content) {
+        el.setAttribute('mocked-tooltip-content', value.content);
+        el.setAttribute('mocked-tooltip-classes', value.classes);
+      }
+    },
   };
   return MockedTooltipDirective;
 });
@@ -189,7 +195,7 @@ describe('EcInlineInputField', () => {
       expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBeTruthy();
     });
 
-    it('should show the success tooltip after succesfully triggering the copy method', async () => {
+    it('should show the success tooltip after successfully triggering the copy method', async () => {
       mockClipboardCopySuccess();
       const wrapper = mountInlineInputField(
         {
@@ -211,7 +217,7 @@ describe('EcInlineInputField', () => {
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).toBe('ec-tooltip--bg-success');
     });
 
-    it('should show the error tooltip after unsuccesfully triggering the copy method', async () => {
+    it('should show the error tooltip after unsuccessfully triggering the copy method', async () => {
       mockClipboardCopyError();
       const wrapper = mountInlineInputField(
         {

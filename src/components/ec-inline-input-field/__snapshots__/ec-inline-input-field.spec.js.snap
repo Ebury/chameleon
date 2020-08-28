@@ -28,10 +28,11 @@ exports[`EcInlineInputField when component is copiable should render as expected
       type="button"
     >
       <svg
-        class="ec-inline-input-field-copy__icon ec-icon ec-has-tooltip"
-        data-original-title="null"
+        class="ec-inline-input-field-copy__icon ec-icon"
         data-test="ec-inline-input-field-copy__icon"
         height="16"
+        mocked-tooltip-classes="ec-tooltip--bg-error"
+        mocked-tooltip-content="Unable to copy"
         width="16"
       >
         <use
