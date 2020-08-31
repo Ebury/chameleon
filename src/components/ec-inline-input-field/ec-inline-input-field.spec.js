@@ -5,14 +5,16 @@ import { withMockedConsole } from '../../../tests/utils/console';
 
 jest.mock('clipboard-copy');
 jest.mock('../../directives/ec-tooltip', () => {
+  function setTooltipAttributes(el, value) {
+    el.setAttribute('mocked-tooltip-content', value.content);
+    el.setAttribute('mocked-tooltip-classes', value.classes);
+  }
   const MockedTooltipDirective = {
     bind(el, { value }) {
-      el.setAttribute('mocked-tooltip-content', value.content);
-      el.setAttribute('mocked-tooltip-classes', value.classes);
+      setTooltipAttributes(el, value);
     },
     update(el, { value }) {
-      el.setAttribute('mocked-tooltip-content', value.content);
-      el.setAttribute('mocked-tooltip-classes', value.classes);
+      setTooltipAttributes(el, value);
     },
   };
   return MockedTooltipDirective;
