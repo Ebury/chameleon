@@ -34,7 +34,7 @@
   "dependencies": {
     "clipboard-copy": "3.1.0",
     "focus-trap": "5.1.0",
-    "tailwindcss": "1.7.3",
+    "tailwindcss": "1.7.6",
     "v-tooltip": "2.0.3",
     "vue": "2.6.12",
     "vue-hoc": "0.4.7"
@@ -42,15 +42,15 @@
   "devDependencies": {
     "@ascendancyy/vue-cli-plugin-stylelint": "1.1.2",
     "@fullhuman/postcss-purgecss": "2.3.0",
-    "@storybook/addon-a11y": "5.3.19",
+    "@storybook/addon-a11y": "5.3.21",
     "@storybook/addon-actions": "5.3.19",
     "@storybook/addon-backgrounds": "5.3.19",
-    "@storybook/addon-cssresources": "5.3.19",
+    "@storybook/addon-cssresources": "5.3.21",
     "@storybook/addon-knobs": "5.3.19",
-    "@storybook/addon-storysource": "5.3.19",
+    "@storybook/addon-storysource": "5.3.21",
     "@storybook/addon-viewport": "5.3.19",
     "@storybook/theming": "6.0.0",
-    "@storybook/vue": "5.3.19",
+    "@storybook/vue": "5.3.21",
     "@vue/cli-plugin-babel": "4.5.4",
     "@vue/cli-plugin-eslint": "4.5.4",
     "@vue/cli-plugin-unit-jest": "4.5.4",
