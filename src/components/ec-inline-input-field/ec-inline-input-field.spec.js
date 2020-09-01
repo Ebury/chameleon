@@ -207,6 +207,7 @@ describe('EcInlineInputField', () => {
       );
 
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
+      await wrapper.vm.$nextTick();
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe(tooltipTextError);
@@ -225,6 +226,7 @@ describe('EcInlineInputField', () => {
       );
 
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
+      await wrapper.vm.$nextTick();
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('mouseleave');
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe('');
     });
