@@ -44,7 +44,6 @@ describe('EcInlineInputField', () => {
           default: '<a href="#">Link</a>',
         },
       });
-      await wrapper.vm.$nextTick();
 
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -54,7 +53,6 @@ describe('EcInlineInputField', () => {
     describe('when the component is in its initial state', () => {
       it('should render as expected', async () => {
         const wrapper = mountInlineInputField();
-        await wrapper.vm.$nextTick();
 
         expect(wrapper.element).toMatchSnapshot();
         expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
@@ -63,11 +61,9 @@ describe('EcInlineInputField', () => {
       describe('@events', () => {
         it('should emit `edit` event when the edit button is clicked', async () => {
           const wrapper = mountInlineInputField();
-          await wrapper.vm.$nextTick();
 
           expect(wrapper.emitted('edit')).toBeUndefined();
-          wrapper.findByDataTest('ec-inline-input-field-value-text__action').trigger('click');
-          await wrapper.vm.$nextTick();
+          await wrapper.findByDataTest('ec-inline-input-field-value-text__action').trigger('click');
 
           expect(wrapper.emitted('edit').length).toBeTruthy();
         });
@@ -77,7 +73,6 @@ describe('EcInlineInputField', () => {
     describe('when the component is in editing mode', () => {
       it('should render as expected', async () => {
         const wrapper = mountInlineInputField({ isEditing: true });
-        await wrapper.vm.$nextTick();
 
         expect(wrapper.element).toMatchSnapshot();
         expect(wrapper.findByDataTest('ec-inline-input-field-edit').exists()).toBeTruthy();
@@ -96,12 +91,10 @@ describe('EcInlineInputField', () => {
         it('should emit `cancel` event when esc key is pressed in the input field', async () => {
           const wrapper = mountInlineInputField({ isEditing: true });
           const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
-          await wrapper.vm.$nextTick();
 
           expect(editComponentWrapper.emitted('cancel')).toBeUndefined();
           expect(wrapper.emitted('cancel')).toBeUndefined();
-          wrapper.findByDataTest('ec-inline-input-field-edit__input').trigger('keydown.esc');
-          await wrapper.vm.$nextTick();
+          await wrapper.findByDataTest('ec-inline-input-field-edit__input').trigger('keydown.esc');
 
           expect(editComponentWrapper.emitted('cancel')[0]).toEqual([]);
           expect(wrapper.emitted('cancel')[0]).toEqual([]);
@@ -110,12 +103,10 @@ describe('EcInlineInputField', () => {
         it('should emit `cancel` event when the cancel button is clicked', async () => {
           const wrapper = mountInlineInputField({ isEditing: true });
           const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
-          await wrapper.vm.$nextTick();
 
           expect(editComponentWrapper.emitted('cancel')).toBeUndefined();
           expect(wrapper.emitted('cancel')).toBeUndefined();
-          wrapper.findByDataTest('ec-inline-input-field-edit__cancel-action').trigger('click');
-          await wrapper.vm.$nextTick();
+          await wrapper.findByDataTest('ec-inline-input-field-edit__cancel-action').trigger('click');
 
           expect(editComponentWrapper.emitted('cancel')[0]).toEqual([]);
           expect(wrapper.emitted('cancel')[0]).toEqual([]);
@@ -124,12 +115,10 @@ describe('EcInlineInputField', () => {
         it('should emit `submit` event when enter key is pressed in the input field', async () => {
           const wrapper = mountInlineInputField({ isEditing: true });
           const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
-          await wrapper.vm.$nextTick();
 
           expect(editComponentWrapper.emitted('submit')).toBeUndefined();
           expect(wrapper.emitted('submit')).toBeUndefined();
-          wrapper.findByDataTest('ec-inline-input-field-edit__input').trigger('keydown.enter');
-          await wrapper.vm.$nextTick();
+          await wrapper.findByDataTest('ec-inline-input-field-edit__input').trigger('keydown.enter');
 
           expect(editComponentWrapper.emitted('submit')[0]).toEqual([{ value: inputFieldValue }]);
           expect(wrapper.emitted('submit')[0]).toEqual([inputFieldValue]);
@@ -138,12 +127,10 @@ describe('EcInlineInputField', () => {
         it('should emit `submit` event when the submit button is clicked', async () => {
           const wrapper = mountInlineInputField({ isEditing: true });
           const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
-          await wrapper.vm.$nextTick();
 
           expect(editComponentWrapper.emitted('submit')).toBeUndefined();
           expect(wrapper.emitted('submit')).toBeUndefined();
-          wrapper.findByDataTest('ec-inline-input-field-edit__submit-action').trigger('click');
-          await wrapper.vm.$nextTick();
+          await wrapper.findByDataTest('ec-inline-input-field-edit__submit-action').trigger('click');
 
           expect(editComponentWrapper.emitted('submit')[0]).toEqual([{ value: inputFieldValue }]);
           expect(wrapper.emitted('submit')[0]).toEqual([inputFieldValue]);
@@ -154,7 +141,6 @@ describe('EcInlineInputField', () => {
     describe('when the component is loading', () => {
       it('should render as expected', async () => {
         const wrapper = mountInlineInputField({ isLoading: true });
-        await wrapper.vm.$nextTick();
 
         expect(wrapper.element).toMatchSnapshot();
         expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBeTruthy();
@@ -186,7 +172,6 @@ describe('EcInlineInputField', () => {
           tooltipTextError,
         },
       );
-      await wrapper.vm.$nextTick();
 
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBeTruthy();
@@ -203,14 +188,10 @@ describe('EcInlineInputField', () => {
         },
       );
 
-      await wrapper.vm.$nextTick();
-      wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).not.toBe(tooltipTextError);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe(tooltipTextSuccess);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).not.toBe('ec-tooltip--bg-error');
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).toBe('ec-tooltip--bg-success');
     });
 
@@ -225,14 +206,10 @@ describe('EcInlineInputField', () => {
         },
       );
 
-      await wrapper.vm.$nextTick();
-      wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).not.toBe(tooltipTextSuccess);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe(tooltipTextError);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).not.toBe('ec-tooltip--bg-success');
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).toBe('ec-tooltip--bg-error');
     });
 
@@ -247,12 +224,8 @@ describe('EcInlineInputField', () => {
         },
       );
 
-      await wrapper.vm.$nextTick();
-      wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('mouseenter');
-      wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
-      await wrapper.vm.$nextTick();
-      wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('mouseleave');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
+      await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('mouseleave');
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe('');
     });
   });

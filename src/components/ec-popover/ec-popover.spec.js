@@ -25,11 +25,11 @@ describe('EcPopover component', () => {
     expect(attributes.popoverarrowclass).toBe('my-arrow ec-popover__arrow');
   });
 
-  it('should update options when additional options are also updated', () => {
+  it('should update options when additional options are also updated', async () => {
     const wrapper = shallowMount(EcPopover, { propsData: { placement: 'left' } });
     expect(wrapper.find('v-popover-stub').attributes('placement')).toBe('left');
 
-    wrapper.setProps({ placement: 'bottom' });
+    await wrapper.setProps({ placement: 'bottom' });
     expect(wrapper.find('v-popover-stub').attributes('placement')).toBe('bottom');
   });
 

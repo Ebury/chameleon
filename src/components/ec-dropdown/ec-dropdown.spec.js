@@ -22,12 +22,13 @@ describe('EcDropdown', () => {
     });
   }
 
-  function mountAsTemplate(template, props, mountOpts) {
+  function mountAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
     const localVue = createLocalVue();
 
     const Component = localVue.extend({
       components: { EcDropdown },
       template,
+      ...wrapperComponentOpts,
     });
 
     return mount(Component, {
@@ -158,7 +159,7 @@ describe('EcDropdown', () => {
   });
 
   describe('v-model', () => {
-    it('should use the v-model', () => {
+    it('should use the v-model', async () => {
       const wrapper = mountAsTemplate(
         '<ec-dropdown :items="items" v-model="selected" />',
         {},
@@ -170,9 +171,9 @@ describe('EcDropdown', () => {
       );
 
       expect(wrapper.vm.selected).toBe(null);
-      selectItem(wrapper, 0);
+      await selectItem(wrapper, 0);
       expect(wrapper.vm.selected).toBe(items[0]);
-      selectItem(wrapper, 1);
+      await selectItem(wrapper, 1);
       expect(wrapper.vm.selected).toBe(items[1]);
     });
 
@@ -193,9 +194,9 @@ describe('EcDropdown', () => {
   });
 
   describe('@events', () => {
-    it('should emit change event when an item is selected', () => {
+    it('should emit change event when an item is selected', async () => {
       const wrapper = mountDropdown({ items });
-      selectItem(wrapper, 1);
+      await selectItem(wrapper, 1);
 
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('change')[0]).toEqual([items[1]]);
@@ -208,11 +209,11 @@ describe('EcDropdown', () => {
       expect(wrapper.emitted('open').length).toBe(1);
     });
 
-    it('should not return focus back to readonly input if it already has it', () => {
+    it('should not return focus back to readonly input if it already has it', async () => {
       const wrapper = mountDropdown({ items });
-      const focusSpy = jest.spyOn(wrapper.find({ ref: 'trigger' }).element, 'querySelector')
+      const focusSpy = jest.spyOn(wrapper.findComponent({ ref: 'trigger' }).element, 'querySelector')
         .mockImplementation(() => true);
-      selectItem(wrapper, 1);
+      await selectItem(wrapper, 1);
 
       expect(focusSpy).toHaveBeenCalledTimes(1);
       expect(wrapper.emitted('change')[0]).toEqual([items[1]]);
@@ -221,8 +222,9 @@ describe('EcDropdown', () => {
   });
 });
 
-function selectItem(wrapper, index) {
+async function selectItem(wrapper, index) {
   wrapper.findByDataTest('ec-dropdown__input').trigger('mousedown');
   wrapper.findByDataTest('ec-dropdown__input').trigger('click');
-  wrapper.findAll('.ec-dropdown-search__item').at(index).trigger('click');
+  wrapper.findAllByDataTest('ec-dropdown-search__item').at(index).trigger('click');
+  await wrapper.vm.$nextTick();
 }

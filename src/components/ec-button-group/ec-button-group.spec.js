@@ -9,12 +9,13 @@ function mountButtonGroup(props, mountOpts) {
   });
 }
 
-function mountButtonGroupAsTemplate(template, props, mountOpts) {
+function mountButtonGroupAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
   const localVue = createLocalVue();
 
   const Component = localVue.extend({
     components: { EcButtonGroup },
     template,
+    ...wrapperComponentOpts,
   });
 
   return mount(Component, {
@@ -76,7 +77,7 @@ describe('EcButtonGroup', () => {
   });
 
   describe('v-model', () => {
-    it('should render the button group and change the value when you click on the current not selected', () => {
+    it('should render the button group and change the value when you click on the current not selected', async () => {
       const wrapper = mountButtonGroupAsTemplate(
         '<ec-button-group v-model="value" :items="items"></ec-button-group>',
         {},
@@ -95,13 +96,13 @@ describe('EcButtonGroup', () => {
       expect(wrapper.vm.value).toBe('yes');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBeFalsy();
       expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBeTruthy();
-      wrapper.findByDataTest('ec-button-group__btn-1').trigger('click');
+      await wrapper.findByDataTest('ec-button-group__btn-1').trigger('click');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBeTruthy();
       expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBeFalsy();
       expect(wrapper.vm.value).toBe('no');
     });
 
-    it('should render the button group without any selected and change the value when you click on the current not selected', () => {
+    it('should render the button group without any selected and change the value when you click on the current not selected', async () => {
       const wrapper = mountButtonGroupAsTemplate(
         '<ec-button-group v-model="value" :items="items"></ec-button-group>',
         {},
@@ -121,13 +122,13 @@ describe('EcButtonGroup', () => {
       expect(wrapper.vm.value).toBe('');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBeTruthy();
       expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBeTruthy();
-      wrapper.findByDataTest('ec-button-group__btn-1').trigger('click');
+      await wrapper.findByDataTest('ec-button-group__btn-1').trigger('click');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBeTruthy();
       expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBeFalsy();
       expect(wrapper.vm.value).toBe('no');
     });
 
-    it('should render the button group and not change when click on the disabled item', () => {
+    it('should render the button group and not change when click on the disabled item', async () => {
       const wrapper = mountButtonGroupAsTemplate(
         '<ec-button-group v-model="value" :items="items"></ec-button-group>',
         {},
@@ -146,7 +147,7 @@ describe('EcButtonGroup', () => {
       expect(wrapper.vm.value).toBe('yes');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBeFalsy();
       expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBeTruthy();
-      wrapper.findByDataTest('ec-button-group__btn-1').trigger('click');
+      await wrapper.findByDataTest('ec-button-group__btn-1').trigger('click');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBeFalsy();
       expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBeTruthy();
       expect(wrapper.vm.value).toBe('yes');

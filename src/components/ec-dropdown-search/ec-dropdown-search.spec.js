@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -25,13 +24,14 @@ describe('EcDropdownSearch', () => {
     });
   }
 
-  function mountAsTemplate(template, props, mountOpts) {
+  function mountAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
     const localVue = createLocalVue();
     localVue.directive('ec-tooltip', MockedEcTooltipDirective);
 
     const Component = localVue.extend({
       components: { EcDropdownSearch },
       template,
+      ...wrapperComponentOpts,
     });
 
     return mount(Component, {
@@ -143,12 +143,12 @@ describe('EcDropdownSearch', () => {
 
   it('should render all given items', () => {
     const wrapper = mountDropdownSearch({ items });
-    expect(wrapper.find('.ec-dropdown-search__item-list').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
   });
 
   it('should render the search by default', () => {
     const wrapper = mountDropdownSearch();
-    expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
   });
 
   it('should not show the items when the loading is set to true', () => {
@@ -158,12 +158,12 @@ describe('EcDropdownSearch', () => {
 
   it('should not render the search if isSearchEnabled is set to false', () => {
     const wrapper = mountDropdownSearch({ isSearchEnabled: false });
-    expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
   });
 
   it('should use the placeholder for search input if given', () => {
     const wrapper = mountDropdownSearch({ placeholder: 'Random text' });
-    expect(wrapper.find('.ec-dropdown-search__search-area').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
   });
 
   it('should disable the popover when disabled is set', () => {
@@ -171,7 +171,7 @@ describe('EcDropdownSearch', () => {
     expect(wrapper.find('ecpopover-stub').element).toMatchSnapshot();
   });
 
-  it('should use and update the v-model', () => {
+  it('should use and update the v-model', async () => {
     const selectedItem = items[0];
     const changeSpy = jest.fn();
 
@@ -193,14 +193,14 @@ describe('EcDropdownSearch', () => {
 
     expect(wrapper.find('.ec-dropdown-search__item--is-selected').element).toMatchSnapshot();
     expect(changeSpy).not.toHaveBeenCalled();
-    wrapper.findAll('.ec-dropdown-search__item').wrappers[2].trigger('click');
+    await wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers[2].trigger('click');
     expect(wrapper.find('.ec-dropdown-search__item--is-selected').element).toMatchSnapshot();
     expect(changeSpy).toHaveBeenCalledTimes(1);
     expect(changeSpy).toHaveBeenCalledWith(items[2]);
     expect(wrapper.vm.selectedItem).toEqual(items[2]);
   });
 
-  it('should not select disabled item', () => {
+  it('should not select disabled item', async () => {
     const wrapper = mountDropdownSearch({ items });
     expect(wrapper.emitted('change')).toBeUndefined();
     expect(wrapper.find('.ec-dropdown-search__item--is-selected').element).toMatchSnapshot();
@@ -208,7 +208,7 @@ describe('EcDropdownSearch', () => {
     const disabledItem = wrapper.find('.ec-dropdown-search__item--is-disabled');
     expect(disabledItem.exists()).toBe(true);
 
-    disabledItem.trigger('click');
+    await disabledItem.trigger('click');
     expect(wrapper.emitted('change')).toBeUndefined();
     expect(wrapper.find('.ec-dropdown-search__item--is-selected').element).toMatchSnapshot();
   });
@@ -216,9 +216,9 @@ describe('EcDropdownSearch', () => {
   it('should add a tooltip for any disabled item', () => {
     const wrapper = mountDropdownSearch({ items });
 
-    expect(wrapper.find('.ec-dropdown-search__item-list').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
 
-    wrapper.findAll('.ec-dropdown-search__item').wrappers.forEach((itemWrapper) => {
+    wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers.forEach((itemWrapper) => {
       if (itemWrapper.classes('ec-dropdown-search__item--is-disabled')) {
         expect(itemWrapper.attributes('mocked-tooltip-content')).toBe('Random text');
       } else {
@@ -272,53 +272,53 @@ describe('EcDropdownSearch', () => {
     ];
 
     function getItemTexts(wrapper) {
-      return wrapper.findAll('.ec-dropdown-search__item').wrappers.map(itemWrapper => itemWrapper.text());
+      return wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers.map(itemWrapper => itemWrapper.text());
     }
 
-    it('should filter items', () => {
+    it('should filter items', async () => {
       const wrapper = mountDropdownSearch({ items: itemsToFilter });
-      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
-      wrapper.find('.ec-dropdown-search__search-input').setValue('B');
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('B');
       expect(getItemTexts(wrapper)).toEqual(['Item ABC', 'Item BCD']);
     });
 
-    it('should filter items using case insensitive', () => {
+    it('should filter items using case insensitive', async () => {
       const wrapper = mountDropdownSearch({ items: itemsToFilter });
-      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
-      wrapper.find('.ec-dropdown-search__search-input').setValue('D');
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('D');
       expect(getItemTexts(wrapper)).toEqual(['Item BCD', 'Item cdf']);
     });
 
-    it('should trim the search text', () => {
+    it('should trim the search text', async () => {
       const wrapper = mountDropdownSearch({ items: itemsToFilter });
-      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
-      wrapper.find('.ec-dropdown-search__search-input').setValue('\t f\n');
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('\t f\n');
       expect(getItemTexts(wrapper)).toEqual(['Item cdf']);
     });
 
-    it('should remove the diacritics', () => {
+    it('should remove the diacritics', async () => {
       const wrapper = mountDropdownSearch({ items: itemsToFilter.map(item => ({ text: item.text.replace('C', 'Č') })) });
-      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
-      wrapper.find('.ec-dropdown-search__search-input').setValue('č');
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('č');
       expect(getItemTexts(wrapper)).toEqual(['Item ABČ', 'Item BČD', 'Item cdf']);
     });
 
-    it('should display no results message if no item matches', () => {
+    it('should display no results message if no item matches', async () => {
       const wrapper = mountDropdownSearch({ items: itemsToFilter });
-      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
-      wrapper.find('.ec-dropdown-search__search-input').setValue('dkasldklsakdlsakdlas');
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('dkasldklsakdlsakdlas');
       expect(getItemTexts(wrapper)).toEqual([]);
-      expect(wrapper.find('.ec-dropdown-search__no-items').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-dropdown-search__no-items').element).toMatchSnapshot();
     });
 
     it('should display custom no results message if no item matches', () => {
       const wrapper = mountDropdownSearch({ items: [], noResultsText: 'No custom items have been found' });
-      expect(wrapper.find('.ec-dropdown-search__no-items').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-dropdown-search__no-items').element).toMatchSnapshot();
     });
 
     it('should display custom no results slot if no item matches', () => {
@@ -337,7 +337,7 @@ describe('EcDropdownSearch', () => {
       const wrapper = mountDropdownSearch({ items: itemsToFilter, isLoading: true });
       expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(0);
 
-      wrapper.find('.ec-dropdown-search__search-input').setValue('B');
+      wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('B');
       expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(0);
     });
   });
@@ -357,17 +357,18 @@ describe('EcDropdownSearch', () => {
     });
 
     it('should focus the search box after the popover has been opened', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
       const wrapper = mountDropdownSearch({}, {
-        attachToDocument: true,
+        attachTo: elem,
       });
 
       expect(document.activeElement).toBe(document.body);
-      wrapper.find('ecpopover-stub').vm.$emit('show');
-      wrapper.find('ecpopover-stub').vm.$emit('apply-show');
+      await wrapper.find('ecpopover-stub').vm.$emit('show');
+      await wrapper.find('ecpopover-stub').vm.$emit('apply-show');
 
-      await Vue.nextTick();
-
-      expect(document.activeElement).toBe(wrapper.find('.ec-dropdown-search__search-input').element);
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
 
       wrapper.destroy(); // because we attached the wrapper to document
     });
@@ -375,8 +376,7 @@ describe('EcDropdownSearch', () => {
     it('should hide the popover after item has been selected', async () => {
       const wrapper = mountDropdownSearch({ items });
       wrapper.find('ecpopover-stub').vm.$emit('show');
-      wrapper.findAll('.ec-dropdown-search__item').wrappers[1].trigger('click');
-      await wrapper.vm.$nextTick();
+      await wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers[1].trigger('click');
 
       expect(wrapper.emitted('close').length).toBe(1);
     });
