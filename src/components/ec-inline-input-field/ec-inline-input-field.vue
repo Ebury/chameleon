@@ -1,5 +1,5 @@
 <template>
-  <div data-test="ec-inline-input-field">
+  <div :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-inline-input-field` : 'ec-inline-input-field'">
     <div
       v-if="!isEditing"
       class="ec-inline-input-field__label"
@@ -26,6 +26,8 @@
 
     <ec-inline-input-field-copy
       v-else-if="isCopiable"
+      :tooltip-text-success="tooltipTextSuccess"
+      :tooltip-text-error="tooltipTextError"
       :value="value"
     />
 
@@ -75,6 +77,12 @@ export default {
     },
     value: {
       default: '',
+      type: String,
+    },
+    tooltipTextSuccess: {
+      type: String,
+    },
+    tooltipTextError: {
       type: String,
     },
   },

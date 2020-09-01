@@ -25,6 +25,8 @@ stories
     data() {
       return {
         value: this.valueFromKnob,
+        tooltipTextSuccess: 'Copied!',
+        tooltipTextError: 'Unable to copy',
         isEditing: false,
         isLoading: false,
       };
@@ -66,6 +68,8 @@ stories
             :is-editable="isEditable"
             :is-editing="isEditing"
             :is-loading="isLoading"
+            :tooltip-text-success="tooltipTextSuccess"
+            :tooltip-text-error="tooltipTextError"
             v-model="value"
             @cancel="onCancel"
             @edit="onEdit"
@@ -88,6 +92,15 @@ stories
         <div class="tw-col-full md:tw-col-4">
           Value: {{ value }}
         </div>
+        <div class="tw-col-full md:tw-col-4">
+          <ec-inline-input-field
+            label="Inline Input Field - Copiable"
+            :is-copiable="true"
+            :tooltip-text-success="tooltipTextSuccess"
+            :tooltip-text-error="tooltipTextError"
+            v-model="value"
+          />
+      </div>
       </div>
     </div>
     `,

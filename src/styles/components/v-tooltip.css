@@ -24,6 +24,16 @@
       @apply tw-text-gray-3;
       @apply tw-border tw-border-solid tw-border-gray-6;
     }
+
+    .ec-tooltip--bg-success & {
+      @apply tw-shadow-level-1;
+      @apply tw-bg-success;
+    }
+
+    .ec-tooltip--bg-error & {
+      @apply tw-shadow-level-1;
+      @apply tw-bg-error;
+    }
   }
 
   &__arrow {
@@ -36,6 +46,14 @@
 
     .ec-tooltip--bg-bright & {
       @apply tw-border-gray-8;
+    }
+
+    .ec-tooltip--bg-success & {
+      @apply tw-border-success;
+    }
+
+    .ec-tooltip--bg-error & {
+      @apply tw-border-error;
     }
   }
 

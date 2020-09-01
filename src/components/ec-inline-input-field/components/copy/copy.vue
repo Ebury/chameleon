@@ -12,9 +12,19 @@
       class="ec-inline-input-field-copy__action"
       data-test="ec-inline-input-field-copy__action"
       @click="copy"
+      @mouseleave="hideTooltip"
     >
       <ec-icon
+        v-ec-tooltip="{
+          placement: 'left',
+          show: !!tooltipContent,
+          trigger: 'manual',
+          content: tooltipContent ,
+          classes: tooltipClasses,
+          ...tooltipOptions,
+        }"
         class="ec-inline-input-field-copy__icon"
+        data-test="ec-inline-input-field-copy__icon"
         name="simple-copy"
         :size="16"
       />
@@ -25,19 +35,69 @@
 <script>
 import clipboardCopy from 'clipboard-copy';
 import EcIcon from '../../../ec-icon';
+import EcTooltip from '../../../../directives/ec-tooltip';
 
 export default {
   name: 'EcInlineInputFieldCopy',
   components: { EcIcon },
+  directives: { EcTooltip },
   props: {
     value: {
       default: '',
       type: String,
     },
+    tooltipOptions: {
+      type: Object,
+      default: null,
+    },
+    tooltipTextSuccess: {
+      type: String,
+      required: true,
+    },
+    tooltipTextError: {
+      type: String,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      isCopied: null,
+    };
+  },
+  computed: {
+    tooltipContent() {
+      switch (this.isCopied) {
+        case true:
+          return this.tooltipTextSuccess;
+        case false:
+          return this.tooltipTextError;
+        default:
+          return '';
+      }
+    },
+    tooltipClasses() {
+      switch (this.isCopied) {
+        case true:
+          return 'ec-tooltip--bg-success';
+        case false:
+          return 'ec-tooltip--bg-error';
+        default:
+          return '';
+      }
+    },
   },
   methods: {
+    hideTooltip() {
+      this.isCopied = null;
+    },
     copy() {
-      clipboardCopy(this.value);
+      clipboardCopy(this.value)
+        .then(() => {
+          this.isCopied = true;
+        })
+        .catch(() => {
+          this.isCopied = false;
+        });
     },
   },
 };
