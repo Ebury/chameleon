@@ -17,13 +17,16 @@ exports[`EcNavigationLink as regular anchor should be active when isActive is pa
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </a>
 `;
 
@@ -44,13 +47,16 @@ exports[`EcNavigationLink as regular anchor should be compact when isCompact is 
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </a>
 `;
 
@@ -71,13 +77,16 @@ exports[`EcNavigationLink as regular anchor should be expanded by default 1`] = 
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </a>
 `;
 
@@ -98,14 +107,17 @@ exports[`EcNavigationLink as regular anchor should hide the text when is collaps
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
-    style="display: none;"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+      style="display: none;"
+    >
+      Link
+    </span>
+  </transition-stub>
 </a>
 `;
 
@@ -126,13 +138,16 @@ exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </a>
 `;
 
@@ -153,13 +168,16 @@ exports[`EcNavigationLink as regular anchor should show the text when is expande
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </a>
 `;
 
@@ -181,13 +199,16 @@ exports[`EcNavigationLink as router-link should be active when isActive is passe
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </router-link-stub>
 `;
 
@@ -209,13 +230,16 @@ exports[`EcNavigationLink as router-link should be compact when isCompact is pas
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </router-link-stub>
 `;
 
@@ -237,13 +261,16 @@ exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </router-link-stub>
 `;
 
@@ -265,14 +292,17 @@ exports[`EcNavigationLink as router-link should hide the text when is collapsed 
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
-    style="display: none;"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+      style="display: none;"
+    >
+      Link
+    </span>
+  </transition-stub>
 </router-link-stub>
 `;
 
@@ -294,13 +324,16 @@ exports[`EcNavigationLink as router-link should render as a router link if isRou
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </router-link-stub>
 `;
 
@@ -322,12 +355,15 @@ exports[`EcNavigationLink as router-link should show the text when is expanded 1
     />
   </svg>
    
-  <span
-    class="ec-navigation-link__text"
-    data-test="ec-navigation-link__text"
+  <transition-stub
     name="ec-navigation-link__text-fade"
   >
-    Link
-  </span>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
 </router-link-stub>
 `;

@@ -6,7 +6,6 @@ describe('EcCurrencyInput', () => {
 
   function mountCurrencyInput(props, mountOpts) {
     return mount(EcCurrencyInput, {
-      sync: false,
       propsData: {
         currencies,
         value: {},
@@ -17,16 +16,16 @@ describe('EcCurrencyInput', () => {
     });
   }
 
-  function mountCurrencyInputAsTemplate(template, props, mountOpts) {
+  function mountCurrencyInputAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
     const localVue = createLocalVue();
 
     const Component = localVue.extend({
       components: { EcCurrencyInput },
       template,
+      ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      sync: false,
       localVue,
       propsData: { ...props },
       stubs: { EcPopover: true },
@@ -98,15 +97,15 @@ describe('EcCurrencyInput', () => {
   });
 
   describe('@events', () => {
-    it('should emit change events when an item is selected', () => {
+    it('should emit change events when an item is selected', async () => {
       const wrapper = mountCurrencyInput();
 
-      selectItem(wrapper, 1);
+      await selectItem(wrapper, 1);
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(1);
       expect(wrapper.emitted('currency-change').length).toEqual(1);
-      selectItem(wrapper, 2);
+      await selectItem(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('focus').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);
@@ -116,16 +115,14 @@ describe('EcCurrencyInput', () => {
     it('should emit value-change event when amount is set', async () => {
       const wrapper = mountCurrencyInput();
 
-      wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
-      await wrapper.vm.$nextTick();
-      wrapper.findByDataTest('ec-currency-input__amount').trigger('change');
+      await wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
+      await wrapper.findByDataTest('ec-currency-input__amount').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('amount-change').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(1);
 
-      wrapper.findByDataTest('ec-currency-input__amount').setValue('111');
-      await wrapper.vm.$nextTick();
-      wrapper.findByDataTest('ec-currency-input__amount').trigger('change');
+      await wrapper.findByDataTest('ec-currency-input__amount').setValue('111');
+      await wrapper.findByDataTest('ec-currency-input__amount').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('amount-change').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);
@@ -133,7 +130,7 @@ describe('EcCurrencyInput', () => {
   });
 
   describe('v-model', () => {
-    it('should use the v-model with the currency and emit the changes', () => {
+    it('should use the v-model with the currency and emit the changes', async () => {
       const wrapper = mountCurrencyInputAsTemplate(
         '<ec-currency-input :currencies="currencies" v-model="value" />',
         {},
@@ -144,9 +141,9 @@ describe('EcCurrencyInput', () => {
         },
       );
 
-      selectItem(wrapper, 0);
+      await selectItem(wrapper, 0);
       expect(wrapper.vm.value.currency).toEqual(currencies[0]);
-      selectItem(wrapper, 1);
+      await selectItem(wrapper, 1);
       expect(wrapper.vm.value.currency).toEqual(currencies[1]);
     });
 
@@ -176,8 +173,7 @@ describe('EcCurrencyInput', () => {
         },
       );
 
-      wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
       expect(wrapper.vm.value.amount).toEqual(11);
     });
 
@@ -193,8 +189,7 @@ describe('EcCurrencyInput', () => {
       );
 
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
-      selectItem(wrapper, currencies.indexOf('JPY'));
-      await wrapper.vm.$nextTick();
+      await selectItem(wrapper, currencies.indexOf('JPY'));
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
     });
 
@@ -210,12 +205,10 @@ describe('EcCurrencyInput', () => {
       );
 
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
-      selectItem(wrapper, currencies.indexOf('JPY'));
-      await wrapper.vm.$nextTick();
+      await selectItem(wrapper, currencies.indexOf('JPY'));
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
 
-      selectItem(wrapper, currencies.indexOf('GBP'));
-      await wrapper.vm.$nextTick();
+      await selectItem(wrapper, currencies.indexOf('GBP'));
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
     });
 
@@ -231,8 +224,7 @@ describe('EcCurrencyInput', () => {
       );
 
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
-      selectItem(wrapper, currencies.indexOf('EUR'));
-      await wrapper.vm.$nextTick();
+      await selectItem(wrapper, currencies.indexOf('EUR'));
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
     });
 
@@ -248,8 +240,7 @@ describe('EcCurrencyInput', () => {
       );
 
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11.111,11');
-      selectItem(wrapper, currencies.indexOf('EUR'));
-      await wrapper.vm.$nextTick();
+      await selectItem(wrapper, currencies.indexOf('EUR'));
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11.111,11');
     });
 
@@ -265,8 +256,7 @@ describe('EcCurrencyInput', () => {
       );
 
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
-      selectItem(wrapper, currencies.indexOf('EUR'));
-      await wrapper.vm.$nextTick();
+      await selectItem(wrapper, currencies.indexOf('EUR'));
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
     });
 
@@ -282,15 +272,15 @@ describe('EcCurrencyInput', () => {
       );
 
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
-      wrapper.setData({ locale: 'es' });
-      await wrapper.vm.$nextTick();
+      await wrapper.setData({ locale: 'es' });
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
     });
   });
 });
 
-function selectItem(wrapper, index) {
+async function selectItem(wrapper, index) {
   wrapper.findByDataTest('ec-currency-input__currencies').trigger('mousedown');
   wrapper.findByDataTest('ec-currency-input__currencies').trigger('focus');
   wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
+  await wrapper.vm.$nextTick();
 }

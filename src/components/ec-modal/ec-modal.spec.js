@@ -11,12 +11,13 @@ function mountModal(props, mountOpts) {
   });
 }
 
-function mountModalAsTemplate(template, props, mountOpts) {
+function mountModalAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
   const localVue = createLocalVue();
 
   const Component = localVue.extend({
     components: { EcModal },
     template,
+    ...wrapperComponentOpts,
   });
 
   return mount(Component, {
@@ -73,14 +74,14 @@ describe('EcModal', () => {
     expect(wrapper.findByDataTest('ec-modal__content').element).toMatchSnapshot();
   });
 
-  it('should have the style attribute z-index when the z-index props is given', () => {
+  it('should have the style attribute z-index when the z-index props is given', async () => {
     const wrapper = mountModal({
       showModal: true,
       zIndex: 210,
     });
 
     expect(wrapper.findByDataTest('ec-modal').attributes('style')).toBe('z-index: 210;');
-    wrapper.setProps({ zIndex: 235 });
+    await wrapper.setProps({ zIndex: 235 });
     expect(wrapper.findByDataTest('ec-modal').attributes('style')).toBe('z-index: 235;');
     expect(wrapper.findByDataTest('ec-modal').element).toMatchSnapshot();
   });
@@ -262,70 +263,104 @@ describe('EcModal', () => {
     expect(wrapper.emitted().close).toBeTruthy();
   });
 
-  it('should close the modal if ESC key is pressed and is closable', () => {
+  it('should close the modal if ESC key is pressed and is closable', async () => {
+    const elem = document.createElement('div');
+    document.body.appendChild(elem);
+
     const wrapper = mountModal({
       showModal: true,
       isClosable: true,
     }, {
-      attachToDocument: true,
+      attachTo: elem,
     });
 
-    wrapper.trigger('keyup.esc');
+    await wrapper.trigger('keyup.esc');
     expect(wrapper.emitted().close).toBeTruthy();
 
     wrapper.destroy(); // because we attached the wrapper to document
   });
 
-  it('should not close the modal if ESC key is pressed and is not closable', () => {
+  it('should not close the modal if ESC key is pressed and is not closable', async () => {
+    const elem = document.createElement('div');
+    document.body.appendChild(elem);
+
     const wrapper = mountModal({
       showModal: true,
       isClosable: false,
     }, {
-      attachToDocument: true,
+      attachTo: elem,
     });
 
-    wrapper.trigger('keyup.esc');
-    expect(wrapper.emitted().close).toBeUndefined();
+    await wrapper.trigger('keyup.esc');
+    expect(wrapper.emitted('close')).toBeUndefined();
 
     wrapper.destroy(); // because we attached the wrapper to document
   });
 
-  it('should not close the modal if key other than ESC is pressed and is closable', () => {
+  it('should not close the modal if key other than ESC is pressed and is closable', async () => {
+    const elem = document.createElement('div');
+    document.body.appendChild(elem);
     const wrapper = mountModal({
       showModal: true,
       isClosable: true,
     }, {
-      attachToDocument: true,
+      attachTo: elem,
     });
 
-    wrapper.trigger('keyup', { key: 'a' });
-    expect(wrapper.emitted().close).toBeUndefined();
+    await wrapper.trigger('keyup.space');
+    expect(wrapper.emitted('close')).toBeUndefined();
 
-    wrapper.destroy(); // because we attached the wrapper to document
+    await wrapper.destroy(); // because we attached the wrapper to document
   });
 
-  it('should stop listening to keyup events when closed', () => {
+  it('should stop listening to keyup events when closed', async () => {
     const addEventListenerSpy = jest.spyOn(document, 'addEventListener');
     const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener');
 
     expect(addEventListenerSpy).not.toHaveBeenCalled();
 
+    const elem = document.createElement('div');
+    document.body.appendChild(elem);
+
     const wrapper = mountModal({
       showModal: true,
-      isClosable: false,
     }, {
-      attachToDocument: true,
+      attachTo: elem,
     });
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(addEventListenerSpy).toHaveBeenCalledWith('keyup', expect.any(Function));
 
-    wrapper.setProps({ showModal: false });
+    await wrapper.setProps({ showModal: false });
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);
 
     wrapper.destroy(); // because we attached the wrapper to document
+  });
+
+  it('should stop listening to keyup events when destroyed', async () => {
+    const addEventListenerSpy = jest.spyOn(document, 'addEventListener');
+    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener');
+
+    expect(addEventListenerSpy).not.toHaveBeenCalled();
+
+    const elem = document.createElement('div');
+    document.body.appendChild(elem);
+
+    const wrapper = mountModal({
+      showModal: true,
+    }, {
+      attachTo: elem,
+    });
+
+    expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
+    expect(addEventListenerSpy).toHaveBeenCalledWith('keyup', expect.any(Function));
+
+    await wrapper.destroy(); // because we attached the wrapper to document
+
+    expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
+    expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);
   });
 
   describe('v-model', () => {
@@ -345,8 +380,7 @@ describe('EcModal', () => {
       expect(wrapper.findByDataTest('ec-modal').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
 
-      wrapper.findByDataTest('ec-modal__close').trigger('click');
-      await wrapper.vm.$forceUpdate(); // The modal is not updated despite the vm is
+      await wrapper.findByDataTest('ec-modal__close').trigger('click');
 
       expect(wrapper.vm.showModal).toBe(false);
       expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);

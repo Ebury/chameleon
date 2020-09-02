@@ -57,7 +57,7 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
   <main
     class="ec-submenu__main"
   >
-    <span
+    <transition-group-stub
       name="ec-submenu__fade"
       tag="div"
     >
@@ -73,7 +73,7 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
         data-test="ec-submenu__panel-2"
         style="display: none;"
       />
-    </span>
+    </transition-group-stub>
   </main>
 </div>
 `;

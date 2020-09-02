@@ -10,12 +10,13 @@ function mountSubmenu(props, mountOpts) {
   });
 }
 
-function mountSubmenuAsTemplate(template, props, mountOpts) {
+function mountSubmenuAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
   const localVue = createLocalVue();
 
   const Component = localVue.extend({
     components: { EcSubmenu },
     template,
+    ...wrapperComponentOpts,
   });
 
   return mount(Component, {
@@ -87,7 +88,7 @@ describe('EcSubmenu', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render the second panel if the second tab is clicked', () => {
+  it('should render the second panel if the second tab is clicked', async () => {
     const wrapper = mountSubmenuAsTemplate(
       '<ec-submenu :submenu="submenu" v-model="activeIndex"/>',
       {},
@@ -101,12 +102,12 @@ describe('EcSubmenu', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-submenu__panel-0').isVisible()).toBe(true);
-    expect(wrapper.findByDataTest('ec-submenu__panel-1').isVisible()).toBe(false);
+    expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toBeVisible();
+    expect(wrapper.findByDataTest('ec-submenu__panel-1').element).not.toBeVisible();
 
-    wrapper.findByDataTest('ec-submenu__header-title-1').trigger('click');
-    expect(wrapper.findByDataTest('ec-submenu__panel-1').isVisible()).toBe(true);
-    expect(wrapper.findByDataTest('ec-submenu__panel-0').isVisible()).toBe(false);
+    await wrapper.findByDataTest('ec-submenu__header-title-1').trigger('click');
+    expect(wrapper.findByDataTest('ec-submenu__panel-1').element).toBeVisible();
+    expect(wrapper.findByDataTest('ec-submenu__panel-0').element).not.toBeVisible();
     expect(wrapper.vm.activeIndex).toBe(1);
     expect(wrapper.element).toMatchSnapshot();
   });

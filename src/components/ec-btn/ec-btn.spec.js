@@ -14,8 +14,6 @@ describe('EcBtn', () => {
 
   it('should render a <button> element by default', () => {
     const wrapper = mountBtn();
-
-    expect(wrapper.is('button')).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -37,8 +35,6 @@ describe('EcBtn', () => {
         href: 'https://ebury.com/',
       });
 
-      expect(wrapper.is('a')).toBe(true);
-      expect(wrapper.attributes('href')).toBe('https://ebury.com/');
       expect(wrapper.element).toMatchSnapshot();
     });
 

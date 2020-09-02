@@ -11,7 +11,11 @@ exports[`EcUserInfo should not show text when collapsed 1`] = `
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
    
-  <!---->
+  <transition-stub
+    name="ec-user-info__client-fade"
+  >
+    <!---->
+  </transition-stub>
 </div>
 `;
 
@@ -26,18 +30,21 @@ exports[`EcUserInfo should render as expected 1`] = `
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
    
-  <div
-    class="ec-user-info__client-wrapper"
+  <transition-stub
     name="ec-user-info__client-fade"
   >
-    <a
-      class="ec-user-info__client-name"
-      href="/profile"
+    <div
+      class="ec-user-info__client-wrapper"
     >
-      Ebury Demo 2
-    </a>
-     
-  </div>
+      <a
+        class="ec-user-info__client-name"
+        href="/profile"
+      >
+        Ebury Demo 2
+      </a>
+       
+    </div>
+  </transition-stub>
 </div>
 `;
 
@@ -52,31 +59,34 @@ exports[`EcUserInfo should render slot for client selector 1`] = `
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
    
-  <div
-    class="ec-user-info__client-wrapper"
+  <transition-stub
     name="ec-user-info__client-fade"
   >
-    <a
-      class="ec-user-info__client-name"
-      href="/profile"
+    <div
+      class="ec-user-info__client-wrapper"
     >
-      Ebury Demo 2
-    </a>
-     
-    <select>
-      <option
-        value="ebury"
+      <a
+        class="ec-user-info__client-name"
+        href="/profile"
       >
-        Ebury
-      </option>
+        Ebury Demo 2
+      </a>
        
-      <option
-        value="eburydemo2"
-      >
-        EburyDemo2
-      </option>
-    </select>
-  </div>
+      <select>
+        <option
+          value="ebury"
+        >
+          Ebury
+        </option>
+         
+        <option
+          value="eburydemo2"
+        >
+          EburyDemo2
+        </option>
+      </select>
+    </div>
+  </transition-stub>
 </div>
 `;
 
@@ -91,17 +101,20 @@ exports[`EcUserInfo should show text when not collapsed 1`] = `
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
    
-  <div
-    class="ec-user-info__client-wrapper"
+  <transition-stub
     name="ec-user-info__client-fade"
   >
-    <a
-      class="ec-user-info__client-name"
-      href="/profile"
+    <div
+      class="ec-user-info__client-wrapper"
     >
-      Ebury Demo 2
-    </a>
-     
-  </div>
+      <a
+        class="ec-user-info__client-name"
+        href="/profile"
+      >
+        Ebury Demo 2
+      </a>
+       
+    </div>
+  </transition-stub>
 </div>
 `;

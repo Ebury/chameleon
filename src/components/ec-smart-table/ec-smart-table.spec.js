@@ -29,7 +29,6 @@ describe('EcSmartTable', () => {
   function mountEcSmartTable(props, mountOpts) {
     return mount(EcSmartTable, {
       propsData: { dataSource, ...props },
-      sync: false,
       ...mountOpts,
     });
   }

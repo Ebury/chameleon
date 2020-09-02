@@ -71,12 +71,12 @@ describe('EcToaster', () => {
       expect(wrapper.findByDataTest('ec-toaster__item').classes('ec-toaster__item--swipe-active')).toBe(false);
     });
 
-    it('should stop listening to touch events after being destroyed', () => {
+    it('should stop listening to touch events after being destroyed', async () => {
       const wrapper = mountToaster({ messages });
       const item = wrapper.findByDataTest('ec-toaster__item').element;
 
       const spy = jest.spyOn(item, 'removeEventListener');
-      wrapper.setProps({ messages: [] });
+      await wrapper.setProps({ messages: [] });
       expect(spy).toHaveBeenCalledTimes(4);
     });
 

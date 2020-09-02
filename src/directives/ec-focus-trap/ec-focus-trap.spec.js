@@ -55,7 +55,7 @@ describe('EcFocusTrap', () => {
     expect(focusTrapInstance.deactivate).toHaveBeenCalledTimes(1);
   });
 
-  it.each(['escapeDeactivates', 'clickOutsideDeactivates'])('should reinitialize itself if %s changes', (propName) => {
+  it.each(['escapeDeactivates', 'clickOutsideDeactivates'])('should reinitialize itself if %s changes', async (propName) => {
     const wrapper = mountTemplate('<div v-ec-focus-trap="{ ...options }" />', {
       data() {
         return { options: { [propName]: true } };
@@ -68,7 +68,7 @@ describe('EcFocusTrap', () => {
     expect(focusTrapInstance.deactivate).toHaveBeenCalledTimes(0);
 
     focusTrap.mockClear();
-    wrapper.setData({ options: { [propName]: false } });
+    await wrapper.setData({ options: { [propName]: false } });
 
     expect(focusTrap).toHaveBeenCalledTimes(1);
     const newFocusTrapInstance = focusTrap.mock.results[0].value;

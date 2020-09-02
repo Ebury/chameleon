@@ -41,7 +41,6 @@ exports[`EcModal should have the style attribute z-index when the z-index props 
 <div
   class="ec-modal"
   data-test="ec-modal"
-  name="ec-modal__fade"
   style="z-index: 235;"
 >
   <div
@@ -91,53 +90,62 @@ exports[`EcModal should not render close button when isClosable is set to false 
 </header>
 `;
 
-exports[`EcModal should not render the modal if "showModal" is not set to true 1`] = `<!---->`;
+exports[`EcModal should not render the modal if "showModal" is not set to true 1`] = `
+<transition-stub
+  name="ec-modal__fade"
+>
+  <!---->
+</transition-stub>
+`;
 
 exports[`EcModal should render basic modal 1`] = `
-<div
-  class="ec-modal"
-  data-test="ec-modal"
+<transition-stub
   name="ec-modal__fade"
 >
   <div
-    class="ec-modal__content"
-    data-test="ec-modal__content"
+    class="ec-modal"
+    data-test="ec-modal"
   >
-    <header
-      class="ec-modal__header"
-      data-test="ec-modal__header"
+    <div
+      class="ec-modal__content"
+      data-test="ec-modal__content"
     >
-       
-      <a
-        class="ec-modal__close"
-        data-test="ec-modal__close"
-        href="#"
+      <header
+        class="ec-modal__header"
+        data-test="ec-modal__header"
       >
-        <svg
-          class="ec-modal__close-icon ec-icon"
-          data-test="ec-modal__close-icon"
-          height="24"
-          width="24"
+         
+        <a
+          class="ec-modal__close"
+          data-test="ec-modal__close"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </a>
-    </header>
-     
-    <main
-      class="ec-modal__main"
-      data-test="ec-modal__main"
-    >
-      <p>
-        Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.
-      </p>
-    </main>
-     
-    <!---->
+          <svg
+            class="ec-modal__close-icon ec-icon"
+            data-test="ec-modal__close-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </header>
+       
+      <main
+        class="ec-modal__main"
+        data-test="ec-modal__main"
+      >
+        <p>
+          Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.
+        </p>
+      </main>
+       
+      <!---->
+    </div>
   </div>
-</div>
+</transition-stub>
 `;
 
 exports[`EcModal should render close button 1`] = `
@@ -453,49 +461,64 @@ exports[`EcModal should render positive button with the loading status if slot i
 </footer>
 `;
 
-exports[`EcModal v-model should not render the modal when we pass to model false 1`] = `<!---->`;
+exports[`EcModal v-model should not render the modal when we pass to model false 1`] = `
+<transition-stub
+  name="ec-modal__fade"
+>
+  <!---->
+</transition-stub>
+`;
 
 exports[`EcModal v-model should render the modal when we pass to model true 1`] = `
-<div
-  class="ec-modal"
-  data-test="ec-modal"
+<transition-stub
   name="ec-modal__fade"
 >
   <div
-    class="ec-modal__content"
-    data-test="ec-modal__content"
+    class="ec-modal"
+    data-test="ec-modal"
   >
-    <header
-      class="ec-modal__header"
-      data-test="ec-modal__header"
+    <div
+      class="ec-modal__content"
+      data-test="ec-modal__content"
     >
-       
-      <a
-        class="ec-modal__close"
-        data-test="ec-modal__close"
-        href="#"
+      <header
+        class="ec-modal__header"
+        data-test="ec-modal__header"
       >
-        <svg
-          class="ec-modal__close-icon ec-icon"
-          data-test="ec-modal__close-icon"
-          height="24"
-          width="24"
+         
+        <a
+          class="ec-modal__close"
+          data-test="ec-modal__close"
+          href="#"
         >
-          <use
-            xlink:href="#ec-simple-close"
-          />
-        </svg>
-      </a>
-    </header>
-     
-    <main
-      class="ec-modal__main"
-      data-test="ec-modal__main"
-    />
-     
-    <!---->
+          <svg
+            class="ec-modal__close-icon ec-icon"
+            data-test="ec-modal__close-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </header>
+       
+      <main
+        class="ec-modal__main"
+        data-test="ec-modal__main"
+      />
+       
+      <!---->
+    </div>
   </div>
-</div>
+</transition-stub>
 `;
 
-exports[`EcModal v-model should render the modal when we pass to model true 2`] = `<!---->`;
+exports[`EcModal v-model should render the modal when we pass to model true 2`] = `
+<transition-stub
+  name="ec-modal__fade"
+>
+  <!---->
+</transition-stub>
+`;

@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom';
+
 import { Wrapper, WrapperArray } from '@vue/test-utils';
 
 require('snapshot-diff/extend-expect');

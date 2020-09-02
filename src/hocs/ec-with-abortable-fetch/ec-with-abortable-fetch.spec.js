@@ -102,7 +102,7 @@ describe('EcWithAbortableFetch', () => {
 
   it('should re-fetch the data if arguments change', async () => {
     const dataSource = {
-      fetch: jest.fn().mockReturnValue({ result: 1 }).mockReturnValue({ result: 2 }),
+      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }).mockResolvedValueOnce({ result: 2 }),
     };
     const fetchArgs = { prop: 1 };
 
@@ -115,7 +115,7 @@ describe('EcWithAbortableFetch', () => {
 
     dataSource.fetch.mockClear();
 
-    hocWrapper.setProps({
+    await hocWrapper.setProps({
       fetchArgs: { anotherProp: 2 },
     });
 
@@ -128,7 +128,7 @@ describe('EcWithAbortableFetch', () => {
 
   it('should abort previous fetch calls', async () => {
     const dataSource = {
-      fetch: jest.fn().mockReturnValue({ result: 1 }).mockReturnValue({ result: 2 }),
+      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }).mockResolvedValueOnce({ result: 2 }),
     };
     const fetchArgs = { prop: 1 };
     const abortSpy = jest.fn();
@@ -150,6 +150,7 @@ describe('EcWithAbortableFetch', () => {
 
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     await flushPromises();
+    expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(abortSpy).toHaveBeenCalledTimes(2);
   });
 

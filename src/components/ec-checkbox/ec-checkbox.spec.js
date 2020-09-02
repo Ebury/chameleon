@@ -8,12 +8,13 @@ function mountCheckbox(props, mountOpts) {
   });
 }
 
-function mountCheckboxAsTemplate(template, props, mountOpts) {
+function mountCheckboxAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
   const localVue = createLocalVue();
 
   const Component = localVue.extend({
     components: { EcCheckbox },
     template,
+    ...wrapperComponentOpts,
   });
 
   return mount(Component, {

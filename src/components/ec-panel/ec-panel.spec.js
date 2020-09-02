@@ -8,12 +8,13 @@ function mountPanel(props, mountOpts) {
   });
 }
 
-function mountPanelAsTemplate(template, props, mountOpts) {
+function mountPanelAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
   const localVue = createLocalVue();
 
   const Component = localVue.extend({
     components: { EcPanel },
     template,
+    ...wrapperComponentOpts,
   });
 
   return mount(Component, {
@@ -87,7 +88,7 @@ describe('EcPanel', () => {
         expect(wrapper.element).toMatchSnapshot();
       });
 
-      it('should emit a "back" event when the simple-chevron-left icon is clicked', () => {
+      it('should emit a "back" event when the simple-chevron-left icon is clicked', async () => {
         const anyGivenCallback = jest.fn();
         const wrapper = mountPanelAsTemplate(
           '<ec-panel v-model="show" @back="anyGivenCallback"></ec-panel>',
@@ -104,7 +105,7 @@ describe('EcPanel', () => {
           },
         );
 
-        wrapper.findByDataTest('ec-panel__header-action--back').trigger('click');
+        await wrapper.findByDataTest('ec-panel__header-action--back').trigger('click');
 
         expect(anyGivenCallback).toHaveBeenCalled();
         expect(wrapper.findByDataTest('ec-panel').exists()).toBeFalsy();
@@ -151,7 +152,7 @@ describe('EcPanel', () => {
   });
 
   describe('v-model', () => {
-    it('should render the panel when we pass to model true', () => {
+    it('should render the panel when we pass to model true', async () => {
       const wrapper = mountPanelAsTemplate(
         '<ec-panel v-model="show"></ec-panel>',
         {},
@@ -167,7 +168,7 @@ describe('EcPanel', () => {
       expect(wrapper.findByDataTest('ec-panel').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
 
-      wrapper.findByDataTest('ec-panel__header-action--close').trigger('click');
+      await wrapper.findByDataTest('ec-panel__header-action--close').trigger('click');
       expect(wrapper.vm.show).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });

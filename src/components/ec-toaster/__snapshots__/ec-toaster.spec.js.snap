@@ -4,7 +4,7 @@ exports[`EcToaster messages prop should not render the toaster if no props are p
 <div
   class="ec-toaster"
 >
-  <span
+  <transition-group-stub
     class="ec-toaster__list"
     data-test="ec-toaster__list"
     name="ec-toaster-items-transition"
@@ -17,7 +17,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
 <div
   class="ec-toaster"
 >
-  <span
+  <transition-group-stub
     class="ec-toaster__list"
     data-test="ec-toaster__list"
     name="ec-toaster-items-transition"
@@ -235,7 +235,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
         <!---->
       </div>
     </li>
-  </span>
+  </transition-group-stub>
 </div>
 `;
 

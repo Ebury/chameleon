@@ -35,14 +35,14 @@ describe('EcUserInfo', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should emit a toggle event', () => {
+  it('should emit a toggle event', async () => {
     const wrapper = mount(EcUserInfo, {
       propsData: {
         user,
       },
     });
-    wrapper.findByDataTest('ec-user-info__avatar').trigger('click');
-    expect(wrapper.emitted().toggle).toBeTruthy();
+    await wrapper.findByDataTest('ec-user-info__avatar').trigger('click');
+    expect(wrapper.emitted('toggle')).toBeTruthy();
   });
 
   it('should throw an error if no props were given', () => {
@@ -61,7 +61,6 @@ describe('EcUserInfo', () => {
       },
     });
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.contains('.ec-user-info__client-name')).toBe(false);
   });
 
   it('should show text when not collapsed', () => {
@@ -72,6 +71,5 @@ describe('EcUserInfo', () => {
       },
     });
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.contains('.ec-user-info__client-name')).toBe(true);
   });
 });
