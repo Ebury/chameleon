@@ -68,6 +68,7 @@
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: local('Noto Sans SC Light'), local('NotoSansSC-Light'), url('https://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Light.woff2') format('woff2');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700–2B73F, U+2B740–2B81F, U+2B820–2CEAF, U+F900-FAFF, U+2F800-2FA1F;
 }
@@ -77,6 +78,7 @@
   font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: local('Noto Sans TC Light'), local('NotoSansTC-Light'), url('https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff2') format('woff2');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700–2B73F, U+2B740–2B81F, U+2B820–2CEAF, U+F900-FAFF, U+2F800-2FA1F;
 }
@@ -149,6 +151,7 @@
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local('Noto Sans SC Regular'), local('NotoSansSC-Regular'), url('https://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Regular.woff2') format('woff2');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700–2B73F, U+2B740–2B81F, U+2B820–2CEAF, U+F900-FAFF, U+2F800-2FA1F;
 }
@@ -158,6 +161,7 @@
   font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local('Noto Sans TC Regular'), local('NotoSansTC-Regular'), url('https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2') format('woff2');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700–2B73F, U+2B740–2B81F, U+2B820–2CEAF, U+F900-FAFF, U+2F800-2FA1F;
 }
@@ -230,6 +234,7 @@
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: local('Noto Sans SC Medium'), local('NotoSansSC-Medium'), url('https://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Medium.woff2') format('woff2');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700–2B73F, U+2B740–2B81F, U+2B820–2CEAF, U+F900-FAFF, U+2F800-2FA1F;
 }
@@ -239,6 +244,7 @@
   font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: local('Noto Sans TC Medium'), local('NotoSansTC-Medium'), url('https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff2') format('woff2');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700–2B73F, U+2B740–2B81F, U+2B820–2CEAF, U+F900-FAFF, U+2F800-2FA1F;
 }
@@ -311,6 +317,7 @@
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: local('Noto Sans SC Bold'), local('NotoSansSC-Bold'), url('https://fonts.gstatic.com/ea/notosanssc/v1/NotoSansSC-Bold.woff2') format('woff2');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700–2B73F, U+2B740–2B81F, U+2B820–2CEAF, U+F900-FAFF, U+2F800-2FA1F;
 }
@@ -320,6 +327,7 @@
   font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: local('Noto Sans TC Bold'), local('NotoSansTC-Bold'), url('https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2') format('woff2');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700–2B73F, U+2B740–2B81F, U+2B820–2CEAF, U+F900-FAFF, U+2F800-2FA1F;
 }
