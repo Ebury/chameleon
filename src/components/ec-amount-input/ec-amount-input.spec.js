@@ -4,7 +4,6 @@ import EcAmountInput from './ec-amount-input.vue';
 describe('EcAmountInput', () => {
   function mountAmountInput(props, mountOpts) {
     return mount(EcAmountInput, {
-      sync: false,
       propsData: {
         value: 0,
         ...props,
@@ -13,18 +12,18 @@ describe('EcAmountInput', () => {
     });
   }
 
-  function mountAmountInputAsTemplate(template, mountOpts) {
+  function mountAmountInputAsTemplate(template, wrapperComponentOpts, mountOpts) {
     const localVue = createLocalVue();
 
     const Component = localVue.extend({
       components: { EcAmountInput },
       template,
-      ...mountOpts,
+      ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      sync: false,
       localVue,
+      ...mountOpts,
     });
   }
 

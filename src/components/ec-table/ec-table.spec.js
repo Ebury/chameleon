@@ -26,12 +26,13 @@ function mountTable(props, mountOpts) {
   });
 }
 
-function mountTableAsTemplate(template, props, mountOpts) {
+function mountTableAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
   const localVue = createLocalVue();
 
   const Component = localVue.extend({
     components: { EcTable },
     template,
+    ...wrapperComponentOpts,
   });
 
   return mount(Component, {
@@ -305,12 +306,12 @@ describe('EcTable', () => {
     expect(wrapper.emitted('sort')).toEqual([[{ name: 'lorem', sortable: true, title: 'Lorem' }]]);
   });
 
-  it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left and the changes to right when the prop is get changed to right', () => {
+  it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left and the changes to right when the prop is get changed to right', async () => {
     const wrapper = mountTable({ stickyColumn: 'left' });
 
     expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(true);
     expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(false);
-    wrapper.setProps({ stickyColumn: 'right' });
+    await wrapper.setProps({ stickyColumn: 'right' });
     expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(true);
     expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(false);
   });
@@ -321,14 +322,14 @@ describe('EcTable', () => {
     expect(wrapper.findByDataTest('ec-table-scroll-container').attributes('style')).toBe('max-height: 400px;');
   });
 
-  it('should emit the row-click event when you click on some row', () => {
+  it('should emit the row-click event when you click on some row', async () => {
     const wrapper = mountTable();
 
     expect(wrapper.emitted('row-click')).toBe(undefined);
-    wrapper.findByDataTest('ec-table__row--0').trigger('click');
+    await wrapper.findByDataTest('ec-table__row--0').trigger('click');
     expect(wrapper.emitted('row-click')[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
     expect(wrapper.emitted('row-click').length).toBe(1);
-    wrapper.findByDataTest('ec-table__row--1').trigger('click');
+    await wrapper.findByDataTest('ec-table__row--1').trigger('click');
     expect(wrapper.emitted('row-click')[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
     expect(wrapper.emitted('row-click').length).toBe(2);
   });

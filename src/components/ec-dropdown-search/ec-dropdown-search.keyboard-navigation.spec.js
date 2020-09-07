@@ -21,8 +21,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
@@ -36,8 +35,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
@@ -51,8 +49,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
@@ -68,8 +65,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
     });
@@ -83,8 +79,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
     });
@@ -98,8 +93,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
     });
@@ -108,8 +102,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items: [] });
       await openDropdown(wrapper);
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
       expect(wrapper.emitted('change')).toBeUndefined();
     });
@@ -125,8 +118,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
       expect(wrapper.emitted('change')).toBeUndefined();
     });
@@ -140,8 +132,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
@@ -155,8 +146,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
@@ -170,8 +160,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
@@ -187,8 +176,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
     });
@@ -202,8 +190,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
     });
@@ -217,8 +204,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
     });
@@ -227,8 +213,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items: [] });
       await openDropdown(wrapper);
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
       expect(wrapper.emitted('change')).toBeUndefined();
     });
@@ -244,8 +229,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
       expect(wrapper.emitted('change')).toBeUndefined();
     });
@@ -259,8 +243,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items });
       await openDropdown(wrapper);
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
 
       expect(wrapper.emitted('close').length).toBeTruthy();
     });
@@ -270,8 +253,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       ['esc'],
     ])('should not do anything if is closed (by %s key)', async (key) => {
       const wrapper = mountDropdownSearch({ items });
-      wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
 
       expect(wrapper.emitted('close')).toBeUndefined();
     });
@@ -285,8 +267,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items });
       expect(wrapper.emitted('change')).toBeUndefined();
 
-      wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
 
       expect(wrapper.emitted('open').length).toBeTruthy();
     });
@@ -305,8 +286,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
         });
         await openDropdown(wrapper);
 
-        wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
-        await wrapper.vm.$nextTick();
+        await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
 
         expect(wrapper.emitted('close').length).toBeTruthy();
       });
@@ -323,8 +303,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
         const popoverMock = jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').element, 'querySelector').mockImplementation(() => ({ focus }));
         await openDropdown(wrapper);
 
-        wrapper.findByDataTest('ec-dropdown-search__search-input').trigger('keydown.enter');
-        await wrapper.vm.$nextTick();
+        await wrapper.findByDataTest('ec-dropdown-search__search-input').trigger('keydown.enter');
 
         expect(focus).toHaveBeenCalledTimes(1);
         expect(wrapper.emitted('close').length).toBeTruthy();
@@ -339,8 +318,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const focusSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__search-input').element, 'focus');
       await openDropdown(wrapper);
 
-      wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('resize');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('resize');
 
       expect(focusSpy).toHaveBeenCalledTimes(1);
       focusSpy.mockRestore();
@@ -492,6 +470,7 @@ function mockElementOffsetTop(wrapper, index, value) {
   jest.spyOn(wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).element, 'offsetTop', 'get').mockReturnValueOnce(value);
 }
 
+// TODO: ONL-5000 this pollutes global state and never cleans it up
 function mockHtmlElementPosition(options) {
   Object.defineProperties(global.HTMLElement.prototype, {
     clientHeight: {
@@ -520,7 +499,6 @@ function mockHtmlElementPosition(options) {
 
 async function openDropdown(wrapper) {
   expect(wrapper.emitted('open')).toBeUndefined();
-  wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.enter');
-  await wrapper.vm.$nextTick();
+  await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.enter');
   expect(wrapper.emitted('open').length).toBeTruthy();
 }

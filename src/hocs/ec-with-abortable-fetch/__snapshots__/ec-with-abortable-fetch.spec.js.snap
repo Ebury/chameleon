@@ -24,6 +24,16 @@ Object {
 }
 `;
 
+exports[`EcWithAbortableFetch should abort previous fetch calls 3`] = `
+Object {
+  "data": Object {
+    "result": 2,
+  },
+  "error": null,
+  "loading": false,
+}
+`;
+
 exports[`EcWithAbortableFetch should re-fetch the data if arguments change 1`] = `
 Object {
   "data": null,
@@ -45,9 +55,7 @@ exports[`EcWithAbortableFetch should re-fetch the data if arguments change 2`] =
   "results": Array [
     Object {
       "type": "return",
-      "value": Object {
-        "result": 2,
-      },
+      "value": Promise {},
     },
   ],
 }
@@ -56,7 +64,7 @@ exports[`EcWithAbortableFetch should re-fetch the data if arguments change 2`] =
 exports[`EcWithAbortableFetch should re-fetch the data if arguments change 3`] = `
 Object {
   "data": Object {
-    "result": 2,
+    "result": 1,
   },
   "error": null,
   "loading": false,
@@ -66,7 +74,7 @@ Object {
 exports[`EcWithAbortableFetch should re-fetch the data if arguments change 4`] = `
 Object {
   "data": Object {
-    "result": 2,
+    "result": 1,
   },
   "error": null,
   "loading": true,
@@ -86,9 +94,7 @@ exports[`EcWithAbortableFetch should re-fetch the data if arguments change 5`] =
   "results": Array [
     Object {
       "type": "return",
-      "value": Object {
-        "result": 2,
-      },
+      "value": Promise {},
     },
   ],
 }

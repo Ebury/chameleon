@@ -178,6 +178,9 @@ export default {
       },
     },
   },
+  beforeDestroy() {
+    document.removeEventListener('keyup', this.escapeIsPressed);
+  },
   methods: {
     negativeAction() {
       this.$emit('negative');

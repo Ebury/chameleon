@@ -25,13 +25,16 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
       >
-        Foo
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Foo
+        </span>
+      </transition-stub>
     </a>
   </li>
   <li
@@ -54,13 +57,16 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
       >
-        Bat
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Bat
+        </span>
+      </transition-stub>
     </a>
   </li>
 </ul>
@@ -97,13 +103,16 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
       >
-        Foo
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Foo
+        </span>
+      </transition-stub>
     </a>
   </li>
   <li
@@ -126,13 +135,16 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
       >
-        Bat
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Bat
+        </span>
+      </transition-stub>
     </a>
   </li>
 </ul>
@@ -163,14 +175,17 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
-        style="display: none;"
       >
-        Foo
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+          style="display: none;"
+        >
+          Foo
+        </span>
+      </transition-stub>
     </a>
   </li>
   <li
@@ -193,14 +208,17 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
-        style="display: none;"
       >
-        Bat
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+          style="display: none;"
+        >
+          Bat
+        </span>
+      </transition-stub>
     </a>
   </li>
 </ul>
@@ -231,13 +249,16 @@ exports[`EcMenu should render as expanded by default 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
       >
-        Foo
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Foo
+        </span>
+      </transition-stub>
     </a>
   </li>
   <li
@@ -260,13 +281,16 @@ exports[`EcMenu should render as expanded by default 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
       >
-        Bat
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Bat
+        </span>
+      </transition-stub>
     </a>
   </li>
 </ul>
@@ -297,13 +321,16 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
       >
-        Foo
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Foo
+        </span>
+      </transition-stub>
     </a>
   </li>
 </ul>
@@ -334,13 +361,16 @@ exports[`EcMenu should render only links with a url property 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
       >
-        Foo
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Foo
+        </span>
+      </transition-stub>
     </a>
   </li>
   <li
@@ -363,13 +393,16 @@ exports[`EcMenu should render only links with a url property 1`] = `
         />
       </svg>
        
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
+      <transition-stub
         name="ec-navigation-link__text-fade"
       >
-        Bat
-      </span>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Bat
+        </span>
+      </transition-stub>
     </a>
   </li>
 </ul>

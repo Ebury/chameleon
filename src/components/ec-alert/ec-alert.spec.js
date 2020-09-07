@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import { mount } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import EcAlert from './ec-alert.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
@@ -11,6 +10,24 @@ describe('EcAlert', () => {
         type: 'info',
         ...props,
       },
+      ...mountOpts,
+    });
+  }
+
+  function mountAlertAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
+    const localVue = createLocalVue();
+
+    const Component = localVue.extend({
+      components: { EcAlert },
+      template,
+      ...wrapperComponentOpts,
+    });
+
+    return mount(Component, {
+      propsData: {
+        ...props,
+      },
+      localVue,
       ...mountOpts,
     });
   }
@@ -62,44 +79,45 @@ describe('EcAlert', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should dismiss the alert when user clicks on the dismiss icon ', () => {
-    const wrapper = mount(Vue.extend({
-      components: { EcAlert },
-      data() {
-        return { isOpen: true };
+  it('should dismiss the alert when user clicks on the dismiss icon ', async () => {
+    const wrapper = mountAlertAsTemplate(
+      '<ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />',
+      {},
+      {
+        data() {
+          return { isOpen: true };
+        },
       },
-      template: `
-        <ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />
-      `,
-    }));
+    );
     expect(wrapper.findByDataTest('ec-alert__dismiss-icon').exists()).toBe(true);
-    wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
-    expect(wrapper.isVisible()).toBe(false);
+    await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
+    expect(wrapper.element).not.toBeVisible();
   });
 
-  it('should emit the event when user clicks on the button', () => {
+  it('should emit the event when user clicks on the button', async () => {
     const wrapper = mountAlert({ buttonText: 'Click here' });
-    wrapper.findByDataTest('ec-alert__button').trigger('click');
+    await wrapper.findByDataTest('ec-alert__button').trigger('click');
     expect(wrapper.emitted('action').length).toBe(1);
   });
 
-  it('should dismiss or show the alert when we change the v-model', () => {
-    const wrapper = mount(Vue.extend({
-      components: { EcAlert },
-      data() {
-        return { isOpen: true };
+  it('should dismiss or show the alert when we change the v-model', async () => {
+    const wrapper = mountAlertAsTemplate(
+      '<ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />',
+      {},
+      {
+        data() {
+          return { isOpen: true };
+        },
       },
-      template: `
-        <ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />
-      `,
-    }));
+    );
 
     expect(wrapper.vm.isOpen).toBe(true);
-    expect(wrapper.isVisible()).toBe(true);
-    wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
-    expect(wrapper.isVisible()).toBe(false);
+    expect(wrapper.element).toBeVisible();
+    await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
+    expect(wrapper.element).not.toBeVisible();
     expect(wrapper.vm.isOpen).toBe(false);
   });
+
   it('should render with the slot given', () => {
     const wrapper = mountAlert({
       subtitle: 'Subtitle example',

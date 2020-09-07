@@ -17,12 +17,13 @@ describe('EcInputField', () => {
       ...mountOpts,
     });
   }
-  function mountInputFieldAsTemplate(template, props, mountOpts) {
+  function mountInputFieldAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
     const localVue = createLocalVue();
 
     const Component = localVue.extend({
       components: { EcInputField },
       template,
+      ...wrapperComponentOpts,
     });
 
     return mount(Component, {
@@ -98,7 +99,7 @@ describe('EcInputField', () => {
     expect(event).toHaveBeenCalledTimes(1);
   });
 
-  it('should set the v-model on the value of the input and change when it changes', () => {
+  it('should set the v-model on the value of the input and change when it changes', async () => {
     const wrapper = mountInputFieldAsTemplate(
       '<ec-input-field v-model="text" type="text" />',
       {},
@@ -110,7 +111,7 @@ describe('EcInputField', () => {
     );
 
     expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
-    wrapper.setData({ text: 'some text' });
+    await wrapper.setData({ text: 'some text' });
     expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('some text');
   });
 
