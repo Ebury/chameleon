@@ -13,10 +13,10 @@ stories
         default: text('Initial value', 'Initial value'),
       },
       errorMessage: {
-        default: text('Error Message', ''),
+        default: text('Error Message (when editing)', ''),
       },
       isCopiable: {
-        default: boolean('Is copiable (available only when non editable)', false),
+        default: boolean('Is copiable (when non editable)', false),
       },
       isEditable: {
         default: boolean('Is editable', true),
@@ -102,6 +102,14 @@ stories
             v-model="value"
           />
       </div>
+      <div class="tw-col-full md:tw-col-4">
+          <ec-inline-input-field
+            is-editable="true"
+            is-editing="true"
+            label="Inline Input Field - With Error"
+            errorMessage="This field has an error"
+            v-model="value"
+          />
       </div>
     </div>
     `,
