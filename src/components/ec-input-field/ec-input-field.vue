@@ -172,7 +172,8 @@ export default {
 
 <style>
 :root {
-  --ec-input-field-icon-area-size: 42px;
+  --ec-input-field-height: 42px;
+  --ec-input-field-icon-area-size: var(--ec-input-field-height);
 }
 
 .ec-input-field {
