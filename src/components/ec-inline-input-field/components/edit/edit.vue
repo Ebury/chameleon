@@ -107,7 +107,7 @@ export default {
     @apply tw-flex tw-items-center;
     @apply tw-ml-20;
 
-    height: 42px; /* height of input field */
+    height: var(--ec-input-field-height);
   }
 
   &__action {
@@ -115,6 +115,8 @@ export default {
     @apply tw-p-0;
     @apply tw-bg-transparent tw-fill-key-4;
     @apply tw-outline-none;
+
+    line-height: 0;
 
     &:focus {
       @apply tw-fill-key-3;
