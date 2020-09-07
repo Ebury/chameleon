@@ -107,7 +107,7 @@ export default {
     @apply tw-flex tw-items-center;
     @apply tw-ml-20;
 
-    height: 42px;
+    height: 42px; /* height of input field */
   }
 
   &__action {
