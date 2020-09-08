@@ -174,5 +174,3 @@ stories
     </ec-container>
     `,
   }));
-
-export default stories;

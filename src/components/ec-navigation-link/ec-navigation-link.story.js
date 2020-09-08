@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue';
 import { text, boolean, number } from '@storybook/addon-knobs';
 import StoryRouter from 'storybook-vue-router';
 import EcNavigationLink from './ec-navigation-link.vue';
-import { getAllBackgrounds } from '../../../.storybook/backgrounds';
+import { DARK_THEME } from '../../../.storybook/backgrounds';
 
 storiesOf('Layout/Navigation Link', module)
   .addDecorator(StoryRouter())
@@ -41,5 +41,5 @@ storiesOf('Layout/Navigation Link', module)
       <ec-navigation-link v-bind="$props" />
     `,
   }), {
-    backgrounds: getAllBackgrounds('dark'),
+    backgrounds: { default: DARK_THEME.name, values: [DARK_THEME] },
   });

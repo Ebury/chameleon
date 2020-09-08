@@ -29,7 +29,6 @@ const stories = storiesOf('CSS/Tailwind', module);
 
 stories
   .addParameters({
-    visualRegressionTests: { enabled: false },
     a11y: { disabled: true }, // a11y addon, checking a story with a table of 3000+ rows, crashes the browser. we don't need this addon in here.
   })
   .add('all', () => ({
@@ -58,4 +57,6 @@ stories
     data() {
       return { tailwind: tailwindCSS, rules, filter: '' };
     },
-  }));
+  }), {
+    visualRegressionTests: { enabled: false },
+  });

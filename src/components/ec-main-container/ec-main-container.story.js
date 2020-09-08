@@ -42,5 +42,3 @@ stories
     </ec-main-container>
     `,
   }));
-
-export default stories;

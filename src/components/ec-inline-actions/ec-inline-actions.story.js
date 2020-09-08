@@ -53,5 +53,3 @@ stories.add('basic', () => ({
     </div>
   </div>`,
 }));
-
-export default stories;

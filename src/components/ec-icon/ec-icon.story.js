@@ -247,5 +247,3 @@ stories.add('within a text', () => ({
     </div>
   `,
 }));
-
-export default stories;

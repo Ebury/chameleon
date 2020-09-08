@@ -122,4 +122,3 @@ stories.add('all', () => ({
   `,
 }));
 
-export default stories;

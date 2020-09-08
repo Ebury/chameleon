@@ -4,10 +4,13 @@ export const LIGHT_BLUE_THEME = { name: 'light blue', value: 'hsl(192.5, 100%, 4
 export const DARK_BLUE_THEME = { name: 'dark blue', value: 'hsl(192.5, 100%, 20%)' }; // --ec-theme-key-color-level-2
 
 export function getAllBackgrounds(defaultName) {
-  return [
-    LIGHT_THEME,
-    DARK_THEME,
-    LIGHT_BLUE_THEME,
-    DARK_BLUE_THEME,
-  ].map(background => ({ ...background, default: background.name === defaultName }));
+  return {
+    default: defaultName,
+    values: [
+      LIGHT_THEME,
+      DARK_THEME,
+      LIGHT_BLUE_THEME,
+      DARK_BLUE_THEME,
+    ],
+  };
 }

@@ -59,5 +59,3 @@ stories
         </template>
       </ec-navigation>`,
   }));
-
-export default stories;
