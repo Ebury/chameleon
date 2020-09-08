@@ -12,14 +12,14 @@ stories
       valueFromKnob: {
         default: text('Initial value', 'Initial value'),
       },
+      errorMessage: {
+        default: text('Error Message (when editing)', ''),
+      },
       isCopiable: {
-        default: boolean('Is copiable (available only when non editable)', false),
+        default: boolean('Is copiable (when non editable)', false),
       },
       isEditable: {
         default: boolean('Is editable', true),
-      },
-      error: {
-        default: boolean('Show error when saving', false),
       },
     },
     data() {
@@ -51,7 +51,7 @@ stories
         this.isLoading = true;
 
         setTimeout(() => {
-          if (!this.error) {
+          if (!this.errorMessage) {
             this.value = value;
           }
           this.isLoading = false;
@@ -70,6 +70,7 @@ stories
             :is-loading="isLoading"
             :tooltip-text-success="tooltipTextSuccess"
             :tooltip-text-error="tooltipTextError"
+            :error-message="errorMessage"
             v-model="value"
             @cancel="onCancel"
             @edit="onEdit"
@@ -101,6 +102,14 @@ stories
             v-model="value"
           />
       </div>
+      <div class="tw-col-full md:tw-col-4">
+          <ec-inline-input-field
+            is-editable="true"
+            is-editing="true"
+            label="Inline Input Field - With Error"
+            errorMessage="This field has an error"
+            v-model="value"
+          />
       </div>
     </div>
     `,

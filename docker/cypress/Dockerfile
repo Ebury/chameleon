@@ -1,4 +1,4 @@
-FROM cypress/browsers:node12.13.0-chrome80-ff74
+FROM cypress/browsers:node12.18.0-chrome83-ff77
 
 ARG UID=1000
 ARG GID=1000

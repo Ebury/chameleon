@@ -11,6 +11,7 @@
         v-model="inputModel"
         type="text"
         data-test="ec-inline-input-field-edit__input"
+        :error-message="errorMessage"
         @keydown.enter="submit"
         @keydown.esc="cancel"
       />
@@ -64,6 +65,10 @@ export default {
       default: '',
       type: String,
     },
+    errorMessage: {
+      default: '',
+      type: String,
+    },
   },
   data() {
     return {
@@ -101,6 +106,8 @@ export default {
   &__actions {
     @apply tw-flex tw-items-center;
     @apply tw-ml-20;
+
+    height: var(--ec-input-field-height);
   }
 
   &__action {
@@ -108,6 +115,8 @@ export default {
     @apply tw-p-0;
     @apply tw-bg-transparent tw-fill-key-4;
     @apply tw-outline-none;
+
+    line-height: 0;
 
     &:focus {
       @apply tw-fill-key-3;
