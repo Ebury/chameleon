@@ -16,6 +16,7 @@ import '../src/styles/themes/blue.css';
 import '../src/styles/main.css';
 
 export const parameters = {
+  viewMode: 'docs',
   layout: 'fullscreen',
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: getAllBackgrounds('light'),
