@@ -12,6 +12,7 @@
     :is-loading="isLoading"
     :popper-modifiers="popperModifiers"
     :popover-options="popoverOptions"
+    :is-sensitive="isSensitive"
     @change="onSelected"
     @open="$emit('open')"
     @after-open="$emit('after-open')"
@@ -26,6 +27,7 @@
       :placeholder="placeholder"
       :disabled="disabled"
       :icon-size="24"
+      :is-sensitive="isSensitive"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-dropdown__input` : 'ec-dropdown__input'"
       readonly
       icon="simple-arrow-drop-down"
@@ -123,6 +125,10 @@ export default {
     },
     isInGroup: {
       type: String,
+    },
+    isSensitive: {
+      type: Boolean,
+      default: false,
     },
     id: {
       type: String,
