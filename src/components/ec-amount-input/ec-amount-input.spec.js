@@ -1,5 +1,8 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcAmountInput from './ec-amount-input.vue';
+import { config } from '../../config';
+
+jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 describe('EcAmountInput', () => {
   function mountAmountInput(props, mountOpts) {
@@ -29,6 +32,11 @@ describe('EcAmountInput', () => {
 
   it('should render properly', () => {
     const wrapper = mountAmountInput();
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render with a sensitive class when isSensitive prop is set to true', () => {
+    const wrapper = mountAmountInput({ isSensitive: true });
     expect(wrapper.element).toMatchSnapshot();
   });
 

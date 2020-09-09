@@ -19,3 +19,23 @@ exports[`EcAmountInput should render properly 1`] = `
   <!---->
 </div>
 `;
+
+exports[`EcAmountInput should render with a sensitive class when isSensitive prop is set to true 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <!---->
+   
+  <input
+    class="ec-input-field__input my-sensitive-content-class"
+    data-test="ec-amount-input ec-input-field__input"
+    id="ec-input-field-5"
+    type="text"
+  />
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
