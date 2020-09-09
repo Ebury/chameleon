@@ -40,6 +40,7 @@
         'ec-input-field__input--is-loading': isLoading,
         'ec-input-field__input--has-error': isInvalid,
         'ec-input-field__input--has-icon': !!icon,
+        [sensitiveClass] : isSensitive,
       }"
       v-bind="$attrs"
       :type="type"
@@ -78,6 +79,7 @@
 import EcLoadingIcon from '../ec-loading-icon';
 import EcIcon from '../ec-icon';
 import EcTooltip from '../../directives/ec-tooltip';
+import { config } from '../../config';
 
 export default {
   name: 'EcInputField',
@@ -136,6 +138,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    isSensitive: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      sensitiveClass: config.sensitiveClass,
+    };
   },
   computed: {
     inputId() {

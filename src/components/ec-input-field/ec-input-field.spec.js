@@ -1,6 +1,10 @@
+
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcInputField from './ec-input-field.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
+import { config } from '../../config';
+
+jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-class');
 
 describe('EcInputField', () => {
   function mountInputField(props, mountOpts) {
@@ -160,6 +164,12 @@ describe('EcInputField', () => {
 
   it('renders properly when the labelTooltip prop is set', () => {
     const wrapper = mountInputField({ labelTooltip: 'Testing the labelTooltip prop' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly when the isSensitive prop is set', () => {
+    const wrapper = mountInputField({ isSensitive: true });
+
     expect(wrapper.element).toMatchSnapshot();
   });
 
