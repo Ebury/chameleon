@@ -1,4 +1,5 @@
 import * as SortDirection from './enums/sort-direction';
+import { config } from './config';
 
 export { default as EcAlert } from './components/ec-alert';
 export { default as EcAmount } from './directives/ec-amount';
@@ -38,3 +39,4 @@ export { default as ecWithLoading } from './hocs/ec-with-loading';
 export { default as ecWithSorting } from './hocs/ec-with-sorting';
 
 export { SortDirection };
+export { config };
