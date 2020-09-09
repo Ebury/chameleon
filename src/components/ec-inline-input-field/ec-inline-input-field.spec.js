@@ -2,6 +2,9 @@ import { mount } from '@vue/test-utils';
 import clipboardCopy from 'clipboard-copy';
 import EcInlineInputField from './ec-inline-input-field.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
+import { config } from '../../config';
+
+jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 jest.mock('clipboard-copy');
 jest.mock('../../directives/ec-tooltip', () => {
@@ -58,6 +61,13 @@ describe('EcInlineInputField', () => {
         expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
       });
 
+      it('should render with a sensitive class when isSensitive prop is set to true when isSensitive prop is set to true', async () => {
+        const wrapper = mountInlineInputField({ isSensitive: true });
+
+        expect(wrapper.element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
+      });
+
       describe('@events', () => {
         it('should emit `edit` event when the edit button is clicked', async () => {
           const wrapper = mountInlineInputField();
@@ -85,6 +95,18 @@ describe('EcInlineInputField', () => {
 
         expect(focusSpy).toHaveBeenCalledTimes(1);
         focusSpy.mockRestore();
+      });
+
+      it('should render with a sensitive class when isSensitive prop is set to true', async () => {
+        const wrapper = mountInlineInputField(
+          {
+            isEditing: true,
+            isSensitive: true,
+          },
+        );
+
+        expect(wrapper.element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-inline-input-field-edit').exists()).toBeTruthy();
       });
 
       describe('@events', () => {
@@ -145,6 +167,13 @@ describe('EcInlineInputField', () => {
         expect(wrapper.element).toMatchSnapshot();
         expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBeTruthy();
       });
+
+      it('should render with a sensitive class when isSensitive prop is set to true', async () => {
+        const wrapper = mountInlineInputField({ isLoading: true, isSensitive: true });
+
+        expect(wrapper.element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBeTruthy();
+      });
     });
   });
 
@@ -168,6 +197,21 @@ describe('EcInlineInputField', () => {
         {
           isEditable: false,
           isCopiable: true,
+          tooltipTextSuccess,
+          tooltipTextError,
+        },
+      );
+
+      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBeTruthy();
+    });
+
+    it('should render with a sensitive class when isSensitive prop is set to true', async () => {
+      const wrapper = mountInlineInputField(
+        {
+          isEditable: false,
+          isCopiable: true,
+          isSensitive: true,
           tooltipTextSuccess,
           tooltipTextError,
         },

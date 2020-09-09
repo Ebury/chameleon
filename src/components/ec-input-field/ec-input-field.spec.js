@@ -4,7 +4,7 @@ import EcInputField from './ec-input-field.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 import { config } from '../../config';
 
-jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-class');
+jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 describe('EcInputField', () => {
   function mountInputField(props, mountOpts) {
@@ -167,7 +167,7 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('renders properly when the isSensitive prop is set', () => {
+  it('should render with a sensitive class when isSensitive prop is set to true', () => {
     const wrapper = mountInputField({ isSensitive: true });
 
     expect(wrapper.element).toMatchSnapshot();
