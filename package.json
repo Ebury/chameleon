@@ -32,9 +32,8 @@
     "release": "npm version patch && npm publish && git push --follow-tags"
   },
   "dependencies": {
-    "@storybook/cli": "6.0.21",
     "clipboard-copy": "3.1.0",
-    "focus-trap": "6.0.1",
+    "focus-trap": "5.1.0",
     "tailwindcss": "1.8.4",
     "v-tooltip": "2.0.3",
     "vue": "2.6.12",
@@ -42,7 +41,6 @@
   },
   "devDependencies": {
     "@ascendancyy/vue-cli-plugin-stylelint": "1.1.2",
-    "@babel/core": "7.11.6",
     "@fullhuman/postcss-purgecss": "2.3.0",
     "@storybook/addon-actions": "6.0.21",
     "@storybook/addon-essentials": "6.0.21",
@@ -80,7 +78,6 @@
     "postcss-mixins": "6.2.3",
     "postcss-nested": "4.2.3",
     "postcss-preset-env": "6.7.0",
-    "react-is": "16.13.1",
     "snapshot-diff": "0.8.1",
     "storybook-vue-router": "1.0.7",
     "stylelint": "13.7.0",
