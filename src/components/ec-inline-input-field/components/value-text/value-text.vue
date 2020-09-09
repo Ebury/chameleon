@@ -53,6 +53,8 @@ export default {
     @apply tw-bg-transparent tw-fill-gray-4;
     @apply tw-outline-none;
 
+    line-height: 0;
+
     &:focus {
       @apply tw-fill-key-4;
     }
