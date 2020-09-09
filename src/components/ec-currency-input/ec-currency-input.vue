@@ -57,6 +57,7 @@
         :error-id="errorId"
         :error-message="errorMessage"
         :disabled="isAmountDisabled"
+        :is-sensitive="isSensitive"
         is-in-group="left"
         class="ec-currency-input__amount"
         data-test="ec-currency-input__amount"
@@ -117,6 +118,10 @@ export default {
       default: false,
     },
     isAmountDisabled: {
+      type: Boolean,
+      default: false,
+    },
+    isSensitive: {
       type: Boolean,
       default: false,
     },

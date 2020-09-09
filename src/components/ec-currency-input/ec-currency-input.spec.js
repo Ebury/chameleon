@@ -1,5 +1,8 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcCurrencyInput from './ec-currency-input.vue';
+import { config } from '../../config';
+
+jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 describe('EcCurrencyInput', () => {
   const currencies = ['GBP', 'EUR', 'USD', 'JPY'];
@@ -35,6 +38,12 @@ describe('EcCurrencyInput', () => {
 
   it('should render properly', () => {
     const wrapper = mountCurrencyInput();
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render with a sensitive class when isSensitive prop is set to true', () => {
+    const wrapper = mountCurrencyInput({ isSensitive: true });
 
     expect(wrapper.element).toMatchSnapshot();
   });
