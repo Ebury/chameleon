@@ -10,6 +10,7 @@
         ref="input"
         v-model="inputModel"
         type="text"
+        :is-sensitive="isSensitive"
         data-test="ec-inline-input-field-edit__input"
         @keydown.enter="submit"
         @keydown.esc="cancel"
@@ -63,6 +64,10 @@ export default {
     value: {
       default: '',
       type: String,
+    },
+    isSensitive: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

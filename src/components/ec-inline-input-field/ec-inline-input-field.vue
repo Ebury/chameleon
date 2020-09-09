@@ -7,12 +7,14 @@
     <template v-if="isEditable">
       <ec-inline-input-field-loading
         v-if="isLoading"
+        :is-sensitive="isSensitive"
         :value="valueForLoading"
       />
       <ec-inline-input-field-edit
         v-else-if="isEditing"
         v-model="value"
         :label="label"
+        :is-sensitive="isSensitive"
         @cancel="cancel"
         @submit="submit"
       />
@@ -20,6 +22,7 @@
         ref="valueText"
         v-else
         :value="value"
+        :is-sensitive="isSensitive"
         @edit="edit"
       />
     </template>
@@ -28,6 +31,7 @@
       v-else-if="isCopiable"
       :tooltip-text-success="tooltipTextSuccess"
       :tooltip-text-error="tooltipTextError"
+      :is-sensitive="isSensitive"
       :value="value"
     />
 
@@ -72,6 +76,10 @@ export default {
       default: false,
     },
     isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    isSensitive: {
       type: Boolean,
       default: false,
     },

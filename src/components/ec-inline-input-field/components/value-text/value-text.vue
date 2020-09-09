@@ -3,7 +3,14 @@
     class="ec-inline-input-field-value-text"
     data-test="ec-inline-input-field-value-text"
   >
-    <span class="ec-inline-input-field-value-text__text">{{ value }}</span>
+    <span
+      class="ec-inline-input-field-value-text__text"
+      :class="{
+        [sensitiveClass] : isSensitive,
+      }"
+    >
+      {{ value }}
+    </span>
     <button
       type="button"
       class="ec-inline-input-field-value-text__action"
@@ -21,6 +28,7 @@
 
 <script>
 import EcIcon from '../../../ec-icon';
+import { config } from '../../../../config';
 
 export default {
   name: 'EcInlineInputFieldValueText',
@@ -30,6 +38,15 @@ export default {
       default: '',
       type: String,
     },
+    isSensitive: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      sensitiveClass: config.sensitiveClass,
+    };
   },
   methods: {
     edit() {
