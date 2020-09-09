@@ -1,5 +1,8 @@
 import { mount } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
+import { config } from '../../config';
+
+jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 describe('EcDropdownSearch - Keyboard navigation', () => {
   const items = [
