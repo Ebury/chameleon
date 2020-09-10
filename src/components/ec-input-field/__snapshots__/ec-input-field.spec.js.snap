@@ -612,7 +612,7 @@ exports[`EcInputField should render with a sensitive class when isSensitive prop
   </label>
    
   <input
-    class="ec-input-field__input my-sensitive-content-class"
+    class="ec-input-field__input my-sensitive-content-test-class"
     data-test="ec-input-field__input"
     id="ec-input-field-43"
     type="text"
