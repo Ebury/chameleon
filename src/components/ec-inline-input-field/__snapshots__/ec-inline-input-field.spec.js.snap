@@ -165,6 +165,90 @@ exports[`EcInlineInputField when component is editable when the component is in 
 </div>
 `;
 
+exports[`EcInlineInputField when component is editable when the component is in editing mode should render properly when the errorMessage prop is given 1`] = `
+<div
+  data-test="ec-inline-input-field"
+>
+  <!---->
+   
+  <div
+    data-test="ec-inline-input-field-edit"
+  >
+    <label
+      class="ec-inline-input-field-edit__label"
+      for="ec-inline-input-field-edit__input-36"
+    >
+      Label
+    </label>
+     
+    <div
+      class="ec-inline-input-field-edit__edit-panel"
+    >
+      <div
+        class="ec-input-field"
+        data-test="ec-input-field"
+      >
+        <!---->
+         
+        <input
+          aria-describedby="ec-input-field-error-37"
+          class="ec-input-field__input ec-input-field__input--has-error"
+          data-test="ec-inline-input-field-edit__input ec-input-field__input"
+          id="ec-inline-input-field-edit__input-36"
+          type="text"
+        />
+         
+        <!---->
+         
+        <div
+          class="ec-input-field__error-text"
+          data-test="ec-input-field__error-text"
+          id="ec-input-field-error-37"
+        >
+          error msg
+        </div>
+      </div>
+       
+      <div
+        class="ec-inline-input-field-edit__actions"
+      >
+        <button
+          class="ec-inline-input-field-edit__action"
+          data-test="ec-inline-input-field-edit__submit-action"
+          type="button"
+        >
+          <svg
+            class="ec-inline-input-field-edit__action-icon ec-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-check"
+            />
+          </svg>
+        </button>
+         
+        <button
+          class="ec-inline-input-field-edit__action"
+          data-test="ec-inline-input-field-edit__cancel-action"
+          type="button"
+        >
+          <svg
+            class="ec-inline-input-field-edit__action-icon ec-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`EcInlineInputField when component is editable when the component is in editing mode should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
   data-test="ec-inline-input-field"
@@ -347,7 +431,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
       <input
         class="ec-input-field__input ec-input-field__input--is-loading"
         data-test="ec-input-field__input"
-        id="ec-input-field-61"
+        id="ec-input-field-67"
         readonly="readonly"
         type="text"
       />
@@ -421,7 +505,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
       <input
         class="ec-input-field__input ec-input-field__input--is-loading my-sensitive-content-test-class"
         data-test="ec-input-field__input"
-        id="ec-input-field-69"
+        id="ec-input-field-75"
         readonly="readonly"
         type="text"
       />

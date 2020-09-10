@@ -15,6 +15,7 @@
         v-model="value"
         :label="label"
         :is-sensitive="isSensitive"
+        :error-message="errorMessage"
         @cancel="cancel"
         @submit="submit"
       />
@@ -92,6 +93,10 @@ export default {
       type: String,
     },
     tooltipTextError: {
+      type: String,
+    },
+    errorMessage: {
+      default: '',
       type: String,
     },
   },

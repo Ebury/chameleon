@@ -112,6 +112,13 @@ describe('EcInlineInputField', () => {
         expect(wrapper.findByDataTest('ec-inline-input-field-edit').exists()).toBeTruthy();
       });
 
+      it('should render properly when the errorMessage prop is given', async () => {
+        const wrapper = mountInlineInputField({ isEditing: true, errorMessage: 'error msg' });
+
+        expect(wrapper.element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-input-field__error-text').exists()).toBeTruthy();
+      });
+
       describe('@events', () => {
         it('should emit `cancel` event when esc key is pressed in the input field', async () => {
           const wrapper = mountInlineInputField({ isEditing: true });
