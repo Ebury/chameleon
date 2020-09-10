@@ -1,5 +1,5 @@
 import * as SortDirection from './enums/sort-direction';
-import { config } from './config';
+import config from './config';
 
 export { default as EcAlert } from './components/ec-alert';
 export { default as EcAmount } from './directives/ec-amount';

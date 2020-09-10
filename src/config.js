@@ -1,8 +1,8 @@
 let sensitiveClass = '';
 
-export const config = {
+export default {
   get sensitiveClass() {
-    if (sensitiveClass.length === 0) {
+    if (!sensitiveClass) {
       throw new Error('sensitiveClass is required');
     }
     return sensitiveClass;
