@@ -2,9 +2,6 @@ import Vue from 'vue';
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcDropdown from './ec-dropdown.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
-import { config } from '../../config';
-
-jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 describe('EcDropdown', () => {
   const MockedEcPopover = Vue.extend({
@@ -137,7 +134,7 @@ describe('EcDropdown', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should render with a sensitive class when isSensitive prop is set to true when isSensitive prop is set to true', () => {
+    it('should render with a sensitive class when isSensitive prop is set to true', () => {
       const wrapper = mountDropdown({ isSensitive: true });
       expect(wrapper.element).toMatchSnapshot();
     });

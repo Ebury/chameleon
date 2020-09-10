@@ -2,9 +2,6 @@ import { mount } from '@vue/test-utils';
 import clipboardCopy from 'clipboard-copy';
 import EcInlineInputField from './ec-inline-input-field.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
-import { config } from '../../config';
-
-jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 jest.mock('clipboard-copy');
 jest.mock('../../directives/ec-tooltip', () => {
@@ -47,6 +44,12 @@ describe('EcInlineInputField', () => {
           default: '<a href="#">Link</a>',
         },
       });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render with a sensitive class when isSensitive prop is set to true', async () => {
+      const wrapper = mountInlineInputField({ isEditable: false, isSensitive: true });
 
       expect(wrapper.element).toMatchSnapshot();
     });

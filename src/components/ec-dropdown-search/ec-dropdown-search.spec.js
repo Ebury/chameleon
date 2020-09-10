@@ -1,9 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
-import { config } from '../../config';
-
-jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 describe('EcDropdownSearch', () => {
   const MockedEcTooltipDirective = {

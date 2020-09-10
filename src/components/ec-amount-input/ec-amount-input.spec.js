@@ -1,8 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcAmountInput from './ec-amount-input.vue';
-import { config } from '../../config';
-
-jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 describe('EcAmountInput', () => {
   function mountAmountInput(props, mountOpts) {

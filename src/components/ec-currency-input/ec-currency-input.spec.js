@@ -1,8 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcCurrencyInput from './ec-currency-input.vue';
-import { config } from '../../config';
-
-jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 describe('EcCurrencyInput', () => {
   const currencies = ['GBP', 'EUR', 'USD', 'JPY'];

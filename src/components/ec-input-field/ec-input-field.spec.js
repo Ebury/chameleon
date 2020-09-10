@@ -2,9 +2,6 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcInputField from './ec-input-field.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
-import { config } from '../../config';
-
-jest.spyOn(config, 'sensitiveClass', 'get').mockReturnValue('my-sensitive-content-class');
 
 describe('EcInputField', () => {
   function mountInputField(props, mountOpts) {
