@@ -35,6 +35,9 @@ stories
       isCurrenciesDisabled: {
         default: boolean('currencies disabled', false),
       },
+      isSensitive: {
+        default: boolean('Is Sensitive', false),
+      },
       errorMessage: {
         default: text('error message', ''),
       },
@@ -44,7 +47,7 @@ stories
     },
     template: `
       <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
-        <ec-currency-input v-model="value" :currencies="currencies" v-bind="$props" @change="onChange" class="tw-mt-20 tw-mb-20" />
+        <ec-currency-input v-model="value" :currencies="currencies" v-bind="$props" @change="onChange" :is-sensitive="isSensitive" class="tw-mt-20 tw-mb-20" />
         Value Object: {{ value }}
       </div>
     `,

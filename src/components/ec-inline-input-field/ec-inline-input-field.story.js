@@ -21,6 +21,9 @@ stories
       error: {
         default: boolean('Show error when saving', false),
       },
+      isSensitive: {
+        default: boolean('Is Sensitive', false),
+      },
     },
     data() {
       return {
@@ -70,6 +73,7 @@ stories
             :is-loading="isLoading"
             :tooltip-text-success="tooltipTextSuccess"
             :tooltip-text-error="tooltipTextError"
+            :is-sensitive="isSensitive"
             v-model="value"
             @cancel="onCancel"
             @edit="onEdit"
@@ -98,6 +102,7 @@ stories
             :is-copiable="true"
             :tooltip-text-success="tooltipTextSuccess"
             :tooltip-text-error="tooltipTextError"
+            :is-sensitive="isSensitive"
             v-model="value"
           />
       </div>

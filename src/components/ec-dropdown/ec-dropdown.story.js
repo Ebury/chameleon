@@ -50,6 +50,9 @@ stories.add('basic', () => ({
     isLoading: {
       default: boolean('isLoading', false),
     },
+    isSensitive: {
+      default: boolean('Is Sensitive', false),
+    },
   },
   methods: {
     onSelected: action('Selected'),
@@ -62,6 +65,7 @@ stories.add('basic', () => ({
         <ec-dropdown
           v-bind="$props"
           v-model="selected"
+          :is-sensitive="isSensitive"
           @change="onSelected">
         </ec-dropdown>
       </div>
