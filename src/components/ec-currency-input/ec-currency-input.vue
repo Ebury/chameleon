@@ -42,6 +42,7 @@
         is-in-group="right"
         is-search-enabled
         :is-loading="currenciesAreLoading"
+        :is-sensitive="isSensitive"
         :error-message="errorMessage"
         data-test="ec-currency-input__currencies"
         @focus="onFocusCurrency"

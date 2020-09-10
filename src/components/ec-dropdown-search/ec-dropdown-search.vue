@@ -31,8 +31,7 @@
       <div slot="popover">
         <ul
           ref="itemsOverflowContainer"
-          class="ec-dropdown-search__item-list"
-          :class="{ [sensitiveClass] : isSensitive }"
+          :class="listClasses"
           data-test="ec-dropdown-search__item-list"
         >
           <li
@@ -133,7 +132,7 @@ import EcPopover from '../ec-popover';
 import EcLoading from '../ec-loading';
 import EcTooltip from '../../directives/ec-tooltip';
 import { removeDiacritics } from '../../utils/diacritics';
-import { config } from '../../config';
+import config from '../../config';
 
 export default {
   name: 'EcDropdownSearch',
@@ -204,7 +203,6 @@ export default {
       isOpen: false,
       filterText: '',
       initialFocusedElement: null,
-      sensitiveClass: config.sensitiveClass,
       popperOptions: {
         modifiers: {
           // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
@@ -267,6 +265,15 @@ export default {
     };
   },
   computed: {
+    listClasses() {
+      const classes = ['ec-dropdown-search__item-list'];
+
+      if (this.isSensitive) {
+        classes.push(config.sensitiveClass);
+      }
+
+      return classes;
+    },
     filteredItems() {
       const filterText = removeDiacritics(this.filterText.toLowerCase());
       if (!filterText) {

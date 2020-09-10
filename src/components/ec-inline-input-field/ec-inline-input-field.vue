@@ -37,7 +37,7 @@
 
     <div
       v-else
-      class="ec-inline-input-field__content"
+      :class="textClasses"
     >
       <slot />
     </div>
@@ -49,6 +49,7 @@ import EcInlineInputFieldCopy from './components/copy';
 import EcInlineInputFieldEdit from './components/edit';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldValueText from './components/value-text';
+import config from '../../config';
 
 export default {
   name: 'EcInlineInputField',
@@ -98,6 +99,17 @@ export default {
     return {
       valueForLoading: this.value,
     };
+  },
+  computed: {
+    textClasses() {
+      const classes = ['ec-inline-input-field__content'];
+
+      if (this.isSensitive) {
+        classes.push(config.sensitiveClass);
+      }
+
+      return classes;
+    },
   },
   methods: {
     cancel() {

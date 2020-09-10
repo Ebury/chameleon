@@ -4,10 +4,7 @@
     data-test="ec-inline-input-field-value-text"
   >
     <span
-      class="ec-inline-input-field-value-text__text"
-      :class="{
-        [sensitiveClass] : isSensitive,
-      }"
+      :class="textClasses"
     >
       {{ value }}
     </span>
@@ -28,7 +25,7 @@
 
 <script>
 import EcIcon from '../../../ec-icon';
-import { config } from '../../../../config';
+import config from '../../../../config';
 
 export default {
   name: 'EcInlineInputFieldValueText',
@@ -43,10 +40,16 @@ export default {
       default: false,
     },
   },
-  data() {
-    return {
-      sensitiveClass: config.sensitiveClass,
-    };
+  computed: {
+    textClasses() {
+      const classes = ['ec-inline-input-field-value-text__text'];
+
+      if (this.isSensitive) {
+        classes.push(config.sensitiveClass);
+      }
+
+      return classes;
+    },
   },
   methods: {
     edit() {

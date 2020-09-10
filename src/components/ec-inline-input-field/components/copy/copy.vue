@@ -3,12 +3,7 @@
     class="ec-inline-input-field-copy"
     data-test="ec-inline-input-field-copy"
   >
-    <span
-      class="ec-inline-input-field-copy__text"
-      :class="{
-        [sensitiveClass] : isSensitive,
-      }"
-    >
+    <span :class="textClasses">
       {{ value }}
     </span>
 
@@ -41,7 +36,7 @@
 import clipboardCopy from 'clipboard-copy';
 import EcIcon from '../../../ec-icon';
 import EcTooltip from '../../../../directives/ec-tooltip';
-import { config } from '../../../../config';
+import config from '../../../../config';
 
 export default {
   name: 'EcInlineInputFieldCopy',
@@ -72,10 +67,18 @@ export default {
   data() {
     return {
       isCopied: null,
-      sensitiveClass: config.sensitiveClass,
     };
   },
   computed: {
+    textClasses() {
+      const classes = ['ec-inline-input-field-copy__text'];
+
+      if (this.isSensitive) {
+        classes.push(config.sensitiveClass);
+      }
+
+      return classes;
+    },
     tooltipContent() {
       switch (this.isCopied) {
         case true:
