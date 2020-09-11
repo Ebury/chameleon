@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { text, select } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcInputField from './ec-input-field.vue';
 
@@ -30,6 +30,9 @@ stories
       },
       iconNumber: {
         default: text('icon', '', GROUPS.NUMBER),
+      },
+      isSensitive: {
+        default: boolean('Is Sensitive', false),
       },
       valueFromPropsText: {
         default: text('value', '', GROUPS.TEXT),
@@ -103,42 +106,42 @@ stories
     <div class="tw-grid-container">
       <div class="tw-grid">
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field type="number" min="5" max="10" v-model.number="valueNumber" :note="noteNumber" :label="labelNumber" :error-message="errorMessageNumber" :icon="iconNumber" :is-in-group="isInGroup" @change="onChange" @input="onInput" />
+          <ec-input-field type="number" min="5" max="10" v-model.number="valueNumber" :note="noteNumber" :label="labelNumber" :error-message="errorMessageNumber" :icon="iconNumber"  :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field type="text" placeholder="My input" v-model="valueText" :note="noteText" :label="labelText" :error-message="errorMessageText" :icon="iconText" :is-in-group="isInGroup" @change="onChange" @input="onInput" />
+          <ec-input-field type="text" placeholder="My input" v-model="valueText" :note="noteText" :label="labelText" :error-message="errorMessageText" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field type="date" placeholder="My input" v-model="valueDate" :note="noteDate" :label="labelDate" :error-message="errorMessageDate" :icon="iconDate" :is-in-group="isInGroup" @change="onChange" @input="onInput" />        </div>
+          <ec-input-field type="date" placeholder="My input" v-model="valueDate" :note="noteDate" :label="labelDate" :error-message="errorMessageDate" :icon="iconDate" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />        </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field disabled placeholder="My disabled input" v-model="valueText" label="Disabled input" :icon="iconText" :is-in-group="isInGroup" @change="onChange" @input="onInput" />
+          <ec-input-field disabled placeholder="My disabled input" v-model="valueText" label="Disabled input" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field disabled placeholder="My disabled input" v-model="valueText" label="Disabled input" error-message="Disabled with error" :icon="iconText" :is-in-group="isInGroup" @change="onChange" @input="onInput" />
+          <ec-input-field disabled placeholder="My disabled input" v-model="valueText" label="Disabled input" error-message="Disabled with error" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Input with icon" :is-in-group="isInGroup" @change="onChange" @input="onInput" />
+          <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Input with icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field readonly placeholder="My input" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores." label="Read only input with long text" :icon="iconText" :is-in-group="isInGroup" @change="onChange" @input="onInput" />
+          <ec-input-field readonly placeholder="My input" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores." label="Read only input with long text" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="An other input" v-model="valueText" label="Input tooltip on the label" :is-in-group="isInGroup" :label-tooltip="labelTooltip" @change="onChange" @input="onInput" />
+          <ec-input-field placeholder="An other input" v-model="valueText" label="Input tooltip on the label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Short Label" :is-in-group="isInGroup" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
+          <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Short Label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field readonly placeholder="My input" :value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-loading="true" />
+          <ec-input-field readonly placeholder="My input" :value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
         </div>
 
         <div class="tw-col-full"></div>

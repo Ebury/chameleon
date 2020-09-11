@@ -39,6 +39,12 @@ describe('EcCurrencyInput', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render with a sensitive class when isSensitive prop is set to true', () => {
+    const wrapper = mountCurrencyInput({ isSensitive: true });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   describe(':props', () => {
     it('should render the label when the label is given', () => {
       const wrapper = mountCurrencyInput({ label: 'Currency Input' });

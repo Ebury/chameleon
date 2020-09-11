@@ -47,12 +47,25 @@ describe('EcInlineInputField', () => {
 
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it('should render with a sensitive class when isSensitive prop is set to true', async () => {
+      const wrapper = mountInlineInputField({ isEditable: false, isSensitive: true });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('when component is editable', () => {
     describe('when the component is in its initial state', () => {
       it('should render as expected', async () => {
         const wrapper = mountInlineInputField();
+
+        expect(wrapper.element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
+      });
+
+      it('should render with a sensitive class when isSensitive prop is set to true when isSensitive prop is set to true', async () => {
+        const wrapper = mountInlineInputField({ isSensitive: true });
 
         expect(wrapper.element).toMatchSnapshot();
         expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
@@ -85,6 +98,18 @@ describe('EcInlineInputField', () => {
 
         expect(focusSpy).toHaveBeenCalledTimes(1);
         focusSpy.mockRestore();
+      });
+
+      it('should render with a sensitive class when isSensitive prop is set to true', async () => {
+        const wrapper = mountInlineInputField(
+          {
+            isEditing: true,
+            isSensitive: true,
+          },
+        );
+
+        expect(wrapper.element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-inline-input-field-edit').exists()).toBeTruthy();
       });
 
       it('should render properly when the errorMessage prop is given', async () => {
@@ -152,6 +177,13 @@ describe('EcInlineInputField', () => {
         expect(wrapper.element).toMatchSnapshot();
         expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBeTruthy();
       });
+
+      it('should render with a sensitive class when isSensitive prop is set to true', async () => {
+        const wrapper = mountInlineInputField({ isLoading: true, isSensitive: true });
+
+        expect(wrapper.element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBeTruthy();
+      });
     });
   });
 
@@ -175,6 +207,21 @@ describe('EcInlineInputField', () => {
         {
           isEditable: false,
           isCopiable: true,
+          tooltipTextSuccess,
+          tooltipTextError,
+        },
+      );
+
+      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBeTruthy();
+    });
+
+    it('should render with a sensitive class when isSensitive prop is set to true', async () => {
+      const wrapper = mountInlineInputField(
+        {
+          isEditable: false,
+          isCopiable: true,
+          isSensitive: true,
           tooltipTextSuccess,
           tooltipTextError,
         },

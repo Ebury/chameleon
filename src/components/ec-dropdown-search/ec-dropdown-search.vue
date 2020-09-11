@@ -31,7 +31,7 @@
       <div slot="popover">
         <ul
           ref="itemsOverflowContainer"
-          class="ec-dropdown-search__item-list"
+          :class="listClasses"
           data-test="ec-dropdown-search__item-list"
         >
           <li
@@ -132,6 +132,7 @@ import EcPopover from '../ec-popover';
 import EcLoading from '../ec-loading';
 import EcTooltip from '../../directives/ec-tooltip';
 import { removeDiacritics } from '../../utils/diacritics';
+import config from '../../config';
 
 export default {
   name: 'EcDropdownSearch',
@@ -155,6 +156,10 @@ export default {
     isSearchEnabled: {
       type: Boolean,
       default: true,
+    },
+    isSensitive: {
+      type: Boolean,
+      default: false,
     },
     items: {
       type: Array,
@@ -260,6 +265,15 @@ export default {
     };
   },
   computed: {
+    listClasses() {
+      const classes = ['ec-dropdown-search__item-list'];
+
+      if (this.isSensitive) {
+        classes.push(config.sensitiveClass);
+      }
+
+      return classes;
+    },
     filteredItems() {
       const filterText = removeDiacritics(this.filterText.toLowerCase());
       if (!filterText) {

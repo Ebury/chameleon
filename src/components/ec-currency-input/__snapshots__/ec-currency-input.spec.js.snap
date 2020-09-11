@@ -18,7 +18,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
     <input
       class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
       data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
-      id="ec-currency-input-field-61"
+      id="ec-currency-input-field-71"
       placeholder=""
       readonly="readonly"
       type="text"
@@ -121,7 +121,7 @@ exports[`EcCurrencyInput :props should render the component with the input disab
   class="ec-input-field__input ec-input-field__input--is-in-group-left"
   data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
   disabled="disabled"
-  id="ec-input-field-85"
+  id="ec-input-field-95"
   type="text"
 />
 `;
@@ -130,7 +130,7 @@ exports[`EcCurrencyInput :props should render the error when the errorMessage is
 <div
   class="ec-currency-input__error-text"
   data-test="ec-currency-input__error-text"
-  id="ec-currency-input-field-31"
+  id="ec-currency-input-field-41"
 >
   Random message
 </div>
@@ -176,7 +176,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
       <input
         class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
         data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
-        id="ec-currency-input-field-41"
+        id="ec-currency-input-field-51"
         placeholder=""
         readonly="readonly"
         type="text"
@@ -366,6 +366,144 @@ exports[`EcCurrencyInput should render properly 1`] = `
         class="ec-input-field__input ec-input-field__input--is-in-group-left"
         data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
         id="ec-input-field-9"
+        type="text"
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCurrencyInput should render with a sensitive class when isSensitive prop is set to true 1`] = `
+<div
+  class="ec-currency-input"
+>
+  <!---->
+   
+  <div
+    class="ec-currency-input__input-group"
+  >
+    <div
+      class="ec-dropdown-search ec-dropdown ec-currency-input__currencies"
+      data-test="ec-dropdown"
+    >
+      <ecpopover-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search"
+        offset="8"
+        placement="bottom-end"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <div
+          class="ec-input-field"
+          data-test="ec-input-field"
+        >
+          <!---->
+           
+          <input
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon my-sensitive-content-test-class"
+            data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
+            id="ec-currency-input-field-11"
+            placeholder=""
+            readonly="readonly"
+            type="text"
+          />
+           
+          <div
+            class="ec-input-field__icon-wrapper"
+            data-test="ec-input-field__icon-wrapper"
+          >
+            <svg
+              class="ec-input-field__icon ec-icon"
+              data-test="ec-input-field__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-arrow-drop-down"
+              />
+            </svg>
+          </div>
+           
+          <!---->
+        </div>
+         
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list my-sensitive-content-test-class"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <li
+              class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
+            >
+              <svg
+                class="ec-dropdown-search__search-icon ec-icon"
+              >
+                <use
+                  xlink:href="#ec-simple-search"
+                />
+              </svg>
+               
+              <input
+                autocomplete="off"
+                class="ec-dropdown-search__search-input"
+                data-test="ec-dropdown-search__search-input"
+                placeholder="Search..."
+              />
+            </li>
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              title="GBP"
+            >
+              GBP
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              title="EUR"
+            >
+              EUR
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              title="USD"
+            >
+              USD
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              title="JPY"
+            >
+              JPY
+            </li>
+          </ul>
+        </div>
+      </ecpopover-stub>
+    </div>
+     
+    <div
+      class="ec-input-field ec-currency-input__amount"
+      data-test="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        class="ec-input-field__input ec-input-field__input--is-in-group-left my-sensitive-content-test-class"
+        data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
+        id="ec-input-field-19"
         type="text"
       />
        

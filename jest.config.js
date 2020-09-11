@@ -29,6 +29,7 @@ module.exports = {
   ],
   setupFilesAfterEnv: [
     '<rootDir>/tests/setup/after-env.js',
+    '<rootDir>/tests/setup/chameleon-config.js',
   ],
   collectCoverage: true,
   collectCoverageFrom: [

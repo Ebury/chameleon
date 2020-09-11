@@ -16,8 +16,12 @@ import redTheme from '!!raw-loader!../src/styles/themes/red.css';
 import hotpinkTheme from '!!raw-loader!../src/styles/themes/hotpink.css';
 /* eslint-enable */
 
+import config from '../src/config';
+
 import '../src/styles/themes/blue.css';
 import '../src/styles/main.css';
+
+config.sensitiveClass = 'tw-filter-blur-4';
 
 const supportsCssVariables = !!(window.CSS && window.CSS.supports('color', 'var(--test)'));
 

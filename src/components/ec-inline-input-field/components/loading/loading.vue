@@ -6,6 +6,7 @@
     <ec-input-field
       readonly
       :value="value"
+      :is-sensitive="isSensitive"
       :is-loading="true"
     />
     <div class="ec-inline-input-field-loading__ghost-actions">
@@ -33,6 +34,10 @@ export default {
     value: {
       default: '',
       type: String,
+    },
+    isSensitive: {
+      type: Boolean,
+      default: false,
     },
   },
 };
