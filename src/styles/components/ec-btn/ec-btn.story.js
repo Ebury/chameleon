@@ -9,22 +9,27 @@ const stories = storiesOf('Button', module);
 
 stories
   .addDecorator(StoryRouter())
-  .addParameters({
+  .add('props (dark)', ...generatePropsStory(DARK_THEME), {
     visualRegressionTests: { enabled: false },
   })
-  .add('props (dark)', ...generatePropsStory(DARK_THEME))
-  .add('props (light)', ...generatePropsStory(LIGHT_THEME))
+  .add('props (light)', ...generatePropsStory(LIGHT_THEME), {
+    visualRegressionTests: { enabled: false },
+  })
   .add('all buttons (dark)', generateAllForElement('button'), {
-    backgrounds: [{ ...DARK_THEME, default: true }],
+    backgrounds: { default: DARK_THEME.name, values: [DARK_THEME] },
+    visualRegressionTests: { enabled: false },
   })
   .add('all buttons (light)', generateAllForElement('button'), {
-    backgrounds: [{ ...LIGHT_THEME, default: true }],
+    backgrounds: { default: LIGHT_THEME.name, values: [LIGHT_THEME] },
+    visualRegressionTests: { enabled: false },
   })
   .add('all anchors (dark)', generateAllForElement('a'), {
-    backgrounds: [{ ...DARK_THEME, default: true }],
+    backgrounds: { default: DARK_THEME.name, values: [DARK_THEME] },
+    visualRegressionTests: { enabled: false },
   })
   .add('all anchors (light)', generateAllForElement('a'), {
-    backgrounds: [{ ...LIGHT_THEME, default: true }],
+    backgrounds: { default: LIGHT_THEME.name, values: [LIGHT_THEME] },
+    visualRegressionTests: { enabled: false },
   });
 
 function generatePropsStory(theme) {
@@ -75,7 +80,7 @@ function generatePropsStory(theme) {
         );
       },
     }), {
-      backgrounds: [{ ...theme, default: true }],
+      backgrounds: { default: theme.name, values: [theme] },
       visualRegressionTests: {
         enabled: true,
         knobs: {

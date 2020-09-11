@@ -189,5 +189,3 @@ stories.add('all', () => ({
     </div>
   `,
 }));
-
-export default stories;

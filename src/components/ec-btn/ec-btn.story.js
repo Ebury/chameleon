@@ -7,9 +7,6 @@ import EcBtn from './ec-btn.vue';
 const stories = storiesOf('Button', module).addDecorator(StoryRouter());
 
 stories
-  .addParameters({
-    visualRegressionTests: { enabled: false },
-  })
   .add('basic', () => ({
     components: { EcBtn },
     props: {
@@ -117,4 +114,6 @@ stories
         <p> *** Reverse cannot be combined with outline.</p>
       </div>
   `,
-  }));
+  }), {
+    visualRegressionTests: { enabled: false },
+  });

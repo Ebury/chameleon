@@ -107,5 +107,3 @@ stories
       </div>
         `,
   }));
-
-export default stories;
