@@ -33,14 +33,8 @@
       :id="inputId"
       ref="input"
       v-model="inputModel"
-      class="ec-input-field__input"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input'"
-      :class="{
-        [`ec-input-field__input--is-in-group-${isInGroup}`]: !!isInGroup,
-        'ec-input-field__input--is-loading': isLoading,
-        'ec-input-field__input--has-error': isInvalid,
-        'ec-input-field__input--has-icon': !!icon,
-      }"
+      :class="inputClasses"
       v-bind="$attrs"
       :type="type"
       :aria-describedby="errorMessageId"
@@ -78,6 +72,7 @@
 import EcLoadingIcon from '../ec-loading-icon';
 import EcIcon from '../ec-icon';
 import EcTooltip from '../../directives/ec-tooltip';
+import config from '../../config';
 
 export default {
   name: 'EcInputField',
@@ -136,8 +131,33 @@ export default {
       type: Boolean,
       default: false,
     },
+    isSensitive: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
+    inputClasses() {
+      const classes = ['ec-input-field__input'];
+
+      if (this.isInGroup) {
+        classes.push(`ec-input-field__input--is-in-group-${this.isInGroup}`);
+      }
+      if (this.isLoading) {
+        classes.push('ec-input-field__input--is-loading');
+      }
+      if (this.isInvalid) {
+        classes.push('ec-input-field__input--has-error');
+      }
+      if (this.icon) {
+        classes.push('ec-input-field__input--has-icon');
+      }
+      if (this.isSensitive) {
+        classes.push(config.sensitiveClass);
+      }
+
+      return classes;
+    },
     inputId() {
       return this.id || `ec-input-field-${this._uid}`;
     },

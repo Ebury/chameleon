@@ -32,6 +32,11 @@ describe('EcAmountInput', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render with a sensitive class when isSensitive prop is set to true', () => {
+    const wrapper = mountAmountInput({ isSensitive: true });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should format the value and emit the event to change the v-model on the parent', async () => {
     const wrapper = mountAmountInput();
     wrapper.findByDataTest('ec-amount-input').setValue(222);

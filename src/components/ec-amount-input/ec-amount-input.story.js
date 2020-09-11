@@ -37,6 +37,9 @@ stories
       valueFromProps: {
         default: text('Value', ''),
       },
+      isSensitive: {
+        default: boolean('Is Sensitive', false),
+      },
     },
     methods: {
       getValueType() {
@@ -50,7 +53,7 @@ stories
         <div class="tw-grid">
           <div class="tw-col-12">
             <div>
-              <ec-amount-input v-bind="$props" v-model="value" @change="onChange" @input="onInput" />
+              <ec-amount-input v-bind="$props" v-model="value" @change="onChange" @input="onInput" :is-sensitive="isSensitive"/>
             </div>
             <div class="tw-mt-24">The input value: {{ value }} (type: {{ getValueType() }})</div>
           </div>

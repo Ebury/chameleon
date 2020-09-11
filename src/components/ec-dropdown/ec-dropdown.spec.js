@@ -133,6 +133,11 @@ describe('EcDropdown', () => {
       const wrapper = mountDropdown({ items, isLoading: true });
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it('should render with a sensitive class when isSensitive prop is set to true', () => {
+      const wrapper = mountDropdown({ isSensitive: true });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('#slots', () => {

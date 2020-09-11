@@ -15,7 +15,10 @@ module.exports = ({ file }) => {
   if (isProd && shouldPurgeFile) {
     // see https://purgecss.com/guides/vue.html for reference
     config.plugins['@fullhuman/postcss-purgecss'] = {
-      content: ['./src/**/*.vue', './src/**/*.story.js'],
+      content: [
+        './src/**/*.vue',
+        './src/**/*.story.js',
+        './.storybook/*.js'],
       defaultExtractor(content) {
         const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '');
         return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || [];

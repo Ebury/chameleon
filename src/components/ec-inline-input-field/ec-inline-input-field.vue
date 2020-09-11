@@ -7,12 +7,14 @@
     <template v-if="isEditable">
       <ec-inline-input-field-loading
         v-if="isLoading"
+        :is-sensitive="isSensitive"
         :value="valueForLoading"
       />
       <ec-inline-input-field-edit
         v-else-if="isEditing"
         v-model="value"
         :label="label"
+        :is-sensitive="isSensitive"
         :error-message="errorMessage"
         @cancel="cancel"
         @submit="submit"
@@ -21,6 +23,7 @@
         ref="valueText"
         v-else
         :value="value"
+        :is-sensitive="isSensitive"
         @edit="edit"
       />
     </template>
@@ -29,12 +32,13 @@
       v-else-if="isCopiable"
       :tooltip-text-success="tooltipTextSuccess"
       :tooltip-text-error="tooltipTextError"
+      :is-sensitive="isSensitive"
       :value="value"
     />
 
     <div
       v-else
-      class="ec-inline-input-field__content"
+      :class="textClasses"
     >
       <slot />
     </div>
@@ -46,6 +50,7 @@ import EcInlineInputFieldCopy from './components/copy';
 import EcInlineInputFieldEdit from './components/edit';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldValueText from './components/value-text';
+import config from '../../config';
 
 export default {
   name: 'EcInlineInputField',
@@ -76,6 +81,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    isSensitive: {
+      type: Boolean,
+      default: false,
+    },
     value: {
       default: '',
       type: String,
@@ -95,6 +104,17 @@ export default {
     return {
       valueForLoading: this.value,
     };
+  },
+  computed: {
+    textClasses() {
+      const classes = ['ec-inline-input-field__content'];
+
+      if (this.isSensitive) {
+        classes.push(config.sensitiveClass);
+      }
+
+      return classes;
+    },
   },
   methods: {
     cancel() {
