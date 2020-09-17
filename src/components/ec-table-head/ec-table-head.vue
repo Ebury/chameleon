@@ -22,7 +22,10 @@
             'ec-table-head__cell-wrapper--is-type-currency': column.type === 'currency',
           }"
         >
-          <span :class="{'ec-table-head__cell-text--has-max-width': column.maxWidth}">
+          <span
+            class="ec-table-head__cell-text"
+            :class="{'ec-table-head__cell-text--has-max-width': column.maxWidth}"
+          >
             {{ column.title }}
           </span>
           <ec-icon
@@ -152,8 +155,12 @@ export default {
     }
   }
 
-  &__cell-text--has-max-width {
-    @apply tw-truncate;
+  &__cell-text {
+    @apply tw-whitespace-no-wrap;
+
+    &--has-max-width {
+      @apply tw-truncate;
+    }
   }
 }
 </style>
