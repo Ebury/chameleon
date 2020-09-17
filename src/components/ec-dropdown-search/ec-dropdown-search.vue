@@ -312,9 +312,6 @@ export default {
       if (!this.isOpen) {
         // necessary to regain the focus after tab/enter keyboard event if search feature is active
         this.initialFocusedElement = this.$refs.popover.$el.querySelector(':focus');
-        if (this.isSearchEnabled) {
-          this.isSearchInputFocus = true;
-        }
         if (this.hasCta() && this.isCtaAreaFocus) {
           this.isCtaAreaFocus = false;
         }
@@ -325,7 +322,7 @@ export default {
     focusSearch() {
       this.$nextTick(() => {
         /* istanbul ignore else */
-        if (this.isOpen && this.$refs.searchInput) {
+        if (this.isOpen && this.isSearchEnabled) {
           this.$refs.searchInput.focus();
         }
       });
@@ -367,32 +364,26 @@ export default {
       } else {
         nextItem = this.filteredItems.find(item => !item.disabled);
       }
-      if (this.hasCta() && this.isCtaAreaFocus) {
-        this.isCtaAreaFocus = false;
-      }
+
       if (nextItem) {
         this.select(nextItem, { keyboardNavigation: true });
       }
+
+      if (this.hasCta() && this.isCtaAreaFocus) {
+        this.isCtaAreaFocus = false;
+      }
     },
     onTabKeyDown() {
-      let ctaAreaElementFocuseable;
-      if (this.hasCta()) {
-        ctaAreaElementFocuseable = this.$refs.ctaArea.querySelector(
-          'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-        );
-      }
-
-      if (!this.isSearchInputFocus && !this.isCtaAreaFocus && this.isSearchEnabled) {
-        this.focusSearch();
-      } else if (!this.isSearchInputFocus && !this.isCtaAreaFocus && !this.isSearchEnabled && this.hasCta()) {
-        ctaAreaElementFocuseable.focus();
-        this.isCtaAreaFocus = true;
-      } else if (this.isSearchInputFocus && this.hasCta()) {
-        ctaAreaElementFocuseable.focus();
-        this.isCtaAreaFocus = true;
-      } else if (this.isCtaAreaFocus && this.isSearchEnabled) {
+      if (this.isSearchEnabled && !this.isSearchInputFocus) {
         this.focusSearch();
         this.isCtaAreaFocus = false;
+      } else if (this.hasCta() && !this.isCtaAreaFocus) {
+        const ctaAreaElementFocuseable = this.$refs.ctaArea.querySelector(
+          'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+        );
+
+        ctaAreaElementFocuseable.focus();
+        this.isCtaAreaFocus = true;
       }
     },
     onArrowUpKeyDown() {
