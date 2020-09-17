@@ -312,6 +312,9 @@ export default {
       if (!this.isOpen) {
         // necessary to regain the focus after tab/enter keyboard event if search feature is active
         this.initialFocusedElement = this.$refs.popover.$el.querySelector(':focus');
+        if (this.isSearchEnabled) {
+          this.isSearchInputFocus = true;
+        }
         if (this.hasCta() && this.isCtaAreaFocus) {
           this.isCtaAreaFocus = false;
         }
@@ -372,11 +375,12 @@ export default {
       }
     },
     onTabKeyDown() {
-      // if (this.hasCta()) {
-      const ctaAreaElementFocuseable = this.$refs.ctaArea.querySelector(
-        'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-      );
-      // }
+      let ctaAreaElementFocuseable;
+      if (this.hasCta()) {
+        ctaAreaElementFocuseable = this.$refs.ctaArea.querySelector(
+          'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+        );
+      }
 
       if (!this.isSearchInputFocus && !this.isCtaAreaFocus && this.isSearchEnabled) {
         this.focusSearch();
