@@ -312,9 +312,7 @@ export default {
       if (!this.isOpen) {
         // necessary to regain the focus after tab/enter keyboard event if search feature is active
         this.initialFocusedElement = this.$refs.popover.$el.querySelector(':focus');
-        if (this.hasCta() && this.isCtaAreaFocus) {
-          this.isCtaAreaFocus = false;
-        }
+        this.blurCta();
         this.isOpen = true;
         this.$emit('open');
       }
@@ -344,7 +342,7 @@ export default {
       } else {
         // selecting an item might affect the position of the popover,
         // e.g. new item moves the trigger down
-        this.$refs.popover.update();
+        // this.$refs.popover.update();
       }
     },
     hasCta() {
@@ -369,21 +367,33 @@ export default {
         this.select(nextItem, { keyboardNavigation: true });
       }
 
+      this.blurCta();
+    },
+    blurCta() {
       if (this.hasCta() && this.isCtaAreaFocus) {
         this.isCtaAreaFocus = false;
       }
     },
+    focusCta() {
+      this.isCtaAreaFocus = true;
+    },
+    canFocusCta() {
+      return this.hasCta() && !this.isCtaAreaFocus;
+    },
+    canFocusSearch() {
+      return this.isSearchEnabled && !this.isSearchInputFocus;
+    },
     onTabKeyDown() {
-      if (this.isSearchEnabled && !this.isSearchInputFocus) {
-        this.focusSearch();
-        this.isCtaAreaFocus = false;
-      } else if (this.hasCta() && !this.isCtaAreaFocus) {
+      if (this.canFocusCta()) {
         const ctaAreaElementFocuseable = this.$refs.ctaArea.querySelector(
           'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
         );
 
         ctaAreaElementFocuseable.focus();
-        this.isCtaAreaFocus = true;
+        this.focusCta();
+      } else if (this.canFocusSearch()) {
+        this.focusSearch();
+        this.blurCta();
       }
     },
     onArrowUpKeyDown() {
