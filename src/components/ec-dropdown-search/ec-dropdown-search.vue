@@ -342,7 +342,7 @@ export default {
       } else {
         // selecting an item might affect the position of the popover,
         // e.g. new item moves the trigger down
-        // this.$refs.popover.update();
+        this.$refs.popover.update();
       }
     },
     hasCta() {

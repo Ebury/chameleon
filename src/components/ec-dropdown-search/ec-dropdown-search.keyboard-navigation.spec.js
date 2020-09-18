@@ -1,4 +1,4 @@
-import { mount, shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 
 describe('EcDropdownSearch - Keyboard navigation', () => {
@@ -258,7 +258,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = shallowMountDropdownSearch({ items, isSearchEnabled: false }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
         scopedSlots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -272,6 +272,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+      document.activeElement.blur();
       wrapper.destroy();
     });
 
@@ -279,7 +280,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = shallowMountDropdownSearch({ items, isSearchEnabled: false }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
         scopedSlots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -295,6 +296,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+      document.activeElement.blur();
       wrapper.destroy();
     });
 
@@ -302,7 +304,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = shallowMountDropdownSearch({ items, isSearchEnabled: false }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
         scopedSlots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -318,6 +320,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+      document.activeElement.blur();
       wrapper.destroy();
     });
 
@@ -325,7 +328,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = shallowMountDropdownSearch({ items, isSearchEnabled: true }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
         attachTo: elem,
       });
 
@@ -336,6 +339,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+      document.activeElement.blur();
       wrapper.destroy();
     });
 
@@ -343,7 +347,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = shallowMountDropdownSearch({ items, isSearchEnabled: true }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
         attachTo: elem,
       });
 
@@ -356,6 +360,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+      document.activeElement.blur();
       wrapper.destroy();
     });
 
@@ -363,7 +368,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = shallowMountDropdownSearch({ items, isSearchEnabled: true }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
         attachTo: elem,
       });
 
@@ -376,6 +381,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+      document.activeElement.blur();
       wrapper.destroy();
     });
 
@@ -383,7 +389,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = shallowMountDropdownSearch({ items, isSearchEnabled: true }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
         scopedSlots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -397,6 +403,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+      document.activeElement.blur();
       wrapper.destroy();
     });
 
@@ -404,7 +411,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = shallowMountDropdownSearch({ items, isSearchEnabled: true }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
         scopedSlots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -421,6 +428,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+      document.activeElement.blur();
       wrapper.destroy();
     });
 
@@ -428,7 +436,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = shallowMountDropdownSearch({ items, isSearchEnabled: true }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
         scopedSlots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -444,6 +452,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+      document.activeElement.blur();
       wrapper.destroy();
     });
   });
@@ -650,13 +659,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
 function mountDropdownSearch(props, mountOpts) {
   return mount(EcDropdownSearch, {
-    propsData: { ...props },
-    ...mountOpts,
-  });
-}
-
-function shallowMountDropdownSearch(props, mountOpts) {
-  return shallowMount(EcDropdownSearch, {
     propsData: { ...props },
     ...mountOpts,
   });
