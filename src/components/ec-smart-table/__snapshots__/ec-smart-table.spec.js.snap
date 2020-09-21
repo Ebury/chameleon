@@ -127,7 +127,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                   class="ec-table-head__cell-wrapper"
                 >
                   <span
-                    class=""
+                    class="ec-table-head__cell-text"
                   >
                     
           Test 1
@@ -166,7 +166,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                   class="ec-table-head__cell-wrapper"
                 >
                   <span
-                    class=""
+                    class="ec-table-head__cell-text"
                   >
                     
           Test 2
@@ -187,7 +187,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                   class="ec-table-head__cell-wrapper"
                 >
                   <span
-                    class=""
+                    class="ec-table-head__cell-text"
                   >
                     
           Test 3
@@ -269,7 +269,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 1
@@ -312,7 +312,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 2
@@ -333,7 +333,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 3
@@ -386,7 +386,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 1
@@ -429,7 +429,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 2
@@ -450,7 +450,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 3
@@ -503,7 +503,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 1
@@ -546,7 +546,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 2
@@ -567,7 +567,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 3
@@ -611,7 +611,7 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC -> DESC 1`] = `
     class="ec-table-head__cell-wrapper"
   >
     <span
-      class=""
+      class="ec-table-head__cell-text"
     >
       
           Test 1
@@ -657,7 +657,7 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC 1`] = `
     class="ec-table-head__cell-wrapper"
   >
     <span
-      class=""
+      class="ec-table-head__cell-text"
     >
       
           Test 1
@@ -703,7 +703,7 @@ exports[`EcSmartTable sorting multi sort should sort column: DESC -> not sorted 
     class="ec-table-head__cell-wrapper"
   >
     <span
-      class=""
+      class="ec-table-head__cell-text"
     >
       
           Test 1
@@ -745,7 +745,7 @@ exports[`EcSmartTable sorting multi sort should sort column: not sorted -> ASC 1
     class="ec-table-head__cell-wrapper"
   >
     <span
-      class=""
+      class="ec-table-head__cell-text"
     >
       
           Test 1
@@ -796,7 +796,7 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 1
@@ -835,7 +835,7 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 2
@@ -856,7 +856,7 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 3
@@ -905,7 +905,7 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 1
@@ -948,7 +948,7 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 2
@@ -969,7 +969,7 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 3
@@ -1022,7 +1022,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 1
@@ -1065,7 +1065,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 2
@@ -1086,7 +1086,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 3
@@ -1135,7 +1135,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 1
@@ -1174,7 +1174,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 2
@@ -1195,7 +1195,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 3
@@ -1248,7 +1248,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 1
@@ -1291,7 +1291,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 2
@@ -1312,7 +1312,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Test 3
@@ -1356,7 +1356,7 @@ exports[`EcSmartTable sorting single sort should sort column: ASC -> DESC 1`] = 
     class="ec-table-head__cell-wrapper"
   >
     <span
-      class=""
+      class="ec-table-head__cell-text"
     >
       
           Test 1
@@ -1402,7 +1402,7 @@ exports[`EcSmartTable sorting single sort should sort column: ASC 1`] = `
     class="ec-table-head__cell-wrapper"
   >
     <span
-      class=""
+      class="ec-table-head__cell-text"
     >
       
           Test 1
@@ -1448,7 +1448,7 @@ exports[`EcSmartTable sorting single sort should sort column: DESC -> not sorted
     class="ec-table-head__cell-wrapper"
   >
     <span
-      class=""
+      class="ec-table-head__cell-text"
     >
       
           Test 1
@@ -1490,7 +1490,7 @@ exports[`EcSmartTable sorting single sort should sort column: not sorted -> ASC 
     class="ec-table-head__cell-wrapper"
   >
     <span
-      class=""
+      class="ec-table-head__cell-text"
     >
       
           Test 1
