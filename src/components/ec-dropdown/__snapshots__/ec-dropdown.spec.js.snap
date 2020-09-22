@@ -270,6 +270,69 @@ exports[`EcDropdown :props should pass label prop to the triggering input 1`] = 
 </label>
 `;
 
+exports[`EcDropdown :props should render with a sensitive class when isSensitive prop is set to true 1`] = `
+<div
+  class="ec-dropdown-search ec-dropdown"
+  data-test="ec-dropdown"
+>
+  <div
+    class="ec-dropdown-search__trigger"
+    data-popover-stub=""
+    data-test="ec-popover-dropdown-search"
+    offset="8"
+    placement="bottom"
+    popoverinnerclass="ec-dropdown-search__popover"
+    popperoptions="[object Object]"
+  >
+    <div
+      class="ec-input-field"
+      data-test="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        class="ec-input-field__input ec-input-field__input--has-icon my-sensitive-content-test-class"
+        data-test="ec-dropdown__input ec-input-field__input"
+        id="ec-input-field-122"
+        placeholder=""
+        readonly="readonly"
+        type="text"
+      />
+       
+      <div
+        class="ec-input-field__icon-wrapper"
+        data-test="ec-input-field__icon-wrapper"
+      >
+        <svg
+          class="ec-input-field__icon ec-icon"
+          data-test="ec-input-field__icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-arrow-drop-down"
+          />
+        </svg>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div>
+      <ul
+        class="ec-dropdown-search__item-list my-sensitive-content-test-class"
+        data-test="ec-dropdown-search__item-list"
+      >
+        <!---->
+         
+        <!---->
+         
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`EcDropdown :props should use placeholder prop 1`] = `
 <input
   class="ec-input-field__input ec-input-field__input--has-icon"

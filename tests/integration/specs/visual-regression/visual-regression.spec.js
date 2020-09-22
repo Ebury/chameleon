@@ -14,14 +14,14 @@ describe('Visual regression tests', () => {
     cy.visit('/');
     // wait for storybook to initialize. initialization is done when left menu is loaded
     // we can check it by waiting on menu items.
-    cy.get('a[id^=explore]');
+    cy.get('a.sidebar-item');
 
     cy.window()
       .then((win) => {
         const previewFrame = getPreviewFrame(win);
         // eslint-disable-next-line no-underscore-dangle
         const storybookStore = previewFrame.__STORYBOOK_STORY_STORE__;
-        let stories = Object.values(storybookStore.getStoriesForManager());
+        let stories = Object.values(storybookStore.getDataForManager().stories);
 
         stories = stories.filter(isStoryEnabled);
 
@@ -121,7 +121,7 @@ function getStoryTestOptions(story) {
 
 function setBackgroundColor(story) {
   if (story.parameters && story.parameters.backgrounds) {
-    const defaultBackground = story.parameters.backgrounds.find(bg => bg.default);
+    const defaultBackground = story.parameters.backgrounds.values.find(bg => bg.name === story.parameters.backgrounds.default);
     if (defaultBackground && defaultBackground.value) {
       cy.window().then((win) => {
         win.document.body.style.backgroundColor = defaultBackground.value;

@@ -93,5 +93,3 @@ stories.add('basic', () => ({
     document.removeEventListener('click', this.bodyHandler);
   },
 }));
-
-export default stories;

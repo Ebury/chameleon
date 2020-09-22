@@ -84,7 +84,7 @@ stories
         </ec-loading>
       </div>`,
   }), {
-    backgrounds: [{ ...DARK_THEME, default: true }],
+    backgrounds: { default: DARK_THEME.name, values: [DARK_THEME] },
   })
   .add('basic', () => ({
     components: { EcLoading },

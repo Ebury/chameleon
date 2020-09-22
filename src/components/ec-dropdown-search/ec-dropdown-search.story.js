@@ -82,6 +82,9 @@ stories.add('all', () => ({
     paragraphText: {
       default: text('paragraphText', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.'),
     },
+    isSensitive: {
+      default: boolean('Is Sensitive', false),
+    },
   },
   methods: {
     onItemSelected: action('Item selected'),
@@ -100,6 +103,7 @@ stories.add('all', () => ({
                 v-bind="$props"
                 :popover-options="dropdownSearch.popoverOptions"
                 :is-search-enabled="isSearchEnabled"
+                :is-sensitive="isSensitive"
                 :max-visible-items="maxVisibleItems"
                 v-model="selectedItem"
                 @change="onItemSelected">
@@ -122,4 +126,3 @@ stories.add('all', () => ({
   `,
 }));
 
-export default stories;

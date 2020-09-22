@@ -12,5 +12,3 @@ stories.add('basic', () => ({
     </ec-privacy-policy>
   `,
 }));
-
-export default stories;
