@@ -25,7 +25,7 @@ exports[`EcTable should have a column align to center if its type is icon 1`] = 
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Lorem
@@ -46,7 +46,7 @@ exports[`EcTable should have a column align to center if its type is icon 1`] = 
               class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-icon"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Ipsum
@@ -129,7 +129,7 @@ exports[`EcTable should have a column align to the right if its type is currency
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Lorem
@@ -150,7 +150,7 @@ exports[`EcTable should have a column align to the right if its type is currency
               class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-currency"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Ipsum
@@ -239,7 +239,7 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Lorem
@@ -260,7 +260,7 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Ipsum
@@ -343,7 +343,7 @@ exports[`EcTable should render as expected if provided with data and columns, wi
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Lorem
@@ -364,7 +364,7 @@ exports[`EcTable should render as expected if provided with data and columns, wi
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Ipsum
@@ -640,7 +640,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Lorem
@@ -661,7 +661,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Ipsum
@@ -761,7 +761,7 @@ exports[`EcTable should render slots as expected 1`] = `
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Lorem
@@ -782,7 +782,7 @@ exports[`EcTable should render slots as expected 1`] = `
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Ipsum
@@ -876,7 +876,7 @@ exports[`EcTable should render sorting as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Lorem
@@ -919,7 +919,7 @@ exports[`EcTable should render sorting as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Ipsum
@@ -983,7 +983,7 @@ exports[`EcTable should render the style with the max-width on each cell of the 
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class="ec-table-head__cell-text--has-max-width"
+                class="ec-table-head__cell-text ec-table-head__cell-text--has-max-width"
               >
                 
           Lorem
@@ -1004,7 +1004,7 @@ exports[`EcTable should render the style with the max-width on each cell of the 
               class="ec-table-head__cell-wrapper"
             >
               <span
-                class=""
+                class="ec-table-head__cell-text"
               >
                 
           Ipsum

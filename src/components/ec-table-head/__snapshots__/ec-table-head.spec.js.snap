@@ -15,7 +15,7 @@ exports[`EcTableHead should have a column align to center if its type is icon 1`
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column A
@@ -37,7 +37,7 @@ exports[`EcTableHead should have a column align to center if its type is icon 1`
         class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-icon"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column B
@@ -58,7 +58,7 @@ exports[`EcTableHead should have a column align to center if its type is icon 1`
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column C
@@ -89,7 +89,7 @@ exports[`EcTableHead should have a column align to the right if its type is curr
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column A
@@ -111,7 +111,7 @@ exports[`EcTableHead should have a column align to the right if its type is curr
         class="ec-table-head__cell-wrapper ec-table-head__cell-wrapper--is-type-currency"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column B
@@ -132,7 +132,7 @@ exports[`EcTableHead should have a column align to the right if its type is curr
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column C
@@ -165,7 +165,7 @@ exports[`EcTableHead should render as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column A
@@ -187,7 +187,7 @@ exports[`EcTableHead should render as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column B
@@ -208,7 +208,7 @@ exports[`EcTableHead should render as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column C
@@ -239,7 +239,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column A
@@ -271,7 +271,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column B
@@ -302,7 +302,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column C
@@ -343,7 +343,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column A
@@ -387,7 +387,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column B
@@ -430,7 +430,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column C
@@ -479,7 +479,7 @@ exports[`EcTableHead should render with max-width and ellipsis on the column tha
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column A
@@ -502,7 +502,7 @@ exports[`EcTableHead should render with max-width and ellipsis on the column tha
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class="ec-table-head__cell-text--has-max-width"
+          class="ec-table-head__cell-text ec-table-head__cell-text--has-max-width"
         >
           
           Column B
@@ -523,7 +523,7 @@ exports[`EcTableHead should render with max-width and ellipsis on the column tha
         class="ec-table-head__cell-wrapper"
       >
         <span
-          class=""
+          class="ec-table-head__cell-text"
         >
           
           Column C
