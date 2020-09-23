@@ -55,7 +55,7 @@ stories.add('basic', () => ({
     },
   },
   methods: {
-    cta: () => console.log('cta pressed'),
+    cta: () => action('CTA pressed'),
     onSelected: action('Selected'),
   },
   template: `
