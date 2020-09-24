@@ -368,7 +368,7 @@ export default {
         this.select(nextItem, { keyboardNavigation: true });
       }
 
-      this.lostFocus();
+      this.loseFocus();
     },
     blurCta() {
       if (this.hasCta() && this.isCtaAreaFocused) {
@@ -422,7 +422,7 @@ export default {
     closeViaKeyboardNavigation() {
       if (this.isOpen) {
         this.hide();
-        this.lostFocus();
+        this.loseFocus();
         if (this.isSearchEnabled) {
           // if the search is active the focus is lost from the trigger, then it must regain the focus
           if (this.initialFocusedElement) {
@@ -456,7 +456,7 @@ export default {
         }
       }
     },
-    lostFocus() {
+    loseFocus() {
       if (this.isSearchInputFocused) {
         // if the search is active the focus is lost from the trigger, then it must regain the focus
         this.$refs.searchInput.blur();

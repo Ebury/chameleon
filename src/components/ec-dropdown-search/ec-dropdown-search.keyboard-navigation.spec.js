@@ -282,7 +282,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
     });
 
-    it('should lost the focus and close if cta is enabled and is focused', async () => {
+    it('should lose the focus and close if cta is enabled and is focused', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
@@ -326,7 +326,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
     });
 
-    it('should lost the focus and close if search is enabled', async () => {
+    it('should lose the focus and close if search is enabled', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
@@ -440,7 +440,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
     });
-    it('should not focus the cta if search and cta are enabled but the cta has nothing to focus', async () => {
+
+    it('should not focus the cta if cta is not focusable', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
