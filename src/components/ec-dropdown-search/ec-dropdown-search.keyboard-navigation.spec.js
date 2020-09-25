@@ -1,4 +1,5 @@
-import { mount } from '@vue/test-utils';
+import Vue from 'vue';
+import { enableAutoDestroy, mount } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 
 describe('EcDropdownSearch - Keyboard navigation', () => {
@@ -12,6 +13,14 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     { id: 7, text: 'Item 7' },
     { id: 8, text: 'Item 8' },
   ];
+
+  enableAutoDestroy(afterEach);
+
+  beforeEach(() => {
+    document.activeElement.blur();
+    // We need to clean the activeElement because of the jsdom bug.
+    // jsdom preserves activeElement between tests even if the element has already been removed from the body
+  });
 
   describe('when dropdown is closed and the arrow down key is pressed', () => {
     it('should select the first item when no item is selected yet', async () => {
@@ -235,27 +244,221 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
   });
 
-  describe('when the tab or esc key is pressed over the dropdown', () => {
-    it.each([
-      ['tab'],
-      ['esc'],
-    ])('should close it if is open (by %s key)', async (key) => {
+  describe('when dropdown is open and ESC key is pressed', () => {
+    it('should close it if is open', async () => {
       const wrapper = mountDropdownSearch({ items });
       await openDropdown(wrapper);
 
-      await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.esc');
 
       expect(wrapper.emitted('close').length).toBeTruthy();
     });
 
-    it.each([
-      ['tab'],
-      ['esc'],
-    ])('should not do anything if is closed (by %s key)', async (key) => {
+    it('should close and do nothing', async () => {
       const wrapper = mountDropdownSearch({ items });
-      await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.esc');
 
       expect(wrapper.emitted('close')).toBeUndefined();
+    });
+  });
+
+  describe('when dropdown is open and TAB key is pressed', () => {
+    it('should focus the cta if cta is enabled', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
+        scopedSlots: {
+          cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
+        },
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await openDropdown(wrapper);
+      expect(document.activeElement).toBe(document.body);
+
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+
+      expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+    });
+
+    it('should lose the focus and close if cta is enabled and is focused', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
+        scopedSlots: {
+          cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
+        },
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await openDropdown(wrapper);
+      expect(document.activeElement).toBe(document.body);
+
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+      expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+      expect(document.activeElement).toBe(document.body);
+    });
+
+    it('should focus the cta if cta is enabled and an item is selected', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
+        scopedSlots: {
+          cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
+        },
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await openDropdown(wrapper);
+      expect(document.activeElement).toBe(document.body);
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+      expect(document.activeElement).toBe(document.body);
+
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+
+      expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+    });
+
+    it('should lose the focus and close if search is enabled', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await openDropdown(wrapper);
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+      expect(document.activeElement).toBe(document.body);
+    });
+
+    it('should focus the search if search is enabled and an item is selected', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await openDropdown(wrapper);
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+      expect(document.activeElement).toBe(document.body);
+
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+    });
+
+    it('should focus the cta if search and cta are enabled', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
+        scopedSlots: {
+          cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
+        },
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await openDropdown(wrapper);
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+
+      expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+    });
+
+    it('should focus the body if search and cta are enabled and cta is focused', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
+        scopedSlots: {
+          cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
+        },
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await openDropdown(wrapper);
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+      expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+      expect(document.activeElement).toBe(document.body);
+    });
+
+    it('should focus the search if search and cta are enabled and an item is selected', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
+        scopedSlots: {
+          cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
+        },
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await openDropdown(wrapper);
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
+      expect(document.activeElement).toBe(document.body);
+
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+    });
+
+    it('should not focus the search if search and cta are enabled but the dropdown is not open', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
+        scopedSlots: {
+          cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
+        },
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+
+      expect(document.activeElement).toBe(document.body);
+    });
+
+    it('should not focus the cta if cta is not focusable', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
+        scopedSlots: {
+          cta: '<div data-test="cta-data-test">My CTA</div>',
+        },
+        attachTo: elem,
+      });
+
+      expect(document.activeElement).toBe(document.body);
+      await openDropdown(wrapper);
+
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
+      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
+
+      expect(document.activeElement).toBe(document.body);
     });
   });
 
@@ -320,7 +523,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('resize');
 
-      expect(focusSpy).toHaveBeenCalledTimes(1);
+      expect(focusSpy).toHaveBeenCalledTimes(2);
       focusSpy.mockRestore();
     });
   });
@@ -460,8 +663,15 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 });
 
 function mountDropdownSearch(props, mountOpts) {
+  const MockedEcPopover = Vue.extend({
+    methods: {
+      update: jest.fn(),
+    },
+    template: '<div data-popover-stub><slot /><slot name="popover" /></div>',
+  });
   return mount(EcDropdownSearch, {
     propsData: { ...props },
+    stubs: { EcPopover: MockedEcPopover },
     ...mountOpts,
   });
 }
@@ -500,5 +710,6 @@ function mockHtmlElementPosition(options) {
 async function openDropdown(wrapper) {
   expect(wrapper.emitted('open')).toBeUndefined();
   await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.enter');
+  await wrapper.find('[data-popover-stub]').vm.$emit('apply-show');
   expect(wrapper.emitted('open').length).toBeTruthy();
 }

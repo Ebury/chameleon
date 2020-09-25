@@ -1,4 +1,4 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { enableAutoDestroy, mount, createLocalVue } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
@@ -51,6 +51,8 @@ describe('EcDropdownSearch', () => {
     },
     { id: 5, text: 'Item 5' },
   ];
+
+  enableAutoDestroy(afterEach);
 
   it('should render as expected', () => {
     const wrapper = mountDropdownSearch();
@@ -369,8 +371,6 @@ describe('EcDropdownSearch', () => {
       await wrapper.find('ecpopover-stub').vm.$emit('apply-show');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
-
-      wrapper.destroy(); // because we attached the wrapper to document
     });
 
     it('should hide the popover after item has been selected', async () => {

@@ -1,4 +1,4 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { enableAutoDestroy, mount, createLocalVue } from '@vue/test-utils';
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcModal from './ec-modal.vue';
 
@@ -28,6 +28,8 @@ function mountModalAsTemplate(template, props, wrapperComponentOpts, mountOpts) 
 }
 
 describe('EcModal', () => {
+  enableAutoDestroy(afterEach);
+
   it('should not render the modal if "showModal" is not set to true', () => {
     const wrapper = mountModal();
     expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
@@ -276,8 +278,6 @@ describe('EcModal', () => {
 
     await wrapper.trigger('keyup.esc');
     expect(wrapper.emitted().close).toBeTruthy();
-
-    wrapper.destroy(); // because we attached the wrapper to document
   });
 
   it('should not close the modal if ESC key is pressed and is not closable', async () => {
@@ -293,8 +293,6 @@ describe('EcModal', () => {
 
     await wrapper.trigger('keyup.esc');
     expect(wrapper.emitted('close')).toBeUndefined();
-
-    wrapper.destroy(); // because we attached the wrapper to document
   });
 
   it('should not close the modal if key other than ESC is pressed and is closable', async () => {
@@ -309,8 +307,6 @@ describe('EcModal', () => {
 
     await wrapper.trigger('keyup.space');
     expect(wrapper.emitted('close')).toBeUndefined();
-
-    await wrapper.destroy(); // because we attached the wrapper to document
   });
 
   it('should stop listening to keyup events when closed', async () => {
@@ -335,8 +331,6 @@ describe('EcModal', () => {
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);
-
-    wrapper.destroy(); // because we attached the wrapper to document
   });
 
   it('should stop listening to keyup events when destroyed', async () => {
@@ -357,7 +351,7 @@ describe('EcModal', () => {
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(addEventListenerSpy).toHaveBeenCalledWith('keyup', expect.any(Function));
 
-    await wrapper.destroy(); // because we attached the wrapper to document
+    await wrapper.destroy();
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);

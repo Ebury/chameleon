@@ -3,10 +3,11 @@
     ref="popperWidthReference"
     class="ec-dropdown-search"
     data-test="ec-dropdown-search"
+    @keydown.tab="onTabKeyDown"
     @keydown.enter.space.prevent="onEnterOrSpaceKeyDown"
     @keydown.up.prevent="onArrowUpKeyDown"
     @keydown.down.prevent="onArrowDownKeyDown"
-    @keydown.tab.esc="closeViaKeyboardNavigation"
+    @keydown.esc="closeViaKeyboardNavigation"
   >
     <ec-popover
       ref="popover"
@@ -33,6 +34,10 @@
           ref="itemsOverflowContainer"
           :class="listClasses"
           data-test="ec-dropdown-search__item-list"
+          @keydown.tab="onTabKeyDown"
+          @keydown.up.prevent="onArrowUpKeyDown"
+          @keydown.down.prevent="onArrowDownKeyDown"
+          @keydown.esc="closeViaKeyboardNavigation"
         >
           <li
             ref="searchArea"
@@ -52,15 +57,17 @@
               class="ec-dropdown-search__search-input"
               data-test="ec-dropdown-search__search-input"
               @keydown.enter="onEnterOrSpaceKeyDown"
-              @keydown.up.prevent="onArrowUpKeyDown"
-              @keydown.down.prevent="onArrowDownKeyDown"
-              @keydown.tab.esc="closeViaKeyboardNavigation"
+              @focus="isSearchInputFocused = true"
+              @blur="isSearchInputFocused = false"
             >
           </li>
           <li
             ref="ctaArea"
             v-if="hasCta()"
             class="ec-dropdown-search__cta-area"
+            :class="{
+              'ec-dropdown-search__cta-area--is-focused': isCtaAreaFocused,
+            }"
             data-test="ec-dropdown-search__cta-area"
             @click="hide"
           >
@@ -203,6 +210,8 @@ export default {
       isOpen: false,
       filterText: '',
       initialFocusedElement: null,
+      isSearchInputFocused: false,
+      isCtaAreaFocused: false,
       popperOptions: {
         modifiers: {
           // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
@@ -300,9 +309,11 @@ export default {
       }
     },
     show() {
+      /* istanbul ignore else */
       if (!this.isOpen) {
         // necessary to regain the focus after tab/enter keyboard event if search feature is active
         this.initialFocusedElement = this.$refs.popover.$el.querySelector(':focus');
+        this.blurCta();
         this.isOpen = true;
         this.$emit('open');
       }
@@ -310,7 +321,7 @@ export default {
     focusSearch() {
       this.$nextTick(() => {
         /* istanbul ignore else */
-        if (this.isOpen && this.$refs.searchInput) {
+        if (this.isOpen && this.isSearchEnabled) {
           this.$refs.searchInput.focus();
         }
       });
@@ -352,8 +363,47 @@ export default {
       } else {
         nextItem = this.filteredItems.find(item => !item.disabled);
       }
+
       if (nextItem) {
         this.select(nextItem, { keyboardNavigation: true });
+      }
+
+      this.loseFocus();
+    },
+    blurCta() {
+      if (this.hasCta() && this.isCtaAreaFocused) {
+        this.isCtaAreaFocused = false;
+      }
+    },
+    focusCta() {
+      this.isCtaAreaFocused = true;
+    },
+    canFocusCta() {
+      return this.hasCta() && !this.isCtaAreaFocused;
+    },
+    canFocusSearch() {
+      return this.isSearchEnabled && !this.isSearchInputFocused && !this.isCtaAreaFocused;
+    },
+    onTabKeyDown(event) {
+      if (this.isOpen) {
+        if (this.canFocusSearch()) {
+          event.preventDefault();
+          this.focusSearch();
+          this.blurCta();
+        } else if (this.canFocusCta()) {
+          event.preventDefault();
+          const ctaAreaElementFocusable = this.$refs.ctaArea.querySelector(
+            'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+          );
+          if (ctaAreaElementFocusable) {
+            ctaAreaElementFocusable.focus();
+            this.focusCta();
+          } else {
+            this.closeViaKeyboardNavigation();
+          }
+        } else {
+          this.closeViaKeyboardNavigation();
+        }
       }
     },
     onArrowUpKeyDown() {
@@ -372,6 +422,7 @@ export default {
     closeViaKeyboardNavigation() {
       if (this.isOpen) {
         this.hide();
+        this.loseFocus();
         if (this.isSearchEnabled) {
           // if the search is active the focus is lost from the trigger, then it must regain the focus
           if (this.initialFocusedElement) {
@@ -403,6 +454,18 @@ export default {
             this.$refs.itemsOverflowContainer.scrollTop = itemTopEdge;
           }
         }
+      }
+    },
+    loseFocus() {
+      if (this.isSearchInputFocused) {
+        // if the search is active the focus is lost from the trigger, then it must regain the focus
+        this.$refs.searchInput.blur();
+      } else if (this.isCtaAreaFocused) {
+        this.blurCta();
+        const ctaAreaElementFocusable = this.$refs.ctaArea.querySelector(
+          'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+        );
+        ctaAreaElementFocusable.blur();
       }
     },
   },
@@ -454,6 +517,10 @@ export default {
 
   &__cta-area {
     @mixin ec-dropdown-search-item-hover-effect;
+
+    &--is-focused {
+      @apply tw-bg-gray-7;
+    }
   }
 
   &__search-icon {

@@ -55,6 +55,7 @@ stories.add('basic', () => ({
     },
   },
   methods: {
+    cta: () => action('CTA pressed'),
     onSelected: action('Selected'),
   },
   template: `
@@ -67,6 +68,9 @@ stories.add('basic', () => ({
           v-model="selected"
           :is-sensitive="isSensitive"
           @change="onSelected">
+          <template #cta>
+            <a href="#" @click.prevent="cta()" class="tw-block tw-py-8 tw-px-16">Do something</a>
+          </template>
         </ec-dropdown>
       </div>
     </div>
