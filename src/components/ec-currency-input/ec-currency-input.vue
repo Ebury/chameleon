@@ -38,7 +38,8 @@
         :items="currenciesItems"
         :popper-modifiers="popperModifier"
         :popover-options="popoverOptions"
-        :search-placeholder="searchPlaceholder"
+        :search-placeholder="searchCurrencyPlaceholder"
+        :no-results-text="noCurrenciesText"
         class="ec-currency-input__currencies"
         is-in-group="right"
         is-search-enabled
@@ -127,9 +128,13 @@ export default {
       type: Boolean,
       default: false,
     },
-    searchPlaceholder: {
+    searchCurrencyPlaceholder: {
       type: String,
       default: 'Search...',
+    },
+    noCurrenciesText: {
+      type: String,
+      default: 'No results found',
     },
   },
   data() {
