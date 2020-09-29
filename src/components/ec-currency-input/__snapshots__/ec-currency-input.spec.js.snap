@@ -145,6 +145,43 @@ exports[`EcCurrencyInput :props should render the label when the label is given 
 </span>
 `;
 
+exports[`EcCurrencyInput :props should render the non-results message passed as prop if no currency matches the typed one 1`] = `
+<ul
+  class="ec-dropdown-search__item-list"
+  data-test="ec-dropdown-search__item-list"
+>
+  <li
+    class="ec-dropdown-search__search-area"
+    data-test="ec-dropdown-search__search-area"
+  >
+    <svg
+      class="ec-dropdown-search__search-icon ec-icon"
+    >
+      <use
+        xlink:href="#ec-simple-search"
+      />
+    </svg>
+     
+    <input
+      autocomplete="off"
+      class="ec-dropdown-search__search-input"
+      data-test="ec-dropdown-search__search-input"
+      placeholder="Search..."
+    />
+  </li>
+   
+  <!---->
+   
+  <li
+    class="ec-dropdown-search__no-items"
+    data-test="ec-dropdown-search__no-items"
+    title="No currencies text"
+  >
+    No currencies text
+  </li>
+</ul>
+`;
+
 exports[`EcCurrencyInput :props should render the note when the note is given 1`] = `
 <span
   class="ec-currency-input__note"
@@ -152,6 +189,15 @@ exports[`EcCurrencyInput :props should render the note when the note is given 1`
 >
   Random note
 </span>
+`;
+
+exports[`EcCurrencyInput :props should render the searching field with the placeholder message passed as prop 1`] = `
+<input
+  autocomplete="off"
+  class="ec-dropdown-search__search-input"
+  data-test="ec-dropdown-search__search-input"
+  placeholder="Search currency placeholder"
+/>
 `;
 
 exports[`EcCurrencyInput :props should render without any currencies if the currencies prop is empty 1`] = `
