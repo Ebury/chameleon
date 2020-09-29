@@ -38,6 +38,7 @@
         :items="currenciesItems"
         :popper-modifiers="popperModifier"
         :popover-options="popoverOptions"
+        :search-placeholder="searchPlaceholder"
         class="ec-currency-input__currencies"
         is-in-group="right"
         is-search-enabled
@@ -125,6 +126,10 @@ export default {
     isSensitive: {
       type: Boolean,
       default: false,
+    },
+    searchPlaceholder: {
+      type: String,
+      default: 'Search...',
     },
   },
   data() {

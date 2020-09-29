@@ -41,13 +41,16 @@ stories
       errorMessage: {
         default: text('error message', ''),
       },
+      searchPlaceholder: {
+        default: text('search placeholder', 'Search...'),
+      },
     },
     methods: {
       onChange: action('change'),
     },
     template: `
       <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
-        <ec-currency-input v-model="value" :currencies="currencies" v-bind="$props" @change="onChange" :is-sensitive="isSensitive" class="tw-mt-20 tw-mb-20" />
+        <ec-currency-input v-model="value" :currencies="currencies" :search-placeholder="searchPlaceholder" v-bind="$props" @change="onChange" :is-sensitive="isSensitive" class="tw-mt-20 tw-mb-20" />
         Value Object: {{ value }}
       </div>
     `,
