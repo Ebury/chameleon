@@ -100,6 +100,23 @@ describe('EcCurrencyInput', () => {
 
       expect(wrapper.findByDataTest('ec-currency-input__amount').element).toMatchSnapshot();
     });
+
+    it('should render the searching field with the placeholder message passed as prop', async () => {
+      const wrapper = mountCurrencyInput({ searchCurrencyPlaceholder: 'Search currency placeholder' });
+
+      await wrapper.findByDataTest('ec-currency-input__currencies').trigger('mousedown');
+
+      expect(wrapper.findByDataTest('ec-dropdown-search__search-input').element).toMatchSnapshot();
+    });
+
+    it('should render the non-results message passed as prop if no currency matches the typed one', async () => {
+      const wrapper = mountCurrencyInput({ noCurrenciesText: 'No currencies text' });
+
+      await wrapper.findByDataTest('ec-currency-input__currencies').trigger('mousedown');
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('XXX');
+
+      expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
+    });
   });
 
   describe('@events', () => {
