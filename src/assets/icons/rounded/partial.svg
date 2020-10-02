@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Graphics / 00 Icon / Rounded / Partial</title>
+    <g id="Graphics-/-00-Icon-/-Rounded-/-Partial" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.000000, 1.070889)">
+            <path d="M6,13.8582223 C2.60770586,13.3729926 0,10.4555831 0,6.92911114 C0,3.40263923 2.60770586,0.485229661 6,2.30926389e-14 L6,13.8582223 Z" id="Left-side" fill="#15BC8B"></path>
+            <path class="tw-fill-gray-4" d="M8,2.30926389e-14 C11.3922941,0.485229661 14,3.40263923 14,6.92911114 C14,10.4555831 11.3922941,13.3729926 8,13.8582223 L8,2.30926389e-14 Z" id="Right-side" fill="#6C7F84"></path>
+        </g>
+    </g>
+</svg>
