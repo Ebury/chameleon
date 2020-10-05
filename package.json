@@ -44,7 +44,7 @@
     "@ascendancyy/vue-cli-plugin-stylelint": "1.1.2",
     "@fullhuman/postcss-purgecss": "2.3.0",
     "@storybook/addon-actions": "6.0.22",
-    "@storybook/addon-essentials": "6.0.22",
+    "@storybook/addon-essentials": "6.0.25",
     "@storybook/addon-links": "6.0.22",
     "@storybook/addon-knobs": "6.0.22",
     "@storybook/addon-a11y": "6.0.21",
