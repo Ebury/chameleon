@@ -51,7 +51,7 @@
     "@storybook/addon-cssresources": "6.0.22",
     "@storybook/addon-viewport": "6.0.25",
     "@storybook/source-loader": "6.0.22",
-    "@storybook/theming": "6.0.22",
+    "@storybook/theming": "6.0.25",
     "@storybook/addons": "6.0.22",
     "@storybook/vue": "6.0.22",
     "@testing-library/jest-dom": "5.11.4",
