@@ -18,6 +18,7 @@ module.exports = ({ file }) => {
       content: [
         './src/**/*.vue',
         './src/**/*.story.js',
+        './src/**/*.svg',
         './.storybook/*.js'],
       defaultExtractor(content) {
         const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '');
