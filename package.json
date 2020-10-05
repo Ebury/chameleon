@@ -34,7 +34,7 @@
   "dependencies": {
     "clipboard-copy": "3.1.0",
     "tailwindcss-filters": "3.0.0",
-    "focus-trap": "5.1.0",
+    "focus-trap": "6.1.1",
     "tailwindcss": "1.8.10",
     "v-tooltip": "2.0.3",
     "vue": "2.6.12",
