@@ -104,6 +104,9 @@ stories
           highestFirst: SortDirectionCycle.HIGHEST_FIRST,
         }),
       },
+      isPaginationEnabled: {
+        default: boolean('isPaginationEnabled', true),
+      },
     },
     methods: {
       onSort: action('sort'),
@@ -113,19 +116,19 @@ stories
     data() {
       return {
         dataSource: {
-          fetch: ({ sorts /* , pagination coming soon */ }, cancelToken) => {
+          fetch: ({ sorts, page = 1, numberOfItems }, cancelToken) => {
             // use real service in a real application:
             // e.g.
-            // return myService.getData(sorts, pagination, cancelToken);
+            // return myService.getData(sorts, page, numberOfItems, cancelToken);
             // and pass the cancelToken into a fetch() call
             // e.g.
-            // getData: (sorts, pagination, cancelToken) => fetch('/my/url', { body: { sorts, pagination }, signal: cancelToken });
+            // getData: (sorts, page, numberOfItems, cancelToken) => fetch('/my/url', { body: { sorts, page, numberOfItems }, signal: cancelToken });
 
-            action('fetching')(sorts);
+            action('fetching')(sorts, page, numberOfItems);
 
             return new Promise((resolve, reject) => {
               this.loadingTimeout = setTimeout(() => {
-                action('resolving data')(sorts);
+                action('resolving data')(sorts, page, numberOfItems);
                 if (this.failOnFetch) {
                   reject(new Error('Random error'));
                 } else if (this.fetchEmptyList) {
@@ -137,8 +140,8 @@ stories
                 } else {
                   resolve({
                     items: this.data,
-                    total: this.data.length,
-                    count: this.data.length,
+                    total: 52,
+                    count: Math.min(this.data.length, numberOfItems),
                   });
                 }
               }, this.loadingDelay);
@@ -167,6 +170,7 @@ stories
             :error-message="errorMessage || undefined"
             :empty-message="emptyMessage || undefined"
             :sort-cycle="sortCycle"
+            :is-pagination-enabled="isPaginationEnabled"
             @sort="onSort"
             @abort="onAborted"
             @error="onError">
@@ -176,6 +180,8 @@ stories
             <template #empty="{ emptyMessage }">
               Empty state template - {{ emptyMessage }}
             </template>
+            <template #footer><div class="tw-text-right">Custom footer info</div></template>
+            <template #pages="{ page, totalPages, total}">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
           </ec-smart-table>
         </div>
       </div>

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcWithPagination should ignore null values when pagination event updates the number of items 1`] = `
+<div>
+  Page: 1, # items: 42
+</div>
+`;
+
+exports[`EcWithPagination should ignore null values when pagination event updates the page 1`] = `
+<div>
+  Page: 42, # items: 10
+</div>
+`;
+
+exports[`EcWithPagination should render properly 1`] = `
+<div>
+  Page: 1, # items: 10
+</div>
+`;
+
+exports[`EcWithPagination should update the pagination whe pagination event is emitted 1`] = `
+<div>
+  Page: 5, # items: 20
+</div>
+`;

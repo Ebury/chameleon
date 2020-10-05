@@ -32,6 +32,979 @@ exports[`EcSmartTable #slots should render error with custom template and custom
 </div>
 `;
 
+exports[`EcSmartTable pagination should pass pages slot into the pagination 1`] = `
+<div
+  class="ec-table-pagination__current-page"
+  data-test="ec-table-pagination__current-page"
+>
+  <div>
+    Pages: {"page":1,"numberOfItems":10,"totalPages":5,"total":50}
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable pagination should re-fetch the data when next page is selected: loading icon after loading new page 1`] = `undefined`;
+
+exports[`EcSmartTable pagination should re-fetch the data when next page is selected: loading icon while loading new page 1`] = `
+<svg
+  class="ec-loading__icon ec-icon"
+  data-test="ec-loading__icon"
+  height="48"
+  width="48"
+>
+  <use
+    xlink:href="#ec-simple-loading"
+  />
+</svg>
+`;
+
+exports[`EcSmartTable pagination should re-fetch the data when next page is selected: pagination after loading new page 1`] = `
+<div
+  class="ec-table-pagination"
+  data-test="ec-smart-table-pagination ec-table-pagination"
+>
+  <div
+    class="ec-table-pagination__page-size"
+    data-test="ec-table-pagination__page-size"
+  >
+    <div
+      class="ec-table-pagination__page-size-text"
+    >
+      Items per page:
+    </div>
+     
+    <div
+      class="ec-dropdown-search"
+      data-test="ec-dropdown-search"
+    >
+      <ecpopover-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search"
+        offset="8"
+        placement="bottom"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <button
+          class="ec-table-pagination__action ec-table-pagination__action--page-size"
+          data-test="ec-table-pagination__action--page-size"
+        >
+          
+        10
+        
+          <svg
+            class="ec-table-pagination__action-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </button>
+         
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <!---->
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              title="5"
+            >
+              5
+            </li>
+            <li
+              class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              title="10"
+            >
+              10
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              title="50"
+            >
+              50
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              title="100"
+            >
+              100
+            </li>
+          </ul>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+   
+  <div
+    class="ec-table-pagination__current-page"
+    data-test="ec-table-pagination__current-page"
+  >
+    <span>
+      2 of 5 pages
+    </span>
+     
+    <span>
+      (50 items)
+    </span>
+  </div>
+   
+  <div
+    class="ec-table-pagination__total"
+    data-test="ec-table-pagination__total"
+  />
+   
+  <div
+    class="ec-table-pagination__actions"
+    data-test="ec-table-pagination__actions"
+  >
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--prev"
+      data-test="ec-table-pagination__action--prev"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </button>
+     
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--next"
+      data-test="ec-table-pagination__action--next"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable pagination should re-fetch the data when page size is changed: loading icon after loading new page 1`] = `undefined`;
+
+exports[`EcSmartTable pagination should re-fetch the data when page size is changed: loading icon while loading new page 1`] = `
+<svg
+  class="ec-loading__icon ec-icon"
+  data-test="ec-loading__icon"
+  height="48"
+  width="48"
+>
+  <use
+    xlink:href="#ec-simple-loading"
+  />
+</svg>
+`;
+
+exports[`EcSmartTable pagination should re-fetch the data when page size is changed: pagination after loading new page 1`] = `
+<div
+  class="ec-table-pagination"
+  data-test="ec-smart-table-pagination ec-table-pagination"
+>
+  <div
+    class="ec-table-pagination__page-size"
+    data-test="ec-table-pagination__page-size"
+  >
+    <div
+      class="ec-table-pagination__page-size-text"
+    >
+      Items per page:
+    </div>
+     
+    <div
+      class="ec-dropdown-search"
+      data-test="ec-dropdown-search"
+    >
+      <ecpopover-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search"
+        offset="8"
+        placement="bottom"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <button
+          class="ec-table-pagination__action ec-table-pagination__action--page-size"
+          data-test="ec-table-pagination__action--page-size"
+        >
+          
+        50
+        
+          <svg
+            class="ec-table-pagination__action-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </button>
+         
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <!---->
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              title="5"
+            >
+              5
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              title="10"
+            >
+              10
+            </li>
+            <li
+              class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              title="50"
+            >
+              50
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              title="100"
+            >
+              100
+            </li>
+          </ul>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+   
+  <div
+    class="ec-table-pagination__current-page"
+    data-test="ec-table-pagination__current-page"
+  >
+    <span>
+      1 of 1 pages
+    </span>
+     
+    <span>
+      (50 items)
+    </span>
+  </div>
+   
+  <div
+    class="ec-table-pagination__total"
+    data-test="ec-table-pagination__total"
+  />
+   
+  <div
+    class="ec-table-pagination__actions"
+    data-test="ec-table-pagination__actions"
+  >
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
+      data-test="ec-table-pagination__action--prev"
+      disabled="disabled"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </button>
+     
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--next ec-table-pagination__action--is-disabled"
+      data-test="ec-table-pagination__action--next"
+      disabled="disabled"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable pagination should re-fetch the data when prev page is selected 1`] = `
+<div
+  class="ec-table-pagination"
+  data-test="ec-smart-table-pagination ec-table-pagination"
+>
+  <div
+    class="ec-table-pagination__page-size"
+    data-test="ec-table-pagination__page-size"
+  >
+    <div
+      class="ec-table-pagination__page-size-text"
+    >
+      Items per page:
+    </div>
+     
+    <div
+      class="ec-dropdown-search"
+      data-test="ec-dropdown-search"
+    >
+      <ecpopover-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search"
+        offset="8"
+        placement="bottom"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <button
+          class="ec-table-pagination__action ec-table-pagination__action--page-size"
+          data-test="ec-table-pagination__action--page-size"
+        >
+          
+        10
+        
+          <svg
+            class="ec-table-pagination__action-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </button>
+         
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <!---->
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              title="5"
+            >
+              5
+            </li>
+            <li
+              class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              title="10"
+            >
+              10
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              title="50"
+            >
+              50
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              title="100"
+            >
+              100
+            </li>
+          </ul>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+   
+  <div
+    class="ec-table-pagination__current-page"
+    data-test="ec-table-pagination__current-page"
+  >
+    <span>
+      2 of 5 pages
+    </span>
+     
+    <span>
+      (50 items)
+    </span>
+  </div>
+   
+  <div
+    class="ec-table-pagination__total"
+    data-test="ec-table-pagination__total"
+  />
+   
+  <div
+    class="ec-table-pagination__actions"
+    data-test="ec-table-pagination__actions"
+  >
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--prev"
+      data-test="ec-table-pagination__action--prev"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </button>
+     
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--next"
+      data-test="ec-table-pagination__action--next"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable pagination should re-fetch the data when prev page is selected: loading icon after loading new page 1`] = `undefined`;
+
+exports[`EcSmartTable pagination should re-fetch the data when prev page is selected: loading icon while loading new page 1`] = `
+<svg
+  class="ec-loading__icon ec-icon"
+  data-test="ec-loading__icon"
+  height="48"
+  width="48"
+>
+  <use
+    xlink:href="#ec-simple-loading"
+  />
+</svg>
+`;
+
+exports[`EcSmartTable pagination should re-fetch the data when prev page is selected: pagination after loading new page 1`] = `
+<div
+  class="ec-table-pagination"
+  data-test="ec-smart-table-pagination ec-table-pagination"
+>
+  <div
+    class="ec-table-pagination__page-size"
+    data-test="ec-table-pagination__page-size"
+  >
+    <div
+      class="ec-table-pagination__page-size-text"
+    >
+      Items per page:
+    </div>
+     
+    <div
+      class="ec-dropdown-search"
+      data-test="ec-dropdown-search"
+    >
+      <ecpopover-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search"
+        offset="8"
+        placement="bottom"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <button
+          class="ec-table-pagination__action ec-table-pagination__action--page-size"
+          data-test="ec-table-pagination__action--page-size"
+        >
+          
+        10
+        
+          <svg
+            class="ec-table-pagination__action-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </button>
+         
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <!---->
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              title="5"
+            >
+              5
+            </li>
+            <li
+              class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              title="10"
+            >
+              10
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              title="50"
+            >
+              50
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              title="100"
+            >
+              100
+            </li>
+          </ul>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+   
+  <div
+    class="ec-table-pagination__current-page"
+    data-test="ec-table-pagination__current-page"
+  >
+    <span>
+      1 of 5 pages
+    </span>
+     
+    <span>
+      (50 items)
+    </span>
+  </div>
+   
+  <div
+    class="ec-table-pagination__total"
+    data-test="ec-table-pagination__total"
+  />
+   
+  <div
+    class="ec-table-pagination__actions"
+    data-test="ec-table-pagination__actions"
+  >
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
+      data-test="ec-table-pagination__action--prev"
+      disabled="disabled"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </button>
+     
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--next"
+      data-test="ec-table-pagination__action--next"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable pagination should render footer slot inside of the pagination when pagination is not enabled 1`] = `
+<tfoot
+  class="ec-table-footer"
+  data-test="ec-table-footer"
+>
+  <tr>
+    <td
+      class="ec-table-footer__cell"
+      colspan="3"
+    >
+      <div
+        class="ec-table-footer__contents"
+      >
+        <div
+          class="ec-table-pagination"
+          data-test="ec-smart-table-pagination ec-table-pagination"
+        >
+          <div
+            class="ec-table-pagination__page-size"
+            data-test="ec-table-pagination__page-size"
+          >
+            <div
+              class="ec-table-pagination__page-size-text"
+            >
+              Items per page:
+            </div>
+             
+            <div
+              class="ec-dropdown-search"
+              data-test="ec-dropdown-search"
+            >
+              <ecpopover-stub
+                class="ec-dropdown-search__trigger"
+                data-test="ec-popover-dropdown-search"
+                offset="8"
+                placement="bottom"
+                popoverinnerclass="ec-dropdown-search__popover"
+                popperoptions="[object Object]"
+              >
+                <button
+                  class="ec-table-pagination__action ec-table-pagination__action--page-size"
+                  data-test="ec-table-pagination__action--page-size"
+                >
+                  
+        10
+        
+                  <svg
+                    class="ec-table-pagination__action-icon ec-icon"
+                    height="24"
+                    width="24"
+                  >
+                    <use
+                      xlink:href="#ec-simple-chevron-down"
+                    />
+                  </svg>
+                </button>
+                 
+                <div>
+                  <ul
+                    class="ec-dropdown-search__item-list"
+                    data-test="ec-dropdown-search__item-list"
+                  >
+                    <!---->
+                     
+                    <!---->
+                     
+                    <li
+                      class="ec-dropdown-search__item"
+                      data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+                      title="5"
+                    >
+                      5
+                    </li>
+                    <li
+                      class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+                      data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+                      title="10"
+                    >
+                      10
+                    </li>
+                    <li
+                      class="ec-dropdown-search__item"
+                      data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+                      title="50"
+                    >
+                      50
+                    </li>
+                    <li
+                      class="ec-dropdown-search__item"
+                      data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+                      title="100"
+                    >
+                      100
+                    </li>
+                  </ul>
+                </div>
+              </ecpopover-stub>
+            </div>
+          </div>
+           
+          <div
+            class="ec-table-pagination__current-page"
+            data-test="ec-table-pagination__current-page"
+          >
+            <span>
+              1 of 5 pages
+            </span>
+             
+            <span>
+              (50 items)
+            </span>
+          </div>
+           
+          <div
+            class="ec-table-pagination__total"
+            data-test="ec-table-pagination__total"
+          >
+            <div>
+              My custom footer
+            </div>
+          </div>
+           
+          <div
+            class="ec-table-pagination__actions"
+            data-test="ec-table-pagination__actions"
+          >
+            <button
+              class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
+              data-test="ec-table-pagination__action--prev"
+              disabled="disabled"
+              type="button"
+            >
+              <svg
+                class="ec-table-pagination__action-icon ec-icon"
+                height="24"
+                width="24"
+              >
+                <use
+                  xlink:href="#ec-simple-chevron-left"
+                />
+              </svg>
+            </button>
+             
+            <button
+              class="ec-table-pagination__action ec-table-pagination__action--next"
+              data-test="ec-table-pagination__action--next"
+              type="button"
+            >
+              <svg
+                class="ec-table-pagination__action-icon ec-icon"
+                height="24"
+                width="24"
+              >
+                <use
+                  xlink:href="#ec-simple-chevron-right"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+</tfoot>
+`;
+
+exports[`EcSmartTable pagination should render footer slot when pagination is not enabled 1`] = `
+<tfoot
+  class="ec-table-footer"
+  data-test="ec-table-footer"
+>
+  <tr>
+    <td
+      class="ec-table-footer__cell"
+      colspan="3"
+    >
+      <div
+        class="ec-table-footer__contents"
+      >
+        <div>
+          My custom footer
+        </div>
+      </div>
+    </td>
+  </tr>
+</tfoot>
+`;
+
+exports[`EcSmartTable pagination should render pagination when it's enabled 1`] = `
+<div
+  class="ec-table-pagination"
+  data-test="ec-smart-table-pagination ec-table-pagination"
+>
+  <div
+    class="ec-table-pagination__page-size"
+    data-test="ec-table-pagination__page-size"
+  >
+    <div
+      class="ec-table-pagination__page-size-text"
+    >
+      Items per page:
+    </div>
+     
+    <div
+      class="ec-dropdown-search"
+      data-test="ec-dropdown-search"
+    >
+      <ecpopover-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search"
+        offset="8"
+        placement="bottom"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <button
+          class="ec-table-pagination__action ec-table-pagination__action--page-size"
+          data-test="ec-table-pagination__action--page-size"
+        >
+          
+        10
+        
+          <svg
+            class="ec-table-pagination__action-icon ec-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </button>
+         
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <!---->
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              title="5"
+            >
+              5
+            </li>
+            <li
+              class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              title="10"
+            >
+              10
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              title="50"
+            >
+              50
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              title="100"
+            >
+              100
+            </li>
+          </ul>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+   
+  <div
+    class="ec-table-pagination__current-page"
+    data-test="ec-table-pagination__current-page"
+  >
+    <span>
+      1 of 5 pages
+    </span>
+     
+    <span>
+      (50 items)
+    </span>
+  </div>
+   
+  <div
+    class="ec-table-pagination__total"
+    data-test="ec-table-pagination__total"
+  />
+   
+  <div
+    class="ec-table-pagination__actions"
+    data-test="ec-table-pagination__actions"
+  >
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
+      data-test="ec-table-pagination__action--prev"
+      disabled="disabled"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </button>
+     
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--next"
+      data-test="ec-table-pagination__action--next"
+      type="button"
+    >
+      <svg
+        class="ec-table-pagination__action-icon ec-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`EcSmartTable should render empty data properly 1`] = `
 <div
   data-test="ec-smart-table-empty"

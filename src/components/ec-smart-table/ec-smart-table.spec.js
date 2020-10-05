@@ -11,8 +11,8 @@ describe('EcSmartTable', () => {
   ];
 
   const data = {
-    count: 3,
-    total: 3,
+    count: 1,
+    total: 1,
     items: [[1, 2, 3]],
   };
 
@@ -29,6 +29,9 @@ describe('EcSmartTable', () => {
   function mountEcSmartTable(props, mountOpts) {
     return mount(EcSmartTable, {
       propsData: { dataSource, ...props },
+      stubs: {
+        EcPopover: true,
+      },
       ...mountOpts,
     });
   }
@@ -193,6 +196,100 @@ describe('EcSmartTable', () => {
         await sortColumnByIndex(wrapper, 0);
         expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot('After sorting different column #2 ([DESC, null, ASC])');
       });
+    });
+  });
+
+  describe('pagination', () => {
+    const lotsOfItems = new Array(10).map((val, i) => [i + 1, i + 2, i + 3]);
+    const lotsOfData = {
+      items: lotsOfItems,
+      total: lotsOfItems.length * 5,
+      count: lotsOfItems.length,
+    };
+
+    it('should render pagination when it\'s enabled', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, { columns, isPaginationEnabled: true });
+      expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot();
+    });
+
+    it('should re-fetch the data when next page is selected', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, { columns, isPaginationEnabled: true });
+      wrapper.findByDataTest('ec-table-pagination__action--next').trigger('click');
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading new page');
+      await flushPromises();
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading new page');
+      expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after loading new page');
+    });
+
+    it('should re-fetch the data when prev page is selected', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, {
+        columns,
+        isPaginationEnabled: true,
+      });
+      wrapper.findByDataTest('ec-table-pagination__action--next').trigger('click'); // go to the second page
+      await flushPromises();
+      expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot();
+
+      await wrapper.findByDataTest('ec-table-pagination__action--prev').trigger('click'); // go to the first page
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading new page');
+      await flushPromises();
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading new page');
+      expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after loading new page');
+    });
+
+    it('should re-fetch the data when page size is changed', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, { columns, isPaginationEnabled: true });
+      await wrapper.findByDataTest('ec-table-pagination__action--page-size').trigger('click');
+      await wrapper.findByDataTest('ec-dropdown-search__item--2').trigger('click');
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading new page');
+      await flushPromises();
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading new page');
+      expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after loading new page');
+    });
+
+    it('should render footer slot when pagination is not enabled', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, {
+        columns,
+        isPaginationEnabled: false,
+      }, {
+        scopedSlots: {
+          footer() {
+            return (<div>My custom footer</div>);
+          },
+        },
+      });
+
+      expect(wrapper.findByDataTest('ec-table-footer').element).toMatchSnapshot();
+    });
+
+    it('should render footer slot inside of the pagination when pagination is not enabled', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, {
+        columns,
+        isPaginationEnabled: true,
+      }, {
+        scopedSlots: {
+          footer() {
+            return (<div>My custom footer</div>);
+          },
+        },
+      });
+
+      expect(wrapper.findByDataTest('ec-table-footer').element).toMatchSnapshot();
+    });
+
+    it('should pass pages slot into the pagination', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, {
+        columns,
+        isPaginationEnabled: true,
+      }, {
+        scopedSlots: {
+          pages(slotProps) {
+            return (<div>Pages: { JSON.stringify(slotProps) }</div>);
+          },
+        },
+      });
+
+      expect(wrapper.findByDataTest('ec-table-pagination__current-page').element).toMatchSnapshot();
     });
   });
 });

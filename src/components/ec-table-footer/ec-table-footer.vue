@@ -1,5 +1,8 @@
 <template>
-  <tfoot class="ec-table-footer">
+  <tfoot
+    class="ec-table-footer"
+    data-test="ec-table-footer"
+  >
     <tr>
       <td
         class="ec-table-footer__cell"
