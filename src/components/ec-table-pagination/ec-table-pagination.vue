@@ -152,7 +152,7 @@ export default {
   @apply tw-flex;
   @apply tw--mx-16;
 
-  width: calc(100% + 32px);
+  width: calc(100% + theme('spacing.32'));
 
   &__page-size,
   &__current-page,
@@ -187,6 +187,7 @@ export default {
     @apply tw-outline-none;
     @apply tw-cursor-pointer;
     @apply tw-border-l tw-border-solid tw-border-gray-6;
+    @apply tw-whitespace-no-wrap;
 
     &:hover,
     &:focus {
