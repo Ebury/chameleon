@@ -1,5 +1,11 @@
 import * as SortDirection from './enums/sort-direction';
-import config from './config';
+import * as SortDirectionCycle from './enums/sort-direction-cycle';
+
+export { SortDirection, SortDirectionCycle };
+
+export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
+
+export { default as config } from './config';
 
 export { default as EcAlert } from './components/ec-alert';
 export { default as EcAmount } from './directives/ec-amount';
@@ -36,7 +42,5 @@ export { default as EcUserInfo } from './components/ec-user-info';
 
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
 export { default as ecWithLoading } from './hocs/ec-with-loading';
+export { default as ecWithPagination } from './hocs/ec-with-pagination';
 export { default as ecWithSorting } from './hocs/ec-with-sorting';
-
-export { SortDirection };
-export { config };

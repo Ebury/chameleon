@@ -418,6 +418,7 @@ exports[`EcTable should render as expected if provided with data and columns, wi
        
       <tfoot
         class="ec-table-footer"
+        data-test="ec-table-footer"
       >
         <tr>
           <td
@@ -547,6 +548,7 @@ exports[`EcTable should render as expected if provided with data but no columns,
        
       <tfoot
         class="ec-table-footer"
+        data-test="ec-table-footer"
       >
         <tr>
           <td
@@ -590,6 +592,7 @@ exports[`EcTable should render as expected if provided with empty row and no col
        
       <tfoot
         class="ec-table-footer"
+        data-test="ec-table-footer"
       >
         <tr>
           <td
@@ -715,6 +718,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
        
       <tfoot
         class="ec-table-footer"
+        data-test="ec-table-footer"
       >
         <tr>
           <td
@@ -840,6 +844,7 @@ exports[`EcTable should render slots as expected 1`] = `
        
       <tfoot
         class="ec-table-footer"
+        data-test="ec-table-footer"
       >
         <tr>
           <td

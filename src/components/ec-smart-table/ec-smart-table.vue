@@ -1,8 +1,10 @@
 <script>
 import { createHOCc, createHOC, createRenderFn } from 'vue-hoc';
 import EcTable from '../ec-table';
+import EcTablePagination from '../ec-table-pagination';
 import withSorting from '../../hocs/ec-with-sorting';
 import withLoading from '../../hocs/ec-with-loading';
+import withPagination from '../../hocs/ec-with-pagination';
 import withAbortableFetch from '../../hocs/ec-with-abortable-fetch';
 
 const EcSmartTableError = {
@@ -89,41 +91,96 @@ const withEcSmartTableRenderer = (Component) => {
 
 const withEcSmartTableContainer = createHOCc({
   name: 'EcSmartTable',
-  data() {
-    return {
-      internalSorts: [],
-    };
-  },
-  watch: {
-    sorts: {
-      immediate: true,
-      handler(newSorts) {
-        this.internalSorts = newSorts;
-      },
-    },
-  },
-  methods: {
-    onSort(sorts) {
-      this.internalSorts = [...sorts];
-    },
-  },
+  props: ['sorts', 'page', 'numberOfItems'],
 }, {
   props(props) {
-    return { ...props, sorts: this.internalSorts, fetchArgs: { sorts: this.internalSorts } };
+    return {
+      ...props,
+      fetchArgs: {
+        sorts: this.sorts,
+        page: this.page,
+        numberOfItems: this.numberOfItems,
+      },
+    };
   },
-  listeners: {
-    sort(sorts) {
-      this.onSort(sorts);
-    },
+});
+
+const withSmartTablePagination = createHOCc({
+  name: 'EcSmartTablePagination',
+  props: ['page', 'numberOfItems', 'isPaginationEnabled'],
+}, {
+  props(props) {
+    return {
+      ...props,
+      page: null,
+      numberOfItems: null,
+      isPaginationEnabled: null,
+    };
+  },
+  scopedSlots(scopedSlots) {
+    // normaly, footer slot is rendered by the ec-table, but we need to pass the EcTablePagination instead.
+    // EcTablePagination has another slot, called total, which we can use for showing the content of the original
+    // footer slot.
+    // so if you say
+    // <ec-smart-table>
+    //   <template #footer>My Footer</template>
+    // </ec-smart-table>
+    //
+    // then if the pagination is not enabled it will render everything as usual
+    // <tfoot><tr><td colspan="XX">My Footer</td></tr></tfoot>
+    //
+    // and if the pagination is enabled it will render EcTablePagination and passes the content of footer slot
+    // into the total slot:
+    // <tfoor><tr><td colspan="XX">
+    //   <EcTablePagination>
+    //     <template #total><slot name="footer" /></template>
+    //   </EcTablePagination>
+    // </td></tr></tfoor>
+
+    const {
+      isPaginationEnabled, page, numberOfItems, data,
+    } = this.$props;
+    const { total } = data ?? {};
+    let footerSlot = scopedSlots.footer;
+
+    if (isPaginationEnabled) {
+      footerSlot = () => this.$createElement(EcTablePagination, {
+        props: {
+          page,
+          total,
+          numberOfItems,
+        },
+        attrs: {
+          'data-test': 'ec-smart-table-pagination',
+        },
+        on: {
+          change: (newPage, newNumberOfItems) => this.$emit('pagination', newPage, newNumberOfItems),
+        },
+        scopedSlots: {
+          total: scopedSlots.footer,
+          pages: scopedSlots.pages,
+        },
+      });
+    }
+
+    return {
+      ...scopedSlots,
+      pages: null, // pages slot is passed to EcTablePagination, do not pass it down to ec-table
+      footer: footerSlot,
+    };
   },
 });
 
 export default (
-  withEcSmartTableContainer(
-    withAbortableFetch(
-      withSorting(
-        withEcSmartTableRenderer(
-          EcTable,
+  withPagination(
+    withSorting(
+      withEcSmartTableContainer(
+        withAbortableFetch(
+          withSmartTablePagination(
+            withEcSmartTableRenderer(
+              EcTable,
+            ),
+          ),
         ),
       ),
     ),

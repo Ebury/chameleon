@@ -29,7 +29,7 @@ const withSorting = createHOCc({
   },
   methods: {
     sortBy(columnName, sortCycle = this.sortCycle) {
-      let sorts = this.internalSorts;
+      let sorts = [...this.internalSorts];
 
       const existingSort = sorts.find(sort => sort.column === columnName);
       if (existingSort) {
@@ -44,6 +44,7 @@ const withSorting = createHOCc({
       }
 
       this.internalSorts = sorts;
+      this.$emit('sort', sorts);
     },
     nextDirection(current, sortCycle) {
       const nextDirectionIndex = sortCycle.indexOf(current) + 1;
@@ -70,7 +71,6 @@ const withSorting = createHOCc({
     sort(column) {
       const { name: columnName, sortCycle } = column;
       this.sortBy(columnName, sortCycle);
-      this.$emit('sort', this.internalSorts);
     },
   },
 });

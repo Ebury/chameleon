@@ -157,4 +157,8 @@
     @apply tw-opacity-100;
     @apply tw-duration-150 tw-transition-opacity;
   }
+
+  &:focus {
+    @apply tw-outline-none;
+  }
 }
