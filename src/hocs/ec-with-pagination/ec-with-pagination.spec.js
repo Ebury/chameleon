@@ -28,7 +28,7 @@ describe('EcWithPagination', () => {
     expect(hocWrapper.element).toMatchSnapshot();
   });
 
-  it('should update the pagination whe pagination event is emitted', async () => {
+  it('should update the pagination when pagination event is emitted', async () => {
     const { hocWrapper, componentWrapper } = mountEcWithPagination();
 
     await componentWrapper.vm.$emit('pagination', 5, 20);

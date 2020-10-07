@@ -18,7 +18,7 @@ exports[`EcWithPagination should render properly 1`] = `
 </div>
 `;
 
-exports[`EcWithPagination should update the pagination whe pagination event is emitted 1`] = `
+exports[`EcWithPagination should update the pagination when pagination event is emitted 1`] = `
 <div>
   Page: 5, # items: 20
 </div>

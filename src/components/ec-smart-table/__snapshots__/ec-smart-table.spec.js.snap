@@ -671,7 +671,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
 </div>
 `;
 
-exports[`EcSmartTable pagination should render footer slot inside of the pagination when pagination is not enabled 1`] = `
+exports[`EcSmartTable pagination should render footer slot inside of the pagination when pagination is enabled 1`] = `
 <tfoot
   class="ec-table-footer"
   data-test="ec-table-footer"

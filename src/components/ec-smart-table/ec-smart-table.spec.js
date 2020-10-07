@@ -262,7 +262,7 @@ describe('EcSmartTable', () => {
       expect(wrapper.findByDataTest('ec-table-footer').element).toMatchSnapshot();
     });
 
-    it('should render footer slot inside of the pagination when pagination is not enabled', async () => {
+    it('should render footer slot inside of the pagination when pagination is enabled', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, {
         columns,
         isPaginationEnabled: true,

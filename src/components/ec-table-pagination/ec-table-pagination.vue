@@ -21,7 +21,7 @@
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
-          {{ seletedPageSizeText }}
+          {{ selectedPageSizeText }}
           <ec-icon
             class="ec-table-pagination__action-icon"
             name="simple-chevron-down"
@@ -140,7 +140,7 @@ export default {
         this.$emit('change', 1, pageSizeItem.value);
       },
     },
-    seletedPageSizeText() {
+    selectedPageSizeText() {
       return this.pageSizeModel?.text;
     },
   },
