@@ -175,6 +175,27 @@ describe('EcInlineActions', () => {
     expect(mockCallBack).toHaveBeenCalledTimes(1);
   });
 
+  it('should not trigger given action if href is passed and item is disabled', () => {
+    const mockCallBack = jest.fn();
+    const wrapper = shallowMount(EcInlineActions,
+      {
+        propsData: {
+          items: [
+            [
+              {
+                disabled: true,
+                href: 'random',
+                action: mockCallBack,
+                text: 'test',
+              },
+            ],
+          ],
+        },
+      });
+    wrapper.findByDataTest('ec-inline-actions__button').trigger('click');
+    expect(mockCallBack).not.toHaveBeenCalled();
+  });
+
   it('should not throw if action is null', () => {
     withMockedConsole((errorSpy) => {
       const wrapper = shallowMount(EcInlineActions,

@@ -29,7 +29,7 @@
               :disabled="getDisabledAttr(item)"
               :href="getHrefAttr(item)"
               :download="getDownloadAttr(item)"
-              @click="item.action && item.action()"
+              @click="allowedActions(item)"
             >
               <slot
                 :name="`item-${item.name}`"
@@ -88,6 +88,9 @@ export default {
     },
   },
   methods: {
+    allowedActions(item) {
+      return (item.action && !item.disabled) && item.action();
+    },
     componentTag(item) {
       if (item.href) {
         return 'a';
