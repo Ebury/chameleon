@@ -1056,21 +1056,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
   class="ec-loading"
   data-test="ec-loading"
 >
-  <div
-    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-    data-test="ec-loading__backdrop"
-  >
-    <svg
-      class="ec-loading__icon ec-icon"
-      data-test="ec-loading__icon"
-      height="48"
-      width="48"
-    >
-      <use
-        xlink:href="#ec-simple-loading"
-      />
-    </svg>
-  </div>
+  <!---->
    
   <div
     class="ec-loading__content ec-loading__content--is-transparent"

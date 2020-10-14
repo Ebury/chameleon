@@ -214,7 +214,7 @@ describe('EcSmartTable', () => {
 
     it('should re-fetch the data when next page is selected', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, { columns, isPaginationEnabled: true });
-      wrapper.findByDataTest('ec-table-pagination__action--next').trigger('click');
+      await wrapper.findByDataTest('ec-table-pagination__action--next').trigger('click');
       expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading new page');
       await flushPromises();
       expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading new page');

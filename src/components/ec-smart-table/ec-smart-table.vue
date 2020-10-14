@@ -92,15 +92,20 @@ const withEcSmartTableRenderer = (Component) => {
 const withEcSmartTableContainer = createHOCc({
   name: 'EcSmartTable',
   props: ['sorts', 'page', 'numberOfItems'],
+  computed: {
+    dataSourceFetchArgs() {
+      return {
+        sorts: this.sorts,
+        page: this.page,
+        numberOfItems: this.numberOfItems,
+      };
+    },
+  },
 }, {
   props(props) {
     return {
       ...props,
-      fetchArgs: {
-        sorts: this.sorts,
-        page: this.page,
-        numberOfItems: this.numberOfItems,
-      },
+      fetchArgs: this.dataSourceFetchArgs,
     };
   },
 });
