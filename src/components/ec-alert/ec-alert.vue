@@ -30,11 +30,13 @@
       <slot v-bind="{ title, subtitle }">
         <div
           class="ec-alert__title"
+          :class="`ec-alert__title--${type}`"
           data-test="ec-alert__title"
         >{{ title }}</div>
         <div
           v-if="subtitle"
           class="ec-alert__subtitle"
+          :class="`ec-alert__subtitle--${type}`"
           data-test="ec-alert__subtitle"
         >{{ subtitle }}</div>
       </slot>
@@ -42,7 +44,7 @@
     <button
       v-if="buttonText"
       class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button"
-      :class="`ec-btn--${type === 'info' ? 'primary' : type}-reverse`"
+      :class="`ec-btn--${type === 'info' ? 'primary' : type}`"
       data-test="ec-alert__button"
       @click="$emit('action')"
     >{{ buttonText }}</button>
@@ -115,7 +117,6 @@ export default {
 .ec-alert {
   @apply tw-rounded;
   @apply tw-p-16;
-  @apply tw-text-gray-8 tw-fill-current;
   @apply tw-relative;
   @apply tw-flex tw-flex-col tw-items-center;
 
@@ -136,11 +137,39 @@ export default {
   }
 
   &__title {
-    @apply tw-body-strong tw-text-gray-8;
+    &--success {
+      @apply tw-body-strong tw-text-success-hover;
+    }
+
+    &--warning {
+      @apply tw-body-strong tw-text-warning-hover;
+    }
+
+    &--info {
+      @apply tw-body-strong tw-text-info-hover;
+    }
+
+    &--error {
+      @apply tw-body-strong tw-text-error-hover;
+    }
   }
 
   &__subtitle {
-    @apply tw-body-text tw-text-gray-8;
+    &--success {
+      @apply tw-body-text tw-text-success-hover;
+    }
+
+    &--warning {
+      @apply tw-body-text tw-text-warning-hover;
+    }
+
+    &--info {
+      @apply tw-body-text tw-text-info-hover;
+    }
+
+    &--error {
+      @apply tw-body-text tw-text-error-hover;
+    }
   }
 
   &__icon {
@@ -153,17 +182,45 @@ export default {
     @apply tw-rounded;
     @apply tw-absolute tw-top-8 tw-right-8;
     @apply tw-cursor-pointer;
-    @apply tw-fill-gray-8;
 
     line-height: 0;
 
     &:focus {
       @apply tw-outline-none;
-      @apply tw-bg-gray-8;
+
+      &--info {
+        @apply tw-bg-info-hover;
+      }
+
+      &--warning {
+        @apply tw-bg-warning-hover;
+      }
+
+      &--success {
+        @apply tw-bg-success-hover;
+      }
+
+      &--error {
+        @apply tw-bg-error-hover;
+      }
     }
 
     &:hover {
-      @apply tw-bg-gray-8;
+      &--info {
+        @apply tw-bg-info-hover;
+      }
+
+      &--warning {
+        @apply tw-bg-warning-hover;
+      }
+
+      &--success {
+        @apply tw-bg-success-hover;
+      }
+
+      &--error {
+        @apply tw-bg-error-hover;
+      }
     }
 
     &--info:focus,
@@ -171,9 +228,17 @@ export default {
       @apply tw-fill-info;
     }
 
+    &--info {
+      @apply tw-fill-info-hover;
+    }
+
     &--success:focus,
     &--success:hover {
       @apply tw-fill-success;
+    }
+
+    &--success {
+      @apply tw-fill-success-hover;
     }
 
     &--warning:focus,
@@ -181,26 +246,38 @@ export default {
       @apply tw-fill-warning;
     }
 
+    &--warning {
+      @apply tw-fill-warning-hover;
+    }
+
     &--error:focus,
     &--error:hover {
       @apply tw-fill-error;
     }
+
+    &--error {
+      @apply tw-fill-error-hover;
+    }
   }
 
   &--info {
-    @apply tw-bg-info;
+    @apply tw-bg-info-light;
+    @apply tw-text-info-hover tw-fill-current;
   }
 
   &--success {
-    @apply tw-bg-success;
+    @apply tw-bg-success-light;
+    @apply tw-text-success-hover tw-fill-current;
   }
 
   &--warning {
-    @apply tw-bg-warning;
+    @apply tw-bg-warning-light;
+    @apply tw-text-warning-hover tw-fill-current;
   }
 
   &--error {
-    @apply tw-bg-error;
+    @apply tw-bg-error-light;
+    @apply tw-text-error-hover tw-fill-current;
   }
 }
 </style>
