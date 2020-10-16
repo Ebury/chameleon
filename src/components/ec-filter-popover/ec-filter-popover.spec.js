@@ -15,7 +15,7 @@ describe('EcFilterPopover', () => {
     const wrapper = shallowMount(EcFilterPopover,
       {
         propsData: {
-          label: 'test label',
+          label: 'Test label',
         },
       });
     expect(wrapper.element).toMatchSnapshot();
