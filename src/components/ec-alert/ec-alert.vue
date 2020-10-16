@@ -118,6 +118,7 @@ export default {
   @apply tw-rounded;
   @apply tw-p-16;
   @apply tw-relative;
+  @apply tw-fill-current;
   @apply tw-flex tw-flex-col tw-items-center;
 
   &--is-responsive {
@@ -137,38 +138,42 @@ export default {
   }
 
   &__title {
+    @apply tw-body-strong;
+
     &--success {
-      @apply tw-body-strong tw-text-success-hover;
+      @apply tw-text-success-hover;
     }
 
     &--warning {
-      @apply tw-body-strong tw-text-warning-hover;
+      @apply tw-text-warning-hover;
     }
 
     &--info {
-      @apply tw-body-strong tw-text-info-hover;
+      @apply tw-text-info-hover;
     }
 
     &--error {
-      @apply tw-body-strong tw-text-error-hover;
+      @apply tw-text-error-hover;
     }
   }
 
   &__subtitle {
+    @apply tw-body-text;
+
     &--success {
-      @apply tw-body-text tw-text-success-hover;
+      @apply tw-text-success-hover;
     }
 
     &--warning {
-      @apply tw-body-text tw-text-warning-hover;
+      @apply tw-text-warning-hover;
     }
 
     &--info {
-      @apply tw-body-text tw-text-info-hover;
+      @apply tw-text-info-hover;
     }
 
     &--error {
-      @apply tw-body-text tw-text-error-hover;
+      @apply tw-text-error-hover;
     }
   }
 
@@ -187,25 +192,10 @@ export default {
 
     &:focus {
       @apply tw-outline-none;
-
-      &--info {
-        @apply tw-bg-info-hover;
-      }
-
-      &--warning {
-        @apply tw-bg-warning-hover;
-      }
-
-      &--success {
-        @apply tw-bg-success-hover;
-      }
-
-      &--error {
-        @apply tw-bg-error-hover;
-      }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &--info {
         @apply tw-bg-info-hover;
       }
@@ -262,22 +252,22 @@ export default {
 
   &--info {
     @apply tw-bg-info-light;
-    @apply tw-text-info-hover tw-fill-current;
+    @apply tw-text-info-hover;
   }
 
   &--success {
     @apply tw-bg-success-light;
-    @apply tw-text-success-hover tw-fill-current;
+    @apply tw-text-success-hover;
   }
 
   &--warning {
     @apply tw-bg-warning-light;
-    @apply tw-text-warning-hover tw-fill-current;
+    @apply tw-text-warning-hover;
   }
 
   &--error {
     @apply tw-bg-error-light;
-    @apply tw-text-error-hover tw-fill-current;
+    @apply tw-text-error-hover;
   }
 }
 </style>
