@@ -8,7 +8,6 @@
       :placement="'bottom'"
       :trigger="'click'"
     >
-      <!-- trigger -->
       <div class="ec-filter-popover__filter-item">
         <a class="ec-filter-popover__label">{{ label }}</a>
         <!-- <ec-badge-number size="20" value="numberOfSelectedFilters" />
@@ -21,7 +20,6 @@
         />
       </div>
 
-      <!-- popover -->
       <div
         slot="popover"
         class="ec-filter-popover__filter-content"
@@ -49,15 +47,14 @@ export default {
       required: true,
       default: '',
     },
-    // numberOfSelectedFilters: {
-    //   type: Number,
-    //   required: false,
-    //   default: 0,
-    // }
   },
 };
 </script>
 <style>
+:root {
+  --ec-filter-popover-width: 304px;
+}
+
 .ec-filter-popover {
   @apply tw-m-0 tw-p-0;
 
@@ -80,7 +77,7 @@ export default {
     @apply tw-bg-gray-8;
     @apply tw-px-20 tw-py-4;
 
-    width: 304px;
+    width: var(--ec-filter-popover-width);
   }
 }
 </style>
