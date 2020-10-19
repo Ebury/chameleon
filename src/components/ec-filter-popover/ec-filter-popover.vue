@@ -5,8 +5,8 @@
   >
     <ec-popover
       popover-class="ec-popover"
-      :placement="'bottom'"
-      :trigger="'click'"
+      placement="bottom"
+      trigger="click"
       level="modal"
       @update:open="clickTrigger"
     >
@@ -71,8 +71,6 @@ export default {
 }
 
 .ec-filter-popover {
-  @apply tw-m-0 tw-p-0;
-
   &__filter-item {
     @apply tw-flex tw-flex-row tw-items-center;
   }
