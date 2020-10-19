@@ -7,6 +7,8 @@
       popover-class="ec-popover"
       :placement="'bottom'"
       :trigger="'click'"
+      level="modal"
+      @update:open="clickTrigger"
     >
       <div class="ec-filter-popover__filter-item">
         <a class="ec-filter-popover__label">{{ label }}</a>
@@ -46,6 +48,22 @@ export default {
       type: String,
       required: true,
       default: '',
+    },
+    numberOfSelectedFilters: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+  },
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
+  methods: {
+    clickTrigger(status) {
+      this.isOpen = status;
+      this.$emit('isOpen', this.isOpen);
     },
   },
 };

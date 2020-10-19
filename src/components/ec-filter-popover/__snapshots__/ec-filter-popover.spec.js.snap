@@ -1,12 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcFilterPopover should render correctly the named slot 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <ec-popover-stub
+    level="modal"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass="ec-popover"
+    popoverinnerclass=""
+    trigger="click"
+  >
+    <div
+      class="ec-filter-popover__filter-item"
+    >
+      <a
+        class="ec-filter-popover__label"
+      >
+        Test label
+      </a>
+       
+      <ec-icon-stub
+        class="ec-filter-popover__icon"
+        name="simple-chevron-down"
+        size="16"
+        type="interactive"
+      />
+    </div>
+     
+    <div
+      class="ec-filter-popover__filter-content"
+    />
+  </ec-popover-stub>
+</div>
+`;
+
+exports[`EcFilterPopover should render given default slot 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <ec-popover-stub
+    level="modal"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass="ec-popover"
+    popoverinnerclass=""
+    trigger="click"
+  >
+    <div
+      class="ec-filter-popover__filter-item"
+    >
+      <a
+        class="ec-filter-popover__label"
+      >
+        Test label
+      </a>
+       
+      <ec-icon-stub
+        class="ec-filter-popover__icon"
+        name="simple-chevron-down"
+        size="16"
+        type="interactive"
+      />
+    </div>
+     
+    <div
+      class="ec-filter-popover__filter-content"
+    />
+  </ec-popover-stub>
+</div>
+`;
+
 exports[`EcFilterPopover should render properly when label prop was given 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
 >
   <ec-popover-stub
-    level=""
+    level="modal"
     placement="bottom"
     popoverarrowclass=""
     popoverclass="ec-popover"
