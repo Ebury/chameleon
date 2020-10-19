@@ -44,7 +44,7 @@
     <button
       v-if="buttonText"
       class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button"
-      :class="`ec-btn--${type === 'info' ? 'primary' : type}`"
+      :class="`ec-btn--${type === 'info' ? 'primary' : type}-reverse`"
       data-test="ec-alert__button"
       @click="$emit('action')"
     >{{ buttonText }}</button>
