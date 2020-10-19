@@ -11,6 +11,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
     popoverarrowclass=""
     popoverclass="ec-popover"
     popoverinnerclass=""
+    trigger="click"
   >
     <div
       class="ec-filter-popover__filter-item"
@@ -47,6 +48,7 @@ exports[`EcFilterPopover should render given default slot 1`] = `
     popoverarrowclass=""
     popoverclass="ec-popover"
     popoverinnerclass=""
+    trigger="click"
   >
     <div
       class="ec-filter-popover__filter-item"
@@ -83,6 +85,7 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
     popoverarrowclass=""
     popoverclass="ec-popover"
     popoverinnerclass=""
+    trigger="click"
   >
     <div
       class="ec-filter-popover__filter-item"

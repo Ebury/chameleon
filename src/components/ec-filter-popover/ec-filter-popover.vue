@@ -6,7 +6,7 @@
     <ec-popover
       popover-class="ec-popover"
       placement="bottom"
-      :trigger="click"
+      trigger="click"
       level="modal"
       @update:open="clickTrigger"
     >
