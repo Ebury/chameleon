@@ -36,13 +36,10 @@
 <script>
 import EcPopover from '../ec-popover';
 import EcIcon from '../ec-icon';
-import EcClosePopover from '../../directives/ec-close-popover';
-import EcTooltip from '../../directives/ec-tooltip';
 
 export default {
   name: 'EcFilterPopover',
   components: { EcPopover, EcIcon },
-  directives: { EcClosePopover, EcTooltip },
   props: {
     label: {
       type: String,
