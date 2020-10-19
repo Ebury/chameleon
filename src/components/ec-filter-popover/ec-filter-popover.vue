@@ -6,7 +6,7 @@
     <ec-popover
       popover-class="ec-popover"
       placement="bottom"
-      trigger="click"
+      :trigger="click"
       level="modal"
       @update:open="clickTrigger"
     >
@@ -66,8 +66,11 @@ export default {
 };
 </script>
 <style>
+@import '../../styles/tools/scrollbars';
+
 :root {
   --ec-filter-popover-width: 304px;
+  --ec-filter-popover-height: 368px;
 }
 
 .ec-filter-popover {
@@ -89,8 +92,13 @@ export default {
   &__filter-content {
     @apply tw-bg-gray-8;
     @apply tw-px-20 tw-py-4;
+    @apply tw-border-gray-6 tw-border-solid tw-border;
+    @apply tw-overflow-y-scroll;
+
+    @mixin small-scrollbar;
 
     width: var(--ec-filter-popover-width);
+    height: var(--ec-filter-popover-height);
   }
 }
 </style>
