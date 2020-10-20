@@ -8,12 +8,13 @@
       @update:open="onOpen"
     >
       <div
-        class="ec-filter-popover__filter-item"
-        :class="{ 'ec-filter-popover__filter-item--focused': triggerIsFocused }"
+        class="ec-filter-popover__trigger"
+        :class="{ 'ec-filter-popover__trigger--focused': triggerIsFocused }"
       >
         <a
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          href="#"
         >{{ label }}</a>
         <span
           v-if="numberOfSelectedFilters > 0"
@@ -79,7 +80,7 @@ export default {
 }
 
 .ec-filter-popover {
-  &__filter-item {
+  &__trigger {
     @apply tw-flex tw-flex-row tw-items-center;
     @apply tw-p-8;
     @apply tw-transition-all tw-duration-200 tw-ease-in-out;
