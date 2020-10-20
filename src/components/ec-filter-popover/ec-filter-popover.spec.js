@@ -45,12 +45,6 @@ describe('EcFilterPopover', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should propagate open event from EcFilterPopover to the parent', () => {
-    const wrapper = mountEcFilterPopover({ label });
-    wrapper.find('ecpopover-stub').vm.$emit('update:open');
-    expect(wrapper.emitted('open').length).toBe(1);
-  });
-
   it('should render given default slot', () => {
     const wrapper = mountEcFilterPopover({ label }, {
       slots: {

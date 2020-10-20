@@ -5,7 +5,7 @@
   >
     <ec-popover
       placement="bottom"
-      @update:open="clickTrigger"
+      @update:open="onOpen"
     >
       <div
         class="ec-filter-popover__filter-item"
@@ -66,9 +66,8 @@ export default {
     };
   },
   methods: {
-    clickTrigger(status) {
+    onOpen(status) {
       this.triggerIsFocused = status;
-      this.$emit('open', status);
     },
   },
 };
