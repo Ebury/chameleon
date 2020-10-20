@@ -4,14 +4,22 @@
     data-test="ec-filter-popover"
   >
     <ec-popover
-      popover-class="ec-popover"
       placement="bottom"
-      trigger="click"
-      level="modal"
       @update:open="clickTrigger"
     >
-      <div class="ec-filter-popover__filter-item">
-        <a class="ec-filter-popover__label">{{ label }}</a>
+      <div
+        class="ec-filter-popover__filter-item"
+        :class="{ 'ec-filter-popover__filter-item--focused': triggerIsFocused }"
+      >
+        <a
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+        >{{ label }}</a>
+        <span
+          v-if="numberOfSelectedFilters > 0"
+          class="ec-filter-popover__badge"
+        > {{ numberOfSelectedFilters }}
+        </span>
         <!-- <ec-badge-number size="20" value="numberOfSelectedFilters" />
         TODO Badge with https://fxsolutions.atlassian.net/browse/ONL-4909 -->
         <ec-icon
@@ -48,26 +56,24 @@ export default {
     },
     numberOfSelectedFilters: {
       type: Number,
-      required: false,
+      required: true,
       default: 0,
     },
   },
   data() {
     return {
-      isOpen: false,
+      triggerIsFocused: false,
     };
   },
   methods: {
     clickTrigger(status) {
-      this.isOpen = status;
-      this.$emit('isOpen', this.isOpen);
+      this.triggerIsFocused = status;
+      this.$emit('open', status);
     },
   },
 };
 </script>
 <style>
-@import '../../styles/tools/scrollbars';
-
 :root {
   --ec-filter-popover-width: 304px;
   --ec-filter-popover-height: 368px;
@@ -76,29 +82,55 @@ export default {
 .ec-filter-popover {
   &__filter-item {
     @apply tw-flex tw-flex-row tw-items-center;
+    @apply tw-p-8;
+    @apply tw-transition-all tw-duration-200 tw-ease-in-out;
+
+    &:focus {
+      @apply tw-bg-key-7;
+      @apply tw-rounded;
+      @apply tw-outline-none;
+    }
+
+    &--focused {
+      @apply tw-bg-key-7;
+      @apply tw-rounded;
+    }
+
+    &:hover {
+      @apply tw-bg-key-6;
+      @apply tw-rounded;
+    }
   }
 
   &__label {
     @apply tw-text-gray-3;
-    @apply tw-mr-8 tw-ml-24;
+
+    &:hover {
+      @apply tw-no-underline;
+    }
   }
 
-  &__icons {
+  &__icon {
     @apply tw-flex-shrink-0;
     @apply tw-self-center;
-    @apply tw-mr-24;
+    @apply tw-ml-4;
+  }
+
+  &__badge {
+    /* TODO remove this styles once we have the badge component */
+    @apply tw-m-4;
+    @apply tw-bg-key-5 tw-text-gray-8;
+    @apply tw-rounded-1/2;
+    @apply tw-w-20;
+    @apply tw-text-center tw-flags-text;
   }
 
   &__filter-content {
     @apply tw-bg-gray-8;
-    @apply tw-px-20 tw-py-4;
-    @apply tw-border-gray-6 tw-border-solid tw-border;
-    @apply tw-overflow-y-scroll;
-
-    @mixin small-scrollbar;
+    @apply tw-border-gray-6 tw-border-solid tw-border tw-rounded;
 
     width: var(--ec-filter-popover-width);
-    height: var(--ec-filter-popover-height);
+    max-height: var(--ec-filter-popover-height);
   }
 }
 </style>

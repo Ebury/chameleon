@@ -1,14 +1,14 @@
-import { text } from '@storybook/addon-knobs';
+import { text, number } from '@storybook/addon-knobs';
 import EcFilterPopover from './ec-filter-popover.vue';
 import EcCheckbox from '../ec-checkbox/ec-checkbox.vue';
 
-export default { title: 'Filter Popover' };
+export default { title: 'Filters/Filter Popover' };
 
 export const Primary = () => ({
   components: { EcFilterPopover, EcCheckbox },
   data() {
     return {
-      itemListOne: [{
+      selectedValueOne: [{
         name: 'Test Bank Name',
         checkbox: null,
       }, {
@@ -21,7 +21,7 @@ export const Primary = () => ({
         name: 'Albert Simpson',
         checkbox: null,
       }],
-      itemListTwo: [{
+      selectedValueTwo: [{
         name: 'Not paid',
         checkbox: null,
       }, {
@@ -37,7 +37,7 @@ export const Primary = () => ({
         name: 'Returned',
         checkbox: null,
       }],
-      itemListThree: [{
+      selectedValueThree: [{
         name: 'Item one',
         checkbox: null,
       }, {
@@ -59,55 +59,68 @@ export const Primary = () => ({
     labelThree: {
       default: text('beneficiary', 'Beneficiary'),
     },
-    // numberOfSelectedFilters: {
-    //   default: number('numberOfSelectedFilters', 0),
+    numberOfSelectedFilters: {
+      default: number('numberOfSelectedFilters', 0),
+    },
     // } TODO with https://fxsolutions.atlassian.net/browse/ONL-4909
   },
   template: `
     <div class="tw-flex tw-flex-row tw-m-auto">
-      <ec-filter-popover :label="labelOne">
-        <div slot="filter">
+      <ec-filter-popover
+        class="tw-mr-16"
+        :label="labelOne"
+        numberOfSelectedFilters="0"
+      >
+        <template #filter>
           <ec-checkbox
             v-model="item.checkbox"
-            v-for="(item, index) in itemListOne"
+            v-for="(item, index) in selectedValueOne"
             :key="index"
-            class="tw-col-12"
+            class="tw-p-12"
           >
             <template #label>
               {{ item.name }}
             </template>
           </ec-checkbox>
-        </div>
+        </template>
       </ec-filter-popover>
 
-      <ec-filter-popover :label="labelTwo">
-        <div slot="filter">
+      <ec-filter-popover
+        class="tw-mr-16"
+        :label="labelTwo"
+        numberOfSelectedFilters="3"
+      >
+      <template #filter>
           <ec-checkbox
             v-model="item.checkbox"
-            v-for="(item, index) in itemListTwo"
+            v-for="(item, index) in selectedValueTwo"
             :key="index"
-            class="tw-col-12"
+            class="tw-p-12"
           >
             <template #label>
               {{ item.name }}
             </template>
           </ec-checkbox>
-        </div>
+        </template>
       </ec-filter-popover>
 
-      <ec-filter-popover :label="labelThree">
-        <div slot="filter">
+      <ec-filter-popover
+        class="tw-mr-16"
+        :label="labelThree"
+        numberOfSelectedFilters="0"
+      >
+      <template #filter>
           <ec-checkbox
             v-model="item.checkbox"
-            v-for="(item, index) in itemListThree"
+            v-for="(item, index) in selectedValueThree"
             :key="index"
-            class="tw-col-12"
+            class="tw-p-12"
           >
             <template #label>
               {{ item.name }}
             </template>
           </ec-checkbox>
-        </div>
+        </template>
       </ec-filter-popover>
     </div>`,
 });
