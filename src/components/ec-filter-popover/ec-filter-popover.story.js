@@ -1,80 +1,25 @@
-import { text, number } from '@storybook/addon-knobs';
 import EcFilterPopover from './ec-filter-popover.vue';
 import EcCheckbox from '../ec-checkbox/ec-checkbox.vue';
 
-export default { title: 'Filters/Filter Popover' };
+export default {
+  title: 'Filters/Filter Popover',
+  component: EcFilterPopover,
+};
 
-export const Primary = () => ({
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components: { EcFilterPopover, EcCheckbox },
-  data() {
-    return {
-      selectedValueOne: [{
-        name: 'Test Bank Name',
-        checkbox: null,
-      }, {
-        name: 'Abindong Insurances',
-        checkbox: null,
-      }, {
-        name: 'Christopher Li',
-        checkbox: null,
-      }, {
-        name: 'Albert Simpson',
-        checkbox: null,
-      }],
-      selectedValueTwo: [{
-        name: 'Not paid',
-        checkbox: null,
-      }, {
-        name: 'Not paid (Overdue)',
-        checkbox: null,
-      }, {
-        name: 'Paid',
-        checkbox: null,
-      }, {
-        name: 'Cancelled',
-        checkbox: null,
-      }, {
-        name: 'Returned',
-        checkbox: null,
-      }],
-      selectedValueThree: [{
-        name: 'Item one',
-        checkbox: null,
-      }, {
-        name: 'Item two',
-        checkbox: null,
-      }, {
-        name: 'Item Three',
-        checkbox: null,
-      }],
-    };
-  },
-  props: {
-    labelOne: {
-      default: text('dueDate', 'Due date'),
-    },
-    labelTwo: {
-      default: text('status', 'Status'),
-    },
-    labelThree: {
-      default: text('beneficiary', 'Beneficiary'),
-    },
-    numberOfSelectedFilters: {
-      default: number('numberOfSelectedFilters', 0),
-    },
-    // } TODO with https://fxsolutions.atlassian.net/browse/ONL-4909
-  },
   template: `
     <div class="tw-flex tw-flex-row tw-m-auto">
       <ec-filter-popover
         class="tw-mr-16"
         :label="labelOne"
-        numberOfSelectedFilters="0"
+        :numberOfSelectedFilters="0"
       >
         <template #filter>
           <ec-checkbox
             v-model="item.checkbox"
-            v-for="(item, index) in selectedValueOne"
+            v-for="(item, index) in itemListOne"
             :key="index"
             class="tw-p-12"
           >
@@ -88,12 +33,12 @@ export const Primary = () => ({
       <ec-filter-popover
         class="tw-mr-16"
         :label="labelTwo"
-        numberOfSelectedFilters="3"
+        :numberOfSelectedFilters="3"
       >
       <template #filter>
           <ec-checkbox
             v-model="item.checkbox"
-            v-for="(item, index) in selectedValueTwo"
+            v-for="(item, index) in itemListTwo"
             :key="index"
             class="tw-p-12"
           >
@@ -107,12 +52,12 @@ export const Primary = () => ({
       <ec-filter-popover
         class="tw-mr-16"
         :label="labelThree"
-        numberOfSelectedFilters="0"
+        :numberOfSelectedFilters="0"
       >
       <template #filter>
           <ec-checkbox
             v-model="item.checkbox"
-            v-for="(item, index) in selectedValueThree"
+            v-for="(item, index) in itemListThree"
             :key="index"
             class="tw-p-12"
           >
@@ -122,7 +67,52 @@ export const Primary = () => ({
           </ec-checkbox>
         </template>
       </ec-filter-popover>
-    </div>`,
+    </div>
+  `,
 });
 
-Primary.storyName = 'Filter Popover';
+export const basic = Template.bind({});
+basic.args = {
+  labelOne: 'Due date',
+  labelTwo: 'Status',
+  labelThree: 'Beneficiary',
+  itemListOne: [{
+    name: 'Test Bank Name',
+    selected: null,
+  }, {
+    name: 'Abindong Insurances',
+    selected: null,
+  }, {
+    name: 'Christopher Li',
+    selected: null,
+  }, {
+    name: 'Albert Simpson',
+    selected: null,
+  }],
+  itemListTwo: [{
+    name: 'Not paid',
+    selected: null,
+  }, {
+    name: 'Not paid (Overdue)',
+    selected: null,
+  }, {
+    name: 'Paid',
+    selected: null,
+  }, {
+    name: 'Cancelled',
+    selected: null,
+  }, {
+    name: 'Returned',
+    selected: null,
+  }],
+  itemListThree: [{
+    name: 'Item one',
+    selected: null,
+  }, {
+    name: 'Item two',
+    selected: null,
+  }, {
+    name: 'Item Three',
+    selected: null,
+  }],
+};

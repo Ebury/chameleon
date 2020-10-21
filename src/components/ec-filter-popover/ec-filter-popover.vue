@@ -4,7 +4,9 @@
     data-test="ec-filter-popover"
   >
     <ec-popover
-      placement="bottom"
+      placement="bottom-end"
+      offset="0, 8"
+      :popper-options="popperOptions"
       @update:open="onOpen"
     >
       <div
@@ -14,7 +16,6 @@
         <a
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
-          href="#"
         >{{ label }}</a>
         <span
           v-if="numberOfSelectedFilters > 0"
@@ -64,6 +65,15 @@ export default {
   data() {
     return {
       triggerIsFocused: false,
+      popperOptions: {
+        modifiers: {
+          // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
+          preventOverflow: {
+            priority: ['bottom'],
+          },
+          ...this.popperModifiers,
+        },
+      },
     };
   },
   methods: {
@@ -107,6 +117,10 @@ export default {
 
     &:hover {
       @apply tw-no-underline;
+    }
+
+    &:focus {
+      @apply tw-outline-none;
     }
   }
 
