@@ -7,13 +7,15 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
 >
   <ecpopover-stub
     level=""
-    placement="bottom"
+    offset="0, 8"
+    placement="bottom-end"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
+    popper-options="[object Object]"
   >
     <div
-      class="ec-filter-popover__filter-item"
+      class="ec-filter-popover__trigger"
     >
       <a
         class="ec-filter-popover__label"
@@ -54,13 +56,15 @@ exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's v
 >
   <ecpopover-stub
     level=""
-    placement="bottom"
+    offset="0, 8"
+    placement="bottom-end"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
+    popper-options="[object Object]"
   >
     <div
-      class="ec-filter-popover__filter-item"
+      class="ec-filter-popover__trigger"
     >
       <a
         class="ec-filter-popover__label"
@@ -96,13 +100,15 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
 >
   <ecpopover-stub
     level=""
-    placement="bottom"
+    offset="0, 8"
+    placement="bottom-end"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
+    popper-options="[object Object]"
   >
     <div
-      class="ec-filter-popover__filter-item"
+      class="ec-filter-popover__trigger"
     >
       <a
         class="ec-filter-popover__label"
@@ -138,13 +144,15 @@ exports[`EcFilterPopover should render given default slot 1`] = `
 >
   <ecpopover-stub
     level=""
-    placement="bottom"
+    offset="0, 8"
+    placement="bottom-end"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
+    popper-options="[object Object]"
   >
     <div
-      class="ec-filter-popover__filter-item"
+      class="ec-filter-popover__trigger"
     >
       <a
         class="ec-filter-popover__label"
@@ -180,13 +188,15 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
 >
   <ecpopover-stub
     level=""
-    placement="bottom"
+    offset="0, 8"
+    placement="bottom-end"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
+    popper-options="[object Object]"
   >
     <div
-      class="ec-filter-popover__filter-item"
+      class="ec-filter-popover__trigger"
     >
       <a
         class="ec-filter-popover__label"
