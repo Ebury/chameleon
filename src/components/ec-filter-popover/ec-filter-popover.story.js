@@ -10,7 +10,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { EcFilterPopover, EcCheckbox },
   template: `
-    <div class="tw-flex tw-flex-row tw-m-auto">
+    <div class="tw-flex tw-flex-row tw-items-center tw-m-auto">
       <ec-filter-popover
         class="tw-mr-16"
         :label="labelOne"
@@ -112,7 +112,7 @@ basic.args = {
     name: 'Item two',
     selected: null,
   }, {
-    name: 'Item Three',
+    name: 'Item three',
     selected: null,
   }],
 };

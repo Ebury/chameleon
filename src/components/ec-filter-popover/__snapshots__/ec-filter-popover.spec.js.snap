@@ -8,7 +8,7 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
   <ecpopover-stub
     level=""
     offset="0, 8"
-    placement="bottom-end"
+    placement="bottom"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
@@ -17,12 +17,12 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
     <div
       class="ec-filter-popover__trigger"
     >
-      <a
+      <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
       >
         
-      </a>
+      </button>
        
       <span
         class="ec-filter-popover__badge"
@@ -57,7 +57,7 @@ exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's v
   <ecpopover-stub
     level=""
     offset="0, 8"
-    placement="bottom-end"
+    placement="bottom"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
@@ -66,12 +66,12 @@ exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's v
     <div
       class="ec-filter-popover__trigger"
     >
-      <a
+      <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
       >
         
-      </a>
+      </button>
        
       <!---->
        
@@ -101,7 +101,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
   <ecpopover-stub
     level=""
     offset="0, 8"
-    placement="bottom-end"
+    placement="bottom"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
@@ -110,12 +110,12 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
     <div
       class="ec-filter-popover__trigger"
     >
-      <a
+      <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
       >
         Test label
-      </a>
+      </button>
        
       <!---->
        
@@ -145,7 +145,7 @@ exports[`EcFilterPopover should render given default slot 1`] = `
   <ecpopover-stub
     level=""
     offset="0, 8"
-    placement="bottom-end"
+    placement="bottom"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
@@ -154,12 +154,12 @@ exports[`EcFilterPopover should render given default slot 1`] = `
     <div
       class="ec-filter-popover__trigger"
     >
-      <a
+      <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
       >
         Test label
-      </a>
+      </button>
        
       <!---->
        
@@ -189,7 +189,7 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
   <ecpopover-stub
     level=""
     offset="0, 8"
-    placement="bottom-end"
+    placement="bottom"
     popoverarrowclass=""
     popoverclass=""
     popoverinnerclass=""
@@ -198,12 +198,12 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
     <div
       class="ec-filter-popover__trigger"
     >
-      <a
+      <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
       >
         Test label
-      </a>
+      </button>
        
       <!---->
        

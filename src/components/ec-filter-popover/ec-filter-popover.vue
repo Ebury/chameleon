@@ -1,22 +1,23 @@
 <template>
   <div
+    ref="filterPopover"
     class="ec-filter-popover"
     data-test="ec-filter-popover"
   >
     <ec-popover
-      placement="bottom-end"
-      offset="0, 8"
       :popper-options="popperOptions"
+      :placement="'bottom'"
+      offset="0, 8"
       @update:open="onOpen"
     >
       <div
         class="ec-filter-popover__trigger"
         :class="{ 'ec-filter-popover__trigger--focused': triggerIsFocused }"
       >
-        <a
+        <button
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
-        >{{ label }}</a>
+        >{{ label }}</button>
         <span
           v-if="numberOfSelectedFilters > 0"
           class="ec-filter-popover__badge"
@@ -67,9 +68,38 @@ export default {
       triggerIsFocused: false,
       popperOptions: {
         modifiers: {
-          // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
-          preventOverflow: {
-            priority: ['bottom'],
+          calculatePopperPosition: {
+            // We need to check whether the popover is escaping from the boundaries of
+            // the boundariesElement and if so, fix the position of the popover.
+            // normally, we could just check the data.boundaries but there is a bug in popper.js v1.
+            // their docs says that the data.boundaries exists (https://popper.js.org/docs/v1/#dataobject) but
+            // they accidentaly assign that info into options of the preventOverflow modifier when
+            // calculating boundaries. see: https://github.com/popperjs/popper-core/blob/v1.16.1/packages/popper/src/modifiers/preventOverflow.js#L47
+            // we can do a workaround and access the boundaries object via this code:
+            // const preventOverflowOptions = data.instance.modifiers.find(m => m.name === 'preventOverflow');
+            // const popperBoundaries = preventOverflowOptions.boundaries;
+            enabled: true,
+            order: 845,
+            fn: /* istanbul ignore next */ (data) => {
+              const preventOverflowOptions = data.instance.modifiers.find(m => m.name === 'preventOverflow');
+              const popperBoundaries = preventOverflowOptions.boundaries;
+              const { left, right } = popperBoundaries;
+
+              let popperLeft = Math.max(data.offsets.reference.left, left);
+              let popperRight = popperLeft + data.popper.width;
+
+              if (popperRight > right) {
+                popperRight = right;
+                popperLeft = popperRight - data.popper.width;
+              }
+
+              data.offsets.popper.left = popperLeft;
+              data.popper.left = popperLeft;
+              data.offsets.popper.right = popperRight;
+              data.popper.right = popperRight;
+
+              return data;
+            },
           },
           ...this.popperModifiers,
         },
@@ -113,7 +143,10 @@ export default {
   }
 
   &__label {
+    @apply tw-p-0 tw-m-0;
+    @apply tw-border-none;
     @apply tw-text-gray-3;
+    @apply tw-bg-transparent;
 
     &:hover {
       @apply tw-no-underline;
