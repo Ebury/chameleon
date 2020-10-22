@@ -13,6 +13,7 @@
       <div
         class="ec-filter-popover__trigger"
         :class="{ 'ec-filter-popover__trigger--focused': triggerIsFocused }"
+        data-test="ec-filter-popover__trigger"
       >
         <button
           class="ec-filter-popover__label"
@@ -165,7 +166,7 @@ export default {
 
   &__badge {
     /* TODO remove this styles once we have the badge component */
-    @apply tw-m-4;
+    @apply tw-mx-4;
     @apply tw-bg-key-5 tw-text-gray-8;
     @apply tw-rounded-1/2;
     @apply tw-w-20;

@@ -16,12 +16,13 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
   >
     <div
       class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
     >
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
       >
-        
+        Test label
       </button>
        
       <span
@@ -65,12 +66,13 @@ exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's v
   >
     <div
       class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
     >
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
       >
-        
+        Test label
       </button>
        
       <!---->
@@ -109,6 +111,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
   >
     <div
       class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
     >
       <button
         class="ec-filter-popover__label"
@@ -132,7 +135,11 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
      
     <div
       class="ec-filter-popover__filter-content"
-    />
+    >
+      <p>
+        Test name slot
+      </p>
+    </div>
   </ecpopover-stub>
 </div>
 `;
@@ -153,6 +160,7 @@ exports[`EcFilterPopover should render given default slot 1`] = `
   >
     <div
       class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
     >
       <button
         class="ec-filter-popover__label"
@@ -197,6 +205,7 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
   >
     <div
       class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
     >
       <button
         class="ec-filter-popover__label"

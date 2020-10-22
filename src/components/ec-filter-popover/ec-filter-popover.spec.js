@@ -5,12 +5,13 @@ import { withMockedConsole } from '../../../tests/utils/console';
 const label = 'Test label';
 const numberOfSelectedFilters = 0;
 
-function mountEcFilterPopover(props) {
+function mountEcFilterPopover(props, mountOpts) {
   return mount(EcFilterPopover, {
     stubs: { EcPopover: true },
     propsData: {
       ...props,
     },
+    ...mountOpts,
   });
 }
 describe('EcFilterPopover', () => {
@@ -23,7 +24,7 @@ describe('EcFilterPopover', () => {
   });
 
   it('should render properly when label prop was given', () => {
-    const wrapper = mountEcFilterPopover({ label });
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -36,17 +37,17 @@ describe('EcFilterPopover', () => {
   });
 
   it('numberOfSelectedFilters should not be visible if it\'s value is less than 0', () => {
-    const wrapper = mountEcFilterPopover({ numberOfSelectedFilters });
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('numberOfSelectedFilters should be visible if it\'s value is greater than 0 ', () => {
-    const wrapper = mountEcFilterPopover({ numberOfSelectedFilters: 5 });
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters: 5 });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render given default slot', () => {
-    const wrapper = mountEcFilterPopover({ label }, {
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters }, {
       slots: {
         default: '<a class="ec-filter-popover__label">Test Slot random label</a>',
       },
@@ -55,11 +56,17 @@ describe('EcFilterPopover', () => {
   });
 
   it('should render correctly the named slot', () => {
-    const wrapper = mountEcFilterPopover({ label }, {
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters }, {
       scopedSlots: {
-        filter: '<p>Test name slot</a>',
+        filter: '<p>Test name slot</p>',
       },
     });
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should set the open status of the popover', () => {
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
+    wrapper.vm.onOpen(true);
+    expect(wrapper.vm.triggerIsFocused).toBe(true);
   });
 });
