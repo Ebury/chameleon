@@ -18,7 +18,7 @@ const Template = (args, { argTypes }) => ({
       >
         <template #filter>
           <ec-checkbox
-            v-model="item.checkbox"
+            v-model="item.selected"
             v-for="(item, index) in itemListOne"
             :key="index"
             class="tw-p-12"
@@ -37,7 +37,7 @@ const Template = (args, { argTypes }) => ({
       >
       <template #filter>
           <ec-checkbox
-            v-model="item.checkbox"
+            v-model="item.selected"
             v-for="(item, index) in itemListTwo"
             :key="index"
             class="tw-p-12"
@@ -56,7 +56,7 @@ const Template = (args, { argTypes }) => ({
       >
       <template #filter>
           <ec-checkbox
-            v-model="item.checkbox"
+            v-model="item.selected"
             v-for="(item, index) in itemListThree"
             :key="index"
             class="tw-p-12"
