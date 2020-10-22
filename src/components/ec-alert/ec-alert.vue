@@ -181,25 +181,6 @@ export default {
       @apply tw-outline-none;
     }
 
-    &:hover,
-    &:focus {
-      &--info {
-        @apply tw-bg-info-dark;
-      }
-
-      &--warning {
-        @apply tw-bg-warning-dark;
-      }
-
-      &--success {
-        @apply tw-bg-success-dark;
-      }
-
-      &--error {
-        @apply tw-bg-error-dark;
-      }
-    }
-
     &--info:focus,
     &--info:hover {
       @apply tw-fill-info;
