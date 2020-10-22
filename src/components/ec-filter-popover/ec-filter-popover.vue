@@ -166,7 +166,7 @@ export default {
 
   &__badge {
     /* TODO remove this styles once we have the badge component */
-    @apply tw-mx-4;
+    @apply tw-ml-4;
     @apply tw-bg-key-5 tw-text-gray-8;
     @apply tw-rounded-1/2;
     @apply tw-w-20;
