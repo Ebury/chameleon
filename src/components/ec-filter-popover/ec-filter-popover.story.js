@@ -15,6 +15,7 @@ const Template = (args, { argTypes }) => ({
         class="tw-mr-16"
         :label="labelOne"
         :numberOfSelectedFilters="0"
+        :popover-options="{ open: true }"
       >
         <template #filter>
           <ec-checkbox

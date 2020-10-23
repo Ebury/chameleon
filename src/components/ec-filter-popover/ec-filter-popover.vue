@@ -5,6 +5,7 @@
     data-test="ec-filter-popover"
   >
     <ec-popover
+      v-bind="getPopoverOptions"
       :popper-options="popperOptions"
       :placement="'bottom'"
       offset="0, 8"
@@ -63,6 +64,12 @@ export default {
       required: true,
       default: 0,
     },
+    popoverOptions: {
+      type: Object,
+    },
+    popperModifiers: {
+      type: Object,
+    },
   },
   data() {
     return {
@@ -106,6 +113,13 @@ export default {
         },
       },
     };
+  },
+  computed: {
+    getPopoverOptions() {
+      return {
+        ...this.popoverOptions,
+      };
+    },
   },
   methods: {
     onOpen(status) {
