@@ -110,7 +110,7 @@
     @apply tw-bg-success;
 
     &:hover {
-      @apply tw-bg-success-hover;
+      @apply tw-bg-success-dark;
     }
   }
 
@@ -135,7 +135,7 @@
     @apply tw-bg-error;
 
     &:hover {
-      @apply tw-bg-error-hover;
+      @apply tw-bg-error-dark;
     }
   }
 
@@ -160,7 +160,7 @@
     @apply tw-bg-warning;
 
     &:hover {
-      @apply tw-bg-warning-hover;
+      @apply tw-bg-warning-dark;
     }
   }
 
@@ -194,11 +194,11 @@
     }
 
     &.ec-btn--primary-reverse {
-      @apply tw-text-info-hover;
+      @apply tw-text-info-dark;
 
       &:hover {
         @apply tw-text-gray-8;
-        @apply tw-bg-info-hover;
+        @apply tw-bg-info-dark;
       }
     }
 
@@ -211,11 +211,11 @@
     }
 
     &.ec-btn--secondary-reverse {
-      @apply tw-text-gray-8;
+      @apply tw-text-gray-4;
 
       &:hover {
-        @apply tw-bg-gray-8;
-        @apply tw-text-gray-4;
+        @apply tw-text-gray-8;
+        @apply tw-bg-gray-4;
       }
     }
 
@@ -228,11 +228,11 @@
     }
 
     &.ec-btn--success-reverse {
-      @apply tw-text-success-hover;
+      @apply tw-text-success-dark;
 
       &:hover {
         @apply tw-text-gray-8;
-        @apply tw-bg-success-hover;
+        @apply tw-bg-success-dark;
       }
     }
 
@@ -245,11 +245,11 @@
     }
 
     &.ec-btn--error-reverse {
-      @apply tw-text-error-hover;
+      @apply tw-text-error-dark;
 
       &:hover {
         @apply tw-text-gray-8;
-        @apply tw-bg-error-hover;
+        @apply tw-bg-error-dark;
       }
     }
 
@@ -262,11 +262,11 @@
     }
 
     &.ec-btn--warning-reverse {
-      @apply tw-text-warning-hover;
+      @apply tw-text-warning-dark;
 
       &:hover {
         @apply tw-text-gray-8;
-        @apply tw-bg-warning-hover;
+        @apply tw-bg-warning-dark;
       }
     }
 

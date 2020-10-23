@@ -65,25 +65,25 @@ module.exports = {
 
       error: {
         default: 'hsl(var(--ec-reserved-color-error))',
-        hover: 'hsl(var(--ec-reserved-color-error-hover))',
+        dark: 'hsl(var(--ec-reserved-color-error-dark))',
         light: 'hsl(var(--ec-reserved-color-error-light))',
       },
 
       info: {
         default: 'hsl(var(--ec-reserved-color-info))',
-        hover: 'hsl(var(--ec-reserved-color-info-hover))',
+        dark: 'hsl(var(--ec-reserved-color-info-dark))',
         light: 'hsl(var(--ec-reserved-color-info-light))',
       },
 
       success: {
         default: 'hsl(var(--ec-reserved-color-success))',
-        hover: 'hsl(var(--ec-reserved-color-success-hover))',
+        dark: 'hsl(var(--ec-reserved-color-success-dark))',
         light: 'hsl(var(--ec-reserved-color-success-light))',
       },
 
       warning: {
         default: 'hsl(var(--ec-reserved-color-warning))',
-        hover: 'hsl(var(--ec-reserved-color-warning-hover))',
+        dark: 'hsl(var(--ec-reserved-color-warning-dark))',
         light: 'hsl(var(--ec-reserved-color-warning-light))',
       },
     },

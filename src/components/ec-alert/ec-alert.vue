@@ -139,41 +139,28 @@ export default {
 
   &__title {
     @apply tw-body-strong;
-
-    &--success {
-      @apply tw-text-success-hover;
-    }
-
-    &--warning {
-      @apply tw-text-warning-hover;
-    }
-
-    &--info {
-      @apply tw-text-info-hover;
-    }
-
-    &--error {
-      @apply tw-text-error-hover;
-    }
   }
 
   &__subtitle {
     @apply tw-body-text;
+  }
 
+  &__title,
+  &__subtitle {
     &--success {
-      @apply tw-text-success-hover;
+      @apply tw-text-success-dark;
     }
 
     &--warning {
-      @apply tw-text-warning-hover;
+      @apply tw-text-warning-dark;
     }
 
     &--info {
-      @apply tw-text-info-hover;
+      @apply tw-text-info-dark;
     }
 
     &--error {
-      @apply tw-text-error-hover;
+      @apply tw-text-error-dark;
     }
   }
 
@@ -194,32 +181,13 @@ export default {
       @apply tw-outline-none;
     }
 
-    &:hover,
-    &:focus {
-      &--info {
-        @apply tw-bg-info-hover;
-      }
-
-      &--warning {
-        @apply tw-bg-warning-hover;
-      }
-
-      &--success {
-        @apply tw-bg-success-hover;
-      }
-
-      &--error {
-        @apply tw-bg-error-hover;
-      }
-    }
-
     &--info:focus,
     &--info:hover {
       @apply tw-fill-info;
     }
 
     &--info {
-      @apply tw-fill-info-hover;
+      @apply tw-fill-info-dark;
     }
 
     &--success:focus,
@@ -228,7 +196,7 @@ export default {
     }
 
     &--success {
-      @apply tw-fill-success-hover;
+      @apply tw-fill-success-dark;
     }
 
     &--warning:focus,
@@ -237,7 +205,7 @@ export default {
     }
 
     &--warning {
-      @apply tw-fill-warning-hover;
+      @apply tw-fill-warning-dark;
     }
 
     &--error:focus,
@@ -246,28 +214,28 @@ export default {
     }
 
     &--error {
-      @apply tw-fill-error-hover;
+      @apply tw-fill-error-dark;
     }
   }
 
   &--info {
     @apply tw-bg-info-light;
-    @apply tw-text-info-hover;
+    @apply tw-text-info-dark;
   }
 
   &--success {
     @apply tw-bg-success-light;
-    @apply tw-text-success-hover;
+    @apply tw-text-success-dark;
   }
 
   &--warning {
     @apply tw-bg-warning-light;
-    @apply tw-text-warning-hover;
+    @apply tw-text-warning-dark;
   }
 
   &--error {
     @apply tw-bg-error-light;
-    @apply tw-text-error-hover;
+    @apply tw-text-error-dark;
   }
 }
 </style>

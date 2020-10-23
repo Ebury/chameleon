@@ -1,14 +1,14 @@
 :root {
   --ec-reserved-color-error: 0, 72%, 56%;
-  --ec-reserved-color-error-hover: 0, 72%, 44%;
+  --ec-reserved-color-error-dark: 0, 72%, 44%;
   --ec-reserved-color-error-light: 0, 59%, 94%;
   --ec-reserved-color-info: 205, 100%, 56%;
-  --ec-reserved-color-info-hover: 205, 100%, 37%;
+  --ec-reserved-color-info-dark: 205, 100%, 37%;
   --ec-reserved-color-info-light: 205, 58%, 94%;
   --ec-reserved-color-success: 162, 80%, 41%;
-  --ec-reserved-color-success-hover: 162, 80%, 26%;
-  --ec-reserved-color-success-light: 164, 28%, 92%;
+  --ec-reserved-color-success-dark: 162, 80%, 26%;
+  --ec-reserved-color-success-light: 162, 28%, 92%;
   --ec-reserved-color-warning: 36, 100%, 55%;
-  --ec-reserved-color-warning-hover: 36, 100%, 45%;
-  --ec-reserved-color-warning-light: 37, 79%, 94%;
+  --ec-reserved-color-warning-dark: 36, 100%, 45%;
+  --ec-reserved-color-warning-light: 36, 79%, 94%;
 }
