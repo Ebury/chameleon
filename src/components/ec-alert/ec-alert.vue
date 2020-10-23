@@ -181,40 +181,40 @@ export default {
       @apply tw-outline-none;
     }
 
-    &--info:focus,
-    &--info:hover {
-      @apply tw-fill-info;
-    }
-
     &--info {
       @apply tw-fill-info-dark;
-    }
 
-    &--success:focus,
-    &--success:hover {
-      @apply tw-fill-success;
+      &:focus,
+      &:hover {
+        @apply tw-fill-info;
+      }
     }
 
     &--success {
       @apply tw-fill-success-dark;
-    }
 
-    &--warning:focus,
-    &--warning:hover {
-      @apply tw-fill-warning;
+      &:focus,
+      &:hover {
+        @apply tw-fill-success;
+      }
     }
 
     &--warning {
       @apply tw-fill-warning-dark;
-    }
 
-    &--error:focus,
-    &--error:hover {
-      @apply tw-fill-error;
+      &:focus,
+      &:hover {
+        @apply tw-fill-warning;
+      }
     }
 
     &--error {
       @apply tw-fill-error-dark;
+
+      &:focus,
+      &:hover {
+        @apply tw-fill-error;
+      }
     }
   }
 
