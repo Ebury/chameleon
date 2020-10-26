@@ -3,25 +3,6 @@
 For the development of @ebury/chameleon-components, we use storybook [Storybook](https://storybook.js.org/).
 If you want to contribute to the library then you must do the following to set up your local environment:
 
-## Storybook
-
-1\. Clone chameleon-components repo
-
-2\. Install all dependencies with:
-
-```sh
-npm install
-```
-
-3\. Run Storybook with:
-
-```sh
-npm start
-```
-
-That's it!
-By now you should be up and running. You can check the existing components or create new ones.
-
 ## CSS
 
 For chameleon components, we use ITCSS architecture with BEM naming, TailwindCSS for Utilities, and PostCSS as a postprocessor.

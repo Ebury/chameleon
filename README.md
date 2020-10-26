@@ -14,11 +14,32 @@ Also, check out the latest version deployed in [Storybook](https://chameleon.ebu
 
 ## Installation
 
+### Install the library in your project
+
 Install @ebury/chameleon-components in your project with npm:
 
 ```sh
 npm install @ebury/chameleon-components --save
 ```
+
+### Storybook
+
+1\. Clone chameleon-components repo
+
+2\. Install all dependencies with:
+
+```sh
+npm install
+```
+
+3\. Run Storybook with:
+
+```sh
+npm start
+```
+
+That's it!
+By now you should be up and running. You can check the existing components or create new ones.
 
 ## Contributing
 
