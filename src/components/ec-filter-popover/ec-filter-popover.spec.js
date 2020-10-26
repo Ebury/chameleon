@@ -46,15 +46,6 @@ describe('EcFilterPopover', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render given default slot', () => {
-    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters }, {
-      slots: {
-        default: '<a class="ec-filter-popover__label">Test Slot random label</a>',
-      },
-    });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
   it('should render correctly the named slot', () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters }, {
       scopedSlots: {
@@ -64,9 +55,9 @@ describe('EcFilterPopover', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should set the open status of the popover', () => {
+  it('should set the open status of the popover', async () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
-    wrapper.vm.onOpen(true);
-    expect(wrapper.vm.triggerIsFocused).toBe(true);
+    await wrapper.find('ecpopover-stub').vm.$emit('update:open', true);
+    expect(wrapper.element).toMatchSnapshot();
   });
 });

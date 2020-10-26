@@ -17,6 +17,7 @@
         data-test="ec-filter-popover__trigger"
       >
         <button
+          type="button"
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
         >{{ label }}</button>

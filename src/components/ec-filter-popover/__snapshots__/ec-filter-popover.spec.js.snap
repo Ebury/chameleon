@@ -21,6 +21,7 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        type="button"
       >
         Test label
       </button>
@@ -71,6 +72,7 @@ exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's v
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        type="button"
       >
         Test label
       </button>
@@ -116,6 +118,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        type="button"
       >
         Test label
       </button>
@@ -144,7 +147,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
 </div>
 `;
 
-exports[`EcFilterPopover should render given default slot 1`] = `
+exports[`EcFilterPopover should render properly when label prop was given 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -165,6 +168,7 @@ exports[`EcFilterPopover should render given default slot 1`] = `
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        type="button"
       >
         Test label
       </button>
@@ -189,7 +193,7 @@ exports[`EcFilterPopover should render given default slot 1`] = `
 </div>
 `;
 
-exports[`EcFilterPopover should render properly when label prop was given 1`] = `
+exports[`EcFilterPopover should set the open status of the popover 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -204,12 +208,13 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
     popper-options="[object Object]"
   >
     <div
-      class="ec-filter-popover__trigger"
+      class="ec-filter-popover__trigger ec-filter-popover__trigger--focused"
       data-test="ec-filter-popover__trigger"
     >
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        type="button"
       >
         Test label
       </button>
