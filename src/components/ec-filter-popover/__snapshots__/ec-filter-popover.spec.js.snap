@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value is greater than 0  1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <ecpopover-stub
+    level=""
+    offset="0, 8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass=""
+    popper-options="[object Object]"
+  >
+    <div
+      class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        type="button"
+      >
+        Test label
+      </button>
+       
+      <span
+        class="ec-filter-popover__badge"
+      >
+         5
+      
+      </span>
+       
+      <svg
+        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-filter-popover__filter-content"
+    />
+  </ecpopover-stub>
+</div>
+`;
+
+exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's value is less than 0 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <ecpopover-stub
+    level=""
+    offset="0, 8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass=""
+    popper-options="[object Object]"
+  >
+    <div
+      class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        type="button"
+      >
+        Test label
+      </button>
+       
+      <!---->
+       
+      <svg
+        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-filter-popover__filter-content"
+    />
+  </ecpopover-stub>
+</div>
+`;
+
+exports[`EcFilterPopover should render correctly the named slot 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <ecpopover-stub
+    level=""
+    offset="0, 8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass=""
+    popper-options="[object Object]"
+  >
+    <div
+      class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        type="button"
+      >
+        Test label
+      </button>
+       
+      <!---->
+       
+      <svg
+        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-filter-popover__filter-content"
+    >
+      <p>
+        Test name slot
+      </p>
+    </div>
+  </ecpopover-stub>
+</div>
+`;
+
+exports[`EcFilterPopover should render properly when label prop was given 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <ecpopover-stub
+    level=""
+    offset="0, 8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass=""
+    popper-options="[object Object]"
+  >
+    <div
+      class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        type="button"
+      >
+        Test label
+      </button>
+       
+      <!---->
+       
+      <svg
+        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-filter-popover__filter-content"
+    />
+  </ecpopover-stub>
+</div>
+`;
+
+exports[`EcFilterPopover should set the open status of the popover 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <ecpopover-stub
+    level=""
+    offset="0, 8"
+    placement="bottom"
+    popoverarrowclass=""
+    popoverclass=""
+    popoverinnerclass=""
+    popper-options="[object Object]"
+  >
+    <div
+      class="ec-filter-popover__trigger ec-filter-popover__trigger--focused"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        type="button"
+      >
+        Test label
+      </button>
+       
+      <!---->
+       
+      <svg
+        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+     
+    <div
+      class="ec-filter-popover__filter-content"
+    />
+  </ecpopover-stub>
+</div>
+`;
