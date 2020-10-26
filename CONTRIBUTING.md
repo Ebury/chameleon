@@ -210,6 +210,7 @@ Before merging a code in a **Pull Request** to the `master` branch, it is requir
 * The **Build from circleci** (CI) process marks the PR as **green**.
 * There are no **merge conflicts**.
 * The branch must be **updated** with the latest commit of `master` branch.
+* The strategy that must follow the PR will be **squad**
 
 ## Release
 
@@ -218,6 +219,20 @@ When a PR passes all the **Style guide** and is before is merged to the `master`
 * You must bump the version of chameleon, it can be done with this script `npm version patch`
 * Then you should publish the code with the new version in **npm**, use this script to do it `npm publish`, if you are not able to publish because you don't have permission ask one of the [CODEOWNERS](CODEOWNERS)
 * Last step you need to push the changes to your branch with the follow tags option, script `git push --follow-tags`
+
+## Reporting a problem or requesting a change
+
+If you want to report a problem or request some change you can report an issue to [Eburyonline JIRA project board](https://fxsolutions.atlassian.net/jira/software/c/projects/ONL/issues?filter=allissues).
+
+### How to report a bug
+
+Depending on the kind of reporter, and when it is detected bugs will be reported as follows:
+
+* If you are a **contributor or code owner** and detect a bug in this project, you must create a JIRA issue in your board with task type **defect** (see [here](https://fxsolutions.atlassian.net/wiki/spaces/PRODUCTS/pages/123095173/Bugs+and+e2e+philosophy)).
+    * If it is detected during the Software Development Life Cycle [(SDLC)](https://fxsolutions.atlassian.net/wiki/spaces/PRODUCTS/pages/42795535/SDLC), you must create it as subtask of the main task.
+    * If it is detected during a release, as subtask of the release task.
+    * In other cases, as task.
+* **Support team members** will create the JIRA issue as **bug** and communicate with the code owners if the bug comes from production environment (see [here](https://fxsolutions.atlassian.net/wiki/spaces/PRODUCTS/pages/123095173/Bugs+and+e2e+philosophy)).
 
 ## Thanks!
 
