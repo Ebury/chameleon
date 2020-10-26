@@ -14,16 +14,6 @@ Also, check out the latest version deployed in [Storybook](https://chameleon.ebu
 
 ## Installation
 
-### Install the library in your project
-
-Install @ebury/chameleon-components in your project with npm:
-
-```sh
-npm install @ebury/chameleon-components --save
-```
-
-### Storybook
-
 1\. Clone chameleon-components repo
 
 2\. Install all dependencies with:
@@ -48,6 +38,15 @@ We love collaborating with other teams and welcome contributions!
 See the [contributing](CONTRIBUTING.md) docs for more info on code style, formatting, testing, and troubleshooting. Or if you want to report a problem or request some change.
 
 ## Usage
+
+### Install the library in your project
+
+Install @ebury/chameleon-components in your project with npm:
+
+```sh
+npm install @ebury/chameleon-components --save
+```
+### Import component/s
 
 All of our components are exported by name from @ebury/chameleon-components, so you can import them with:
 
