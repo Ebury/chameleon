@@ -1,7 +1,38 @@
-# Contributing
+# Contributing guidelines
+
+1. [CSS](#markdown-header-css)
+    1. [Vue](#markdown-header-vue)
+    1. [BEM](#markdown-header-bem)
+    1. [ITCSS](#markdown-header-itcss)
+    1. [PurgeCSS](#markdown-header-purgecss)
+1. [Vue app](#markdown-header-css)
+1. [Testing](#markdown-header-testing)
+    1. [Unit tests](#markdown-header-unit-tests)
+    1. [Visual regression tests](#markdown-header-visual-regression-tests)
+1. [Linting](#markdown-header-linting)
+1. [Build](#markdown-header-build)
+1. [Submitting changes](#markdown-header-submitting-changes)
+    1. [Creating a PR](#markdown-header-creating-a-pr)
+    1. [Code Review](#markdown-header-code-review)
+    1. [Merge conditions](#markdown-header-merge-conditions)
+1. [Release](#markdown-header-release)
+1. [Reporting a problem or requesting a change](#markdown-header-reporting-a-problem-or-requesting-a-change)
+1. [How to report a bug](#markdown-header-how-to-report-a-bug)
+1. [Thanks](#markdown-header-thanks)
+
+Hi there! We’d love your help if you're interested in contributing to Eburyonline. Eburyonline is developed by the [Online team](https://fxsolutions.atlassian.net/wiki/spaces/TEAM/pages/119543461/ONL) members. Check the [VISION](VISION.md) for the project as well as the guidelines below to contribute.
+
+These are the steps to contribute with a new change to this repository:
+
+1. Create an **issue** in JIRA in your project board, complete the required information, add the issue to your current sprint and set the status to the equivalent to "in progress".
+2. Create a **branch** in the repository from `master` branch. The name of the branch starts with the JIRA issue identifier and some optional suffix. For example, for issue `ONL-123`, the branch can be named `ONL-123-task`.
+3. In every **commit** messages, include a prefix `[ONL-123]` and then a descriptive message. Try to commit frequently and doing commits by atomic changes.
+4. When your change is ready to be reviewed, create a [Pull Request](#markdown-header-creating-a-pr) (PR) from the JIRA issue and move your issue to the correct status.
+5. Manage the [User Acceptance Testing](#markdown-header-user-acceptance-testing) (UAT) according to the guidelines and update the JIRA issue status.
+6. During the [Code Review](#markdown-header-code-review) phase the reviewers could propose changes; and it means possible changes and new commits.
+7. When the [Merge conditions](#markdown-header-Merge-conditions) are fulfilled, you can **merge** the code from the PR following the **squash** strategy and **close the issue** in JIRA.
 
 For the development of @ebury/chameleon-components, we use storybook [Storybook](https://storybook.js.org/).
-If you want to contribute to the library then you must do the following to set up your local environment:
 
 ## CSS
 
@@ -182,6 +213,11 @@ A **Pull Request** (PR) is the method of submitting contributions to the project
 * The code owners review the manual checks for **Style guide** of the project.
 * If the change is rejected by the code owners and there is not possibility of modifications, the PR will be marked as **declined**, and the process do not continue. If it can be modified, the Pull Request should not be declined, only commented with mandatory changes.
 * The code review phase is considered **finished** when all the mandatory changes are done and it is approved.
+
+
+### User Acceptance Testing
+
+User acceptance testing **User Acceptance Testing** (UAT) is a process to verifying that a solution works for the user. In our process, we will use the [vercel](https://vercel.com) app that we have installed in our repository, on the pull request the app will give as a link with the solution working, once the code review is approved you will need to add this link to the ticket before you pass the ticket to the **DONE** status.
 
 ### Merge conditions
 

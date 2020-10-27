@@ -14,6 +14,8 @@ Also, check out the latest version deployed in [Storybook](https://chameleon.ebu
 
 ## Installation
 
+If you want to contribute to the library then you must do the following to set up your local environment:
+
 1\. Clone chameleon-components repo
 
 2\. Install all dependencies with:
