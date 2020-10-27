@@ -40,7 +40,7 @@ stories
         <h2>Reserved colors (not themable)</h2>
         <table class="tw-mb-12 tw-w-full tw-border tw-border-solid tw-border-gray-6 tw-font-mono">
           <tbody>
-            <tr v-for="color in ['error', 'error-hover', 'info', 'info-hover', 'success', 'success-hover', 'warning', 'warning-hover']">
+            <tr v-for="color in ['error', 'error-dark', 'error-light', 'info', 'info-dark', 'info-light', 'success', 'success-dark', 'success-light', 'warning', 'warning-dark', 'warning-light']">
               <td class="tw-w-1/6" :style="{ backgroundColor: 'hsl(var(--ec-reserved-color-' + color + '))' }"></td>
               <td class="tw-w-2/6 tw-p-4 tw-border-b tw-border-solid tw-border-gray-6">
                 <span>{{ '--ec-reserved-color-' + color }}</span>
