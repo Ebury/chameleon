@@ -46,6 +46,7 @@ Install @ebury/chameleon-components in your project with npm:
 ```sh
 npm install @ebury/chameleon-components --save
 ```
+
 ### Import component/s
 
 All of our components are exported by name from @ebury/chameleon-components, so you can import them with:
