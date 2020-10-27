@@ -30,11 +30,13 @@
       <slot v-bind="{ title, subtitle }">
         <div
           class="ec-alert__title"
+          :class="`ec-alert__title--${type}`"
           data-test="ec-alert__title"
         >{{ title }}</div>
         <div
           v-if="subtitle"
           class="ec-alert__subtitle"
+          :class="`ec-alert__subtitle--${type}`"
           data-test="ec-alert__subtitle"
         >{{ subtitle }}</div>
       </slot>
@@ -115,8 +117,8 @@ export default {
 .ec-alert {
   @apply tw-rounded;
   @apply tw-p-16;
-  @apply tw-text-gray-8 tw-fill-current;
   @apply tw-relative;
+  @apply tw-fill-current;
   @apply tw-flex tw-flex-col tw-items-center;
 
   &--is-responsive {
@@ -136,11 +138,30 @@ export default {
   }
 
   &__title {
-    @apply tw-body-strong tw-text-gray-8;
+    @apply tw-body-strong;
   }
 
   &__subtitle {
-    @apply tw-body-text tw-text-gray-8;
+    @apply tw-body-text;
+  }
+
+  &__title,
+  &__subtitle {
+    &--success {
+      @apply tw-text-success-dark;
+    }
+
+    &--warning {
+      @apply tw-text-warning-dark;
+    }
+
+    &--info {
+      @apply tw-text-info-dark;
+    }
+
+    &--error {
+      @apply tw-text-error-dark;
+    }
   }
 
   &__icon {
@@ -153,54 +174,68 @@ export default {
     @apply tw-rounded;
     @apply tw-absolute tw-top-8 tw-right-8;
     @apply tw-cursor-pointer;
-    @apply tw-fill-gray-8;
 
     line-height: 0;
 
     &:focus {
       @apply tw-outline-none;
-      @apply tw-bg-gray-8;
     }
 
-    &:hover {
-      @apply tw-bg-gray-8;
+    &--info {
+      @apply tw-fill-info-dark;
+
+      &:focus,
+      &:hover {
+        @apply tw-fill-info;
+      }
     }
 
-    &--info:focus,
-    &--info:hover {
-      @apply tw-fill-info;
+    &--success {
+      @apply tw-fill-success-dark;
+
+      &:focus,
+      &:hover {
+        @apply tw-fill-success;
+      }
     }
 
-    &--success:focus,
-    &--success:hover {
-      @apply tw-fill-success;
+    &--warning {
+      @apply tw-fill-warning-dark;
+
+      &:focus,
+      &:hover {
+        @apply tw-fill-warning;
+      }
     }
 
-    &--warning:focus,
-    &--warning:hover {
-      @apply tw-fill-warning;
-    }
+    &--error {
+      @apply tw-fill-error-dark;
 
-    &--error:focus,
-    &--error:hover {
-      @apply tw-fill-error;
+      &:focus,
+      &:hover {
+        @apply tw-fill-error;
+      }
     }
   }
 
   &--info {
-    @apply tw-bg-info;
+    @apply tw-bg-info-light;
+    @apply tw-text-info-dark;
   }
 
   &--success {
-    @apply tw-bg-success;
+    @apply tw-bg-success-light;
+    @apply tw-text-success-dark;
   }
 
   &--warning {
-    @apply tw-bg-warning;
+    @apply tw-bg-warning-light;
+    @apply tw-text-warning-dark;
   }
 
   &--error {
-    @apply tw-bg-error;
+    @apply tw-bg-error-light;
+    @apply tw-text-error-dark;
   }
 }
 </style>
