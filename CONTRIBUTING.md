@@ -20,7 +20,7 @@
 1. [How to report a bug](#markdown-header-how-to-report-a-bug)
 1. [Thanks](#markdown-header-thanks)
 
-Hi there! We’d love your help if you're interested in contributing to Eburyonline. Eburyonline is developed by the [Online team](https://fxsolutions.atlassian.net/wiki/spaces/TEAM/pages/119543461/ONL) members. Check the [VISION](VISION.md) for the project as well as the guidelines below to contribute.
+Hi there! We’d love your help if you're interested in contributing to Chameleon. Chameleon is the design system developed by the [Online team](https://fxsolutions.atlassian.net/wiki/spaces/TEAM/pages/119543461/ONL) members for Eburyonline. Check the [VISION](VISION.md) for the project as well as the guidelines below to contribute.
 
 These are the steps to contribute with a new change to this repository:
 
