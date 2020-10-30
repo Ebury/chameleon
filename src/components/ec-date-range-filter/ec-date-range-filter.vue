@@ -17,20 +17,20 @@
             v-model="fromValueDate"
             class="ec-date-range-filter__from-label"
             type="date"
-            placeholder="DD/MM/YYYY"
+            placeholder="dd/mm/yyyy"
             :label="fromLabelText"
             :error-message="errorMessageFromDate"
             @change="onChange()"
-            @input="errorMessageFromDate = ''"
+            @input="onInput()"
           />
           <ec-input-field
             v-model="toValueDate"
             class="ec-date-range-filter__to-label"
             type="date"
-            placeholder="DD/MM/YYYY"
+            placeholder="dd/mm/yyyy"
             :label="toLabelText"
             @change="onChange()"
-            @input="errorMessageFromDate = ''"
+            @input="onInput()"
           />
         </div>
         <button
@@ -56,11 +56,6 @@ export default {
     label: {
       type: String,
       required: true,
-      default: '',
-    },
-    value: { // Check we actually need this
-      type: [Number, String, Date],
-      required: false,
       default: '',
     },
     fromLabelText: {
@@ -107,6 +102,9 @@ export default {
   methods: {
     onChange() {
       this.validateFromDate();
+    },
+    onInput() {
+      this.errorMessageFromDate = '';
     },
     clearDates() {
       this.fromValueDate = '';

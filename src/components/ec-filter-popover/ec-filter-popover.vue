@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="filterPopover"
     class="ec-filter-popover"
     data-test="ec-filter-popover"
   >

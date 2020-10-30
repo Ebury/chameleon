@@ -10,7 +10,7 @@ exports[`ecDateRangeFilter should render properly when all the props are given 1
     data-test="ec-popover"
   >
     <div
-      aria-describedby="popover_slrfe258q5"
+      aria-describedby="popover_c1qgta60qw"
       class="trigger"
       style="display: inline-block;"
     >
