@@ -1,6 +1,5 @@
 <template>
   <div
-    ref="filterPopover"
     class="ec-filter-popover"
     data-test="ec-filter-popover"
   >
@@ -166,6 +165,7 @@ export default {
 
     &:hover {
       @apply tw-no-underline;
+      @apply tw-cursor-pointer;
     }
 
     &:focus {

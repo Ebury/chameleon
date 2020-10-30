@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ecDateRangeFilter should render properly when all the props are given 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <div
+    class="v-popover"
+    data-test="ec-popover"
+  >
+    <div
+      aria-describedby="popover_57c8gf6l6b"
+      class="trigger"
+      style="display: inline-block;"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          type="button"
+        >
+          Due date
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+    </div>
+     
+  </div>
+</div>
+`;
