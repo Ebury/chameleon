@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import ecDateRangeFilter from './ec-date-range-filter.vue';
 
-const dateRangeFilterLabel = 'Due date';
+const label = 'Due date';
 const fromLabelText = 'From';
 const toLabelText = 'To';
 
@@ -14,7 +14,7 @@ function mountecDateRangeFilter(props) {
 }
 describe('ecDateRangeFilter', () => {
   it('should render properly when all the props are given', () => {
-    const wrapper = mountecDateRangeFilter({ dateRangeFilterLabel, fromLabelText, toLabelText });
+    const wrapper = mountecDateRangeFilter({ label, fromLabelText, toLabelText });
     expect(wrapper.element).toMatchSnapshot();
   });
 });

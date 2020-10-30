@@ -1,6 +1,6 @@
 <template>
   <ec-filter-popover
-    :label="dateRangeFilterLabel"
+    :label="label"
     :number-of-selected-filters="numberOfSelectedFilters"
     :popover-options="popoverOptions"
   >
@@ -20,7 +20,6 @@
             placeholder="DD/MM/YYYY"
             :label="fromLabelText"
             :error-message="errorMessageFromDate"
-            :popover-options="{ open: true }"
             @change="onChange()"
             @input="errorMessageFromDate = ''"
           />
@@ -54,7 +53,7 @@ export default {
   name: 'EcDateRangeFilter',
   components: { ecFilterPopover, EcInputField },
   props: {
-    dateRangeFilterLabel: {
+    label: {
       type: String,
       required: true,
       default: '',

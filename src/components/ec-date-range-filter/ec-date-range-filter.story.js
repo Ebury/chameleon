@@ -11,7 +11,7 @@ export const basic = (args, { argTypes }) => ({
   template: `
     <ec-date-range-filter
       class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
-      :label="dateRangeFilterLabel"
+      :label="label"
       :fromLabelText="fromLabelText"
       :toLabelText="toLabelText"
       :value="value"
@@ -21,7 +21,7 @@ export const basic = (args, { argTypes }) => ({
 });
 
 basic.args = {
-  dateRangeFilterLabel: 'Due date',
+  label: 'Due date',
   fromLabelText: 'From',
   toLabelText: 'To',
 };
