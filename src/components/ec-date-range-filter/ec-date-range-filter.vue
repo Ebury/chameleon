@@ -3,6 +3,7 @@
     :label="label"
     :number-of-selected-filters="numberOfSelectedFilters"
     :popover-options="popoverOptions"
+    data-test="ec-date-range-filter__trigger"
   >
     <template #filter>
       <div
@@ -12,8 +13,8 @@
         <div class="ec-date-range-filter__inputs-wrapper">
           <ec-input-field
             v-model="fromValueDate"
-            class="ec-date-range-filter__from-label"
-            data-test="ec-date-range-filter__from-label"
+            class="ec-date-range-filter__from-input"
+            data-test="ec-date-range-filter__from-input"
             type="date"
             placeholder="dd/mm/yyyy"
             :label="fromLabelText"
@@ -22,8 +23,8 @@
           />
           <ec-input-field
             v-model="toValueDate"
-            class="ec-date-range-filter__to-label"
-            data-test="ec-date-range-filter__to-label"
+            class="ec-date-range-filter__to-input"
+            data-test="ec-date-range-filter__to-input"
             type="date"
             placeholder="dd/mm/yyyy"
             :label="toLabelText"
@@ -129,7 +130,7 @@ export default {
 .ec-date-range-filter {
   @apply tw-px-20 tw-py-16;
 
-  &__to-label {
+  &__to-input {
     @apply tw-pt-20;
   }
 

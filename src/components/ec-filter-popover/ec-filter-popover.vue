@@ -24,6 +24,7 @@
         <span
           v-if="numberOfSelectedFilters > 0"
           class="ec-filter-popover__badge"
+          data-test="ec-filter-popover__badge"
         > {{ numberOfSelectedFilters }}
         </span>
         <!-- <ec-badge-number size="20" value="numberOfSelectedFilters" />
