@@ -59,14 +59,14 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
           class="ec-alert__content"
         >
           <div
-            class="ec-alert__title"
+            class="ec-alert__title ec-alert__title--error"
             data-test="ec-alert__title"
           >
             random
           </div>
            
           <div
-            class="ec-alert__subtitle"
+            class="ec-alert__subtitle ec-alert__subtitle--error"
             data-test="ec-alert__subtitle"
           >
             random
@@ -112,14 +112,14 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
           class="ec-alert__content"
         >
           <div
-            class="ec-alert__title"
+            class="ec-alert__title ec-alert__title--success"
             data-test="ec-alert__title"
           >
             random
           </div>
            
           <div
-            class="ec-alert__subtitle"
+            class="ec-alert__subtitle ec-alert__subtitle--success"
             data-test="ec-alert__subtitle"
           >
             random
@@ -165,14 +165,14 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
           class="ec-alert__content"
         >
           <div
-            class="ec-alert__title"
+            class="ec-alert__title ec-alert__title--info"
             data-test="ec-alert__title"
           >
             random
           </div>
            
           <div
-            class="ec-alert__subtitle"
+            class="ec-alert__subtitle ec-alert__subtitle--info"
             data-test="ec-alert__subtitle"
           >
             random
@@ -218,14 +218,14 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
           class="ec-alert__content"
         >
           <div
-            class="ec-alert__title"
+            class="ec-alert__title ec-alert__title--warning"
             data-test="ec-alert__title"
           >
             random
           </div>
            
           <div
-            class="ec-alert__subtitle"
+            class="ec-alert__subtitle ec-alert__subtitle--warning"
             data-test="ec-alert__subtitle"
           >
             random
@@ -276,14 +276,14 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
       class="ec-alert__content"
     >
       <div
-        class="ec-alert__title"
+        class="ec-alert__title ec-alert__title--success"
         data-test="ec-alert__title"
       >
         This is the title
       </div>
        
       <div
-        class="ec-alert__subtitle"
+        class="ec-alert__subtitle ec-alert__subtitle--success"
         data-test="ec-alert__subtitle"
       >
         This is the subtitle
