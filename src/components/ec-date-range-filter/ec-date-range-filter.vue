@@ -9,28 +9,25 @@
         class="ec-date-range-filter"
         data-test="ec-date-range-filter"
       >
-        <div
-          class="ec-date-range-filter__inputs-wrapper"
-          data-test="ec-date-range-filter__inputs-wrapper"
-        >
+        <div class="ec-date-range-filter__inputs-wrapper">
           <ec-input-field
             v-model="fromValueDate"
             class="ec-date-range-filter__from-label"
+            data-test="ec-date-range-filter__from-label"
             type="date"
             placeholder="dd/mm/yyyy"
             :label="fromLabelText"
-            :error-message="errorMessageFromDate"
-            @change="onChange()"
-            @input="onInput()"
+            :error-message="errorMessage"
+            :max="toValueDate"
           />
           <ec-input-field
             v-model="toValueDate"
             class="ec-date-range-filter__to-label"
+            data-test="ec-date-range-filter__to-label"
             type="date"
             placeholder="dd/mm/yyyy"
             :label="toLabelText"
-            @change="onChange()"
-            @input="onInput()"
+            :min="fromValueDate"
           />
         </div>
         <button
@@ -38,8 +35,8 @@
           :disabled="isDisabled"
           class="ec-date-range-filter__clear-button"
           data-test="ec-date-range-filter__clear-button"
-          @click="clearDates()"
-        >Clear Dates</button>
+          @click="clear()"
+        >{{ clearText }}</button>
       </div>
     </template>
   </ec-filter-popover>
@@ -47,11 +44,15 @@
 
 <script>
 import EcInputField from '../ec-input-field';
-import ecFilterPopover from '../ec-filter-popover';
+import EcFilterPopover from '../ec-filter-popover';
 
 export default {
   name: 'EcDateRangeFilter',
-  components: { ecFilterPopover, EcInputField },
+  components: { EcFilterPopover, EcInputField },
+  model: {
+    prop: 'value',
+    event: 'change',
+  },
   props: {
     label: {
       type: String,
@@ -60,37 +61,54 @@ export default {
     },
     fromLabelText: {
       type: String,
-      required: true,
+      required: false,
       default: 'From',
     },
     toLabelText: {
       type: String,
-      required: true,
+      required: false,
       default: 'To',
+    },
+    clearText: {
+      type: String,
+      required: false,
+      default: 'Clear dates',
     },
     errorMessage: {
       type: String,
       required: false,
-      default: 'From date must not be later than the to date',
+      default: '',
     },
     popoverOptions: {
       type: Object,
     },
-  },
-  data() {
-    return {
-      fromValueDate: '', // Check that this format is ok
-      toValueDate: '',
-      errorMessageFromDate: '',
-    };
+    value: {
+      type: Object,
+    },
   },
   computed: {
+    fromValueDate: {
+      get() {
+        return this.value.from;
+      },
+      set(value) {
+        this.$emit('change', { from: value, to: this.toValueDate });
+      },
+    },
+    toValueDate: {
+      get() {
+        return this.value.to;
+      },
+      set(value) {
+        this.$emit('change', { from: this.fromValueDate, to: value });
+      },
+    },
     numberOfSelectedFilters() {
       let dateSelected = 0;
 
-      if (this.fromValueDate && this.toValueDate !== '') {
+      if (this.fromValueDate && this.toValueDate) {
         dateSelected = 2;
-      } else if (this.fromValueDate || this.toValueDate !== '') {
+      } else if (this.fromValueDate || this.toValueDate) {
         dateSelected = 1;
       }
       return dateSelected;
@@ -100,27 +118,8 @@ export default {
     },
   },
   methods: {
-    onChange() {
-      this.validateFromDate();
-    },
-    onInput() {
-      this.errorMessageFromDate = '';
-    },
-    clearDates() {
-      this.fromValueDate = '';
-      this.toValueDate = '';
-      this.errorMessageFromDate = '';
-    },
-    validateFromDate() {
-      const fromValueDate = new Date(this.fromValueDate);
-      const toValueDate = new Date(this.toValueDate);
-      const isfromDateInvalid = fromValueDate >= toValueDate;
-
-      if (isfromDateInvalid) {
-        this.errorMessageFromDate = this.errorMessage;
-        return this.errorMessageFromDate;
-      }
-      return this.$emit('change', { from: this.fromValueDate, to: this.toValueDate });
+    clear() {
+      this.$emit('clear');
     },
   },
 };
@@ -151,4 +150,3 @@ export default {
   }
 }
 </style>
-
