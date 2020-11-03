@@ -15,10 +15,10 @@ stories
       EcBtn,
     },
     props: {
-      itemIndex: {
-        default: text('item index', '1'),
+      index: {
+        default: text('index', '1'),
       },
-      isLastItem: {
+      isLast: {
         default: boolean('last item', false),
       },
       status: {
@@ -28,8 +28,8 @@ stories
     template: `
       <div class="tw-m-24 tw-flex tw-justify-center tw-max-w-screen-md">
         <ec-metroline-item
-          :item-index="itemIndex"
-          :is-last-item="isLastItem"
+          :index="index"
+          :is-last="isLast"
           :status="status">
           <template #heading>
             <span class="tw-mr-16">

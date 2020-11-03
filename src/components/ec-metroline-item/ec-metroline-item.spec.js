@@ -6,7 +6,7 @@ import * as STATUS from '../../enums/metroline-status';
 function mountEcMetrolineItem(props, mountOpts) {
   return mount(EcMetrolineItem, {
     propsData: {
-      itemIndex: '1',
+      index: '1',
       ...props,
     },
     ...mountOpts,
@@ -29,6 +29,7 @@ describe('EcMetrolineItem', () => {
       expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "status"');
     });
   });
+
   it('it should render properly when status is "next"', () => {
     const wrapper = mountEcMetrolineItem(
       {
@@ -95,7 +96,7 @@ describe('EcMetrolineItem', () => {
     const wrapper = mountEcMetrolineItem(
       {
         status,
-        isLastItem: true,
+        isLast: true,
       },
       {
         slots,

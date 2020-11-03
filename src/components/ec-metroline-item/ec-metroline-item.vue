@@ -3,8 +3,8 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-metroline-item` : 'ec-metroline-item'"
     class="ec-metroline-item"
     :class="{
-      'ec-metroline-item--active': isActive || ( isCompleted && isLastItem),
-      'ec-metroline-item--is-last': isLastItem
+      'ec-metroline-item--active': isActive || ( isCompleted && isLast),
+      'ec-metroline-item--is-last': isLast
     }"
   >
     <div
@@ -19,7 +19,7 @@
           v-if="!isCompleted"
           data-test="ec-metroline-item__status-disk-enumeration"
         >
-          {{ itemIndex }}
+          {{ index }}
         </span>
 
         <ec-icon
@@ -31,7 +31,7 @@
       </div>
 
       <div
-        v-if="!isLastItem"
+        v-if="!isLast"
         data-test="ec-metroline-item__status-bar"
         class="ec-metroline-item__status-bar"
       />
@@ -69,7 +69,7 @@
       </div>
 
       <div
-        v-if="!isNextItem"
+        v-if="!isNext"
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
       >
@@ -77,7 +77,7 @@
       </div>
 
       <div
-        v-if="!isNextItem"
+        v-if="!isNext"
         class="ec-metroline-item__footer"
         data-test="ec-metroline-item__footer"
       >
@@ -100,11 +100,11 @@ export default {
   name: 'EcMetrolineItem',
   components: { EcIcon },
   props: {
-    itemIndex: {
+    index: {
       type: String,
       required: true,
     },
-    isLastItem: {
+    isLast: {
       type: Boolean,
       default: false,
     },
@@ -117,7 +117,7 @@ export default {
     },
   },
   computed: {
-    isNextItem() {
+    isNext() {
       return this.status === STATUS.NEXT;
     },
     isActive() {
