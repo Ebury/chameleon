@@ -150,7 +150,7 @@ export default {
     @apply tw-bg-gray-6 tw-text-gray-3 tw-fill-current;
     @apply tw-rounded-1/2;
     @apply tw-min-w-24 tw-min-h-24;
-    @apply tw-small-text tw-text-center;
+    @apply tw-small-text;
     @apply tw-mb-8;
 
     .ec-metroline-item--active & {
