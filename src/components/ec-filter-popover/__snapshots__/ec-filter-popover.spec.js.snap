@@ -28,6 +28,7 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
        
       <span
         class="ec-filter-popover__badge"
+        data-test="ec-filter-popover__badge"
       >
          5
       
