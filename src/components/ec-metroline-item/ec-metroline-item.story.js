@@ -1,7 +1,7 @@
 import EcMetrolineItem from './ec-metroline-item.vue';
 import EcIcon from '../ec-icon/ec-icon.vue';
 import EcBtn from '../ec-btn/ec-btn.vue';
-import * as STATUS from '../../enums/metroline-status';
+import * as MetrolineItemStatus from '../../enums/metroline-item-status';
 
 export default {
   title: 'Metroline Item',
@@ -11,9 +11,9 @@ export default {
       control: {
         type: 'select',
         options: [
-          STATUS.NEXT,
-          STATUS.ACTIVE,
-          STATUS.COMPLETED,
+          MetrolineItemStatus.NEXT,
+          MetrolineItemStatus.ACTIVE,
+          MetrolineItemStatus.COMPLETED,
         ],
       },
     },
@@ -71,5 +71,5 @@ export const basic = Template.bind({});
 basic.args = {
   index: '1',
   isLast: false,
-  status: STATUS.ACTIVE,
+  status: MetrolineItemStatus.ACTIVE,
 };
