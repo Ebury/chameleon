@@ -134,10 +134,9 @@ export default {
 .ec-metroline-item {
   @apply tw-w-full;
   @apply tw-flex;
-  @apply tw-mb-8;
 
-  &--is-last {
-    @apply tw-mb-0;
+  & + & {
+    @apply tw-mt-8;
   }
 
   &__status {
