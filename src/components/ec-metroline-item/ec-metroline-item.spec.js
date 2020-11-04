@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcMetrolineItem from './ec-metroline-item.vue';
-import * as STATUS from '../../enums/metroline-status';
+import * as MetrolineItemStatus from '../../enums/metroline-item-status';
 
 function mountEcMetrolineItem(props, mountOpts) {
   return mount(EcMetrolineItem, {
@@ -16,9 +16,9 @@ function mountEcMetrolineItem(props, mountOpts) {
 const slots = {
   heading: '<span>Payee information</span>',
   'sub-heading': '<span>Amount fully allocated</span>',
-  'header-cta': '<a href="#>Edit</a>',
+  'header-cta': '<a href="#">Edit</a>',
   main: '<p> Lorem ipsum dolor sit amet, voluptates at cumque repudiandae atque quod voluptatum, aperiam dignissimos, vitae, neque mollitia repellat! </p>',
-  'footer-cta': '<a href="#>Continue</a>',
+  'footer-cta': '<a href="#">Continue</a>',
 };
 
 describe('EcMetrolineItem', () => {
@@ -33,14 +33,14 @@ describe('EcMetrolineItem', () => {
   it('it should render properly when status is "next"', () => {
     const wrapper = mountEcMetrolineItem(
       {
-        status: STATUS.NEXT,
+        status: MetrolineItemStatus.NEXT,
       },
       {
         slots,
       },
     );
-    expect(wrapper.findByDataTest('ec-metroline-item__status-disk-enumeration').exists()).toBe(true);
-    expect(wrapper.findByDataTest('ec-metroline-item__status-disk-completed').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-metroline-item__index').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-metroline-item__completed-icon').exists()).toBe(false);
     expect(wrapper.findByDataTest('ec-metroline-item__header-heading').exists()).toBe(true);
     expect(wrapper.findByDataTest('ec-metroline-item__header-sub-heading').exists()).toBe(false);
     expect(wrapper.findByDataTest('ec-metroline-item__status-bar').exists()).toBe(true);
@@ -53,15 +53,15 @@ describe('EcMetrolineItem', () => {
   it('should render properly when status is "active"', () => {
     const wrapper = mountEcMetrolineItem(
       {
-        status: STATUS.ACTIVE,
+        status: MetrolineItemStatus.ACTIVE,
       },
       {
         slots,
       },
     );
 
-    expect(wrapper.findByDataTest('ec-metroline-item__status-disk-enumeration').exists()).toBe(true);
-    expect(wrapper.findByDataTest('ec-metroline-item__status-disk-completed').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-metroline-item__index').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-metroline-item__completed-icon').exists()).toBe(false);
     expect(wrapper.findByDataTest('ec-metroline-item__header-heading').exists()).toBe(true);
     expect(wrapper.findByDataTest('ec-metroline-item__header-sub-heading').exists()).toBe(false);
     expect(wrapper.findByDataTest('ec-metroline-item__status-bar').exists()).toBe(true);
@@ -74,15 +74,15 @@ describe('EcMetrolineItem', () => {
   it('should properly when status is "completed"', () => {
     const wrapper = mountEcMetrolineItem(
       {
-        status: STATUS.COMPLETED,
+        status: MetrolineItemStatus.COMPLETED,
       },
       {
         slots,
       },
     );
 
-    expect(wrapper.findByDataTest('ec-metroline-item__status-disk-enumeration').exists()).toBe(false);
-    expect(wrapper.findByDataTest('ec-metroline-item__status-disk-completed').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-metroline-item__index').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-metroline-item__completed-icon').exists()).toBe(true);
     expect(wrapper.findByDataTest('ec-metroline-item__header-heading').exists()).toBe(true);
     expect(wrapper.findByDataTest('ec-metroline-item__header-sub-heading').exists()).toBe(true);
     expect(wrapper.findByDataTest('ec-metroline-item__status-bar').exists()).toBe(true);
@@ -92,7 +92,7 @@ describe('EcMetrolineItem', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it.each([STATUS.NEXT, STATUS.ACTIVE, STATUS.COMPLETED])('should render properly when is the last item and status is "%s"', (status) => {
+  it.each([MetrolineItemStatus.NEXT, MetrolineItemStatus.ACTIVE, MetrolineItemStatus.COMPLETED])('should render properly when is the last item and status is "%s"', (status) => {
     const wrapper = mountEcMetrolineItem(
       {
         status,

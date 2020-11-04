@@ -3,7 +3,7 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-metroline-item` : 'ec-metroline-item'"
     class="ec-metroline-item"
     :class="{
-      'ec-metroline-item--active': isActive || ( isCompleted && isLast),
+      'ec-metroline-item--active': isActive || (isCompleted && isLast),
       'ec-metroline-item--is-last': isLast
     }"
   >
@@ -12,19 +12,19 @@
       class="ec-metroline-item__status"
     >
       <div
-        data-test="ec-metroline-item__status-disk"
-        class="ec-metroline-item__status-disk"
+        data-test="ec-metroline-item__badge"
+        class="ec-metroline-item__badge"
       >
         <span
           v-if="!isCompleted"
-          data-test="ec-metroline-item__status-disk-enumeration"
+          data-test="ec-metroline-item__index"
         >
           {{ index }}
         </span>
 
         <ec-icon
           v-else
-          data-test="ec-metroline-item__status-disk-completed"
+          data-test="ec-metroline-item__completed-icon"
           name="simple-check"
           :size="14"
         />
@@ -94,7 +94,7 @@
 
 <script>
 import EcIcon from '../ec-icon';
-import * as STATUS from '../../enums/metroline-status';
+import * as MetrolineItemStatus from '../../enums/metroline-item-status';
 
 export default {
   name: 'EcMetrolineItem',
@@ -112,19 +112,19 @@ export default {
       type: String,
       required: true,
       validator(value) {
-        return [STATUS.NEXT, STATUS.ACTIVE, STATUS.COMPLETED].includes(value);
+        return [MetrolineItemStatus.NEXT, MetrolineItemStatus.ACTIVE, MetrolineItemStatus.COMPLETED].includes(value);
       },
     },
   },
   computed: {
     isNext() {
-      return this.status === STATUS.NEXT;
+      return this.status === MetrolineItemStatus.NEXT;
     },
     isActive() {
-      return this.status === STATUS.ACTIVE;
+      return this.status === MetrolineItemStatus.ACTIVE;
     },
     isCompleted() {
-      return this.status === STATUS.COMPLETED;
+      return this.status === MetrolineItemStatus.COMPLETED;
     },
   },
 };
@@ -144,7 +144,7 @@ export default {
     @apply tw-mr-16;
   }
 
-  &__status-disk {
+  &__badge {
     @apply tw-flex tw-justify-center tw-items-center;
     @apply tw-bg-gray-6 tw-text-gray-3 tw-fill-current;
     @apply tw-rounded-1/2;

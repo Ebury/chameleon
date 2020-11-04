@@ -10,11 +10,11 @@ exports[`EcMetrolineItem it should render properly when status is "next" 1`] = `
     data-test="ec-metroline-item__status"
   >
     <div
-      class="ec-metroline-item__status-disk"
-      data-test="ec-metroline-item__status-disk"
+      class="ec-metroline-item__badge"
+      data-test="ec-metroline-item__badge"
     >
       <span
-        data-test="ec-metroline-item__status-disk-enumeration"
+        data-test="ec-metroline-item__index"
       >
         
         1
@@ -67,12 +67,12 @@ exports[`EcMetrolineItem should properly when status is "completed" 1`] = `
     data-test="ec-metroline-item__status"
   >
     <div
-      class="ec-metroline-item__status-disk"
-      data-test="ec-metroline-item__status-disk"
+      class="ec-metroline-item__badge"
+      data-test="ec-metroline-item__badge"
     >
       <svg
         class="ec-icon"
-        data-test="ec-metroline-item__status-disk-completed"
+        data-test="ec-metroline-item__completed-icon"
         height="14"
         width="14"
       >
@@ -117,7 +117,11 @@ exports[`EcMetrolineItem should properly when status is "completed" 1`] = `
       <div
         data-test="ec-metroline-item__header-cta"
       >
-        ="#&gt;Edit
+        <a
+          href="#"
+        >
+          Edit
+        </a>
       </div>
     </div>
      
@@ -138,7 +142,11 @@ exports[`EcMetrolineItem should properly when status is "completed" 1`] = `
         class="ec-metroline-item__footer-cta"
         data-test="ec-metroline-item__footer-cta"
       >
-        ="#&gt;Continue
+        <a
+          href="#"
+        >
+          Continue
+        </a>
       </div>
     </div>
   </div>
@@ -155,11 +163,11 @@ exports[`EcMetrolineItem should render properly when is the last item and status
     data-test="ec-metroline-item__status"
   >
     <div
-      class="ec-metroline-item__status-disk"
-      data-test="ec-metroline-item__status-disk"
+      class="ec-metroline-item__badge"
+      data-test="ec-metroline-item__badge"
     >
       <span
-        data-test="ec-metroline-item__status-disk-enumeration"
+        data-test="ec-metroline-item__index"
       >
         
         1
@@ -209,7 +217,11 @@ exports[`EcMetrolineItem should render properly when is the last item and status
         class="ec-metroline-item__footer-cta"
         data-test="ec-metroline-item__footer-cta"
       >
-        ="#&gt;Continue
+        <a
+          href="#"
+        >
+          Continue
+        </a>
       </div>
     </div>
   </div>
@@ -226,12 +238,12 @@ exports[`EcMetrolineItem should render properly when is the last item and status
     data-test="ec-metroline-item__status"
   >
     <div
-      class="ec-metroline-item__status-disk"
-      data-test="ec-metroline-item__status-disk"
+      class="ec-metroline-item__badge"
+      data-test="ec-metroline-item__badge"
     >
       <svg
         class="ec-icon"
-        data-test="ec-metroline-item__status-disk-completed"
+        data-test="ec-metroline-item__completed-icon"
         height="14"
         width="14"
       >
@@ -273,7 +285,11 @@ exports[`EcMetrolineItem should render properly when is the last item and status
       <div
         data-test="ec-metroline-item__header-cta"
       >
-        ="#&gt;Edit
+        <a
+          href="#"
+        >
+          Edit
+        </a>
       </div>
     </div>
      
@@ -294,7 +310,11 @@ exports[`EcMetrolineItem should render properly when is the last item and status
         class="ec-metroline-item__footer-cta"
         data-test="ec-metroline-item__footer-cta"
       >
-        ="#&gt;Continue
+        <a
+          href="#"
+        >
+          Continue
+        </a>
       </div>
     </div>
   </div>
@@ -311,11 +331,11 @@ exports[`EcMetrolineItem should render properly when is the last item and status
     data-test="ec-metroline-item__status"
   >
     <div
-      class="ec-metroline-item__status-disk"
-      data-test="ec-metroline-item__status-disk"
+      class="ec-metroline-item__badge"
+      data-test="ec-metroline-item__badge"
     >
       <span
-        data-test="ec-metroline-item__status-disk-enumeration"
+        data-test="ec-metroline-item__index"
       >
         
         1
@@ -365,11 +385,11 @@ exports[`EcMetrolineItem should render properly when status is "active" 1`] = `
     data-test="ec-metroline-item__status"
   >
     <div
-      class="ec-metroline-item__status-disk"
-      data-test="ec-metroline-item__status-disk"
+      class="ec-metroline-item__badge"
+      data-test="ec-metroline-item__badge"
     >
       <span
-        data-test="ec-metroline-item__status-disk-enumeration"
+        data-test="ec-metroline-item__index"
       >
         
         1
@@ -422,7 +442,11 @@ exports[`EcMetrolineItem should render properly when status is "active" 1`] = `
         class="ec-metroline-item__footer-cta"
         data-test="ec-metroline-item__footer-cta"
       >
-        ="#&gt;Continue
+        <a
+          href="#"
+        >
+          Continue
+        </a>
       </div>
     </div>
   </div>
