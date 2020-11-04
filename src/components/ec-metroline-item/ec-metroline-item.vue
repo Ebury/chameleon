@@ -3,7 +3,7 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-metroline-item` : 'ec-metroline-item'"
     class="ec-metroline-item"
     :class="{
-      'ec-metroline-item--active': isActive || (isCompleted && isLast),
+      'ec-metroline-item--is-active': isActive || (isCompleted && isLast),
       'ec-metroline-item--is-last': isLast
     }"
   >
@@ -152,7 +152,7 @@ export default {
     @apply tw-small-text;
     @apply tw-mb-8;
 
-    .ec-metroline-item--active & {
+    .ec-metroline-item--is-active & {
       @apply tw-bg-key-4 tw-text-gray-8;
     }
   }
@@ -174,7 +174,7 @@ export default {
   &__header-heading {
     @apply tw-text-gray-3 tw-h4;
 
-    .ec-metroline-item--active & {
+    .ec-metroline-item--is-active & {
       @apply tw-text-gray-3 tw-h3;
 
       line-height: 24px; /* The disc is 24px. subsequently all header items must have a size of 24px or less. */

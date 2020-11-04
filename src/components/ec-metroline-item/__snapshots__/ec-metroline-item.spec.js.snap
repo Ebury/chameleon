@@ -155,7 +155,7 @@ exports[`EcMetrolineItem should properly when status is "completed" 1`] = `
 
 exports[`EcMetrolineItem should render properly when is the last item and status is "active" 1`] = `
 <div
-  class="ec-metroline-item ec-metroline-item--active ec-metroline-item--is-last"
+  class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
   data-test="ec-metroline-item"
 >
   <div
@@ -230,7 +230,7 @@ exports[`EcMetrolineItem should render properly when is the last item and status
 
 exports[`EcMetrolineItem should render properly when is the last item and status is "completed" 1`] = `
 <div
-  class="ec-metroline-item ec-metroline-item--active ec-metroline-item--is-last"
+  class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
   data-test="ec-metroline-item"
 >
   <div
@@ -377,7 +377,7 @@ exports[`EcMetrolineItem should render properly when is the last item and status
 
 exports[`EcMetrolineItem should render properly when status is "active" 1`] = `
 <div
-  class="ec-metroline-item ec-metroline-item--active"
+  class="ec-metroline-item ec-metroline-item--is-active"
   data-test="ec-metroline-item"
 >
   <div
