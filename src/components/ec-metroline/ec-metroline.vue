@@ -1,14 +1,8 @@
 <template>
   <div
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-metroline-container` : 'ec-metroline-container'"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-metroline` : 'ec-metroline'"
   >
-    <template v-for="(slot, index) in Object.keys($scopedSlots)">
-      <slot
-        :name="slot"
-        :status="itemsStatus[index]"
-        :goToNext="goToNext"
-      />
-    </template>
+    <slot />
   </div>
 </template>
 
@@ -17,43 +11,86 @@ import * as MetrolineItemStatus from '../../enums/metroline-item-status';
 
 export default {
   name: 'EcMetroline',
-  data() {
+  provide() {
     return {
-      itemsStatus: [],
+      metroline: this.metroline,
     };
   },
-  computed: {
-    activeMetrolineItemIndex() {
-      const isActive = item => item === MetrolineItemStatus.ACTIVE;
-      const index = this.itemsStatus.findIndex(isActive);
+  data() {
+    return {
+      metroline: {
+        register: (metrolineItemVm) => {
+          this.metrolineItems.push(metrolineItemVm);
+          this.metrolineItems.sort((item1, item2) => item1.id - item2.id);
 
-      return index;
-    },
-    amountOfMetrolineItems() {
-      return Object.keys(this.$scopedSlots).length;
-    },
+          if (this.metrolineItems.length === 1) {
+            this.activeItemId = metrolineItemVm.id;
+          }
+        },
+        unregister: (metrolineItemVm) => {
+          this.metrolineItems = this.metrolineItems.filter(item => item !== metrolineItemVm);
+        },
+        goToNext: (id) => {
+          if (this.activeItemId > id) {
+            return;
+          }
+
+          const currentIndex = this.metrolineItems.findIndex(item => item.id === id);
+          const nextMetrolineItem = this.metrolineItems[currentIndex + 1];
+          if (nextMetrolineItem) {
+            this.activeItemId = nextMetrolineItem.id;
+            this.$emit('change', this.activeItemId);
+          } else {
+            this.activeItemId = Number.MAX_SAFE_INTEGER;
+            this.$emit('complete');
+            this.setAllItemsReadOnly(true);
+          }
+        },
+        goTo: (id) => {
+          this.activeItemId = id;
+          this.setAllItemsReadOnly(false);
+        },
+      },
+      metrolineItems: [],
+      activeItemId: null,
+    };
   },
-  mounted() {
-    this.initialiseItems();
+  watch: {
+    activeItemId: {
+      immediate: true,
+      handler() {
+        this.updateStatuses();
+      },
+    },
+    metrolineItems: {
+      immediate: true,
+      handler() {
+        this.updateStatuses();
+        this.updateIsLast();
+      },
+    },
   },
   methods: {
-    initialiseItems() {
-      if (this.$scopedSlots) {
-        for (let i = 0; i < this.amountOfMetrolineItems; i++) {
-          if (i === 0) {
-            this.itemsStatus.push(MetrolineItemStatus.ACTIVE);
-          } else {
-            this.itemsStatus.push(MetrolineItemStatus.NEXT);
-          }
+    updateStatuses() {
+      for (const metrolineItem of this.metrolineItems) {
+        if (metrolineItem.id < this.activeItemId) {
+          metrolineItem.status = MetrolineItemStatus.COMPLETED;
+        } else if (metrolineItem.id === this.activeItemId) {
+          metrolineItem.status = MetrolineItemStatus.ACTIVE;
+        } else {
+          metrolineItem.status = MetrolineItemStatus.NEXT;
         }
       }
     },
-    goToNext() {
-      if (this.activeMetrolineItemIndex < this.amountOfMetrolineItems) {
-        const nextActiveMetrolineItemIndex = this.activeMetrolineItemIndex + 1;
-
-        this.itemsStatus[this.activeMetrolineItemIndex] = MetrolineItemStatus.COMPLETED;
-        this.itemsStatus[nextActiveMetrolineItemIndex] = MetrolineItemStatus.ACTIVE;
+    updateIsLast() {
+      for (let i = 0; i < this.metrolineItems.length; i++) {
+        const metrolineItem = this.metrolineItems[i];
+        metrolineItem.isLast = i === this.metrolineItems.length - 1;
+      }
+    },
+    setAllItemsReadOnly(readOnly) {
+      for (const metrolineItem of this.metrolineItems) {
+        metrolineItem.isReadOnly = readOnly;
       }
     },
   },

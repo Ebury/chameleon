@@ -1,6 +1,6 @@
 <template>
   <div
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-metroline-item` : 'ec-metroline-item'"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-metroline-item ec-metroline-item--${id}` : `ec-metroline-item ec-metroline-item--${id}`"
     class="ec-metroline-item"
     :class="{
       'ec-metroline-item--is-active': isActive || (isCompleted && isLast),
@@ -19,7 +19,7 @@
           v-if="!isCompleted"
           data-test="ec-metroline-item__index"
         >
-          {{ index }}
+          {{ badgeText || id.toString() }}
         </span>
 
         <ec-icon
@@ -53,7 +53,7 @@
         </div>
 
         <div
-          v-if="isCompleted"
+          v-if="isCompleted && !isReadOnly"
           data-test="ec-metroline-item__header-sub-heading"
           class="ec-metroline-item__header-sub-heading"
         >
@@ -61,10 +61,13 @@
         </div>
 
         <div
-          v-if="isCompleted"
+          v-if="isCompleted && !isReadOnly"
           data-test="ec-metroline-item__header-cta"
         >
-          <slot name="header-cta" />
+          <slot
+            name="header-cta"
+            v-bind="{ goTo, goToNext, status, isLast, isReadOnly }"
+          />
         </div>
       </div>
 
@@ -73,7 +76,10 @@
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
       >
-        <slot name="main" />
+        <slot
+          name="main"
+          v-bind="{ goTo, goToNext, status, isLast, isReadOnly }"
+        />
       </div>
 
       <div
@@ -85,7 +91,10 @@
           class="ec-metroline-item__footer-cta"
           data-test="ec-metroline-item__footer-cta"
         >
-          <slot name="footer-cta" />
+          <slot
+            name="footer-cta"
+            v-bind="{ goTo, goToNext, status, isLast, isReadOnly }"
+          />
         </div>
       </div>
     </div>
@@ -99,22 +108,22 @@ import * as MetrolineItemStatus from '../../enums/metroline-item-status';
 export default {
   name: 'EcMetrolineItem',
   components: { EcIcon },
+  inject: ['metroline'],
   props: {
-    index: {
-      type: String,
+    id: {
+      type: Number,
       required: true,
     },
-    isLast: {
-      type: Boolean,
-      default: false,
-    },
-    status: {
+    badgeText: {
       type: String,
-      default: MetrolineItemStatus.NEXT,
-      validator(value) {
-        return [MetrolineItemStatus.NEXT, MetrolineItemStatus.ACTIVE, MetrolineItemStatus.COMPLETED].includes(value);
-      },
     },
+  },
+  data() {
+    return {
+      isLast: false,
+      isReadOnly: false,
+      status: MetrolineItemStatus.NEXT,
+    };
   },
   computed: {
     isNext() {
@@ -125,6 +134,20 @@ export default {
     },
     isCompleted() {
       return this.status === MetrolineItemStatus.COMPLETED;
+    },
+  },
+  created() {
+    this.metroline.register(this);
+  },
+  beforeDestroy() {
+    this.metroline.unregister(this);
+  },
+  methods: {
+    goToNext() {
+      this.metroline.goToNext(this.id);
+    },
+    goTo() {
+      this.metroline.goTo(this.id);
     },
   },
 };
