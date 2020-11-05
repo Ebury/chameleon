@@ -110,7 +110,7 @@ export default {
     },
     status: {
       type: String,
-      required: true,
+      default: MetrolineItemStatus.NEXT,
       validator(value) {
         return [MetrolineItemStatus.NEXT, MetrolineItemStatus.ACTIVE, MetrolineItemStatus.COMPLETED].includes(value);
       },
