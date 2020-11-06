@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import * as MetrolineItemStatus from '../../enums/metroline-item-status';
-
 export default {
   name: 'EcMetroline',
   provide() {
@@ -19,80 +17,44 @@ export default {
   data() {
     return {
       metroline: {
-        register: (metrolineItemVm) => {
-          this.metrolineItems.push(metrolineItemVm);
-          this.metrolineItems.sort((item1, item2) => item1.id - item2.id);
+        activeItemId: null,
+        lastItemId: null,
+        isCompleted: false,
+        register: (id) => {
+          this.metrolineItemIds.push(id);
+          this.metrolineItemIds.sort();
 
-          if (this.metrolineItems.length === 1) {
-            this.activeItemId = metrolineItemVm.id;
+          this.metroline.lastItemId = this.metrolineItemIds[this.metrolineItemIds.length - 1];
+
+          if (this.metrolineItemIds.length === 1) {
+            this.metroline.activeItemId = id;
           }
         },
-        unregister: (metrolineItemVm) => {
-          this.metrolineItems = this.metrolineItems.filter(item => item !== metrolineItemVm);
+        unregister: (id) => {
+          this.metrolineItemIds = this.metrolineItemIds.filter(item => item !== id);
         },
         goToNext: (id) => {
-          if (this.activeItemId > id) {
+          if (this.metroline.activeItemId > id) {
             return;
           }
 
-          const currentIndex = this.metrolineItems.findIndex(item => item.id === id);
-          const nextMetrolineItem = this.metrolineItems[currentIndex + 1];
-          if (nextMetrolineItem) {
-            this.activeItemId = nextMetrolineItem.id;
-            this.$emit('change', this.activeItemId);
+          const currentIndex = this.metrolineItemIds.findIndex(item => item === id);
+          const nextMetrolineItemId = this.metrolineItemIds[currentIndex + 1];
+          if (nextMetrolineItemId) {
+            this.metroline.activeItemId = nextMetrolineItemId;
+            this.$emit('change', this.metroline.activeItemId);
           } else {
-            this.activeItemId = Number.MAX_SAFE_INTEGER;
+            this.metroline.isCompleted = true;
             this.$emit('complete');
-            this.setAllItemsReadOnly(true);
           }
         },
         goTo: (id) => {
-          this.activeItemId = id;
-          this.setAllItemsReadOnly(false);
+          this.metroline.activeItemId = id;
+          this.metroline.isCompleted = false;
         },
       },
-      metrolineItems: [],
-      activeItemId: null,
+      metrolineItemIds: [],
     };
-  },
-  watch: {
-    activeItemId: {
-      immediate: true,
-      handler() {
-        this.updateStatuses();
-      },
-    },
-    metrolineItems: {
-      immediate: true,
-      handler() {
-        this.updateStatuses();
-        this.updateIsLast();
-      },
-    },
-  },
-  methods: {
-    updateStatuses() {
-      for (const metrolineItem of this.metrolineItems) {
-        if (metrolineItem.id < this.activeItemId) {
-          metrolineItem.status = MetrolineItemStatus.COMPLETED;
-        } else if (metrolineItem.id === this.activeItemId) {
-          metrolineItem.status = MetrolineItemStatus.ACTIVE;
-        } else {
-          metrolineItem.status = MetrolineItemStatus.NEXT;
-        }
-      }
-    },
-    updateIsLast() {
-      for (let i = 0; i < this.metrolineItems.length; i++) {
-        const metrolineItem = this.metrolineItems[i];
-        metrolineItem.isLast = i === this.metrolineItems.length - 1;
-      }
-    },
-    setAllItemsReadOnly(readOnly) {
-      for (const metrolineItem of this.metrolineItems) {
-        metrolineItem.isReadOnly = readOnly;
-      }
-    },
   },
 };
 </script>

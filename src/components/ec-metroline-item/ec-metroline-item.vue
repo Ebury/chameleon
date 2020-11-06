@@ -53,7 +53,7 @@
         </div>
 
         <div
-          v-if="isCompleted && !isReadOnly"
+          v-if="isCompleted"
           data-test="ec-metroline-item__header-sub-heading"
           class="ec-metroline-item__header-sub-heading"
         >
@@ -118,14 +118,24 @@ export default {
       type: String,
     },
   },
-  data() {
-    return {
-      isLast: false,
-      isReadOnly: false,
-      status: MetrolineItemStatus.NEXT,
-    };
-  },
   computed: {
+    isReadOnly() {
+      return this.metroline.isCompleted;
+    },
+    isLast() {
+      return this.id === this.metroline.lastItemId;
+    },
+    status() {
+      if (this.id < this.metroline.activeItemId || this.metroline.isCompleted) {
+        return MetrolineItemStatus.COMPLETED;
+      }
+
+      if (this.id === this.metroline.activeItemId) {
+        return MetrolineItemStatus.ACTIVE;
+      }
+
+      return MetrolineItemStatus.NEXT;
+    },
     isNext() {
       return this.status === MetrolineItemStatus.NEXT;
     },
@@ -137,10 +147,10 @@ export default {
     },
   },
   created() {
-    this.metroline.register(this);
+    this.metroline.register(this.id);
   },
   beforeDestroy() {
-    this.metroline.unregister(this);
+    this.metroline.unregister(this.id);
   },
   methods: {
     goToNext() {
