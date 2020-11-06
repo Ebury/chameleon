@@ -208,9 +208,7 @@ export default {
     @apply tw-text-gray-3 tw-h4;
 
     .ec-metroline-item--is-active & {
-      @apply tw-text-gray-3 tw-h3;
-
-      line-height: 24px; /* The disc is 24px. subsequently all header items must have a size of 24px or less. */
+      font-weight: 500; /* We don't have an h4 with font-weight 500 nor we want to add one. Apply a stong/b tag in the html would produce a weight 400 so this is not an option either */
     }
   }
 
