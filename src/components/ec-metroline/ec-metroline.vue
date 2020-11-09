@@ -1,6 +1,7 @@
 <template>
   <div
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-metroline` : 'ec-metroline'"
+    class="ec-metroline"
   >
     <slot />
   </div>
@@ -58,3 +59,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.ec-metroline {
+  @apply tw-w-full;
+}
+</style>

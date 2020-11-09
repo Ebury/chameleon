@@ -61,7 +61,7 @@
         </div>
 
         <div
-          v-if="isCompleted && !isReadOnly"
+          v-if="isCompleted"
           data-test="ec-metroline-item__header-cta"
         >
           <slot
