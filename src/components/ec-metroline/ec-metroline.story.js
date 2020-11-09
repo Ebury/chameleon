@@ -37,12 +37,15 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #header-cta="{ goTo, isReadOnly }">
-            <a v-if="!isReadOnly" href="#" class="tw-flex tw-items-center" @click.prevent.stop="goTo">
+          <template #header-cta="{ goTo }">
+            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="goTo">
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
               Edit
             </a>
-            <a v-if="isReadOnly" href="#" class="tw-flex tw-items-center">
+          </template>
+
+          <template #header-cta-complete>
+            <a href="#" @click.prevent.stop class="tw-flex tw-items-center">
               Add Description
             </a>
           </template>
@@ -81,10 +84,10 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #header-cta="{ goTo, isReadOnly }">
-            <a v-if="!isReadOnly" href="#" class="tw-flex tw-items-center" @click.prevent.stop="goTo">
-            <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
-            Edit
+          <template #header-cta="{ goTo }">
+            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="goTo">
+              <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
+              Edit
             </a>
           </template>
 
@@ -124,10 +127,10 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #header-cta="{ goTo, isReadOnly }">
-            <a v-if="!isReadOnly" href="#" class="tw-flex tw-items-center" @click.prevent.stop="goTo">
-            <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
-            Edit
+          <template #header-cta="{ goTo }">
+            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="goTo">
+              <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
+              Edit
             </a>
           </template>
 
