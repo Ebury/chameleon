@@ -65,7 +65,14 @@
           data-test="ec-metroline-item__header-cta"
         >
           <slot
+            v-if="!isReadOnly"
             name="header-cta"
+            v-bind="{ goTo, goToNext, status, isLast, isReadOnly }"
+          />
+
+          <slot
+            v-else
+            name="header-cta-complete"
             v-bind="{ goTo, goToNext, status, isLast, isReadOnly }"
           />
         </div>
@@ -208,7 +215,7 @@ export default {
     @apply tw-text-gray-3 tw-h4;
 
     .ec-metroline-item--is-active & {
-      font-weight: 500; /* We don't have an h4 with font-weight 500 nor we want to add one. Apply a stong/b tag in the html would produce a weight 400 so this is not an option either */
+      font-weight: 500; /* For this specific case only, an h4 with font-weight 500. Applying a stong/b tag in the html would produce a weight 400 so is not an option */
     }
   }
 
