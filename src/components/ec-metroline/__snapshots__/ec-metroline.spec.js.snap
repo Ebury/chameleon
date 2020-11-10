@@ -56,7 +56,7 @@ exports[`EcMetroline :props should render the metroline badgeText 1`] = `
         data-test="ec-metroline-item__main"
       >
         <p>
-          Item 1  Main Content
+          Item 1 Main Content
         </p>
       </div>
        
@@ -144,7 +144,9 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            Continue
+            
+                Continue
+              
           </button>
         </div>
       </div>
@@ -338,7 +340,9 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            Continue
+            
+                Continue
+              
           </button>
         </div>
       </div>
@@ -410,7 +414,9 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            Continue
+            
+                  Continue
+                
           </button>
         </div>
       </div>
@@ -549,7 +555,9 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            Continue
+            
+                Continue
+              
           </button>
         </div>
       </div>
@@ -629,7 +637,9 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            Continue
+            
+                  Continue
+                
           </button>
         </div>
       </div>
@@ -698,7 +708,9 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            Continue
+            
+                Continue
+              
           </button>
         </div>
       </div>
@@ -766,7 +778,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
         data-test="ec-metroline-item__main"
       >
         <p>
-          Item 1  Main Content
+          Item 1 Main Content
         </p>
       </div>
        
@@ -901,7 +913,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           data-test="ec-metroline-item__header-sub-heading"
         >
           <span>
-            Item 1  Sub-heading
+            Item 1 Sub-heading
           </span>
         </div>
          
@@ -911,7 +923,9 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           <button
             data-test="header-cta-button"
           >
-            Edit
+            
+        Edit
+      
           </button>
         </div>
       </div>
@@ -921,7 +935,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
         data-test="ec-metroline-item__main"
       >
         <p>
-          Item 1  Main Content
+          Item 1 Main Content
         </p>
       </div>
        
@@ -1077,7 +1091,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
         data-test="ec-metroline-item__main"
       >
         <p>
-          Item 1  Main Content
+          Item 1 Main Content
         </p>
       </div>
        
@@ -1212,7 +1226,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
           data-test="ec-metroline-item__header-sub-heading"
         >
           <span>
-            Item 1  Sub-heading
+            Item 1 Sub-heading
           </span>
         </div>
          
@@ -1222,7 +1236,9 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
           <button
             data-test="header-cta-completed-button"
           >
-            Download
+            
+        Download
+      
           </button>
         </div>
       </div>
@@ -1232,7 +1248,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
         data-test="ec-metroline-item__main"
       >
         <p>
-          Item 1  Main Content
+          Item 1 Main Content
         </p>
       </div>
        
@@ -1398,7 +1414,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           data-test="ec-metroline-item__header-sub-heading"
         >
           <span>
-            Item 1  Sub-heading
+            Item 1 Sub-heading
           </span>
         </div>
          
@@ -1408,7 +1424,9 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="header-cta-button"
           >
-            Edit
+            
+        Edit
+      
           </button>
         </div>
       </div>
@@ -1418,7 +1436,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
         data-test="ec-metroline-item__main"
       >
         <p>
-          Item 1  Main Content
+          Item 1 Main Content
         </p>
       </div>
        
@@ -1572,7 +1590,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           data-test="ec-metroline-item__header-sub-heading"
         >
           <span>
-            Item 1  Sub-heading
+            Item 1 Sub-heading
           </span>
         </div>
          
@@ -1582,7 +1600,9 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="header-cta-button"
           >
-            Edit
+            
+        Edit
+      
           </button>
         </div>
       </div>
@@ -1592,7 +1612,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
         data-test="ec-metroline-item__main"
       >
         <p>
-          Item 1  Main Content
+          Item 1 Main Content
         </p>
       </div>
        
@@ -1748,7 +1768,7 @@ exports[`EcMetroline should render a metroline with items 1`] = `
         data-test="ec-metroline-item__main"
       >
         <p>
-          Item 1  Main Content
+          Item 1 Main Content
         </p>
       </div>
        

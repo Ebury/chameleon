@@ -26,22 +26,26 @@ const metrolineWithItemsTemplate = `
     </template>
 
     <template #sub-heading>
-      <span>Item 1  Sub-heading</span>
+      <span>Item 1 Sub-heading</span>
     </template>
 
     <template #header-cta="{ goTo }">
       <button
         @click="goTo"
-        data-test="header-cta-button">Edit</button>
+        data-test="header-cta-button">
+        Edit
+      </button>
     </template>
 
     <template #header-cta-complete>
       <button
-        data-test="header-cta-completed-button">Download</button>
+        data-test="header-cta-completed-button">
+        Download
+      </button>
     </template>
 
     <template #main="{ status }">
-      <p>Item 1  Main Content</p>
+      <p>Item 1 Main Content</p>
     </template>
 
     <template #footer-cta="{ goToNext }">
@@ -107,7 +111,7 @@ describe('EcMetroline', () => {
             </template>
 
             <template #main="{ status }">
-              <p>Item 1  Main Content</p>
+              <p>Item 1 Main Content</p>
             </template>
           </ec-metroline-item>
         </ec-metroline>`,
@@ -131,7 +135,12 @@ describe('EcMetroline', () => {
           </template>
 
           <template #footer-cta="{ goToNext }">
-            <button data-test="footer-cta-button" @click="goToNext">Continue</button>
+            <button
+              data-test="footer-cta-button"
+              @click="goToNext"
+            >
+              Continue
+            </button>
           </template>
         </ec-metroline-item>
       </ec-metroline>`,
@@ -164,7 +173,12 @@ describe('EcMetroline', () => {
           </template>
 
           <template #footer-cta="{ goToNext }">
-            <button data-test="footer-cta-button" @click="goToNext">Continue</button>
+            <button
+              data-test="footer-cta-button"
+              @click="goToNext"
+            >
+              Continue
+            </button>
           </template>
         </ec-metroline-item>
       </ec-metroline>`,
@@ -195,7 +209,12 @@ describe('EcMetroline', () => {
             </template>
 
             <template #footer-cta="{ goToNext }">
-              <button data-test="footer-cta-button" @click="goToNext">Continue</button>
+              <button
+                data-test="footer-cta-button"
+                @click="goToNext"
+              >
+                Continue
+              </button>
             </template>
           </ec-metroline-item>
 
@@ -205,7 +224,12 @@ describe('EcMetroline', () => {
             </template>
 
             <template #footer-cta="{ goToNext }">
-              <button data-test="footer-cta-button" @click="goToNext">Continue</button>
+              <button
+                data-test="footer-cta-button"
+                @click="goToNext"
+                >
+                  Continue
+                </button>
             </template>
           </ec-metroline-item>
 
@@ -215,7 +239,12 @@ describe('EcMetroline', () => {
             </template>
 
             <template #footer-cta="{ goToNext }">
-              <button data-test="footer-cta-button" @click="goToNext">Continue</button>
+              <button
+                data-test="footer-cta-button"
+                @click="goToNext"
+              >
+                Continue
+              </button>
             </template>
           </ec-metroline-item>
         </ec-metroline>`,
