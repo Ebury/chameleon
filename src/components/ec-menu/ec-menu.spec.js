@@ -6,6 +6,7 @@ const links = [
     url: '/foo',
     iconName: 'foo-icon',
     text: 'Foo',
+    dataTest: 'foo',
   },
   {
     link: '/bar',
@@ -15,6 +16,7 @@ const links = [
   {
     iconName: 'baz-icon',
     text: 'Baz',
+    dataTest: 'baz',
   },
   {
     url: '/bat',
@@ -24,78 +26,40 @@ const links = [
 ];
 
 describe('EcMenu', () => {
-  it('should not render if links are not supplied', () => {
-    const wrapper = mount(
-      EcMenu,
-    );
+  function mountEcMenu(props, mountOpts) {
+    return mount(EcMenu, {
+      propsData: { ...props },
+      ...mountOpts,
+    });
+  }
 
+  it('should not render if links are not supplied', () => {
+    const wrapper = mountEcMenu();
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should not render if links are null', () => {
-    const wrapper = mount(
-      EcMenu,
-      {
-        propsData: {
-          links: null,
-        },
-      },
-    );
-
+    const wrapper = mountEcMenu({ links: null });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should not render if links is an empty array', () => {
-    const wrapper = mount(
-      EcMenu,
-      {
-        propsData: {
-          links: [],
-        },
-      },
-    );
-
+    const wrapper = mountEcMenu({ links: [] });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render only links with a url property', () => {
-    const wrapper = mount(
-      EcMenu,
-      {
-        propsData: {
-          links,
-        },
-      },
-    );
-
+    const wrapper = mountEcMenu({ links });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render as expected when set to horizontal', () => {
-    const wrapper = mount(
-      EcMenu,
-      {
-        propsData: {
-          horizontal: true,
-          links: [links[0]],
-        },
-      },
-    );
-
+    const wrapper = mountEcMenu({ links: [links[0]], horizontal: true });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render all items as compact when is horizontal', () => {
-    const wrapper = mount(
-      EcMenu,
-      {
-        propsData: {
-          horizontal: true,
-          links,
-        },
-      },
-    );
-
+    const wrapper = mountEcMenu({ links, horizontal: true });
     expect(wrapper.element).toMatchSnapshot();
     wrapper.findAllByDataTest('ec-menu__link').wrappers.forEach((linkWrapper) => {
       expect(linkWrapper.classes('ec-navigation-link--is-compact')).toBe(true);
@@ -103,16 +67,7 @@ describe('EcMenu', () => {
   });
 
   it('should not render all items as compact when horizontal is not set', () => {
-    const wrapper = mount(
-      EcMenu,
-      {
-        propsData: {
-          horizontal: false,
-          links,
-        },
-      },
-    );
-
+    const wrapper = mountEcMenu({ links, horizontal: false });
     expect(wrapper.element).toMatchSnapshot();
     wrapper.findAllByDataTest('ec-menu__link').wrappers.forEach((linkWrapper) => {
       expect(linkWrapper.classes('ec-navigation-link--is-compact')).toBe(false);
@@ -120,15 +75,7 @@ describe('EcMenu', () => {
   });
 
   it('should render as expanded by default', () => {
-    const wrapper = mount(
-      EcMenu,
-      {
-        propsData: {
-          links,
-        },
-      },
-    );
-
+    const wrapper = mountEcMenu({ links });
     expect(wrapper.element).toMatchSnapshot();
 
     wrapper.findAllByDataTest('ec-navigation-link__text').wrappers.forEach((textWrapper) => {
@@ -137,20 +84,27 @@ describe('EcMenu', () => {
   });
 
   it('should render as collapsed when isCollapsed is passed into', () => {
-    const wrapper = mount(
-      EcMenu,
-      {
-        propsData: {
-          links,
-          isCollapsed: true,
-        },
-      },
-    );
-
+    const wrapper = mountEcMenu({ links, isCollapsed: true });
     expect(wrapper.element).toMatchSnapshot();
 
     wrapper.findAllByDataTest('ec-navigation-link__text').wrappers.forEach((textWrapper) => {
       expect(textWrapper.element).not.toBeVisible();
     });
+  });
+
+  it('should attach custom listeners passed in the link definition', async () => {
+    const testSpy = jest.fn();
+    const link = {
+      ...links[0],
+      on: {
+        test: testSpy,
+      },
+    };
+
+    const wrapper = mountEcMenu({ links: [link], isCollapsed: true });
+    expect(wrapper.element).toMatchSnapshot();
+
+    await wrapper.findByDataTest('ec-menu__link').trigger('test');
+    expect(testSpy).toHaveBeenCalledTimes(1);
   });
 });
