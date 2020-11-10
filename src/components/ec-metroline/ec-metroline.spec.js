@@ -1,6 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcMetroline from './ec-metroline.vue';
 import EcMetrolineItem from '../ec-metroline-item';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 function mountMetrolineAsTemplate(template, wrapperComponentOpts) {
   const localVue = createLocalVue();
@@ -119,6 +120,23 @@ describe('EcMetroline', () => {
 
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it('should throw an error if we don\'t pass an id', () => {
+      withMockedConsole((errorSpy) => {
+        mountMetrolineAsTemplate(
+          `<ec-metroline>
+            <ec-metroline-item>
+              <template #heading>
+                <span>Item 1 Heading</span>
+              </template>
+            </ec-metroline-item>
+          </ec-metroline>`,
+        );
+
+        expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "id"');
+        expect(errorSpy).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 
   describe('@events', () => {
@@ -159,6 +177,7 @@ describe('EcMetroline', () => {
 
       expect(onChange).toHaveBeenCalledTimes(1);
     });
+
     it('should emit a "complete" event when  the metroline is complete', async () => {
       const onComplete = jest.fn();
       const wrapper = await mountMetrolineAsTemplate(`

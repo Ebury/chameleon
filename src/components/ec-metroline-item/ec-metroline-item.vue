@@ -16,7 +16,7 @@
         class="ec-metroline-item__badge"
       >
         <span
-          v-if="!isCompleted"
+          v-if="!isCompleted && id"
           data-test="ec-metroline-item__index"
         >
           {{ badgeText || id.toString() }}
