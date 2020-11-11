@@ -30,11 +30,8 @@ export const basic = (args, { argTypes }) => ({
       :items="items"
       :is-searchable="false"
       :can-select-all="canSelectAll"
-      :select-all-text="selectAllText"
+      :selectAllText="selectAllText"
       :popover-options="{ open: true }"
-      :empty-message="emptyMessage"
-      :empty-icon="emptyIcon"
-      :error="error"
     />
   `,
 });
@@ -89,6 +86,4 @@ basic.args = {
   items,
   canSelectAll: false,
   selectAllText: 'Select all',
-  emptyMessage: 'empty',
-  emptyIcon: 'simple-error',
 };

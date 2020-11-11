@@ -11,7 +11,7 @@
         data-test="ec-multiple-values-selection__search-icon"
         name="simple-search"
         type="interactive"
-        :size="21"
+        :size="16"
       />
       <ec-input-field
         v-model="query"
@@ -37,9 +37,9 @@
           data-test="ec-multiple-values-selection__no-results-icon"
           :name="emptyIcon"
           type="info"
-          :size="28"
+          :size="32"
         />
-        <p class="ec-multiple-values-selection__no-results-message">{{ noResults }}</p> <!-- mention in the pr that this is dynamic for erro message and empty state -->
+        <span class="ec-multiple-values-selection__no-results-message">{{ noResults }}</span> <!-- mention in the pr that this is dynamic for erro message and empty state -->
       </div>
       <div v-else>
         <div
@@ -51,7 +51,7 @@
             :label="selectAllText"
             data-test="ec-multiple-values-selection__select-all"
             class="ec-multiple-values-selection__select-all--checkbox"
-            @change="toggleAll"
+            @change="toggleAll()"
           />
         </div>
         <!-- TODO ONL-4911 the above is the select all checkbox option - visible only if canSelectAll is set to true-->
@@ -60,7 +60,8 @@
         <li
           v-for="item in selectedItems"
           :key="item.value"
-          class="ec-multiple-values-selection__checkbox-wrapper"
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__checkbox-deselect"
         >
           <ec-checkbox
             checked
@@ -69,16 +70,16 @@
           >
             <template #label>
               <div
-                class="ec-multiple-values-selection__checkbox--label-wrapper"
+                class="ec-multiple-values-selection__label-wrapper"
               >
                 <ec-icon
                   v-if="item.icon"
-                  class="ec-multiple-values-selection__checkbox--icon"
+                  class="ec-multiple-values-selection__icon"
                   :name="item.icon.name"
                   :type="item.icon.type"
-                  :size="21"
+                  :size="24"
                 />
-                <p class="ec-multiple-values-selection__checkbox--label-text">{{ item.text }}</p>
+                <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
               </div>
             </template>
           </ec-checkbox>
@@ -87,24 +88,26 @@
         <li
           v-for="item in notSelectedItems"
           :key="item.value"
-          class="ec-multiple-values-selection__checkbox-wrapper"
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper"
         >
           <ec-checkbox
             class="ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-select"
             @checked-value-change="onSelect(item)"
           >
             <template #label>
               <div
-                class="ec-multiple-values-selection__checkbox--label-wrapper"
+                class="ec-multiple-values-selection__label-wrapper"
               >
                 <ec-icon
                   v-if="item.icon"
-                  class="ec-multiple-values-selection__checkbox--icon"
+                  class="ec-multiple-values-selection__icon"
                   :name="item.icon.name"
                   :type="item.icon.type"
-                  :size="21"
+                  :size="24"
                 />
-                <p class="ec-multiple-values-selection__checkbox--label-text">{{ item.text }}</p>
+                <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
               </div>
             </template>
           </ec-checkbox>
@@ -132,12 +135,12 @@ export default {
   props: {
     items: {
       type: Array,
-      requied: true,
+      required: true,
       default: () => ([]),
     },
     value: {
       type: Array,
-      requied: false,
+      required: false,
       default: () => ([]),
     },
     loading: {
@@ -180,20 +183,21 @@ export default {
       const itemsSet = new Set(this.selectedItems.map(item => item.value));
       return this.items.filter(item => !itemsSet.has(item.value));
     },
+    // TODO ONL-4911
     allItemsAreSelected() {
       return this.notSelectedItems.length === 0;
     },
-    noResults() {
-      let hasResults = false;
-      if (this.error) {
-        const { message } = this.error;
-        hasResults = message;
-      } else if (this.emptyMessage) {
-        hasResults = this.emptyMessage;
-      }
-      return hasResults;
-    },
-  },
+    // noResults() {
+    //   let hasResults = false;
+    //   if (this.error) {
+    //     const { message } = this.error;
+    //     hasResults = message;
+    //   } else if (this.emptyMessage) {
+    //     hasResults = this.emptyMessage;
+    //   }
+    //   return hasResults;
+    // },
+  }, // TODO ONL-4919
   methods: {
     toggleAll() {
       if (this.allItemsAreSelected) {
@@ -202,6 +206,7 @@ export default {
         this.$emit('change', this.items);
       }
     },
+    // TODO ONL-4911
     onSelect(item) {
       const newItems = [...this.selectedItems, item];
       this.$emit('change', newItems);
@@ -215,7 +220,6 @@ export default {
 </script>
 
 <style>
-/* TODO Maroua il mouse hover for each option */
 .ec-multiple-values-selection {
   &__select-all {
     @apply tw-py-8 tw-pl-16;
@@ -227,33 +231,33 @@ export default {
     }
   }
 
-  &__checkbox-wrapper {
+  &__value-wrapper {
+    @apply tw-py-8 tw-px-16;
     @apply tw-list-none;
+    @apply tw-transition-colors tw-duration-200 tw-ease-out;
 
-    :hover {
+    &:hover {
       @apply tw-bg-gray-7;
+    }
+  }
+
+  &__label-wrapper {
+    @apply tw-flex;
+    @apply tw-items-center;
+
+    &:hover {
       @apply tw-cursor-pointer;
     }
   }
 
-  &__checkbox {
-    @apply tw-py-8 tw-px-16;
-    @apply tw-transition-colors tw-duration-150 tw-ease-out;
+  &__icon {
+    @apply tw-mr-8;
+  }
 
-    &--label-wrapper {
-      @apply tw-flex;
-      @apply tw-items-center;
-    }
-
-    &--icon {
-      @apply tw-mr-8;
-    }
-
-    &--label-text {
-      @apply tw-m-0;
-      @apply tw-inline;
-      @apply tw-text-gray-3;
-    }
+  &__label-text {
+    @apply tw-m-0;
+    @apply tw-inline;
+    @apply tw-text-gray-3;
   }
 
   &__no-results-wrapper {

@@ -20,11 +20,9 @@
         />
       </template>
     </ec-filter-popover>
-    <!--  the async option with dataSource will be implemented with the ticket CONTROLLA IL TICKET NUMBER-->
   </div>
 </template>
 <script>
-// non dimenticare di aggiungere il design di itzi con il empty state - si fara' quando implementeremo l'async mode
 import EcMultipleValuesSelection from '../ec-multiple-values-selection';
 import EcFilterPopover from '../ec-filter-popover';
 
