@@ -1,5 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcMenu should attach custom listeners passed in the link definition 1`] = `
+<ul
+  class="ec-menu"
+  data-test="ec-menu"
+>
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-navigation-link ec-menu__link ec-navigation-link--is-collapsed"
+      data-test="ec-menu__link foo"
+      href="/foo"
+    >
+      <svg
+        class="ec-navigation-link__icon ec-icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-foo-icon"
+        />
+      </svg>
+       
+      <transition-stub
+        name="ec-navigation-link__text-fade"
+      >
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+          style="display: none;"
+        >
+          Foo
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+</ul>
+`;
+
 exports[`EcMenu should not render all items as compact when horizontal is not set 1`] = `
 <ul
   class="ec-menu"
@@ -11,7 +52,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
   >
     <a
       class="ec-navigation-link ec-menu__link"
-      data-test="ec-menu__link"
+      data-test="ec-menu__link foo"
       href="/foo"
     >
       <svg
@@ -89,7 +130,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
   >
     <a
       class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
-      data-test="ec-menu__link"
+      data-test="ec-menu__link foo"
       href="/foo"
     >
       <svg
@@ -161,7 +202,7 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
   >
     <a
       class="ec-navigation-link ec-menu__link ec-navigation-link--is-collapsed"
-      data-test="ec-menu__link"
+      data-test="ec-menu__link foo"
       href="/foo"
     >
       <svg
@@ -235,7 +276,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
   >
     <a
       class="ec-navigation-link ec-menu__link"
-      data-test="ec-menu__link"
+      data-test="ec-menu__link foo"
       href="/foo"
     >
       <svg
@@ -307,7 +348,7 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
   >
     <a
       class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
-      data-test="ec-menu__link"
+      data-test="ec-menu__link foo"
       href="/foo"
     >
       <svg
@@ -347,7 +388,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
   >
     <a
       class="ec-navigation-link ec-menu__link"
-      data-test="ec-menu__link"
+      data-test="ec-menu__link foo"
       href="/foo"
     >
       <svg

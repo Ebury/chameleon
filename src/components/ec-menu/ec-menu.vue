@@ -13,8 +13,8 @@
     >
       <ec-navigation-link
         class="ec-menu__link"
-        data-test="ec-menu__link"
-        v-bind="link"
+        :data-test="getLinkDataTest(link)"
+        v-bind="{ ...link, on: null }"
         :is-collapsed="isCollapsed"
         :is-compact="horizontal"
         v-on="link.on"
@@ -48,6 +48,11 @@ export default {
     },
     validLinks() {
       return this.links.filter(link => Boolean(link && link.url));
+    },
+  },
+  methods: {
+    getLinkDataTest(link) {
+      return `ec-menu__link ${link.dataTest || ''}`.trim();
     },
   },
 };
