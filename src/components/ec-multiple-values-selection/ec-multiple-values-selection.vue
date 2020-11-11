@@ -39,7 +39,8 @@
           type="info"
           :size="32"
         />
-        <span class="ec-multiple-values-selection__no-results-message">{{ noResults }}</span> <!-- mention in the pr that this is dynamic for erro message and empty state -->
+        <span class="ec-multiple-values-selection__no-results-message">{{ noResults }}</span>
+        <!-- TODO with https://fxsolutions.atlassian.net/browse/ONL-4912 This is dynamic for error message and empty state -->
       </div>
       <div v-else>
         <div
@@ -54,9 +55,7 @@
             @change="toggleAll()"
           />
         </div>
-        <!-- TODO ONL-4911 the above is the select all checkbox option - visible only if canSelectAll is set to true-->
-        <!-- double check the intermidiate state with the team -->
-
+        <!-- TODO ONL-4911 the above is the select all checkbox option - visible only if canSelectAll is set to true -->
         <li
           v-for="item in selectedItems"
           :key="item.value"
@@ -162,7 +161,7 @@ export default {
     }, // TODO with https://fxsolutions.atlassian.net/browse/ONL-4912
     canSelectAll: {
       type: Boolean,
-    },
+    }, // TODO ONL-4911
     selectAllText: {
       type: String,
     },
@@ -187,6 +186,7 @@ export default {
     allItemsAreSelected() {
       return this.notSelectedItems.length === 0;
     },
+    // TODO ONL-4919
     // noResults() {
     //   let hasResults = false;
     //   if (this.error) {
@@ -197,7 +197,7 @@ export default {
     //   }
     //   return hasResults;
     // },
-  }, // TODO ONL-4919
+  },
   methods: {
     toggleAll() {
       if (this.allItemsAreSelected) {
