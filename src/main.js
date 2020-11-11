@@ -29,6 +29,7 @@ export { default as EcInputField } from './components/ec-input-field';
 export { default as EcLoading } from './components/ec-loading';
 export { default as EcMainContainer } from './components/ec-main-container';
 export { default as EcMenu } from './components/ec-menu';
+export { default as EcMetrolineCard } from './components/ec-metroline-card';
 export { default as EcModal } from './components/ec-modal';
 export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
