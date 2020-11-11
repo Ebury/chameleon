@@ -1,28 +1,19 @@
-import { boolean } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/vue';
 import EcMetrolineCard from './ec-metroline-card.vue';
 import EcIcon from '../ec-icon';
 import EcInputField from '../ec-input-field';
 
-storiesOf('Metroline Card', module)
-  .add('basic', () => ({
-    components: {
-      EcMetrolineCard,
-      EcIcon,
-      EcInputField,
-    },
-    props: {
-      isCollapsed: {
-        default: boolean('isCollapsed', false),
-      },
-      hasNarrowPadding: {
-        default: boolean('hasNarrowPadding', false),
-      },
-    },
-    template: `
-    <div class="tw-m-24 tw-max-w-screen-md">
+export default {
+  title: 'Metroline Card',
+  component: EcMetrolineCard,
+};
+
+export const basic = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { EcMetrolineCard, EcIcon, EcInputField },
+  template: `
+    <div class="tw-flex tw-flex-col">
       <ec-metroline-card
-        class="tw-mb-24"
+        class="tw-w-full tw-mb-24"
         :is-collapsed="isCollapsed"
         :has-narrow-padding="hasNarrowPadding"
       >
@@ -34,6 +25,7 @@ storiesOf('Metroline Card', module)
       </ec-metroline-card>
 
       <ec-metroline-card
+        class="tw-w-full"
         :is-collapsed="true"
         :has-narrow-padding="true"
       >
@@ -84,4 +76,9 @@ storiesOf('Metroline Card', module)
       </ec-metroline-card>
     </div>
   `,
-  }));
+});
+
+basic.args = {
+  isCollapsed: false,
+  hasNarrowPadding: false,
+};
