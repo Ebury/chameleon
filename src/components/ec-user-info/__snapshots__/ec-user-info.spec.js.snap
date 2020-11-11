@@ -3,6 +3,7 @@
 exports[`EcUserInfo should not show text when collapsed 1`] = `
 <div
   class="ec-user-info"
+  data-test="ec-user-info"
 >
   <img
     alt="Ebury Demo 2 gravatar"
@@ -22,6 +23,7 @@ exports[`EcUserInfo should not show text when collapsed 1`] = `
 exports[`EcUserInfo should render as expected 1`] = `
 <div
   class="ec-user-info"
+  data-test="ec-user-info"
 >
   <img
     alt="Ebury Demo 2 gravatar"
@@ -38,6 +40,7 @@ exports[`EcUserInfo should render as expected 1`] = `
     >
       <a
         class="ec-user-info__client-name"
+        data-test="ec-user-info__client-name"
         href="/profile"
       >
         Ebury Demo 2
@@ -51,6 +54,7 @@ exports[`EcUserInfo should render as expected 1`] = `
 exports[`EcUserInfo should render slot for client selector 1`] = `
 <div
   class="ec-user-info"
+  data-test="ec-user-info"
 >
   <img
     alt="Ebury Demo 2 gravatar"
@@ -67,6 +71,7 @@ exports[`EcUserInfo should render slot for client selector 1`] = `
     >
       <a
         class="ec-user-info__client-name"
+        data-test="ec-user-info__client-name"
         href="/profile"
       >
         Ebury Demo 2
@@ -93,6 +98,7 @@ exports[`EcUserInfo should render slot for client selector 1`] = `
 exports[`EcUserInfo should show text when not collapsed 1`] = `
 <div
   class="ec-user-info"
+  data-test="ec-user-info"
 >
   <img
     alt="Ebury Demo 2 gravatar"
@@ -109,6 +115,7 @@ exports[`EcUserInfo should show text when not collapsed 1`] = `
     >
       <a
         class="ec-user-info__client-name"
+        data-test="ec-user-info__client-name"
         href="/profile"
       >
         Ebury Demo 2
