@@ -52,6 +52,7 @@ export default {
         goTo: (id) => {
           this.metroline.activeItemId = id;
           this.metroline.isCompleted = false;
+          this.$emit('change', this.metroline.activeItemId);
         },
       },
       metrolineItemIds: [],

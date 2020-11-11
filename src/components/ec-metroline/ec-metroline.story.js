@@ -2,7 +2,6 @@ import EcMetroline from './ec-metroline.vue';
 import EcMetrolineItem from '../ec-metroline-item';
 import EcIcon from '../ec-icon/ec-icon.vue';
 import EcBtn from '../ec-btn/ec-btn.vue';
-import * as MetrolineItemStatus from '../../enums/metroline-item-status';
 
 export default {
   title: 'Metroline',
@@ -37,8 +36,8 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #header-cta="{ goTo }">
-            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="goTo">
+          <template #header-cta="{ activateItem }">
+            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="activateItem">
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
               Edit
             </a>
@@ -50,20 +49,22 @@ const Template = (args, { argTypes }) => ({
             </a>
           </template>
 
-          <template #main="{ status }">
-            <div v-if="status === MetrolineItemStatus.COMPLETED" class="tw-bg-gray-7 tw-min-h-104 tw-p-24">
+          <template #main="{ isCompleted }">
+            <div v-if="isCompleted" class="tw-bg-gray-7 tw-min-h-104 tw-p-24">
               <h4>Summary</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
             </div>
             <p v-else>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates at cumque repudiandae atque quod voluptatum, aperiam dignissimos, vitae, neque mollitia repellat! Recusandae veritatis tenetur fugiat nisi illo. Quae officiis soluta mollitia quisquam laborum minus repudiandae suscipit magni!</p>
           </template>
 
-          <template #footer-cta="{ status, goToNext }">
+          <template #footer-cta="{ goToNext, isActive }">
             <ec-btn
-              v-if="status === MetrolineItemStatus.ACTIVE"
+              v-if="isActive"
               category="primary"
               @click="goToNext"
-              is-rounded>Continue</ec-btn>
+              is-rounded>
+              Continue
+            </ec-btn>
           </template>
         </ec-metroline-item>
 
@@ -84,16 +85,16 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #header-cta="{ goTo }">
-            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="goTo">
+          <template #header-cta="{ activateItem }">
+            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="activateItem">
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
               Edit
             </a>
           </template>
 
-          <template #main="{ status }">
+          <template #main="{ isCompleted }">
             <div
-              v-if="status === MetrolineItemStatus.COMPLETED"
+              v-if="isCompleted"
               class="tw-bg-gray-7 tw-min-h-104 tw-p-24">
               <h4>Summary</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -101,12 +102,14 @@ const Template = (args, { argTypes }) => ({
             <p v-else>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates at cumque repudiandae atque quod voluptatum, aperiam dignissimos, vitae, neque mollitia repellat! Recusandae veritatis tenetur fugiat nisi illo. Quae officiis soluta mollitia quisquam laborum minus repudiandae suscipit magni!</p>
           </template>
 
-          <template #footer-cta="{ status, goToNext }">
+          <template #footer-cta="{ goToNext, isActive }">
             <ec-btn
-              v-if="status === MetrolineItemStatus.ACTIVE"
+              v-if="isActive"
               category="primary"
               @click="goToNext"
-              is-rounded>Continue</ec-btn>
+              is-rounded>
+              Continue
+            </ec-btn>
           </template>
         </ec-metroline-item>
 
@@ -127,16 +130,16 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #header-cta="{ goTo }">
-            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="goTo">
+          <template #header-cta="{ activateItem }">
+            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="activateItem">
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
               Edit
             </a>
           </template>
 
-          <template #main="{ status }">
+          <template #main="{ isCompleted }">
             <div
-              v-if="status === MetrolineItemStatus.COMPLETED"
+              v-if="isCompleted"
               class="tw-bg-gray-7 tw-min-h-104 tw-p-24">
               <h4>Summary</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -144,9 +147,9 @@ const Template = (args, { argTypes }) => ({
             <p v-else>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates at cumque repudiandae atque quod voluptatum, aperiam dignissimos, vitae, neque mollitia repellat! Recusandae veritatis tenetur fugiat nisi illo. Quae officiis soluta mollitia quisquam laborum minus repudiandae suscipit magni!</p>
           </template>
 
-          <template #footer-cta="{ status, goToNext }">
+          <template #footer-cta="{ goToNext, isActive }">
             <ec-btn
-              v-if="status === MetrolineItemStatus.ACTIVE"
+              v-if="isActive"
               category="primary"
               @click="goToNext"
               is-rounded>Continue</ec-btn>
@@ -160,6 +163,5 @@ const Template = (args, { argTypes }) => ({
 export const basic = Template.bind({});
 
 basic.args = {
-  MetrolineItemStatus,
   badgeText: '',
 };

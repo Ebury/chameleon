@@ -67,13 +67,13 @@
           <slot
             v-if="!isReadOnly"
             name="header-cta"
-            v-bind="{ goTo, goToNext, status, isLast, isReadOnly }"
+            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
           />
 
           <slot
             v-else
             name="header-cta-complete"
-            v-bind="{ goTo, goToNext, status, isLast, isReadOnly }"
+            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
           />
         </div>
       </div>
@@ -85,7 +85,7 @@
       >
         <slot
           name="main"
-          v-bind="{ goTo, goToNext, status, isLast, isReadOnly }"
+          v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
         />
       </div>
 
@@ -100,7 +100,7 @@
         >
           <slot
             name="footer-cta"
-            v-bind="{ goTo, goToNext, status, isLast, isReadOnly }"
+            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
           />
         </div>
       </div>
@@ -163,7 +163,7 @@ export default {
     goToNext() {
       this.metroline.goToNext(this.id);
     },
-    goTo() {
+    activateItem() {
       this.metroline.goTo(this.id);
     },
   },

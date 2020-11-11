@@ -1008,7 +1008,11 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
-      />
+      >
+        <p>
+          Item 2 Main Content
+        </p>
+      </div>
        
       <div
         class="ec-metroline-item__footer"
@@ -1236,9 +1240,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
           <button
             data-test="header-cta-completed-button"
           >
-            
-        Download
-      
+            Download
           </button>
         </div>
       </div>
@@ -1333,7 +1335,11 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
-      />
+      >
+        <p>
+          Item 2 Main Content
+        </p>
+      </div>
        
       <div
         class="ec-metroline-item__footer"
@@ -1509,7 +1515,11 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
-      />
+      >
+        <p>
+          Item 2 Main Content
+        </p>
+      </div>
        
       <div
         class="ec-metroline-item__footer"
@@ -1685,7 +1695,11 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
-      />
+      >
+        <p>
+          Item 2 Main Content
+        </p>
+      </div>
        
       <div
         class="ec-metroline-item__footer"
