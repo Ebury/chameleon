@@ -7,28 +7,28 @@ exports[`EcMetrolineCard should render as expected 1`] = `
 />
 `;
 
-exports[`EcMetrolineCard should render as expected when has narrow padding 1`] = `
+exports[`EcMetrolineCard when has narrow padding should render as expected 1`] = `
 <div
   class="ec-metroline-card ec-metroline-card--has-narrow-padding"
   data-test="ec-metroline-card"
 />
 `;
 
-exports[`EcMetrolineCard should render as expected when is collapsed 1`] = `
-<div
-  class="ec-metroline-card ec-metroline-card--is-collapsed"
-  data-test="ec-metroline-card"
-/>
-`;
-
-exports[`EcMetrolineCard should render as expected when is collapsed and has narrow padding 1`] = `
+exports[`EcMetrolineCard when is collapsed and has narrow padding should render as expected 1`] = `
 <div
   class="ec-metroline-card ec-metroline-card--is-collapsed ec-metroline-card--has-narrow-padding"
   data-test="ec-metroline-card"
 />
 `;
 
-exports[`EcMetrolineCard should render the slot as expected 1`] = `
+exports[`EcMetrolineCard when is collapsed should render as expected 1`] = `
+<div
+  class="ec-metroline-card ec-metroline-card--is-collapsed"
+  data-test="ec-metroline-card"
+/>
+`;
+
+exports[`EcMetrolineCard when the slot is defined should render as expected 1`] = `
 <div
   class="ec-metroline-card"
   data-test="ec-metroline-card"

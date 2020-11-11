@@ -16,28 +16,36 @@ describe('EcMetrolineCard', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render as expected when is collapsed', async () => {
-    const wrapper = mountMetrolineCard({ isCollapsed: true });
-    expect(wrapper.element).toMatchSnapshot();
+  describe('when is collapsed', () => {
+    it('should render as expected', async () => {
+      const wrapper = mountMetrolineCard({ isCollapsed: true });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
-  it('should render as expected when has narrow padding', async () => {
-    const wrapper = mountMetrolineCard({ hasNarrowPadding: true });
-    expect(wrapper.element).toMatchSnapshot();
+  describe('when has narrow padding', () => {
+    it('should render as expected', async () => {
+      const wrapper = mountMetrolineCard({ hasNarrowPadding: true });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
-  it('should render as expected when is collapsed and has narrow padding', async () => {
-    const wrapper = mountMetrolineCard({ isCollapsed: true, hasNarrowPadding: true });
-    expect(wrapper.element).toMatchSnapshot();
+  describe('when is collapsed and has narrow padding', () => {
+    it('should render as expected', async () => {
+      const wrapper = mountMetrolineCard({ isCollapsed: true, hasNarrowPadding: true });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
-  it('should render the slot as expected', () => {
-    const wrapper = mountMetrolineCard({},
-      {
-        slots: {
-          default: '<p>This is a Metroline Card</p>',
-        },
-      });
-    expect(wrapper.element).toMatchSnapshot();
+  describe('when the slot is defined', () => {
+    it('should render as expected', async () => {
+      const wrapper = mountMetrolineCard({},
+        {
+          slots: {
+            default: '<p>This is a Metroline Card</p>',
+          },
+        });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

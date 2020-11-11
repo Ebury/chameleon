@@ -13,7 +13,7 @@ export const basic = (args, { argTypes }) => ({
   template: `
     <div class="tw-flex tw-flex-col">
       <ec-metroline-card
-        class="tw-w-full tw-mb-24"
+        class="tw-mb-24"
         :is-collapsed="isCollapsed"
         :has-narrow-padding="hasNarrowPadding"
       >
@@ -25,7 +25,6 @@ export const basic = (args, { argTypes }) => ({
       </ec-metroline-card>
 
       <ec-metroline-card
-        class="tw-w-full"
         :is-collapsed="true"
         :has-narrow-padding="true"
       >
