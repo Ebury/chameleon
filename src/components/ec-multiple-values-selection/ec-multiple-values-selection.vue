@@ -187,16 +187,16 @@ export default {
       return this.notSelectedItems.length === 0;
     },
     // TODO ONL-4919
-    // noResults() {
-    //   let hasResults = false;
-    //   if (this.error) {
-    //     const { message } = this.error;
-    //     hasResults = message;
-    //   } else if (this.emptyMessage) {
-    //     hasResults = this.emptyMessage;
-    //   }
-    //   return hasResults;
-    // },
+    noResults() {
+      const hasResults = false;
+      // if (this.error) {
+      //   const { message } = this.error;
+      //   hasResults = message;
+      // } else if (this.emptyMessage) {
+      //   hasResults = this.emptyMessage;
+      // }
+      return hasResults;
+    },
   },
   methods: {
     toggleAll() {
