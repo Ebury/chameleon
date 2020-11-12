@@ -15,6 +15,9 @@ export const basic = (args, { argTypes }) => ({
       <ec-metroline-card
         class="tw-mb-24"
         :is-collapsed="isCollapsed"
+        :is-first="isFirst"
+        :is-last="isLast"
+        :is-stand-alone="isStandAlone"
         :has-narrow-padding="hasNarrowPadding"
       >
         <template>
@@ -79,5 +82,8 @@ export const basic = (args, { argTypes }) => ({
 
 basic.args = {
   isCollapsed: false,
+  isFirst: false,
+  isLast: false,
+  isStandAlone: true,
   hasNarrowPadding: false,
 };

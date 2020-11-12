@@ -12,40 +12,36 @@ describe('EcMetrolineCard', () => {
   }
 
   it('should render as expected', async () => {
-    const wrapper = mountMetrolineCard();
+    const wrapper = mountMetrolineCard({},
+      {
+        slots: {
+          default: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>',
+        },
+      });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  describe('when is collapsed', () => {
-    it('should render as expected', async () => {
-      const wrapper = mountMetrolineCard({ isCollapsed: true });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-  });
-
-  describe('when has narrow padding', () => {
-    it('should render as expected', async () => {
-      const wrapper = mountMetrolineCard({ hasNarrowPadding: true });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-  });
-
-  describe('when is collapsed and has narrow padding', () => {
-    it('should render as expected', async () => {
-      const wrapper = mountMetrolineCard({ isCollapsed: true, hasNarrowPadding: true });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-  });
-
-  describe('when the slot is defined', () => {
-    it('should render as expected', async () => {
-      const wrapper = mountMetrolineCard({},
-        {
-          slots: {
-            default: '<p>This is a Metroline Card</p>',
-          },
+  describe('when we set up the component props', () => {
+    it.each([
+      [false, false, false, false, false],
+      [true, false, false, false, false],
+      [false, true, false, false, false],
+      [false, false, true, false, false],
+      [false, false, false, true, false],
+      [false, false, false, false, true],
+      [true, true, true, true, true],
+    ])(
+      'should render properly (when isCollapsed is %s, isFirst is %s, isLast is %s, isStandAlone is %s, and hasNarrowPadding is %s)',
+      async (isCollapsed, isFirst, isLast, isStandAlone, hasNarrowPadding) => {
+        const wrapper = mountMetrolineCard({
+          isCollapsed,
+          isFirst,
+          isLast,
+          isStandAlone,
+          hasNarrowPadding,
         });
-      expect(wrapper.element).toMatchSnapshot();
-    });
+        expect(wrapper.element).toMatchSnapshot();
+      },
+    );
   });
 });
