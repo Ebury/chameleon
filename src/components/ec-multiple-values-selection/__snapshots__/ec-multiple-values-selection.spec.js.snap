@@ -188,7 +188,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
 </div>
 `;
 
-exports[`EcMultipleValuesSelection should render correctly if all the required pros are passed 1`] = `
+exports[`EcMultipleValuesSelection should render correctly if all the required props are passed 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"

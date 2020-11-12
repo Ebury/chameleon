@@ -38,7 +38,7 @@ function mountEcSyncMultipleValuesFilter(props, mountOpts) {
 }
 
 describe('EcSyncMultipleValuesFilter', () => {
-  it('should render correctly if all the required pros are passed', () => {
+  it('should render correctly if all the required props are passed', () => {
     const wrapper = mountEcSyncMultipleValuesFilter({ label, items, selectAllText });
     expect(wrapper.element).toMatchSnapshot();
   });

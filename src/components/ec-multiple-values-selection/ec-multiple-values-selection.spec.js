@@ -52,7 +52,7 @@ function mountEcMultipleValuesSelectionAsTemplate(template, props, wrapperCompon
   });
 }
 describe('EcMultipleValuesSelection', () => {
-  it('should render correctly if all the required pros are passed', () => {
+  it('should render correctly if all the required props are passed', () => {
     const wrapper = mountEcMultipleValuesSelection({ items });
     expect(wrapper.element).toMatchSnapshot();
   });

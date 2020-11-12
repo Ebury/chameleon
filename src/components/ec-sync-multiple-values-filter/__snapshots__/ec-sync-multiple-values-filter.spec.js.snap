@@ -233,7 +233,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedItems 
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should render correctly if all the required pros are passed 1`] = `
+exports[`EcSyncMultipleValuesFilter should render correctly if all the required props are passed 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
