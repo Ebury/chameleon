@@ -1,5 +1,6 @@
 <template>
   <div
+    data-test="ec-user-info"
     class="ec-user-info"
     :class="{'ec-user-info--is-collapsable': isCollapsable}"
   >
@@ -17,6 +18,7 @@
         class="ec-user-info__client-wrapper"
       >
         <a
+          data-test="ec-user-info__client-name"
           class="ec-user-info__client-name"
           :href="user.profileUrl"
         >{{ user.name }}</a>
