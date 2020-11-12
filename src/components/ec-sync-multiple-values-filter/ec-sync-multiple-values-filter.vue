@@ -15,7 +15,7 @@
           v-model="selectedItems"
           :items="items"
           :is-searchable="false"
-          :can-select-all="canSelectAll"
+          :is-select-all="isSelectAll"
           :select-all-text="selectAllText"
         />
       </template>
@@ -49,7 +49,7 @@ export default {
       required: true,
       default: () => ([]),
     },
-    canSelectAll: {
+    isSelectAll: {
       type: Boolean,
       required: false,
       default: false,

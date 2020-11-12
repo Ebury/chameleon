@@ -29,7 +29,7 @@ export const basic = (args, { argTypes }) => ({
       :label="label"
       :items="items"
       :is-searchable="false"
-      :can-select-all="canSelectAll"
+      :is-select-all="isSelectAll"
       :selectAllText="selectAllText"
       :popover-options="{ open: true }"
     />
@@ -84,6 +84,6 @@ basic.args = {
   label: 'Status',
   value: [],
   items,
-  canSelectAll: false,
+  isSelectAll: false,
   selectAllText: 'Select all',
 };

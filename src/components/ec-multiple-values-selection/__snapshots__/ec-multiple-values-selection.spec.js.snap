@@ -376,6 +376,90 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
 </div>
 `;
 
+exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
+<div
+  class="ec-multiple-values-selection"
+  data-test="ec-multiple-values-selection"
+>
+  <!---->
+   
+  <div
+    class="ec-loading"
+    data-test="ec-loading"
+  >
+    <!---->
+     
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      <div
+        class="ec-multiple-values-selection__no-results-wrapper"
+      >
+        <svg
+          class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+          data-test="ec-multiple-values-selection__no-results-icon"
+          height="32"
+          width="32"
+        >
+          <use
+            xlink:href="#ec-simple-error"
+          />
+        </svg>
+         
+        <span
+          class="ec-multiple-values-selection__no-results-message"
+        >
+          No items
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcMultipleValuesSelection should set the error message 1`] = `
+<div
+  class="ec-multiple-values-selection"
+  data-test="ec-multiple-values-selection"
+>
+  <!---->
+   
+  <div
+    class="ec-loading"
+    data-test="ec-loading"
+  >
+    <!---->
+     
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      <div
+        class="ec-multiple-values-selection__no-results-wrapper"
+      >
+        <svg
+          class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+          data-test="ec-multiple-values-selection__no-results-icon"
+          height="32"
+          width="32"
+        >
+          <use
+            xlink:href="#ec-simple-error"
+          />
+        </svg>
+         
+        <span
+          class="ec-multiple-values-selection__no-results-message"
+        >
+          Error message
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`EcMultipleValuesSelection should toggle (select/unselect) all options clicked 1`] = `
 <div
   class="ec-multiple-values-selection"

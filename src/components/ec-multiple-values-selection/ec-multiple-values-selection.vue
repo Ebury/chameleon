@@ -44,7 +44,7 @@
       </div>
       <div v-else>
         <div
-          v-if="canSelectAll"
+          v-if="isSelectAll"
           class="ec-multiple-values-selection__select-all"
         >
           <ec-checkbox
@@ -55,7 +55,7 @@
             @change="toggleAll()"
           />
         </div>
-        <!-- TODO ONL-4911 the above is the select all checkbox option - visible only if canSelectAll is set to true -->
+        <!-- TODO ONL-4911 the above is the select all checkbox option - visible only if isSelectAll is set to true -->
         <li
           v-for="item in selectedItems"
           :key="item.value"
@@ -159,7 +159,7 @@ export default {
     isSearchable: {
       type: Boolean,
     }, // TODO with https://fxsolutions.atlassian.net/browse/ONL-4912
-    canSelectAll: {
+    isSelectAll: {
       type: Boolean,
     }, // TODO ONL-4911
     selectAllText: {
@@ -188,13 +188,13 @@ export default {
     },
     // TODO ONL-4919
     noResults() {
-      const hasResults = false;
-      // if (this.error) {
-      //   const { message } = this.error;
-      //   hasResults = message;
-      // } else if (this.emptyMessage) {
-      //   hasResults = this.emptyMessage;
-      // }
+      let hasResults = false;
+      if (this.error) {
+        const { message } = this.error;
+        hasResults = message;
+      } else if (this.emptyMessage) {
+        hasResults = this.emptyMessage;
+      }
       return hasResults;
     },
   },

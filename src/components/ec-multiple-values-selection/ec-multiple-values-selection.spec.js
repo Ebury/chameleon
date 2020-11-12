@@ -104,7 +104,7 @@ describe('EcMultipleValuesSelection', () => {
 
   it('should toggle (select/unselect) all options clicked', async () => {
     const wrapper = mountEcMultipleValuesSelectionAsTemplate(
-      '<ec-multiple-values-selection v-model="selectedItems" :items="items" :select-all-text="selectAllText" :canSelectAll="true" />',
+      '<ec-multiple-values-selection v-model="selectedItems" :items="items" :select-all-text="selectAllText" :isSelectAll="true" />',
       {},
       {
         data() {
@@ -120,6 +120,17 @@ describe('EcMultipleValuesSelection', () => {
     await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').trigger('click');
     expect(wrapper.element).toMatchSnapshot();
     await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').trigger('click');
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should set the empty state message', async () => {
+    const wrapper = mountEcMultipleValuesSelection({ items: [], emptyMessage: 'No items', emptyIcon: 'simple-error' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should set the error message', async () => {
+    const error = new Error('Error message');
+    const wrapper = mountEcMultipleValuesSelection({ items: [], error, emptyIcon: 'simple-error' });
     expect(wrapper.element).toMatchSnapshot();
   });
 });
