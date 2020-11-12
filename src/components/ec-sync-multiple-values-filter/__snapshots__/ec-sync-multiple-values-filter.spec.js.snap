@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcSyncMultipleValuesFilter should emit change event when selectedItems value change 1`] = `
+exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilters value change 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -46,10 +46,8 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedItems 
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
           <div
-            class="ec-loading"
+            class="ec-loading ec-multiple-values-selection__loading"
             data-test="ec-loading"
           >
             <!---->
@@ -57,174 +55,176 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedItems 
             <div
               class="ec-loading__content ec-loading__content--is-transparent"
               data-test="ec-loading__content"
+            />
+          </div>
+           
+          <!---->
+           
+          <div>
+            <!---->
+              
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper"
             >
-              <div>
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-42"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-42"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <svg
+                        class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                        height="24"
+                        width="24"
+                      >
+                        <use
+                          xlink:href="#ec-rounded-check"
+                        />
+                      </svg>
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        Success
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
                 <!---->
-                  
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-42"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper"
-                      >
-                        <!---->
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-42"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <svg
-                            class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
-                            height="24"
-                            width="24"
-                          >
-                            <use
-                              xlink:href="#ec-rounded-check"
-                            />
-                          </svg>
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            Success
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-44"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper"
-                      >
-                        <!---->
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-44"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <svg
-                            class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
-                            height="24"
-                            width="24"
-                          >
-                            <use
-                              xlink:href="#ec-rounded-partial"
-                            />
-                          </svg>
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            Name two
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-46"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper"
-                      >
-                        <!---->
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-46"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <svg
-                            class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
-                            height="24"
-                            width="24"
-                          >
-                            <use
-                              xlink:href="#ec-rounded-cancelled"
-                            />
-                          </svg>
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            Cancelled
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
               </div>
-            </div>
+            </li>
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper"
+            >
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-44"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-44"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <svg
+                        class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                        height="24"
+                        width="24"
+                      >
+                        <use
+                          xlink:href="#ec-rounded-partial"
+                        />
+                      </svg>
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        Name two
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
+                <!---->
+              </div>
+            </li>
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper"
+            >
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-46"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-46"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <svg
+                        class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                        height="24"
+                        width="24"
+                      >
+                        <use
+                          xlink:href="#ec-rounded-cancelled"
+                        />
+                      </svg>
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        Cancelled
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
+                <!---->
+              </div>
+            </li>
           </div>
         </div>
       </div>
@@ -279,10 +279,8 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
           <div
-            class="ec-loading"
+            class="ec-loading ec-multiple-values-selection__loading"
             data-test="ec-loading"
           >
             <!---->
@@ -290,174 +288,176 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
             <div
               class="ec-loading__content ec-loading__content--is-transparent"
               data-test="ec-loading__content"
+            />
+          </div>
+           
+          <!---->
+           
+          <div>
+            <!---->
+              
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper"
             >
-              <div>
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-7"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-7"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <svg
+                        class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                        height="24"
+                        width="24"
+                      >
+                        <use
+                          xlink:href="#ec-rounded-check"
+                        />
+                      </svg>
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        Success
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
                 <!---->
-                  
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-7"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper"
-                      >
-                        <!---->
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-7"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <svg
-                            class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
-                            height="24"
-                            width="24"
-                          >
-                            <use
-                              xlink:href="#ec-rounded-check"
-                            />
-                          </svg>
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            Success
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-9"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper"
-                      >
-                        <!---->
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-9"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <svg
-                            class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
-                            height="24"
-                            width="24"
-                          >
-                            <use
-                              xlink:href="#ec-rounded-partial"
-                            />
-                          </svg>
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            Name two
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-11"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper"
-                      >
-                        <!---->
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-11"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <svg
-                            class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
-                            height="24"
-                            width="24"
-                          >
-                            <use
-                              xlink:href="#ec-rounded-cancelled"
-                            />
-                          </svg>
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            Cancelled
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
               </div>
-            </div>
+            </li>
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper"
+            >
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-9"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-9"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <svg
+                        class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                        height="24"
+                        width="24"
+                      >
+                        <use
+                          xlink:href="#ec-rounded-partial"
+                        />
+                      </svg>
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        Name two
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
+                <!---->
+              </div>
+            </li>
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper"
+            >
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-11"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-11"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <svg
+                        class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                        height="24"
+                        width="24"
+                      >
+                        <use
+                          xlink:href="#ec-rounded-cancelled"
+                        />
+                      </svg>
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        Cancelled
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
+                <!---->
+              </div>
+            </li>
           </div>
         </div>
       </div>
@@ -518,10 +518,8 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
           <div
-            class="ec-loading"
+            class="ec-loading ec-multiple-values-selection__loading"
             data-test="ec-loading"
           >
             <!---->
@@ -529,229 +527,231 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
             <div
               class="ec-loading__content ec-loading__content--is-transparent"
               data-test="ec-loading__content"
+            />
+          </div>
+           
+          <!---->
+           
+          <div>
+            <!---->
+             
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__checkbox-deselect"
             >
-              <div>
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-27"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                  >
+                    <svg
+                      class="ec-checkbox__check-icon ec-icon"
+                      height="16"
+                      width="16"
+                    >
+                      <use
+                        xlink:href="#ec-simple-check"
+                      />
+                    </svg>
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-27"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <!---->
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
                 <!---->
-                 
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__checkbox-deselect"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-27"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
-                      >
-                        <svg
-                          class="ec-checkbox__check-icon ec-icon"
-                          height="16"
-                          width="16"
-                        >
-                          <use
-                            xlink:href="#ec-simple-check"
-                          />
-                        </svg>
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-27"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <!---->
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
-                 
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-29"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper"
-                      >
-                        <!---->
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-29"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <svg
-                            class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
-                            height="24"
-                            width="24"
-                          >
-                            <use
-                              xlink:href="#ec-rounded-check"
-                            />
-                          </svg>
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            Success
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-31"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper"
-                      >
-                        <!---->
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-31"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <svg
-                            class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
-                            height="24"
-                            width="24"
-                          >
-                            <use
-                              xlink:href="#ec-rounded-partial"
-                            />
-                          </svg>
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            Name two
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
-                <li
-                  class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper"
-                >
-                  <div
-                    class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
-                  >
-                    <input
-                      class="ec-checkbox__input"
-                      data-test="ec-checkbox__input"
-                      id="ec-checkbox-33"
-                      type="checkbox"
-                    />
-                     
-                    <div
-                      class="ec-checkbox__label-checkbox-wrapper"
-                    >
-                      <span
-                        class="ec-checkbox__check-icon-wrapper"
-                      >
-                        <!---->
-                      </span>
-                       
-                      <label
-                        class="ec-checkbox__label"
-                        data-test="ec-checkbox__label"
-                        for="ec-checkbox-33"
-                      >
-                        <div
-                          class="ec-multiple-values-selection__label-wrapper"
-                        >
-                          <svg
-                            class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
-                            height="24"
-                            width="24"
-                          >
-                            <use
-                              xlink:href="#ec-rounded-cancelled"
-                            />
-                          </svg>
-                           
-                          <span
-                            class="ec-multiple-values-selection__label-text"
-                          >
-                            Cancelled
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-                     
-                    <!---->
-                  </div>
-                </li>
               </div>
-            </div>
+            </li>
+             
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper"
+            >
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-29"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-29"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <svg
+                        class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                        height="24"
+                        width="24"
+                      >
+                        <use
+                          xlink:href="#ec-rounded-check"
+                        />
+                      </svg>
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        Success
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
+                <!---->
+              </div>
+            </li>
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper"
+            >
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-31"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-31"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <svg
+                        class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                        height="24"
+                        width="24"
+                      >
+                        <use
+                          xlink:href="#ec-rounded-partial"
+                        />
+                      </svg>
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        Name two
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
+                <!---->
+              </div>
+            </li>
+            <li
+              class="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper"
+            >
+              <div
+                class="ec-checkbox ec-multiple-values-selection__checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+              >
+                <input
+                  class="ec-checkbox__input"
+                  data-test="ec-checkbox__input"
+                  id="ec-checkbox-33"
+                  type="checkbox"
+                />
+                 
+                <div
+                  class="ec-checkbox__label-checkbox-wrapper"
+                >
+                  <span
+                    class="ec-checkbox__check-icon-wrapper"
+                  >
+                    <!---->
+                  </span>
+                   
+                  <label
+                    class="ec-checkbox__label"
+                    data-test="ec-checkbox__label"
+                    for="ec-checkbox-33"
+                  >
+                    <div
+                      class="ec-multiple-values-selection__label-wrapper"
+                    >
+                      <svg
+                        class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                        height="24"
+                        width="24"
+                      >
+                        <use
+                          xlink:href="#ec-rounded-cancelled"
+                        />
+                      </svg>
+                       
+                      <span
+                        class="ec-multiple-values-selection__label-text"
+                      >
+                        Cancelled
+                      </span>
+                    </div>
+                  </label>
+                </div>
+                 
+                <!---->
+              </div>
+            </li>
           </div>
         </div>
       </div>

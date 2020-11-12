@@ -12,11 +12,11 @@
     >
       <template #filter>
         <ec-multiple-values-selection
-          v-model="selectedItems"
+          v-model="selectedFilters"
           :items="items"
           :is-searchable="false"
           :is-select-all="isSelectAll"
-          :select-all-text="selectAllText"
+          :select-all-filters-text="selectAllFiltersText"
         />
       </template>
     </ec-filter-popover>
@@ -53,21 +53,21 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    },
-    selectAllText: {
+    }, // TODO ONL-4911
+    selectAllFiltersText: {
       type: String,
       required: true,
       default: '',
-    },
+    }, // TODO ONL-4911
     popoverOptions: {
       type: Object,
     },
   },
   computed: {
     numberOfSelectedFilters() {
-      return this.selectedItems.length;
+      return this.selectedFilters.length;
     },
-    selectedItems: {
+    selectedFilters: {
       get() {
         return this.value;
       },

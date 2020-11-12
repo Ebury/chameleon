@@ -30,7 +30,7 @@ export const basic = (args, { argTypes }) => ({
       :items="items"
       :is-searchable="false"
       :is-select-all="isSelectAll"
-      :selectAllText="selectAllText"
+      :selectAllFiltersText="selectAllFiltersText"
       :popover-options="{ open: true }"
     />
   `,
@@ -85,5 +85,5 @@ basic.args = {
   value: [],
   items,
   isSelectAll: false,
-  selectAllText: 'Select all',
+  selectAllFiltersText: 'Select all',
 };

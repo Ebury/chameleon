@@ -2,7 +2,7 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import EcMultipleValuesSelection from './ec-multiple-values-selection.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
-const selectAllText = 'Select all';
+const selectAllFiltersText = 'Select all';
 const items = [{
   value: 'Success',
   icon: {
@@ -29,7 +29,7 @@ const items = [{
 function mountEcMultipleValuesSelection(props, mountOpts) {
   return mount(EcMultipleValuesSelection, {
     propsData: {
-      selectAllText,
+      selectAllFiltersText,
       ...props,
     },
     ...mountOpts,
@@ -65,11 +65,11 @@ describe('EcMultipleValuesSelection', () => {
     });
   });
 
-  it(':selectedItems should return the correct value from prop "value"', () => {
+  it(':selectedFilters should return the correct value from prop "value"', () => {
     const testValue = [{ value: 'test value', name: 'test name' }];
     const wrapper = mountEcMultipleValuesSelection({ items, value: testValue });
 
-    expect(wrapper.vm.selectedItems).toEqual(testValue);
+    expect(wrapper.vm.selectedFilters).toEqual(testValue);
   });
 
   it('should not be visibile if isSearchable is set to false', () => {
@@ -86,32 +86,32 @@ describe('EcMultipleValuesSelection', () => {
 
   it('should deselected items', async () => {
     const wrapper = mountEcMultipleValuesSelectionAsTemplate(
-      '<ec-multiple-values-selection v-model="selectedItems" :items="items" :is-searchable="false" :select-all-text="selectAllText" />',
+      '<ec-multiple-values-selection v-model="selectedFilters" :items="items" :is-searchable="false" :select-all-filters-text="selectAllFiltersText" />',
       {},
       {
         data() {
           return {
             items,
-            selectAllText,
-            selectedItems: [{ value: 'Cancel', name: 'Cancel' }],
+            selectAllFiltersText,
+            selectedFilters: [{ value: 'Cancel', name: 'Cancel' }],
           };
         },
       },
     );
     await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__input').trigger('click');
-    expect(wrapper.vm.selectedItems).toEqual([]);
+    expect(wrapper.vm.selectedFilters).toEqual([]);
   });
 
   it('should toggle (select/unselect) all options clicked', async () => {
     const wrapper = mountEcMultipleValuesSelectionAsTemplate(
-      '<ec-multiple-values-selection v-model="selectedItems" :items="items" :select-all-text="selectAllText" :isSelectAll="true" />',
+      '<ec-multiple-values-selection v-model="selectedFilters" :items="items" :select-all-filters-text="selectAllFiltersText" :isSelectAll="true" />',
       {},
       {
         data() {
           return {
             items,
-            selectedItems: [],
-            selectAllText,
+            selectedFilters: [],
+            selectAllFiltersText,
           };
         },
       },
