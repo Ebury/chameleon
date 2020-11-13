@@ -3,10 +3,6 @@
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <ec-loading
-      class="ec-multiple-values-selection__loading"
-      :show="isLoading"
-    />
     <div
       v-if="isSearchable"
     >
@@ -33,6 +29,11 @@
       v-if="hasNoResults"
       class="ec-multiple-values-selection__no-results-wrapper"
     >
+      <ec-loading
+        class="ec-multiple-values-selection__loading"
+        :show="isLoading"
+      />
+
       <ec-icon
         class="ec-multiple-values-selection__no-results-icon"
         data-test="ec-multiple-values-selection__no-results-icon"
@@ -225,6 +226,8 @@ export default {
 .ec-multiple-values-selection {
   &__loading {
     @apply tw-h-full;
+    @apply tw-pt-20;
+    @apply tw-items-stretch;
   }
 
   &__select-all {

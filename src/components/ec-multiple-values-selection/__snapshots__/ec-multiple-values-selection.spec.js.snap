@@ -5,18 +5,6 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <div
-    class="ec-loading ec-multiple-values-selection__loading"
-    data-test="ec-loading"
-  >
-    <!---->
-     
-    <div
-      class="ec-loading__content ec-loading__content--is-transparent"
-      data-test="ec-loading__content"
-    />
-  </div>
-   
   <!---->
    
   <div>
@@ -33,7 +21,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-26"
+          id="ec-checkbox-22"
           type="checkbox"
         />
          
@@ -49,7 +37,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-26"
+            for="ec-checkbox-22"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -87,7 +75,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-28"
+          id="ec-checkbox-24"
           type="checkbox"
         />
          
@@ -103,7 +91,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-28"
+            for="ec-checkbox-24"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -141,7 +129,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-30"
+          id="ec-checkbox-26"
           type="checkbox"
         />
          
@@ -157,7 +145,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-30"
+            for="ec-checkbox-26"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -193,18 +181,6 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <div
-    class="ec-loading ec-multiple-values-selection__loading"
-    data-test="ec-loading"
-  >
-    <!---->
-     
-    <div
-      class="ec-loading__content ec-loading__content--is-transparent"
-      data-test="ec-loading__content"
-    />
-  </div>
-   
   <!---->
    
   <div>
@@ -221,7 +197,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-3"
+          id="ec-checkbox-2"
           type="checkbox"
         />
          
@@ -237,7 +213,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-3"
+            for="ec-checkbox-2"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -275,7 +251,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-5"
+          id="ec-checkbox-4"
           type="checkbox"
         />
          
@@ -291,7 +267,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-5"
+            for="ec-checkbox-4"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -329,7 +305,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-7"
+          id="ec-checkbox-6"
           type="checkbox"
         />
          
@@ -345,7 +321,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-7"
+            for="ec-checkbox-6"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -381,23 +357,23 @@ exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <div
-    class="ec-loading ec-multiple-values-selection__loading"
-    data-test="ec-loading"
-  >
-    <!---->
-     
-    <div
-      class="ec-loading__content ec-loading__content--is-transparent"
-      data-test="ec-loading__content"
-    />
-  </div>
-   
   <!---->
    
   <div
     class="ec-multiple-values-selection__no-results-wrapper"
   >
+    <div
+      class="ec-loading ec-multiple-values-selection__loading"
+      data-test="ec-loading"
+    >
+      <!---->
+       
+      <div
+        class="ec-loading__content ec-loading__content--is-transparent"
+        data-test="ec-loading__content"
+      />
+    </div>
+     
     <svg
       class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
       data-test="ec-multiple-values-selection__no-results-icon"
@@ -423,23 +399,23 @@ exports[`EcMultipleValuesSelection should set the error message 1`] = `
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <div
-    class="ec-loading ec-multiple-values-selection__loading"
-    data-test="ec-loading"
-  >
-    <!---->
-     
-    <div
-      class="ec-loading__content ec-loading__content--is-transparent"
-      data-test="ec-loading__content"
-    />
-  </div>
-   
   <!---->
    
   <div
     class="ec-multiple-values-selection__no-results-wrapper"
   >
+    <div
+      class="ec-loading ec-multiple-values-selection__loading"
+      data-test="ec-loading"
+    >
+      <!---->
+       
+      <div
+        class="ec-loading__content ec-loading__content--is-transparent"
+        data-test="ec-loading__content"
+      />
+    </div>
+     
     <svg
       class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
       data-test="ec-multiple-values-selection__no-results-icon"
@@ -465,18 +441,6 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <div
-    class="ec-loading ec-multiple-values-selection__loading"
-    data-test="ec-loading"
-  >
-    <!---->
-     
-    <div
-      class="ec-loading__content ec-loading__content--is-transparent"
-      data-test="ec-loading__content"
-    />
-  </div>
-   
   <!---->
    
   <div>
@@ -490,7 +454,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-57"
+          id="ec-checkbox-50"
           type="checkbox"
         />
          
@@ -514,7 +478,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-57"
+            for="ec-checkbox-50"
           >
             Select all
           </label>
@@ -535,7 +499,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-58"
+          id="ec-checkbox-51"
           type="checkbox"
         />
          
@@ -559,7 +523,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-58"
+            for="ec-checkbox-51"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -597,7 +561,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-60"
+          id="ec-checkbox-53"
           type="checkbox"
         />
          
@@ -621,7 +585,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-60"
+            for="ec-checkbox-53"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -659,7 +623,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-62"
+          id="ec-checkbox-55"
           type="checkbox"
         />
          
@@ -683,7 +647,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-62"
+            for="ec-checkbox-55"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -720,18 +684,6 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <div
-    class="ec-loading ec-multiple-values-selection__loading"
-    data-test="ec-loading"
-  >
-    <!---->
-     
-    <div
-      class="ec-loading__content ec-loading__content--is-transparent"
-      data-test="ec-loading__content"
-    />
-  </div>
-   
   <!---->
    
   <div>
@@ -745,7 +697,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-57"
+          id="ec-checkbox-50"
           type="checkbox"
         />
          
@@ -761,7 +713,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-57"
+            for="ec-checkbox-50"
           >
             Select all
           </label>
@@ -782,7 +734,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-58"
+          id="ec-checkbox-51"
           type="checkbox"
         />
          
@@ -798,7 +750,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-58"
+            for="ec-checkbox-51"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -836,7 +788,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-60"
+          id="ec-checkbox-53"
           type="checkbox"
         />
          
@@ -852,7 +804,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-60"
+            for="ec-checkbox-53"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -890,7 +842,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         <input
           class="ec-checkbox__input"
           data-test="ec-checkbox__input"
-          id="ec-checkbox-62"
+          id="ec-checkbox-55"
           type="checkbox"
         />
          
@@ -906,7 +858,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           <label
             class="ec-checkbox__label"
             data-test="ec-checkbox__label"
-            for="ec-checkbox-62"
+            for="ec-checkbox-55"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
