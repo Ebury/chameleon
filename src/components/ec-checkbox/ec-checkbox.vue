@@ -18,7 +18,7 @@
       v-on="$listeners"
     >
 
-    <div class="ec-checkbox__label-checkbox-wrapper ">
+    <div class="ec-checkbox__label-checkbox-wrapper">
       <span
         class="ec-checkbox__check-icon-wrapper"
         :class="{
