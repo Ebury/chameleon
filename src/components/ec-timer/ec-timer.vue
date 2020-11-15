@@ -4,46 +4,40 @@
     data-test="ec-timer"
   >
     <svg
-      width="108"
-      height="108"
-      viewBox="0 0 108 108"
+      :width="diameter"
+      :height="diameter"
+      :viewBox="viewbox"
       class="ec-timer__svg"
     >
       <circle
         class="ec-timer__background"
-        cx="54"
-        cy="54"
+        cx="50%"
+        cy="50%"
         :r="radius"
         fill="transparent"
-        stroke-width="11"
-      />
-      <text
-        x="50%"
-        y="50%"
-        dominant-baseline="central"
-        text-anchor="middle"
-      >{{ secondsLeft }}</text>
-      <circle
-        class="ec-timer__remaining"
-        cx="54"
-        cy="54"
-        :r="radius"
-        fill="transparent"
-        stroke-width="11"
-        stroke-dasharray="dashArray"
-        stroke-dashoffset="0"
+        :stroke-width="strokeWidth"
       />
 
       <circle
-        class="ec-timer__used"
-        cx="54"
-        cy="54"
+        class="ec-timer__remaining"
+        cx="50%"
+        cy="50%"
         :r="radius"
         fill="transparent"
-        stroke-width="11"
-        stroke-dasharray="dashArray"
-        stroke-dashoffset="dashOffset"
+        :stroke-width="strokeWidth"
+        :stroke-dasharray="circumference"
+        :stroke-dashoffset="offset"
       />
+
+      <text
+        x="50%"
+        y="50%"
+        class="ec-timer__text"
+        dominant-baseline="central"
+        text-anchor="middle"
+      >
+        {{ secondsLeft }}s
+      </text>
     </svg>
   </div>
 </template>
@@ -54,33 +48,49 @@ export default {
   props: {
     seconds: {
       type: Number,
-    },
-    radius: {
-      type: Number,
+      required: true,
+      validator(value) {
+        return Number.isInteger(value);
+      },
     },
   },
   data() {
     return {
-      secondsLeft: null,
+      radius: 22,
+      strokeWidth: 4,
+      secondsLeft: this.seconds,
     };
   },
-  created() {
-    this.secondsLeft = this.numberToInteger(this.seconds);
+  computed: {
+    diameter() {
+      return (this.radius * 2) + this.strokeWidth;
+    },
+    viewbox() {
+      return `0 0 ${this.diameter} ${this.diameter}`;
+    },
+    circumference() {
+      return 2 * Math.PI * this.radius;
+    },
+    steps() {
+      return this.circumference / this.seconds;
+    },
+    offset() {
+      return this.circumference + this.steps * this.secondsLeft;
+    },
+  },
+  mounted() {
     this.countdown();
   },
   methods: {
-    numberToInteger(seconds) {
-      return Math.trunc(seconds);
-    },
     countdown() {
-      setTimeout(this.goMoreDown, 1000);
+      setTimeout(this.reduceSecondsLeft, 1000);
     },
-    goMoreDown() {
+    reduceSecondsLeft() {
       if (this.secondsLeft > 0) {
-        this.secondsLeft -= 1;
+        this.secondsLeft--;
         this.countdown();
       } else {
-        alert('finished');
+        this.$emit('timer-complete');
       }
     },
   },
@@ -94,13 +104,15 @@ export default {
   }
 
   &__remaining {
-    stroke: hsl(var(--ec-reserved-color-info));
+    stroke: hsl(var(--ec-key-color-level-4));
+    transform-origin: 50%;
+
+    @apply tw--rotate-90;
   }
 
-  &__used {
-    stroke: hsl(var(--ec-gray-color-level-8));
-    stroke-opacity: 0.5;
-    animation: progress 1s ease-out;
+  &__text {
+    @apply tw-body-strong;
+    @apply tw-text-gray-3;
   }
 }
 </style>
