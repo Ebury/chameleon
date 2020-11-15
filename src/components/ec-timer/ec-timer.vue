@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      radius: 22,
+      radius: 24,
       strokeWidth: 4,
       secondsLeft: this.seconds,
     };
