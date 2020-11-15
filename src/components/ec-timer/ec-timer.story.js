@@ -11,16 +11,13 @@ const Template = (args, { argTypes }) => ({
     EcTimer,
   },
   template: `
-    <ec-timer
-      :radius="radius"
-      :seconds="seconds"
-    />
-  `,
+    <div class="tw-flex tw-justify-center">
+      <ec-timer :seconds="seconds" />
+    </div>`,
 });
 
 export const basic = Template.bind({});
 
 basic.args = {
-  radius: 40,
-  seconds: 10,
+  seconds: 20,
 };
