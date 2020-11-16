@@ -32,6 +32,7 @@ export { default as EcMenu } from './components/ec-menu';
 export { default as EcMetroline } from './components/ec-metroline';
 export { default as EcMetrolineItem } from './components/ec-metroline-item';
 export { default as EcModal } from './components/ec-modal';
+export { default as EcMultipleValuesSelection } from './components/ec-multiple-values-selection';
 export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
 export { default as EcPanel } from './components/ec-panel';
@@ -42,6 +43,7 @@ export { default as EcSubmenu } from './components/ec-submenu';
 export { default as EcTable } from './components/ec-table';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcTooltip } from './directives/ec-tooltip';
+export { default as EcSyncMultipleValuesFilter } from './components/ec-sync-multiple-values-filter';
 export { default as EcUserInfo } from './components/ec-user-info';
 
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
