@@ -53,7 +53,7 @@ export default {
         return Number.isInteger(value) && value > 0;
       },
     },
-    isTimerRunning: {
+    isRunning: {
       type: Boolean,
       required: true,
     },
@@ -83,7 +83,7 @@ export default {
     },
   },
   watch: {
-    isTimerRunning: {
+    isRunning: {
       immediate: true,
       handler(value) {
         if (value) {
@@ -96,7 +96,7 @@ export default {
   },
   methods: {
     countdown() {
-      if (this.isTimerRunning && this.secondsLeft > 0) {
+      if (this.isRunning && this.secondsLeft > 0) {
         setTimeout(this.reduceSecondsLeft, 1000);
       } else {
         this.$emit('time-expired');

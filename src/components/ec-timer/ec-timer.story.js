@@ -14,7 +14,7 @@ const Template = (args, { argTypes }) => ({
     <div class="tw-flex tw-justify-center">
       <ec-timer
         :seconds="seconds"
-        :isTimerRunning="isTimerRunning"
+        :isRunning="isRunning"
       />
     </div>`,
 });
@@ -23,5 +23,5 @@ export const basic = Template.bind({});
 
 basic.args = {
   seconds: 20,
-  isTimerRunning: true,
+  isRunning: true,
 };
