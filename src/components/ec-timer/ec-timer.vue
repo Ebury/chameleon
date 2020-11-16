@@ -50,8 +50,12 @@ export default {
       type: Number,
       required: true,
       validator(value) {
-        return Number.isInteger(value);
+        return Number.isInteger(value) && value > 0;
       },
+    },
+    isTimerRunning: {
+      type: Boolean,
+      required: true,
     },
   },
   data() {
@@ -78,20 +82,29 @@ export default {
       return this.circumference + this.steps * this.secondsLeft;
     },
   },
-  mounted() {
-    this.countdown();
+  watch: {
+    isTimerRunning: {
+      immediate: true,
+      handler(value) {
+        if (value) {
+          this.countdown();
+        } else {
+          this.secondsLeft = this.seconds;
+        }
+      },
+    },
   },
   methods: {
     countdown() {
-      setTimeout(this.reduceSecondsLeft, 1000);
+      if (this.isTimerRunning && this.secondsLeft > 0) {
+        setTimeout(this.reduceSecondsLeft, 1000);
+      } else {
+        this.$emit('time-expired');
+      }
     },
     reduceSecondsLeft() {
-      if (this.secondsLeft > 0) {
-        this.secondsLeft--;
-        this.countdown();
-      } else {
-        this.$emit('timer-complete');
-      }
+      this.secondsLeft--;
+      this.countdown();
     },
   },
 };
