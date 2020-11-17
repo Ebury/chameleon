@@ -121,9 +121,9 @@ export default {
   }
 
   &__remaining {
-    stroke: hsl(var(--ec-key-color-level-4));
     transform-origin: 50%;
 
+    @apply tw-stroke-key-4;
     @apply tw--rotate-90;
   }
 
