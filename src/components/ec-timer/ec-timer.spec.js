@@ -21,15 +21,15 @@ describe('EcTimer', () => {
     });
   });
 
-  // it('should throw an error if "seconds" prop is not an integer', () => {
-  //   withMockedConsole(async (errorSpy) => {
-  //     const wrapper = mountTimer({ seconds: 20.1, isRunning: true });
-  //     await wrapper.vm.$nextTick();
+  it('should throw an error if "seconds" prop is not an integer', () => {
+    withMockedConsole(async (errorSpy) => {
+      const wrapper = mountTimer({ seconds: 20.1, isRunning: true });
+      await wrapper.vm.$nextTick();
 
-  //     expect(errorSpy).toHaveBeenCalledTimes(1);
-  //     expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "seconds"');
-  //   });
-  // });
+      expect(errorSpy).toHaveBeenCalledTimes(1);
+      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "seconds"');
+    });
+  });
 
   it('should throw an error if "seconds" prop is negative', () => {
     withMockedConsole((errorSpy) => {
@@ -72,11 +72,12 @@ describe('EcTimer', () => {
   });
 
   it('should emit an event called "time-expired" after the countdown completes', async () => {
-    jest.useFakeTimers();
+    jest.useFakeTimers('modern');
+    // jest.setSystemTime(1400000020000);
 
-    const wrapper = mountTimer({ seconds: 20, isRunning: true });
+    const wrapper = mountTimer({ seconds: 4, isRunning: true });
 
-    jest.advanceTimersByTime(20000);
+    jest.advanceTimersByTime(4000);
 
     expect(wrapper.emitted('time-expired').length).toBe(1);
     await wrapper.vm.$nextTick();
@@ -85,7 +86,7 @@ describe('EcTimer', () => {
 
   it('should not emit an event if we stop the timer before time expires', async () => {
     jest.useFakeTimers();
-    const wrapper = mountTimer({ seconds: 20, isRunning: true });
+    const wrapper = mountTimer({ seconds: 10, isRunning: true });
 
     jest.advanceTimersByTime(10000);
     await wrapper.setProps({ isRunning: false });

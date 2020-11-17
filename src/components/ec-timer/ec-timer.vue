@@ -64,6 +64,8 @@ export default {
       radius: 24,
       strokeWidth: 4,
       secondsLeft: this.seconds,
+      startingTime: null,
+      currentTime: null,
     };
   },
   computed: {
@@ -81,6 +83,9 @@ export default {
     },
     offset() {
       return this.circumference + this.steps * this.secondsLeft;
+    },
+    timeDifference() {
+      return this.currentTime - this.startingTime;
     },
   },
   watch: {
@@ -101,13 +106,14 @@ export default {
   methods: {
     countdown() {
       if (this.isRunning) {
-        this.reduceSecondsLeft();
+        this.startingTime = Math.ceil(Date.now() / 1000);
         this.timerInterval = setInterval(this.reduceSecondsLeft, 1000);
       }
     },
     reduceSecondsLeft() {
-      if (this.secondsLeft > 0) {
-        this.secondsLeft--;
+      if (this.timeDifference < this.seconds) {
+        this.currentTime = Math.ceil(Date.now() / 1000);
+        this.secondsLeft = this.seconds - this.timeDifference;
       } else {
         clearInterval(this.timerInterval);
         this.$emit('time-expired');
