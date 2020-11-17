@@ -13,7 +13,7 @@ describe('EcTimer', () => {
     });
   }
 
-  describe('props', () => {
+  describe(':props', () => {
     it('should throw an error if "seconds" prop is not given', () => {
       withMockedConsole((errorSpy) => {
         mountTimer({ isRunning: true });
@@ -104,7 +104,6 @@ describe('EcTimer', () => {
       clock.tick(20000);
 
       expect(wrapper.emitted('time-expired').length).toBe(1);
-
       await wrapper.vm.$nextTick();
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -113,9 +112,7 @@ describe('EcTimer', () => {
       const wrapper = mountTimer({ seconds: 20, isRunning: true });
 
       clock.tick(10000);
-
       await wrapper.setProps({ isRunning: false });
-
       clock.tick(10000);
 
       expect(wrapper.emitted('time-expired')).toBeFalsy();
@@ -127,7 +124,6 @@ describe('EcTimer', () => {
     const wrapper = mountTimer({ seconds: 20, isRunning: true });
 
     expect(clearTimeoutSpy).toHaveBeenCalledTimes(0);
-
     wrapper.destroy();
     expect(clearTimeoutSpy).toHaveBeenCalledTimes(1);
   });
