@@ -14,7 +14,7 @@ exports[`EcCheckbox #slots #error-message - should render error-message slot ins
   />
    
   <div
-    class="ec-checkbox__label-checkbox-wrapper "
+    class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
@@ -55,7 +55,7 @@ exports[`EcCheckbox #slots #errorMessage - should render the error message slot 
   />
    
   <div
-    class="ec-checkbox__label-checkbox-wrapper "
+    class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
@@ -95,7 +95,7 @@ exports[`EcCheckbox #slots #label - should render label slot instead of label pr
   />
    
   <div
-    class="ec-checkbox__label-checkbox-wrapper "
+    class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
@@ -129,7 +129,7 @@ exports[`EcCheckbox #slots #label - should render the label slot if passed 1`] =
   />
    
   <div
-    class="ec-checkbox__label-checkbox-wrapper "
+    class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
@@ -164,7 +164,7 @@ exports[`EcCheckbox :props :disabled - should render the checkbox with a disable
   />
    
   <div
-    class="ec-checkbox__label-checkbox-wrapper "
+    class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--disabled"
@@ -199,7 +199,7 @@ exports[`EcCheckbox :props :error-message - should render the checkbox with an e
   />
    
   <div
-    class="ec-checkbox__label-checkbox-wrapper "
+    class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
@@ -239,7 +239,7 @@ exports[`EcCheckbox :props :label - should render the checkbox with a label 1`] 
   />
    
   <div
-    class="ec-checkbox__label-checkbox-wrapper "
+    class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
@@ -274,7 +274,7 @@ exports[`EcCheckbox attrs should pass all non-prop attributes to the hidden chec
   />
    
   <div
-    class="ec-checkbox__label-checkbox-wrapper "
+    class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
