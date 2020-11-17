@@ -32,7 +32,7 @@
     "release": "npm version patch && npm publish && git push --follow-tags"
   },
   "dependencies": {
-    "clipboard-copy": "3.1.0",
+    "clipboard-copy": "3.2.0",
     "tailwindcss-filters": "3.0.0",
     "focus-trap": "5.1.0",
     "tailwindcss": "1.9.6",
