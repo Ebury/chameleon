@@ -92,10 +92,11 @@ export default {
     isRunning: {
       immediate: true,
       handler(value) {
-        clearInterval(this.timerInterval);
-        this.secondsLeft = this.seconds;
         if (value) {
           this.countdown();
+        } else {
+          clearInterval(this.timerInterval);
+          this.secondsLeft = this.seconds;
         }
       },
     },

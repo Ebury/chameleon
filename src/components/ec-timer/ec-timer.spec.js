@@ -50,6 +50,16 @@ describe('EcTimer', () => {
       });
     });
 
+    it('should clear the interval if we set "isRunning" to false', async () => {
+      const clearTimeoutSpy = jest.spyOn(window, 'clearInterval');
+      const wrapper = mountTimer({ seconds: 20, isRunning: true });
+
+      expect(clearTimeoutSpy).toHaveBeenCalledTimes(0);
+
+      await wrapper.setProps({ isRunning: false });
+      expect(clearTimeoutSpy).toHaveBeenCalledTimes(1);
+    });
+
     it('should render as expected', () => {
       const wrapper = mountTimer({ seconds: 20, isRunning: true });
 
@@ -110,5 +120,15 @@ describe('EcTimer', () => {
 
       expect(wrapper.emitted('time-expired')).toBeFalsy();
     });
+  });
+
+  it('should clear the interval before we destroy the components', () => {
+    const clearTimeoutSpy = jest.spyOn(window, 'clearInterval');
+    const wrapper = mountTimer({ seconds: 20, isRunning: true });
+
+    expect(clearTimeoutSpy).toHaveBeenCalledTimes(0);
+
+    wrapper.destroy();
+    expect(clearTimeoutSpy).toHaveBeenCalledTimes(1);
   });
 });
