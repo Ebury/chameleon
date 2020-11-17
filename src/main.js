@@ -30,7 +30,6 @@ export { default as EcLoading } from './components/ec-loading';
 export { default as EcMainContainer } from './components/ec-main-container';
 export { default as EcMenu } from './components/ec-menu';
 export { default as EcMetroline } from './components/ec-metroline';
-export { default as EcMetrolineCard } from './components/ec-metroline-card';
 export { default as EcMetrolineItem } from './components/ec-metroline-item';
 export { default as EcModal } from './components/ec-modal';
 export { default as EcMultipleValuesSelection } from './components/ec-multiple-values-selection';
