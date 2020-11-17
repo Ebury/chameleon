@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcTimer should emit an event called "time-expired" after the countdown completes 1`] = `
+exports[`EcTimer @events should emit an event called "time-expired" after the countdown completes 1`] = `
 <div
   class="ec-timer"
   data-test="ec-timer"
@@ -46,7 +46,7 @@ exports[`EcTimer should emit an event called "time-expired" after the countdown 
 </div>
 `;
 
-exports[`EcTimer should render as expected 1`] = `
+exports[`EcTimer props should render as expected 1`] = `
 <div
   class="ec-timer"
   data-test="ec-timer"
@@ -92,7 +92,7 @@ exports[`EcTimer should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcTimer should render with the slot given 1`] = `
+exports[`EcTimer slots should render with the slot given 1`] = `
 <div
   class="ec-timer"
   data-test="ec-timer"
