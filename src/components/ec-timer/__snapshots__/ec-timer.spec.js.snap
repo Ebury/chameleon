@@ -12,7 +12,7 @@ exports[`EcTimer should render as expected 1`] = `
     width="52"
   >
     <circle
-      class="ec-timer__background"
+      class="ec-timer__elapsed"
       cx="50%"
       cy="50%"
       fill="transparent"
@@ -27,20 +27,66 @@ exports[`EcTimer should render as expected 1`] = `
       fill="transparent"
       r="24"
       stroke-dasharray="150.79644737231007"
-      stroke-dashoffset="301.59289474462014"
+      stroke-dashoffset="294.05307237600465"
       stroke-width="4"
     />
      
     <text
       class="ec-timer__text"
+      data-test="ec-timer__text"
       dominant-baseline="central"
       text-anchor="middle"
       x="50%"
       y="50%"
     >
       
-      20s
-    
+      19s
+    </text>
+  </svg>
+</div>
+`;
+
+exports[`EcTimer should render with the slot given 1`] = `
+<div
+  class="ec-timer"
+  data-test="ec-timer"
+>
+  <svg
+    class="ec-timer__svg"
+    height="52"
+    viewBox="0 0 52 52"
+    width="52"
+  >
+    <circle
+      class="ec-timer__elapsed"
+      cx="50%"
+      cy="50%"
+      fill="transparent"
+      r="24"
+      stroke-width="4"
+    />
+     
+    <circle
+      class="ec-timer__remaining"
+      cx="50%"
+      cy="50%"
+      fill="transparent"
+      r="24"
+      stroke-dasharray="150.79644737231007"
+      stroke-dashoffset="294.05307237600465"
+      stroke-width="4"
+    />
+     
+    <text
+      class="ec-timer__text"
+      data-test="ec-timer__text"
+      dominant-baseline="central"
+      text-anchor="middle"
+      x="50%"
+      y="50%"
+    >
+      
+      19c
     </text>
   </svg>
 </div>

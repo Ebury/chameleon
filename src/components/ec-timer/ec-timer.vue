@@ -10,7 +10,7 @@
       class="ec-timer__svg"
     >
       <circle
-        class="ec-timer__background"
+        class="ec-timer__elapsed"
         cx="50%"
         cy="50%"
         :r="radius"
@@ -32,11 +32,12 @@
       <text
         x="50%"
         y="50%"
+        data-test="ec-timer__text"
         class="ec-timer__text"
         dominant-baseline="central"
         text-anchor="middle"
       >
-        {{ secondsLeft }}s
+        {{ secondsLeft }}<slot>s</slot>
       </text>
     </svg>
   </div>
@@ -96,15 +97,18 @@ export default {
   },
   methods: {
     countdown() {
-      if (this.isRunning && this.secondsLeft > 0) {
-        setTimeout(this.reduceSecondsLeft, 1000);
-      } else {
-        this.$emit('time-expired');
+      if (this.isRunning) {
+        this.reduceSecondsLeft();
+        this.timerInterval = setInterval(this.reduceSecondsLeft, 1000);
       }
     },
     reduceSecondsLeft() {
-      this.secondsLeft--;
-      this.countdown();
+      if (this.secondsLeft > 0) {
+        this.secondsLeft--;
+      } else {
+        clearInterval(this.timerInterval);
+        this.$emit('time-expired');
+      }
     },
   },
 };
@@ -112,7 +116,7 @@ export default {
 
 <style>
 .ec-timer {
-  &__background {
+  &__elapsed {
     stroke: hsl(var(--ec-gray-color-level-7));
   }
 
