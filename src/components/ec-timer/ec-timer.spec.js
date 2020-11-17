@@ -71,7 +71,7 @@ describe('EcTimer', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should emit an event called "time-expired" after the countdown completes', () => {
+  it('should emit an event called "time-expired" after the countdown completes', async () => {
     jest.useFakeTimers();
 
     const wrapper = mountTimer({ seconds: 20, isRunning: true });
@@ -79,5 +79,18 @@ describe('EcTimer', () => {
     jest.advanceTimersByTime(20000);
 
     expect(wrapper.emitted('time-expired').length).toBe(1);
+    await wrapper.vm.$nextTick();
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should not emit an event if we stop the timer before time expires', async () => {
+    jest.useFakeTimers();
+    const wrapper = mountTimer({ seconds: 20, isRunning: true });
+
+    jest.advanceTimersByTime(10000);
+    await wrapper.setProps({ isRunning: false });
+    jest.advanceTimersByTime(10000);
+
+    expect(wrapper.emitted('time-expired')).toBeFalsy();
   });
 });
