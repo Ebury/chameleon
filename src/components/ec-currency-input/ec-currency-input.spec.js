@@ -77,6 +77,20 @@ describe('EcCurrencyInput', () => {
           expect(wrapper.findByDataTest('ec-currency-input__bottom-note').element).toMatchSnapshot();
           expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').attributes('mocked-tooltip-content')).toBe(warningMessage);
         });
+
+        describe('and an error message is being displayed', () => {
+          it('should not display neither the bottom note nor the warning icon', () => {
+            const wrapper = mountCurrencyInput({
+              bottomNote: 'Bottom note message',
+              errorMessage: 'Random message',
+              isWarning: true,
+              warningMessage: 'Warning message',
+            });
+            expect(wrapper.findByDataTest('ec-currency-input__bottom-note').exists()).toBeFalsy();
+            expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').exists()).toBeFalsy();
+            expect(wrapper.findByDataTest('ec-currency-input__error-text').exists()).toBeTruthy();
+          });
+        });
       });
     });
 
