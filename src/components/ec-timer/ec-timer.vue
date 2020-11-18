@@ -106,10 +106,8 @@ export default {
   },
   methods: {
     countdown() {
-      if (this.isRunning) {
-        this.startTime = Math.ceil(Date.now() / 1000);
-        this.timerInterval = setInterval(this.reduceSecondsLeft, 1000);
-      }
+      this.startTime = Math.ceil(Date.now() / 1000);
+      this.timerInterval = setInterval(this.reduceSecondsLeft, 1000);
     },
     reduceSecondsLeft() {
       this.currentTime = Math.ceil(Date.now() / 1000);
