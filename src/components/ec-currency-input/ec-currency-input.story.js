@@ -9,6 +9,14 @@ const warningTooltipMessage = 'Currently there is not enough EUR balance to cove
 export default {
   title: 'Currency Input',
   component: EcCurrencyInput,
+  argTypes: {
+    locale: {
+      control: {
+        type: 'select',
+        options: ['en', 'es', 'de-ch', 'jp', 'sv'],
+      },
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
