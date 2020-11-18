@@ -111,10 +111,8 @@ export default {
     },
     reduceSecondsLeft() {
       this.currentTime = Math.ceil(Date.now() / 1000);
-      if (this.timeDifference < this.seconds) {
-        this.secondsLeft = this.seconds - this.timeDifference;
-      } else {
-        this.secondsLeft = this.seconds - this.timeDifference;
+      this.secondsLeft = this.seconds - this.timeDifference;
+      if (this.timeDifference >= this.seconds) {
         clearInterval(this.timerInterval);
         this.$emit('time-expired');
       }
