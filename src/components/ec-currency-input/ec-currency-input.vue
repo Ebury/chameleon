@@ -84,8 +84,8 @@
     >
       <span>{{ bottomNote }}</span>
       <ec-icon
-        v-if="isWarning && warningMessage"
-        v-ec-tooltip="{ content: warningMessage }"
+        v-if="isWarning && warningTooltipMessage"
+        v-ec-tooltip="{ content: warningTooltipMessage }"
         class="ec-currency-input__warning-tooltip"
         data-test="ec-currency-input__warning-tooltip"
         type="warning"
@@ -131,7 +131,7 @@ export default {
     bottomNote: {
       type: String,
     },
-    warningMessage: {
+    warningTooltipMessage: {
       type: String,
     },
     isWarning: {

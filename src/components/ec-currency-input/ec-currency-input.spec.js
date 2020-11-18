@@ -68,14 +68,14 @@ describe('EcCurrencyInput', () => {
 
       describe('and there is a warning message defined', () => {
         it('should render properly', () => {
-          const warningMessage = 'Warning message';
+          const warningTooltipMessage = 'Warning tooltip message';
           const wrapper = mountCurrencyInput({
             bottomNote: 'Bottom note message',
             isWarning: true,
-            warningMessage,
+            warningTooltipMessage,
           });
           expect(wrapper.findByDataTest('ec-currency-input__bottom-note').element).toMatchSnapshot();
-          expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').attributes('mocked-tooltip-content')).toBe(warningMessage);
+          expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').attributes('mocked-tooltip-content')).toBe(warningTooltipMessage);
         });
 
         describe('and an error message is being displayed', () => {
@@ -84,7 +84,7 @@ describe('EcCurrencyInput', () => {
               bottomNote: 'Bottom note message',
               errorMessage: 'Random message',
               isWarning: true,
-              warningMessage: 'Warning message',
+              warningTooltipMessage: 'Warning tooltip message',
             });
             expect(wrapper.findByDataTest('ec-currency-input__bottom-note').exists()).toBeFalsy();
             expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').exists()).toBeFalsy();

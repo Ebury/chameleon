@@ -584,7 +584,7 @@ exports[`EcCurrencyInput when the bottom note is defined and it is a warning not
     class="ec-currency-input__warning-tooltip ec-icon ec-icon--warning"
     data-test="ec-currency-input__warning-tooltip"
     height="16"
-    mocked-tooltip-content="Warning message"
+    mocked-tooltip-content="Warning tooltip message"
     width="16"
   >
     <use
