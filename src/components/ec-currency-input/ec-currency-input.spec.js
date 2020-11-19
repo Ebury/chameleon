@@ -1,6 +1,12 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcCurrencyInput from './ec-currency-input.vue';
 
+jest.mock('../../directives/ec-tooltip', () => ({
+  bind(el, { value }) {
+    el.setAttribute('mocked-tooltip-content', value.content);
+  },
+}));
+
 describe('EcCurrencyInput', () => {
   const currencies = ['GBP', 'EUR', 'USD', 'JPY'];
 
@@ -43,6 +49,61 @@ describe('EcCurrencyInput', () => {
     const wrapper = mountCurrencyInput({ isSensitive: true });
 
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  describe('when the bottom note is defined', () => {
+    it('should render properly', () => {
+      const wrapper = mountCurrencyInput({ bottomNote: 'Bottom note message' });
+      expect(wrapper.findByDataTest('ec-currency-input__bottom-note').element).toMatchSnapshot();
+    });
+
+    describe('and it is a warning note', () => {
+      it('should render properly', () => {
+        const wrapper = mountCurrencyInput({
+          bottomNote: 'Bottom note message',
+          isWarning: true,
+        });
+        expect(wrapper.findByDataTest('ec-currency-input__bottom-note').element).toMatchSnapshot();
+      });
+
+      describe('and there is a warning message defined', () => {
+        it('should render properly', () => {
+          const warningTooltipMessage = 'Warning tooltip message';
+          const wrapper = mountCurrencyInput({
+            bottomNote: 'Bottom note message',
+            isWarning: true,
+            warningTooltipMessage,
+          });
+          expect(wrapper.findByDataTest('ec-currency-input__bottom-note').element).toMatchSnapshot();
+          expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').attributes('mocked-tooltip-content')).toBe(warningTooltipMessage);
+        });
+
+        describe('and an error message is being displayed', () => {
+          it('should not display neither the bottom note nor the warning icon', () => {
+            const wrapper = mountCurrencyInput({
+              bottomNote: 'Bottom note message',
+              errorMessage: 'Random message',
+              isWarning: true,
+              warningTooltipMessage: 'Warning tooltip message',
+            });
+            expect(wrapper.findByDataTest('ec-currency-input__bottom-note').exists()).toBeFalsy();
+            expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').exists()).toBeFalsy();
+            expect(wrapper.findByDataTest('ec-currency-input__error-text').exists()).toBeTruthy();
+          });
+        });
+      });
+    });
+
+    describe('and an error message is being displayed', () => {
+      it('should not display the bottom note', () => {
+        const wrapper = mountCurrencyInput({
+          bottomNote: 'Bottom note message',
+          errorMessage: 'Random message',
+        });
+        expect(wrapper.findByDataTest('ec-currency-input__bottom-note').exists()).toBeFalsy();
+        expect(wrapper.findByDataTest('ec-currency-input__error-text').exists()).toBeTruthy();
+      });
+    });
   });
 
   describe(':props', () => {
