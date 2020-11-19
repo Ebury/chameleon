@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcBlogItem posts prop should render post 1`] = `
+<div>
+  <p>
+    title
+  </p>
+   
+  <p>
+    shortDescription
+  </p>
+   
+  <p>
+    author
+  </p>
+   
+  <p>
+    category
+  </p>
+</div>
+`;
