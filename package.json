@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@ascendancyy/vue-cli-plugin-stylelint": "1.1.2",
-    "@fullhuman/postcss-purgecss": "2.3.0",
+    "@fullhuman/postcss-purgecss": "3.0.0",
     "@sinonjs/fake-timers": "6.0.1",
     "@storybook/addon-a11y": "6.0.26",
     "@storybook/addon-actions": "6.0.28",
