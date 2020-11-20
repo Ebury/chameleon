@@ -27,6 +27,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           <button
             class="ec-filter-popover__label"
             data-test="ec-filter-popover__label"
+            title="Payment status"
             type="button"
           >
             Payment status
@@ -223,6 +224,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           <button
             class="ec-filter-popover__label"
             data-test="ec-filter-popover__label"
+            title="Fee type"
             type="button"
           >
             Fee type
@@ -369,6 +371,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
         <button
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          title="Due date"
           type="button"
         >
           Due date
@@ -508,6 +511,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           <button
             class="ec-filter-popover__label"
             data-test="ec-filter-popover__label"
+            title="Payment status"
             type="button"
           >
             Payment status
@@ -704,6 +708,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           <button
             class="ec-filter-popover__label"
             data-test="ec-filter-popover__label"
+            title="Fee type"
             type="button"
           >
             Fee type
@@ -850,6 +855,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
         <button
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          title="Due date"
           type="button"
         >
           Due date
@@ -989,6 +995,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           <button
             class="ec-filter-popover__label"
             data-test="ec-filter-popover__label"
+            title="Payment status"
             type="button"
           >
             Payment status
@@ -1185,6 +1192,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           <button
             class="ec-filter-popover__label"
             data-test="ec-filter-popover__label"
+            title="Fee type"
             type="button"
           >
             Fee type
@@ -1346,6 +1354,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
         <button
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          title="Due date"
           type="button"
         >
           Due date
@@ -1493,6 +1502,7 @@ exports[`EcTableFilter should set the Clear filter button's text 1`] = `
           <button
             class="ec-filter-popover__label"
             data-test="ec-filter-popover__label"
+            title="Payment status"
             type="button"
           >
             Payment status
@@ -1689,6 +1699,7 @@ exports[`EcTableFilter should set the Clear filter button's text 1`] = `
           <button
             class="ec-filter-popover__label"
             data-test="ec-filter-popover__label"
+            title="Fee type"
             type="button"
           >
             Fee type
@@ -1850,6 +1861,7 @@ exports[`EcTableFilter should set the Clear filter button's text 1`] = `
         <button
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          title="Due date"
           type="button"
         >
           Due date

@@ -21,6 +21,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
         <button
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          title="Status"
           type="button"
         >
           Status
@@ -242,6 +243,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
         <button
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          title="Status"
           type="button"
         >
           Status
@@ -463,6 +465,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
         <button
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          title="Status"
           type="button"
         >
           Status

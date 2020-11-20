@@ -17,6 +17,7 @@ exports[`ecDateRangeFilter should render properly when all the props are given 1
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        title="Due date"
         type="button"
       >
         Due date
@@ -150,6 +151,7 @@ exports[`ecDateRangeFilter should render properly with an error message when the
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        title="Due date"
         type="button"
       >
         Due date
