@@ -167,6 +167,7 @@ export default {
     }, // TODO ONL-4911
     selectAllFiltersText: {
       type: String,
+      default: '',
     }, // TODO ONL-4911
     searchFilterPlaceholder: {
       type: String,

@@ -42,6 +42,7 @@ export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
 export { default as EcSmartTable } from './components/ec-smart-table';
 export { default as EcSubmenu } from './components/ec-submenu';
 export { default as EcTable } from './components/ec-table';
+export { default as EcTableFilter } from './components/ec-table-filter';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcTooltip } from './directives/ec-tooltip';
 export { default as EcSyncMultipleValuesFilter } from './components/ec-sync-multiple-values-filter';

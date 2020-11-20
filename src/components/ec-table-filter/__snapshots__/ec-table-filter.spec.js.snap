@@ -1,0 +1,1971 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcTableFilter should hide the clear filters button if there isn't any preselected filter 1`] = `
+<section
+  class="ec-table-filter"
+  data-test="ec-table-filter"
+>
+  <div
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-0"
+    name="paymentStatus"
+  >
+    <div
+      class="ec-filter-popover"
+      data-test="ec-sync-multiple-values-filter__trigger"
+    >
+      <ecpopover-stub
+        offset="0, 8"
+        placement="bottom"
+        popper-options="[object Object]"
+      >
+        <div
+          class="ec-filter-popover__trigger"
+          data-test="ec-filter-popover__trigger"
+        >
+          <button
+            class="ec-filter-popover__label"
+            data-test="ec-filter-popover__label"
+            type="button"
+          >
+            Payment status
+          </button>
+           
+          <!---->
+           
+          <svg
+            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </div>
+         
+        <div
+          class="ec-filter-popover__filter-content"
+        >
+          <div
+            class="ec-multiple-values-selection"
+            data-test="ec-multiple-values-selection"
+          >
+            <!---->
+             
+            <div>
+              <!---->
+                
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-57"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-57"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Paid
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-58"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-58"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Cancelled
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-59"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-59"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Overdue
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+  <div
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-1"
+    name="feeType"
+  >
+    <div
+      class="ec-filter-popover"
+      data-test="ec-sync-multiple-values-filter__trigger"
+    >
+      <ecpopover-stub
+        offset="0, 8"
+        placement="bottom"
+        popper-options="[object Object]"
+      >
+        <div
+          class="ec-filter-popover__trigger"
+          data-test="ec-filter-popover__trigger"
+        >
+          <button
+            class="ec-filter-popover__label"
+            data-test="ec-filter-popover__label"
+            type="button"
+          >
+            Fee type
+          </button>
+           
+          <!---->
+           
+          <svg
+            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </div>
+         
+        <div
+          class="ec-filter-popover__filter-content"
+        >
+          <div
+            class="ec-multiple-values-selection"
+            data-test="ec-multiple-values-selection"
+          >
+            <!---->
+             
+            <div>
+              <!---->
+                
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-65"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-65"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Invoiced
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-66"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-66"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Other type
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+  <div
+    class="ec-filter-popover ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-2"
+    name="dueDate"
+  >
+    <ecpopover-stub
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          type="button"
+        >
+          Due date
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+       
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-date-range-filter"
+          data-test="ec-date-range-filter"
+        >
+          <div
+            class="ec-date-range-filter__inputs-wrapper"
+          >
+            <div
+              class="ec-input-field ec-date-range-filter__from-input"
+              data-test="ec-input-field"
+            >
+              <label
+                class="ec-input-field__label"
+                data-test="ec-input-field__label"
+                for="ec-input-field-71"
+              >
+                <span
+                  class="ec-input-field__label-text"
+                  data-test="ec-input-field__label-text"
+                >
+                  From
+                  <!---->
+                </span>
+                 
+                <!---->
+              </label>
+               
+              <input
+                class="ec-input-field__input"
+                data-test="ec-date-range-filter__from-input ec-input-field__input"
+                id="ec-input-field-71"
+                placeholder="dd/mm/yyyy"
+                type="date"
+              />
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <div
+              class="ec-input-field ec-date-range-filter__to-input"
+              data-test="ec-input-field"
+            >
+              <label
+                class="ec-input-field__label"
+                data-test="ec-input-field__label"
+                for="ec-input-field-72"
+              >
+                <span
+                  class="ec-input-field__label-text"
+                  data-test="ec-input-field__label-text"
+                >
+                  To
+                  <!---->
+                </span>
+                 
+                <!---->
+              </label>
+               
+              <input
+                class="ec-input-field__input"
+                data-test="ec-date-range-filter__to-input ec-input-field__input"
+                id="ec-input-field-72"
+                placeholder="dd/mm/yyyy"
+                type="date"
+              />
+               
+              <!---->
+               
+              <!---->
+            </div>
+          </div>
+           
+          <button
+            class="ec-date-range-filter__clear-button"
+            data-test="ec-date-range-filter__clear-button"
+            disabled="disabled"
+            type="button"
+          >
+            Clear dates
+          </button>
+        </div>
+      </div>
+    </ecpopover-stub>
+  </div>
+   
+  <!---->
+</section>
+`;
+
+exports[`EcTableFilter should render correctly if all the required props are passed 1`] = `
+<section
+  class="ec-table-filter"
+  data-test="ec-table-filter"
+>
+  <div
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-0"
+    name="paymentStatus"
+  >
+    <div
+      class="ec-filter-popover"
+      data-test="ec-sync-multiple-values-filter__trigger"
+    >
+      <ecpopover-stub
+        offset="0, 8"
+        placement="bottom"
+        popper-options="[object Object]"
+      >
+        <div
+          class="ec-filter-popover__trigger"
+          data-test="ec-filter-popover__trigger"
+        >
+          <button
+            class="ec-filter-popover__label"
+            data-test="ec-filter-popover__label"
+            type="button"
+          >
+            Payment status
+          </button>
+           
+          <!---->
+           
+          <svg
+            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </div>
+         
+        <div
+          class="ec-filter-popover__filter-content"
+        >
+          <div
+            class="ec-multiple-values-selection"
+            data-test="ec-multiple-values-selection"
+          >
+            <!---->
+             
+            <div>
+              <!---->
+                
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-7"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-7"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Paid
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-8"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-8"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Cancelled
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-9"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-9"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Overdue
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+  <div
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-1"
+    name="feeType"
+  >
+    <div
+      class="ec-filter-popover"
+      data-test="ec-sync-multiple-values-filter__trigger"
+    >
+      <ecpopover-stub
+        offset="0, 8"
+        placement="bottom"
+        popper-options="[object Object]"
+      >
+        <div
+          class="ec-filter-popover__trigger"
+          data-test="ec-filter-popover__trigger"
+        >
+          <button
+            class="ec-filter-popover__label"
+            data-test="ec-filter-popover__label"
+            type="button"
+          >
+            Fee type
+          </button>
+           
+          <!---->
+           
+          <svg
+            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </div>
+         
+        <div
+          class="ec-filter-popover__filter-content"
+        >
+          <div
+            class="ec-multiple-values-selection"
+            data-test="ec-multiple-values-selection"
+          >
+            <!---->
+             
+            <div>
+              <!---->
+                
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-15"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-15"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Invoiced
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-16"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-16"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Other type
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+  <div
+    class="ec-filter-popover ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-2"
+    name="dueDate"
+  >
+    <ecpopover-stub
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          type="button"
+        >
+          Due date
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+       
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-date-range-filter"
+          data-test="ec-date-range-filter"
+        >
+          <div
+            class="ec-date-range-filter__inputs-wrapper"
+          >
+            <div
+              class="ec-input-field ec-date-range-filter__from-input"
+              data-test="ec-input-field"
+            >
+              <label
+                class="ec-input-field__label"
+                data-test="ec-input-field__label"
+                for="ec-input-field-21"
+              >
+                <span
+                  class="ec-input-field__label-text"
+                  data-test="ec-input-field__label-text"
+                >
+                  From
+                  <!---->
+                </span>
+                 
+                <!---->
+              </label>
+               
+              <input
+                class="ec-input-field__input"
+                data-test="ec-date-range-filter__from-input ec-input-field__input"
+                id="ec-input-field-21"
+                placeholder="dd/mm/yyyy"
+                type="date"
+              />
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <div
+              class="ec-input-field ec-date-range-filter__to-input"
+              data-test="ec-input-field"
+            >
+              <label
+                class="ec-input-field__label"
+                data-test="ec-input-field__label"
+                for="ec-input-field-22"
+              >
+                <span
+                  class="ec-input-field__label-text"
+                  data-test="ec-input-field__label-text"
+                >
+                  To
+                  <!---->
+                </span>
+                 
+                <!---->
+              </label>
+               
+              <input
+                class="ec-input-field__input"
+                data-test="ec-date-range-filter__to-input ec-input-field__input"
+                id="ec-input-field-22"
+                placeholder="dd/mm/yyyy"
+                type="date"
+              />
+               
+              <!---->
+               
+              <!---->
+            </div>
+          </div>
+           
+          <button
+            class="ec-date-range-filter__clear-button"
+            data-test="ec-date-range-filter__clear-button"
+            disabled="disabled"
+            type="button"
+          >
+            Clear dates
+          </button>
+        </div>
+      </div>
+    </ecpopover-stub>
+  </div>
+   
+  <!---->
+</section>
+`;
+
+exports[`EcTableFilter should render with pre-selected filters if the value prop is passed 1`] = `
+<section
+  class="ec-table-filter"
+  data-test="ec-table-filter"
+>
+  <div
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-0"
+    name="paymentStatus"
+  >
+    <div
+      class="ec-filter-popover"
+      data-test="ec-sync-multiple-values-filter__trigger"
+    >
+      <ecpopover-stub
+        offset="0, 8"
+        placement="bottom"
+        popper-options="[object Object]"
+      >
+        <div
+          class="ec-filter-popover__trigger"
+          data-test="ec-filter-popover__trigger"
+        >
+          <button
+            class="ec-filter-popover__label"
+            data-test="ec-filter-popover__label"
+            type="button"
+          >
+            Payment status
+          </button>
+           
+          <!---->
+           
+          <svg
+            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </div>
+         
+        <div
+          class="ec-filter-popover__filter-content"
+        >
+          <div
+            class="ec-multiple-values-selection"
+            data-test="ec-multiple-values-selection"
+          >
+            <!---->
+             
+            <div>
+              <!---->
+                
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-32"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-32"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Paid
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-33"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-33"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Cancelled
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-34"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-34"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Overdue
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+  <div
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-1"
+    name="feeType"
+  >
+    <div
+      class="ec-filter-popover"
+      data-test="ec-sync-multiple-values-filter__trigger"
+    >
+      <ecpopover-stub
+        offset="0, 8"
+        placement="bottom"
+        popper-options="[object Object]"
+      >
+        <div
+          class="ec-filter-popover__trigger"
+          data-test="ec-filter-popover__trigger"
+        >
+          <button
+            class="ec-filter-popover__label"
+            data-test="ec-filter-popover__label"
+            type="button"
+          >
+            Fee type
+          </button>
+           
+          <span
+            class="ec-filter-popover__badge"
+            data-test="ec-filter-popover__badge"
+          >
+             1
+      
+          </span>
+           
+          <svg
+            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </div>
+         
+        <div
+          class="ec-filter-popover__filter-content"
+        >
+          <div
+            class="ec-multiple-values-selection"
+            data-test="ec-multiple-values-selection"
+          >
+            <!---->
+             
+            <div>
+              <!---->
+               
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__checkbox-deselect"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-40"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                    >
+                      <svg
+                        class="ec-checkbox__check-icon ec-icon"
+                        height="16"
+                        width="16"
+                      >
+                        <use
+                          xlink:href="#ec-simple-check"
+                        />
+                      </svg>
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-40"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Invoiced
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+               
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-42"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-42"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Other type
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+  <div
+    class="ec-filter-popover ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-2"
+    name="dueDate"
+  >
+    <ecpopover-stub
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          type="button"
+        >
+          Due date
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+       
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-date-range-filter"
+          data-test="ec-date-range-filter"
+        >
+          <div
+            class="ec-date-range-filter__inputs-wrapper"
+          >
+            <div
+              class="ec-input-field ec-date-range-filter__from-input"
+              data-test="ec-input-field"
+            >
+              <label
+                class="ec-input-field__label"
+                data-test="ec-input-field__label"
+                for="ec-input-field-47"
+              >
+                <span
+                  class="ec-input-field__label-text"
+                  data-test="ec-input-field__label-text"
+                >
+                  From
+                  <!---->
+                </span>
+                 
+                <!---->
+              </label>
+               
+              <input
+                class="ec-input-field__input"
+                data-test="ec-date-range-filter__from-input ec-input-field__input"
+                id="ec-input-field-47"
+                placeholder="dd/mm/yyyy"
+                type="date"
+              />
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <div
+              class="ec-input-field ec-date-range-filter__to-input"
+              data-test="ec-input-field"
+            >
+              <label
+                class="ec-input-field__label"
+                data-test="ec-input-field__label"
+                for="ec-input-field-48"
+              >
+                <span
+                  class="ec-input-field__label-text"
+                  data-test="ec-input-field__label-text"
+                >
+                  To
+                  <!---->
+                </span>
+                 
+                <!---->
+              </label>
+               
+              <input
+                class="ec-input-field__input"
+                data-test="ec-date-range-filter__to-input ec-input-field__input"
+                id="ec-input-field-48"
+                placeholder="dd/mm/yyyy"
+                type="date"
+              />
+               
+              <!---->
+               
+              <!---->
+            </div>
+          </div>
+           
+          <button
+            class="ec-date-range-filter__clear-button"
+            data-test="ec-date-range-filter__clear-button"
+            disabled="disabled"
+            type="button"
+          >
+            Clear dates
+          </button>
+        </div>
+      </div>
+    </ecpopover-stub>
+  </div>
+   
+  <button
+    class="ec-table-filter__clear-filters-button"
+    data-test="ec-table-filter__clear-filters-button"
+    type="button"
+  >
+    
+    Clear filters
+  
+  </button>
+</section>
+`;
+
+exports[`EcTableFilter should set the Clear filter button's text 1`] = `
+<section
+  class="ec-table-filter"
+  data-test="ec-table-filter"
+>
+  <div
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-0"
+    name="paymentStatus"
+  >
+    <div
+      class="ec-filter-popover"
+      data-test="ec-sync-multiple-values-filter__trigger"
+    >
+      <ecpopover-stub
+        offset="0, 8"
+        placement="bottom"
+        popper-options="[object Object]"
+      >
+        <div
+          class="ec-filter-popover__trigger"
+          data-test="ec-filter-popover__trigger"
+        >
+          <button
+            class="ec-filter-popover__label"
+            data-test="ec-filter-popover__label"
+            type="button"
+          >
+            Payment status
+          </button>
+           
+          <!---->
+           
+          <svg
+            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </div>
+         
+        <div
+          class="ec-filter-popover__filter-content"
+        >
+          <div
+            class="ec-multiple-values-selection"
+            data-test="ec-multiple-values-selection"
+          >
+            <!---->
+             
+            <div>
+              <!---->
+                
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-80"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-80"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Paid
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-81"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-81"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Cancelled
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-82"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-82"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Overdue
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+  <div
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-1"
+    name="feeType"
+  >
+    <div
+      class="ec-filter-popover"
+      data-test="ec-sync-multiple-values-filter__trigger"
+    >
+      <ecpopover-stub
+        offset="0, 8"
+        placement="bottom"
+        popper-options="[object Object]"
+      >
+        <div
+          class="ec-filter-popover__trigger"
+          data-test="ec-filter-popover__trigger"
+        >
+          <button
+            class="ec-filter-popover__label"
+            data-test="ec-filter-popover__label"
+            type="button"
+          >
+            Fee type
+          </button>
+           
+          <span
+            class="ec-filter-popover__badge"
+            data-test="ec-filter-popover__badge"
+          >
+             1
+      
+          </span>
+           
+          <svg
+            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </div>
+         
+        <div
+          class="ec-filter-popover__filter-content"
+        >
+          <div
+            class="ec-multiple-values-selection"
+            data-test="ec-multiple-values-selection"
+          >
+            <!---->
+             
+            <div>
+              <!---->
+               
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__checkbox-deselect"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-88"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                    >
+                      <svg
+                        class="ec-checkbox__check-icon ec-icon"
+                        height="16"
+                        width="16"
+                      >
+                        <use
+                          xlink:href="#ec-simple-check"
+                        />
+                      </svg>
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-88"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Invoiced
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+               
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-90"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-90"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <!---->
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Other type
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </div>
+          </div>
+        </div>
+      </ecpopover-stub>
+    </div>
+  </div>
+  <div
+    class="ec-filter-popover ec-table-filter__filter-item"
+    component="[object Object]"
+    data-test="ec-table-filter__filter-item-2"
+    name="dueDate"
+  >
+    <ecpopover-stub
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          type="button"
+        >
+          Due date
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+       
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-date-range-filter"
+          data-test="ec-date-range-filter"
+        >
+          <div
+            class="ec-date-range-filter__inputs-wrapper"
+          >
+            <div
+              class="ec-input-field ec-date-range-filter__from-input"
+              data-test="ec-input-field"
+            >
+              <label
+                class="ec-input-field__label"
+                data-test="ec-input-field__label"
+                for="ec-input-field-95"
+              >
+                <span
+                  class="ec-input-field__label-text"
+                  data-test="ec-input-field__label-text"
+                >
+                  From
+                  <!---->
+                </span>
+                 
+                <!---->
+              </label>
+               
+              <input
+                class="ec-input-field__input"
+                data-test="ec-date-range-filter__from-input ec-input-field__input"
+                id="ec-input-field-95"
+                placeholder="dd/mm/yyyy"
+                type="date"
+              />
+               
+              <!---->
+               
+              <!---->
+            </div>
+             
+            <div
+              class="ec-input-field ec-date-range-filter__to-input"
+              data-test="ec-input-field"
+            >
+              <label
+                class="ec-input-field__label"
+                data-test="ec-input-field__label"
+                for="ec-input-field-96"
+              >
+                <span
+                  class="ec-input-field__label-text"
+                  data-test="ec-input-field__label-text"
+                >
+                  To
+                  <!---->
+                </span>
+                 
+                <!---->
+              </label>
+               
+              <input
+                class="ec-input-field__input"
+                data-test="ec-date-range-filter__to-input ec-input-field__input"
+                id="ec-input-field-96"
+                placeholder="dd/mm/yyyy"
+                type="date"
+              />
+               
+              <!---->
+               
+              <!---->
+            </div>
+          </div>
+           
+          <button
+            class="ec-date-range-filter__clear-button"
+            data-test="ec-date-range-filter__clear-button"
+            disabled="disabled"
+            type="button"
+          >
+            Clear dates
+          </button>
+        </div>
+      </div>
+    </ecpopover-stub>
+  </div>
+   
+  <button
+    class="ec-table-filter__clear-filters-button"
+    data-test="ec-table-filter__clear-filters-button"
+    type="button"
+  >
+    
+    Random test text
+  
+  </button>
+</section>
+`;
