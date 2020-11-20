@@ -33,7 +33,7 @@ export const basic = (args, { argTypes }) => ({
 });
 
 basic.args = {
-  value: { dueDate: { from: null, to: null }, paymentStatus: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }], feeType: [{ text: 'Invoiced', value: 'invoiced' }] },
+  value: { paymentStatus: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }], feeType: [{ text: 'Invoiced', value: 'invoiced' }] },
   filters: [{
     label: 'Payment status', // remember this needs to be translated
     name: 'paymentStatus',

@@ -20,6 +20,7 @@
           type="button"
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          :title="label"
         >{{ label }}</button>
         <span
           v-if="numberOfSelectedFilters > 0"
@@ -164,6 +165,10 @@ export default {
     @apply tw-border-none;
     @apply tw-text-gray-3;
     @apply tw-bg-transparent;
+    @apply tw-inline-block;
+    @apply tw-w-72;
+    @apply tw-truncate;
+    @apply tw-text-left;
 
     &:hover {
       @apply tw-no-underline;
