@@ -75,19 +75,41 @@
       data-test="ec-currency-input__error-text"
       class="ec-currency-input__error-text"
     >{{ errorMessage }}</div>
+
+    <div
+      v-else-if="bottomNote"
+      data-test="ec-currency-input__bottom-note"
+      class="ec-currency-input__bottom-note"
+      :class="{ 'ec-currency-input__bottom-note--is-warning': isWarning }"
+    >
+      <span>{{ bottomNote }}</span>
+      <ec-icon
+        v-if="isWarning && warningTooltipMessage"
+        v-ec-tooltip="{ content: warningTooltipMessage }"
+        class="ec-currency-input__warning-tooltip"
+        data-test="ec-currency-input__warning-tooltip"
+        type="warning"
+        name="simple-error"
+        :size="16"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import EcDropdown from '../ec-dropdown';
 import EcAmountInput from '../ec-amount-input';
+import EcDropdown from '../ec-dropdown';
+import EcIcon from '../ec-icon';
+import EcTooltip from '../../directives/ec-tooltip';
 
 export default {
   name: 'EcCurrencyInput',
   components: {
-    EcDropdown,
     EcAmountInput,
+    EcDropdown,
+    EcIcon,
   },
+  directives: { EcTooltip },
   model: {
     prop: 'value',
     event: 'value-change',
@@ -105,6 +127,16 @@ export default {
     },
     note: {
       type: String,
+    },
+    bottomNote: {
+      type: String,
+    },
+    warningTooltipMessage: {
+      type: String,
+    },
+    isWarning: {
+      type: Boolean,
+      default: false,
     },
     errorMessage: {
       type: String,
@@ -260,6 +292,21 @@ export default {
   &__error-text {
     @apply tw-flags-text;
     @apply tw-text-error;
+  }
+
+  &__bottom-note {
+    @apply tw-flex tw-items-center;
+    @apply tw-caption-text;
+    @apply tw-mt-4;
+
+    &--is-warning {
+      @apply tw-text-warning;
+    }
+  }
+
+  &__warning-tooltip {
+    @apply tw-ml-4;
+    @apply tw-outline-none;
   }
 }
 </style>
