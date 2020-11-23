@@ -120,7 +120,7 @@ export default {
   @apply tw-block;
   @apply tw-bg-gray-7;
 
-  @media (min-width: theme('screens.sm')) {
+  @screen sm {
     @apply tw-flex tw-flex-row tw-justify-start tw-flex-wrap tw-items-center;
     @apply tw-bg-gray-8;
     @apply tw-max-w-full;
