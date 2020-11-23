@@ -7,8 +7,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
 >
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-0"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
     name="paymentStatus"
   >
     <div
@@ -204,8 +203,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
   </div>
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-1"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
     name="feeType"
   >
     <div
@@ -355,8 +353,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-2"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
     name="dueDate"
   >
     <ecpopover-stub
@@ -491,8 +488,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
 >
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-0"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
     name="paymentStatus"
   >
     <div
@@ -688,8 +684,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
   </div>
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-1"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
     name="feeType"
   >
     <div
@@ -839,8 +834,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-2"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
     name="dueDate"
   >
     <ecpopover-stub
@@ -975,8 +969,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
 >
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-0"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
     name="paymentStatus"
   >
     <div
@@ -1172,8 +1165,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
   </div>
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-1"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
     name="feeType"
   >
     <div
@@ -1323,8 +1315,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-2"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
     name="dueDate"
   >
     <ecpopover-stub
@@ -1459,8 +1450,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
 >
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-0"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
     name="paymentStatus"
   >
     <div
@@ -1656,8 +1646,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
   </div>
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-1"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
     name="feeType"
   >
     <div
@@ -1822,8 +1811,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item"
-    component="[object Object]"
-    data-test="ec-table-filter__filter-item-2"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
     name="dueDate"
   >
     <ecpopover-stub

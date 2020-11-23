@@ -47,7 +47,7 @@ describe('ecDateRangeFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should throw an error if no label pop was given', () => {
+  it('should throw an error if no label prop was given', () => {
     withMockedConsole((errorSpy) => {
       mountecDateRangeFilter();
       expect(errorSpy).toHaveBeenCalledTimes(1);
@@ -98,5 +98,19 @@ describe('ecDateRangeFilter', () => {
     await wrapper.findByDataTest('ec-date-range-filter__to-input').setValue('2020-12-06');
     expect(wrapper.findByDataTest('ec-date-range-filter__to-input').element.value).toBe('2020-12-06');
     expect(wrapper.findByDataTest('ec-filter-popover__badge').text()).toBe('2');
+  });
+
+  it('should return undefined if no dates are passed in value prop', () => {
+    const wrapper = mountecDateRangeFilterAsTemplate(
+      '<ec-date-range-filter :label="label" v-model="value"/>',
+      {},
+      {
+        data() {
+          return { value: valueEmpty, label };
+        },
+      },
+    );
+    expect(wrapper.vm.fromValueDate).toEqual(undefined);
+    expect(wrapper.vm.toValueDate).toEqual(undefined);
   });
 });
