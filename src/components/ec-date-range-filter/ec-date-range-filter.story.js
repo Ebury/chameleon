@@ -47,5 +47,5 @@ basic.args = {
   toLabelText: 'To',
   clearText: 'Clear dates',
   errorMessage: '',
-  value: {},
+  value: { from: '2020-03-14', to: null },
 };
