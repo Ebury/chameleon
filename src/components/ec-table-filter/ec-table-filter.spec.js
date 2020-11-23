@@ -93,10 +93,26 @@ describe('EcTableFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should set the Clear filter button\'s text', () => {
-    const clearFiltersButtonText = 'Random test text';
-    const wrapper = mountEcTableFilter({ value, filters, clearFiltersButtonText });
+  it('should hide the clear filters button when the user deselect the all the filters manually', async () => {
+    const wrapper = mountEcTableFilterAsTemplate(
+      '<ec-table-filter v-model="valueFromProps" :filters="filters" :popover-options="{ open: true }" />',
+      {},
+      {
+        data() {
+          return {
+            valueFromProps: value,
+            filters,
+          };
+        },
+      },
+    );
+    const filterItem = wrapper.findByDataTest('ec-table-filter__filter-item-1').findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__label');
+
+    await filterItem.trigger('click');
+
+    await wrapper.vm.$nextTick();
     expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-table-filter__clear-filters-button').exists()).toBeFalsy();
   });
 
   it('should emit an empty object when clear filters button is clicked', () => {
@@ -106,17 +122,16 @@ describe('EcTableFilter', () => {
     expect(wrapper.emitted().change).toEqual([[{}]]);
   });
 
-  it('should emit a change event with an empty object when the usert deselect the filter', () => {
+  it('should emit a change event with an empty object when the user deselect the filter', () => {
     const wrapper = mountEcTableFilter({ value, filters, popoverOptions: { open: true } });
+    const filterItem = wrapper.findByDataTest('ec-table-filter__filter-item-1').findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__label');
 
-    wrapper.findByDataTest('ec-table-filter__filter-item-1')
-      .findByDataTest('ec-multiple-values-selection__checkbox-deselect')
-      .findByDataTest('ec-checkbox__label').trigger('click');
+    filterItem.trigger('click');
 
     expect(wrapper.emitted().change).toEqual([[{}]]);
   });
 
-  it('should emit a change event with the selected filters object when the usert select a filter', () => {
+  it('should emit a change event with the selected filters object when the user select a filter', () => {
     const wrapper = mountEcTableFilter({ value, filters, popoverOptions: { open: true } });
 
     wrapper.findByDataTest('ec-table-filter__filter-item-0').findByDataTest('ec-checkbox__label').trigger('click');

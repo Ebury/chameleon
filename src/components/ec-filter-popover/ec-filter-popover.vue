@@ -135,6 +135,7 @@ export default {
 :root {
   --ec-filter-popover-width: 304px;
   --ec-filter-popover-height: 368px;
+  --ec-filter-label-width: 120px;
 }
 
 .ec-filter-popover {
@@ -166,9 +167,10 @@ export default {
     @apply tw-text-gray-3;
     @apply tw-bg-transparent;
     @apply tw-inline-block;
-    @apply tw-min-w-104;
     @apply tw-truncate;
     @apply tw-text-left;
+
+    max-width: var(--ec-filter-label-width);
 
     &:hover {
       @apply tw-no-underline;

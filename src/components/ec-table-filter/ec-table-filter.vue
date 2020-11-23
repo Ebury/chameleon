@@ -8,8 +8,7 @@
       v-for="(filter, index) in filters"
       :key="index"
       :value="value[filter.name]"
-      v-bind="filter"
-      :label="filter.label"
+      v-bind="{ ...filter, component: null }"
       :data-test="`ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
       @change="onChange(filter.name, $event)"
@@ -19,13 +18,13 @@
       type="button"
       data-test="ec-table-filter__less-filters-button"
       class="ec-table-filter__less-filters-button"
-      @click="handleLessFilterClick()"
+      @click="onToggleMoreFilters()"
     >
-      {{ setLessFiltersButtonText }}
+      {{ toggleMoreFiltersText }}
       <ec-icon
         class="ec-table-filter__less-filters-button--icon"
         :size="16"
-        :name="setLessFiltersButtonIcon"
+        :name="toggleMoreFiltersButtonIcon"
         type="interactive"
       />
     </button>
@@ -55,7 +54,6 @@ export default {
     value: {
       type: Object,
       default: () => ({}),
-      required: false,
     },
     filters: {
       type: Array,
@@ -63,13 +61,15 @@ export default {
       default: () => ([]),
     },
     lessFiltersButtonText: {
-      type: Array,
-      required: false,
-      default: () => (['Less filters', 'More filters']),
+      type: String,
+      default: 'Less filters',
+    },
+    moreFiltersButtonText: {
+      type: String,
+      default: 'More filters',
     },
     clearFiltersButtonText: {
       type: String,
-      required: false,
       default: 'Clear filters',
     },
     popoverOptions: {
@@ -86,16 +86,16 @@ export default {
       return !!Object.keys(this.value).length;
     },
     // TODO ONL-4893
-    // setLessFiltersButtonIcon() {
+    // toggleMoreFiltersButtonIcon() {
     //   return this.isLessFilterActive ? 'simple-chevron-down' : 'simple-chevron-up';
     // },
-    // setLessFiltersButtonText() {
-    //   return this.isLessFilterActive ? this.lessFiltersButtonText[1] : this.lessFiltersButtonText[0];
+    // toggleMoreFiltersText() {
+    //   return this.isLessFilterActive ? this.moreFiltersButtonText : this.lessFiltersButtonText;
     // },
   },
   methods: {
     // TODO ONL-4893
-    // handleLessFilterClick() {
+    // onToggleMoreFilters() {
     //   this.isLessFilterActive = !this.isLessFilterActive;
     // },
     onChange(filterName, value) {
@@ -120,7 +120,7 @@ export default {
   @apply tw-block;
   @apply tw-bg-gray-7;
 
-  @media screen and (min-width: theme('screens.sm')) {
+  @media (min-width: theme('screens.sm')) {
     @apply tw-flex tw-flex-row tw-justify-start tw-flex-wrap tw-items-center;
     @apply tw-bg-gray-8;
     @apply tw-max-w-full;
@@ -141,7 +141,7 @@ export default {
   &__clear-filters-button {
     @apply tw-self-start;
 
-    @media screen and (min-width: theme('screens.lg')) {
+    @media (min-width: theme('screens.lg')) {
       @apply tw-self-center;
     }
   }

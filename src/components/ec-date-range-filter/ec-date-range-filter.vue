@@ -3,7 +3,7 @@
     :label="label"
     :number-of-selected-filters="numberOfSelectedFilters"
     :popover-options="popoverOptions"
-    data-test="ec-date-range-filter__trigger"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-date-range-filter__trigger` : 'ec-date-range-filter__trigger'"
   >
     <template #filter>
       <div
