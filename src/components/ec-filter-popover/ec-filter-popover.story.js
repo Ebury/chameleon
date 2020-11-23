@@ -6,7 +6,7 @@ export default {
   component: EcFilterPopover,
 };
 
-export const basic = (args, { argTypes }) => ({
+const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { EcFilterPopover, EcCheckbox },
   template: `
@@ -71,6 +71,8 @@ export const basic = (args, { argTypes }) => ({
     </div>
   `,
 });
+
+export const basic = Template.bind({});
 
 basic.args = {
   labelOne: 'Due date',

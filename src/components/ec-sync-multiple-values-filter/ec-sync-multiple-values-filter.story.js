@@ -6,7 +6,7 @@ export default {
   component: EcSyncMultipleValuesFilter,
 };
 
-export const basic = (args, { argTypes }) => ({
+const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { EcSyncMultipleValuesFilter, EcCheckbox },
   data() {
@@ -79,6 +79,7 @@ const items = [{
   },
   text: 'Not paid (Value date not reached)',
 }];
+export const basic = Template.bind({});
 
 basic.args = {
   label: 'Status',

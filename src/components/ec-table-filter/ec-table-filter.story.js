@@ -7,7 +7,7 @@ export default {
   component: EcTableFilter,
 };
 
-export const basic = (args, { argTypes }) => ({
+const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { EcTableFilter, EcSyncMultipleValuesFilter, EcDateRangeFilter },
   data() {
@@ -31,6 +31,8 @@ export const basic = (args, { argTypes }) => ({
   />
   `,
 });
+
+export const basic = Template.bind({});
 
 basic.args = {
   value: { paymentStatus: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }], feeType: [{ text: 'Invoiced', value: 'invoiced' }] },

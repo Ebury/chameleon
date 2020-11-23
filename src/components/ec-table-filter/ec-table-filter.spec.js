@@ -108,7 +108,7 @@ describe('EcTableFilter', () => {
     );
     const filterItem = wrapper.findByDataTest('ec-table-filter__filter-item-1').findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__label');
 
-    await filterItem.trigger('click');
+    filterItem.trigger('click');
 
     await wrapper.vm.$nextTick();
     expect(wrapper.element).toMatchSnapshot();
