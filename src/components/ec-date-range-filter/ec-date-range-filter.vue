@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     clear() {
-      this.$emit('clear');
+      this.$emit('change', null);
     },
   },
 };
@@ -147,6 +147,10 @@ export default {
 
     &:hover {
       @apply tw-cursor-pointer;
+    }
+
+    &:focus {
+      @apply tw-outline-none;
     }
   }
 }
