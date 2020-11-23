@@ -6,10 +6,10 @@
     <component
       :is="filter.component"
       v-for="(filter, index) in filters"
-      :key="index"
+      :key="filter.name"
       :value="value[filter.name]"
       v-bind="{ ...filter, component: null }"
-      :data-test="`ec-table-filter__filter-item-${index}`"
+      :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
       @change="onChange(filter.name, $event)"
     />
@@ -128,7 +128,7 @@ export default {
 
   &__filter-item {
     @apply tw-flex-no-wrap;
-    @apply tw-mb-4;
+    @apply tw-mr-8;
   }
 
   &__less-filters-button {
@@ -140,10 +140,6 @@ export default {
 
   &__clear-filters-button {
     @apply tw-self-start;
-
-    @media (min-width: theme('screens.lg')) {
-      @apply tw-self-center;
-    }
   }
 
   &__clear-filters-button,
