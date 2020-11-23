@@ -166,7 +166,7 @@ export default {
     @apply tw-text-gray-3;
     @apply tw-bg-transparent;
     @apply tw-inline-block;
-    @apply tw-w-72;
+    @apply tw-min-w-104;
     @apply tw-truncate;
     @apply tw-text-left;
 
