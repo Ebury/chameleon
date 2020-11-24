@@ -338,9 +338,9 @@ describe('EcSmartTable', () => {
       await wrapper.findByDataTest('my-table-filter__clear-button').trigger('click');
       expect(wrapper.findByDataTest('my-table-filter').element).toMatchSnapshot();
 
-      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading new page');
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading filtered data');
       await flushPromises();
-      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading new page');
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading filtered data');
     });
   });
 });

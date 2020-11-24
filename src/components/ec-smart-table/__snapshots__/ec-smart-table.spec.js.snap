@@ -70,9 +70,9 @@ exports[`EcSmartTable filtering should handle changes in filters and reloads the
 </div>
 `;
 
-exports[`EcSmartTable filtering should handle changes in filters and reloads the table data: loading icon after loading new page 1`] = `undefined`;
+exports[`EcSmartTable filtering should handle changes in filters and reloads the table data: loading icon after loading filtered data 1`] = `undefined`;
 
-exports[`EcSmartTable filtering should handle changes in filters and reloads the table data: loading icon while loading new page 1`] = `
+exports[`EcSmartTable filtering should handle changes in filters and reloads the table data: loading icon while loading filtered data 1`] = `
 <svg
   class="ec-loading__icon ec-icon"
   data-test="ec-loading__icon"
