@@ -21,6 +21,7 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        title="Test label"
         type="button"
       >
         Test label
@@ -73,6 +74,7 @@ exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's v
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        title="Test label"
         type="button"
       >
         Test label
@@ -119,6 +121,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        title="Test label"
         type="button"
       >
         Test label
@@ -169,6 +172,7 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        title="Test label"
         type="button"
       >
         Test label
@@ -215,6 +219,7 @@ exports[`EcFilterPopover should set the open status of the popover 1`] = `
       <button
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
+        title="Test label"
         type="button"
       >
         Test label

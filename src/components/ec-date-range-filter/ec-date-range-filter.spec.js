@@ -47,7 +47,7 @@ describe('ecDateRangeFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should throw an error if no label pop was given', () => {
+  it('should throw an error if no label prop was given', () => {
     withMockedConsole((errorSpy) => {
       mountecDateRangeFilter();
       expect(errorSpy).toHaveBeenCalledTimes(1);
@@ -62,11 +62,12 @@ describe('ecDateRangeFilter', () => {
     expect(wrapper.emitted('change')).toBeTruthy();
   });
 
-  it('should emit clear when clear button is clicked', async () => {
+  it('should emit a change event when the clear dates button is clicked', async () => {
     const wrapper = mountecDateRangeFilter({ label });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     wrapper.findByDataTest('ec-date-range-filter__clear-button').trigger('click');
-    expect(wrapper.emitted('clear')).toBeTruthy();
+    expect(wrapper.emitted('change')).toBeTruthy();
+    expect(wrapper.emitted().change).toEqual([[null]]);
   });
 
   it('should not emit clear when there are no value for dates', async () => {
@@ -98,5 +99,10 @@ describe('ecDateRangeFilter', () => {
     await wrapper.findByDataTest('ec-date-range-filter__to-input').setValue('2020-12-06');
     expect(wrapper.findByDataTest('ec-date-range-filter__to-input').element.value).toBe('2020-12-06');
     expect(wrapper.findByDataTest('ec-filter-popover__badge').text()).toBe('2');
+  });
+
+  it('should return undefined if no dates are passed in value prop', () => {
+    const wrapper = mountecDateRangeFilter({ label, value: null });
+    expect(wrapper.element).toMatchSnapshot();
   });
 });
