@@ -102,16 +102,7 @@ describe('ecDateRangeFilter', () => {
   });
 
   it('should return undefined if no dates are passed in value prop', () => {
-    const wrapper = mountecDateRangeFilterAsTemplate(
-      '<ec-date-range-filter :label="label" v-model="value"/>',
-      {},
-      {
-        data() {
-          return { value: valueEmpty, label };
-        },
-      },
-    );
-    expect(wrapper.vm.fromValueDate).toEqual(undefined);
-    expect(wrapper.vm.toValueDate).toEqual(undefined);
+    const wrapper = mountecDateRangeFilter({ label, value: null });
+    expect(wrapper.element).toMatchSnapshot();
   });
 });
