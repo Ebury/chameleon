@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcWithFiltering should render properly 1`] = `
+<div>
+  Filter: {}
+</div>
+`;
+
+exports[`EcWithFiltering should render the given filter 1`] = `
+<div>
+  Filter: {"testProp":"Random value"}
+</div>
+`;
+
+exports[`EcWithFiltering should update the filtering when filtering event is emitted 1`] = `
+<div>
+  Filter: {"testProp":"Random value"}
+</div>
+`;

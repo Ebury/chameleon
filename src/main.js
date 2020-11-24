@@ -40,15 +40,17 @@ export { default as EcPopover } from './components/ec-popover';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
 export { default as EcSmartTable } from './components/ec-smart-table';
 export { default as EcSubmenu } from './components/ec-submenu';
+export { default as EcSyncMultipleValuesFilter } from './components/ec-sync-multiple-values-filter';
 export { default as EcTable } from './components/ec-table';
 export { default as EcTableFilter } from './components/ec-table-filter';
 export { default as EcTimer } from './components/ec-timer';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcTooltip } from './directives/ec-tooltip';
-export { default as EcSyncMultipleValuesFilter } from './components/ec-sync-multiple-values-filter';
 export { default as EcUserInfo } from './components/ec-user-info';
 
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
+export { default as ecWithFilters } from './hocs/ec-with-filters';
+export { default as ecWithFiltering } from './hocs/ec-with-filtering';
 export { default as ecWithLoading } from './hocs/ec-with-loading';
 export { default as ecWithPagination } from './hocs/ec-with-pagination';
 export { default as ecWithSorting } from './hocs/ec-with-sorting';

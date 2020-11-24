@@ -8,8 +8,38 @@ import {
 } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcSmartTable from './ec-smart-table.vue';
+import EcTableFilter from '../ec-table-filter';
+import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
+import EcDateRangeFilter from '../ec-date-range-filter';
 import * as SortDirection from '../../enums/sort-direction';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
+import ecWithFilters from '../../hocs/ec-with-filters';
+
+const MySmartTableFilter = ecWithFilters(EcTableFilter, [{
+  label: 'Payment status',
+  name: 'paymentStatus',
+  component: EcSyncMultipleValuesFilter,
+  items: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }, { text: 'Overdue', value: 'overdue' }],
+  isSearchable: false,
+  isSelectAll: false,
+  selectAllFiltersText: '',
+}, {
+  label: 'Fee type',
+  name: 'feeType',
+  component: EcSyncMultipleValuesFilter,
+  items: [{ text: 'Invoiced', value: 'invoiced' }, { text: 'Payment', value: 'payment' }],
+  isSearchable: false,
+  isSelectAll: false,
+  selectAllFiltersText: '',
+}, {
+  label: 'Due date',
+  name: 'dueDate',
+  component: EcDateRangeFilter,
+  fromLabelText: 'From',
+  toLabelText: 'To',
+  clearText: 'Clear dates',
+  errorMessage: '',
+}]);
 
 const columns = [
   {
@@ -56,6 +86,13 @@ const data = [
   ],
 ];
 
+const prefilters = {
+  all: {},
+  onlyOverdue: { paymentStatus: [{ text: 'Overdue', value: 'overdue' }], feeType: [{ text: 'Payment', value: 'payment' }] },
+  onlyInvoiced: { feeType: [{ text: 'Invoiced', value: 'invoiced' }] },
+  inThePast: { dueDate: { to: '2020-11-23' } },
+};
+
 const stories = storiesOf('Table', module);
 
 stories
@@ -78,7 +115,7 @@ stories
         default: boolean('multiSort', false),
       },
       maxHeight: {
-        default: text('maxHeight', null),
+        default: text('maxHeight', ''),
       },
       stickyColumn: {
         default: select('stickyColumn', ['', 'left', 'right']),
@@ -107,28 +144,45 @@ stories
       isPaginationEnabled: {
         default: boolean('isPaginationEnabled', true),
       },
+      isFilteringEnabled: {
+        default: boolean('isFilteringEnabled', true),
+      },
+      prefilter: {
+        default: select('prefilter', Object.keys(prefilters), 'all'),
+      },
     },
     methods: {
       onSort: action('sort'),
       onAborted: action('aborted'),
       onError: action('error'),
     },
+    computed: {
+      filterComponent() {
+        return this.isFilteringEnabled ? MySmartTableFilter : null;
+      },
+    },
     data() {
       return {
+        prefilters,
         dataSource: {
-          fetch: ({ sorts, page = 1, numberOfItems }, cancelToken) => {
+          fetch: ({
+            sorts,
+            page = 1,
+            numberOfItems,
+            filter,
+          }, cancelToken) => {
             // use real service in a real application:
             // e.g.
-            // return myService.getData(sorts, page, numberOfItems, cancelToken);
+            // return myService.getData(sorts, page, numberOfItems, filter, cancelToken);
             // and pass the cancelToken into a fetch() call
             // e.g.
-            // getData: (sorts, page, numberOfItems, cancelToken) => fetch('/my/url', { body: { sorts, page, numberOfItems }, signal: cancelToken });
+            // getData: (sorts, page, numberOfItems, filter, cancelToken) => fetch('/my/url', { body: { sorts, page, numberOfItems, ...filter }, signal: cancelToken });
 
-            action('fetching')(sorts, page, numberOfItems);
+            action('fetching')(sorts, page, numberOfItems, JSON.stringify(filter));
 
             return new Promise((resolve, reject) => {
               this.loadingTimeout = setTimeout(() => {
-                action('resolving data')(sorts, page, numberOfItems);
+                action('resolving data')(sorts, page, numberOfItems, JSON.stringify(filter));
                 if (this.failOnFetch) {
                   reject(new Error('Random error'));
                 } else if (this.fetchEmptyList) {
@@ -171,6 +225,8 @@ stories
             :empty-message="emptyMessage || undefined"
             :sort-cycle="sortCycle"
             :is-pagination-enabled="isPaginationEnabled"
+            :filter-component="filterComponent"
+            :filter="prefilters[prefilter]"
             @sort="onSort"
             @abort="onAborted"
             @error="onError">

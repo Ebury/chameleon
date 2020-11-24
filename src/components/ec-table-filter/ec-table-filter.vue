@@ -12,6 +12,7 @@
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
       @change="onChange(filter.name, $event)"
+      @clear="onChange(filter.name, null)"
     />
     <!-- TODO ONL-4893
     <button

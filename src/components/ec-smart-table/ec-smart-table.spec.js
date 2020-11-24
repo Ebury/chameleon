@@ -1,6 +1,7 @@
-import { mount } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import * as SortDirection from '../../enums/sort-direction';
 import EcSmartTable from './ec-smart-table.vue';
+import withFilters from '../../hocs/ec-with-filters';
 import flushPromises from '../../../tests/utils/flush-promises';
 
 describe('EcSmartTable', () => {
@@ -73,6 +74,11 @@ describe('EcSmartTable', () => {
 
   it('should render error properly', async () => {
     const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'));
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render it\'s own title instead of using the one inside of ec-table', async () => {
+    const wrapper = await mountEcSmartTableWithResolvedData(data, { columns, title: 'Random title' });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -290,6 +296,51 @@ describe('EcSmartTable', () => {
       });
 
       expect(wrapper.findByDataTest('ec-table-pagination__current-page').element).toMatchSnapshot();
+    });
+  });
+
+  describe('filtering', () => {
+    const localVue = createLocalVue();
+
+    const TableFilter = localVue.extend({
+      name: 'MyTableFilter',
+      props: ['filters', 'value'],
+      render() {
+        return (
+          <div data-test="my-table-filter">
+            <div># of filters: {this.filters.length}</div>
+            <div>value: {JSON.stringify(this.value)}</div>
+            <a data-test="my-table-filter__clear-button" onClick={() => this.$emit('change', {})}>Clear</a>
+          </div>);
+      },
+    });
+
+    const filters = [{ name: 'test1' }, { name: 'test2' }];
+
+    const prefilter = {
+      test1: 'test-value-1',
+    };
+
+    const TestTableFilter = withFilters(TableFilter, filters);
+
+    it('should render the given filter component', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(data, { columns, filterComponent: TestTableFilter });
+      expect(wrapper.findByDataTest('my-table-filter').element).toMatchSnapshot();
+    });
+
+    it('should pass given prefilter with filter component', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(data, { columns, filterComponent: TestTableFilter, filter: prefilter });
+      expect(wrapper.findByDataTest('my-table-filter').element).toMatchSnapshot();
+    });
+
+    it('should handle changes in filters and reloads the table data', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(data, { columns, filterComponent: TestTableFilter, filter: prefilter });
+      await wrapper.findByDataTest('my-table-filter__clear-button').trigger('click');
+      expect(wrapper.findByDataTest('my-table-filter').element).toMatchSnapshot();
+
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading new page');
+      await flushPromises();
+      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading new page');
     });
   });
 });

@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcSmartTableError should not render the title if title prop was not given 1`] = `
+<div
+  class="ec-smart-table-error"
+  data-test="ec-smart-table-error"
+>
+  <!---->
+    Random error message
+</div>
+`;
+
+exports[`EcSmartTableError should render default error message 1`] = `
+<div
+  class="ec-smart-table-error"
+  data-test="ec-smart-table-error"
+>
+  <div
+    class="ec-smart-table-error__title"
+  >
+    Random Title
+  </div>
+    Unexpected error while fetching data
+</div>
+`;
+
+exports[`EcSmartTableError should render given error slot 1`] = `
+<div
+  class="ec-smart-table-error"
+  data-test="ec-smart-table-error"
+>
+  <div
+    class="ec-smart-table-error__title"
+  >
+    Random Title
+  </div>
+    
+  <strong>
+    Error Slot: Test error message
+  </strong>
+</div>
+`;
+
+exports[`EcSmartTableError should render given filter slot 1`] = `
+<div
+  class="ec-smart-table-error"
+  data-test="ec-smart-table-error"
+>
+  <div
+    class="ec-smart-table-error__title"
+  >
+    Random Title
+  </div>
+   
+  <div>
+    Custom filter
+  </div>
+   Random error message
+</div>
+`;
+
+exports[`EcSmartTableError should render properly 1`] = `
+<div
+  class="ec-smart-table-error"
+  data-test="ec-smart-table-error"
+>
+  <div
+    class="ec-smart-table-error__title"
+  >
+    Random Title
+  </div>
+    Random error message
+</div>
+`;
