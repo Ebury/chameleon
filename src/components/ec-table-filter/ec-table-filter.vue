@@ -144,11 +144,10 @@ export default {
 
   &__clear-filters-button,
   &__less-filters-button {
-    @apply tw-flex tw-items-center tw-flex-no-wrap;
+    @apply tw-flex tw-self-center tw-flex-no-wrap;
     @apply tw-text-key-4;
     @apply tw-border-none;
     @apply tw-bg-transparent;
-    @apply tw-p-8;
     @apply tw-small-text;
 
     &:hover {
