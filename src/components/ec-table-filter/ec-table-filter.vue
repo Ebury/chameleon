@@ -8,7 +8,7 @@
       v-for="(filter, index) in filters"
       :key="filter.name"
       :value="value[filter.name]"
-      v-bind="{ ...filter, component: null }"
+      v-bind="{ ...filter, name: null, component: null }"
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
       @change="onChange(filter.name, $event)"

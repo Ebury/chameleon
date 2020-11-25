@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ecDateRangeFilter should render properly when all the props are given 1`] = `
+exports[`EcDateRangeFilter should render properly when all the props are given 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-date-range-filter__trigger"
@@ -134,7 +134,7 @@ exports[`ecDateRangeFilter should render properly when all the props are given 1
 </div>
 `;
 
-exports[`ecDateRangeFilter should render properly with an error message when the errorMessage is given 1`] = `
+exports[`EcDateRangeFilter should render properly with an error message when the errorMessage is given 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-date-range-filter__trigger"
@@ -275,7 +275,7 @@ exports[`ecDateRangeFilter should render properly with an error message when the
 </div>
 `;
 
-exports[`ecDateRangeFilter should return undefined if no dates are passed in value prop 1`] = `
+exports[`EcDateRangeFilter should return undefined if no dates are passed in value prop 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-date-range-filter__trigger"
