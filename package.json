@@ -54,7 +54,7 @@
     "@storybook/addons": "6.0.26",
     "@storybook/source-loader": "6.0.28",
     "@storybook/theming": "6.0.28",
-    "@storybook/vue": "6.0.28",
+    "@storybook/vue": "6.1.7",
     "@testing-library/jest-dom": "5.11.6",
     "@vue/cli-plugin-babel": "4.5.9",
     "@vue/cli-plugin-eslint": "4.5.7",
