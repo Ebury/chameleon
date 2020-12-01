@@ -79,7 +79,7 @@ describe('EcAlert', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should dismiss the alert when user clicks on the dismiss icon ', async () => {
+  it('should dismiss the alert when user clicks on the dismiss icon', async () => {
     const wrapper = mountAlertAsTemplate(
       '<ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />',
       {},
