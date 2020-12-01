@@ -41,7 +41,7 @@ describe('EcFilterPopover', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('numberOfSelectedFilters should be visible if it\'s value is greater than 0 ', () => {
+  it('numberOfSelectedFilters should be visible if it\'s value is greater than 0', () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters: 5 });
     expect(wrapper.element).toMatchSnapshot();
   });

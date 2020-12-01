@@ -14,7 +14,7 @@ describe('Utils', () => {
       .value;
   }
 
-  describe('getDecimalSeparator ', () => {
+  describe('getDecimalSeparator', () => {
     for (const locale of locales) {
       it(`should get decimal separator for locale ${locale}`, () => {
         const expected = getExpectedSeparator(locale, 'decimal'); // get the decimal separator using method that works in every modern browser
