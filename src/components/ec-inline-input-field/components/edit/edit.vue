@@ -53,10 +53,6 @@ import EcInputField from '../../../ec-input-field';
 export default {
   name: 'EcInlineInputFieldEdit',
   components: { EcIcon, EcInputField },
-  model: {
-    prop: 'value',
-    event: 'value-change',
-  },
   props: {
     label: {
       default: '',
