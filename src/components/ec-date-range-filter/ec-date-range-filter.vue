@@ -3,7 +3,7 @@
     :label="label"
     :number-of-selected-filters="numberOfSelectedFilters"
     :popover-options="popoverOptions"
-    data-test="ec-date-range-filter__trigger"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-date-range-filter__trigger` : 'ec-date-range-filter__trigger'"
   >
     <template #filter>
       <div
@@ -90,7 +90,7 @@ export default {
   computed: {
     fromValueDate: {
       get() {
-        return this.value.from;
+        return this.value?.from;
       },
       set(value) {
         this.$emit('change', { from: value, to: this.toValueDate });
@@ -98,7 +98,7 @@ export default {
     },
     toValueDate: {
       get() {
-        return this.value.to;
+        return this.value?.to;
       },
       set(value) {
         this.$emit('change', { from: this.fromValueDate, to: value });
@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     clear() {
-      this.$emit('clear');
+      this.$emit('change', null);
     },
   },
 };
@@ -147,6 +147,10 @@ export default {
 
     &:hover {
       @apply tw-cursor-pointer;
+    }
+
+    &:focus {
+      @apply tw-outline-none;
     }
   }
 }

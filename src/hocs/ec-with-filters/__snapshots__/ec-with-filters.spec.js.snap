@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcWithFilters should bound given filters 1`] = `
+<div>
+  <span>
+    # of filters: 2
+  </span>
+  <span>
+    test1
+  </span>
+  <span>
+    test2
+  </span>
+</div>
+`;
+
+exports[`EcWithFilters should render properly 1`] = `
+<div>
+  <span>
+    # of filters: 0
+  </span>
+</div>
+`;

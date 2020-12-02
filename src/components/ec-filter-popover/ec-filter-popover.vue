@@ -20,6 +20,7 @@
           type="button"
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
+          :title="label"
         >{{ label }}</button>
         <span
           v-if="numberOfSelectedFilters > 0"
@@ -134,6 +135,9 @@ export default {
 :root {
   --ec-filter-popover-width: 304px;
   --ec-filter-popover-height: 368px;
+  --ec-filter-label-width: 120px;
+  --ec-filter-badge-width: 16px;
+  --ec-filter-badge-height: 16px;
 }
 
 .ec-filter-popover {
@@ -164,6 +168,11 @@ export default {
     @apply tw-border-none;
     @apply tw-text-gray-3;
     @apply tw-bg-transparent;
+    @apply tw-inline-block;
+    @apply tw-truncate;
+    @apply tw-text-left;
+
+    max-width: var(--ec-filter-label-width);
 
     &:hover {
       @apply tw-no-underline;
@@ -183,11 +192,14 @@ export default {
 
   &__badge {
     /* TODO remove this styles once we have the badge component */
+    @apply tw-flex tw-justify-center tw-items-center;
     @apply tw-ml-4;
     @apply tw-bg-key-5 tw-text-gray-8;
     @apply tw-rounded-1/2;
-    @apply tw-w-20;
     @apply tw-text-center tw-flags-text;
+
+    width: var(--ec-filter-badge-width);
+    height: var(--ec-filter-badge-height);
   }
 
   &__filter-content {

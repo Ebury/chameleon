@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcSmartTableEmpty should not render the title if title prop was not given 1`] = `
+<div
+  class="ec-smart-table-empty"
+  data-test="ec-smart-table-empty"
+>
+  <!---->
+    Random empty message
+</div>
+`;
+
+exports[`EcSmartTableEmpty should render default empty message 1`] = `
+<div
+  class="ec-smart-table-empty"
+  data-test="ec-smart-table-empty"
+>
+  <div
+    class="ec-smart-table-empty__title"
+  >
+    Random Title
+  </div>
+    No items found
+</div>
+`;
+
+exports[`EcSmartTableEmpty should render given empty slot 1`] = `
+<div
+  class="ec-smart-table-empty"
+  data-test="ec-smart-table-empty"
+>
+  <div
+    class="ec-smart-table-empty__title"
+  >
+    Random Title
+  </div>
+    
+  <strong>
+    Empty Slot: Test empty message
+  </strong>
+</div>
+`;
+
+exports[`EcSmartTableEmpty should render given filter slot 1`] = `
+<div
+  class="ec-smart-table-empty"
+  data-test="ec-smart-table-empty"
+>
+  <div
+    class="ec-smart-table-empty__title"
+  >
+    Random Title
+  </div>
+   
+  <div>
+    Custom filter
+  </div>
+   Random empty message
+</div>
+`;
+
+exports[`EcSmartTableEmpty should render properly 1`] = `
+<div
+  class="ec-smart-table-empty"
+  data-test="ec-smart-table-empty"
+>
+  <div
+    class="ec-smart-table-empty__title"
+  >
+    Random Title
+  </div>
+    Random empty message
+</div>
+`;

@@ -2,50 +2,13 @@
 import { createHOCc, createHOC, createRenderFn } from 'vue-hoc';
 import EcTable from '../ec-table';
 import EcTablePagination from '../ec-table-pagination';
+import EcSmartTableEmpty from '../ec-smart-table-empty';
+import EcSmartTableError from '../ec-smart-table-error';
 import withSorting from '../../hocs/ec-with-sorting';
 import withLoading from '../../hocs/ec-with-loading';
 import withPagination from '../../hocs/ec-with-pagination';
+import withFiltering from '../../hocs/ec-with-filtering';
 import withAbortableFetch from '../../hocs/ec-with-abortable-fetch';
-
-const EcSmartTableError = {
-  name: 'EcSmartTableError',
-  functional: true,
-  props: {
-    errorMessage: {
-      type: String,
-      default: 'Unexpected error while fetching data',
-    },
-  },
-  render(h, { scopedSlots, props }) {
-    const { errorMessage } = props;
-    const { error: errorSlot } = scopedSlots;
-    if (errorSlot) {
-      return (<div>{errorSlot({ errorMessage })}</div>);
-    }
-
-    return (<div data-test="ec-smart-table-error">{errorMessage}</div>);
-  },
-};
-
-const EcSmartTableEmpty = {
-  name: 'EcSmartTableEmpty',
-  functional: true,
-  props: {
-    emptyMessage: {
-      type: String,
-      default: 'No items found',
-    },
-  },
-  render(h, { scopedSlots, props }) {
-    const { emptyMessage } = props;
-    const { empty: emptySlot } = scopedSlots;
-    if (emptySlot) {
-      return (<div>{emptySlot({ emptyMessage })}</div>);
-    }
-
-    return (<div data-test="ec-smart-table-empty">{emptyMessage}</div>);
-  },
-};
 
 const withEcSmartTableRenderer = (Component) => {
   const ComponentWithLoading = withLoading(Component);
@@ -60,44 +23,64 @@ const withEcSmartTableRenderer = (Component) => {
       emptyMessage: String,
     },
     render(h, context) {
-      const { props } = context;
+      const { props, scopedSlots } = context;
+      const {
+        title, error, errorMessage, emptyMessage, data, loading, ...unusedProps
+      } = props;
 
-      if (props.error) {
-        return createRenderFn(EcSmartTableError).call(this, h, context);
+      if (error) {
+        return createRenderFn(EcSmartTableError).call(this, h, {
+          ...context,
+          props: { errorMessage, title },
+        });
       }
 
-      const { items = [], total } = props.data || {};
+      const { items = [], total } = data || {};
 
-      const tableProps = {
-        ...props,
-        errorMessage: null,
-        emptyMessage: null,
-        error: null,
-        loading: null,
-        data: items,
-        totalRecords: total,
-      };
+      if (loading || items.length > 0) {
+        const tableProps = {
+          ...unusedProps,
+          isLoading: loading,
+          isLoadingTransparent: items.length > 0,
+          data: items,
+          totalRecords: total,
+        };
 
-      if (props.loading || items.length > 0) {
-        tableProps.isLoading = props.loading;
-        tableProps.isLoadingTransparent = items.length > 0;
-        return createRenderFn(ComponentWithLoading).call(this, h, { ...context, props: tableProps });
+        // eslint-disable-next-line no-inner-declarations
+        function renderFilter(filterSlot) {
+          if (filterSlot) {
+            return (<div class="ec-smart-table__filter">{filterSlot()}</div>);
+          }
+          return null;
+        }
+
+        return (
+          <div class="ec-smart-table" data-test="ec-smart-table">
+            { title ? (<div class="ec-smart-table__title">{title}</div>) : null }
+            { renderFilter(scopedSlots.filter) }
+            { createRenderFn(ComponentWithLoading).call(this, h, { ...context, props: tableProps }) }
+          </div>
+        );
       }
 
-      return createRenderFn(EcSmartTableEmpty).call(this, h, context);
+      return createRenderFn(EcSmartTableEmpty).call(this, h, {
+        ...context,
+        props: { emptyMessage, title },
+      });
     },
   });
 };
 
 const withEcSmartTableContainer = createHOCc({
   name: 'EcSmartTable',
-  props: ['sorts', 'page', 'numberOfItems'],
+  props: ['sorts', 'page', 'numberOfItems', 'filter'],
   computed: {
     dataSourceFetchArgs() {
       return {
         sorts: this.sorts,
         page: this.page,
         numberOfItems: this.numberOfItems,
+        filter: this.filter,
       };
     },
   },
@@ -110,7 +93,7 @@ const withEcSmartTableContainer = createHOCc({
   },
 });
 
-const withSmartTablePagination = createHOCc({
+const withEcSmartTablePagination = createHOCc({
   name: 'EcSmartTablePagination',
   props: ['page', 'numberOfItems', 'isPaginationEnabled'],
 }, {
@@ -176,14 +159,51 @@ const withSmartTablePagination = createHOCc({
   },
 });
 
+const withEcSmartTableFilter = createHOCc({
+  name: 'EcSmartTableFilter',
+  props: ['filter', 'filterComponent'],
+}, {
+  props(props) {
+    return {
+      ...props,
+      filterComponent: null,
+      filter: null,
+    };
+  },
+  scopedSlots(scopedSlots) {
+    let filterSlot;
+    const { filter, filterComponent } = this.$props;
+
+    if (filterComponent) {
+      filterSlot = () => this.$createElement(filterComponent, {
+        props: {
+          value: filter,
+        },
+        on: {
+          change: filters => this.$emit('filtering', filters),
+        },
+      });
+    }
+
+    return {
+      ...scopedSlots,
+      filter: filterSlot,
+    };
+  },
+});
+
 export default (
   withPagination(
     withSorting(
-      withEcSmartTableContainer(
-        withAbortableFetch(
-          withSmartTablePagination(
-            withEcSmartTableRenderer(
-              EcTable,
+      withFiltering(
+        withEcSmartTableContainer(
+          withAbortableFetch(
+            withEcSmartTableFilter(
+              withEcSmartTablePagination(
+                withEcSmartTableRenderer(
+                  EcTable,
+                ),
+              ),
             ),
           ),
         ),
@@ -192,3 +212,16 @@ export default (
   )
 );
 </script>
+
+<style>
+.ec-smart-table {
+  &__title {
+    @apply tw-h3;
+    @apply tw-pb-16;
+  }
+
+  &__filter {
+    @apply tw-p-8;
+  }
+}
+</style>
