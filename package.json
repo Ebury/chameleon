@@ -14,7 +14,7 @@
     "node": "12.x"
   },
   "scripts": {
-    "icons": "webpack --config ./src/icons/webpack.config.js -p",
+    "icons": "webpack --config ./src/icons/webpack.config.js --mode=production",
     "lint": "npm run lint:js && npm run lint:style",
     "lint:js": "vue-cli-service lint -- ./",
     "lint:style": "vue-cli-service lint:style",
