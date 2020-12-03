@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import focusTrap from 'focus-trap';
+import { createFocusTrap } from 'focus-trap';
 
 function attachFocusTrap(el, options) {
   /* istanbul ignore if */
@@ -8,7 +8,7 @@ function attachFocusTrap(el, options) {
     el.__focusTrap.deactivate();
   }
 
-  el.__focusTrap = focusTrap(el, options);
+  el.__focusTrap = createFocusTrap(el, options);
   el.__focusTrap.activate(options);
 }
 
