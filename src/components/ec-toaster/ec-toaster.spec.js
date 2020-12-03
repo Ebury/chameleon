@@ -130,7 +130,7 @@ describe('EcToaster', () => {
     expect(wrapper.emitted('remove')).toBeTruthy();
   });
 
-  it('should not contain initially a class of "ec-toaster__item--swipe-active" ', () => {
+  it('should not contain initially a class of "ec-toaster__item--swipe-active"', () => {
     const wrapper = mountToaster({ messages });
 
     expect(wrapper.findByDataTest('ec-toaster__item').classes('ec-toaster__item--swipe-active')).toBe(false);

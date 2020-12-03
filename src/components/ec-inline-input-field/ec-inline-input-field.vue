@@ -12,7 +12,7 @@
       />
       <ec-inline-input-field-edit
         v-else-if="isEditing"
-        v-model="value"
+        :value="value"
         :label="label"
         :is-sensitive="isSensitive"
         :error-message="errorMessage"
