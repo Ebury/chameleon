@@ -121,7 +121,6 @@ describe('EcWithAbortableFetch', () => {
     await flushPromises();
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(getWrappedComponentState(componentWrapper).error).toBe(null);
-    await flushPromises();
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
