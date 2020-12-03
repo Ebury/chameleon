@@ -14,7 +14,7 @@
     "node": "12.x"
   },
   "scripts": {
-    "icons": "webpack --config ./src/icons/webpack.config.js -p",
+    "icons": "webpack --config ./src/icons/webpack.config.js --mode=production",
     "lint": "npm run lint:js && npm run lint:style",
     "lint:js": "vue-cli-service lint -- ./",
     "lint:style": "vue-cli-service lint:style",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@ascendancyy/vue-cli-plugin-stylelint": "1.1.2",
-    "@fullhuman/postcss-purgecss": "2.3.0",
+    "@fullhuman/postcss-purgecss": "3.0.0",
     "@sinonjs/fake-timers": "6.0.1",
     "@storybook/addon-a11y": "6.0.26",
     "@storybook/addon-actions": "6.0.28",
@@ -97,7 +97,7 @@
     "vue-router": "3.4.9",
     "vue-template-compiler": "2.6.12",
     "wait-on": "5.2.0",
-    "webpack-cli": "3.3.12",
+    "webpack-cli": "4.2.0",
     "yorkie": "2.0.0"
   },
   "gitHooks": {
