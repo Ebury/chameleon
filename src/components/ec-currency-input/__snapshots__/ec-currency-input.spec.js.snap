@@ -18,7 +18,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
     <input
       class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
       data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
-      id="ec-currency-input-field-122"
+      id="ec-currency-input-field-140"
       placeholder=""
       readonly="readonly"
       type="text"
@@ -121,7 +121,7 @@ exports[`EcCurrencyInput :props should render the component with the input disab
   class="ec-input-field__input ec-input-field__input--is-in-group-left"
   data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
   disabled="disabled"
-  id="ec-input-field-146"
+  id="ec-input-field-164"
   type="text"
 />
 `;
@@ -130,7 +130,7 @@ exports[`EcCurrencyInput :props should render the error when the errorMessage is
 <div
   class="ec-currency-input__error-text"
   data-test="ec-currency-input__error-text"
-  id="ec-currency-input-field-92"
+  id="ec-currency-input-field-110"
 >
   Random message
 </div>
@@ -222,7 +222,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
       <input
         class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
         data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
-        id="ec-currency-input-field-102"
+        id="ec-currency-input-field-120"
         placeholder=""
         readonly="readonly"
         type="text"
@@ -373,6 +373,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
               mocked-tooltip-content=""
+              mocked-tooltip-placement="right"
               title="GBP"
             >
               GBP
@@ -381,6 +382,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
               mocked-tooltip-content=""
+              mocked-tooltip-placement="right"
               title="EUR"
             >
               EUR
@@ -389,6 +391,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
               mocked-tooltip-content=""
+              mocked-tooltip-placement="right"
               title="USD"
             >
               USD
@@ -397,6 +400,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
               mocked-tooltip-content=""
+              mocked-tooltip-placement="right"
               title="JPY"
             >
               JPY
@@ -515,6 +519,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
               mocked-tooltip-content=""
+              mocked-tooltip-placement="right"
               title="GBP"
             >
               GBP
@@ -523,6 +528,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
               mocked-tooltip-content=""
+              mocked-tooltip-placement="right"
               title="EUR"
             >
               EUR
@@ -531,6 +537,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
               mocked-tooltip-content=""
+              mocked-tooltip-placement="right"
               title="USD"
             >
               USD
@@ -539,6 +546,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
               mocked-tooltip-content=""
+              mocked-tooltip-placement="right"
               title="JPY"
             >
               JPY
@@ -618,4 +626,36 @@ exports[`EcCurrencyInput when the bottom note is defined should render properly 
    
   <!---->
 </div>
+`;
+
+exports[`EcCurrencyInput when the disabled currency selector has a tooltip associated should render properly 1`] = `
+<div
+  class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
+  data-test="ec-currency-input__currencies"
+  mocked-tooltip-content="Tooltip message"
+  mocked-tooltip-placement="top"
+>
+  
+</div>
+`;
+
+exports[`EcCurrencyInput when the disabled currency selector has a tooltip associated should render properly using the defined placement 1`] = `
+<div
+  class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
+  data-test="ec-currency-input__currencies"
+  mocked-tooltip-content="Tooltip message"
+  mocked-tooltip-placement="left"
+>
+  
+</div>
+`;
+
+exports[`EcCurrencyInput when the placeholder message for the amount input is defined should render properly 1`] = `
+<input
+  class="ec-input-field__input ec-input-field__input--is-in-group-left"
+  data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
+  id="ec-input-field-80"
+  placeholder="Amount Placeholder"
+  type="text"
+/>
 `;

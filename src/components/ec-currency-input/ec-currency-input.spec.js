@@ -3,7 +3,13 @@ import EcCurrencyInput from './ec-currency-input.vue';
 
 jest.mock('../../directives/ec-tooltip', () => ({
   bind(el, { value }) {
-    el.setAttribute('mocked-tooltip-content', value.content);
+    if (value) {
+      el.setAttribute('mocked-tooltip-content', value.content);
+
+      if (value.placement) {
+        el.setAttribute('mocked-tooltip-placement', value.placement);
+      }
+    }
   },
 }));
 
@@ -103,6 +109,40 @@ describe('EcCurrencyInput', () => {
         expect(wrapper.findByDataTest('ec-currency-input__bottom-note').exists()).toBeFalsy();
         expect(wrapper.findByDataTest('ec-currency-input__error-text').exists()).toBeTruthy();
       });
+    });
+  });
+
+  describe('when the placeholder message for the amount input is defined', () => {
+    it('should render properly', () => {
+      const wrapper = mountCurrencyInput({ amountPlaceholder: 'Amount Placeholder' });
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element).toMatchSnapshot();
+    });
+  });
+
+  describe('when the disabled currency selector has a tooltip associated', () => {
+    it('should render properly', () => {
+      const tooltipMessage = 'Tooltip message';
+      const wrapper = mountCurrencyInput({
+        currenciesTooltipInfo: { content: tooltipMessage },
+        isCurrenciesDisabled: true,
+      });
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-content')).toBe(tooltipMessage);
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-placement')).toBe('top');
+    });
+
+    it('should render properly using the defined placement', () => {
+      const tooltipMessage = 'Tooltip message';
+      const wrapper = mountCurrencyInput({
+        currenciesTooltipInfo: {
+          content: tooltipMessage,
+          placement: 'left',
+        },
+        isCurrenciesDisabled: true,
+      });
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-content')).toBe(tooltipMessage);
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-placement')).toBe('left');
     });
   });
 
