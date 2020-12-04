@@ -5,7 +5,7 @@ export default {
   component: EcDateRangeFilter,
 };
 
-export const basic = (args, { argTypes }) => ({
+const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { EcDateRangeFilter },
   data() {
@@ -40,6 +40,8 @@ export const basic = (args, { argTypes }) => ({
     />
   `,
 });
+
+export const basic = Template.bind({});
 
 basic.args = {
   label: 'Due date',

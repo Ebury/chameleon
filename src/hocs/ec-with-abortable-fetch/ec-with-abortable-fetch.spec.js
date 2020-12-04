@@ -89,6 +89,41 @@ describe('EcWithAbortableFetch', () => {
     expect(errorSpy.mock.calls).toMatchSnapshot();
   });
 
+  it('should not propagate the error when re-fetching after an error occurred', async () => {
+    const error = new Error('Random error');
+    const dataSource = {
+      fetch: jest.fn().mockRejectedValueOnce(error).mockResolvedValueOnce({ result: 1 }),
+    };
+
+    const errorSpy = jest.fn();
+
+    const { componentWrapper, hocWrapper } = mountEcWithAbortableFetch({ dataSource }, {
+      listeners: {
+        error: errorSpy,
+      },
+    });
+    await flushPromises();
+    expect(getWrappedComponentState(componentWrapper).error).toBe(error);
+    expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
+    expect(dataSource.fetch).toMatchSnapshot();
+    expect(errorSpy.mock.calls).toMatchSnapshot();
+
+    dataSource.fetch.mockClear();
+    errorSpy.mockClear();
+
+    await hocWrapper.setProps({
+      fetchArgs: { anotherProp: 2 },
+    });
+
+    expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
+    expect(dataSource.fetch).toMatchSnapshot();
+
+    await flushPromises();
+    expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
+    expect(getWrappedComponentState(componentWrapper).error).toBe(null);
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
   it('should send the given fetch arguments', async () => {
     const dataSource = {
       fetch: jest.fn(),

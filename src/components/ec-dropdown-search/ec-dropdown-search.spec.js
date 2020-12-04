@@ -220,13 +220,11 @@ describe('EcDropdownSearch', () => {
 
     expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
 
-    wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers.forEach((itemWrapper) => {
-      if (itemWrapper.classes('ec-dropdown-search__item--is-disabled')) {
-        expect(itemWrapper.attributes('mocked-tooltip-content')).toBe('Random text');
-      } else {
-        expect(itemWrapper.attributes('mocked-tooltip-content')).toBeUndefined();
-      }
-    });
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--0').attributes('mocked-tooltip-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--1').attributes('mocked-tooltip-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--2').attributes('mocked-tooltip-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--3').attributes('mocked-tooltip-content')).toBe('Random text');
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--4').attributes('mocked-tooltip-content')).toBeUndefined();
   });
 
   it('should merge given tooltipOptions and item.tooltip prop', () => {
