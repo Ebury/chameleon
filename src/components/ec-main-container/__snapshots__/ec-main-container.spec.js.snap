@@ -21,6 +21,8 @@ exports[`EcMainContainer should render both titles when they are given in props 
     <div
       class="tw-col-full"
     >
+      <!---->
+       
       <h1
         class="ec-main-container__title"
         data-test="ec-main-container__title"
@@ -63,6 +65,8 @@ exports[`EcMainContainer should render without title intro when the titleIntro p
     <div
       class="tw-col-full"
     >
+      <!---->
+       
       <h1
         class="ec-main-container__title"
         data-test="ec-main-container__title"
@@ -90,6 +94,8 @@ exports[`EcMainContainer should use given slot 1`] = `
     <div
       class="tw-col-full"
     >
+      <!---->
+       
       <h1
         class="ec-main-container__title"
         data-test="ec-main-container__title"
@@ -114,6 +120,49 @@ exports[`EcMainContainer should use given slot 1`] = `
 </div>
 `;
 
+exports[`EcMainContainer should use the given named breadcrumbs slot 1`] = `
+<div
+  class="ec-main-container"
+  data-test="ec-main-container"
+>
+  <div
+    class="tw-grid"
+  >
+    <div
+      class="tw-col-full"
+    >
+      <div
+        class="ec-main-container__breadcrumbs"
+        data-test="ec-main-container__breadcrumbs"
+      >
+        <a
+          href="#"
+        >
+          Breadcrumbs
+        </a>
+      </div>
+       
+      <h1
+        class="ec-main-container__title"
+        data-test="ec-main-container__title"
+      >
+        Trade Finance
+      </h1>
+       
+      <p
+        class="ec-main-container__title-intro"
+        data-test="ec-main-container__title-intro"
+      >
+        Here you will be able to keep track of all your requests to Ebury and of your credit line.
+      </p>
+    </div>
+     
+    <!---->
+  </div>
+   
+</div>
+`;
+
 exports[`EcMainContainer should use the given named cta slot 1`] = `
 <div
   class="ec-main-container"
@@ -125,6 +174,8 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
     <div
       class="tw-col-full sm:tw-col-9"
     >
+      <!---->
+       
       <h1
         class="ec-main-container__title"
         data-test="ec-main-container__title"

@@ -71,4 +71,19 @@ describe('EcMainContainer', () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('should use the given named breadcrumbs slot', () => {
+    const propsData = {
+      title: 'Trade Finance',
+      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
+    };
+    const wrapper = mount(EcMainContainer, {
+      propsData,
+      slots: {
+        breadcrumbs: '<a href="#">Breadcrumbs</a>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

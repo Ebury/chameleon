@@ -105,7 +105,7 @@ stories.add('all', () => ({
           ],
         },
         {
-          title: 'Custom Slot Alert',
+          title: 'Custom, default and CTA Slot Alert',
           data: [
             {
               title: 'Info Alert', type: 'info', custom: true, subtitle: 'subtitle',
@@ -149,6 +149,15 @@ stories.add('all', () => ({
         <div v-if="alert.custom" slot-scope="{ title, subtitle }">
           Custom: {{ title }} - {{ subtitle }}
         </div>
+
+        <template v-if="alert.custom" #cta>
+          <a
+            href="#"
+            @click.stop.prevent
+          >
+            Custom CTA
+          </a>
+        </template>
       </ec-alert>
     </template>
   </div>`,

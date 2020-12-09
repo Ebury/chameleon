@@ -42,6 +42,7 @@ const withAbortableFetch = createHOCc({
     async fetch(fetchArgs) {
       this.abort();
       this.isFetching = true;
+      this.fetchError = null;
 
       this.fetchAbortController = new global.AbortController();
       try {
