@@ -146,6 +146,29 @@ describe('EcCurrencyInput', () => {
     });
   });
 
+  describe('when the error message is defined', () => {
+    const errorMessage = 'Random message';
+    it('should render properly', () => {
+      const wrapper = mountCurrencyInput({ errorMessage });
+      expect(wrapper.findByDataTest('ec-currency-input__error-text').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').classes('ec-input-field__input--has-error')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-currency-input__amount').classes('ec-input-field__input--has-error')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-input-field__error-text').exists()).toBeFalsy();
+    });
+
+    describe('and there is a tooltip message relative to the error defined', () => {
+      it('should render properly', () => {
+        const errorTooltipMessage = 'Error tooltip message';
+        const wrapper = mountCurrencyInput({
+          errorMessage,
+          errorTooltipMessage,
+        });
+        expect(wrapper.findByDataTest('ec-currency-input__error-text').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-currency-input__error-tooltip').attributes('mocked-tooltip-content')).toBe(errorTooltipMessage);
+      });
+    });
+  });
+
   describe(':props', () => {
     it('should render the label when the label is given', () => {
       const wrapper = mountCurrencyInput({ label: 'Currency Input' });
@@ -155,15 +178,6 @@ describe('EcCurrencyInput', () => {
     it('should render the note when the note is given', () => {
       const wrapper = mountCurrencyInput({ note: 'Random note' });
       expect(wrapper.findByDataTest('ec-currency-input__note').element).toMatchSnapshot();
-    });
-
-    it('should render the error when the errorMessage is given', () => {
-      const wrapper = mountCurrencyInput({ errorMessage: 'Random message' });
-
-      expect(wrapper.findByDataTest('ec-currency-input__currencies').classes('ec-input-field__input--has-error')).toBe(true);
-      expect(wrapper.findByDataTest('ec-currency-input__amount').classes('ec-input-field__input--has-error')).toBe(true);
-      expect(wrapper.findByDataTest('ec-currency-input__error-text').element).toMatchSnapshot();
-      expect(wrapper.findAllByDataTest('ec-input-field__error-text').length).toBe(0);
     });
 
     it('should render without any currencies if the currencies prop is empty', () => {

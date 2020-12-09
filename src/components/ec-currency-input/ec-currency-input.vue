@@ -76,7 +76,18 @@
       v-if="isInvalid"
       data-test="ec-currency-input__error-text"
       class="ec-currency-input__error-text"
-    >{{ errorMessage }}</div>
+    >
+      <span>{{ errorMessage }}</span>
+      <ec-icon
+        v-if="isInvalid && errorTooltipMessage"
+        v-ec-tooltip="{ content: errorTooltipMessage }"
+        class="ec-currency-input__error-tooltip"
+        data-test="ec-currency-input__error-tooltip"
+        type="error"
+        name="simple-error"
+        :size="16"
+      />
+    </div>
 
     <div
       v-else-if="bottomNote"
@@ -141,6 +152,9 @@ export default {
       default: false,
     },
     errorMessage: {
+      type: String,
+    },
+    errorTooltipMessage: {
       type: String,
     },
     currencies: {
@@ -308,6 +322,7 @@ export default {
   }
 
   &__error-text {
+    @apply tw-flex tw-items-center;
     @apply tw-flags-text;
     @apply tw-text-error;
   }
@@ -322,6 +337,7 @@ export default {
     }
   }
 
+  &__error-tooltip,
   &__warning-tooltip {
     @apply tw-ml-4;
     @apply tw-outline-none;

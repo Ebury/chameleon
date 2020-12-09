@@ -18,7 +18,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
     <input
       class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
       data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
-      id="ec-currency-input-field-140"
+      id="ec-currency-input-field-151"
       placeholder=""
       readonly="readonly"
       type="text"
@@ -121,19 +121,9 @@ exports[`EcCurrencyInput :props should render the component with the input disab
   class="ec-input-field__input ec-input-field__input--is-in-group-left"
   data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
   disabled="disabled"
-  id="ec-input-field-164"
+  id="ec-input-field-175"
   type="text"
 />
-`;
-
-exports[`EcCurrencyInput :props should render the error when the errorMessage is given 1`] = `
-<div
-  class="ec-currency-input__error-text"
-  data-test="ec-currency-input__error-text"
-  id="ec-currency-input-field-110"
->
-  Random message
-</div>
 `;
 
 exports[`EcCurrencyInput :props should render the label when the label is given 1`] = `
@@ -222,7 +212,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
       <input
         class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
         data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
-        id="ec-currency-input-field-120"
+        id="ec-currency-input-field-131"
         placeholder=""
         readonly="readonly"
         type="text"
@@ -647,6 +637,44 @@ exports[`EcCurrencyInput when the disabled currency selector has a tooltip assoc
   mocked-tooltip-placement="left"
 >
   
+</div>
+`;
+
+exports[`EcCurrencyInput when the error message is defined and there is a tooltip message relative to the error defined should render properly 1`] = `
+<div
+  class="ec-currency-input__error-text"
+  data-test="ec-currency-input__error-text"
+  id="ec-currency-input-field-100"
+>
+  <span>
+    Random message
+  </span>
+   
+  <svg
+    class="ec-currency-input__error-tooltip ec-icon ec-icon--error"
+    data-test="ec-currency-input__error-tooltip"
+    height="16"
+    mocked-tooltip-content="Error tooltip message"
+    width="16"
+  >
+    <use
+      xlink:href="#ec-simple-error"
+    />
+  </svg>
+</div>
+`;
+
+exports[`EcCurrencyInput when the error message is defined should render properly 1`] = `
+<div
+  class="ec-currency-input__error-text"
+  data-test="ec-currency-input__error-text"
+  id="ec-currency-input-field-90"
+>
+  <span>
+    Random message
+  </span>
+   
+  <!---->
 </div>
 `;
 
