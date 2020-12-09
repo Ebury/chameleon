@@ -120,34 +120,31 @@ describe('EcCurrencyInput', () => {
   });
 
   describe('when the disabled currency selector has a tooltip associated', () => {
+    const disabledCurrenciesTooltipMessage = 'Tooltip message';
+
     it('should render properly', () => {
-      const tooltipMessage = 'Tooltip message';
       const wrapper = mountCurrencyInput({
-        disabledCurrenciesTooltip: { content: tooltipMessage },
+        disabledCurrenciesTooltip: { content: disabledCurrenciesTooltipMessage },
         isCurrenciesDisabled: true,
       });
       expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
     });
 
     it('should render properly using the defined placement', () => {
-      const tooltipMessage = 'Tooltip message';
       const wrapper = mountCurrencyInput({
         disabledCurrenciesTooltip: {
-          content: tooltipMessage,
+          content: disabledCurrenciesTooltipMessage,
           placement: 'left',
         },
         isCurrenciesDisabled: true,
       });
       expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-content')).toBe(tooltipMessage);
-      expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-placement')).toBe('left');
     });
 
     describe('and the currency dropdown is not disabled', () => {
       it('should render properly not including the tooltip', () => {
-        const tooltipMessage = 'Tooltip message';
         const wrapper = mountCurrencyInput({
-          disabledCurrenciesTooltip: { content: tooltipMessage },
+          disabledCurrenciesTooltip: { content: disabledCurrenciesTooltipMessage },
           isCurrenciesDisabled: false,
         });
         expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
