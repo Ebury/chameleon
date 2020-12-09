@@ -123,18 +123,16 @@ describe('EcCurrencyInput', () => {
     it('should render properly', () => {
       const tooltipMessage = 'Tooltip message';
       const wrapper = mountCurrencyInput({
-        currenciesTooltipInfo: { content: tooltipMessage },
+        disabledCurrenciesTooltip: { content: tooltipMessage },
         isCurrenciesDisabled: true,
       });
       expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-content')).toBe(tooltipMessage);
-      expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-placement')).toBe('top');
     });
 
     it('should render properly using the defined placement', () => {
       const tooltipMessage = 'Tooltip message';
       const wrapper = mountCurrencyInput({
-        currenciesTooltipInfo: {
+        disabledCurrenciesTooltip: {
           content: tooltipMessage,
           placement: 'left',
         },
@@ -143,6 +141,17 @@ describe('EcCurrencyInput', () => {
       expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
       expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-content')).toBe(tooltipMessage);
       expect(wrapper.findByDataTest('ec-currency-input__currencies').attributes('mocked-tooltip-placement')).toBe('left');
+    });
+
+    describe('and the currency dropdown is not disabled', () => {
+      it('should render properly not including the tooltip', () => {
+        const tooltipMessage = 'Tooltip message';
+        const wrapper = mountCurrencyInput({
+          disabledCurrenciesTooltip: { content: tooltipMessage },
+          isCurrenciesDisabled: false,
+        });
+        expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
+      });
     });
   });
 
@@ -164,7 +173,6 @@ describe('EcCurrencyInput', () => {
           errorTooltipMessage,
         });
         expect(wrapper.findByDataTest('ec-currency-input__error-text').element).toMatchSnapshot();
-        expect(wrapper.findByDataTest('ec-currency-input__error-tooltip').attributes('mocked-tooltip-content')).toBe(errorTooltipMessage);
       });
     });
   });

@@ -25,7 +25,7 @@
     >
       <div
         v-if="isCurrenciesDisabled"
-        v-ec-tooltip="currenciesTooltip"
+        v-ec-tooltip="currenciesTooltipOptions"
         class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
         :class="{ 'ec-currency-input__currencies--is-disabled-and-has-error': isInvalid }"
         data-test="ec-currency-input__currencies"
@@ -164,7 +164,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    currenciesTooltipInfo: {
+    disabledCurrenciesTooltip: {
       type: Object,
     },
     isCurrenciesDisabled: {
@@ -222,15 +222,12 @@ export default {
     currenciesItems() {
       return this.currencies.map(currency => ({ text: currency, value: currency, id: currency }));
     },
-    currenciesTooltip() {
-      let tooltipConfig = null;
-      if (this.currenciesTooltipInfo) {
-        tooltipConfig = {
-          content: this.currenciesTooltipInfo.content,
-          placement: this.currenciesTooltipInfo.placement || 'top',
-        };
+    currenciesTooltipOptions() {
+      const { content, placement = 'top' } = this.disabledCurrenciesTooltip || {};
+      if (!content) {
+        return null;
       }
-      return tooltipConfig;
+      return { content, placement };
     },
     currencyModel: {
       get() {
