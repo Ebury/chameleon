@@ -41,8 +41,14 @@
         >{{ subtitle }}</div>
       </slot>
     </div>
+
+    <slot
+      v-if="hasCtaSlot()"
+      name="cta"
+    />
+
     <button
-      v-if="buttonText"
+      v-else-if="buttonText"
       class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button"
       :class="`ec-btn--${type === 'info' ? 'primary' : type}-reverse`"
       data-test="ec-alert__button"
@@ -106,6 +112,11 @@ export default {
         default:
           return 'simple-info';
       }
+    },
+  },
+  methods: {
+    hasCtaSlot() {
+      return !!this.$scopedSlots.cta;
     },
   },
 };
