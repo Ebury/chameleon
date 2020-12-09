@@ -68,7 +68,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper"
@@ -77,7 +77,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-38"
                     title="Success"
@@ -123,7 +123,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper"
@@ -132,7 +132,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-40"
                     title="Name two"
@@ -178,7 +178,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper"
@@ -187,7 +187,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-42"
                     title="Cancelled"
@@ -293,7 +293,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper"
@@ -302,7 +302,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-6"
                     title="Success"
@@ -348,7 +348,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper"
@@ -357,7 +357,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-8"
                     title="Name two"
@@ -403,7 +403,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper"
@@ -412,7 +412,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-10"
                     title="Cancelled"
@@ -524,7 +524,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
@@ -541,9 +541,10 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-24"
+                    title=""
                   >
                     <div
                       class="ec-multiple-values-selection__label-wrapper"
@@ -579,7 +580,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper"
@@ -588,7 +589,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-26"
                     title="Success"
@@ -634,7 +635,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper"
@@ -643,7 +644,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-28"
                     title="Name two"
@@ -689,7 +690,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                 />
                  
                 <div
-                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--dropdown"
+                  class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                 >
                   <span
                     class="ec-checkbox__check-icon-wrapper"
@@ -698,7 +699,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   </span>
                    
                   <label
-                    class="ec-checkbox__label ec-checkbox__label--dropdown"
+                    class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
                     for="ec-checkbox-30"
                     title="Cancelled"

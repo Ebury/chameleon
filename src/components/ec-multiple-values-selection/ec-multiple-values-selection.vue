@@ -67,8 +67,8 @@
         <ec-checkbox
           checked
           class="ec-multiple-values-selection__checkbox"
-          :inside-dropdown="true"
-          :label-title="item.text"
+          :is-single-line="true"
+          :label="item.text"
           @checked-value-change="onDeselect(item)"
         >
           <template #label>
@@ -97,8 +97,8 @@
         <ec-checkbox
           class="ec-multiple-values-selection__checkbox"
           data-test="ec-multiple-values-selection__checkbox-select"
-          :inside-dropdown="true"
-          :label-title="item.text"
+          :is-single-line="true"
+          :label="item.text"
           @checked-value-change="onSelect(item)"
         >
           <template #label>

@@ -21,7 +21,7 @@
     <div
       :class="{
         'ec-checkbox__label-checkbox-wrapper': true,
-        'ec-checkbox__label-checkbox-wrapper--dropdown': insideDropdown,
+        'ec-checkbox__label-checkbox-wrapper--is-single-line': isSingleLine,
       }"
     >
       <span
@@ -48,9 +48,9 @@
         :for="id"
         :class="{
           'ec-checkbox__label': true,
-          'ec-checkbox__label--dropdown': insideDropdown,
+          'ec-checkbox__label--is-single-line': isSingleLine,
         }"
-        :title="labelTitle || null"
+        :title="isSingleLine ? label : null"
         data-test="ec-checkbox__label"
       >
         <slot name="label">{{ label }}</slot>
@@ -98,13 +98,9 @@ export default {
       default: false,
       type: Boolean,
     },
-    insideDropdown: {
+    isSingleLine: {
       default: false,
       type: Boolean,
-    },
-    labelTitle: {
-      default: '',
-      type: String,
     },
   },
   data() {
@@ -143,7 +139,7 @@ export default {
   &__label-checkbox-wrapper {
     @apply tw-flex tw-flex-no-wrap;
 
-    &--dropdown {
+    &--is-single-line {
       @apply tw-items-center;
     }
   }
@@ -153,7 +149,7 @@ export default {
     @apply tw-flex-grow;
     @apply tw-min-w-0;
 
-    &--dropdown {
+    &--is-single-line {
       @apply tw-small-text;
     }
   }
