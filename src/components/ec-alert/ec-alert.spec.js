@@ -118,13 +118,25 @@ describe('EcAlert', () => {
     expect(wrapper.vm.isOpen).toBe(false);
   });
 
-  it('should render with the slot given', () => {
+  it('should render with the default slot given', () => {
     const wrapper = mountAlert({
       subtitle: 'Subtitle example',
     },
     {
       scopedSlots: {
         default: '<div slot-scope="{ title, subtitle }">Custom: {{ title }} - {{ subtitle }}</div>',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render with the cta slot given', () => {
+    const wrapper = mountAlert({
+      subtitle: 'Subtitle example',
+    },
+    {
+      scopedSlots: {
+        cta: '<a href="#">Click me</a>',
       },
     });
 
