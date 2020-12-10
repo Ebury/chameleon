@@ -26,7 +26,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -35,9 +35,10 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-22"
+            title="Success"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -80,7 +81,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -89,9 +90,10 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-24"
+            title="Name two"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -134,7 +136,7 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -143,9 +145,10 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-26"
+            title="Cancelled"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -202,7 +205,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -211,9 +214,10 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-2"
+            title="Success"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -256,7 +260,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -265,9 +269,10 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-4"
+            title="Name two"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -310,7 +315,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -319,9 +324,10 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-6"
+            title="Cancelled"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -504,7 +510,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
@@ -521,9 +527,10 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-51"
+            title="Success"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -566,7 +573,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
@@ -583,9 +590,10 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-53"
+            title="Name two"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -628,7 +636,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
@@ -645,9 +653,10 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-55"
+            title="Cancelled"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -739,7 +748,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -748,9 +757,10 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-51"
+            title="Success"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -793,7 +803,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -802,9 +812,10 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-53"
+            title="Name two"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"
@@ -847,7 +858,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -856,9 +867,10 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-55"
+            title="Cancelled"
           >
             <div
               class="ec-multiple-values-selection__label-wrapper"

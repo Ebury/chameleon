@@ -72,7 +72,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -81,9 +81,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-57"
+                      title="Paid"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -118,7 +119,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -127,9 +128,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-58"
+                      title="Cancelled"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -164,7 +166,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -173,9 +175,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-59"
+                      title="Overdue"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -267,7 +270,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -276,9 +279,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-65"
+                      title="Invoiced"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -313,7 +317,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -322,9 +326,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-66"
+                      title="Other type"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -550,7 +555,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -559,9 +564,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-81"
+                      title="Paid"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -596,7 +602,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -605,9 +611,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-82"
+                      title="Cancelled"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -642,7 +649,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -651,9 +658,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-83"
+                      title="Overdue"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -745,7 +753,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -754,9 +762,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-89"
+                      title="Invoiced"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -791,7 +800,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -800,9 +809,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-91"
+                      title="Other type"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1028,7 +1038,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -1037,9 +1047,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-7"
+                      title="Paid"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1074,7 +1085,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -1083,9 +1094,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-8"
+                      title="Cancelled"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1120,7 +1132,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -1129,9 +1141,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-9"
+                      title="Overdue"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1223,7 +1236,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -1232,9 +1245,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-15"
+                      title="Invoiced"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1269,7 +1283,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -1278,9 +1292,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-16"
+                      title="Other type"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1506,7 +1521,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -1515,9 +1530,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-32"
+                      title="Paid"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1552,7 +1568,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -1561,9 +1577,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-33"
+                      title="Cancelled"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1598,7 +1615,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -1607,9 +1624,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-34"
+                      title="Overdue"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1707,7 +1725,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
@@ -1724,9 +1742,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-40"
+                      title="Invoiced"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -1762,7 +1781,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   />
                    
                   <div
-                    class="ec-checkbox__label-checkbox-wrapper"
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
@@ -1771,9 +1790,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     </span>
                      
                     <label
-                      class="ec-checkbox__label"
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-42"
+                      title="Other type"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
