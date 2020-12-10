@@ -3,7 +3,13 @@ import EcCurrencyInput from './ec-currency-input.vue';
 
 jest.mock('../../directives/ec-tooltip', () => ({
   bind(el, { value }) {
-    el.setAttribute('mocked-tooltip-content', value.content);
+    if (value) {
+      el.setAttribute('mocked-tooltip-content', value.content);
+
+      if (value.placement) {
+        el.setAttribute('mocked-tooltip-placement', value.placement);
+      }
+    }
   },
 }));
 
@@ -106,6 +112,68 @@ describe('EcCurrencyInput', () => {
     });
   });
 
+  describe('when the placeholder message for the amount input is defined', () => {
+    it('should render properly', () => {
+      const wrapper = mountCurrencyInput({ amountPlaceholder: 'Amount Placeholder' });
+      expect(wrapper.findByDataTest('ec-currency-input__amount').element).toMatchSnapshot();
+    });
+  });
+
+  describe('when the disabled currency selector has a tooltip associated', () => {
+    const disabledCurrenciesTooltipMessage = 'Tooltip message';
+
+    it('should render properly', () => {
+      const wrapper = mountCurrencyInput({
+        disabledCurrenciesTooltip: { content: disabledCurrenciesTooltipMessage },
+        isCurrenciesDisabled: true,
+      });
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
+    });
+
+    it('should render properly using the defined placement', () => {
+      const wrapper = mountCurrencyInput({
+        disabledCurrenciesTooltip: {
+          content: disabledCurrenciesTooltipMessage,
+          placement: 'left',
+        },
+        isCurrenciesDisabled: true,
+      });
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
+    });
+
+    describe('and the currency dropdown is not disabled', () => {
+      it('should render properly not including the tooltip', () => {
+        const wrapper = mountCurrencyInput({
+          disabledCurrenciesTooltip: { content: disabledCurrenciesTooltipMessage },
+          isCurrenciesDisabled: false,
+        });
+        expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
+      });
+    });
+  });
+
+  describe('when the error message is defined', () => {
+    const errorMessage = 'Random message';
+    it('should render properly', () => {
+      const wrapper = mountCurrencyInput({ errorMessage });
+      expect(wrapper.findByDataTest('ec-currency-input__error-text').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').classes('ec-input-field__input--has-error')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-currency-input__amount').classes('ec-input-field__input--has-error')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-input-field__error-text').exists()).toBeFalsy();
+    });
+
+    describe('and there is a tooltip message relative to the error defined', () => {
+      it('should render properly', () => {
+        const errorTooltipMessage = 'Error tooltip message';
+        const wrapper = mountCurrencyInput({
+          errorMessage,
+          errorTooltipMessage,
+        });
+        expect(wrapper.findByDataTest('ec-currency-input__error-text').element).toMatchSnapshot();
+      });
+    });
+  });
+
   describe(':props', () => {
     it('should render the label when the label is given', () => {
       const wrapper = mountCurrencyInput({ label: 'Currency Input' });
@@ -115,15 +183,6 @@ describe('EcCurrencyInput', () => {
     it('should render the note when the note is given', () => {
       const wrapper = mountCurrencyInput({ note: 'Random note' });
       expect(wrapper.findByDataTest('ec-currency-input__note').element).toMatchSnapshot();
-    });
-
-    it('should render the error when the errorMessage is given', () => {
-      const wrapper = mountCurrencyInput({ errorMessage: 'Random message' });
-
-      expect(wrapper.findByDataTest('ec-currency-input__currencies').classes('ec-input-field__input--has-error')).toBe(true);
-      expect(wrapper.findByDataTest('ec-currency-input__amount').classes('ec-input-field__input--has-error')).toBe(true);
-      expect(wrapper.findByDataTest('ec-currency-input__error-text').element).toMatchSnapshot();
-      expect(wrapper.findAllByDataTest('ec-input-field__error-text').length).toBe(0);
     });
 
     it('should render without any currencies if the currencies prop is empty', () => {
