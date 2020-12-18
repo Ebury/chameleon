@@ -18,7 +18,7 @@
             type="date"
             placeholder="dd/mm/yyyy"
             :label="fromLabelText"
-            :error-message="errorMessage"
+            :error-message="fromErrorMessage"
             :max="toValueDate"
           />
           <ec-input-field
@@ -28,9 +28,15 @@
             type="date"
             placeholder="dd/mm/yyyy"
             :label="toLabelText"
+            :error-message="toErrorMessage"
             :min="fromValueDate"
           />
         </div>
+        <p
+          v-if="dateRangeErrorMessage"
+          class="ec-date-range-filter__error-text"
+          data-test="ec-date-range-filter__error-text"
+        >{{ dateRangeErrorMessage }}</p>
         <button
           type="button"
           :disabled="isDisabled"
@@ -75,7 +81,17 @@ export default {
       required: false,
       default: 'Clear dates',
     },
-    errorMessage: {
+    fromErrorMessage: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    toErrorMessage: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    dateRangeErrorMessage: {
       type: String,
       required: false,
       default: '',
@@ -132,6 +148,10 @@ export default {
 
   &__to-input {
     @apply tw-pt-20;
+  }
+
+  &__error-text {
+    @apply tw-flags-text tw-text-error;
   }
 
   &__clear-button {
