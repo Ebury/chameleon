@@ -33,7 +33,9 @@ const Template = (args, { argTypes }) => ({
       :from-label-text="fromLabelText"
       :to-label-text="toLabelText"
       :clear-text="clearText"
-      :error-message="errorMessage"
+      :from-error-message="fromErrorMessage"
+      :to-error-message="toErrorMessage"
+      :date-range-error-message="dateRangeErrorMessage"
       v-model="valueFromProps"
       :popover-options="{ open: true }"
       @clear="clearValues()"
@@ -48,6 +50,8 @@ basic.args = {
   fromLabelText: 'From',
   toLabelText: 'To',
   clearText: 'Clear dates',
-  errorMessage: '',
+  fromErrorMessage: '',
+  toErrorMessage: '',
+  dateRangeErrorMessage: '',
   value: { from: '2020-03-14', to: null },
 };

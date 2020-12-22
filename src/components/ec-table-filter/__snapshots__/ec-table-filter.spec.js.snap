@@ -466,6 +466,8 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             </div>
           </div>
            
+          <!---->
+           
           <button
             class="ec-date-range-filter__clear-button"
             data-test="ec-date-range-filter__clear-button"
@@ -949,6 +951,8 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             </div>
           </div>
            
+          <!---->
+           
           <button
             class="ec-date-range-filter__clear-button"
             data-test="ec-date-range-filter__clear-button"
@@ -1431,6 +1435,8 @@ exports[`EcTableFilter should render correctly if all the required props are pas
               <!---->
             </div>
           </div>
+           
+          <!---->
            
           <button
             class="ec-date-range-filter__clear-button"
@@ -1929,6 +1935,8 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
               <!---->
             </div>
           </div>
+           
+          <!---->
            
           <button
             class="ec-date-range-filter__clear-button"
