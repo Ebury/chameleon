@@ -107,7 +107,7 @@ export default {
   computed: {
     fromValueDate: {
       get() {
-        return this.value?.from;
+        return this.value && this.value.from ? this.value.from : '';
       },
       set(value) {
         this.$emit('change', { from: value, to: this.toValueDate });
@@ -115,7 +115,7 @@ export default {
     },
     toValueDate: {
       get() {
-        return this.value?.to;
+        return this.value && this.value.to ? this.value.to : '';
       },
       set(value) {
         this.$emit('change', { from: this.fromValueDate, to: value });
