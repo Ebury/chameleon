@@ -633,6 +633,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
               class="ec-input-field__input"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
               id="ec-input-field-78"
+              max=""
               placeholder="dd/mm/yyyy"
               type="date"
             />
@@ -666,6 +667,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
               class="ec-input-field__input"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
               id="ec-input-field-79"
+              min=""
               placeholder="dd/mm/yyyy"
               type="date"
             />
