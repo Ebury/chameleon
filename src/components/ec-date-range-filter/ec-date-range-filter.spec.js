@@ -76,8 +76,8 @@ describe('EcDateRangeFilter', () => {
     const wrapper = mountEcDateRangeFilter({ label });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     wrapper.findByDataTest('ec-date-range-filter__clear-button').trigger('click');
-    expect(wrapper.emitted('change')).toBeTruthy();
-    expect(wrapper.emitted().change).toEqual([[null]]);
+    expect(wrapper.emitted('clear')).toBeTruthy();
+    expect(wrapper.emitted().clear).toEqual([[null]]);
   });
 
   it('should not emit clear when there are no value for dates', async () => {
@@ -86,6 +86,14 @@ describe('EcDateRangeFilter', () => {
     wrapper.findByDataTest('ec-date-range-filter__clear-button').trigger('click');
     expect(wrapper.findByDataTest('ec-date-range-filter__clear-button').attributes('disabled')).toBe('disabled');
     expect(wrapper.emitted('clear')).toBeFalsy();
+  });
+
+  it('should emit a blur event when the focus is moved away from the date input field', async () => {
+    const wrapper = mountEcDateRangeFilter({ label });
+    await wrapper.findByDataTest('ec-filter-popover__label').trigger('click');
+    await wrapper.findByDataTest('ec-date-range-filter__from-input').findByDataTest('ec-input-field__input').trigger('blur');
+
+    expect(wrapper.emitted('blur')).toBeTruthy();
   });
 
   it('should update numberOfSelectedFilters when the dates are passed', async () => {

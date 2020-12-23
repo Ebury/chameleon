@@ -50,7 +50,6 @@
     </template>
   </ec-filter-popover>
 </template>
-
 <script>
 import EcInputField from '../ec-input-field';
 import EcFilterPopover from '../ec-filter-popover';
@@ -124,7 +123,6 @@ export default {
     },
     numberOfSelectedFilters() {
       let dateSelected = 0;
-
       if (this.fromValueDate && this.toValueDate) {
         dateSelected = 2;
       } else if (this.fromValueDate || this.toValueDate) {
@@ -138,15 +136,14 @@ export default {
   },
   methods: {
     clear() {
-      this.$emit('change', null);
+      this.$emit('clear', null);
     },
     onBlur() {
-      this.$emit('blur');
+      this.$emit('blur', { from: this.fromValueDate, to: this.toValueDate });
     },
   },
 };
 </script>
-
 <style>
 .ec-date-range-filter {
   @apply tw-px-20 tw-py-16;
