@@ -20,6 +20,7 @@
             :label="fromLabelText"
             :error-message="fromErrorMessage"
             :max="toValueDate"
+            @blur="onBlur()"
           />
           <ec-input-field
             v-model="toValueDate"
@@ -30,6 +31,7 @@
             :label="toLabelText"
             :error-message="toErrorMessage"
             :min="fromValueDate"
+            @blur="onBlur()"
           />
         </div>
         <p
@@ -137,6 +139,9 @@ export default {
   methods: {
     clear() {
       this.$emit('change', null);
+    },
+    onBlur() {
+      this.$emit('blur');
     },
   },
 };
