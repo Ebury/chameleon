@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+import EcTimer from './ec-timer';
+
+<Meta title="Timer" component={EcTimer} />
+
+# EcTimer
+
+This is our `EcTimer` component: 
+
+<Story name="basic">
+  <EcTimer />
+</Story>
+
+
+This is our `EcTimer` component without stopped:
+
+<Canvas>
+  <Story name="stopped">
+    <EcTimer />
+  </Story>
+</Canvas>

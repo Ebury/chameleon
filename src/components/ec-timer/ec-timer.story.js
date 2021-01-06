@@ -25,3 +25,9 @@ basic.args = {
   seconds: 20,
   isRunning: true,
 };
+
+export const stopped = Template.bind({});
+stopped.args = {
+  seconds: 30,
+  isRunning: false,
+};
