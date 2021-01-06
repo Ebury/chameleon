@@ -46,13 +46,12 @@ const withEcSmartTableRenderer = (Component) => {
           totalRecords: total,
         };
 
-        // eslint-disable-next-line no-inner-declarations
-        function renderFilter(filterSlot) {
+        const renderFilter = function renderFilter(filterSlot) {
           if (filterSlot) {
             return (<div class="ec-smart-table__filter">{filterSlot()}</div>);
           }
           return null;
-        }
+        };
 
         return (
           <div class="ec-smart-table" data-test="ec-smart-table">
