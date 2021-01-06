@@ -47,6 +47,20 @@ import EcTimer from './ec-timer';
   - You will need to import the component that is use on the story in order see the story.
   - Is not needed to pass any attribute to the component, it will get the attributes from the `story.js` file.
 
+### Adding the ArgsTable
+
+You can add a table with all the args that the component will have or even an story.
+
+```
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+
+import EcTimer from './ec-timer';
+
+<ArgsTable story="basic" />
+<ArgsTable of={EcTimer} />
+```
+
+There are examples of how to do it.
 
 ## Without any component
 
