@@ -42,8 +42,18 @@ describe('EcDateRangeFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render properly with an error message when the errorMessage is given', () => {
-    const wrapper = mountEcDateRangeFilter({ label, errorMessage: 'This is an error message' });
+  it('should render properly with an error message when the dateRangeErrorMessage is given', () => {
+    const wrapper = mountEcDateRangeFilter({ label, dateRangeErrorMessage: 'This is the date range error message' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render properly with an error message when the fromErrorMessage is given', () => {
+    const wrapper = mountEcDateRangeFilter({ label, fromErrorMessage: 'This is the from field error message' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render properly with an error message when the toErrorMessage is given', () => {
+    const wrapper = mountEcDateRangeFilter({ label, toErrorMessage: 'This is the to field error message' });
     expect(wrapper.element).toMatchSnapshot();
   });
 

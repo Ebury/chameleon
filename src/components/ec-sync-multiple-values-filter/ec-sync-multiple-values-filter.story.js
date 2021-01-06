@@ -42,7 +42,7 @@ const items = [{
     name: 'rounded-check',
     type: 'success',
   },
-  text: 'Success',
+  text: 'Success (this text should be too long to display, this is the reason why we have ellipsis)',
 }, {
   value: 'Partially paid',
   icon: {
