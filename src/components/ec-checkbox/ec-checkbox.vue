@@ -18,7 +18,12 @@
       v-on="$listeners"
     >
 
-    <div class="ec-checkbox__label-checkbox-wrapper">
+    <div
+      :class="{
+        'ec-checkbox__label-checkbox-wrapper': true,
+        'ec-checkbox__label-checkbox-wrapper--is-single-line': isSingleLine,
+      }"
+    >
       <span
         class="ec-checkbox__check-icon-wrapper"
         :class="{
@@ -41,7 +46,11 @@
 
       <label
         :for="id"
-        class="ec-checkbox__label"
+        :class="{
+          'ec-checkbox__label': true,
+          'ec-checkbox__label--is-single-line': isSingleLine,
+        }"
+        :title="isSingleLine ? label : null"
         data-test="ec-checkbox__label"
       >
         <slot name="label">{{ label }}</slot>
@@ -89,6 +98,10 @@ export default {
       default: false,
       type: Boolean,
     },
+    isSingleLine: {
+      default: false,
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -125,12 +138,20 @@ export default {
 
   &__label-checkbox-wrapper {
     @apply tw-flex tw-flex-no-wrap;
+
+    &--is-single-line {
+      @apply tw-items-center;
+    }
   }
 
   &__label {
     @apply tw-input-label;
     @apply tw-flex-grow;
     @apply tw-min-w-0;
+
+    &--is-single-line {
+      @apply tw-small-text;
+    }
   }
 
   &__check-icon-wrapper {
