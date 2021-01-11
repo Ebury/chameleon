@@ -20,7 +20,6 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const basic = Template.bind({});
-
 basic.args = {
   seconds: 20,
   isRunning: true,
