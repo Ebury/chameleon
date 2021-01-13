@@ -21,11 +21,6 @@ const Template = (args, { argTypes }) => ({
       },
     },
   },
-  methods: {
-    clearValues() {
-      this.valueFromProps = { from: null, to: null };
-    },
-  },
   template: `
     <ec-date-range-filter
       class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
@@ -38,7 +33,6 @@ const Template = (args, { argTypes }) => ({
       :date-range-error-message="dateRangeErrorMessage"
       v-model="valueFromProps"
       :popover-options="{ open: true }"
-      @clear="clearValues()"
     />
   `,
 });

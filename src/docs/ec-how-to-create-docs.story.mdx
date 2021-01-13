@@ -1,0 +1,97 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/How to create docs" />
+
+# How to create a doc page
+
+## For a component
+
+__In order to create a doc page for a component you will need to have__:
+
+* The component itself
+* The stories that you will need to create the doc page
+
+## **Steps**
+
+### Create the doc file (`mdx`)
+
+You will need to go to the folder of the component that you want create the doc page and create a file with the same name as the folder
+and add '.story.mdx'
+
+
+### Start writing the doc
+
+You can import and use the meta markdown
+```
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="component" />
+```
+This will define the title of the page and needs to be different than other pages of the docs.
+
+### Using stories on the doc
+
+In order to use the stories already created on the doc page you will need to import the `Story` block and use it like that:
+```
+import { Story } from '@storybook/addon-docs/blocks';
+
+import EcTimer from './ec-timer';
+
+<Story name="basic">
+  <EcTimer />
+</Story>
+```
+
+  - The `name` attribute on the `Story` block is the name of the story, you can find it on the file `story.js`.
+  - You will need to import the component that is use on the story in order see the story.
+  - Is not needed to pass any attribute to the component, it will get the attributes from the `story.js` file.
+
+### Adding the ArgsTable
+
+You can add a table with all the args that the component will have or even a story.
+
+These are some examples of how to do it.
+
+For a story
+
+```
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+<ArgsTable story="basic" />
+```
+
+For a component
+
+```
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import EcTimer from './ec-timer';
+<ArgsTable of={EcTimer} />
+```
+
+## Without any component
+
+In order to create a new doc page you will need to follow these steps.
+
+## Steps
+
+### Create a doc file
+
+You must create a new file on the `src/docs` folder.
+
+It must have the extension `story.mdx` and you can start writing the documentation
+
+
+### Inside the doc file
+
+You can import and use the meta markdown
+```
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/How to create docs" />
+```
+This will define the title of the page and needs to be different of the other pages of docs.
+
+
+## Links
+
+1. [Documentation about MDX](https://guides.github.com/features/mastering-markdown/)
+2. [Documentation about writing docs](https://storybook.js.org/docs/react/writing-docs/introduction)

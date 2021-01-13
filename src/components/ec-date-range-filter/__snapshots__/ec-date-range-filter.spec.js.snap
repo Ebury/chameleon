@@ -616,7 +616,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-71"
+              for="ec-input-field-78"
             >
               <span
                 class="ec-input-field__label-text"
@@ -632,7 +632,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
-              id="ec-input-field-71"
+              id="ec-input-field-78"
               placeholder="dd/mm/yyyy"
               type="date"
             />
@@ -649,7 +649,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-72"
+              for="ec-input-field-79"
             >
               <span
                 class="ec-input-field__label-text"
@@ -665,7 +665,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
-              id="ec-input-field-72"
+              id="ec-input-field-79"
               placeholder="dd/mm/yyyy"
               type="date"
             />

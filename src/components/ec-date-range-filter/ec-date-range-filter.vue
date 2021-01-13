@@ -20,6 +20,7 @@
             :label="fromLabelText"
             :error-message="fromErrorMessage"
             :max="toValueDate"
+            @blur="onBlur()"
           />
           <ec-input-field
             v-model="toValueDate"
@@ -30,6 +31,7 @@
             :label="toLabelText"
             :error-message="toErrorMessage"
             :min="fromValueDate"
+            @blur="onBlur()"
           />
         </div>
         <p
@@ -48,7 +50,6 @@
     </template>
   </ec-filter-popover>
 </template>
-
 <script>
 import EcInputField from '../ec-input-field';
 import EcFilterPopover from '../ec-filter-popover';
@@ -122,7 +123,6 @@ export default {
     },
     numberOfSelectedFilters() {
       let dateSelected = 0;
-
       if (this.fromValueDate && this.toValueDate) {
         dateSelected = 2;
       } else if (this.fromValueDate || this.toValueDate) {
@@ -138,10 +138,12 @@ export default {
     clear() {
       this.$emit('change', null);
     },
+    onBlur() {
+      this.$emit('blur', { from: this.fromValueDate, to: this.toValueDate });
+    },
   },
 };
 </script>
-
 <style>
 .ec-date-range-filter {
   @apply tw-px-20 tw-py-16;
