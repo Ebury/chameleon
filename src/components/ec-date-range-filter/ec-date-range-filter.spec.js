@@ -85,7 +85,15 @@ describe('EcDateRangeFilter', () => {
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     wrapper.findByDataTest('ec-date-range-filter__clear-button').trigger('click');
     expect(wrapper.findByDataTest('ec-date-range-filter__clear-button').attributes('disabled')).toBe('disabled');
-    expect(wrapper.emitted('clear')).toBeFalsy();
+    expect(wrapper.emitted('change')).toBeFalsy();
+  });
+
+  it('should emit a blur event when the focus is moved away from the date input field', async () => {
+    const wrapper = mountEcDateRangeFilter({ label });
+    await wrapper.findByDataTest('ec-filter-popover__label').trigger('click');
+    await wrapper.findByDataTest('ec-date-range-filter__from-input').findByDataTest('ec-input-field__input').trigger('blur');
+
+    expect(wrapper.emitted('blur')).toBeTruthy();
   });
 
   it('should update numberOfSelectedFilters when the dates are passed', async () => {
