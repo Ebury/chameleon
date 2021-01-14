@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "clipboard-copy": "3.2.0",
-    "focus-trap": "6.2.1",
+    "focus-trap": "6.2.3",
     "tailwindcss": "1.9.6",
     "tailwindcss-filters": "3.0.0",
     "v-tooltip": "2.0.3",
