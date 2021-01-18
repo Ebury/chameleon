@@ -19,7 +19,6 @@ describe('EcDropdownSearch', () => {
     return mount(EcDropdownSearch, {
       localVue,
       propsData: { ...props },
-      stubs: { EcPopover: true },
       ...mountOpts,
     });
   }
@@ -37,7 +36,6 @@ describe('EcDropdownSearch', () => {
     return mount(Component, {
       localVue,
       propsData: { ...props },
-      stubs: { EcPopover: true },
       ...mountOpts,
     });
   }
@@ -170,7 +168,7 @@ describe('EcDropdownSearch', () => {
 
   it('should disable the popover when disabled is set', () => {
     const wrapper = mountDropdownSearch({ disabled: true });
-    expect(wrapper.find('ecpopover-stub').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-popover-stub').element).toMatchSnapshot();
   });
 
   it('should use and update the v-model', async () => {
@@ -343,16 +341,16 @@ describe('EcDropdownSearch', () => {
   });
 
   describe('events', () => {
-    // .find('stub').trigger('event') does nothing, so we need to emit the event from inside of the stubbed
+    // .findByDataTest('stub').trigger('event') does nothing, so we need to emit the event from inside of the stubbed
     // component using .vm.$emit('event');
 
     it('should propagate show and hide events from popover to the parent', () => {
       const wrapper = mountDropdownSearch();
 
-      wrapper.find('ecpopover-stub').vm.$emit('show');
+      wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
       expect(wrapper.emitted('open').length).toBe(1);
 
-      wrapper.find('ecpopover-stub').vm.$emit('hide');
+      wrapper.findByDataTest('ec-popover-stub').vm.$emit('hide');
       expect(wrapper.emitted('close').length).toBe(1);
     });
 
@@ -365,15 +363,15 @@ describe('EcDropdownSearch', () => {
       });
 
       expect(document.activeElement).toBe(document.body);
-      await wrapper.find('ecpopover-stub').vm.$emit('show');
-      await wrapper.find('ecpopover-stub').vm.$emit('apply-show');
+      await wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
+      await wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
     });
 
     it('should hide the popover after item has been selected', async () => {
       const wrapper = mountDropdownSearch({ items });
-      wrapper.find('ecpopover-stub').vm.$emit('show');
+      wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
       await wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers[1].trigger('click');
 
       expect(wrapper.emitted('close').length).toBe(1);

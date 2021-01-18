@@ -23,7 +23,6 @@ describe('EcCurrencyInput', () => {
         value: {},
         ...props,
       },
-      stubs: { EcPopover: true },
       ...mountOpts,
     });
   }
@@ -40,7 +39,6 @@ describe('EcCurrencyInput', () => {
     return mount(Component, {
       localVue,
       propsData: { ...props },
-      stubs: { EcPopover: true },
       ...mountOpts,
     });
   }

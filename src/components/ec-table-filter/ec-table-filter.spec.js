@@ -33,7 +33,6 @@ const value = { feeType: [{ text: 'Invoiced', value: 'invoiced' }] };
 
 function mountEcTableFilter(props, mountOpts) {
   return mount(EcTableFilter, {
-    stubs: { EcPopover: true },
     propsData: {
       ...props,
     },
@@ -52,7 +51,6 @@ function mountEcTableFilterAsTemplate(template, props, wrapperComponentOpts, mou
 
   return mount(Component, {
     localVue,
-    stubs: { EcPopover: true },
     propsData: { ...props },
     ...mountOpts,
   });

@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import { enableAutoDestroy, mount } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 
@@ -663,15 +662,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 });
 
 function mountDropdownSearch(props, mountOpts) {
-  const MockedEcPopover = Vue.extend({
-    methods: {
-      update: jest.fn(),
-    },
-    template: '<div data-popover-stub><slot /><slot name="popover" /></div>',
-  });
   return mount(EcDropdownSearch, {
     propsData: { ...props },
-    stubs: { EcPopover: MockedEcPopover },
     ...mountOpts,
   });
 }
@@ -680,7 +672,7 @@ function mockElementOffsetTop(wrapper, index, value) {
   jest.spyOn(wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).element, 'offsetTop', 'get').mockReturnValueOnce(value);
 }
 
-// TODO: ONL-5000 this pollutes global state and never cleans it up
+// TODO: ONL-XXXX this pollutes global state and never cleans it up
 function mockHtmlElementPosition(options) {
   Object.defineProperties(global.HTMLElement.prototype, {
     clientHeight: {
@@ -710,6 +702,6 @@ function mockHtmlElementPosition(options) {
 async function openDropdown(wrapper) {
   expect(wrapper.emitted('open')).toBeUndefined();
   await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.enter');
-  await wrapper.find('[data-popover-stub]').vm.$emit('apply-show');
+  await wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
   expect(wrapper.emitted('open').length).toBeTruthy();
 }

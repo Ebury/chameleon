@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { VTooltip } from 'v-tooltip';
 
 Object.assign(VTooltip.options, {

@@ -8,7 +8,6 @@ const valueEmpty = { from: null, to: null };
 
 function mountEcDateRangeFilter(props, mountOpts) {
   return mount(EcDateRangeFilter, {
-    stubs: { EcPopover: true },
     propsData: {
       fromLabelText: 'From',
       toLabelText: 'To',
