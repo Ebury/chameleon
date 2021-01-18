@@ -36,7 +36,7 @@
     "focus-trap": "6.2.3",
     "tailwindcss": "1.9.6",
     "tailwindcss-filters": "3.0.0",
-    "v-tooltip": "2.0.3",
+    "v-tooltip": "2.1.2",
     "vue": "2.6.12",
     "vue-hoc": "0.4.7"
   },
@@ -97,7 +97,7 @@
     "vue-router": "3.4.9",
     "vue-template-compiler": "2.6.12",
     "wait-on": "5.2.1",
-    "webpack-cli": "4.2.0",
+    "webpack-cli": "4.3.1",
     "yorkie": "2.0.0"
   },
   "gitHooks": {
