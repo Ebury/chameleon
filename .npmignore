@@ -15,4 +15,6 @@ Makefile
 now.json
 postcss.config.js
 public
-tests
+tests/**/*
+!tests/mocks/**
+!tests/stubs/**
