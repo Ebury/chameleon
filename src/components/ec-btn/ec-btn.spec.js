@@ -41,9 +41,6 @@ describe('EcBtn', () => {
     it('should render a router link when we define the "to" prop', () => {
       const wrapper = mountBtn({
         to: 'trade-finance',
-      },
-      {
-        stubs: ['router-link'],
       });
 
       expect(wrapper.attributes('to')).toBe('trade-finance');
@@ -56,8 +53,6 @@ describe('EcBtn', () => {
           name: 'trade-finance',
           toString() { return `Route with name '${this.name}'`; },
         },
-      }, {
-        stubs: ['router-link'],
       });
 
       expect(wrapper.element).toMatchSnapshot();

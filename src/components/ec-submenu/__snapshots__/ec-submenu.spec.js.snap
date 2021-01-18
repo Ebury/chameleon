@@ -31,25 +31,25 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
         class="ec-submenu__header-item ec-submenu__header-item--is-active"
         data-test="ec-submenu__header-item"
       >
-        <router-link-stub
+        <ec-stub
           class="ec-submenu__header-title"
-          data-test="ec-submenu__header-title-1"
+          data-test="ec-submenu__header-title-1 ec-stub router-link-stub"
           to="/submitted"
         >
           Repayments (30)
-        </router-link-stub>
+        </ec-stub>
       </li>
       <li
         class="ec-submenu__header-item"
         data-test="ec-submenu__header-item"
       >
-        <router-link-stub
+        <ec-stub
           class="ec-submenu__header-title"
-          data-test="ec-submenu__header-title-2"
+          data-test="ec-submenu__header-title-2 ec-stub router-link-stub"
           to="/submitted"
         >
           Another Request (30)
-        </router-link-stub>
+        </ec-stub>
       </li>
     </ul>
   </div>

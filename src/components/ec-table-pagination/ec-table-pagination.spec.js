@@ -6,7 +6,6 @@ describe('EcTablePagination', () => {
   function mountEcTablePagination(props, mountOpts) {
     return mount(EcTablePagination, {
       propsData: { ...props },
-      stubs: { EcPopover: true },
       ...mountOpts,
     });
   }

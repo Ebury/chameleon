@@ -13,7 +13,8 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
       class="ec-filter-popover"
       data-test="ec-sync-multiple-values-filter__trigger"
     >
-      <ecpopover-stub
+      <ec-stub
+        data-test="ec-stub ec-popover-stub"
         offset="0, 8"
         placement="bottom"
         popper-options="[object Object]"
@@ -43,7 +44,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             />
           </svg>
         </div>
-         
+          
         <div
           class="ec-filter-popover__filter-content"
         >
@@ -200,7 +201,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             </div>
           </div>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
   <div
@@ -211,7 +212,8 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
       class="ec-filter-popover"
       data-test="ec-sync-multiple-values-filter__trigger"
     >
-      <ecpopover-stub
+      <ec-stub
+        data-test="ec-stub ec-popover-stub"
         offset="0, 8"
         placement="bottom"
         popper-options="[object Object]"
@@ -241,7 +243,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             />
           </svg>
         </div>
-         
+          
         <div
           class="ec-filter-popover__filter-content"
         >
@@ -351,14 +353,15 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             </div>
           </div>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
   >
-    <ecpopover-stub
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
       offset="0, 8"
       placement="bottom"
       popper-options="[object Object]"
@@ -388,7 +391,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           />
         </svg>
       </div>
-       
+        
       <div
         class="ec-filter-popover__filter-content"
       >
@@ -478,7 +481,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           </button>
         </div>
       </div>
-    </ecpopover-stub>
+    </ec-stub>
   </div>
    
   <!---->
@@ -498,7 +501,8 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
       class="ec-filter-popover"
       data-test="ec-sync-multiple-values-filter__trigger"
     >
-      <ecpopover-stub
+      <ec-stub
+        data-test="ec-stub ec-popover-stub"
         offset="0, 8"
         placement="bottom"
         popper-options="[object Object]"
@@ -528,7 +532,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             />
           </svg>
         </div>
-         
+          
         <div
           class="ec-filter-popover__filter-content"
         >
@@ -685,7 +689,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             </div>
           </div>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
   <div
@@ -696,7 +700,8 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
       class="ec-filter-popover"
       data-test="ec-sync-multiple-values-filter__trigger"
     >
-      <ecpopover-stub
+      <ec-stub
+        data-test="ec-stub ec-popover-stub"
         offset="0, 8"
         placement="bottom"
         popper-options="[object Object]"
@@ -726,7 +731,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             />
           </svg>
         </div>
-         
+          
         <div
           class="ec-filter-popover__filter-content"
         >
@@ -836,14 +841,15 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             </div>
           </div>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
   >
-    <ecpopover-stub
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
       offset="0, 8"
       placement="bottom"
       popper-options="[object Object]"
@@ -873,7 +879,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
           />
         </svg>
       </div>
-       
+        
       <div
         class="ec-filter-popover__filter-content"
       >
@@ -963,7 +969,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
           </button>
         </div>
       </div>
-    </ecpopover-stub>
+    </ec-stub>
   </div>
    
   <!---->
@@ -983,7 +989,8 @@ exports[`EcTableFilter should render correctly if all the required props are pas
       class="ec-filter-popover"
       data-test="ec-sync-multiple-values-filter__trigger"
     >
-      <ecpopover-stub
+      <ec-stub
+        data-test="ec-stub ec-popover-stub"
         offset="0, 8"
         placement="bottom"
         popper-options="[object Object]"
@@ -1013,7 +1020,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             />
           </svg>
         </div>
-         
+          
         <div
           class="ec-filter-popover__filter-content"
         >
@@ -1170,7 +1177,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             </div>
           </div>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
   <div
@@ -1181,7 +1188,8 @@ exports[`EcTableFilter should render correctly if all the required props are pas
       class="ec-filter-popover"
       data-test="ec-sync-multiple-values-filter__trigger"
     >
-      <ecpopover-stub
+      <ec-stub
+        data-test="ec-stub ec-popover-stub"
         offset="0, 8"
         placement="bottom"
         popper-options="[object Object]"
@@ -1211,7 +1219,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             />
           </svg>
         </div>
-         
+          
         <div
           class="ec-filter-popover__filter-content"
         >
@@ -1321,14 +1329,15 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             </div>
           </div>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
   >
-    <ecpopover-stub
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
       offset="0, 8"
       placement="bottom"
       popper-options="[object Object]"
@@ -1358,7 +1367,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           />
         </svg>
       </div>
-       
+        
       <div
         class="ec-filter-popover__filter-content"
       >
@@ -1448,7 +1457,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           </button>
         </div>
       </div>
-    </ecpopover-stub>
+    </ec-stub>
   </div>
    
   <!---->
@@ -1468,7 +1477,8 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
       class="ec-filter-popover"
       data-test="ec-sync-multiple-values-filter__trigger"
     >
-      <ecpopover-stub
+      <ec-stub
+        data-test="ec-stub ec-popover-stub"
         offset="0, 8"
         placement="bottom"
         popper-options="[object Object]"
@@ -1498,7 +1508,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             />
           </svg>
         </div>
-         
+          
         <div
           class="ec-filter-popover__filter-content"
         >
@@ -1655,7 +1665,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             </div>
           </div>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
   <div
@@ -1666,7 +1676,8 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
       class="ec-filter-popover"
       data-test="ec-sync-multiple-values-filter__trigger"
     >
-      <ecpopover-stub
+      <ec-stub
+        data-test="ec-stub ec-popover-stub"
         offset="0, 8"
         placement="bottom"
         popper-options="[object Object]"
@@ -1702,7 +1713,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             />
           </svg>
         </div>
-         
+          
         <div
           class="ec-filter-popover__filter-content"
         >
@@ -1821,14 +1832,15 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             </div>
           </div>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
   >
-    <ecpopover-stub
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
       offset="0, 8"
       placement="bottom"
       popper-options="[object Object]"
@@ -1858,7 +1870,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           />
         </svg>
       </div>
-       
+        
       <div
         class="ec-filter-popover__filter-content"
       >
@@ -1948,7 +1960,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           </button>
         </div>
       </div>
-    </ecpopover-stub>
+    </ec-stub>
   </div>
    
   <button

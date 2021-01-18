@@ -5,13 +5,10 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
   class="ec-filter-popover"
   data-test="ec-filter-popover"
 >
-  <ecpopover-stub
-    level=""
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
     offset="0, 8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
-    popoverinnerclass=""
     popper-options="[object Object]"
   >
     <div
@@ -45,11 +42,11 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
         />
       </svg>
     </div>
-     
+      
     <div
       class="ec-filter-popover__filter-content"
     />
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -58,13 +55,10 @@ exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's v
   class="ec-filter-popover"
   data-test="ec-filter-popover"
 >
-  <ecpopover-stub
-    level=""
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
     offset="0, 8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
-    popoverinnerclass=""
     popper-options="[object Object]"
   >
     <div
@@ -92,11 +86,11 @@ exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's v
         />
       </svg>
     </div>
-     
+      
     <div
       class="ec-filter-popover__filter-content"
     />
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -105,13 +99,10 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
   class="ec-filter-popover"
   data-test="ec-filter-popover"
 >
-  <ecpopover-stub
-    level=""
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
     offset="0, 8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
-    popoverinnerclass=""
     popper-options="[object Object]"
   >
     <div
@@ -139,7 +130,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
         />
       </svg>
     </div>
-     
+      
     <div
       class="ec-filter-popover__filter-content"
     >
@@ -147,7 +138,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
         Test name slot
       </p>
     </div>
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -156,13 +147,10 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
   class="ec-filter-popover"
   data-test="ec-filter-popover"
 >
-  <ecpopover-stub
-    level=""
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
     offset="0, 8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
-    popoverinnerclass=""
     popper-options="[object Object]"
   >
     <div
@@ -190,11 +178,11 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
         />
       </svg>
     </div>
-     
+      
     <div
       class="ec-filter-popover__filter-content"
     />
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -203,13 +191,10 @@ exports[`EcFilterPopover should set the open status of the popover 1`] = `
   class="ec-filter-popover"
   data-test="ec-filter-popover"
 >
-  <ecpopover-stub
-    level=""
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
     offset="0, 8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
-    popoverinnerclass=""
     popper-options="[object Object]"
   >
     <div
@@ -237,10 +222,10 @@ exports[`EcFilterPopover should set the open status of the popover 1`] = `
         />
       </svg>
     </div>
-     
+      
     <div
       class="ec-filter-popover__filter-content"
     />
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
