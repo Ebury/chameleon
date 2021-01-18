@@ -9,7 +9,8 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
     class="ec-filter-popover"
     data-test="ec-sync-multiple-values-filter__trigger"
   >
-    <ecpopover-stub
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
       offset="0, 8"
       placement="bottom"
       popper-options="[object Object]"
@@ -39,7 +40,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
           />
         </svg>
       </div>
-       
+        
       <div
         class="ec-filter-popover__filter-content"
       >
@@ -220,7 +221,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
           </div>
         </div>
       </div>
-    </ecpopover-stub>
+    </ec-stub>
   </div>
 </div>
 `;
@@ -234,7 +235,8 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
     class="ec-filter-popover"
     data-test="ec-sync-multiple-values-filter__trigger"
   >
-    <ecpopover-stub
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
       offset="0, 8"
       placement="bottom"
       popper-options="[object Object]"
@@ -264,7 +266,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
           />
         </svg>
       </div>
-       
+        
       <div
         class="ec-filter-popover__filter-content"
       >
@@ -445,7 +447,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
           </div>
         </div>
       </div>
-    </ecpopover-stub>
+    </ec-stub>
   </div>
 </div>
 `;
@@ -459,7 +461,8 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
     class="ec-filter-popover"
     data-test="ec-sync-multiple-values-filter__trigger"
   >
-    <ecpopover-stub
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
       offset="0, 8"
       placement="bottom"
       popper-options="[object Object]"
@@ -495,7 +498,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
           />
         </svg>
       </div>
-       
+        
       <div
         class="ec-filter-popover__filter-content"
       >
@@ -732,7 +735,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
           </div>
         </div>
       </div>
-    </ecpopover-stub>
+    </ec-stub>
   </div>
 </div>
 `;

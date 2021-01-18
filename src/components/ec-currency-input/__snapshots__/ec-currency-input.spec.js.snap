@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcCurrencyInput :props should render a loading state when currenciesLoading is set true 1`] = `
-<ecpopover-stub
+<ec-stub
   class="ec-dropdown-search__trigger"
-  data-test="ec-popover-dropdown-search"
+  data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
   offset="8"
   placement="bottom-end"
   popoverinnerclass="ec-dropdown-search__popover"
@@ -42,7 +42,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
      
     <!---->
   </div>
-   
+    
   <div>
     <ul
       class="ec-dropdown-search__item-list"
@@ -104,7 +104,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
       </li>
     </ul>
   </div>
-</ecpopover-stub>
+</ec-stub>
 `;
 
 exports[`EcCurrencyInput :props should render the component with the dropdown part disabled when isCurrenciesDisabled is set true 1`] = `
@@ -195,9 +195,9 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
   class="ec-dropdown-search ec-dropdown ec-currency-input__currencies"
   data-test="ec-dropdown"
 >
-  <ecpopover-stub
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-test="ec-popover-dropdown-search"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom-end"
     popoverinnerclass="ec-dropdown-search__popover"
@@ -236,7 +236,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
        
       <!---->
     </div>
-     
+      
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -273,7 +273,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
         </li>
       </ul>
     </div>
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -290,9 +290,9 @@ exports[`EcCurrencyInput should render properly 1`] = `
       class="ec-dropdown-search ec-dropdown ec-currency-input__currencies"
       data-test="ec-dropdown"
     >
-      <ecpopover-stub
+      <ec-stub
         class="ec-dropdown-search__trigger"
-        data-test="ec-popover-dropdown-search"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         offset="8"
         placement="bottom-end"
         popoverinnerclass="ec-dropdown-search__popover"
@@ -331,7 +331,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
            
           <!---->
         </div>
-         
+          
         <div>
           <ul
             class="ec-dropdown-search__item-list"
@@ -397,7 +397,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
             </li>
           </ul>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
      
     <div
@@ -436,9 +436,9 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
       class="ec-dropdown-search ec-dropdown ec-currency-input__currencies"
       data-test="ec-dropdown"
     >
-      <ecpopover-stub
+      <ec-stub
         class="ec-dropdown-search__trigger"
-        data-test="ec-popover-dropdown-search"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         offset="8"
         placement="bottom-end"
         popoverinnerclass="ec-dropdown-search__popover"
@@ -477,7 +477,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
            
           <!---->
         </div>
-         
+          
         <div>
           <ul
             class="ec-dropdown-search__item-list my-sensitive-content-test-class"
@@ -543,7 +543,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
             </li>
           </ul>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
      
     <div

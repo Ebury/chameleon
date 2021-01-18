@@ -1,13 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcInlineActions should render properly the item with the download attr 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -19,7 +16,7 @@ exports[`EcInlineActions should render properly the item with the download attr 
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <a
           class="ec-inline-actions__button"
@@ -38,17 +35,14 @@ exports[`EcInlineActions should render properly the item with the download attr 
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render properly the item with the download attr empty 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -60,7 +54,7 @@ exports[`EcInlineActions should render properly the item with the download attr 
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <a
           class="ec-inline-actions__button"
@@ -79,17 +73,14 @@ exports[`EcInlineActions should render properly the item with the download attr 
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render properly when an item was given 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -101,7 +92,7 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <button
           class="ec-inline-actions__button"
@@ -118,17 +109,14 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render properly with out the disabled href and download attrs 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -140,7 +128,7 @@ exports[`EcInlineActions should render properly with out the disabled href and d
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <a
           class="ec-inline-actions__button ec-inline-actions__button--disabled"
@@ -157,17 +145,14 @@ exports[`EcInlineActions should render properly with out the disabled href and d
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render properly with the anchor when the item have a href 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -179,7 +164,7 @@ exports[`EcInlineActions should render properly with the anchor when the item ha
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <a
           class="ec-inline-actions__button"
@@ -197,17 +182,14 @@ exports[`EcInlineActions should render properly with the anchor when the item ha
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render the item disabled when an item was given disabled 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -219,7 +201,7 @@ exports[`EcInlineActions should render the item disabled when an item was given 
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <button
           class="ec-inline-actions__button ec-inline-actions__button--disabled"
@@ -237,17 +219,14 @@ exports[`EcInlineActions should render the item disabled when an item was given 
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render the item with an icon when a item was given with an icon 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -259,19 +238,22 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <button
           class="ec-inline-actions__button"
           data-test="ec-inline-actions__button"
         >
-          <ec-icon-stub
-            class="ec-inline-actions__icon"
+          <svg
+            class="ec-inline-actions__icon ec-icon ec-icon--warning"
             data-test="ec-inline-actions__icon"
-            name="simple-block"
-            size="24"
-            type="warning"
-          />
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-block"
+            />
+          </svg>
            
           <span>
             test
@@ -282,17 +264,14 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render the item with default popover options 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -304,18 +283,22 @@ exports[`EcInlineActions should render the item with default popover options 1`]
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <button
           class="ec-inline-actions__button"
           data-test="ec-inline-actions__button"
         >
-          <ec-icon-stub
-            class="ec-inline-actions__icon ec-inline-actions__icon--no-type"
+          <svg
+            class="ec-inline-actions__icon ec-icon ec-inline-actions__icon--no-type"
             data-test="ec-inline-actions__icon"
-            name="simple-block"
-            size="24"
-          />
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-block"
+            />
+          </svg>
            
           <span>
             test
@@ -326,17 +309,14 @@ exports[`EcInlineActions should render the item with default popover options 1`]
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render the item with given popover options 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="20"
   placement="top"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -348,18 +328,22 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <button
           class="ec-inline-actions__button"
           data-test="ec-inline-actions__button"
         >
-          <ec-icon-stub
-            class="ec-inline-actions__icon ec-inline-actions__icon--no-type"
+          <svg
+            class="ec-inline-actions__icon ec-icon ec-inline-actions__icon--no-type"
             data-test="ec-inline-actions__icon"
-            name="simple-block"
-            size="24"
-          />
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-block"
+            />
+          </svg>
            
           <span>
             test
@@ -370,17 +354,14 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render with one line break when a different arrays was given 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -392,7 +373,7 @@ exports[`EcInlineActions should render with one line break when a different arra
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <button
           class="ec-inline-actions__button"
@@ -416,7 +397,7 @@ exports[`EcInlineActions should render with one line break when a different arra
     >
       <li
         class="ec-inline-actions__item"
-        data-test="ec-inline-actions__item ec-inline-actions__item--1-0"
+        data-test="ec-inline-actions__item ec-inline-actions__item--1-0 ec-mock ec-tooltip-mock"
       >
         <button
           class="ec-inline-actions__button"
@@ -433,17 +414,14 @@ exports[`EcInlineActions should render with one line break when a different arra
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;
 
 exports[`EcInlineActions should render with tooltip 1`] = `
-<ec-popover-stub
-  level=""
+<ec-stub
+  data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
-  popoverarrowclass=""
-  popoverclass=""
-  popoverinnerclass=""
 >
    
   <div
@@ -454,9 +432,9 @@ exports[`EcInlineActions should render with tooltip 1`] = `
       data-test="ec-inline-actions__list"
     >
       <li
-        class="ec-inline-actions__item ec-has-tooltip"
-        data-original-title="null"
-        data-test="ec-inline-actions__item ec-inline-actions__item--0-0"
+        class="ec-inline-actions__item"
+        data-ec-tooltip-mock-content="Test tooltip"
+        data-test="ec-inline-actions__item ec-inline-actions__item--0-0 ec-mock ec-tooltip-mock"
       >
         <button
           class="ec-inline-actions__button"
@@ -473,5 +451,5 @@ exports[`EcInlineActions should render with tooltip 1`] = `
      
     <!---->
   </div>
-</ec-popover-stub>
+</ec-stub>
 `;

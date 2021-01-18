@@ -182,10 +182,10 @@ exports[`EcNavigationLink as regular anchor should show the text when is expande
 `;
 
 exports[`EcNavigationLink as router-link should be active when isActive is passed into 1`] = `
-<router-link-stub
+<ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link ec-navigation-link--is-active"
-  data-test="ec-navigation-link"
+  data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
   <svg
@@ -209,14 +209,14 @@ exports[`EcNavigationLink as router-link should be active when isActive is passe
       Link
     </span>
   </transition-stub>
-</router-link-stub>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink as router-link should be compact when isCompact is passed into 1`] = `
-<router-link-stub
+<ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link ec-navigation-link--is-compact"
-  data-test="ec-navigation-link"
+  data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
   <svg
@@ -240,14 +240,14 @@ exports[`EcNavigationLink as router-link should be compact when isCompact is pas
       Link
     </span>
   </transition-stub>
-</router-link-stub>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
-<router-link-stub
+<ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link"
-  data-test="ec-navigation-link"
+  data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
   <svg
@@ -271,14 +271,14 @@ exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
       Link
     </span>
   </transition-stub>
-</router-link-stub>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink as router-link should hide the text when is collapsed 1`] = `
-<router-link-stub
+<ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link ec-navigation-link--is-collapsed"
-  data-test="ec-navigation-link"
+  data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
   <svg
@@ -303,14 +303,14 @@ exports[`EcNavigationLink as router-link should hide the text when is collapsed 
       Link
     </span>
   </transition-stub>
-</router-link-stub>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink as router-link should render as a router link if isRouterLink prop set to true 1`] = `
-<router-link-stub
+<ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link"
-  data-test="ec-navigation-link"
+  data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
   <svg
@@ -334,14 +334,14 @@ exports[`EcNavigationLink as router-link should render as a router link if isRou
       Link
     </span>
   </transition-stub>
-</router-link-stub>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink as router-link should show the text when is expanded 1`] = `
-<router-link-stub
+<ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link"
-  data-test="ec-navigation-link"
+  data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
   <svg
@@ -365,5 +365,5 @@ exports[`EcNavigationLink as router-link should show the text when is expanded 1
       Link
     </span>
   </transition-stub>
-</router-link-stub>
+</ec-stub>
 `;

@@ -166,9 +166,9 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
-      <ecpopover-stub
+      <ec-stub
         class="ec-dropdown-search__trigger"
-        data-test="ec-popover-dropdown-search"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         offset="8"
         placement="bottom"
         popoverinnerclass="ec-dropdown-search__popover"
@@ -191,7 +191,7 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
             />
           </svg>
         </button>
-         
+          
         <div>
           <ul
             class="ec-dropdown-search__item-list"
@@ -203,35 +203,35 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
              
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
               5
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
               10
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
               50
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
               100
             </li>
           </ul>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
    
@@ -326,9 +326,9 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
-      <ecpopover-stub
+      <ec-stub
         class="ec-dropdown-search__trigger"
-        data-test="ec-popover-dropdown-search"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         offset="8"
         placement="bottom"
         popoverinnerclass="ec-dropdown-search__popover"
@@ -351,7 +351,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
             />
           </svg>
         </button>
-         
+          
         <div>
           <ul
             class="ec-dropdown-search__item-list"
@@ -363,35 +363,35 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
              
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
               5
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
               10
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
               50
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
               100
             </li>
           </ul>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
    
@@ -473,9 +473,9 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
-      <ecpopover-stub
+      <ec-stub
         class="ec-dropdown-search__trigger"
-        data-test="ec-popover-dropdown-search"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         offset="8"
         placement="bottom"
         popoverinnerclass="ec-dropdown-search__popover"
@@ -498,7 +498,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             />
           </svg>
         </button>
-         
+          
         <div>
           <ul
             class="ec-dropdown-search__item-list"
@@ -510,35 +510,35 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
              
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
               5
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
               10
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
               50
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
               100
             </li>
           </ul>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
    
@@ -633,9 +633,9 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
-      <ecpopover-stub
+      <ec-stub
         class="ec-dropdown-search__trigger"
-        data-test="ec-popover-dropdown-search"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         offset="8"
         placement="bottom"
         popoverinnerclass="ec-dropdown-search__popover"
@@ -658,7 +658,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             />
           </svg>
         </button>
-         
+          
         <div>
           <ul
             class="ec-dropdown-search__item-list"
@@ -670,35 +670,35 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
              
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
               5
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
               10
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
               50
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
               100
             </li>
           </ul>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
    
@@ -791,9 +791,9 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
               class="ec-dropdown-search"
               data-test="ec-dropdown-search"
             >
-              <ecpopover-stub
+              <ec-stub
                 class="ec-dropdown-search__trigger"
-                data-test="ec-popover-dropdown-search"
+                data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
                 offset="8"
                 placement="bottom"
                 popoverinnerclass="ec-dropdown-search__popover"
@@ -816,7 +816,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                     />
                   </svg>
                 </button>
-                 
+                  
                 <div>
                   <ul
                     class="ec-dropdown-search__item-list"
@@ -828,35 +828,35 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                      
                     <li
                       class="ec-dropdown-search__item"
-                      data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+                      data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
                       title="5"
                     >
                       5
                     </li>
                     <li
                       class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-                      data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+                      data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
                       title="10"
                     >
                       10
                     </li>
                     <li
                       class="ec-dropdown-search__item"
-                      data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+                      data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
                       title="50"
                     >
                       50
                     </li>
                     <li
                       class="ec-dropdown-search__item"
-                      data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+                      data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
                       title="100"
                     >
                       100
                     </li>
                   </ul>
                 </div>
-              </ecpopover-stub>
+              </ec-stub>
             </div>
           </div>
            
@@ -967,9 +967,9 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
-      <ecpopover-stub
+      <ec-stub
         class="ec-dropdown-search__trigger"
-        data-test="ec-popover-dropdown-search"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         offset="8"
         placement="bottom"
         popoverinnerclass="ec-dropdown-search__popover"
@@ -992,7 +992,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
             />
           </svg>
         </button>
-         
+          
         <div>
           <ul
             class="ec-dropdown-search__item-list"
@@ -1004,35 +1004,35 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
              
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
               5
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
               10
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
               50
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
               100
             </li>
           </ul>
         </div>
-      </ecpopover-stub>
+      </ec-stub>
     </div>
   </div>
    

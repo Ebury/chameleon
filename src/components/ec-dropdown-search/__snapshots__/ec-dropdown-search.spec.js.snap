@@ -98,15 +98,12 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
 `;
 
 exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = `
-<ecpopover-stub
+<ec-stub
   class="ec-dropdown-search__trigger"
-  data-test="ec-popover-dropdown-search"
+  data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
   disabled="true"
-  level=""
   offset="8"
   placement="bottom"
-  popoverarrowclass=""
-  popoverclass=""
   popoverinnerclass="ec-dropdown-search__popover"
   popperoptions="[object Object]"
 >
@@ -147,7 +144,7 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
       </li>
     </ul>
   </div>
-</ecpopover-stub>
+</ec-stub>
 `;
 
 exports[`EcDropdownSearch should merge given popoverOptions 1`] = `
@@ -155,21 +152,21 @@ exports[`EcDropdownSearch should merge given popoverOptions 1`] = `
 - First value
 + Second value
 
-@@ -4,12 +4,12 @@
+@@ -3,12 +3,12 @@
+    data-test=\\"ec-dropdown-search\\"
   >
-    <ecpopover-stub
+    <ec-stub
       class=\\"ec-dropdown-search__trigger\\"
-      data-test=\\"ec-popover-dropdown-search\\"
-      level=\\"\\"
+      data-test=\\"ec-popover-dropdown-search ec-stub ec-popover-stub\\"
 -     offset=\\"8\\"
 -     placement=\\"bottom\\"
 +     offset=\\"16\\"
 +     placement=\\"top\\"
-      popoverarrowclass=\\"\\"
-      popoverclass=\\"\\"
       popoverinnerclass=\\"ec-dropdown-search__popover\\"
       popperoptions=\\"[object Object]\\"
-    >"
+    >
+       
+      <div>"
 `;
 
 exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip prop 1`] = `
@@ -177,7 +174,7 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -42,12 +42,12 @@
+@@ -39,12 +39,12 @@
           <!---->
            
           <li
@@ -205,14 +202,11 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
   class="ec-dropdown-search"
   data-test="ec-dropdown-search"
 >
-  <ecpopover-stub
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-test="ec-popover-dropdown-search"
-    level=""
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
     popoverinnerclass="ec-dropdown-search__popover"
     popperoptions="[object Object]"
   >
@@ -278,7 +272,7 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
         </li>
       </ul>
     </div>
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -287,14 +281,11 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
   class="ec-dropdown-search"
   data-test="ec-dropdown-search"
 >
-  <ecpopover-stub
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-test="ec-popover-dropdown-search"
-    level=""
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
     popoverinnerclass="ec-dropdown-search__popover"
     popperoptions="[object Object]"
   >
@@ -375,7 +366,7 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
         </li>
       </ul>
     </div>
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -451,14 +442,11 @@ exports[`EcDropdownSearch should render as expected 1`] = `
   class="ec-dropdown-search"
   data-test="ec-dropdown-search"
 >
-  <ecpopover-stub
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-test="ec-popover-dropdown-search"
-    level=""
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
     popoverinnerclass="ec-dropdown-search__popover"
     popperoptions="[object Object]"
   >
@@ -499,7 +487,7 @@ exports[`EcDropdownSearch should render as expected 1`] = `
         </li>
       </ul>
     </div>
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -508,14 +496,11 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
   class="ec-dropdown-search"
   data-test="ec-dropdown-search"
 >
-  <ecpopover-stub
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-test="ec-popover-dropdown-search"
-    level=""
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
     popoverinnerclass="ec-dropdown-search__popover"
     popperoptions="[object Object]"
   >
@@ -593,7 +578,7 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
         </li>
       </ul>
     </div>
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -602,14 +587,11 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
   class="ec-dropdown-search"
   data-test="ec-dropdown-search"
 >
-  <ecpopover-stub
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-test="ec-popover-dropdown-search"
-    level=""
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
     popoverinnerclass="ec-dropdown-search__popover"
     popperoptions="[object Object]"
   >
@@ -618,7 +600,7 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
     >
       Open me
     </a>
-     
+      
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -655,7 +637,7 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
         </li>
       </ul>
     </div>
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -664,14 +646,11 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
   class="ec-dropdown-search"
   data-test="ec-dropdown-search"
 >
-  <ecpopover-stub
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-test="ec-popover-dropdown-search"
-    level=""
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
     popoverinnerclass="ec-dropdown-search__popover"
     popperoptions="[object Object]"
   >
@@ -767,7 +746,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
         </li>
       </ul>
     </div>
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -776,14 +755,11 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
   class="ec-dropdown-search"
   data-test="ec-dropdown-search"
 >
-  <ecpopover-stub
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-test="ec-popover-dropdown-search"
-    level=""
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
-    popoverarrowclass=""
-    popoverclass=""
     popoverinnerclass="ec-dropdown-search__popover"
     popperoptions="[object Object]"
   >
@@ -846,7 +822,7 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
         </li>
       </ul>
     </div>
-  </ecpopover-stub>
+  </ec-stub>
 </div>
 `;
 
@@ -875,7 +851,7 @@ exports[`EcDropdownSearch should render the search by default 1`] = `
 exports[`EcDropdownSearch should use and update the v-model 1`] = `
 <li
   class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-  data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+  data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
   title="Item 1"
 >
   Item 1
@@ -885,7 +861,7 @@ exports[`EcDropdownSearch should use and update the v-model 1`] = `
 exports[`EcDropdownSearch should use and update the v-model 2`] = `
 <li
   class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-  data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+  data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
   title="Item 3"
 >
   Item 3
