@@ -64,6 +64,7 @@
           <li
             ref="ctaArea"
             v-if="hasCta()"
+            v-ec-tooltip.left="{ content: !!tooltipCta ? tooltipCta : null }"
             class="ec-dropdown-search__cta-area"
             :class="{
               'ec-dropdown-search__cta-area--is-focused': isCtaAreaFocused,
@@ -203,6 +204,10 @@ export default {
     noResultsText: {
       type: String,
       default: 'No results found',
+    },
+    tooltipCta: {
+      type: String,
+      default: '',
     },
   },
   data() {

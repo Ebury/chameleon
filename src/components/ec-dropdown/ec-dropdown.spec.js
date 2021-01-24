@@ -151,6 +151,17 @@ describe('EcDropdown', () => {
       });
       expect(wrapper.findByDataTest('ec-dropdown-search__cta-area').element).toMatchSnapshot();
     });
+
+    it('should forward CTA slot and have a tooltip on the CTA', () => {
+      const wrapper = mountDropdown({
+        tooltipCta: 'Random tooltip',
+      }, {
+        scopedSlots: {
+          cta: '<button>My CTA</button>',
+        },
+      });
+      expect(wrapper.findByDataTest('ec-dropdown-search__cta-area').element).toMatchSnapshot();
+    });
   });
 
   describe('v-model', () => {
