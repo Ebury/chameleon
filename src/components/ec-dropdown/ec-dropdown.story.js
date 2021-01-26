@@ -180,7 +180,7 @@ stories.add('all', () => ({
             label="Single value - with CTA/Loading/Search"
             placeholder="Single value - with CTA/Loading/Search"
             :is-loading="true"
-            tooltip-cta="Radon tooltip cta"
+            tooltip-cta="Radom tooltip cta"
             v-model="selected">
             <template #cta>
               <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>

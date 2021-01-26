@@ -11,7 +11,7 @@ exports[`EcDropdown #slots should forward CTA slot 1`] = `
 </li>
 `;
 
-exports[`EcDropdown #slots should forward CTA slot and have a tooltip on the CTA 1`] = `
+exports[`EcDropdown #slots should forward CTA slot with tooltip 1`] = `
 <li
   class="ec-dropdown-search__cta-area"
   data-ec-tooltip-mock-content="Random tooltip"

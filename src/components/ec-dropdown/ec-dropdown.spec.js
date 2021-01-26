@@ -152,7 +152,7 @@ describe('EcDropdown', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__cta-area').element).toMatchSnapshot();
     });
 
-    it('should forward CTA slot and have a tooltip on the CTA', () => {
+    it('should forward CTA slot with tooltip', () => {
       const wrapper = mountDropdown({
         tooltipCta: 'Random tooltip',
       }, {
