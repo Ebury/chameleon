@@ -319,24 +319,26 @@ export default {
   }
 
   &__error-text {
-    @apply tw-flex tw-items-center;
+    @apply tw-flex tw-items-start;
     @apply tw-flags-text;
     @apply tw-text-error;
+    @apply tw-mt-4;
   }
 
   &__bottom-note {
-    @apply tw-flex tw-items-center;
-    @apply tw-caption-text;
+    @apply tw-flex tw-items-start;
+    @apply tw-flags-text;
     @apply tw-mt-4;
 
     &--is-warning {
-      @apply tw-text-warning;
+      @apply tw-text-warning-dark;
     }
   }
 
   &__error-tooltip,
   &__warning-tooltip {
-    @apply tw-ml-4;
+    @apply tw-flex-shrink-0;
+    @apply tw-ml-1 tw-mt-1;
     @apply tw-outline-none;
   }
 }
