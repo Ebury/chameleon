@@ -271,6 +271,9 @@ export default {
 
   &__error-text {
     @apply tw-flags-text tw-text-error;
+    @apply tw-mt-4;
+
+    line-height: 16px;
   }
 
   &__icon-wrapper {
