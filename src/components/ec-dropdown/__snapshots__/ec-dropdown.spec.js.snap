@@ -3,7 +3,19 @@
 exports[`EcDropdown #slots should forward CTA slot 1`] = `
 <li
   class="ec-dropdown-search__cta-area"
-  data-test="ec-dropdown-search__cta-area"
+  data-test="ec-dropdown-search__cta-area ec-mock ec-tooltip-mock"
+>
+  <button>
+    My CTA
+  </button>
+</li>
+`;
+
+exports[`EcDropdown #slots should forward CTA slot with tooltip 1`] = `
+<li
+  class="ec-dropdown-search__cta-area"
+  data-ec-tooltip-mock-content="Random tooltip"
+  data-test="ec-dropdown-search__cta-area ec-mock ec-tooltip-mock"
 >
   <button>
     My CTA

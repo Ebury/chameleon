@@ -582,6 +582,99 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
 </div>
 `;
 
+exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
+<div
+  class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
+>
+  <ec-stub
+    class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    offset="8"
+    placement="bottom"
+    popoverinnerclass="ec-dropdown-search__popover"
+    popperoptions="[object Object]"
+  >
+     
+    <div>
+      <ul
+        class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-dropdown-search__search-icon ec-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+           
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+         
+        <li
+          class="ec-dropdown-search__cta-area"
+          data-test="ec-dropdown-search__cta-area"
+          mocked-tooltip-content="Random tooltip"
+          mocked-tooltip-placement=""
+        >
+          <button>
+            My CTA
+          </button>
+        </li>
+         
+        <li
+          class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+          title="Item 1"
+        >
+          Item 1
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+          title="Item 2"
+        >
+          Item 2
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+          title="Item 3"
+        >
+          Item 3
+        </li>
+        <li
+          class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+          mocked-tooltip-content="Random text"
+          mocked-tooltip-placement="right"
+          title="Item 4"
+        >
+          Item 4
+        </li>
+        <li
+          class="ec-dropdown-search__item"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
+          title="Item 5"
+        >
+          Item 5
+        </li>
+      </ul>
+    </div>
+  </ec-stub>
+</div>
+`;
+
 exports[`EcDropdownSearch should render given default slot 1`] = `
 <div
   class="ec-dropdown-search"
