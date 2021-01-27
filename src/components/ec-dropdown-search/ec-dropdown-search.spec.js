@@ -141,6 +141,19 @@ describe('EcDropdownSearch', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render given cta slot with a tooltip', () => {
+    const wrapper = mountDropdownSearch({
+      items,
+      tooltipCta: 'Random tooltip',
+    }, {
+      scopedSlots: {
+        cta: '<button>My CTA</button>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render all given items', () => {
     const wrapper = mountDropdownSearch({ items });
     expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();

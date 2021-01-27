@@ -85,7 +85,7 @@
         data-test="ec-currency-input__error-tooltip"
         type="error"
         name="simple-error"
-        :size="16"
+        :size="14"
       />
     </div>
 
@@ -103,7 +103,7 @@
         data-test="ec-currency-input__warning-tooltip"
         type="warning"
         name="simple-error"
-        :size="16"
+        :size="14"
       />
     </div>
   </div>
@@ -320,9 +320,10 @@ export default {
 
   &__error-text {
     @apply tw-flex tw-items-start;
-    @apply tw-flags-text;
-    @apply tw-text-error;
+    @apply tw-flags-text tw-text-error;
     @apply tw-mt-4;
+
+    line-height: 16px;
   }
 
   &__bottom-note {
