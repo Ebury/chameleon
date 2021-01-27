@@ -581,9 +581,9 @@ exports[`EcCurrencyInput when the bottom note is defined and it is a warning not
   <svg
     class="ec-currency-input__warning-tooltip ec-icon ec-icon--warning"
     data-test="ec-currency-input__warning-tooltip"
-    height="16"
+    height="14"
     mocked-tooltip-content="Warning tooltip message"
-    width="16"
+    width="14"
   >
     <use
       xlink:href="#ec-simple-error"
@@ -664,9 +664,9 @@ exports[`EcCurrencyInput when the error message is defined and there is a toolti
   <svg
     class="ec-currency-input__error-tooltip ec-icon ec-icon--error"
     data-test="ec-currency-input__error-tooltip"
-    height="16"
+    height="14"
     mocked-tooltip-content="Error tooltip message"
-    width="16"
+    width="14"
   >
     <use
       xlink:href="#ec-simple-error"

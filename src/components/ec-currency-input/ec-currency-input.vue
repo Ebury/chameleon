@@ -85,7 +85,7 @@
         data-test="ec-currency-input__error-tooltip"
         type="error"
         name="simple-error"
-        :size="16"
+        :size="14"
       />
     </div>
 
@@ -103,7 +103,7 @@
         data-test="ec-currency-input__warning-tooltip"
         type="warning"
         name="simple-error"
-        :size="16"
+        :size="14"
       />
     </div>
   </div>
