@@ -320,9 +320,10 @@ export default {
 
   &__error-text {
     @apply tw-flex tw-items-start;
-    @apply tw-flags-text;
-    @apply tw-text-error;
+    @apply tw-flags-text tw-text-error;
     @apply tw-mt-4;
+
+    line-height: 16px;
   }
 
   &__bottom-note {
