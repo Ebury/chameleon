@@ -636,6 +636,7 @@ module.exports = {
       },
       'btn-text': { fontSize: '16px', lineHeight: '22px', fontWeight: 400 },
       'flags-text': { fontSize: '12px', lineHeight: '20px', fontWeight: 400 },
+      'help-text': { fontSize: '12px', lineHeight: '16px', fontWeight: 400 },
     }),
   },
   variants: {
