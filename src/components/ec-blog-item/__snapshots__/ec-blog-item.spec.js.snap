@@ -1,21 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcBlogItem posts prop should render post 1`] = `
-<div>
-  <p>
+<div
+  class="ec-main-container ec-blog-item"
+>
+  <div
+    class="tw-grid tw-border-b tw-border-solid tw-border-gray-6"
+  >
+    <div
+      class="tw-col-2"
+    >
+      <img
+        class="tw-w-96 tw-h-96 tw-rounded"
+        src="https://ebury.com/wp-content/uploads/2020/02/iStock-173802956-scaled.jpg"
+      />
+    </div>
+     
+    <div
+      class="tw-col-10"
+    >
+      <p
+        class="tw-mt-0 ec-blog-item__title"
+      >
+        
     title
-  </p>
-   
-  <p>
-    shortDescription
-  </p>
-   
-  <p>
-    author
-  </p>
-   
-  <p>
-    category
-  </p>
+  
+      </p>
+       
+      <p>
+        author
+      </p>
+       
+      <p>
+        category
+      </p>
+    </div>
+  </div>
 </div>
 `;
