@@ -23,8 +23,8 @@ exports[`EcBlogItem posts prop should render post 1`] = `
         class="tw-mt-0 ec-blog-item__title"
       >
         
-    title
-  
+        title
+      
       </p>
        
       <p>
