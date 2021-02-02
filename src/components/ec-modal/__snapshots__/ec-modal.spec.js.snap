@@ -3,7 +3,7 @@
 exports[`EcModal should have the ec-modal--lg class 1`] = `
 <div
   class="ec-modal__content ec-modal--lg"
-  data-test="ec-modal__content"
+  data-test="ec-modal__content ec-mock ec-focus-trap-mock"
 >
   <header
     class="ec-modal__header"
@@ -45,7 +45,7 @@ exports[`EcModal should have the style attribute z-index when the z-index props 
 >
   <div
     class="ec-modal__content"
-    data-test="ec-modal__content"
+    data-test="ec-modal__content ec-mock ec-focus-trap-mock"
   >
     <header
       class="ec-modal__header"
@@ -108,7 +108,7 @@ exports[`EcModal should render basic modal 1`] = `
   >
     <div
       class="ec-modal__content"
-      data-test="ec-modal__content"
+      data-test="ec-modal__content ec-mock ec-focus-trap-mock"
     >
       <header
         class="ec-modal__header"
@@ -479,7 +479,7 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
   >
     <div
       class="ec-modal__content"
-      data-test="ec-modal__content"
+      data-test="ec-modal__content ec-mock ec-focus-trap-mock"
     >
       <header
         class="ec-modal__header"

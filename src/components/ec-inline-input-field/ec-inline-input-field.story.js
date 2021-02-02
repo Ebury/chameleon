@@ -112,13 +112,14 @@ stories
       </div>
       <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field
-            is-editable="true"
-            is-editing="true"
+            :is-editable="true"
+            :is-editing="true"
             label="Inline Input Field - With Error"
             errorMessage="This field has an error"
             v-model="value"
           />
       </div>
+    </div>
     </div>
     `,
   }));

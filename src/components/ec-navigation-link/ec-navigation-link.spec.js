@@ -5,9 +5,7 @@ import { withMockedConsole } from '../../../tests/utils/console';
 describe('EcNavigationLink', () => {
   it('should throw an error if prop text was not given', () => {
     withMockedConsole((errorSpy) => {
-      mount(EcNavigationLink, {
-        stubs: ['router-link'],
-      });
+      mount(EcNavigationLink);
       expect(errorSpy).toHaveBeenCalled();
       expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "text"');
     });
@@ -16,7 +14,6 @@ describe('EcNavigationLink', () => {
   it('should throw an error if prop url was not given', () => {
     withMockedConsole((errorSpy) => {
       mount(EcNavigationLink, {
-        stubs: ['router-link'],
         propsData: {
           text: 'Random text',
         },
@@ -38,7 +35,6 @@ describe('EcNavigationLink', () => {
 
       return mount(EcNavigationLink, {
         propsData,
-        stubs: ['router-link'],
         ...mountOpts,
       });
     }

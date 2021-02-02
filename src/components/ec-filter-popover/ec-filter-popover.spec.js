@@ -7,13 +7,13 @@ const numberOfSelectedFilters = 0;
 
 function mountEcFilterPopover(props, mountOpts) {
   return mount(EcFilterPopover, {
-    stubs: { EcPopover: true },
     propsData: {
       ...props,
     },
     ...mountOpts,
   });
 }
+
 describe('EcFilterPopover', () => {
   it('should throw an error if no label prop were given', () => {
     withMockedConsole((errorSpy) => {
@@ -41,7 +41,7 @@ describe('EcFilterPopover', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('numberOfSelectedFilters should be visible if it\'s value is greater than 0 ', () => {
+  it('numberOfSelectedFilters should be visible if it\'s value is greater than 0', () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters: 5 });
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -57,7 +57,7 @@ describe('EcFilterPopover', () => {
 
   it('should set the open status of the popover', async () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
-    await wrapper.find('ecpopover-stub').vm.$emit('update:open', true);
+    await wrapper.findByDataTest('ec-popover-stub').vm.$emit('update:open', true);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

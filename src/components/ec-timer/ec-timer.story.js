@@ -20,8 +20,13 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const basic = Template.bind({});
-
 basic.args = {
   seconds: 20,
   isRunning: true,
+};
+
+export const stopped = Template.bind({});
+stopped.args = {
+  seconds: 30,
+  isRunning: false,
 };

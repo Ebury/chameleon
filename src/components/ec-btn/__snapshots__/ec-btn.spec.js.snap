@@ -355,17 +355,11 @@ exports[`EcBtn :props should render a rounded button when the "isRounded" is set
 `;
 
 exports[`EcBtn :props should render a router link when we define the "to" prop 1`] = `
-<router-link-stub
+<ec-stub
   class="ec-btn ec-btn--md"
-  data-test="ec-btn"
+  data-test="ec-btn ec-stub router-link-stub"
   to="trade-finance"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</router-link-stub>
+/>
 `;
 
 exports[`EcBtn :props should render a router link with a custom tag when we define the "tag option" 1`] = `
@@ -383,17 +377,11 @@ exports[`EcBtn :props should render a router link with a custom tag when we defi
 `;
 
 exports[`EcBtn :props should render a router link with route object 1`] = `
-<router-link-stub
+<ec-stub
   class="ec-btn ec-btn--md"
-  data-test="ec-btn"
+  data-test="ec-btn ec-stub router-link-stub"
   to="Route with name 'trade-finance'"
->
-  <!---->
-   
-  <!---->
-   
-  <!---->
-</router-link-stub>
+/>
 `;
 
 exports[`EcBtn :props should render an <a> element when we define the "href" prop 1`] = `

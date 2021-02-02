@@ -5,7 +5,6 @@ import { withMockedConsole } from '../../../tests/utils/console';
 function mountSubmenu(props, mountOpts) {
   return mount(EcSubmenu, {
     propsData: { ...props },
-    stubs: ['router-link'],
     ...mountOpts,
   });
 }
@@ -22,7 +21,6 @@ function mountSubmenuAsTemplate(template, props, wrapperComponentOpts, mountOpts
   return mount(Component, {
     localVue,
     propsData: { ...props },
-    stubs: ['router-link'],
     ...mountOpts,
   });
 }

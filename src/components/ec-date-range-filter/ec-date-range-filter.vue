@@ -3,7 +3,7 @@
     :label="label"
     :number-of-selected-filters="numberOfSelectedFilters"
     :popover-options="popoverOptions"
-    data-test="ec-date-range-filter__trigger"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-date-range-filter__trigger` : 'ec-date-range-filter__trigger'"
   >
     <template #filter>
       <div
@@ -18,8 +18,9 @@
             type="date"
             placeholder="dd/mm/yyyy"
             :label="fromLabelText"
-            :error-message="errorMessage"
+            :error-message="fromErrorMessage"
             :max="toValueDate"
+            @blur="onBlur()"
           />
           <ec-input-field
             v-model="toValueDate"
@@ -28,9 +29,16 @@
             type="date"
             placeholder="dd/mm/yyyy"
             :label="toLabelText"
+            :error-message="toErrorMessage"
             :min="fromValueDate"
+            @blur="onBlur()"
           />
         </div>
+        <p
+          v-if="dateRangeErrorMessage"
+          class="ec-date-range-filter__error-text"
+          data-test="ec-date-range-filter__error-text"
+        >{{ dateRangeErrorMessage }}</p>
         <button
           type="button"
           :disabled="isDisabled"
@@ -42,7 +50,6 @@
     </template>
   </ec-filter-popover>
 </template>
-
 <script>
 import EcInputField from '../ec-input-field';
 import EcFilterPopover from '../ec-filter-popover';
@@ -75,7 +82,17 @@ export default {
       required: false,
       default: 'Clear dates',
     },
-    errorMessage: {
+    fromErrorMessage: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    toErrorMessage: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    dateRangeErrorMessage: {
       type: String,
       required: false,
       default: '',
@@ -90,7 +107,7 @@ export default {
   computed: {
     fromValueDate: {
       get() {
-        return this.value.from;
+        return this.value?.from;
       },
       set(value) {
         this.$emit('change', { from: value, to: this.toValueDate });
@@ -98,7 +115,7 @@ export default {
     },
     toValueDate: {
       get() {
-        return this.value.to;
+        return this.value?.to;
       },
       set(value) {
         this.$emit('change', { from: this.fromValueDate, to: value });
@@ -106,7 +123,6 @@ export default {
     },
     numberOfSelectedFilters() {
       let dateSelected = 0;
-
       if (this.fromValueDate && this.toValueDate) {
         dateSelected = 2;
       } else if (this.fromValueDate || this.toValueDate) {
@@ -120,18 +136,24 @@ export default {
   },
   methods: {
     clear() {
-      this.$emit('clear');
+      this.$emit('change', null);
+    },
+    onBlur() {
+      this.$emit('blur', { from: this.fromValueDate, to: this.toValueDate });
     },
   },
 };
 </script>
-
 <style>
 .ec-date-range-filter {
   @apply tw-px-20 tw-py-16;
 
   &__to-input {
     @apply tw-pt-20;
+  }
+
+  &__error-text {
+    @apply tw-help-text tw-text-error;
   }
 
   &__clear-button {
@@ -147,6 +169,10 @@ export default {
 
     &:hover {
       @apply tw-cursor-pointer;
+    }
+
+    &:focus {
+      @apply tw-outline-none;
     }
   }
 }

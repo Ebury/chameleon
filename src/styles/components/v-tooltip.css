@@ -91,7 +91,7 @@
   }
 
   &[x-placement^='right'] {
-    @apply tw-text-center;
+    @apply tw-text-right;
 
     margin-left: var(--ec-tooltip-width-value);
 
@@ -108,7 +108,7 @@
   }
 
   &[x-placement^='left'] {
-    @apply tw-text-center;
+    @apply tw-text-left;
 
     margin-right: var(--ec-tooltip-width-value);
 

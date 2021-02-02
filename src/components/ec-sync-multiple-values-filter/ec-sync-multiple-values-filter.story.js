@@ -6,7 +6,7 @@ export default {
   component: EcSyncMultipleValuesFilter,
 };
 
-export const basic = (args, { argTypes }) => ({
+const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { EcSyncMultipleValuesFilter, EcCheckbox },
   data() {
@@ -30,7 +30,7 @@ export const basic = (args, { argTypes }) => ({
       :items="items"
       :is-searchable="false"
       :is-select-all="isSelectAll"
-      :selectAllFiltersText="selectAllFiltersText"
+      :select-all-filters-text="selectAllFiltersText"
       :popover-options="{ open: true }"
     />
   `,
@@ -42,7 +42,7 @@ const items = [{
     name: 'rounded-check',
     type: 'success',
   },
-  text: 'Success',
+  text: 'Success (this text should be too long to display, this is the reason why we have ellipsis)',
 }, {
   value: 'Partially paid',
   icon: {
@@ -79,6 +79,7 @@ const items = [{
   },
   text: 'Not paid (Value date not reached)',
 }];
+export const basic = Template.bind({});
 
 basic.args = {
   label: 'Status',

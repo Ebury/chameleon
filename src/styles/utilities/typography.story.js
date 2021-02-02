@@ -11,6 +11,7 @@ stories.add('basic', () => ({
         'tw-mini-header', 'tw-table-header',
         'tw-small-text', 'tw-caption-text',
         'tw-input-label', 'tw-btn-text', 'tw-flags-text',
+        'tw-help-text',
       ],
     };
   },

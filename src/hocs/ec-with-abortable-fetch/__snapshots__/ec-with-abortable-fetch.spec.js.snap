@@ -34,6 +34,76 @@ Object {
 }
 `;
 
+exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 1`] = `
+Object {
+  "data": null,
+  "error": [Error: Random error],
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      undefined,
+      AbortSignal {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 3`] = `
+Array [
+  Array [
+    [Error: Random error],
+  ],
+]
+`;
+
+exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 4`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 5`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "anotherProp": 2,
+      },
+      AbortSignal {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 6`] = `
+Object {
+  "data": Object {
+    "result": 1,
+  },
+  "error": null,
+  "loading": false,
+}
+`;
+
 exports[`EcWithAbortableFetch should re-fetch the data if arguments change 1`] = `
 Object {
   "data": null,

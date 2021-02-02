@@ -37,6 +37,9 @@
         dominant-baseline="central"
         text-anchor="middle"
       >
+        <!--
+        @slot Additional text
+      -->
         {{ secondsLeft }}<slot>s</slot>
       </text>
     </svg>
@@ -47,6 +50,9 @@
 export default {
   name: 'EcTimer',
   props: {
+    /**
+     * Seconds to finish the countdown
+    */
     seconds: {
       type: Number,
       required: true,
@@ -54,6 +60,9 @@ export default {
         return Number.isInteger(value) && value > 0;
       },
     },
+    /**
+     * Indicates if the countdown is running
+    */
     isRunning: {
       type: Boolean,
       required: true,
@@ -114,6 +123,11 @@ export default {
       this.secondsLeft = this.seconds - this.timeDifference;
       if (this.timeDifference >= this.seconds) {
         clearInterval(this.timerInterval);
+        /**
+         * Emited after the countdown is finish
+         * @event time-expired
+         * @type {void}
+        */
         this.$emit('time-expired');
       }
     },
