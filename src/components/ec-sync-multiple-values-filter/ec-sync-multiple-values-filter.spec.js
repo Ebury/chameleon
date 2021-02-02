@@ -29,7 +29,6 @@ const selectAllFiltersText = 'Select all test';
 
 function mountEcSyncMultipleValuesFilter(props, mountOpts) {
   return mount(EcSyncMultipleValuesFilter, {
-    stubs: { EcPopover: true },
     propsData: {
       ...props,
     },

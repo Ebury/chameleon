@@ -1,7 +1,7 @@
 <template>
   <div
     class="ec-sync-multiple-values-filter"
-    data-test="ec-sync-multiple-values-filter"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-sync-multiple-values-filter` : 'ec-sync-multiple-values-filter'"
   >
 
     <ec-filter-popover

@@ -19,7 +19,6 @@ describe('EcDropdownSearch', () => {
     return mount(EcDropdownSearch, {
       localVue,
       propsData: { ...props },
-      stubs: { EcPopover: true },
       ...mountOpts,
     });
   }
@@ -37,7 +36,6 @@ describe('EcDropdownSearch', () => {
     return mount(Component, {
       localVue,
       propsData: { ...props },
-      stubs: { EcPopover: true },
       ...mountOpts,
     });
   }
@@ -143,6 +141,19 @@ describe('EcDropdownSearch', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render given cta slot with a tooltip', () => {
+    const wrapper = mountDropdownSearch({
+      items,
+      tooltipCta: 'Random tooltip',
+    }, {
+      scopedSlots: {
+        cta: '<button>My CTA</button>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render all given items', () => {
     const wrapper = mountDropdownSearch({ items });
     expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
@@ -170,7 +181,7 @@ describe('EcDropdownSearch', () => {
 
   it('should disable the popover when disabled is set', () => {
     const wrapper = mountDropdownSearch({ disabled: true });
-    expect(wrapper.find('ecpopover-stub').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-popover-stub').element).toMatchSnapshot();
   });
 
   it('should use and update the v-model', async () => {
@@ -220,13 +231,11 @@ describe('EcDropdownSearch', () => {
 
     expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
 
-    wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers.forEach((itemWrapper) => {
-      if (itemWrapper.classes('ec-dropdown-search__item--is-disabled')) {
-        expect(itemWrapper.attributes('mocked-tooltip-content')).toBe('Random text');
-      } else {
-        expect(itemWrapper.attributes('mocked-tooltip-content')).toBeUndefined();
-      }
-    });
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--0').attributes('mocked-tooltip-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--1').attributes('mocked-tooltip-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--2').attributes('mocked-tooltip-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--3').attributes('mocked-tooltip-content')).toBe('Random text');
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--4').attributes('mocked-tooltip-content')).toBeUndefined();
   });
 
   it('should merge given tooltipOptions and item.tooltip prop', () => {
@@ -345,16 +354,16 @@ describe('EcDropdownSearch', () => {
   });
 
   describe('events', () => {
-    // .find('stub').trigger('event') does nothing, so we need to emit the event from inside of the stubbed
+    // .findByDataTest('stub').trigger('event') does nothing, so we need to emit the event from inside of the stubbed
     // component using .vm.$emit('event');
 
     it('should propagate show and hide events from popover to the parent', () => {
       const wrapper = mountDropdownSearch();
 
-      wrapper.find('ecpopover-stub').vm.$emit('show');
+      wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
       expect(wrapper.emitted('open').length).toBe(1);
 
-      wrapper.find('ecpopover-stub').vm.$emit('hide');
+      wrapper.findByDataTest('ec-popover-stub').vm.$emit('hide');
       expect(wrapper.emitted('close').length).toBe(1);
     });
 
@@ -367,15 +376,15 @@ describe('EcDropdownSearch', () => {
       });
 
       expect(document.activeElement).toBe(document.body);
-      await wrapper.find('ecpopover-stub').vm.$emit('show');
-      await wrapper.find('ecpopover-stub').vm.$emit('apply-show');
+      await wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
+      await wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
     });
 
     it('should hide the popover after item has been selected', async () => {
       const wrapper = mountDropdownSearch({ items });
-      wrapper.find('ecpopover-stub').vm.$emit('show');
+      wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
       await wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers[1].trigger('click');
 
       expect(wrapper.emitted('close').length).toBe(1);

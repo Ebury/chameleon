@@ -25,6 +25,7 @@
     >
       <div
         v-if="isCurrenciesDisabled"
+        v-ec-tooltip="currenciesTooltipOptions"
         class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
         :class="{ 'ec-currency-input__currencies--is-disabled-and-has-error': isInvalid }"
         data-test="ec-currency-input__currencies"
@@ -61,6 +62,7 @@
         :error-message="errorMessage"
         :disabled="isAmountDisabled"
         :is-sensitive="isSensitive"
+        :placeholder="amountPlaceholder"
         is-in-group="left"
         class="ec-currency-input__amount"
         data-test="ec-currency-input__amount"
@@ -74,7 +76,18 @@
       v-if="isInvalid"
       data-test="ec-currency-input__error-text"
       class="ec-currency-input__error-text"
-    >{{ errorMessage }}</div>
+    >
+      <span>{{ errorMessage }}</span>
+      <ec-icon
+        v-if="isInvalid && errorTooltipMessage"
+        v-ec-tooltip="{ content: errorTooltipMessage }"
+        class="ec-currency-input__error-tooltip"
+        data-test="ec-currency-input__error-tooltip"
+        type="error"
+        name="simple-error"
+        :size="14"
+      />
+    </div>
 
     <div
       v-else-if="bottomNote"
@@ -90,7 +103,7 @@
         data-test="ec-currency-input__warning-tooltip"
         type="warning"
         name="simple-error"
-        :size="16"
+        :size="14"
       />
     </div>
   </div>
@@ -141,12 +154,18 @@ export default {
     errorMessage: {
       type: String,
     },
+    errorTooltipMessage: {
+      type: String,
+    },
     currencies: {
       type: Array,
     },
     currenciesAreLoading: {
       type: Boolean,
       default: false,
+    },
+    disabledCurrenciesTooltip: {
+      type: Object,
     },
     isCurrenciesDisabled: {
       type: Boolean,
@@ -159,6 +178,9 @@ export default {
     isSensitive: {
       type: Boolean,
       default: false,
+    },
+    amountPlaceholder: {
+      type: String,
     },
     searchCurrencyPlaceholder: {
       type: String,
@@ -199,6 +221,13 @@ export default {
     },
     currenciesItems() {
       return this.currencies.map(currency => ({ text: currency, value: currency, id: currency }));
+    },
+    currenciesTooltipOptions() {
+      const { content, placement = 'top' } = this.disabledCurrenciesTooltip || {};
+      if (!content) {
+        return null;
+      }
+      return { content, placement };
     },
     currencyModel: {
       get() {
@@ -290,22 +319,25 @@ export default {
   }
 
   &__error-text {
-    @apply tw-flags-text;
-    @apply tw-text-error;
+    @apply tw-flex tw-items-start;
+    @apply tw-help-text tw-text-error;
+    @apply tw-mt-4;
   }
 
   &__bottom-note {
-    @apply tw-flex tw-items-center;
-    @apply tw-caption-text;
+    @apply tw-flex tw-items-start;
+    @apply tw-help-text;
     @apply tw-mt-4;
 
     &--is-warning {
-      @apply tw-text-warning;
+      @apply tw-text-warning-dark;
     }
   }
 
+  &__error-tooltip,
   &__warning-tooltip {
-    @apply tw-ml-4;
+    @apply tw-flex-shrink-0;
+    @apply tw-ml-1 tw-mt-1;
     @apply tw-outline-none;
   }
 }

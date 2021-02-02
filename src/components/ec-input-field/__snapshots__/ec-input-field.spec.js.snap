@@ -163,9 +163,9 @@ exports[`EcInputField renders properly when the labelTooltip prop is set 1`] = `
     >
       label test
       <svg
-        class="ec-input-field__tooltip ec-icon ec-icon--interactive ec-has-tooltip"
-        data-original-title="null"
-        data-test="ec-input-field__tooltip"
+        class="ec-input-field__tooltip ec-icon ec-icon--interactive"
+        data-ec-tooltip-mock-content="Testing the labelTooltip prop"
+        data-test="ec-input-field__tooltip ec-mock ec-tooltip-mock"
         height="14"
         width="14"
       >

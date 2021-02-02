@@ -13,6 +13,7 @@
     :popper-modifiers="popperModifiers"
     :popover-options="popoverOptions"
     :is-sensitive="isSensitive"
+    :tooltip-cta="tooltipCta"
     @change="onSelected"
     @open="$emit('open')"
     @after-open="$emit('after-open')"
@@ -143,6 +144,10 @@ export default {
     popoverOptions: {
       type: Object,
       default: null,
+    },
+    tooltipCta: {
+      type: String,
+      default: '',
     },
   },
   data() {

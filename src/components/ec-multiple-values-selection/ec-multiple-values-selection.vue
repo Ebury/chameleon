@@ -67,6 +67,8 @@
         <ec-checkbox
           checked
           class="ec-multiple-values-selection__checkbox"
+          :is-single-line="true"
+          :label="item.text"
           @checked-value-change="onDeselect(item)"
         >
           <template #label>
@@ -95,6 +97,8 @@
         <ec-checkbox
           class="ec-multiple-values-selection__checkbox"
           data-test="ec-multiple-values-selection__checkbox-select"
+          :is-single-line="true"
+          :label="item.text"
           @checked-value-change="onSelect(item)"
         >
           <template #label>
@@ -167,6 +171,7 @@ export default {
     }, // TODO ONL-4911
     selectAllFiltersText: {
       type: String,
+      default: '',
     }, // TODO ONL-4911
     searchFilterPlaceholder: {
       type: String,
@@ -261,12 +266,14 @@ export default {
 
   &__icon {
     @apply tw-mr-8;
+    @apply tw-flex-shrink-0;
   }
 
   &__label-text {
     @apply tw-m-0;
     @apply tw-inline;
     @apply tw-text-gray-3;
+    @apply tw-truncate;
   }
 
   &__no-results-wrapper {

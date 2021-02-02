@@ -35,6 +35,15 @@ describe('EcCheckbox', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
+    it(':isSingleLine - should render the checkbox with in a single line with the label as a title', () => {
+      const wrapper = mountCheckbox({
+        label: 'Test is single line prop',
+        isSingleLine: true,
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it(':error-message - should render the checkbox with an error message', () => {
       const wrapper = mountCheckbox({
         'error-message': 'Test error message prop',

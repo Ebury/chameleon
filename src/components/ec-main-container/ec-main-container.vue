@@ -11,6 +11,14 @@
         <div
           :class="{ 'tw-col-full': true, 'sm:tw-col-9': hasCtaSlot() }"
         >
+          <div
+            v-if="hasBreadcrumbs()"
+            data-test="ec-main-container__breadcrumbs"
+            class="ec-main-container__breadcrumbs"
+          >
+            <slot name="breadcrumbs" />
+          </div>
+
           <h1
             data-test="ec-main-container__title"
             class="ec-main-container__title"
@@ -52,6 +60,9 @@ export default {
     hasCtaSlot() {
       return !!this.$scopedSlots.cta;
     },
+    hasBreadcrumbs() {
+      return !!this.$scopedSlots.breadcrumbs;
+    },
   },
 };
 </script>
@@ -70,6 +81,10 @@ export default {
     @apply tw-body-text;
     @apply tw-text-gray-4;
     @apply tw-mt-8 tw-mb-0;
+  }
+
+  &__breadcrumbs {
+    @apply tw-mb-16;
   }
 }
 </style>

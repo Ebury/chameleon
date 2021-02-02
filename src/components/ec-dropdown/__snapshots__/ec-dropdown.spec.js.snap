@@ -3,7 +3,19 @@
 exports[`EcDropdown #slots should forward CTA slot 1`] = `
 <li
   class="ec-dropdown-search__cta-area"
-  data-test="ec-dropdown-search__cta-area"
+  data-test="ec-dropdown-search__cta-area ec-mock ec-tooltip-mock"
+>
+  <button>
+    My CTA
+  </button>
+</li>
+`;
+
+exports[`EcDropdown #slots should forward CTA slot with tooltip 1`] = `
+<li
+  class="ec-dropdown-search__cta-area"
+  data-ec-tooltip-mock-content="Random tooltip"
+  data-test="ec-dropdown-search__cta-area ec-mock ec-tooltip-mock"
 >
   <button>
     My CTA
@@ -22,7 +34,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
    
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
     title="Item 1"
   >
     <div>
@@ -31,7 +43,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
   </li>
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
     title="Item 2"
   >
     <div>
@@ -40,7 +52,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
   </li>
   <li
     class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
     title="Item 3"
   >
     <div>
@@ -48,9 +60,11 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
     </div>
   </li>
   <li
-    class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled ec-has-tooltip"
-    data-original-title="Item 4"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
+    class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+    data-ec-tooltip-mock-content="Random text"
+    data-ec-tooltip-mock-placement="right"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+    title="Item 4"
   >
     <div>
       (3) Item 4 - false
@@ -58,7 +72,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
   </li>
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
     title="Item 5"
   >
     <div>
@@ -95,11 +109,10 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
   class="ec-dropdown-search ec-dropdown"
   data-test="ec-dropdown"
 >
-  <div
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-popover-stub=""
-    data-test="ec-popover-dropdown-search"
-    disabled="disabled"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="true"
     offset="8"
     placement="bottom"
     popoverinnerclass="ec-dropdown-search__popover"
@@ -139,7 +152,7 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
        
       <!---->
     </div>
-     
+      
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -151,7 +164,7 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
          
       </ul>
     </div>
-  </div>
+  </ec-stub>
 </div>
 `;
 
@@ -160,10 +173,9 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
   class="ec-dropdown-search ec-dropdown"
   data-test="ec-dropdown"
 >
-  <div
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-popover-stub=""
-    data-test="ec-popover-dropdown-search"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
     popoverinnerclass="ec-dropdown-search__popover"
@@ -202,7 +214,7 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
        
       <!---->
     </div>
-     
+      
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -246,7 +258,7 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
         </li>
       </ul>
     </div>
-  </div>
+  </ec-stub>
 </div>
 `;
 
@@ -275,10 +287,9 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
   class="ec-dropdown-search ec-dropdown"
   data-test="ec-dropdown"
 >
-  <div
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-popover-stub=""
-    data-test="ec-popover-dropdown-search"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
     popoverinnerclass="ec-dropdown-search__popover"
@@ -317,7 +328,7 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
        
       <!---->
     </div>
-     
+      
     <div>
       <ul
         class="ec-dropdown-search__item-list my-sensitive-content-test-class"
@@ -329,7 +340,7 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
          
       </ul>
     </div>
-  </div>
+  </ec-stub>
 </div>
 `;
 
@@ -371,10 +382,9 @@ exports[`EcDropdown should render as expected 1`] = `
   class="ec-dropdown-search ec-dropdown"
   data-test="ec-dropdown"
 >
-  <div
+  <ec-stub
     class="ec-dropdown-search__trigger"
-    data-popover-stub=""
-    data-test="ec-popover-dropdown-search"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     offset="8"
     placement="bottom"
     popoverinnerclass="ec-dropdown-search__popover"
@@ -413,7 +423,7 @@ exports[`EcDropdown should render as expected 1`] = `
        
       <!---->
     </div>
-     
+      
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -425,7 +435,7 @@ exports[`EcDropdown should render as expected 1`] = `
          
       </ul>
     </div>
-  </div>
+  </ec-stub>
 </div>
 `;
 

@@ -247,9 +247,9 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
         </span>
          
         <svg
-          class="ec-table-head__icon ec-icon ec-icon--interactive ec-has-tooltip"
-          data-original-title="null"
-          data-test="ec-table-head__tooltip-icon"
+          class="ec-table-head__icon ec-icon ec-icon--interactive"
+          data-ec-tooltip-mock-content="tooltip example"
+          data-test="ec-table-head__tooltip-icon ec-mock ec-tooltip-mock"
           height="16"
           width="16"
         >
@@ -279,9 +279,9 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
         </span>
          
         <svg
-          class="ec-table-head__icon ec-icon ec-icon--interactive ec-has-tooltip"
-          data-original-title="null"
-          data-test="ec-table-head__tooltip-icon"
+          class="ec-table-head__icon ec-icon ec-icon--interactive"
+          data-ec-tooltip-mock-content="tooltip example"
+          data-test="ec-table-head__tooltip-icon ec-mock ec-tooltip-mock"
           height="16"
           width="16"
         >
@@ -310,9 +310,9 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
         </span>
          
         <svg
-          class="ec-table-head__icon ec-icon ec-icon--interactive ec-has-tooltip"
-          data-original-title="null"
-          data-test="ec-table-head__tooltip-icon"
+          class="ec-table-head__icon ec-icon ec-icon--interactive"
+          data-ec-tooltip-mock-content="tooltip example"
+          data-test="ec-table-head__tooltip-icon ec-mock ec-tooltip-mock"
           height="16"
           width="16"
         >

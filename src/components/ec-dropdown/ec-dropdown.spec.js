@@ -1,23 +1,14 @@
-import Vue from 'vue';
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcDropdown from './ec-dropdown.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcDropdown', () => {
-  const MockedEcPopover = Vue.extend({
-    methods: {
-      update: jest.fn(),
-    },
-    template: '<div data-popover-stub><slot /><slot name="popover" /></div>',
-  });
-
   function mountDropdown(props, mountOpts) {
     const localVue = createLocalVue();
 
     return mount(EcDropdown, {
       localVue,
       propsData: { ...props },
-      stubs: { EcPopover: MockedEcPopover },
       ...mountOpts,
     });
   }
@@ -34,7 +25,6 @@ describe('EcDropdown', () => {
     return mount(Component, {
       localVue,
       propsData: { ...props },
-      stubs: { EcPopover: MockedEcPopover },
       ...mountOpts,
     });
   }
@@ -155,6 +145,17 @@ describe('EcDropdown', () => {
 
     it('should forward CTA slot', () => {
       const wrapper = mountDropdown({}, {
+        scopedSlots: {
+          cta: '<button>My CTA</button>',
+        },
+      });
+      expect(wrapper.findByDataTest('ec-dropdown-search__cta-area').element).toMatchSnapshot();
+    });
+
+    it('should forward CTA slot with tooltip', () => {
+      const wrapper = mountDropdown({
+        tooltipCta: 'Random tooltip',
+      }, {
         scopedSlots: {
           cta: '<button>My CTA</button>',
         },
