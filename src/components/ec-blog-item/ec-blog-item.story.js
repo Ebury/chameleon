@@ -4,15 +4,26 @@ import EcBlogItem from './ec-blog-item.vue';
 
 const stories = storiesOf('Blog Item', module);
 
-stories.add('all', () => ({
+stories.add('basic', () => ({
   components: { EcBlogItem },
   data() {
     return {
-      id: 1,
-      title: 'Post 1',
-      author: 'Author 1',
-      category: 'Category 1',
-      featuredImage: 'Image 1',
+      posts: [
+        {
+          id: 1,
+          title: 'Dollars claws background after worst month in 10 years.',
+          author: 'Enrique Díaz-Álvarez',
+          category: 'CURRENCY UPDATES',
+          featuredImage: 'https://ebury.com/wp-content/uploads/2020/02/iStock-173802956-scaled.jpg',
+        },
+        {
+          id: 2,
+          title: 'Investors favour dollar on diverging economic data',
+          author: 'Matthew Ryan',
+          category: 'CURRENCY UPDATES',
+          featuredImage: 'https://ebury.com/wp-content/uploads/2020/04/iStock-1162461465-scaled.jpg',
+        },
+      ],
     };
   },
   props: {
@@ -29,14 +40,23 @@ stories.add('all', () => ({
       default: text('featuredImage', 'https://ebury.com/wp-content/uploads/2020/02/iStock-173802956-scaled.jpg'),
     },
   },
+  methods: {
+    addPost() {
+      this.posts.push({
+        id: this.id,
+        title: this.title,
+        author: this.author,
+        category: this.category,
+        featuredImage: this.featuredImage,
+      });
+    },
+  },
 
   render() {
     return (
-      <div>
         <div>
-          <EcBlogItem title={this.title} author={this.author} category={this.category} featuredImage={this.featuredImage} />
+          <EcBlogItem posts={this.posts} />
         </div>
-      </div>
     );
   },
 }));

@@ -1,12 +1,15 @@
 import { mount } from '@vue/test-utils';
 import EcBlogItem from './ec-blog-item.vue';
 
-const post = {
-  title: 'title',
-  author: 'author',
-  category: 'category',
-  featuredImage: 'https://ebury.com/wp-content/uploads/2020/02/iStock-173802956-scaled.jpg',
-};
+const posts = [
+  {
+    id: 1,
+    title: 'Post 1',
+    author: 'Author 1',
+    category: 'Category 1',
+    featuredImage: 'Image 1',
+  },
+];
 
 function mountBlogItem(props, mountOpts) {
   return mount(EcBlogItem, {
@@ -18,9 +21,7 @@ function mountBlogItem(props, mountOpts) {
 describe('EcBlogItem', () => {
   describe('posts prop', () => {
     it('should render post', () => {
-      const wrapper = mountBlogItem({
-        title: post.title, author: post.author, category: post.category, featuredImage: post.featuredImage,
-      });
+      const wrapper = mountBlogItem({ posts });
       expect(wrapper.element).toMatchSnapshot();
     });
   });

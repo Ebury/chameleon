@@ -1,18 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcBlogItem posts prop should render post 1`] = `
-<div
+<transition-group-stub
   class="ec-main-container ec-blog-item"
+  tag="div"
 >
   <div
     class="tw-grid tw-border-b tw-border-solid tw-border-gray-6"
+    data-test="ec-blogItem__post"
   >
     <div
       class="tw-col-2"
     >
       <img
         class="tw-w-96 tw-h-96 tw-rounded"
-        src="https://ebury.com/wp-content/uploads/2020/02/iStock-173802956-scaled.jpg"
+        src="Image 1"
       />
     </div>
      
@@ -22,19 +24,21 @@ exports[`EcBlogItem posts prop should render post 1`] = `
       <p
         class="tw-mt-0 ec-blog-item__title"
       >
-        
-        title
-      
+         Post 1 
       </p>
        
-      <p>
-        author
+      <p
+        class="tw-mt-0 ec-blog-item__author "
+      >
+         Author 1 
       </p>
        
-      <p>
-        category
+      <p
+        class="tw-mt-0 ec-blog-item__category "
+      >
+         Category 1 
       </p>
     </div>
   </div>
-</div>
+</transition-group-stub>
 `;
