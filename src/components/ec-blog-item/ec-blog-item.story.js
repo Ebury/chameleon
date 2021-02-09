@@ -1,62 +1,32 @@
-import { storiesOf } from '@storybook/vue';
-import { text } from '@storybook/addon-knobs';
 import EcBlogItem from './ec-blog-item.vue';
 
-const stories = storiesOf('Blog Item', module);
+export default {
+  title: 'Blog Item',
+  component: EcBlogItem,
+};
 
-stories.add('basic', () => ({
-  components: { EcBlogItem },
-  data() {
-    return {
-      posts: [
-        {
-          id: 1,
-          title: 'Dollars claws background after worst month in 10 years.',
-          author: 'Enrique Díaz-Álvarez',
-          category: 'CURRENCY UPDATES',
-          featuredImage: 'https://ebury.com/wp-content/uploads/2020/02/iStock-173802956-scaled.jpg',
-        },
-        {
-          id: 2,
-          title: 'Investors favour dollar on diverging economic data',
-          author: 'Matthew Ryan',
-          category: 'CURRENCY UPDATES',
-          featuredImage: 'https://ebury.com/wp-content/uploads/2020/04/iStock-1162461465-scaled.jpg',
-        },
-      ],
-    };
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    EcBlogItem,
   },
-  props: {
-    title: {
-      default: text('title', 'Dollars claws background after worst month in 10 years.'),
-    },
-    author: {
-      default: text('author', 'A new author'),
-    },
-    category: {
-      default: text('category', 'A new category'),
-    },
-    featuredImage: {
-      default: text('featuredImage', 'https://ebury.com/wp-content/uploads/2020/02/iStock-173802956-scaled.jpg'),
-    },
-  },
-  methods: {
-    addPost() {
-      this.posts.push({
-        id: this.id,
-        title: this.title,
-        author: this.author,
-        category: this.category,
-        featuredImage: this.featuredImage,
-      });
-    },
-  },
-
-  render() {
-    return (
-        <div>
-          <EcBlogItem posts={this.posts} />
+  template: `
+      <div class=" ec-blog-item tw-grid tw-border-b tw-border-solid tw-border-gray-6" >
+        <div class="tw-col-2" >
+          <img class="tw-w-96 tw-h-96 tw-rounded" :src="featuredImage" >
         </div>
-    );
-  },
-}));
+        <div class="tw-col-10">
+          <p class="ec-blog-item__title" > {{ title }} </p>
+          <p> {{ author }} </p>
+          <p> {{ category }} </p>
+        </div>
+      </div>`,
+});
+
+export const basic = Template.bind({});
+basic.args = {
+  title: 'Dollars claws background after worst month in 10 years.',
+  author: 'Enrique Díaz-Álvarez',
+  category: 'CURRENCY UPDATES',
+  featuredImage: 'https://ebury.com/wp-content/uploads/2020/02/iStock-173802956-scaled.jpg',
+};

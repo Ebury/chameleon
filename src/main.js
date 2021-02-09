@@ -9,8 +9,8 @@ export { default as config } from './config';
 
 export { default as EcAlert } from './components/ec-alert';
 export { default as EcAmount } from './directives/ec-amount';
-export { default as EcAmountInput } from './components/ec-blog-item';
-export { default as EcBlogItem } from './components/ec-btn';
+export { default as EcAmountInput } from './components/ec-amount-input';
+export { default as EcBlogItem } from './components/ec-blog-item';
 export { default as EcBtn } from './components/ec-btn';
 export { default as EcButtonGroup } from './components/ec-button-group';
 export { default as EcCheckbox } from './components/ec-checkbox';

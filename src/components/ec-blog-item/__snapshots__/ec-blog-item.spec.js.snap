@@ -1,44 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcBlogItem posts prop should render post 1`] = `
-<transition-group-stub
-  class="ec-main-container ec-blog-item"
-  tag="div"
+exports[`EcBlogItem should render post  1`] = `
+<div
+  class="ec-blog-item tw-grid tw-border-b tw-border-solid tw-border-gray-6"
 >
   <div
-    class="tw-grid tw-border-b tw-border-solid tw-border-gray-6"
-    data-test="ec-blogItem__post"
+    class="tw-col-2"
   >
-    <div
-      class="tw-col-2"
-    >
-      <img
-        class="tw-w-96 tw-h-96 tw-rounded"
-        src="Image 1"
-      />
-    </div>
-     
-    <div
-      class="tw-col-10"
-    >
-      <p
-        class="tw-mt-0 ec-blog-item__title"
-      >
-         Post 1 
-      </p>
-       
-      <p
-        class="tw-mt-0 ec-blog-item__author "
-      >
-         Author 1 
-      </p>
-       
-      <p
-        class="tw-mt-0 ec-blog-item__category "
-      >
-         Category 1 
-      </p>
-    </div>
+    <img
+      class="tw-w-96 tw-h-96 tw-rounded"
+    />
   </div>
-</transition-group-stub>
+   
+  <div
+    class="tw-col-10"
+  >
+    <p
+      class="ec-blog-item__title"
+    >
+        
+    </p>
+     
+    <p>
+        
+    </p>
+     
+    <p>
+        
+    </p>
+  </div>
+</div>
 `;
