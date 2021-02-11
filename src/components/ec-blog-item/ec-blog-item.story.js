@@ -11,16 +11,12 @@ const Template = (args, { argTypes }) => ({
     EcBlogItem,
   },
   template: `
-      <div class=" ec-blog-item tw-grid tw-border-b tw-border-solid tw-border-gray-6" >
-        <div class="tw-col-2" >
-          <img class="tw-w-96 tw-h-96 tw-rounded" :src="featuredImage" >
-        </div>
-        <div class="tw-col-10">
-          <p class="ec-blog-item__title" > {{ title }} </p>
-          <p> {{ author }} </p>
-          <p> {{ category }} </p>
-        </div>
-      </div>`,
+  <ec-blog-item
+    :title="title"
+    :author="author"
+    :category="category"
+    :featuredImage="featuredImage"
+  />`,
 });
 
 export const basic = Template.bind({});

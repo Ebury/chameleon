@@ -1,23 +1,33 @@
 <template>
   <div
-    class="ec-blog-item tw-grid tw-border-b tw-border-solid tw-border-gray-6"
+    class="ec-blog-item"
   >
     <div
-      class="tw-col-2"
+      class="tw-grid tw-border-b tw-border-solid tw-border-gray-6"
     >
-      <img
-        class="tw-w-96 tw-h-96 tw-rounded"
-        :src="featuredImage"
+      <div
+        class="tw-col-2"
       >
-    </div>
-    <div
-      class="tw-col-10"
-    >
-      <p
-        class="ec-blog-item__title"
-      > {{ title }} </p>
-      <p> {{ author }} </p>
-      <p> {{ category }} </p>
+        <img
+          class="tw-w-96 tw-h-96 tw-rounded"
+          :src="featuredImage"
+        >
+      </div>
+      <div
+        class="tw-col-10"
+      >
+        <p
+          class="ec-blog-item__title"
+        >
+          {{ title }}
+        </p>
+        <p>
+          {{ author }}
+        </p>
+        <p>
+          {{ category }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
