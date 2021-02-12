@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcBlogItem should render blog item author 1`] = `
+exports[`EcBlogItem should render post 1`] = `
 <div
   class="ec-blog-item"
 >
@@ -9,7 +9,7 @@ exports[`EcBlogItem should render blog item author 1`] = `
   >
     <img
       class="ec-blog-item__featuredImage"
-      src="featuredImage"
+      src="https://ebury.com/wp-content/uploads/2020/02/iStock-173802956-scaled.jpg"
     />
   </div>
    
@@ -20,136 +20,19 @@ exports[`EcBlogItem should render blog item author 1`] = `
       class="ec-blog-item__title"
     >
       
-      title
+      Title example
     
     </p>
      
     <p>
       
-      author
+      Author example
     
     </p>
      
     <p>
       
-      category
-    
-    </p>
-  </div>
-</div>
-`;
-
-exports[`EcBlogItem should render blog item category 1`] = `
-<div
-  class="ec-blog-item"
->
-  <div
-    class="ec-blog-item__featuredImageColumn"
-  >
-    <img
-      class="ec-blog-item__featuredImage"
-      src="featuredImage"
-    />
-  </div>
-   
-  <div
-    class="ec-blog-item__infoColumnm"
-  >
-    <p
-      class="ec-blog-item__title"
-    >
-      
-      title
-    
-    </p>
-     
-    <p>
-      
-      author
-    
-    </p>
-     
-    <p>
-      
-      category
-    
-    </p>
-  </div>
-</div>
-`;
-
-exports[`EcBlogItem should render blog item featuredImage 1`] = `
-<div
-  class="ec-blog-item"
->
-  <div
-    class="ec-blog-item__featuredImageColumn"
-  >
-    <img
-      class="ec-blog-item__featuredImage"
-      src="featuredImage"
-    />
-  </div>
-   
-  <div
-    class="ec-blog-item__infoColumnm"
-  >
-    <p
-      class="ec-blog-item__title"
-    >
-      
-      title
-    
-    </p>
-     
-    <p>
-      
-      author
-    
-    </p>
-     
-    <p>
-      
-      category
-    
-    </p>
-  </div>
-</div>
-`;
-
-exports[`EcBlogItem should render blog item title 1`] = `
-<div
-  class="ec-blog-item"
->
-  <div
-    class="ec-blog-item__featuredImageColumn"
-  >
-    <img
-      class="ec-blog-item__featuredImage"
-      src="featuredImage"
-    />
-  </div>
-   
-  <div
-    class="ec-blog-item__infoColumnm"
-  >
-    <p
-      class="ec-blog-item__title"
-    >
-      
-      title
-    
-    </p>
-     
-    <p>
-      
-      author
-    
-    </p>
-     
-    <p>
-      
-      category
+      category example
     
     </p>
   </div>
