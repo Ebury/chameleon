@@ -20,20 +20,20 @@ exports[`EcBlogItem should render blog item author 1`] = `
       class="ec-blog-item__title"
     >
       
-        title
-      
+      title
+    
     </p>
      
     <p>
       
-        author
-      
+      author
+    
     </p>
      
     <p>
       
-        category
-      
+      category
+    
     </p>
   </div>
 </div>
@@ -59,20 +59,20 @@ exports[`EcBlogItem should render blog item category 1`] = `
       class="ec-blog-item__title"
     >
       
-        title
-      
+      title
+    
     </p>
      
     <p>
       
-        author
-      
+      author
+    
     </p>
      
     <p>
       
-        category
-      
+      category
+    
     </p>
   </div>
 </div>
@@ -98,20 +98,20 @@ exports[`EcBlogItem should render blog item featuredImage 1`] = `
       class="ec-blog-item__title"
     >
       
-        title
-      
+      title
+    
     </p>
      
     <p>
       
-        author
-      
+      author
+    
     </p>
      
     <p>
       
-        category
-      
+      category
+    
     </p>
   </div>
 </div>
@@ -137,20 +137,20 @@ exports[`EcBlogItem should render blog item title 1`] = `
       class="ec-blog-item__title"
     >
       
-        title
-      
+      title
+    
     </p>
      
     <p>
       
-        author
-      
+      author
+    
     </p>
      
     <p>
       
-        category
-      
+      category
+    
     </p>
   </div>
 </div>
