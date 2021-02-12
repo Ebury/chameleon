@@ -1,43 +1,157 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcBlogItem should render post 1`] = `
+exports[`EcBlogItem should render blog item author 1`] = `
 <div
   class="ec-blog-item"
 >
   <div
-    class="tw-grid tw-border-b tw-border-solid tw-border-gray-6"
+    class="ec-blog-item__featuredImageColumn"
   >
-    <div
-      class="tw-col-2"
+    <img
+      class="ec-blog-item__featuredImage"
+      src="featuredImage"
+    />
+  </div>
+   
+  <div
+    class="ec-blog-item__infoColumnm"
+  >
+    <p
+      class="ec-blog-item__title"
     >
-      <img
-        class="tw-w-96 tw-h-96 tw-rounded"
-      />
-    </div>
+      
+        title
+      
+    </p>
      
-    <div
-      class="tw-col-10"
+    <p>
+      
+        author
+      
+    </p>
+     
+    <p>
+      
+        category
+      
+    </p>
+  </div>
+</div>
+`;
+
+exports[`EcBlogItem should render blog item category 1`] = `
+<div
+  class="ec-blog-item"
+>
+  <div
+    class="ec-blog-item__featuredImageColumn"
+  >
+    <img
+      class="ec-blog-item__featuredImage"
+      src="featuredImage"
+    />
+  </div>
+   
+  <div
+    class="ec-blog-item__infoColumnm"
+  >
+    <p
+      class="ec-blog-item__title"
     >
-      <p
-        class="ec-blog-item__title"
-      >
-        
-        
       
-      </p>
-       
-      <p>
-        
-        
+        title
       
-      </p>
-       
-      <p>
-        
-        
+    </p>
+     
+    <p>
       
-      </p>
-    </div>
+        author
+      
+    </p>
+     
+    <p>
+      
+        category
+      
+    </p>
+  </div>
+</div>
+`;
+
+exports[`EcBlogItem should render blog item featuredImage 1`] = `
+<div
+  class="ec-blog-item"
+>
+  <div
+    class="ec-blog-item__featuredImageColumn"
+  >
+    <img
+      class="ec-blog-item__featuredImage"
+      src="featuredImage"
+    />
+  </div>
+   
+  <div
+    class="ec-blog-item__infoColumnm"
+  >
+    <p
+      class="ec-blog-item__title"
+    >
+      
+        title
+      
+    </p>
+     
+    <p>
+      
+        author
+      
+    </p>
+     
+    <p>
+      
+        category
+      
+    </p>
+  </div>
+</div>
+`;
+
+exports[`EcBlogItem should render blog item title 1`] = `
+<div
+  class="ec-blog-item"
+>
+  <div
+    class="ec-blog-item__featuredImageColumn"
+  >
+    <img
+      class="ec-blog-item__featuredImage"
+      src="featuredImage"
+    />
+  </div>
+   
+  <div
+    class="ec-blog-item__infoColumnm"
+  >
+    <p
+      class="ec-blog-item__title"
+    >
+      
+        title
+      
+    </p>
+     
+    <p>
+      
+        author
+      
+    </p>
+     
+    <p>
+      
+        category
+      
+    </p>
   </div>
 </div>
 `;

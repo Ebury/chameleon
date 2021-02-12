@@ -3,31 +3,27 @@
     class="ec-blog-item"
   >
     <div
-      class="tw-grid tw-border-b tw-border-solid tw-border-gray-6"
+      class="ec-blog-item__featuredImageColumn"
     >
-      <div
-        class="tw-col-2"
+      <img
+        class="ec-blog-item__featuredImage"
+        :src="featuredImage"
       >
-        <img
-          class="tw-w-96 tw-h-96 tw-rounded"
-          :src="featuredImage"
-        >
-      </div>
-      <div
-        class="tw-col-10"
+    </div>
+    <div
+      class="ec-blog-item__infoColumnm"
+    >
+      <p
+        class="ec-blog-item__title"
       >
-        <p
-          class="ec-blog-item__title"
-        >
-          {{ title }}
-        </p>
-        <p>
-          {{ author }}
-        </p>
-        <p>
-          {{ category }}
-        </p>
-      </div>
+        {{ title }}
+      </p>
+      <p>
+        {{ author }}
+      </p>
+      <p>
+        {{ category }}
+      </p>
     </div>
   </div>
 </template>
@@ -37,16 +33,16 @@ export default {
   name: 'EcBlogItem',
   props: {
     title: {
-      type: Text,
+      type: String,
     },
     author: {
-      type: Text,
+      type: String,
     },
     category: {
-      type: Text,
+      type: String,
     },
     featuredImage: {
-      type: Text,
+      type: String,
     },
   },
 };
@@ -54,6 +50,25 @@ export default {
 
 <style>
 .ec-blog-item {
+  @apply tw-grid;
+  @apply tw-border-b;
+  @apply tw-border-solid;
+  @apply tw-border-gray-6;
+
+  &__featuredImageColumn {
+    @apply tw-col-2;
+  }
+
+  &__featuredImage {
+    @apply tw-w-96;
+    @apply tw-h-96;
+    @apply tw-rounded;
+  }
+
+  &__infoColumnm {
+    @apply tw-col-10;
+  }
+
   &__title {
     @apply input-label;
   }
