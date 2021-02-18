@@ -75,7 +75,7 @@
     "eslint": "7.19.0",
     "eslint-plugin-cypress": "2.11.2",
     "eslint-plugin-jest": "24.1.5",
-    "eslint-plugin-vue": "7.5.0",
+    "eslint-plugin-vue": "7.6.0",
     "intl": "1.2.5",
     "lint-staged": "10.5.4",
     "postcss-import": "12.0.1",
