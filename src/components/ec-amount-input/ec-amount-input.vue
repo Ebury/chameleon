@@ -1,6 +1,6 @@
 <template>
   <ec-input-field
-    v-model="formattedValue"
+    v-model="inputModel"
     v-ec-amount="getFormattingOptions()"
     v-bind="{
       ...$attrs,
@@ -67,6 +67,27 @@ export default {
       const options = new Intl.NumberFormat(this.locale, { style: 'currency', currency: this.currency || 'XYZ' }).resolvedOptions();
       return options.maximumFractionDigits;
     },
+    inputModel: {
+      get() {
+        return this.formattedValue;
+      },
+      set(newValue) {
+        const newValueFormatted = format(newValue, this.getFormattingOptions());
+        if (newValueFormatted !== newValue) {
+          // it seems that ec-amount directive didn't have chance to format the newValue yet.
+          // so ignore this attempt to set invalid/unprocessed value
+          return;
+        }
+
+        if (newValue === this.formattedValue) {
+          // the new value is exactly the same as the curent value, skip the assignment so it will not trigger other
+          // setters and watchers.
+          return;
+        }
+
+        this.formattedValue = newValue;
+      },
+    },
   },
   watch: {
     value: {
@@ -109,11 +130,25 @@ export default {
     },
     formattedValue(newValue) {
       if (newValue) {
-        this.unformattedValue = +(unFormat(newValue, this.getGroupingSeparator(), this.getDecimalSeparator()));
+        const unformattedValue = +(unFormat(newValue, this.getGroupingSeparator(), this.getDecimalSeparator()));
+        const hasUnformattedValueChanged = this.unformattedValue !== unformattedValue;
+        this.unformattedValue = unformattedValue;
+        if (this.isMasked) {
+          this.$emit('value-change', this.formattedValue);
+        } else {
+          if (Number.isNaN(unformattedValue) || !hasUnformattedValueChanged) {
+            // prevent emitting change events for NaN values or if the unformatted values hasn't changed.
+            // this can happen in cases like:
+            // 1. user types "-" into the input field -> unformattedValue will be NaN
+            // 2. user typed "1", then "1.", then "1.0" -> unformattedValue is always the same, only the formattedValue changes.
+            return;
+          }
+          this.$emit('value-change', this.unformattedValue);
+        }
       } else {
         this.unformattedValue = null;
+        this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
       }
-      this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
     },
     isMasked() {
       this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
