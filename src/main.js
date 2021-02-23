@@ -7,6 +7,8 @@ export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
 
 export { default as config } from './config';
 
+export { default as CountDown } from './utils/countdown';
+
 export { default as EcAlert } from './components/ec-alert';
 export { default as EcAmount } from './directives/ec-amount';
 export { default as EcAmountInput } from './components/ec-amount-input';
