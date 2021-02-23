@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import Countdown from '../../utils/countdown';
+
 export default {
   name: 'EcTimer',
   props: {
@@ -75,6 +77,7 @@ export default {
       secondsLeft: this.seconds,
       startTime: null,
       currentTime: null,
+      countdown: null,
     };
   },
   computed: {
@@ -93,43 +96,40 @@ export default {
     offset() {
       return this.circumference + this.steps * this.secondsLeft;
     },
-    timeDifference() {
-      return this.currentTime - this.startTime;
-    },
   },
   watch: {
     isRunning: {
       immediate: true,
       handler(value) {
         if (value) {
-          this.countdown();
+          this.startCountdown();
         } else {
-          clearInterval(this.timerInterval);
+          if (this.countdown) {
+            clearInterval(this.countdown.interval);
+          }
           this.secondsLeft = this.seconds;
         }
       },
     },
   },
   beforeDestroy() {
-    clearInterval(this.timerInterval);
+    clearInterval(this.countdown.interval);
   },
   methods: {
-    countdown() {
-      this.startTime = Math.ceil(Date.now() / 1000);
-      this.timerInterval = setInterval(this.reduceSecondsLeft, 1000);
-    },
-    reduceSecondsLeft() {
-      this.currentTime = Math.ceil(Date.now() / 1000);
-      this.secondsLeft = this.seconds - this.timeDifference;
-      if (this.timeDifference >= this.seconds) {
-        clearInterval(this.timerInterval);
+    startCountdown() {
+      this.countdown = new Countdown();
+      this.countdown.start(this.seconds);
+      this.countdown.on('time-updated', () => {
+        this.secondsLeft = this.countdown.secondsLeft;
+      });
+      this.countdown.on('time-expired', () => {
         /**
          * Emited after the countdown is finish
          * @event time-expired
          * @type {void}
         */
         this.$emit('time-expired');
-      }
+      });
     },
   },
 };
