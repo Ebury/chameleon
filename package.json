@@ -50,7 +50,7 @@
     "@storybook/addon-cssresources": "6.1.18",
     "@storybook/addon-links": "6.1.18",
     "@storybook/addon-knobs": "6.1.19",
-    "@storybook/addon-viewport": "6.1.18",
+    "@storybook/addon-viewport": "6.1.19",
     "@storybook/addons": "6.1.18",
     "@storybook/source-loader": "6.1.18",
     "@storybook/theming": "6.1.18",
