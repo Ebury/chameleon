@@ -77,7 +77,7 @@ export default {
       secondsLeft: this.seconds,
       startTime: null,
       currentTime: null,
-      countdown: null,
+      countdown: new Countdown(),
     };
   },
   computed: {
@@ -104,9 +104,7 @@ export default {
         if (value) {
           this.startCountdown();
         } else {
-          if (this.countdown) {
-            clearInterval(this.countdown.interval);
-          }
+          clearInterval(this.countdown.interval);
           this.secondsLeft = this.seconds;
         }
       },
@@ -117,7 +115,6 @@ export default {
   },
   methods: {
     startCountdown() {
-      this.countdown = new Countdown();
       this.countdown.start(this.seconds);
       this.countdown.on('time-updated', () => {
         this.secondsLeft = this.countdown.secondsLeft;
