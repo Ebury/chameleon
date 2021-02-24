@@ -1,4 +1,4 @@
-const EventEmitter = require('events');
+import EventEmitter from 'events';
 
 export default class Countdown extends EventEmitter {
   constructor(options) {
