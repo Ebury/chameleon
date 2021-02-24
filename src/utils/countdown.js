@@ -25,7 +25,6 @@ export default class Countdown {
   }
 
   stop() {
-    this.emitter.all.clear();
     clearInterval(this.interval);
   }
 }
