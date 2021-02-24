@@ -34,8 +34,8 @@ describe('Countdown', () => {
     const timeUpdatedMock = jest.fn();
     const countdown = new Countdown();
     countdown.start(20);
-    countdown.on('time-expired', timeExpiredMock);
-    countdown.on('time-updated', timeUpdatedMock);
+    countdown.emitter.on('time-expired', timeExpiredMock);
+    countdown.emitter.on('time-updated', timeUpdatedMock);
     clock.tick(20000);
 
     expect(timeExpiredMock).toBeCalledTimes(1);

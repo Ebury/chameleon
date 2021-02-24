@@ -1,17 +1,13 @@
-import EventEmitter from 'events';
+import mitt from 'mitt';
 
-export default class Countdown extends EventEmitter {
-  constructor(options) {
-    super();
-    this.options = options;
-  }
-
+export default class Countdown {
   start(secondsToGo) {
     this.seconds = secondsToGo;
     this.secondsLeft = secondsToGo;
-    this.currentTime = 0;
+    this.currentTime = Math.ceil(Date.now() / 1000);
     this.startTime = Math.ceil(Date.now() / 1000);
-    this.interval = setInterval(this.reduceSecondsLeft.bind(this), 1000);
+    this.interval = setInterval(() => this.reduceSecondsLeft(), 1000);
+    this.emitter = mitt();
   }
 
   get timeDifference() {
@@ -21,10 +17,14 @@ export default class Countdown extends EventEmitter {
   reduceSecondsLeft() {
     this.currentTime = Math.ceil(Date.now() / 1000);
     this.secondsLeft = this.seconds - this.timeDifference;
-    this.emit('time-updated');
-    if (this.timeDifference >= this.seconds) {
-      clearInterval(this.interval);
-      this.emit('time-expired');
+    this.emitter.emit('time-updated', this.secondsLeft);
+    if (this.secondsLeft <= 0) {
+      this.stop();
+      this.emitter.emit('time-expired');
     }
+  }
+
+  stop() {
+    clearInterval(this.interval);
   }
 }

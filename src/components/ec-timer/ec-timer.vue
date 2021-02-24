@@ -104,22 +104,23 @@ export default {
         if (value) {
           this.startCountdown();
         } else {
-          clearInterval(this.countdown.interval);
+          this.countdown.stop();
           this.secondsLeft = this.seconds;
         }
       },
     },
   },
   beforeDestroy() {
-    clearInterval(this.countdown.interval);
+    this.countdown.stop();
+    this.countdown = null;
   },
   methods: {
     startCountdown() {
       this.countdown.start(this.seconds);
-      this.countdown.on('time-updated', () => {
-        this.secondsLeft = this.countdown.secondsLeft;
+      this.countdown.emitter.on('time-updated', (secondsLeft) => {
+        this.secondsLeft = secondsLeft;
       });
-      this.countdown.on('time-expired', () => {
+      this.countdown.emitter.on('time-expired', () => {
         /**
          * Emited after the countdown is finish
          * @event time-expired
