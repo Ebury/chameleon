@@ -14,10 +14,12 @@ describe('Countdown', () => {
   });
   it('should finish the countdown', () => {
     const countdown = new Countdown();
+    countdown.stop = jest.fn();
     countdown.start(20);
     clock.tick(20000);
 
     expect(countdown.secondsLeft).toBe(0);
+    expect(countdown.stop).toBeCalledTimes(1);
   });
 
   it('should update the "secondsLeft" when the time is running', () => {
