@@ -106,6 +106,7 @@ export default {
         } else {
           if (this.countdown) {
             this.countdown.stop();
+            this.countdown = null;
           }
           this.secondsLeft = this.seconds;
         }
