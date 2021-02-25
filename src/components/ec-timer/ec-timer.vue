@@ -119,9 +119,6 @@ export default {
   },
   methods: {
     startCountdown() {
-      if (this.countdown) {
-        this.countdown.stop();
-      }
       this.countdown = new Countdown();
       this.countdown.start(this.seconds);
       this.countdown.on('time-updated', (secondsLeft) => {
