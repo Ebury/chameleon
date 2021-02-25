@@ -77,7 +77,7 @@ export default {
       secondsLeft: this.seconds,
       startTime: null,
       currentTime: null,
-      countdown: new Countdown(),
+      countdown: null,
     };
   },
   computed: {
@@ -104,7 +104,9 @@ export default {
         if (value) {
           this.startCountdown();
         } else {
-          this.countdown.stop();
+          if (this.countdown) {
+            this.countdown.stop();
+          }
           this.secondsLeft = this.seconds;
         }
       },
@@ -116,11 +118,15 @@ export default {
   },
   methods: {
     startCountdown() {
+      if (this.countdown) {
+        this.countdown.stop();
+      }
+      this.countdown = new Countdown();
       this.countdown.start(this.seconds);
-      this.countdown.emitter.on('time-updated', (secondsLeft) => {
+      this.countdown.on('time-updated', (secondsLeft) => {
         this.secondsLeft = secondsLeft;
       });
-      this.countdown.emitter.on('time-expired', () => {
+      this.countdown.on('time-expired', () => {
         /**
          * Emited after the countdown is finish
          * @event time-expired

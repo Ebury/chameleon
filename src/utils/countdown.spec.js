@@ -14,12 +14,11 @@ describe('Countdown', () => {
   });
   it('should finish the countdown', () => {
     const countdown = new Countdown();
-    countdown.stop = jest.fn();
     countdown.start(20);
     clock.tick(20000);
 
     expect(countdown.secondsLeft).toBe(0);
-    expect(countdown.stop).toBeCalledTimes(1);
+    expect(clock.countTimers()).toBe(0);
   });
 
   it('should update the "secondsLeft" when the time is running', () => {
@@ -29,18 +28,20 @@ describe('Countdown', () => {
     expect(countdown.secondsLeft).toBe(10);
     clock.tick(10000);
     expect(countdown.secondsLeft).toBe(0);
+    expect(clock.countTimers()).toBe(0);
   });
 
   it('should emit the events', () => {
     const timeExpiredMock = jest.fn();
     const timeUpdatedMock = jest.fn();
     const countdown = new Countdown();
+    countdown.on('time-expired', timeExpiredMock);
+    countdown.on('time-updated', timeUpdatedMock);
     countdown.start(20);
-    countdown.emitter.on('time-expired', timeExpiredMock);
-    countdown.emitter.on('time-updated', timeUpdatedMock);
     clock.tick(20000);
 
     expect(timeExpiredMock).toBeCalledTimes(1);
     expect(timeUpdatedMock).toBeCalledTimes(20);
+    expect(clock.countTimers()).toBe(0);
   });
 });
