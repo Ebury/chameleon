@@ -104,18 +104,14 @@ export default {
         if (value) {
           this.startCountdown();
         } else {
-          if (this.countdown) {
-            this.countdown.stop();
-            this.countdown = null;
-          }
+          this.stopCountdow();
           this.secondsLeft = this.seconds;
         }
       },
     },
   },
   beforeDestroy() {
-    this.countdown.stop();
-    this.countdown = null;
+    this.stopCountdow();
   },
   methods: {
     startCountdown() {
@@ -132,6 +128,12 @@ export default {
         */
         this.$emit('time-expired');
       });
+    },
+    stopCountdow() {
+      if (this.countdown) {
+        this.countdown.stop();
+        this.countdown = null;
+      }
     },
   },
 };
