@@ -117,6 +117,19 @@ describe('EcTimer', () => {
 
       expect(wrapper.emitted('time-expired')).toBeFalsy();
     });
+
+    it('should not emit the time expired twice if you restart the timer', async () => {
+      const wrapper = mountTimer({ seconds: 20, isRunning: true });
+
+      clock.tick(10000);
+      await wrapper.setProps({ isRunning: false });
+      await wrapper.setProps({ isRunning: true });
+      clock.tick(10000);
+
+      expect(wrapper.emitted('time-expired')).toBeFalsy();
+      clock.tick(10000);
+      expect(wrapper.emitted('time-expired')).toBeTruthy();
+    });
   });
 
   it('should clear the interval before we destroy the components', () => {
