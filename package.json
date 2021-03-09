@@ -81,7 +81,7 @@
     "lint-staged": "10.5.4",
     "postcss-import": "12.0.1",
     "postcss-mixins": "6.2.3",
-    "postcss-nested": "4.2.3",
+    "postcss-nested": "5.0.5",
     "postcss-preset-env": "6.7.0",
     "snapshot-diff": "0.8.1",
     "storybook-vue-router": "1.0.7",
