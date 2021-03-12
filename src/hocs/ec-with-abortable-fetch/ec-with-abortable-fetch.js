@@ -1,6 +1,6 @@
-import { createHOCc } from 'vue-hoc';
+import { createHOC } from 'vue-hoc';
 
-const withAbortableFetch = createHOCc({
+const withAbortableFetch = (Component, { dataProp = 'data', loadingProp = 'loading', errorProp = 'error' } = {}) => createHOC(Component, {
   name: 'EcWithAbortableFetch',
   props: {
     dataSource: {
@@ -64,9 +64,9 @@ const withAbortableFetch = createHOCc({
       ...props,
       dataSource: null,
       fetchArgs: null,
-      loading: this.isFetching,
-      error: this.fetchError,
-      data: this.fetchedData,
+      [loadingProp]: this.isFetching,
+      [errorProp]: this.fetchError,
+      [dataProp]: this.fetchedData,
     };
   },
 });
