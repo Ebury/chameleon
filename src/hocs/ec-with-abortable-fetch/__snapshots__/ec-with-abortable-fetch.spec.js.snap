@@ -34,6 +34,24 @@ Object {
 }
 `;
 
+exports[`EcWithAbortableFetch should map the given custom props: after fetch 1`] = `
+Object {
+  "dataCustom": Object {
+    "result": 1,
+  },
+  "errorCustom": null,
+  "isLoadingCustom": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should map the given custom props: while loading 1`] = `
+Object {
+  "dataCustom": null,
+  "errorCustom": null,
+  "isLoadingCustom": true,
+}
+`;
+
 exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 1`] = `
 Object {
   "data": null,
@@ -238,6 +256,39 @@ Object {
   "error": null,
   "loading": false,
 }
+`;
+
+exports[`EcWithAbortableFetch should stop fetching and map the custom error prop to the component after dataSource gets rejected 1`] = `
+Object {
+  "dataCustom": null,
+  "errorCustom": [Error: Random error],
+  "isLoadingCustom": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should stop fetching and map the custom error prop to the component after dataSource gets rejected 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      undefined,
+      AbortSignal {},
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`EcWithAbortableFetch should stop fetching and map the custom error prop to the component after dataSource gets rejected 3`] = `
+Array [
+  Array [
+    [Error: Random error],
+  ],
+]
 `;
 
 exports[`EcWithAbortableFetch should stop fetching and pass the data to the component after dataSource gets resolved 1`] = `
