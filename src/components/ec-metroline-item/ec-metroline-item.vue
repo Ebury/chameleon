@@ -49,7 +49,10 @@
           data-test="ec-metroline-item__header-heading"
           class="ec-metroline-item__header-heading"
         >
-          <slot name="heading" />
+          <slot
+            name="heading"
+            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
+          />
         </div>
 
         <div
