@@ -83,7 +83,8 @@ function getPreviewFrame(window) {
 
 function isStoryEnabled(story) {
   const { enabled } = getStoryTestOptions(story);
-  return enabled !== false;
+  const { docsOnly } = story.parameters;
+  return enabled !== false && !docsOnly;
 }
 
 function getStoryUrl(story, knobs) {

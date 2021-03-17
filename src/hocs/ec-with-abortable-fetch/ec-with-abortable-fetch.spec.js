@@ -4,17 +4,17 @@ import withAbortableFetch from './ec-with-abortable-fetch';
 import flushPromises from '../../../tests/utils/flush-promises';
 
 describe('EcWithAbortableFetch', () => {
-  function mountEcWithAbortableFetch(props, mountOpts) {
+  function mountEcWithAbortableFetch(props, mountOpts, customProps = { dataProp: 'data', loadingProp: 'loading', errorProp: 'error' }) {
     const localVue = createLocalVue();
 
     const Component = localVue.extend({
-      props: ['data', 'error', 'loading'],
+      props: [customProps.dataProp, customProps.errorProp, customProps.loadingProp],
       render(h) {
         return h('div');
       },
     });
 
-    const hocWrapper = mount(withAbortableFetch(Component), {
+    const hocWrapper = mount(withAbortableFetch(Component, customProps), {
       localVue,
       propsData: { ...props },
       ...mountOpts,
@@ -232,9 +232,51 @@ describe('EcWithAbortableFetch', () => {
     expect(dataSource.fetch).toHaveBeenCalledTimes(1);
     expect(errorSpy).not.toHaveBeenCalled();
   });
+
+  it('should map the given custom props', async () => {
+    const dataSource = {
+      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }),
+    };
+    const fetchArgs = { prop: 1 };
+    const customProps = {
+      dataProp: 'dataCustom',
+      loadingProp: 'isLoadingCustom',
+      errorProp: 'errorCustom',
+    };
+    const { componentWrapper } = mountEcWithAbortableFetch({ dataSource, fetchArgs }, {}, customProps);
+    expect(getWrappedComponentState(componentWrapper, customProps)).toMatchSnapshot('while loading');
+    await flushPromises();
+    expect(getWrappedComponentState(componentWrapper, customProps)).toMatchSnapshot('after fetch');
+  });
+
+  it('should stop fetching and map the custom error prop to the component after dataSource gets rejected', async () => {
+    const error = new Error('Random error');
+    const dataSource = {
+      fetch: jest.fn().mockRejectedValueOnce(error),
+    };
+
+    const errorSpy = jest.fn();
+
+    const customProps = {
+      dataProp: 'dataCustom',
+      loadingProp: 'isLoadingCustom',
+      errorProp: 'errorCustom',
+    };
+
+    const { componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
+      listeners: {
+        error: errorSpy,
+      },
+    }, customProps);
+    await flushPromises();
+    expect(getWrappedComponentState(componentWrapper, customProps)[customProps.errorProp]).toBe(error);
+    expect(getWrappedComponentState(componentWrapper, customProps)).toMatchSnapshot();
+    expect(dataSource.fetch).toMatchSnapshot();
+    expect(errorSpy.mock.calls).toMatchSnapshot();
+  });
 });
 
-function getWrappedComponentState(componentWrapper) {
-  const { loading, data, error } = componentWrapper.vm;
-  return { loading, data, error };
+function getWrappedComponentState(componentWrapper, { dataProp = 'data', loadingProp = 'loading', errorProp = 'error' } = {}) {
+  const { [loadingProp]: loading, [dataProp]: data, [errorProp]: error } = componentWrapper.vm;
+  return { [loadingProp]: loading, [dataProp]: data, [errorProp]: error };
 }
