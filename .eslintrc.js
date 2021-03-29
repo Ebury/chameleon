@@ -16,7 +16,7 @@ module.exports = {
     'no-param-reassign': ['error', { props: false }],
     'no-plusplus': 'off', // we don't need this rule, we DO use semicolons!
     'no-restricted-syntax': 'off',
-    'no-underscore-dangle': ['error', { allow: ['_uid'] }],
+    'no-underscore-dangle': ['error'],
     'no-use-before-define': 'off',
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'import/prefer-default-export': 'off',

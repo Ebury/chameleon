@@ -49,6 +49,7 @@
 <script>
 import EcIcon from '../../../ec-icon';
 import EcInputField from '../../../ec-input-field';
+import { getUid } from '../../../../utils/uid';
 
 export default {
   name: 'EcInlineInputFieldEdit',
@@ -73,7 +74,7 @@ export default {
   },
   data() {
     return {
-      inputId: `ec-inline-input-field-edit__input-${this._uid}`,
+      inputId: `ec-inline-input-field-edit__input-${getUid()}`,
       inputModel: this.value,
     };
   },

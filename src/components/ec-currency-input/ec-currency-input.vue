@@ -114,6 +114,7 @@ import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
 import EcTooltip from '../../directives/ec-tooltip';
+import { getUid } from '../../utils/uid';
 
 export default {
   name: 'EcCurrencyInput',
@@ -193,6 +194,7 @@ export default {
   },
   data() {
     return {
+      uid: getUid(),
       currenciesHasFocus: false,
       popperModifier: {
         setPopperWidth: {
@@ -211,10 +213,10 @@ export default {
   },
   computed: {
     id() {
-      return `ec-currency-input-field-${this._uid}`;
+      return `ec-currency-input-field-${this.uid}`;
     },
     errorId() {
-      return this.isInvalid ? `ec-currency-input-field-${this._uid}` : null;
+      return this.isInvalid ? `ec-currency-input-field-${this.uid}` : null;
     },
     isInvalid() {
       return !!this.errorMessage;

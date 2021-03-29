@@ -71,6 +71,7 @@
 
 <script>
 import EcIcon from '../ec-icon';
+import { getUid } from '../../utils/uid';
 
 export default {
   name: 'EcCheckbox',
@@ -105,15 +106,16 @@ export default {
   },
   data() {
     return {
+      uid: getUid(),
       inputIsFocused: false,
     };
   },
   computed: {
     id() {
-      return `ec-checkbox-${this._uid}`;
+      return `ec-checkbox-${this.uid}`;
     },
     errorId() {
-      return this.isInvalid ? `ec-checkbox-error-${this._uid}` : null;
+      return this.isInvalid ? `ec-checkbox-error-${this.uid}` : null;
     },
     isInvalid() {
       return !!this.errorMessage || !!this.$slots['error-message'];
