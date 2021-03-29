@@ -7,13 +7,14 @@ jest.mock('../../src/directives/ec-tooltip', () => {
 
     let content = null;
     let placement = null;
+    let classes = null;
 
     if (typeof value === 'string') {
       content = value;
     }
 
     if (typeof value === 'object' && value) {
-      ({ placement, content } = value);
+      ({ placement, content, classes } = value);
     }
 
     if (content) {
@@ -23,9 +24,15 @@ jest.mock('../../src/directives/ec-tooltip', () => {
       } else {
         el.removeAttribute('data-ec-tooltip-mock-placement');
       }
+      if (classes) {
+        el.setAttribute('data-ec-tooltip-mock-classes', classes);
+      } else {
+        el.removeAttribute('data-ec-tooltip-mock-classes');
+      }
     } else {
       el.removeAttribute('data-ec-tooltip-mock-content');
       el.removeAttribute('data-ec-tooltip-mock-placement');
+      el.removeAttribute('data-ec-tooltip-mock-classes');
     }
   }
 
@@ -41,6 +48,7 @@ jest.mock('../../src/directives/ec-tooltip', () => {
       el.setAttribute('data-test', dataTest.replace('ec-mock ec-tooltip-mock', '').trim());
       el.removeAttribute('data-ec-tooltip-mock-content');
       el.removeAttribute('data-ec-tooltip-mock-placement');
+      el.removeAttribute('data-ec-tooltip-mock-classes');
     },
   };
 

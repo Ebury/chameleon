@@ -68,7 +68,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-57"
+                    id="ec-checkbox-1"
                     type="checkbox"
                   />
                    
@@ -84,7 +84,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-57"
+                      for="ec-checkbox-1"
                       title="Paid"
                     >
                       <div
@@ -115,7 +115,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-58"
+                    id="ec-checkbox-2"
                     type="checkbox"
                   />
                    
@@ -131,7 +131,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-58"
+                      for="ec-checkbox-2"
                       title="Cancelled"
                     >
                       <div
@@ -162,7 +162,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-59"
+                    id="ec-checkbox-3"
                     type="checkbox"
                   />
                    
@@ -178,7 +178,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-59"
+                      for="ec-checkbox-3"
                       title="Overdue"
                     >
                       <div
@@ -267,7 +267,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-65"
+                    id="ec-checkbox-4"
                     type="checkbox"
                   />
                    
@@ -283,7 +283,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-65"
+                      for="ec-checkbox-4"
                       title="Invoiced"
                     >
                       <div
@@ -314,7 +314,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-66"
+                    id="ec-checkbox-5"
                     type="checkbox"
                   />
                    
@@ -330,7 +330,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-66"
+                      for="ec-checkbox-5"
                       title="Other type"
                     >
                       <div
@@ -409,7 +409,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
               <label
                 class="ec-input-field__label"
                 data-test="ec-input-field__label"
-                for="ec-input-field-71"
+                for="ec-input-field-6"
               >
                 <span
                   class="ec-input-field__label-text"
@@ -425,7 +425,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__from-input ec-input-field__input"
-                id="ec-input-field-71"
+                id="ec-input-field-6"
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
@@ -442,7 +442,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
               <label
                 class="ec-input-field__label"
                 data-test="ec-input-field__label"
-                for="ec-input-field-72"
+                for="ec-input-field-7"
               >
                 <span
                   class="ec-input-field__label-text"
@@ -458,7 +458,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__to-input ec-input-field__input"
-                id="ec-input-field-72"
+                id="ec-input-field-7"
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
@@ -556,7 +556,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-81"
+                    id="ec-checkbox-1"
                     type="checkbox"
                   />
                    
@@ -572,7 +572,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-81"
+                      for="ec-checkbox-1"
                       title="Paid"
                     >
                       <div
@@ -603,7 +603,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-82"
+                    id="ec-checkbox-2"
                     type="checkbox"
                   />
                    
@@ -619,7 +619,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-82"
+                      for="ec-checkbox-2"
                       title="Cancelled"
                     >
                       <div
@@ -650,7 +650,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-83"
+                    id="ec-checkbox-3"
                     type="checkbox"
                   />
                    
@@ -666,7 +666,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-83"
+                      for="ec-checkbox-3"
                       title="Overdue"
                     >
                       <div
@@ -755,7 +755,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-89"
+                    id="ec-checkbox-4"
                     type="checkbox"
                   />
                    
@@ -771,7 +771,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-89"
+                      for="ec-checkbox-4"
                       title="Invoiced"
                     >
                       <div
@@ -802,7 +802,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-91"
+                    id="ec-checkbox-5"
                     type="checkbox"
                   />
                    
@@ -818,7 +818,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-91"
+                      for="ec-checkbox-5"
                       title="Other type"
                     >
                       <div
@@ -897,7 +897,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
               <label
                 class="ec-input-field__label"
                 data-test="ec-input-field__label"
-                for="ec-input-field-96"
+                for="ec-input-field-6"
               >
                 <span
                   class="ec-input-field__label-text"
@@ -913,7 +913,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__from-input ec-input-field__input"
-                id="ec-input-field-96"
+                id="ec-input-field-6"
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
@@ -930,7 +930,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
               <label
                 class="ec-input-field__label"
                 data-test="ec-input-field__label"
-                for="ec-input-field-97"
+                for="ec-input-field-7"
               >
                 <span
                   class="ec-input-field__label-text"
@@ -946,7 +946,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__to-input ec-input-field__input"
-                id="ec-input-field-97"
+                id="ec-input-field-7"
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
@@ -1044,7 +1044,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-7"
+                    id="ec-checkbox-1"
                     type="checkbox"
                   />
                    
@@ -1060,7 +1060,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-7"
+                      for="ec-checkbox-1"
                       title="Paid"
                     >
                       <div
@@ -1091,7 +1091,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-8"
+                    id="ec-checkbox-2"
                     type="checkbox"
                   />
                    
@@ -1107,7 +1107,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-8"
+                      for="ec-checkbox-2"
                       title="Cancelled"
                     >
                       <div
@@ -1138,7 +1138,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-9"
+                    id="ec-checkbox-3"
                     type="checkbox"
                   />
                    
@@ -1154,7 +1154,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-9"
+                      for="ec-checkbox-3"
                       title="Overdue"
                     >
                       <div
@@ -1243,7 +1243,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-15"
+                    id="ec-checkbox-4"
                     type="checkbox"
                   />
                    
@@ -1259,7 +1259,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-15"
+                      for="ec-checkbox-4"
                       title="Invoiced"
                     >
                       <div
@@ -1290,7 +1290,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-16"
+                    id="ec-checkbox-5"
                     type="checkbox"
                   />
                    
@@ -1306,7 +1306,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-16"
+                      for="ec-checkbox-5"
                       title="Other type"
                     >
                       <div
@@ -1385,7 +1385,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
               <label
                 class="ec-input-field__label"
                 data-test="ec-input-field__label"
-                for="ec-input-field-21"
+                for="ec-input-field-6"
               >
                 <span
                   class="ec-input-field__label-text"
@@ -1401,7 +1401,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__from-input ec-input-field__input"
-                id="ec-input-field-21"
+                id="ec-input-field-6"
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
@@ -1418,7 +1418,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
               <label
                 class="ec-input-field__label"
                 data-test="ec-input-field__label"
-                for="ec-input-field-22"
+                for="ec-input-field-7"
               >
                 <span
                   class="ec-input-field__label-text"
@@ -1434,7 +1434,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__to-input ec-input-field__input"
-                id="ec-input-field-22"
+                id="ec-input-field-7"
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
@@ -1532,7 +1532,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-32"
+                    id="ec-checkbox-1"
                     type="checkbox"
                   />
                    
@@ -1548,7 +1548,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-32"
+                      for="ec-checkbox-1"
                       title="Paid"
                     >
                       <div
@@ -1579,7 +1579,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-33"
+                    id="ec-checkbox-2"
                     type="checkbox"
                   />
                    
@@ -1595,7 +1595,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-33"
+                      for="ec-checkbox-2"
                       title="Cancelled"
                     >
                       <div
@@ -1626,7 +1626,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-34"
+                    id="ec-checkbox-3"
                     type="checkbox"
                   />
                    
@@ -1642,7 +1642,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-34"
+                      for="ec-checkbox-3"
                       title="Overdue"
                     >
                       <div
@@ -1737,7 +1737,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-40"
+                    id="ec-checkbox-4"
                     type="checkbox"
                   />
                    
@@ -1761,7 +1761,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-40"
+                      for="ec-checkbox-4"
                       title="Invoiced"
                     >
                       <div
@@ -1793,7 +1793,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   <input
                     class="ec-checkbox__input"
                     data-test="ec-checkbox__input"
-                    id="ec-checkbox-42"
+                    id="ec-checkbox-5"
                     type="checkbox"
                   />
                    
@@ -1809,7 +1809,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
-                      for="ec-checkbox-42"
+                      for="ec-checkbox-5"
                       title="Other type"
                     >
                       <div
@@ -1888,7 +1888,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
               <label
                 class="ec-input-field__label"
                 data-test="ec-input-field__label"
-                for="ec-input-field-47"
+                for="ec-input-field-6"
               >
                 <span
                   class="ec-input-field__label-text"
@@ -1904,7 +1904,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__from-input ec-input-field__input"
-                id="ec-input-field-47"
+                id="ec-input-field-6"
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
@@ -1921,7 +1921,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
               <label
                 class="ec-input-field__label"
                 data-test="ec-input-field__label"
-                for="ec-input-field-48"
+                for="ec-input-field-7"
               >
                 <span
                   class="ec-input-field__label-text"
@@ -1937,7 +1937,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__to-input ec-input-field__input"
-                id="ec-input-field-48"
+                id="ec-input-field-7"
                 placeholder="dd/mm/yyyy"
                 type="date"
               />

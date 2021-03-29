@@ -60,7 +60,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-5"
+              for="ec-input-field-1"
             >
               <span
                 class="ec-input-field__label-text"
@@ -76,7 +76,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
-              id="ec-input-field-5"
+              id="ec-input-field-1"
               max="2020-04-10"
               placeholder="dd/mm/yyyy"
               type="date"
@@ -94,7 +94,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-6"
+              for="ec-input-field-2"
             >
               <span
                 class="ec-input-field__label-text"
@@ -110,7 +110,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
-              id="ec-input-field-6"
+              id="ec-input-field-2"
               min="2020-03-14"
               placeholder="dd/mm/yyyy"
               type="date"
@@ -197,7 +197,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-12"
+              for="ec-input-field-1"
             >
               <span
                 class="ec-input-field__label-text"
@@ -213,7 +213,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
-              id="ec-input-field-12"
+              id="ec-input-field-1"
               max="2020-04-10"
               placeholder="dd/mm/yyyy"
               type="date"
@@ -231,7 +231,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-13"
+              for="ec-input-field-2"
             >
               <span
                 class="ec-input-field__label-text"
@@ -247,7 +247,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
-              id="ec-input-field-13"
+              id="ec-input-field-2"
               min="2020-03-14"
               placeholder="dd/mm/yyyy"
               type="date"
@@ -339,7 +339,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-19"
+              for="ec-input-field-1"
             >
               <span
                 class="ec-input-field__label-text"
@@ -353,10 +353,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             </label>
              
             <input
-              aria-describedby="ec-input-field-error-19"
+              aria-describedby="ec-input-field-error-1"
               class="ec-input-field__input ec-input-field__input--has-error"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
-              id="ec-input-field-19"
+              id="ec-input-field-1"
               max="2020-04-10"
               placeholder="dd/mm/yyyy"
               type="date"
@@ -367,7 +367,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <div
               class="ec-input-field__error-text"
               data-test="ec-input-field__error-text"
-              id="ec-input-field-error-19"
+              id="ec-input-field-error-1"
             >
               This is the from field error message
             </div>
@@ -380,7 +380,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-20"
+              for="ec-input-field-2"
             >
               <span
                 class="ec-input-field__label-text"
@@ -396,7 +396,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
-              id="ec-input-field-20"
+              id="ec-input-field-2"
               min="2020-03-14"
               placeholder="dd/mm/yyyy"
               type="date"
@@ -483,7 +483,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-26"
+              for="ec-input-field-1"
             >
               <span
                 class="ec-input-field__label-text"
@@ -499,7 +499,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
-              id="ec-input-field-26"
+              id="ec-input-field-1"
               max="2020-04-10"
               placeholder="dd/mm/yyyy"
               type="date"
@@ -517,7 +517,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-27"
+              for="ec-input-field-2"
             >
               <span
                 class="ec-input-field__label-text"
@@ -531,10 +531,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             </label>
              
             <input
-              aria-describedby="ec-input-field-error-27"
+              aria-describedby="ec-input-field-error-2"
               class="ec-input-field__input ec-input-field__input--has-error"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
-              id="ec-input-field-27"
+              id="ec-input-field-2"
               min="2020-03-14"
               placeholder="dd/mm/yyyy"
               type="date"
@@ -545,7 +545,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             <div
               class="ec-input-field__error-text"
               data-test="ec-input-field__error-text"
-              id="ec-input-field-error-27"
+              id="ec-input-field-error-2"
             >
               This is the to field error message
             </div>
@@ -621,7 +621,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-76"
+              for="ec-input-field-1"
             >
               <span
                 class="ec-input-field__label-text"
@@ -637,7 +637,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
-              id="ec-input-field-76"
+              id="ec-input-field-1"
               placeholder="dd/mm/yyyy"
               type="date"
             />
@@ -654,7 +654,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             <label
               class="ec-input-field__label"
               data-test="ec-input-field__label"
-              for="ec-input-field-77"
+              for="ec-input-field-2"
             >
               <span
                 class="ec-input-field__label-text"
@@ -670,7 +670,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
-              id="ec-input-field-77"
+              id="ec-input-field-2"
               placeholder="dd/mm/yyyy"
               type="date"
             />
