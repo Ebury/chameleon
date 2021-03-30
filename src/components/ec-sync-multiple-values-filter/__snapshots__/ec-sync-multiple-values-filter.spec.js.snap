@@ -64,7 +64,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-38"
+                  id="ec-checkbox-1"
                   type="checkbox"
                 />
                  
@@ -80,7 +80,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-38"
+                    for="ec-checkbox-1"
                     title="Success"
                   >
                     <div
@@ -119,7 +119,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-40"
+                  id="ec-checkbox-2"
                   type="checkbox"
                 />
                  
@@ -135,7 +135,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-40"
+                    for="ec-checkbox-2"
                     title="Name two"
                   >
                     <div
@@ -174,7 +174,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-42"
+                  id="ec-checkbox-3"
                   type="checkbox"
                 />
                  
@@ -190,7 +190,7 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-42"
+                    for="ec-checkbox-3"
                     title="Cancelled"
                   >
                     <div
@@ -290,7 +290,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-6"
+                  id="ec-checkbox-1"
                   type="checkbox"
                 />
                  
@@ -306,7 +306,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-6"
+                    for="ec-checkbox-1"
                     title="Success"
                   >
                     <div
@@ -345,7 +345,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-8"
+                  id="ec-checkbox-2"
                   type="checkbox"
                 />
                  
@@ -361,7 +361,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-8"
+                    for="ec-checkbox-2"
                     title="Name two"
                   >
                     <div
@@ -400,7 +400,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-10"
+                  id="ec-checkbox-3"
                   type="checkbox"
                 />
                  
@@ -416,7 +416,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-10"
+                    for="ec-checkbox-3"
                     title="Cancelled"
                   >
                     <div
@@ -522,7 +522,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-24"
+                  id="ec-checkbox-1"
                   type="checkbox"
                 />
                  
@@ -546,7 +546,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-24"
+                    for="ec-checkbox-1"
                     title=""
                   >
                     <div
@@ -578,7 +578,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-26"
+                  id="ec-checkbox-2"
                   type="checkbox"
                 />
                  
@@ -594,7 +594,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-26"
+                    for="ec-checkbox-2"
                     title="Success"
                   >
                     <div
@@ -633,7 +633,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-28"
+                  id="ec-checkbox-3"
                   type="checkbox"
                 />
                  
@@ -649,7 +649,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-28"
+                    for="ec-checkbox-3"
                     title="Name two"
                   >
                     <div
@@ -688,7 +688,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                 <input
                   class="ec-checkbox__input"
                   data-test="ec-checkbox__input"
-                  id="ec-checkbox-30"
+                  id="ec-checkbox-4"
                   type="checkbox"
                 />
                  
@@ -704,7 +704,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   <label
                     class="ec-checkbox__label ec-checkbox__label--is-single-line"
                     data-test="ec-checkbox__label"
-                    for="ec-checkbox-30"
+                    for="ec-checkbox-4"
                     title="Cancelled"
                   >
                     <div

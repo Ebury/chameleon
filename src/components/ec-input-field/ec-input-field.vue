@@ -73,6 +73,7 @@ import EcLoadingIcon from '../ec-loading-icon';
 import EcIcon from '../ec-icon';
 import EcTooltip from '../../directives/ec-tooltip';
 import config from '../../config';
+import { getUid } from '../../utils/uid';
 
 export default {
   name: 'EcInputField',
@@ -136,6 +137,11 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      uid: getUid(),
+    };
+  },
   computed: {
     inputClasses() {
       const classes = ['ec-input-field__input'];
@@ -159,10 +165,10 @@ export default {
       return classes;
     },
     inputId() {
-      return this.id || `ec-input-field-${this._uid}`;
+      return this.id || `ec-input-field-${this.uid}`;
     },
     errorMessageId() {
-      return this.isInvalid ? (this.errorId || `ec-input-field-error-${this._uid}`) : null;
+      return this.isInvalid ? (this.errorId || `ec-input-field-error-${this.uid}`) : null;
     },
     isInvalid() {
       return !!this.errorMessage;

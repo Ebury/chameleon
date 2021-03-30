@@ -4,21 +4,6 @@ import EcInlineInputField from './ec-inline-input-field.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
 jest.mock('clipboard-copy');
-jest.mock('../../directives/ec-tooltip', () => {
-  function setTooltipAttributes(el, value) {
-    el.setAttribute('mocked-tooltip-content', value.content);
-    el.setAttribute('mocked-tooltip-classes', value.classes);
-  }
-  const MockedTooltipDirective = {
-    bind(el, { value }) {
-      setTooltipAttributes(el, value);
-    },
-    update(el, { value }) {
-      setTooltipAttributes(el, value);
-    },
-  };
-  return MockedTooltipDirective;
-});
 
 describe('EcInlineInputField', () => {
   const inputFieldValue = 'Input field value';
@@ -245,8 +230,8 @@ describe('EcInlineInputField', () => {
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe(tooltipTextSuccess);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).toBe('ec-tooltip--bg-success');
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-content')).toBe(tooltipTextSuccess);
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-classes')).toBe('ec-tooltip--bg-success');
     });
 
     it('should show the error tooltip after unsuccessfully triggering the copy method', async () => {
@@ -264,8 +249,8 @@ describe('EcInlineInputField', () => {
       await wrapper.vm.$nextTick();
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe(tooltipTextError);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-classes')).toBe('ec-tooltip--bg-error');
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-content')).toBe(tooltipTextError);
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-classes')).toBe('ec-tooltip--bg-error');
     });
 
     it('should hide the tooltip after we move the cursor away from the copy button', async () => {
@@ -282,7 +267,7 @@ describe('EcInlineInputField', () => {
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
       await wrapper.vm.$nextTick();
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('mouseleave');
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('mocked-tooltip-content')).toBe('');
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-content')).toBeUndefined();
     });
   });
 });

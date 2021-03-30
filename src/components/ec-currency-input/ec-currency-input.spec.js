@@ -1,18 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcCurrencyInput from './ec-currency-input.vue';
 
-jest.mock('../../directives/ec-tooltip', () => ({
-  bind(el, { value }) {
-    if (value) {
-      el.setAttribute('mocked-tooltip-content', value.content);
-
-      if (value.placement) {
-        el.setAttribute('mocked-tooltip-placement', value.placement);
-      }
-    }
-  },
-}));
-
 describe('EcCurrencyInput', () => {
   const currencies = ['GBP', 'EUR', 'USD', 'JPY'];
 
@@ -79,7 +67,7 @@ describe('EcCurrencyInput', () => {
             warningTooltipMessage,
           });
           expect(wrapper.findByDataTest('ec-currency-input__bottom-note').element).toMatchSnapshot();
-          expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').attributes('mocked-tooltip-content')).toBe(warningTooltipMessage);
+          expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').attributes('data-ec-tooltip-mock-content')).toBe(warningTooltipMessage);
         });
 
         describe('and an error message is being displayed', () => {

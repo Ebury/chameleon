@@ -10,7 +10,7 @@ exports[`EcAmountInput should render properly 1`] = `
   <input
     class="ec-input-field__input"
     data-test="ec-amount-input ec-input-field__input"
-    id="ec-input-field-2"
+    id="ec-input-field-1"
     type="text"
   />
    
@@ -30,7 +30,7 @@ exports[`EcAmountInput should render with a sensitive class when isSensitive pro
   <input
     class="ec-input-field__input my-sensitive-content-test-class"
     data-test="ec-amount-input ec-input-field__input"
-    id="ec-input-field-5"
+    id="ec-input-field-1"
     type="text"
   />
    
