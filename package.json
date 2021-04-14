@@ -46,7 +46,7 @@
     "@fullhuman/postcss-purgecss": "3.0.0",
     "@sinonjs/fake-timers": "7.0.2",
     "@storybook/addon-a11y": "6.1.21",
-    "@storybook/addon-actions": "6.2.3",
+    "@storybook/addon-actions": "6.2.8",
     "@storybook/addon-cssresources": "6.1.21",
     "@storybook/addon-essentials": "6.1.21",
     "@storybook/addon-knobs": "6.1.21",
