@@ -202,7 +202,11 @@ exports[`EcMetroline order should have the correct next item order if we show, h
         <!---->
       </div>
        
-      <!---->
+      <div
+        class="ec-metroline-item__main"
+        data-test="ec-metroline-item__main"
+        style="display: none;"
+      />
        
       <!---->
     </div>
@@ -254,7 +258,11 @@ exports[`EcMetroline order should have the correct next item order if we show, h
         <!---->
       </div>
        
-      <!---->
+      <div
+        class="ec-metroline-item__main"
+        data-test="ec-metroline-item__main"
+        style="display: none;"
+      />
        
       <!---->
     </div>
@@ -401,6 +409,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
+        style=""
       />
        
       <div
@@ -469,7 +478,11 @@ exports[`EcMetroline order should have the correct next item order if we show, h
         <!---->
       </div>
        
-      <!---->
+      <div
+        class="ec-metroline-item__main"
+        data-test="ec-metroline-item__main"
+        style="display: none;"
+      />
        
       <!---->
     </div>
@@ -624,6 +637,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
+        style=""
       />
        
       <div
@@ -695,6 +709,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
+        style=""
       />
        
       <div
@@ -848,7 +863,15 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
         <!---->
       </div>
        
-      <!---->
+      <div
+        class="ec-metroline-item__main"
+        data-test="ec-metroline-item__main"
+        style="display: none;"
+      >
+        <p>
+          Item 2 Main Content
+        </p>
+      </div>
        
       <!---->
     </div>
@@ -1008,6 +1031,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
+        style=""
       >
         <p>
           Item 2 Main Content
@@ -1165,7 +1189,15 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
         <!---->
       </div>
        
-      <!---->
+      <div
+        class="ec-metroline-item__main"
+        data-test="ec-metroline-item__main"
+        style="display: none;"
+      >
+        <p>
+          Item 2 Main Content
+        </p>
+      </div>
        
       <!---->
     </div>
@@ -1335,6 +1367,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
+        style=""
       >
         <p>
           Item 2 Main Content
@@ -1515,6 +1548,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
+        style=""
       >
         <p>
           Item 2 Main Content
@@ -1695,6 +1729,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
       <div
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
+        style=""
       >
         <p>
           Item 2 Main Content
@@ -1852,7 +1887,15 @@ exports[`EcMetroline should render a metroline with items 1`] = `
         <!---->
       </div>
        
-      <!---->
+      <div
+        class="ec-metroline-item__main"
+        data-test="ec-metroline-item__main"
+        style="display: none;"
+      >
+        <p>
+          Item 2 Main Content
+        </p>
+      </div>
        
       <!---->
     </div>

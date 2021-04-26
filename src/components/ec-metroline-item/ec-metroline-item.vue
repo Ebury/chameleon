@@ -82,7 +82,7 @@
       </div>
 
       <div
-        v-if="!isNext"
+        v-show="!isNext"
         class="ec-metroline-item__main"
         data-test="ec-metroline-item__main"
       >
