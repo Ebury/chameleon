@@ -622,6 +622,7 @@ module.exports = {
         fontSize: '16px', lineHeight: '24px', fontWeight: 400, fontFamily: theme('fontFamily.sans-condensed').join(', '),
       },
       'small-text': { fontSize: '14px', lineHeight: '20px', fontWeight: 400 },
+      'small-strong': { fontSize: '14px', lineHeight: '20px', fontWeight: 700 },
       'mini-header': {
         fontSize: '14px', lineHeight: '20px', fontWeight: 400, color: theme('textColor.gray.5'), textTransform: 'uppercase',
       },
