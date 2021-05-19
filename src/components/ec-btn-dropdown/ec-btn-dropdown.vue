@@ -9,9 +9,10 @@
       category="primary"
       :is-rounded="true"
       class="ec-btn-dropdown__btn"
+      data-test="ec-btn-dropdown__btn"
       @click="$emit('click')"
     >
-      <slot />
+      {{ textButton }}
     </ec-btn>
     <ec-dropdown-search
       :items="itemsDropdown"
@@ -25,7 +26,8 @@
         :is-reverse="true"
         :is-rounded="true"
         category="primary"
-        class="ec-btn-dropdown__icon-btn"
+        class="ec-btn-dropdown__dropdown-btn"
+        data-test="ec-btn-dropdown__dropdown-btn"
         icon="simple-arrow-drop-down"
       />
     </ec-dropdown-search>
@@ -50,6 +52,10 @@ export default {
     isDisabled: {
       type: Boolean,
       default: false,
+    },
+    textButton: {
+      type: String,
+      required: true,
     },
   },
   computed: {
@@ -84,7 +90,7 @@ export default {
   .ec-btn-dropdown {
     @apply tw-flex;
 
-    &__icon-btn {
+    &__dropdown-btn {
       @apply tw-rounded-l-none;
       @apply tw-bg-gray-7;
     }
