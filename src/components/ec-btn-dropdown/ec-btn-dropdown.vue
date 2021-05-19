@@ -5,9 +5,9 @@
   >
     <ec-btn
       :is-disabled="isDisabled"
-      :is-reverse="true"
+      is-reverse
       category="primary"
-      :is-rounded="true"
+      is-rounded
       class="ec-btn-dropdown__btn"
       data-test="ec-btn-dropdown__btn"
       @click="$emit('click')"
@@ -23,8 +23,8 @@
     >
       <ec-btn
         :is-disabled="isDisabled"
-        :is-reverse="true"
-        :is-rounded="true"
+        is-reverse
+        is-rounded
         category="primary"
         class="ec-btn-dropdown__dropdown-btn"
         data-test="ec-btn-dropdown__dropdown-btn"

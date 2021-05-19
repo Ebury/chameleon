@@ -1,6 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcBtnDropdown from './ec-btn-dropdown.vue';
-// import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcBtnDropdown', () => {
   function mountBtnDropdown(props, mountOpts) {
