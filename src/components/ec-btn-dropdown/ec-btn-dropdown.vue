@@ -2,6 +2,7 @@
   <div
     ref="popperReference"
     class="ec-btn-dropdown"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-btn-dropdown` : 'ec-btn-dropdown'"
   >
     <ec-btn
       :is-disabled="isDisabled"

@@ -3,6 +3,7 @@
 exports[`EcBtnDropdown should render as expected 1`] = `
 <div
   class="ec-btn-dropdown"
+  data-test="ec-btn-dropdown"
 >
   <button
     class="ec-btn ec-btn-dropdown__btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
@@ -75,6 +76,7 @@ exports[`EcBtnDropdown should render as expected 1`] = `
 exports[`EcBtnDropdown should render with a list of options on the dropdown search 1`] = `
 <div
   class="ec-btn-dropdown"
+  data-test="ec-btn-dropdown"
 >
   <button
     class="ec-btn ec-btn-dropdown__btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
@@ -161,6 +163,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
 exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
 <div
   class="ec-btn-dropdown"
+  data-test="ec-btn-dropdown"
 >
   <button
     class="ec-btn ec-btn-dropdown__btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
