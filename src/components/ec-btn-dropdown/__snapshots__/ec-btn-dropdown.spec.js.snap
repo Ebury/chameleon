@@ -12,7 +12,7 @@ exports[`EcBtnDropdown should render as expected 1`] = `
     <!---->
      
     <span
-      class=""
+      class="ec-btn__text"
       data-test="ec-btn__text"
     >
       
@@ -36,7 +36,7 @@ exports[`EcBtnDropdown should render as expected 1`] = `
       popperoptions="[object Object]"
     >
       <button
-        class="ec-btn ec-btn-dropdown__dropdown-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse"
+        class="ec-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse ec-btn-dropdown__dropdown-btn"
         data-test="ec-btn-dropdown__dropdown-btn ec-btn"
         type="submit"
       >
@@ -84,7 +84,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
     <!---->
      
     <span
-      class=""
+      class="ec-btn__text"
       data-test="ec-btn__text"
     >
       
@@ -108,7 +108,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
       popperoptions="[object Object]"
     >
       <button
-        class="ec-btn ec-btn-dropdown__dropdown-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse"
+        class="ec-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse ec-btn-dropdown__dropdown-btn"
         data-test="ec-btn-dropdown__dropdown-btn ec-btn"
         type="submit"
       >
@@ -171,7 +171,7 @@ exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
     <!---->
      
     <span
-      class=""
+      class="ec-btn__text"
       data-test="ec-btn__text"
     >
       
@@ -196,7 +196,7 @@ exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
       popperoptions="[object Object]"
     >
       <button
-        class="ec-btn ec-btn-dropdown__dropdown-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse"
+        class="ec-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse ec-btn-dropdown__dropdown-btn"
         data-test="ec-btn-dropdown__dropdown-btn ec-btn"
         disabled="disabled"
         type="submit"

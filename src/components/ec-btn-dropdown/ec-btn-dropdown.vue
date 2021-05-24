@@ -20,13 +20,18 @@
       :popper-modifiers="popperModifiers"
       :disabled="isDisabled"
       @change="(value) => $emit('change', value)"
+      @open="isActive = true"
+      @close="isActive = false"
     >
       <ec-btn
         :is-disabled="isDisabled"
         is-reverse
         is-rounded
         category="primary"
-        class="ec-btn-dropdown__dropdown-btn"
+        :class="{
+          'ec-btn-dropdown__dropdown-btn': true,
+          'ec-btn-dropdown__dropdown-btn--active': isActive,
+        }"
         data-test="ec-btn-dropdown__dropdown-btn"
         icon="simple-arrow-drop-down"
       />
@@ -57,6 +62,11 @@ export default {
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {
+      isActive: false,
+    };
   },
   computed: {
     popperModifiers() {
@@ -90,9 +100,24 @@ export default {
   .ec-btn-dropdown {
     @apply tw-flex;
 
+    max-width: 217px;
+
     &__dropdown-btn {
       @apply tw-rounded-l-none;
       @apply tw-bg-gray-7;
+
+      &--active {
+        @apply tw-bg-key-4;
+        @apply tw-text-gray-8;
+      }
+
+      &:hover {
+        @apply tw-bg-key-3;
+      }
+
+      &:disabled {
+        @apply tw-text-gray-5;
+      }
     }
 
     &__btn {
@@ -101,6 +126,10 @@ export default {
       @apply tw-text-gray-3;
 
       padding-right: 14px;
+
+      &:disabled {
+        @apply tw-text-gray-5;
+      }
     }
   }
 </style>
