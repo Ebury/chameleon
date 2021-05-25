@@ -86,7 +86,7 @@ export default {
           fn: /* istanbul ignore next */ (data) => {
             const ref = this.$refs.popperReference;
             data.offsets.popper.left = ref.getBoundingClientRect().left;
-            data.popper.left = ref.offsetLeft;
+            data.popper.left = ref.getBoundingClientRect().left;
 
             return data;
           },
