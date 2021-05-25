@@ -105,6 +105,7 @@ export default {
 
     &__dropdown-btn {
       @apply tw-rounded-l-none;
+      @apply tw-border-gray-6 tw-border-l tw-border-solid;
       @apply tw-bg-gray-7;
 
       &--active {
