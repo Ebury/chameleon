@@ -85,7 +85,7 @@ export default {
           order: 845,
           fn: /* istanbul ignore next */ (data) => {
             const ref = this.$refs.popperReference;
-            data.offsets.popper.left = ref.offsetLeft;
+            data.offsets.popper.left = ref.getBoundingClientRect().left;
             data.popper.left = ref.offsetLeft;
 
             return data;
@@ -99,7 +99,7 @@ export default {
 
 <style>
   .ec-btn-dropdown {
-    @apply tw-flex;
+    @apply tw-inline-flex;
 
     max-width: 217px;
 
