@@ -8,7 +8,7 @@ describe('EcBtnDropdown', () => {
     return mount(EcBtnDropdown, {
       localVue,
       propsData: {
-        textButton: 'Convert & Pay',
+        buttonText: 'Convert & Pay',
         ...props,
       },
       ...mountOpts,
@@ -26,9 +26,7 @@ describe('EcBtnDropdown', () => {
   });
 
   it('should render with a list of options on the dropdown search', () => {
-    const wrapper = mountBtnDropdown({
-      itemsDropdown: items,
-    });
+    const wrapper = mountBtnDropdown({ items });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -47,9 +45,7 @@ describe('EcBtnDropdown', () => {
   });
 
   it('should emit the change event when the user clicks on an item of the dropdown list', async () => {
-    const wrapper = mountBtnDropdown({
-      itemsDropdown: items,
-    });
+    const wrapper = mountBtnDropdown({ items });
 
     wrapper.findByDataTest('ec-btn-dropdown__dropdown-btn').trigger('click');
     wrapper.findAllByDataTest('ec-dropdown-search__item').at(0).trigger('click');

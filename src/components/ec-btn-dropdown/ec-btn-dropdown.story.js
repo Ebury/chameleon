@@ -1,8 +1,12 @@
 import EcBtnDropdown from './ec-btn-dropdown.vue';
 
 export default {
-  title: 'ButtonDropdown',
+  title: 'Button Dropdown',
   component: EcBtnDropdown,
+  argTypes: {
+    click: { action: 'clicked' },
+    change: { action: 'change' },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -12,7 +16,7 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
   <div class="tw-m-24 tw-p-24 tw-flex tw-justify-center tw-bg-gray-0">
-    <ec-btn-dropdown :itemsDropdown="items" :isDisabled="isDisabled" :textButton="textButton" />
+    <ec-btn-dropdown :items="items" @click="click" @change="change" :isDisabled="isDisabled" :buttonText="buttonText" />
   </div>
   `,
 });
@@ -25,7 +29,7 @@ basic.args = {
     { value: 'Convert', text: 'Convert' },
   ],
   isDisabled: false,
-  textButton: 'Convert & Pay',
+  buttonText: 'Convert & Pay',
 };
 
 export const disabled = Template.bind({});
@@ -36,6 +40,6 @@ disabled.args = {
     { value: 'Convert', text: 'Convert' },
   ],
   isDisabled: true,
-  textButton: 'Convert & Pay',
+  buttonText: 'Convert & Pay',
 };
 

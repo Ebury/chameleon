@@ -13,16 +13,16 @@
       data-test="ec-btn-dropdown__btn"
       @click="$emit('click')"
     >
-      {{ textButton }}
+      {{ buttonText }}
     </ec-btn>
     <ec-dropdown-search
-      :items="itemsDropdown"
+      :items="items"
       :is-search-enabled="false"
       :popper-modifiers="popperModifiers"
       :disabled="isDisabled"
       @change="(value) => $emit('change', value)"
-      @open="isActive = true"
-      @close="isActive = false"
+      @open="isOpen = true"
+      @close="isOpen = false"
     >
       <ec-btn
         :is-disabled="isDisabled"
@@ -31,7 +31,7 @@
         category="primary"
         :class="{
           'ec-btn-dropdown__dropdown-btn': true,
-          'ec-btn-dropdown__dropdown-btn--active': isActive,
+          'ec-btn-dropdown__dropdown-btn--is-open': isOpen,
         }"
         data-test="ec-btn-dropdown__dropdown-btn"
         icon="simple-arrow-drop-down"
@@ -51,7 +51,7 @@ export default {
     EcDropdownSearch,
   },
   props: {
-    itemsDropdown: {
+    items: {
       type: Array,
       default: () => [],
     },
@@ -59,14 +59,14 @@ export default {
       type: Boolean,
       default: false,
     },
-    textButton: {
+    buttonText: {
       type: String,
       required: true,
     },
   },
   data() {
     return {
-      isActive: false,
+      isOpen: false,
     };
   },
   computed: {
@@ -84,9 +84,9 @@ export default {
           enabled: true,
           order: 845,
           fn: /* istanbul ignore next */ (data) => {
-            const ref = this.$refs.popperReference;
-            data.offsets.popper.left = ref.getBoundingClientRect().left;
-            data.popper.left = ref.getBoundingClientRect().left;
+            const refLeft = this.$refs.popperReference.getBoundingClientRect().left;
+            data.offsets.popper.left = refLeft;
+            data.popper.left = refLeft;
 
             return data;
           },
