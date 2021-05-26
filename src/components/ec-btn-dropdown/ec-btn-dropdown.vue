@@ -109,8 +109,8 @@ export default {
       @apply tw-bg-gray-7;
 
       &--is-open {
-        @apply tw-bg-key-3;
-        @apply tw-border-key-3;
+        @apply tw-bg-key-4;
+        @apply tw-border-key-4;
         @apply tw-text-gray-8;
       }
 
