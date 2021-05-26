@@ -33,7 +33,10 @@
     <span
       v-else-if="this.$slots.default"
       data-test="ec-btn__text"
-      :class="{'ec-btn__text--is-loading' : isLoading }"
+      :class="{
+        'ec-btn__text--is-loading' : isLoading,
+        'ec-btn__text': true,
+      }"
     >
       <slot />
     </span>
@@ -177,6 +180,10 @@ export default {
 
 <style>
   .ec-btn {
+    &__text {
+      @apply tw-truncate;
+    }
+
     &__text--is-loading,
     &__icon--no-loading-text {
       @apply tw-invisible;
