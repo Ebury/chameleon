@@ -8,7 +8,7 @@ exports[`EcBtnDropdown should render as expected 1`] = `
   <button
     class="ec-btn ec-btn-dropdown__btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
     data-test="ec-btn-dropdown__btn ec-btn"
-    type="submit"
+    type="button"
   >
     <!---->
      
@@ -81,7 +81,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
   <button
     class="ec-btn ec-btn-dropdown__btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
     data-test="ec-btn-dropdown__btn ec-btn"
-    type="submit"
+    type="button"
   >
     <!---->
      
@@ -169,7 +169,7 @@ exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
     class="ec-btn ec-btn-dropdown__btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
     data-test="ec-btn-dropdown__btn ec-btn"
     disabled="disabled"
-    type="submit"
+    type="button"
   >
     <!---->
      

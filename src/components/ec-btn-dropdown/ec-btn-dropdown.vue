@@ -6,6 +6,7 @@
   >
     <ec-btn
       :is-disabled="isDisabled"
+      :is-submit="false"
       is-reverse
       category="primary"
       is-rounded
