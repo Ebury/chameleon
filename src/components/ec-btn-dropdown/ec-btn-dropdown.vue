@@ -126,7 +126,7 @@ export default {
 
     &__btn {
       @apply tw-rounded-r-none;
-      @apply tw-pl-16;
+      @apply tw-px-16;
       @apply tw-text-gray-3;
 
       &:disabled {
