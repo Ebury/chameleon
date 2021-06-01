@@ -19,6 +19,7 @@
     <ec-dropdown-search
       :items="items"
       :is-search-enabled="false"
+      :max-visible-items="Infinity"
       :popper-modifiers="popperModifiers"
       :disabled="isDisabled"
       @change="(value) => $emit('change', value)"
