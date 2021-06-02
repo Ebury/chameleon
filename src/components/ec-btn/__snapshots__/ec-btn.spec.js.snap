@@ -423,7 +423,7 @@ exports[`EcBtn :slots should render a button with "Click me!" text 1`] = `
   <!---->
    
   <span
-    class=""
+    class="ec-btn__text"
     data-test="ec-btn__text"
   >
     Click Me!
@@ -451,7 +451,7 @@ exports[`EcBtn :slots should render a button with "Click me!" text and an icon 1
   </svg>
    
   <span
-    class=""
+    class="ec-btn__text"
     data-test="ec-btn__text"
   >
     Click Me!
@@ -471,7 +471,7 @@ exports[`EcBtn :slots should render a button with a loading-text and a loading s
   <!---->
    
   <span
-    class="ec-btn__text--is-loading"
+    class="ec-btn__text--is-loading ec-btn__text"
     data-test="ec-btn__text"
   >
     Click Me!

@@ -218,7 +218,7 @@ exports[`EcModal should render negative button if slot is passed 1`] = `
         <!---->
          
         <span
-          class=""
+          class="ec-btn__text"
           data-test="ec-btn__text"
         >
           Skip for now
@@ -258,7 +258,7 @@ exports[`EcModal should render negative button with given category 1`] = `
         <!---->
          
         <span
-          class=""
+          class="ec-btn__text"
           data-test="ec-btn__text"
         >
           Negative button
@@ -312,7 +312,7 @@ exports[`EcModal should render negative button with the loading status if slot i
         <!---->
          
         <span
-          class=""
+          class="ec-btn__text"
           data-test="ec-btn__text"
         >
           Skip for now
@@ -354,7 +354,7 @@ exports[`EcModal should render positive button if slot is passed 1`] = `
         <!---->
          
         <span
-          class=""
+          class="ec-btn__text"
           data-test="ec-btn__text"
         >
           Update management accounts
@@ -394,7 +394,7 @@ exports[`EcModal should render positive button with given category 1`] = `
         <!---->
          
         <span
-          class=""
+          class="ec-btn__text"
           data-test="ec-btn__text"
         >
           Positive button
@@ -448,7 +448,7 @@ exports[`EcModal should render positive button with the loading status if slot i
         <!---->
          
         <span
-          class=""
+          class="ec-btn__text"
           data-test="ec-btn__text"
         >
           Update management accounts

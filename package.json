@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "1.4.7",
+  "version": "1.4.10",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -52,7 +52,7 @@
     "@storybook/addon-knobs": "6.2.9",
     "@storybook/addon-links": "6.1.21",
     "@storybook/addon-viewport": "6.1.21",
-    "@storybook/addons": "6.1.21",
+    "@storybook/addons": "6.2.9",
     "@storybook/source-loader": "6.1.21",
     "@storybook/theming": "6.1.21",
     "@storybook/vue": "6.2.9",
