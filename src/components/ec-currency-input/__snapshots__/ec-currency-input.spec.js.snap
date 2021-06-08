@@ -193,7 +193,7 @@ exports[`EcCurrencyInput :props should render the searching field with the place
 exports[`EcCurrencyInput :props should render without any currencies if the currencies prop is empty 1`] = `
 <div
   class="ec-dropdown-search ec-dropdown ec-currency-input__currencies"
-  data-test="ec-dropdown"
+  data-test="ec-dropdown ec-dropdown-search"
 >
   <ec-stub
     class="ec-dropdown-search__trigger"
@@ -288,7 +288,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
   >
     <div
       class="ec-dropdown-search ec-dropdown ec-currency-input__currencies"
-      data-test="ec-dropdown"
+      data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
         class="ec-dropdown-search__trigger"
@@ -426,7 +426,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
   >
     <div
       class="ec-dropdown-search ec-dropdown ec-currency-input__currencies"
-      data-test="ec-dropdown"
+      data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
         class="ec-dropdown-search__trigger"

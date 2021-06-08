@@ -59,37 +59,37 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
    
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
     title="Item 1"
   >
     Item 1
   </li>
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
     title="Item 2"
   >
     Item 2
   </li>
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
     title="Item 3"
   >
     Item 3
   </li>
   <li
     class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
-    mocked-tooltip-content="Random text"
-    mocked-tooltip-placement="right"
+    data-ec-tooltip-mock-content="Random text"
+    data-ec-tooltip-mock-placement="right"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
     title="Item 4"
   >
     Item 4
   </li>
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
     title="Item 5"
   >
     Item 5
@@ -174,21 +174,21 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -39,12 +39,12 @@
+@@ -38,12 +38,12 @@
+           
           <!---->
            
           <li
             class=\\"ec-dropdown-search__item ec-dropdown-search__item--is-disabled\\"
-            data-test=\\"ec-dropdown-search__item ec-dropdown-search__item--0\\"
--           mocked-tooltip-content=\\"This reason should not be seen because it's overridden by tooltip.content.\\"
--           mocked-tooltip-placement=\\"right\\"
-+           mocked-tooltip-content=\\"Content overridden by item\\"
-+           mocked-tooltip-placement=\\"top\\"
+-           data-ec-tooltip-mock-content=\\"This reason should not be seen because it's overridden by tooltip.content.\\"
+-           data-ec-tooltip-mock-placement=\\"right\\"
++           data-ec-tooltip-mock-content=\\"Content overridden by item\\"
++           data-ec-tooltip-mock-placement=\\"top\\"
+            data-test=\\"ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock\\"
             title=\\"Random Item\\"
           >
             Random Item
-          </li>
-        </ul>"
+          </li>"
 `;
 
 exports[`EcDropdownSearch should not render the search if isSearchEnabled is set to false 1`] = `undefined`;
@@ -319,7 +319,7 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
          
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
           title="Item 1"
         >
           <div>
@@ -328,7 +328,7 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
           title="Item 2"
         >
           <div>
@@ -337,7 +337,7 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
           title="Item 3"
         >
           <div>
@@ -346,9 +346,9 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
-          mocked-tooltip-content="Random text"
-          mocked-tooltip-placement="right"
+          data-ec-tooltip-mock-content="Random text"
+          data-ec-tooltip-mock-placement="right"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
           title="Item 4"
         >
           <div>
@@ -357,7 +357,7 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
           title="Item 5"
         >
           <div>
@@ -399,37 +399,37 @@ exports[`EcDropdownSearch should render all given items 1`] = `
    
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
     title="Item 1"
   >
     Item 1
   </li>
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
     title="Item 2"
   >
     Item 2
   </li>
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
     title="Item 3"
   >
     Item 3
   </li>
   <li
     class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
-    mocked-tooltip-content="Random text"
-    mocked-tooltip-placement="right"
+    data-ec-tooltip-mock-content="Random text"
+    data-ec-tooltip-mock-placement="right"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
     title="Item 4"
   >
     Item 4
   </li>
   <li
     class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
     title="Item 5"
   >
     Item 5
@@ -532,7 +532,7 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
          
         <li
           class="ec-dropdown-search__cta-area"
-          data-test="ec-dropdown-search__cta-area"
+          data-test="ec-dropdown-search__cta-area ec-mock ec-tooltip-mock"
         >
           <button>
             My CTA
@@ -541,37 +541,37 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
          
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
           title="Item 1"
         >
           Item 1
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
           title="Item 2"
         >
           Item 2
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
           title="Item 3"
         >
           Item 3
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
-          mocked-tooltip-content="Random text"
-          mocked-tooltip-placement="right"
+          data-ec-tooltip-mock-content="Random text"
+          data-ec-tooltip-mock-placement="right"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
           title="Item 4"
         >
           Item 4
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
           title="Item 5"
         >
           Item 5
@@ -623,9 +623,8 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
          
         <li
           class="ec-dropdown-search__cta-area"
-          data-test="ec-dropdown-search__cta-area"
-          mocked-tooltip-content="Random tooltip"
-          mocked-tooltip-placement=""
+          data-ec-tooltip-mock-content="Random tooltip"
+          data-test="ec-dropdown-search__cta-area ec-mock ec-tooltip-mock"
         >
           <button>
             My CTA
@@ -634,37 +633,37 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
          
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
           title="Item 1"
         >
           Item 1
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
           title="Item 2"
         >
           Item 2
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
           title="Item 3"
         >
           Item 3
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
-          mocked-tooltip-content="Random text"
-          mocked-tooltip-placement="right"
+          data-ec-tooltip-mock-content="Random text"
+          data-ec-tooltip-mock-placement="right"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
           title="Item 4"
         >
           Item 4
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
           title="Item 5"
         >
           Item 5
@@ -777,7 +776,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
          
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--0"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
           title="Item 1"
         >
           <div>
@@ -789,7 +788,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
           title="Item 2"
         >
           <div>
@@ -801,7 +800,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--2"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
           title="Item 3"
         >
           <div>
@@ -813,9 +812,9 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--3"
-          mocked-tooltip-content="Random text"
-          mocked-tooltip-placement="right"
+          data-ec-tooltip-mock-content="Random text"
+          data-ec-tooltip-mock-placement="right"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
           title="Item 4"
         >
           <div>
@@ -827,7 +826,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
         </li>
         <li
           class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--4"
+          data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
           title="Item 5"
         >
           <div>
@@ -959,6 +958,73 @@ exports[`EcDropdownSearch should use and update the v-model 2`] = `
 >
   Item 3
 </li>
+`;
+
+exports[`EcDropdownSearch should use given list-data-test attribute 1`] = `
+<ul
+  class="ec-dropdown-search__item-list"
+  data-test="ec-dropdown-search__item-list my-test-list"
+>
+  <li
+    class="ec-dropdown-search__search-area"
+    data-test="ec-dropdown-search__search-area"
+  >
+    <svg
+      class="ec-dropdown-search__search-icon ec-icon"
+    >
+      <use
+        xlink:href="#ec-simple-search"
+      />
+    </svg>
+     
+    <input
+      autocomplete="off"
+      class="ec-dropdown-search__search-input"
+      data-test="ec-dropdown-search__search-input"
+      placeholder="Search..."
+    />
+  </li>
+   
+  <!---->
+   
+  <li
+    class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+    title="Item 1"
+  >
+    Item 1
+  </li>
+  <li
+    class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+    title="Item 2"
+  >
+    Item 2
+  </li>
+  <li
+    class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+    title="Item 3"
+  >
+    Item 3
+  </li>
+  <li
+    class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+    data-ec-tooltip-mock-content="Random text"
+    data-ec-tooltip-mock-placement="right"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+    title="Item 4"
+  >
+    Item 4
+  </li>
+  <li
+    class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
+    title="Item 5"
+  >
+    Item 5
+  </li>
+</ul>
 `;
 
 exports[`EcDropdownSearch should use the placeholder for search input if given 1`] = `
