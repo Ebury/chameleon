@@ -3,21 +3,8 @@ import EcDropdownSearch from './ec-dropdown-search.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcDropdownSearch', () => {
-  const MockedEcTooltipDirective = {
-    bind(el, { value }) {
-      if (value.content) {
-        el.setAttribute('mocked-tooltip-content', value.content);
-        el.setAttribute('mocked-tooltip-placement', value.placement || '');
-      }
-    },
-  };
-
   function mountDropdownSearch(props, mountOpts) {
-    const localVue = createLocalVue();
-    localVue.directive('ec-tooltip', MockedEcTooltipDirective);
-
     return mount(EcDropdownSearch, {
-      localVue,
       propsData: { ...props },
       ...mountOpts,
     });
@@ -25,7 +12,6 @@ describe('EcDropdownSearch', () => {
 
   function mountAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
     const localVue = createLocalVue();
-    localVue.directive('ec-tooltip', MockedEcTooltipDirective);
 
     const Component = localVue.extend({
       components: { EcDropdownSearch },
@@ -231,11 +217,11 @@ describe('EcDropdownSearch', () => {
 
     expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
 
-    expect(wrapper.findByDataTest('ec-dropdown-search__item--0').attributes('mocked-tooltip-content')).toBeUndefined();
-    expect(wrapper.findByDataTest('ec-dropdown-search__item--1').attributes('mocked-tooltip-content')).toBeUndefined();
-    expect(wrapper.findByDataTest('ec-dropdown-search__item--2').attributes('mocked-tooltip-content')).toBeUndefined();
-    expect(wrapper.findByDataTest('ec-dropdown-search__item--3').attributes('mocked-tooltip-content')).toBe('Random text');
-    expect(wrapper.findByDataTest('ec-dropdown-search__item--4').attributes('mocked-tooltip-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--0').attributes('data-ec-tooltip-mock-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--1').attributes('data-ec-tooltip-mock-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--2').attributes('data-ec-tooltip-mock-content')).toBeUndefined();
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--3').attributes('data-ec-tooltip-mock-content')).toBe('Random text');
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--4').attributes('data-ec-tooltip-mock-content')).toBeUndefined();
   });
 
   it('should merge given tooltipOptions and item.tooltip prop', () => {
@@ -273,6 +259,15 @@ describe('EcDropdownSearch', () => {
     });
 
     expect(defaultWrapper.element).toMatchDiffSnapshot(customizedWrapper.element);
+  });
+
+  it('should use given list-data-test attribute', () => {
+    const wrapper = mountDropdownSearch({ items }, {
+      attrs: {
+        'list-data-test': 'my-test-list',
+      },
+    });
+    expect(wrapper.findByDataTest('my-test-list').element).toMatchSnapshot();
   });
 
   describe('filtering', () => {

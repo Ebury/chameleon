@@ -2,7 +2,11 @@
   <div
     ref="popperWidthReference"
     class="ec-dropdown-search"
-    data-test="ec-dropdown-search"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-dropdown-search` : 'ec-dropdown-search',
+      'list-data-test': null,
+    }"
     @keydown.tab="onTabKeyDown"
     @keydown.enter.space.prevent="onEnterOrSpaceKeyDown"
     @keydown.up.prevent="onArrowUpKeyDown"
@@ -33,7 +37,7 @@
         <ul
           ref="itemsOverflowContainer"
           :class="listClasses"
-          data-test="ec-dropdown-search__item-list"
+          :data-test="`ec-dropdown-search__item-list ${$attrs['list-data-test'] || ''}`.trim()"
           @keydown.tab="onTabKeyDown"
           @keydown.up.prevent="onArrowUpKeyDown"
           @keydown.down.prevent="onArrowDownKeyDown"
@@ -146,6 +150,7 @@ export default {
   name: 'EcDropdownSearch',
   components: { EcPopover, EcIcon, EcLoading },
   directives: { EcTooltip },
+  inheritAttrs: false,
   model: {
     prop: 'selected',
     event: 'change',

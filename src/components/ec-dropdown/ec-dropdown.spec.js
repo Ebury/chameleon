@@ -54,6 +54,15 @@ describe('EcDropdown', () => {
     expect(wrapper.findByDataTest('ec-dropdown-search__search-area').exists()).toBe(false);
   });
 
+  it('should use given list-data-test attribute', () => {
+    const wrapper = mountDropdown({ items }, {
+      attrs: {
+        'list-data-test': 'my-test-list',
+      },
+    });
+    expect(wrapper.findByDataTest('my-test-list').element).toMatchSnapshot();
+  });
+
   describe(':props', () => {
     it('should not render any label if prop is not given', () => {
       const wrapper = mountDropdown({ label: '' });
