@@ -37,6 +37,15 @@ describe('EcBtnDropdown', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should use given list-data-test prop', () => {
+    const wrapper = mountBtnDropdown({
+      items,
+      listDataTest: 'my-test-list',
+    });
+
+    expect(wrapper.findByDataTest('my-test-list').element).toMatchSnapshot();
+  });
+
   it('should emit the click event when the user clicks on the primary button', async () => {
     const wrapper = mountBtnDropdown();
 

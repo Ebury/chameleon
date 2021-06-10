@@ -22,6 +22,7 @@
       :max-visible-items="Infinity"
       :popper-modifiers="popperModifiers"
       :disabled="isDisabled"
+      :list-data-test="listDataTest"
       @change="(value) => $emit('change', value)"
       @open="isOpen = true"
       @close="isOpen = false"
@@ -64,6 +65,9 @@ export default {
     buttonText: {
       type: String,
       required: true,
+    },
+    listDataTest: {
+      type: String,
     },
   },
   data() {
