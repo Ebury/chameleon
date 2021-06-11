@@ -235,3 +235,29 @@ exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
   </div>
 </div>
 `;
+
+exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
+<ul
+  class="ec-dropdown-search__item-list"
+  data-test="ec-dropdown-search__item-list my-test-list"
+>
+  <!---->
+   
+  <!---->
+   
+  <li
+    class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+    title="Spot"
+  >
+    Spot
+  </li>
+  <li
+    class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+    title="Convert"
+  >
+    Convert
+  </li>
+</ul>
+`;
