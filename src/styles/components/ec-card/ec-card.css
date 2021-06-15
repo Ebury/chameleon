@@ -39,6 +39,7 @@
     @apply tw-text-gray-5;
     @apply tw-shadow-none;
     @apply tw-cursor-default;
+    @apply tw-pointer-events-none;
   }
 }
 
