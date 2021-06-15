@@ -22,6 +22,16 @@ stories
             text: 'Interactive example card',
             class: 'ec-card--is-interactive',
           },
+          {
+            title: 'Card with narrow padding',
+            text: 'Example card with narrow padding',
+            class: 'ec-card--has-narrow-padding',
+          },
+          {
+            title: 'Disabled card',
+            text: 'Example disabled card',
+            class: 'ec-card--disabled',
+          },
         ],
       };
     },
