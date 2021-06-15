@@ -30,7 +30,7 @@ stories
           {
             title: 'Disabled card',
             text: 'Example disabled card',
-            class: 'ec-card--disabled',
+            class: 'ec-card--is-disabled',
           },
         ],
       };
