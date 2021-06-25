@@ -54,7 +54,7 @@
     "@storybook/addon-viewport": "6.1.21",
     "@storybook/addons": "6.2.9",
     "@storybook/source-loader": "6.3.0",
-    "@storybook/theming": "6.1.21",
+    "@storybook/theming": "6.3.0",
     "@storybook/vue": "6.2.9",
     "@testing-library/jest-dom": "5.11.9",
     "@vue/cli-plugin-babel": "4.5.12",
