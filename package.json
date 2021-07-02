@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "clipboard-copy": "3.2.0",
-    "focus-trap": "6.3.0",
+    "focus-trap": "6.6.0",
     "mitt": "2.1.0",
     "tailwindcss": "1.9.6",
     "tailwindcss-filters": "3.0.0",
