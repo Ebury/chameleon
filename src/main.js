@@ -12,6 +12,7 @@ export { default as Countdown } from './utils/countdown';
 export { default as EcAlert } from './components/ec-alert';
 export { default as EcAmount } from './directives/ec-amount';
 export { default as EcAmountInput } from './components/ec-amount-input';
+export { default as EcBlogItem } from './components/ec-blog-item';
 export { default as EcBtn } from './components/ec-btn';
 export { default as EcBtnDropdown } from './components/ec-btn-dropdown';
 export { default as EcButtonGroup } from './components/ec-button-group';
