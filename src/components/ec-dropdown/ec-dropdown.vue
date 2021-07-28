@@ -24,6 +24,7 @@
       :error-id="errorId"
       :value="selectedTextValue"
       :label="label"
+      :label-tooltip="labelTooltip"
       :error-message="errorMessage"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -87,6 +88,10 @@ export default {
       default: '',
     },
     label: {
+      type: String,
+      default: '',
+    },
+    labelTooltip: {
       type: String,
       default: '',
     },

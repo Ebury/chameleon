@@ -187,6 +187,16 @@ stories.add('all', () => ({
             </template>
           </ec-dropdown>
         </div>
+        <div class="tw-col-4">
+          <ec-dropdown
+            :items="items"
+            :is-search-enabled="false"
+            label="Single value with tooltip in the label"
+            placeholder="Single value with tooltip in the label"
+            label-tooltip="This is a tooltip"
+            v-model="selected">
+          </ec-dropdown>
+        </div>
         <div class="tw-col-12 tw-p-12">
           Selected value: {{ selected }}
         </div>
