@@ -137,6 +137,11 @@ describe('EcDropdown', () => {
       const wrapper = mountDropdown({ isSensitive: true });
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it('renders properly when the labelTooltip prop is set', () => {
+      const wrapper = mountDropdown({ labelTooltip: 'Testing the labelTooltip prop' });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('#slots', () => {
