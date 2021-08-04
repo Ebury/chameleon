@@ -174,4 +174,19 @@ describe('EcInputField', () => {
     const wrapper = mountInputField({ isLoading: true });
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('renders with bottom note', () => {
+    const wrapper = mountInputField({ bottomNote: 'Random bottom note' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders with warning bottom note', () => {
+    const wrapper = mountInputField({ bottomNote: 'Random bottom note', isWarning: true });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders without bottom note if error message is given', () => {
+    const wrapper = mountInputField({ bottomNote: 'Random bottom note', errorMessage: 'Random error message' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

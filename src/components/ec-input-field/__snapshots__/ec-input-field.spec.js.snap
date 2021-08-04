@@ -434,6 +434,50 @@ exports[`EcInputField renders properly without the error when the prop errorMess
 </div>
 `;
 
+exports[`EcInputField renders with bottom note 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="ec-input-field-1"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+      <!---->
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+   
+  <input
+    class="ec-input-field__input"
+    data-test="ec-input-field__input"
+    id="ec-input-field-1"
+    type="text"
+  />
+   
+  <!---->
+   
+  <div
+    class="ec-input-field__bottom-note"
+    data-test="ec-input-field__bottom-note"
+  >
+    Random bottom note
+  </div>
+</div>
+`;
+
 exports[`EcInputField renders with the attrs min and max 1`] = `
 <div
   class="ec-input-field"
@@ -472,6 +516,96 @@ exports[`EcInputField renders with the attrs min and max 1`] = `
   <!---->
    
   <!---->
+</div>
+`;
+
+exports[`EcInputField renders with warning bottom note 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="ec-input-field-1"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+      <!---->
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+   
+  <input
+    class="ec-input-field__input"
+    data-test="ec-input-field__input"
+    id="ec-input-field-1"
+    type="text"
+  />
+   
+  <!---->
+   
+  <div
+    class="ec-input-field__bottom-note ec-input-field__bottom-note--is-warning"
+    data-test="ec-input-field__bottom-note"
+  >
+    Random bottom note
+  </div>
+</div>
+`;
+
+exports[`EcInputField renders without bottom note if error message is given 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="ec-input-field-1"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+      <!---->
+    </span>
+     
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+   
+  <input
+    aria-describedby="ec-input-field-error-1"
+    class="ec-input-field__input ec-input-field__input--has-error"
+    data-test="ec-input-field__input"
+    id="ec-input-field-1"
+    type="text"
+  />
+   
+  <!---->
+   
+  <div
+    class="ec-input-field__error-text"
+    data-test="ec-input-field__error-text"
+    id="ec-input-field-error-1"
+  >
+    Random error message
+  </div>
 </div>
 `;
 

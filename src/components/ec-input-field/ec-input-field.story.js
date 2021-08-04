@@ -32,7 +32,7 @@ stories
         default: text('icon', '', GROUPS.NUMBER),
       },
       isSensitive: {
-        default: boolean('Is Sensitive', false),
+        default: boolean('is sensitive', false),
       },
       valueFromPropsText: {
         default: text('value', '', GROUPS.TEXT),
@@ -42,6 +42,9 @@ stories
       },
       noteText: {
         default: text('note', 'Max 80 chars', GROUPS.TEXT),
+      },
+      bottomNoteText: {
+        default: text('bottom note', 'Random bottom note text', GROUPS.TEXT),
       },
       errorMessageText: {
         default: text('error message', '', GROUPS.TEXT),
@@ -69,6 +72,9 @@ stories
       },
       isInGroup: {
         default: select('is in group', ['', 'left', 'right'], ''),
+      },
+      isWarning: {
+        default: boolean('is warning', false, GROUPS.TEXT),
       },
     },
     watch: {
@@ -138,6 +144,10 @@ stories
 
         <div class="tw-col-full md:tw-col-4">
           <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Short Label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
+        </div>
+
+        <div class="tw-col-full md:tw-col-4">
+          <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Input with bottom note" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">

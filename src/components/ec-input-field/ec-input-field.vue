@@ -65,6 +65,12 @@
       class="ec-input-field__error-text"
       data-test="ec-input-field__error-text"
     >{{ errorMessage }}</div>
+    <div
+      v-else-if="bottomNote"
+      data-test="ec-input-field__bottom-note"
+      class="ec-input-field__bottom-note"
+      :class="{ 'ec-input-field__bottom-note--is-warning': isWarning }"
+    >{{ bottomNote }}</div>
   </div>
 </template>
 
@@ -107,6 +113,10 @@ export default {
       default: '',
       type: String,
     },
+    bottomNote: {
+      default: '',
+      type: String,
+    },
     errorMessage: {
       default: '',
       type: String,
@@ -133,6 +143,10 @@ export default {
       default: false,
     },
     isSensitive: {
+      type: Boolean,
+      default: false,
+    },
+    isWarning: {
       type: Boolean,
       default: false,
     },
@@ -273,6 +287,15 @@ export default {
 
   &__note {
     @apply tw-caption-text;
+  }
+
+  &__bottom-note {
+    @apply tw-help-text;
+    @apply tw-mt-4;
+
+    &--is-warning {
+      @apply tw-text-warning-dark;
+    }
   }
 
   &__error-text {
