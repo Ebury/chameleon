@@ -29,7 +29,7 @@ module.exports = {
       emitWarning: true,
     }));
     const babelRule = config.module.rules[0];
-    babelRule.exclude = /node_modules\/(?!(css-tree)\/).*/;
+    babelRule.exclude = /node_modules\/(?!(css-tree|color)\/).*/;
     return config;
   },
 };

@@ -12,76 +12,36 @@ updates:
   - "mcibique"
   - "stavros-tomas"
   ignore:
-  - dependency-name: "@storybook/addon-storysource"
+  - dependency-name: clipboard-copy
     versions:
-    - ">= 6.a, < 7"
-  - dependency-name: "@testing-library/jest-dom"
-    versions:
-    - "> 5.11.9"
-  - dependency-name: "@storybook/addons"
-    versions:
-    - 6.2.5
-    - 6.2.7
-    - 6.2.8
-  - dependency-name: "@storybook/addon-knobs"
-    versions:
-    - 6.2.5
-    - 6.2.6
-    - 6.2.7
-    - 6.2.8
-  - dependency-name: "@storybook/vue"
-    versions:
-    - 6.2.1
-    - 6.2.3
-    - 6.2.5
-    - 6.2.6
-    - 6.2.7
-    - 6.2.8
-  - dependency-name: "@storybook/addon-a11y"
-    versions:
-    - 6.2.5
-    - 6.2.7
-    - 6.2.8
-  - dependency-name: "@storybook/addon-actions"
-    versions:
-    - 6.2.1
-    - 6.2.2
-    - 6.2.5
-    - 6.2.6
-    - 6.2.7
-    - 6.2.8
+    - ">= 4"
   - dependency-name: svg-sprite-loader
     versions:
-    - 6.0.0
-    - 6.0.2
-    - 6.0.5
-  - dependency-name: stylelint-config-standard
+    - ">= 6"
+  - dependency-name: svgo-loader
     versions:
-    - 21.0.0
-  - dependency-name: "@fullhuman/postcss-purgecss"
-    versions:
-    - 4.0.2
-    - 4.0.3
-  - dependency-name: autoprefixer
-    versions:
-    - 10.2.4
-    - 10.2.5
-  - dependency-name: postcss-nested
-    versions:
-    - 5.0.4
-    - 5.0.5
-  - dependency-name: postcss-import
-    versions:
-    - 14.0.0
+    - ">= 3"
   - dependency-name: svgo
     versions:
-    - 2.2.0
-  - dependency-name: postcss-mixins
-    versions:
-    - 7.0.3
+    - ">= 2"
   - dependency-name: cypress
     versions:
-    - 6.3.0
-    - 6.4.0
-    - 6.5.0
-    - 6.6.0
+    - ">= 6"
+  - dependency-name: "@fullhuman/postcss-purgecss"
+    versions:
+    - ">= 3.1"
+  - dependency-name: purgecss
+    versions:
+    - ">= 3.1"
+  - dependency-name: autoprefixer
+    versions:
+    - ">= 10"
+  - dependency-name: postcss-nested
+    versions:
+    - ">= 5"
+  - dependency-name: postcss-import
+    versions:
+    - ">= 13"
+  - dependency-name: postcss-mixins
+    versions:
+    - ">= 7"
