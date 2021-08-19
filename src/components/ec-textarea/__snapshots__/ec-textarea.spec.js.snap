@@ -44,7 +44,7 @@ exports[`EcTextarea :props should render with a bottom note 1`] = `
 - First value
 + Second value
 
-@@ -9,7 +9,14 @@
+@@ -9,7 +9,12 @@
       data-test=\\"ec-textarea__textarea\\"
       id=\\"ec-textarea-1\\"
       rows=\\"4\\"
@@ -55,9 +55,7 @@ exports[`EcTextarea :props should render with a bottom note 1`] = `
 +     class=\\"ec-textarea__bottom-note\\"
 +     data-test=\\"ec-textarea__bottom-note\\"
 +   >
-+     
 +     Bottom note lorem ipsum
-+   
 +   </div>
   </div>"
 `;
@@ -67,7 +65,7 @@ exports[`EcTextarea :props should render with a bottom note in a warning color t
 - First value
 + Second value
 
-@@ -9,7 +9,14 @@
+@@ -9,7 +9,12 @@
       data-test=\\"ec-textarea__textarea\\"
       id=\\"ec-textarea-1\\"
       rows=\\"4\\"
@@ -78,9 +76,7 @@ exports[`EcTextarea :props should render with a bottom note in a warning color t
 +     class=\\"ec-textarea__bottom-note ec-textarea__bottom-note--is-warning\\"
 +     data-test=\\"ec-textarea__bottom-note\\"
 +   >
-+     
 +     Bottom note lorem ipsum
-+   
 +   </div>
   </div>"
 `;
@@ -90,7 +86,7 @@ exports[`EcTextarea :props should render with a label 1`] = `
 - First value
 + Second value
 
-@@ -1,10 +1,26 @@
+@@ -1,10 +1,24 @@
   <div
     class=\\"ec-textarea\\"
     data-test=\\"ec-textarea\\"
@@ -104,13 +100,11 @@ exports[`EcTextarea :props should render with a label 1`] = `
 +       class=\\"ec-textarea__label-text\\"
 +       data-test=\\"ec-textarea__label-text\\"
 +     >
-+       
 +       Label lorem ipsum
-+       
-        <!---->
++       <!---->
 +     </span>
 +      
-+     <!---->
+      <!---->
 +   </label>
      
     <textarea
@@ -124,7 +118,7 @@ exports[`EcTextarea :props should render with a labelTooltip 1`] = `
 - First value
 + Second value
 
-@@ -1,10 +1,36 @@
+@@ -1,10 +1,34 @@
   <div
     class=\\"ec-textarea\\"
     data-test=\\"ec-textarea\\"
@@ -138,9 +132,7 @@ exports[`EcTextarea :props should render with a labelTooltip 1`] = `
 +       class=\\"ec-textarea__label-text\\"
 +       data-test=\\"ec-textarea__label-text\\"
 +     >
-+       
 +       Label lorem ipsum
-+       
 +       <svg
 +         class=\\"ec-textarea__tooltip ec-icon ec-icon--interactive\\"
 +         data-ec-tooltip-mock-content=\\"Label tooltip lorem ipsum\\"
@@ -168,7 +160,7 @@ exports[`EcTextarea :props should render with a note 1`] = `
 - First value
 + Second value
 
-@@ -1,10 +1,25 @@
+@@ -1,10 +1,23 @@
   <div
     class=\\"ec-textarea\\"
     data-test=\\"ec-textarea\\"
@@ -184,9 +176,7 @@ exports[`EcTextarea :props should render with a note 1`] = `
 +       class=\\"ec-textarea__note\\"
 +       data-test=\\"ec-textarea__note\\"
 +     >
-+       
 +       Note lorem ipsum
-+     
 +     </span>
 +   </label>
      
@@ -201,7 +191,7 @@ exports[`EcTextarea :props should render with an error message 1`] = `
 - First value
 + Second value
 
-@@ -3,13 +3,22 @@
+@@ -3,13 +3,20 @@
     data-test=\\"ec-textarea\\"
   >
     <!---->
@@ -221,9 +211,7 @@ exports[`EcTextarea :props should render with an error message 1`] = `
 +     data-test=\\"ec-textarea__error-text\\"
 +     id=\\"ec-textarea-error-1\\"
 +   >
-+     
 +     Error lorem ipsum
-+   
 +   </div>
   </div>"
 `;

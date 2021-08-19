@@ -13,26 +13,22 @@
         v-if="label"
         class="ec-textarea__label-text"
         data-test="ec-textarea__label-text"
-      >
-        {{ label }}
-        <ec-icon
-          v-if="labelTooltip"
-          v-ec-tooltip="{ content: labelTooltip }"
-          class="ec-textarea__tooltip"
-          data-test="ec-textarea__tooltip"
-          type="interactive"
-          name="simple-info"
-          :size="14"
-        />
+      >{{ label }}<ec-icon
+        v-if="labelTooltip"
+        v-ec-tooltip="{ content: labelTooltip }"
+        class="ec-textarea__tooltip"
+        data-test="ec-textarea__tooltip"
+        type="interactive"
+        name="simple-info"
+        :size="14"
+      />
       </span>
 
       <span
         v-if="note"
         class="ec-textarea__note"
         data-test="ec-textarea__note"
-      >
-        {{ note }}
-      </span>
+      >{{ note }}</span>
     </label>
 
     <textarea
@@ -52,18 +48,14 @@
       v-if="isInvalid"
       class="ec-textarea__error-text"
       data-test="ec-textarea__error-text"
-    >
-      {{ errorMessage }}
-    </div>
+    >{{ errorMessage }}</div>
 
     <div
       v-else-if="bottomNote"
       data-test="ec-textarea__bottom-note"
       class="ec-textarea__bottom-note"
       :class="{ 'ec-textarea__bottom-note--is-warning': isWarning }"
-    >
-      {{ bottomNote }}
-    </div>
+    >{{ bottomNote }}</div>
   </div>
 </template>
 
