@@ -7,11 +7,12 @@ module.exports = {
     '../src/**/*.story.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-knobs',
     '@storybook/addon-a11y',
     '@storybook/addon-cssresources',
+    '@storybook/addon-essentials',
+    '@storybook/addon-knobs',
+    '@storybook/addon-links',
+    '@storybook/addon-postcss',
   ],
   webpackFinal: (config) => {
     config.resolve.alias = {
