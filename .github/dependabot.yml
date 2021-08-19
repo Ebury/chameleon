@@ -7,6 +7,10 @@ updates:
     time: "04:00"
   open-pull-requests-limit: 10
   versioning-strategy: increase
+  reviewers:
+  - "jeger-at"
+  - "mcibique"
+  - "stavros-tomas"
   ignore:
   - dependency-name: "@storybook/addon-storysource"
     versions:
