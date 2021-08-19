@@ -46,6 +46,7 @@ export { default as EcSubmenu } from './components/ec-submenu';
 export { default as EcSyncMultipleValuesFilter } from './components/ec-sync-multiple-values-filter';
 export { default as EcTable } from './components/ec-table';
 export { default as EcTableFilter } from './components/ec-table-filter';
+export { default as EcTextarea } from './components/ec-textarea';
 export { default as EcTimer } from './components/ec-timer';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcTooltip } from './directives/ec-tooltip';
