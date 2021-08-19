@@ -106,11 +106,11 @@
   },
   "lint-staged": {
     "*.{vue,htm,html,css}": [
-      "npm run lint:style",
+      "vue-cli-service lint:style",
       "git add"
     ],
     "*.{vue,js}": [
-      "npm run lint",
+      "vue-cli-service lint",
       "git add"
     ]
   }
