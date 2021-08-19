@@ -28,10 +28,10 @@ describe('EcTextarea', () => {
     });
   }
 
-  const defaultWrapper = mountTextarea();
-
   it('should render as expected', () => {
-    expect(defaultWrapper.element).toMatchSnapshot();
+    const wrapper = mountTextarea();
+
+    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should set the v-model on the value of the textarea and change when it changes', async () => {
@@ -51,8 +51,8 @@ describe('EcTextarea', () => {
   });
 
   it('renders with a placeholder', () => {
-    const wrapper = mountTextarea({}, { attrs: { placeholder: 'dfdffdfdfdf' } });
-    expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+    const wrapper = mountTextarea({}, { attrs: { placeholder: 'Placeholder lorem ipsum...' } });
+    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render with a custom data test', () => {
@@ -60,13 +60,13 @@ describe('EcTextarea', () => {
       '<ec-textarea data-test="custom data test"/>',
     );
 
-    expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('renders as disabled', () => {
     const wrapper = mountTextarea({}, { attrs: { disabled: true } });
 
-    expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+    expect(wrapper.element).toMatchSnapshot();
   });
 
   describe(':props', () => {
@@ -75,7 +75,7 @@ describe('EcTextarea', () => {
         rows: 5,
       });
 
-      expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with a label', () => {
@@ -83,7 +83,7 @@ describe('EcTextarea', () => {
         label: 'Label lorem ipsum',
       });
 
-      expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with a labelTooltip', () => {
@@ -92,7 +92,7 @@ describe('EcTextarea', () => {
         labelTooltip: 'Label tooltip lorem ipsum',
       });
 
-      expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with a note', () => {
@@ -100,7 +100,7 @@ describe('EcTextarea', () => {
         note: 'Note lorem ipsum',
       });
 
-      expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with a bottom note', () => {
@@ -108,7 +108,7 @@ describe('EcTextarea', () => {
         bottomNote: 'Bottom note lorem ipsum',
       });
 
-      expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with a bottom note in a warning color theme', () => {
@@ -117,7 +117,7 @@ describe('EcTextarea', () => {
         isWarning: true,
       });
 
-      expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with an error message', () => {
@@ -125,7 +125,7 @@ describe('EcTextarea', () => {
         errorMessage: 'Error lorem ipsum',
       });
 
-      expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render as sensitive', () => {
@@ -133,7 +133,7 @@ describe('EcTextarea', () => {
         isSensitive: true,
       });
 
-      expect(defaultWrapper.element).toMatchDiffSnapshot(wrapper.element);
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 

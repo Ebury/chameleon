@@ -144,9 +144,6 @@ export default {
     isInvalid() {
       return !!this.errorMessage;
     },
-    isDisabled() {
-      return !!this.$attrs.disabled;
-    },
     textareaModel: {
       get() {
         return this.value;
@@ -156,22 +153,14 @@ export default {
       },
     },
   },
-  methods: {
-    focus() {
-      this.$refs.textarea.focus();
-    },
-  },
 };
 </script>
 
 <style>
 .ec-textarea {
   @apply tw-w-full;
-  @apply tw-relative;
 
   &__textarea {
-    @apply tw-block;
-    @apply tw-resize-none;
     @apply tw-body-text tw-text-gray-3;
     @apply tw-rounded;
     @apply tw-py-8 tw-px-12;

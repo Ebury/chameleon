@@ -1,257 +1,253 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcTextarea :props should render as sensitive 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -3,11 +3,11 @@
-    data-test=\\"ec-textarea\\"
-  >
-    <!---->
-     
-    <textarea
--     class=\\"ec-textarea__textarea\\"
-+     class=\\"ec-textarea__textarea my-sensitive-content-test-class\\"
-      data-test=\\"ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\"
-      rows=\\"4\\"
-    />
-     "
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea my-sensitive-content-test-class"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
 `;
 
 exports[`EcTextarea :props should render the textarea with a specific number of rows 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -6,10 +6,10 @@
-     
-    <textarea
-      class=\\"ec-textarea__textarea\\"
-      data-test=\\"ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\"
--     rows=\\"4\\"
-+     rows=\\"5\\"
-    />
-     
-    <!---->
-  </div>"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="5"
+  />
+   
+  <!---->
+</div>
 `;
 
 exports[`EcTextarea :props should render with a bottom note 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -9,7 +9,12 @@
-      data-test=\\"ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\"
-      rows=\\"4\\"
-    />
-     
--   <!---->
-+   <div
-+     class=\\"ec-textarea__bottom-note\\"
-+     data-test=\\"ec-textarea__bottom-note\\"
-+   >
-+     Bottom note lorem ipsum
-+   </div>
-  </div>"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <div
+    class="ec-textarea__bottom-note"
+    data-test="ec-textarea__bottom-note"
+  >
+    Bottom note lorem ipsum
+  </div>
+</div>
 `;
 
 exports[`EcTextarea :props should render with a bottom note in a warning color theme 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -9,7 +9,12 @@
-      data-test=\\"ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\"
-      rows=\\"4\\"
-    />
-     
--   <!---->
-+   <div
-+     class=\\"ec-textarea__bottom-note ec-textarea__bottom-note--is-warning\\"
-+     data-test=\\"ec-textarea__bottom-note\\"
-+   >
-+     Bottom note lorem ipsum
-+   </div>
-  </div>"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <div
+    class="ec-textarea__bottom-note ec-textarea__bottom-note--is-warning"
+    data-test="ec-textarea__bottom-note"
+  >
+    Bottom note lorem ipsum
+  </div>
+</div>
 `;
 
 exports[`EcTextarea :props should render with a label 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -1,10 +1,24 @@
-  <div
-    class=\\"ec-textarea\\"
-    data-test=\\"ec-textarea\\"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <label
+    class="ec-textarea__label"
+    data-test="ec-textarea__label"
+    for="ec-textarea-1"
   >
-+   <label
-+     class=\\"ec-textarea__label\\"
-+     data-test=\\"ec-textarea__label\\"
-+     for=\\"ec-textarea-1\\"
-+   >
-+     <span
-+       class=\\"ec-textarea__label-text\\"
-+       data-test=\\"ec-textarea__label-text\\"
-+     >
-+       Label lorem ipsum
-+       <!---->
-+     </span>
-+      
+    <span
+      class="ec-textarea__label-text"
+      data-test="ec-textarea__label-text"
+    >
+      Label lorem ipsum
       <!---->
-+   </label>
+    </span>
      
-    <textarea
-      class=\\"ec-textarea__textarea\\"
-      data-test=\\"ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\""
+    <!---->
+  </label>
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
 `;
 
 exports[`EcTextarea :props should render with a labelTooltip 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -1,10 +1,34 @@
-  <div
-    class=\\"ec-textarea\\"
-    data-test=\\"ec-textarea\\"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <label
+    class="ec-textarea__label"
+    data-test="ec-textarea__label"
+    for="ec-textarea-1"
   >
-+   <label
-+     class=\\"ec-textarea__label\\"
-+     data-test=\\"ec-textarea__label\\"
-+     for=\\"ec-textarea-1\\"
-+   >
-+     <span
-+       class=\\"ec-textarea__label-text\\"
-+       data-test=\\"ec-textarea__label-text\\"
-+     >
-+       Label lorem ipsum
-+       <svg
-+         class=\\"ec-textarea__tooltip ec-icon ec-icon--interactive\\"
-+         data-ec-tooltip-mock-content=\\"Label tooltip lorem ipsum\\"
-+         data-test=\\"ec-textarea__tooltip ec-mock ec-tooltip-mock\\"
-+         height=\\"14\\"
-+         width=\\"14\\"
-+       >
-+         <use
-+           xlink:href=\\"#ec-simple-info\\"
-+         />
-+       </svg>
-+     </span>
-+      
-      <!---->
-+   </label>
+    <span
+      class="ec-textarea__label-text"
+      data-test="ec-textarea__label-text"
+    >
+      Label lorem ipsum
+      <svg
+        class="ec-textarea__tooltip ec-icon ec-icon--interactive"
+        data-ec-tooltip-mock-content="Label tooltip lorem ipsum"
+        data-test="ec-textarea__tooltip ec-mock ec-tooltip-mock"
+        height="14"
+        width="14"
+      >
+        <use
+          xlink:href="#ec-simple-info"
+        />
+      </svg>
+    </span>
      
-    <textarea
-      class=\\"ec-textarea__textarea\\"
-      data-test=\\"ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\""
+    <!---->
+  </label>
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
 `;
 
 exports[`EcTextarea :props should render with a note 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -1,10 +1,23 @@
-  <div
-    class=\\"ec-textarea\\"
-    data-test=\\"ec-textarea\\"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <label
+    class="ec-textarea__label"
+    data-test="ec-textarea__label"
+    for="ec-textarea-1"
   >
-+   <label
-+     class=\\"ec-textarea__label\\"
-+     data-test=\\"ec-textarea__label\\"
-+     for=\\"ec-textarea-1\\"
-+   >
-      <!---->
-+      
-+     <span
-+       class=\\"ec-textarea__note\\"
-+       data-test=\\"ec-textarea__note\\"
-+     >
-+       Note lorem ipsum
-+     </span>
-+   </label>
+    <!---->
      
-    <textarea
-      class=\\"ec-textarea__textarea\\"
-      data-test=\\"ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\""
+    <span
+      class="ec-textarea__note"
+      data-test="ec-textarea__note"
+    >
+      Note lorem ipsum
+    </span>
+  </label>
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
 `;
 
 exports[`EcTextarea :props should render with an error message 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -3,13 +3,20 @@
-    data-test=\\"ec-textarea\\"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    aria-describedby="ec-textarea-error-1"
+    class="ec-textarea__textarea ec-textarea__textarea--has-error"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <div
+    class="ec-textarea__error-text"
+    data-test="ec-textarea__error-text"
+    id="ec-textarea-error-1"
   >
-    <!---->
-     
-    <textarea
--     class=\\"ec-textarea__textarea\\"
-+     aria-describedby=\\"ec-textarea-error-1\\"
-+     class=\\"ec-textarea__textarea ec-textarea__textarea--has-error\\"
-      data-test=\\"ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\"
-      rows=\\"4\\"
-    />
-     
--   <!---->
-+   <div
-+     class=\\"ec-textarea__error-text\\"
-+     data-test=\\"ec-textarea__error-text\\"
-+     id=\\"ec-textarea-error-1\\"
-+   >
-+     Error lorem ipsum
-+   </div>
-  </div>"
+    Error lorem ipsum
+  </div>
+</div>
 `;
 
 exports[`EcTextarea renders as disabled 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -5,10 +5,11 @@
-    <!---->
-     
-    <textarea
-      class=\\"ec-textarea__textarea\\"
-      data-test=\\"ec-textarea__textarea\\"
-+     disabled=\\"disabled\\"
-      id=\\"ec-textarea-1\\"
-      rows=\\"4\\"
-    />
-     
-    <!---->"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    disabled="disabled"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
 `;
 
 exports[`EcTextarea renders with a placeholder 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -6,10 +6,11 @@
-     
-    <textarea
-      class=\\"ec-textarea__textarea\\"
-      data-test=\\"ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\"
-+     placeholder=\\"dfdffdfdfdf\\"
-      rows=\\"4\\"
-    />
-     
-    <!---->
-  </div>"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    placeholder="Placeholder lorem ipsum..."
+    rows="4"
+  />
+   
+  <!---->
+</div>
 `;
 
 exports[`EcTextarea should render as expected 1`] = `
@@ -273,21 +269,19 @@ exports[`EcTextarea should render as expected 1`] = `
 `;
 
 exports[`EcTextarea should render with a custom data test 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -4,11 +4,11 @@
-  >
-    <!---->
-     
-    <textarea
-      class=\\"ec-textarea__textarea\\"
--     data-test=\\"ec-textarea__textarea\\"
-+     data-test=\\"custom data test ec-textarea__textarea\\"
-      id=\\"ec-textarea-1\\"
-      rows=\\"4\\"
-    />
-     
-    <!---->"
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="custom data test ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
 `;
