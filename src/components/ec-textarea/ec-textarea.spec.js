@@ -82,9 +82,11 @@ describe('EcTextarea', () => {
       },
     );
 
+    document.activeElement.blur();
+    expect(document.activeElement).toBe(document.body);
     wrapper.findByDataTest('test-button').trigger('click');
-
     expect(document.activeElement).toBe(wrapper.findByDataTest('ec-textarea__textarea').element);
+    wrapper.destroy();
   });
 
   describe(':props', () => {
