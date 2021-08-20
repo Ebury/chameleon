@@ -69,6 +69,24 @@ describe('EcTextarea', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should give focus to the textarea element inside the component', () => {
+    const elem = document.createElement('div');
+    document.body.appendChild(elem);
+
+    const wrapper = mountTextareaAsTemplate(
+      '<div><button data-test="test-button" @click="$refs.textarea.focus()">Focus the textarea </button><ec-textarea ref="textarea"></ec-textarea></div>',
+      {},
+      {},
+      {
+        attachTo: elem,
+      },
+    );
+
+    wrapper.findByDataTest('test-button').trigger('click');
+
+    expect(document.activeElement).toBe(wrapper.findByDataTest('ec-textarea__textarea').element);
+  });
+
   describe(':props', () => {
     it('should render the textarea with a specific number of rows', () => {
       const wrapper = mountTextarea({

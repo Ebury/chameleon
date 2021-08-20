@@ -153,6 +153,11 @@ export default {
       },
     },
   },
+  methods: {
+    focus() {
+      this.$refs.textarea.focus();
+    },
+  },
 };
 </script>
 
