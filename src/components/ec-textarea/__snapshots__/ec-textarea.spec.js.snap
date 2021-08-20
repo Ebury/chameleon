@@ -1,0 +1,287 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcTextarea :props should render as sensitive 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea my-sensitive-content-test-class"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`EcTextarea :props should render the textarea with a specific number of rows 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="5"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`EcTextarea :props should render with a bottom note 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <div
+    class="ec-textarea__bottom-note"
+    data-test="ec-textarea__bottom-note"
+  >
+    Bottom note lorem ipsum
+  </div>
+</div>
+`;
+
+exports[`EcTextarea :props should render with a bottom note in a warning color theme 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <div
+    class="ec-textarea__bottom-note ec-textarea__bottom-note--is-warning"
+    data-test="ec-textarea__bottom-note"
+  >
+    Bottom note lorem ipsum
+  </div>
+</div>
+`;
+
+exports[`EcTextarea :props should render with a label 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <label
+    class="ec-textarea__label"
+    data-test="ec-textarea__label"
+    for="ec-textarea-1"
+  >
+    <span
+      class="ec-textarea__label-text"
+      data-test="ec-textarea__label-text"
+    >
+      Label lorem ipsum
+      <!---->
+    </span>
+     
+    <!---->
+  </label>
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`EcTextarea :props should render with a labelTooltip 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <label
+    class="ec-textarea__label"
+    data-test="ec-textarea__label"
+    for="ec-textarea-1"
+  >
+    <span
+      class="ec-textarea__label-text"
+      data-test="ec-textarea__label-text"
+    >
+      Label lorem ipsum
+      <svg
+        class="ec-textarea__tooltip ec-icon ec-icon--interactive"
+        data-ec-tooltip-mock-content="Label tooltip lorem ipsum"
+        data-test="ec-textarea__tooltip ec-mock ec-tooltip-mock"
+        height="14"
+        width="14"
+      >
+        <use
+          xlink:href="#ec-simple-info"
+        />
+      </svg>
+    </span>
+     
+    <!---->
+  </label>
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`EcTextarea :props should render with a note 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <label
+    class="ec-textarea__label"
+    data-test="ec-textarea__label"
+    for="ec-textarea-1"
+  >
+    <!---->
+     
+    <span
+      class="ec-textarea__note"
+      data-test="ec-textarea__note"
+    >
+      Note lorem ipsum
+    </span>
+  </label>
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`EcTextarea :props should render with an error message 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    aria-describedby="ec-textarea-error-1"
+    class="ec-textarea__textarea ec-textarea__textarea--has-error"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <div
+    class="ec-textarea__error-text"
+    data-test="ec-textarea__error-text"
+    id="ec-textarea-error-1"
+  >
+    Error lorem ipsum
+  </div>
+</div>
+`;
+
+exports[`EcTextarea renders as disabled 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    disabled="disabled"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`EcTextarea renders with a placeholder 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    placeholder="Placeholder lorem ipsum..."
+    rows="4"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`EcTextarea should render as expected 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
+`;
+
+exports[`EcTextarea should render with a custom data test 1`] = `
+<div
+  class="ec-textarea"
+  data-test="ec-textarea"
+>
+  <!---->
+   
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="custom data test ec-textarea__textarea"
+    id="ec-textarea-1"
+    rows="4"
+  />
+   
+  <!---->
+</div>
+`;
