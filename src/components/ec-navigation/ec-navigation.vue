@@ -132,7 +132,7 @@ export default {
 
   &__copyright {
     @apply tw-caption-text;
-    @apply tw-whitespace-no-wrap;
+    @apply tw-whitespace-nowrap;
     @apply tw-py-0 tw-px-24;
     @apply tw-text-center;
   }

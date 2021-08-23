@@ -5,7 +5,7 @@
   @apply tw-cursor-pointer;
   @apply tw-border tw-border-solid tw-border-transparent;
   @apply tw-bg-gray-4;
-  @apply tw-whitespace-no-wrap tw-overflow-hidden;
+  @apply tw-whitespace-nowrap tw-overflow-hidden;
   @apply tw-transition-colors tw-duration-150 tw-ease-out;
 
   max-width: 256px;

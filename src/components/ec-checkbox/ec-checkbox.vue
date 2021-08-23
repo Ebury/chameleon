@@ -139,7 +139,7 @@ export default {
   }
 
   &__label-checkbox-wrapper {
-    @apply tw-flex tw-flex-no-wrap;
+    @apply tw-flex tw-flex-nowrap;
 
     &--is-single-line {
       @apply tw-items-center;

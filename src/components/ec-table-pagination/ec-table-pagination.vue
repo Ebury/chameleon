@@ -167,7 +167,7 @@ export default {
   }
 
   &__page-size-text {
-    @apply tw-whitespace-no-wrap;
+    @apply tw-whitespace-nowrap;
     @apply tw-py-8;
   }
 
@@ -187,7 +187,7 @@ export default {
     @apply tw-outline-none;
     @apply tw-cursor-pointer;
     @apply tw-border-l tw-border-solid tw-border-gray-6;
-    @apply tw-whitespace-no-wrap;
+    @apply tw-whitespace-nowrap;
 
     &:hover,
     &:focus {
