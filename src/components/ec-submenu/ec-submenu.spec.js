@@ -100,12 +100,12 @@ describe('EcSubmenu', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toBeVisible();
-    expect(wrapper.findByDataTest('ec-submenu__panel-1').element).not.toBeVisible();
+    expect(wrapper.findByDataTest('ec-submenu__panel-0').isVisible()).toBe(true);
+    expect(wrapper.findByDataTest('ec-submenu__panel-1').isVisible()).toBe(false);
 
     await wrapper.findByDataTest('ec-submenu__header-title-1').trigger('click');
-    expect(wrapper.findByDataTest('ec-submenu__panel-1').element).toBeVisible();
-    expect(wrapper.findByDataTest('ec-submenu__panel-0').element).not.toBeVisible();
+    expect(wrapper.findByDataTest('ec-submenu__panel-1').isVisible()).toBe(true);
+    expect(wrapper.findByDataTest('ec-submenu__panel-0').isVisible()).toBe(false);
     expect(wrapper.vm.activeIndex).toBe(1);
     expect(wrapper.element).toMatchSnapshot();
   });

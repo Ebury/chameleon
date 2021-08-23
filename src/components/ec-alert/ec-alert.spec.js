@@ -91,7 +91,7 @@ describe('EcAlert', () => {
     );
     expect(wrapper.findByDataTest('ec-alert__dismiss-icon').exists()).toBe(true);
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
-    expect(wrapper.element).not.toBeVisible();
+    expect(wrapper.isVisible()).toBe(false);
   });
 
   it('should emit the event when user clicks on the button', async () => {
@@ -112,9 +112,9 @@ describe('EcAlert', () => {
     );
 
     expect(wrapper.vm.isOpen).toBe(true);
-    expect(wrapper.element).toBeVisible();
+    expect(wrapper.isVisible()).toBe(true);
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
-    expect(wrapper.element).not.toBeVisible();
+    expect(wrapper.isVisible()).toBe(false);
     expect(wrapper.vm.isOpen).toBe(false);
   });
 

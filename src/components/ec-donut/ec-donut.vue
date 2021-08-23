@@ -131,7 +131,7 @@ export default {
       @apply tw-w-auto;
       @apply tw-mr-24;
       @apply tw-block;
-      @apply justify-start;
+      @apply tw-justify-start;
     }
   }
 

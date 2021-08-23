@@ -144,7 +144,7 @@ export default {
 
   &__header-icon {
     @apply tw-fill-current;
-    @apply inline-block;
+    @apply tw-inline-block;
     @apply tw-align-top;
   }
 

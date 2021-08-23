@@ -172,7 +172,7 @@ export default {
   }
 
   &__cell {
-    @apply .common-cell-layout;
+    @apply common-cell-layout;
     @apply tw-pt-16 tw-pr-0 tw-pb-16 tw-pl-16;
     @apply tw-border-b tw-border-solid tw-border-gray-6;
     @apply tw-align-middle;
