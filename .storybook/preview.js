@@ -15,7 +15,8 @@ import hotpinkTheme from '!!raw-loader!../src/styles/themes/hotpink.css';
 import config from '../src/config';
 
 import '../src/styles/themes/blue.css';
-import '../src/styles/main.css';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import '!!style-loader!css-loader!postcss-loader!../src/styles/main.css';
 
 config.sensitiveClass = 'tw-filter tw-blur-4';
 
