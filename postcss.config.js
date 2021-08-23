@@ -14,8 +14,7 @@ module.exports = ({ file }) => {
 
   // Don't purge the story for TailwindCSS, otherwise it won't be able to get the full list of available utility classes.
   const shouldPurgeFile = file !== twStoryPath;
-  // const isProd = process.env.NODE_ENV === 'production';
-  const isProd = true;
+  const isProd = process.env.NODE_ENV === 'production';
   if (isProd && shouldPurgeFile) {
     // see https://purgecss.com/guides/vue.html for reference
     const purgecss = require('@fullhuman/postcss-purgecss')({
