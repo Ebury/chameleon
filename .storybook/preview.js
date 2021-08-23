@@ -17,7 +17,7 @@ import config from '../src/config';
 import '../src/styles/themes/blue.css';
 import '../src/styles/main.css';
 
-config.sensitiveClass = 'tw-filter-blur-4';
+config.sensitiveClass = 'tw-filter tw-blur-4';
 
 export const parameters = {
   viewMode: 'docs',

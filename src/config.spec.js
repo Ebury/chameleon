@@ -1,6 +1,6 @@
 import config from './config';
 
-it('should throw if sensitive classs is empty', () => {
+it('should throw if sensitive class is empty', () => {
   config.sensitiveClass = '';
 
   expect(() => {
