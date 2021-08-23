@@ -7,7 +7,6 @@ module.exports = ({ file }) => {
       'postcss-mixins': {},
       tailwindcss: require.resolve('./tailwind.config.js'),
       'postcss-nested': {},
-      'postcss-preset-env': {},
     },
   };
 
