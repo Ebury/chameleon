@@ -1,5 +1,9 @@
 @define-mixin ec-z-level-all {
-  @apply tw-z-level-1;
+  /* stylelint-disable scss/selector-no-redundant-nesting-selector */
+  & {
+    @apply tw-z-level-1;
+  }
+  /* stylelint-enable */
 
   &--level-2 {
     @apply tw-z-level-2;

@@ -1,5 +1,9 @@
 @define-mixin ec-body-link {
-  @apply tw-text-key-4 tw-no-underline;
+  /* stylelint-disable scss/selector-no-redundant-nesting-selector */
+  & {
+    @apply tw-text-key-4 tw-no-underline;
+  }
+  /* stylelint-enable */
 
   &:hover {
     @apply tw-underline;
