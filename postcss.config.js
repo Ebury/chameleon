@@ -2,6 +2,8 @@
 /* eslint-disable global-require */
 const twStoryPath = require.resolve('./src/styles/utilities/tailwind.story.css');
 
+const purgecssFromHtmlExtractor = require('purgecss-from-html');
+
 module.exports = ({ file }) => {
   const config = {
     plugins: [
@@ -28,6 +30,20 @@ module.exports = ({ file }) => {
         const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '');
         return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || [];
       },
+      extractors: [
+        {
+          extensions: ['svg'],
+          extractor: (content) => {
+            const result = purgecssFromHtmlExtractor(content);
+            if (result && result.classes) {
+              // when parsing SVG, the result will contain lots of noise like SVG tags, paths and graphics.
+              // just remove them, we are only interested in strings found in class attributes.
+              return result.classes;
+            }
+            return [];
+          },
+        },
+      ],
       safelist: {
         standard: [
           /-(leave|enter|appear)(|-(to|from|active))$/,
