@@ -10,7 +10,9 @@ module.exports = ({ file }) => {
       require('postcss-import'),
       require('postcss-mixins'),
       require('tailwindcss'),
-      require('postcss-nested'),
+      // 1. postcss-nested must always go AFTER TW, see https://github.com/tailwindlabs/tailwindcss/issues/94#issuecomment-341911398
+      // 2. make sure TW custom at-rules are working, see https://github.com/postcss/postcss-nested/issues/81#issuecomment-481258751
+      require('postcss-nested')({ bubble: ['screen'] }),
     ],
   };
 
