@@ -486,7 +486,7 @@ export default {
 @import '../../styles/tools/ec-dropdown';
 
 :root {
-  --ec-dropddown-search-icon-margin-right: theme('margin.8');
+  --ec-dropdown-search-icon-margin-right: theme('margin.8');
   --ec-dropdown-search-icon-size: theme('spacing.16');
   --ec-dropdown-search-item-height: theme('spacing.40');
   --ec-dropdown-search-item-delimiter-size: theme('spacing.1');
@@ -550,7 +550,7 @@ export default {
     @apply tw-px-16 tw-py-8;
     @apply tw-w-full;
 
-    padding-left: calc(var(--ec-dropdown-search-item-vertical-padding) + var(--ec-dropdown-search-icon-size) + var(--ec-dropddown-search-icon-margin-right));
+    padding-left: calc(var(--ec-dropdown-search-item-vertical-padding) + var(--ec-dropdown-search-icon-size) + var(--ec-dropdown-search-icon-margin-right));
   }
 
   &__no-items {
