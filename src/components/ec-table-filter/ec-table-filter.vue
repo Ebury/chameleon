@@ -127,7 +127,7 @@ export default {
   }
 
   &__filter-item {
-    @apply tw-flex-no-wrap;
+    @apply tw-flex-nowrap;
     @apply tw-mr-8;
   }
 
@@ -144,7 +144,7 @@ export default {
 
   &__clear-filters-button,
   &__less-filters-button {
-    @apply tw-flex tw-self-center tw-flex-no-wrap;
+    @apply tw-flex tw-self-center tw-flex-nowrap;
     @apply tw-text-key-4;
     @apply tw-border-none;
     @apply tw-bg-transparent;

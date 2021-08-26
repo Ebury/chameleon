@@ -117,7 +117,7 @@ export default {
   @apply tw-flex tw-items-center;
   @apply tw-no-underline;
   @apply tw-text-gray-8;
-  @apply tw-whitespace-no-wrap;
+  @apply tw-whitespace-nowrap;
 
   font-style: normal;
 

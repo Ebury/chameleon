@@ -1,5 +1,9 @@
 @define-mixin ec-dropdown-search-item {
-  @apply tw-py-8 tw-px-16;
+  /* stylelint-disable scss/selector-no-redundant-nesting-selector */
+  & {
+    @apply tw-py-8 tw-px-16;
+  }
+  /* stylelint-enable */
 }
 
 @define-mixin ec-dropdown-search-item-hover-effect {

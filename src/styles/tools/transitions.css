@@ -17,5 +17,9 @@
 }
 
 @define-mixin ec-text-color-transition {
-  @apply tw-transition-text tw-duration-300 tw-ease-out;
+  /* stylelint-disable scss/selector-no-redundant-nesting-selector */
+  & {
+    @apply tw-transition-text tw-duration-300 tw-ease-out;
+  }
+  /* stylelint-enable */
 }

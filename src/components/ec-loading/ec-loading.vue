@@ -89,11 +89,11 @@ export default {
 
 @keyframes ec-loading__animation {
   0% {
-    @apply tw-rotate-0;
+    transform: rotate(theme('rotate.0'));
   }
 
   100% {
-    @apply tw-rotate-360;
+    transform: rotate(theme('rotate.360'));
   }
 }
 </style>

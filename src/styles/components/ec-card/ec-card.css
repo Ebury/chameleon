@@ -1,5 +1,5 @@
 .ec-card-transition {
-  @apply tw-ease tw-duration-400;
+  @apply tw-ease-default tw-duration-400;
 }
 
 .ec-card {

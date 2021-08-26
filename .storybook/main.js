@@ -12,12 +12,17 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-knobs',
     '@storybook/addon-links',
-    '@storybook/addon-postcss',
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          // eslint-disable-next-line global-require
+          implementation: require('postcss'),
+        },
+      },
+    },
   ],
   webpackFinal: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-    };
     config.module.rules.push({
       test: /\.story\.jsx?$/,
       loaders: [require.resolve('@storybook/source-loader')],

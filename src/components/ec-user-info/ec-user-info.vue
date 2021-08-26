@@ -63,7 +63,7 @@ export default {
 .ec-user-info {
   @apply tw-flex tw-flex-col tw-items-center;
   @apply tw-py-0 tw-px-16;
-  @apply tw-whitespace-no-wrap;
+  @apply tw-whitespace-nowrap;
 
   &--is-collapsable {
     @apply tw-flex-row tw-items-start tw-justify-start;

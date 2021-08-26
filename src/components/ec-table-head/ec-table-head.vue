@@ -156,7 +156,7 @@ export default {
   }
 
   &__cell-text {
-    @apply tw-whitespace-no-wrap;
+    @apply tw-whitespace-nowrap;
 
     &--has-max-width {
       @apply tw-truncate;
