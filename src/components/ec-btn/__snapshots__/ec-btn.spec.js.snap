@@ -30,7 +30,7 @@ exports[`EcBtn :props should render a <button> element with class "ec-btn--sm" w
 
 exports[`EcBtn :props should render a button with a spinner loader if loading is set to true 1`] = `
 <button
-  class="ec-btn ec-btn--md"
+  class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
   disabled="disabled"
   type="submit"
@@ -40,29 +40,19 @@ exports[`EcBtn :props should render a button with a spinner loader if loading is
   <!---->
    
   <div
-    class="ec-loading ec-btn__loading-spinner"
+    class="ec-btn__loading-spinner"
     data-test="ec-btn__loading-spinner"
   >
-    <div
-      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-      data-test="ec-loading__backdrop"
+    <svg
+      class="ec-loading-icon ec-icon"
+      data-test="ec-loading-icon"
+      height="22"
+      width="22"
     >
-      <svg
-        class="ec-loading__icon ec-icon"
-        data-test="ec-loading__icon"
-        height="22"
-        width="22"
-      >
-        <use
-          xlink:href="#ec-simple-loading"
-        />
-      </svg>
-    </div>
-     
-    <div
-      class="ec-loading__content ec-loading__content--is-transparent"
-      data-test="ec-loading__content"
-    />
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
   </div>
 </button>
 `;
@@ -153,7 +143,7 @@ exports[`EcBtn :props should render a button with category "warning" when catego
 
 exports[`EcBtn :props should render a button with only a loading spinner when loading is set to true and no slots are passed 1`] = `
 <button
-  class="ec-btn ec-btn--md"
+  class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
   disabled="disabled"
   type="submit"
@@ -163,29 +153,19 @@ exports[`EcBtn :props should render a button with only a loading spinner when lo
   <!---->
    
   <div
-    class="ec-loading ec-btn__loading-spinner"
+    class="ec-btn__loading-spinner"
     data-test="ec-btn__loading-spinner"
   >
-    <div
-      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-      data-test="ec-loading__backdrop"
+    <svg
+      class="ec-loading-icon ec-icon"
+      data-test="ec-loading-icon"
+      height="22"
+      width="22"
     >
-      <svg
-        class="ec-loading__icon ec-icon"
-        data-test="ec-loading__icon"
-        height="22"
-        width="22"
-      >
-        <use
-          xlink:href="#ec-simple-loading"
-        />
-      </svg>
-    </div>
-     
-    <div
-      class="ec-loading__content ec-loading__content--is-transparent"
-      data-test="ec-loading__content"
-    />
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
   </div>
 </button>
 `;
@@ -463,7 +443,7 @@ exports[`EcBtn :slots should render a button with "Click me!" text and an icon 1
 
 exports[`EcBtn :slots should render a button with a loading-text and a loading spinner when "isLoading" is set to true and we set the default slot 1`] = `
 <button
-  class="ec-btn ec-btn--md"
+  class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
   disabled="disabled"
   type="submit"
@@ -478,36 +458,26 @@ exports[`EcBtn :slots should render a button with a loading-text and a loading s
   </span>
    
   <div
-    class="ec-loading ec-btn__loading-spinner"
+    class="ec-btn__loading-spinner"
     data-test="ec-btn__loading-spinner"
   >
-    <div
-      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-      data-test="ec-loading__backdrop"
+    <svg
+      class="ec-loading-icon ec-icon"
+      data-test="ec-loading-icon"
+      height="22"
+      width="22"
     >
-      <svg
-        class="ec-loading__icon ec-icon"
-        data-test="ec-loading__icon"
-        height="22"
-        width="22"
-      >
-        <use
-          xlink:href="#ec-simple-loading"
-        />
-      </svg>
-    </div>
-     
-    <div
-      class="ec-loading__content ec-loading__content--is-transparent"
-      data-test="ec-loading__content"
-    />
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
   </div>
 </button>
 `;
 
 exports[`EcBtn :slots should render a custom loading text instead of a spinner when "text-loader" is set 1`] = `
 <button
-  class="ec-btn ec-btn--md"
+  class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
   disabled="disabled"
   type="submit"
