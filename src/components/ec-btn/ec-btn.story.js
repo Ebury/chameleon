@@ -61,7 +61,7 @@ stories
         <h3>Button tag *</h3>
 
         <ec-btn
-          v-bind="$props"
+          v-bind="{ ...$props, loadingText: null }"
           class="tw-mt-20"
           @click="onClick()"
           >
@@ -73,14 +73,14 @@ stories
 
         <ec-btn
           v-if="icon"
-          v-bind="$props"
+          v-bind="{ ...$props, loadingText: null }"
           class="tw-ml-20 tw-mt-20"
           @click="onClick()"
         />
 
         <h3 class="tw-mt-20">Router link</h3>
         <ec-btn
-          v-bind="{ ...$props, to: '/my/url/' }"
+          v-bind="{ ...$props, loadingText: null, to: '/my/url/' }"
           class="tw-mt-20"
           @click.native="onClick()"
           >
@@ -89,7 +89,7 @@ stories
 
         <ec-btn
           v-if="icon"
-          v-bind="{ ...$props, to: '/my/url/' }"
+          v-bind="{ ...$props, loadingText: null, to: '/my/url/' }"
           class="tw-ml-20 tw-mt-20"
           @click.native="onClick()"
         />
@@ -97,14 +97,14 @@ stories
         <h3 class="tw-mt-20">Anchor link - a tag</h3>
 
         <ec-btn
-          v-bind="{ ...$props, href: 'http://www.ebury.com' }"
+          v-bind="{ ...$props, loadingText: null, href: 'http://www.ebury.com' }"
           class="tw-mt-20"
           @click.prevent.stop="onClick()"
           >{{text}}</ec-btn>
 
         <ec-btn
           v-if="icon"
-          v-bind="{ ...$props, href: 'http://www.ebury.com' }"
+          v-bind="{ ...$props, loadingText: null, href: 'http://www.ebury.com' }"
           class="tw-ml-20 tw-mt-20"
           @click.prevent.stop="onClick()"
         />

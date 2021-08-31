@@ -41,26 +41,25 @@
       <slot />
     </span>
 
-    <ec-loading
+    <div
       v-if="isSpinnerLoaderVisible()"
       class="ec-btn__loading-spinner"
       data-test="ec-btn__loading-spinner"
-      show
-      :size="22"
-    />
-
+    >
+      <ec-loading-icon :size="22" />
+    </div>
   </component>
 </template>
 
 <script>
-import EcIcon from '../ec-icon/ec-icon.vue';
-import EcLoading from '../ec-loading/ec-loading.vue';
+import EcIcon from '../ec-icon';
+import EcLoadingIcon from '../ec-loading-icon';
 
 export default {
   name: 'EcBtn',
   components: {
     EcIcon,
-    EcLoading,
+    EcLoadingIcon,
   },
   inheritAttrs: false,
   props: {
@@ -172,6 +171,7 @@ export default {
         'ec-btn--success-reverse': this.isReverse && this.category === 'success',
         'ec-btn--error-reverse': this.isReverse && this.category === 'error',
         'ec-btn--warning-reverse': this.isReverse && this.category === 'warning',
+        'ec-btn--is-loading': this.isSpinnerLoaderVisible() || this.isTextLoaderVisible(),
       };
     },
   },
@@ -180,6 +180,10 @@ export default {
 
 <style>
   .ec-btn {
+    &--is-loading {
+      @apply tw-relative;
+    }
+
     &__text {
       @apply tw-truncate;
     }
@@ -194,7 +198,8 @@ export default {
     }
 
     &__loading-spinner {
-      @apply tw-absolute;
+      @apply tw-absolute tw-inset-0;
+      @apply tw-flex tw-items-center tw-justify-center;
       @apply tw-w-full;
     }
 
