@@ -54,6 +54,10 @@ export default {
           this.metroline.isCompleted = false;
           this.$emit('change', this.metroline.activeItemId);
         },
+        completeMetroline: () => {
+          const lastIndex = this.metrolineItemIds.length;
+          this.metroline.goToNext(lastIndex);
+        },
       },
       metrolineItemIds: [],
     };

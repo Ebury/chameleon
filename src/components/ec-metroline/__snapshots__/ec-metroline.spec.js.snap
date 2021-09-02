@@ -797,6 +797,14 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
         Continue
       
           </button>
+           
+          <button
+            data-test="footer-cta-complete-metroline"
+          >
+            
+        Complete Metroline
+    
+          </button>
         </div>
       </div>
     </div>
@@ -953,6 +961,14 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
             
         Continue
       
+          </button>
+           
+          <button
+            data-test="footer-cta-complete-metroline"
+          >
+            
+        Complete Metroline
+    
           </button>
         </div>
       </div>
@@ -1114,6 +1130,14 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
         Continue
       
           </button>
+           
+          <button
+            data-test="footer-cta-complete-metroline"
+          >
+            
+        Complete Metroline
+    
+          </button>
         </div>
       </div>
     </div>
@@ -1168,6 +1192,204 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
       <!---->
        
       <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcMetroline permissions should complete the metroline if we click on complete metroline 1`] = `
+<div
+  class="ec-metroline"
+  data-test="ec-metroline"
+>
+  <div
+    class="ec-metroline-item"
+    data-test="ec-metroline-item ec-metroline-item--1"
+  >
+    <div
+      class="ec-metroline-item__status"
+      data-test="ec-metroline-item__status"
+    >
+      <div
+        class="ec-metroline-item__badge"
+        data-test="ec-metroline-item__badge"
+      >
+        <svg
+          class="ec-icon"
+          data-test="ec-metroline-item__completed-icon"
+          height="14"
+          width="14"
+        >
+          <use
+            xlink:href="#ec-simple-check"
+          />
+        </svg>
+      </div>
+       
+      <div
+        class="ec-metroline-item__status-bar"
+        data-test="ec-metroline-item__status-bar"
+      />
+    </div>
+     
+    <div
+      class="ec-metroline-item__content"
+      data-test="ec-metroline-item__content"
+    >
+      <div
+        class="ec-metroline-item__header"
+        data-test="ec-metroline-item__header"
+      >
+        <div
+          class="ec-metroline-item__header-heading"
+          data-test="ec-metroline-item__header-heading"
+        >
+          <span>
+            Item 1 Heading
+          </span>
+        </div>
+         
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        >
+          <span>
+            Item 1 Sub-heading
+          </span>
+        </div>
+         
+        <div
+          data-test="ec-metroline-item__header-cta"
+        >
+          <button
+            data-test="header-cta-completed-button"
+          >
+            Download
+          </button>
+        </div>
+      </div>
+       
+      <div
+        class="ec-metroline-item__main"
+        data-test="ec-metroline-item__main"
+      >
+        <p>
+          Item 1 Main Content
+        </p>
+      </div>
+       
+      <div
+        class="ec-metroline-item__footer"
+        data-test="ec-metroline-item__footer"
+      >
+        <div
+          class="ec-metroline-item__footer-cta"
+          data-test="ec-metroline-item__footer-cta"
+        >
+          <button
+            data-test="footer-cta-button"
+          >
+            
+        Continue
+      
+          </button>
+           
+          <button
+            data-test="footer-cta-complete-metroline"
+          >
+            
+        Complete Metroline
+    
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
+    data-test="ec-metroline-item ec-metroline-item--2"
+  >
+    <div
+      class="ec-metroline-item__status"
+      data-test="ec-metroline-item__status"
+    >
+      <div
+        class="ec-metroline-item__badge"
+        data-test="ec-metroline-item__badge"
+      >
+        <svg
+          class="ec-icon"
+          data-test="ec-metroline-item__completed-icon"
+          height="14"
+          width="14"
+        >
+          <use
+            xlink:href="#ec-simple-check"
+          />
+        </svg>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="ec-metroline-item__content"
+      data-test="ec-metroline-item__content"
+    >
+      <div
+        class="ec-metroline-item__header"
+        data-test="ec-metroline-item__header"
+      >
+        <div
+          class="ec-metroline-item__header-heading"
+          data-test="ec-metroline-item__header-heading"
+        >
+          <span>
+            Item 2 Heading
+          </span>
+        </div>
+         
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        >
+          <span>
+            Item 2 Sub-heading
+          </span>
+        </div>
+         
+        <div
+          data-test="ec-metroline-item__header-cta"
+        />
+      </div>
+       
+      <div
+        class="ec-metroline-item__main"
+        data-test="ec-metroline-item__main"
+      >
+        <p>
+          Item 2 Main Content
+        </p>
+      </div>
+       
+      <div
+        class="ec-metroline-item__footer"
+        data-test="ec-metroline-item__footer"
+      >
+        <div
+          class="ec-metroline-item__footer-cta"
+          data-test="ec-metroline-item__footer-cta"
+        >
+          <button
+            data-test="footer-cta-button"
+          >
+            
+          Continue
+      
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1268,6 +1490,14 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
             
         Continue
       
+          </button>
+           
+          <button
+            data-test="footer-cta-complete-metroline"
+          >
+            
+        Complete Metroline
+    
           </button>
         </div>
       </div>
@@ -1461,6 +1691,14 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
         Continue
       
           </button>
+           
+          <button
+            data-test="footer-cta-complete-metroline"
+          >
+            
+        Complete Metroline
+    
+          </button>
         </div>
       </div>
     </div>
@@ -1641,6 +1879,14 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
         Continue
       
           </button>
+           
+          <button
+            data-test="footer-cta-complete-metroline"
+          >
+            
+        Complete Metroline
+    
+          </button>
         </div>
       </div>
     </div>
@@ -1800,6 +2046,14 @@ exports[`EcMetroline should render a metroline with items 1`] = `
             
         Continue
       
+          </button>
+           
+          <button
+            data-test="footer-cta-complete-metroline"
+          >
+            
+        Complete Metroline
+    
           </button>
         </div>
       </div>
