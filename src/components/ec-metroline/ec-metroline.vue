@@ -45,8 +45,7 @@ export default {
             this.metroline.activeItemId = nextMetrolineItemId;
             this.$emit('change', this.metroline.activeItemId);
           } else {
-            this.metroline.isCompleted = true;
-            this.$emit('complete');
+            this.metroline.complete();
           }
         },
         goTo: (id) => {
@@ -54,9 +53,9 @@ export default {
           this.metroline.isCompleted = false;
           this.$emit('change', this.metroline.activeItemId);
         },
-        completeMetroline: () => {
-          const lastIndex = this.metrolineItemIds.length;
-          this.metroline.goToNext(lastIndex);
+        complete: () => {
+          this.metroline.isCompleted = true;
+          this.$emit('complete');
         },
       },
       metrolineItemIds: [],

@@ -47,7 +47,7 @@ const metrolineWithItemsTemplate = `
       <p>Item 1 Main Content</p>
     </template>
 
-    <template #footer-cta="{ goToNext, completeMetroline }">
+    <template #footer-cta="{ goToNext, complete }">
       <button
         @click="goToNext"
         data-test="footer-cta-button"
@@ -56,7 +56,7 @@ const metrolineWithItemsTemplate = `
       </button>
 
       <button
-        @click="completeMetroline"
+        @click="complete"
         data-test="footer-cta-complete-metroline"
       >
         Complete Metroline
