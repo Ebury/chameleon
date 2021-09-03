@@ -135,6 +135,33 @@ describe('EcMetroline', () => {
         expect(errorSpy).toHaveBeenCalledTimes(1);
       });
     });
+
+    it('should render the metroline item when not complete and hasHeaderCTAVWhenNotComplete is set to true', async () => {
+      const wrapper = await mountMetrolineAsTemplate(
+        `<ec-metroline>
+          <ec-metroline-item :id="1" :hasHeaderCTAVWhenNotComplete="true">
+            <template #heading>
+              <span>Item 1 Heading</span>
+            </template>
+
+            <template #header-cta="{ activateItem }">
+              <button
+                @click="activateItem"
+                data-test="header-cta-button"
+              >
+                Edit
+              </button>
+            </template>
+      
+            <template #main>
+              <p>Item 1 Main Content</p>
+            </template>
+          </ec-metroline-item>
+        </ec-metroline>`,
+      );
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('@events', () => {

@@ -64,7 +64,7 @@
         </div>
 
         <div
-          v-if="isCompleted"
+          v-if="isCompleted || hasHeaderCTAVWhenNotComplete"
           data-test="ec-metroline-item__header-cta"
         >
           <slot
@@ -126,6 +126,10 @@ export default {
     },
     badgeText: {
       type: String,
+    },
+    hasHeaderCTAVWhenNotComplete: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

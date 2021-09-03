@@ -74,6 +74,90 @@ exports[`EcMetroline :props should render the metroline badgeText 1`] = `
 </div>
 `;
 
+exports[`EcMetroline :props should render the metroline item when not complete and hasCTAVWhenNotComplete is set to true 1`] = `
+<div
+  class="ec-metroline"
+  data-test="ec-metroline"
+>
+  <div
+    class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
+    data-test="ec-metroline-item ec-metroline-item--1"
+  >
+    <div
+      class="ec-metroline-item__status"
+      data-test="ec-metroline-item__status"
+    >
+      <div
+        class="ec-metroline-item__badge"
+        data-test="ec-metroline-item__badge"
+      >
+        <span
+          data-test="ec-metroline-item__index"
+        >
+          
+        1
+      
+        </span>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="ec-metroline-item__content"
+      data-test="ec-metroline-item__content"
+    >
+      <div
+        class="ec-metroline-item__header"
+        data-test="ec-metroline-item__header"
+      >
+        <div
+          class="ec-metroline-item__header-heading"
+          data-test="ec-metroline-item__header-heading"
+        >
+          <span>
+            Item 1 Heading
+          </span>
+        </div>
+         
+        <!---->
+         
+        <div
+          data-test="ec-metroline-item__header-cta"
+        >
+          <button
+            data-test="header-cta-button"
+          >
+            
+                Edit
+              
+          </button>
+        </div>
+      </div>
+       
+      <div
+        class="ec-metroline-item__main"
+        data-test="ec-metroline-item__main"
+      >
+        <p>
+          Item 1 Main Content
+        </p>
+      </div>
+       
+      <div
+        class="ec-metroline-item__footer"
+        data-test="ec-metroline-item__footer"
+      >
+        <div
+          class="ec-metroline-item__footer-cta"
+          data-test="ec-metroline-item__footer-cta"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`EcMetroline order should have the correct next item order if we show, hide and show again a metro item 1`] = `
 <div
   class="ec-metroline"
