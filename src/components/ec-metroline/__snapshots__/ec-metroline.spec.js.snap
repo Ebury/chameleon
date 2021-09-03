@@ -74,7 +74,7 @@ exports[`EcMetroline :props should render the metroline badgeText 1`] = `
 </div>
 `;
 
-exports[`EcMetroline :props should render the metroline item when not complete and hasCTAVWhenNotComplete is set to true 1`] = `
+exports[`EcMetroline :props should render the metroline item when not complete and hasHeaderCTAVWhenNotComplete is set to true 1`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
