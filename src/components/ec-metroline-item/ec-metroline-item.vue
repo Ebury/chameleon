@@ -63,19 +63,9 @@
           <slot name="sub-heading" />
         </div>
 
-        <div
-          v-if="isCompleted || hasHeaderCTAVWhenNotComplete"
-          data-test="ec-metroline-item__header-cta"
-        >
+        <div data-test="ec-metroline-item__header-cta">
           <slot
-            v-if="!isReadOnly"
             name="header-cta"
-            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
-          />
-
-          <slot
-            v-else
-            name="header-cta-complete"
             v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
           />
         </div>
@@ -126,10 +116,6 @@ export default {
     },
     badgeText: {
       type: String,
-    },
-    hasHeaderCTAVWhenNotComplete: {
-      type: Boolean,
-      default: false,
     },
   },
   computed: {

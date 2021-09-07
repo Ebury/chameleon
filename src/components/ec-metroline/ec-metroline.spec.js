@@ -30,17 +30,19 @@ const metrolineWithItemsTemplate = `
       <span>Item 1 Sub-heading</span>
     </template>
 
-    <template #header-cta="{ activateItem }">
+    <template #header-cta="{ activateItem, isCompleted, isReadOnly }">
       <button
+        v-if="isCompleted && !isReadOnly"
         @click="activateItem"
-        data-test="header-cta-button"
+        data-test="header-cta-edit"
       >
         Edit
       </button>
-    </template>
-
-    <template #header-cta-complete>
-      <button data-test="header-cta-completed-button">Download</button>
+      
+      <button 
+        v-else-if="isCompleted"
+        data-test="header-cta-completed">Download
+      </button>
     </template>
 
     <template #main>
@@ -78,7 +80,7 @@ const metrolineWithItemsTemplate = `
     <template #header-cta="{ activateItem }">
       <button
         @click="activateItem"
-        data-test="header-cta-button"
+        data-test="header-cta-edit"
       >
         Edit
       </button>
@@ -142,33 +144,6 @@ describe('EcMetroline', () => {
         expect(errorSpy).toHaveBeenCalledTimes(1);
       });
     });
-
-    it('should render the metroline item when not complete and hasHeaderCTAVWhenNotComplete is set to true', async () => {
-      const wrapper = await mountMetrolineAsTemplate(
-        `<ec-metroline>
-          <ec-metroline-item :id="1" :hasHeaderCTAVWhenNotComplete="true">
-            <template #heading>
-              <span>Item 1 Heading</span>
-            </template>
-
-            <template #header-cta="{ activateItem }">
-              <button
-                @click="activateItem"
-                data-test="header-cta-button"
-              >
-                Edit
-              </button>
-            </template>
-      
-            <template #main>
-              <p>Item 1 Main Content</p>
-            </template>
-          </ec-metroline-item>
-        </ec-metroline>`,
-      );
-
-      expect(wrapper.element).toMatchSnapshot();
-    });
   });
 
   describe('@events', () => {
@@ -223,7 +198,7 @@ describe('EcMetroline', () => {
           <template #header-cta="{ activateItem }">
             <button
               @click="activateItem"
-              data-test="header-cta-button"
+              data-test="header-cta-edit"
             >
               Edit
             </button>
@@ -253,7 +228,7 @@ describe('EcMetroline', () => {
 
       await wrapper
         .findByDataTest('ec-metroline-item--1')
-        .findByDataTest('header-cta-button')
+        .findByDataTest('header-cta-edit')
         .trigger('click');
 
       expect(onChange).toHaveBeenCalledTimes(2);
@@ -407,13 +382,13 @@ describe('EcMetroline', () => {
 
       await wrapper
         .findByDataTest('ec-metroline-item--1')
-        .findByDataTest('header-cta-button')
+        .findByDataTest('header-cta-edit')
         .trigger('click');
 
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should not be able to go back to a previous item if metroline is complete and should show the header-cta-complete instead', async () => {
+    it('should not be able to go back to a previous item if metroline is complete and should show the header-cta-completed instead', async () => {
       const wrapper = await mountMetrolineAsTemplate(metrolineWithItemsTemplate);
 
       await wrapper
@@ -421,30 +396,30 @@ describe('EcMetroline', () => {
         .findByDataTest('footer-cta-button')
         .trigger('click');
 
-      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-button').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-edit').exists()).toBe(true);
 
       await wrapper
         .findByDataTest('ec-metroline-item--2')
         .findByDataTest('footer-cta-button')
         .trigger('click');
 
-      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-button').exists()).toBe(false);
-      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-completed-button').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-edit').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-completed').exists()).toBe(true);
+
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should complete the metroline if we click on complete metroline', async () => {
       const wrapper = await mountMetrolineAsTemplate(metrolineWithItemsTemplate);
 
-      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-completed-button').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-completed').exists()).toBe(false);
 
       await wrapper
         .findByDataTest('ec-metroline-item--1')
         .findByDataTest('footer-cta-complete-metroline')
         .trigger('click');
 
-      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-completed-button').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-completed').exists()).toBe(true); expect(wrapper.element).toMatchSnapshot();
     });
   });
 });

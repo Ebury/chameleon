@@ -36,15 +36,23 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #header-cta="{ activateItem }">
-            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="activateItem">
+          <template #header-cta="{ activateItem, isCompleted, isReadOnly }">
+            <a 
+              v-if="isCompleted && !isReadOnly"
+              href="#" 
+              class="tw-flex tw-items-center" 
+              @click.prevent.stop="activateItem"
+            >
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
               Edit
             </a>
-          </template>
 
-          <template #header-cta-complete>
-            <a href="#" @click.prevent.stop class="tw-flex tw-items-center">
+            <a 
+              v-else-if="isCompleted"
+              href="#" 
+              @click.prevent.stop 
+              class="tw-flex tw-items-center"
+            >
               Add Description
             </a>
           </template>
@@ -85,8 +93,14 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #header-cta="{ activateItem }">
-            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="activateItem">
+          
+          <template #header-cta="{ activateItem, isCompleted, isReadOnly }">
+            <a 
+              v-if="isCompleted && !isReadOnly"
+              href="#" 
+              class="tw-flex tw-items-center" 
+              @click.prevent.stop="activateItem"
+            >
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
               Edit
             </a>
@@ -130,8 +144,13 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #header-cta="{ activateItem }">
-            <a href="#" class="tw-flex tw-items-center" @click.prevent.stop="activateItem">
+          <template #header-cta="{ activateItem, isCompleted, isReadOnly }">
+            <a 
+              v-if="isCompleted && !isReadOnly"
+              href="#" 
+              class="tw-flex tw-items-center" 
+              @click.prevent.stop="activateItem"
+            >
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
               Edit
             </a>
