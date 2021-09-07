@@ -103,7 +103,7 @@
         >
           <slot
             name="footer-cta"
-            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
+            v-bind="{ activateItem, goToNext, complete, isLast, isReadOnly, isNext, isActive, isCompleted }"
           />
         </div>
       </div>
@@ -172,6 +172,9 @@ export default {
     },
     activateItem() {
       this.metroline.goTo(this.id);
+    },
+    complete() {
+      this.metroline.complete();
     },
   },
 };

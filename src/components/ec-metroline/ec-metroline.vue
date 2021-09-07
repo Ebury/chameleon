@@ -45,14 +45,17 @@ export default {
             this.metroline.activeItemId = nextMetrolineItemId;
             this.$emit('change', this.metroline.activeItemId);
           } else {
-            this.metroline.isCompleted = true;
-            this.$emit('complete');
+            this.metroline.complete();
           }
         },
         goTo: (id) => {
           this.metroline.activeItemId = id;
           this.metroline.isCompleted = false;
           this.$emit('change', this.metroline.activeItemId);
+        },
+        complete: () => {
+          this.metroline.isCompleted = true;
+          this.$emit('complete');
         },
       },
       metrolineItemIds: [],
