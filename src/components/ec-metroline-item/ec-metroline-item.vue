@@ -61,7 +61,7 @@
         >
           <slot
             name="sub-heading"
-            v-bind="{ isCompleted }"
+            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
           />
         </div>
 
