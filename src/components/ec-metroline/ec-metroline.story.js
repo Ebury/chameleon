@@ -29,8 +29,10 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #sub-heading>
-            <span class="tw-flex tw-items-center tw-mr-16">
+          <template #sub-heading="{ isCompleted }">
+            <span 
+              v-if="isCompleted"
+              class="tw-flex tw-items-center tw-mr-16">
               <ec-icon name="simple-check" class="tw-fill-current tw-mr-8" :size="16" />
               Amount fully allocated
             </span>
@@ -86,8 +88,9 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #sub-heading>
-            <span class="tw-flex tw-items-center tw-mr-16">
+          <template #sub-heading="{ isCompleted }">
+            <span
+              class="tw-flex tw-items-center tw-mr-16">
               <ec-icon name="simple-check" class="tw-fill-current tw-mr-8" :size="16" />
               Amount fully allocated
             </span>
@@ -137,8 +140,9 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          <template #sub-heading>
-            <span class="tw-flex tw-items-center tw-mr-16">
+          <template #sub-heading="{ isCompleted }">
+            <span
+              class="tw-flex tw-items-center tw-mr-16">
               <ec-icon name="simple-check" class="tw-fill-current tw-mr-8" :size="16" />
               Amount fully allocated
             </span>

@@ -26,8 +26,8 @@ const metrolineWithItemsTemplate = `
       <span>Item 1 Heading</span>
     </template>
 
-    <template #sub-heading>
-      <span>Item 1 Sub-heading</span>
+    <template #sub-heading="{ isCompleted }">
+      <span v-if="isCompleted">Item 1 Sub-heading</span>
     </template>
 
     <template #header-cta="{ activateItem, isCompleted, isReadOnly }">
@@ -73,8 +73,8 @@ const metrolineWithItemsTemplate = `
       <span>Item 2 Heading</span>
     </template>
 
-    <template #sub-heading>
-      <span>Item 2 Sub-heading</span>
+    <template #sub-heading="{ isCompleted }">
+      <span v-if="isCompleted">Item 2 Sub-heading</span>
     </template>
 
     <template #header-cta="{ activateItem }">

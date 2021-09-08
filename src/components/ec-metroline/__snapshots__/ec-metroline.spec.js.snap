@@ -46,7 +46,10 @@ exports[`EcMetroline :props should render the metroline badgeText 1`] = `
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -125,7 +128,10 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -201,7 +207,10 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -255,7 +264,10 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -401,7 +413,10 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -474,7 +489,10 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -699,7 +717,10 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -782,7 +803,10 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -867,7 +891,10 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -1042,7 +1069,10 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -1137,7 +1167,10 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -1222,7 +1255,10 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -1811,7 +1847,10 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -2009,7 +2048,10 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -2104,7 +2146,10 @@ exports[`EcMetroline should render a metroline with items 1`] = `
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"
@@ -2189,7 +2234,10 @@ exports[`EcMetroline should render a metroline with items 1`] = `
           </span>
         </div>
          
-        <!---->
+        <div
+          class="ec-metroline-item__header-sub-heading"
+          data-test="ec-metroline-item__header-sub-heading"
+        />
          
         <div
           data-test="ec-metroline-item__header-cta"

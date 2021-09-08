@@ -56,11 +56,13 @@
         </div>
 
         <div
-          v-if="isCompleted"
           data-test="ec-metroline-item__header-sub-heading"
           class="ec-metroline-item__header-sub-heading"
         >
-          <slot name="sub-heading" />
+          <slot
+            name="sub-heading"
+            v-bind="{ isCompleted }"
+          />
         </div>
 
         <div data-test="ec-metroline-item__header-cta">
