@@ -56,26 +56,18 @@
         </div>
 
         <div
-          v-if="isCompleted"
           data-test="ec-metroline-item__header-sub-heading"
           class="ec-metroline-item__header-sub-heading"
         >
-          <slot name="sub-heading" />
-        </div>
-
-        <div
-          v-if="isCompleted"
-          data-test="ec-metroline-item__header-cta"
-        >
           <slot
-            v-if="!isReadOnly"
-            name="header-cta"
+            name="sub-heading"
             v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
           />
+        </div>
 
+        <div data-test="ec-metroline-item__header-cta">
           <slot
-            v-else
-            name="header-cta-complete"
+            name="header-cta"
             v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
           />
         </div>
