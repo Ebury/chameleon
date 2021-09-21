@@ -340,4 +340,57 @@ describe('EcSmartTable', () => {
       expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading filtered data');
     });
   });
+
+  describe('fetch arguments', () => {
+    it('should use given fetch arguments for fetching and re-fetching', async () => {
+      const resolvedDataSource = {
+        fetch: jest.fn().mockResolvedValue({}),
+      };
+
+      const fetchArgs = {
+        prop1: 'value1',
+        obj1: { prop2: 'value2' },
+        arr1: ['str1', 1],
+      };
+
+      const wrapper = mountEcSmartTable({
+        columns, isPaginationEnabled: true, dataSource: resolvedDataSource, fetchArgs,
+      });
+      await flushPromises();
+      wrapper.vm.$forceUpdate();
+
+      const expectedCancelToken = expect.anything();
+      expect(resolvedDataSource.fetch).toHaveBeenCalledTimes(1);
+      expect(resolvedDataSource.fetch).toHaveBeenCalledWith({
+        filter: {},
+        numberOfItems: 10,
+        page: 1,
+        sorts: [],
+        prop1: 'value1',
+        obj1: { prop2: 'value2' },
+        arr1: ['str1', 1],
+      }, expectedCancelToken);
+
+      resolvedDataSource.fetch.mockReset();
+
+      await wrapper.setProps({
+        fetchArgs: {
+          ...fetchArgs,
+          prop1: 'value3',
+        },
+      });
+      await flushPromises();
+
+      expect(resolvedDataSource.fetch).toHaveBeenCalledTimes(1);
+      expect(resolvedDataSource.fetch).toHaveBeenCalledWith({
+        filter: {},
+        numberOfItems: 10,
+        page: 1,
+        sorts: [],
+        prop1: 'value3',
+        obj1: { prop2: 'value2' },
+        arr1: ['str1', 1],
+      }, expectedCancelToken);
+    });
+  });
 });

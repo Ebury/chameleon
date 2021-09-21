@@ -111,6 +111,9 @@ stories
       data: {
         default: object('data', data),
       },
+      fetchArgs: {
+        default: object('fetchArgs', { customProp: 'customValue' }),
+      },
       multiSort: {
         default: boolean('multiSort', false),
       },
@@ -170,6 +173,7 @@ stories
             page = 1,
             numberOfItems,
             filter,
+            ...args
           }, cancelToken) => {
             // use real service in a real application:
             // e.g.
@@ -178,11 +182,11 @@ stories
             // e.g.
             // getData: (sorts, page, numberOfItems, filter, cancelToken) => fetch('/my/url', { body: { sorts, page, numberOfItems, ...filter }, signal: cancelToken });
 
-            action('fetching')(sorts, page, numberOfItems, JSON.stringify(filter));
+            action('fetching')(sorts, page, numberOfItems, JSON.stringify(filter), JSON.stringify(args));
 
             return new Promise((resolve, reject) => {
               this.loadingTimeout = setTimeout(() => {
-                action('resolving data')(sorts, page, numberOfItems, JSON.stringify(filter));
+                action('resolving data')(sorts, page, numberOfItems, JSON.stringify(filter), JSON.stringify(args));
                 if (this.failOnFetch) {
                   reject(new Error('Random error'));
                 } else if (this.fetchEmptyList) {
@@ -219,6 +223,7 @@ stories
             :sorts="sorts"
             :multi-sort="multiSort"
             :data-source="dataSource"
+            :fetch-args="fetchArgs"
             :max-height="maxHeight"
             :sticky-column="stickyColumn || null"
             :error-message="errorMessage || undefined"
