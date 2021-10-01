@@ -8,6 +8,7 @@ exports[`EcInlineInputField when component is copiable should render as expected
     class="ec-inline-input-field__label"
   >
     Label
+    <!---->
   </div>
    
   <div
@@ -42,6 +43,58 @@ exports[`EcInlineInputField when component is copiable should render as expected
 </div>
 `;
 
+exports[`EcInlineInputField when component is copiable should render with a label tooltip when labelTooltip prop is set 1`] = `
+<div
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="ec-inline-input-field__label"
+  >
+    Label
+    <svg
+      class="ec-inline-input-field__label-tooltip ec-icon ec-icon--interactive"
+      data-ec-tooltip-mock-content="Testing the labelTooltip prop"
+      data-test="ec-inline-input-field__label-tooltip ec-mock ec-tooltip-mock"
+      height="14"
+      width="14"
+    >
+      <use
+        xlink:href="#ec-simple-info"
+      />
+    </svg>
+  </div>
+   
+  <div
+    class="ec-inline-input-field-value-text"
+    data-test="ec-inline-input-field-value-text"
+  >
+    <span
+      class="ec-inline-input-field-value-text__text"
+    >
+      
+    Input field value
+  
+    </span>
+     
+    <button
+      class="ec-inline-input-field-value-text__action"
+      data-test="ec-inline-input-field-value-text__action"
+      type="button"
+    >
+      <svg
+        class="ec-inline-input-field-value-text__edit-icon ec-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-edit"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`EcInlineInputField when component is copiable should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
   data-test="ec-inline-input-field"
@@ -50,6 +103,7 @@ exports[`EcInlineInputField when component is copiable should render with a sens
     class="ec-inline-input-field__label"
   >
     Label
+    <!---->
   </div>
    
   <div
@@ -98,6 +152,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       for="ec-inline-input-field-edit__input-1"
     >
       Label
+      <!---->
     </label>
      
     <div
@@ -175,6 +230,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       for="ec-inline-input-field-edit__input-1"
     >
       Label
+      <!---->
     </label>
      
     <div
@@ -259,6 +315,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       for="ec-inline-input-field-edit__input-1"
     >
       Label
+      <!---->
     </label>
      
     <div
@@ -330,6 +387,59 @@ exports[`EcInlineInputField when component is editable when the component is in 
     class="ec-inline-input-field__label"
   >
     Label
+    <!---->
+  </div>
+   
+  <div
+    class="ec-inline-input-field-value-text"
+    data-test="ec-inline-input-field-value-text"
+  >
+    <span
+      class="ec-inline-input-field-value-text__text"
+    >
+      
+    Input field value
+  
+    </span>
+     
+    <button
+      class="ec-inline-input-field-value-text__action"
+      data-test="ec-inline-input-field-value-text__action"
+      type="button"
+    >
+      <svg
+        class="ec-inline-input-field-value-text__edit-icon ec-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-edit"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcInlineInputField when component is editable when the component is in its initial state should render with a label tooltip when labelTooltip prop is set 1`] = `
+<div
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="ec-inline-input-field__label"
+  >
+    Label
+    <svg
+      class="ec-inline-input-field__label-tooltip ec-icon ec-icon--interactive"
+      data-ec-tooltip-mock-content="Testing the labelTooltip prop"
+      data-test="ec-inline-input-field__label-tooltip ec-mock ec-tooltip-mock"
+      height="14"
+      width="14"
+    >
+      <use
+        xlink:href="#ec-simple-info"
+      />
+    </svg>
   </div>
    
   <div
@@ -371,6 +481,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
     class="ec-inline-input-field__label"
   >
     Label
+    <!---->
   </div>
    
   <div
@@ -412,6 +523,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
     class="ec-inline-input-field__label"
   >
     Label
+    <!---->
   </div>
    
   <div
@@ -486,6 +598,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
     class="ec-inline-input-field__label"
   >
     Label
+    <!---->
   </div>
    
   <div
@@ -560,6 +673,7 @@ exports[`EcInlineInputField when component is non-editable should render as expe
     class="ec-inline-input-field__label"
   >
     Label
+    <!---->
   </div>
    
   <div
@@ -582,6 +696,7 @@ exports[`EcInlineInputField when component is non-editable should render with a 
     class="ec-inline-input-field__label"
   >
     Label
+    <!---->
   </div>
    
   <div

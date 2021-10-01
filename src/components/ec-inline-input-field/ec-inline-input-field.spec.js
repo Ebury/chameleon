@@ -56,6 +56,11 @@ describe('EcInlineInputField', () => {
         expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
       });
 
+      it('should render with a label tooltip when labelTooltip prop is set', () => {
+        const wrapper = mountInlineInputField({ labelTooltip: 'Testing the labelTooltip prop' });
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
       describe('@events', () => {
         it('should emit `edit` event when the edit button is clicked', async () => {
           const wrapper = mountInlineInputField();
@@ -185,6 +190,11 @@ describe('EcInlineInputField', () => {
         expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: type check failed for prop "tooltipTextSuccess"');
         expect(errorSpy.mock.calls[1][0]).toContain('Invalid prop: type check failed for prop "tooltipTextError"');
       });
+    });
+
+    it('should render with a label tooltip when labelTooltip prop is set', () => {
+      const wrapper = mountInlineInputField({ labelTooltip: 'Testing the labelTooltip prop' });
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render as expected', async () => {
