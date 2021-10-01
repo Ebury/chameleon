@@ -3,7 +3,16 @@
     <label
       class="ec-inline-input-field-edit__label"
       :for="inputId"
-    >{{ label }}</label>
+    >{{ label }}<ec-icon
+      v-if="labelTooltip"
+      v-ec-tooltip="{ content: labelTooltip }"
+      class="ec-inline-input-field-edit__label-tooltip"
+      data-test="ec-inline-input-field-edit__label-tooltip"
+      type="interactive"
+      name="simple-info"
+      :size="14"
+    />
+    </label>
     <div class="ec-inline-input-field-edit__edit-panel">
       <ec-input-field
         :id="inputId"
@@ -71,6 +80,10 @@ export default {
       default: '',
       type: String,
     },
+    labelTooltip: {
+      default: '',
+      type: String,
+    },
   },
   data() {
     return {
@@ -98,6 +111,12 @@ export default {
 .ec-inline-input-field-edit {
   &__label {
     @apply tw-mini-header;
+    @apply tw-flex tw-flex-wrap;
+  }
+
+  &__label-tooltip {
+    @apply tw-flex-shrink-0 tw-self-center;
+    @apply tw-ml-4;
   }
 
   &__edit-panel {
