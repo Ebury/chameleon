@@ -4,7 +4,7 @@ services:
   ec-cypress:
     image: ec-cypress:latest
     mem_limit: 8g
-    memswap_limit: 4g
+    memswap_limit: 8g
     ipc: host
     build:
       context: ..

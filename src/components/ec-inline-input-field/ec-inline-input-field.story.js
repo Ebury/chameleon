@@ -33,6 +33,7 @@ stories
         value: this.valueFromKnob,
         tooltipTextSuccess: 'Copied!',
         tooltipTextError: 'Unable to copy',
+        labelTooltip: 'Label tooltip text',
         isEditing: false,
         isLoading: false,
       };
@@ -76,6 +77,7 @@ stories
             :is-loading="isLoading"
             :tooltip-text-success="tooltipTextSuccess"
             :tooltip-text-error="tooltipTextError"
+            :label-tooltip="labelTooltip"
             :is-sensitive="isSensitive"
             :error-message="errorMessage"
             v-model="value"
@@ -104,6 +106,7 @@ stories
           <ec-inline-input-field
             label="Inline Input Field - Copiable"
             :is-copiable="true"
+            :label-tooltip="labelTooltip"
             :tooltip-text-success="tooltipTextSuccess"
             :tooltip-text-error="tooltipTextError"
             :is-sensitive="isSensitive"

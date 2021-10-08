@@ -3,7 +3,16 @@
     <div
       v-if="!isEditing"
       class="ec-inline-input-field__label"
-    >{{ label }}</div>
+    >{{ label }}<ec-icon
+      v-if="labelTooltip"
+      v-ec-tooltip="{ content: labelTooltip }"
+      class="ec-inline-input-field__label-tooltip"
+      data-test="ec-inline-input-field__label-tooltip"
+      type="interactive"
+      name="simple-info"
+      :size="14"
+    />
+    </div>
     <template v-if="isEditable">
       <ec-inline-input-field-loading
         v-if="isLoading"
@@ -16,6 +25,7 @@
         :label="label"
         :is-sensitive="isSensitive"
         :error-message="errorMessage"
+        :label-tooltip="labelTooltip"
         @cancel="cancel"
         @submit="submit"
       />
@@ -50,7 +60,9 @@ import EcInlineInputFieldCopy from './components/copy';
 import EcInlineInputFieldEdit from './components/edit';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldValueText from './components/value-text';
+import EcTooltip from '../../directives/ec-tooltip';
 import config from '../../config';
+import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcInlineInputField',
@@ -59,7 +71,9 @@ export default {
     EcInlineInputFieldEdit,
     EcInlineInputFieldLoading,
     EcInlineInputFieldValueText,
+    EcIcon,
   },
+  directives: { EcTooltip },
   props: {
     label: {
       default: '',
@@ -93,6 +107,10 @@ export default {
       type: String,
     },
     tooltipTextError: {
+      type: String,
+    },
+    labelTooltip: {
+      default: '',
       type: String,
     },
     errorMessage: {
@@ -135,7 +153,12 @@ export default {
 .ec-inline-input-field {
   &__label {
     @apply tw-mini-header;
-    @apply tw-inline-block;
+    @apply tw-flex tw-flex-wrap;
+  }
+
+  &__label-tooltip {
+    @apply tw-flex-shrink-0 tw-self-center;
+    @apply tw-ml-4;
   }
 
   &__content {
