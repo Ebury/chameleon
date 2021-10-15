@@ -44,7 +44,7 @@
     "@ascendancyy/vue-cli-plugin-stylelint": "1.1.2",
     "@fullhuman/postcss-purgecss": "4.0.3",
     "@sinonjs/fake-timers": "7.1.2",
-    "@storybook/addon-a11y": "6.3.8",
+    "@storybook/addon-a11y": "6.3.12",
     "@storybook/addon-actions": "6.3.8",
     "@storybook/addon-cssresources": "6.2.9",
     "@storybook/addon-essentials": "6.3.8",
