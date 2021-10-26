@@ -23,6 +23,13 @@ describe('EcSmartTable', () => {
     items: [],
   };
 
+  const lotsOfItems = new Array(10).map((val, i) => [i + 1, i + 2, i + 3]);
+  const lotsOfData = {
+    items: lotsOfItems,
+    total: lotsOfItems.length * 5,
+    count: lotsOfItems.length,
+  };
+
   const dataSource = {
     fetch: jest.fn(),
   };
@@ -203,13 +210,6 @@ describe('EcSmartTable', () => {
   });
 
   describe('pagination', () => {
-    const lotsOfItems = new Array(10).map((val, i) => [i + 1, i + 2, i + 3]);
-    const lotsOfData = {
-      items: lotsOfItems,
-      total: lotsOfItems.length * 5,
-      count: lotsOfItems.length,
-    };
-
     it('should render pagination when it\'s enabled', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, { columns, isPaginationEnabled: true });
       expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot();
@@ -330,7 +330,7 @@ describe('EcSmartTable', () => {
       expect(wrapper.findByDataTest('my-table-filter').element).toMatchSnapshot();
     });
 
-    it('should handle changes in filters and reloads the table data', async () => {
+    it('should handle changes in filters and reload the table data', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(data, { columns, filterComponent: TestTableFilter, filter: prefilter });
       await wrapper.findByDataTest('my-table-filter__clear-button').trigger('click');
       expect(wrapper.findByDataTest('my-table-filter').element).toMatchSnapshot();
@@ -338,6 +338,23 @@ describe('EcSmartTable', () => {
       expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading filtered data');
       await flushPromises();
       expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading filtered data');
+    });
+
+    it('should reset the page after changes in filters and reload the table data', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(lotsOfData, {
+        columns,
+        filterComponent: TestTableFilter,
+        filter: prefilter,
+        isPaginationEnabled: true,
+      });
+
+      await wrapper.findByDataTest('ec-table-pagination__action--next').trigger('click');
+      await flushPromises();
+      expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after loading new page');
+
+      await wrapper.findByDataTest('my-table-filter__clear-button').trigger('click');
+      await flushPromises();
+      expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after changing the filters');
     });
   });
 
