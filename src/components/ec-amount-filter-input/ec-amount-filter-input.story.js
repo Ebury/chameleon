@@ -41,7 +41,6 @@ const Template = (args, { argTypes }) => ({
       :error-message="errorMessage"
       :error-tooltip-message="errorTooltipMessage"
       :comparison-symbol-items="comparisonSymbols"
-      :clearAmountButtonText="clearAmountButtonText"
     />
   </div>
   `,
@@ -58,7 +57,6 @@ basic.args = {
   warningTooltipMessage: 'Filtering for negative amounts will show no results',
   errorMessage: '',
   errorTooltipMessage: 'A random error tooltip message',
-  clearAmountButtonText: 'Clear amount',
   comparisonSymbols: [
     {
       text: 'More than',

@@ -123,12 +123,6 @@ describe('EcAmountFilterInput', () => {
       expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element).toMatchSnapshot();
     });
 
-    it('should render with a custom clear amount button text when "clearAmountButtonText" is set', () => {
-      const wrapper = mountAmountFilterInput({ clearAmountButtonText: 'Delete the amount' });
-
-      expect(wrapper.findByDataTest('ec-amount-filter-input__clear-amount').element).toMatchSnapshot();
-    });
-
     it('should render the amount correctly when "locale" is set', async () => {
       const wrapper = mountAmountFilterInput({ locale: 'es' });
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('1111,11');
@@ -143,7 +137,7 @@ describe('EcAmountFilterInput', () => {
   });
 
   describe('@events', () => {
-    it('should emit the correct events when a filter is selected', async () => {
+    it('should emit the correct events when a comparison symbol is selected', async () => {
       const wrapper = mountAmountFilterInput();
 
       await selectComparisonSymbol(wrapper, 1);
@@ -173,21 +167,10 @@ describe('EcAmountFilterInput', () => {
       expect(wrapper.emitted('amount-change').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);
     });
-
-    it('should emit the correct event when amount is cleared', () => {
-      const wrapper = mountAmountFilterInput({
-        value: {
-          amount: 10,
-        },
-      });
-
-      wrapper.findByDataTest('ec-amount-filter-input__clear-amount').trigger('click');
-      expect(wrapper.emitted('amount-cleared').length).toEqual(1);
-    });
   });
 
   describe('v-model', () => {
-    it('should use the v-model with the filter and emit the changes', async () => {
+    it('should use the v-model with the comparison symbol and emit the changes', async () => {
       const wrapper = mountAmountFilterInputAsTemplate(
         '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
         {},
@@ -196,7 +179,7 @@ describe('EcAmountFilterInput', () => {
             return {
               comparisonSymbolItems,
               value: {
-                symbol: '',
+                comparisonSymbol: null,
                 amount: 0,
               },
             };
@@ -216,7 +199,7 @@ describe('EcAmountFilterInput', () => {
       });
     });
 
-    it('should preselect the filter and the amount from the v-model', () => {
+    it('should preselect the comparison symbol and the amount from the v-model', () => {
       const wrapper = mountAmountFilterInputAsTemplate(
         '<ec-amount-filter-input :comparison-symbol-items-items="comparisonSymbolItems" v-model="value" />',
         {},
@@ -258,7 +241,7 @@ describe('EcAmountFilterInput', () => {
       expect(wrapper.vm.value.amount).toEqual(11);
     });
 
-    it('should preserve the amount when we change the filter', async () => {
+    it('should preserve the amount when we change the comparison symbol', async () => {
       const wrapper = mountAmountFilterInputAsTemplate(
         '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
         {},
@@ -301,68 +284,6 @@ describe('EcAmountFilterInput', () => {
       expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1,234.56');
       await wrapper.setData({ locale: 'es' });
       expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1.234,56');
-    });
-
-    it('should have the "Clear amount" button in a disabled state when amount is null or zero', () => {
-      const wrapper = mountAmountFilterInputAsTemplate(
-        '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              comparisonSymbolItems,
-              value: {
-                comparisonSymbol: comparisonSymbolItems[2],
-                amount: null,
-              },
-            };
-          },
-        },
-      );
-
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it('should have the "Clear amount" button in an enabled state when amount is greater than zero', () => {
-      const wrapper = mountAmountFilterInputAsTemplate(
-        '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              comparisonSymbolItems,
-              value: {
-                comparisonSymbol: comparisonSymbolItems[2],
-                amount: '10',
-              },
-            };
-          },
-        },
-      );
-
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it('should update correctly the v-model when we click on the "clear Amount" button', async () => {
-      const wrapper = mountAmountFilterInputAsTemplate(
-        '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              comparisonSymbolItems,
-              value: {
-                comparisonSymbol: comparisonSymbolItems[2],
-                amount: '10',
-              },
-            };
-          },
-        },
-      );
-      expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('10');
-      await wrapper.findByDataTest('ec-amount-filter-input__clear-amount').trigger('click');
-      wrapper.vm.$nextTick();
-      expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('');
     });
   });
 });

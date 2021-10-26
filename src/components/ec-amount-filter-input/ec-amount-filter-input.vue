@@ -98,16 +98,6 @@
         :size="14"
       />
     </div>
-
-    <button
-      data-test="ec-amount-filter-input__clear-amount"
-      class="ec-amount-filter-input__clear-amount"
-      :class="{'ec-amount-filter-input__clear-amount--disabled': !value.amount }"
-      :disabled="!value.amount"
-      @click="onClearAmount"
-    >
-      {{ clearAmountButtonText }}
-    </button>
   </div>
 </template>
 
@@ -170,10 +160,6 @@ export default {
     comparisonSymbolItems: {
       type: Array,
     },
-    clearAmountButtonText: {
-      type: String,
-      default: 'Clear amount',
-    },
   },
   data() {
     return {
@@ -229,10 +215,6 @@ export default {
     },
   },
   methods: {
-    onClearAmount() {
-      this.amountModel = null;
-      this.$emit('amount-cleared');
-    },
     onAmountChange(evt) {
       this.$emit('change', evt);
       this.$emit('amount-change', evt);
@@ -303,20 +285,6 @@ export default {
     @apply tw-flex-shrink-0;
     @apply tw-ml-1 tw-mt-1;
     @apply tw-outline-none;
-  }
-
-  &__clear-amount {
-    @apply tw-text-key-4;
-    @apply tw-border-none;
-    @apply tw-bg-transparent;
-    @apply tw-px-0;
-    @apply tw-mt-24;
-    @apply tw-cursor-pointer;
-
-    &--disabled {
-      @apply tw-text-gray-4;
-      @apply tw-pointer-events-none;
-    }
   }
 }
 </style>
