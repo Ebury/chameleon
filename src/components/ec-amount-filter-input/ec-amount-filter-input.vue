@@ -27,21 +27,21 @@
     >
       <ec-dropdown
         :id="id"
-        v-model="filterModel"
-        data-test="ec-amount-filter-input__filter-selector"
-        class="ec-amount-filter-input__filter-selector"
-        :class="{ 'ec-amount-filter-input__filter-selector--is-focused': filtersHasFocus }"
+        v-model="comparisonSymbolModel"
+        data-test="ec-amount-filter-input__comparison-symbol-selector"
+        class="ec-amount-filter-input__comparison-symbol-selector"
+        :class="{ 'ec-amount-filter-input__comparison-symbol-selector--is-focused': comparisonSymbolHasFocus }"
         is-in-group="right"
         :is-sensitive="isSensitive"
-        :items="filterItems"
-        :selected-text="filterModel.value"
+        :items="comparisonSymbolItems"
+        :selected-text="comparisonSymbolModel.value"
         :popper-modifiers="popperModifier"
         :popover-options="popoverOptions"
         :error-id="errorId"
         :error-message="errorMessage"
-        @focus="onFilterFocus"
-        @blur="filtersHasFocus = false"
-        @change="onFilterChange"
+        @focus="onComparisonSymbolFocus"
+        @blur="comparisonSymbolHasFocus = false"
+        @change="onComparisonSymbolChange"
         @open="$emit('open')"
         @after-open="$emit('after-open')"
       />
@@ -167,7 +167,7 @@ export default {
     errorTooltipMessage: {
       type: String,
     },
-    comparisonSymbols: {
+    comparisonSymbolItems: {
       type: Array,
     },
     clearAmountButtonText: {
@@ -178,7 +178,7 @@ export default {
   data() {
     return {
       uid: getUid(),
-      filtersHasFocus: false,
+      comparisonSymbolHasFocus: false,
       popperModifier: {
         setPopperWidth: {
           enabled: true,
@@ -204,13 +204,10 @@ export default {
     isInvalid() {
       return !!this.errorMessage;
     },
-    filterItems() {
-      return this.comparisonSymbols.map(symbol => ({ text: symbol.text, value: symbol.value }));
-    },
-    filterModel: {
+    comparisonSymbolModel: {
       get() {
-        if (this.value.filter) {
-          return this.value.filter;
+        if (this.value.comparisonSymbol) {
+          return this.value.comparisonSymbol;
         }
 
         return {
@@ -219,7 +216,7 @@ export default {
         };
       },
       set(value) {
-        this.$emit('value-change', { ...this.value, filter: value });
+        this.$emit('value-change', { ...this.value, comparisonSymbol: value });
       },
     },
     amountModel: {
@@ -240,13 +237,13 @@ export default {
       this.$emit('change', evt);
       this.$emit('amount-change', evt);
     },
-    onFilterChange(evt) {
-      this.filtersHasFocus = true;
+    onComparisonSymbolChange(evt) {
+      this.comparisonSymbolHasFocus = true;
       this.$emit('change', evt);
-      this.$emit('filter-change', evt);
+      this.$emit('comparison-symbol-change', evt);
     },
-    onFilterFocus() {
-      this.filtersHasFocus = true;
+    onComparisonSymbolFocus() {
+      this.comparisonSymbolHasFocus = true;
       this.$emit('focus');
     },
   },
@@ -254,10 +251,6 @@ export default {
 </script>
 
 <style>
-:root {
-  --ec-amount-filter-input-filter-width: 79px;
-}
-
 .ec-amount-filter-input {
   &__label {
     @apply tw-flex tw-flex-wrap;
@@ -277,15 +270,15 @@ export default {
     @apply tw-flex tw-flex-row;
   }
 
-  &__filter-selector {
-    width: var(--ec-amount-filter-input-filter-width);
+  &__comparison-symbol-selector {
+    width: 79px;
 
     @apply tw--mr-1;
     @apply tw-flex-shrink-0;
     @apply tw-text-center;
   }
 
-  &__filter-selector--is-focused {
+  &__comparison-symbol-selector--is-focused {
     @apply tw-z-level-1;
   }
 

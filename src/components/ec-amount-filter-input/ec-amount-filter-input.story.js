@@ -20,7 +20,12 @@ const Template = (args, { argTypes }) => ({
   },
   data() {
     return {
-      value: {},
+      value: {
+        comparisonSymbol: {
+          text: 'Equal to',
+          value: '=',
+        },
+      },
     };
   },
   template: `
@@ -35,7 +40,7 @@ const Template = (args, { argTypes }) => ({
       :warning-tooltip-message="warningTooltipMessage"
       :error-message="errorMessage"
       :error-tooltip-message="errorTooltipMessage"
-      :comparison-symbols="comparisonSymbols"
+      :comparison-symbol-items="comparisonSymbols"
       :clearAmountButtonText="clearAmountButtonText"
     />
   </div>
