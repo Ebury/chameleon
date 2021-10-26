@@ -6,7 +6,9 @@ exports[`EcSmartTable #slots should render empty data with custom template 1`] =
   data-test="ec-smart-table-empty"
 >
   <!---->
-    
+   
+  <!---->
+   
   <div>
     Custom template - No items found
   </div>
@@ -19,7 +21,9 @@ exports[`EcSmartTable #slots should render empty data with custom template and c
   data-test="ec-smart-table-empty"
 >
   <!---->
-    
+   
+  <!---->
+   
   <div>
     Custom template - No data
   </div>
@@ -1100,7 +1104,9 @@ exports[`EcSmartTable should render empty data properly 1`] = `
   data-test="ec-smart-table-empty"
 >
   <!---->
-    No items found
+   
+  <!---->
+   No items found
 </div>
 `;
 
