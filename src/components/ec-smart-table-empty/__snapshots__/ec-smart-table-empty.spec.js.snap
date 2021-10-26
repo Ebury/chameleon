@@ -6,7 +6,9 @@ exports[`EcSmartTableEmpty should not render the title if title prop was not giv
   data-test="ec-smart-table-empty"
 >
   <!---->
-    Random empty message
+   
+  <!---->
+   Random empty message
 </div>
 `;
 
@@ -20,7 +22,9 @@ exports[`EcSmartTableEmpty should render default empty message 1`] = `
   >
     Random Title
   </div>
-    No items found
+   
+  <!---->
+   No items found
 </div>
 `;
 
@@ -34,7 +38,9 @@ exports[`EcSmartTableEmpty should render given empty slot 1`] = `
   >
     Random Title
   </div>
-    
+   
+  <!---->
+   
   <strong>
     Empty Slot: Test empty message
   </strong>
@@ -52,8 +58,12 @@ exports[`EcSmartTableEmpty should render given filter slot 1`] = `
     Random Title
   </div>
    
-  <div>
-    Custom filter
+  <div
+    class="ec-smart-table-empty__filter"
+  >
+    <div>
+      Custom filter
+    </div>
   </div>
    Random empty message
 </div>
@@ -69,6 +79,8 @@ exports[`EcSmartTableEmpty should render properly 1`] = `
   >
     Random Title
   </div>
-    Random empty message
+   
+  <!---->
+   Random empty message
 </div>
 `;

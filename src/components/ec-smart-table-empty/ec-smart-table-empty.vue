@@ -7,7 +7,12 @@
       v-if="title"
       class="ec-smart-table-empty__title"
     >{{ title }}</div>
-    <slot name="filter" />
+    <div
+      v-if="hasFilterSlot()"
+      class="ec-smart-table-empty__filter"
+    >
+      <slot name="filter" />
+    </div>
     <slot
       name="empty"
       v-bind="{ emptyMessage }"
@@ -25,6 +30,11 @@ export default {
       default: 'No items found',
     },
   },
+  methods: {
+    hasFilterSlot() {
+      return !!this.$scopedSlots.filter;
+    },
+  },
 };
 </script>
 
@@ -33,6 +43,10 @@ export default {
   &__title {
     @apply tw-h3;
     @apply tw-pb-16;
+  }
+
+  &__filter {
+    @apply tw-p-8;
   }
 }
 </style>
