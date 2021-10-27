@@ -180,7 +180,10 @@ const withEcSmartTableFilter = createHOCc({
           value: filter,
         },
         on: {
-          change: filters => this.$emit('filtering', filters),
+          change: (filters) => {
+            this.$emit('pagination', 1); // reset the pagenigation to the first page
+            this.$emit('filtering', filters);
+          },
         },
       });
     }
