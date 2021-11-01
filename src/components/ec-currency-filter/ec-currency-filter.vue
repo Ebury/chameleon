@@ -212,7 +212,7 @@ export default {
         // pressed because that would trigger lots of AJAX requests.
         //
         // what we will do instead is to store the value in the local state and emit its values
-        // when user changes focus and the amount input is no longer focuses -> that will trigger
+        // when user changes focus and the amount input is no longer focused -> that will trigger
         // change event.
         this.internalAmountModel = {
           ...this.internalAmountModel,
