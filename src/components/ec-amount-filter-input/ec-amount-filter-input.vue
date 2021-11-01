@@ -43,6 +43,7 @@
         @blur="comparisonSymbolHasFocus = false"
         @change="onComparisonSymbolChange"
         @open="$emit('open')"
+        @close="$emit('close')"
         @after-open="$emit('after-open')"
       />
 

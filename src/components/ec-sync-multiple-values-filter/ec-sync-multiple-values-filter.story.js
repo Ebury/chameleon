@@ -1,5 +1,4 @@
 import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
-import EcCheckbox from '../ec-checkbox/ec-checkbox.vue';
 
 export default {
   title: 'Filters/Multiple Values Filter',
@@ -8,7 +7,7 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { EcSyncMultipleValuesFilter, EcCheckbox },
+  components: { EcSyncMultipleValuesFilter },
   data() {
     return {
       valueFromProps: null,
@@ -72,7 +71,7 @@ const items = [{
   },
   text: 'Not paid',
 }, {
-  value: 'Not paid vliude date not reached',
+  value: 'Not paid value date not reached',
   icon: {
     name: 'rounded-euro',
     type: 'interactive',

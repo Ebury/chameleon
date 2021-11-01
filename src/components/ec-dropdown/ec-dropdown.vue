@@ -16,6 +16,7 @@
     :tooltip-cta="tooltipCta"
     @change="onSelected"
     @open="$emit('open')"
+    @close="$emit('close')"
     @after-open="$emit('after-open')"
   >
     <ec-input-field

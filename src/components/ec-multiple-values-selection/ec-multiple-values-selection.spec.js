@@ -65,23 +65,15 @@ describe('EcMultipleValuesSelection', () => {
     });
   });
 
-  it(':selectedFilters should return the correct value from prop "value"', () => {
-    const testValue = [{ value: 'test value', name: 'test name' }];
-    const wrapper = mountEcMultipleValuesSelection({ items, value: testValue });
-
-    expect(wrapper.vm.selectedFilters).toEqual(testValue);
-  });
-
-  it('should not be visibile if isSearchable is set to false', () => {
+  it('should not be visible if isSearchable is set to false', () => {
     const wrapper = mountEcMultipleValuesSelection({ items, isSearchable: false });
-
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should emit selected items', async () => {
     const wrapper = mountEcMultipleValuesSelection({ items });
     await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select').findByDataTest('ec-checkbox__input').trigger('click');
-    expect(wrapper.emitted('change')).toBeTruthy();
+    expect(wrapper.emitted('change').length).toBe(1);
   });
 
   it('should deselected items', async () => {
@@ -98,6 +90,9 @@ describe('EcMultipleValuesSelection', () => {
         },
       },
     );
+    expect(wrapper.vm.selectedFilters).toEqual([
+      { value: 'Cancel', name: 'Cancel' },
+    ]);
     await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__input').trigger('click');
     expect(wrapper.vm.selectedFilters).toEqual([]);
   });
@@ -124,13 +119,27 @@ describe('EcMultipleValuesSelection', () => {
   });
 
   it('should set the empty state message', async () => {
-    const wrapper = mountEcMultipleValuesSelection({ items: [], emptyMessage: 'No items', emptyIcon: 'simple-error' });
+    const wrapper = mountEcMultipleValuesSelection({ items: [], emptyMessage: 'No items' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should set the empty state icon', async () => {
+    const wrapper = mountEcMultipleValuesSelection({ items: [], emptyMessage: 'No items', emptyIcon: 'simple-check' });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should set the error message', async () => {
-    const error = new Error('Error message');
-    const wrapper = mountEcMultipleValuesSelection({ items: [], error, emptyIcon: 'simple-error' });
+    const wrapper = mountEcMultipleValuesSelection({ items: [], errorMessage: 'Error message' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should set the error icon', async () => {
+    const wrapper = mountEcMultipleValuesSelection({ items: [], errorMessage: 'Error message', errorIcon: 'simple-check' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render loading state', async () => {
+    const wrapper = mountEcMultipleValuesSelection({ items: [], isLoading: true });
     expect(wrapper.element).toMatchSnapshot();
   });
 });

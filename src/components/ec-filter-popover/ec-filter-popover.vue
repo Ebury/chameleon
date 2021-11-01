@@ -40,7 +40,10 @@
 
       <div
         slot="popover"
-        class="ec-filter-popover__filter-content"
+        :class="{
+          'ec-filter-popover__filter-content': true,
+          'ec-filter-popover__filter-content--is-full-height': isFullHeight,
+        }"
       >
         <slot
           name="filter"
@@ -66,6 +69,10 @@ export default {
       type: Number,
       required: true,
       default: 0,
+    },
+    isFullHeight: {
+      type: Boolean,
+      default: false,
     },
     popoverOptions: {
       type: Object,
@@ -208,6 +215,10 @@ export default {
 
     width: var(--ec-filter-popover-width);
     max-height: var(--ec-filter-popover-height);
+
+    &--is-full-height {
+      height: var(--ec-filter-popover-height);
+    }
   }
 }
 </style>

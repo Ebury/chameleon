@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set to false 1`] = `
+exports[`EcMultipleValuesSelection should not be visible if isSearchable is set to false 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -12,11 +12,11 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
       
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__value-wrapper"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -67,11 +67,11 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
     </li>
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__value-wrapper"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -122,11 +122,11 @@ exports[`EcMultipleValuesSelection should not be visibile if isSearchable is set
     </li>
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__value-wrapper"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -191,11 +191,11 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
       
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__value-wrapper"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -246,11 +246,11 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
     </li>
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__value-wrapper"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -301,11 +301,11 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
     </li>
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__value-wrapper"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -358,6 +358,60 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
 </div>
 `;
 
+exports[`EcMultipleValuesSelection should render loading state 1`] = `
+<div
+  class="ec-multiple-values-selection"
+  data-test="ec-multiple-values-selection"
+>
+  <!---->
+   
+  <div
+    class="ec-multiple-values-selection__loading"
+  >
+    <svg
+      class="ec-loading-icon ec-icon"
+      data-test="ec-loading-icon"
+      height="32"
+      width="32"
+    >
+      <use
+        xlink:href="#ec-simple-loading"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`EcMultipleValuesSelection should set the empty state icon 1`] = `
+<div
+  class="ec-multiple-values-selection"
+  data-test="ec-multiple-values-selection"
+>
+  <!---->
+   
+  <div
+    class="ec-multiple-values-selection__no-results-wrapper"
+  >
+    <svg
+      class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+      data-test="ec-multiple-values-selection__no-results-icon"
+      height="32"
+      width="32"
+    >
+      <use
+        xlink:href="#ec-simple-check"
+      />
+    </svg>
+     
+    <span
+      class="ec-multiple-values-selection__no-results-message"
+    >
+      No items
+    </span>
+  </div>
+</div>
+`;
+
 exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
 <div
   class="ec-multiple-values-selection"
@@ -368,18 +422,6 @@ exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
   <div
     class="ec-multiple-values-selection__no-results-wrapper"
   >
-    <div
-      class="ec-loading ec-multiple-values-selection__loading"
-      data-test="ec-loading"
-    >
-      <!---->
-       
-      <div
-        class="ec-loading__content ec-loading__content--is-transparent"
-        data-test="ec-loading__content"
-      />
-    </div>
-     
     <svg
       class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
       data-test="ec-multiple-values-selection__no-results-icon"
@@ -400,6 +442,36 @@ exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
 </div>
 `;
 
+exports[`EcMultipleValuesSelection should set the error icon 1`] = `
+<div
+  class="ec-multiple-values-selection"
+  data-test="ec-multiple-values-selection"
+>
+  <!---->
+   
+  <div
+    class="ec-multiple-values-selection__error-wrapper"
+  >
+    <svg
+      class="ec-multiple-values-selection__error-icon ec-icon ec-icon--error"
+      data-test="ec-multiple-values-selection__error-icon"
+      height="32"
+      width="32"
+    >
+      <use
+        xlink:href="#ec-simple-check"
+      />
+    </svg>
+     
+    <span
+      class="ec-multiple-values-selection__error-message"
+    >
+      Error message
+    </span>
+  </div>
+</div>
+`;
+
 exports[`EcMultipleValuesSelection should set the error message 1`] = `
 <div
   class="ec-multiple-values-selection"
@@ -408,23 +480,11 @@ exports[`EcMultipleValuesSelection should set the error message 1`] = `
   <!---->
    
   <div
-    class="ec-multiple-values-selection__no-results-wrapper"
+    class="ec-multiple-values-selection__error-wrapper"
   >
-    <div
-      class="ec-loading ec-multiple-values-selection__loading"
-      data-test="ec-loading"
-    >
-      <!---->
-       
-      <div
-        class="ec-loading__content ec-loading__content--is-transparent"
-        data-test="ec-loading__content"
-      />
-    </div>
-     
     <svg
-      class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
-      data-test="ec-multiple-values-selection__no-results-icon"
+      class="ec-multiple-values-selection__error-icon ec-icon ec-icon--error"
+      data-test="ec-multiple-values-selection__error-icon"
       height="32"
       width="32"
     >
@@ -434,7 +494,7 @@ exports[`EcMultipleValuesSelection should set the error message 1`] = `
     </svg>
      
     <span
-      class="ec-multiple-values-selection__no-results-message"
+      class="ec-multiple-values-selection__error-message"
     >
       Error message
     </span>
@@ -454,7 +514,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
       class="ec-multiple-values-selection__select-all"
     >
       <div
-        class="ec-checkbox ec-multiple-values-selection__select-all--checkbox"
+        class="ec-checkbox"
         data-test="ec-multiple-values-selection__select-all ec-checkbox"
       >
         <input
@@ -465,7 +525,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
@@ -482,9 +542,10 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-1"
+            title="Select all"
           >
             Select all
           </label>
@@ -496,11 +557,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
      
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__checkbox-deselect"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-0 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -559,11 +620,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
     </li>
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__checkbox-deselect"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-1 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -622,11 +683,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
     </li>
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__checkbox-deselect"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-2 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -700,7 +761,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
       class="ec-multiple-values-selection__select-all"
     >
       <div
-        class="ec-checkbox ec-multiple-values-selection__select-all--checkbox"
+        class="ec-checkbox"
         data-test="ec-multiple-values-selection__select-all ec-checkbox"
       >
         <input
@@ -711,7 +772,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         />
          
         <div
-          class="ec-checkbox__label-checkbox-wrapper"
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
@@ -720,9 +781,10 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           </span>
            
           <label
-            class="ec-checkbox__label"
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-1"
+            title="Select all"
           >
             Select all
           </label>
@@ -734,11 +796,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
       
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__value-wrapper"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -789,11 +851,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
     </li>
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__value-wrapper"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"
@@ -844,11 +906,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
     </li>
     <li
       class="ec-multiple-values-selection__value-wrapper"
-      data-test="ec-multiple-values-selection__value-wrapper"
+      data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
     >
       <div
         class="ec-checkbox ec-multiple-values-selection__checkbox"
-        data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+        data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
       >
         <input
           class="ec-checkbox__input"

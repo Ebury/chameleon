@@ -59,11 +59,11 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                 
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -106,11 +106,11 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -153,11 +153,11 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -258,11 +258,11 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                 
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -305,11 +305,11 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -547,11 +547,11 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                 
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -594,11 +594,11 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -641,11 +641,11 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -746,11 +746,11 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                 
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -793,11 +793,11 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1035,11 +1035,11 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                 
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1082,11 +1082,11 @@ exports[`EcTableFilter should render correctly if all the required props are pas
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1129,11 +1129,11 @@ exports[`EcTableFilter should render correctly if all the required props are pas
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1234,11 +1234,11 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                 
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1281,11 +1281,11 @@ exports[`EcTableFilter should render correctly if all the required props are pas
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1523,11 +1523,11 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                 
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1570,11 +1570,11 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1617,11 +1617,11 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
               </li>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1728,11 +1728,11 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__checkbox-deselect"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-0 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -1784,11 +1784,11 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                
               <li
                 class="ec-multiple-values-selection__value-wrapper"
-                data-test="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"

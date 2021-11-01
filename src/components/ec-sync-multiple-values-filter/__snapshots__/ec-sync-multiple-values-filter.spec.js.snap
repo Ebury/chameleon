@@ -55,11 +55,11 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
               
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
@@ -110,11 +110,11 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
             </li>
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
@@ -165,11 +165,11 @@ exports[`EcSyncMultipleValuesFilter should emit change event when selectedFilter
             </li>
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
@@ -281,11 +281,11 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
               
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
@@ -336,11 +336,11 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
             </li>
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
@@ -391,11 +391,11 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
             </li>
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
@@ -513,11 +513,11 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
              
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__checkbox-deselect"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-0 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
@@ -569,11 +569,11 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
              
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
@@ -624,11 +624,11 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
             </li>
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
@@ -679,11 +679,11 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
             </li>
             <li
               class="ec-multiple-values-selection__value-wrapper"
-              data-test="ec-multiple-values-selection__value-wrapper"
+              data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
             >
               <div
                 class="ec-checkbox ec-multiple-values-selection__checkbox"
-                data-test="ec-multiple-values-selection__checkbox-select ec-checkbox"
+                data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
               >
                 <input
                   class="ec-checkbox__input"
