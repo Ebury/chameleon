@@ -41,7 +41,8 @@
                 class="tw-pt-4 tw-pb-24"
                 @open="disableAutoHide = true"
                 @close="disableAutoHide = false"
-                @change="onAmountChanged"
+                @amount-change="onAmountChanged"
+                @comparison-symbol-change="onComparisonSymbolChanged"
               />
 
               <button
@@ -233,6 +234,12 @@ export default {
   },
   methods: {
     onAmountChanged() {
+      this.$emit('change', {
+        ...this.value,
+        ...this.internalAmountModel,
+      });
+    },
+    onComparisonSymbolChanged() {
       // it doesn't make sense to trigger the change event only if comparison symbol is set
       // and there is no amount set by the user yet.
       if (typeof this.internalAmountModel.amount === 'number') {

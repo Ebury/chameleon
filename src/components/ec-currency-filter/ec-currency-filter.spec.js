@@ -351,6 +351,47 @@ describe('EcCurrencyFilter', () => {
         comparisonSymbol: comparisonSymbolItems[2],
         currencies: [],
       });
+
+      await selectComparisonSymbol(wrapper, 1);
+      expect(wrapper.vm.value).toEqual({
+        amount: 1234,
+        comparisonSymbol: comparisonSymbolItems[1],
+        currencies: [],
+      });
+    });
+
+    it('should update the v-model if the amount is cleared by the user', async () => {
+      const wrapper = mountEcCurrencyFilterAsTemplate(
+        '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
+        {},
+        {
+          data() {
+            return {
+              currencyItems,
+              comparisonSymbolItems,
+              value: {
+                amount: null, comparisonSymbol: comparisonSymbolItems[0], currencies: [],
+              },
+            };
+          },
+        },
+      );
+
+      await selectAmountTab(wrapper);
+      await selectComparisonSymbol(wrapper, 0);
+      await setAmount(wrapper, '1234');
+      expect(wrapper.vm.value).toEqual({
+        amount: 1234,
+        comparisonSymbol: comparisonSymbolItems[0],
+        currencies: [],
+      });
+
+      await setAmount(wrapper, '');
+      expect(wrapper.vm.value).toEqual({
+        amount: null,
+        comparisonSymbol: comparisonSymbolItems[0],
+        currencies: [],
+      });
     });
 
     it('should clear the amount and comparison symbol when the clear amount button is clicked', async () => {
