@@ -358,6 +358,9 @@ describe('EcDropdownSearch', () => {
       wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
       expect(wrapper.emitted('open').length).toBe(1);
 
+      wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
+      expect(wrapper.emitted('after-open').length).toBe(1);
+
       wrapper.findByDataTest('ec-popover-stub').vm.$emit('hide');
       expect(wrapper.emitted('close').length).toBe(1);
     });

@@ -769,6 +769,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
     data-test="ec-currency-filter__trigger"
   >
     <ec-stub
+      autohide="true"
       data-test="ec-stub ec-popover-stub"
       offset="0, 8"
       placement="bottom"
