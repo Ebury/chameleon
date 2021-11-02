@@ -30,6 +30,7 @@
       @hide="hide"
       @show="show"
       @apply-show="afterShow"
+      @apply-hide="afterHide"
       @resize="resize"
     >
       <slot />
@@ -339,6 +340,9 @@ export default {
     afterShow() {
       this.$emit('after-open');
       this.focusSearch();
+    },
+    afterHide() {
+      this.$emit('after-close');
     },
     resize() {
       // the first time the VPopover component is opened, after emitting the `apply-show`

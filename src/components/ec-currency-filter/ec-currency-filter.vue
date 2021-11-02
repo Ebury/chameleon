@@ -40,7 +40,7 @@
                 :error-message="errorMessage"
                 class="tw-pt-4 tw-pb-24"
                 @open="disableAutoHide = true"
-                @close="disableAutoHide = false"
+                @after-close="disableAutoHide = false"
                 @amount-change="onAmountChanged"
                 @comparison-symbol-change="onComparisonSymbolChanged"
               />
@@ -160,7 +160,7 @@ export default {
   computed: {
     getPopoverOptions() {
       return {
-        autoHide: this.disableAutoHide, // autoHide of the ec-filter-popover should be disabled while the dropdown in ec-amount-filter-input is open, otherwise selecting value in the dropdown will close this popover too.
+        autoHide: !this.disableAutoHide, // autoHide of the ec-filter-popover should be disabled while the dropdown in ec-amount-filter-input is open, otherwise selecting value in the dropdown will close this popover too.
         ...this.popoverOptions,
       };
     },
