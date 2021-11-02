@@ -363,6 +363,9 @@ describe('EcDropdownSearch', () => {
 
       wrapper.findByDataTest('ec-popover-stub').vm.$emit('hide');
       expect(wrapper.emitted('close').length).toBe(1);
+
+      wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-hide');
+      expect(wrapper.emitted('after-close').length).toBe(1);
     });
 
     it('should focus the search box after the popover has been opened', async () => {
