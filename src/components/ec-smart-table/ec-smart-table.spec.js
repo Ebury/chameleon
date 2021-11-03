@@ -87,6 +87,24 @@ describe('EcSmartTable', () => {
   });
 
   describe('#slots', () => {
+    it('should render in loading state by default with the header-actions slot with props', () => {
+      const wrapper = mountEcSmartTable({ columns }, {
+        scopedSlots: {
+          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render resolved data properly with the header-actions slot with props', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(data, { columns }, {
+        scopedSlots: {
+          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it('should render empty data with custom template', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns }, {
         scopedSlots: {
@@ -105,6 +123,34 @@ describe('EcSmartTable', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
+    it('should render empty data with header-actions slot', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns }, {
+        scopedSlots: {
+          'header-actions': '<div>Header Actions</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render empty data with header-actions slot with props', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns }, {
+        scopedSlots: {
+          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render empty data with custom template, custom emptyMessage prop and header-actions slot with props', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns, emptyMessage: 'No data' }, {
+        scopedSlots: {
+          empty: '<div>Custom template - {{ props.emptyMessage }}</div>',
+          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it('should render error with custom template', async () => {
       const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'), { columns }, {
         scopedSlots: {
@@ -118,6 +164,16 @@ describe('EcSmartTable', () => {
       const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'), { columns, errorMessage: 'Unexpected error' }, {
         scopedSlots: {
           error: '<div>Custom template - {{ props.errorMessage }}</div>',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render error with custom template, custom errorMessage prop and header-actions slot with props', async () => {
+      const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'), { columns, errorMessage: 'Unexpected error' }, {
+        scopedSlots: {
+          error: '<div>Custom template - {{ props.errorMessage }}</div>',
+          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
         },
       });
       expect(wrapper.element).toMatchSnapshot();
