@@ -9,6 +9,7 @@ import withLoading from '../../hocs/ec-with-loading';
 import withPagination from '../../hocs/ec-with-pagination';
 import withFiltering from '../../hocs/ec-with-filtering';
 import withAbortableFetch from '../../hocs/ec-with-abortable-fetch';
+import EcSmartTableHeading from '../ec-smart-table-heading';
 
 const withEcSmartTableRenderer = (Component) => {
   const ComponentWithLoading = withLoading(Component);
@@ -48,15 +49,32 @@ const withEcSmartTableRenderer = (Component) => {
 
         const renderFilter = function renderFilter(filterSlot) {
           if (filterSlot) {
-            return (<div class="ec-smart-table__filter">{filterSlot()}</div>);
+            return filterSlot();
+          }
+          return null;
+        };
+
+        const renderHeaderActions = function renderHeaderActions(headerActionsSlot) {
+          if (headerActionsSlot) {
+            return (
+              headerActionsSlot({
+                loading, items, error, total,
+              })
+            );
           }
           return null;
         };
 
         return (
           <div class="ec-smart-table" data-test="ec-smart-table">
-            { title ? (<div class="ec-smart-table__title">{title}</div>) : null }
-            { renderFilter(scopedSlots.filter) }
+            <EcSmartTableHeading title={title}>
+              <template slot="filter">
+                {renderFilter(scopedSlots.filter)}
+              </template>
+              <template slot="actions">
+                {renderHeaderActions(scopedSlots['header-actions'])}
+              </template>
+            </EcSmartTableHeading>
             { createRenderFn(ComponentWithLoading).call(this, h, { ...context, props: tableProps }) }
           </div>
         );
@@ -215,16 +233,3 @@ export default (
   )
 );
 </script>
-
-<style>
-.ec-smart-table {
-  &__title {
-    @apply tw-h3;
-    @apply tw-pb-16;
-  }
-
-  &__filter {
-    @apply tw-p-8;
-  }
-}
-</style>

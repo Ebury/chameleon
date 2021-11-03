@@ -3,16 +3,23 @@
     class="ec-smart-table-empty"
     data-test="ec-smart-table-empty"
   >
-    <div
-      v-if="title"
-      class="ec-smart-table-empty__title"
-    >{{ title }}</div>
-    <div
-      v-if="hasFilterSlot()"
-      class="ec-smart-table-empty__filter"
-    >
-      <slot name="filter" />
-    </div>
+    <ec-smart-table-heading :title="title">
+      <template
+        slot="filter"
+        v-if="hasFilterSlot()"
+      >
+        <slot name="filter" />
+      </template>
+      <template
+        slot="actions"
+        v-if="hasActionsSlot()"
+      >
+        <slot
+          name="header-actions"
+          v-bind="{ total: 0, items: [], error: null, loading: false }"
+        />
+      </template>
+    </ec-smart-table-heading>
     <slot
       name="empty"
       v-bind="{ emptyMessage }"
@@ -21,8 +28,11 @@
 </template>
 
 <script>
+import EcSmartTableHeading from '../ec-smart-table-heading';
+
 export default {
   name: 'EcSmartTableEmpty',
+  components: { EcSmartTableHeading },
   props: {
     title: String,
     emptyMessage: {
@@ -34,19 +44,9 @@ export default {
     hasFilterSlot() {
       return !!this.$scopedSlots.filter;
     },
+    hasActionsSlot() {
+      return !!this.$scopedSlots['header-actions'];
+    },
   },
 };
 </script>
-
-<style>
-.ec-smart-table-empty {
-  &__title {
-    @apply tw-h3;
-    @apply tw-pb-16;
-  }
-
-  &__filter {
-    @apply tw-p-8;
-  }
-}
-</style>

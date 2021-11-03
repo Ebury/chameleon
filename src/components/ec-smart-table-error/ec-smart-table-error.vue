@@ -3,11 +3,23 @@
     class="ec-smart-table-error"
     data-test="ec-smart-table-error"
   >
-    <div
-      v-if="title"
-      class="ec-smart-table-error__title"
-    >{{ title }}</div>
-    <slot name="filter" />
+    <ec-smart-table-heading :title="title">
+      <template
+        slot="filter"
+        v-if="hasFilterSlot()"
+      >
+        <slot name="filter" />
+      </template>
+      <template
+        slot="actions"
+        v-if="hasActionsSlot()"
+      >
+        <slot
+          name="header-actions"
+          v-bind="{ total: 0, items: [], error: errorMessage, loading: false }"
+        />
+      </template>
+    </ec-smart-table-heading>
     <slot
       name="error"
       v-bind="{ errorMessage }"
@@ -16,13 +28,24 @@
 </template>
 
 <script>
+import EcSmartTableHeading from '../ec-smart-table-heading';
+
 export default {
   name: 'EcSmartTableError',
+  components: { EcSmartTableHeading },
   props: {
     title: String,
     errorMessage: {
       type: String,
       default: 'Unexpected error while fetching data',
+    },
+  },
+  methods: {
+    hasFilterSlot() {
+      return !!this.$scopedSlots.filter;
+    },
+    hasActionsSlot() {
+      return !!this.$scopedSlots['header-actions'];
     },
   },
 };
