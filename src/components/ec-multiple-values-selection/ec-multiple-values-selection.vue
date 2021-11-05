@@ -56,7 +56,7 @@
       />
       <span class="ec-multiple-values-selection__error-message">{{ errorMessage }}</span>
     </div>
-    <div v-else>
+    <template v-else>
       <div
         v-if="isSelectAll"
         class="ec-multiple-values-selection__select-all"
@@ -69,71 +69,76 @@
           @change="toggleAll()"
         />
       </div>
-      <li
-        v-for="(item, index) in selectedFilters"
-        :key="item.value"
-        class="ec-multiple-values-selection__value-wrapper"
-        data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
-      >
-        <ec-checkbox
-          checked
-          class="ec-multiple-values-selection__checkbox"
-          :data-test="`ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-${index}`"
-          :is-single-line="true"
-          :label="item.text"
-          @checked-value-change="onDeselect(item)"
-        >
-          <template #label>
-            <div
-              class="ec-multiple-values-selection__label-wrapper"
+      <div class="ec-multiple-values-selection__values">
+        <ul>
+          <li
+            v-for="(item, index) in selectedFilters"
+            :key="item.value"
+            class="ec-multiple-values-selection__value-wrapper"
+            data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
+          >
+            <ec-checkbox
+              checked
+              class="ec-multiple-values-selection__checkbox"
+              :data-test="`ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-${index}`"
+              :is-single-line="true"
+              :label="item.text"
+              @checked-value-change="onDeselect(item)"
             >
-              <ec-icon
-                v-if="item.icon"
-                class="ec-multiple-values-selection__icon"
-                :name="item.icon.name"
-                :type="item.icon.type"
-                :size="24"
-              />
-              <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
-            </div>
-          </template>
-        </ec-checkbox>
-      </li>
+              <template #label>
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <ec-icon
+                    v-if="item.icon"
+                    class="ec-multiple-values-selection__icon"
+                    :name="item.icon.name"
+                    :type="item.icon.type"
+                    :size="24"
+                  />
+                  <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
+                </div>
+              </template>
+            </ec-checkbox>
+          </li>
+        </ul>
 
-      <li
-        v-for="(item, index) in unselectedFilters"
-        :key="item.value"
-        class="ec-multiple-values-selection__value-wrapper"
-        data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
-      >
-        <ec-checkbox
-          class="ec-multiple-values-selection__checkbox"
-          :data-test="`ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-${index}`"
-          :is-single-line="true"
-          :label="item.text"
-          @checked-value-change="onSelect(item)"
-        >
-          <template #label>
-            <div
-              class="ec-multiple-values-selection__label-wrapper"
+        <ul>
+          <li
+            v-for="(item, index) in unselectedFilters"
+            :key="item.value"
+            class="ec-multiple-values-selection__value-wrapper"
+            data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+          >
+            <ec-checkbox
+              class="ec-multiple-values-selection__checkbox"
+              :data-test="`ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-${index}`"
+              :is-single-line="true"
+              :label="item.text"
+              @checked-value-change="onSelect(item)"
             >
-              <ec-icon
-                v-if="item.icon"
-                class="ec-multiple-values-selection__icon"
-                :name="item.icon.name"
-                :type="item.icon.type"
-                :size="24"
-              />
-              <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
-            </div>
-          </template>
-        </ec-checkbox>
-      </li>
-    </div>
+              <template #label>
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <ec-icon
+                    v-if="item.icon"
+                    class="ec-multiple-values-selection__icon"
+                    :name="item.icon.name"
+                    :type="item.icon.type"
+                    :size="24"
+                  />
+                  <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
+                </div>
+              </template>
+            </ec-checkbox>
+          </li>
+        </ul>
+      </div>
+    </template>
   </div>
 </template>
 <script>
-// TODO ONL-4912 !!!don't forget to debounce search!!!
 import EcCheckbox from '../ec-checkbox';
 import EcIcon from '../ec-icon';
 import EcInputField from '../ec-input-field';
@@ -179,15 +184,15 @@ export default {
     },
     isSearchable: {
       type: Boolean,
-    }, // TODO with https://fxsolutions.atlassian.net/browse/ONL-4912
+    },
     isSelectAll: {
       type: Boolean,
       default: false,
-    }, // TODO ONL-4911
+    },
     selectAllFiltersText: {
       type: String,
       default: '',
-    }, // TODO ONL-4911
+    },
     searchFilterPlaceholder: {
       type: String,
     },
@@ -205,7 +210,6 @@ export default {
       const itemsSet = new Set(this.selectedFilters.map(item => item.value));
       return this.items.filter(item => !itemsSet.has(item.value));
     },
-    // TODO ONL-4911
     allFiltersAreSelected() {
       return this.unselectedFilters.length === 0;
     },
@@ -218,7 +222,6 @@ export default {
         this.$emit('change', this.items);
       }
     },
-    // TODO ONL-4911
     onSelect(item) {
       const newItems = [...this.selectedFilters, item];
       this.$emit('change', newItems);
@@ -232,10 +235,21 @@ export default {
 </script>
 
 <style>
+@import '../../styles/tools/scrollbars';
+
 .ec-multiple-values-selection {
+  @apply tw-flex tw-flex-col tw-min-h-full;
+
   &__select-all {
+    @apply tw-flex-shrink-0;
+    @apply tw-border-solid tw-border-b tw-border-gray-6;
     @apply tw-py-8 tw-px-16;
-    @apply tw-border-solid tw-border-b-2 tw-border-gray-6;
+  }
+
+  &__values {
+    @apply tw-overflow-y-auto;
+
+    @mixin small-scrollbar;
   }
 
   &__value-wrapper {
@@ -272,16 +286,18 @@ export default {
   &__loading,
   &__error-wrapper,
   &__no-results-wrapper {
-    @apply tw-flex tw-items-center tw-justify-center tw-flex-col;
+    @apply tw-flex tw-items-center tw-justify-center tw-flex-col tw-flex-1;
+    @apply tw-my-16 tw-mx-16;
+    @apply tw-text-center;
   }
 
   &__loading {
-    @apply tw-mt-48;
+    @apply tw-py-32;
   }
 
   &__error-icon,
   &__no-results-icon {
-    @apply tw-my-16;
+    @apply tw-mb-16;
   }
 
   &__error-message,

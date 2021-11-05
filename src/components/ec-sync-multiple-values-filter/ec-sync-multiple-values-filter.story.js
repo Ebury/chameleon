@@ -25,11 +25,7 @@ const Template = (args, { argTypes }) => ({
     <ec-sync-multiple-values-filter
       class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
       v-model="valueFromProps"
-      :label="label"
-      :items="items"
-      :is-searchable="false"
-      :is-select-all="isSelectAll"
-      :select-all-filters-text="selectAllFiltersText"
+      v-bind="$props"
       :popover-options="{ open: true }"
     />
   `,
@@ -48,7 +44,7 @@ const items = [{
     name: 'rounded-partial',
     type: 'success',
   },
-  text: 'Name two',
+  text: 'Partially paid',
 }, {
   value: 'Cancelled',
   icon: {
@@ -82,7 +78,6 @@ export const basic = Template.bind({});
 
 basic.args = {
   label: 'Status',
-  value: [],
   items,
   isSelectAll: false,
   selectAllFiltersText: 'Select all',

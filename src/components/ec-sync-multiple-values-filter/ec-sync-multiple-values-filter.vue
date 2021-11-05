@@ -53,12 +53,12 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    }, // TODO ONL-4911
+    },
     selectAllFiltersText: {
       type: String,
       required: true,
       default: '',
-    }, // TODO ONL-4911
+    },
     popoverOptions: {
       type: Object,
     },
