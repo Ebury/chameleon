@@ -274,7 +274,7 @@ export default {
 .ec-currency-filter {
   &__content-wrapper {
     @apply tw-flex tw-flex-col;
-    @apply tw-max-h-full;
+    @apply tw-max-h-full tw-h-full;
   }
 
   &__submenu {
