@@ -235,6 +235,9 @@ stories
             @sort="onSort"
             @abort="onAborted"
             @error="onError">
+            <template #header-actions="{ total, items, error, loading }">
+              <a href="#">Download</a>
+            </template>
             <template #error="{ errorMessage }">
               <div class="tw-text-error">Error state template - {{ errorMessage }}</div>
             </template>
