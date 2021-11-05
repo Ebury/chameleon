@@ -65,11 +65,6 @@ describe('EcMultipleValuesSelection', () => {
     });
   });
 
-  it('should not be visible if isSearchable is set to false', () => {
-    const wrapper = mountEcMultipleValuesSelection({ items, isSearchable: false });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
   it('should emit selected items', async () => {
     const wrapper = mountEcMultipleValuesSelection({ items });
     await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select').findByDataTest('ec-checkbox__input').trigger('click');
@@ -141,5 +136,48 @@ describe('EcMultipleValuesSelection', () => {
   it('should render loading state', async () => {
     const wrapper = mountEcMultipleValuesSelection({ items: [], isLoading: true });
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  describe('search', () => {
+    it('should not have the search visible if isSearchable is set to false', () => {
+      const wrapper = mountEcMultipleValuesSelection({ items, isSearchable: false });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render properly when isSearchable is true', () => {
+      const wrapper = mountEcMultipleValuesSelection({ items, isSearchable: true });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render properly when searchFilterPlaceholder is set', () => {
+      const wrapper = mountEcMultipleValuesSelection({ items, isSearchable: true, searchFilterPlaceholder: 'Custom placeholder' });
+      expect(wrapper.findByDataTest('ec-multiple-values-selection__search-input').element).toMatchSnapshot();
+    });
+
+    it('should emit search event and trim its value', async () => {
+      const wrapper = mountEcMultipleValuesSelection({ items, isSearchable: true });
+      await wrapper.findByDataTest('ec-multiple-values-selection__search-input').setValue(' ABCD efgh  ');
+      expect(wrapper.emitted('search')).toEqual([
+        ['ABCD efgh'],
+      ]);
+    });
+
+    it('should be focusable when is searchable', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+
+      const wrapper = mountEcMultipleValuesSelection({ items, isSearchable: true }, {
+        attachTo: elem,
+      });
+
+      document.activeElement.blur();
+      wrapper.vm.focus();
+
+      await wrapper.vm.$nextTick();
+
+      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-multiple-values-selection__search-input').element);
+
+      wrapper.destroy();
+    });
   });
 });

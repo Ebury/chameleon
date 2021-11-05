@@ -10,6 +10,7 @@
       :placement="'bottom'"
       offset="0, 8"
       @update:open="onOpen"
+      @apply-show="$emit('after-open')"
     >
       <div
         class="ec-filter-popover__trigger"
@@ -132,8 +133,8 @@ export default {
     },
   },
   methods: {
-    onOpen(status) {
-      this.triggerIsFocused = status;
+    onOpen(isOpen) {
+      this.triggerIsFocused = isOpen;
     },
   },
 };

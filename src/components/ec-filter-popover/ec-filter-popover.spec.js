@@ -61,6 +61,18 @@ describe('EcFilterPopover', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should reset the open status of the popover', async () => {
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
+    await wrapper.findByDataTest('ec-popover-stub').vm.$emit('update:open', false);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should emit after-open event', async () => {
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
+    await wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
+    expect(wrapper.emitted('after-open')).toEqual([[]]);
+  });
+
   it('should render properly when isFullHeight is set', () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters, isFullHeight: true });
     expect(wrapper.element).toMatchSnapshot();
