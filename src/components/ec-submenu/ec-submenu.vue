@@ -5,7 +5,12 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-submenu` : 'ec-submenu'"
   >
     <div class="ec-submenu__header-container">
-      <ul class="ec-submenu__header">
+      <ul
+        :class="{
+          'ec-submenu__header': true,
+          'ec-submenu__header--no-gap': !hasHeaderGap,
+        }"
+      >
         <li
           v-for="(menuItem, index) in submenu"
           :key="index"
@@ -73,6 +78,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hasHeaderGap: {
+      type: Boolean,
+      default: true,
+    },
   },
 };
 </script>
@@ -92,6 +101,10 @@ export default {
     @screen lg {
       @apply tw-flex-row;
       @apply tw-border-b tw-border-solid tw-text-gray-6;
+    }
+
+    &--no-gap {
+      @apply tw-mb-0;
     }
   }
 

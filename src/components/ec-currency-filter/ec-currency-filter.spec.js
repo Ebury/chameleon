@@ -85,13 +85,14 @@ describe('EcCurrencyFilter', () => {
           currencyItems[1],
           currencyItems[3],
         ],
-        amount: 1234,
+        amount: 1234.56,
         comparisonSymbol: comparisonSymbolItems[1],
       },
     });
 
-    expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot();
-    expect(wrapper.findByDataTest('ec-submenu__panel-1').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-currency-filter__tab--1').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toBe('1,234.56');
   });
 
   it('should count every selected currency in numberOfSelectedFilters', () => {
@@ -174,21 +175,21 @@ describe('EcCurrencyFilter', () => {
     const wrapper = mountEcCurrencyFilter({
       isLoadingCurrencies: true,
     });
-    expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
   });
 
   it('should render currencies tab in error state when currenciesErrorMessage is set', () => {
     const wrapper = mountEcCurrencyFilter({
       currenciesErrorMessage: 'Random error message',
     });
-    expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
   });
 
   it('should render currencies tab in empty state when currenciesEmptyMessage is set', () => {
     const wrapper = mountEcCurrencyFilter({
       currenciesEmptyMessage: 'Random no items message',
     });
-    expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
   });
 
   it('should disable clear amount button if the amount is empty', () => {
@@ -230,7 +231,7 @@ describe('EcCurrencyFilter', () => {
       );
 
       await selectCurrency(wrapper, 0);
-      expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
       expect(wrapper.vm.value).toEqual({
         amount: null,
         comparisonSymbol: null,
@@ -238,7 +239,7 @@ describe('EcCurrencyFilter', () => {
       });
 
       await selectCurrency(wrapper, 0);
-      expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
       expect(wrapper.vm.value).toEqual({
         amount: null,
         comparisonSymbol: null,
@@ -269,7 +270,7 @@ describe('EcCurrencyFilter', () => {
       );
 
       await deselectCurrency(wrapper, 0);
-      expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
       expect(wrapper.vm.value).toEqual({
         amount: null,
         comparisonSymbol: null,
@@ -277,7 +278,7 @@ describe('EcCurrencyFilter', () => {
       });
 
       await deselectCurrency(wrapper, 0);
-      expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
       expect(wrapper.vm.value).toEqual({
         amount: null,
         comparisonSymbol: null,
@@ -303,7 +304,7 @@ describe('EcCurrencyFilter', () => {
       );
 
       await selectAll(wrapper);
-      expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot('after select all');
+      expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot('after select all');
       expect(wrapper.vm.value).toEqual({
         amount: null,
         comparisonSymbol: null,
@@ -311,7 +312,7 @@ describe('EcCurrencyFilter', () => {
       });
 
       await selectAll(wrapper);
-      expect(wrapper.findByDataTest('ec-submenu__panel-0').element).toMatchSnapshot('after deselect all');
+      expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot('after deselect all');
       expect(wrapper.vm.value).toEqual({
         amount: null,
         comparisonSymbol: null,
@@ -423,7 +424,7 @@ describe('EcCurrencyFilter', () => {
           { text: 'GBP', value: 'GBP' },
         ],
       });
-      expect(wrapper.findByDataTest('ec-submenu__panel-1').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-currency-filter__tab--1').element).toMatchSnapshot();
       expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('');
     });
   });

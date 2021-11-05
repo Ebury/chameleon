@@ -118,4 +118,12 @@ describe('EcSubmenu', () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('should render properly if hasHeaderGap prop is set to false', () => {
+    const wrapper = mountSubmenu(
+      { submenu, activeIndex: 0, hasHeaderGap: false },
+    );
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

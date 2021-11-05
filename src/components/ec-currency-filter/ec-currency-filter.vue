@@ -11,12 +11,19 @@
       is-full-height
     >
       <template #filter>
-        <ec-submenu
-          v-model="activeTabIndex"
-          :submenu="submenu"
-          is-full-width
-        >
-          <template #currency>
+        <div class="ec-currency-filter__content-wrapper">
+          <ec-submenu
+            v-model="activeTabIndex"
+            class="ec-currency-filter__submenu"
+            :submenu="submenu"
+            is-full-width
+            :has-header-gap="false"
+          />
+          <div
+            v-show="activeTabIndex === 0"
+            class="ec-currency-filter__tab"
+            data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
+          >
             <ec-multiple-values-selection
               v-model="selectedCurrenciesModel"
               :items="currencyItems"
@@ -27,33 +34,34 @@
               :error-message="currenciesErrorMessage"
               :empty-message="currenciesEmptyMessage"
             />
-          </template>
+          </div>
 
-          <template #amount>
-            <div class="tw-px-16">
-              <ec-amount-filter-input
-                v-model="amountModel"
-                :comparison-symbol-items="comparisonSymbolItems"
-                :locale="locale"
-                :is-sensitive="isSensitive"
-                :amount-placeholder="amountPlaceholder"
-                :error-message="errorMessage"
-                class="tw-pt-4 tw-pb-24"
-                @open="disableAutoHide = true"
-                @after-close="disableAutoHide = false"
-                @amount-change="onAmountChanged"
-                @comparison-symbol-change="onComparisonSymbolChanged"
-              />
+          <div
+            v-show="activeTabIndex === 1"
+            class="tw-p-16 ec-currency-filter__tab"
+            data-test="ec-currency-filter__tab ec-currency-filter__tab--1"
+          >
+            <ec-amount-filter-input
+              v-model="amountModel"
+              :comparison-symbol-items="comparisonSymbolItems"
+              :locale="locale"
+              :is-sensitive="isSensitive"
+              :amount-placeholder="amountPlaceholder"
+              :error-message="errorMessage"
+              @open="disableAutoHide = true"
+              @after-close="disableAutoHide = false"
+              @amount-change="onAmountChanged"
+              @comparison-symbol-change="onComparisonSymbolChanged"
+            />
 
-              <button
-                data-test="ec-currency-filter__clear-amount"
-                class="ec-currency-filter__clear-amount"
-                :disabled="!hasAmount"
-                @click.prevent="onClearAmount()"
-              >{{ clearAmountText }}</button>
-            </div>
-          </template>
-        </ec-submenu>
+            <button
+              data-test="ec-currency-filter__clear-amount"
+              class="ec-currency-filter__clear-amount"
+              :disabled="!hasAmount"
+              @click.prevent="onClearAmount()"
+            >{{ clearAmountText }}</button>
+          </div>
+        </div>
 
       </template>
     </ec-filter-popover>
@@ -264,11 +272,27 @@ export default {
 @import '../../styles/tools/typography.css';
 
 .ec-currency-filter {
+  &__content-wrapper {
+    @apply tw-flex tw-flex-col;
+    @apply tw-max-h-full;
+  }
+
+  &__submenu {
+    @apply tw-flex-shrink-0 tw-flex-grow-0;
+  }
+
+  &__tab {
+    @apply tw-flex-1 tw-flex tw-flex-col;
+    @apply tw-min-h-0;
+  }
+
   &__clear-amount {
     @mixin ec-body-link;
 
     @apply tw-border-none;
     @apply tw-bg-transparent;
+    @apply tw-mt-24;
+    @apply tw-self-start;
 
     &:disabled {
       @apply tw-text-gray-5;

@@ -60,6 +60,21 @@ const currencyItems = [{
 }, {
   value: 'USD',
   text: 'USD',
+}, {
+  value: 'NZD',
+  text: 'NZD',
+}, {
+  value: 'BDD',
+  text: 'BDD',
+}, {
+  value: 'CZK',
+  text: 'CZK',
+}, {
+  value: 'NOK',
+  text: 'NOK',
+}, {
+  value: 'CNY',
+  text: 'CNY',
 }];
 
 const comparisonSymbolItems = [{
