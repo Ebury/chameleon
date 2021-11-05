@@ -45,4 +45,32 @@ describe('EcSmartTableError', () => {
     });
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('should render given header-actions slot', () => {
+    const wrapper = mountEcSmartTableError(null, {
+      scopedSlots: {
+        'header-actions': '<div>Header Actions</div>',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render given header-actions slot with the props', () => {
+    const wrapper = mountEcSmartTableError(null, {
+      scopedSlots: {
+        'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render given filter and header-actions slots', () => {
+    const wrapper = mountEcSmartTableError(null, {
+      scopedSlots: {
+        filter: '<div>Custom filter</div>',
+        'header-actions': '<div>Header Actions</div>',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
