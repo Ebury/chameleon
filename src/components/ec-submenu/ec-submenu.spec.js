@@ -109,4 +109,21 @@ describe('EcSubmenu', () => {
     expect(wrapper.vm.activeIndex).toBe(1);
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('should render properly if isFullWidth prop is set', () => {
+    const wrapper = mountSubmenu(
+      { submenu, activeIndex: 0, isFullWidth: true },
+      { slots },
+    );
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render properly if hasHeaderGap prop is set to false', () => {
+    const wrapper = mountSubmenu(
+      { submenu, activeIndex: 0, hasHeaderGap: false },
+    );
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

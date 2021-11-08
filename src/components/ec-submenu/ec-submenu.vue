@@ -5,13 +5,21 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-submenu` : 'ec-submenu'"
   >
     <div class="ec-submenu__header-container">
-      <ul class="ec-submenu__header">
+      <ul
+        :class="{
+          'ec-submenu__header': true,
+          'ec-submenu__header--no-gap': !hasHeaderGap,
+        }"
+      >
         <li
           v-for="(menuItem, index) in submenu"
           :key="index"
           data-test="ec-submenu__header-item"
-          class="ec-submenu__header-item"
-          :class="{'ec-submenu__header-item--is-active': index === activeIndex}"
+          :class="{
+            'ec-submenu__header-item': true,
+            'ec-submenu__header-item--is-full-width': isFullWidth,
+            'ec-submenu__header-item--is-active': index === activeIndex
+          }"
         >
           <a
             v-if="!menuItem.route"
@@ -66,6 +74,14 @@ export default {
       type: Number,
       default: 0,
     },
+    isFullWidth: {
+      type: Boolean,
+      default: false,
+    },
+    hasHeaderGap: {
+      type: Boolean,
+      default: true,
+    },
   },
 };
 </script>
@@ -86,6 +102,10 @@ export default {
       @apply tw-flex-row;
       @apply tw-border-b tw-border-solid tw-text-gray-6;
     }
+
+    &--no-gap {
+      @apply tw-mb-0;
+    }
   }
 
   &__header-item {
@@ -95,6 +115,10 @@ export default {
     @apply tw-relative;
     @apply tw-text-center;
     @apply tw-border-b tw-border-solid tw-border-transparent;
+
+    &--is-full-width {
+      @apply tw-w-full;
+    }
   }
 
   &__header-title {

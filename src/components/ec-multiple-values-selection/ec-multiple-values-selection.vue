@@ -22,29 +22,41 @@
       />
     </div>
 
-    <!-- The above will be completed with TODO with https://fxsolutions.atlassian.net/browse/ONL-4912.
-    Visible only if we pass dataSource and if isSearchable is set to true.
-    With static items list it won't be available-->
     <div
-      v-if="hasNoResults"
+      v-if="isLoading"
+      class="ec-multiple-values-selection__loading"
+    >
+      <ec-loading-icon :size="32" />
+    </div>
+    <div
+      v-else-if="emptyMessage"
       class="ec-multiple-values-selection__no-results-wrapper"
     >
-      <ec-loading
-        class="ec-multiple-values-selection__loading"
-        :show="isLoading"
-      />
-
       <ec-icon
+        v-if="emptyIcon"
         class="ec-multiple-values-selection__no-results-icon"
         data-test="ec-multiple-values-selection__no-results-icon"
         :name="emptyIcon"
         type="info"
         :size="32"
       />
-      <span class="ec-multiple-values-selection__no-results-message">{{ hasNoResults }}</span>
-      <!-- TODO with https://fxsolutions.atlassian.net/browse/ONL-4912 This is dynamic for error message and empty state -->
+      <span class="ec-multiple-values-selection__no-results-message">{{ emptyMessage }}</span>
     </div>
-    <div v-else>
+    <div
+      v-else-if="errorMessage"
+      class="ec-multiple-values-selection__error-wrapper"
+    >
+      <ec-icon
+        v-if="errorIcon"
+        class="ec-multiple-values-selection__error-icon"
+        data-test="ec-multiple-values-selection__error-icon"
+        :name="errorIcon"
+        type="error"
+        :size="32"
+      />
+      <span class="ec-multiple-values-selection__error-message">{{ errorMessage }}</span>
+    </div>
+    <template v-else>
       <div
         v-if="isSelectAll"
         class="ec-multiple-values-selection__select-all"
@@ -52,85 +64,90 @@
         <ec-checkbox
           :checked="allFiltersAreSelected"
           :label="selectAllFiltersText"
+          is-single-line
           data-test="ec-multiple-values-selection__select-all"
-          class="ec-multiple-values-selection__select-all--checkbox"
           @change="toggleAll()"
         />
       </div>
-      <!-- TODO ONL-4911 the above is the select all checkbox option - visible only if isSelectAll is set to true -->
-      <li
-        v-for="item in selectedFilters"
-        :key="item.value"
-        class="ec-multiple-values-selection__value-wrapper"
-        data-test="ec-multiple-values-selection__checkbox-deselect"
-      >
-        <ec-checkbox
-          checked
-          class="ec-multiple-values-selection__checkbox"
-          :is-single-line="true"
-          :label="item.text"
-          @checked-value-change="onDeselect(item)"
-        >
-          <template #label>
-            <div
-              class="ec-multiple-values-selection__label-wrapper"
+      <div class="ec-multiple-values-selection__values">
+        <ul>
+          <li
+            v-for="(item, index) in selectedFilters"
+            :key="item.value"
+            class="ec-multiple-values-selection__value-wrapper"
+            data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
+          >
+            <ec-checkbox
+              checked
+              class="ec-multiple-values-selection__checkbox"
+              :data-test="`ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-${index}`"
+              :is-single-line="true"
+              :label="item.text"
+              @checked-value-change="onDeselect(item)"
             >
-              <ec-icon
-                v-if="item.icon"
-                class="ec-multiple-values-selection__icon"
-                :name="item.icon.name"
-                :type="item.icon.type"
-                :size="24"
-              />
-              <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
-            </div>
-          </template>
-        </ec-checkbox>
-      </li>
+              <template #label>
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <ec-icon
+                    v-if="item.icon"
+                    class="ec-multiple-values-selection__icon"
+                    :name="item.icon.name"
+                    :type="item.icon.type"
+                    :size="24"
+                  />
+                  <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
+                </div>
+              </template>
+            </ec-checkbox>
+          </li>
+        </ul>
 
-      <li
-        v-for="item in unselectedFilters"
-        :key="item.value"
-        class="ec-multiple-values-selection__value-wrapper"
-        data-test="ec-multiple-values-selection__value-wrapper"
-      >
-        <ec-checkbox
-          class="ec-multiple-values-selection__checkbox"
-          data-test="ec-multiple-values-selection__checkbox-select"
-          :is-single-line="true"
-          :label="item.text"
-          @checked-value-change="onSelect(item)"
-        >
-          <template #label>
-            <div
-              class="ec-multiple-values-selection__label-wrapper"
+        <ul>
+          <li
+            v-for="(item, index) in unselectedFilters"
+            :key="item.value"
+            class="ec-multiple-values-selection__value-wrapper"
+            data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+          >
+            <ec-checkbox
+              class="ec-multiple-values-selection__checkbox"
+              :data-test="`ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-${index}`"
+              :is-single-line="true"
+              :label="item.text"
+              @checked-value-change="onSelect(item)"
             >
-              <ec-icon
-                v-if="item.icon"
-                class="ec-multiple-values-selection__icon"
-                :name="item.icon.name"
-                :type="item.icon.type"
-                :size="24"
-              />
-              <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
-            </div>
-          </template>
-        </ec-checkbox>
-      </li>
-    </div>
+              <template #label>
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <ec-icon
+                    v-if="item.icon"
+                    class="ec-multiple-values-selection__icon"
+                    :name="item.icon.name"
+                    :type="item.icon.type"
+                    :size="24"
+                  />
+                  <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
+                </div>
+              </template>
+            </ec-checkbox>
+          </li>
+        </ul>
+      </div>
+    </template>
   </div>
 </template>
 <script>
-// TODO ONL-4912 !!!don't forget to debounce search!!!
 import EcCheckbox from '../ec-checkbox';
 import EcIcon from '../ec-icon';
 import EcInputField from '../ec-input-field';
-import EcLoading from '../ec-loading';
+import EcLoadingIcon from '../ec-loading-icon';
 
 export default {
   name: 'EcMultipleValuesSelection',
   components: {
-    EcCheckbox, EcIcon, EcInputField, EcLoading,
+    EcCheckbox, EcIcon, EcInputField, EcLoadingIcon,
   },
   model: {
     prop: 'value',
@@ -151,28 +168,31 @@ export default {
       type: Boolean,
       default: false,
     },
-    error: {
-      type: Error,
-      required: false,
-      default: null,
+    errorMessage: {
+      type: String,
+    },
+    errorIcon: {
+      type: String,
+      default: 'simple-error',
     },
     emptyMessage: {
       type: String,
     },
     emptyIcon: {
       type: String,
+      default: 'simple-error',
     },
     isSearchable: {
       type: Boolean,
-    }, // TODO with https://fxsolutions.atlassian.net/browse/ONL-4912
+    },
     isSelectAll: {
       type: Boolean,
       default: false,
-    }, // TODO ONL-4911
+    },
     selectAllFiltersText: {
       type: String,
       default: '',
-    }, // TODO ONL-4911
+    },
     searchFilterPlaceholder: {
       type: String,
     },
@@ -190,20 +210,8 @@ export default {
       const itemsSet = new Set(this.selectedFilters.map(item => item.value));
       return this.items.filter(item => !itemsSet.has(item.value));
     },
-    // TODO ONL-4911
     allFiltersAreSelected() {
       return this.unselectedFilters.length === 0;
-    },
-    // TODO ONL-4919
-    hasNoResults() {
-      let hasResults = false;
-      if (this.error) {
-        const { message } = this.error;
-        hasResults = message;
-      } else if (this.emptyMessage) {
-        hasResults = this.emptyMessage;
-      }
-      return hasResults;
     },
   },
   methods: {
@@ -214,7 +222,6 @@ export default {
         this.$emit('change', this.items);
       }
     },
-    // TODO ONL-4911
     onSelect(item) {
       const newItems = [...this.selectedFilters, item];
       this.$emit('change', newItems);
@@ -228,21 +235,21 @@ export default {
 </script>
 
 <style>
+@import '../../styles/tools/scrollbars';
+
 .ec-multiple-values-selection {
-  &__loading {
-    @apply tw-h-full;
-    @apply tw-pt-20;
-    @apply tw-items-stretch;
-  }
+  @apply tw-flex tw-flex-col tw-min-h-full;
 
   &__select-all {
-    @apply tw-py-8 tw-pl-16;
-    @apply tw-border-solid tw-border-b-2 tw-border-gray-6;
+    @apply tw-flex-shrink-0;
+    @apply tw-border-solid tw-border-b tw-border-gray-6;
+    @apply tw-py-8 tw-px-16;
+  }
 
-    &--label {
-      @apply tw-flex;
-      @apply tw-inline;
-    }
+  &__values {
+    @apply tw-overflow-y-auto;
+
+    @mixin small-scrollbar;
   }
 
   &__value-wrapper {
@@ -276,16 +283,30 @@ export default {
     @apply tw-truncate;
   }
 
+  &__loading,
+  &__error-wrapper,
   &__no-results-wrapper {
-    @apply tw-flex tw-items-center tw-justify-center tw-flex-col;
+    @apply tw-flex tw-items-center tw-justify-center tw-flex-col tw-flex-1;
+    @apply tw-my-16 tw-mx-16;
+    @apply tw-text-center;
   }
 
+  &__loading {
+    @apply tw-py-32;
+  }
+
+  &__error-icon,
   &__no-results-icon {
-    @apply tw-mt-16;
+    @apply tw-mb-16;
   }
 
+  &__error-message,
   &__no-results-message {
     @apply tw-small-text;
+  }
+
+  &__error-message {
+    @apply tw-text-error;
   }
 }
 </style>

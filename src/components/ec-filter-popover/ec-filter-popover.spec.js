@@ -36,12 +36,12 @@ describe('EcFilterPopover', () => {
     });
   });
 
-  it('numberOfSelectedFilters should not be visible if it\'s value is less than 0', () => {
-    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
+  it('should not display number of selected filters if the value of numberOfSelectedFilters is 0', () => {
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters: 0 });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('numberOfSelectedFilters should be visible if it\'s value is greater than 0', () => {
+  it('should display number of selected filters if the value of numberOfSelectedFilters is greater than 0', () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters: 5 });
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -58,6 +58,11 @@ describe('EcFilterPopover', () => {
   it('should set the open status of the popover', async () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
     await wrapper.findByDataTest('ec-popover-stub').vm.$emit('update:open', true);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render properly when isFullHeight is set', () => {
+    const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters, isFullHeight: true });
     expect(wrapper.element).toMatchSnapshot();
   });
 });

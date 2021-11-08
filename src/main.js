@@ -19,6 +19,7 @@ export { default as EcButtonGroup } from './components/ec-button-group';
 export { default as EcCheckbox } from './components/ec-checkbox';
 export { default as EcClosePopover } from './directives/ec-close-popover';
 export { default as EcContainer } from './components/ec-container';
+export { default as EcCurrencyFilter } from './components/ec-currency-filter';
 export { default as EcCurrencyInput } from './components/ec-currency-input';
 export { default as EcDateRangeFilter } from './components/ec-date-range-filter';
 export { default as EcDonut } from './components/ec-donut';
@@ -54,8 +55,8 @@ export { default as EcTooltip } from './directives/ec-tooltip';
 export { default as EcUserInfo } from './components/ec-user-info';
 
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
-export { default as ecWithFilters } from './hocs/ec-with-filters';
 export { default as ecWithFiltering } from './hocs/ec-with-filtering';
+export { default as ecWithFilters } from './hocs/ec-with-filters';
 export { default as ecWithLoading } from './hocs/ec-with-loading';
 export { default as ecWithPagination } from './hocs/ec-with-pagination';
 export { default as ecWithSorting } from './hocs/ec-with-sorting';

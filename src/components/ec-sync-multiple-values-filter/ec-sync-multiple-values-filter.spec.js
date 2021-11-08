@@ -53,20 +53,35 @@ describe('EcSyncMultipleValuesFilter', () => {
   });
 
   it('should update the number of items selected in numberOfSelectedFilters', () => {
-    const value = [{ value: 'a', name: 'test name' }];
     const wrapper = mountEcSyncMultipleValuesFilter({
-      value, label, items, selectAllFiltersText,
+      value: [items[0]], label, items, selectAllFiltersText,
     });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should emit change event when selectedFilters value change', async () => {
+  it('should emit change event when filter is clicked', async () => {
     const wrapper = mountEcSyncMultipleValuesFilter({
       label, items, selectAllFiltersText,
     });
 
-    await wrapper.setData({ selectedFilters: [{ value: 'a', name: 'test name' }, { value: 'b', name: 'test name' }] });
-    expect(wrapper.emitted('change')).toBeTruthy();
-    expect(wrapper.element).toMatchSnapshot();
+    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-0').findByDataTest('ec-checkbox__label').trigger('click');
+    expect(wrapper.emitted('change')).toEqual([
+      [
+        [items[0]],
+      ],
+    ]);
+  });
+
+  it('should emit change event when filter is clicked while there are preselected filters', async () => {
+    const wrapper = mountEcSyncMultipleValuesFilter({
+      value: [items[0]], label, items, selectAllFiltersText,
+    });
+
+    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-0').findByDataTest('ec-checkbox__label').trigger('click');
+    expect(wrapper.emitted('change')).toEqual([
+      [
+        [items[0], items[1]],
+      ],
+    ]);
   });
 });

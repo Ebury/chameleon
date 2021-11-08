@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value is greater than 0 1`] = `
+exports[`EcFilterPopover should display number of selected filters if the value of numberOfSelectedFilters is greater than 0 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -50,7 +50,7 @@ exports[`EcFilterPopover numberOfSelectedFilters should be visible if it's value
 </div>
 `;
 
-exports[`EcFilterPopover numberOfSelectedFilters should not be visible if it's value is less than 0 1`] = `
+exports[`EcFilterPopover should not display number of selected filters if the value of numberOfSelectedFilters is 0 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -138,6 +138,50 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
         Test name slot
       </p>
     </div>
+  </ec-stub>
+</div>
+`;
+
+exports[`EcFilterPopover should render properly when isFullHeight is set 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
+    offset="0, 8"
+    placement="bottom"
+    popper-options="[object Object]"
+  >
+    <div
+      class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        title="Test label"
+        type="button"
+      >
+        Test label
+      </button>
+       
+      <!---->
+       
+      <svg
+        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+      
+    <div
+      class="ec-filter-popover__filter-content ec-filter-popover__filter-content--is-full-height"
+    />
   </ec-stub>
 </div>
 `;

@@ -1,5 +1,4 @@
 import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
-import EcCheckbox from '../ec-checkbox/ec-checkbox.vue';
 
 export default {
   title: 'Filters/Multiple Values Filter',
@@ -8,7 +7,7 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { EcSyncMultipleValuesFilter, EcCheckbox },
+  components: { EcSyncMultipleValuesFilter },
   data() {
     return {
       valueFromProps: null,
@@ -26,11 +25,7 @@ const Template = (args, { argTypes }) => ({
     <ec-sync-multiple-values-filter
       class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
       v-model="valueFromProps"
-      :label="label"
-      :items="items"
-      :is-searchable="false"
-      :is-select-all="isSelectAll"
-      :select-all-filters-text="selectAllFiltersText"
+      v-bind="$props"
       :popover-options="{ open: true }"
     />
   `,
@@ -49,7 +44,7 @@ const items = [{
     name: 'rounded-partial',
     type: 'success',
   },
-  text: 'Name two',
+  text: 'Partially paid',
 }, {
   value: 'Cancelled',
   icon: {
@@ -72,7 +67,7 @@ const items = [{
   },
   text: 'Not paid',
 }, {
-  value: 'Not paid vliude date not reached',
+  value: 'Not paid value date not reached',
   icon: {
     name: 'rounded-euro',
     type: 'interactive',
@@ -83,7 +78,6 @@ export const basic = Template.bind({});
 
 basic.args = {
   label: 'Status',
-  value: [],
   items,
   isSelectAll: false,
   selectAllFiltersText: 'Select all',

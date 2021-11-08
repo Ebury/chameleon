@@ -43,7 +43,9 @@
         @blur="comparisonSymbolHasFocus = false"
         @change="onComparisonSymbolChange"
         @open="$emit('open')"
+        @close="$emit('close')"
         @after-open="$emit('after-open')"
+        @after-close="$emit('after-close')"
       />
 
       <ec-amount-input

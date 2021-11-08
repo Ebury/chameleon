@@ -222,11 +222,21 @@ describe('EcDropdown', () => {
       expect(wrapper.emitted('change')[0]).toEqual([items[1]]);
     });
 
-    it('should emit open event when the input is clicked(click mock)', () => {
+    it('should emit open event when the input is clicked (click mock)', () => {
       const wrapper = mountDropdown({ items });
 
       wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('show');
       expect(wrapper.emitted('open').length).toBe(1);
+    });
+
+    it('should emit close event when the input looses focus (focus mock)', () => {
+      const wrapper = mountDropdown({ items });
+
+      // open the dropdown search first, otherwise the hide event won't do anything
+      wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('show');
+
+      wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('hide');
+      expect(wrapper.emitted('close').length).toBe(1);
     });
 
     it('should not return focus back to readonly input if it already has it', async () => {

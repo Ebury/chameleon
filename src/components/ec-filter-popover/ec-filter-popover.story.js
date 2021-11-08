@@ -1,5 +1,5 @@
 import EcFilterPopover from './ec-filter-popover.vue';
-import EcCheckbox from '../ec-checkbox/ec-checkbox.vue';
+import EcCheckbox from '../ec-checkbox';
 
 export default {
   title: 'Filters/Filter Popover',
@@ -16,6 +16,7 @@ const Template = (args, { argTypes }) => ({
         :label="labelOne"
         :numberOfSelectedFilters="0"
         :popover-options="{ open: true }"
+        :is-full-height="isFullHeight"
       >
         <template #filter>
           <ec-checkbox
@@ -35,8 +36,9 @@ const Template = (args, { argTypes }) => ({
         class="tw-mr-16"
         :label="labelTwo"
         :numberOfSelectedFilters="3"
+        :is-full-height="isFullHeight"
       >
-      <template #filter>
+        <template #filter>
           <ec-checkbox
             v-model="item.selected"
             v-for="(item, index) in itemListTwo"
@@ -54,8 +56,9 @@ const Template = (args, { argTypes }) => ({
         class="tw-mr-16"
         :label="labelThree"
         :numberOfSelectedFilters="0"
+        :is-full-height="isFullHeight"
       >
-      <template #filter>
+        <template #filter>
           <ec-checkbox
             v-model="item.selected"
             v-for="(item, index) in itemListThree"
@@ -75,6 +78,7 @@ const Template = (args, { argTypes }) => ({
 export const basic = Template.bind({});
 
 basic.args = {
+  isFullHeight: false,
   labelOne: 'Due date',
   labelTwo: 'Status',
   labelThree: 'Beneficiary',

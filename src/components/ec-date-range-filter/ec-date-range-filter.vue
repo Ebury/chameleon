@@ -145,6 +145,8 @@ export default {
 };
 </script>
 <style>
+@import '../../styles/tools/typography.css';
+
 .ec-date-range-filter {
   @apply tw-px-20 tw-py-16;
 
@@ -157,8 +159,9 @@ export default {
   }
 
   &__clear-button {
-    @apply tw-pt-24;
-    @apply tw-text-key-4;
+    @mixin ec-body-link;
+
+    @apply tw-mt-24;
     @apply tw-border-none;
     @apply tw-bg-transparent;
 
@@ -169,10 +172,6 @@ export default {
 
     &:hover {
       @apply tw-cursor-pointer;
-    }
-
-    &:focus {
-      @apply tw-outline-none;
     }
   }
 }
