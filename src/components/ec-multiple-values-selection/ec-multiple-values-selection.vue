@@ -261,7 +261,7 @@ export default {
   @apply tw-flex tw-flex-col tw-min-h-full;
 
   &__search-area {
-    @apply tw-px-24;
+    @apply tw-py-8 tw-px-24;
     @apply tw-flex tw-flex-row tw-items-center;
     @apply tw-text-gray-3;
   }
@@ -281,9 +281,12 @@ export default {
 
   &__search-area,
   &__select-all {
-    @apply tw-py-8 tw-px-16;
     @apply tw-flex-shrink-0;
     @apply tw-border-solid tw-border-b tw-border-gray-6;
+  }
+
+  &__select-all {
+    @apply tw-py-8 tw-px-16;
   }
 
   &__values {
