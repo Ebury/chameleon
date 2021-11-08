@@ -1,5 +1,1639 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcSyncMultipleValuesFilter should be able to search in items by their text 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <div
+            class="ec-multiple-values-selection__search-area"
+          >
+            <svg
+              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              data-test="ec-multiple-values-selection__search-icon"
+              height="20"
+              width="20"
+            >
+              <use
+                xlink:href="#ec-simple-search"
+              />
+            </svg>
+             
+            <input
+              autocomplete="off"
+              class="ec-multiple-values-selection__search-input"
+              data-test="ec-multiple-values-selection__search-input"
+              placeholder="Search..."
+              type="text"
+            />
+          </div>
+           
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__values"
+          >
+            <ul />
+             
+            <ul>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-2"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-2"
+                      title="Partially paid"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-partial"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Partially paid
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should be able to search in items by their text even if diacritics does not match 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <div
+            class="ec-multiple-values-selection__search-area"
+          >
+            <svg
+              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              data-test="ec-multiple-values-selection__search-icon"
+              height="20"
+              width="20"
+            >
+              <use
+                xlink:href="#ec-simple-search"
+              />
+            </svg>
+             
+            <input
+              autocomplete="off"
+              class="ec-multiple-values-selection__search-input"
+              data-test="ec-multiple-values-selection__search-input"
+              placeholder="Search..."
+              type="text"
+            />
+          </div>
+           
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__values"
+          >
+            <ul />
+             
+            <ul>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-1"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-1"
+                      title="Success"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-check"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Success
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSelectAll is set 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__select-all"
+          >
+            <div
+              class="ec-checkbox"
+              data-test="ec-multiple-values-selection__select-all ec-checkbox"
+            >
+              <input
+                class="ec-checkbox__input"
+                data-test="ec-checkbox__input"
+                id="ec-checkbox-1"
+                type="checkbox"
+              />
+               
+              <div
+                class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+              >
+                <span
+                  class="ec-checkbox__check-icon-wrapper"
+                >
+                  <!---->
+                </span>
+                 
+                <label
+                  class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                  data-test="ec-checkbox__label"
+                  for="ec-checkbox-1"
+                  title="Select all"
+                >
+                  Select all
+                </label>
+              </div>
+               
+              <!---->
+            </div>
+          </div>
+           
+          <div
+            class="ec-multiple-values-selection__values"
+          >
+            <ul />
+             
+            <ul>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-2"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-2"
+                      title="Success"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-check"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Success
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should display an empty message when items are empty 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__no-results-wrapper"
+          >
+            <svg
+              class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+              data-test="ec-multiple-values-selection__no-results-icon"
+              height="32"
+              width="32"
+            >
+              <use
+                xlink:href="#ec-simple-error"
+              />
+            </svg>
+             
+            <span
+              class="ec-multiple-values-selection__no-results-message"
+            >
+              Random empty message
+            </span>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should display custom label for Select all checkbox 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__select-all"
+          >
+            <div
+              class="ec-checkbox"
+              data-test="ec-multiple-values-selection__select-all ec-checkbox"
+            >
+              <input
+                class="ec-checkbox__input"
+                data-test="ec-checkbox__input"
+                id="ec-checkbox-1"
+                type="checkbox"
+              />
+               
+              <div
+                class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+              >
+                <span
+                  class="ec-checkbox__check-icon-wrapper"
+                >
+                  <!---->
+                </span>
+                 
+                <label
+                  class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                  data-test="ec-checkbox__label"
+                  for="ec-checkbox-1"
+                  title="Custom select all"
+                >
+                  Custom select all
+                </label>
+              </div>
+               
+              <!---->
+            </div>
+          </div>
+           
+          <div
+            class="ec-multiple-values-selection__values"
+          >
+            <ul />
+             
+            <ul>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-2"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-2"
+                      title="Success"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-check"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Success
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should display empty state if searched value does not match any item 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <div
+            class="ec-multiple-values-selection__search-area"
+          >
+            <svg
+              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              data-test="ec-multiple-values-selection__search-icon"
+              height="20"
+              width="20"
+            >
+              <use
+                xlink:href="#ec-simple-search"
+              />
+            </svg>
+             
+            <input
+              autocomplete="off"
+              class="ec-multiple-values-selection__search-input"
+              data-test="ec-multiple-values-selection__search-input"
+              placeholder="Search..."
+              type="text"
+            />
+          </div>
+           
+          <div
+            class="ec-multiple-values-selection__no-results-wrapper"
+          >
+            <svg
+              class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+              data-test="ec-multiple-values-selection__no-results-icon"
+              height="32"
+              width="32"
+            >
+              <use
+                xlink:href="#ec-simple-error"
+              />
+            </svg>
+             
+            <span
+              class="ec-multiple-values-selection__no-results-message"
+            >
+              No results found
+            </span>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__error-wrapper"
+          >
+            <svg
+              class="ec-multiple-values-selection__error-icon ec-icon ec-icon--error"
+              data-test="ec-multiple-values-selection__error-icon"
+              height="32"
+              width="32"
+            >
+              <use
+                xlink:href="#ec-simple-error"
+              />
+            </svg>
+             
+            <span
+              class="ec-multiple-values-selection__error-message"
+            >
+              Random error message
+            </span>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__loading"
+          >
+            <svg
+              class="ec-loading-icon ec-icon"
+              data-test="ec-loading-icon"
+              height="32"
+              width="32"
+            >
+              <use
+                xlink:href="#ec-simple-loading"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should ignore empty message when items are given 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__values"
+          >
+            <ul />
+             
+            <ul>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-1"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-1"
+                      title="Success"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-check"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Success
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-2"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-2"
+                      title="Partially paid"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-partial"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Partially paid
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-3"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-3"
+                      title="Cancelled"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-cancelled"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Cancelled
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search query 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <div
+            class="ec-multiple-values-selection__search-area"
+          >
+            <svg
+              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              data-test="ec-multiple-values-selection__search-icon"
+              height="20"
+              width="20"
+            >
+              <use
+                xlink:href="#ec-simple-search"
+              />
+            </svg>
+             
+            <input
+              autocomplete="off"
+              class="ec-multiple-values-selection__search-input"
+              data-test="ec-multiple-values-selection__search-input"
+              placeholder="Search..."
+              type="text"
+            />
+          </div>
+           
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__values"
+          >
+            <ul />
+             
+            <ul>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-1"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-1"
+                      title="Success"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-check"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Success
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-2"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-2"
+                      title="Partially paid"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-partial"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Partially paid
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-3"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-3"
+                      title="Cancelled"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-cancelled"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Cancelled
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should not display selected values in the empty state if searched value does not match any item 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <span
+          class="ec-filter-popover__badge"
+          data-test="ec-filter-popover__badge"
+        >
+           2
+      
+        </span>
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <div
+            class="ec-multiple-values-selection__search-area"
+          >
+            <svg
+              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              data-test="ec-multiple-values-selection__search-icon"
+              height="20"
+              width="20"
+            >
+              <use
+                xlink:href="#ec-simple-search"
+              />
+            </svg>
+             
+            <input
+              autocomplete="off"
+              class="ec-multiple-values-selection__search-input"
+              data-test="ec-multiple-values-selection__search-input"
+              placeholder="Search..."
+              type="text"
+            />
+          </div>
+           
+          <div
+            class="ec-multiple-values-selection__no-results-wrapper"
+          >
+            <svg
+              class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+              data-test="ec-multiple-values-selection__no-results-icon"
+              height="32"
+              width="32"
+            >
+              <use
+                xlink:href="#ec-simple-error"
+              />
+            </svg>
+             
+            <span
+              class="ec-multiple-values-selection__no-results-message"
+            >
+              No results found
+            </span>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight is set 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content ec-filter-popover__filter-content--is-full-height"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__values"
+          >
+            <ul />
+             
+            <ul>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-1"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-1"
+                      title="Success"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-check"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Success
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
 exports[`EcSyncMultipleValuesFilter should render correctly if all the required props are passed 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
@@ -141,7 +1775,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-2"
-                      title="Name two"
+                      title="Partially paid"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -159,7 +1793,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
-                          Name two
+                          Partially paid
                         </span>
                       </div>
                     </label>
@@ -215,6 +1849,159 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                           class="ec-multiple-values-selection__label-text"
                         >
                           Cancelled
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                   
+                  <!---->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcSyncMultipleValuesFilter should render custom search placeholder if is given 1`] = `
+<input
+  autocomplete="off"
+  class="ec-multiple-values-selection__search-input"
+  data-test="ec-multiple-values-selection__search-input"
+  placeholder="Custom Search..."
+  type="text"
+/>
+`;
+
+exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 1`] = `
+<div
+  class="ec-sync-multiple-values-filter"
+  data-test="ec-sync-multiple-values-filter"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-sync-multiple-values-filter__trigger"
+  >
+    <ec-stub
+      data-test="ec-stub ec-popover-stub"
+      offset="0, 8"
+      placement="bottom"
+      popper-options="[object Object]"
+    >
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Status"
+          type="button"
+        >
+          Status
+        </button>
+         
+        <!---->
+         
+        <svg
+          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+        
+      <div
+        class="ec-filter-popover__filter-content"
+      >
+        <div
+          class="ec-multiple-values-selection"
+          data-test="ec-multiple-values-selection"
+        >
+          <div
+            class="ec-multiple-values-selection__search-area"
+          >
+            <svg
+              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              data-test="ec-multiple-values-selection__search-icon"
+              height="20"
+              width="20"
+            >
+              <use
+                xlink:href="#ec-simple-search"
+              />
+            </svg>
+             
+            <input
+              autocomplete="off"
+              class="ec-multiple-values-selection__search-input"
+              data-test="ec-multiple-values-selection__search-input"
+              placeholder="Search..."
+              type="text"
+            />
+          </div>
+           
+          <!---->
+           
+          <div
+            class="ec-multiple-values-selection__values"
+          >
+            <ul />
+             
+            <ul>
+              <li
+                class="ec-multiple-values-selection__value-wrapper"
+                data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+              >
+                <div
+                  class="ec-checkbox ec-multiple-values-selection__checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-1"
+                    type="checkbox"
+                  />
+                   
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!---->
+                    </span>
+                     
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-1"
+                      title="Success"
+                    >
+                      <div
+                        class="ec-multiple-values-selection__label-wrapper"
+                      >
+                        <svg
+                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-rounded-check"
+                          />
+                        </svg>
+                         
+                        <span
+                          class="ec-multiple-values-selection__label-text"
+                        >
+                          Success
                         </span>
                       </div>
                     </label>
@@ -388,7 +2175,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-2"
-                      title="Name two"
+                      title="Partially paid"
                     >
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
@@ -406,7 +2193,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
-                          Name two
+                          Partially paid
                         </span>
                       </div>
                     </label>

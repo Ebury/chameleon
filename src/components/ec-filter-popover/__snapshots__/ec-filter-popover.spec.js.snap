@@ -230,6 +230,50 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
 </div>
 `;
 
+exports[`EcFilterPopover should reset the open status of the popover 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-filter-popover"
+>
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
+    offset="0, 8"
+    placement="bottom"
+    popper-options="[object Object]"
+  >
+    <div
+      class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        title="Test label"
+        type="button"
+      >
+        Test label
+      </button>
+       
+      <!---->
+       
+      <svg
+        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+      
+    <div
+      class="ec-filter-popover__filter-content"
+    />
+  </ec-stub>
+</div>
+`;
+
 exports[`EcFilterPopover should set the open status of the popover 1`] = `
 <div
   class="ec-filter-popover"

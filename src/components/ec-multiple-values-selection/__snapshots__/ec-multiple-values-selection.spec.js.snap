@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcMultipleValuesSelection should not be visible if isSearchable is set to false 1`] = `
+exports[`EcMultipleValuesSelection search should not have the search visible if isSearchable is set to false 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -183,6 +183,222 @@ exports[`EcMultipleValuesSelection should not be visible if isSearchable is set 
     </ul>
   </div>
 </div>
+`;
+
+exports[`EcMultipleValuesSelection search should render properly when isSearchable is true 1`] = `
+<div
+  class="ec-multiple-values-selection"
+  data-test="ec-multiple-values-selection"
+>
+  <div
+    class="ec-multiple-values-selection__search-area"
+  >
+    <svg
+      class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+      data-test="ec-multiple-values-selection__search-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-search"
+      />
+    </svg>
+     
+    <input
+      autocomplete="off"
+      class="ec-multiple-values-selection__search-input"
+      data-test="ec-multiple-values-selection__search-input"
+      placeholder="Search..."
+      type="text"
+    />
+  </div>
+   
+  <!---->
+   
+  <div
+    class="ec-multiple-values-selection__values"
+  >
+    <ul />
+     
+    <ul>
+      <li
+        class="ec-multiple-values-selection__value-wrapper"
+        data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+      >
+        <div
+          class="ec-checkbox ec-multiple-values-selection__checkbox"
+          data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+        >
+          <input
+            class="ec-checkbox__input"
+            data-test="ec-checkbox__input"
+            id="ec-checkbox-1"
+            type="checkbox"
+          />
+           
+          <div
+            class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+          >
+            <span
+              class="ec-checkbox__check-icon-wrapper"
+            >
+              <!---->
+            </span>
+             
+            <label
+              class="ec-checkbox__label ec-checkbox__label--is-single-line"
+              data-test="ec-checkbox__label"
+              for="ec-checkbox-1"
+              title="Success"
+            >
+              <div
+                class="ec-multiple-values-selection__label-wrapper"
+              >
+                <svg
+                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    xlink:href="#ec-rounded-check"
+                  />
+                </svg>
+                 
+                <span
+                  class="ec-multiple-values-selection__label-text"
+                >
+                  Success
+                </span>
+              </div>
+            </label>
+          </div>
+           
+          <!---->
+        </div>
+      </li>
+      <li
+        class="ec-multiple-values-selection__value-wrapper"
+        data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+      >
+        <div
+          class="ec-checkbox ec-multiple-values-selection__checkbox"
+          data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
+        >
+          <input
+            class="ec-checkbox__input"
+            data-test="ec-checkbox__input"
+            id="ec-checkbox-2"
+            type="checkbox"
+          />
+           
+          <div
+            class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+          >
+            <span
+              class="ec-checkbox__check-icon-wrapper"
+            >
+              <!---->
+            </span>
+             
+            <label
+              class="ec-checkbox__label ec-checkbox__label--is-single-line"
+              data-test="ec-checkbox__label"
+              for="ec-checkbox-2"
+              title="Name two"
+            >
+              <div
+                class="ec-multiple-values-selection__label-wrapper"
+              >
+                <svg
+                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    xlink:href="#ec-rounded-partial"
+                  />
+                </svg>
+                 
+                <span
+                  class="ec-multiple-values-selection__label-text"
+                >
+                  Name two
+                </span>
+              </div>
+            </label>
+          </div>
+           
+          <!---->
+        </div>
+      </li>
+      <li
+        class="ec-multiple-values-selection__value-wrapper"
+        data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+      >
+        <div
+          class="ec-checkbox ec-multiple-values-selection__checkbox"
+          data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
+        >
+          <input
+            class="ec-checkbox__input"
+            data-test="ec-checkbox__input"
+            id="ec-checkbox-3"
+            type="checkbox"
+          />
+           
+          <div
+            class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+          >
+            <span
+              class="ec-checkbox__check-icon-wrapper"
+            >
+              <!---->
+            </span>
+             
+            <label
+              class="ec-checkbox__label ec-checkbox__label--is-single-line"
+              data-test="ec-checkbox__label"
+              for="ec-checkbox-3"
+              title="Cancelled"
+            >
+              <div
+                class="ec-multiple-values-selection__label-wrapper"
+              >
+                <svg
+                  class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                  height="24"
+                  width="24"
+                >
+                  <use
+                    xlink:href="#ec-rounded-cancelled"
+                  />
+                </svg>
+                 
+                <span
+                  class="ec-multiple-values-selection__label-text"
+                >
+                  Cancelled
+                </span>
+              </div>
+            </label>
+          </div>
+           
+          <!---->
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`EcMultipleValuesSelection search should render properly when searchFilterPlaceholder is set 1`] = `
+<input
+  autocomplete="off"
+  class="ec-multiple-values-selection__search-input"
+  data-test="ec-multiple-values-selection__search-input"
+  placeholder="Custom placeholder"
+  type="text"
+/>
 `;
 
 exports[`EcMultipleValuesSelection should render correctly if all the required props are passed 1`] = `

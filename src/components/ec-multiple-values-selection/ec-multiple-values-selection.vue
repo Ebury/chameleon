@@ -5,21 +5,24 @@
   >
     <div
       v-if="isSearchable"
+      class="ec-multiple-values-selection__search-area"
     >
       <ec-icon
         class="ec-multiple-values-selection__search-icon"
         data-test="ec-multiple-values-selection__search-icon"
         name="simple-search"
         type="interactive"
-        :size="16"
+        :size="20"
       />
-      <ec-input-field
-        v-model="query"
+      <input
+        ref="searchInput"
+        v-model.trim="searchModel"
+        type="text"
+        autocomplete="off"
         :placeholder="searchFilterPlaceholder"
-        class="ec-multiple-values-selection__search-field"
-        data-test="ec-multiple-values-selection__search-field"
-        @change="$emit('search', query)"
-      />
+        class="ec-multiple-values-selection__search-input"
+        data-test="ec-multiple-values-selection__search-input"
+      >
     </div>
 
     <div
@@ -141,13 +144,12 @@
 <script>
 import EcCheckbox from '../ec-checkbox';
 import EcIcon from '../ec-icon';
-import EcInputField from '../ec-input-field';
 import EcLoadingIcon from '../ec-loading-icon';
 
 export default {
   name: 'EcMultipleValuesSelection',
   components: {
-    EcCheckbox, EcIcon, EcInputField, EcLoadingIcon,
+    EcCheckbox, EcIcon, EcLoadingIcon,
   },
   model: {
     prop: 'value',
@@ -191,10 +193,11 @@ export default {
     },
     selectAllFiltersText: {
       type: String,
-      default: '',
+      default: 'Select all',
     },
     searchFilterPlaceholder: {
       type: String,
+      default: 'Search...',
     },
   },
   data() {
@@ -213,6 +216,15 @@ export default {
     allFiltersAreSelected() {
       return this.unselectedFilters.length === 0;
     },
+    searchModel: {
+      get() {
+        return this.query;
+      },
+      set(value) {
+        this.query = value;
+        this.$emit('search', value);
+      },
+    },
   },
   methods: {
     toggleAll() {
@@ -230,6 +242,14 @@ export default {
       const newItems = this.selectedFilters.filter(selectedItem => selectedItem !== item);
       this.$emit('change', newItems);
     },
+    focus() {
+      /* istanbul ignore else */
+      if (this.isSearchable) {
+        this.$nextTick(() => {
+          this.$refs.searchInput?.focus();
+        });
+      }
+    },
   },
 };
 </script>
@@ -240,9 +260,32 @@ export default {
 .ec-multiple-values-selection {
   @apply tw-flex tw-flex-col tw-min-h-full;
 
+  &__search-area {
+    @apply tw-py-8 tw-px-24;
+    @apply tw-flex tw-flex-row tw-items-center;
+    @apply tw-text-gray-3;
+  }
+
+  &__search-icon {
+    @apply tw-fill-current;
+    @apply tw-flex-shrink-0;
+    @apply tw-mr-8;
+  }
+
+  &__search-input {
+    @apply tw-body-text;
+    @apply tw-outline-none;
+    @apply tw-border-0;
+    @apply tw-flex-grow;
+  }
+
+  &__search-area,
   &__select-all {
     @apply tw-flex-shrink-0;
     @apply tw-border-solid tw-border-b tw-border-gray-6;
+  }
+
+  &__select-all {
     @apply tw-py-8 tw-px-16;
   }
 
