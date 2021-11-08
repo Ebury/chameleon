@@ -233,9 +233,12 @@ Before merging a code in a **Pull Request** to the `master` branch, it is requir
 
 When a PR passes all the **Style guide** and is before is merged to the `master` branch, a new version of Chameleon can be released following the next steps
 
-* You must bump the version of chameleon, it can be done with this script `npm version patch`
-* Then you should publish the code with the new version in **npm**, use this script to do it `npm publish`, if you are not able to publish because you don't have permission ask one of the [CODEOWNERS](CODEOWNERS)
-* Last step you need to push the changes to your branch with the follow tags option, script `git push --follow-tags`
+* You must bump the version of chameleon, it can be done with this script `npm version [patch|minor|major]`.
+* You should publish the code with the new version in **npm**, use this script to do it `npm publish`, if you are not able to publish because you don't have permission ask one of the [CODEOWNERS](CODEOWNERS).
+* `npm version` creates a commit with updated `package.json` that you need to push to your branch. Do not push the created tag because the merge squashes the commits and the created tag will be pointing at squashed ones. Delete the tag before push using `git tag -d v$(npm view . version)` and recreate it later in `master` after the changes get merged.
+* Merge the branch to `master` and tag the latest commit there with the same version as in `package.json` you just merged. Use the script `git tag v$(npm view . version)`.
+* Push the tag to the repo using command `git push origin v$(npm view . version)`.
+* Optional: Create a [github release](https://github.com/Ebury/chameleon/tags) from the tag. Write a few notes about the release and breaking changes.
 
 ## Reporting a problem or requesting a change
 
