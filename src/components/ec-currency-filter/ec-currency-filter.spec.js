@@ -279,11 +279,7 @@ describe('EcCurrencyFilter', () => {
 
       await deselectCurrency(wrapper, 0);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
-      expect(wrapper.vm.value).toEqual({
-        amount: null,
-        comparisonSymbol: null,
-        currencies: [],
-      });
+      expect(wrapper.vm.value).toEqual(null);
     });
 
     it('should update v-model if select all checkbox is clicked', async () => {
@@ -295,9 +291,7 @@ describe('EcCurrencyFilter', () => {
             return {
               currencyItems,
               comparisonSymbolItems,
-              value: {
-                amount: null, comparisonSymbol: null, currencies: [],
-              },
+              value: null,
             };
           },
         },
@@ -313,11 +307,7 @@ describe('EcCurrencyFilter', () => {
 
       await selectAll(wrapper);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot('after deselect all');
-      expect(wrapper.vm.value).toEqual({
-        amount: null,
-        comparisonSymbol: null,
-        currencies: [],
-      });
+      expect(wrapper.vm.value).toEqual(null);
     });
 
     it('should not update the v-model if a comparison symbol is selected until the amount is not empty', async () => {
@@ -388,11 +378,7 @@ describe('EcCurrencyFilter', () => {
       });
 
       await setAmount(wrapper, '');
-      expect(wrapper.vm.value).toEqual({
-        amount: null,
-        comparisonSymbol: comparisonSymbolItems[0],
-        currencies: [],
-      });
+      expect(wrapper.vm.value).toEqual(null);
     });
 
     it('should clear the amount and comparison symbol when the clear amount button is clicked', async () => {
