@@ -1,6 +1,15 @@
 import { createHOC } from 'vue-hoc';
 
-const withAbortableFetch = (Component, { dataProp = 'data', loadingProp = 'loading', errorProp = 'error' } = {}) => createHOC(Component, {
+const identity = arg => arg;
+
+const withAbortableFetch = (Component, {
+  dataProp = 'data',
+  loadingProp = 'loading',
+  errorProp = 'error',
+  dataTransform = identity,
+  errorTransform = identity,
+  loadingTransform = identity,
+} = {}) => createHOC(Component, {
   name: 'EcWithAbortableFetch',
   props: {
     dataSource: {
@@ -64,9 +73,9 @@ const withAbortableFetch = (Component, { dataProp = 'data', loadingProp = 'loadi
       ...props,
       dataSource: null,
       fetchArgs: null,
-      [loadingProp]: this.isFetching,
-      [errorProp]: this.fetchError,
-      [dataProp]: this.fetchedData,
+      [loadingProp]: loadingTransform(this.isFetching),
+      [errorProp]: errorTransform(this.fetchError),
+      [dataProp]: dataTransform(this.fetchedData),
     };
   },
 });
