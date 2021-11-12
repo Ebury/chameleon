@@ -413,3 +413,111 @@ found in
   ],
 }
 `;
+
+exports[`EcWithAbortableFetch should transform props using given data transform function and pass them to given custom data prop: after fetch 1`] = `
+Object {
+  "dataCustom": Object {
+    "result": 1,
+  },
+  "error": null,
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given data transform function and pass them to given custom data prop: while loading 1`] = `
+Object {
+  "dataCustom": Object {
+    "result": 0,
+  },
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given data transform function: after fetch 1`] = `
+Object {
+  "data": Object {
+    "result": 1,
+  },
+  "error": null,
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given data transform function: while loading 1`] = `
+Object {
+  "data": Object {
+    "result": 0,
+  },
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given error transform function and pass them to given custom error prop: after fetch 1`] = `
+Object {
+  "data": null,
+  "errorCustom": "Custom error message (Random error)",
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given error transform function and pass them to given custom error prop: while loading 1`] = `
+Object {
+  "data": null,
+  "errorCustom": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given error transform function: after fetch 1`] = `
+Object {
+  "data": null,
+  "error": "Custom error message (Random error)",
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given error transform function: while loading 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given loading transform function and pass them to given custom loading prop: after fetch 1`] = `
+Object {
+  "data": Object {
+    "result": 1,
+  },
+  "error": null,
+  "loadingCustom": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given loading transform function and pass them to given custom loading prop: while loading 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loadingCustom": false,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given loading transform function: after fetch 1`] = `
+Object {
+  "data": Object {
+    "result": 1,
+  },
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch should transform props using given loading transform function: while loading 1`] = `
+Object {
+  "data": null,
+  "error": null,
+  "loading": false,
+}
+`;
