@@ -5,6 +5,7 @@ exports[`EcInlineActions should render properly the item with the download attr 
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -43,6 +44,7 @@ exports[`EcInlineActions should render properly the item with the download attr 
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -81,6 +83,7 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -117,6 +120,7 @@ exports[`EcInlineActions should render properly with out the disabled href and d
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -153,6 +157,7 @@ exports[`EcInlineActions should render properly with the anchor when the item ha
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -190,6 +195,7 @@ exports[`EcInlineActions should render the item disabled when an item was given 
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -227,6 +233,7 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -272,6 +279,7 @@ exports[`EcInlineActions should render the item with default popover options 1`]
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -317,6 +325,7 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
   data-test="ec-stub ec-popover-stub"
   offset="20"
   placement="top"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -362,6 +371,7 @@ exports[`EcInlineActions should render with one line break when a different arra
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
@@ -422,6 +432,7 @@ exports[`EcInlineActions should render with tooltip 1`] = `
   data-test="ec-stub ec-popover-stub"
   offset="10"
   placement="bottom-start"
+  popperoptions="[object Object]"
 >
    
   <div
