@@ -76,11 +76,12 @@ export default {
       type: Object,
     },
   },
-  data() {
-    return {
-      isLessFilterActive: true,
-    };
-  },
+  // TODO ONL-4893
+  // data() {
+  //   return {
+  //     isLessFilterActive: true,
+  //   };
+  // },
   computed: {
     hasFilters() {
       return !!Object.keys(this.value).length;

@@ -182,7 +182,7 @@ export default {
       }];
     },
     numberOfSelectedFilters() {
-      let number = this.value.currencies?.length ?? 0;
+      let number = this.value?.currencies?.length ?? 0;
 
       if (this.hasAmount) {
         number++;
@@ -191,15 +191,14 @@ export default {
       return number;
     },
     hasAmount() {
-      return typeof this.value.amount === 'number';
+      return typeof this.value?.amount === 'number';
     },
     selectedCurrenciesModel: {
       get() {
-        return this.value.currencies;
+        return this.value?.currencies;
       },
       set(value) {
-        this.$emit('change', {
-          ...this.value,
+        this.update({
           currencies: value,
         });
       },
@@ -242,27 +241,41 @@ export default {
   },
   methods: {
     onAmountChanged() {
-      this.$emit('change', {
-        ...this.value,
-        ...this.internalAmountModel,
-      });
+      this.update({ ...this.internalAmountModel });
     },
     onComparisonSymbolChanged() {
       // it doesn't make sense to trigger the change event only if comparison symbol is set
       // and there is no amount set by the user yet.
       if (typeof this.internalAmountModel.amount === 'number') {
-        this.$emit('change', {
-          ...this.value,
-          ...this.internalAmountModel,
-        });
+        this.update({ ...this.internalAmountModel });
       }
     },
     onClearAmount() {
-      this.$emit('change', {
-        ...this.value,
+      this.update({
         comparisonSymbol: null,
         amount: null,
       });
+    },
+    update(value) {
+      let newValue = {
+        currencies: [],
+        amount: null,
+        comparisonSymbol: null,
+        ...this.value,
+        ...value,
+      };
+
+      // if there are no selected currencies and no amount is selected, then emit null value.
+      // ec-table-filter must be able to determine where the filter is empty or not
+      // in order to show/hide clear filters functionality.
+      //
+      // we don't want every complicated filter polluting the logic inside its parent implementation
+      // so we rather sort it here.
+      if (newValue.currencies.length === 0 && typeof newValue.amount !== 'number') {
+        newValue = null;
+      }
+
+      this.$emit('change', newValue);
     },
   },
 };
