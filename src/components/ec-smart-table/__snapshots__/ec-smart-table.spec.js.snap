@@ -201,30 +201,34 @@ exports[`EcSmartTable #slots should render in loading state by default with the 
     </div>
   </div>
   <div
-    class="ec-loading"
-    data-test="ec-loading"
+    class="tw-py-48"
   >
     <div
-      class="ec-loading__backdrop"
-      data-test="ec-loading__backdrop"
+      class="ec-loading"
+      data-test="ec-loading"
     >
-      <svg
-        class="ec-loading__icon ec-icon"
-        data-test="ec-loading__icon"
-        height="48"
-        width="48"
+      <div
+        class="ec-loading__backdrop"
+        data-test="ec-loading__backdrop"
       >
-        <use
-          xlink:href="#ec-simple-loading"
-        />
-      </svg>
-    </div>
-     
-    <div
-      class="ec-loading__content"
-      data-test="ec-loading__content"
-    >
-      <!---->
+        <svg
+          class="ec-loading__icon ec-icon"
+          data-test="ec-loading__icon"
+          height="48"
+          width="48"
+        >
+          <use
+            xlink:href="#ec-simple-loading"
+          />
+        </svg>
+      </div>
+       
+      <div
+        class="ec-loading__content"
+        data-test="ec-loading__content"
+      >
+        <!---->
+      </div>
     </div>
   </div>
 </div>
@@ -1792,30 +1796,34 @@ exports[`EcSmartTable should render in loading state by default 1`] = `
     <!---->
   </div>
   <div
-    class="ec-loading"
-    data-test="ec-loading"
+    class="tw-py-48"
   >
     <div
-      class="ec-loading__backdrop"
-      data-test="ec-loading__backdrop"
+      class="ec-loading"
+      data-test="ec-loading"
     >
-      <svg
-        class="ec-loading__icon ec-icon"
-        data-test="ec-loading__icon"
-        height="48"
-        width="48"
+      <div
+        class="ec-loading__backdrop"
+        data-test="ec-loading__backdrop"
       >
-        <use
-          xlink:href="#ec-simple-loading"
-        />
-      </svg>
-    </div>
-     
-    <div
-      class="ec-loading__content"
-      data-test="ec-loading__content"
-    >
-      <!---->
+        <svg
+          class="ec-loading__icon ec-icon"
+          data-test="ec-loading__icon"
+          height="48"
+          width="48"
+        >
+          <use
+            xlink:href="#ec-simple-loading"
+          />
+        </svg>
+      </div>
+       
+      <div
+        class="ec-loading__content"
+        data-test="ec-loading__content"
+      >
+        <!---->
+      </div>
     </div>
   </div>
 </div>

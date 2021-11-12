@@ -37,12 +37,13 @@ const withEcSmartTableRenderer = (Component) => {
       }
 
       const { items = [], total } = data || {};
+      const isEmpty = items.length === 0;
 
-      if (loading || items.length > 0) {
+      if (loading || !isEmpty) {
         const tableProps = {
           ...unusedProps,
           isLoading: loading,
-          isLoadingTransparent: items.length > 0,
+          isLoadingTransparent: !isEmpty,
           data: items,
           totalRecords: total,
         };
@@ -65,6 +66,17 @@ const withEcSmartTableRenderer = (Component) => {
           return null;
         };
 
+        const renderTableComponent = function renderTableComponent() {
+          if (isEmpty && loading) {
+            return (
+              <div class="tw-py-48">
+                { createRenderFn(ComponentWithLoading).call(this, h, { ...context, props: tableProps }) }
+              </div>
+            );
+          }
+          return createRenderFn(ComponentWithLoading).call(this, h, { ...context, props: tableProps });
+        };
+
         return (
           <div class="ec-smart-table" data-test="ec-smart-table">
             <EcSmartTableHeading title={title}>
@@ -75,7 +87,7 @@ const withEcSmartTableRenderer = (Component) => {
                 {renderHeaderActions(scopedSlots['header-actions'])}
               </template>
             </EcSmartTableHeading>
-            { createRenderFn(ComponentWithLoading).call(this, h, { ...context, props: tableProps }) }
+            {renderTableComponent.call(this)}
           </div>
         );
       }
