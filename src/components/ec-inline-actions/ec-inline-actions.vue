@@ -1,5 +1,10 @@
 <template>
-  <ec-popover v-bind="getPopoverOptions">
+  <ec-popover
+    v-bind="{
+      popperOptions,
+      ...getPopoverOptions,
+    }"
+  >
     <slot />
     <div
       slot="popover"
@@ -77,6 +82,23 @@ export default {
     popoverOptions: {
       type: Object,
     },
+    popperModifiers: {
+      type: Object,
+      default: null,
+    },
+  },
+  data() {
+    return {
+      popperOptions: {
+        modifiers: {
+          // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
+          preventOverflow: {
+            priority: ['bottom', 'top'],
+          },
+          ...this.popperModifiers,
+        },
+      },
+    };
   },
   computed: {
     getPopoverOptions() {
