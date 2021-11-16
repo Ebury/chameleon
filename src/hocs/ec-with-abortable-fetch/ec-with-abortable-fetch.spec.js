@@ -125,7 +125,7 @@ describe('EcWithAbortableFetch', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
-  it('should send the given fetch arguments', async () => {
+  it('should send the given fetch arguments', () => {
     const dataSource = {
       fetch: jest.fn(),
     };

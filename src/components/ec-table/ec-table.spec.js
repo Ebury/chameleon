@@ -169,7 +169,7 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('the tr should have class ec-table-row--is-clickable if we set the listener on row-click', async () => {
+  it('the tr should have class ec-table-row--is-clickable if we set the listener on row-click', () => {
     const onRowClick = jest.fn();
     const wrapper = mountTable(
       {

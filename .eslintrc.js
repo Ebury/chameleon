@@ -20,6 +20,7 @@ module.exports = {
     'no-use-before-define': 'off',
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'import/prefer-default-export': 'off',
+    'require-await': ['error'],
     'vue/attributes-order': ['error', {
       order: [
         'GLOBAL',
