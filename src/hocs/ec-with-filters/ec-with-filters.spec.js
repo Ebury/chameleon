@@ -31,7 +31,7 @@ describe('EcWithFilters', () => {
     expect(hocWrapper.element).toMatchSnapshot();
   });
 
-  it('should bound given filters', async () => {
+  it('should bound given filters', () => {
     const filters = [{
       name: 'test1',
     }, {

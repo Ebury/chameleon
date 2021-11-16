@@ -113,27 +113,27 @@ describe('EcMultipleValuesSelection', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should set the empty state message', async () => {
+  it('should set the empty state message', () => {
     const wrapper = mountEcMultipleValuesSelection({ items: [], emptyMessage: 'No items' });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should set the empty state icon', async () => {
+  it('should set the empty state icon', () => {
     const wrapper = mountEcMultipleValuesSelection({ items: [], emptyMessage: 'No items', emptyIcon: 'simple-check' });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should set the error message', async () => {
+  it('should set the error message', () => {
     const wrapper = mountEcMultipleValuesSelection({ items: [], errorMessage: 'Error message' });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should set the error icon', async () => {
+  it('should set the error icon', () => {
     const wrapper = mountEcMultipleValuesSelection({ items: [], errorMessage: 'Error message', errorIcon: 'simple-check' });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render loading state', async () => {
+  it('should render loading state', () => {
     const wrapper = mountEcMultipleValuesSelection({ items: [], isLoading: true });
     expect(wrapper.element).toMatchSnapshot();
   });
