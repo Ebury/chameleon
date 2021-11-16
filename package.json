@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "clipboard-copy": "3.2.0",
-    "focus-trap": "6.6.1",
+    "focus-trap": "6.7.1",
     "mitt": "3.0.0",
     "tailwindcss": "2.2.19",
     "v-tooltip": "2.1.3",
