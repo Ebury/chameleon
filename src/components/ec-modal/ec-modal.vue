@@ -296,7 +296,7 @@ export default {
     @media screen and (min-height: theme('screens.sm')) {
       @mixin md-scrollbar;
 
-      @apply tw-overflow-y-auto;
+      @apply tw-overflow-y-auto tw-overflow-x-hidden;
       @apply tw-flex tw-flex-col;
     }
   }
