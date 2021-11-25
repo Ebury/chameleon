@@ -80,7 +80,7 @@
     "eslint-plugin-vue": "7.18.0",
     "intl": "1.2.5",
     "lint-staged": "12.1.2",
-    "postcss": "8.3.11",
+    "postcss": "8.4.1",
     "postcss-import": "14.0.2",
     "postcss-mixins": "8.1.0",
     "postcss-nested": "5.0.6",
