@@ -49,7 +49,7 @@
     "@storybook/addon-actions": "6.3.12",
     "@storybook/addon-cssresources": "6.2.9",
     "@storybook/addon-essentials": "6.3.12",
-    "@storybook/addon-knobs": "6.3.1",
+    "@storybook/addon-knobs": "6.4.0",
     "@storybook/addon-links": "6.3.12",
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/addon-viewport": "6.3.12",
