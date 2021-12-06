@@ -11,7 +11,7 @@ exports[`EcAlert should display only with a title and the type given 1`] = `
     class="ec-alert__icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-info"
+      href="/img/simple-icons.svg#ec-simple-info"
     />
   </svg>
    
@@ -43,7 +43,7 @@ exports[`EcAlert should display with a button with the text given in the buttonT
     class="ec-alert__icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-info"
+      href="/img/simple-icons.svg#ec-simple-info"
     />
   </svg>
    
@@ -80,7 +80,7 @@ exports[`EcAlert should display with a subtitle given 1`] = `
     class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
   >
     <use
-      xlink:href="#ec-simple-info"
+      href="/img/simple-icons.svg#ec-simple-info"
     />
   </svg>
    
@@ -122,7 +122,7 @@ exports[`EcAlert should render the dismiss icon when is given the prop dismissab
       width="16"
     >
       <use
-        xlink:href="#ec-simple-close"
+        href="/img/simple-icons.svg#ec-simple-close"
       />
     </svg>
   </a>
@@ -131,7 +131,7 @@ exports[`EcAlert should render the dismiss icon when is given the prop dismissab
     class="ec-alert__icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-info"
+      href="/img/simple-icons.svg#ec-simple-info"
     />
   </svg>
    
@@ -163,7 +163,7 @@ exports[`EcAlert should render with the cta slot given 1`] = `
     class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
   >
     <use
-      xlink:href="#ec-simple-info"
+      href="/img/simple-icons.svg#ec-simple-info"
     />
   </svg>
    
@@ -204,7 +204,7 @@ exports[`EcAlert should render with the default slot given 1`] = `
     class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
   >
     <use
-      xlink:href="#ec-simple-info"
+      href="/img/simple-icons.svg#ec-simple-info"
     />
   </svg>
    
@@ -231,7 +231,7 @@ exports[`EcAlert should use the given type for the alert type and for the button
     class="ec-alert__icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-error"
+      href="/img/simple-icons.svg#ec-simple-error"
     />
   </svg>
    
@@ -268,7 +268,7 @@ exports[`EcAlert should use the type "error" 1`] = `
     class="ec-alert__icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-error"
+      href="/img/simple-icons.svg#ec-simple-error"
     />
   </svg>
    
@@ -300,7 +300,7 @@ exports[`EcAlert should use the type "info" 1`] = `
     class="ec-alert__icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-info"
+      href="/img/simple-icons.svg#ec-simple-info"
     />
   </svg>
    
@@ -332,7 +332,7 @@ exports[`EcAlert should use the type "success" 1`] = `
     class="ec-alert__icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -364,7 +364,7 @@ exports[`EcAlert should use the type "warning" 1`] = `
     class="ec-alert__icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-error"
+      href="/img/simple-icons.svg#ec-simple-error"
     />
   </svg>
    

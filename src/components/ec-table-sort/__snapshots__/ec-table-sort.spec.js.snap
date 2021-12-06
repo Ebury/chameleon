@@ -14,7 +14,7 @@ exports[`EcTableSort #slots should render default slot 1`] = `
     width="16"
   >
     <use
-      xlink:href="#ec-simple-arrow-up-down"
+      href="/img/simple-icons.svg#ec-simple-arrow-up-down"
     />
   </svg>
    
@@ -36,7 +36,7 @@ exports[`EcTableSort :props should render with direction set to ASC 1`] = `
     width="16"
   >
     <use
-      xlink:href="#ec-simple-arrow-drop-down"
+      href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
     />
   </svg>
    
@@ -62,7 +62,7 @@ exports[`EcTableSort :props should render with direction set to DESC 1`] = `
     width="16"
   >
     <use
-      xlink:href="#ec-simple-arrow-drop-down"
+      href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
     />
   </svg>
    
@@ -88,7 +88,7 @@ exports[`EcTableSort :props should render with direction set to empty string 1`]
     width="16"
   >
     <use
-      xlink:href="#ec-simple-arrow-up-down"
+      href="/img/simple-icons.svg#ec-simple-arrow-up-down"
     />
   </svg>
    
@@ -110,7 +110,7 @@ exports[`EcTableSort :props should render with no direction 1`] = `
     width="16"
   >
     <use
-      xlink:href="#ec-simple-arrow-up-down"
+      href="/img/simple-icons.svg#ec-simple-arrow-up-down"
     />
   </svg>
    
@@ -132,7 +132,7 @@ exports[`EcTableSort should render as expected 1`] = `
     width="16"
   >
     <use
-      xlink:href="#ec-simple-arrow-up-down"
+      href="/img/simple-icons.svg#ec-simple-arrow-up-down"
     />
   </svg>
    

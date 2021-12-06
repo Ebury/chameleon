@@ -137,7 +137,7 @@ exports[`EcTextarea :props should render with a labelTooltip 1`] = `
         width="14"
       >
         <use
-          xlink:href="#ec-simple-info"
+          href="/img/simple-icons.svg#ec-simple-info"
         />
       </svg>
     </span>

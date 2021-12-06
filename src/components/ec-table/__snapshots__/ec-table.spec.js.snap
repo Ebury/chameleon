@@ -903,7 +903,7 @@ exports[`EcTable should render sorting as expected 1`] = `
             width="16"
           >
             <use
-              xlink:href="#ec-simple-arrow-drop-down"
+              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -946,7 +946,7 @@ exports[`EcTable should render sorting as expected 1`] = `
             width="16"
           >
             <use
-              xlink:href="#ec-simple-arrow-drop-down"
+              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
             />
           </svg>
            

@@ -5,11 +5,13 @@
     :class="['ec-icon', typeClass]"
     v-on="$listeners"
   >
-    <use :xlink:href="`#ec-${name}`" />
+    <use :href="iconUrl" />
   </svg>
 </template>
 
 <script>
+import { getSpriteSourceByName } from './ec-icon-sprite';
+
 export default {
   name: 'EcIcon',
   props: {
@@ -26,8 +28,24 @@ export default {
         return ['error', 'info', 'success', 'warning', 'interactive'].includes(value);
       },
     },
+    spriteSource: {
+      type: String,
+      default: 'auto',
+    },
   },
   computed: {
+    iconUrl() {
+      if (!this.name) {
+        return null;
+      }
+
+      if (this.spriteSource === 'inline') {
+        return `#ec-${this.name}`;
+      }
+
+      const spriteUrl = this.spriteSource === 'auto' ? getSpriteSourceByName(this.name) : this.spriteSource;
+      return `${spriteUrl}#ec-${this.name}`;
+    },
     typeClass() {
       return this.type ? `ec-icon--${this.type}` : null;
     },

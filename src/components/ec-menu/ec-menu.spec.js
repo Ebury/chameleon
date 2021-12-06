@@ -4,23 +4,23 @@ import EcMenu from './ec-menu.vue';
 const links = [
   {
     url: '/foo',
-    iconName: 'foo-icon',
+    iconName: 'simple-foo-icon',
     text: 'Foo',
     dataTest: 'foo',
   },
   {
     link: '/bar',
-    iconName: 'bar-icon',
+    iconName: 'simple-bar-icon',
     text: 'Bar',
   },
   {
-    iconName: 'baz-icon',
+    iconName: 'simple-baz-icon',
     text: 'Baz',
     dataTest: 'baz',
   },
   {
     url: '/bat',
-    iconName: 'baz-icon',
+    iconName: 'simple-baz-icon',
     text: 'Bat',
   },
 ];

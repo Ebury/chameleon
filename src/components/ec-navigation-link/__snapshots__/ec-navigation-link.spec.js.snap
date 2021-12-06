@@ -13,7 +13,7 @@ exports[`EcNavigationLink as regular anchor should be active when isActive is pa
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -43,7 +43,7 @@ exports[`EcNavigationLink as regular anchor should be compact when isCompact is 
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -73,7 +73,7 @@ exports[`EcNavigationLink as regular anchor should be expanded by default 1`] = 
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -103,7 +103,7 @@ exports[`EcNavigationLink as regular anchor should hide the text when is collaps
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -134,7 +134,7 @@ exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -164,7 +164,7 @@ exports[`EcNavigationLink as regular anchor should show the text when is expande
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -195,7 +195,7 @@ exports[`EcNavigationLink as router-link should be active when isActive is passe
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -226,7 +226,7 @@ exports[`EcNavigationLink as router-link should be compact when isCompact is pas
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -257,7 +257,7 @@ exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -288,7 +288,7 @@ exports[`EcNavigationLink as router-link should hide the text when is collapsed 
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -320,7 +320,7 @@ exports[`EcNavigationLink as router-link should render as a router link if isRou
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    
@@ -351,7 +351,7 @@ exports[`EcNavigationLink as router-link should show the text when is expanded 1
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      href="/img/simple-icons.svg#ec-simple-check"
     />
   </svg>
    

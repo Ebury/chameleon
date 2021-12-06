@@ -38,7 +38,7 @@ exports[`EcFilterPopover should display number of selected filters if the value 
         width="16"
       >
         <use
-          xlink:href="#ec-simple-chevron-down"
+          href="/img/simple-icons.svg#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -82,7 +82,7 @@ exports[`EcFilterPopover should not display number of selected filters if the va
         width="16"
       >
         <use
-          xlink:href="#ec-simple-chevron-down"
+          href="/img/simple-icons.svg#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -126,7 +126,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
         width="16"
       >
         <use
-          xlink:href="#ec-simple-chevron-down"
+          href="/img/simple-icons.svg#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -174,7 +174,7 @@ exports[`EcFilterPopover should render properly when isFullHeight is set 1`] = `
         width="16"
       >
         <use
-          xlink:href="#ec-simple-chevron-down"
+          href="/img/simple-icons.svg#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -218,7 +218,7 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
         width="16"
       >
         <use
-          xlink:href="#ec-simple-chevron-down"
+          href="/img/simple-icons.svg#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -262,7 +262,7 @@ exports[`EcFilterPopover should reset the open status of the popover 1`] = `
         width="16"
       >
         <use
-          xlink:href="#ec-simple-chevron-down"
+          href="/img/simple-icons.svg#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -306,7 +306,7 @@ exports[`EcFilterPopover should set the open status of the popover 1`] = `
         width="16"
       >
         <use
-          xlink:href="#ec-simple-chevron-down"
+          href="/img/simple-icons.svg#ec-simple-chevron-down"
         />
       </svg>
     </div>

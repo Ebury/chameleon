@@ -42,7 +42,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
             width="16"
           >
             <use
-              xlink:href="#ec-simple-close"
+              href="/img/simple-icons.svg#ec-simple-close"
             />
           </svg>
         </a>
@@ -51,7 +51,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
           class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
         >
           <use
-            xlink:href="#ec-simple-error"
+            href="/img/simple-icons.svg#ec-simple-error"
           />
         </svg>
          
@@ -95,7 +95,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
             width="16"
           >
             <use
-              xlink:href="#ec-simple-close"
+              href="/img/simple-icons.svg#ec-simple-close"
             />
           </svg>
         </a>
@@ -104,7 +104,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
           class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
          
@@ -148,7 +148,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
             width="16"
           >
             <use
-              xlink:href="#ec-simple-close"
+              href="/img/simple-icons.svg#ec-simple-close"
             />
           </svg>
         </a>
@@ -157,7 +157,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
           class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
         >
           <use
-            xlink:href="#ec-simple-info"
+            href="/img/simple-icons.svg#ec-simple-info"
           />
         </svg>
          
@@ -201,7 +201,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
             width="16"
           >
             <use
-              xlink:href="#ec-simple-close"
+              href="/img/simple-icons.svg#ec-simple-close"
             />
           </svg>
         </a>
@@ -210,7 +210,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
           class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
         >
           <use
-            xlink:href="#ec-simple-error"
+            href="/img/simple-icons.svg#ec-simple-error"
           />
         </svg>
          
@@ -259,7 +259,7 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
         width="16"
       >
         <use
-          xlink:href="#ec-simple-close"
+          href="/img/simple-icons.svg#ec-simple-close"
         />
       </svg>
     </a>
@@ -268,7 +268,7 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
       class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
     >
       <use
-        xlink:href="#ec-simple-check"
+        href="/img/simple-icons.svg#ec-simple-check"
       />
     </svg>
      
