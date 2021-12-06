@@ -28,7 +28,7 @@ exports[`EcCurrencyFilter should count every selected currency and the amount to
     width="16"
   >
     <use
-      xlink:href="#ec-simple-chevron-down"
+      href="/img/simple-icons.svg#ec-simple-chevron-down"
     />
   </svg>
 </div>
@@ -62,7 +62,7 @@ exports[`EcCurrencyFilter should count every selected currency in numberOfSelect
     width="16"
   >
     <use
-      xlink:href="#ec-simple-chevron-down"
+      href="/img/simple-icons.svg#ec-simple-chevron-down"
     />
   </svg>
 </div>
@@ -96,7 +96,7 @@ exports[`EcCurrencyFilter should count the amount as 1 in numberOfSelectedFilter
     width="16"
   >
     <use
-      xlink:href="#ec-simple-chevron-down"
+      href="/img/simple-icons.svg#ec-simple-chevron-down"
     />
   </svg>
 </div>
@@ -170,7 +170,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
               />
             </svg>
           </div>
@@ -327,7 +327,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -382,7 +382,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -613,7 +613,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
                 width="24"
               >
                 <use
-                  xlink:href="#ec-simple-arrow-drop-down"
+                  href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
                 />
               </svg>
             </div>
@@ -800,7 +800,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
           width="16"
         >
           <use
-            xlink:href="#ec-simple-chevron-down"
+            href="/img/simple-icons.svg#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -1211,7 +1211,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                           width="24"
                         >
                           <use
-                            xlink:href="#ec-simple-arrow-drop-down"
+                            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
                           />
                         </svg>
                       </div>
@@ -1313,7 +1313,7 @@ exports[`EcCurrencyFilter should render currencies tab in empty state when curre
         width="32"
       >
         <use
-          xlink:href="#ec-simple-error"
+          href="/img/simple-icons.svg#ec-simple-error"
         />
       </svg>
        
@@ -1348,7 +1348,7 @@ exports[`EcCurrencyFilter should render currencies tab in error state when curre
         width="32"
       >
         <use
-          xlink:href="#ec-simple-error"
+          href="/img/simple-icons.svg#ec-simple-error"
         />
       </svg>
        
@@ -1383,7 +1383,7 @@ exports[`EcCurrencyFilter should render currencies tab in loading state when isL
         width="32"
       >
         <use
-          xlink:href="#ec-simple-loading"
+          href="/img/simple-icons.svg#ec-simple-loading"
         />
       </svg>
     </div>
@@ -1444,7 +1444,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
                 width="24"
               >
                 <use
-                  xlink:href="#ec-simple-arrow-drop-down"
+                  href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
                 />
               </svg>
             </div>
@@ -1599,7 +1599,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -2198,7 +2198,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -2502,7 +2502,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -2557,7 +2557,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -3067,7 +3067,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               width="16"
             >
               <use
-                xlink:href="#ec-simple-check"
+                href="/img/simple-icons.svg#ec-simple-check"
               />
             </svg>
           </span>
@@ -3117,7 +3117,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -3172,7 +3172,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -3227,7 +3227,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -3282,7 +3282,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>
@@ -3337,7 +3337,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   width="16"
                 >
                   <use
-                    xlink:href="#ec-simple-check"
+                    href="/img/simple-icons.svg#ec-simple-check"
                   />
                 </svg>
               </span>

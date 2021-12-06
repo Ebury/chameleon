@@ -306,7 +306,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>
@@ -531,7 +531,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>
@@ -613,7 +613,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>
@@ -941,7 +941,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>
@@ -1305,7 +1305,7 @@ exports[`EcMetroline permissions should complete the metroline if we click on co
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>
@@ -1410,7 +1410,7 @@ exports[`EcMetroline permissions should complete the metroline if we click on co
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>
@@ -1512,7 +1512,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>
@@ -1617,7 +1617,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>
@@ -1719,7 +1719,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>
@@ -1920,7 +1920,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           width="14"
         >
           <use
-            xlink:href="#ec-simple-check"
+            href="/img/simple-icons.svg#ec-simple-check"
           />
         </svg>
       </div>

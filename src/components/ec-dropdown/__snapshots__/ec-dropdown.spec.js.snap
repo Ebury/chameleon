@@ -121,7 +121,7 @@ exports[`EcDropdown :props renders properly when the labelTooltip prop is set 1`
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
           />
         </svg>
       </div>
@@ -153,7 +153,7 @@ exports[`EcDropdown :props should enable search when isSearchEnabled is set to t
     class="ec-dropdown-search__search-icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-search"
+      href="/img/simple-icons.svg#ec-simple-search"
     />
   </svg>
    
@@ -207,7 +207,7 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
           />
         </svg>
       </div>
@@ -269,7 +269,7 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
           />
         </svg>
       </div>
@@ -302,7 +302,7 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
                 width="24"
               >
                 <use
-                  xlink:href="#ec-simple-loading"
+                  href="/img/simple-icons.svg#ec-simple-loading"
                 />
               </svg>
             </div>
@@ -383,7 +383,7 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
           />
         </svg>
       </div>
@@ -426,7 +426,7 @@ exports[`EcDropdown :props should use searchPlaceholder prop if search is enable
     class="ec-dropdown-search__search-icon ec-icon"
   >
     <use
-      xlink:href="#ec-simple-search"
+      href="/img/simple-icons.svg#ec-simple-search"
     />
   </svg>
    
@@ -478,7 +478,7 @@ exports[`EcDropdown should render as expected 1`] = `
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
           />
         </svg>
       </div>

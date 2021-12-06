@@ -254,7 +254,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
           width="16"
         >
           <use
-            xlink:href="#ec-simple-info"
+            href="/img/simple-icons.svg#ec-simple-info"
           />
         </svg>
          
@@ -286,7 +286,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
           width="16"
         >
           <use
-            xlink:href="#ec-simple-info"
+            href="/img/simple-icons.svg#ec-simple-info"
           />
         </svg>
          
@@ -317,7 +317,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
           width="16"
         >
           <use
-            xlink:href="#ec-simple-info"
+            href="/img/simple-icons.svg#ec-simple-info"
           />
         </svg>
          
@@ -365,7 +365,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
             width="16"
           >
             <use
-              xlink:href="#ec-simple-arrow-drop-down"
+              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -409,7 +409,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
             width="16"
           >
             <use
-              xlink:href="#ec-simple-arrow-drop-down"
+              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -452,7 +452,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
             width="16"
           >
             <use
-              xlink:href="#ec-simple-arrow-up-down"
+              href="/img/simple-icons.svg#ec-simple-arrow-up-down"
             />
           </svg>
            

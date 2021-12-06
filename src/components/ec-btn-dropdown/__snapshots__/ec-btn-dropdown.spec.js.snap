@@ -48,7 +48,7 @@ exports[`EcBtnDropdown should render as expected 1`] = `
           width="22"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
           />
         </svg>
          
@@ -121,7 +121,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
           width="22"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
           />
         </svg>
          
@@ -211,7 +211,7 @@ exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
           width="22"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
           />
         </svg>
          

@@ -35,7 +35,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
         width="24"
       >
         <use
-          xlink:href="#ec-simple-arrow-drop-down"
+          href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
         />
       </svg>
     </div>
@@ -56,7 +56,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
           class="ec-dropdown-search__search-icon ec-icon"
         >
           <use
-            xlink:href="#ec-simple-search"
+            href="/img/simple-icons.svg#ec-simple-search"
           />
         </svg>
          
@@ -86,7 +86,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
               width="24"
             >
               <use
-                xlink:href="#ec-simple-loading"
+                href="/img/simple-icons.svg#ec-simple-loading"
               />
             </svg>
           </div>
@@ -148,7 +148,7 @@ exports[`EcCurrencyInput :props should render the non-results message passed as 
       class="ec-dropdown-search__search-icon ec-icon"
     >
       <use
-        xlink:href="#ec-simple-search"
+        href="/img/simple-icons.svg#ec-simple-search"
       />
     </svg>
      
@@ -229,7 +229,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
           />
         </svg>
       </div>
@@ -250,7 +250,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
             class="ec-dropdown-search__search-icon ec-icon"
           >
             <use
-              xlink:href="#ec-simple-search"
+              href="/img/simple-icons.svg#ec-simple-search"
             />
           </svg>
            
@@ -324,7 +324,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
               />
             </svg>
           </div>
@@ -345,7 +345,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
                 class="ec-dropdown-search__search-icon ec-icon"
               >
                 <use
-                  xlink:href="#ec-simple-search"
+                  href="/img/simple-icons.svg#ec-simple-search"
                 />
               </svg>
                
@@ -462,7 +462,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
               />
             </svg>
           </div>
@@ -483,7 +483,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
                 class="ec-dropdown-search__search-icon ec-icon"
               >
                 <use
-                  xlink:href="#ec-simple-search"
+                  href="/img/simple-icons.svg#ec-simple-search"
                 />
               </svg>
                
@@ -570,7 +570,7 @@ exports[`EcCurrencyInput when the bottom note is defined and it is a warning not
     width="14"
   >
     <use
-      xlink:href="#ec-simple-error"
+      href="/img/simple-icons.svg#ec-simple-error"
     />
   </svg>
 </div>
@@ -653,7 +653,7 @@ exports[`EcCurrencyInput when the error message is defined and there is a toolti
     width="14"
   >
     <use
-      xlink:href="#ec-simple-error"
+      href="/img/simple-icons.svg#ec-simple-error"
     />
   </svg>
 </div>

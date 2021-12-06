@@ -258,7 +258,7 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
             width="24"
           >
             <use
-              xlink:href="#ec-simple-block"
+              href="/img/simple-icons.svg#ec-simple-block"
             />
           </svg>
            
@@ -304,7 +304,7 @@ exports[`EcInlineActions should render the item with default popover options 1`]
             width="24"
           >
             <use
-              xlink:href="#ec-simple-block"
+              href="/img/simple-icons.svg#ec-simple-block"
             />
           </svg>
            
@@ -350,7 +350,7 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
             width="24"
           >
             <use
-              xlink:href="#ec-simple-block"
+              href="/img/simple-icons.svg#ec-simple-block"
             />
           </svg>
            

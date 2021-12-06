@@ -32,7 +32,7 @@ exports[`EcAmountFilterInput :props should render the error tooltip when "errorT
     width="14"
   >
     <use
-      xlink:href="#ec-simple-error"
+      href="/img/simple-icons.svg#ec-simple-error"
     />
   </svg>
 </div>
@@ -140,7 +140,7 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
               />
             </svg>
           </div>
@@ -223,7 +223,7 @@ exports[`EcAmountFilterInput :props should render with a warning tooltip when th
     width="14"
   >
     <use
-      xlink:href="#ec-simple-error"
+      href="/img/simple-icons.svg#ec-simple-error"
     />
   </svg>
 </div>
@@ -277,7 +277,7 @@ exports[`EcAmountFilterInput should render properly 1`] = `
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
               />
             </svg>
           </div>

@@ -34,7 +34,7 @@ exports[`EcWithLoading :props should not render transparent when isLoadingTransp
       width="48"
     >
       <use
-        xlink:href="#ec-simple-loading"
+        href="/img/simple-icons.svg#ec-simple-loading"
       />
     </svg>
   </div>
@@ -66,7 +66,7 @@ exports[`EcWithLoading :props should pass rest of the props to the wrapped compo
       width="48"
     >
       <use
-        xlink:href="#ec-simple-loading"
+        href="/img/simple-icons.svg#ec-simple-loading"
       />
     </svg>
   </div>
@@ -98,7 +98,7 @@ exports[`EcWithLoading :props should render transparent by default 1`] = `
       width="48"
     >
       <use
-        xlink:href="#ec-simple-loading"
+        href="/img/simple-icons.svg#ec-simple-loading"
       />
     </svg>
   </div>
@@ -130,7 +130,7 @@ exports[`EcWithLoading :props should render transparent when isLoadingTransparen
       width="48"
     >
       <use
-        xlink:href="#ec-simple-loading"
+        href="/img/simple-icons.svg#ec-simple-loading"
       />
     </svg>
   </div>
@@ -162,7 +162,7 @@ exports[`EcWithLoading :props should show loading when isLoading prop is set to 
       width="48"
     >
       <use
-        xlink:href="#ec-simple-loading"
+        href="/img/simple-icons.svg#ec-simple-loading"
       />
     </svg>
   </div>
@@ -215,7 +215,7 @@ exports[`EcWithLoading :props should use iconSize prop 1`] = `
       width="64"
     >
       <use
-        xlink:href="#ec-simple-loading"
+        href="/img/simple-icons.svg#ec-simple-loading"
       />
     </svg>
   </div>

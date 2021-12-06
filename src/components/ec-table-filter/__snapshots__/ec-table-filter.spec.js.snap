@@ -40,7 +40,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             width="16"
           >
             <use
-              xlink:href="#ec-simple-chevron-down"
+              href="/img/simple-icons.svg#ec-simple-chevron-down"
             />
           </svg>
         </div>
@@ -245,7 +245,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             width="16"
           >
             <use
-              xlink:href="#ec-simple-chevron-down"
+              href="/img/simple-icons.svg#ec-simple-chevron-down"
             />
           </svg>
         </div>
@@ -399,7 +399,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           width="16"
         >
           <use
-            xlink:href="#ec-simple-chevron-down"
+            href="/img/simple-icons.svg#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -540,7 +540,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             width="16"
           >
             <use
-              xlink:href="#ec-simple-chevron-down"
+              href="/img/simple-icons.svg#ec-simple-chevron-down"
             />
           </svg>
         </div>
@@ -745,7 +745,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             width="16"
           >
             <use
-              xlink:href="#ec-simple-chevron-down"
+              href="/img/simple-icons.svg#ec-simple-chevron-down"
             />
           </svg>
         </div>
@@ -899,7 +899,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
           width="16"
         >
           <use
-            xlink:href="#ec-simple-chevron-down"
+            href="/img/simple-icons.svg#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -1040,7 +1040,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             width="16"
           >
             <use
-              xlink:href="#ec-simple-chevron-down"
+              href="/img/simple-icons.svg#ec-simple-chevron-down"
             />
           </svg>
         </div>
@@ -1245,7 +1245,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             width="16"
           >
             <use
-              xlink:href="#ec-simple-chevron-down"
+              href="/img/simple-icons.svg#ec-simple-chevron-down"
             />
           </svg>
         </div>
@@ -1399,7 +1399,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           width="16"
         >
           <use
-            xlink:href="#ec-simple-chevron-down"
+            href="/img/simple-icons.svg#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -1540,7 +1540,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             width="16"
           >
             <use
-              xlink:href="#ec-simple-chevron-down"
+              href="/img/simple-icons.svg#ec-simple-chevron-down"
             />
           </svg>
         </div>
@@ -1751,7 +1751,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             width="16"
           >
             <use
-              xlink:href="#ec-simple-chevron-down"
+              href="/img/simple-icons.svg#ec-simple-chevron-down"
             />
           </svg>
         </div>
@@ -1798,7 +1798,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                           width="16"
                         >
                           <use
-                            xlink:href="#ec-simple-check"
+                            href="/img/simple-icons.svg#ec-simple-check"
                           />
                         </svg>
                       </span>
@@ -1914,7 +1914,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           width="16"
         >
           <use
-            xlink:href="#ec-simple-chevron-down"
+            href="/img/simple-icons.svg#ec-simple-chevron-down"
           />
         </svg>
       </div>
