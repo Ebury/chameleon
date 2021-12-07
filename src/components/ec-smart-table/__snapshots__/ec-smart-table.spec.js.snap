@@ -218,7 +218,7 @@ exports[`EcSmartTable #slots should render in loading state by default with the 
           width="48"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-loading"
+            xlink:href="#ec-simple-loading"
           />
         </svg>
       </div>
@@ -318,7 +318,7 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
                         width="16"
                       >
                         <use
-                          href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+                          xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
                        
@@ -378,7 +378,7 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
                         width="16"
                       >
                         <use
-                          href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+                          xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
                        
@@ -452,7 +452,7 @@ exports[`EcSmartTable filtering should handle changes in filters and reload the 
   width="48"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-loading"
+    xlink:href="#ec-simple-loading"
   />
 </svg>
 `;
@@ -533,7 +533,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-chevron-down"
+              xlink:href="#ec-simple-chevron-down"
             />
           </svg>
         </button>
@@ -615,7 +615,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-left"
+          xlink:href="#ec-simple-chevron-left"
         />
       </svg>
     </button>
@@ -631,7 +631,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-right"
+          xlink:href="#ec-simple-chevron-right"
         />
       </svg>
     </button>
@@ -679,7 +679,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-chevron-down"
+              xlink:href="#ec-simple-chevron-down"
             />
           </svg>
         </button>
@@ -760,7 +760,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-left"
+          xlink:href="#ec-simple-chevron-left"
         />
       </svg>
     </button>
@@ -776,7 +776,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-right"
+          xlink:href="#ec-simple-chevron-right"
         />
       </svg>
     </button>
@@ -805,7 +805,7 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
   width="48"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-loading"
+    xlink:href="#ec-simple-loading"
   />
 </svg>
 `;
@@ -850,7 +850,7 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-chevron-down"
+              xlink:href="#ec-simple-chevron-down"
             />
           </svg>
         </button>
@@ -931,7 +931,7 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-left"
+          xlink:href="#ec-simple-chevron-left"
         />
       </svg>
     </button>
@@ -947,7 +947,7 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-right"
+          xlink:href="#ec-simple-chevron-right"
         />
       </svg>
     </button>
@@ -965,7 +965,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
   width="48"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-loading"
+    xlink:href="#ec-simple-loading"
   />
 </svg>
 `;
@@ -1010,7 +1010,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-chevron-down"
+              xlink:href="#ec-simple-chevron-down"
             />
           </svg>
         </button>
@@ -1092,7 +1092,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-left"
+          xlink:href="#ec-simple-chevron-left"
         />
       </svg>
     </button>
@@ -1109,7 +1109,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-right"
+          xlink:href="#ec-simple-chevron-right"
         />
       </svg>
     </button>
@@ -1157,7 +1157,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-chevron-down"
+              xlink:href="#ec-simple-chevron-down"
             />
           </svg>
         </button>
@@ -1238,7 +1238,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-left"
+          xlink:href="#ec-simple-chevron-left"
         />
       </svg>
     </button>
@@ -1254,7 +1254,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-right"
+          xlink:href="#ec-simple-chevron-right"
         />
       </svg>
     </button>
@@ -1272,7 +1272,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
   width="48"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-loading"
+    xlink:href="#ec-simple-loading"
   />
 </svg>
 `;
@@ -1317,7 +1317,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-chevron-down"
+              xlink:href="#ec-simple-chevron-down"
             />
           </svg>
         </button>
@@ -1399,7 +1399,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-left"
+          xlink:href="#ec-simple-chevron-left"
         />
       </svg>
     </button>
@@ -1415,7 +1415,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-right"
+          xlink:href="#ec-simple-chevron-right"
         />
       </svg>
     </button>
@@ -1475,7 +1475,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                     width="24"
                   >
                     <use
-                      href="/img/simple-icons.svg#ec-simple-chevron-down"
+                      xlink:href="#ec-simple-chevron-down"
                     />
                   </svg>
                 </button>
@@ -1561,7 +1561,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                 width="24"
               >
                 <use
-                  href="/img/simple-icons.svg#ec-simple-chevron-left"
+                  xlink:href="#ec-simple-chevron-left"
                 />
               </svg>
             </button>
@@ -1577,7 +1577,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                 width="24"
               >
                 <use
-                  href="/img/simple-icons.svg#ec-simple-chevron-right"
+                  xlink:href="#ec-simple-chevron-right"
                 />
               </svg>
             </button>
@@ -1651,7 +1651,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-chevron-down"
+              xlink:href="#ec-simple-chevron-down"
             />
           </svg>
         </button>
@@ -1733,7 +1733,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-left"
+          xlink:href="#ec-simple-chevron-left"
         />
       </svg>
     </button>
@@ -1749,7 +1749,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-right"
+          xlink:href="#ec-simple-chevron-right"
         />
       </svg>
     </button>
@@ -1813,7 +1813,7 @@ exports[`EcSmartTable should render in loading state by default 1`] = `
           width="48"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-loading"
+            xlink:href="#ec-simple-loading"
           />
         </svg>
       </div>
@@ -1899,7 +1899,7 @@ exports[`EcSmartTable should render it's own title instead of using the one insi
                         width="16"
                       >
                         <use
-                          href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+                          xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
                        
@@ -1959,7 +1959,7 @@ exports[`EcSmartTable should render it's own title instead of using the one insi
                         width="16"
                       >
                         <use
-                          href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+                          xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
                        
@@ -2071,7 +2071,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                         width="16"
                       >
                         <use
-                          href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+                          xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
                        
@@ -2131,7 +2131,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                         width="16"
                       >
                         <use
-                          href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+                          xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
                        
@@ -2214,7 +2214,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -2278,7 +2278,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -2331,7 +2331,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -2395,7 +2395,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -2448,7 +2448,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -2512,7 +2512,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+              xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
            
@@ -2556,7 +2556,7 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC -> DESC 1`] = `
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+          xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
        
@@ -2602,7 +2602,7 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC 1`] = `
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+          xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
        
@@ -2648,7 +2648,7 @@ exports[`EcSmartTable sorting multi sort should sort column: DESC -> not sorted 
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+          xlink:href="#ec-simple-arrow-up-down"
         />
       </svg>
        
@@ -2690,7 +2690,7 @@ exports[`EcSmartTable sorting multi sort should sort column: not sorted -> ASC 1
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+          xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
        
@@ -2741,7 +2741,7 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+              xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
            
@@ -2801,7 +2801,7 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+              xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
            
@@ -2850,7 +2850,7 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -2914,7 +2914,7 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -2967,7 +2967,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -3031,7 +3031,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+              xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
            
@@ -3080,7 +3080,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+              xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
            
@@ -3140,7 +3140,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -3193,7 +3193,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
            
@@ -3257,7 +3257,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+              xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
            
@@ -3301,7 +3301,7 @@ exports[`EcSmartTable sorting single sort should sort column: ASC -> DESC 1`] = 
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+          xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
        
@@ -3347,7 +3347,7 @@ exports[`EcSmartTable sorting single sort should sort column: ASC 1`] = `
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+          xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
        
@@ -3393,7 +3393,7 @@ exports[`EcSmartTable sorting single sort should sort column: DESC -> not sorted
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-arrow-up-down"
+          xlink:href="#ec-simple-arrow-up-down"
         />
       </svg>
        
@@ -3435,7 +3435,7 @@ exports[`EcSmartTable sorting single sort should sort column: not sorted -> ASC 
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-arrow-drop-down"
+          xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
        

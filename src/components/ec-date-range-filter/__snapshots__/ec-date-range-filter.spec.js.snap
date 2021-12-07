@@ -38,7 +38,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-down"
+          xlink:href="#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -175,7 +175,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-down"
+          xlink:href="#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -317,7 +317,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-down"
+          xlink:href="#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -461,7 +461,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-down"
+          xlink:href="#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -599,7 +599,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-down"
+          xlink:href="#ec-simple-chevron-down"
         />
       </svg>
     </div>

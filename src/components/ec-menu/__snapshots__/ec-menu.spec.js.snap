@@ -21,7 +21,7 @@ exports[`EcMenu should attach custom listeners passed in the link definition 1`]
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-foo-icon"
+          xlink:href="#ec-foo-icon"
         />
       </svg>
        
@@ -62,7 +62,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-foo-icon"
+          xlink:href="#ec-foo-icon"
         />
       </svg>
        
@@ -94,7 +94,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-baz-icon"
+          xlink:href="#ec-baz-icon"
         />
       </svg>
        
@@ -140,7 +140,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-foo-icon"
+          xlink:href="#ec-foo-icon"
         />
       </svg>
        
@@ -172,7 +172,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-baz-icon"
+          xlink:href="#ec-baz-icon"
         />
       </svg>
        
@@ -212,7 +212,7 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-foo-icon"
+          xlink:href="#ec-foo-icon"
         />
       </svg>
        
@@ -245,7 +245,7 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-baz-icon"
+          xlink:href="#ec-baz-icon"
         />
       </svg>
        
@@ -286,7 +286,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-foo-icon"
+          xlink:href="#ec-foo-icon"
         />
       </svg>
        
@@ -318,7 +318,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-baz-icon"
+          xlink:href="#ec-baz-icon"
         />
       </svg>
        
@@ -358,7 +358,7 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-foo-icon"
+          xlink:href="#ec-foo-icon"
         />
       </svg>
        
@@ -398,7 +398,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-foo-icon"
+          xlink:href="#ec-foo-icon"
         />
       </svg>
        
@@ -430,7 +430,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-baz-icon"
+          xlink:href="#ec-baz-icon"
         />
       </svg>
        

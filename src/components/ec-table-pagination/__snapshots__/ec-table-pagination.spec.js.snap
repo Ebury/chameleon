@@ -69,7 +69,7 @@ exports[`EcTablePagination should display next and prev buttons disabled if pagi
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-chevron-left"
+        xlink:href="#ec-simple-chevron-left"
       />
     </svg>
   </button>
@@ -86,7 +86,7 @@ exports[`EcTablePagination should display next and prev buttons disabled if pagi
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-chevron-right"
+        xlink:href="#ec-simple-chevron-right"
       />
     </svg>
   </button>
@@ -109,7 +109,7 @@ exports[`EcTablePagination should display next and prev buttons enabled if pagin
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-chevron-left"
+        xlink:href="#ec-simple-chevron-left"
       />
     </svg>
   </button>
@@ -125,7 +125,7 @@ exports[`EcTablePagination should display next and prev buttons enabled if pagin
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-chevron-right"
+        xlink:href="#ec-simple-chevron-right"
       />
     </svg>
   </button>
@@ -148,7 +148,7 @@ exports[`EcTablePagination should display only next button disabled if paginatio
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-chevron-left"
+        xlink:href="#ec-simple-chevron-left"
       />
     </svg>
   </button>
@@ -165,7 +165,7 @@ exports[`EcTablePagination should display only next button disabled if paginatio
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-chevron-right"
+        xlink:href="#ec-simple-chevron-right"
       />
     </svg>
   </button>
@@ -189,7 +189,7 @@ exports[`EcTablePagination should display only prev button disabled if paginatio
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-chevron-left"
+        xlink:href="#ec-simple-chevron-left"
       />
     </svg>
   </button>
@@ -205,7 +205,7 @@ exports[`EcTablePagination should display only prev button disabled if paginatio
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-chevron-right"
+        xlink:href="#ec-simple-chevron-right"
       />
     </svg>
   </button>
@@ -293,7 +293,7 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </button>
@@ -382,7 +382,7 @@ exports[`EcTablePagination should render as expected 1`] = `
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-chevron-down"
+              xlink:href="#ec-simple-chevron-down"
             />
           </svg>
         </button>
@@ -464,7 +464,7 @@ exports[`EcTablePagination should render as expected 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-left"
+          xlink:href="#ec-simple-chevron-left"
         />
       </svg>
     </button>
@@ -481,7 +481,7 @@ exports[`EcTablePagination should render as expected 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-chevron-right"
+          xlink:href="#ec-simple-chevron-right"
         />
       </svg>
     </button>

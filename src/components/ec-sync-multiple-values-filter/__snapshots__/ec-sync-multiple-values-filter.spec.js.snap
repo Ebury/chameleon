@@ -36,7 +36,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -58,7 +58,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
               width="20"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-search"
+                xlink:href="#ec-simple-search"
               />
             </svg>
              
@@ -118,7 +118,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-partial"
+                            xlink:href="#ec-rounded-partial"
                           />
                         </svg>
                          
@@ -179,7 +179,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -201,7 +201,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
               width="20"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-search"
+                xlink:href="#ec-simple-search"
               />
             </svg>
              
@@ -261,7 +261,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-check"
+                            xlink:href="#ec-rounded-check"
                           />
                         </svg>
                          
@@ -322,7 +322,7 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -418,7 +418,7 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-check"
+                            xlink:href="#ec-rounded-check"
                           />
                         </svg>
                          
@@ -479,7 +479,7 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -503,7 +503,7 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
               width="32"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-error"
+                xlink:href="#ec-simple-error"
               />
             </svg>
              
@@ -556,7 +556,7 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -652,7 +652,7 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-check"
+                            xlink:href="#ec-rounded-check"
                           />
                         </svg>
                          
@@ -713,7 +713,7 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -735,7 +735,7 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
               width="20"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-search"
+                xlink:href="#ec-simple-search"
               />
             </svg>
              
@@ -758,7 +758,7 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
               width="32"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-error"
+                xlink:href="#ec-simple-error"
               />
             </svg>
              
@@ -811,7 +811,7 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -835,7 +835,7 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
               width="32"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-error"
+                xlink:href="#ec-simple-error"
               />
             </svg>
              
@@ -888,7 +888,7 @@ exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = 
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -912,7 +912,7 @@ exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = 
               width="32"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-loading"
+                xlink:href="#ec-simple-loading"
               />
             </svg>
           </div>
@@ -959,7 +959,7 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -1020,7 +1020,7 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-check"
+                            xlink:href="#ec-rounded-check"
                           />
                         </svg>
                          
@@ -1075,7 +1075,7 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-partial"
+                            xlink:href="#ec-rounded-partial"
                           />
                         </svg>
                          
@@ -1130,7 +1130,7 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-cancelled"
+                            xlink:href="#ec-rounded-cancelled"
                           />
                         </svg>
                          
@@ -1191,7 +1191,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -1213,7 +1213,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
               width="20"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-search"
+                xlink:href="#ec-simple-search"
               />
             </svg>
              
@@ -1273,7 +1273,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-check"
+                            xlink:href="#ec-rounded-check"
                           />
                         </svg>
                          
@@ -1328,7 +1328,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-partial"
+                            xlink:href="#ec-rounded-partial"
                           />
                         </svg>
                          
@@ -1383,7 +1383,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-cancelled"
+                            xlink:href="#ec-rounded-cancelled"
                           />
                         </svg>
                          
@@ -1450,7 +1450,7 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -1472,7 +1472,7 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
               width="20"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-search"
+                xlink:href="#ec-simple-search"
               />
             </svg>
              
@@ -1495,7 +1495,7 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
               width="32"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-error"
+                xlink:href="#ec-simple-error"
               />
             </svg>
              
@@ -1548,7 +1548,7 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -1609,7 +1609,7 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-check"
+                            xlink:href="#ec-rounded-check"
                           />
                         </svg>
                          
@@ -1670,7 +1670,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -1731,7 +1731,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-check"
+                            xlink:href="#ec-rounded-check"
                           />
                         </svg>
                          
@@ -1786,7 +1786,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-partial"
+                            xlink:href="#ec-rounded-partial"
                           />
                         </svg>
                          
@@ -1841,7 +1841,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-cancelled"
+                            xlink:href="#ec-rounded-cancelled"
                           />
                         </svg>
                          
@@ -1912,7 +1912,7 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -1934,7 +1934,7 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
               width="20"
             >
               <use
-                href="/img/simple-icons.svg#ec-simple-search"
+                xlink:href="#ec-simple-search"
               />
             </svg>
              
@@ -1994,7 +1994,7 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-check"
+                            xlink:href="#ec-rounded-check"
                           />
                         </svg>
                          
@@ -2061,7 +2061,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
           width="16"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-chevron-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -2108,7 +2108,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                         width="16"
                       >
                         <use
-                          href="/img/simple-icons.svg#ec-simple-check"
+                          xlink:href="#ec-simple-check"
                         />
                       </svg>
                     </span>
@@ -2128,7 +2128,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-check"
+                            xlink:href="#ec-rounded-check"
                           />
                         </svg>
                          
@@ -2186,7 +2186,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-partial"
+                            xlink:href="#ec-rounded-partial"
                           />
                         </svg>
                          
@@ -2241,7 +2241,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                           width="24"
                         >
                           <use
-                            href="/img/rounded-icons.svg#ec-rounded-cancelled"
+                            xlink:href="#ec-rounded-cancelled"
                           />
                         </svg>
                          

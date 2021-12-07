@@ -43,7 +43,7 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
       class="ec-dropdown-search__search-icon ec-icon"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-search"
+        xlink:href="#ec-simple-search"
       />
     </svg>
      
@@ -121,7 +121,7 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
           class="ec-dropdown-search__search-icon ec-icon"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-search"
+            xlink:href="#ec-simple-search"
           />
         </svg>
          
@@ -224,7 +224,7 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
             class="ec-dropdown-search__search-icon ec-icon"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-search"
+              xlink:href="#ec-simple-search"
             />
           </svg>
            
@@ -254,7 +254,7 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
                 width="24"
               >
                 <use
-                  href="/img/simple-icons.svg#ec-simple-loading"
+                  xlink:href="#ec-simple-loading"
                 />
               </svg>
             </div>
@@ -303,7 +303,7 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
             class="ec-dropdown-search__search-icon ec-icon"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-search"
+              xlink:href="#ec-simple-search"
             />
           </svg>
            
@@ -383,7 +383,7 @@ exports[`EcDropdownSearch should render all given items 1`] = `
       class="ec-dropdown-search__search-icon ec-icon"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-search"
+        xlink:href="#ec-simple-search"
       />
     </svg>
      
@@ -464,7 +464,7 @@ exports[`EcDropdownSearch should render as expected 1`] = `
             class="ec-dropdown-search__search-icon ec-icon"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-search"
+              xlink:href="#ec-simple-search"
             />
           </svg>
            
@@ -518,7 +518,7 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
             class="ec-dropdown-search__search-icon ec-icon"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-search"
+              xlink:href="#ec-simple-search"
             />
           </svg>
            
@@ -609,7 +609,7 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
             class="ec-dropdown-search__search-icon ec-icon"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-search"
+              xlink:href="#ec-simple-search"
             />
           </svg>
            
@@ -706,7 +706,7 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
             class="ec-dropdown-search__search-icon ec-icon"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-search"
+              xlink:href="#ec-simple-search"
             />
           </svg>
            
@@ -760,7 +760,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
             class="ec-dropdown-search__search-icon ec-icon"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-search"
+              xlink:href="#ec-simple-search"
             />
           </svg>
            
@@ -869,7 +869,7 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
             class="ec-dropdown-search__search-icon ec-icon"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-search"
+              xlink:href="#ec-simple-search"
             />
           </svg>
            
@@ -927,7 +927,7 @@ exports[`EcDropdownSearch should render the search by default 1`] = `
     class="ec-dropdown-search__search-icon ec-icon"
   >
     <use
-      href="/img/simple-icons.svg#ec-simple-search"
+      xlink:href="#ec-simple-search"
     />
   </svg>
    
@@ -973,7 +973,7 @@ exports[`EcDropdownSearch should use given list-data-test attribute 1`] = `
       class="ec-dropdown-search__search-icon ec-icon"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-search"
+        xlink:href="#ec-simple-search"
       />
     </svg>
      
@@ -1036,7 +1036,7 @@ exports[`EcDropdownSearch should use the placeholder for search input if given 1
     class="ec-dropdown-search__search-icon ec-icon"
   >
     <use
-      href="/img/simple-icons.svg#ec-simple-search"
+      xlink:href="#ec-simple-search"
     />
   </svg>
    

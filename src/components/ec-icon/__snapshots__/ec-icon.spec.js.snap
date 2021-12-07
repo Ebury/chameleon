@@ -1,31 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcIcon should allow to use any sprite url 1`] = `
-<svg
-  class="ec-icon"
->
-  <use
-    href="/custom/sprite.svg#ec-random-icon"
-  />
-</svg>
-`;
-
-exports[`EcIcon should allow to use icon from inline sprite 1`] = `
-<svg
-  class="ec-icon"
->
-  <use
-    href="#ec-random-icon"
-  />
-</svg>
-`;
-
 exports[`EcIcon should render properly when a name was given 1`] = `
 <svg
   class="ec-icon"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-random-icon"
+    xlink:href="#ec-random-icon"
   />
 </svg>
 `;
@@ -37,37 +17,7 @@ exports[`EcIcon should use the given size prop 1`] = `
   width="16"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-random-icon"
-  />
-</svg>
-`;
-
-exports[`EcIcon should use the icon from the sprite "currency" 1`] = `
-<svg
-  class="ec-icon"
->
-  <use
-    href="/img/currency-flags.svg#ec-currency-random-icon"
-  />
-</svg>
-`;
-
-exports[`EcIcon should use the icon from the sprite "rounded" 1`] = `
-<svg
-  class="ec-icon"
->
-  <use
-    href="/img/rounded-icons.svg#ec-rounded-random-icon"
-  />
-</svg>
-`;
-
-exports[`EcIcon should use the icon from the sprite "simple" 1`] = `
-<svg
-  class="ec-icon"
->
-  <use
-    href="/img/simple-icons.svg#ec-simple-random-icon"
+    xlink:href="#ec-random-icon"
   />
 </svg>
 `;
@@ -77,7 +27,7 @@ exports[`EcIcon should use the type "error" 1`] = `
   class="ec-icon ec-icon--error"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-random-icon"
+    xlink:href="#ec-random-icon"
   />
 </svg>
 `;
@@ -87,7 +37,7 @@ exports[`EcIcon should use the type "info" 1`] = `
   class="ec-icon ec-icon--info"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-random-icon"
+    xlink:href="#ec-random-icon"
   />
 </svg>
 `;
@@ -97,7 +47,7 @@ exports[`EcIcon should use the type "success" 1`] = `
   class="ec-icon ec-icon--success"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-random-icon"
+    xlink:href="#ec-random-icon"
   />
 </svg>
 `;
@@ -107,7 +57,7 @@ exports[`EcIcon should use the type "warning" 1`] = `
   class="ec-icon ec-icon--warning"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-random-icon"
+    xlink:href="#ec-random-icon"
   />
 </svg>
 `;

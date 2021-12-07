@@ -30,7 +30,7 @@ exports[`EcLoading should render as expected 1`] = `
       width="48"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-loading"
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>
@@ -58,7 +58,7 @@ exports[`EcLoading should render the given slot 1`] = `
       width="48"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-loading"
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>
@@ -90,7 +90,7 @@ exports[`EcLoading should render the loading with a given icon size when the pro
       width="30"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-loading"
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>
@@ -132,7 +132,7 @@ exports[`EcLoading should render the loading without the content visible if the 
       width="48"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-loading"
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>

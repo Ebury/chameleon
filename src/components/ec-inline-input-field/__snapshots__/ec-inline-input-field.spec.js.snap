@@ -35,7 +35,7 @@ exports[`EcInlineInputField when component is copiable should render as expected
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-copy"
+          xlink:href="#ec-simple-copy"
         />
       </svg>
     </button>
@@ -59,7 +59,7 @@ exports[`EcInlineInputField when component is copiable should render with a labe
       width="14"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-info"
+        xlink:href="#ec-simple-info"
       />
     </svg>
   </div>
@@ -87,7 +87,7 @@ exports[`EcInlineInputField when component is copiable should render with a labe
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-edit"
+          xlink:href="#ec-simple-edit"
         />
       </svg>
     </button>
@@ -130,7 +130,7 @@ exports[`EcInlineInputField when component is copiable should render with a sens
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-copy"
+          xlink:href="#ec-simple-copy"
         />
       </svg>
     </button>
@@ -190,7 +190,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-check"
+              xlink:href="#ec-simple-check"
             />
           </svg>
         </button>
@@ -206,7 +206,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-close"
+              xlink:href="#ec-simple-close"
             />
           </svg>
         </button>
@@ -275,7 +275,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-check"
+              xlink:href="#ec-simple-check"
             />
           </svg>
         </button>
@@ -291,7 +291,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-close"
+              xlink:href="#ec-simple-close"
             />
           </svg>
         </button>
@@ -353,7 +353,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-check"
+              xlink:href="#ec-simple-check"
             />
           </svg>
         </button>
@@ -369,7 +369,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-close"
+              xlink:href="#ec-simple-close"
             />
           </svg>
         </button>
@@ -413,7 +413,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-edit"
+          xlink:href="#ec-simple-edit"
         />
       </svg>
     </button>
@@ -437,7 +437,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       width="14"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-info"
+        xlink:href="#ec-simple-info"
       />
     </svg>
   </div>
@@ -465,7 +465,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-edit"
+          xlink:href="#ec-simple-edit"
         />
       </svg>
     </button>
@@ -507,7 +507,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-edit"
+          xlink:href="#ec-simple-edit"
         />
       </svg>
     </button>
@@ -555,7 +555,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-loading"
+            xlink:href="#ec-simple-loading"
           />
         </svg>
       </div>
@@ -572,7 +572,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-check"
+          xlink:href="#ec-simple-check"
         />
       </svg>
        
@@ -582,7 +582,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-close"
+          xlink:href="#ec-simple-close"
         />
       </svg>
     </div>
@@ -630,7 +630,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-loading"
+            xlink:href="#ec-simple-loading"
           />
         </svg>
       </div>
@@ -647,7 +647,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-check"
+          xlink:href="#ec-simple-check"
         />
       </svg>
        
@@ -657,7 +657,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
         width="16"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-close"
+          xlink:href="#ec-simple-close"
         />
       </svg>
     </div>

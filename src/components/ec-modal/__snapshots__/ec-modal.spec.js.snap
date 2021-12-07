@@ -22,7 +22,7 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
         width="24"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-close"
+          xlink:href="#ec-simple-close"
         />
       </svg>
     </a>
@@ -64,7 +64,7 @@ exports[`EcModal should have the style attribute z-index when the z-index props 
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-close"
+            xlink:href="#ec-simple-close"
           />
         </svg>
       </a>
@@ -127,7 +127,7 @@ exports[`EcModal should render basic modal 1`] = `
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-close"
+              xlink:href="#ec-simple-close"
             />
           </svg>
         </a>
@@ -166,7 +166,7 @@ exports[`EcModal should render close button 1`] = `
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-close"
+        xlink:href="#ec-simple-close"
       />
     </svg>
   </a>
@@ -295,7 +295,7 @@ exports[`EcModal should render negative button with the loading status if slot i
         width="48"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-loading"
+          xlink:href="#ec-simple-loading"
         />
       </svg>
     </div>
@@ -431,7 +431,7 @@ exports[`EcModal should render positive button with the loading status if slot i
         width="48"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-loading"
+          xlink:href="#ec-simple-loading"
         />
       </svg>
     </div>
@@ -498,7 +498,7 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
             width="24"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-close"
+              xlink:href="#ec-simple-close"
             />
           </svg>
         </a>

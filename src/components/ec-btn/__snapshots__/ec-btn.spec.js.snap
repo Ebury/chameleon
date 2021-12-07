@@ -50,7 +50,7 @@ exports[`EcBtn :props should render a button with a spinner loader if loading is
       width="22"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-loading"
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>
@@ -163,7 +163,7 @@ exports[`EcBtn :props should render a button with only a loading spinner when lo
       width="22"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-loading"
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>
@@ -183,7 +183,7 @@ exports[`EcBtn :props should render a button with only an icon when the "icon" i
     width="22"
   >
     <use
-      href="/img/simple-icons.svg#ec-simple-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
    
@@ -426,7 +426,7 @@ exports[`EcBtn :slots should render a button with "Click me!" text and an icon 1
     width="22"
   >
     <use
-      href="/img/simple-icons.svg#ec-simple-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
    
@@ -468,7 +468,7 @@ exports[`EcBtn :slots should render a button with a loading-text and a loading s
       width="22"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-loading"
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>
