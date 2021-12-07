@@ -27,7 +27,7 @@ exports[`EcPanel #slots #footer - should render footer slot section if slot is p
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-close"
+            xlink:href="#ec-simple-close"
           />
         </svg>
       </button>
@@ -83,7 +83,7 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-close"
+            xlink:href="#ec-simple-close"
           />
         </svg>
       </button>
@@ -139,7 +139,7 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-close"
+            xlink:href="#ec-simple-close"
           />
         </svg>
       </button>
@@ -194,7 +194,7 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-close"
+            xlink:href="#ec-simple-close"
           />
         </svg>
       </button>
@@ -243,7 +243,7 @@ exports[`EcPanel @events @back should not render back button when event handler 
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-close"
+            xlink:href="#ec-simple-close"
           />
         </svg>
       </button>
@@ -290,7 +290,7 @@ exports[`EcPanel @events @back should render back button when event handler attr
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-arrow-left"
+            xlink:href="#ec-simple-arrow-left"
           />
         </svg>
       </button>
@@ -307,7 +307,7 @@ exports[`EcPanel @events @back should render back button when event handler attr
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-close"
+            xlink:href="#ec-simple-close"
           />
         </svg>
       </button>
@@ -358,7 +358,7 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
           width="24"
         >
           <use
-            href="/img/simple-icons.svg#ec-simple-close"
+            xlink:href="#ec-simple-close"
           />
         </svg>
       </button>

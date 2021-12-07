@@ -27,7 +27,7 @@ describe('EcNavigationLink', () => {
     function mountAsRouterLink(opts, mountOpts) {
       const propsData = {
         text: 'Link',
-        iconName: 'simple-check',
+        iconName: 'single-check',
         url: '/balances',
         isRouterLink: true,
         ...opts,
@@ -79,7 +79,7 @@ describe('EcNavigationLink', () => {
     function mountAsAnchor(opts, mountOpts) {
       const propsData = {
         text: 'Link',
-        iconName: 'simple-check',
+        iconName: 'single-check',
         url: '/balances',
         isRouterLink: false,
         ...opts,

@@ -45,7 +45,7 @@ exports[`EcInputField renders properly the icon when disabled 1`] = `
       width="20"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-check"
+        xlink:href="#ec-simple-check"
       />
     </svg>
   </div>
@@ -138,7 +138,7 @@ exports[`EcInputField renders properly when is loading 1`] = `
       width="24"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-loading"
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>
@@ -170,7 +170,7 @@ exports[`EcInputField renders properly when the labelTooltip prop is set 1`] = `
         width="14"
       >
         <use
-          href="/img/simple-icons.svg#ec-simple-info"
+          xlink:href="#ec-simple-info"
         />
       </svg>
     </span>
@@ -692,7 +692,7 @@ exports[`EcInputField should render given icon 1`] = `
       width="20"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-check"
+        xlink:href="#ec-simple-check"
       />
     </svg>
   </div>
@@ -713,7 +713,7 @@ exports[`EcInputField should render given icon with given size 1`] = `
     width="40"
   >
     <use
-      href="/img/simple-icons.svg#ec-simple-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
 </div>

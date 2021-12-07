@@ -54,7 +54,7 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-check"
+                    xlink:href="#ec-rounded-check"
                   />
                 </svg>
                  
@@ -109,7 +109,7 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-partial"
+                    xlink:href="#ec-rounded-partial"
                   />
                 </svg>
                  
@@ -164,7 +164,7 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-cancelled"
+                    xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
                  
@@ -200,7 +200,7 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
       width="20"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-search"
+        xlink:href="#ec-simple-search"
       />
     </svg>
      
@@ -260,7 +260,7 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-check"
+                    xlink:href="#ec-rounded-check"
                   />
                 </svg>
                  
@@ -315,7 +315,7 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-partial"
+                    xlink:href="#ec-rounded-partial"
                   />
                 </svg>
                  
@@ -370,7 +370,7 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-cancelled"
+                    xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
                  
@@ -455,7 +455,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-check"
+                    xlink:href="#ec-rounded-check"
                   />
                 </svg>
                  
@@ -510,7 +510,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-partial"
+                    xlink:href="#ec-rounded-partial"
                   />
                 </svg>
                  
@@ -565,7 +565,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-cancelled"
+                    xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
                  
@@ -603,7 +603,7 @@ exports[`EcMultipleValuesSelection should render loading state 1`] = `
       width="32"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-loading"
+        xlink:href="#ec-simple-loading"
       />
     </svg>
   </div>
@@ -627,7 +627,7 @@ exports[`EcMultipleValuesSelection should set the empty state icon 1`] = `
       width="32"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-check"
+        xlink:href="#ec-simple-check"
       />
     </svg>
      
@@ -657,7 +657,7 @@ exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
       width="32"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-error"
+        xlink:href="#ec-simple-error"
       />
     </svg>
      
@@ -687,7 +687,7 @@ exports[`EcMultipleValuesSelection should set the error icon 1`] = `
       width="32"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-check"
+        xlink:href="#ec-simple-check"
       />
     </svg>
      
@@ -717,7 +717,7 @@ exports[`EcMultipleValuesSelection should set the error message 1`] = `
       width="32"
     >
       <use
-        href="/img/simple-icons.svg#ec-simple-error"
+        xlink:href="#ec-simple-error"
       />
     </svg>
      
@@ -763,7 +763,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
             width="16"
           >
             <use
-              href="/img/simple-icons.svg#ec-simple-check"
+              xlink:href="#ec-simple-check"
             />
           </svg>
         </span>
@@ -813,7 +813,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                 width="16"
               >
                 <use
-                  href="/img/simple-icons.svg#ec-simple-check"
+                  xlink:href="#ec-simple-check"
                 />
               </svg>
             </span>
@@ -833,7 +833,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-check"
+                    xlink:href="#ec-rounded-check"
                   />
                 </svg>
                  
@@ -876,7 +876,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                 width="16"
               >
                 <use
-                  href="/img/simple-icons.svg#ec-simple-check"
+                  xlink:href="#ec-simple-check"
                 />
               </svg>
             </span>
@@ -896,7 +896,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-partial"
+                    xlink:href="#ec-rounded-partial"
                   />
                 </svg>
                  
@@ -939,7 +939,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                 width="16"
               >
                 <use
-                  href="/img/simple-icons.svg#ec-simple-check"
+                  xlink:href="#ec-simple-check"
                 />
               </svg>
             </span>
@@ -959,7 +959,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-cancelled"
+                    xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
                  
@@ -1071,7 +1071,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-check"
+                    xlink:href="#ec-rounded-check"
                   />
                 </svg>
                  
@@ -1126,7 +1126,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-partial"
+                    xlink:href="#ec-rounded-partial"
                   />
                 </svg>
                  
@@ -1181,7 +1181,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                   width="24"
                 >
                   <use
-                    href="/img/rounded-icons.svg#ec-rounded-cancelled"
+                    xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
                  

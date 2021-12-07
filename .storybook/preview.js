@@ -2,6 +2,7 @@
 import cssVars from 'css-vars-ponyfill';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
+import { inlineSvgSprites } from '../src/icons/browser';
 import { getAllBackgrounds } from './backgrounds';
 
 /* eslint-disable import/no-webpack-loader-syntax */
@@ -39,3 +40,4 @@ export const parameters = {
 export const decorators = [withCssResources];
 
 cssVars();
+inlineSvgSprites(['rounded-icons', 'simple-icons', 'currency-flags'], '/img');

@@ -8,7 +8,7 @@ exports[`EcLoadingIcon should render properly using the given size prop 1`] = `
   width="16"
 >
   <use
-    href="/img/simple-icons.svg#ec-simple-loading"
+    xlink:href="#ec-simple-loading"
   />
 </svg>
 `;
