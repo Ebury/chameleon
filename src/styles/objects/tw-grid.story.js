@@ -1,11 +1,15 @@
-import { storiesOf } from '@storybook/vue';
 import './tw-grid.story.css';
 
-const stories = storiesOf('Grid', module);
+export default {
+  title: 'Grid',
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+};
 
-stories
-  .add('basic', () => ({
-    template: `
+export const basic = () => ({
+  template: `
     <div class="ec-grid-story">
       <h1 class="ec-grid-story__title">12 Columns - 24 pixel gutters</h1>
       <h2 class="ec-grid-story__title">Parent: "tw-grid", Children: "tw-col; tw-col-[N,full,auto]; tw-offset-[N]"</h2>
@@ -115,9 +119,10 @@ stories
       </div>
     </div>
     `,
-  }))
-  .add('alignments', () => ({
-    template: `
+});
+
+export const alignments = () => ({
+  template: `
     <div class="ec-grid-story">
       <h1 class="ec-grid-story__title">Vertical/horizontal alignment</h1>
 
@@ -177,26 +182,28 @@ stories
       </div>
     </div>
     `,
-  }))
-  .add('margins', () => ({
-    template: `
-      <div class="ec-grid-story">
-        <h1 class="ec-grid-story__title">Margins</h1>
+});
 
-        <div class="ec-grid-story__container">
-          <div class="tw-grid">
-            <div class="tw-col-2"><div class="ec-grid-story__column">.tw-col-2</div></div>
-            <div class="tw-col-2 tw-ml-auto"><div class="ec-grid-story__column">.tw-col-2.tw-ml-auto</div></div>
-            <div class="tw-w-full"></div>
-            <div class="tw-col-2 tw-mr-auto"><div class="ec-grid-story__column">.tw-col-2.tw-mr-auto</div></div>
-            <div class="tw-col-2"><div class="ec-grid-story__column">.tw-col-2</div></div>
-          </div>
+export const margins = () => ({
+  template: `
+    <div class="ec-grid-story">
+      <h1 class="ec-grid-story__title">Margins</h1>
+
+      <div class="ec-grid-story__container">
+        <div class="tw-grid">
+          <div class="tw-col-2"><div class="ec-grid-story__column">.tw-col-2</div></div>
+          <div class="tw-col-2 tw-ml-auto"><div class="ec-grid-story__column">.tw-col-2.tw-ml-auto</div></div>
+          <div class="tw-w-full"></div>
+          <div class="tw-col-2 tw-mr-auto"><div class="ec-grid-story__column">.tw-col-2.tw-mr-auto</div></div>
+          <div class="tw-col-2"><div class="ec-grid-story__column">.tw-col-2</div></div>
         </div>
       </div>
-    `,
-  }))
-  .add('nested', () => ({
-    template: `
+    </div>
+  `,
+});
+
+export const nested = () => ({
+  template: `
     <div class="ec-grid-story">
       <h1 class="ec-grid-story__title">12 Columns - 24 pixel gutters</h1>
 
@@ -253,9 +260,10 @@ stories
     </div>
   </div>
   `,
-  }))
-  .add('responsive', () => ({
-    template: `
+});
+
+export const responsive = () => ({
+  template: `
     <div class="ec-grid-story">
       <h1 class="ec-grid-story__title">Resize to swap between different column sizes @xs @sm @md @lg @xl breakpoints</h1>
       <h2 class="ec-grid-story__title">Parent: tw-grid</h2>
@@ -285,4 +293,4 @@ stories
       </div>
     </div>
   `,
-  }));
+});

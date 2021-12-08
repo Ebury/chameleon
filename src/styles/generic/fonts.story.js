@@ -1,26 +1,5 @@
-import { storiesOf } from '@storybook/vue';
-import { select, number } from '@storybook/addon-knobs';
-
-const stories = storiesOf('CSS/Typography', module);
-
-stories.add('fonts', () => ({
-  props: {
-    fontFamily: {
-      default: select('fontFamily', ['tw-font-sans', 'tw-font-sans-condensed', 'tw-font-mono']),
-    },
-    fontWeight: {
-      default: select('fontWeight', [300, 400, 500, 700], 400),
-    },
-    fontStyle: {
-      default: select('fontStyle', ['', 'italic'], ''),
-    },
-    fontSize: {
-      default: number('fontSize', 16, { min: 0, max: 48 }),
-    },
-    lineHeight: {
-      default: number('lineHeight', 24, { min: 0, max: 48 }),
-    },
-  },
+export const fonts = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   // eslint-disable-next-line no-unused-vars
   render(h) {
     const {
@@ -100,4 +79,36 @@ stories.add('fonts', () => ({
       </div>
     );
   },
-}));
+});
+
+fonts.argTypes = {
+  fontFamily: {
+    options: ['tw-font-sans', 'tw-font-sans-condensed', 'tw-font-mono'],
+    control: { type: 'select' },
+  },
+  fontWeight: {
+    options: [300, 400, 500, 700],
+    control: { type: 'select' },
+  },
+  fontStyle: {
+    options: ['italic'],
+    control: { type: 'select' },
+  },
+  fontSize: {
+    control: { type: 'number', min: 0, max: 48 },
+  },
+  lineHeight: {
+    control: { type: 'number', min: 0, max: 48 },
+  },
+};
+
+fonts.args = {
+  fontFamily: 'tw-font-sans',
+  fontWeight: 400,
+  fontSize: 16,
+  lineHeight: 24,
+};
+
+fonts.parameters = {
+  actions: { disable: true },
+};

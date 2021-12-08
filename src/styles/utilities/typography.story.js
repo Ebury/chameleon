@@ -1,8 +1,8 @@
-import { storiesOf } from '@storybook/vue';
+export default {
+  title: 'CSS/Typography',
+};
 
-const stories = storiesOf('CSS/Typography', module);
-
-stories.add('basic', () => ({
+export const basic = () => ({
   data() {
     return {
       types: [
@@ -22,4 +22,12 @@ stories.add('basic', () => ({
         :class="'tw-px-24 ' + type">{{ type.replace('tw-', '') }} - Lorem ipsum dolor sit amet, consectetur adipiscing <a href="#">elit</a>. Donec sodales felis nec libero vehicula, sit amet gravida dolor cursus</p>
     </div>
   `,
-}));
+});
+
+basic.parameters = {
+  a11y: { disable: true },
+  controls: { disable: true },
+  actions: { disable: true },
+};
+
+export { fonts } from '../generic/fonts.story';

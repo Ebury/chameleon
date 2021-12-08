@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/vue';
 import { parse, walk, generate } from 'css-tree';
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -25,38 +24,41 @@ function cleanUpSelector(selector) {
   return selector.replace(/\\:/g, ':').replace('\\32xl', '2xl').replace(/\\\//g, '/');
 }
 
-const stories = storiesOf('CSS/Tailwind', module);
+export default {
+  title: 'CSS/Tailwind',
+};
 
-stories
-  .addParameters({
-    a11y: { disabled: true }, // a11y addon, checking a story with a table of 3000+ rows, crashes the browser. we don't need this addon in here.
-  })
-  .add('all', () => ({
-    template: `
-      <div class="tw-max-w-screen-lg tw-m-auto tw-mt-20">
-        <h1>Tailwind utility classes</h1>
-        <p>Showing {{ filteredRules.length }} out of {{ rules.length }}</p>
-        <input v-model="filter" placeholder="Search rules" class="tw-block tw-w-2/5 tw-mb-40 tw-h2 tw-py-4 tw-px-12 tw-border tw-border-solid tw-border-gray-level-6 tw-rounded-sm">
-        <table class="tw-font-mono tw-whitespace-pre-wrap">
-          <tbody>
-            <tr v-for="rule of filteredRules">
-              <td class="tw-border-gray-5 tw-border-solid tw-border tw-p-4 tw-px-8" style="min-width: 250px;">{{ rule.selector }}</td>
-              <td class="tw-border-gray-5 tw-border-solid tw-border tw-p-4 tw-px-8"><pre>{{ rule.block }}</pre></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    `,
-    computed: {
-      filteredRules() {
-        return this.filter
-          ? this.rules.filter(rule => rule.selector.includes(this.filter) || rule.block.includes(this.filter))
-          : this.rules;
-      },
+export const all = () => ({
+  computed: {
+    filteredRules() {
+      return this.filter
+        ? this.rules.filter(rule => rule.selector.includes(this.filter) || rule.block.includes(this.filter))
+        : this.rules;
     },
-    data() {
-      return { tailwind: tailwindCSS, rules, filter: '' };
-    },
-  }), {
-    visualRegressionTests: { enabled: false },
-  });
+  },
+  data() {
+    return { tailwind: tailwindCSS, rules, filter: '' };
+  },
+  template: `
+    <div class="tw-max-w-screen-lg tw-w-full tw-m-auto tw-p-20">
+      <h1>Tailwind utility classes</h1>
+      <p>Showing {{ filteredRules.length }} out of {{ rules.length }}</p>
+      <input v-model="filter" placeholder="Search rules" class="tw-block tw-w-2/5 tw-mb-40 tw-h2 tw-py-4 tw-px-12 tw-border tw-border-solid tw-border-gray-level-6 tw-rounded-sm">
+      <table class="tw-font-mono tw-whitespace-pre-wrap tw-max-w-full tw-w-full">
+        <tbody>
+          <tr v-for="rule of filteredRules">
+            <td class="tw-border-gray-5 tw-border-solid tw-border tw-p-4 tw-px-8" style="min-width: 250px; max-width: 400px">{{ rule.selector }}</td>
+            <td class="tw-border-gray-5 tw-border-solid tw-border tw-p-4 tw-px-8"><pre class="tw-whitespace-pre-wrap">{{ rule.block }}</pre></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `,
+});
+
+all.parameters = {
+  a11y: { disable: true },
+  controls: { disable: true },
+  actions: { disable: true },
+  visualRegressionTests: { disable: true },
+};
