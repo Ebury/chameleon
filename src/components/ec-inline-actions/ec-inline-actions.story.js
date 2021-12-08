@@ -60,7 +60,3 @@ basic.args = {
   ],
   popoverOptions: { open: true },
 };
-
-basic.parameters = {
-  visualRegressionTests: { disable: true },
-};
