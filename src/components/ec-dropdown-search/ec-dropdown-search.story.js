@@ -1,12 +1,17 @@
-import { storiesOf } from '@storybook/vue';
-import {
-  boolean, object, select, text, number,
-} from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 import EcIcon from '../ec-icon';
 
-const stories = storiesOf('Dropdown Search', module);
+export default {
+  title: 'Dropdown Search',
+  component: EcDropdownSearch,
+  argTypes: {
+    boundariesElement: {
+      options: ['viewport', 'scrollParent'],
+      control: { type: 'select' },
+    },
+  },
+};
 
 const items = [
   { text: 'Item 1' },
@@ -18,8 +23,9 @@ const items = [
   { text: 'Item 7' },
 ];
 
-stories.add('all', () => ({
+export const all = (args, { argTypes }) => ({
   components: { EcDropdownSearch, EcIcon },
+  props: Object.keys(argTypes),
   data() {
     return {
       selectedItem: null,
@@ -54,40 +60,8 @@ stories.add('all', () => ({
       ],
     };
   },
-  props: {
-    items: {
-      default: object('Items', items),
-    },
-    isSearchEnabled: {
-      default: boolean('isSearchEnabled', true),
-    },
-    maxVisibleItems: {
-      default: number('maxVisibleItems', 3),
-    },
-    disabled: {
-      default: boolean('disabled', false),
-    },
-    keepOpen: {
-      default: boolean('keepOpen', false),
-    },
-    noResultsText: {
-      default: text('noResultsText', 'No results found'),
-    },
-    isLoading: {
-      default: boolean('isLoading', false),
-    },
-    boundariesElement: {
-      default: select('boundariesElement', ['viewport', 'scrollParent'], 'viewport'),
-    },
-    paragraphText: {
-      default: text('paragraphText', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.'),
-    },
-    isSensitive: {
-      default: boolean('Is Sensitive', false),
-    },
-  },
   methods: {
-    onItemSelected: action('Item selected'),
+    onChange: action('change'),
   },
   template: `
     <div class="tw-grid-container">
@@ -98,15 +72,12 @@ stories.add('all', () => ({
           <div v-for="(dropdownSearch, index) in list" :key="index" class="tw-my-20">
             <h3>{{ dropdownSearch.title }}</h3>
             <div :style="dropdownSearch.style">
-              <p class="tw-mb-8"><strong>{{dropdownSearch.instructions}}</strong></p>
+              <p class="tw-mb-8"><strong>{{ dropdownSearch.instructions }}</strong></p>
               <ec-dropdown-search
-                v-bind="$props"
+                v-bind="{ ...$props, paragraphText: null, boundariesElement: null }"
                 :popover-options="dropdownSearch.popoverOptions"
-                :is-search-enabled="isSearchEnabled"
-                :is-sensitive="isSensitive"
-                :max-visible-items="maxVisibleItems"
                 v-model="selectedItem"
-                @change="onItemSelected">
+                v-on="{ change: onChange }">
                 <a href="#" @click.prevent>
                   <span>Open</span>
                   <ec-icon name="simple-arrow-drop-down" :size="16" fill="currentColor" />
@@ -124,5 +95,16 @@ stories.add('all', () => ({
       </div>
     </div>
   `,
-}));
+});
 
+all.args = {
+  noResultsText: 'No results found',
+  items,
+  isSearchEnabled: true,
+  maxVisibleItems: 3,
+  disabled: false,
+  isLoading: false,
+  isSensitive: false,
+  boundariesElement: 'viewport',
+  paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.',
+};

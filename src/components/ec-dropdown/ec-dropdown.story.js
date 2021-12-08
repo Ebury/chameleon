@@ -1,9 +1,10 @@
-import { storiesOf } from '@storybook/vue';
-import { boolean, object, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcDropdown from './ec-dropdown.vue';
 
-const stories = storiesOf('Dropdown', module);
+export default {
+  title: 'Dropdown',
+  component: EcDropdown,
+};
 
 const items = [
   { text: 'Item 1' },
@@ -15,80 +16,72 @@ const items = [
   { text: 'Item 7' },
 ];
 
-stories.add('basic', () => ({
+const Template = (args, { argTypes }) => ({
   components: { EcDropdown },
+  props: Object.keys(argTypes),
   data() {
     return {
-      selected: null,
+      model: null,
     };
   },
-  props: {
-    items: {
-      default: object('items', items),
-    },
-    isSearchEnabled: {
-      default: boolean('isSearchEnabled', true),
-    },
-    label: {
-      default: text('label', 'Dropdown label'),
-    },
-    errorMessage: {
-      default: text('errorMessage', ''),
-    },
-    placeholder: {
-      default: text('placeholder', 'Select item'),
-    },
-    searchPlaceholder: {
-      default: text('searchPlaceholder', 'Search...'),
-    },
-    noResultsText: {
-      default: text('noResultsText', 'No results found'),
-    },
-    disabled: {
-      default: boolean('disabled', false),
-    },
-    isLoading: {
-      default: boolean('isLoading', false),
-    },
-    isSensitive: {
-      default: boolean('Is Sensitive', false),
+  watch: {
+    selected: {
+      immediate: true,
+      handler(newValue) { this.model = newValue; },
     },
   },
   methods: {
-    cta: () => action('CTA pressed'),
-    onSelected: action('Selected'),
+    onCta: action('cta'),
+    onChange: action('change'),
   },
   template: `
     <div class="tw-p-20">
-      <p v-if="selected">{{ selected.text }}</p>
+      <p v-if="selected">{{ model.text }}</p>
       <p v-else>Selected item: None</p>
       <div style="width: 300px;">
         <ec-dropdown
           v-bind="$props"
-          v-model="selected"
-          :is-sensitive="isSensitive"
-          @change="onSelected">
+          v-model="model"
+          v-on="{
+            change: onChange
+          }"
+          :is-sensitive="isSensitive">
           <template #cta>
-            <a href="#" @click.prevent="cta()" class="tw-block tw-py-8 tw-px-16">Do something</a>
+            <a href="#" @click.prevent="onCta" class="tw-block tw-py-8 tw-px-16">Do something</a>
           </template>
         </ec-dropdown>
       </div>
     </div>
   `,
-}));
+});
 
-stories.add('all', () => ({
+export const basic = Template.bind({});
+basic.args = {
+  label: 'Dropdown label',
+  placeholder: 'Select item',
+  searchPlaceholder: 'Search...',
+  noResultsText: 'No results found',
+  items,
+  isSearchEnabled: true,
+  isLoading: false,
+  disabled: false,
+  isSensitive: false,
+  errorMessage: '',
+  selected: null,
+};
+
+export const all = (args, { argTypes }) => ({
   components: { EcDropdown },
+  props: Object.keys(argTypes),
   data() {
     return {
-      items,
       itemsIncludingEmpty: [{ text: '' }, ...items],
       selected: null,
-      preselected: items[1],
+      disabledModel: items[1],
     };
   },
   methods: {
-    cta: action('CTA'),
+    onCta: action('CTA'),
   },
   template: `
     <div class="tw-p-20">
@@ -138,7 +131,7 @@ stories.add('all', () => ({
             disabled
             label="Single value - disabled and preselected"
             placeholder="Single value - disabled and preselected"
-            v-model="preselected">
+            v-model="disabledModel">
           </ec-dropdown>
         </div>
         <div class="tw-col-4">
@@ -156,7 +149,7 @@ stories.add('all', () => ({
             placeholder="Single value - with CTA"
             v-model="selected">
             <template #cta>
-              <a href="#" @click.prevent="cta()" class="tw-block tw-py-8 tw-px-16">Do something</a>
+              <a href="#" @click.prevent="onCta" class="tw-block tw-py-8 tw-px-16">Do something</a>
             </template>
           </ec-dropdown>
         </div>
@@ -183,7 +176,7 @@ stories.add('all', () => ({
             tooltip-cta="Radom tooltip cta"
             v-model="selected">
             <template #cta>
-              <a href="#" @click.prevent="cta()" style="display: block; padding: 8px 16px;">Do something</a>
+              <a href="#" @click.prevent="onCta" style="display: block; padding: 8px 16px;">Do something</a>
             </template>
           </ec-dropdown>
         </div>
@@ -203,4 +196,12 @@ stories.add('all', () => ({
       </div>
     </div>
   `,
-}));
+});
+
+all.args = {
+  items,
+};
+
+all.parameters = {
+  controls: { disable: true },
+};

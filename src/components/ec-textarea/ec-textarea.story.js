@@ -6,6 +6,43 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
+  components: { EcTextarea },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      model: null,
+    };
+  },
+  watch: {
+    value: {
+      immediate: true,
+      handler(newValue) { this.model = newValue; },
+    },
+  },
+  template: `
+    <div class="tw-p-24">
+      <ec-textarea v-bind="$props" v-model="model" />
+    </div>
+  `,
+});
+
+export const basic = Template.bind({});
+
+basic.args = {
+  label: 'Textarea label',
+  placeholder: 'Textarea placeholder...',
+  labelTooltip: 'Label tooltip',
+  note: 'Textarea note',
+  bottomNote: 'Text area bottom note',
+  errorMessage: 'Textarea error message',
+  value: '',
+};
+
+basic.parameters = {
+  visualRegressionTests: { disable: true },
+};
+
+export const all = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
     EcTextarea,
@@ -41,7 +78,7 @@ const Template = (args, { argTypes }) => ({
           :note="note"
           :label-tooltip="labelTooltip"
           :bottom-note="bottomNote"
-          :is-warning="isWarning"
+          :is-warning="true"
         />
       </div>
 
@@ -59,17 +96,9 @@ const Template = (args, { argTypes }) => ({
   `,
 });
 
-export const basic = Template.bind({});
-
-basic.args = {
-  label: 'Textarea label',
-  placeholder: 'Textarea placeholder...',
-  labelTooltip: 'Label tooltip',
+all.args = {
+  ...basic.args,
   disabledLabel: 'Disabled textarea',
-  note: 'Textarea note',
-  bottomNote: 'Text area bottom note',
   errorLabel: 'Textarea with error',
-  errorMessage: 'Textarea error message',
   warningLabel: 'Textarea with warning',
-  isWarning: true,
 };
