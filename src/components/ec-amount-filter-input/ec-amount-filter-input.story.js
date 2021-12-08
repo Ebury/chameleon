@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import EcAmountFilterInput from './ec-amount-filter-input.vue';
 
 export default {
@@ -5,10 +6,8 @@ export default {
   component: EcAmountFilterInput,
   argTypes: {
     locale: {
-      control: {
-        type: 'select',
-        options: ['en', 'es', 'de-ch', 'jp', 'sv'],
-      },
+      options: ['en', 'es', 'de-ch', 'jp', 'sv'],
+      control: { type: 'select' },
     },
   },
 };
@@ -28,21 +27,27 @@ const Template = (args, { argTypes }) => ({
       },
     };
   },
+  methods: {
+    onOpen: action('open'),
+    onClose: action('close'),
+    onChange: action('change'),
+    onAmountChange: action('amount-change'),
+    onComparisonSymbolChange: action('comparison-symbol-change'),
+  },
   template: `
-  <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
-    <ec-amount-filter-input 
-      v-model="value"
-      :label="label"
-      :note="note"
-      :amount-placeholder="amountPlaceholder"
-      :bottom-note="bottomNote"
-      :is-warning="isWarning"
-      :warning-tooltip-message="warningTooltipMessage"
-      :error-message="errorMessage"
-      :error-tooltip-message="errorTooltipMessage"
-      :comparison-symbol-items="comparisonSymbols"
-    />
-  </div>
+    <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
+      <ec-amount-filter-input
+        v-bind="$props"
+        v-on="{
+          open: onOpen,
+          close: onClose,
+          change: onChange,
+          'amount-change': onAmountChange,
+          'comparison-symbol-change': onComparisonSymbolChange,
+        }"
+        v-model="value"
+      />
+    </div>
   `,
 });
 
@@ -51,13 +56,12 @@ export const basic = Template.bind({});
 basic.args = {
   label: 'Amount Filter Input',
   note: 'With note',
-  amountPlaceholder: '',
   bottomNote: 'Filter by less than, equal to or more than the set amount',
   isWarning: false,
   warningTooltipMessage: 'Filtering for negative amounts will show no results',
   errorMessage: '',
   errorTooltipMessage: 'A random error tooltip message',
-  comparisonSymbols: [
+  comparisonSymbolItems: [
     {
       text: 'More than',
       value: '>',

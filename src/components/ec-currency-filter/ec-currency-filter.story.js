@@ -6,10 +6,8 @@ export default {
   component: EcCurrencyFilter,
   argTypes: {
     locale: {
-      control: {
-        type: 'select',
-        options: ['en', 'es', 'de-ch', 'jp', 'sv'],
-      },
+      options: ['en', 'es', 'de-ch', 'jp', 'sv'],
+      control: { type: 'select' },
     },
   },
 };
@@ -19,28 +17,28 @@ const Template = (args, { argTypes }) => ({
   components: { EcCurrencyFilter },
   data() {
     return {
-      valueFromProps: null,
+      model: null,
     };
   },
   watch: {
     value: {
       immediate: true,
-      handler(newValue) {
-        this.valueFromProps = newValue;
-      },
+      handler(newValue) { this.model = newValue; },
     },
   },
-  template: `
-    <ec-currency-filter
-      class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
-      v-model="valueFromProps"
-      v-bind="$props"
-      @change="onChanged"
-    />
-  `,
   methods: {
-    onChanged: action('change'),
+    onChange: action('change'),
   },
+  template: `
+    <div style="min-height: 450px;">
+      <ec-currency-filter
+        class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
+        v-model="model"
+        v-bind="$props"
+        v-on="{ change: onChange }"
+      />
+    </div>
+  `,
 });
 
 export const basic = Template.bind({});

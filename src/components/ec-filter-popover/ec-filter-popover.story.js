@@ -6,17 +6,17 @@ export default {
   component: EcFilterPopover,
 };
 
-const Template = (args, { argTypes }) => ({
+export const all = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { EcFilterPopover, EcCheckbox },
   template: `
-    <div class="tw-flex tw-flex-row tw-items-center tw-m-auto">
+    <div class="tw-flex tw-flex-row tw-justify-center tw-m-auto" style="min-height: 300px;">
       <ec-filter-popover
         class="tw-mr-16"
+        v-bind="$props"
         :label="labelOne"
         :numberOfSelectedFilters="0"
-        :popover-options="{ open: true }"
-        :is-full-height="isFullHeight"
+        :popover-options="{ ...$props.popoverOptions, open: true }"
       >
         <template #filter>
           <ec-checkbox
@@ -34,9 +34,9 @@ const Template = (args, { argTypes }) => ({
 
       <ec-filter-popover
         class="tw-mr-16"
+        v-bind="$props"
         :label="labelTwo"
         :numberOfSelectedFilters="3"
-        :is-full-height="isFullHeight"
       >
         <template #filter>
           <ec-checkbox
@@ -54,9 +54,9 @@ const Template = (args, { argTypes }) => ({
 
       <ec-filter-popover
         class="tw-mr-16"
+        v-bind="$props"
         :label="labelThree"
         :numberOfSelectedFilters="0"
-        :is-full-height="isFullHeight"
       >
         <template #filter>
           <ec-checkbox
@@ -75,9 +75,7 @@ const Template = (args, { argTypes }) => ({
   `,
 });
 
-export const basic = Template.bind({});
-
-basic.args = {
+all.args = {
   isFullHeight: false,
   labelOne: 'Due date',
   labelTwo: 'Status',

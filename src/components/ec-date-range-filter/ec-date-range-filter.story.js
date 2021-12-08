@@ -1,39 +1,38 @@
+import { action } from '@storybook/addon-actions';
 import EcDateRangeFilter from './ec-date-range-filter.vue';
 
 export default {
-  title: 'Filters/Date range filter',
+  title: 'Filters/Date Range Filter',
   component: EcDateRangeFilter,
 };
 
 const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
   components: { EcDateRangeFilter },
+  props: Object.keys(argTypes),
   data() {
     return {
-      valueFromProps: null,
+      model: null,
     };
   },
   watch: {
     value: {
       immediate: true,
-      handler(newValue) {
-        this.valueFromProps = newValue;
-      },
+      handler(newValue) { this.model = newValue; },
     },
   },
+  methods: {
+    onChange: action('change'),
+  },
   template: `
-    <ec-date-range-filter
-      class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
-      :label="label"
-      :from-label-text="fromLabelText"
-      :to-label-text="toLabelText"
-      :clear-text="clearText"
-      :from-error-message="fromErrorMessage"
-      :to-error-message="toErrorMessage"
-      :date-range-error-message="dateRangeErrorMessage"
-      v-model="valueFromProps"
-      :popover-options="{ open: true }"
-    />
+    <div style="min-height: 350px;">
+      <ec-date-range-filter
+        class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
+        v-bind="$props"
+        v-on="{ change: onChange }"
+        v-model="model"
+        :popover-options="{ ...$props.popoverOptions, open: true }"
+      />
+    </div>
   `,
 });
 
