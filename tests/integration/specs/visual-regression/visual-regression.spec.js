@@ -21,14 +21,14 @@ describe('Visual regression tests', () => {
         const previewFrame = getPreviewFrame(win);
         // eslint-disable-next-line no-underscore-dangle
         const storybookStore = previewFrame.__STORYBOOK_STORY_STORE__;
-        let stories = Object.values(storybookStore.getDataForManager().stories);
-
-        stories = stories.filter(isStoryEnabled);
+        let stories = Object.values(storybookStore.getStoriesJsonData().stories);
 
         const storyIdFilter = Cypress.env('storyIdFilter');
         if (storyIdFilter) {
           stories = stories.filter(story => story.id.match(storyIdFilter));
         }
+
+        stories = stories.map(story => storybookStore.fromId(story.id)).filter(isStoryEnabled);
 
         Cypress.log({
           displayName: 'INIT',
@@ -43,20 +43,20 @@ describe('Visual regression tests', () => {
       .then((stories) => {
         for (const story of stories) {
           visitStory(getStoryUuid(story), story, null);
-          const knobs = Object.entries(getStoryKnobs(story));
-          for (let i = 0; i < knobs.length; i++) {
-            const [name, knobsOpts] = knobs[i];
-            visitStory(getStoryUuid(story, `${i}__${name}`), story, knobsOpts);
+          const controls = Object.entries(getStoryControls(story));
+          for (let i = 0; i < controls.length; i++) {
+            const [name, controlsOpts] = controls[i];
+            visitStory(getStoryUuid(story, `${i}__${name}`), story, controlsOpts);
           }
         }
       });
   });
 });
 
-function visitStory(uuid, story, knobs) {
+function visitStory(uuid, story, controls) {
   const { waitOn, snapshotElement } = getStoryTestOptions(story);
 
-  cy.visit(getStoryUrl(story, knobs), { log: false });
+  cy.visit(getStoryUrl(story, controls), { log: false });
   cy.log('Creating story snapshot', story);
   cy.log(`Story: ${getStoryName(story)}`);
 
@@ -68,7 +68,10 @@ function visitStory(uuid, story, knobs) {
     cy.get(waitOn);
   }
 
-  cy.wait(200); // give a DOM chance to load fonts too.
+  // give a DOM chance to load fonts too.
+  cy.window().then({
+    timeout: 120000,
+  }, win => new Cypress.Promise(resolve => win.requestIdleCallback(resolve)));
 
   if (snapshotElement) {
     cy.get(snapshotElement).matchImageSnapshot(uuid);
@@ -82,30 +85,35 @@ function getPreviewFrame(window) {
 }
 
 function isStoryEnabled(story) {
-  const { enabled } = getStoryTestOptions(story);
+  const { disable } = getStoryTestOptions(story);
   const { docsOnly } = story.parameters;
-  return enabled !== false && !docsOnly;
+  return disable !== true && !docsOnly;
 }
 
-function getStoryUrl(story, knobs) {
-  const knobsQuery = getKnobsQuery(knobs);
-  return `/iframe.html?id=${encodeURIComponent(story.id)}&${knobsQuery}`;
+function getStoryUrl(story, controls) {
+  let url = `/iframe.html?id=${encodeURIComponent(story.id)}`;
+  const controlsQuery = getControlsQuery(controls);
+  if (controlsQuery) {
+    url += `&args=${controlsQuery}`;
+  }
+  return url;
 }
 
-function getStoryKnobs(story) {
-  const { knobs = {} } = getStoryTestOptions(story);
-  return knobs;
+function getStoryControls(story) {
+  const { controls = {} } = getStoryTestOptions(story);
+  return controls;
 }
 
-function getKnobsQuery(knobs) {
-  let knobsQuery = '';
-  if (knobs) {
-    knobsQuery = Object.entries(knobs)
-      .reduce((prev, [key, value]) => [...prev, `knob-${encodeURIComponent(key)}=${encodeURIComponent(value)}`], [])
-      .join('&');
+// args=size:49;transparent:true;user.name:demo1
+function getControlsQuery(controls) {
+  let controlsQuery = '';
+  if (controls) {
+    controlsQuery = Object.entries(controls)
+      .reduce((prev, [key, value]) => [...prev, `${encodeURIComponent(key)}:${encodeURIComponent(value)}`], [])
+      .join(';');
   }
 
-  return knobsQuery;
+  return controlsQuery;
 }
 
 function getStoryUuid(story, knobId) {

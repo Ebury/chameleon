@@ -30,10 +30,13 @@
     "responseTimeout": 10000,
     "execTimeout": 3000,
     "defaultCommandTimeout": 3000,
+
+    "modifyObstructiveCode": false,
+    "numTestsKeptInMemory": 1,
     
     "reporter": "junit",
     "reporterOptions": {
-        "mochaFile": "tests/integration/reports/junit.xml",
+        "mochaFile": "tests/integration/reports/junit.[hash].xml",
         "includePending": true,
         "useFullSuiteTitle": true,
         "testsuitesTitle": "Chameleon integration tests",
