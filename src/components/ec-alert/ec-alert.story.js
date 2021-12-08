@@ -1,62 +1,81 @@
-import { storiesOf } from '@storybook/vue';
-import { boolean, text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import EcAlert from './ec-alert.vue';
 import './ec-alert.story.css';
 
-const stories = storiesOf('Alert', module);
-
-stories.add('basic', () => ({
-  components: { EcAlert },
-  props: {
-    title: {
-      default: text('title', 'Error'),
-    },
-    subtitle: {
-      default: text('subtitle', 'Something was wrong with the update.'),
-    },
+export default {
+  title: 'Alert',
+  component: EcAlert,
+  argTypes: {
     type: {
-      default: text('type', 'error'),
-    },
-    buttonText: {
-      default: text('buttonText', 'Read more'),
-    },
-    dismissable: {
-      default: boolean('dismissable', true),
-    },
-    responsive: {
-      default: boolean('responsive', true),
+      options: ['error', 'info', 'success', 'warning'],
+      control: { type: 'select' },
     },
   },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { EcAlert },
+  props: Object.keys(argTypes),
   data() {
-    return { show: true };
+    return { model: true };
+  },
+  watch: {
+    open: {
+      immediate: true,
+      handler(newValue) { this.model = newValue; },
+    },
+  },
+  methods: {
+    onAction: action('action'),
+    onChange: action('change'),
   },
   template: `
-    <div>
-      <button class="ec-btn ec-btn--primary ec-btn--rounded ec-btn--sm tw-m-16" @click="show = !show">{{ show ? 'Hide' : 'Show' }}</button>
+    <ec-alert
+      v-bind="$props"
+      v-model="model"
+      v-on="{
+        action: onAction,
+        change: onChange,
+      }" />
+  `,
+});
 
-      <ec-alert
-        :title="title"
-        :subtitle="subtitle"
-        :type="type"
-        :dismissable="dismissable"
-        :responsive="responsive"
-        :button-text="buttonText"
-        v-model="show" />
+export const basic = Template.bind({});
 
-      <ec-alert
-        :title="title"
-        subtitle="This alert has custom breakpoint at 640px, so it doesn't break the same way as the alert above with default breakpoint"
-        :type="type"
-        :dismissable="dismissable"
-        :responsive="false"
-        :button-text="buttonText"
-        v-model="show"
-        class="my-alert tw-mt-16" />
-    </div>`,
-}));
+basic.args = {
+  title: 'Error',
+  subtitle: 'Something was wrong with the update.',
+  type: 'error',
+  buttonText: 'Read more',
+  dismissable: true,
+  responsive: true,
+  open: true,
+};
 
-stories.add('all', () => ({
+export const responsive = (args, { argTypes }) => ({
   components: { EcAlert },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <ec-alert v-bind="$props" />
+
+      <ec-alert
+        class="my-alert tw-mt-16"
+        v-bind="$props"
+        subtitle="This alert has custom breakpoint at 640px, so it doesn't break the same way as the alert above with default breakpoint"
+        :responsive="false" />
+    </div>
+  `,
+});
+
+responsive.args = { ...basic.args };
+responsive.parameters = {
+  visualRegressionTests: { disable: true },
+};
+
+export const all = (args, { argTypes }) => ({
+  components: { EcAlert },
+  props: Object.keys(argTypes),
   data() {
     return {
       alerts: [
@@ -142,23 +161,28 @@ stories.add('all', () => ({
     };
   },
   template: `
-  <div class="tw-m-16">
-    <template v-for="(block, blockIndex) in alerts">
-      <h3 class="tw-m-8" :key="blockIndex">{{ block.title }}</h3>
-      <ec-alert v-for="(alert, alertIndex) in block.data" :key="blockIndex + '-' + alertIndex" v-bind="alert" v-model="alert.model" class="tw-m-8">
-        <div v-if="alert.custom" slot-scope="{ title, subtitle }">
-          Custom: {{ title }} - {{ subtitle }}
-        </div>
+    <div class="tw-m-16">
+      <template v-for="(block, blockIndex) in alerts">
+        <h3 class="tw-m-8" :key="blockIndex">{{ block.title }}</h3>
+        <ec-alert v-for="(alert, alertIndex) in block.data" :key="blockIndex + '-' + alertIndex" v-bind="alert" v-model="alert.model" class="tw-m-8">
+          <div v-if="alert.custom" slot-scope="{ title, subtitle }">
+            Custom: {{ title }} - {{ subtitle }}
+          </div>
 
-        <template v-if="alert.custom" #cta>
-          <a
-            href="#"
-            @click.stop.prevent
-          >
-            Custom CTA
-          </a>
-        </template>
-      </ec-alert>
-    </template>
-  </div>`,
-}));
+          <template v-if="alert.custom" #cta>
+            <a
+              href="#"
+              @click.stop.prevent
+            >
+              Custom CTA
+            </a>
+          </template>
+        </ec-alert>
+      </template>
+    </div>`,
+});
+
+all.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
+};

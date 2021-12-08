@@ -8,7 +8,7 @@ export default {
   component: EcMetroline,
 };
 
-const Template = (args, { argTypes }) => ({
+export const basic = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
     EcMetroline,
@@ -17,8 +17,8 @@ const Template = (args, { argTypes }) => ({
     EcBtn,
   },
   template: `
-  <div class="tw-m-24 tw-flex tw-justify-center">
-    <ec-metroline class="tw-max-w-screen-md">
+    <div class="tw-m-24 tw-flex tw-justify-center">
+      <ec-metroline class="tw-max-w-screen-md">
         <ec-metroline-item
           :id="1"
           :badgeText="badgeText"
@@ -30,7 +30,7 @@ const Template = (args, { argTypes }) => ({
           </template>
 
           <template #sub-heading="{ isCompleted }">
-            <span 
+            <span
               v-if="isCompleted"
               class="tw-flex tw-items-center tw-mr-16">
               <ec-icon name="simple-check" class="tw-fill-current tw-mr-8" :size="16" />
@@ -39,20 +39,20 @@ const Template = (args, { argTypes }) => ({
           </template>
 
           <template #header-cta="{ activateItem, isCompleted, isReadOnly }">
-            <a 
+            <a
               v-if="isCompleted && !isReadOnly"
-              href="#" 
-              class="tw-flex tw-items-center" 
+              href="#"
+              class="tw-flex tw-items-center"
               @click.prevent.stop="activateItem"
             >
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
               Edit
             </a>
 
-            <a 
+            <a
               v-else-if="isCompleted"
-              href="#" 
-              @click.prevent.stop 
+              href="#"
+              @click.prevent.stop
               class="tw-flex tw-items-center"
             >
               Add Description
@@ -96,12 +96,12 @@ const Template = (args, { argTypes }) => ({
             </span>
           </template>
 
-          
+
           <template #header-cta="{ activateItem, isCompleted, isReadOnly }">
-            <a 
+            <a
               v-if="isCompleted && !isReadOnly"
-              href="#" 
-              class="tw-flex tw-items-center" 
+              href="#"
+              class="tw-flex tw-items-center"
               @click.prevent.stop="activateItem"
             >
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
@@ -149,10 +149,10 @@ const Template = (args, { argTypes }) => ({
           </template>
 
           <template #header-cta="{ activateItem, isCompleted, isReadOnly }">
-            <a 
+            <a
               v-if="isCompleted && !isReadOnly"
-              href="#" 
-              class="tw-flex tw-items-center" 
+              href="#"
+              class="tw-flex tw-items-center"
               @click.prevent.stop="activateItem"
             >
               <ec-icon name="simple-edit" class="tw-fill-current tw-mr-8" :size="24" />
@@ -178,12 +178,10 @@ const Template = (args, { argTypes }) => ({
               is-rounded>Continue</ec-btn>
           </template>
         </ec-metroline-item>
-    </ec-metroline>
-  </div>
+      </ec-metroline>
+    </div>
   `,
 });
-
-export const basic = Template.bind({});
 
 basic.args = {
   badgeText: '',

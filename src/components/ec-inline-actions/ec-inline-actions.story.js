@@ -1,55 +1,66 @@
-import { storiesOf } from '@storybook/vue';
-import { object } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import EcInlineActions from './ec-inline-actions.vue';
 import EcIcon from '../ec-icon/ec-icon.vue';
 
-const stories = storiesOf('Inline Actions', module);
+export default {
+  title: 'Inline Actions',
+  component: EcInlineActions,
+};
 
-stories.add('basic', () => ({
+const Template = (args, { argTypes }) => ({
   components: { EcInlineActions, EcIcon },
-  props: {
-    items: {
-      default: object('items', [
-        [
-          {
-            text: 'First action',
-            iconType: 'warning',
-            icon: 'simple-trade-finance',
-            tooltip: 'Random tooltip text',
-            href: '/example.jpg',
-            download: 'example.jpg',
-            disabled: true,
-          },
-        ],
-        [
-          {
-            name: 'reject',
-            action: () => console.log('Reject action invoked.'),
-            text: 'Reject',
-          },
-          {
-            action: () => console.log('Authorise action invoked.'),
-            text: 'Authorise',
-            disabled: true,
-            tooltip: 'Payment has not been executed yet',
-            icon: 'simple-person',
-            iconType: 'warning',
-          },
-        ],
-        [
-          { action: () => console.log('Cancel action invoked.'), text: 'Cancel', icon: 'simple-block' },
-          { action: () => console.log('Loremipsum action invoked.'), text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', icon: 'simple-sign-out' },
-        ],
-      ]),
-    },
-  },
+  props: Object.keys(argTypes),
   template: `
-  <div class="tw-flex tw-h-screen">
-    <div class="tw-m-auto">
-      <ec-inline-actions :items="items" :popoverOptions="{ open: true }">
-        <ec-icon name="simple-more" :size="24" />
-        <template v-slot:item-reject="{ item }">This is a custom {{ item.text }}</template>
-      </ec-inline-actions>
+    <div class="tw-flex tw-h-screen">
+      <div class="tw-m-auto">
+        <ec-inline-actions
+          v-bind="$props">
+          <ec-icon name="simple-more" :size="24" />
+          <template v-slot:item-reject="{ item }">This is a custom {{ item.text }}</template>
+        </ec-inline-actions>
+      </div>
     </div>
-  </div>`,
-}));
+  `,
+});
+
+export const basic = Template.bind({});
+
+basic.args = {
+  items: [
+    [
+      {
+        text: 'First action',
+        iconType: 'warning',
+        icon: 'simple-trade-finance',
+        tooltip: 'Random tooltip text',
+        href: '/example.jpg',
+        download: 'example.jpg',
+        disabled: true,
+      },
+    ],
+    [
+      {
+        name: 'reject',
+        action: action('reject'),
+        text: 'Reject',
+      },
+      {
+        action: action('authorise'),
+        text: 'Authorise',
+        disabled: true,
+        tooltip: 'Payment has not been executed yet',
+        icon: 'simple-person',
+        iconType: 'warning',
+      },
+    ],
+    [
+      { action: action('cancel'), text: 'Cancel', icon: 'simple-block' },
+      { action: action('lorem ipsum'), text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', icon: 'simple-sign-out' },
+    ],
+  ],
+  popoverOptions: { open: true },
+};
+
+basic.parameters = {
+  visualRegressionTests: { disable: true },
+};
