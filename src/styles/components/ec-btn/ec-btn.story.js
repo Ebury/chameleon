@@ -1,100 +1,79 @@
-import { storiesOf } from '@storybook/vue';
-import { boolean, select, text } from '@storybook/addon-knobs';
-import StoryRouter from 'storybook-vue-router';
 import EcIcon from '../../../components/ec-icon';
 import EcBtn from '../../../components/ec-btn';
 import { LIGHT_THEME, DARK_THEME } from '../../../../.storybook/backgrounds';
 
-const stories = storiesOf('Button', module);
+export const propsDark = generatePropsStory('Props (dark)', DARK_THEME);
+export const propsLight = generatePropsStory('Props (light)', LIGHT_THEME);
+export const allButtonsDark = generateAllForElement('All Buttons (dark)', 'button', DARK_THEME);
+export const allButtonsLight = generateAllForElement('All Buttons (light)', 'button', LIGHT_THEME);
+export const allAnchorsDark = generateAllForElement('All Anchors (dark)', 'a', DARK_THEME);
+export const allAnchorsLight = generateAllForElement('All Anchors (light)', 'a', LIGHT_THEME);
 
-stories
-  .addDecorator(StoryRouter())
-  .add('props (dark)', ...generatePropsStory(DARK_THEME), {
-    visualRegressionTests: { enabled: false },
-  })
-  .add('props (light)', ...generatePropsStory(LIGHT_THEME), {
-    visualRegressionTests: { enabled: false },
-  })
-  .add('all buttons (dark)', generateAllForElement('button'), {
-    backgrounds: { default: DARK_THEME.name, values: [DARK_THEME] },
-    visualRegressionTests: { enabled: false },
-  })
-  .add('all buttons (light)', generateAllForElement('button'), {
-    backgrounds: { default: LIGHT_THEME.name, values: [LIGHT_THEME] },
-    visualRegressionTests: { enabled: false },
-  })
-  .add('all anchors (dark)', generateAllForElement('a'), {
-    backgrounds: { default: DARK_THEME.name, values: [DARK_THEME] },
-    visualRegressionTests: { enabled: false },
-  })
-  .add('all anchors (light)', generateAllForElement('a'), {
-    backgrounds: { default: LIGHT_THEME.name, values: [LIGHT_THEME] },
-    visualRegressionTests: { enabled: false },
-  });
-
-function generatePropsStory(theme) {
-  return [
-    () => ({
-      props: {
-        tag: {
-          default: select('tag', ['button', 'a'], 'button'),
-        },
-        isDisabled: {
-          default: boolean('isDisabled', false),
-        },
-        btnText: {
-          default: text('btnText', 'Click me'),
-        },
-      },
-      // eslint-disable-next-line no-unused-vars
-      render(h) {
-        function renderSection(title, { btnText, ...props } = {}) {
-          const types = ['primary', 'secondary', 'success', 'error', 'warning'];
-          const icon = !btnText ? 'simple-check' : undefined;
-
-          return (
-            <div class="tw-col-full">
-              <h3 class="tw-text-additional-18">{title}</h3>
-              {types.map(type => (
-                <EcBtn category={type} key={type} {...{ props: { icon, ...props } }} class="tw-mr-8">{btnText}</EcBtn>
-              ))}
-            </div>
-          );
-        }
-
-        const icon = 'simple-check';
+function generatePropsStory(storyName, theme) {
+  const PropsStoryTemplate = (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    // eslint-disable-next-line no-unused-vars
+    render(h) {
+      function renderSection(title, { btnText, ...props } = {}) {
+        const types = ['primary', 'secondary', 'success', 'error', 'warning'];
 
         return (
-          <div class="tw-grid-container">
-            <div class="tw-grid">
-              {renderSection('Default', { ...this.$props })}
-              {renderSection('Small', { size: 'sm', ...this.$props })}
-              {renderSection('With icon', { icon, ...this.$props })}
-              {renderSection('Rounded', { isRounded: true, ...this.$props })}
-              {renderSection('Full width', { isFullWidth: true, ...this.$props })}
-              {renderSection('Outline', { isOutline: true, ...this.$props })}
-              {renderSection('Loading', { isLoading: true, ...this.$props })}
-              {renderSection('Reversed', { isReverse: true, ...this.$props })}
-            </div>
+          <div class="tw-col-full">
+            <h3 class="tw-text-additional-18">{title}</h3>
+            {types.map(type => (
+              <EcBtn key={type} {...{ props: { ...props, category: type } }} class="tw-mr-8">{btnText}</EcBtn>
+            ))}
           </div>
         );
-      },
-    }), {
-      backgrounds: { default: theme.name, values: [theme] },
-      visualRegressionTests: {
-        enabled: true,
-        knobs: {
-          anchors: { tag: 'a' },
-          disabled: { isDisabled: true },
-          'icon-only': { btnText: '' },
-        },
+      }
+
+      return (
+        <div class="tw-grid-container">
+          <div class="tw-grid">
+            {renderSection('Default', { ...this.$props })}
+            {renderSection('Small', { ...this.$props, size: 'sm' })}
+            {renderSection('With icon', { ...this.$props, icon: 'simple-check' })}
+            {renderSection('Rounded', { ...this.$props, isRounded: true })}
+            {renderSection('Full width', { ...this.$props, isFullWidth: true })}
+            {renderSection('Outline', { ...this.$props, isOutline: true })}
+            {renderSection('Loading', { ...this.$props, isLoading: true })}
+            {renderSection('Reversed', { ...this.$props, isReverse: true })}
+          </div>
+        </div>
+      );
+    },
+  });
+
+  const storyFn = PropsStoryTemplate.bind({});
+  storyFn.storyName = storyName;
+  storyFn.argTypes = {
+    tag: {
+      options: ['button', 'a'],
+      control: { type: 'select' },
+    },
+  };
+  storyFn.args = {
+    tag: 'button',
+    isDisabled: false,
+    btnText: 'Click me',
+  };
+  storyFn.parameters = {
+    docs: { disable: true },
+    backgrounds: { default: theme.name, values: [theme] },
+    actions: { disable: true },
+    visualRegressionTests: {
+      controls: {
+        anchors: { tag: 'a' },
+        disabled: { isDisabled: true },
       },
     },
-  ];
+  };
+
+  return storyFn;
 }
 
-function generateAllForElement(element) {
-  return () => ({
+function generateAllForElement(storyName, element, theme) {
+  const storyFn = () => ({
     components: { EcIcon },
     data() {
       return {
@@ -193,6 +172,16 @@ function generateAllForElement(element) {
            </component>
         </template>
       </div>
-      `,
+    `,
   });
+  storyFn.storyName = storyName;
+  storyFn.parameters = {
+    backgrounds: { default: theme.name, values: [theme] },
+    controls: { disable: true },
+    actions: { disable: true },
+    docs: { disable: true },
+    visualRegressionTests: { disable: true },
+  };
+
+  return storyFn;
 }

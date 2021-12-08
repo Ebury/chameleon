@@ -1,10 +1,9 @@
-import { storiesOf } from '@storybook/vue';
+export default {
+  title: 'Action List',
+};
 
-const stories = storiesOf('Action List', module);
-
-stories
-  .add('all', () => ({
-    template: `
+export const all = () => ({
+  template: `
     <div class="tw-m-20">
       <h3 class="tw-ml-4">Horizontal</h3>
 
@@ -44,5 +43,10 @@ stories
         </div>
       </div>
     </div>
-      `,
-  }));
+  `,
+});
+
+all.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
+};
