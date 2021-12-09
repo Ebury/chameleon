@@ -1,38 +1,31 @@
-import { storiesOf } from '@storybook/vue';
-import { text } from '@storybook/addon-knobs';
 import EcMainContainer from './ec-main-container.vue';
 import EcIcon from '../ec-icon';
 
 const title = 'Trade Finance';
 const titleIntro = 'Here you will be able to keep track of all your requests to Ebury and of your credit line.';
 
-const stories = storiesOf('Layout/Main Container', module);
+export default {
+  title: 'Layout/Main Container',
+  component: EcMainContainer,
+};
 
-stories
-  .add('basic', () => ({
-    components: { EcMainContainer },
-    props: {
-      title: {
-        default: text('Title', title),
-      },
-      titleIntro: {
-        default: text('Title intro', titleIntro),
-      },
-    },
-    template: '<ec-main-container :title="title" :title-intro="titleIntro" />',
-  }))
-  .add('with slots', () => ({
-    components: { EcMainContainer, EcIcon },
-    props: {
-      title: {
-        default: text('Title', title),
-      },
-      titleIntro: {
-        default: text('Title intro', titleIntro),
-      },
-    },
-    template: `
-    <ec-main-container :title="title" :title-intro="titleIntro">
+const Template = (args, { argTypes }) => ({
+  components: { EcMainContainer },
+  props: Object.keys(argTypes),
+  template: '<ec-main-container v-bind="$props" />',
+});
+
+export const basic = Template.bind({});
+basic.args = {
+  title,
+  titleIntro,
+};
+
+export const withSlots = (args, { argTypes }) => ({
+  components: { EcMainContainer, EcIcon },
+  props: Object.keys(argTypes),
+  template: `
+    <ec-main-container v-bind="$props">
       <template #breadcrumbs>
         <a href="#"
           @click.stop.prevent
@@ -55,5 +48,10 @@ stories
         </div>
       </template>
     </ec-main-container>
-    `,
-  }));
+  `,
+});
+
+withSlots.args = {
+  title,
+  titleIntro,
+};

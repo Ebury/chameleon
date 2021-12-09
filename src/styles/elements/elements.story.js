@@ -1,9 +1,10 @@
-import { storiesOf } from '@storybook/vue';
 import './elements.story.css';
 
-const stories = storiesOf('CSS/Elements', module);
+export default {
+  title: 'CSS/Elements',
+};
 
-stories.add('all', () => ({
+export const all = () => ({
   // eslint-disable-next-line no-unused-vars
   render(h) {
     const contentSectioning = ['address', 'article', 'aside', 'footer', 'header', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup', 'main', 'nav', 'section'];
@@ -149,4 +150,9 @@ stories.add('all', () => ({
       );
     }
   },
-}));
+});
+
+all.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
+};

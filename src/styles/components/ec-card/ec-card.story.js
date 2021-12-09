@@ -1,41 +1,40 @@
-import { storiesOf } from '@storybook/vue';
+export default {
+  title: 'Card',
+};
 
-const stories = storiesOf('Card', module);
-
-stories
-  .add('all', () => ({
-    data() {
-      return {
-        list: [
-          {
-            title: 'Basic',
-            text: 'Basic example card',
-            class: '',
-          },
-          {
-            title: 'Basic with a long text',
-            text: 'Methionylthreonylthreonyglutaminylarginyl|Lopadotemachoselachogaleokranioleipsan|Pneumonoultramicroscopicsilicovolcanoconiosis',
-            class: '',
-          },
-          {
-            title: 'Interactive card',
-            text: 'Interactive example card',
-            class: 'ec-card--is-interactive',
-          },
-          {
-            title: 'Card with narrow padding',
-            text: 'Example card with narrow padding',
-            class: 'ec-card--has-narrow-padding',
-          },
-          {
-            title: 'Disabled card',
-            text: 'Example disabled card',
-            class: 'ec-card--is-disabled',
-          },
-        ],
-      };
-    },
-    template: `
+export const all = () => ({
+  data() {
+    return {
+      list: [
+        {
+          title: 'Basic',
+          text: 'Basic example card',
+          class: '',
+        },
+        {
+          title: 'Basic with a long text',
+          text: 'Methionylthreonylthreonyglutaminylarginyl|Lopadotemachoselachogaleokranioleipsan|Pneumonoultramicroscopicsilicovolcanoconiosis',
+          class: '',
+        },
+        {
+          title: 'Interactive card',
+          text: 'Interactive example card',
+          class: 'ec-card--is-interactive',
+        },
+        {
+          title: 'Card with narrow padding',
+          text: 'Example card with narrow padding',
+          class: 'ec-card--has-narrow-padding',
+        },
+        {
+          title: 'Disabled card',
+          text: 'Example disabled card',
+          class: 'ec-card--is-disabled',
+        },
+      ],
+    };
+  },
+  template: `
     <div class="tw-p-16">
       <div v-for="(card, index) in list" :key="index">
         <h3>{{ card.title }}</h3>
@@ -48,5 +47,10 @@ stories
         </div>
       </div>
     </div>
-      `,
-  }));
+  `,
+});
+
+all.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
+};

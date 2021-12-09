@@ -1,4 +1,4 @@
-FROM cypress/browsers:node12.18.0-chrome83-ff77
+FROM cypress/browsers:node16.5.0-chrome94-ff93
 
 ARG UID=1000
 ARG GID=1000
@@ -8,6 +8,8 @@ ENV TERM=xterm \
     LANGUAGE=C.UTF-8 \
     LC_ALL=C.UTF-8 \
     TIMEZONE=Europe/London
+
+RUN npm install npm@7 -g
 
 # Change node's user UID/GUI to actual host user's UID/GID
 RUN if [ "$UID" -ne "1000" ]; then \

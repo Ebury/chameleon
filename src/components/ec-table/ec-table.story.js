@@ -1,11 +1,5 @@
-import { storiesOf } from '@storybook/vue';
-import {
-  object,
-  text,
-  number,
-  select,
-} from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+
 import EcIcon from '../ec-icon/ec-icon.vue';
 import EcTable from './ec-table.vue';
 import * as SortDirection from '../../enums/sort-direction';
@@ -70,80 +64,96 @@ const data = [
   ],
 ];
 
-const stories = storiesOf('Table', module);
+export default {
+  title: 'Table',
+  component: EcTable,
+  argTypes: {
+    stickyColumn: {
+      options: ['left', 'right'],
+      control: { type: 'select' },
+    },
+  },
+};
 
-stories
-  .add('all', () => ({
-    components: { EcTable, EcIcon },
-    props: {
-      title: {
-        default: text('title', 'Title'),
-      },
-      columns: {
-        default: object('columns', columns),
-      },
-      sorts: {
-        default: object('sorts', sorts),
-      },
-      data: {
-        default: object('data', data),
-      },
-      totalRecords: {
-        default: number('totalRecords', undefined),
-      },
-      maxHeight: {
-        default: text('maxHeight', '400px'),
-      },
-      stickyColumn: {
-        default: select('stickyColumn', { none: undefined, left: 'left', right: 'right' }, undefined),
-      },
-    },
-    methods: {
-      onSort: action('sort'),
-      onRowClick: action('onRowClick'),
-    },
-    template: `
-      <div class="tw-flex tw-flex-col tw-h-screen">
-        <h2 class="tw-m-24">Basic</h2>
-        <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-          <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick" />
-          <p class="tw-mt-40"><em>NOTE:</em> Sorting in this example is not hooked into any functionality, because this is just a basic example. You can change the direction in the knobs panel or if you want to see it working, checkout smart table story instead.</p>
-        </div>
-        <h2 class="tw-m-24">With custom column templates</h2>
-        <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-          <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick"
-          >
-            <template
-              v-slot:col2="{ content, row }"
-            >
-              <a href="#"><em><strong>{{ content }}</strong></em></a>
-              <div>This</br>is</br>a</br>very</br>tall</br>column</div>
-            </template>
-            <template
-              v-slot:col4="{ content, row }"
-            >
-              <small>This cell item has type of 'icon' so will be horizontally centered</small>
-              <div>
-                <ec-icon name="rounded-check" :size="24" />
-              </div>
-            </template>
-          </ec-table>
-        </div>
-        <h2 class="tw-m-24">With footer slot</h2>
-        <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-          <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick"
-          >
-            <template #footer>
-              <div class="tw-py-8">
-                <a href="#">View all</a>
-              </div>
-            </template>
-          </ec-table>
-        </div>
-        <h2 class="tw-m-24">With a fixed height and sticky column</h2>
-        <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-          <ec-table v-bind="$props" @sort="onSort" @row-click="onRowClick" sticky-column="left"/>
-        </div>
+const Template = (args, { argTypes }) => ({
+  components: { EcTable },
+  props: Object.keys(argTypes),
+  methods: {
+    onSort: action('sort'),
+    onRowClick: action('rowClick'),
+  },
+  template: `
+    <div class="tw-p-24">
+      <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }" />
     </div>
-    `,
-  }));
+  `,
+});
+
+export const basic = Template.bind({});
+
+basic.args = {
+  title: 'Title',
+  columns,
+  sorts,
+  data,
+  maxHeight: '400px',
+};
+
+basic.parameters = {
+  visualRegressionTests: { disable: true },
+};
+
+export const all = (args, { argTypes }) => ({
+  components: { EcTable, EcIcon },
+  props: Object.keys(argTypes),
+  methods: {
+    onSort: action('sort'),
+    onRowClick: action('rowClick'),
+  },
+  template: `
+    <div class="tw-flex tw-flex-col">
+      <h2 class="tw-m-24">Basic</h2>
+      <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+        <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }" />
+        <p class="tw-mt-40"><em>NOTE:</em> Sorting in this example is not hooked into any functionality, because this is just a basic example. You can change the direction in the controls panel or if you want to see it working, checkout smart table story instead.</p>
+      </div>
+      <h2 class="tw-m-24">With custom column templates</h2>
+      <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+        <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }">
+          <template
+            v-slot:col2="{ content, row }"
+          >
+            <a href="#"><em><strong>{{ content }}</strong></em></a>
+            <div>This</br>is</br>a</br>very</br>tall</br>column</div>
+          </template>
+          <template
+            v-slot:col4="{ content, row }"
+          >
+            <small>This cell item has type of 'icon' so will be horizontally centered</small>
+            <div>
+              <ec-icon name="rounded-check" :size="24" />
+            </div>
+          </template>
+        </ec-table>
+      </div>
+      <h2 class="tw-m-24">With footer slot</h2>
+      <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+        <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }">
+          <template #footer>
+            <div class="tw-py-8">
+              <a href="#">View all</a>
+            </div>
+          </template>
+        </ec-table>
+      </div>
+      <h2 class="tw-m-24">With a fixed height and sticky column</h2>
+      <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+        <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }" sticky-column="left"/>
+      </div>
+    </div>
+  `,
+});
+
+all.args = {
+  ...basic.args,
+};

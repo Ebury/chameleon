@@ -10,7 +10,6 @@
       isMasked: null,
       currency: null,
     }"
-    :is-sensitive="isSensitive"
     v-on="{ ...$listeners, 'value-change': null }"
   />
 </template>

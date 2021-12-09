@@ -2,6 +2,7 @@
 import cssVars from 'css-vars-ponyfill';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
+import Vue from 'vue';
 import { inlineSvgSprites } from '../src/icons/browser';
 import { getAllBackgrounds } from './backgrounds';
 
@@ -20,6 +21,10 @@ import '!!style-loader!css-loader!postcss-loader!../src/styles/main.css';
 
 config.sensitiveClass = 'tw-filter tw-blur-4';
 
+// SB bug workaround, remove this line if the following issue is fixed:
+// https://github.com/storybookjs/storybook/issues/14933
+Vue.prototype.toJSON = () => {};
+
 export const parameters = {
   viewMode: 'docs',
   layout: 'fullscreen',
@@ -33,7 +38,10 @@ export const parameters = {
     { id: 'hotpink', code: `<style>\n${hotpinkTheme}</style>`, hideCode: true },
   ],
   options: {
-    storySort: (a, b) => a[1].id.localeCompare(b[1].id),
+    storySort: (a, b) => (a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true })),
+  },
+  controls: {
+    expanded: true,
   },
 };
 

@@ -1,5 +1,4 @@
-import { storiesOf } from '@storybook/vue';
-import { boolean, object, text } from '@storybook/addon-knobs';
+import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcContainer from './ec-container.vue';
 import EcMainContainer from '../ec-main-container';
 import EcNavigation from '../ec-navigation';
@@ -11,120 +10,83 @@ import './ec-container.story.css';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import gravatar from '!!url-loader!../../../public/empty-gravatar.png';
 
-const stories = storiesOf('Layout/Container', module);
-
-const client = {
-  name: 'Ebury Demo 2',
-  profileUrl: '/profile',
-  gravatar,
+export default {
+  title: 'Layout/Container',
+  component: EcContainer,
+  decorators: [
+    fixedContainerDecorator(),
+  ],
 };
 
-stories
-  .add('basic', () => ({
-    components: { EcContainer },
-    template: `
-    <ec-container :is-collapsable="false">
+const Template = (args, { argTypes }) => ({
+  components: { EcContainer },
+  props: Object.keys(argTypes),
+  template: `
+    <ec-container v-bind="$props">
       <template #navigation>
         <div class="tw-bg-key-2 tw-text-gray-8 tw-min-h-screen">Navigation panel</div>
       </template>
       <template #content>
-      <div class="tw-bg-key-6 tw-text-gray-2 tw-min-h-screen">Main content panel</div>
+        <div class="tw-bg-key-6 tw-text-gray-2 tw-min-h-screen">Main content panel</div>
       </template>
-    </ec-container>`,
-  }));
+    </ec-container>
+  `,
+});
 
-stories
-  .add('with navigation', () => ({
-    data() {
-      return {
-        selectedClient: {},
-        isCollapsed: null,
-        dropdownSearchWidth: {
-          enabled: true,
-          order: 845,
-          fn: (data) => {
-            // calculate precise position for the dropdown. Displaying dropdown using bottom placement is not
-            // enough because the position of the trigger can change and it's never precisely centered in the
-            // user info container
-            if (this.$refs.userInfo && this.$refs.userInfo.$el) {
-              const boundaryPadding = 24;
-              const width = this.$refs.userInfo.$el.offsetWidth - (2 * boundaryPadding);
-              const left = this.$refs.userInfo.$el.offsetLeft + boundaryPadding;
-              data.styles.width = width;
-              data.offsets.popper.width = width;
-              data.offsets.popper.left = left;
-              data.offsets.popper.right = left + width + boundaryPadding;
-            }
+export const basic = Template.bind({});
+basic.args = {
+  isCollapsable: false,
+};
 
-            return data;
-          },
+export const withNavigation = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    EcContainer, EcMainContainer, EcNavigation, EcMenu, EcUserInfo, EcDropdownSearch, EcIcon,
+  },
+  data() {
+    return {
+      selectedClient: {},
+      isCollapsedFromProps: null,
+      dropdownSearchWidth: {
+        enabled: true,
+        order: 845,
+        fn: (data) => {
+          // calculate precise position for the dropdown. Displaying dropdown using bottom placement is not
+          // enough because the position of the trigger can change and it's never precisely centered in the
+          // user info container
+          if (this.$refs.userInfo && this.$refs.userInfo.$el) {
+            const boundaryPadding = 24;
+            const width = this.$refs.userInfo.$el.offsetWidth - (2 * boundaryPadding);
+            const left = this.$refs.userInfo.$el.offsetLeft + boundaryPadding;
+            data.styles.width = width;
+            data.offsets.popper.width = width;
+            data.offsets.popper.left = left;
+            data.offsets.popper.right = left + width + boundaryPadding;
+          }
+
+          return data;
         },
-      };
-    },
-    watch: {
-      isCollapsedFromProps: {
-        immediate: true,
-        handler(newValue) {
-          this.isCollapsed = newValue;
-        },
+      },
+    };
+  },
+  watch: {
+    isCollapsed: {
+      immediate: true,
+      handler(newValue) {
+        this.isCollapsedFromProps = newValue;
       },
     },
-    components: {
-      EcContainer, EcMainContainer, EcNavigation, EcMenu, EcUserInfo, EcDropdownSearch, EcIcon,
+  },
+  methods: {
+    updateIsCollapsed() {
+      this.isCollapsedFromProps = !this.isCollapsedFromProps;
     },
-    methods: {
-      updateIsCollapsed() {
-        this.isCollapsed = !this.isCollapsed;
-      },
-    },
-    props: {
-      client: {
-        default: object('user', client),
-      },
-      clientItems: {
-        default: object('clientItems', [
-          { text: 'Ebury Demo' },
-          { text: 'Ebury Demo 2' },
-        ]),
-      },
-      branding: {
-        default: object('branding', {
-          name: 'My Branding',
-          logo: '/ebury-logo-sm-inverse.png',
-        }),
-      },
-      menuLinks: {
-        default: object('menuLinks', [
-          { text: 'Link 1', iconName: 'simple-trade', url: '/my-url' },
-          { text: 'Link 2', iconName: 'simple-trade-finance', url: '/my-url' },
-          {
-            text: 'Link 3', iconName: 'simple-dashboard', url: '/my-url', isActive: true,
-          },
-          { text: 'Link 4', iconName: 'simple-help', url: '/my-url' },
-          { text: 'Link 5', iconName: 'simple-calendar', url: '/my-url' },
-        ]),
-      },
-      footerLinks: {
-        default: object('footerLinks', [
-          { text: 'Link 6', iconName: 'simple-help', url: '/my-url' },
-          { text: 'Link 7', iconName: 'simple-sign-out', url: '/my-url' },
-        ]),
-      },
-      isCollapsable: {
-        default: boolean('isCollapsable', false),
-      },
-      copyrightText: {
-        default: text('copyrightText', 'Copyright text 2019'),
-      },
-      isCollapsedFromProps: {
-        default: boolean('isCollapsed', false),
-      },
-    },
-    template: `
+  },
+  template: `
     <ec-container :is-collapsable="isCollapsable">
       <template #navigation>
         <ec-navigation
-          :is-collapsed="isCollapsable && isCollapsed"
+          :is-collapsed="isCollapsable && isCollapsedFromProps"
           :is-collapsable="isCollapsable"
           :branding="branding"
           :show-branding-logo="!isCollapsable">
@@ -134,7 +96,7 @@ stories
               ref="userInfo"
               :user="client"
               :is-collapsable="isCollapsable"
-              :is-collapsed="isCollapsable && isCollapsed"
+              :is-collapsed="isCollapsable && isCollapsedFromProps"
               @toggle="updateIsCollapsed"
             >
               <template #client-selector>
@@ -152,14 +114,14 @@ stories
           </template>
 
           <template #menu>
-            <ec-menu :links="menuLinks" :is-collapsed="isCollapsable && isCollapsed" @click.native.stop.prevent />
+            <ec-menu :links="menuLinks" :is-collapsed="isCollapsable && isCollapsedFromProps" @click.native.stop.prevent />
           </template>
 
           <template #footer-menu>
-            <ec-menu :links="footerLinks" :is-collapsed="isCollapsable && isCollapsed" :horizontal="!isCollapsable || (isCollapsable && !isCollapsed)" @click.native.stop.prevent />
+            <ec-menu :links="footerLinks" :is-collapsed="isCollapsable && isCollapsedFromProps" :horizontal="!isCollapsable || (isCollapsable && !isCollapsedFromProps)" @click.native.stop.prevent />
           </template>
 
-          <template #copyright v-if="!isCollapsable || !isCollapsed">
+          <template #copyright v-if="!isCollapsable || !isCollapsedFromProps">
             <div>{{ copyrightText }}</div>
           </template>
 
@@ -173,4 +135,46 @@ stories
       </template>
     </ec-container>
     `,
-  }));
+});
+
+withNavigation.argTypes = {
+  client: { control: 'object' },
+  clientItems: { control: 'array' },
+  branding: { control: 'object' },
+  menuLinks: { control: 'array' },
+  footerLinks: { control: 'array' },
+  copyrightText: { control: 'text' },
+  isCollapsed: { control: 'boolean' },
+};
+
+withNavigation.args = {
+  client: {
+    name: 'Ebury Demo 2',
+    profileUrl: '/profile',
+    gravatar,
+  },
+  clientItems: [
+    { text: 'Ebury Demo' },
+    { text: 'Ebury Demo 2' },
+  ],
+  branding: {
+    name: 'My Branding',
+    logo: '/ebury-logo-sm-inverse.png',
+  },
+  menuLinks: [
+    { text: 'Link 1', iconName: 'simple-trade', url: '/my-url' },
+    { text: 'Link 2', iconName: 'simple-trade-finance', url: '/my-url' },
+    {
+      text: 'Link 3', iconName: 'simple-dashboard', url: '/my-url', isActive: true,
+    },
+    { text: 'Link 4', iconName: 'simple-help', url: '/my-url' },
+    { text: 'Link 5', iconName: 'simple-calendar', url: '/my-url' },
+  ],
+  footerLinks: [
+    { text: 'Link 6', iconName: 'simple-help', url: '/my-url' },
+    { text: 'Link 7', iconName: 'simple-sign-out', url: '/my-url' },
+  ],
+  isCollapsable: false,
+  copyrightText: 'Copyright text 2019',
+  isCollapsed: false,
+};

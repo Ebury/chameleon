@@ -1,12 +1,9 @@
+import { action } from '@storybook/addon-actions';
 import EcBtnDropdown from './ec-btn-dropdown.vue';
 
 export default {
   title: 'Button Dropdown',
   component: EcBtnDropdown,
-  argTypes: {
-    click: { action: 'clicked' },
-    change: { action: 'change' },
-  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -14,32 +11,30 @@ const Template = (args, { argTypes }) => ({
   components: {
     EcBtnDropdown,
   },
+  methods: {
+    onClick: action('click'),
+    onChange: action('change'),
+  },
   template: `
-  <div class="tw-m-24 tw-p-24 tw-flex tw-justify-center tw-bg-gray-0">
-    <ec-btn-dropdown :items="items" @click="click" @change="change" :isDisabled="isDisabled" :buttonText="buttonText" />
-  </div>
+    <div class="tw-m-24 tw-p-24 tw-flex tw-justify-center tw-bg-gray-2">
+      <ec-btn-dropdown v-bind="$props" v-on="{ click: onClick, change: onChange }" />
+    </div>
   `,
 });
 
 export const basic = Template.bind({});
-
 basic.args = {
+  isDisabled: false,
+  buttonText: 'Convert & Pay',
   items: [
     { value: 'Spot', text: 'Spot' },
     { value: 'Convert', text: 'Convert' },
   ],
-  isDisabled: false,
-  buttonText: 'Convert & Pay',
 };
 
 export const disabled = Template.bind({});
-
 disabled.args = {
-  items: [
-    { value: 'Spot', text: 'Spot' },
-    { value: 'Convert', text: 'Convert' },
-  ],
+  ...basic.args,
   isDisabled: true,
-  buttonText: 'Convert & Pay',
 };
 

@@ -1,14 +1,31 @@
-
-import { storiesOf } from '@storybook/vue';
+import { action } from '@storybook/addon-actions';
+import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcPrivacyPolicy from './ec-privacy-policy.vue';
 
-const stories = storiesOf('Privacy Policy', module);
+export default {
+  title: 'Privacy Policy',
+  component: EcPrivacyPolicy,
+  decorators: [
+    fixedContainerDecorator('300px'),
+  ],
+};
 
-stories.add('basic', () => ({
+const Template = (args, { argTypes }) => ({
   components: { EcPrivacyPolicy },
+  props: Object.keys(argTypes),
+  methods: {
+    onAccept: action('accept'),
+    onNavigate: action('navigate'),
+  },
   template: `
-    <ec-privacy-policy button-text="Accept and continue" title="Cookies and Privacy">
-      This site uses cookies to ensure you get the best experience. For more information see our <a>Privacy Policy</a>
+    <ec-privacy-policy v-bind="$props" v-on="{ accept: onAccept }">
+      This site uses cookies to ensure you get the best experience. For more information see our <a @click.prevent.stop="onNavigate">Privacy Policy</a>.
     </ec-privacy-policy>
   `,
-}));
+});
+
+export const basic = Template.bind({});
+basic.args = {
+  buttonText: 'Accept and continue',
+  title: 'Cookies and Privacy',
+};

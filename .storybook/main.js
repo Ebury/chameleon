@@ -2,6 +2,7 @@
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
+  staticDirs: ['../public', '../src/assets'],
   stories: [
     '../src/**/*.story.mdx',
     '../src/**/*.story.@(js|jsx|ts|tsx)',
@@ -10,7 +11,6 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-cssresources',
     '@storybook/addon-essentials',
-    '@storybook/addon-knobs',
     '@storybook/addon-links',
     {
       name: '@storybook/addon-postcss',

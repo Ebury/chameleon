@@ -1,13 +1,22 @@
 import Vue from 'vue';
 import copyToClipboard from 'clipboard-copy';
-import { storiesOf } from '@storybook/vue';
-import {
-  color, number, select, text,
-} from '@storybook/addon-knobs';
 import EcIcon from './ec-icon.vue';
 import { loadSvgSprites } from '../../icons/loader';
 
-const stories = storiesOf('Icon', module);
+export default {
+  title: 'Icon',
+  component: EcIcon,
+  argTypes: {
+    type: {
+      options: ['error', 'success', 'warning', 'info'],
+      control: { type: 'select' },
+    },
+    name: {
+      options: ['simple-check', 'rounded-check'],
+      control: { type: 'select' },
+    },
+  },
+};
 
 function readIconNamesFromSprite(svg) {
   const placeholder = document.createElement('div');
@@ -33,19 +42,30 @@ const EcIconsGrid = Vue.extend({
   `,
 });
 
-stories.add('all icons', () => ({
+const Template = (args, { argTypes }) => ({
+  components: { EcIcon },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="tw-p-24 tw-flex">
+      <ec-icon v-bind="$props" class="tw-m-auto" />
+    </div>
+  `,
+});
+
+export const basic = Template.bind({});
+
+basic.args = {
+  name: 'simple-check',
+  size: 48,
+};
+
+basic.parameters = {
+  visualRegressionTests: { disable: true },
+};
+
+export const allIcons = (args, { argTypes }) => ({
   components: { EcIcon, EcIconsGrid },
-  props: {
-    size: {
-      default: number('Size', 48),
-    },
-    color: {
-      default: color('Color', '#333'),
-    },
-    type: {
-      default: select('Type', ['', 'error', 'success', 'warning', 'info', 'interactive']),
-    },
-  },
+  props: Object.keys(argTypes),
   template: `
     <div class="tw-p-32 tw-text-center" v-if="isLoading">
       Loading icons...
@@ -116,27 +136,40 @@ stories.add('all icons', () => ({
       simpleIcons: [],
     };
   },
-}), {
+});
+
+allIcons.argTypes = {
+  color: {
+    control: { type: 'color' },
+  },
+  type: {
+    options: ['error', 'success', 'warning', 'info', 'interactive'],
+    control: { type: 'select' },
+  },
+  name: {
+    table: { disable: true },
+  },
+};
+
+allIcons.args = {
+  color: '#333',
+  size: 48,
+};
+
+allIcons.parameters = {
   visualRegressionTests: {
     waitOn: '.search-results',
     snapshotElement: '.search-results',
-    knobs: {
-      large: { Size: 64 },
-      'type-error': { Type: 'error' },
+    controls: {
+      large: { size: 64 },
+      'type-error': { type: 'error' },
     },
   },
-});
+};
 
-stories.add('all flags', () => ({
+export const allFlags = (args, { argTypes }) => ({
   components: { EcIcon, EcIconsGrid },
-  props: {
-    size: {
-      default: number('Size', 48),
-    },
-    borderRadius: {
-      default: text('Border radius', '0px'),
-    },
-  },
+  props: Object.keys(argTypes),
   template: `
     <div class="tw-p-32 tw-text-center" v-if="isLoading">
       Loading icons...
@@ -195,41 +228,37 @@ stories.add('all flags', () => ({
       currencyFlags: [],
     };
   },
-}), {
+});
+
+allFlags.argTypes = {
+  borderRadius: { control: 'text' },
+  name: {
+    table: { disable: true },
+  },
+  type: {
+    table: { disable: true },
+  },
+};
+
+allFlags.args = {
+  borderRadius: '0px',
+  size: 48,
+};
+
+allFlags.parameters = {
   visualRegressionTests: {
     waitOn: '.search-results',
     snapshotElement: '.search-results',
-    knobs: {
-      large: { Size: 64 },
-      rounded: { 'Border radius': '50%' },
+    controls: {
+      large: { size: 64 },
+      rounded: { size: 48, borderRadius: '24px' },
     },
   },
-});
+};
 
-stories.add('basic', () => ({
+export const withinAText = (args, { argTypes }) => ({
   components: { EcIcon },
-  template: `
-    <div class="tw-h-screen tw-flex">
-      <ec-icon v-bind="$props" class="tw-m-auto" />
-    </div>
-  `,
-  props: {
-    name: {
-      default: text('Name', 'simple-check'),
-    },
-    size: {
-      default: number('Size', 48),
-    },
-    type: {
-      default: select('Type', ['', 'error', 'success', 'warning', 'info']),
-    },
-  },
-}), {
-  visualRegressionTests: { enabled: false },
-});
-
-stories.add('within a text', () => ({
-  components: { EcIcon },
+  props: Object.keys(argTypes),
   template: `
     <div class="tw-p-8">
       <p>
@@ -246,4 +275,4 @@ stories.add('within a text', () => ({
       </button>
     </div>
   `,
-}));
+});

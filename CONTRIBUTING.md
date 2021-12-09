@@ -160,12 +160,12 @@ To configure visual regression tests for the story, you can use storybook parame
 ```js
 {
   visualRegressionTests: {
-    enabled: true, // true by default, if set to false, it will skip the story.
+    disable: false, // false by default, if set to true, it will skip the story.
     waitOn: '.search-results', // wait on this element to appear before taking snapshot (cy.get(waitOn)). defaults to #root
     snapshotElement: '.search-results', // take snapshot of this element only. defaults to entire viewport
-    knobs: { // you can run the tests using custom knobs, if the story supports them.
-      large: { Size: 64 }, // "large" is the name of test, it will be used in the name of the snapshot file. "Size" is the label of the knob, e.g. size: { default: number('Size', 48) }
-      'type-error': { Type: 'error' },
+    controls: { // you can run the tests using custom controls, if the story supports them.
+      large: { size: 64 }, // "large" is the name of test, it will be used in the name of the snapshot file. "size" is the prop of the knob
+      'type-error': { type: 'error' },
     },
   },
 }

@@ -58,11 +58,13 @@
 <script>
 import EcIcon from '../../../ec-icon';
 import EcInputField from '../../../ec-input-field';
+import EcTooltip from '../../../../directives/ec-tooltip';
 import { getUid } from '../../../../utils/uid';
 
 export default {
   name: 'EcInlineInputFieldEdit',
   components: { EcIcon, EcInputField },
+  directives: { EcTooltip },
   props: {
     label: {
       default: '',

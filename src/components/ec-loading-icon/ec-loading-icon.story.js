@@ -1,19 +1,20 @@
-import { storiesOf } from '@storybook/vue';
-import { number } from '@storybook/addon-knobs';
 import EcLoadingIcon from './ec-loading-icon.vue';
 
-const stories = storiesOf('Loading Icon', module);
+export default {
+  title: 'Loading Icon',
+  component: EcLoadingIcon,
+};
 
-stories.add('basic', () => ({
+export const basic = (args, { argTypes }) => ({
   components: { EcLoadingIcon },
+  props: Object.keys(argTypes),
   template: `
-    <div class="tw-h-screen tw-flex">
-      <ec-loading-icon :size="size" />
+    <div class="tw-p-24 tw-flex tw-justify-center">
+      <ec-loading-icon v-bind="$props" />
     </div>
   `,
-  props: {
-    size: {
-      default: number('Size', 48),
-    },
-  },
-}));
+});
+
+basic.args = {
+  size: 48,
+};

@@ -1,25 +1,16 @@
-import { storiesOf } from '@storybook/vue';
-import { number, select } from '@storybook/addon-knobs';
 import EcDonut from './ec-donut.vue';
 
-const stories = storiesOf('Donut', module);
+export default {
+  title: 'Donut',
+  component: EcDonut,
+};
 
-stories.add('basic', () => ({
+export const basic = (args, { argTypes }) => ({
   components: { EcDonut },
+  props: Object.keys(argTypes),
   filters: {
     currencyFormat(value, currency) {
-      return new Intl.NumberFormat('gb-GB', { style: 'currency', currency, currencyDisplay: 'code' }).format(value);
-    },
-  },
-  props: {
-    used: {
-      default: number('Used', 2500),
-    },
-    amount: {
-      default: number('Amount', 10000),
-    },
-    currency: {
-      default: select('Currency', ['GBP', 'EUR', 'USD', 'CAD'], 'GBP'),
+      return new Intl.NumberFormat('en-GB', { style: 'currency', currency, currencyDisplay: 'code' }).format(value);
     },
   },
   computed: {
@@ -46,4 +37,17 @@ stories.add('basic', () => ({
       </ec-donut>
     </div>
   </div>`,
-}));
+});
+
+basic.argTypes = {
+  currency: {
+    options: ['GBP', 'EUR', 'USD', 'CAD'],
+    control: { type: 'select' },
+  },
+};
+
+basic.args = {
+  used: 2500,
+  amount: 10000,
+  currency: 'GBP',
+};

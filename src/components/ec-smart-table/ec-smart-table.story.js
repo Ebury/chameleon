@@ -1,11 +1,3 @@
-import { storiesOf } from '@storybook/vue';
-import {
-  boolean,
-  number,
-  object,
-  select,
-  text,
-} from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcSmartTable from './ec-smart-table.vue';
 import EcTableFilter from '../ec-table-filter';
@@ -93,165 +85,146 @@ const prefilters = {
   inThePast: { dueDate: { to: '2020-11-23' } },
 };
 
-const stories = storiesOf('Table', module);
+export default {
+  title: 'Smart Table',
+  component: EcSmartTable,
+};
 
-stories
-  .add('smart', () => ({
-    components: { EcSmartTable },
-    props: {
-      title: {
-        default: text('title', 'Title'),
-      },
-      columns: {
-        default: object('columns', columns),
-      },
-      sorts: {
-        default: object('sorts', defaultSorts),
-      },
-      data: {
-        default: object('data', data),
-      },
-      fetchArgs: {
-        default: object('fetchArgs', { customProp: 'customValue' }),
-      },
-      multiSort: {
-        default: boolean('multiSort', false),
-      },
-      maxHeight: {
-        default: text('maxHeight', ''),
-      },
-      stickyColumn: {
-        default: select('stickyColumn', ['', 'left', 'right']),
-      },
-      errorMessage: {
-        default: text('errorMessage', ''),
-      },
-      emptyMessage: {
-        default: text('emptyMessage', ''),
-      },
-      loadingDelay: {
-        default: number('loadingDelay', 500),
-      },
-      failOnFetch: {
-        default: boolean('failOnFetch', false),
-      },
-      fetchEmptyList: {
-        default: boolean('fetchEmptyList', false),
-      },
-      sortCycle: {
-        default: select('sortCycle', {
-          lowestFirst: SortDirectionCycle.LOWEST_FIRST,
-          highestFirst: SortDirectionCycle.HIGHEST_FIRST,
-        }),
-      },
-      isPaginationEnabled: {
-        default: boolean('isPaginationEnabled', true),
-      },
-      isFilteringEnabled: {
-        default: boolean('isFilteringEnabled', true),
-      },
-      prefilter: {
-        default: select('prefilter', Object.keys(prefilters), 'all'),
-      },
+export const basic = (args, { argTypes }) => ({
+  components: { EcSmartTable },
+  props: Object.keys(argTypes),
+  computed: {
+    filterComponent() {
+      return this.isFilteringEnabled ? MySmartTableFilter : null;
     },
-    methods: {
-      onSort: action('sort'),
-      onAborted: action('aborted'),
-      onError: action('error'),
-    },
-    computed: {
-      filterComponent() {
-        return this.isFilteringEnabled ? MySmartTableFilter : null;
-      },
-    },
-    data() {
-      return {
-        prefilters,
-        dataSource: {
-          fetch: ({
-            sorts,
-            page = 1,
-            numberOfItems,
-            filter,
-            ...args
-          }, cancelToken) => {
-            // use real service in a real application:
-            // e.g.
-            // return myService.getData(sorts, page, numberOfItems, filter, cancelToken);
-            // and pass the cancelToken into a fetch() call
-            // e.g.
-            // getData: (sorts, page, numberOfItems, filter, cancelToken) => fetch('/my/url', { body: { sorts, page, numberOfItems, ...filter }, signal: cancelToken });
+  },
+  data() {
+    return {
+      prefilters,
+      dataSource: {
+        fetch: ({
+          sorts,
+          page = 1,
+          numberOfItems,
+          filter,
+          ...fetchArgs
+        }, cancelToken) => {
+          // use real service in a real application:
+          // e.g.
+          // return myService.getData(sorts, page, numberOfItems, filter, cancelToken);
+          // and pass the cancelToken into a fetch() call
+          // e.g.
+          // getData: (sorts, page, numberOfItems, filter, cancelToken) => fetch('/my/url', { body: { sorts, page, numberOfItems, ...filter }, signal: cancelToken });
 
-            action('fetching')(sorts, page, numberOfItems, JSON.stringify(filter), JSON.stringify(args));
+          action('fetching')(sorts, page, numberOfItems, JSON.stringify(filter), JSON.stringify(fetchArgs));
 
-            return new Promise((resolve, reject) => {
-              this.loadingTimeout = setTimeout(() => {
-                action('resolving data')(sorts, page, numberOfItems, JSON.stringify(filter), JSON.stringify(args));
-                if (this.failOnFetch) {
-                  reject(new Error('Random error'));
-                } else if (this.fetchEmptyList) {
-                  resolve({
-                    items: [],
-                    total: 0,
-                    count: 0,
-                  });
-                } else {
-                  resolve({
-                    items: this.data,
-                    total: 52,
-                    count: Math.min(this.data.length, numberOfItems),
-                  });
-                }
-              }, this.loadingDelay);
+          return new Promise((resolve, reject) => {
+            this.loadingTimeout = setTimeout(() => {
+              action('resolving data')(sorts, page, numberOfItems, JSON.stringify(filter), JSON.stringify(fetchArgs));
+              if (this.failOnFetch) {
+                reject(new Error('Random error'));
+              } else if (this.fetchEmptyList) {
+                resolve({
+                  items: [],
+                  total: 0,
+                  count: 0,
+                });
+              } else {
+                resolve({
+                  items: this.data,
+                  total: 52,
+                  count: Math.min(this.data.length, numberOfItems),
+                });
+              }
+            }, this.loadingDelay);
 
-              cancelToken.addEventListener('abort', () => {
-                action('fetch cancelled')();
-                clearTimeout(this.loadingTimeout);
-              });
+            cancelToken.addEventListener('abort', () => {
+              action('fetch cancelled')();
+              clearTimeout(this.loadingTimeout);
             });
-          },
+          });
         },
-      };
-    },
-
-    template: `
-      <div class="tw-flex tw-h-screen tw-px-20">
-        <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
-          <ec-smart-table
-            :title="title"
-            :columns="columns"
-            :sorts="sorts"
-            :multi-sort="multiSort"
-            :data-source="dataSource"
-            :fetch-args="fetchArgs"
-            :max-height="maxHeight"
-            :sticky-column="stickyColumn || null"
-            :error-message="errorMessage || undefined"
-            :empty-message="emptyMessage || undefined"
-            :sort-cycle="sortCycle"
-            :is-pagination-enabled="isPaginationEnabled"
-            :filter-component="filterComponent"
-            :filter="prefilters[prefilter]"
-            @sort="onSort"
-            @abort="onAborted"
-            @error="onError">
-            <template #header-actions="{ total, items, error, loading }">
-              <a href="#">Download</a>
-            </template>
-            <template #error="{ errorMessage }">
-              <div class="tw-text-error">Error state template - {{ errorMessage }}</div>
-            </template>
-            <template #empty="{ emptyMessage }">
-              Empty state template - {{ emptyMessage }}
-            </template>
-            <template #footer><div class="tw-text-right">Custom footer info</div></template>
-            <template #pages="{ page, totalPages, total}">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
-          </ec-smart-table>
-        </div>
+      },
+    };
+  },
+  methods: {
+    onSort: action('sort'),
+    onAbort: action('abort'),
+    onError: action('error'),
+  },
+  template: `
+    <div class="tw-flex tw-h-screen tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+        <ec-smart-table
+          v-bind="{
+            ...$props,
+            loadingDelay: null,
+            failOnFetch: null,
+            fetchEmptyList: null,
+            isFilteringEnabled: null,
+            prefilter: null,
+          }"
+          :data-source="dataSource"
+          :filter-component="filterComponent"
+          :filter="prefilters[prefilter]"
+          v-on="{
+            sort: onSort,
+            abort: onAbort,
+            error: onError,
+          }">
+          <template #header-actions="{ total, items, error, loading }">
+            <a href="#">Download</a>
+          </template>
+          <template #error="{ errorMessage }">
+            <div class="tw-text-error">Error state template - {{ errorMessage }}</div>
+          </template>
+          <template #empty="{ emptyMessage }">
+            Empty state template - {{ emptyMessage }}
+          </template>
+          <template #footer><div class="tw-text-right">Custom footer info</div></template>
+          <template #pages="{ page, totalPages, total}">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
+        </ec-smart-table>
       </div>
-    `,
-  }), {
-    visualRegressionTests: {
-      waitOn: '.ec-table',
+    </div>
+  `,
+});
+
+basic.argTypes = {
+  stickyColumn: {
+    options: ['left', 'right'],
+    control: { type: 'select' },
+  },
+  sortCycle: {
+    options: {
+      lowestFirst: SortDirectionCycle.LOWEST_FIRST,
+      highestFirst: SortDirectionCycle.HIGHEST_FIRST,
     },
-  });
+    control: { type: 'select' },
+  },
+  prefilter: {
+    options: Object.keys(prefilters),
+    control: { type: 'select' },
+  },
+};
+
+basic.args = {
+  title: 'Title',
+  columns,
+  sorts: defaultSorts,
+  data,
+  fetchArgs: { customProp: 'customValue' },
+  multiSort: false,
+  maxHeight: '',
+  loadingDelay: 500,
+  failOnFetch: false,
+  fetchEmptyList: false,
+  isPaginationEnabled: true,
+  isFilteringEnabled: true,
+  prefilter: 'all',
+};
+
+basic.parameters = {
+  visualRegressionTests: {
+    waitOn: '.ec-table',
+  },
+};

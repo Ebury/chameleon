@@ -1,114 +1,99 @@
-import { storiesOf } from '@storybook/vue';
-import { text, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import EcInputField from './ec-input-field.vue';
 
-const stories = storiesOf('Input Field', module);
-
-const GROUPS = {
-  NUMBER: 'Number input props',
-  TEXT: 'Text input props',
-  DATE: 'Date input props',
-  TOOLTIP: 'Tooltip Text',
+export default {
+  title: 'Input Field',
+  component: EcInputField,
+  argTypes: {
+    isInGroup: {
+      options: ['left', 'right'],
+      control: { type: 'select' },
+    },
+  },
 };
 
-stories
-  .add('basic', () => ({
-    components: { EcInputField },
-    props: {
-      valueFromPropsNumber: {
-        default: text('value', '', GROUPS.NUMBER),
-      },
-      labelNumber: {
-        default: text('label', 'Number input', GROUPS.NUMBER),
-      },
-      noteNumber: {
-        default: text('note', 'Max 80 chars', GROUPS.NUMBER),
-      },
-      errorMessageNumber: {
-        default: text('error message', '', GROUPS.NUMBER),
-      },
-      iconNumber: {
-        default: text('icon', '', GROUPS.NUMBER),
-      },
-      isSensitive: {
-        default: boolean('is sensitive', false),
-      },
-      valueFromPropsText: {
-        default: text('value', '', GROUPS.TEXT),
-      },
-      labelText: {
-        default: text('label', 'Text input', GROUPS.TEXT),
-      },
-      noteText: {
-        default: text('note', 'Max 80 chars', GROUPS.TEXT),
-      },
-      bottomNoteText: {
-        default: text('bottom note', 'Random bottom note text', GROUPS.TEXT),
-      },
-      errorMessageText: {
-        default: text('error message', '', GROUPS.TEXT),
-      },
-      iconText: {
-        default: text('icon', '', GROUPS.TEXT),
-      },
-      valueFromPropsDate: {
-        default: text('value', '', GROUPS.DATE),
-      },
-      labelDate: {
-        default: text('label', 'Date input', GROUPS.DATE),
-      },
-      labelTooltip: {
-        default: text('tooltip label text', 'Tooltip text', GROUPS.TOOLTIP),
-      },
-      noteDate: {
-        default: text('note', 'Max 80 chars', GROUPS.DATE),
-      },
-      errorMessageDate: {
-        default: text('error message', '', GROUPS.DATE),
-      },
-      iconDate: {
-        default: text('icon', '', GROUPS.DATE),
-      },
-      isInGroup: {
-        default: select('is in group', ['', 'left', 'right'], ''),
-      },
-      isWarning: {
-        default: boolean('is warning', false, GROUPS.TEXT),
+const Template = (args, { argTypes }) => ({
+  components: { EcInputField },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      model: null,
+    };
+  },
+  watch: {
+    value: {
+      immediate: true,
+      handler(newValue) { this.model = newValue; },
+    },
+  },
+  methods: {
+    onInput: action('input'),
+    onChange: action('change'),
+  },
+  template: `
+    <div class="tw-p-24">
+      <ec-input-field
+        v-bind="$props"
+        v-on="{
+          input: onInput,
+          change: onChange,
+        }"
+        v-model="model"
+      />
+    </div>
+  `,
+});
+
+export const basic = Template.bind({});
+
+basic.args = {
+  label: 'Username',
+  value: null,
+  placeholder: 'My input',
+  bottomNote: 'Your email',
+  icon: 'simple-check',
+  note: 'Max 80 chars.',
+};
+
+basic.parameters = {
+  visualRegressionTests: { disable: true },
+};
+
+export const all = (args, { argTypes }) => ({
+  components: { EcInputField },
+  props: Object.keys(argTypes),
+  watch: {
+    valueFromPropsNumber: {
+      immediate: true,
+      handler(newValue) {
+        this.valueNumber = newValue;
       },
     },
-    watch: {
-      valueFromPropsNumber: {
-        immediate: true,
-        handler(newValue) {
-          this.valueNumber = newValue;
-        },
-      },
-      valueFromPropsText: {
-        immediate: true,
-        handler(newValue) {
-          this.valueText = newValue;
-        },
-      },
-      valueFromPropsDate: {
-        immediate: true,
-        handler(newValue) {
-          this.valueDate = newValue;
-        },
+    valueFromPropsText: {
+      immediate: true,
+      handler(newValue) {
+        this.valueText = newValue;
       },
     },
-    data() {
-      return {
-        valueNumber: null,
-        valueText: '',
-        valueDate: null,
-      };
+    valueFromPropsDate: {
+      immediate: true,
+      handler(newValue) {
+        this.valueDate = newValue;
+      },
     },
-    methods: {
-      onChange: action('change'),
-      onInput: action('input'),
-    },
-    template: `
+  },
+  data() {
+    return {
+      valueNumber: null,
+      valueText: '',
+      valueDate: null,
+    };
+  },
+  methods: {
+    onInput: action('input'),
+    onChange: action('change'),
+  },
+  template: `
     <div class="tw-grid-container">
       <div class="tw-grid">
         <div class="tw-col-full md:tw-col-4">
@@ -120,7 +105,8 @@ stories
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field type="date" placeholder="My input" v-model="valueDate" :note="noteDate" :label="labelDate" :error-message="errorMessageDate" :icon="iconDate" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />        </div>
+          <ec-input-field type="date" placeholder="My input" v-model="valueDate" :note="noteDate" :label="labelDate" :error-message="errorMessageDate" :icon="iconDate" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+        </div>
 
         <div class="tw-col-full md:tw-col-4">
           <ec-input-field disabled placeholder="My disabled input" v-model="valueText" label="Disabled input" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
@@ -169,5 +155,33 @@ stories
         </div>
       </div>
     </div>
-    `,
-  }));
+  `,
+});
+
+all.args = {
+  isSensitive: false,
+  isWarning: false,
+  labelTooltip: 'Tooltip text',
+
+  // number input
+  valueFromPropsNumber: '',
+  labelNumber: 'Number input',
+  noteNumber: 'Max 80 chars',
+  errorMessageNumber: 'error message',
+  iconNumber: '',
+
+  // text input
+  valueFromPropsText: '',
+  labelText: 'Text input',
+  noteText: 'Max 80 chars',
+  bottomNoteText: 'Random bottom note text',
+  errorMessageText: 'error message',
+  iconText: '',
+
+  // date input
+  valueFromPropsDate: '',
+  labelDate: 'Date input',
+  noteDate: 'Max 80 chars',
+  errorMessageDate: 'error message',
+  iconDate: '',
+};
