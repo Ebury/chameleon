@@ -5,7 +5,7 @@ table {
 }
 
 th {
-  @apply tw-mini-header tw-normal-case;
+  @apply tw-caption-text tw-normal-case;
 }
 
 td {
