@@ -5,7 +5,7 @@ table {
 }
 
 th {
-  @apply tw-caption-text tw-normal-case;
+  @apply tw-caption-text tw-capitalize;
 }
 
 td {
