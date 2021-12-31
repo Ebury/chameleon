@@ -24,6 +24,3 @@ updates:
   - dependency-name: svgo
     versions:
     - ">= 2"
-  - dependency-name: cypress
-    versions:
-    - ">= 6"
