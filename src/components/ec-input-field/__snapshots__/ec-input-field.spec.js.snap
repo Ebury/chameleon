@@ -27,7 +27,7 @@ exports[`EcInputField renders properly the icon when disabled 1`] = `
   </label>
    
   <input
-    class="ec-input-field__input ec-input-field__input--has-icon"
+    class="ec-input-field__input tw-bg-gray-7 ec-input-field__input--has-icon"
     data-test="ec-input-field__input"
     disabled="disabled"
     id="ec-input-field-1"
@@ -81,7 +81,7 @@ exports[`EcInputField renders properly when disabled 1`] = `
   </label>
    
   <input
-    class="ec-input-field__input"
+    class="ec-input-field__input tw-bg-gray-7"
     data-test="ec-input-field__input"
     disabled="disabled"
     id="ec-input-field-1"

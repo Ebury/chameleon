@@ -187,7 +187,7 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon"
+        class="ec-input-field__input tw-bg-gray-7 ec-input-field__input--has-icon"
         data-test="ec-dropdown__input ec-input-field__input"
         disabled="disabled"
         id="ec-input-field-1"

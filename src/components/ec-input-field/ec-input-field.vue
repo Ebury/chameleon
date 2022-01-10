@@ -95,7 +95,7 @@ export default {
       type: String,
       default: 'text',
       validator(value) {
-        return ['text', 'date', 'number'].includes(value);
+        return ['text', 'date', 'number', 'tel'].includes(value);
       },
     },
     value: {
@@ -162,6 +162,11 @@ export default {
 
       if (this.isInGroup) {
         classes.push(`ec-input-field__input--is-in-group-${this.isInGroup}`);
+      }
+      if (this.isInGroup === 'right' && this.isDisabled) {
+        classes.push('tw-bg-gray-6');
+      } else if (this.isDisabled) {
+        classes.push('tw-bg-gray-7');
       }
       if (this.isLoading) {
         classes.push('ec-input-field__input--is-loading');
@@ -257,10 +262,6 @@ export default {
     &:focus {
       @apply tw-border tw-border-solid tw-border-key-4;
       @apply tw-outline-none;
-    }
-
-    &:disabled {
-      @apply tw-bg-gray-7;
     }
 
     &:read-only,

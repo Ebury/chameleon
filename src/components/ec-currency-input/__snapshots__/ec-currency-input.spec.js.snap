@@ -118,7 +118,7 @@ exports[`EcCurrencyInput :props should render the component with the dropdown pa
 
 exports[`EcCurrencyInput :props should render the component with the input disabled when isAmountDisabled is set true 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--is-in-group-left"
+  class="ec-input-field__input ec-input-field__input--is-in-group-left tw-bg-gray-7"
   data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
   disabled="disabled"
   id="ec-input-field-3"
