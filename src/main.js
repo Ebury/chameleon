@@ -23,6 +23,7 @@ export { default as EcCurrencyFilter } from './components/ec-currency-filter';
 export { default as EcCurrencyInput } from './components/ec-currency-input';
 export { default as EcDateRangeFilter } from './components/ec-date-range-filter';
 export { default as EcDonut } from './components/ec-donut';
+export { default as EcPhoneNumberInput } from './components/ec-phone-number-input';
 export { default as EcDropdown } from './components/ec-dropdown';
 export { default as EcDropdownSearch } from './components/ec-dropdown-search';
 export { default as EcFilterPopover } from './components/ec-filter-popover';

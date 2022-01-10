@@ -1,0 +1,1608 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcPhoneNumberInput :props should accept a custom "no countries" search result text 1`] = `
+<ul
+  class="ec-dropdown-search__item-list"
+  data-test="ec-dropdown-search__item-list"
+>
+  <li
+    class="ec-dropdown-search__search-area"
+    data-test="ec-dropdown-search__search-area"
+  >
+    <svg
+      class="ec-dropdown-search__search-icon ec-icon"
+    >
+      <use
+        xlink:href="#ec-simple-search"
+      />
+    </svg>
+     
+    <input
+      autocomplete="off"
+      class="ec-dropdown-search__search-input"
+      data-test="ec-dropdown-search__search-input"
+      placeholder="Search calling code"
+    />
+  </li>
+   
+  <!---->
+   
+  <li
+    class="ec-dropdown-search__no-items"
+    data-test="ec-dropdown-search__no-items"
+    title="No country found"
+  >
+    No country found
+  </li>
+</ul>
+`;
+
+exports[`EcPhoneNumberInput :props should accept a custom search field text 1`] = `
+<input
+  autocomplete="off"
+  class="ec-dropdown-search__search-input"
+  data-test="ec-dropdown-search__search-input"
+  placeholder="Search calling code"
+/>
+`;
+
+exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
+<div
+  class="ec-phone-number-input"
+  data-test="ec-phone-number-input"
+>
+  <!---->
+   
+  <div
+    class="ec-phone-number-input__input-group"
+    data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
+  >
+    <div
+      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      data-test="ec-dropdown ec-dropdown-search"
+    >
+      <ec-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="true"
+        offset="8"
+        placement="bottom-end"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <div
+          class="ec-input-field"
+          data-test="ec-input-field"
+        >
+          <!---->
+           
+          <input
+            class="ec-input-field__input ec-input-field__input--is-in-group-right tw-bg-gray-6 ec-input-field__input--has-icon"
+            data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input"
+            disabled="disabled"
+            id="ec-phone-number-input-field-1"
+            placeholder=""
+            readonly="readonly"
+            type="text"
+          />
+           
+          <div
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
+            data-test="ec-input-field__icon-wrapper"
+          >
+            <svg
+              class="ec-input-field__icon ec-icon"
+              data-test="ec-input-field__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-arrow-drop-down"
+              />
+            </svg>
+          </div>
+           
+          <!---->
+        </div>
+          
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <li
+              class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
+            >
+              <svg
+                class="ec-dropdown-search__search-icon ec-icon"
+              >
+                <use
+                  xlink:href="#ec-simple-search"
+                />
+              </svg>
+               
+              <input
+                autocomplete="off"
+                class="ec-dropdown-search__search-input"
+                data-test="ec-dropdown-search__search-input"
+                placeholder="Search..."
+              />
+            </li>
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="United Kingdom+44"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            United Kingdom
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +44
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="Spain+34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Spain
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +34
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="Jamaica+1658"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Jamaica
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +1658
+          
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ec-stub>
+    </div>
+     
+    <div
+      class="ec-input-field ec-phone-number-input__number"
+      data-test="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        class="ec-input-field__input ec-input-field__input--is-in-group-left tw-bg-gray-7"
+        data-test="ec-phone-number-input__number ec-input-field__input"
+        disabled="disabled"
+        id="ec-input-field-3"
+        type="tel"
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcPhoneNumberInput :props should render in a loading state 1`] = `
+<ec-stub
+  class="ec-dropdown-search__trigger"
+  data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+  offset="8"
+  placement="bottom-end"
+  popoverinnerclass="ec-dropdown-search__popover"
+  popperoptions="[object Object]"
+>
+  <div
+    class="ec-input-field"
+    data-test="ec-input-field"
+  >
+    <!---->
+     
+    <input
+      class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+      data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input"
+      id="ec-phone-number-input-field-1"
+      placeholder=""
+      readonly="readonly"
+      type="text"
+    />
+     
+    <div
+      class="ec-input-field__icon-wrapper"
+      data-test="ec-input-field__icon-wrapper"
+    >
+      <svg
+        class="ec-input-field__icon ec-icon"
+        data-test="ec-input-field__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-arrow-drop-down"
+        />
+      </svg>
+    </div>
+     
+    <!---->
+  </div>
+    
+  <div>
+    <ul
+      class="ec-dropdown-search__item-list"
+      data-test="ec-dropdown-search__item-list"
+    >
+      <li
+        class="ec-dropdown-search__search-area"
+        data-test="ec-dropdown-search__search-area"
+      >
+        <svg
+          class="ec-dropdown-search__search-icon ec-icon"
+        >
+          <use
+            xlink:href="#ec-simple-search"
+          />
+        </svg>
+         
+        <input
+          autocomplete="off"
+          class="ec-dropdown-search__search-input"
+          data-test="ec-dropdown-search__search-input"
+          placeholder="Search..."
+        />
+      </li>
+       
+      <!---->
+       
+      <li>
+        <div
+          class="ec-loading"
+          data-test="ec-loading"
+        >
+          <div
+            class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+            data-test="ec-loading__backdrop"
+          >
+            <svg
+              class="ec-loading__icon ec-icon"
+              data-test="ec-loading__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-loading"
+              />
+            </svg>
+          </div>
+           
+          <div
+            class="ec-loading__content ec-loading__content--is-transparent"
+            data-test="ec-loading__content"
+          >
+            <div
+              class="ec-dropdown-search__loading"
+              data-test="ec-dropdown-search__loading"
+            />
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ec-stub>
+`;
+
+exports[`EcPhoneNumberInput :props should render with a bottom note 1`] = `
+<div
+  class="ec-phone-number-input__bottom-note"
+  data-test="ec-phone-number-input__bottom-note"
+>
+  <span>
+    Phone number input bottom note
+  </span>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcPhoneNumberInput :props should render with a disabled tooltip message 1`] = `
+<div
+  class="ec-phone-number-input"
+  data-test="ec-phone-number-input"
+>
+  <!---->
+   
+  <div
+    class="ec-phone-number-input__input-group"
+    data-ec-tooltip-mock-content="Disabled tooltip message"
+    data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
+  >
+    <div
+      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      data-test="ec-dropdown ec-dropdown-search"
+    >
+      <ec-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="true"
+        offset="8"
+        placement="bottom-end"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <div
+          class="ec-input-field"
+          data-test="ec-input-field"
+        >
+          <!---->
+           
+          <input
+            class="ec-input-field__input ec-input-field__input--is-in-group-right tw-bg-gray-6 ec-input-field__input--has-icon"
+            data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input"
+            disabled="disabled"
+            id="ec-phone-number-input-field-1"
+            placeholder=""
+            readonly="readonly"
+            type="text"
+          />
+           
+          <div
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
+            data-test="ec-input-field__icon-wrapper"
+          >
+            <svg
+              class="ec-input-field__icon ec-icon"
+              data-test="ec-input-field__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-arrow-drop-down"
+              />
+            </svg>
+          </div>
+           
+          <!---->
+        </div>
+          
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <li
+              class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
+            >
+              <svg
+                class="ec-dropdown-search__search-icon ec-icon"
+              >
+                <use
+                  xlink:href="#ec-simple-search"
+                />
+              </svg>
+               
+              <input
+                autocomplete="off"
+                class="ec-dropdown-search__search-input"
+                data-test="ec-dropdown-search__search-input"
+                placeholder="Search..."
+              />
+            </li>
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="United Kingdom+44"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            United Kingdom
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +44
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="Spain+34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Spain
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +34
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="Jamaica+1658"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Jamaica
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +1658
+          
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ec-stub>
+    </div>
+     
+    <div
+      class="ec-input-field ec-phone-number-input__number"
+      data-test="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        class="ec-input-field__input ec-input-field__input--is-in-group-left tw-bg-gray-7"
+        data-test="ec-phone-number-input__number ec-input-field__input"
+        disabled="disabled"
+        id="ec-input-field-3"
+        type="tel"
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcPhoneNumberInput :props should render with a label 1`] = `
+<div
+  class="ec-phone-number-input"
+  data-test="ec-phone-number-input"
+>
+  <label
+    class="ec-phone-number-input__label"
+    for="ec-phone-number-input-field-1"
+  >
+    <span
+      class="ec-phone-number-input__label-text"
+      data-test="ec-phone-number-input__label-text"
+    >
+      Phone number input label
+    </span>
+     
+    <!---->
+  </label>
+   
+  <div
+    class="ec-phone-number-input__input-group"
+    data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
+  >
+    <div
+      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      data-test="ec-dropdown ec-dropdown-search"
+    >
+      <ec-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        offset="8"
+        placement="bottom-end"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <div
+          class="ec-input-field"
+          data-test="ec-input-field"
+        >
+          <!---->
+           
+          <input
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+            data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input"
+            id="ec-phone-number-input-field-1"
+            placeholder=""
+            readonly="readonly"
+            type="text"
+          />
+           
+          <div
+            class="ec-input-field__icon-wrapper"
+            data-test="ec-input-field__icon-wrapper"
+          >
+            <svg
+              class="ec-input-field__icon ec-icon"
+              data-test="ec-input-field__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-arrow-drop-down"
+              />
+            </svg>
+          </div>
+           
+          <!---->
+        </div>
+          
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <li
+              class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
+            >
+              <svg
+                class="ec-dropdown-search__search-icon ec-icon"
+              >
+                <use
+                  xlink:href="#ec-simple-search"
+                />
+              </svg>
+               
+              <input
+                autocomplete="off"
+                class="ec-dropdown-search__search-input"
+                data-test="ec-dropdown-search__search-input"
+                placeholder="Search..."
+              />
+            </li>
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="United Kingdom+44"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            United Kingdom
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +44
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="Spain+34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Spain
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +34
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="Jamaica+1658"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Jamaica
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +1658
+          
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ec-stub>
+    </div>
+     
+    <div
+      class="ec-input-field ec-phone-number-input__number"
+      data-test="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        class="ec-input-field__input ec-input-field__input--is-in-group-left"
+        data-test="ec-phone-number-input__number ec-input-field__input"
+        id="ec-input-field-3"
+        type="tel"
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcPhoneNumberInput :props should render with a note 1`] = `
+<div
+  class="ec-phone-number-input"
+  data-test="ec-phone-number-input"
+>
+  <label
+    class="ec-phone-number-input__label"
+    for="ec-phone-number-input-field-1"
+  >
+    <!---->
+     
+    <span
+      class="ec-phone-number-input__label-note"
+      data-test="ec-phone-number-input__label-note"
+    >
+      Phone number input note
+    </span>
+  </label>
+   
+  <div
+    class="ec-phone-number-input__input-group"
+    data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
+  >
+    <div
+      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      data-test="ec-dropdown ec-dropdown-search"
+    >
+      <ec-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        offset="8"
+        placement="bottom-end"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <div
+          class="ec-input-field"
+          data-test="ec-input-field"
+        >
+          <!---->
+           
+          <input
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+            data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input"
+            id="ec-phone-number-input-field-1"
+            placeholder=""
+            readonly="readonly"
+            type="text"
+          />
+           
+          <div
+            class="ec-input-field__icon-wrapper"
+            data-test="ec-input-field__icon-wrapper"
+          >
+            <svg
+              class="ec-input-field__icon ec-icon"
+              data-test="ec-input-field__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-arrow-drop-down"
+              />
+            </svg>
+          </div>
+           
+          <!---->
+        </div>
+          
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <li
+              class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
+            >
+              <svg
+                class="ec-dropdown-search__search-icon ec-icon"
+              >
+                <use
+                  xlink:href="#ec-simple-search"
+                />
+              </svg>
+               
+              <input
+                autocomplete="off"
+                class="ec-dropdown-search__search-input"
+                data-test="ec-dropdown-search__search-input"
+                placeholder="Search..."
+              />
+            </li>
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="United Kingdom+44"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            United Kingdom
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +44
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="Spain+34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Spain
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +34
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="Jamaica+1658"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Jamaica
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +1658
+          
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ec-stub>
+    </div>
+     
+    <div
+      class="ec-input-field ec-phone-number-input__number"
+      data-test="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        class="ec-input-field__input ec-input-field__input--is-in-group-left"
+        data-test="ec-phone-number-input__number ec-input-field__input"
+        id="ec-input-field-3"
+        type="tel"
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcPhoneNumberInput :props should render with a search field 1`] = `
+<input
+  autocomplete="off"
+  class="ec-dropdown-search__search-input"
+  data-test="ec-dropdown-search__search-input"
+  placeholder="Search..."
+/>
+`;
+
+exports[`EcPhoneNumberInput :props should render with a sensitive class when isSensitive prop is set to true 1`] = `
+<div
+  class="ec-phone-number-input"
+  data-test="ec-phone-number-input"
+>
+  <!---->
+   
+  <div
+    class="ec-phone-number-input__input-group"
+    data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
+  >
+    <div
+      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      data-test="ec-dropdown ec-dropdown-search"
+    >
+      <ec-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        offset="8"
+        placement="bottom-end"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <div
+          class="ec-input-field"
+          data-test="ec-input-field"
+        >
+          <!---->
+           
+          <input
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon my-sensitive-content-test-class"
+            data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input"
+            id="ec-phone-number-input-field-1"
+            placeholder=""
+            readonly="readonly"
+            type="text"
+          />
+           
+          <div
+            class="ec-input-field__icon-wrapper"
+            data-test="ec-input-field__icon-wrapper"
+          >
+            <svg
+              class="ec-input-field__icon ec-icon"
+              data-test="ec-input-field__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-arrow-drop-down"
+              />
+            </svg>
+          </div>
+           
+          <!---->
+        </div>
+          
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list my-sensitive-content-test-class"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <li
+              class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
+            >
+              <svg
+                class="ec-dropdown-search__search-icon ec-icon"
+              >
+                <use
+                  xlink:href="#ec-simple-search"
+                />
+              </svg>
+               
+              <input
+                autocomplete="off"
+                class="ec-dropdown-search__search-input"
+                data-test="ec-dropdown-search__search-input"
+                placeholder="Search..."
+              />
+            </li>
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="United Kingdom+44"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            United Kingdom
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +44
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="Spain+34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Spain
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +34
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="Jamaica+1658"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Jamaica
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +1658
+          
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ec-stub>
+    </div>
+     
+    <div
+      class="ec-input-field ec-phone-number-input__number"
+      data-test="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        class="ec-input-field__input ec-input-field__input--is-in-group-left my-sensitive-content-test-class"
+        data-test="ec-phone-number-input__number ec-input-field__input"
+        id="ec-input-field-3"
+        type="tel"
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcPhoneNumberInput :props should render with a warning 1`] = `
+<div
+  class="ec-phone-number-input__bottom-note ec-phone-number-input__bottom-note--is-warning"
+  data-test="ec-phone-number-input__bottom-note"
+>
+  <span>
+    Phone number input bottom note
+  </span>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcPhoneNumberInput :props should render with a warning tooltip 1`] = `
+<div
+  class="ec-phone-number-input__bottom-note ec-phone-number-input__bottom-note--is-warning"
+  data-test="ec-phone-number-input__bottom-note"
+>
+  <span>
+    Phone number input bottom note
+  </span>
+   
+  <svg
+    class="ec-phone-number-input__warning-tooltip ec-icon ec-icon--warning"
+    data-ec-tooltip-mock-content="Warning tooltip message"
+    data-test="ec-phone-number-input__warning-tooltip ec-mock ec-tooltip-mock"
+    height="14"
+    width="14"
+  >
+    <use
+      xlink:href="#ec-simple-error"
+    />
+  </svg>
+</div>
+`;
+
+exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
+<div
+  class="ec-phone-number-input"
+  data-test="ec-phone-number-input"
+>
+  <!---->
+   
+  <div
+    class="ec-phone-number-input__input-group"
+    data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
+  >
+    <div
+      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      data-test="ec-dropdown ec-dropdown-search"
+    >
+      <ec-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        offset="8"
+        placement="bottom-end"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <div
+          class="ec-input-field"
+          data-test="ec-input-field"
+        >
+          <!---->
+           
+          <input
+            aria-describedby="ec-phone-number-input-1"
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon"
+            data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input"
+            id="ec-phone-number-input-field-1"
+            placeholder=""
+            readonly="readonly"
+            type="text"
+          />
+           
+          <div
+            class="ec-input-field__icon-wrapper"
+            data-test="ec-input-field__icon-wrapper"
+          >
+            <svg
+              class="ec-input-field__icon ec-icon"
+              data-test="ec-input-field__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-arrow-drop-down"
+              />
+            </svg>
+          </div>
+           
+          <!---->
+        </div>
+          
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <li
+              class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
+            >
+              <svg
+                class="ec-dropdown-search__search-icon ec-icon"
+              >
+                <use
+                  xlink:href="#ec-simple-search"
+                />
+              </svg>
+               
+              <input
+                autocomplete="off"
+                class="ec-dropdown-search__search-input"
+                data-test="ec-dropdown-search__search-input"
+                placeholder="Search..."
+              />
+            </li>
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="United Kingdom+44"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            United Kingdom
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +44
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="Spain+34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Spain
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +34
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="Jamaica+1658"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Jamaica
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +1658
+          
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ec-stub>
+    </div>
+     
+    <div
+      class="ec-input-field ec-phone-number-input__number"
+      data-test="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        aria-describedby="ec-phone-number-input-1"
+        class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-error"
+        data-test="ec-phone-number-input__number ec-input-field__input"
+        id="ec-input-field-3"
+        type="tel"
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <div
+    class="ec-phone-number-input__error-text"
+    data-test="ec-phone-number-input__error-text"
+    id="ec-phone-number-input-1"
+  >
+    <span>
+      Random error message
+    </span>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`EcPhoneNumberInput :props should render with an error tooltip 1`] = `undefined`;
+
+exports[`EcPhoneNumberInput should render properly 1`] = `
+<div
+  class="ec-phone-number-input"
+  data-test="ec-phone-number-input"
+>
+  <!---->
+   
+  <div
+    class="ec-phone-number-input__input-group"
+    data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
+  >
+    <div
+      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      data-test="ec-dropdown ec-dropdown-search"
+    >
+      <ec-stub
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        offset="8"
+        placement="bottom-end"
+        popoverinnerclass="ec-dropdown-search__popover"
+        popperoptions="[object Object]"
+      >
+        <div
+          class="ec-input-field"
+          data-test="ec-input-field"
+        >
+          <!---->
+           
+          <input
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+            data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input"
+            id="ec-phone-number-input-field-1"
+            placeholder=""
+            readonly="readonly"
+            type="text"
+          />
+           
+          <div
+            class="ec-input-field__icon-wrapper"
+            data-test="ec-input-field__icon-wrapper"
+          >
+            <svg
+              class="ec-input-field__icon ec-icon"
+              data-test="ec-input-field__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-arrow-drop-down"
+              />
+            </svg>
+          </div>
+           
+          <!---->
+        </div>
+          
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <li
+              class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
+            >
+              <svg
+                class="ec-dropdown-search__search-icon ec-icon"
+              >
+                <use
+                  xlink:href="#ec-simple-search"
+                />
+              </svg>
+               
+              <input
+                autocomplete="off"
+                class="ec-dropdown-search__search-input"
+                data-test="ec-dropdown-search__search-input"
+                placeholder="Search..."
+              />
+            </li>
+             
+            <!---->
+             
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="United Kingdom+44"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            United Kingdom
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +44
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="Spain+34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Spain
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +34
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="Jamaica+1658"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <span
+                  class="ec-phone-number-input__countries-item-name tw-mr-4"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            Jamaica
+          
+                </span>
+                 
+                <span
+                  class="tw-text-gray-4"
+                  data-test="ec-phone-number-input__countries-item-calling-code"
+                >
+                  
+            +1658
+          
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ec-stub>
+    </div>
+     
+    <div
+      class="ec-input-field ec-phone-number-input__number"
+      data-test="ec-input-field"
+    >
+      <!---->
+       
+      <input
+        class="ec-input-field__input ec-input-field__input--is-in-group-left"
+        data-test="ec-phone-number-input__number ec-input-field__input"
+        id="ec-input-field-3"
+        type="tel"
+      />
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
