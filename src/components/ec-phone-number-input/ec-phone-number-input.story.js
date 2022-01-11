@@ -29,8 +29,8 @@ export const basic = (args, { argTypes }) => ({
           change: onChange,
           focus: onFocus,
           open: onOpen,
-          'amount-change': onAmountChange,
-          'currency-change': onCurrencyChange
+          'number-change': onNumberChange,
+          'country-change': onCountryChange
         }"
         v-model="model"
       />
