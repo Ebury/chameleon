@@ -95,7 +95,7 @@ export default {
       type: String,
       default: 'text',
       validator(value) {
-        return ['text', 'date', 'number', 'tel'].includes(value);
+        return ['text', 'date', 'number'].includes(value);
       },
     },
     value: {
@@ -150,6 +150,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hasNumberSpinners: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -179,6 +183,9 @@ export default {
       }
       if (this.isSensitive) {
         classes.push(config.sensitiveClass);
+      }
+      if (!this.hasNumberSpinners) {
+        classes.push('ec-input-field__input--has-no-spinners');
       }
 
       return classes;
@@ -268,6 +275,16 @@ export default {
     &[readonly] {
       /* :read-only is not supported by IE https://developer.mozilla.org/en-US/docs/Web/CSS/:read-only */
       @apply tw-truncate;
+    }
+
+    &--has-no-spinners::-webkit-outer-spin-button,
+    &--has-no-spinners::-webkit-inner-spin-button {
+      -webkit-appearance: none; /* Chrome */
+      margin: 0;
+    }
+
+    &--has-no-spinners[type=number] {
+      -moz-appearance: textfield; /* Firefox */
     }
   }
 
