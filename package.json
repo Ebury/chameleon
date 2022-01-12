@@ -53,7 +53,7 @@
     "@storybook/addon-links": "6.4.9",
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/addon-viewport": "6.4.8",
-    "@storybook/addons": "6.4.8",
+    "@storybook/addons": "6.4.12",
     "@storybook/source-loader": "6.4.9",
     "@storybook/theming": "6.4.8",
     "@storybook/vue": "6.4.9",
