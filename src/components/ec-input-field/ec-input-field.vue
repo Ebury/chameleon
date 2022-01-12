@@ -95,7 +95,7 @@ export default {
       type: String,
       default: 'text',
       validator(value) {
-        return ['text', 'date', 'number'].includes(value);
+        return ['text', 'date', 'number', 'tel'].includes(value);
       },
     },
     value: {
@@ -150,10 +150,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    hasNumberSpinners: {
-      type: Boolean,
-      default: true,
-    },
   },
   data() {
     return {
@@ -166,11 +162,6 @@ export default {
 
       if (this.isInGroup) {
         classes.push(`ec-input-field__input--is-in-group-${this.isInGroup}`);
-      }
-      if (this.isInGroup === 'right' && this.isDisabled) {
-        classes.push('tw-bg-gray-6');
-      } else if (this.isDisabled) {
-        classes.push('tw-bg-gray-7');
       }
       if (this.isLoading) {
         classes.push('ec-input-field__input--is-loading');
@@ -271,20 +262,14 @@ export default {
       @apply tw-outline-none;
     }
 
+    &:disabled {
+      @apply tw-bg-gray-7;
+    }
+
     &:read-only,
     &[readonly] {
       /* :read-only is not supported by IE https://developer.mozilla.org/en-US/docs/Web/CSS/:read-only */
       @apply tw-truncate;
-    }
-
-    &--has-no-spinners::-webkit-outer-spin-button,
-    &--has-no-spinners::-webkit-inner-spin-button {
-      -webkit-appearance: none; /* Chrome */
-      margin: 0;
-    }
-
-    &--has-no-spinners[type=number] {
-      -moz-appearance: textfield; /* Firefox */
     }
   }
 

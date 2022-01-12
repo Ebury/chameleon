@@ -165,7 +165,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
         <!---->
          
         <input
-          class="ec-input-field__input"
+          class="ec-input-field__input ec-input-field__input--has-no-spinners"
           data-test="ec-inline-input-field-edit__input ec-input-field__input"
           id="ec-inline-input-field-edit__input-1"
           type="text"
@@ -244,7 +244,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
          
         <input
           aria-describedby="ec-input-field-error-2"
-          class="ec-input-field__input ec-input-field__input--has-error"
+          class="ec-input-field__input ec-input-field__input--has-error ec-input-field__input--has-no-spinners"
           data-test="ec-inline-input-field-edit__input ec-input-field__input"
           id="ec-inline-input-field-edit__input-1"
           type="text"
@@ -328,7 +328,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
         <!---->
          
         <input
-          class="ec-input-field__input my-sensitive-content-test-class"
+          class="ec-input-field__input my-sensitive-content-test-class ec-input-field__input--has-no-spinners"
           data-test="ec-inline-input-field-edit__input ec-input-field__input"
           id="ec-inline-input-field-edit__input-1"
           type="text"
@@ -537,7 +537,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--is-loading"
+        class="ec-input-field__input ec-input-field__input--is-loading ec-input-field__input--has-no-spinners"
         data-test="ec-input-field__input"
         id="ec-input-field-1"
         readonly="readonly"
@@ -612,7 +612,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--is-loading my-sensitive-content-test-class"
+        class="ec-input-field__input ec-input-field__input--is-loading my-sensitive-content-test-class ec-input-field__input--has-no-spinners"
         data-test="ec-input-field__input"
         id="ec-input-field-1"
         readonly="readonly"

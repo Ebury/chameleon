@@ -46,7 +46,7 @@
         :popover-options="popoverOptions"
         :popper-modifiers="popperModifier"
         :search-placeholder="searchCountryPlaceholder"
-        :selected-text="selectedText"
+        selected-text=" "
         @blur="countriesHasFocus = false"
         @change="onCountryChange"
         @focus="onFocusCountry"
@@ -57,6 +57,7 @@
           <div class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center">
             <img
               :src="item.iconPath"
+              :alt="`Flag of ${item.name}`"
               data-test="ec-phone-number-input__countries-item-flag"
               class="ec-phone-number-input__countries-item-flag"
             >
@@ -68,26 +69,36 @@
             </span>
             <span
               class="tw-text-gray-4"
-              data-test="ec-phone-number-input__countries-item-calling-code"
+              data-test="ec-phone-number-input__countries-item-area-code"
             >
               {{ item.value }}
             </span>
           </div>
         </template>
       </ec-dropdown>
+      <div
+        v-if="selectedCountryValue"
+        class="ec-phone-number-input__countries-selected"
+      > <img
+          :src="selectedCountryImage"
+          :alt="`Flag of ${selectedCountryName}`"
+          class="ec-phone-number-input__countries-selected-image"
+          data-test="ec-phone-number-input__countries-selected-image"
+        >
+        <span data-test="ec-phone-number-input__countries-selected-area-code">{{ selectedCountryValue }}</span>
+      </div>
       <ec-input-field
-        v-model="numberModel"
+        v-model="phoneNumberModel"
         class="ec-phone-number-input__number"
         data-test="ec-phone-number-input__number"
         is-in-group="left"
-        type="number"
-        :has-number-spinners="false"
+        type="tel"
         :disabled="isDisabled"
         :error-id="errorId"
         :error-message="errorMessage"
         :is-sensitive="isSensitive"
-        :placeholder="numberPlaceholder"
-        @change="onNumberChange"
+        :placeholder="phoneNumberPlaceholder"
+        @change="onPhoneNumberChange"
         @focus="$emit('focus')"
       />
     </div>
@@ -136,7 +147,7 @@
 
 <script>
 import { getUid } from '../../utils/uid';
-import { obfuscate } from '../../utils/obfuscate';
+import { mask } from '../../utils/mask';
 
 import EcInputField from '../ec-input-field';
 import EcDropdown from '../ec-dropdown';
@@ -202,7 +213,7 @@ export default {
     countryPlaceholder: {
       type: String,
     },
-    numberPlaceholder: {
+    phoneNumberPlaceholder: {
       type: String,
     },
     isSearchEnabled: {
@@ -245,28 +256,20 @@ export default {
     errorId() {
       return this.isInvalid ? `ec-phone-number-input-${this.uid}` : null;
     },
-    sortedAlphabeticallyCountryItems() {
-      const sortedCountries = this.countries;
-
-      sortedCountries.sort(this.sortAlphabetically('text'));
-
-      return sortedCountries;
-    },
     countriesItems() {
-      const mappedItems = this.sortedAlphabeticallyCountryItems.map(country => ({
+      return this.countries.map(country => ({
         value: country.value,
         text: country.text + country.value,
         name: country.text,
         countryCode: country.countryCode,
         id: country.countryCode,
         iconPath: require(`svg-country-flags/png100px/${country.countryCode.toLowerCase()}.png`),
-      }));
-
-      return mappedItems;
+      }))
+        .sort(this.sortAlphabetically('text'));
     },
     countriesModel: {
       get() {
-        return this.value;
+        return this.value.country;
       },
       set(item) {
         this.$emit('value-change', {
@@ -275,23 +278,29 @@ export default {
         });
       },
     },
-    numberModel: {
+    phoneNumberModel: {
       get() {
-        if (this.isDisabled && this.value.number) {
-          return obfuscate(this.value.number);
+        if (this.isDisabled && this.value.phoneNumber) {
+          return mask(this.value.phoneNumber);
         }
 
-        return this.value.number;
+        return this.value.phoneNumber;
       },
       set(item) {
         this.$emit('value-change', {
           ...this.value,
-          number: item,
+          phoneNumber: item,
         });
       },
     },
-    selectedText() {
+    selectedCountryValue() {
       return this.value?.country?.value || null;
+    },
+    selectedCountryImage() {
+      return this.value?.country?.iconPath;
+    },
+    selectedCountryName() {
+      return this.value?.country?.name;
     },
     isInvalid() {
       return !!this.errorMessage;
@@ -310,26 +319,12 @@ export default {
       this.$emit('change', evt);
       this.$emit('country-change', evt);
     },
-    onNumberChange(evt) {
+    onPhoneNumberChange(evt) {
       this.$emit('change', evt);
-      this.$emit('number-change', evt);
+      this.$emit('phone-number-change', evt);
     },
     sortAlphabetically(key) {
-      let property = key;
-      let sortOrder = 1;
-
-      if (property[0] === '-') {
-        sortOrder = -1;
-        property = property.substr(1);
-      }
-
-      return (a, b) => {
-        if (sortOrder === -1) {
-          return b[property].localeCompare(a[property]);
-        }
-
-        return a[property].localeCompare(b[property]);
-      };
+      return (a, b) => a[key].localeCompare(b[key]);
     },
   },
 };
@@ -337,12 +332,13 @@ export default {
 
 <style>
 :root {
-  --ec-phone-number-input-width: 104px;
+  --ec-phone-number-input-width: 124px;
 }
 
 .ec-phone-number-input {
   &__input-group {
     @apply tw-flex tw-flex-row;
+    @apply tw-relative;
   }
 
   &__countries {
@@ -364,13 +360,27 @@ export default {
     @apply tw-mr-4;
   }
 
-  &__countries-item-calling-code {
+  &__countries-item-area-code {
     @apply tw-text-gray-4;
   }
 
   &__countries-item-flag {
     @apply tw-mr-4;
 
+    width: 20px;
+  }
+
+  &__countries-selected {
+    @apply tw-absolute;
+    @apply tw-inset-1;
+    @apply tw-right-auto;
+    @apply tw-pl-12 tw-py-8;
+    @apply tw-body-text tw-text-gray-3;
+    @apply tw-z-level-2;
+    @apply tw-pointer-events-none;
+  }
+
+  &__countries-selected-image {
     width: 20px;
   }
 

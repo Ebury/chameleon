@@ -3,17 +3,18 @@ import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
 const countries = [
   { value: '+44', text: 'United Kingdom', countryCode: 'UK' },
+  { value: '+1 658', text: 'Jamaica', countryCode: 'JM' },
   { value: '+34', text: 'Spain', countryCode: 'ES' },
-  { value: '+1658', text: 'Jamaica', countryCode: 'JM' },
 ];
 
 const countriesModel = [
   {
-    value: '+44',
-    text: 'United Kingdom+44',
-    name: 'United Kingdom',
-    countryCode: 'UK',
-    id: 'UK',
+    value: '+1 658',
+    text: 'Jamaica+1 658',
+    name: 'Jamaica',
+    countryCode: 'JM',
+    id: 'JM',
+    iconPath: '',
   },
   {
     value: '+34',
@@ -21,6 +22,15 @@ const countriesModel = [
     name: 'Spain',
     countryCode: 'ES',
     id: 'ES',
+    iconPath: '',
+  },
+  {
+    value: '+44',
+    text: 'United Kingdom+44',
+    name: 'United Kingdom',
+    countryCode: 'UK',
+    id: 'UK',
+    iconPath: '',
   },
 ];
 
@@ -158,10 +168,10 @@ describe('EcPhoneNumberInput', () => {
     });
 
     it('should render with a number placeholder', () => {
-      const numberPlaceholder = '518545455';
-      const wrapper = mountPhoneNumberInput({ numberPlaceholder });
+      const phoneNumberPlaceholder = 'Phone Number';
+      const wrapper = mountPhoneNumberInput({ phoneNumberPlaceholder });
 
-      expect(wrapper.findByDataTest('ec-phone-number-input__number').attributes('placeholder')).toBe(numberPlaceholder);
+      expect(wrapper.findByDataTest('ec-phone-number-input__number').attributes('placeholder')).toBe(phoneNumberPlaceholder);
     });
 
     it('should render with a search field', async () => {
@@ -219,13 +229,13 @@ describe('EcPhoneNumberInput', () => {
       await wrapper.findByDataTest('ec-phone-number-input__number').setValue('11');
       await wrapper.findByDataTest('ec-phone-number-input__number').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(1);
-      expect(wrapper.emitted('number-change').length).toEqual(1);
+      expect(wrapper.emitted('phone-number-change').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(1);
 
       await wrapper.findByDataTest('ec-phone-number-input__number').setValue('111');
       await wrapper.findByDataTest('ec-phone-number-input__number').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('number-change').length).toEqual(2);
+      expect(wrapper.emitted('phone-number-change').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);
     });
   });
@@ -240,8 +250,8 @@ describe('EcPhoneNumberInput', () => {
             return {
               countries,
               value: {
-                country: '',
-                number: '0',
+                country: {},
+                phoneNumber: '',
               },
             };
           },
@@ -253,63 +263,61 @@ describe('EcPhoneNumberInput', () => {
       await selectItem(wrapper, 1);
       expect(wrapper.vm.value.country).toEqual(countriesModel[1]);
     });
-  });
 
-  it('should preselect the country item in the dropdown and the number in the input from the v-model', () => {
-    const wrapper = mountPhoneNumberInputAsTemplate(
-      '<ec-phone-number-input :countries="countries" v-model="value" />',
-      {},
-      {
-        data() {
-          return {
-            countries,
-            value: {
-              country: countriesModel[1],
-              number: '123456789',
-            },
-          };
+    it('should preselect the country item in the dropdown and the number in the input from the v-model', () => {
+      const wrapper = mountPhoneNumberInputAsTemplate(
+        '<ec-phone-number-input :countries="countries" v-model="value" />',
+        {},
+        {
+          data() {
+            return {
+              countries,
+              value: {
+                country: countriesModel[0],
+                phoneNumber: '123456789',
+              },
+            };
+          },
         },
-      },
-    );
+      );
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[0].value);
+      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
+    });
 
-    expect(wrapper.findByDataTest('ec-phone-number-input__countries').element.value).toBe(countriesModel[1].value);
-    expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
-  });
-
-  it('should preselect the country item in the dropdown and the number in the input from the v-model AND obfuscate them when disabled', () => {
-    const wrapper = mountPhoneNumberInputAsTemplate(
-      '<ec-phone-number-input :is-disabled="true" :countries="countries" v-model="value" />',
-      {},
-      {
-        data() {
-          return {
-            countries,
-            value: {
-              country: countriesModel[1],
-              number: '123456789',
-            },
-          };
+    it('should preselect the country item in the dropdown and the number in the input from the v-model AND mask them when disabled', () => {
+      const wrapper = mountPhoneNumberInputAsTemplate(
+        '<ec-phone-number-input :is-disabled="true" :countries="countries" v-model="value" />',
+        {},
+        {
+          data() {
+            return {
+              countries,
+              value: {
+                country: countriesModel[1],
+                phoneNumber: '123456789',
+              },
+            };
+          },
         },
-      },
-    );
+      );
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[1].value);
+      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('******789');
+    });
 
-    expect(wrapper.findByDataTest('ec-phone-number-input__countries').element.value).toBe(countriesModel[1].value);
-    expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('******789');
-  });
-
-  it('should use the v-model with the number and emit the changes', async () => {
-    const wrapper = mountPhoneNumberInputAsTemplate(
-      '<ec-phone-number-input :countries="countries" v-model="value" />',
-      {},
-      {
-        data() {
-          return { countries, value: { number: 0 } };
+    it('should use the v-model with the phone number and emit the changes', async () => {
+      const wrapper = mountPhoneNumberInputAsTemplate(
+        '<ec-phone-number-input :countries="countries" v-model="value" />',
+        {},
+        {
+          data() {
+            return { countries, value: { phoneNumber: 0 } };
+          },
         },
-      },
-    );
+      );
 
-    await wrapper.findByDataTest('ec-phone-number-input__number').setValue('11');
-    expect(wrapper.vm.value.number).toEqual('11');
+      await wrapper.findByDataTest('ec-phone-number-input__number').setValue('11');
+      expect(wrapper.vm.value.phoneNumber).toEqual('11');
+    });
   });
 });
 

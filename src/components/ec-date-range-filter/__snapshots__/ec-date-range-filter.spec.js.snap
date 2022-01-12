@@ -74,7 +74,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
             </label>
              
             <input
-              class="ec-input-field__input"
+              class="ec-input-field__input ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
               id="ec-input-field-1"
               max="2020-04-10"
@@ -108,7 +108,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
             </label>
              
             <input
-              class="ec-input-field__input"
+              class="ec-input-field__input ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
               id="ec-input-field-2"
               min="2020-03-14"
@@ -211,7 +211,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             </label>
              
             <input
-              class="ec-input-field__input"
+              class="ec-input-field__input ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
               id="ec-input-field-1"
               max="2020-04-10"
@@ -245,7 +245,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             </label>
              
             <input
-              class="ec-input-field__input"
+              class="ec-input-field__input ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
               id="ec-input-field-2"
               min="2020-03-14"
@@ -354,7 +354,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
              
             <input
               aria-describedby="ec-input-field-error-1"
-              class="ec-input-field__input ec-input-field__input--has-error"
+              class="ec-input-field__input ec-input-field__input--has-error ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
               id="ec-input-field-1"
               max="2020-04-10"
@@ -394,7 +394,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             </label>
              
             <input
-              class="ec-input-field__input"
+              class="ec-input-field__input ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
               id="ec-input-field-2"
               min="2020-03-14"
@@ -497,7 +497,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             </label>
              
             <input
-              class="ec-input-field__input"
+              class="ec-input-field__input ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
               id="ec-input-field-1"
               max="2020-04-10"
@@ -532,7 +532,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
              
             <input
               aria-describedby="ec-input-field-error-2"
-              class="ec-input-field__input ec-input-field__input--has-error"
+              class="ec-input-field__input ec-input-field__input--has-error ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
               id="ec-input-field-2"
               min="2020-03-14"
@@ -635,7 +635,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             </label>
              
             <input
-              class="ec-input-field__input"
+              class="ec-input-field__input ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
               id="ec-input-field-1"
               placeholder="dd/mm/yyyy"
@@ -668,7 +668,7 @@ exports[`EcDateRangeFilter should return undefined if no dates are passed in val
             </label>
              
             <input
-              class="ec-input-field__input"
+              class="ec-input-field__input ec-input-field__input--has-no-spinners"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
               id="ec-input-field-2"
               placeholder="dd/mm/yyyy"

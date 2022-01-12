@@ -151,7 +151,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
            
           <input
             aria-describedby="ec-amount-filter-input-7"
-            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon my-sensitive-content-test-class"
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon my-sensitive-content-test-class ec-input-field__input--has-no-spinners"
             data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
             id="ec-amount-filter-input-7"
             placeholder=""
@@ -221,7 +221,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
        
       <input
         aria-describedby="ec-amount-filter-input-7"
-        class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-error my-sensitive-content-test-class"
+        class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-error my-sensitive-content-test-class ec-input-field__input--has-no-spinners"
         data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
         id="ec-input-field-9"
         placeholder="Enter an amount..."
@@ -594,7 +594,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
             <!---->
              
             <input
-              class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+              class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
               data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
               id="ec-amount-filter-input-7"
               placeholder=""
@@ -663,7 +663,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
         <!---->
          
         <input
-          class="ec-input-field__input ec-input-field__input--is-in-group-left"
+          class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-no-spinners"
           data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
           id="ec-input-field-9"
           placeholder="Enter an amount..."
@@ -700,7 +700,7 @@ exports[`EcCurrencyFilter should render all given custom texts for amount tab 1`
 
 exports[`EcCurrencyFilter should render all given custom texts for amount tab 2`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--is-in-group-left"
+  class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-no-spinners"
   data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
   id="ec-input-field-9"
   placeholder="Custom placeholder text"
@@ -1192,7 +1192,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                       <!---->
                        
                       <input
-                        class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+                        class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
                         data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
                         id="ec-amount-filter-input-7"
                         placeholder=""
@@ -1261,7 +1261,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                   <!---->
                    
                   <input
-                    class="ec-input-field__input ec-input-field__input--is-in-group-left"
+                    class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-no-spinners"
                     data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
                     id="ec-input-field-9"
                     placeholder="Enter an amount..."
@@ -1425,7 +1425,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
             <!---->
              
             <input
-              class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+              class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
               data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
               id="ec-amount-filter-input-7"
               placeholder=""
@@ -1494,7 +1494,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
         <!---->
          
         <input
-          class="ec-input-field__input ec-input-field__input--is-in-group-left"
+          class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-no-spinners"
           data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
           id="ec-input-field-9"
           placeholder="Enter an amount..."

@@ -18,7 +18,7 @@ export const basic = (args, { argTypes }) => ({
     onChange: action('change'),
     onFocus: action('focus'),
     onOpen: action('open'),
-    onNumberChange: action('number-change'),
+    onPhoneNumberChange: action('phone-phone-number-change'),
     onCountryChange: action('country-change'),
   },
   template: `
@@ -29,9 +29,10 @@ export const basic = (args, { argTypes }) => ({
           change: onChange,
           focus: onFocus,
           open: onOpen,
-          'number-change': onNumberChange,
+          'phone-number-change': onPhoneNumberChange,
           'country-change': onCountryChange
         }"
+        :disabled="isDisabled"
         v-model="model"
       >
         <template #bottomCTA>
@@ -39,7 +40,8 @@ export const basic = (args, { argTypes }) => ({
         </template>
       </ec-phone-number-input>
 
-      <p>Value: {{ model }}</p>
+      <p class="tw-mt-48">Value: {{ model }}</p>
+      <button @click="isDisabled=!isDisabled"> Toggle Disabled</button>
     </div>
   `,
 });
@@ -48,10 +50,11 @@ basic.args = {
   label: 'Phone number input',
   note: 'Select country and set number',
   bottomNote: 'Phone number can be up to 14 characters',
+  isDisabled: false,
   countries: [
     { value: '+44', text: 'United Kingdom', countryCode: 'GB' },
     { value: '+34', text: 'Spain', countryCode: 'ES' },
-    { value: '+1658', text: 'Jamaica', countryCode: 'JM' },
+    { value: '+1 658', text: 'Jamaica', countryCode: 'JM' },
     { value: '+260', text: 'Zambia', countryCode: 'ZM' },
     { value: '+973', text: 'Bahrain', countryCode: 'BH' },
   ],
