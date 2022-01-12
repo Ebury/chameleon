@@ -55,8 +55,13 @@
       >
         <template #item="{ item }">
           <div class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center">
+            <img
+              :src="item.iconPath"
+              data-test="ec-phone-number-input__countries-item-flag"
+              class="ec-phone-number-input__countries-item-flag"
+            >
             <span
-              class="ec-phone-number-input__countries-item-name tw-mr-4"
+              class="ec-phone-number-input__countries-item-name"
               data-test="ec-phone-number-input__countries-item-name"
             >
               {{ item.name }}
@@ -121,6 +126,10 @@
         name="simple-error"
         :size="14"
       />
+    </div>
+
+    <div v-if="hasBottomCTA">
+      <slot name="bottomCTA" />
     </div>
   </div>
 </template>
@@ -236,14 +245,24 @@ export default {
     errorId() {
       return this.isInvalid ? `ec-phone-number-input-${this.uid}` : null;
     },
+    sortedAlphabeticallyCountryItems() {
+      const sortedCountries = this.countries;
+
+      sortedCountries.sort(this.sortAlphabetically('text'));
+
+      return sortedCountries;
+    },
     countriesItems() {
-      return this.countries.map(country => ({
+      const mappedItems = this.sortedAlphabeticallyCountryItems.map(country => ({
         value: country.value,
         text: country.text + country.value,
         name: country.text,
         countryCode: country.countryCode,
         id: country.countryCode,
+        iconPath: require(`svg-country-flags/png100px/${country.countryCode.toLowerCase()}.png`),
       }));
+
+      return mappedItems;
     },
     countriesModel: {
       get() {
@@ -277,6 +296,9 @@ export default {
     isInvalid() {
       return !!this.errorMessage;
     },
+    hasBottomCTA() {
+      return !!this.$slots.bottomCTA;
+    },
   },
   methods: {
     onFocusCountry() {
@@ -291,6 +313,23 @@ export default {
     onNumberChange(evt) {
       this.$emit('change', evt);
       this.$emit('number-change', evt);
+    },
+    sortAlphabetically(key) {
+      let property = key;
+      let sortOrder = 1;
+
+      if (property[0] === '-') {
+        sortOrder = -1;
+        property = property.substr(1);
+      }
+
+      return (a, b) => {
+        if (sortOrder === -1) {
+          return b[property].localeCompare(a[property]);
+        }
+
+        return a[property].localeCompare(b[property]);
+      };
     },
   },
 };
@@ -327,6 +366,12 @@ export default {
 
   &__countries-item-calling-code {
     @apply tw-text-gray-4;
+  }
+
+  &__countries-item-flag {
+    @apply tw-mr-4;
+
+    width: 20px;
   }
 
   &__label {
