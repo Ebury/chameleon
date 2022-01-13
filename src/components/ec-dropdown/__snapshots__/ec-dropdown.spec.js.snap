@@ -102,7 +102,7 @@ exports[`EcDropdown :props renders properly when the labelTooltip prop is set 1`
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+        class="ec-input-field__input ec-input-field__input--has-icon"
         data-test="ec-dropdown__input ec-input-field__input"
         id="ec-input-field-1"
         placeholder=""
@@ -187,7 +187,7 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+        class="ec-input-field__input ec-input-field__input--has-icon"
         data-test="ec-dropdown__input ec-input-field__input"
         disabled="disabled"
         id="ec-input-field-1"
@@ -250,7 +250,7 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+        class="ec-input-field__input ec-input-field__input--has-icon"
         data-test="ec-dropdown__input ec-input-field__input"
         id="ec-input-field-1"
         placeholder=""
@@ -364,7 +364,7 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon my-sensitive-content-test-class ec-input-field__input--has-no-spinners"
+        class="ec-input-field__input ec-input-field__input--has-icon my-sensitive-content-test-class"
         data-test="ec-dropdown__input ec-input-field__input"
         id="ec-input-field-1"
         placeholder=""
@@ -408,7 +408,7 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
 
 exports[`EcDropdown :props should use placeholder prop 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+  class="ec-input-field__input ec-input-field__input--has-icon"
   data-test="ec-dropdown__input ec-input-field__input"
   id="ec-input-field-1"
   placeholder="Random placeholder"
@@ -459,7 +459,7 @@ exports[`EcDropdown should render as expected 1`] = `
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+        class="ec-input-field__input ec-input-field__input--has-icon"
         data-test="ec-dropdown__input ec-input-field__input"
         id="ec-input-field-1"
         placeholder=""
@@ -503,7 +503,7 @@ exports[`EcDropdown should render as expected 1`] = `
 
 exports[`EcDropdown should render readonly input as a trigger 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+  class="ec-input-field__input ec-input-field__input--has-icon"
   data-test="ec-dropdown__input ec-input-field__input"
   id="ec-input-field-1"
   placeholder=""

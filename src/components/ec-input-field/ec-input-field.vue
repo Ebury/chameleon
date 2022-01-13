@@ -175,9 +175,6 @@ export default {
       if (this.isSensitive) {
         classes.push(config.sensitiveClass);
       }
-      if (!this.hasNumberSpinners) {
-        classes.push('ec-input-field__input--has-no-spinners');
-      }
 
       return classes;
     },

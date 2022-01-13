@@ -16,7 +16,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
     <!---->
      
     <input
-      class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+      class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
       data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
       id="ec-currency-input-field-1"
       placeholder=""
@@ -118,7 +118,7 @@ exports[`EcCurrencyInput :props should render the component with the dropdown pa
 
 exports[`EcCurrencyInput :props should render the component with the input disabled when isAmountDisabled is set true 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-no-spinners"
+  class="ec-input-field__input ec-input-field__input--is-in-group-left"
   data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
   disabled="disabled"
   id="ec-input-field-3"
@@ -210,7 +210,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+        class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
         data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
         id="ec-currency-input-field-1"
         placeholder=""
@@ -305,7 +305,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
           <!---->
            
           <input
-            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
             data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
             id="ec-currency-input-field-1"
             placeholder=""
@@ -399,7 +399,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-no-spinners"
+        class="ec-input-field__input ec-input-field__input--is-in-group-left"
         data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
         id="ec-input-field-3"
         type="text"
@@ -443,7 +443,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
           <!---->
            
           <input
-            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon my-sensitive-content-test-class ec-input-field__input--has-no-spinners"
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon my-sensitive-content-test-class"
             data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
             id="ec-currency-input-field-1"
             placeholder=""
@@ -537,7 +537,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
       <!---->
        
       <input
-        class="ec-input-field__input ec-input-field__input--is-in-group-left my-sensitive-content-test-class ec-input-field__input--has-no-spinners"
+        class="ec-input-field__input ec-input-field__input--is-in-group-left my-sensitive-content-test-class"
         data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
         id="ec-input-field-3"
         type="text"
@@ -604,7 +604,7 @@ exports[`EcCurrencyInput when the bottom note is defined should render properly 
 
 exports[`EcCurrencyInput when the disabled currency selector has a tooltip associated and the currency dropdown is not disabled should render properly not including the tooltip 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--has-no-spinners"
+  class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
   data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
   id="ec-currency-input-field-1"
   placeholder=""
@@ -675,7 +675,7 @@ exports[`EcCurrencyInput when the error message is defined should render properl
 
 exports[`EcCurrencyInput when the placeholder message for the amount input is defined should render properly 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-no-spinners"
+  class="ec-input-field__input ec-input-field__input--is-in-group-left"
   data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
   id="ec-input-field-3"
   placeholder="Amount Placeholder"
