@@ -2734,3 +2734,641 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
   </div>
 </div>
 `;
+
+exports[`EcCurrencyFilter v-model should update v-model if select all checkbox is clicked: after deselect all 1`] = `
+<div
+  class="ec-currency-filter__tab"
+  data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
+>
+  <div
+    class="ec-multiple-values-selection"
+    data-test="ec-multiple-values-selection"
+  >
+    <!---->
+     
+    <div
+      class="ec-multiple-values-selection__select-all"
+    >
+      <div
+        class="ec-checkbox"
+        data-test="ec-multiple-values-selection__select-all ec-checkbox"
+      >
+        <input
+          class="ec-checkbox__input"
+          data-test="ec-checkbox__input"
+          id="ec-checkbox-1"
+          type="checkbox"
+        />
+         
+        <div
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+        >
+          <span
+            class="ec-checkbox__check-icon-wrapper"
+          >
+            <!---->
+          </span>
+           
+          <label
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
+            data-test="ec-checkbox__label"
+            for="ec-checkbox-1"
+            title="Select all"
+          >
+            Select all
+          </label>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div
+      class="ec-multiple-values-selection__values"
+    >
+      <ul />
+       
+      <ul>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-15"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper"
+              >
+                <!---->
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-15"
+                title="GBP"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    GBP
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-16"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper"
+              >
+                <!---->
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-16"
+                title="EUR"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    EUR
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-17"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper"
+              >
+                <!---->
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-17"
+                title="JPY"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    JPY
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-3 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-18"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper"
+              >
+                <!---->
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-18"
+                title="CAD"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    CAD
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-4 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-19"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper"
+              >
+                <!---->
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-19"
+                title="USD"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    USD
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcCurrencyFilter v-model should update v-model if select all checkbox is clicked: after select all 1`] = `
+<div
+  class="ec-currency-filter__tab"
+  data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
+>
+  <div
+    class="ec-multiple-values-selection"
+    data-test="ec-multiple-values-selection"
+  >
+    <!---->
+     
+    <div
+      class="ec-multiple-values-selection__select-all"
+    >
+      <div
+        class="ec-checkbox"
+        data-test="ec-multiple-values-selection__select-all ec-checkbox"
+      >
+        <input
+          class="ec-checkbox__input"
+          data-test="ec-checkbox__input"
+          id="ec-checkbox-1"
+          type="checkbox"
+        />
+         
+        <div
+          class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+        >
+          <span
+            class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+          >
+            <svg
+              class="ec-checkbox__check-icon ec-icon"
+              height="16"
+              width="16"
+            >
+              <use
+                xlink:href="#ec-simple-check"
+              />
+            </svg>
+          </span>
+           
+          <label
+            class="ec-checkbox__label ec-checkbox__label--is-single-line"
+            data-test="ec-checkbox__label"
+            for="ec-checkbox-1"
+            title="Select all"
+          >
+            Select all
+          </label>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div
+      class="ec-multiple-values-selection__values"
+    >
+      <ul>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-0 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-10"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+              >
+                <svg
+                  class="ec-checkbox__check-icon ec-icon"
+                  height="16"
+                  width="16"
+                >
+                  <use
+                    xlink:href="#ec-simple-check"
+                  />
+                </svg>
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-10"
+                title="GBP"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    GBP
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-1 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-11"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+              >
+                <svg
+                  class="ec-checkbox__check-icon ec-icon"
+                  height="16"
+                  width="16"
+                >
+                  <use
+                    xlink:href="#ec-simple-check"
+                  />
+                </svg>
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-11"
+                title="EUR"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    EUR
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-2 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-12"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+              >
+                <svg
+                  class="ec-checkbox__check-icon ec-icon"
+                  height="16"
+                  width="16"
+                >
+                  <use
+                    xlink:href="#ec-simple-check"
+                  />
+                </svg>
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-12"
+                title="JPY"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    JPY
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-3 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-13"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+              >
+                <svg
+                  class="ec-checkbox__check-icon ec-icon"
+                  height="16"
+                  width="16"
+                >
+                  <use
+                    xlink:href="#ec-simple-check"
+                  />
+                </svg>
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-13"
+                title="CAD"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    CAD
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+        <li
+          class="ec-multiple-values-selection__value-wrapper"
+          data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
+        >
+          <div
+            class="ec-checkbox ec-multiple-values-selection__checkbox"
+            data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-4 ec-checkbox"
+          >
+            <input
+              class="ec-checkbox__input"
+              data-test="ec-checkbox__input"
+              id="ec-checkbox-14"
+              type="checkbox"
+            />
+             
+            <div
+              class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+            >
+              <span
+                class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+              >
+                <svg
+                  class="ec-checkbox__check-icon ec-icon"
+                  height="16"
+                  width="16"
+                >
+                  <use
+                    xlink:href="#ec-simple-check"
+                  />
+                </svg>
+              </span>
+               
+              <label
+                class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                data-test="ec-checkbox__label"
+                for="ec-checkbox-14"
+                title="USD"
+              >
+                <div
+                  class="ec-multiple-values-selection__label-wrapper"
+                >
+                  <!---->
+                   
+                  <span
+                    class="ec-multiple-values-selection__label-text"
+                  >
+                    USD
+                  </span>
+                </div>
+              </label>
+            </div>
+             
+            <!---->
+          </div>
+        </li>
+      </ul>
+       
+      <ul />
+    </div>
+  </div>
+</div>
+`;
