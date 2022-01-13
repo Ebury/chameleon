@@ -85,7 +85,10 @@
           class="ec-phone-number-input__countries-selected-image"
           data-test="ec-phone-number-input__countries-selected-image"
         >
-        <span data-test="ec-phone-number-input__countries-selected-area-code">{{ selectedCountryValue }}</span>
+        <span
+          class="ec-phone-number-input__countries-selected-area-code"
+          data-test="ec-phone-number-input__countries-selected-area-code"
+        >{{ selectedCountryValue }}</span>
       </div>
       <ec-input-field
         v-model="phoneNumberModel"
@@ -263,6 +266,7 @@ export default {
         name: country.text,
         countryCode: country.countryCode,
         id: country.countryCode,
+        // eslint-disable-next-line global-require, import/no-dynamic-require
         iconPath: require(`svg-country-flags/png100px/${country.countryCode.toLowerCase()}.png`),
       }))
         .sort(this.sortAlphabetically('text'));
@@ -382,6 +386,10 @@ export default {
 
   &__countries-selected-image {
     width: 20px;
+  }
+
+  &__countries-selected-area-code {
+    @apply tw-ml-4;
   }
 
   &__label {
