@@ -2,7 +2,7 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
 const countries = [
-  { value: '+44', text: 'United Kingdom', countryCode: 'UK' },
+  { value: '+44', text: 'United Kingdom', countryCode: 'GB' },
   { value: '+1 658', text: 'Jamaica', countryCode: 'JM' },
   { value: '+34', text: 'Spain', countryCode: 'ES' },
 ];
@@ -28,8 +28,8 @@ const countriesModel = [
     value: '+44',
     text: 'United Kingdom+44',
     name: 'United Kingdom',
-    countryCode: 'UK',
-    id: 'UK',
+    countryCode: 'GB',
+    id: 'GB',
     iconPath: '',
   },
 ];
