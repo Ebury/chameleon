@@ -5,6 +5,7 @@ const countries = [
   { value: '+44', text: 'United Kingdom', countryCode: 'GB' },
   { value: '+1 658', text: 'Jamaica', countryCode: 'JM' },
   { value: '+34', text: 'Spain', countryCode: 'ES' },
+  { value: '+204', text: 'New Country', countryCode: 'XX' },
 ];
 
 const countriesModel = [
@@ -33,8 +34,8 @@ const countriesModel = [
     iconPath: '',
   },
   {
-    value: '+204',
-    text: 'Austria',
+    value: '+43',
+    text: 'Austria+43',
     name: 'Austria',
     countryCode: 'AT',
     id: 'AT',
@@ -42,7 +43,7 @@ const countriesModel = [
   },
   {
     value: '+204',
-    text: 'New country',
+    text: 'New Country+204',
     name: 'New Country',
     countryCode: 'XX',
     id: 'XX',
@@ -277,7 +278,7 @@ describe('EcPhoneNumberInput', () => {
       await selectItem(wrapper, 0);
       expect(wrapper.vm.value.country).toEqual(countriesModel[0]);
       await selectItem(wrapper, 1);
-      expect(wrapper.vm.value.country).toEqual(countriesModel[1]);
+      expect(wrapper.vm.value.country).toEqual(countriesModel[4]);
     });
 
     it('should preselect the country item in the dropdown and the number in the input from the v-model', () => {
