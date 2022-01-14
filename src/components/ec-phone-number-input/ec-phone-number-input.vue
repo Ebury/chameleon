@@ -79,6 +79,7 @@
       </ec-dropdown>
       <div
         v-if="selectedCountryValue"
+        data-test="ec-phone-number-input__countries-selected"
         class="ec-phone-number-input__countries-selected"
       > <img
           v-if="selectedCountryImage"

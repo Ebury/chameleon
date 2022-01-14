@@ -46,152 +46,6 @@ exports[`EcPhoneNumberInput :props should accept a custom search field text 1`] 
 />
 `;
 
-exports[`EcPhoneNumberInput :props should not render the country img if it does not exist 1`] = `
-<ul
-  class="ec-dropdown-search__item-list"
-  data-test="ec-dropdown-search__item-list"
->
-  <li
-    class="ec-dropdown-search__search-area"
-    data-test="ec-dropdown-search__search-area"
-  >
-    <svg
-      class="ec-dropdown-search__search-icon ec-icon"
-    >
-      <use
-        xlink:href="#ec-simple-search"
-      />
-    </svg>
-     
-    <input
-      autocomplete="off"
-      class="ec-dropdown-search__search-input"
-      data-test="ec-dropdown-search__search-input"
-      placeholder="Search..."
-    />
-  </li>
-   
-  <!---->
-   
-  <li
-    class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-    title="Jamaica+1 658"
-  >
-    <div
-      class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
-    >
-      <!---->
-       
-      <span
-        class="ec-phone-number-input__countries-item-name"
-        data-test="ec-phone-number-input__countries-item-name"
-      >
-        
-            Jamaica
-          
-      </span>
-       
-      <span
-        class="tw-text-gray-4"
-        data-test="ec-phone-number-input__countries-item-area-code"
-      >
-        
-            +1 658
-          
-      </span>
-    </div>
-  </li>
-  <li
-    class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-    title="New country+204"
-  >
-    <div
-      class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
-    >
-      <!---->
-       
-      <span
-        class="ec-phone-number-input__countries-item-name"
-        data-test="ec-phone-number-input__countries-item-name"
-      >
-        
-            New country
-          
-      </span>
-       
-      <span
-        class="tw-text-gray-4"
-        data-test="ec-phone-number-input__countries-item-area-code"
-      >
-        
-            +204
-          
-      </span>
-    </div>
-  </li>
-  <li
-    class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-    title="Spain+34"
-  >
-    <div
-      class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
-    >
-      <!---->
-       
-      <span
-        class="ec-phone-number-input__countries-item-name"
-        data-test="ec-phone-number-input__countries-item-name"
-      >
-        
-            Spain
-          
-      </span>
-       
-      <span
-        class="tw-text-gray-4"
-        data-test="ec-phone-number-input__countries-item-area-code"
-      >
-        
-            +34
-          
-      </span>
-    </div>
-  </li>
-  <li
-    class="ec-dropdown-search__item"
-    data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
-    title="United Kingdom+44"
-  >
-    <div
-      class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
-    >
-      <!---->
-       
-      <span
-        class="ec-phone-number-input__countries-item-name"
-        data-test="ec-phone-number-input__countries-item-name"
-      >
-        
-            United Kingdom
-          
-      </span>
-       
-      <span
-        class="tw-text-gray-4"
-        data-test="ec-phone-number-input__countries-item-area-code"
-      >
-        
-            +44
-          
-      </span>
-    </div>
-  </li>
-</ul>
-`;
-
 exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
 <div
   class="ec-phone-number-input"
@@ -1820,5 +1674,42 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
   <!---->
    
   <!---->
+</div>
+`;
+
+exports[`EcPhoneNumberInput v-model should preselect a country item from the v-model and do not show the image if does not exist 1`] = `
+<div
+  class="ec-phone-number-input__countries-selected"
+  data-test="ec-phone-number-input__countries-selected"
+>
+  <!---->
+   
+  <span
+    class="ec-phone-number-input__countries-selected-area-code"
+    data-test="ec-phone-number-input__countries-selected-area-code"
+  >
+    +204
+  </span>
+</div>
+`;
+
+exports[`EcPhoneNumberInput v-model should preselect the country item in the dropdown and the number in the input from the v-model 1`] = `
+<div
+  class="ec-phone-number-input__countries-selected"
+  data-test="ec-phone-number-input__countries-selected"
+>
+  <img
+    alt="Austria"
+    class="ec-phone-number-input__countries-selected-image"
+    data-test="ec-phone-number-input__countries-selected-image"
+    src="at.png"
+  />
+   
+  <span
+    class="ec-phone-number-input__countries-selected-area-code"
+    data-test="ec-phone-number-input__countries-selected-area-code"
+  >
+    +204
+  </span>
 </div>
 `;

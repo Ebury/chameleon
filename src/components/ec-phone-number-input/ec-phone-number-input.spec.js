@@ -34,6 +34,14 @@ const countriesModel = [
   },
   {
     value: '+204',
+    text: 'Austria',
+    name: 'Austria',
+    countryCode: 'AT',
+    id: 'AT',
+    iconPath: 'at.png',
+  },
+  {
+    value: '+204',
     text: 'New country',
     name: 'New Country',
     countryCode: 'XX',
@@ -213,20 +221,6 @@ describe('EcPhoneNumberInput', () => {
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
     });
-
-    it('should not render the country img if it does not exist', async () => {
-      const wrapper = mountPhoneNumberInput({
-        countries: [
-          ...countries,
-          { value: '+204', text: 'New country', countryCode: 'XX' },
-        ],
-      });
-
-      await selectItem(wrapper, 1);
-      await wrapper.findByDataTest('ec-phone-number-input__countries').trigger('mousedown');
-
-      expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
-    });
   });
 
   describe('@events', () => {
@@ -295,15 +289,39 @@ describe('EcPhoneNumberInput', () => {
             return {
               countries,
               value: {
-                country: countriesModel[0],
+                country: countriesModel[3],
                 phoneNumber: '123456789',
               },
             };
           },
         },
       );
-      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[0].value);
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[3].value);
       expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
+
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
+    });
+
+    it('should preselect a country item from the v-model and do not show the image if does not exist', () => {
+      const wrapper = mountPhoneNumberInputAsTemplate(
+        '<ec-phone-number-input :countries="countries" v-model="value" />',
+        {},
+        {
+          data() {
+            return {
+              countries,
+              value: {
+                country: countriesModel[4],
+                phoneNumber: '123456789',
+              },
+            };
+          },
+        },
+      );
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[4].value);
+      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
+
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
     });
 
     it('should preselect the country item in the dropdown and the number in the input from the v-model AND mask them when disabled', () => {
