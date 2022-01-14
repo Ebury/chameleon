@@ -56,8 +56,9 @@
         <template #item="{ item }">
           <div class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center">
             <img
+              v-if="item.iconPath"
               :src="item.iconPath"
-              :alt="`Flag of ${item.name}`"
+              :alt="item.name"
               data-test="ec-phone-number-input__countries-item-flag"
               class="ec-phone-number-input__countries-item-flag"
             >
@@ -80,8 +81,9 @@
         v-if="selectedCountryValue"
         class="ec-phone-number-input__countries-selected"
       > <img
+          v-if="selectedCountryImage"
           :src="selectedCountryImage"
-          :alt="`Flag of ${selectedCountryName}`"
+          :alt="selectedCountryName"
           class="ec-phone-number-input__countries-selected-image"
           data-test="ec-phone-number-input__countries-selected-image"
         >
@@ -156,6 +158,7 @@ import EcInputField from '../ec-input-field';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
 import EcTooltip from '../../directives/ec-tooltip';
+import countriesFlagJson from '../../../node_modules/svg-country-flags/countries.json';
 
 export default {
   name: 'EcPhoneNumberInput',
@@ -267,7 +270,7 @@ export default {
         countryCode: country.countryCode,
         id: country.countryCode,
         // eslint-disable-next-line global-require, import/no-dynamic-require
-        iconPath: require(`svg-country-flags/png100px/${country.countryCode.toLowerCase()}.png`),
+        iconPath: countriesFlagJson[country.countryCode] ? require(`svg-country-flags/png100px/${country.countryCode.toLowerCase()}.png`) : null,
       }))
         .sort(this.sortAlphabetically('text'));
     },

@@ -32,6 +32,14 @@ const countriesModel = [
     id: 'GB',
     iconPath: '',
   },
+  {
+    value: '+204',
+    text: 'New country',
+    name: 'New Country',
+    countryCode: 'XX',
+    id: 'XX',
+    iconPath: null,
+  },
 ];
 
 describe('EcPhoneNumberInput', () => {
@@ -202,6 +210,20 @@ describe('EcPhoneNumberInput', () => {
 
       await wrapper.findByDataTest('ec-phone-number-input__countries').trigger('mousedown');
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('Norway');
+
+      expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
+    });
+
+    it('should not render the country img if it does not exist', async () => {
+      const wrapper = mountPhoneNumberInput({
+        countries: [
+          ...countries,
+          { value: '+204', text: 'New country', countryCode: 'XX' },
+        ],
+      });
+
+      await selectItem(wrapper, 1);
+      await wrapper.findByDataTest('ec-phone-number-input__countries').trigger('mousedown');
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
     });

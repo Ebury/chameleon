@@ -57,5 +57,6 @@ basic.args = {
     { value: '+1 658', text: 'Jamaica', countryCode: 'JM' },
     { value: '+260', text: 'Zambia', countryCode: 'ZM' },
     { value: '+973', text: 'Bahrain', countryCode: 'BH' },
+    { value: '+201', text: 'New Country', countryCode: 'XX' },
   ],
 };
