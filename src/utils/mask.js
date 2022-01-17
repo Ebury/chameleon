@@ -1,4 +1,4 @@
-export function mask(text, maskSymbol = '*', visibleChars = 3) {
+export function mask(text, maskSymbol = '*', visibleChars = 2) {
   if (!text) {
     throw new Error('Text is required');
   }

@@ -23,7 +23,6 @@ export { default as EcCurrencyFilter } from './components/ec-currency-filter';
 export { default as EcCurrencyInput } from './components/ec-currency-input';
 export { default as EcDateRangeFilter } from './components/ec-date-range-filter';
 export { default as EcDonut } from './components/ec-donut';
-export { default as EcPhoneNumberInput } from './components/ec-phone-number-input';
 export { default as EcDropdown } from './components/ec-dropdown';
 export { default as EcDropdownSearch } from './components/ec-dropdown-search';
 export { default as EcFilterPopover } from './components/ec-filter-popover';
@@ -42,6 +41,7 @@ export { default as EcMultipleValuesSelection } from './components/ec-multiple-v
 export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
 export { default as EcPanel } from './components/ec-panel';
+export { default as EcPhoneNumberInput } from './components/ec-phone-number-input';
 export { default as EcPopover } from './components/ec-popover';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
 export { default as EcSmartTable } from './components/ec-smart-table';

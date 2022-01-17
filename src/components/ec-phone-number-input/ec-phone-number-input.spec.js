@@ -342,7 +342,7 @@ describe('EcPhoneNumberInput', () => {
         },
       );
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[1].value);
-      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('******789');
+      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('*******89');
     });
 
     it('should use the v-model with the phone number and emit the changes', async () => {

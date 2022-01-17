@@ -81,7 +81,8 @@
         v-if="selectedCountryValue"
         data-test="ec-phone-number-input__countries-selected"
         class="ec-phone-number-input__countries-selected"
-      > <img
+      >
+        <img
           v-if="selectedCountryImage"
           :src="selectedCountryImage"
           :alt="selectedCountryName"
@@ -240,7 +241,6 @@ export default {
     return {
       uid: getUid(),
       countriesHasFocus: false,
-      previousNumberValue: null,
       popperModifier: {
         setPopperWidth: {
           enabled: true,

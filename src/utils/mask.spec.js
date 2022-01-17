@@ -5,7 +5,7 @@ describe('Utils', () => {
   describe('mask', () => {
     it('should mask by default all but the last 3 characters with "*"', () => {
       const textToBeMasked = 'lorem1234';
-      const expectedText = '******234';
+      const expectedText = '*******34';
 
       const maskedText = mask(textToBeMasked);
 
@@ -14,7 +14,7 @@ describe('Utils', () => {
 
     it('should mask the given text with "#"', () => {
       const textToBeMasked = 'lorem1234';
-      const expectedText = '######234';
+      const expectedText = '#######34';
 
       const maskedText = mask(textToBeMasked, '#');
 
