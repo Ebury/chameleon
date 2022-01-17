@@ -11,7 +11,7 @@ const countries = [
 const countriesModel = [
   {
     value: '+1 658',
-    text: 'Jamaica+1 658',
+    text: 'Jamaica +1 658',
     name: 'Jamaica',
     countryCode: 'JM',
     id: 'JM',
@@ -27,7 +27,7 @@ const countriesModel = [
   },
   {
     value: '+44',
-    text: 'United Kingdom+44',
+    text: 'United Kingdom +44',
     name: 'United Kingdom',
     countryCode: 'GB',
     id: 'GB',
@@ -35,7 +35,7 @@ const countriesModel = [
   },
   {
     value: '+43',
-    text: 'Austria+43',
+    text: 'Austria +43',
     name: 'Austria',
     countryCode: 'AT',
     id: 'AT',
@@ -43,7 +43,7 @@ const countriesModel = [
   },
   {
     value: '+204',
-    text: 'New Country+204',
+    text: 'New Country +204',
     name: 'New Country',
     countryCode: 'XX',
     id: 'XX',

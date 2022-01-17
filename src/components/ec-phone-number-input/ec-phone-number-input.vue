@@ -78,7 +78,7 @@
         </template>
       </ec-dropdown>
       <div
-        v-if="selectedCountryValue"
+        v-if="selectedCountryValue || selectedCountryImage"
         data-test="ec-phone-number-input__countries-selected"
         class="ec-phone-number-input__countries-selected"
       >
@@ -266,7 +266,7 @@ export default {
     countriesItems() {
       return this.countries.map(country => ({
         value: country.value,
-        text: country.text + country.value,
+        text: `${country.text} ${country.value}`,
         name: country.text,
         countryCode: country.countryCode,
         id: country.countryCode,
