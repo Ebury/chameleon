@@ -344,7 +344,6 @@ export default {
         // eslint-disable-next-line global-require, import/no-dynamic-require
         return require(`svg-country-flags/png100px/${countryCode.toLowerCase()}.png`);
       } catch (err) {
-        console.log('getCountryFlagPath ERROR', err);
         return null;
       }
     },

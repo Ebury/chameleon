@@ -140,7 +140,12 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="Jamaica"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/jm.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -193,12 +198,46 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              title="Spain +34"
+              title="New Country +204"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
                 <!---->
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-name"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            New Country
+          
+                </span>
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-area-code"
+                  data-test="ec-phone-number-input__countries-item-area-code"
+                >
+                  
+            +204
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="Spain +34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <img
+                  alt="Spain"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/es.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -221,13 +260,18 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
               title="United Kingdom +44"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="United Kingdom"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/gb.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -494,7 +538,12 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="Jamaica"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/jm.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -547,12 +596,46 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              title="Spain +34"
+              title="New Country +204"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
                 <!---->
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-name"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            New Country
+          
+                </span>
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-area-code"
+                  data-test="ec-phone-number-input__countries-item-area-code"
+                >
+                  
+            +204
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="Spain +34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <img
+                  alt="Spain"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/es.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -575,13 +658,18 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
               title="United Kingdom +44"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="United Kingdom"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/gb.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -737,7 +825,12 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="Jamaica"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/jm.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -790,12 +883,46 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              title="Spain +34"
+              title="New Country +204"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
                 <!---->
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-name"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            New Country
+          
+                </span>
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-area-code"
+                  data-test="ec-phone-number-input__countries-item-area-code"
+                >
+                  
+            +204
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="Spain +34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <img
+                  alt="Spain"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/es.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -818,13 +945,18 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
               title="United Kingdom +44"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="United Kingdom"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/gb.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -979,7 +1111,12 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="Jamaica"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/jm.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1032,12 +1169,46 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              title="Spain +34"
+              title="New Country +204"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
                 <!---->
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-name"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            New Country
+          
+                </span>
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-area-code"
+                  data-test="ec-phone-number-input__countries-item-area-code"
+                >
+                  
+            +204
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="Spain +34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <img
+                  alt="Spain"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/es.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1060,13 +1231,18 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
               title="United Kingdom +44"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="United Kingdom"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/gb.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1218,7 +1394,12 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="Jamaica"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/jm.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1271,12 +1452,46 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              title="Spain +34"
+              title="New Country +204"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
                 <!---->
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-name"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            New Country
+          
+                </span>
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-area-code"
+                  data-test="ec-phone-number-input__countries-item-area-code"
+                >
+                  
+            +204
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="Spain +34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <img
+                  alt="Spain"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/es.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1299,13 +1514,18 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
               title="United Kingdom +44"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="United Kingdom"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/gb.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1485,7 +1705,12 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="Jamaica"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/jm.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1538,12 +1763,46 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              title="Spain +34"
+              title="New Country +204"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
                 <!---->
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-name"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            New Country
+          
+                </span>
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-area-code"
+                  data-test="ec-phone-number-input__countries-item-area-code"
+                >
+                  
+            +204
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="Spain +34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <img
+                  alt="Spain"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/es.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1566,13 +1825,18 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
               title="United Kingdom +44"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="United Kingdom"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/gb.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1728,7 +1992,12 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="Jamaica"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/jm.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1781,12 +2050,46 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              title="Spain +34"
+              title="New Country +204"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
                 <!---->
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-name"
+                  data-test="ec-phone-number-input__countries-item-name"
+                >
+                  
+            New Country
+          
+                </span>
+                 
+                <span
+                  class="ec-phone-number-input__countries-item-area-code"
+                  data-test="ec-phone-number-input__countries-item-area-code"
+                >
+                  
+            +204
+          
+                </span>
+              </div>
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="Spain +34"
+            >
+              <div
+                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+              >
+                <img
+                  alt="Spain"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/es.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1809,13 +2112,18 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
             </li>
             <li
               class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
               title="United Kingdom +44"
             >
               <div
                 class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
               >
-                <!---->
+                <img
+                  alt="United Kingdom"
+                  class="ec-phone-number-input__countries-item-flag"
+                  data-test="ec-phone-number-input__countries-item-flag"
+                  src="/my-path/gb.png"
+                />
                  
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1866,6 +2174,22 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
 </div>
 `;
 
+exports[`EcPhoneNumberInput v-model should preselect a country item from the v-model and do not show the image if country code is not set 1`] = `
+<div
+  class="ec-phone-number-input__countries-selected"
+  data-test="ec-phone-number-input__countries-selected"
+>
+  <!---->
+   
+  <span
+    class="ec-phone-number-input__countries-selected-area-code"
+    data-test="ec-phone-number-input__countries-selected-area-code"
+  >
+    +204
+  </span>
+</div>
+`;
+
 exports[`EcPhoneNumberInput v-model should preselect a country item from the v-model and do not show the image if does not exist 1`] = `
 <div
   class="ec-phone-number-input__countries-selected"
@@ -1887,13 +2211,17 @@ exports[`EcPhoneNumberInput v-model should preselect the country item in the dro
   class="ec-phone-number-input__countries-selected"
   data-test="ec-phone-number-input__countries-selected"
 >
-  <!---->
+  <img
+    class="ec-phone-number-input__countries-selected-image"
+    data-test="ec-phone-number-input__countries-selected-image"
+    src="/my-path/gb.png"
+  />
    
   <span
     class="ec-phone-number-input__countries-selected-area-code"
     data-test="ec-phone-number-input__countries-selected-area-code"
   >
-    +1 658
+    +44
   </span>
 </div>
 `;

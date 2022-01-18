@@ -2,52 +2,16 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
+jest.mock('svg-country-flags/png100px/gb.png', () => '/my-path/gb.png');
+jest.mock('svg-country-flags/png100px/jm.png', () => '/my-path/jm.png');
+jest.mock('svg-country-flags/png100px/es.png', () => '/my-path/es.png');
+
 const countries = [
   { areaCode: '+44', text: 'United Kingdom', countryCode: 'GB' },
   { areaCode: '+1 658', text: 'Jamaica', countryCode: 'JM' },
   { areaCode: '+34', text: 'Spain', countryCode: 'ES' },
-  { areaCode: '+204', text: 'New Country', countryCode: 'NCC' },
-];
-
-const countriesModel = [
-  {
-    areaCode: '+1 658',
-    iconPath: 'jm.png',
-    id: 'JM',
-    name: 'Jamaica',
-    text: 'Jamaica +1 658',
-    value: countries[1],
-  },
-  {
-    areaCode: '+34',
-    iconPath: 'es.png',
-    id: 'ES',
-    name: 'Spain',
-    text: 'Spain+34',
-    value: countries[2],
-  },
-  {
-    areaCode: '+44',
-    iconPath: 'gb.png',
-    id: 'GB',
-    name: 'United Kingdom',
-    text: 'United Kingdom +44',
-    value: countries[0],
-  },
-  {
-    areaCode: '+43',
-    iconPath: 'at.png',
-    id: 'AT',
-    name: 'Austria',
-    text: 'Austria +43',
-  },
-  {
-    areaCode: '+204',
-    iconPath: null,
-    id: 'XX',
-    name: 'New Country',
-    text: 'New Country +204',
-  },
+  { areaCode: '+204', text: 'New Country', countryCode: 'XX' },
+  { areaCode: '+204', text: 'New Country', countryCode: null },
 ];
 
 describe('EcPhoneNumberInput', () => {
@@ -313,14 +277,14 @@ describe('EcPhoneNumberInput', () => {
             return {
               countries,
               value: {
-                country: countries[1],
+                country: countries[0],
                 phoneNumber: '123456789',
               },
             };
           },
         },
       );
-      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[1].areaCode);
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[0].areaCode);
       expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
 
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
@@ -342,7 +306,29 @@ describe('EcPhoneNumberInput', () => {
           },
         },
       );
-      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[4].areaCode);
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[3].areaCode);
+      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
+
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
+    });
+
+    it('should preselect a country item from the v-model and do not show the image if country code is not set', () => {
+      const wrapper = mountPhoneNumberInputAsTemplate(
+        '<ec-phone-number-input :countries="countries" v-model="value" />',
+        {},
+        {
+          data() {
+            return {
+              countries,
+              value: {
+                country: countries[4],
+                phoneNumber: '123456789',
+              },
+            };
+          },
+        },
+      );
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[4].areaCode);
       expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
 
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
