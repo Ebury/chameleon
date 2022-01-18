@@ -36,11 +36,7 @@ export const basic = (args, { argTypes }) => ({
           'country-change': onCountryChange
         }"
         v-model="model"
-      >
-        <template #bottomCTA>
-          <a href="#" @click.prevent.stop class="tw-small-text">Change number</a>
-        </template>
-      </ec-phone-number-input>
+      />
 
       <p class="tw-mt-48">Value: {{ model }}</p>
     </div>

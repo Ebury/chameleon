@@ -47,14 +47,9 @@ module.exports = {
     fileLoaderRule.options = {
       ...fileLoaderRule.options,
       name(resourcePath) {
-        if (resourcePath.includes('/svg-country-flags/png100px/')) {
-          return 'icons/flags/100/[name].[ext]';
-        }
-        if (resourcePath.includes('/svg-country-flags/png250px/')) {
-          return 'icons/flags/250/[name].[ext]';
-        }
-        if (resourcePath.includes('/svg-country-flags/png1000px/')) {
-          return 'icons/flags/1000/[name].[ext]';
+        const match = resourcePath.match(/\/svg-country-flags\/png(?<size>[0-9]+)px\//);
+        if (match) {
+          return `icons/country-flags/${match.groups.size}/[name].[ext]`;
         }
         return fileLoaderOutputName;
       },

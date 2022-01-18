@@ -199,10 +199,12 @@ describe('EcPhoneNumberInput', () => {
         withMockedConsole((errorSpy) => {
           mountPhoneNumberInput({ level: str });
           expect(errorSpy).toHaveBeenCalledTimes(3);
-          // this is the test for the dropdown
+          // this is the test for the phone number input field
           expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
-          // this is the test for the
+          // this is the test for the dropdown
           expect(errorSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+          // this is the test for the dropdownsearch
+          expect(errorSpy.mock.calls[2][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
         });
       } else {
         const wrapper = mountPhoneNumberInput({ level: str });

@@ -1,5 +1,4 @@
 import { mask } from './mask';
-import { withMockedConsole } from '../../tests/utils/console';
 
 describe('Utils', () => {
   describe('mask', () => {
@@ -33,27 +32,21 @@ describe('Utils', () => {
     it('should throw if no text is provided', () => {
       const textToBeMasked = null;
 
-      withMockedConsole(() => {
-        expect(() => mask(textToBeMasked)).toThrowError(new Error('Text is required'));
-      });
+      expect(() => mask(textToBeMasked)).toThrowError(new Error('Text is required'));
     });
 
     it('should throw if no mask symbol is provided', () => {
       const textToBeMasked = 'lorem';
       const maskSybol = null;
 
-      withMockedConsole(() => {
-        expect(() => mask(textToBeMasked, maskSybol)).toThrowError(new Error('Mask symbol cannot be empty'));
-      });
+      expect(() => mask(textToBeMasked, maskSybol)).toThrowError(new Error('Mask symbol cannot be empty'));
     });
 
     it('should throw if no mask symbol is provided', () => {
       const textToBeMasked = 'lorem';
       const maskSybol = null;
 
-      withMockedConsole(() => {
-        expect(() => mask(textToBeMasked, maskSybol)).toThrowError(new Error('Mask symbol cannot be empty'));
-      });
+      expect(() => mask(textToBeMasked, maskSybol)).toThrowError(new Error('Mask symbol cannot be empty'));
     });
 
     it('should throw if visibleChars is not provided', () => {
@@ -61,9 +54,7 @@ describe('Utils', () => {
       const maskSybol = '#';
       const visibleChars = null;
 
-      withMockedConsole(() => {
-        expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrowError(new Error('Visible characters must be a number greater than zero'));
-      });
+      expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrowError(new Error('Visible characters must be a number greater than zero'));
     });
 
     it('should throw if visibleChars is negative', () => {
@@ -71,9 +62,7 @@ describe('Utils', () => {
       const maskSybol = '#';
       const visibleChars = -1;
 
-      withMockedConsole(() => {
-        expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrowError(new Error('Visible characters must be a number greater than zero'));
-      });
+      expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrowError(new Error('Visible characters must be a number greater than zero'));
     });
   });
 });
