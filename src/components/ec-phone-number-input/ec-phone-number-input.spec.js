@@ -1,53 +1,52 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 const countries = [
-  { value: '+44', text: 'United Kingdom', countryCode: 'GB' },
-  { value: '+1 658', text: 'Jamaica', countryCode: 'JM' },
-  { value: '+34', text: 'Spain', countryCode: 'ES' },
-  { value: '+204', text: 'New Country', countryCode: 'XX' },
+  { areaCode: '+44', text: 'United Kingdom', countryCode: 'GB' },
+  { areaCode: '+1 658', text: 'Jamaica', countryCode: 'JM' },
+  { areaCode: '+34', text: 'Spain', countryCode: 'ES' },
+  { areaCode: '+204', text: 'New Country', countryCode: 'NCC' },
 ];
 
 const countriesModel = [
   {
-    value: '+1 658',
-    text: 'Jamaica +1 658',
-    name: 'Jamaica',
-    countryCode: 'JM',
+    areaCode: '+1 658',
+    iconPath: 'jm.png',
     id: 'JM',
-    iconPath: '',
+    name: 'Jamaica',
+    text: 'Jamaica +1 658',
+    value: countries[1],
   },
   {
-    value: '+34',
-    text: 'Spain+34',
-    name: 'Spain',
-    countryCode: 'ES',
+    areaCode: '+34',
+    iconPath: 'es.png',
     id: 'ES',
-    iconPath: '',
+    name: 'Spain',
+    text: 'Spain+34',
+    value: countries[2],
   },
   {
-    value: '+44',
-    text: 'United Kingdom +44',
-    name: 'United Kingdom',
-    countryCode: 'GB',
+    areaCode: '+44',
+    iconPath: 'gb.png',
     id: 'GB',
-    iconPath: '',
+    name: 'United Kingdom',
+    text: 'United Kingdom +44',
+    value: countries[0],
   },
   {
-    value: '+43',
-    text: 'Austria +43',
-    name: 'Austria',
-    countryCode: 'AT',
-    id: 'AT',
+    areaCode: '+43',
     iconPath: 'at.png',
+    id: 'AT',
+    name: 'Austria',
+    text: 'Austria +43',
   },
   {
-    value: '+204',
-    text: 'New Country +204',
-    name: 'New Country',
-    countryCode: 'XX',
-    id: 'XX',
+    areaCode: '+204',
     iconPath: null,
+    id: 'XX',
+    name: 'New Country',
+    text: 'New Country +204',
   },
 ];
 
@@ -222,6 +221,30 @@ describe('EcPhoneNumberInput', () => {
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
     });
+
+    it.each([
+      ['modal', false],
+      ['tooltip', false],
+      ['notification', false],
+      ['level-1', false],
+      ['level-2', false],
+      ['level-3', false],
+      ['random', true],
+    ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
+      if (error) {
+        withMockedConsole((errorSpy) => {
+          mountPhoneNumberInput({ level: str });
+          expect(errorSpy).toHaveBeenCalledTimes(3);
+          // this is the test for the dropdown
+          expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+          // this is the test for the
+          expect(errorSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+        });
+      } else {
+        const wrapper = mountPhoneNumberInput({ level: str });
+        expect(wrapper.findByDataTest('ec-popover-dropdown-search').attributes('level')).toBe(str);
+      }
+    });
   });
 
   describe('@events', () => {
@@ -276,9 +299,9 @@ describe('EcPhoneNumberInput', () => {
       );
 
       await selectItem(wrapper, 0);
-      expect(wrapper.vm.value.country).toEqual(countriesModel[0]);
+      expect(wrapper.vm.value.country).toEqual(countries[1]);
       await selectItem(wrapper, 1);
-      expect(wrapper.vm.value.country).toEqual(countriesModel[4]);
+      expect(wrapper.vm.value.country).toEqual(countries[3]);
     });
 
     it('should preselect the country item in the dropdown and the number in the input from the v-model', () => {
@@ -290,14 +313,14 @@ describe('EcPhoneNumberInput', () => {
             return {
               countries,
               value: {
-                country: countriesModel[3],
+                country: countries[1],
                 phoneNumber: '123456789',
               },
             };
           },
         },
       );
-      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[3].value);
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[1].areaCode);
       expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
 
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
@@ -312,36 +335,36 @@ describe('EcPhoneNumberInput', () => {
             return {
               countries,
               value: {
-                country: countriesModel[4],
+                country: countries[3],
                 phoneNumber: '123456789',
               },
             };
           },
         },
       );
-      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[4].value);
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[4].areaCode);
       expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
 
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
     });
 
-    it('should preselect the country item in the dropdown and the number in the input from the v-model AND mask them when disabled', () => {
+    it('should preselect the country item in the dropdown and the number in the input from the v-model AND mask them when "is-masked" prop is true', () => {
       const wrapper = mountPhoneNumberInputAsTemplate(
-        '<ec-phone-number-input :is-disabled="true" :countries="countries" v-model="value" />',
+        '<ec-phone-number-input :is-masked="true" :countries="countries" v-model="value" />',
         {},
         {
           data() {
             return {
               countries,
               value: {
-                country: countriesModel[1],
+                country: countries[1],
                 phoneNumber: '123456789',
               },
             };
           },
         },
       );
-      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countriesModel[1].value);
+      expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[1].areaCode);
       expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('*******89');
     });
 

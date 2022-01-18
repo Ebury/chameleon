@@ -152,7 +152,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -181,7 +181,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -210,7 +210,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -239,7 +239,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -274,8 +274,6 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
       <!---->
     </div>
   </div>
-   
-  <!---->
    
   <!---->
 </div>
@@ -508,7 +506,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -537,7 +535,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -566,7 +564,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -595,7 +593,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -630,8 +628,6 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
       <!---->
     </div>
   </div>
-   
-  <!---->
    
   <!---->
 </div>
@@ -753,7 +749,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -782,7 +778,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -811,7 +807,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -840,7 +836,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -874,8 +870,6 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
       <!---->
     </div>
   </div>
-   
-  <!---->
    
   <!---->
 </div>
@@ -997,7 +991,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1026,7 +1020,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1055,7 +1049,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1084,7 +1078,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1118,8 +1112,6 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
       <!---->
     </div>
   </div>
-   
-  <!---->
    
   <!---->
 </div>
@@ -1238,7 +1230,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1267,7 +1259,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1296,7 +1288,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1325,7 +1317,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1359,8 +1351,6 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
       <!---->
     </div>
   </div>
-   
-  <!---->
    
   <!---->
 </div>
@@ -1507,7 +1497,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1536,7 +1526,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1565,7 +1555,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1594,7 +1584,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1641,8 +1631,6 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
      
     <!---->
   </div>
-   
-  <!---->
 </div>
 `;
 
@@ -1752,7 +1740,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1781,7 +1769,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1810,7 +1798,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1839,7 +1827,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
                 </span>
                  
                 <span
-                  class="tw-text-gray-4"
+                  class="ec-phone-number-input__countries-item-area-code"
                   data-test="ec-phone-number-input__countries-item-area-code"
                 >
                   
@@ -1875,8 +1863,6 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
   </div>
    
   <!---->
-   
-  <!---->
 </div>
 `;
 
@@ -1901,18 +1887,13 @@ exports[`EcPhoneNumberInput v-model should preselect the country item in the dro
   class="ec-phone-number-input__countries-selected"
   data-test="ec-phone-number-input__countries-selected"
 >
-  <img
-    alt="Austria"
-    class="ec-phone-number-input__countries-selected-image"
-    data-test="ec-phone-number-input__countries-selected-image"
-    src="at.png"
-  />
+  <!---->
    
   <span
     class="ec-phone-number-input__countries-selected-area-code"
     data-test="ec-phone-number-input__countries-selected-area-code"
   >
-    +43
+    +1 658
   </span>
 </div>
 `;

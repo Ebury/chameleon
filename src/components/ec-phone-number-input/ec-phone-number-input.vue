@@ -46,6 +46,7 @@
         :popover-options="popoverOptions"
         :popper-modifiers="popperModifier"
         :search-placeholder="searchCountryPlaceholder"
+        :level="level"
         selected-text=" "
         @blur="countriesHasFocus = false"
         @change="onCountryChange"
@@ -69,16 +70,16 @@
               {{ item.name }}
             </span>
             <span
-              class="tw-text-gray-4"
+              class="ec-phone-number-input__countries-item-area-code"
               data-test="ec-phone-number-input__countries-item-area-code"
             >
-              {{ item.value }}
+              {{ item.areaCode }}
             </span>
           </div>
         </template>
       </ec-dropdown>
       <div
-        v-if="selectedCountryValue"
+        v-if="selectedCountryAreaCode"
         data-test="ec-phone-number-input__countries-selected"
         class="ec-phone-number-input__countries-selected"
       >
@@ -92,7 +93,7 @@
         <span
           class="ec-phone-number-input__countries-selected-area-code"
           data-test="ec-phone-number-input__countries-selected-area-code"
-        >{{ selectedCountryValue }}</span>
+        >{{ selectedCountryAreaCode }}</span>
       </div>
       <ec-input-field
         v-model="phoneNumberModel"
@@ -145,10 +146,6 @@
         :size="14"
       />
     </div>
-
-    <div v-if="hasBottomCTA">
-      <slot name="bottomCTA" />
-    </div>
   </div>
 </template>
 
@@ -160,7 +157,6 @@ import EcInputField from '../ec-input-field';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
 import EcTooltip from '../../directives/ec-tooltip';
-import countriesFlagJson from '../../../node_modules/svg-country-flags/countries.json';
 
 export default {
   name: 'EcPhoneNumberInput',
@@ -188,6 +184,10 @@ export default {
       type: String,
     },
     isWarning: {
+      type: Boolean,
+      default: false,
+    },
+    isMasked: {
       type: Boolean,
       default: false,
     },
@@ -236,6 +236,12 @@ export default {
       type: String,
       default: 'No results found',
     },
+    level: {
+      type: String,
+      validator(value) {
+        return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
+      },
+    },
   },
   data() {
     return {
@@ -265,13 +271,12 @@ export default {
     },
     countriesItems() {
       return this.countries.map(country => ({
-        value: country.value,
-        text: `${country.text} ${country.value}`,
-        name: country.text,
-        countryCode: country.countryCode,
+        areaCode: country.areaCode,
+        iconPath: this.getCountryFlagPath(country.countryCode),
         id: country.countryCode,
-        // eslint-disable-next-line global-require, import/no-dynamic-require
-        iconPath: countriesFlagJson[country.countryCode] ? require(`svg-country-flags/png100px/${country.countryCode.toLowerCase()}.png`) : null,
+        name: country.text,
+        text: `${country.text} ${country.areaCode}`, // the text is only displayed in the tooltip, it's just to make items searchable by area code and name of the country
+        value: country,
       }))
         .sort(this.sortAlphabetically('text'));
     },
@@ -282,39 +287,36 @@ export default {
       set(item) {
         this.$emit('value-change', {
           ...this.value,
-          country: item,
+          country: item.value,
         });
       },
     },
     phoneNumberModel: {
       get() {
-        if (this.isDisabled && this.value.phoneNumber) {
+        if (this.isMasked) {
           return mask(this.value.phoneNumber);
         }
 
         return this.value.phoneNumber;
       },
-      set(item) {
+      set(phoneNumber) {
         this.$emit('value-change', {
           ...this.value,
-          phoneNumber: item,
+          phoneNumber,
         });
       },
     },
-    selectedCountryValue() {
-      return this.value?.country?.value || null;
+    selectedCountryAreaCode() {
+      return this.value?.country?.areaCode || null;
     },
     selectedCountryImage() {
-      return this.value?.country?.iconPath;
+      return this.getCountryFlagPath(this.value?.country?.countryCode);
     },
     selectedCountryName() {
       return this.value?.country?.name;
     },
     isInvalid() {
       return !!this.errorMessage;
-    },
-    hasBottomCTA() {
-      return !!this.$slots.bottomCTA;
     },
   },
   methods: {
@@ -333,6 +335,18 @@ export default {
     },
     sortAlphabetically(key) {
       return (a, b) => a[key].localeCompare(b[key]);
+    },
+    getCountryFlagPath(countryCode) {
+      if (!countryCode) {
+        return null;
+      }
+      try {
+        // eslint-disable-next-line global-require, import/no-dynamic-require
+        return require(`svg-country-flags/png100px/${countryCode.toLowerCase()}.png`);
+      } catch (err) {
+        console.log('getCountryFlagPath ERROR', err);
+        return null;
+      }
     },
   },
 };

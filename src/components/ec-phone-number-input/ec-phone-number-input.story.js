@@ -11,7 +11,10 @@ export const basic = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      model: {},
+      model: {
+        country: this.$props.countries[0],
+        phoneNumber: '1234567890',
+      },
     };
   },
   methods: {
@@ -32,7 +35,6 @@ export const basic = (args, { argTypes }) => ({
           'phone-number-change': onPhoneNumberChange,
           'country-change': onCountryChange
         }"
-        :disabled="isDisabled"
         v-model="model"
       >
         <template #bottomCTA>
@@ -41,7 +43,6 @@ export const basic = (args, { argTypes }) => ({
       </ec-phone-number-input>
 
       <p class="tw-mt-48">Value: {{ model }}</p>
-      <button @click="isDisabled=!isDisabled"> Toggle Disabled</button>
     </div>
   `,
 });
@@ -52,11 +53,11 @@ basic.args = {
   bottomNote: 'Phone number can be up to 14 characters',
   isDisabled: false,
   countries: [
-    { value: '+44', text: 'United Kingdom', countryCode: 'GB' },
-    { value: '+34', text: 'Spain', countryCode: 'ES' },
-    { value: '+1 658', text: 'Jamaica', countryCode: 'JM' },
-    { value: '+260', text: 'Zambia', countryCode: 'ZM' },
-    { value: '+973', text: 'Bahrain', countryCode: 'BH' },
-    { value: '+201', text: 'New Country', countryCode: 'XX' },
+    { areaCode: '+44', text: 'United Kingdom', countryCode: 'GB' },
+    { areaCode: '+34', text: 'Spain', countryCode: 'ES' },
+    { areaCode: '+1 658', text: 'Jamaica', countryCode: 'JM' },
+    { areaCode: '+260', text: 'Zambia', countryCode: 'ZM' },
+    { areaCode: '+973', text: 'Bahrain', countryCode: 'BH' },
+    { areaCode: '+201', text: 'New Country', countryCode: 'XX' },
   ],
 };
