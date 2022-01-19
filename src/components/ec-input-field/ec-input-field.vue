@@ -95,7 +95,7 @@ export default {
       type: String,
       default: 'text',
       validator(value) {
-        return ['text', 'date', 'number'].includes(value);
+        return ['text', 'date', 'number', 'tel'].includes(value);
       },
     },
     value: {

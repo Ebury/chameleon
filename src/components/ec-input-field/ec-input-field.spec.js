@@ -116,6 +116,22 @@ describe('EcInputField', () => {
     expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('some text');
   });
 
+  it('should set the v-model on the value of the input when type is "tel" and change when it changes', async () => {
+    const wrapper = mountInputFieldAsTemplate(
+      '<ec-input-field v-model="text" type="tel" />',
+      {},
+      {
+        data() {
+          return { text: '' };
+        },
+      },
+    );
+
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
+    await wrapper.setData({ text: '123456789' });
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('123456789');
+  });
+
   it('should emit the value when you write on the input', () => {
     const wrapper = mountInputFieldAsTemplate(
       '<ec-input-field v-model="text" type="text" />',
