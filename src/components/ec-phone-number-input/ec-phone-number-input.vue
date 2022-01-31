@@ -277,8 +277,7 @@ export default {
         name: country.text,
         text: `${country.text} ${country.areaCode}`, // the text is only displayed in the tooltip, it's just to make items searchable by area code and name of the country
         value: country,
-      }))
-        .sort(this.sortAlphabetically('text'));
+      }));
     },
     countriesModel: {
       get() {
@@ -332,9 +331,6 @@ export default {
     onPhoneNumberChange(evt) {
       this.$emit('change', evt);
       this.$emit('phone-number-change', evt);
-    },
-    sortAlphabetically(key) {
-      return (a, b) => a[key].localeCompare(b[key]);
     },
     getCountryFlagPath(countryCode) {
       if (!countryCode) {
