@@ -265,9 +265,9 @@ describe('EcPhoneNumberInput', () => {
       );
 
       await selectItem(wrapper, 0);
-      expect(wrapper.vm.value.country).toEqual(countries[1]);
+      expect(wrapper.vm.value.country).toEqual(countries[0]);
       await selectItem(wrapper, 1);
-      expect(wrapper.vm.value.country).toEqual(countries[3]);
+      expect(wrapper.vm.value.country).toEqual(countries[1]);
     });
 
     it('should preselect the country item in the dropdown and the number in the input from the v-model', () => {
