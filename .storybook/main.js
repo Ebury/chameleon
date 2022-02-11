@@ -35,6 +35,25 @@ module.exports = {
     }));
     const babelRule = config.module.rules[0];
     babelRule.exclude = /node_modules\/(?!(css-tree|color)\/).*/;
+
+    const fileLoaderRule = config.module.rules.find(rule => rule.loader?.includes('/file-loader/'));
+    if (!fileLoaderRule) {
+      throw new Error('Unable to find file loader rules in the webpack config. Configuration change?');
+    }
+    const fileLoaderOutputName = fileLoaderRule.options.name;
+    if (!fileLoaderOutputName) {
+      throw new Error('Unable to find file loader output name in the webpack config. Configuration change?');
+    }
+    fileLoaderRule.options = {
+      ...fileLoaderRule.options,
+      name(resourcePath) {
+        const match = resourcePath.match(/\/svg-country-flags\/png(?<size>[0-9]+)px\//);
+        if (match) {
+          return `icons/country-flags/${match.groups.size}/[name].[ext]`;
+        }
+        return fileLoaderOutputName;
+      },
+    };
     return config;
   },
 };

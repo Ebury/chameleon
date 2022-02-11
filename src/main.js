@@ -41,6 +41,7 @@ export { default as EcMultipleValuesSelection } from './components/ec-multiple-v
 export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
 export { default as EcPanel } from './components/ec-panel';
+export { default as EcPhoneNumberInput } from './components/ec-phone-number-input';
 export { default as EcPopover } from './components/ec-popover';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
 export { default as EcSmartTable } from './components/ec-smart-table';
