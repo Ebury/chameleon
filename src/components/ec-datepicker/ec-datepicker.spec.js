@@ -1,31 +1,31 @@
 import { mount } from '@vue/test-utils';
-import EcDatepickerInput from './ec-datepicker-input.vue';
+import EcDatepicker from './ec-datepicker.vue';
 
 describe('Datepicker', () => {
-  function mountDatepickerInput(props, mountOpts) {
-    return mount(EcDatepickerInput, {
+  function mountDatepicker(props, mountOpts) {
+    return mount(EcDatepicker, {
       propsData: { ...props },
       ...mountOpts,
     });
   }
 
   it('should render properly', () => {
-    const wrapper = mountDatepickerInput();
+    const wrapper = mountDatepicker();
 
     expect(wrapper.element).toMatchSnapshot();
   });
 
   describe(':props', () => {
     it('should render with a label', () => {
-      const wrapper = mountDatepickerInput({
-        label: 'Datepicker input label',
+      const wrapper = mountDatepicker({
+        label: 'Datepicker label',
       });
 
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with a note', () => {
-      const wrapper = mountDatepickerInput({
+      const wrapper = mountDatepicker({
         note: 'Datepicker note',
       });
 
@@ -33,7 +33,7 @@ describe('Datepicker', () => {
     });
 
     it('should render with a bottom note', () => {
-      const wrapper = mountDatepickerInput({
+      const wrapper = mountDatepicker({
         bottomNote: 'Datepicker bottom note',
       });
 
@@ -41,7 +41,7 @@ describe('Datepicker', () => {
     });
 
     it('should render with a bottom note in a warning state', () => {
-      const wrapper = mountDatepickerInput({
+      const wrapper = mountDatepicker({
         bottomNote: 'Datepicker bottom note',
         isWarning: true,
       });
@@ -50,7 +50,7 @@ describe('Datepicker', () => {
     });
 
     it('should render with a placeholder', () => {
-      const wrapper = mountDatepickerInput({
+      const wrapper = mountDatepicker({
         placeholder: 'Datepicker placeholder',
       });
 
@@ -58,7 +58,7 @@ describe('Datepicker', () => {
     });
 
     it('should render with an error message', () => {
-      const wrapper = mountDatepickerInput({
+      const wrapper = mountDatepicker({
         errorMessage: 'A random error message',
       });
 
@@ -66,7 +66,7 @@ describe('Datepicker', () => {
     });
 
     it('should render as disabled', () => {
-      const wrapper = mountDatepickerInput({
+      const wrapper = mountDatepicker({
         isDisabled: true,
       });
 

@@ -16,7 +16,7 @@ export { default as EcAmountInput } from './components/ec-amount-input';
 export { default as EcBtn } from './components/ec-btn';
 export { default as EcBtnDropdown } from './components/ec-btn-dropdown';
 export { default as EcButtonGroup } from './components/ec-button-group';
-export { default as EcDatepickerInput } from './components/ec-datepicker-input';
+export { default as EcDatepicker } from './components/ec-datepicker';
 export { default as EcCheckbox } from './components/ec-checkbox';
 export { default as EcClosePopover } from './directives/ec-close-popover';
 export { default as EcContainer } from './components/ec-container';

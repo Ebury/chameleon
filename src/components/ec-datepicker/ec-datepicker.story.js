@@ -1,13 +1,13 @@
 import { action } from '@storybook/addon-actions';
-import EcDatepickerInput from './ec-datepicker-input.vue';
+import EcDatepicker from './ec-datepicker.vue';
 
 export default {
-  title: 'Datepicker Input',
-  component: EcDatepickerInput,
+  title: 'Datepicker',
+  component: EcDatepicker,
 };
 
 export const basic = (args, { argTypes }) => ({
-  components: { EcDatepickerInput },
+  components: { EcDatepicker },
   props: Object.keys(argTypes),
   data() {
     return {
@@ -35,7 +35,7 @@ export const basic = (args, { argTypes }) => ({
   },
   template: `
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
-      <ec-datepicker-input
+      <ec-datepicker
         v-bind="$props"
         v-model="model"
         :are-weekends-disabled="disableWeekends"
@@ -58,7 +58,7 @@ export const basic = (args, { argTypes }) => ({
 });
 
 basic.args = {
-  label: 'Datepicker Input',
+  label: 'Datepicker',
   placeholder: 'Choose a date...',
   options: {
     minDate: '2022-02-10',

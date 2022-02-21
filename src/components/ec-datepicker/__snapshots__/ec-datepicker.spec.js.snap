@@ -130,7 +130,7 @@ exports[`Datepicker :props should render with a label 1`] = `
       class="ec-input-field__label-text"
       data-test="ec-input-field__label-text"
     >
-      Datepicker input label
+      Datepicker label
       <!---->
     </span>
      

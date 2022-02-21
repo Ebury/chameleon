@@ -25,7 +25,7 @@ import { getUid } from '../../utils/uid';
 import EcInputField from '../ec-input-field';
 
 export default {
-  name: 'EcDatepickerInput',
+  name: 'EcDatepicker',
   components: {
     EcInputField,
   },
