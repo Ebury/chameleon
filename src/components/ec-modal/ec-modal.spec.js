@@ -1,4 +1,4 @@
-import { enableAutoDestroy, mount, createLocalVue } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcModal from './ec-modal.vue';
 
@@ -28,8 +28,6 @@ function mountModalAsTemplate(template, props, wrapperComponentOpts, mountOpts) 
 }
 
 describe('EcModal', () => {
-  enableAutoDestroy(afterEach);
-
   it('should not render the modal if "showModal" is not set to true', () => {
     const wrapper = mountModal();
     expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);

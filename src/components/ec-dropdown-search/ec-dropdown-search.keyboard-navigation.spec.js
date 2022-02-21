@@ -1,4 +1,4 @@
-import { enableAutoDestroy, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 
 describe('EcDropdownSearch - Keyboard navigation', () => {
@@ -12,8 +12,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     { id: 7, text: 'Item 7' },
     { id: 8, text: 'Item 8' },
   ];
-
-  enableAutoDestroy(afterEach);
 
   beforeEach(() => {
     document.activeElement.blur();
