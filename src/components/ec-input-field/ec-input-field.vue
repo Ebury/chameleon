@@ -206,6 +206,9 @@ export default {
     focus() {
       this.$refs.input.focus();
     },
+    getInputRef() {
+      return this.$refs.input;
+    },
   },
 };
 </script>
