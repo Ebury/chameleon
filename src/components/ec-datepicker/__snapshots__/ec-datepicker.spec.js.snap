@@ -413,7 +413,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day  flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
