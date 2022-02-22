@@ -100,7 +100,7 @@ describe('Datepicker', () => {
       expect(inputWrapper.element).toMatchSnapshot();
     });
 
-    it('should have a disabled date', () => {
+    it('should have disabled a specific date', () => {
       const { calendarWrapper } = mountDatepicker({
         disabledDates: {
           '2022-02-22': '',
@@ -112,7 +112,7 @@ describe('Datepicker', () => {
       expect(calendarWrapper.element).toMatchSnapshot('calendar');
     });
 
-    it('should have a disabled weekends', () => {
+    it('should have disabled weekends', () => {
       const { calendarWrapper } = mountDatepicker({
         areWeekendsDisabled: true,
       });
@@ -138,7 +138,7 @@ describe('Datepicker', () => {
         },
       );
 
-      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('2022-02-22');
+      expect(inputWrapper.vm.model).toBe('2022-02-22');
     });
 
     it('should update the value of the calendar when I type a value', () => {
@@ -156,7 +156,7 @@ describe('Datepicker', () => {
 
       inputWrapper.findByDataTest('ec-input-field__input').setValue('2022-02-23');
 
-      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('2022-02-23');
+      expect(inputWrapper.vm.model).toBe('2022-02-23');
     });
 
     it('should update the value of the calendar when I select a value from the datepicker', () => {
@@ -176,10 +176,65 @@ describe('Datepicker', () => {
         .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
         .trigger('click');
 
-      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('2022-02-24');
+      expect(inputWrapper.vm.model).toBe('2022-02-24');
     });
 
-    // TODO test min date
-    // TODO test max date
+    it('should not allow to set a date smaller than the minDate', () => {
+      const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" :options="options" />',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              options: {
+                minDate: '2022-02-22',
+              },
+            };
+          },
+        },
+      );
+
+      calendarWrapper
+        .findByDataTest('ec-datepicker__calendar-day--2022-02-21')
+        .trigger('click');
+
+      expect(inputWrapper.vm.model).toBe(null);
+
+      calendarWrapper
+        .findByDataTest('ec-datepicker__calendar-day--2022-02-22')
+        .trigger('click');
+
+      expect(inputWrapper.vm.model).toBe('2022-02-22');
+    });
+
+    it('should not allow to set a date bigger than the minDate', () => {
+      const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" :options="options" />',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              options: {
+                maxDate: '2022-02-22',
+              },
+            };
+          },
+        },
+      );
+
+      calendarWrapper
+        .findByDataTest('ec-datepicker__calendar-day--2022-02-23')
+        .trigger('click');
+
+      expect(inputWrapper.vm.model).toBe(null);
+
+      calendarWrapper
+        .findByDataTest('ec-datepicker__calendar-day--2022-02-22')
+        .trigger('click');
+
+      expect(inputWrapper.vm.model).toBe('2022-02-22');
+    });
   });
 });

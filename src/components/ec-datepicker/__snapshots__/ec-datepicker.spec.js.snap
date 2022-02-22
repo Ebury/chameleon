@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Datepicker :props should have a disabled date: calendar 1`] = `
+exports[`Datepicker :props should have disabled a specific date: calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
   data-rel-data-test="undefined ec-datepicker"
@@ -394,17 +394,17 @@ exports[`Datepicker :props should have a disabled date: calendar 1`] = `
             20
           </span>
           <span
-            aria-current="date"
             aria-label="February 21, 2022"
-            class="flatpickr-day today"
+            class="flatpickr-day "
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
             21
           </span>
           <span
+            aria-current="date"
             aria-label="February 22, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day today flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-22"
             tabindex="-1"
           >
@@ -561,7 +561,7 @@ exports[`Datepicker :props should have a disabled date: calendar 1`] = `
 </div>
 `;
 
-exports[`Datepicker :props should have a disabled weekends: calendar 1`] = `
+exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
   data-rel-data-test="undefined ec-datepicker"
@@ -955,17 +955,17 @@ exports[`Datepicker :props should have a disabled weekends: calendar 1`] = `
             20
           </span>
           <span
-            aria-current="date"
             aria-label="February 21, 2022"
-            class="flatpickr-day today"
+            class="flatpickr-day "
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
             21
           </span>
           <span
+            aria-current="date"
             aria-label="February 22, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day today"
             data-test="ec-datepicker__calendar-day--2022-02-22"
             tabindex="-1"
           >
