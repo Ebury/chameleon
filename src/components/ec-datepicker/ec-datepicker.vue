@@ -191,5 +191,10 @@ export default {
 };
 </script>
 <style>
+/* We purge the css as a result Flatpickr does not render correctly. As a temporary solution we ignore this until we work on our own custom css */
+
+/* purgecss start ignore */
 @import 'flatpickr/dist/flatpickr.css';
+
+/* purgecss end ignore */
 </style>
