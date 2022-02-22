@@ -407,6 +407,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
             class="flatpickr-day today flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-22"
             tabindex="-1"
+            title="Bank holiday"
           >
             22
           </span>

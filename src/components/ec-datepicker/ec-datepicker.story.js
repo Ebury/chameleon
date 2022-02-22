@@ -14,7 +14,7 @@ export const basic = (args, { argTypes }) => ({
       model: '2022-02-06',
       disableWeekends: false,
       notAvailableDates: {
-        '2022-02-21': '',
+        '2022-02-21': 'Bank holiday',
       },
     };
   },
@@ -61,7 +61,7 @@ basic.args = {
   label: 'Datepicker',
   placeholder: 'Choose a date...',
   options: {
-    minDate: '2022-02-10',
-    maxDate: '2022-03-10',
+    // minDate: '2022-02-10',
+    // maxDate: '2022-03-10',
   },
 };

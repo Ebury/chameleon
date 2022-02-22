@@ -103,11 +103,12 @@ describe('Datepicker', () => {
     it('should have disabled a specific date', () => {
       const { calendarWrapper } = mountDatepicker({
         disabledDates: {
-          '2022-02-22': '',
+          '2022-02-22': 'Bank holiday',
         },
       });
 
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').classes('flatpickr-disabled')).toBe(true);
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').attributes('title')).toBe('Bank holiday');
 
       expect(calendarWrapper.element).toMatchSnapshot('calendar');
     });
@@ -121,6 +122,32 @@ describe('Datepicker', () => {
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-20').classes('flatpickr-disabled')).toBe(true);
 
       expect(calendarWrapper.element).toMatchSnapshot('calendar');
+    });
+  });
+
+  describe('@events', () => {
+    it('@open - should be emitted when the calendar opens', () => {
+      const { inputWrapper } = mountDatepicker();
+
+      inputWrapper
+        .findByDataTest('ec-datepicker')
+        .trigger('click');
+
+      expect(inputWrapper.emitted('open').length).toBe(1);
+    });
+
+    it('@close - should be emitted when the calendar closes', () => {
+      const { inputWrapper, calendarWrapper } = mountDatepicker({ value: '2022-02-20' });
+
+      inputWrapper
+        .findByDataTest('ec-datepicker')
+        .trigger('click');
+
+      calendarWrapper
+        .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
+        .trigger('click');
+
+      expect(inputWrapper.emitted('close').length).toBe(1);
     });
   });
 
