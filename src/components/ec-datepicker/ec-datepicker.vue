@@ -104,6 +104,7 @@ export default {
       },
     },
     areWeekendsDisabled() {
+      /* istanbul ignore next */
       if (this.flatpickrInstance) {
         this.flatpickrInstance.redraw();
       }
@@ -123,12 +124,14 @@ export default {
   },
   mounted() {
     this.flatpickrInstance = flatpickr(this.$refs.input.getInputRef(), this.mergeWithDefaultOptions(this.options));
+    /* istanbul ignore next */
     if (this.flatpickrInstance.calendarContainer) {
       this.flatpickrInstance.calendarContainer.dataset.test = 'ec-datepicker__calendar';
       this.flatpickrInstance.calendarContainer.dataset.relDataTest = `${this.$attrs['data-test']} ec-datepicker`.trim();
     }
   },
   beforeDestroy() {
+    /* istanbul ignore next */
     if (this.flatpickrInstance) {
       this.flatpickrInstance.destroy();
     }
