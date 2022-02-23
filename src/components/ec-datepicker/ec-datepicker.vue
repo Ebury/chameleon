@@ -144,6 +144,8 @@ export default {
     mergeWithDefaultOptions(options) {
       return {
         ...options,
+        // We need to update the time of "now" every time something changes otherwise flatpickr will only pick it once when imported.
+        now: new Date(),
         allowInput: true,
         onDayCreate: this.onDayCreate,
         onReady: [...(this.options.onReady ?? []), () => {

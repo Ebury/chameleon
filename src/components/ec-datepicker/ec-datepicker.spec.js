@@ -3,24 +3,23 @@ import {
   createWrapper,
   createLocalVue,
 } from '@vue/test-utils';
-import flatpickr from 'flatpickr';
+import fakeTimers from '@sinonjs/fake-timers';
 import EcDatepicker from './ec-datepicker.vue';
 
 describe('Datepicker', () => {
+  let clock;
+
   beforeEach(() => {
-    // We need to fix "today" to a specific day for testing
-    // Flatpickr picks up new Date() when we import it.
-    // This means even if we use fakeTimers by the time are called is already too late.
-    // That's why here we set again the time for flatpickr
-    flatpickr.setDefaults({
+    clock = fakeTimers.install({
       now: new Date('2022-02-22'),
+      toFake: ['Date'],
     });
   });
 
   afterEach(() => {
-    flatpickr.setDefaults({
-      now: new Date(),
-    });
+    if (clock) {
+      clock.uninstall();
+    }
   });
 
   function mountDatepicker(props, mountOpts) {
