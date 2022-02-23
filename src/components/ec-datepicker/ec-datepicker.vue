@@ -15,6 +15,7 @@
     :error-message="errorMessage"
     :disabled="isDisabled"
     v-on="$listeners"
+    @input-icon-clicked="openCalendar()"
   />
 </template>
 
@@ -137,6 +138,9 @@ export default {
     }
   },
   methods: {
+    openCalendar() {
+      this.flatpickrInstance.open();
+    },
     mergeWithDefaultOptions(options) {
       return {
         ...options,

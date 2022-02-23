@@ -149,6 +149,16 @@ describe('EcInputField', () => {
     expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('some text');
   });
 
+  it('should emit an event when we click on the icon', () => {
+    const wrapper = mountInputField({ icon: 'simple-check' });
+
+    wrapper
+      .findByDataTest('ec-input-field__icon-wrapper')
+      .trigger('click');
+
+    expect(wrapper.emitted('input-icon-clicked').length).toBe(1);
+  });
+
   it('should render given icon', () => {
     const wrapper = mountInputField({ icon: 'simple-check' });
     expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').exists()).toBe(true);

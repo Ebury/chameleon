@@ -3,9 +3,26 @@ import {
   createWrapper,
   createLocalVue,
 } from '@vue/test-utils';
+import flatpickr from 'flatpickr';
 import EcDatepicker from './ec-datepicker.vue';
 
 describe('Datepicker', () => {
+  beforeEach(() => {
+    // We need to fix "today" to a specific day for testing
+    // Flatpickr picks up new Date() when we import it.
+    // This means even if we use fakeTimers by the time are called is already too late.
+    // That's why here we set again the time for flatpickr
+    flatpickr.setDefaults({
+      now: new Date('2022-02-22'),
+    });
+  });
+
+  afterEach(() => {
+    flatpickr.setDefaults({
+      now: new Date(),
+    });
+  });
+
   function mountDatepicker(props, mountOpts) {
     const inputWrapper = mount(EcDatepicker, {
       propsData: { ...props },
@@ -128,7 +145,23 @@ describe('Datepicker', () => {
     });
   });
 
+  it('should open the calendar when we click on the input icon', () => {
+    const { inputWrapper, calendarWrapper } = mountDatepicker();
+
+    inputWrapper
+      .findByDataTest('ec-input-field__icon-wrapper')
+      .trigger('click');
+
+    expect(calendarWrapper.element).toMatchSnapshot();
+  });
+
   describe('@events', () => {
+    it('@ready - should be emitted when the calendar is in a ready state', () => {
+      const { inputWrapper } = mountDatepicker();
+
+      expect(inputWrapper.emitted('ready').length).toBe(1);
+    });
+
     it('@open - should be emitted when the calendar opens', () => {
       const { inputWrapper } = mountDatepicker();
 
