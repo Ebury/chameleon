@@ -51,7 +51,7 @@ export const basic = (args, { argTypes }) => ({
 
       <p class="tw-mt-48">Value: {{ model }}</p>
 
-      <button @click="toggleWeekendAvailability">Disable weekends</button>
+      <button @click="toggleWeekendAvailability">Toggle weekend availability</button>
       <button @click="changeDisabledDates('2022-02-22')">Disable 2022-02-22</button>
     </div>
   `,
