@@ -11,7 +11,7 @@ export const basic = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      model: '2022-02-06',
+      model: null,
       disableWeekends: false,
       notAvailableDates: {
         '2022-02-21': 'Bank holiday',
@@ -63,5 +63,6 @@ basic.args = {
   options: {
     minDate: '2022-02-10',
     maxDate: '2022-03-10',
+    defaultDate: '2022-02-24',
   },
 };
