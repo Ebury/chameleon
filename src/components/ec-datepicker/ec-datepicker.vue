@@ -85,6 +85,7 @@ export default {
         return this.value;
       },
       set(value) {
+        this.flatpickrInstance.setDate(value);
         this.$emit('value-change', value);
       },
     },
@@ -109,9 +110,6 @@ export default {
       if (this.flatpickrInstance) {
         this.flatpickrInstance.redraw();
       }
-    },
-    value(newValue) {
-      this.flatpickrInstance.setDate(newValue);
     },
     options(newValue) {
       const newOptions = this.mergeWithDefaultOptions(newValue);
