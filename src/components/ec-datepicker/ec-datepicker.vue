@@ -183,7 +183,8 @@ export default {
       }
     },
     onDayCreate(selectedDate, selectedDateFormatted, flatpickrInstance, dayElement) {
-      const isoDateTime = dayElement.dateObj.toISOString();
+      const d = dayElement.dateObj;
+      const isoDateTime = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())).toISOString();
       const [isoDate] = isoDateTime.split('T');
 
       this.disableWeekends(dayElement);
