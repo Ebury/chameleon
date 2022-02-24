@@ -153,10 +153,10 @@ describe('EcInputField', () => {
     const wrapper = mountInputField({ icon: 'simple-check' });
 
     wrapper
-      .findByDataTest('ec-input-field__icon-wrapper')
+      .findByDataTest('ec-input-field__icon')
       .trigger('click');
 
-    expect(wrapper.emitted('input-icon-clicked').length).toBe(1);
+    expect(wrapper.emitted('icon-click').length).toBe(1);
   });
 
   it('should render given icon', () => {

@@ -45,7 +45,6 @@
       class="ec-input-field__icon-wrapper"
       :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
       data-test="ec-input-field__icon-wrapper"
-      @click="$emit('input-icon-clicked', value);"
     >
       <ec-loading-icon
         v-if="isLoading"
@@ -58,6 +57,7 @@
         data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
+        @click="$emit('icon-click', value);"
       />
     </div>
     <div

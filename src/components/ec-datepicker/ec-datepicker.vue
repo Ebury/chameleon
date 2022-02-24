@@ -15,7 +15,7 @@
     :error-message="errorMessage"
     :disabled="isDisabled"
     v-on="$listeners"
-    @input-icon-clicked="openCalendar()"
+    @icon-click="openCalendar()"
   />
 </template>
 

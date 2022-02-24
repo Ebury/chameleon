@@ -124,9 +124,9 @@ describe('Datepicker', () => {
         },
       });
 
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').classes('flatpickr-disabled')).toBeTruthy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').classes('flatpickr-disabled')).toBe(true);
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').attributes('title')).toBe('Bank holiday');
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-23').classes('flatpickr-disabled')).toBeTruthy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-23').classes('flatpickr-disabled')).toBe(true);
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-23').attributes('title')).toBe(undefined);
 
       expect(calendarWrapper.element).toMatchSnapshot('calendar');
@@ -137,8 +137,8 @@ describe('Datepicker', () => {
         areWeekendsDisabled: true,
       });
 
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-19').classes('flatpickr-disabled')).toBeTruthy();
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-20').classes('flatpickr-disabled')).toBeTruthy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-19').classes('flatpickr-disabled')).toBe(true);
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-20').classes('flatpickr-disabled')).toBe(true);
 
       expect(calendarWrapper.element).toMatchSnapshot('calendar');
     });
@@ -148,7 +148,7 @@ describe('Datepicker', () => {
     const { inputWrapper, calendarWrapper } = mountDatepicker();
 
     inputWrapper
-      .findByDataTest('ec-input-field__icon-wrapper')
+      .findByDataTest('ec-input-field__icon')
       .trigger('click');
 
     expect(calendarWrapper.element).toMatchSnapshot();
@@ -192,7 +192,7 @@ describe('Datepicker', () => {
         options: {},
       });
 
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-21').classes('flatpickr-disabled')).toBeFalsy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-21').classes('flatpickr-disabled')).toBe(false);
 
       await inputWrapper.setProps({
         options: {
@@ -200,9 +200,8 @@ describe('Datepicker', () => {
         },
       });
 
-      inputWrapper.vm.$nextTick();
-
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-21').classes('flatpickr-disabled')).toBeTruthy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-21').classes('flatpickr-disabled')).toBe(true);
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').classes('flatpickr-disabled')).toBe(false);
     });
 
     it('should not update with custom hooks after initialization', async () => {
@@ -210,21 +209,19 @@ describe('Datepicker', () => {
         options: {},
       });
 
+      const onChangeSpy = jest.fn();
+
       await inputWrapper.setProps({
         options: {
-          onChange: () => {
-            inputWrapper.vm.$emit('changed');
-          },
+          onChange: onChangeSpy,
         },
       });
-
-      inputWrapper.vm.$nextTick();
 
       calendarWrapper
         .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
         .trigger('click');
 
-      expect(inputWrapper.emitted('changed')).toBe(undefined);
+      expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
     it('should watch if weekend are disabled', async () => {
@@ -232,17 +229,15 @@ describe('Datepicker', () => {
         areWeekendsDisabled: true,
       });
 
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-19').classes('flatpickr-disabled')).toBeTruthy();
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-20').classes('flatpickr-disabled')).toBeTruthy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-19').classes('flatpickr-disabled')).toBe(true);
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-20').classes('flatpickr-disabled')).toBe(true);
 
       await inputWrapper.setProps({
         areWeekendsDisabled: false,
       });
 
-      inputWrapper.vm.$nextTick();
-
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-19').classes('flatpickr-disabled')).toBeFalsy();
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-20').classes('flatpickr-disabled')).toBeFalsy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-19').classes('flatpickr-disabled')).toBe(false);
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-20').classes('flatpickr-disabled')).toBe(false);
     });
 
     it('should update the disabled date', async () => {
@@ -252,7 +247,7 @@ describe('Datepicker', () => {
         },
       });
 
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').classes('flatpickr-disabled')).toBeTruthy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').classes('flatpickr-disabled')).toBe(true);
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').attributes('title')).toBe('Bank holiday');
 
       await inputWrapper.setProps({
@@ -261,12 +256,10 @@ describe('Datepicker', () => {
         },
       });
 
-      inputWrapper.vm.$nextTick();
-
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').classes('flatpickr-disabled')).toBeFalsy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').classes('flatpickr-disabled')).toBe(false);
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-22').attributes('title')).toBe(undefined);
 
-      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-23').classes('flatpickr-disabled')).toBeTruthy();
+      expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-23').classes('flatpickr-disabled')).toBe(true);
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-23').attributes('title')).toBe('Bank holiday');
     });
   });
@@ -288,7 +281,7 @@ describe('Datepicker', () => {
       expect(inputWrapper.vm.model).toBe('2022-02-22');
     });
 
-    it('should update the value of the calendar when I type a value', () => {
+    it('should update the value of the calendar when I type a value', async () => {
       const { inputWrapper } = mountDatepickerAsTemplate(
         '<ec-datepicker v-model="model" />',
         {},
@@ -301,12 +294,12 @@ describe('Datepicker', () => {
         },
       );
 
-      inputWrapper.findByDataTest('ec-input-field__input').setValue('2022-02-23');
+      await inputWrapper.findByDataTest('ec-input-field__input').setValue('2022-02-23');
 
       expect(inputWrapper.vm.model).toBe('2022-02-23');
     });
 
-    it('should update the value of the calendar when I select a value from the datepicker', () => {
+    it('should update the value of the calendar when I select a value from the datepicker', async () => {
       const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
         '<ec-datepicker v-model="model" />',
         {},
@@ -319,7 +312,7 @@ describe('Datepicker', () => {
         },
       );
 
-      calendarWrapper
+      await calendarWrapper
         .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
         .trigger('click');
 
