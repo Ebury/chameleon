@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "1.9.4",
+  "version": "1.9.6",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "clipboard-copy": "3.2.0",
+    "flatpickr": "4.6.9",
     "focus-trap": "6.6.1",
     "mitt": "3.0.0",
     "svg-country-flags": "1.2.10",

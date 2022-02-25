@@ -1,4 +1,4 @@
-import { enableAutoDestroy, mount, createLocalVue } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
@@ -35,8 +35,6 @@ describe('EcDropdownSearch', () => {
     },
     { id: 5, text: 'Item 5' },
   ];
-
-  enableAutoDestroy(afterEach);
 
   it('should render as expected', () => {
     const wrapper = mountDropdownSearch();

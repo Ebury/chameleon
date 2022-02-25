@@ -57,6 +57,7 @@
         data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
+        @click="$emit('icon-click', value);"
       />
     </div>
     <div
@@ -205,6 +206,9 @@ export default {
   methods: {
     focus() {
       this.$refs.input.focus();
+    },
+    getInputRef() {
+      return this.$refs.input;
     },
   },
 };
