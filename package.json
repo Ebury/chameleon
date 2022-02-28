@@ -74,7 +74,7 @@
     "color": "4.2.1",
     "css-tree": "2.0.4",
     "css-vars-ponyfill": "2.4.7",
-    "cypress": "9.2.0",
+    "cypress": "9.5.0",
     "cypress-image-snapshot": "4.0.1",
     "eslint": "7.32.0",
     "eslint-plugin-cypress": "2.12.1",
