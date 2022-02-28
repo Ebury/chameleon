@@ -71,7 +71,7 @@
     "babel-jest": "27.4.5",
     "babel-loader": "8.2.3",
     "babel-preset-vue": "2.0.2",
-    "color": "4.1.0",
+    "color": "4.2.1",
     "css-tree": "2.0.4",
     "css-vars-ponyfill": "2.4.7",
     "cypress": "9.2.0",
