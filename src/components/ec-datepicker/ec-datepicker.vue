@@ -206,5 +206,10 @@ export default {
 };
 </script>
 <style>
+/* We purge the css as a result Flatpickr does not render correctly, because we cannot apply our own classes we need to whitelist the following file */
+
+/* purgecss start ignore */
 @import '../../styles/components/ec-datepicker/ec-datepicker.css';
+
+/* purgecss end ignore */
 </style>
