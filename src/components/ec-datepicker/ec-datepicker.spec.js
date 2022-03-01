@@ -5,6 +5,7 @@ import {
 } from '@vue/test-utils';
 import fakeTimers from '@sinonjs/fake-timers';
 import EcDatepicker from './ec-datepicker.vue';
+import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('Datepicker', () => {
   let clock;
@@ -141,6 +142,27 @@ describe('Datepicker', () => {
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-20').classes('flatpickr-disabled')).toBe(true);
 
       expect(calendarWrapper.element).toMatchSnapshot('calendar');
+    });
+
+    it.each([
+      ['modal', false],
+      ['tooltip', false],
+      ['notification', false],
+      ['level-1', false],
+      ['level-2', false],
+      ['level-3', false],
+      ['random', true],
+    ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
+      if (error) {
+        withMockedConsole((errorSpy) => {
+          mountDatepicker({ level: str });
+          expect(errorSpy).toHaveBeenCalledTimes(1);
+          expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+        });
+      } else {
+        const { calendarWrapper } = mountDatepicker({ level: str });
+        expect(calendarWrapper.element).toMatchSnapshot();
+      }
     });
   });
 

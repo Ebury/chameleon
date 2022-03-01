@@ -6,6 +6,7 @@
     type="text"
     autocomplete="off"
     icon="simple-calendar"
+    class="ec-datepicker"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-datepicker`: 'ec-datepicker'"
     :label="label"
     :note="note"
@@ -69,6 +70,12 @@ export default {
       type: Boolean,
       default: false,
     },
+    level: {
+      type: String,
+      validator(value) {
+        return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
+      },
+    },
     options: {
       type: Object,
       default: () => ({}),
@@ -127,6 +134,7 @@ export default {
     if (this.flatpickrInstance.calendarContainer) {
       this.flatpickrInstance.calendarContainer.dataset.test = 'ec-datepicker__calendar';
       this.flatpickrInstance.calendarContainer.dataset.relDataTest = `${this.$attrs['data-test']} ec-datepicker`.trim();
+      this.flatpickrInstance.calendarContainer.classList.add(`flatpickr-calendar--${this.level}`);
     }
   },
   beforeDestroy() {
@@ -155,6 +163,8 @@ export default {
         onClose: [...(this.options.onClose ?? []), () => {
           this.$emit('close');
         }],
+        prevArrow: '<svg><use xlink:href="#ec-simple-chevron-left"/></svg>',
+        nextArrow: '<svg><use xlink:href="#ec-simple-chevron-right"/></svg>',
       };
     },
     setDisabledClass(dayElement) {
@@ -196,10 +206,5 @@ export default {
 };
 </script>
 <style>
-/* We purge the css as a result Flatpickr does not render correctly. As a temporary solution we ignore this until we work on our own custom css */
-
-/* purgecss start ignore */
-@import 'flatpickr/dist/flatpickr.css';
-
-/* purgecss end ignore */
+@import '../../styles/components/ec-datepicker/ec-datepicker.css';
 </style>
