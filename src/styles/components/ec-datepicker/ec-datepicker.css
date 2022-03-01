@@ -650,15 +650,17 @@ span.flatpickr-weekday {
   outline: 0;
 
   @apply tw-bg-key-7; /* background: #e6e6e6; EC: replace */
-  @apply tw-border-key-7; }
+  @apply tw-border-key-7;
+ }
 
 .flatpickr-day.today {
-  @apply tw-border-gray-6; }
+  @apply tw-border-gray-6;
+ }
 
 .flatpickr-day.today:hover,
 .flatpickr-day.today:focus {
-  @apply tw-border-gray-4; /* border-color: #959ea9; EC: replace */
-  @apply tw-bg-gray-4; /* background: #959ea9; EC: replace */
+  @apply tw-border-key-4; /* border-color: #959ea9; EC: replace */
+  @apply tw-bg-key-4; /* background: #959ea9; EC: replace */
   @apply tw-text-gray-8; /* color: #fff; EC: replace */
 }
 
