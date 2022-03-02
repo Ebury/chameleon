@@ -73,9 +73,9 @@ export default {
     level: {
       type: String,
       validator(value) {
-        return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
+        return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3', ''].includes(value);
       },
-      default: 'level-1',
+      default: '',
     },
     options: {
       type: Object,
@@ -135,7 +135,9 @@ export default {
     if (this.flatpickrInstance.calendarContainer) {
       this.flatpickrInstance.calendarContainer.dataset.test = 'ec-datepicker__calendar';
       this.flatpickrInstance.calendarContainer.dataset.relDataTest = `${this.$attrs['data-test']} ec-datepicker`.trim();
-      this.flatpickrInstance.calendarContainer.classList.add(`flatpickr-calendar--${this.level}`);
+      if (this.level) {
+        this.flatpickrInstance.calendarContainer.classList.add(`flatpickr-calendar--${this.level}`);
+      }
     }
   },
   beforeDestroy() {

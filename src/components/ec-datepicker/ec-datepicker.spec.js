@@ -4,6 +4,7 @@ import {
   createLocalVue,
 } from '@vue/test-utils';
 import fakeTimers from '@sinonjs/fake-timers';
+import flatpickr from 'flatpickr';
 import EcDatepicker from './ec-datepicker.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
@@ -15,12 +16,20 @@ describe('Datepicker', () => {
       now: new Date('2022-02-22'),
       toFake: ['Date'],
     });
+
+    flatpickr.setDefaults({
+      position: () => {}, // We need to fix the position. On the CI/JSDOM is flaky if we do not and will produce snapshots with random positions.
+    });
   });
 
   afterEach(() => {
     if (clock) {
       clock.uninstall();
     }
+
+    flatpickr.setDefaults({
+      position: 'auto',
+    });
   });
 
   function mountDatepicker(props, mountOpts) {
@@ -167,11 +176,7 @@ describe('Datepicker', () => {
   });
 
   it('should open the calendar when we click on the input icon', () => {
-    const { inputWrapper, calendarWrapper } = mountDatepicker({
-      options: {
-        position: () => {}, // We need to fix the position. On the CI/JSDOM is flaky if we do not.
-      },
-    });
+    const { inputWrapper, calendarWrapper } = mountDatepicker();
 
     inputWrapper
       .findByDataTest('ec-input-field__icon')
