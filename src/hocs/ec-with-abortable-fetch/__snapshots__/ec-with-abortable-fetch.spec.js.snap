@@ -254,7 +254,7 @@ exports[`EcWithAbortableFetch should stop fetching and keep the state intact if 
 Object {
   "data": null,
   "error": null,
-  "loading": false,
+  "loading": true,
 }
 `;
 
