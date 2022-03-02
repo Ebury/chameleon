@@ -4686,10 +4686,9 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
 
 exports[`Datepicker should open the calendar when we click on the input icon 1`] = `
 <div
-  class="flatpickr-calendar animate flatpickr-calendar--level-1 open arrowBottom arrowLeft"
+  class="flatpickr-calendar animate flatpickr-calendar--level-1 open"
   data-rel-data-test="undefined ec-datepicker"
   data-test="ec-datepicker__calendar"
-  style="top: -2px; left: 0px;"
   tabindex="-1"
 >
   <div

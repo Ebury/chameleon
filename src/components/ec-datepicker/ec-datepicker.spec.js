@@ -169,7 +169,7 @@ describe('Datepicker', () => {
   it('should open the calendar when we click on the input icon', () => {
     const { inputWrapper, calendarWrapper } = mountDatepicker({
       options: {
-        position: 'above',
+        position: () => {}, // We need to fix the position. On the CI/JSDOM is flaky if we do not.
       },
     });
 
