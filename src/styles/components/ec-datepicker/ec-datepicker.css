@@ -658,9 +658,8 @@ span.flatpickr-weekday {
 
 .flatpickr-day.today:hover,
 .flatpickr-day.today:focus {
-  @apply tw-border-key-4; /* border-color: #959ea9; EC: replace */
-  @apply tw-bg-key-4; /* background: #959ea9; EC: replace */
-  @apply tw-text-gray-8; /* color: #fff; EC: replace */
+  @apply tw-border-key-7; /* border-color: #959ea9; EC: replace */
+  @apply tw-bg-key-7; /* background: #959ea9; EC: replace */
 }
 
 .flatpickr-day.selected,
