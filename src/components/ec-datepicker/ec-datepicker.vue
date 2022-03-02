@@ -75,6 +75,7 @@ export default {
       validator(value) {
         return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
       },
+      default: 'level-1',
     },
     options: {
       type: Object,

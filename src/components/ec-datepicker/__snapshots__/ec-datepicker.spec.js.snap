@@ -2,7 +2,7 @@
 
 exports[`Datepicker :props should have disabled a specific date: calendar 1`] = `
 <div
-  class="flatpickr-calendar animate flatpickr-calendar--undefined"
+  class="flatpickr-calendar animate flatpickr-calendar--level-1"
   data-rel-data-test="undefined ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
@@ -552,7 +552,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
 
 exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
 <div
-  class="flatpickr-calendar animate flatpickr-calendar--undefined"
+  class="flatpickr-calendar animate flatpickr-calendar--level-1"
   data-rel-data-test="undefined ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
@@ -4686,7 +4686,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
 
 exports[`Datepicker should open the calendar when we click on the input icon 1`] = `
 <div
-  class="flatpickr-calendar animate flatpickr-calendar--undefined open arrowTop arrowLeft"
+  class="flatpickr-calendar animate flatpickr-calendar--level-1 open arrowTop arrowLeft"
   data-rel-data-test="undefined ec-datepicker"
   data-test="ec-datepicker__calendar"
   style="top: 2px; left: 0px;"
