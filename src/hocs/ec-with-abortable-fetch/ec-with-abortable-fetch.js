@@ -74,7 +74,7 @@ const withAbortableFetch = (Component, {
       ...props,
       dataSource: null,
       fetchArgs: null,
-      [loadingProp]: loadingTransform(this.isFetching),
+      [loadingProp]: loadingTransform(this.isFetching, this.fetchedData),
       [errorProp]: errorTransform(this.fetchError),
       [dataProp]: dataTransform(this.fetchedData),
     };
