@@ -486,9 +486,9 @@ Object {
 }
 `;
 
-exports[`EcWithAbortableFetch should transform props using given loading transform function and pass them to given custom loading prop: after fetch 1`] = `
+exports[`EcWithAbortableFetch should transform props using given loading transform function and pass them to given custom loading prop and custom data prop: after fetch 1`] = `
 Object {
-  "data": Object {
+  "dataCustom": Object {
     "result": 1,
   },
   "error": null,
@@ -496,9 +496,9 @@ Object {
 }
 `;
 
-exports[`EcWithAbortableFetch should transform props using given loading transform function and pass them to given custom loading prop: while loading 1`] = `
+exports[`EcWithAbortableFetch should transform props using given loading transform function and pass them to given custom loading prop and custom data prop: while loading 1`] = `
 Object {
-  "data": null,
+  "dataCustom": null,
   "error": null,
   "loadingCustom": false,
 }

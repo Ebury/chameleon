@@ -355,11 +355,11 @@ describe('EcWithAbortableFetch', () => {
     await flushPromises();
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot('after fetch');
     expect(loadingTransform).toHaveBeenCalledTimes(2);
-    expect(loadingTransform).toHaveBeenNthCalledWith(1, true);
-    expect(loadingTransform).toHaveBeenNthCalledWith(2, false);
+    expect(loadingTransform).toHaveBeenNthCalledWith(1, true, null);
+    expect(loadingTransform).toHaveBeenNthCalledWith(2, false, { result: 1 });
   });
 
-  it('should transform props using given loading transform function and pass them to given custom loading prop', async () => {
+  it('should transform props using given loading transform function and pass them to given custom loading prop and custom data prop', async () => {
     const dataSource = {
       fetch: jest.fn().mockResolvedValueOnce({ result: 1 }),
     };
@@ -369,14 +369,15 @@ describe('EcWithAbortableFetch', () => {
     const customProps = {
       loadingTransform,
       loadingProp: 'loadingCustom',
+      dataProp: 'dataCustom',
     };
     const { componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {}, customProps);
     expect(getWrappedComponentState(componentWrapper, customProps)).toMatchSnapshot('while loading');
     await flushPromises();
     expect(getWrappedComponentState(componentWrapper, customProps)).toMatchSnapshot('after fetch');
     expect(loadingTransform).toHaveBeenCalledTimes(2);
-    expect(loadingTransform).toHaveBeenNthCalledWith(1, true);
-    expect(loadingTransform).toHaveBeenNthCalledWith(2, false);
+    expect(loadingTransform).toHaveBeenNthCalledWith(1, true, null);
+    expect(loadingTransform).toHaveBeenNthCalledWith(2, false, { result: 1 });
   });
 
   it('should stop fetching and map the custom error prop to the component after dataSource gets rejected', async () => {
