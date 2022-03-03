@@ -61,7 +61,7 @@ basic.args = {
   label: 'Datepicker',
   placeholder: 'Choose a date...',
   options: {
-    minDate: '2022-02-10',
+    minDate: '2022-01-10',
     maxDate: '2022-03-10',
     defaultDate: '2022-02-24',
   },
