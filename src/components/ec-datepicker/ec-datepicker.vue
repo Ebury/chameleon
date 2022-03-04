@@ -118,6 +118,7 @@ export default {
       }
     },
     dateFormat(newValue) {
+      /* istanbul ignore next */
       if (this.flatpickrInstance) {
         this.flatpickrInstance.set('dateFormat', newValue);
         if (this.flatpickrInstance.selectedDates.length) {
@@ -126,6 +127,7 @@ export default {
       }
     },
     locale(newValue) {
+      /* istanbul ignore next */
       if (this.flatpickrInstance) {
         this.flatpickrInstance.set('locale', newValue);
       }
@@ -174,6 +176,7 @@ export default {
       return listeners;
     },
     openCalendar() {
+      /* istanbul ignore next */
       if (this.flatpickrInstance) {
         this.flatpickrInstance.open();
       }
@@ -185,8 +188,8 @@ export default {
         now: new Date(),
         allowInput: true,
         dateFormat: this.dateFormat,
-        defaultDate: new Date(this.value),
-        locale: this.locale,
+        defaultDate: this.value ? new Date(this.value) : null,
+        locale: this.locale || null,
         onDayCreate: this.onDayCreate,
         onReady: [...(this.options.onReady ?? []), () => {
           this.$emit('ready');
