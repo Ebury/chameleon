@@ -364,7 +364,7 @@ describe('Datepicker', () => {
       expect(inputWrapper.vm.model.getTime()).toBe(new Date('2022-02-22').getTime());
     });
 
-    it.skip('should update the value of the calendar when I type a value', async () => {
+    it('should update the value of the calendar when I type a value', async () => {
       const { inputWrapper } = mountDatepickerAsTemplate(
         '<ec-datepicker v-model="model" />',
         {},
@@ -377,10 +377,13 @@ describe('Datepicker', () => {
         },
       );
 
-      await inputWrapper.vm.$nextTick();
       await inputWrapper.findByDataTest('ec-input-field__input').setValue('2022-02-23');
+      // When allowInput is true, flatpickr is listening to blur event
+      // https://github.com/flatpickr/flatpickr/blob/master/src/index.ts#L493
+      await inputWrapper.findByDataTest('ec-input-field__input').trigger('blur');
 
-      expect(inputWrapper.vm.model).toBe('2022-02-23');
+      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('2022-02-23');
+      expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 23).getTime());
     });
 
     it('should update the value of the calendar when I select a value from the datepicker', async () => {
