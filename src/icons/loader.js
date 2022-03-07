@@ -19,8 +19,8 @@ function getSprite(url) {
         resolve(xhr.responseText);
       }
     };
-    xhr.onerror = function onSpriteError(err) {
-      reject(err);
+    xhr.onerror = function onSpriteError() {
+      reject(new Error(`Unexpected error when loading svg sprite. Status: ${xhr.status}`));
     };
     xhr.send();
   }));
