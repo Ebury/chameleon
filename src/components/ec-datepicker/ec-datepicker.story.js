@@ -12,6 +12,10 @@ export default {
       options: ['none', 'ES', 'FR'],
       control: { type: 'select' },
     },
+    dateFormat: {
+      options: ['none', 'd/m/Y', 'd.m.Y', 'd-m-Y', 'j-n-Y', 'Y年n月j日'],
+      control: { type: 'select' },
+    },
   },
 };
 
@@ -25,7 +29,6 @@ export const basic = (args, { argTypes }) => ({
       notAvailableDates: {
         '2022-02-21': 'Bank holiday',
       },
-      dateFormatBasedOnLocale: undefined,
     };
   },
   methods: {
@@ -52,6 +55,12 @@ export const basic = (args, { argTypes }) => ({
           return null;
       }
     },
+    getDateFormat(dateFormat) {
+      if (dateFormat === 'none') {
+        return undefined;
+      }
+      return dateFormat;
+    },
   },
   template: `
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
@@ -59,11 +68,11 @@ export const basic = (args, { argTypes }) => ({
         v-bind="{
           ...$props,
           locale: getLocale($props.locale),
+          dateFormat: getDateFormat($props.dateFormat),
         }"
         v-model="model"
         :are-weekends-disabled="disableWeekends"
         :disabled-dates="notAvailableDates"
-        :date-format="dateFormatBasedOnLocale"
         v-on="{
           ready: onReady,
           open: onOpen,
@@ -77,8 +86,7 @@ export const basic = (args, { argTypes }) => ({
 
       <button @click="toggleWeekendAvailability">Toggle weekend availability</button>
       <button @click="changeDisabledDates('2022-02-22')">Disable 2022-02-22 UTC</button>
-      <button @click="model = new Date('2022-02-25')">Select 2022-02-25 date</button>
-      <button @click="dateFormatBasedOnLocale = 'd/m/Y'">Change date format to 'd/m/Y'</button>
+      <button @click="model = new Date(2022, 1, 25)">Select 2022-02-25 date</button>
     </div>
   `,
 });
