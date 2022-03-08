@@ -83,7 +83,6 @@ export default {
     },
     dateFormat: {
       type: String,
-      default: 'Y-m-d',
     },
     locale: {
       type: [String, Object],
@@ -182,14 +181,12 @@ export default {
       }
     },
     mergeWithDefaultOptions(options) {
-      return {
+      const mergedOptions = {
         ...options,
         // We need to update the time of "now" every time something changes otherwise flatpickr will only pick it once when imported.
         now: new Date(),
         allowInput: true,
-        dateFormat: this.dateFormat,
         defaultDate: this.value ? new Date(this.value) : null,
-        locale: this.locale || null,
         onDayCreate: this.onDayCreate,
         onReady: [...(this.options.onReady ?? []), () => {
           this.$emit('ready');
@@ -209,6 +206,16 @@ export default {
         prevArrow: '<svg><use xlink:href="#ec-simple-chevron-left"/></svg>',
         nextArrow: '<svg><use xlink:href="#ec-simple-chevron-right"/></svg>',
       };
+
+      if (this.locale) {
+        mergedOptions.locale = this.locale;
+      }
+
+      if (this.dateFormat) {
+        mergedOptions.dateFormat = this.dateFormat;
+      }
+
+      return mergedOptions;
     },
     setDisabledClass(dayElement) {
       dayElement.className = `${dayElement.className} flatpickr-disabled`;
