@@ -2,7 +2,6 @@
   <ec-input-field
     :id="id"
     ref="input"
-    v-model="datepickerModel"
     type="text"
     autocomplete="off"
     icon="simple-calendar"
@@ -15,8 +14,9 @@
     :is-warning="isWarning"
     :error-message="errorMessage"
     :disabled="isDisabled"
-    v-on="$listeners"
+    :value="formattedValue"
     @icon-click="openCalendar()"
+    v-on="getListeners()"
   />
 </template>
 
@@ -37,7 +37,7 @@ export default {
   },
   props: {
     value: {
-      type: String,
+      type: Date,
     },
     label: {
       type: String,
@@ -81,22 +81,20 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    dateFormat: {
+      type: String,
+    },
+    locale: {
+      type: [String, Object],
+    },
   },
   data() {
     return {
       uid: getUid(),
+      formattedValue: null,
     };
   },
   computed: {
-    datepickerModel: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.flatpickrInstance.setDate(value);
-        this.$emit('value-change', value);
-      },
-    },
     id() {
       return `datepicker-${this.uid}`;
     },
@@ -112,6 +110,26 @@ export default {
           this.flatpickrInstance.redraw();
         }
       },
+    },
+    value(newValue, oldValue) {
+      if (newValue && newValue !== oldValue && !this.datesAreEqual(newValue, oldValue)) {
+        this.flatpickrInstance.setDate(newValue, true);
+      }
+    },
+    dateFormat(newValue) {
+      /* istanbul ignore next */
+      if (this.flatpickrInstance) {
+        this.flatpickrInstance.set('dateFormat', newValue);
+        if (this.flatpickrInstance.selectedDates.length) {
+          this.flatpickrInstance.setDate(this.flatpickrInstance.selectedDates[0], true);
+        }
+      }
+    },
+    locale(newValue) {
+      /* istanbul ignore next */
+      if (this.flatpickrInstance) {
+        this.flatpickrInstance.set('locale', newValue);
+      }
     },
     areWeekendsDisabled() {
       /* istanbul ignore next */
@@ -147,19 +165,38 @@ export default {
     }
   },
   methods: {
+    getListeners() {
+      const listeners = { ...this.$listeners };
+      delete listeners['value-change'];
+      delete listeners.open;
+      delete listeners.close;
+      delete listeners.ready;
+
+      return listeners;
+    },
     openCalendar() {
-      this.flatpickrInstance.open();
+      /* istanbul ignore next */
+      if (this.flatpickrInstance) {
+        this.flatpickrInstance.open();
+      }
     },
     mergeWithDefaultOptions(options) {
-      return {
+      const mergedOptions = {
         ...options,
         // We need to update the time of "now" every time something changes otherwise flatpickr will only pick it once when imported.
         now: new Date(),
         allowInput: true,
+        defaultDate: this.value ? new Date(this.value) : null,
         onDayCreate: this.onDayCreate,
         onReady: [...(this.options.onReady ?? []), () => {
           this.$emit('ready');
         }],
+        // eslint-disable-next-line no-unused-vars
+        onChange: (selectedDates, dateStr, instance) => {
+          const d = selectedDates[0];
+          this.formattedValue = dateStr;
+          this.$emit('value-change', d);
+        },
         onOpen: [...(this.options.onOpen ?? []), () => {
           this.$emit('open');
         }],
@@ -169,6 +206,16 @@ export default {
         prevArrow: '<svg><use xlink:href="#ec-simple-chevron-left"/></svg>',
         nextArrow: '<svg><use xlink:href="#ec-simple-chevron-right"/></svg>',
       };
+
+      if (this.locale) {
+        mergedOptions.locale = this.locale;
+      }
+
+      if (this.dateFormat) {
+        mergedOptions.dateFormat = this.dateFormat;
+      }
+
+      return mergedOptions;
     },
     setDisabledClass(dayElement) {
       dayElement.className = `${dayElement.className} flatpickr-disabled`;
@@ -204,6 +251,13 @@ export default {
       }
 
       dayElement.dataset.test = `ec-datepicker__calendar-day--${isoDate}`;
+    },
+    datesAreEqual(date1, date2) {
+      if (date1 instanceof Date && date2 instanceof Date) {
+        return date1.getTime() === date2.getTime();
+      }
+
+      return date1 === date2;
     },
   },
 };

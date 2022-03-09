@@ -5,6 +5,7 @@ import {
 } from '@vue/test-utils';
 import fakeTimers from '@sinonjs/fake-timers';
 import flatpickr from 'flatpickr';
+import { Spanish } from 'flatpickr/dist/l10n/es';
 import EcDatepicker from './ec-datepicker.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 
@@ -173,6 +174,30 @@ describe('Datepicker', () => {
         expect(calendarWrapper.element).toMatchSnapshot();
       }
     });
+
+    it('should render with Spanish locale', () => {
+      const { calendarWrapper } = mountDatepicker({
+        locale: Spanish,
+      });
+
+      expect(calendarWrapper.element).toMatchSnapshot('calendar');
+    });
+
+    it('should render with the dateFormat given', () => {
+      const { inputWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" date-format="d/m/Y" />',
+        {},
+        {
+          data() {
+            return {
+              model: new Date('2022-02-22'),
+            };
+          },
+        },
+      );
+
+      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('22/02/2022');
+    });
   });
 
   it('should open the calendar when we click on the input icon', () => {
@@ -203,7 +228,7 @@ describe('Datepicker', () => {
     });
 
     it('@close - should be emitted when the calendar closes', () => {
-      const { inputWrapper, calendarWrapper } = mountDatepicker({ value: '2022-02-20' });
+      const { inputWrapper, calendarWrapper } = mountDatepicker({ value: new Date('2022-02-20') });
 
       inputWrapper
         .findByDataTest('ec-datepicker')
@@ -293,6 +318,33 @@ describe('Datepicker', () => {
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-23').classes('flatpickr-disabled')).toBe(true);
       expect(calendarWrapper.findByDataTest('ec-datepicker__calendar-day--2022-02-23').attributes('title')).toBe('Bank holiday');
     });
+
+    it('should update the dateFormat date', async () => {
+      const { inputWrapper, calendarWrapper } = mountDatepicker({});
+      await calendarWrapper
+        .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
+        .trigger('click');
+
+      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('2022-02-24');
+
+      await inputWrapper.setProps({
+        dateFormat: 'd/m/Y',
+      });
+
+      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('24/02/2022');
+    });
+
+    it('should update the locale', async () => {
+      const { inputWrapper, calendarWrapper } = mountDatepicker({});
+
+      expect(calendarWrapper.element).toMatchSnapshot('calendar');
+
+      await inputWrapper.setProps({
+        locale: Spanish,
+      });
+
+      expect(calendarWrapper.element).toMatchSnapshot('calendar');
+    });
   });
 
   describe('v-model', () => {
@@ -303,13 +355,13 @@ describe('Datepicker', () => {
         {
           data() {
             return {
-              model: '2022-02-22',
+              model: new Date('2022-02-22'),
             };
           },
         },
       );
 
-      expect(inputWrapper.vm.model).toBe('2022-02-22');
+      expect(inputWrapper.vm.model.getTime()).toBe(new Date('2022-02-22').getTime());
     });
 
     it('should update the value of the calendar when I type a value', async () => {
@@ -319,15 +371,19 @@ describe('Datepicker', () => {
         {
           data() {
             return {
-              model: '',
+              model: null,
             };
           },
         },
       );
 
       await inputWrapper.findByDataTest('ec-input-field__input').setValue('2022-02-23');
+      // When allowInput is true, flatpickr is listening to blur event
+      // https://github.com/flatpickr/flatpickr/blob/master/src/index.ts#L493
+      await inputWrapper.findByDataTest('ec-input-field__input').trigger('blur');
 
-      expect(inputWrapper.vm.model).toBe('2022-02-23');
+      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('2022-02-23');
+      expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 23).getTime());
     });
 
     it('should update the value of the calendar when I select a value from the datepicker', async () => {
@@ -337,7 +393,7 @@ describe('Datepicker', () => {
         {
           data() {
             return {
-              model: '',
+              model: null,
             };
           },
         },
@@ -347,7 +403,7 @@ describe('Datepicker', () => {
         .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
         .trigger('click');
 
-      expect(inputWrapper.vm.model).toBe('2022-02-24');
+      expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 24).getTime());
     });
 
     it('should not allow to set a date smaller than the minDate', () => {
@@ -376,10 +432,10 @@ describe('Datepicker', () => {
         .findByDataTest('ec-datepicker__calendar-day--2022-02-22')
         .trigger('click');
 
-      expect(inputWrapper.vm.model).toBe('2022-02-22');
+      expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 22).getTime());
     });
 
-    it('should not allow to set a date bigger than the minDate', () => {
+    it('should not allow to set a date bigger than the maxDate', () => {
       const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
         '<ec-datepicker v-model="model" :options="options" />',
         {},
@@ -405,7 +461,7 @@ describe('Datepicker', () => {
         .findByDataTest('ec-datepicker__calendar-day--2022-02-22')
         .trigger('click');
 
-      expect(inputWrapper.vm.model).toBe('2022-02-22');
+      expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 22).getTime());
     });
   });
 });

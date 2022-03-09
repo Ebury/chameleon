@@ -223,7 +223,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 1, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-01"
             tabindex="-1"
           >
@@ -231,7 +231,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 2, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-02"
             tabindex="-1"
           >
@@ -239,7 +239,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 3, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-03"
             tabindex="-1"
           >
@@ -247,7 +247,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 4, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-04"
             tabindex="-1"
           >
@@ -255,7 +255,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 5, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-05"
             tabindex="-1"
           >
@@ -263,7 +263,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 6, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-06"
             tabindex="-1"
           >
@@ -271,7 +271,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 7, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-07"
             tabindex="-1"
           >
@@ -279,7 +279,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 8, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-08"
             tabindex="-1"
           >
@@ -287,7 +287,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 9, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-09"
             tabindex="-1"
           >
@@ -295,7 +295,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 10, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-10"
             tabindex="-1"
           >
@@ -303,7 +303,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 11, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-11"
             tabindex="-1"
           >
@@ -311,7 +311,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 12, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-12"
             tabindex="-1"
           >
@@ -319,7 +319,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 13, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-13"
             tabindex="-1"
           >
@@ -327,7 +327,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 14, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-14"
             tabindex="-1"
           >
@@ -335,7 +335,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 15, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-15"
             tabindex="-1"
           >
@@ -343,7 +343,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 16, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-16"
             tabindex="-1"
           >
@@ -351,7 +351,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 17, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-17"
             tabindex="-1"
           >
@@ -359,7 +359,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 18, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-18"
             tabindex="-1"
           >
@@ -367,7 +367,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 19, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-19"
             tabindex="-1"
           >
@@ -375,7 +375,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 20, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-20"
             tabindex="-1"
           >
@@ -383,7 +383,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 21, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
@@ -401,7 +401,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
@@ -409,7 +409,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 24, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-24"
             tabindex="-1"
           >
@@ -417,7 +417,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 25, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-25"
             tabindex="-1"
           >
@@ -425,7 +425,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 26, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-26"
             tabindex="-1"
           >
@@ -433,7 +433,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 27, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-27"
             tabindex="-1"
           >
@@ -441,7 +441,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           </span>
           <span
             aria-label="February 28, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-28"
             tabindex="-1"
           >
@@ -773,7 +773,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 1, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-01"
             tabindex="-1"
           >
@@ -781,7 +781,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 2, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-02"
             tabindex="-1"
           >
@@ -789,7 +789,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 3, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-03"
             tabindex="-1"
           >
@@ -797,7 +797,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 4, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-04"
             tabindex="-1"
           >
@@ -805,7 +805,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 5, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-05"
             tabindex="-1"
           >
@@ -813,7 +813,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 6, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-06"
             tabindex="-1"
           >
@@ -821,7 +821,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 7, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-07"
             tabindex="-1"
           >
@@ -829,7 +829,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 8, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-08"
             tabindex="-1"
           >
@@ -837,7 +837,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 9, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-09"
             tabindex="-1"
           >
@@ -845,7 +845,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 10, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-10"
             tabindex="-1"
           >
@@ -853,7 +853,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 11, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-11"
             tabindex="-1"
           >
@@ -861,7 +861,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 12, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-12"
             tabindex="-1"
           >
@@ -869,7 +869,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 13, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-13"
             tabindex="-1"
           >
@@ -877,7 +877,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 14, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-14"
             tabindex="-1"
           >
@@ -885,7 +885,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 15, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-15"
             tabindex="-1"
           >
@@ -893,7 +893,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 16, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-16"
             tabindex="-1"
           >
@@ -901,7 +901,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 17, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-17"
             tabindex="-1"
           >
@@ -909,7 +909,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 18, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-18"
             tabindex="-1"
           >
@@ -917,7 +917,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 19, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-19"
             tabindex="-1"
           >
@@ -925,7 +925,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 20, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-20"
             tabindex="-1"
           >
@@ -933,7 +933,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 21, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
@@ -950,7 +950,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
@@ -958,7 +958,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 24, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-24"
             tabindex="-1"
           >
@@ -966,7 +966,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 25, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-25"
             tabindex="-1"
           >
@@ -974,7 +974,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 26, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-26"
             tabindex="-1"
           >
@@ -982,7 +982,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 27, 2022"
-            class="flatpickr-day  flatpickr-disabled"
+            class="flatpickr-day flatpickr-disabled"
             data-test="ec-datepicker__calendar-day--2022-02-27"
             tabindex="-1"
           >
@@ -990,7 +990,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           </span>
           <span
             aria-label="February 28, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-28"
             tabindex="-1"
           >
@@ -1132,6 +1132,555 @@ exports[`Datepicker :props should render as disabled 1`] = `
   </div>
    
   <!---->
+</div>
+`;
+
+exports[`Datepicker :props should render with Spanish locale: calendar 1`] = `
+<div
+  class="flatpickr-calendar animate"
+  data-rel-data-test="undefined ec-datepicker"
+  data-test="ec-datepicker__calendar"
+  tabindex="-1"
+>
+  <div
+    class="flatpickr-months"
+  >
+    <span
+      class="flatpickr-prev-month"
+    >
+      <svg>
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </span>
+    <div
+      class="flatpickr-month"
+    >
+      <div
+        class="flatpickr-current-month"
+      >
+        <select
+          aria-label="Month"
+          class="flatpickr-monthDropdown-months"
+          tabindex="-1"
+        >
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="0"
+          >
+            Enero
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="1"
+          >
+            Febrero
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="2"
+          >
+            Marzo
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="3"
+          >
+            Abril
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="4"
+          >
+            Mayo
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="5"
+          >
+            Junio
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="6"
+          >
+            Julio
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="7"
+          >
+            Agosto
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="8"
+          >
+            Septiembre
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="9"
+          >
+            Octubre
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="10"
+          >
+            Noviembre
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="11"
+          >
+            Diciembre
+          </option>
+        </select>
+        <div
+          class="numInputWrapper"
+        >
+          <input
+            aria-label="Year"
+            class="numInput cur-year"
+            tabindex="-1"
+            type="number"
+          />
+          <span
+            class="arrowUp"
+          />
+          <span
+            class="arrowDown"
+          />
+        </div>
+      </div>
+    </div>
+    <span
+      class="flatpickr-next-month"
+    >
+      <svg>
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="flatpickr-innerContainer"
+  >
+    <div
+      class="flatpickr-rContainer"
+    >
+      <div
+        class="flatpickr-weekdays"
+      >
+        <div
+          class="flatpickr-weekdaycontainer"
+        >
+          
+      
+          <span
+            class="flatpickr-weekday"
+          >
+            
+        Lun
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Mar
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Mié
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Jue
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Vie
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Sáb
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Dom
+      
+          </span>
+          
+      
+        </div>
+      </div>
+      <div
+        class="flatpickr-days"
+        tabindex="-1"
+      >
+        <div
+          class="dayContainer"
+        >
+          <span
+            aria-label="Enero 31, 2022"
+            class="flatpickr-day prevMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-01-31"
+            tabindex="-1"
+          >
+            31
+          </span>
+          <span
+            aria-label="Febrero 1, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-01"
+            tabindex="-1"
+          >
+            1
+          </span>
+          <span
+            aria-label="Febrero 2, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-02"
+            tabindex="-1"
+          >
+            2
+          </span>
+          <span
+            aria-label="Febrero 3, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-03"
+            tabindex="-1"
+          >
+            3
+          </span>
+          <span
+            aria-label="Febrero 4, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-04"
+            tabindex="-1"
+          >
+            4
+          </span>
+          <span
+            aria-label="Febrero 5, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-05"
+            tabindex="-1"
+          >
+            5
+          </span>
+          <span
+            aria-label="Febrero 6, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-06"
+            tabindex="-1"
+          >
+            6
+          </span>
+          <span
+            aria-label="Febrero 7, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-07"
+            tabindex="-1"
+          >
+            7
+          </span>
+          <span
+            aria-label="Febrero 8, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-08"
+            tabindex="-1"
+          >
+            8
+          </span>
+          <span
+            aria-label="Febrero 9, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-09"
+            tabindex="-1"
+          >
+            9
+          </span>
+          <span
+            aria-label="Febrero 10, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-10"
+            tabindex="-1"
+          >
+            10
+          </span>
+          <span
+            aria-label="Febrero 11, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-11"
+            tabindex="-1"
+          >
+            11
+          </span>
+          <span
+            aria-label="Febrero 12, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-12"
+            tabindex="-1"
+          >
+            12
+          </span>
+          <span
+            aria-label="Febrero 13, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-13"
+            tabindex="-1"
+          >
+            13
+          </span>
+          <span
+            aria-label="Febrero 14, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-14"
+            tabindex="-1"
+          >
+            14
+          </span>
+          <span
+            aria-label="Febrero 15, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-15"
+            tabindex="-1"
+          >
+            15
+          </span>
+          <span
+            aria-label="Febrero 16, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-16"
+            tabindex="-1"
+          >
+            16
+          </span>
+          <span
+            aria-label="Febrero 17, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-17"
+            tabindex="-1"
+          >
+            17
+          </span>
+          <span
+            aria-label="Febrero 18, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-18"
+            tabindex="-1"
+          >
+            18
+          </span>
+          <span
+            aria-label="Febrero 19, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-19"
+            tabindex="-1"
+          >
+            19
+          </span>
+          <span
+            aria-label="Febrero 20, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-20"
+            tabindex="-1"
+          >
+            20
+          </span>
+          <span
+            aria-label="Febrero 21, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-21"
+            tabindex="-1"
+          >
+            21
+          </span>
+          <span
+            aria-current="date"
+            aria-label="Febrero 22, 2022"
+            class="flatpickr-day today"
+            data-test="ec-datepicker__calendar-day--2022-02-22"
+            tabindex="-1"
+          >
+            22
+          </span>
+          <span
+            aria-label="Febrero 23, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-23"
+            tabindex="-1"
+          >
+            23
+          </span>
+          <span
+            aria-label="Febrero 24, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-24"
+            tabindex="-1"
+          >
+            24
+          </span>
+          <span
+            aria-label="Febrero 25, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-25"
+            tabindex="-1"
+          >
+            25
+          </span>
+          <span
+            aria-label="Febrero 26, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-26"
+            tabindex="-1"
+          >
+            26
+          </span>
+          <span
+            aria-label="Febrero 27, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-27"
+            tabindex="-1"
+          >
+            27
+          </span>
+          <span
+            aria-label="Febrero 28, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-28"
+            tabindex="-1"
+          >
+            28
+          </span>
+          <span
+            aria-label="Marzo 1, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-01"
+            tabindex="-1"
+          >
+            1
+          </span>
+          <span
+            aria-label="Marzo 2, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-02"
+            tabindex="-1"
+          >
+            2
+          </span>
+          <span
+            aria-label="Marzo 3, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-03"
+            tabindex="-1"
+          >
+            3
+          </span>
+          <span
+            aria-label="Marzo 4, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-04"
+            tabindex="-1"
+          >
+            4
+          </span>
+          <span
+            aria-label="Marzo 5, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-05"
+            tabindex="-1"
+          >
+            5
+          </span>
+          <span
+            aria-label="Marzo 6, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-06"
+            tabindex="-1"
+          >
+            6
+          </span>
+          <span
+            aria-label="Marzo 7, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-07"
+            tabindex="-1"
+          >
+            7
+          </span>
+          <span
+            aria-label="Marzo 8, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-08"
+            tabindex="-1"
+          >
+            8
+          </span>
+          <span
+            aria-label="Marzo 9, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-09"
+            tabindex="-1"
+          >
+            9
+          </span>
+          <span
+            aria-label="Marzo 10, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-10"
+            tabindex="-1"
+          >
+            10
+          </span>
+          <span
+            aria-label="Marzo 11, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-11"
+            tabindex="-1"
+          >
+            11
+          </span>
+          <span
+            aria-label="Marzo 12, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-12"
+            tabindex="-1"
+          >
+            12
+          </span>
+          <span
+            aria-label="Marzo 13, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-13"
+            tabindex="-1"
+          >
+            13
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -1613,7 +2162,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 1, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-01"
             tabindex="-1"
           >
@@ -1621,7 +2170,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 2, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-02"
             tabindex="-1"
           >
@@ -1629,7 +2178,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 3, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-03"
             tabindex="-1"
           >
@@ -1637,7 +2186,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 4, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-04"
             tabindex="-1"
           >
@@ -1645,7 +2194,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 5, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-05"
             tabindex="-1"
           >
@@ -1653,7 +2202,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 6, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-06"
             tabindex="-1"
           >
@@ -1661,7 +2210,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 7, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-07"
             tabindex="-1"
           >
@@ -1669,7 +2218,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 8, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-08"
             tabindex="-1"
           >
@@ -1677,7 +2226,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 9, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-09"
             tabindex="-1"
           >
@@ -1685,7 +2234,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 10, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-10"
             tabindex="-1"
           >
@@ -1693,7 +2242,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 11, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-11"
             tabindex="-1"
           >
@@ -1701,7 +2250,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 12, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-12"
             tabindex="-1"
           >
@@ -1709,7 +2258,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 13, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-13"
             tabindex="-1"
           >
@@ -1717,7 +2266,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 14, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-14"
             tabindex="-1"
           >
@@ -1725,7 +2274,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 15, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-15"
             tabindex="-1"
           >
@@ -1733,7 +2282,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 16, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-16"
             tabindex="-1"
           >
@@ -1741,7 +2290,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 17, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-17"
             tabindex="-1"
           >
@@ -1749,7 +2298,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 18, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-18"
             tabindex="-1"
           >
@@ -1757,7 +2306,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 19, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-19"
             tabindex="-1"
           >
@@ -1765,7 +2314,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 20, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-20"
             tabindex="-1"
           >
@@ -1773,7 +2322,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 21, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
@@ -1790,7 +2339,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
@@ -1798,7 +2347,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 24, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-24"
             tabindex="-1"
           >
@@ -1806,7 +2355,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 25, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-25"
             tabindex="-1"
           >
@@ -1814,7 +2363,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 26, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-26"
             tabindex="-1"
           >
@@ -1822,7 +2371,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 27, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-27"
             tabindex="-1"
           >
@@ -1830,7 +2379,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           </span>
           <span
             aria-label="February 28, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-28"
             tabindex="-1"
           >
@@ -2162,7 +2711,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 1, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-01"
             tabindex="-1"
           >
@@ -2170,7 +2719,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 2, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-02"
             tabindex="-1"
           >
@@ -2178,7 +2727,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 3, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-03"
             tabindex="-1"
           >
@@ -2186,7 +2735,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 4, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-04"
             tabindex="-1"
           >
@@ -2194,7 +2743,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 5, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-05"
             tabindex="-1"
           >
@@ -2202,7 +2751,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 6, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-06"
             tabindex="-1"
           >
@@ -2210,7 +2759,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 7, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-07"
             tabindex="-1"
           >
@@ -2218,7 +2767,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 8, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-08"
             tabindex="-1"
           >
@@ -2226,7 +2775,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 9, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-09"
             tabindex="-1"
           >
@@ -2234,7 +2783,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 10, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-10"
             tabindex="-1"
           >
@@ -2242,7 +2791,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 11, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-11"
             tabindex="-1"
           >
@@ -2250,7 +2799,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 12, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-12"
             tabindex="-1"
           >
@@ -2258,7 +2807,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 13, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-13"
             tabindex="-1"
           >
@@ -2266,7 +2815,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 14, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-14"
             tabindex="-1"
           >
@@ -2274,7 +2823,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 15, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-15"
             tabindex="-1"
           >
@@ -2282,7 +2831,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 16, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-16"
             tabindex="-1"
           >
@@ -2290,7 +2839,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 17, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-17"
             tabindex="-1"
           >
@@ -2298,7 +2847,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 18, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-18"
             tabindex="-1"
           >
@@ -2306,7 +2855,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 19, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-19"
             tabindex="-1"
           >
@@ -2314,7 +2863,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 20, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-20"
             tabindex="-1"
           >
@@ -2322,7 +2871,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 21, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
@@ -2339,7 +2888,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
@@ -2347,7 +2896,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 24, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-24"
             tabindex="-1"
           >
@@ -2355,7 +2904,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 25, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-25"
             tabindex="-1"
           >
@@ -2363,7 +2912,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 26, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-26"
             tabindex="-1"
           >
@@ -2371,7 +2920,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 27, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-27"
             tabindex="-1"
           >
@@ -2379,7 +2928,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           </span>
           <span
             aria-label="February 28, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-28"
             tabindex="-1"
           >
@@ -2711,7 +3260,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 1, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-01"
             tabindex="-1"
           >
@@ -2719,7 +3268,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 2, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-02"
             tabindex="-1"
           >
@@ -2727,7 +3276,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 3, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-03"
             tabindex="-1"
           >
@@ -2735,7 +3284,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 4, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-04"
             tabindex="-1"
           >
@@ -2743,7 +3292,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 5, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-05"
             tabindex="-1"
           >
@@ -2751,7 +3300,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 6, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-06"
             tabindex="-1"
           >
@@ -2759,7 +3308,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 7, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-07"
             tabindex="-1"
           >
@@ -2767,7 +3316,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 8, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-08"
             tabindex="-1"
           >
@@ -2775,7 +3324,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 9, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-09"
             tabindex="-1"
           >
@@ -2783,7 +3332,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 10, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-10"
             tabindex="-1"
           >
@@ -2791,7 +3340,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 11, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-11"
             tabindex="-1"
           >
@@ -2799,7 +3348,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 12, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-12"
             tabindex="-1"
           >
@@ -2807,7 +3356,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 13, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-13"
             tabindex="-1"
           >
@@ -2815,7 +3364,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 14, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-14"
             tabindex="-1"
           >
@@ -2823,7 +3372,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 15, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-15"
             tabindex="-1"
           >
@@ -2831,7 +3380,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 16, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-16"
             tabindex="-1"
           >
@@ -2839,7 +3388,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 17, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-17"
             tabindex="-1"
           >
@@ -2847,7 +3396,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 18, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-18"
             tabindex="-1"
           >
@@ -2855,7 +3404,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 19, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-19"
             tabindex="-1"
           >
@@ -2863,7 +3412,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 20, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-20"
             tabindex="-1"
           >
@@ -2871,7 +3420,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 21, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
@@ -2888,7 +3437,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
@@ -2896,7 +3445,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 24, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-24"
             tabindex="-1"
           >
@@ -2904,7 +3453,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 25, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-25"
             tabindex="-1"
           >
@@ -2912,7 +3461,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 26, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-26"
             tabindex="-1"
           >
@@ -2920,7 +3469,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 27, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-27"
             tabindex="-1"
           >
@@ -2928,7 +3477,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           </span>
           <span
             aria-label="February 28, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-28"
             tabindex="-1"
           >
@@ -3260,7 +3809,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 1, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-01"
             tabindex="-1"
           >
@@ -3268,7 +3817,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 2, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-02"
             tabindex="-1"
           >
@@ -3276,7 +3825,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 3, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-03"
             tabindex="-1"
           >
@@ -3284,7 +3833,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 4, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-04"
             tabindex="-1"
           >
@@ -3292,7 +3841,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 5, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-05"
             tabindex="-1"
           >
@@ -3300,7 +3849,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 6, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-06"
             tabindex="-1"
           >
@@ -3308,7 +3857,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 7, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-07"
             tabindex="-1"
           >
@@ -3316,7 +3865,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 8, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-08"
             tabindex="-1"
           >
@@ -3324,7 +3873,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 9, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-09"
             tabindex="-1"
           >
@@ -3332,7 +3881,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 10, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-10"
             tabindex="-1"
           >
@@ -3340,7 +3889,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 11, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-11"
             tabindex="-1"
           >
@@ -3348,7 +3897,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 12, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-12"
             tabindex="-1"
           >
@@ -3356,7 +3905,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 13, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-13"
             tabindex="-1"
           >
@@ -3364,7 +3913,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 14, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-14"
             tabindex="-1"
           >
@@ -3372,7 +3921,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 15, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-15"
             tabindex="-1"
           >
@@ -3380,7 +3929,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 16, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-16"
             tabindex="-1"
           >
@@ -3388,7 +3937,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 17, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-17"
             tabindex="-1"
           >
@@ -3396,7 +3945,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 18, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-18"
             tabindex="-1"
           >
@@ -3404,7 +3953,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 19, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-19"
             tabindex="-1"
           >
@@ -3412,7 +3961,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 20, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-20"
             tabindex="-1"
           >
@@ -3420,7 +3969,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 21, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
@@ -3437,7 +3986,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
@@ -3445,7 +3994,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 24, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-24"
             tabindex="-1"
           >
@@ -3453,7 +4002,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 25, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-25"
             tabindex="-1"
           >
@@ -3461,7 +4010,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 26, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-26"
             tabindex="-1"
           >
@@ -3469,7 +4018,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 27, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-27"
             tabindex="-1"
           >
@@ -3477,7 +4026,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           </span>
           <span
             aria-label="February 28, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-28"
             tabindex="-1"
           >
@@ -3809,7 +4358,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 1, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-01"
             tabindex="-1"
           >
@@ -3817,7 +4366,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 2, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-02"
             tabindex="-1"
           >
@@ -3825,7 +4374,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 3, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-03"
             tabindex="-1"
           >
@@ -3833,7 +4382,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 4, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-04"
             tabindex="-1"
           >
@@ -3841,7 +4390,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 5, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-05"
             tabindex="-1"
           >
@@ -3849,7 +4398,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 6, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-06"
             tabindex="-1"
           >
@@ -3857,7 +4406,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 7, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-07"
             tabindex="-1"
           >
@@ -3865,7 +4414,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 8, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-08"
             tabindex="-1"
           >
@@ -3873,7 +4422,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 9, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-09"
             tabindex="-1"
           >
@@ -3881,7 +4430,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 10, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-10"
             tabindex="-1"
           >
@@ -3889,7 +4438,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 11, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-11"
             tabindex="-1"
           >
@@ -3897,7 +4446,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 12, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-12"
             tabindex="-1"
           >
@@ -3905,7 +4454,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 13, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-13"
             tabindex="-1"
           >
@@ -3913,7 +4462,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 14, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-14"
             tabindex="-1"
           >
@@ -3921,7 +4470,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 15, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-15"
             tabindex="-1"
           >
@@ -3929,7 +4478,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 16, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-16"
             tabindex="-1"
           >
@@ -3937,7 +4486,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 17, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-17"
             tabindex="-1"
           >
@@ -3945,7 +4494,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 18, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-18"
             tabindex="-1"
           >
@@ -3953,7 +4502,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 19, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-19"
             tabindex="-1"
           >
@@ -3961,7 +4510,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 20, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-20"
             tabindex="-1"
           >
@@ -3969,7 +4518,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 21, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
@@ -3986,7 +4535,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
@@ -3994,7 +4543,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 24, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-24"
             tabindex="-1"
           >
@@ -4002,7 +4551,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 25, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-25"
             tabindex="-1"
           >
@@ -4010,7 +4559,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 26, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-26"
             tabindex="-1"
           >
@@ -4018,7 +4567,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 27, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-27"
             tabindex="-1"
           >
@@ -4026,7 +4575,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           </span>
           <span
             aria-label="February 28, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-28"
             tabindex="-1"
           >
@@ -4358,7 +4907,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 1, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-01"
             tabindex="-1"
           >
@@ -4366,7 +4915,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 2, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-02"
             tabindex="-1"
           >
@@ -4374,7 +4923,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 3, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-03"
             tabindex="-1"
           >
@@ -4382,7 +4931,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 4, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-04"
             tabindex="-1"
           >
@@ -4390,7 +4939,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 5, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-05"
             tabindex="-1"
           >
@@ -4398,7 +4947,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 6, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-06"
             tabindex="-1"
           >
@@ -4406,7 +4955,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 7, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-07"
             tabindex="-1"
           >
@@ -4414,7 +4963,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 8, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-08"
             tabindex="-1"
           >
@@ -4422,7 +4971,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 9, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-09"
             tabindex="-1"
           >
@@ -4430,7 +4979,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 10, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-10"
             tabindex="-1"
           >
@@ -4438,7 +4987,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 11, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-11"
             tabindex="-1"
           >
@@ -4446,7 +4995,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 12, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-12"
             tabindex="-1"
           >
@@ -4454,7 +5003,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 13, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-13"
             tabindex="-1"
           >
@@ -4462,7 +5011,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 14, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-14"
             tabindex="-1"
           >
@@ -4470,7 +5019,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 15, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-15"
             tabindex="-1"
           >
@@ -4478,7 +5027,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 16, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-16"
             tabindex="-1"
           >
@@ -4486,7 +5035,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 17, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-17"
             tabindex="-1"
           >
@@ -4494,7 +5043,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 18, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-18"
             tabindex="-1"
           >
@@ -4502,7 +5051,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 19, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-19"
             tabindex="-1"
           >
@@ -4510,7 +5059,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 20, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-20"
             tabindex="-1"
           >
@@ -4518,7 +5067,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 21, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
@@ -4535,7 +5084,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
@@ -4543,7 +5092,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 24, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-24"
             tabindex="-1"
           >
@@ -4551,7 +5100,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 25, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-25"
             tabindex="-1"
           >
@@ -4559,7 +5108,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 26, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-26"
             tabindex="-1"
           >
@@ -4567,7 +5116,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 27, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-27"
             tabindex="-1"
           >
@@ -4575,7 +5124,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           </span>
           <span
             aria-label="February 28, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-28"
             tabindex="-1"
           >
@@ -4907,7 +5456,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 1, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-01"
             tabindex="-1"
           >
@@ -4915,7 +5464,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 2, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-02"
             tabindex="-1"
           >
@@ -4923,7 +5472,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 3, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-03"
             tabindex="-1"
           >
@@ -4931,7 +5480,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 4, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-04"
             tabindex="-1"
           >
@@ -4939,7 +5488,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 5, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-05"
             tabindex="-1"
           >
@@ -4947,7 +5496,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 6, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-06"
             tabindex="-1"
           >
@@ -4955,7 +5504,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 7, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-07"
             tabindex="-1"
           >
@@ -4963,7 +5512,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 8, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-08"
             tabindex="-1"
           >
@@ -4971,7 +5520,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 9, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-09"
             tabindex="-1"
           >
@@ -4979,7 +5528,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 10, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-10"
             tabindex="-1"
           >
@@ -4987,7 +5536,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 11, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-11"
             tabindex="-1"
           >
@@ -4995,7 +5544,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 12, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-12"
             tabindex="-1"
           >
@@ -5003,7 +5552,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 13, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-13"
             tabindex="-1"
           >
@@ -5011,7 +5560,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 14, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-14"
             tabindex="-1"
           >
@@ -5019,7 +5568,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 15, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-15"
             tabindex="-1"
           >
@@ -5027,7 +5576,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 16, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-16"
             tabindex="-1"
           >
@@ -5035,7 +5584,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 17, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-17"
             tabindex="-1"
           >
@@ -5043,7 +5592,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 18, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-18"
             tabindex="-1"
           >
@@ -5051,7 +5600,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 19, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-19"
             tabindex="-1"
           >
@@ -5059,7 +5608,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 20, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-20"
             tabindex="-1"
           >
@@ -5067,7 +5616,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 21, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-21"
             tabindex="-1"
           >
@@ -5084,7 +5633,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 23, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-23"
             tabindex="-1"
           >
@@ -5092,7 +5641,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 24, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-24"
             tabindex="-1"
           >
@@ -5100,7 +5649,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 25, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-25"
             tabindex="-1"
           >
@@ -5108,7 +5657,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 26, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-26"
             tabindex="-1"
           >
@@ -5116,7 +5665,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 27, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-27"
             tabindex="-1"
           >
@@ -5124,7 +5673,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           </span>
           <span
             aria-label="February 28, 2022"
-            class="flatpickr-day "
+            class="flatpickr-day"
             data-test="ec-datepicker__calendar-day--2022-02-28"
             tabindex="-1"
           >
@@ -5265,5 +5814,1103 @@ exports[`Datepicker should render properly 1`] = `
   </div>
    
   <!---->
+</div>
+`;
+
+exports[`Datepicker watchers should update the locale: calendar 1`] = `
+<div
+  class="flatpickr-calendar animate"
+  data-rel-data-test="undefined ec-datepicker"
+  data-test="ec-datepicker__calendar"
+  tabindex="-1"
+>
+  <div
+    class="flatpickr-months"
+  >
+    <span
+      class="flatpickr-prev-month"
+    >
+      <svg>
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </span>
+    <div
+      class="flatpickr-month"
+    >
+      <div
+        class="flatpickr-current-month"
+      >
+        <select
+          aria-label="Month"
+          class="flatpickr-monthDropdown-months"
+          tabindex="-1"
+        >
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="0"
+          >
+            January
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="1"
+          >
+            February
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="2"
+          >
+            March
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="3"
+          >
+            April
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="4"
+          >
+            May
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="5"
+          >
+            June
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="6"
+          >
+            July
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="7"
+          >
+            August
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="8"
+          >
+            September
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="9"
+          >
+            October
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="10"
+          >
+            November
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="11"
+          >
+            December
+          </option>
+        </select>
+        <div
+          class="numInputWrapper"
+        >
+          <input
+            aria-label="Year"
+            class="numInput cur-year"
+            tabindex="-1"
+            type="number"
+          />
+          <span
+            class="arrowUp"
+          />
+          <span
+            class="arrowDown"
+          />
+        </div>
+      </div>
+    </div>
+    <span
+      class="flatpickr-next-month"
+    >
+      <svg>
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="flatpickr-innerContainer"
+  >
+    <div
+      class="flatpickr-rContainer"
+    >
+      <div
+        class="flatpickr-weekdays"
+      >
+        <div
+          class="flatpickr-weekdaycontainer"
+        >
+          
+      
+          <span
+            class="flatpickr-weekday"
+          >
+            
+        Sun
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Mon
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Tue
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Wed
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Thu
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Fri
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Sat
+      
+          </span>
+          
+      
+        </div>
+      </div>
+      <div
+        class="flatpickr-days"
+        tabindex="-1"
+      >
+        <div
+          class="dayContainer"
+        >
+          <span
+            aria-label="January 30, 2022"
+            class="flatpickr-day prevMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-01-30"
+            tabindex="-1"
+          >
+            30
+          </span>
+          <span
+            aria-label="January 31, 2022"
+            class="flatpickr-day prevMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-01-31"
+            tabindex="-1"
+          >
+            31
+          </span>
+          <span
+            aria-label="February 1, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-01"
+            tabindex="-1"
+          >
+            1
+          </span>
+          <span
+            aria-label="February 2, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-02"
+            tabindex="-1"
+          >
+            2
+          </span>
+          <span
+            aria-label="February 3, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-03"
+            tabindex="-1"
+          >
+            3
+          </span>
+          <span
+            aria-label="February 4, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-04"
+            tabindex="-1"
+          >
+            4
+          </span>
+          <span
+            aria-label="February 5, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-05"
+            tabindex="-1"
+          >
+            5
+          </span>
+          <span
+            aria-label="February 6, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-06"
+            tabindex="-1"
+          >
+            6
+          </span>
+          <span
+            aria-label="February 7, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-07"
+            tabindex="-1"
+          >
+            7
+          </span>
+          <span
+            aria-label="February 8, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-08"
+            tabindex="-1"
+          >
+            8
+          </span>
+          <span
+            aria-label="February 9, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-09"
+            tabindex="-1"
+          >
+            9
+          </span>
+          <span
+            aria-label="February 10, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-10"
+            tabindex="-1"
+          >
+            10
+          </span>
+          <span
+            aria-label="February 11, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-11"
+            tabindex="-1"
+          >
+            11
+          </span>
+          <span
+            aria-label="February 12, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-12"
+            tabindex="-1"
+          >
+            12
+          </span>
+          <span
+            aria-label="February 13, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-13"
+            tabindex="-1"
+          >
+            13
+          </span>
+          <span
+            aria-label="February 14, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-14"
+            tabindex="-1"
+          >
+            14
+          </span>
+          <span
+            aria-label="February 15, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-15"
+            tabindex="-1"
+          >
+            15
+          </span>
+          <span
+            aria-label="February 16, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-16"
+            tabindex="-1"
+          >
+            16
+          </span>
+          <span
+            aria-label="February 17, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-17"
+            tabindex="-1"
+          >
+            17
+          </span>
+          <span
+            aria-label="February 18, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-18"
+            tabindex="-1"
+          >
+            18
+          </span>
+          <span
+            aria-label="February 19, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-19"
+            tabindex="-1"
+          >
+            19
+          </span>
+          <span
+            aria-label="February 20, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-20"
+            tabindex="-1"
+          >
+            20
+          </span>
+          <span
+            aria-label="February 21, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-21"
+            tabindex="-1"
+          >
+            21
+          </span>
+          <span
+            aria-current="date"
+            aria-label="February 22, 2022"
+            class="flatpickr-day today"
+            data-test="ec-datepicker__calendar-day--2022-02-22"
+            tabindex="-1"
+          >
+            22
+          </span>
+          <span
+            aria-label="February 23, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-23"
+            tabindex="-1"
+          >
+            23
+          </span>
+          <span
+            aria-label="February 24, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-24"
+            tabindex="-1"
+          >
+            24
+          </span>
+          <span
+            aria-label="February 25, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-25"
+            tabindex="-1"
+          >
+            25
+          </span>
+          <span
+            aria-label="February 26, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-26"
+            tabindex="-1"
+          >
+            26
+          </span>
+          <span
+            aria-label="February 27, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-27"
+            tabindex="-1"
+          >
+            27
+          </span>
+          <span
+            aria-label="February 28, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-28"
+            tabindex="-1"
+          >
+            28
+          </span>
+          <span
+            aria-label="March 1, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-01"
+            tabindex="-1"
+          >
+            1
+          </span>
+          <span
+            aria-label="March 2, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-02"
+            tabindex="-1"
+          >
+            2
+          </span>
+          <span
+            aria-label="March 3, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-03"
+            tabindex="-1"
+          >
+            3
+          </span>
+          <span
+            aria-label="March 4, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-04"
+            tabindex="-1"
+          >
+            4
+          </span>
+          <span
+            aria-label="March 5, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-05"
+            tabindex="-1"
+          >
+            5
+          </span>
+          <span
+            aria-label="March 6, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-06"
+            tabindex="-1"
+          >
+            6
+          </span>
+          <span
+            aria-label="March 7, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-07"
+            tabindex="-1"
+          >
+            7
+          </span>
+          <span
+            aria-label="March 8, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-08"
+            tabindex="-1"
+          >
+            8
+          </span>
+          <span
+            aria-label="March 9, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-09"
+            tabindex="-1"
+          >
+            9
+          </span>
+          <span
+            aria-label="March 10, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-10"
+            tabindex="-1"
+          >
+            10
+          </span>
+          <span
+            aria-label="March 11, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-11"
+            tabindex="-1"
+          >
+            11
+          </span>
+          <span
+            aria-label="March 12, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-12"
+            tabindex="-1"
+          >
+            12
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Datepicker watchers should update the locale: calendar 2`] = `
+<div
+  class="flatpickr-calendar animate"
+  data-rel-data-test="undefined ec-datepicker"
+  data-test="ec-datepicker__calendar"
+  tabindex="-1"
+>
+  <div
+    class="flatpickr-months"
+  >
+    <span
+      class="flatpickr-prev-month"
+    >
+      <svg>
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </span>
+    <div
+      class="flatpickr-month"
+    >
+      <div
+        class="flatpickr-current-month"
+      >
+        <select
+          aria-label="Month"
+          class="flatpickr-monthDropdown-months"
+          tabindex="-1"
+        >
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="0"
+          >
+            Enero
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="1"
+          >
+            Febrero
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="2"
+          >
+            Marzo
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="3"
+          >
+            Abril
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="4"
+          >
+            Mayo
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="5"
+          >
+            Junio
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="6"
+          >
+            Julio
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="7"
+          >
+            Agosto
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="8"
+          >
+            Septiembre
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="9"
+          >
+            Octubre
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="10"
+          >
+            Noviembre
+          </option>
+          <option
+            class="flatpickr-monthDropdown-month"
+            tabindex="-1"
+            value="11"
+          >
+            Diciembre
+          </option>
+        </select>
+        <div
+          class="numInputWrapper"
+        >
+          <input
+            aria-label="Year"
+            class="numInput cur-year"
+            tabindex="-1"
+            type="number"
+          />
+          <span
+            class="arrowUp"
+          />
+          <span
+            class="arrowDown"
+          />
+        </div>
+      </div>
+    </div>
+    <span
+      class="flatpickr-next-month"
+    >
+      <svg>
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="flatpickr-innerContainer"
+  >
+    <div
+      class="flatpickr-rContainer"
+    >
+      <div
+        class="flatpickr-weekdays"
+      >
+        <div
+          class="flatpickr-weekdaycontainer"
+        >
+          
+      
+          <span
+            class="flatpickr-weekday"
+          >
+            
+        Lun
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Mar
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Mié
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Jue
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Vie
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Sáb
+          </span>
+          <span
+            class="flatpickr-weekday"
+          >
+            Dom
+      
+          </span>
+          
+      
+        </div>
+      </div>
+      <div
+        class="flatpickr-days"
+        tabindex="-1"
+      >
+        <div
+          class="dayContainer"
+        >
+          <span
+            aria-label="Enero 31, 2022"
+            class="flatpickr-day prevMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-01-31"
+            tabindex="-1"
+          >
+            31
+          </span>
+          <span
+            aria-label="Febrero 1, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-01"
+            tabindex="-1"
+          >
+            1
+          </span>
+          <span
+            aria-label="Febrero 2, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-02"
+            tabindex="-1"
+          >
+            2
+          </span>
+          <span
+            aria-label="Febrero 3, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-03"
+            tabindex="-1"
+          >
+            3
+          </span>
+          <span
+            aria-label="Febrero 4, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-04"
+            tabindex="-1"
+          >
+            4
+          </span>
+          <span
+            aria-label="Febrero 5, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-05"
+            tabindex="-1"
+          >
+            5
+          </span>
+          <span
+            aria-label="Febrero 6, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-06"
+            tabindex="-1"
+          >
+            6
+          </span>
+          <span
+            aria-label="Febrero 7, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-07"
+            tabindex="-1"
+          >
+            7
+          </span>
+          <span
+            aria-label="Febrero 8, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-08"
+            tabindex="-1"
+          >
+            8
+          </span>
+          <span
+            aria-label="Febrero 9, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-09"
+            tabindex="-1"
+          >
+            9
+          </span>
+          <span
+            aria-label="Febrero 10, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-10"
+            tabindex="-1"
+          >
+            10
+          </span>
+          <span
+            aria-label="Febrero 11, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-11"
+            tabindex="-1"
+          >
+            11
+          </span>
+          <span
+            aria-label="Febrero 12, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-12"
+            tabindex="-1"
+          >
+            12
+          </span>
+          <span
+            aria-label="Febrero 13, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-13"
+            tabindex="-1"
+          >
+            13
+          </span>
+          <span
+            aria-label="Febrero 14, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-14"
+            tabindex="-1"
+          >
+            14
+          </span>
+          <span
+            aria-label="Febrero 15, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-15"
+            tabindex="-1"
+          >
+            15
+          </span>
+          <span
+            aria-label="Febrero 16, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-16"
+            tabindex="-1"
+          >
+            16
+          </span>
+          <span
+            aria-label="Febrero 17, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-17"
+            tabindex="-1"
+          >
+            17
+          </span>
+          <span
+            aria-label="Febrero 18, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-18"
+            tabindex="-1"
+          >
+            18
+          </span>
+          <span
+            aria-label="Febrero 19, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-19"
+            tabindex="-1"
+          >
+            19
+          </span>
+          <span
+            aria-label="Febrero 20, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-20"
+            tabindex="-1"
+          >
+            20
+          </span>
+          <span
+            aria-label="Febrero 21, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-21"
+            tabindex="-1"
+          >
+            21
+          </span>
+          <span
+            aria-current="date"
+            aria-label="Febrero 22, 2022"
+            class="flatpickr-day today"
+            data-test="ec-datepicker__calendar-day--2022-02-22"
+            tabindex="-1"
+          >
+            22
+          </span>
+          <span
+            aria-label="Febrero 23, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-23"
+            tabindex="-1"
+          >
+            23
+          </span>
+          <span
+            aria-label="Febrero 24, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-24"
+            tabindex="-1"
+          >
+            24
+          </span>
+          <span
+            aria-label="Febrero 25, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-25"
+            tabindex="-1"
+          >
+            25
+          </span>
+          <span
+            aria-label="Febrero 26, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-26"
+            tabindex="-1"
+          >
+            26
+          </span>
+          <span
+            aria-label="Febrero 27, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-27"
+            tabindex="-1"
+          >
+            27
+          </span>
+          <span
+            aria-label="Febrero 28, 2022"
+            class="flatpickr-day"
+            data-test="ec-datepicker__calendar-day--2022-02-28"
+            tabindex="-1"
+          >
+            28
+          </span>
+          <span
+            aria-label="Marzo 1, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-01"
+            tabindex="-1"
+          >
+            1
+          </span>
+          <span
+            aria-label="Marzo 2, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-02"
+            tabindex="-1"
+          >
+            2
+          </span>
+          <span
+            aria-label="Marzo 3, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-03"
+            tabindex="-1"
+          >
+            3
+          </span>
+          <span
+            aria-label="Marzo 4, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-04"
+            tabindex="-1"
+          >
+            4
+          </span>
+          <span
+            aria-label="Marzo 5, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-05"
+            tabindex="-1"
+          >
+            5
+          </span>
+          <span
+            aria-label="Marzo 6, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-06"
+            tabindex="-1"
+          >
+            6
+          </span>
+          <span
+            aria-label="Marzo 7, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-07"
+            tabindex="-1"
+          >
+            7
+          </span>
+          <span
+            aria-label="Marzo 8, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-08"
+            tabindex="-1"
+          >
+            8
+          </span>
+          <span
+            aria-label="Marzo 9, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-09"
+            tabindex="-1"
+          >
+            9
+          </span>
+          <span
+            aria-label="Marzo 10, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-10"
+            tabindex="-1"
+          >
+            10
+          </span>
+          <span
+            aria-label="Marzo 11, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-11"
+            tabindex="-1"
+          >
+            11
+          </span>
+          <span
+            aria-label="Marzo 12, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-12"
+            tabindex="-1"
+          >
+            12
+          </span>
+          <span
+            aria-label="Marzo 13, 2022"
+            class="flatpickr-day nextMonthDay"
+            data-test="ec-datepicker__calendar-day--2022-03-13"
+            tabindex="-1"
+          >
+            13
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
