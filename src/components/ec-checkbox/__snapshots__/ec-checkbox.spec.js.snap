@@ -226,6 +226,156 @@ exports[`EcCheckbox :props :error-message - should render the checkbox with an e
 </div>
 `;
 
+exports[`EcCheckbox :props :indeterminate - should render even if the checkbox is checked 1`] = `
+<div
+  class="ec-checkbox"
+  data-test="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked ec-checkbox__check-icon-wrapper--indeterminate"
+    >
+      <span
+        class="ec-checkbox__indeterminate-icon"
+      />
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+    >
+      
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :indeterminate - should render the checkbox as checked when indeterminate has switched to false: after 1`] = `
+<div
+  class="ec-checkbox"
+  data-test="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+    >
+      <svg
+        class="ec-checkbox__check-icon ec-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-check"
+        />
+      </svg>
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+    >
+      
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :indeterminate - should render the checkbox as checked when indeterminate has switched to false: before 1`] = `
+<div
+  class="ec-checkbox"
+  data-test="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked ec-checkbox__check-icon-wrapper--indeterminate"
+    >
+      <span
+        class="ec-checkbox__indeterminate-icon"
+      />
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+    >
+      
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :indeterminate - should render the checkbox as indeterminate 1`] = `
+<div
+  class="ec-checkbox"
+  data-test="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
+    >
+      <span
+        class="ec-checkbox__indeterminate-icon"
+      />
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+    >
+      
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
 exports[`EcCheckbox :props :isSingleLine - should render the checkbox with in a single line with the label as a title 1`] = `
 <div
   class="ec-checkbox"

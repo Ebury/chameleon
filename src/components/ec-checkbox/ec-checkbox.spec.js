@@ -60,6 +60,38 @@ describe('EcCheckbox', () => {
 
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it(':indeterminate - should render the checkbox as indeterminate', () => {
+      const wrapper = mountCheckbox({
+        indeterminate: true,
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':indeterminate - should render even if the checkbox is checked', () => {
+      const wrapper = mountCheckbox({
+        checked: true,
+        indeterminate: true,
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':indeterminate - should render the checkbox as checked when indeterminate has switched to false', async () => {
+      const wrapper = mountCheckbox({
+        checked: true,
+        indeterminate: true,
+      });
+
+      expect(wrapper.element).toMatchSnapshot('before');
+
+      await wrapper.setProps({
+        indeterminate: false,
+      });
+
+      expect(wrapper.element).toMatchSnapshot('after');
+    });
   });
 
   describe('#slots', () => {

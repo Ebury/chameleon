@@ -85,6 +85,15 @@ export const all = (args, { argTypes }) => ({
         </template>
       </ec-checkbox>
 
+      <h3>Indeterminate</h3>
+      <ec-checkbox
+        indeterminate
+        class="tw-mb-24 tw-col-12">
+        <template #label>
+          Select all
+        </template>
+      </ec-checkbox>
+
       <h3>Error</h3>
       <ec-checkbox class="tw-mb-24 tw-col-12"
         error-message="An error has occurred">

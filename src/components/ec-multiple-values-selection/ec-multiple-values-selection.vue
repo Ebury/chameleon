@@ -66,6 +66,7 @@
       >
         <ec-checkbox
           :checked="allFiltersAreSelected"
+          :indeterminate="atLeastOneFilterIsSelected"
           :label="selectAllFiltersText"
           is-single-line
           data-test="ec-multiple-values-selection__select-all"
@@ -215,6 +216,9 @@ export default {
     },
     allFiltersAreSelected() {
       return this.unselectedFilters.length === 0;
+    },
+    atLeastOneFilterIsSelected() {
+      return !this.allFiltersAreSelected && this.selectedFilters.length > 0;
     },
     searchModel: {
       get() {
