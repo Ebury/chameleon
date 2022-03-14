@@ -91,7 +91,7 @@ export default {
   @apply tw-rounded;
 
   &--dragging {
-    @apply tw-border-key-6;
+    @apply tw-border-key-4;
   }
 }
 </style>
