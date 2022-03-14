@@ -30,14 +30,21 @@
           'ec-checkbox__check-icon-wrapper--focused': inputIsFocused,
           'ec-checkbox__check-icon-wrapper--checked': inputModel,
           'ec-checkbox__check-icon-wrapper--checked-and-focused': inputModel && inputIsFocused,
+          'ec-checkbox__check-icon-wrapper--indeterminate': indeterminate,
+          'ec-checkbox__check-icon-wrapper--indeterminate-and-focused': indeterminate && inputIsFocused,
           'ec-checkbox__check-icon-wrapper--error': isInvalid && !inputModel,
           'ec-checkbox__check-icon-wrapper--disabled': disabled,
           'ec-checkbox__check-icon-wrapper--checked-and-disabled': disabled && inputModel,
+          'ec-checkbox__check-icon-wrapper--indeterminate-and-disabled': disabled && indeterminate,
         }"
         @click="$refs.checkboxInput.click()"
       >
+        <span
+          v-if="indeterminate"
+          class="ec-checkbox__indeterminate-icon"
+        />
         <ec-icon
-          v-if="inputModel"
+          v-else-if="inputModel"
           class="ec-checkbox__check-icon"
           name="simple-check"
           :size="16"
@@ -87,6 +94,10 @@ export default {
     checked: {
       type: Boolean,
     },
+    indeterminate: {
+      default: false,
+      type: Boolean,
+    },
     label: {
       default: '',
       type: String,
@@ -129,6 +140,22 @@ export default {
       },
     },
   },
+  watch: {
+    indeterminate(newValue) {
+      this.updateIndeterminate(newValue);
+    },
+  },
+  mounted() {
+    this.updateIndeterminate(this.indeterminate);
+  },
+  methods: {
+    updateIndeterminate(newValue) {
+      /* istanbul ignore else */
+      if (this.$refs.checkboxInput) {
+        this.$refs.checkboxInput.indeterminate = !!newValue;
+      }
+    },
+  },
 };
 </script>
 
@@ -162,6 +189,7 @@ export default {
     @apply tw-w-20 tw-h-20;
     @apply tw-flex-shrink-0;
     @apply tw-border-2 tw-border-solid tw-border-gray-4;
+    @apply tw-flex tw-items-center tw-justify-center;
     @apply tw-relative;
     @apply tw-mr-8;
     @apply tw-rounded-sm;
@@ -171,7 +199,8 @@ export default {
       @apply tw-border-key-3;
     }
 
-    &--checked {
+    &--checked,
+    &--indeterminate {
       @apply tw-border-key-4;
       @apply tw-bg-key-4;
 
@@ -180,7 +209,8 @@ export default {
       }
     }
 
-    &--checked-and-focused {
+    &--checked-and-focused,
+    &--indeterminate-and-focused {
       @apply tw-border-key-3;
       @apply tw-bg-key-3;
     }
@@ -195,7 +225,8 @@ export default {
       }
     }
 
-    &--checked-and-disabled {
+    &--checked-and-disabled,
+    &--indeterminate-and-disabled {
       @apply tw-bg-gray-6;
 
       &:hover,
@@ -215,6 +246,15 @@ export default {
     @apply tw-fill-gray-8;
     @apply tw-absolute;
     @apply tw-left-1/2 tw-top-1/2;
+  }
+
+  &__indeterminate-icon {
+    /* to match the dimensions in design, we cannot use TW */
+    height: 2px;
+    width: 10px;
+
+    @apply tw-inline-block;
+    @apply tw-bg-gray-8;
   }
 
   &__error-text {

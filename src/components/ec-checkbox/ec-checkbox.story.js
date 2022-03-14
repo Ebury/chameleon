@@ -85,6 +85,15 @@ export const all = (args, { argTypes }) => ({
         </template>
       </ec-checkbox>
 
+      <h3>Indeterminate</h3>
+      <ec-checkbox
+        indeterminate
+        class="tw-mb-24 tw-col-12">
+        <template #label>
+          Select all
+        </template>
+      </ec-checkbox>
+
       <h3>Error</h3>
       <ec-checkbox class="tw-mb-24 tw-col-12"
         error-message="An error has occurred">
@@ -116,6 +125,15 @@ export const all = (args, { argTypes }) => ({
         disabled>
         <template #label>
           I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+        </template>
+      </ec-checkbox>
+
+      <h3>Disabled - indeterminate</h3>
+      <ec-checkbox class="tw-mb-24 tw-col-12"
+        indeterminate
+        disabled>
+        <template #label>
+          Select all
         </template>
       </ec-checkbox>
 
