@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "clipboard-copy": "3.2.0",
-    "flatpickr": "4.6.10",
+    "flatpickr": "4.6.11",
     "focus-trap": "6.6.1",
     "mitt": "3.0.0",
     "svg-country-flags": "1.2.10",
@@ -82,7 +82,7 @@
     "eslint-plugin-vue": "7.20.0",
     "intl": "1.2.5",
     "lint-staged": "12.3.5",
-    "postcss": "8.4.7",
+    "postcss": "8.4.8",
     "postcss-import": "14.0.2",
     "postcss-mixins": "8.1.0",
     "postcss-nested": "5.0.6",
