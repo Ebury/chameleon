@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcFileDropzone should render correctly 1`] = `
+<div
+  class="ec-file-dropzone"
+  data-test="ec-file-dropzone"
+>
+  <input
+    class="tw-hidden"
+    data-test="ec-file-dropzone__input"
+    id="ec-file-dropzone__input"
+    multiple="multiple"
+    type="file"
+  />
+   
+  <svg
+    class="tw-fill-key-4 tw-mb-8"
+    height="40"
+    width="50"
+  >
+    <use
+      href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+    />
+  </svg>
+   
+  <h3
+    data-test="ec-file-dropzone__title"
+  >
+    Drag and drop
+  </h3>
+   
+  <label
+    class="tw-small-text tw-cursor-pointer"
+    data-test="ec-file-dropzone__subtitle"
+    for="ec-file-dropzone__input"
+  >
+    files here or 
+    <span
+      class="tw-text-key-4"
+    >
+      browse
+    </span>
+    .
+  </label>
+</div>
+`;
