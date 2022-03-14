@@ -77,10 +77,8 @@ export default {
       this.isDragging = false;
     },
     onDragleave(dragEvent) {
-      if (!dragEvent.clientX && !dragEvent.clientY) {
-        // When the event is triggered by the pointer leaving the visible
-        // area, the corresponding DragEvent has its clientX, clientY,
-        // screenX, and screenY values set to 0.
+      if (dragEvent.clientX <= 0 || dragEvent.clientX >= document.documentElement.clientWidth
+          || dragEvent.clientY <= 0 || dragEvent.clientY >= document.documentElement.clientHeight) {
         this.disableDragging();
       }
     },

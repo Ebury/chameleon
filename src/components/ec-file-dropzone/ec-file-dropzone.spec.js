@@ -43,6 +43,8 @@ describe('EcFileDropzone', () => {
 
   it('should display the dragging status when a dragleave event occurs but we still remain on the page (it is triggered by switching between elements on the page)', async () => {
     const wrapper = mountFileDropzone();
+    const clientWidthSpy = jest.spyOn(document.documentElement, 'clientWidth', 'get').mockImplementation(() => 200);
+    const clientHeightSpy = jest.spyOn(document.documentElement, 'clientHeight', 'get').mockImplementation(() => 200);
     const bodyWrapper = createWrapper(document.body);
 
     await bodyWrapper.trigger('dragover');
@@ -50,6 +52,9 @@ describe('EcFileDropzone', () => {
 
     await bodyWrapper.trigger('dragleave', { clientX: 100, clientY: 100 });
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
+
+    clientWidthSpy.mockRestore();
+    clientHeightSpy.mockRestore();
   });
 
   it('should start listening to drag and drop events at document level after being mounted', () => {
