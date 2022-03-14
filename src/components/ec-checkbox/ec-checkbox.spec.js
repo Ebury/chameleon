@@ -53,9 +53,28 @@ describe('EcCheckbox', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':disabled - should render the checkbox with a disabled attribute', () => {
+    it(':disabled - should render the checkbox with a disabled attribute and not checked', () => {
       const wrapper = mountCheckbox({
         disabled: true,
+        checked: false,
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':disabled - should render the checkbox with a disabled attribute and indeterminate', () => {
+      const wrapper = mountCheckbox({
+        disabled: true,
+        indeterminate: true,
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it(':disabled - should render the checkbox with a disabled attribute and checked', () => {
+      const wrapper = mountCheckbox({
+        disabled: true,
+        checked: true,
       });
 
       expect(wrapper.element).toMatchSnapshot();

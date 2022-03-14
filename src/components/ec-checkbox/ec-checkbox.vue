@@ -35,6 +35,7 @@
           'ec-checkbox__check-icon-wrapper--error': isInvalid && !inputModel,
           'ec-checkbox__check-icon-wrapper--disabled': disabled,
           'ec-checkbox__check-icon-wrapper--checked-and-disabled': disabled && inputModel,
+          'ec-checkbox__check-icon-wrapper--indeterminate-and-disabled': disabled && indeterminate,
         }"
         @click="$refs.checkboxInput.click()"
       >
@@ -224,7 +225,8 @@ export default {
       }
     }
 
-    &--checked-and-disabled {
+    &--checked-and-disabled,
+    &--indeterminate-and-disabled {
       @apply tw-bg-gray-6;
 
       &:hover,

@@ -150,7 +150,87 @@ exports[`EcCheckbox #slots #label - should render the label slot if passed 1`] =
 </div>
 `;
 
-exports[`EcCheckbox :props :disabled - should render the checkbox with a disabled attribute 1`] = `
+exports[`EcCheckbox :props :disabled - should render the checkbox with a disabled attribute and checked 1`] = `
+<div
+  class="ec-checkbox"
+  data-test="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    disabled="disabled"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked ec-checkbox__check-icon-wrapper--disabled ec-checkbox__check-icon-wrapper--checked-and-disabled"
+    >
+      <svg
+        class="ec-checkbox__check-icon ec-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-check"
+        />
+      </svg>
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+    >
+      
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :disabled - should render the checkbox with a disabled attribute and indeterminate 1`] = `
+<div
+  class="ec-checkbox"
+  data-test="ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    disabled="disabled"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+   
+  <div
+    class="ec-checkbox__label-checkbox-wrapper"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate ec-checkbox__check-icon-wrapper--disabled ec-checkbox__check-icon-wrapper--indeterminate-and-disabled"
+    >
+      <span
+        class="ec-checkbox__indeterminate-icon"
+      />
+    </span>
+     
+    <label
+      class="ec-checkbox__label"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+    >
+      
+    </label>
+  </div>
+   
+  <!---->
+</div>
+`;
+
+exports[`EcCheckbox :props :disabled - should render the checkbox with a disabled attribute and not checked 1`] = `
 <div
   class="ec-checkbox"
   data-test="ec-checkbox"

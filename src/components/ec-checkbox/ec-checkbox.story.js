@@ -128,6 +128,15 @@ export const all = (args, { argTypes }) => ({
         </template>
       </ec-checkbox>
 
+      <h3>Disabled - indeterminate</h3>
+      <ec-checkbox class="tw-mb-24 tw-col-12"
+        indeterminate
+        disabled>
+        <template #label>
+          Select all
+        </template>
+      </ec-checkbox>
+
       <h3>Label and Error messages coming from props</h3>
       <ec-checkbox
         v-if="!valueFromPropsHasError"
