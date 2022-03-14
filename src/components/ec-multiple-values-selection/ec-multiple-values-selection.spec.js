@@ -113,6 +113,47 @@ describe('EcMultipleValuesSelection', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  describe('Select all', () => {
+    it('should be inderterminate when at least one option is selected', () => {
+      const wrapper = mountEcMultipleValuesSelection({
+        items,
+        value: [items[0]],
+        isSelectAll: true,
+      });
+
+      expect(wrapper.findByDataTest('ec-multiple-values-selection__select-all').element).toMatchSnapshot();
+    });
+
+    it('should not be inderterminate when all options are selected', () => {
+      const wrapper = mountEcMultipleValuesSelection({
+        items,
+        value: [...items],
+        isSelectAll: true,
+      });
+      expect(wrapper.findByDataTest('ec-multiple-values-selection__select-all').element).toMatchSnapshot();
+    });
+
+    it('should not be inderterminate when Select all gets click', async () => {
+      const wrapper = mountEcMultipleValuesSelectionAsTemplate(
+        '<ec-multiple-values-selection v-model="selectedFilters" :items="items" :select-all-filters-text="selectAllFiltersText" is-select-all />',
+        {},
+        {
+          data() {
+            return {
+              items,
+              selectedFilters: [items[0]],
+              selectAllFiltersText,
+            };
+          },
+        },
+      );
+
+      await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').trigger('click');
+
+      expect(wrapper.findByDataTest('ec-multiple-values-selection__select-all').element).toMatchSnapshot();
+    });
+  });
+
   it('should set the empty state message', () => {
     const wrapper = mountEcMultipleValuesSelection({ items: [], emptyMessage: 'No items' });
     expect(wrapper.element).toMatchSnapshot();

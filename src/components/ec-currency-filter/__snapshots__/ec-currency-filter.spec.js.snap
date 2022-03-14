@@ -277,9 +277,11 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
-            class="ec-checkbox__check-icon-wrapper"
+            class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
           >
-            <!---->
+            <span
+              class="ec-checkbox__indeterminate-icon"
+            />
           </span>
            
           <label
@@ -1549,9 +1551,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
-            class="ec-checkbox__check-icon-wrapper"
+            class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
           >
-            <!---->
+            <span
+              class="ec-checkbox__indeterminate-icon"
+            />
           </span>
            
           <label
@@ -2148,9 +2152,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
-            class="ec-checkbox__check-icon-wrapper"
+            class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
           >
-            <!---->
+            <span
+              class="ec-checkbox__indeterminate-icon"
+            />
           </span>
            
           <label
@@ -2452,9 +2458,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
-            class="ec-checkbox__check-icon-wrapper"
+            class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
           >
-            <!---->
+            <span
+              class="ec-checkbox__indeterminate-icon"
+            />
           </span>
            
           <label
