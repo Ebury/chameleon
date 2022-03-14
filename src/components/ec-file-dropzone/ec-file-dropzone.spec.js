@@ -21,29 +21,7 @@ describe('EcFileDropzone', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  describe('@events', () => {
-    it('@change - should be emitted when an item is dropped over it', async () => {
-      const wrapper = mountFileDropzone();
-      await wrapper.trigger('drop', { dataTransfer: { files: [{ name: 'file_1.png' }, { name: 'file_2.png' }] } });
-      expect(wrapper.emitted('change').length).toBe(1);
-    });
-
-    it('@change - should be emitted when a change event is emitted by its file input field', async () => {
-      const wrapper = mountFileDropzone();
-      await wrapper.findByDataTest('ec-file-dropzone__input').trigger('change');
-      expect(wrapper.emitted('change').length).toBe(1);
-    });
-  });
-
-  it('should render correctly when an element is being dragged over it', async () => {
-    const wrapper = mountFileDropzone();
-    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
-
-    await wrapper.trigger('dragover');
-    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
-  });
-
-  it('should render correctly when an element is being dragged over the page', async () => {
+  it('should display the dragging status when an element is being dragged over the page', async () => {
     const wrapper = mountFileDropzone();
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
 
@@ -52,22 +30,25 @@ describe('EcFileDropzone', () => {
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
   });
 
-  it('should render correctly when an element is no longer dragged over it', async () => {
+  it('should not display the dragging status when an element is no longer dragged over the page', async () => {
     const wrapper = mountFileDropzone();
-    await wrapper.trigger('dragover');
+    const bodyWrapper = createWrapper(document.body);
+
+    await bodyWrapper.trigger('dragover');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
 
-    await wrapper.trigger('dragleave');
+    await bodyWrapper.trigger('dragleave', { clientX: 0, clientY: 0 });
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
   });
 
-  it('should render correctly when an element is no longer dragged over the page', async () => {
+  it('should display the dragging status when a dragleave event occurs but we still remain on the page (it is triggered by switching between elements on the page)', async () => {
     const wrapper = mountFileDropzone();
-    await wrapper.trigger('dragover');
+    const bodyWrapper = createWrapper(document.body);
+
+    await bodyWrapper.trigger('dragover');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
 
-    const bodyWrapper = createWrapper(document.body);
-    await bodyWrapper.trigger('dragover');
+    await bodyWrapper.trigger('dragleave', { clientX: 100, clientY: 100 });
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
   });
 
@@ -82,5 +63,19 @@ describe('EcFileDropzone', () => {
     const spy = jest.spyOn(document, 'removeEventListener');
     wrapper.destroy();
     expect(spy).toHaveBeenCalledTimes(3);
+  });
+
+  describe('@events', () => {
+    it('@change - should be emitted when an item is dropped over it', async () => {
+      const wrapper = mountFileDropzone();
+      await wrapper.trigger('drop', { dataTransfer: { files: [{ name: 'file_1.png' }, { name: 'file_2.png' }] } });
+      expect(wrapper.emitted('change').length).toBe(1);
+    });
+
+    it('@change - should be emitted when a change event is emitted by its file input field', async () => {
+      const wrapper = mountFileDropzone();
+      await wrapper.findByDataTest('ec-file-dropzone__input').trigger('change');
+      expect(wrapper.emitted('change').length).toBe(1);
+    });
   });
 });

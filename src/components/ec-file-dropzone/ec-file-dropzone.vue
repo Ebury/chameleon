@@ -3,9 +3,7 @@
     data-test="ec-file-dropzone"
     class="ec-file-dropzone"
     :class="{ 'ec-file-dropzone--dragging': isDragging }"
-    @drop="onDrop"
-    @dragover="enableDragging"
-    @dragleave="disableDragging"
+    @drop.prevent.stop="onDrop"
   >
     <input
       id="ec-file-dropzone__input"
@@ -55,12 +53,12 @@ export default {
   },
   mounted() {
     document.addEventListener('dragover', this.enableDragging);
-    document.addEventListener('dragleave', this.disableDragging);
+    document.addEventListener('dragleave', this.onDragleave);
     document.addEventListener('drop', this.disableDragging);
   },
   beforeDestroy() {
     document.removeEventListener('dragover', this.enableDragging);
-    document.removeEventListener('dragleave', this.disableDragging);
+    document.removeEventListener('dragleave', this.onDragleave);
     document.removeEventListener('drop', this.disableDragging);
   },
   methods: {
@@ -68,16 +66,23 @@ export default {
       this.fileList = [...this.$refs.fileInput.files];
     },
     onDrop(dragEvent) {
-      this.disableDragging(dragEvent);
+      this.disableDragging();
       this.fileList = [...dragEvent.dataTransfer.files];
     },
-    enableDragging(evt) {
-      evt.preventDefault();
+    enableDragging(dragEvent) {
+      dragEvent.preventDefault();
       this.isDragging = true;
     },
-    disableDragging(evt) {
-      evt.preventDefault();
+    disableDragging() {
       this.isDragging = false;
+    },
+    onDragleave(dragEvent) {
+      if (!dragEvent.clientX && !dragEvent.clientY) {
+        // When the event is triggered by the pointer leaving the visible
+        // area, the corresponding DragEvent has its clientX, clientY,
+        // screenX, and screenY values set to 0.
+        this.disableDragging();
+      }
     },
   },
 };
