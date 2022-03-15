@@ -6,15 +6,15 @@ exports[`EcFileDropzone should render correctly 1`] = `
   data-test="ec-file-dropzone"
 >
   <input
-    class="tw-hidden"
+    class="ec-file-dropzone__input"
     data-test="ec-file-dropzone__input"
-    id="ec-file-dropzone__input"
+    id="ec-file-dropzone-1"
     multiple="multiple"
     type="file"
   />
    
   <svg
-    class="tw-fill-key-4 tw-mb-8"
+    class="ec-file-dropzone__img"
     height="40"
     width="50"
   >
@@ -30,9 +30,9 @@ exports[`EcFileDropzone should render correctly 1`] = `
   </h3>
    
   <label
-    class="tw-small-text tw-cursor-pointer"
+    class="ec-file-dropzone__subtitle"
     data-test="ec-file-dropzone__subtitle"
-    for="ec-file-dropzone__input"
+    for="ec-file-dropzone-1"
   >
     files here or 
     <span

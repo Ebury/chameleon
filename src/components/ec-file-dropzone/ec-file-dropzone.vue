@@ -3,14 +3,14 @@
     data-test="ec-file-dropzone"
     class="ec-file-dropzone"
     :class="{ 'ec-file-dropzone--dragging': isDragging }"
-    @drop.prevent.stop="onDrop"
+    @drop.prevent.stop="onComponentDrop"
   >
     <input
-      id="ec-file-dropzone__input"
+      :id="id"
       ref="fileInput"
       data-test="ec-file-dropzone__input"
       type="file"
-      class="tw-hidden"
+      class="ec-file-dropzone__input"
       multiple
       @change="onFileInputChange"
     >
@@ -18,7 +18,7 @@
     <svg
       height="40"
       width="50"
-      class="tw-fill-key-4 tw-mb-8"
+      class="ec-file-dropzone__img"
     >
       <use href="../../assets/img/upload-cloud.svg#ec-upload-cloud" />
     </svg>
@@ -28,8 +28,8 @@
     </h3>
 
     <label
-      for="ec-file-dropzone__input"
-      class="tw-small-text tw-cursor-pointer"
+      :for="id"
+      class="ec-file-dropzone__subtitle"
       data-test="ec-file-dropzone__subtitle"
     >
       <slot name="subtitle" />
@@ -38,49 +38,69 @@
 </template>
 
 <script>
+import { getUid } from '../../utils/uid';
+
+const isNotFolder = file => !!file.type && !!file.size;
+
 export default {
   name: 'EcFileDropzone',
   data() {
     return {
-      fileList: [],
-      isDragging: false,
+      uid: getUid(),
+      dragEnterLeaveEventCounter: 0,
     };
   },
-  watch: {
-    fileList(fileList) {
-      this.$emit('change', fileList);
+  computed: {
+    id() {
+      return `ec-file-dropzone-${this.uid}`;
+    },
+    isDragging() {
+      return this.dragEnterLeaveEventCounter > 0;
     },
   },
   mounted() {
-    document.addEventListener('dragover', this.enableDragging);
+    document.addEventListener('dragenter', this.onDragenter);
+    document.addEventListener('dragover', this.onDragover);
     document.addEventListener('dragleave', this.onDragleave);
-    document.addEventListener('drop', this.disableDragging);
+    document.addEventListener('drop', this.onDrop);
   },
   beforeDestroy() {
-    document.removeEventListener('dragover', this.enableDragging);
+    document.removeEventListener('dragenter', this.onDragenter);
+    document.removeEventListener('dragover', this.onDragover);
     document.removeEventListener('dragleave', this.onDragleave);
-    document.removeEventListener('drop', this.disableDragging);
+    document.removeEventListener('drop', this.onDrop);
   },
   methods: {
     onFileInputChange() {
-      this.fileList = [...this.$refs.fileInput.files];
+      const files = [...this.$refs.fileInput.files].filter(isNotFolder);
+      if (files.length) {
+        this.$emit('change', files);
+      }
+    },
+    onComponentDrop(dragEvent) {
+      const files = [...dragEvent.dataTransfer.files].filter(isNotFolder);
+      if (files.length) {
+        this.$emit('change', files);
+      }
+      this.disableDragging();
     },
     onDrop(dragEvent) {
-      this.disableDragging();
-      this.fileList = [...dragEvent.dataTransfer.files];
-    },
-    enableDragging(dragEvent) {
       dragEvent.preventDefault();
-      this.isDragging = true;
+      this.disableDragging();
+    },
+    onDragenter() {
+      this.dragEnterLeaveEventCounter++;
+    },
+    onDragover(dragEvent) {
+      // Necessary for the drop listener to work:
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API#define_a_drop_zone
+      dragEvent.preventDefault();
+    },
+    onDragleave() {
+      this.dragEnterLeaveEventCounter--;
     },
     disableDragging() {
-      this.isDragging = false;
-    },
-    onDragleave(dragEvent) {
-      if (dragEvent.clientX <= 0 || dragEvent.clientX >= document.documentElement.clientWidth
-          || dragEvent.clientY <= 0 || dragEvent.clientY >= document.documentElement.clientHeight) {
-        this.disableDragging();
-      }
+      this.dragEnterLeaveEventCounter = 0;
     },
   },
 };
@@ -92,6 +112,18 @@ export default {
   @apply tw-p-32;
   @apply tw-border tw-border-dashed tw-border-gray-6;
   @apply tw-rounded;
+
+  &__input {
+    @apply tw-hidden;
+  }
+
+  &__img {
+    @apply tw-fill-key-4 tw-mb-8;
+  }
+
+  &__subtitle {
+    @apply tw-small-text tw-cursor-pointer;
+  }
 
   &--dragging {
     @apply tw-border-key-4;

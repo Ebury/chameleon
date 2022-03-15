@@ -26,7 +26,7 @@ describe('EcFileDropzone', () => {
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
 
     const bodyWrapper = createWrapper(document.body);
-    await bodyWrapper.trigger('dragover');
+    await bodyWrapper.trigger('dragenter');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
   });
 
@@ -34,53 +34,119 @@ describe('EcFileDropzone', () => {
     const wrapper = mountFileDropzone();
     const bodyWrapper = createWrapper(document.body);
 
+    await bodyWrapper.trigger('dragenter');
+    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
+
+    await bodyWrapper.trigger('dragleave');
+    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
+  });
+
+  it('should not change the dragging status when a dragover event is trigger over the page', async () => {
+    const wrapper = mountFileDropzone();
+    const bodyWrapper = createWrapper(document.body);
+
+    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
+
+    await bodyWrapper.trigger('dragover');
+    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
+
+    await bodyWrapper.trigger('dragenter');
+    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
+
     await bodyWrapper.trigger('dragover');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
 
-    await bodyWrapper.trigger('dragleave', { clientX: 0, clientY: 0 });
+    await bodyWrapper.trigger('dragleave');
+    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
+
+    await bodyWrapper.trigger('dragover');
+    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
+  });
+
+  it('should not display the dragging status when an element is dropped over the page', async () => {
+    const wrapper = mountFileDropzone();
+    const bodyWrapper = createWrapper(document.body);
+
+    await bodyWrapper.trigger('dragenter');
+    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
+
+    await bodyWrapper.trigger('drop');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
   });
 
   it('should display the dragging status when a dragleave event occurs but we still remain on the page (it is triggered by switching between elements on the page)', async () => {
     const wrapper = mountFileDropzone();
-    const clientWidthSpy = jest.spyOn(document.documentElement, 'clientWidth', 'get').mockImplementation(() => 200);
-    const clientHeightSpy = jest.spyOn(document.documentElement, 'clientHeight', 'get').mockImplementation(() => 200);
     const bodyWrapper = createWrapper(document.body);
 
-    await bodyWrapper.trigger('dragover');
+    await bodyWrapper.trigger('dragenter');
+    expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
+
+    await bodyWrapper.trigger('dragenter');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
 
     await bodyWrapper.trigger('dragleave', { clientX: 100, clientY: 100 });
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
-
-    clientWidthSpy.mockRestore();
-    clientHeightSpy.mockRestore();
   });
 
   it('should start listening to drag and drop events at document level after being mounted', () => {
     const spy = jest.spyOn(document, 'addEventListener');
     mountFileDropzone();
-    expect(spy).toHaveBeenCalledTimes(3);
+    expect(spy).toHaveBeenCalledTimes(4);
   });
 
   it('should stop listening to drag and drop events at document level after being destroyed', () => {
     const wrapper = mountFileDropzone();
     const spy = jest.spyOn(document, 'removeEventListener');
     wrapper.destroy();
-    expect(spy).toHaveBeenCalledTimes(3);
+    expect(spy).toHaveBeenCalledTimes(4);
   });
 
   describe('@events', () => {
-    it('@change - should be emitted when an item is dropped over it', async () => {
+    const files = [
+      { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
+      { name: 'file_2.jpg', type: 'image/jpeg', size: 50 },
+    ];
+    const folders = [
+      { name: 'folder_1', type: '', size: 200 },
+      { name: 'folder_2', type: 'folder', size: 0 },
+    ];
+    const filesAndFolders = [
+      ...files,
+      ...folders,
+    ];
+
+    it('@change - should be emitted when items are dropped over it', async () => {
       const wrapper = mountFileDropzone();
-      await wrapper.trigger('drop', { dataTransfer: { files: [{ name: 'file_1.png' }, { name: 'file_2.png' }] } });
+      await wrapper.trigger('drop', { dataTransfer: { files: filesAndFolders } });
       expect(wrapper.emitted('change').length).toBe(1);
+      expect(wrapper.emitted('change')[0]).toEqual([files]);
+    });
+
+    it('@change - should not be emitted when a folder is dropped over it', async () => {
+      const wrapper = mountFileDropzone();
+      await wrapper.trigger('drop', { dataTransfer: { files: folders } });
+      expect(wrapper.emitted('change')).toBeUndefined();
     });
 
     it('@change - should be emitted when a change event is emitted by its file input field', async () => {
       const wrapper = mountFileDropzone();
+      const filesSpy = jest.spyOn(wrapper.vm.$refs.fileInput, 'files', 'get').mockImplementation(() => filesAndFolders);
+
       await wrapper.findByDataTest('ec-file-dropzone__input').trigger('change');
       expect(wrapper.emitted('change').length).toBe(1);
+      expect(wrapper.emitted('change')[0]).toEqual([files]);
+
+      filesSpy.mockRestore();
+    });
+
+    it('@change - should not be emitted when only folders are selected via its file input field', async () => {
+      const wrapper = mountFileDropzone();
+      const filesSpy = jest.spyOn(wrapper.vm.$refs.fileInput, 'files', 'get').mockImplementation(() => folders);
+
+      await wrapper.findByDataTest('ec-file-dropzone__input').trigger('change');
+      expect(wrapper.emitted('change')).toBeUndefined();
+
+      filesSpy.mockRestore();
     });
   });
 });
