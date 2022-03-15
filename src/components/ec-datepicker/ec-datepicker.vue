@@ -91,12 +91,12 @@ export default {
   data() {
     return {
       uid: getUid(),
-      formattedValue: null,
+      formattedValue: '',
     };
   },
   computed: {
     id() {
-      return `datepicker-${this.uid}`;
+      return `ec-datepicker-${this.uid}`;
     },
   },
   watch: {
@@ -114,6 +114,10 @@ export default {
     value(newValue, oldValue) {
       if (newValue && newValue !== oldValue && !this.datesAreEqual(newValue, oldValue)) {
         this.flatpickrInstance.setDate(newValue, true);
+      }
+
+      if (!newValue) {
+        this.flatpickrInstance.clear();
       }
     },
     dateFormat(newValue) {
@@ -149,6 +153,19 @@ export default {
   },
   mounted() {
     this.flatpickrInstance = flatpickr(this.$refs.input.getInputRef(), this.mergeWithDefaultOptions(this.options));
+
+    /* istanbul ignore next */
+    if (this.flatpickrInstance.input) {
+      // sync the value to the formattedValue after the flatpickr is initialized.
+      //
+      // if the 'value' prop contains any initial value, that value got passed to the flatpickr via defaultValue option
+      // and a formatted value may be visible in the input now. we need to get that value from input to our
+      // formattedValue in order to keep it in sync.
+      // if we don't do that, an empty formattedValue can be passed to the ec-input-field via Vue props
+      // in the nextTick, and that would reset the value in the input and in the flatpickr.
+      this.formattedValue = this.flatpickrInstance.input.value;
+    }
+
     /* istanbul ignore next */
     if (this.flatpickrInstance.calendarContainer) {
       this.flatpickrInstance.calendarContainer.dataset.test = 'ec-datepicker__calendar';
@@ -191,11 +208,9 @@ export default {
         onReady: [...(this.options.onReady ?? []), () => {
           this.$emit('ready');
         }],
-        // eslint-disable-next-line no-unused-vars
-        onChange: (selectedDates, dateStr, instance) => {
-          const d = selectedDates[0];
+        onChange: (selectedDates, dateStr) => {
           this.formattedValue = dateStr;
-          this.$emit('value-change', d);
+          this.$emit('value-change', selectedDates[0] ?? null);
         },
         onOpen: [...(this.options.onOpen ?? []), () => {
           this.$emit('open');
