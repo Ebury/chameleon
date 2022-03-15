@@ -16,6 +16,7 @@
     :disabled="isDisabled"
     :value="formattedValue"
     @icon-click="openCalendar()"
+    @blur="onBlur"
     v-on="getListeners()"
   />
 </template>
@@ -188,6 +189,7 @@ export default {
       delete listeners.open;
       delete listeners.close;
       delete listeners.ready;
+      delete listeners.blur;
 
       return listeners;
     },
@@ -273,6 +275,12 @@ export default {
       }
 
       return date1 === date2;
+    },
+    onBlur(evt) {
+      this.$emit('blur', evt);
+      if (this.flatpickrInstance && !this.flatpickrInstance.input.value) {
+        this.$emit('value-change', null);
+      }
     },
   },
 };

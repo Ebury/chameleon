@@ -240,6 +240,14 @@ describe('Datepicker', () => {
 
       expect(inputWrapper.emitted('close').length).toBe(1);
     });
+
+    it('@blur - should be emitted when the input blurs', async () => {
+      const { inputWrapper } = mountDatepicker();
+
+      await inputWrapper.findByDataTest('ec-datepicker').trigger('blur');
+
+      expect(inputWrapper.emitted('blur').length).toBe(1);
+    });
   });
 
   describe('watchers', () => {
