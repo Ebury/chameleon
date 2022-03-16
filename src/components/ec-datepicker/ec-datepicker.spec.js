@@ -196,7 +196,7 @@ describe('Datepicker', () => {
         },
       );
 
-      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('22/02/2022');
+      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('22/02/2022');
     });
   });
 
@@ -239,6 +239,14 @@ describe('Datepicker', () => {
         .trigger('click');
 
       expect(inputWrapper.emitted('close').length).toBe(1);
+    });
+
+    it('@blur - should be emitted when the input blurs', async () => {
+      const { inputWrapper } = mountDatepicker();
+
+      await inputWrapper.findByDataTest('ec-datepicker').trigger('blur');
+
+      expect(inputWrapper.emitted('blur').length).toBe(1);
     });
   });
 
@@ -325,13 +333,13 @@ describe('Datepicker', () => {
         .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
         .trigger('click');
 
-      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('2022-02-24');
+      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('2022-02-24');
 
       await inputWrapper.setProps({
         dateFormat: 'd/m/Y',
       });
 
-      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('24/02/2022');
+      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('24/02/2022');
     });
 
     it('should update the locale', async () => {
@@ -362,6 +370,7 @@ describe('Datepicker', () => {
       );
 
       expect(inputWrapper.vm.model.getTime()).toBe(new Date('2022-02-22').getTime());
+      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('2022-02-22');
     });
 
     it('should update the value of the calendar when I type a value', async () => {
@@ -377,13 +386,49 @@ describe('Datepicker', () => {
         },
       );
 
-      await inputWrapper.findByDataTest('ec-input-field__input').setValue('2022-02-23');
-      // When allowInput is true, flatpickr is listening to blur event
-      // https://github.com/flatpickr/flatpickr/blob/master/src/index.ts#L493
-      await inputWrapper.findByDataTest('ec-input-field__input').trigger('blur');
+      await setDatepickerInputValue(inputWrapper, '2022-02-23');
 
-      expect(inputWrapper.findByDataTest('ec-input-field__input').element.value).toBe('2022-02-23');
+      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('2022-02-23');
       expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 23).getTime());
+    });
+
+    it('should clear the value in the input when a null gets passed to the model', async () => {
+      const { inputWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" />',
+        {},
+        {
+          data() {
+            return {
+              model: new Date('2022-02-23'),
+            };
+          },
+        },
+      );
+
+      await inputWrapper.setData({
+        model: null,
+      });
+
+      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('');
+    });
+
+    it('should clear the model value when the input value gets deleted', async () => {
+      const { inputWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" />',
+        {},
+        {
+          data() {
+            return {
+              model: new Date('2022-02-23'),
+            };
+          },
+        },
+      );
+
+      await setDatepickerInputValue(inputWrapper, '');
+
+      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('');
+      expect(inputWrapper.vm.model).toBe(null);
     });
 
     it('should update the value of the calendar when I select a value from the datepicker', async () => {
@@ -465,3 +510,10 @@ describe('Datepicker', () => {
     });
   });
 });
+
+async function setDatepickerInputValue(inputWrapper, value) {
+  inputWrapper.findByDataTest('ec-datepicker').setValue(value);
+  // When allowInput is true, flatpickr is listening to blur event
+  // https://github.com/flatpickr/flatpickr/blob/master/src/index.ts#L493
+  await inputWrapper.findByDataTest('ec-datepicker').trigger('blur');
+}

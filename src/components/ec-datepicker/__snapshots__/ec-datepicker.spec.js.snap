@@ -1111,7 +1111,7 @@ exports[`Datepicker :props should render as disabled 1`] = `
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
     disabled="disabled"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1695,7 +1695,7 @@ exports[`Datepicker :props should render with a bottom note 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1735,7 +1735,7 @@ exports[`Datepicker :props should render with a bottom note in a warning state 1
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1772,7 +1772,7 @@ exports[`Datepicker :props should render with a label 1`] = `
   <label
     class="ec-input-field__label"
     data-test="ec-input-field__label"
-    for="datepicker-1"
+    for="ec-datepicker-1"
   >
     <span
       class="ec-input-field__label-text"
@@ -1789,7 +1789,7 @@ exports[`Datepicker :props should render with a label 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1821,7 +1821,7 @@ exports[`Datepicker :props should render with a note 1`] = `
   <label
     class="ec-input-field__label"
     data-test="ec-input-field__label"
-    for="datepicker-1"
+    for="ec-datepicker-1"
   >
     <!---->
      
@@ -1837,7 +1837,7 @@ exports[`Datepicker :props should render with a note 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1872,7 +1872,7 @@ exports[`Datepicker :props should render with a placeholder 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     placeholder="Datepicker placeholder"
     type="text"
   />
@@ -1909,7 +1909,7 @@ exports[`Datepicker :props should render with an error message 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-error ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -5793,7 +5793,7 @@ exports[`Datepicker should render properly 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
