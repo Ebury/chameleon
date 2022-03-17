@@ -69,6 +69,14 @@ describe('Datepicker', () => {
     expect(inputWrapper.element).toMatchSnapshot();
   });
 
+  it('should pass the data-test down to input', () => {
+    const { inputWrapper } = mountDatepickerAsTemplate(
+      '<ec-datepicker data-test="my-data-test" />',
+    );
+
+    expect(inputWrapper.element).toMatchSnapshot();
+  });
+
   describe(':props', () => {
     it('should render with a label', () => {
       const { inputWrapper } = mountDatepicker({
