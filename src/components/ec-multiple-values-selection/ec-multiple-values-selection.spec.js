@@ -80,14 +80,12 @@ describe('EcMultipleValuesSelection', () => {
           return {
             items,
             selectAllFiltersText,
-            selectedFilters: [{ value: 'Cancel', name: 'Cancel' }],
+            selectedFilters: [items[2]],
           };
         },
       },
     );
-    expect(wrapper.vm.selectedFilters).toEqual([
-      { value: 'Cancel', name: 'Cancel' },
-    ]);
+    expect(wrapper.vm.selectedFilters).toEqual([items[2]]);
     await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__input').trigger('click');
     expect(wrapper.vm.selectedFilters).toEqual([]);
   });
@@ -114,7 +112,7 @@ describe('EcMultipleValuesSelection', () => {
   });
 
   describe('Select all', () => {
-    it('should be inderterminate when at least one option is selected', () => {
+    it('should be indeterminate when at least one option is selected', () => {
       const wrapper = mountEcMultipleValuesSelection({
         items,
         value: [items[0]],
@@ -124,7 +122,7 @@ describe('EcMultipleValuesSelection', () => {
       expect(wrapper.findByDataTest('ec-multiple-values-selection__select-all').element).toMatchSnapshot();
     });
 
-    it('should not be inderterminate when all options are selected', () => {
+    it('should not be indeterminate when all options are selected', () => {
       const wrapper = mountEcMultipleValuesSelection({
         items,
         value: [...items],
@@ -133,7 +131,7 @@ describe('EcMultipleValuesSelection', () => {
       expect(wrapper.findByDataTest('ec-multiple-values-selection__select-all').element).toMatchSnapshot();
     });
 
-    it('should not be inderterminate when Select all gets click', async () => {
+    it('should not be indeterminate when Select all gets click', async () => {
       const wrapper = mountEcMultipleValuesSelectionAsTemplate(
         '<ec-multiple-values-selection v-model="selectedFilters" :items="items" :select-all-filters-text="selectAllFiltersText" is-select-all />',
         {},

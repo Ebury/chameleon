@@ -731,13 +731,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             Fee type
           </button>
            
-          <span
-            class="ec-filter-popover__badge"
-            data-test="ec-filter-popover__badge"
-          >
-             1
-      
-          </span>
+          <!---->
            
           <svg
             class="ec-filter-popover__icon ec-icon ec-icon--interactive"
@@ -767,11 +761,11 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
               <ul>
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
+                  data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
                 >
                   <div
                     class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-0 ec-checkbox"
+                    data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
                   >
                     <input
                       class="ec-checkbox__input"
@@ -784,17 +778,9 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
-                        class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                        class="ec-checkbox__check-icon-wrapper"
                       >
-                        <svg
-                          class="ec-checkbox__check-icon ec-icon"
-                          height="16"
-                          width="16"
-                        >
-                          <use
-                            xlink:href="#ec-simple-check"
-                          />
-                        </svg>
+                        <!---->
                       </span>
                        
                       <label
@@ -1002,15 +988,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
     </ec-stub>
   </div>
    
-  <button
-    class="ec-table-filter__clear-filters-button"
-    data-test="ec-table-filter__clear-filters-button"
-    type="button"
-  >
-    
-    Clear filters
-  
-  </button>
+  <!---->
 </section>
 `;
 

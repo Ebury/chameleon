@@ -207,7 +207,7 @@ export default {
       this.$emit('change', newItems);
     },
     onDeselect(item) {
-      const newItems = this.value.filter(selectedItem => selectedItem !== item);
+      const newItems = this.value.filter(selectedItem => selectedItem.value !== item.value);
       this.$emit('change', newItems);
     },
     focus() {
