@@ -59,8 +59,6 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             <div
               class="ec-multiple-values-selection__values"
             >
-              <ul />
-               
               <ul>
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
@@ -264,8 +262,6 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             <div
               class="ec-multiple-values-selection__values"
             >
-              <ul />
-               
               <ul>
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
@@ -559,8 +555,6 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             <div
               class="ec-multiple-values-selection__values"
             >
-              <ul />
-               
               <ul>
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
@@ -737,7 +731,13 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             Fee type
           </button>
            
-          <!---->
+          <span
+            class="ec-filter-popover__badge"
+            data-test="ec-filter-popover__badge"
+          >
+             1
+      
+          </span>
            
           <svg
             class="ec-filter-popover__icon ec-icon ec-icon--interactive"
@@ -764,21 +764,19 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             <div
               class="ec-multiple-values-selection__values"
             >
-              <ul />
-               
               <ul>
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
-                  data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+                  data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
                 >
                   <div
                     class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                    data-test="ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-0 ec-checkbox"
                   >
                     <input
                       class="ec-checkbox__input"
                       data-test="ec-checkbox__input"
-                      id="ec-checkbox-8"
+                      id="ec-checkbox-4"
                       type="checkbox"
                     />
                      
@@ -786,15 +784,23 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
-                        class="ec-checkbox__check-icon-wrapper"
+                        class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
                       >
-                        <!---->
+                        <svg
+                          class="ec-checkbox__check-icon ec-icon"
+                          height="16"
+                          width="16"
+                        >
+                          <use
+                            xlink:href="#ec-simple-check"
+                          />
+                        </svg>
                       </span>
                        
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
-                        for="ec-checkbox-8"
+                        for="ec-checkbox-4"
                         title="Invoiced"
                       >
                         <div
@@ -996,7 +1002,15 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
     </ec-stub>
   </div>
    
-  <!---->
+  <button
+    class="ec-table-filter__clear-filters-button"
+    data-test="ec-table-filter__clear-filters-button"
+    type="button"
+  >
+    
+    Clear filters
+  
+  </button>
 </section>
 `;
 
@@ -1059,8 +1073,6 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             <div
               class="ec-multiple-values-selection__values"
             >
-              <ul />
-               
               <ul>
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
@@ -1264,8 +1276,6 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             <div
               class="ec-multiple-values-selection__values"
             >
-              <ul />
-               
               <ul>
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
@@ -1559,8 +1569,6 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             <div
               class="ec-multiple-values-selection__values"
             >
-              <ul />
-               
               <ul>
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
@@ -1826,16 +1834,13 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     <!---->
                   </div>
                 </li>
-              </ul>
-               
-              <ul>
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
                   data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
                 >
                   <div
                     class="ec-checkbox ec-multiple-values-selection__checkbox"
-                    data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                    data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
                   >
                     <input
                       class="ec-checkbox__input"

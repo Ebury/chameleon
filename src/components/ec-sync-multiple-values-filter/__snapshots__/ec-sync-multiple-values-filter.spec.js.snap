@@ -76,8 +76,6 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
           <div
             class="ec-multiple-values-selection__values"
           >
-            <ul />
-             
             <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
@@ -219,8 +217,6 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
           <div
             class="ec-multiple-values-selection__values"
           >
-            <ul />
-             
             <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
@@ -376,8 +372,6 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
           <div
             class="ec-multiple-values-selection__values"
           >
-            <ul />
-             
             <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
@@ -610,8 +604,6 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
           <div
             class="ec-multiple-values-selection__values"
           >
-            <ul />
-             
             <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
@@ -978,8 +970,6 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
           <div
             class="ec-multiple-values-selection__values"
           >
-            <ul />
-             
             <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
@@ -1231,8 +1221,6 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
           <div
             class="ec-multiple-values-selection__values"
           >
-            <ul />
-             
             <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
@@ -1567,8 +1555,6 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
           <div
             class="ec-multiple-values-selection__values"
           >
-            <ul />
-             
             <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
@@ -1689,8 +1675,6 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
           <div
             class="ec-multiple-values-selection__values"
           >
-            <ul />
-             
             <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
@@ -1952,8 +1936,6 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
           <div
             class="ec-multiple-values-selection__values"
           >
-            <ul />
-             
             <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
@@ -2144,16 +2126,13 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   <!---->
                 </div>
               </li>
-            </ul>
-             
-            <ul>
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
@@ -2208,7 +2187,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
               >
                 <div
                   class="ec-checkbox ec-multiple-values-selection__checkbox"
-                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
+                  data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
                 >
                   <input
                     class="ec-checkbox__input"
