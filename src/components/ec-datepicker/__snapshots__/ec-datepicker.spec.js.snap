@@ -28,6 +28,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -121,6 +122,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -578,6 +580,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -671,6 +674,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -1111,7 +1115,7 @@ exports[`Datepicker :props should render as disabled 1`] = `
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
     disabled="disabled"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1163,6 +1167,7 @@ exports[`Datepicker :props should render with Spanish locale: calendar 1`] = `
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -1256,6 +1261,7 @@ exports[`Datepicker :props should render with Spanish locale: calendar 1`] = `
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -1695,7 +1701,7 @@ exports[`Datepicker :props should render with a bottom note 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1735,7 +1741,7 @@ exports[`Datepicker :props should render with a bottom note in a warning state 1
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1772,7 +1778,7 @@ exports[`Datepicker :props should render with a label 1`] = `
   <label
     class="ec-input-field__label"
     data-test="ec-input-field__label"
-    for="datepicker-1"
+    for="ec-datepicker-1"
   >
     <span
       class="ec-input-field__label-text"
@@ -1789,7 +1795,7 @@ exports[`Datepicker :props should render with a label 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1821,7 +1827,7 @@ exports[`Datepicker :props should render with a note 1`] = `
   <label
     class="ec-input-field__label"
     data-test="ec-input-field__label"
-    for="datepicker-1"
+    for="ec-datepicker-1"
   >
     <!---->
      
@@ -1837,7 +1843,7 @@ exports[`Datepicker :props should render with a note 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1872,7 +1878,7 @@ exports[`Datepicker :props should render with a placeholder 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     placeholder="Datepicker placeholder"
     type="text"
   />
@@ -1909,7 +1915,7 @@ exports[`Datepicker :props should render with an error message 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-error ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -1967,6 +1973,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -2060,6 +2067,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -2516,6 +2524,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -2609,6 +2618,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -3065,6 +3075,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -3158,6 +3169,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -3614,6 +3626,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -3707,6 +3720,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -4163,6 +4177,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -4256,6 +4271,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -4712,6 +4728,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -4805,6 +4822,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -5261,6 +5279,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -5354,6 +5373,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -5782,6 +5802,41 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
 </div>
 `;
 
+exports[`Datepicker should pass the data-test down to input 1`] = `
+<div
+  class="ec-input-field ec-datepicker"
+  data-test="ec-input-field"
+>
+  <!---->
+   
+  <input
+    autocomplete="off"
+    class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
+    data-test="my-data-test ec-datepicker ec-input-field__input"
+    id="ec-datepicker-1"
+    type="text"
+  />
+   
+  <div
+    class="ec-input-field__icon-wrapper"
+    data-test="ec-input-field__icon-wrapper"
+  >
+    <svg
+      class="ec-input-field__icon ec-icon"
+      data-test="ec-input-field__icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-calendar"
+      />
+    </svg>
+  </div>
+   
+  <!---->
+</div>
+`;
+
 exports[`Datepicker should render properly 1`] = `
 <div
   class="ec-input-field ec-datepicker"
@@ -5793,7 +5848,7 @@ exports[`Datepicker should render properly 1`] = `
     autocomplete="off"
     class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input"
-    id="datepicker-1"
+    id="ec-datepicker-1"
     type="text"
   />
    
@@ -5845,6 +5900,7 @@ exports[`Datepicker watchers should update the locale: calendar 1`] = `
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -5938,6 +5994,7 @@ exports[`Datepicker watchers should update the locale: calendar 1`] = `
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
@@ -6394,6 +6451,7 @@ exports[`Datepicker watchers should update the locale: calendar 2`] = `
         <select
           aria-label="Month"
           class="flatpickr-monthDropdown-months"
+          data-test="ec-datepicker__calendar-month"
           tabindex="-1"
         >
           <option
@@ -6487,6 +6545,7 @@ exports[`Datepicker watchers should update the locale: calendar 2`] = `
           <input
             aria-label="Year"
             class="numInput cur-year"
+            data-test="ec-datepicker__calendar-year"
             tabindex="-1"
             type="number"
           />
