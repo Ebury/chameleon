@@ -32,6 +32,7 @@ export default {
   components: {
     EcInputField,
   },
+  inheritAttrs: false,
   model: {
     prop: 'value',
     event: 'value-change',
@@ -174,6 +175,8 @@ export default {
       if (this.level) {
         this.flatpickrInstance.calendarContainer.classList.add(`flatpickr-calendar--${this.level}`);
       }
+      this.flatpickrInstance.monthsDropdownContainer.dataset.test = 'ec-datepicker__calendar-month';
+      this.flatpickrInstance.currentYearElement.dataset.test = 'ec-datepicker__calendar-year';
     }
   },
   beforeDestroy() {
