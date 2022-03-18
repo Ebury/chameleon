@@ -76,50 +76,18 @@
       <div class="ec-multiple-values-selection__values">
         <ul>
           <li
-            v-for="(item, index) in selectedFilters"
+            v-for="(item, index) in items"
             :key="item.value"
             class="ec-multiple-values-selection__value-wrapper"
-            data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
+            :data-test="`ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--${ isItemChecked(item) ? 'selected' : 'not-selected' }`"
           >
             <ec-checkbox
-              checked
+              :checked="isItemChecked(item)"
               class="ec-multiple-values-selection__checkbox"
-              :data-test="`ec-multiple-values-selection__checkbox-deselect ec-multiple-values-selection__checkbox-deselect-${index}`"
+              :data-test="`ec-multiple-values-selection__checkbox-${ isItemChecked(item) ? 'deselect' : 'select' } ec-multiple-values-selection__checkbox-${ isItemChecked(item) ? 'deselect' : 'select' }-${index}`"
               :is-single-line="true"
               :label="item.text"
-              @checked-value-change="onDeselect(item)"
-            >
-              <template #label>
-                <div
-                  class="ec-multiple-values-selection__label-wrapper"
-                >
-                  <ec-icon
-                    v-if="item.icon"
-                    class="ec-multiple-values-selection__icon"
-                    :name="item.icon.name"
-                    :type="item.icon.type"
-                    :size="24"
-                  />
-                  <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
-                </div>
-              </template>
-            </ec-checkbox>
-          </li>
-        </ul>
-
-        <ul>
-          <li
-            v-for="(item, index) in unselectedFilters"
-            :key="item.value"
-            class="ec-multiple-values-selection__value-wrapper"
-            data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
-          >
-            <ec-checkbox
-              class="ec-multiple-values-selection__checkbox"
-              :data-test="`ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-${index}`"
-              :is-single-line="true"
-              :label="item.text"
-              @checked-value-change="onSelect(item)"
+              @checked-value-change="isItemChecked(item) ? onDeselect(item) : onSelect(item)"
             >
               <template #label>
                 <div
@@ -207,18 +175,14 @@ export default {
     };
   },
   computed: {
-    selectedFilters() {
-      return this.value;
-    },
-    unselectedFilters() {
-      const itemsSet = new Set(this.selectedFilters.map(item => item.value));
-      return this.items.filter(item => !itemsSet.has(item.value));
+    selectedValues() {
+      return new Set(this.value.map(item => item.value));
     },
     allFiltersAreSelected() {
-      return this.unselectedFilters.length === 0;
+      return this.value.length === this.items.length;
     },
     atLeastOneFilterIsSelected() {
-      return !this.allFiltersAreSelected && this.selectedFilters.length > 0;
+      return !this.allFiltersAreSelected && this.selectedValues.size > 0;
     },
     searchModel: {
       get() {
@@ -239,11 +203,11 @@ export default {
       }
     },
     onSelect(item) {
-      const newItems = [...this.selectedFilters, item];
+      const newItems = [...this.value, item];
       this.$emit('change', newItems);
     },
     onDeselect(item) {
-      const newItems = this.selectedFilters.filter(selectedItem => selectedItem !== item);
+      const newItems = this.value.filter(selectedItem => selectedItem.value !== item.value);
       this.$emit('change', newItems);
     },
     focus() {
@@ -253,6 +217,9 @@ export default {
           this.$refs.searchInput?.focus();
         });
       }
+    },
+    isItemChecked(item) {
+      return this.selectedValues.has(item.value);
     },
   },
 };
