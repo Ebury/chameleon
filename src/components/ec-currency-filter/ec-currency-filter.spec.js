@@ -238,7 +238,7 @@ describe('EcCurrencyFilter', () => {
         currencies: [{ text: 'GBP', value: 'GBP' }],
       });
 
-      await selectCurrency(wrapper, 0);
+      await selectCurrency(wrapper, 1);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
       expect(wrapper.vm.value).toEqual({
         amount: null,
@@ -277,7 +277,7 @@ describe('EcCurrencyFilter', () => {
         currencies: [{ text: 'EUR', value: 'EUR' }],
       });
 
-      await deselectCurrency(wrapper, 0);
+      await deselectCurrency(wrapper, 1);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
       expect(wrapper.vm.value).toEqual(null);
     });
