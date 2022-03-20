@@ -75,7 +75,7 @@ describe('EcSyncMultipleValuesFilter', () => {
       value: [items[0]], items,
     });
 
-    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-0').findByDataTest('ec-checkbox__label').trigger('click');
+    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-1').findByDataTest('ec-checkbox__label').trigger('click');
     expect(wrapper.emitted('change')).toEqual([
       [
         [items[0], items[1]],
