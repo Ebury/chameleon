@@ -225,6 +225,44 @@ describe('EcCurrencyInput', () => {
     });
   });
 
+  describe('$attrs', () => {
+    it('should use data-test attribute to prefix all data-test attributes in nested components', () => {
+      const wrapper = mountCurrencyInput({
+        'data-test': 'my-component',
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should use data-test attribute to prefix all data-test attributes in label', () => {
+      const wrapper = mountCurrencyInput({
+        label: 'Test Input',
+        note: 'Test Note',
+        'data-test': 'my-component',
+      });
+      expect(wrapper.findByDataTest('my-component__label-text').element).toMatchSnapshot('label');
+      expect(wrapper.findByDataTest('my-component__note').element).toMatchSnapshot('note');
+    });
+
+    it('should use data-test attribute to prefix all data-test attributes in error message', () => {
+      const wrapper = mountCurrencyInput({
+        errorMessage: 'Test Error Message',
+        errorTooltipMessage: 'Test Error Tooltip',
+        'data-test': 'my-component',
+      });
+      expect(wrapper.findByDataTest('my-component__error-text').element).toMatchSnapshot();
+    });
+
+    it('should use data-test attribute to prefix all data-test attributes in bottom note', () => {
+      const wrapper = mountCurrencyInput({
+        bottomNote: 'Test Bottom Note',
+        warningTooltipMessage: 'Test Warning Tooltip',
+        isWarning: true,
+        'data-test': 'my-component',
+      });
+      expect(wrapper.findByDataTest('my-component__bottom-note').element).toMatchSnapshot();
+    });
+  });
+
   describe('@events', () => {
     it('should emit change events when an item is selected', async () => {
       const wrapper = mountCurrencyInput();

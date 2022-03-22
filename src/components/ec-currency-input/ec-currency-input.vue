@@ -8,13 +8,13 @@
     >
       <span
         v-if="label"
-        data-test="ec-currency-input__label-text"
+        :data-test="prefixedDataTest('label-text')"
         class="ec-currency-input__label-text"
       >{{ label }}</span>
 
       <span
         v-if="note"
-        data-test="ec-currency-input__note"
+        :data-test="prefixedDataTest('note')"
         class="ec-currency-input__note"
       >{{ note }}</span>
     </label>
@@ -28,7 +28,7 @@
         v-ec-tooltip="currenciesTooltipOptions"
         class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
         :class="{ 'ec-currency-input__currencies--is-disabled-and-has-error': isInvalid }"
-        data-test="ec-currency-input__currencies"
+        :data-test="prefixedDataTest('currencies')"
       >{{ currencyModel && currencyModel.text }}</div>
       <ec-dropdown
         :id="id"
@@ -47,7 +47,8 @@
         :is-loading="currenciesAreLoading"
         :is-sensitive="isSensitive"
         :error-message="errorMessage"
-        data-test="ec-currency-input__currencies"
+        :data-test="prefixedDataTest('currencies')"
+        :list-data-test="prefixedDataTest('currencies-list')"
         @focus="onFocusCurrency"
         @blur="currenciesHasFocus = false"
         @change="onCurrencyChange"
@@ -65,7 +66,7 @@
         :placeholder="amountPlaceholder"
         is-in-group="left"
         class="ec-currency-input__amount"
-        data-test="ec-currency-input__amount"
+        :data-test="prefixedDataTest('amount')"
         @change="onAmountChange"
         @focus="$emit('focus')"
       />
@@ -74,7 +75,7 @@
     <div
       :id="errorId"
       v-if="isInvalid"
-      data-test="ec-currency-input__error-text"
+      :data-test="prefixedDataTest('error-text')"
       class="ec-currency-input__error-text"
     >
       <span>{{ errorMessage }}</span>
@@ -82,7 +83,7 @@
         v-if="isInvalid && errorTooltipMessage"
         v-ec-tooltip="{ content: errorTooltipMessage }"
         class="ec-currency-input__error-tooltip"
-        data-test="ec-currency-input__error-tooltip"
+        :data-test="prefixedDataTest('error-tooltip')"
         type="error"
         name="simple-error"
         :size="14"
@@ -91,7 +92,7 @@
 
     <div
       v-else-if="bottomNote"
-      data-test="ec-currency-input__bottom-note"
+      :data-test="prefixedDataTest('bottom-note')"
       class="ec-currency-input__bottom-note"
       :class="{ 'ec-currency-input__bottom-note--is-warning': isWarning }"
     >
@@ -100,7 +101,7 @@
         v-if="isWarning && warningTooltipMessage"
         v-ec-tooltip="{ content: warningTooltipMessage }"
         class="ec-currency-input__warning-tooltip"
-        data-test="ec-currency-input__warning-tooltip"
+        :data-test="prefixedDataTest('warning-tooltip')"
         type="warning"
         name="simple-error"
         :size="14"
@@ -261,6 +262,14 @@ export default {
     onFocusCurrency() {
       this.currenciesHasFocus = true;
       this.$emit('focus');
+    },
+    prefixedDataTest(dataTestSuffix) {
+      const dataTestPrefix = this.$attrs['data-test'];
+      if (dataTestPrefix) {
+        return `${dataTestPrefix}__${dataTestSuffix} ec-currency-input__${dataTestSuffix}`;
+      }
+
+      return `ec-currency-input__${dataTestSuffix}`;
     },
   },
 };
