@@ -261,6 +261,13 @@ describe('EcCurrencyInput', () => {
       });
       expect(wrapper.findByDataTest('my-component__bottom-note').element).toMatchSnapshot();
     });
+
+    it('should use data-test attribute with multiple values to prefix all data-test attributes in nested components', () => {
+      const wrapper = mountCurrencyInput({
+        'data-test': 'my-component my-other-component',
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('@events', () => {

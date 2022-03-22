@@ -266,7 +266,8 @@ export default {
     prefixedDataTest(dataTestSuffix) {
       const dataTestPrefix = this.$attrs['data-test'];
       if (dataTestPrefix) {
-        return `${dataTestPrefix}__${dataTestSuffix} ec-currency-input__${dataTestSuffix}`;
+        const dataTestPrefixes = [...dataTestPrefix.split(' '), 'ec-currency-input'];
+        return dataTestPrefixes.map(dataTest => `${dataTest}__${dataTestSuffix}`).join(' ');
       }
 
       return `ec-currency-input__${dataTestSuffix}`;
