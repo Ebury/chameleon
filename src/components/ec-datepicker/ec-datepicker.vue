@@ -214,17 +214,17 @@ export default {
           this.$emit('ready');
         }],
         onChange: (selectedDates, dateStr) => {
-          const d = selectedDates[0];
-          if (d) {
-            const isoDate = this.isoDate(d);
+          const date = selectedDates[0];
+          if (date) {
+            const isoDate = this.isoDate(date);
 
             if (this.disabledDatesMap?.has(isoDate)) {
-              this.clearInput();
+              this.flatpickrInstance.clear();
               return;
             }
 
-            if (this.areWeekendsDisabled && this.isWeekendDay(selectedDates)) {
-              this.clearInput();
+            if (this.areWeekendsDisabled && this.isWeekendDay(date)) {
+              this.flatpickrInstance.clear();
               return;
             }
           }
@@ -255,33 +255,28 @@ export default {
     setDisabledClass(dayElement) {
       dayElement.className = `${dayElement.className} flatpickr-disabled`;
     },
-    isSaturday(day) {
-      return day === 6;
-    },
-    isSunday(day) {
-      return day === 0;
-    },
-    clearInput() {
-      this.formattedValue = '';
-      this.$emit('value-change', null);
-    },
     isoDate(dateObj) {
       const isoDateTime = new Date(Date.UTC(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate())).toISOString();
       const [isoDate] = isoDateTime.split('T');
 
       return isoDate;
     },
-    isWeekendDay(selectedDates) {
-      const d = selectedDates[0];
-      const day = d.getDay();
+    isWeekendDay(dateObj) {
+      const day = dateObj.getDay();
 
-      return this.isSaturday(day) || this.isSunday(day);
+      const isSaturday = day === 6;
+      const isSunday = day === 0;
+
+      return isSaturday || isSunday;
     },
     disableWeekends(dayElement) {
       if (this.areWeekendsDisabled) {
         const day = dayElement.dateObj.getDay();
 
-        if (this.isSaturday(day) || this.isSunday(day)) {
+        const isSaturday = day === 6;
+        const isSunday = day === 0;
+
+        if (isSaturday || isSunday) {
           this.setDisabledClass(dayElement);
         }
       }
@@ -296,8 +291,8 @@ export default {
       }
     },
     onDayCreate(selectedDate, selectedDateFormatted, flatpickrInstance, dayElement) {
-      const d = dayElement.dateObj;
-      const isoDate = this.isoDate(d);
+      const date = dayElement.dateObj;
+      const isoDate = this.isoDate(date);
 
       this.disableWeekends(dayElement);
       if (this.disabledDatesMap?.size) {
