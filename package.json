@@ -83,7 +83,7 @@
     "intl": "1.2.5",
     "lint-staged": "12.3.7",
     "postcss": "8.4.12",
-    "postcss-import": "14.0.2",
+    "postcss-import": "14.1.0",
     "postcss-mixins": "8.1.0",
     "postcss-nested": "5.0.6",
     "purgecss": "4.0.3",
