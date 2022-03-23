@@ -582,6 +582,26 @@ describe('Datepicker', () => {
       expect(inputWrapper.vm.model).toBe(null);
     });
 
+    it('should not allow to type a bank holiday', async () => {
+      const { inputWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" :disabled-dates="disabledDates"/>',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              disabledDates: {
+                '2022-02-22': 'Bank holiday',
+              },
+            };
+          },
+        },
+      );
+
+      await setDatepickerInputValue(inputWrapper, '2022-02-22');
+      expect(inputWrapper.vm.model).toBe(null);
+    });
+
     it('should not allow to select a weekend', () => {
       const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
         '<ec-datepicker v-model="model" :are-weekends-disabled="areWeekendsDisabled"/>',
