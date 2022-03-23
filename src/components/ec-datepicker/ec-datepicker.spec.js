@@ -459,7 +459,7 @@ describe('Datepicker', () => {
       expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 24).getTime());
     });
 
-    it('should not allow to set a date smaller than the minDate', () => {
+    it('should not allow to select a date smaller than the minDate', () => {
       const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
         '<ec-datepicker v-model="model" :options="options" />',
         {},
@@ -488,7 +488,28 @@ describe('Datepicker', () => {
       expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 22).getTime());
     });
 
-    it('should not allow to set a date bigger than the maxDate', () => {
+    it('should not allow to type a date smaller than the minDate', async () => {
+      const { inputWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" />',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              options: {
+                minDate: '2022-02-22',
+              },
+            };
+          },
+        },
+      );
+
+      await setDatepickerInputValue(inputWrapper, '2022-02-18');
+
+      expect(inputWrapper.vm.model).toBe(null);
+    });
+
+    it('should not allow to select a date bigger than the maxDate', () => {
       const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
         '<ec-datepicker v-model="model" :options="options" />',
         {},
