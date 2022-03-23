@@ -171,7 +171,7 @@ export default {
     /* istanbul ignore next */
     if (this.flatpickrInstance.calendarContainer) {
       this.flatpickrInstance.calendarContainer.dataset.test = 'ec-datepicker__calendar';
-      this.flatpickrInstance.calendarContainer.dataset.relDataTest = `${this.$attrs['data-test']} ec-datepicker`.trim();
+      this.flatpickrInstance.calendarContainer.dataset.relDataTest = `${this.$attrs['data-test'] ?? ''} ec-datepicker`.trim();
       if (this.level) {
         this.flatpickrInstance.calendarContainer.classList.add(`flatpickr-calendar--${this.level}`);
       }

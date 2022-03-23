@@ -3,7 +3,7 @@
 exports[`Datepicker :props should have disabled a specific date: calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -555,7 +555,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
 exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -1142,7 +1142,7 @@ exports[`Datepicker :props should render as disabled 1`] = `
 exports[`Datepicker :props should render with Spanish locale: calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -1948,7 +1948,7 @@ exports[`Datepicker :props should render with an error message 1`] = `
 exports[`Datepicker :props should validate if the level prop("level-1") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--level-1"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -2499,7 +2499,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
 exports[`Datepicker :props should validate if the level prop("level-2") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--level-2"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -3050,7 +3050,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
 exports[`Datepicker :props should validate if the level prop("level-3") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--level-3"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -3601,7 +3601,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
 exports[`Datepicker :props should validate if the level prop("modal") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--modal"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -4152,7 +4152,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
 exports[`Datepicker :props should validate if the level prop("notification") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--notification"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -4703,7 +4703,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
 exports[`Datepicker :props should validate if the level prop("tooltip") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--tooltip"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -5254,7 +5254,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
 exports[`Datepicker should open the calendar when we click on the input icon 1`] = `
 <div
   class="flatpickr-calendar animate open"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -5875,7 +5875,7 @@ exports[`Datepicker should render properly 1`] = `
 exports[`Datepicker watchers should update the locale: calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
@@ -6426,7 +6426,7 @@ exports[`Datepicker watchers should update the locale: calendar 1`] = `
 exports[`Datepicker watchers should update the locale: calendar 2`] = `
 <div
   class="flatpickr-calendar animate"
-  data-rel-data-test="undefined ec-datepicker"
+  data-rel-data-test="ec-datepicker"
   data-test="ec-datepicker__calendar"
   tabindex="-1"
 >
