@@ -3,6 +3,8 @@ import * as SortDirectionCycle from './enums/sort-direction-cycle';
 
 export { SortDirection, SortDirectionCycle };
 
+export { default as flatpickr } from 'flatpickr';
+
 export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
 
 export { default as config } from './config';
