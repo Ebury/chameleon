@@ -218,7 +218,7 @@ export default {
           if (d) {
             const isoDate = this.isoDate(d);
 
-            if (this.disabledDatesMap.has(isoDate)) {
+            if (this.disabledDatesMap?.has(isoDate)) {
               this.clearInput();
               return;
             }
