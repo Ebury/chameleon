@@ -214,6 +214,21 @@ export default {
           this.$emit('ready');
         }],
         onChange: (selectedDates, dateStr) => {
+          const d = selectedDates[0];
+          if (d) {
+            const isoDate = this.isoDate(d);
+
+            if (this.disabledDatesMap.has(isoDate)) {
+              this.clearInput();
+              return;
+            }
+
+            if (this.areWeekendsDisabled && this.isWeekendDay(selectedDates)) {
+              this.clearInput();
+              return;
+            }
+          }
+
           this.formattedValue = dateStr;
           this.$emit('value-change', selectedDates[0] ?? null);
         },
@@ -240,13 +255,33 @@ export default {
     setDisabledClass(dayElement) {
       dayElement.className = `${dayElement.className} flatpickr-disabled`;
     },
+    isSaturday(day) {
+      return day === 6;
+    },
+    isSunday(day) {
+      return day === 0;
+    },
+    clearInput() {
+      this.formattedValue = '';
+      this.$emit('value-change', null);
+    },
+    isoDate(dateObj) {
+      const isoDateTime = new Date(Date.UTC(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate())).toISOString();
+      const [isoDate] = isoDateTime.split('T');
+
+      return isoDate;
+    },
+    isWeekendDay(selectedDates) {
+      const d = selectedDates[0];
+      const day = d.getDay();
+
+      return this.isSaturday(day) || this.isSunday(day);
+    },
     disableWeekends(dayElement) {
       if (this.areWeekendsDisabled) {
         const day = dayElement.dateObj.getDay();
-        const isSaturday = day === 6;
-        const isSunday = day === 0;
 
-        if (isSaturday || isSunday) {
+        if (this.isSaturday(day) || this.isSunday(day)) {
           this.setDisabledClass(dayElement);
         }
       }
@@ -262,8 +297,7 @@ export default {
     },
     onDayCreate(selectedDate, selectedDateFormatted, flatpickrInstance, dayElement) {
       const d = dayElement.dateObj;
-      const isoDateTime = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())).toISOString();
-      const [isoDate] = isoDateTime.split('T');
+      const isoDate = this.isoDate(d);
 
       this.disableWeekends(dayElement);
       if (this.disabledDatesMap?.size) {
