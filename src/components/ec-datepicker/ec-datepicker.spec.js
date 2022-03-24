@@ -459,7 +459,7 @@ describe('Datepicker', () => {
       expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 24).getTime());
     });
 
-    it('should not allow to set a date smaller than the minDate', () => {
+    it('should not allow to select a date smaller than the minDate', () => {
       const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
         '<ec-datepicker v-model="model" :options="options" />',
         {},
@@ -488,7 +488,28 @@ describe('Datepicker', () => {
       expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 22).getTime());
     });
 
-    it('should not allow to set a date bigger than the maxDate', () => {
+    it('should not allow to type a date smaller than the minDate', async () => {
+      const { inputWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" :options="options"/>',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              options: {
+                minDate: '2022-02-22',
+              },
+            };
+          },
+        },
+      );
+
+      await setDatepickerInputValue(inputWrapper, '2022-02-18');
+
+      expect(inputWrapper.vm.model).toBe(null);
+    });
+
+    it('should not allow to select a date bigger than the maxDate', () => {
       const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
         '<ec-datepicker v-model="model" :options="options" />',
         {},
@@ -515,6 +536,124 @@ describe('Datepicker', () => {
         .trigger('click');
 
       expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 22).getTime());
+    });
+
+    it('should not allow to type a date bigger than the maxDate', async () => {
+      const { inputWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" :options="options"/>',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              options: {
+                maxDate: '2022-02-22',
+              },
+            };
+          },
+        },
+      );
+
+      await setDatepickerInputValue(inputWrapper, '2022-02-23');
+
+      expect(inputWrapper.vm.model).toBe(null);
+    });
+
+    it('should not allow to select a bank holiday', () => {
+      const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" :disabled-dates="disabledDates"/>',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              disabledDates: {
+                '2022-02-22': 'Bank holiday',
+              },
+            };
+          },
+        },
+      );
+
+      calendarWrapper
+        .findByDataTest('ec-datepicker__calendar-day--2022-02-22')
+        .trigger('click');
+
+      expect(inputWrapper.vm.model).toBe(null);
+    });
+
+    it('should not allow to type a bank holiday', async () => {
+      const { inputWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" :disabled-dates="disabledDates"/>',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              disabledDates: {
+                '2022-02-22': 'Bank holiday',
+              },
+            };
+          },
+        },
+      );
+
+      await setDatepickerInputValue(inputWrapper, '2022-02-22');
+      expect(inputWrapper.vm.model).toBe(null);
+    });
+
+    it('should not allow to select a weekend', () => {
+      const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" :are-weekends-disabled="areWeekendsDisabled"/>',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              areWeekendsDisabled: true,
+            };
+          },
+        },
+      );
+
+      const saturday = 'ec-datepicker__calendar-day--2022-02-19';
+      const sunday = 'ec-datepicker__calendar-day--2022-02-20';
+
+      calendarWrapper
+        .findByDataTest(saturday)
+        .trigger('click');
+
+      expect(inputWrapper.vm.model).toBe(null);
+
+      calendarWrapper
+        .findByDataTest(sunday)
+        .trigger('click');
+
+      expect(inputWrapper.vm.model).toBe(null);
+    });
+
+    it('should not allow to type a weekend', async () => {
+      const { inputWrapper } = mountDatepickerAsTemplate(
+        '<ec-datepicker v-model="model" :are-weekends-disabled="areWeekendsDisabled"/>',
+        {},
+        {
+          data() {
+            return {
+              model: null,
+              areWeekendsDisabled: true,
+            };
+          },
+        },
+      );
+
+      const saturday = '2022-02-19';
+      const sunday = '2022-02-20';
+
+      await setDatepickerInputValue(inputWrapper, saturday);
+      expect(inputWrapper.vm.model).toBe(null);
+
+      await setDatepickerInputValue(inputWrapper, sunday);
+      expect(inputWrapper.vm.model).toBe(null);
     });
   });
 });
