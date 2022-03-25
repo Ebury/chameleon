@@ -1,0 +1,384 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcFileList EcFileList should not render any items if nothing is passed 1`] = `
+<div
+  class="ec-file-list"
+  data-test="ec-file-list"
+/>
+`;
+
+exports[`EcFileList EcFileList should render correctly if items are passed 1`] = `
+<div
+  class="ec-file-list"
+  data-test="ec-file-list"
+>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--0"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--0"
+      title="My invoice.pdf"
+    >
+      
+      My invoice.pdf
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----0"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--1"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--1"
+      title="This is a very long file name that is for testing the ellipses.pdf"
+    >
+      
+      This is a very long file name that is for testing the ellipses.pdf
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----1"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--2"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--2"
+      title="DOC_123123_2423490802348_12312323.pdf"
+    >
+      
+      DOC_123123_2423490802348_12312323.pdf
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----2"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--3"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--3"
+      title="number_rates_trades.xscl"
+    >
+      
+      number_rates_trades.xscl
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----3"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--4"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--4"
+      title="untitled.pdf"
+    >
+      
+      untitled.pdf
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----4"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`EcFileList EcFileList should render the delete button as disabled if delete disabled is true 1`] = `
+<div
+  class="ec-file-list"
+  data-test="ec-file-list"
+>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--0"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--0"
+      title="My invoice.pdf"
+    >
+      
+      My invoice.pdf
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive ec-file-list__delete-icon--is-disabled"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----0"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--1"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--1"
+      title="This is a very long file name that is for testing the ellipses.pdf"
+    >
+      
+      This is a very long file name that is for testing the ellipses.pdf
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive ec-file-list__delete-icon--is-disabled"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----1"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--2"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--2"
+      title="DOC_123123_2423490802348_12312323.pdf"
+    >
+      
+      DOC_123123_2423490802348_12312323.pdf
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive ec-file-list__delete-icon--is-disabled"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----2"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--3"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--3"
+      title="number_rates_trades.xscl"
+    >
+      
+      number_rates_trades.xscl
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive ec-file-list__delete-icon--is-disabled"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----3"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--4"
+  >
+    <svg
+      class="ec-file-list__doc-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--4"
+      title="untitled.pdf"
+    >
+      
+      untitled.pdf
+    
+    </span>
+     
+    <svg
+      class="ec-file-list__delete-icon ec-icon ec-icon--interactive ec-file-list__delete-icon--is-disabled"
+      data-test="ec-file-list__delete-icon ec-file-list__delete-icon----4"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-outline-delete"
+      />
+    </svg>
+  </div>
+</div>
+`;
