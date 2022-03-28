@@ -25,7 +25,7 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <div class="tw-p-20">
-      <div style="width: 100%;">
+      <div style="tw-w-full">
         <ec-file-list
         v-bind="$props"
         v-on="{
