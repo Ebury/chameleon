@@ -38,8 +38,8 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--0 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--0 ec-btn"
       type="button"
     >
       <svg
@@ -93,8 +93,8 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--1 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--1 ec-btn"
       type="button"
     >
       <svg
@@ -148,8 +148,8 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--2 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--2 ec-btn"
       type="button"
     >
       <svg
@@ -203,8 +203,8 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--3 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--3 ec-btn"
       type="button"
     >
       <svg
@@ -258,8 +258,8 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--4 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--4 ec-btn"
       type="button"
     >
       <svg
@@ -321,8 +321,8 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--0 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--0 ec-btn"
       disabled="disabled"
       type="button"
     >
@@ -377,8 +377,8 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--1 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--1 ec-btn"
       disabled="disabled"
       type="button"
     >
@@ -433,8 +433,8 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--2 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--2 ec-btn"
       disabled="disabled"
       type="button"
     >
@@ -489,8 +489,8 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--3 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--3 ec-btn"
       disabled="disabled"
       type="button"
     >
@@ -545,8 +545,8 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__btn ec-btn--md"
-      data-test="ec-file-list__btn--4 ec-btn"
+      class="ec-btn ec-file-list__delete-btn ec-btn--md"
+      data-test="ec-file-list__delete-btn--4 ec-btn"
       disabled="disabled"
       type="button"
     >

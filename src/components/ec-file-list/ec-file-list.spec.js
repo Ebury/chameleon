@@ -40,13 +40,13 @@ describe('EcFileList', () => {
   describe('@events', () => {
     it('should emit deleted item', async () => {
       const wrapper = mountFileList({ items });
-      await wrapper.findByDataTest('ec-file-list__item--1').findByDataTest('ec-file-list__btn--1').trigger('click');
+      await wrapper.findByDataTest('ec-file-list__item--1').findByDataTest('ec-file-list__delete-btn--1').trigger('click');
       expect(wrapper.emitted('delete').length).toBe(1);
     });
 
     it('should not emit a deleted item if delete disabled is true', async () => {
       const wrapper = mountFileList({ items, isDeleteDisabled: true });
-      await wrapper.findByDataTest('ec-file-list__item--1').findByDataTest('ec-file-list__btn--1').trigger('click');
+      await wrapper.findByDataTest('ec-file-list__item--1').findByDataTest('ec-file-list__delete-btn--1').trigger('click');
       expect(wrapper.emitted('delete')).toBeUndefined();
     });
   });

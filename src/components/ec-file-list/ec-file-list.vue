@@ -30,8 +30,8 @@
         :is-disabled="isDeleteDisabled"
         :is-submit="false"
         :icon="'simple-outline-delete'"
-        class="ec-file-list__btn"
-        :data-test="`ec-file-list__btn--${index}`"
+        class="ec-file-list__delete-btn"
+        :data-test="`ec-file-list__delete-btn--${index}`"
         @click="onDelete(item)"
       >
         <span class="tw-sr-only">Delete document</span>
@@ -86,7 +86,7 @@ export default {
       @apply tw-fill-gray-4;
     }
 
-    &__btn {
+    &__delete-btn {
       @apply tw-border-none;
       @apply tw-bg-transparent tw-fill-gray-4;
       @apply tw-pr-0;
