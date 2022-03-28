@@ -25,14 +25,12 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <div class="tw-p-20">
-      <div style="tw-w-full">
         <ec-file-list
         v-bind="$props"
         v-on="{
           delete: onDelete,
         }">
         </ec-file-list>
-      </div>
     </div>
   `,
 });
