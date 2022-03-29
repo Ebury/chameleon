@@ -1,0 +1,509 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcFileList :props should not render any items if nothing is passed 1`] = `
+<div
+  class="ec-file-list"
+  data-test="ec-file-list"
+/>
+`;
+
+exports[`EcFileList :props should render correctly if items are passed 1`] = `
+<div
+  class="ec-file-list"
+  data-test="ec-file-list"
+>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--0"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--0"
+      title="My invoice.pdf"
+    >
+      
+      My invoice.pdf
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--0"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--1"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--1"
+      title="This is a very long file name that is for testing the ellipses.pdf"
+    >
+      
+      This is a very long file name that is for testing the ellipses.pdf
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--1"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--1"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--2"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--2"
+      title="DOC_123123_2423490802348_12312323.pdf"
+    >
+      
+      DOC_123123_2423490802348_12312323.pdf
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--2"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--2"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--3"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--3"
+      title="number_rates_trades.xscl"
+    >
+      
+      number_rates_trades.xscl
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--3"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--3"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--4"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--4"
+      title="untitled.pdf"
+    >
+      
+      untitled.pdf
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--4"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--4"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcFileList :props should render the delete button as disabled if delete disabled is true 1`] = `
+<div
+  class="ec-file-list"
+  data-test="ec-file-list"
+>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--0"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--0"
+      title="My invoice.pdf"
+    >
+      
+      My invoice.pdf
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--0"
+      disabled="disabled"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--1"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--1"
+      title="This is a very long file name that is for testing the ellipses.pdf"
+    >
+      
+      This is a very long file name that is for testing the ellipses.pdf
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--1"
+      disabled="disabled"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--1"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--2"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--2"
+      title="DOC_123123_2423490802348_12312323.pdf"
+    >
+      
+      DOC_123123_2423490802348_12312323.pdf
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--2"
+      disabled="disabled"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--2"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--3"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--3"
+      title="number_rates_trades.xscl"
+    >
+      
+      number_rates_trades.xscl
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--3"
+      disabled="disabled"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--3"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="ec-file-list__item"
+    data-test="ec-file-list__item ec-file-list__item--4"
+  >
+    <svg
+      class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+      data-test="ec-file-list__document-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-document"
+      />
+    </svg>
+     
+    <span
+      class="ec-file-list__name"
+      data-test="ec-file-list__name ec-file-list__name--4"
+      title="untitled.pdf"
+    >
+      
+      untitled.pdf
+    
+    </span>
+     
+    <button
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--4"
+      disabled="disabled"
+      type="button"
+    >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
+      <svg
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--4"
+        height="18"
+        width="18"
+      >
+        <use
+          xlink:href="#ec-simple-outline-delete"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

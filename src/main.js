@@ -29,6 +29,7 @@ export { default as EcDonut } from './components/ec-donut';
 export { default as EcDropdown } from './components/ec-dropdown';
 export { default as EcDropdownSearch } from './components/ec-dropdown-search';
 export { default as EcFileDropzone } from './components/ec-file-dropzone';
+export { default as EcFileList } from './components/ec-file-list';
 export { default as EcFilterPopover } from './components/ec-filter-popover';
 export { default as EcFocusTrap } from './directives/ec-focus-trap';
 export { default as EcIcon } from './components/ec-icon';
