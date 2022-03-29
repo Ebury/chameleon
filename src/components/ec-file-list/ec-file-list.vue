@@ -26,29 +26,33 @@
         {{ item.name }}
       </span>
 
-      <ec-btn
-        :is-disabled="isDeleteDisabled"
-        :is-submit="false"
-        :icon="'simple-outline-delete'"
+      <button
+        type="button"
         class="ec-file-list__delete-btn"
         :data-test="`ec-file-list__delete-btn--${index}`"
+        :disabled="isDeleteDisabled"
         @click="onDelete(item)"
       >
         <span class="tw-sr-only">Delete document</span>
-      </ec-btn>
+        <ec-icon
+          class="ec-file-list__delete-icon"
+          :data-test="`ec-file-list__delete-icon ec-file-list__delete-icon--${index}`"
+          name="simple-outline-delete"
+          type="interactive"
+          :size="18"
+        />
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-import EcBtn from '../ec-btn';
 import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcFileList',
   components: {
     EcIcon,
-    EcBtn,
   },
   props: {
     items: {
@@ -72,6 +76,7 @@ export default {
   .ec-file-list {
     &__item {
       @apply tw-flex tw-flex-row tw-items-center;
+      @apply tw-pb-8;
     }
 
     &__name {
@@ -87,25 +92,33 @@ export default {
     }
 
     &__delete-btn {
+      @apply tw-cursor-pointer;
       @apply tw-border-none;
-      @apply tw-bg-transparent tw-fill-gray-4;
-      @apply tw-pr-0;
+      @apply tw-bg-transparent;
+      @apply tw-px-0;
+      @apply tw-w-20 tw-h-20;
+      @apply tw-text-gray-4;
 
-      @media screen and (max-width: 480px) {
-        @apply tw-px-0;
+      &:focus,
+      &:hover {
+        @apply tw-outline-none;
+        @apply tw-text-key-4;
       }
 
       &:disabled {
-        @apply tw-pointer-events-none;
-        @apply tw-bg-transparent;
-        @apply tw-fill-gray-6;
-      }
+        @apply tw-cursor-default;
+        @apply tw-text-gray-6;
 
-      &:hover,
-      &:focus {
-        @apply tw-cursor-pointer;
-        @apply tw-fill-key-4;
+        &:focus,
+        &:hover {
+          @apply tw-text-gray-6;
+        }
       }
+    }
+
+    &__delete-icon {
+      @apply tw-ml-auto;
+      @apply tw-fill-current;
     }
   }
 </style>

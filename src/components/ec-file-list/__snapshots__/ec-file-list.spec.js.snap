@@ -38,33 +38,26 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--0 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--0"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
   <div
@@ -93,33 +86,26 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--1 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--1"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--1"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
   <div
@@ -148,33 +134,26 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--2 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--2"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--2"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
   <div
@@ -203,33 +182,26 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--3 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--3"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--3"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
   <div
@@ -258,33 +230,26 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--4 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--4"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--4"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
 </div>
@@ -321,34 +286,27 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--0 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--0"
       disabled="disabled"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
   <div
@@ -377,34 +335,27 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--1 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--1"
       disabled="disabled"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--1"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
   <div
@@ -433,34 +384,27 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--2 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--2"
       disabled="disabled"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--2"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
   <div
@@ -489,34 +433,27 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--3 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--3"
       disabled="disabled"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--3"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
   <div
@@ -545,34 +482,27 @@ exports[`EcFileList :props should render the delete button as disabled if delete
     </span>
      
     <button
-      class="ec-btn ec-file-list__delete-btn ec-btn--md"
-      data-test="ec-file-list__delete-btn--4 ec-btn"
+      class="ec-file-list__delete-btn"
+      data-test="ec-file-list__delete-btn--4"
       disabled="disabled"
       type="button"
     >
+      <span
+        class="tw-sr-only"
+      >
+        Delete document
+      </span>
+       
       <svg
-        class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
-        data-test="ec-btn__icon"
-        height="22"
-        width="22"
+        class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__delete-icon ec-file-list__delete-icon--4"
+        height="18"
+        width="18"
       >
         <use
           xlink:href="#ec-simple-outline-delete"
         />
       </svg>
-       
-      <span
-        class="ec-btn__text"
-        data-test="ec-btn__text"
-      >
-        <span
-          class="tw-sr-only"
-        >
-          Delete document
-        </span>
-      </span>
-       
-      <!---->
     </button>
   </div>
 </div>
