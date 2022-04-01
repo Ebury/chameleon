@@ -1,6 +1,6 @@
 <template>
   <div
-    data-test="ec-file-list"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-file-list` : 'ec-file-list'"
     class="ec-file-list"
   >
     <div
