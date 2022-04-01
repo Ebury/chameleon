@@ -1,0 +1,726 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcFileUpload #slots #help-text - should render the help text 1`] = `
+<div
+  data-test="ec-file-upload"
+>
+  <!---->
+   
+  <div
+    class="ec-file-dropzone"
+    data-test="ec-file-upload__dropzone"
+  >
+    <input
+      class="ec-file-dropzone__input"
+      data-test="ec-file-dropzone__input"
+      multiple="multiple"
+      type="file"
+    />
+     
+    <svg
+      class="ec-file-dropzone__img"
+      height="40"
+      width="50"
+    >
+      <use
+        href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      />
+    </svg>
+     
+    <div
+      class="ec-file-dropzone__title"
+      data-test="ec-file-dropzone__title"
+    />
+     
+    <div
+      class="ec-file-dropzone__subtitle"
+      data-test="ec-file-dropzone__subtitle"
+    />
+  </div>
+   
+  <div
+    class="ec-file-upload__help-text"
+    data-test="ec-file-upload__help-text"
+  >
+    Help text
+  </div>
+   
+  <div
+    class="ec-file-list"
+    data-test="ec-file-upload__list"
+  />
+</div>
+`;
+
+exports[`EcFileUpload #slots #subtitle - should render the subtitle 1`] = `
+<div
+  data-test="ec-file-upload"
+>
+  <!---->
+   
+  <div
+    class="ec-file-dropzone"
+    data-test="ec-file-upload__dropzone"
+  >
+    <input
+      class="ec-file-dropzone__input"
+      data-test="ec-file-dropzone__input"
+      multiple="multiple"
+      type="file"
+    />
+     
+    <svg
+      class="ec-file-dropzone__img"
+      height="40"
+      width="50"
+    >
+      <use
+        href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      />
+    </svg>
+     
+    <div
+      class="ec-file-dropzone__title"
+      data-test="ec-file-dropzone__title"
+    />
+     
+    <div
+      class="ec-file-dropzone__subtitle"
+      data-test="ec-file-dropzone__subtitle"
+    >
+      Subtitle
+    </div>
+  </div>
+   
+  <div
+    class="ec-file-upload__help-text"
+    data-test="ec-file-upload__help-text"
+  />
+   
+  <div
+    class="ec-file-list"
+    data-test="ec-file-upload__list"
+  />
+</div>
+`;
+
+exports[`EcFileUpload #slots #title - should render the title 1`] = `
+<div
+  data-test="ec-file-upload"
+>
+  <!---->
+   
+  <div
+    class="ec-file-dropzone"
+    data-test="ec-file-upload__dropzone"
+  >
+    <input
+      class="ec-file-dropzone__input"
+      data-test="ec-file-dropzone__input"
+      multiple="multiple"
+      type="file"
+    />
+     
+    <svg
+      class="ec-file-dropzone__img"
+      height="40"
+      width="50"
+    >
+      <use
+        href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      />
+    </svg>
+     
+    <div
+      class="ec-file-dropzone__title"
+      data-test="ec-file-dropzone__title"
+    >
+      Title
+    </div>
+     
+    <div
+      class="ec-file-dropzone__subtitle"
+      data-test="ec-file-dropzone__subtitle"
+    />
+  </div>
+   
+  <div
+    class="ec-file-upload__help-text"
+    data-test="ec-file-upload__help-text"
+  />
+   
+  <div
+    class="ec-file-list"
+    data-test="ec-file-upload__list"
+  />
+</div>
+`;
+
+exports[`EcFileUpload :props :isDisabled - should render in disabled state 1`] = `
+<div
+  data-test="ec-file-upload"
+>
+  <!---->
+   
+  <div
+    class="ec-file-dropzone ec-file-dropzone--is-disabled"
+    data-test="ec-file-upload__dropzone"
+  >
+    <input
+      class="ec-file-dropzone__input"
+      data-test="ec-file-dropzone__input"
+      disabled="disabled"
+      multiple="multiple"
+      type="file"
+    />
+     
+    <svg
+      class="ec-file-dropzone__img ec-file-dropzone__img--is-disabled"
+      height="40"
+      width="50"
+    >
+      <use
+        href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      />
+    </svg>
+     
+    <div
+      class="ec-file-dropzone__title ec-file-dropzone__title--is-disabled"
+      data-test="ec-file-dropzone__title"
+    />
+     
+    <div
+      class="ec-file-dropzone__subtitle ec-file-dropzone__subtitle--is-disabled"
+      data-test="ec-file-dropzone__subtitle"
+    />
+  </div>
+   
+  <div
+    class="ec-file-upload__help-text ec-file-upload__help-text--is-disabled"
+    data-test="ec-file-upload__help-text"
+  />
+   
+  <div
+    class="ec-file-list"
+    data-test="ec-file-upload__list"
+  />
+</div>
+`;
+
+exports[`EcFileUpload :props :label - should render with a label 1`] = `
+<div
+  data-test="ec-file-upload"
+>
+  <label
+    class="ec-file-upload__label"
+  >
+    <span
+      class="ec-file-upload__label-text"
+      data-test="ec-file-upload__label-text"
+    >
+      Attachments
+    </span>
+     
+    <!---->
+  </label>
+   
+  <div
+    class="ec-file-dropzone"
+    data-test="ec-file-upload__dropzone"
+  >
+    <input
+      class="ec-file-dropzone__input"
+      data-test="ec-file-dropzone__input"
+      multiple="multiple"
+      type="file"
+    />
+     
+    <svg
+      class="ec-file-dropzone__img"
+      height="40"
+      width="50"
+    >
+      <use
+        href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      />
+    </svg>
+     
+    <div
+      class="ec-file-dropzone__title"
+      data-test="ec-file-dropzone__title"
+    />
+     
+    <div
+      class="ec-file-dropzone__subtitle"
+      data-test="ec-file-dropzone__subtitle"
+    />
+  </div>
+   
+  <div
+    class="ec-file-upload__help-text"
+    data-test="ec-file-upload__help-text"
+  />
+   
+  <div
+    class="ec-file-list"
+    data-test="ec-file-upload__list"
+  />
+</div>
+`;
+
+exports[`EcFileUpload :props :note - should render with a note 1`] = `
+<div
+  data-test="ec-file-upload"
+>
+  <label
+    class="ec-file-upload__label"
+  >
+    <!---->
+     
+    <span
+      class="ec-file-upload__label-note"
+      data-test="ec-file-upload__label-note"
+    >
+      max 10mb
+    </span>
+  </label>
+   
+  <div
+    class="ec-file-dropzone"
+    data-test="ec-file-upload__dropzone"
+  >
+    <input
+      class="ec-file-dropzone__input"
+      data-test="ec-file-dropzone__input"
+      multiple="multiple"
+      type="file"
+    />
+     
+    <svg
+      class="ec-file-dropzone__img"
+      height="40"
+      width="50"
+    >
+      <use
+        href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      />
+    </svg>
+     
+    <div
+      class="ec-file-dropzone__title"
+      data-test="ec-file-dropzone__title"
+    />
+     
+    <div
+      class="ec-file-dropzone__subtitle"
+      data-test="ec-file-dropzone__subtitle"
+    />
+  </div>
+   
+  <div
+    class="ec-file-upload__help-text"
+    data-test="ec-file-upload__help-text"
+  />
+   
+  <div
+    class="ec-file-list"
+    data-test="ec-file-upload__list"
+  />
+</div>
+`;
+
+exports[`EcFileUpload v-model should initialize with a value from the v-model 1`] = `
+<div
+  data-test="ec-file-upload"
+>
+  <!---->
+   
+  <div
+    class="ec-file-dropzone"
+    data-test="ec-file-upload__dropzone"
+  >
+    <input
+      class="ec-file-dropzone__input"
+      data-test="ec-file-dropzone__input"
+      multiple="multiple"
+      type="file"
+    />
+     
+    <svg
+      class="ec-file-dropzone__img"
+      height="40"
+      width="50"
+    >
+      <use
+        href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      />
+    </svg>
+     
+    <div
+      class="ec-file-dropzone__title"
+      data-test="ec-file-dropzone__title"
+    />
+     
+    <div
+      class="ec-file-dropzone__subtitle"
+      data-test="ec-file-dropzone__subtitle"
+    />
+  </div>
+   
+  <div
+    class="ec-file-upload__help-text"
+    data-test="ec-file-upload__help-text"
+  />
+   
+  <div
+    class="ec-file-list"
+    data-test="ec-file-upload__list"
+  >
+    <div
+      class="ec-file-list__item"
+      data-test="ec-file-list__item ec-file-list__item--0"
+    >
+      <svg
+        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__document-icon"
+        height="20"
+        width="20"
+      >
+        <use
+          xlink:href="#ec-simple-document"
+        />
+      </svg>
+       
+      <span
+        class="ec-file-list__name"
+        data-test="ec-file-list__name ec-file-list__name--0"
+        title="file_1.pdf"
+      >
+        
+      file_1.pdf
+    
+      </span>
+       
+      <button
+        class="ec-file-list__delete-btn"
+        data-test="ec-file-list__delete-btn--0"
+        type="button"
+      >
+        <span
+          class="tw-sr-only"
+        >
+          Delete document
+        </span>
+         
+        <svg
+          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
+          height="18"
+          width="18"
+        >
+          <use
+            xlink:href="#ec-simple-outline-delete"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="ec-file-list__item"
+      data-test="ec-file-list__item ec-file-list__item--1"
+    >
+      <svg
+        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__document-icon"
+        height="20"
+        width="20"
+      >
+        <use
+          xlink:href="#ec-simple-document"
+        />
+      </svg>
+       
+      <span
+        class="ec-file-list__name"
+        data-test="ec-file-list__name ec-file-list__name--1"
+        title="file_2.jpg"
+      >
+        
+      file_2.jpg
+    
+      </span>
+       
+      <button
+        class="ec-file-list__delete-btn"
+        data-test="ec-file-list__delete-btn--1"
+        type="button"
+      >
+        <span
+          class="tw-sr-only"
+        >
+          Delete document
+        </span>
+         
+        <svg
+          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          data-test="ec-file-list__delete-icon ec-file-list__delete-icon--1"
+          height="18"
+          width="18"
+        >
+          <use
+            xlink:href="#ec-simple-outline-delete"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcFileUpload v-model should not update the v-model if we try to delete an item when disabled 1`] = `
+<div
+  data-test="ec-file-upload"
+>
+  <!---->
+   
+  <div
+    class="ec-file-dropzone ec-file-dropzone--is-disabled"
+    data-test="ec-file-upload__dropzone"
+  >
+    <input
+      class="ec-file-dropzone__input"
+      data-test="ec-file-dropzone__input"
+      disabled="disabled"
+      multiple="multiple"
+      type="file"
+    />
+     
+    <svg
+      class="ec-file-dropzone__img ec-file-dropzone__img--is-disabled"
+      height="40"
+      width="50"
+    >
+      <use
+        href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      />
+    </svg>
+     
+    <div
+      class="ec-file-dropzone__title ec-file-dropzone__title--is-disabled"
+      data-test="ec-file-dropzone__title"
+    />
+     
+    <div
+      class="ec-file-dropzone__subtitle ec-file-dropzone__subtitle--is-disabled"
+      data-test="ec-file-dropzone__subtitle"
+    />
+  </div>
+   
+  <div
+    class="ec-file-upload__help-text ec-file-upload__help-text--is-disabled"
+    data-test="ec-file-upload__help-text"
+  />
+   
+  <div
+    class="ec-file-list"
+    data-test="ec-file-upload__list"
+  >
+    <div
+      class="ec-file-list__item"
+      data-test="ec-file-list__item ec-file-list__item--0"
+    >
+      <svg
+        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__document-icon"
+        height="20"
+        width="20"
+      >
+        <use
+          xlink:href="#ec-simple-document"
+        />
+      </svg>
+       
+      <span
+        class="ec-file-list__name"
+        data-test="ec-file-list__name ec-file-list__name--0"
+        title="file_1.pdf"
+      >
+        
+      file_1.pdf
+    
+      </span>
+       
+      <button
+        class="ec-file-list__delete-btn"
+        data-test="ec-file-list__delete-btn--0"
+        disabled="disabled"
+        type="button"
+      >
+        <span
+          class="tw-sr-only"
+        >
+          Delete document
+        </span>
+         
+        <svg
+          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
+          height="18"
+          width="18"
+        >
+          <use
+            xlink:href="#ec-simple-outline-delete"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="ec-file-list__item"
+      data-test="ec-file-list__item ec-file-list__item--1"
+    >
+      <svg
+        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__document-icon"
+        height="20"
+        width="20"
+      >
+        <use
+          xlink:href="#ec-simple-document"
+        />
+      </svg>
+       
+      <span
+        class="ec-file-list__name"
+        data-test="ec-file-list__name ec-file-list__name--1"
+        title="file_2.jpg"
+      >
+        
+      file_2.jpg
+    
+      </span>
+       
+      <button
+        class="ec-file-list__delete-btn"
+        data-test="ec-file-list__delete-btn--1"
+        disabled="disabled"
+        type="button"
+      >
+        <span
+          class="tw-sr-only"
+        >
+          Delete document
+        </span>
+         
+        <svg
+          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          data-test="ec-file-list__delete-icon ec-file-list__delete-icon--1"
+          height="18"
+          width="18"
+        >
+          <use
+            xlink:href="#ec-simple-outline-delete"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcFileUpload v-model should update the v-model if we delete an item 1`] = `
+<div
+  data-test="ec-file-upload"
+>
+  <!---->
+   
+  <div
+    class="ec-file-dropzone"
+    data-test="ec-file-upload__dropzone"
+  >
+    <input
+      class="ec-file-dropzone__input"
+      data-test="ec-file-dropzone__input"
+      multiple="multiple"
+      type="file"
+    />
+     
+    <svg
+      class="ec-file-dropzone__img"
+      height="40"
+      width="50"
+    >
+      <use
+        href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      />
+    </svg>
+     
+    <div
+      class="ec-file-dropzone__title"
+      data-test="ec-file-dropzone__title"
+    />
+     
+    <div
+      class="ec-file-dropzone__subtitle"
+      data-test="ec-file-dropzone__subtitle"
+    />
+  </div>
+   
+  <div
+    class="ec-file-upload__help-text"
+    data-test="ec-file-upload__help-text"
+  />
+   
+  <div
+    class="ec-file-list"
+    data-test="ec-file-upload__list"
+  >
+    <div
+      class="ec-file-list__item"
+      data-test="ec-file-list__item ec-file-list__item--0"
+    >
+      <svg
+        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        data-test="ec-file-list__document-icon"
+        height="20"
+        width="20"
+      >
+        <use
+          xlink:href="#ec-simple-document"
+        />
+      </svg>
+       
+      <span
+        class="ec-file-list__name"
+        data-test="ec-file-list__name ec-file-list__name--0"
+        title="file_1.pdf"
+      >
+        
+      file_1.pdf
+    
+      </span>
+       
+      <button
+        class="ec-file-list__delete-btn"
+        data-test="ec-file-list__delete-btn--0"
+        type="button"
+      >
+        <span
+          class="tw-sr-only"
+        >
+          Delete document
+        </span>
+         
+        <svg
+          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
+          height="18"
+          width="18"
+        >
+          <use
+            xlink:href="#ec-simple-outline-delete"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
