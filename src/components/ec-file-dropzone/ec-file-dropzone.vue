@@ -1,17 +1,20 @@
 <template>
   <div
-    data-test="ec-file-dropzone"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-file-dropzone` : 'ec-file-dropzone'"
     class="ec-file-dropzone"
-    :class="{ 'ec-file-dropzone--dragging': isDragging }"
+    :class="{
+      'ec-file-dropzone--dragging': isDragging,
+      'ec-file-dropzone--is-disabled': isDisabled
+    }"
     @drop.prevent.stop="onComponentDrop"
   >
     <input
-      :id="id"
       ref="fileInput"
       data-test="ec-file-dropzone__input"
       type="file"
       class="ec-file-dropzone__input"
       multiple
+      :disabled="isDisabled"
       @change="onFileInputChange"
     >
 
@@ -19,41 +22,48 @@
       height="40"
       width="50"
       class="ec-file-dropzone__img"
+      :class="{'ec-file-dropzone__img--is-disabled': isDisabled}"
     >
       <use href="../../assets/img/upload-cloud.svg#ec-upload-cloud" />
     </svg>
 
-    <h3 data-test="ec-file-dropzone__title">
+    <div
+      data-test="ec-file-dropzone__title"
+      class="ec-file-dropzone__title"
+      :class="{ 'ec-file-dropzone__title--is-disabled': isDisabled }"
+    >
       <slot name="title" />
-    </h3>
+    </div>
 
-    <label
-      :for="id"
-      class="ec-file-dropzone__subtitle"
+    <div
       data-test="ec-file-dropzone__subtitle"
+      class="ec-file-dropzone__subtitle"
+      :class="{'ec-file-dropzone__subtitle--is-disabled': isDisabled}"
+      @click="$refs.fileInput.click()"
     >
       <slot name="subtitle" />
-    </label>
+    </div>
   </div>
 </template>
 
 <script>
-import { getUid } from '../../utils/uid';
 
 const isNotFolder = file => !!file.type && !!file.size;
 
 export default {
   name: 'EcFileDropzone',
+  props: {
+    isDisabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
-      uid: getUid(),
       dragEnterLeaveEventCounter: 0,
     };
   },
   computed: {
-    id() {
-      return `ec-file-dropzone-${this.uid}`;
-    },
     isDragging() {
       return this.dragEnterLeaveEventCounter > 0;
     },
@@ -75,12 +85,15 @@ export default {
       const files = [...this.$refs.fileInput.files].filter(isNotFolder);
       if (files.length) {
         this.$emit('change', files);
+        this.$refs.fileInput.value = '';
       }
     },
     onComponentDrop(dragEvent) {
-      const files = [...dragEvent.dataTransfer.files].filter(isNotFolder);
-      if (files.length) {
-        this.$emit('change', files);
+      if (!this.isDisabled) {
+        const files = [...dragEvent.dataTransfer.files].filter(isNotFolder);
+        if (files.length) {
+          this.$emit('change', files);
+        }
       }
       this.disableDragging();
     },
@@ -119,14 +132,36 @@ export default {
 
   &__img {
     @apply tw-fill-key-4 tw-mb-8;
+
+    &--is-disabled {
+      @apply tw-fill-gray-6;
+    }
+  }
+
+  &__title {
+    @apply tw-h3;
+    @apply tw-m-0;
+
+    &--is-disabled {
+      @apply tw-text-gray-5;
+    }
   }
 
   &__subtitle {
-    @apply tw-small-text tw-cursor-pointer;
+    @apply tw-small-text;
+
+    &--is-disabled {
+      @apply tw-text-gray-6;
+    }
   }
 
   &--dragging {
     @apply tw-border-key-4;
+  }
+
+  &--is-disabled {
+    @apply tw-cursor-not-allowed;
+    @apply tw-bg-gray-7;
   }
 }
 </style>

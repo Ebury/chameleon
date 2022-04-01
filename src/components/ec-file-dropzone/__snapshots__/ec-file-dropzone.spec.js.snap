@@ -1,5 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcFileDropzone :props :isDisabled - should render as disabled 1`] = `
+<div
+  class="ec-file-dropzone ec-file-dropzone--is-disabled"
+  data-test="ec-file-dropzone"
+>
+  <input
+    class="ec-file-dropzone__input"
+    data-test="ec-file-dropzone__input"
+    disabled="disabled"
+    multiple="multiple"
+    type="file"
+  />
+   
+  <svg
+    class="ec-file-dropzone__img ec-file-dropzone__img--is-disabled"
+    height="40"
+    width="50"
+  >
+    <use
+      href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+    />
+  </svg>
+   
+  <div
+    class="ec-file-dropzone__title ec-file-dropzone__title--is-disabled"
+    data-test="ec-file-dropzone__title"
+  />
+   
+  <div
+    class="ec-file-dropzone__subtitle ec-file-dropzone__subtitle--is-disabled"
+    data-test="ec-file-dropzone__subtitle"
+  />
+</div>
+`;
+
 exports[`EcFileDropzone should render correctly 1`] = `
 <div
   class="ec-file-dropzone"
@@ -8,7 +43,6 @@ exports[`EcFileDropzone should render correctly 1`] = `
   <input
     class="ec-file-dropzone__input"
     data-test="ec-file-dropzone__input"
-    id="ec-file-dropzone-1"
     multiple="multiple"
     type="file"
   />
@@ -23,16 +57,16 @@ exports[`EcFileDropzone should render correctly 1`] = `
     />
   </svg>
    
-  <h3
+  <div
+    class="ec-file-dropzone__title"
     data-test="ec-file-dropzone__title"
   >
     Drag and drop
-  </h3>
+  </div>
    
-  <label
+  <div
     class="ec-file-dropzone__subtitle"
     data-test="ec-file-dropzone__subtitle"
-    for="ec-file-dropzone-1"
   >
     files here or 
     <span
@@ -41,6 +75,6 @@ exports[`EcFileDropzone should render correctly 1`] = `
       browse
     </span>
     .
-  </label>
+  </div>
 </div>
 `;
