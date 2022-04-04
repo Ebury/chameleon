@@ -164,7 +164,7 @@ describe('EcFileDropzone', () => {
       expect(wrapper.emitted('change')).toBeUndefined();
     });
 
-    it('@change - should be emitted  when not disabled', async () => {
+    it('@change - should be emitted when is not disabled', async () => {
       const wrapper = mountFileDropzone({ isDisabled: false });
 
       await wrapper.trigger('drop', { dataTransfer: { files: filesAndFolders } });
