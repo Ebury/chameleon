@@ -5,7 +5,7 @@
   >
     <div
       v-for="(item, index) in items"
-      :key="index"
+      :key="item.name"
       class="ec-file-list__item"
       :data-test="`ec-file-list__item ec-file-list__item--${index}`"
     >
