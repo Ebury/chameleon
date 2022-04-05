@@ -13,7 +13,7 @@ describe('EcFileUpload', () => {
 
   const files = [
     { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
-    { name: 'file_2.jpg', type: 'image/jpeg', size: 50 },
+    { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
   ];
 
   function mountFileUploadAsTemplate(template, props, wrapperComponentsOpts, mountOpts) {
@@ -152,6 +152,63 @@ describe('EcFileUpload', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
+    it('should update the file list with an extra file whilst keeping previous files', async () => {
+      const wrapper = mountFileUploadAsTemplate(
+        '<ec-file-upload v-model="value" />', {}, {
+          data() {
+            return {
+              value: [...files],
+            };
+          },
+        },
+      );
+
+      const extraFile = [
+        { name: 'file_3.pdf', type: 'application/pdf', size: 200 },
+      ];
+
+      await wrapper
+        .findByDataTest('ec-file-upload')
+        .findByDataTest('ec-file-upload__dropzone')
+        .trigger('drop', { dataTransfer: { files: extraFile } });
+
+      const expectedfiles = [
+        { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
+        { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
+        { name: 'file_3.pdf', type: 'application/pdf', size: 200 },
+      ];
+
+      expect(wrapper.vm.value).toEqual(expectedfiles);
+    });
+
+    it('should NOT update the file list with an extra file if a file with same name already exists', async () => {
+      const wrapper = mountFileUploadAsTemplate(
+        '<ec-file-upload v-model="value" />', {}, {
+          data() {
+            return {
+              value: [...files],
+            };
+          },
+        },
+      );
+
+      const extraFile = [
+        { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
+      ];
+
+      await wrapper
+        .findByDataTest('ec-file-upload')
+        .findByDataTest('ec-file-upload__dropzone')
+        .trigger('drop', { dataTransfer: { files: extraFile } });
+
+      const expectedfiles = [
+        { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
+        { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
+      ];
+
+      expect(wrapper.vm.value).toEqual(expectedfiles);
+    });
+
     it('should not update the v-model if we try to delete an item when disabled', async () => {
       const wrapper = mountFileUploadAsTemplate(
         '<ec-file-upload v-model="value" :is-disabled="true"/>',
@@ -169,7 +226,7 @@ describe('EcFileUpload', () => {
 
       const expectedfiles = [
         { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
-        { name: 'file_2.jpg', type: 'image/jpeg', size: 50 },
+        { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
       ];
 
       expect(wrapper.vm.value).toEqual(expectedfiles);

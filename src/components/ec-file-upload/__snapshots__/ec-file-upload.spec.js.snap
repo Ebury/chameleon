@@ -442,10 +442,10 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
       <span
         class="ec-file-list__name"
         data-test="ec-file-list__name ec-file-list__name--1"
-        title="file_2.jpg"
+        title="file_2.pdf"
       >
         
-      file_2.jpg
+      file_2.pdf
     
       </span>
        
@@ -591,10 +591,10 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
       <span
         class="ec-file-list__name"
         data-test="ec-file-list__name ec-file-list__name--1"
-        title="file_2.jpg"
+        title="file_2.pdf"
       >
         
-      file_2.jpg
+      file_2.pdf
     
       </span>
        
