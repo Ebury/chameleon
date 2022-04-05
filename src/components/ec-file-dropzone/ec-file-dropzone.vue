@@ -3,7 +3,7 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-file-dropzone` : 'ec-file-dropzone'"
     class="ec-file-dropzone"
     :class="{
-      'ec-file-dropzone--dragging': isDragging,
+      'ec-file-dropzone--dragging': isDragging && !isDisabled,
       'ec-file-dropzone--is-disabled': isDisabled
     }"
     @drop.prevent.stop="onComponentDrop"

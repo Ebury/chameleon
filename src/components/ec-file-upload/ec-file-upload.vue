@@ -43,7 +43,7 @@
 
     <ec-file-list
       data-test="ec-file-upload__list"
-      :items="fileList"
+      :items="value"
       :is-delete-disabled="isDisabled"
       @delete="onDelete"
     />
@@ -79,27 +79,12 @@ export default {
       type: Boolean,
     },
   },
-  data() {
-    return {
-      fileList: [],
-    };
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) {
-        this.fileList = newValue;
-      },
-    },
-  },
   methods: {
     onChange(files) {
-      this.fileList = [...files];
-      this.$emit('change', this.fileList);
+      this.$emit('change', files);
     },
     onDelete(fileToDelete) {
-      this.fileList = this.fileList.filter(fileItem => fileItem !== fileToDelete);
-      this.$emit('change', this.fileList);
+      this.$emit('change', this.value.filter(fileItem => fileItem !== fileToDelete));
     },
   },
 };
