@@ -80,12 +80,15 @@ export default {
     },
   },
   methods: {
-    onChange(files) {
-      const updatedFileList = [...this.value];
+    onChange(newFiles) {
+      let updatedFileList = [...this.value];
 
-      for (const file of files) {
-        if (!this.value.some(prevFile => prevFile.name === file.name)) {
-          updatedFileList.push(file);
+      for (const newFile of newFiles) {
+        if (!this.value.some(prevFile => prevFile.name === newFile.name)) {
+          updatedFileList.push(newFile);
+        } else {
+          updatedFileList = updatedFileList.filter(prevFile => prevFile.name !== newFile.name);
+          updatedFileList.push(newFile);
         }
       }
 

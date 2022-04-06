@@ -181,7 +181,7 @@ describe('EcFileUpload', () => {
       expect(wrapper.vm.value).toEqual(expectedfiles);
     });
 
-    it('should NOT update the file list with an extra file if a file with same name already exists', async () => {
+    it('should update the file list when we add a file with the same name AND delete the old file', async () => {
       const wrapper = mountFileUploadAsTemplate(
         '<ec-file-upload v-model="value" />', {}, {
           data() {
@@ -193,7 +193,7 @@ describe('EcFileUpload', () => {
       );
 
       const extraFile = [
-        { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
+        { name: 'file_2.pdf', type: 'application/jpg', size: 100 },
       ];
 
       await wrapper
@@ -203,7 +203,7 @@ describe('EcFileUpload', () => {
 
       const expectedfiles = [
         { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
-        { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
+        { name: 'file_2.pdf', type: 'application/jpg', size: 100 },
       ];
 
       expect(wrapper.vm.value).toEqual(expectedfiles);
