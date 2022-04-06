@@ -36,7 +36,6 @@
     <div
       data-test="ec-file-upload__help-text"
       class="ec-file-upload__help-text"
-      :class="{ 'ec-file-upload__help-text--is-disabled': isDisabled }"
     >
       <slot name="help-text" />
     </div>
@@ -107,11 +106,6 @@ export default {
     @apply tw-help-text;
     @apply tw-text-gray-5;
     @apply tw-mt-4 tw-mb-16;
-
-    &--disabled {
-      @apply tw-cursor-not-allowed;
-      @apply tw-bg-gray-7;
-    }
   }
 
   &__label {

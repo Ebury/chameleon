@@ -196,7 +196,7 @@ exports[`EcFileUpload :props :isDisabled - should render in disabled state 1`] =
   </div>
    
   <div
-    class="ec-file-upload__help-text ec-file-upload__help-text--is-disabled"
+    class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
   />
    
@@ -516,7 +516,7 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
   </div>
    
   <div
-    class="ec-file-upload__help-text ec-file-upload__help-text--is-disabled"
+    class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
   />
    
