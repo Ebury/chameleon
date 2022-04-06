@@ -80,8 +80,8 @@ export default {
   },
   methods: {
     onChange(newFiles) {
-      const newFilesNames = newFiles.map(file => file.name);
-      const updatedFileList = this.value.filter(prevFile => !newFilesNames.includes(prevFile.name));
+      const newFilesNames = new Set(newFiles.map(file => file.name));
+      const updatedFileList = this.value.filter(prevFile => !newFilesNames.has(prevFile.name));
       updatedFileList.push(...newFiles);
       this.$emit('change', updatedFileList);
     },
