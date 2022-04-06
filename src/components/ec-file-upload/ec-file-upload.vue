@@ -80,17 +80,9 @@ export default {
   },
   methods: {
     onChange(newFiles) {
-      let updatedFileList = [...this.value];
-
-      for (const newFile of newFiles) {
-        if (!this.value.some(prevFile => prevFile.name === newFile.name)) {
-          updatedFileList.push(newFile);
-        } else {
-          updatedFileList = updatedFileList.filter(prevFile => prevFile.name !== newFile.name);
-          updatedFileList.push(newFile);
-        }
-      }
-
+      const newFilesNames = newFiles.map(file => file.name);
+      const updatedFileList = this.value.filter(prevFile => !newFilesNames.includes(prevFile.name));
+      updatedFileList.push(...newFiles);
       this.$emit('change', updatedFileList);
     },
     onDelete(fileToDelete) {
