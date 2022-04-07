@@ -82,8 +82,7 @@ export default {
     onChange(newFiles) {
       const newFilesNames = new Set(newFiles.map(file => file.name));
       const updatedFileList = this.value.filter(prevFile => !newFilesNames.has(prevFile.name));
-      updatedFileList.push(...newFiles);
-      this.$emit('change', updatedFileList);
+      this.$emit('change', [...updatedFileList, ...newFiles]);
     },
     onDelete(fileToDelete) {
       this.$emit('change', this.value.filter(fileItem => fileItem !== fileToDelete));
