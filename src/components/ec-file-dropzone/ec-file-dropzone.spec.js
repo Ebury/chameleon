@@ -101,6 +101,14 @@ describe('EcFileDropzone', () => {
     expect(spy).toHaveBeenCalledTimes(4);
   });
 
+  describe(':props', () => {
+    it(':isDisabled - should render as disabled', () => {
+      const wrapper = mountFileDropzone({ isDisabled: true });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
   describe('@events', () => {
     const files = [
       { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
@@ -147,6 +155,22 @@ describe('EcFileDropzone', () => {
       expect(wrapper.emitted('change')).toBeUndefined();
 
       filesSpy.mockRestore();
+    });
+
+    it('@change - should not be emitted when is disabled', async () => {
+      const wrapper = mountFileDropzone({ isDisabled: true });
+
+      await wrapper.trigger('drop', { dataTransfer: { files: filesAndFolders } });
+      expect(wrapper.emitted('change')).toBeUndefined();
+    });
+
+    it('@change - should be emitted when is not disabled', async () => {
+      const wrapper = mountFileDropzone({ isDisabled: false });
+
+      await wrapper.trigger('drop', { dataTransfer: { files: filesAndFolders } });
+
+      expect(wrapper.emitted('change').length).toBe(1);
+      expect(wrapper.emitted('change')[0]).toEqual([files]);
     });
   });
 });

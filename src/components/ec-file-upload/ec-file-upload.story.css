@@ -1,0 +1,18 @@
+@import '../../styles/tools/typography.css';
+
+.file-upload-button {
+  @mixin ec-body-link;
+
+  @apply tw-border-none;
+  @apply tw-bg-transparent;
+  @apply tw-p-0;
+
+  &:disabled {
+    @apply tw-text-gray-6;
+    @apply tw-pointer-events-none;
+  }
+
+  &:hover {
+    @apply tw-cursor-pointer;
+  }
+}
