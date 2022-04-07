@@ -15,7 +15,7 @@ export const basic = () => ({
   },
   methods: {
     onChange(files) {
-      action('change');
+      action('change')(files);
       this.fileList = [...files];
     },
   },

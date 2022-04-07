@@ -1,11 +1,11 @@
 <template>
   <div
-    data-test="ec-file-list"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-file-list` : 'ec-file-list'"
     class="ec-file-list"
   >
     <div
       v-for="(item, index) in items"
-      :key="index"
+      :key="item.name"
       class="ec-file-list__item"
       :data-test="`ec-file-list__item ec-file-list__item--${index}`"
     >
