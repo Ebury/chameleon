@@ -1,20 +1,22 @@
 # Chameleon Components
 
-Chameleon components is Ebury's vue.js components library.
-The library is in its initial phase, more components are added regularly.
-
-You can check the current status of the library [here](https://docs.google.com/spreadsheets/d/101NhAtDJ_6YLybdmWnhTvfem9yCtCeHJK5LtCZcX6Rk/edit#gid=0).
+Chameleon Components is Ebury's vue.js 2.X components library.
+The library is being used for our Vue projects at Ebury, and more components are added regularly.
 
 Also, check out the latest version deployed in [Storybook](https://chameleon.ebury.now.sh/).
 
 1. [Vision](VISION.md)
-1. [Contributing](#markdown-header-contributing)
+1. [Contributing](#contributing)
 1. [Code Owners](CODEOWNERS)
-1. [Installation](#markdown-header-installation)
+1. [Installation](#installation)
+1. [Usage](#usage)
+1. [Theming](#theming)
+1. [I18n](#i18n)
+1. [References](#references)
 
 ## Installation
 
-If you want to contribute to the library then you must do the following to set up your local environment:
+If you'd like to contribute to the library then you must do the following to set up your local environment:
 
 1\. Clone chameleon-components repo
 
@@ -31,7 +33,7 @@ npm start
 ```
 
 That's it!
-By now you should be up and running. You can check the existing components or create new ones.
+By now, you should be up and running. You can check the existing components or create new ones.
 
 ## Contributing
 
@@ -43,7 +45,7 @@ See the [contributing](CONTRIBUTING.md) docs for more info on code style, format
 
 ### Install the library in your project
 
-Install @ebury/chameleon-components in your project with npm:
+Install `@ebury/chameleon-components` in your project with npm:
 
 ```sh
 npm install @ebury/chameleon-components --save
@@ -51,7 +53,7 @@ npm install @ebury/chameleon-components --save
 
 ### Import component/s
 
-All of our components are exported by name from @ebury/chameleon-components, so you can import them with:
+All of our components are exported by name from `@ebury/chameleon-components`, so you can import them with:
 
 ```js
 import { ComponentName } from '@ebury/chameleon-components';
@@ -62,7 +64,7 @@ import { ComponentName } from '@ebury/chameleon-components';
 The components can use a custom theme. There are four color palettes used by the CSS, two of them can be adjusted via
 CSS variables, e.g. the default blue color is defined as `--ec-key-color-level-4` and can be configured via `--ec-theme-key-color-level-4`.
 
-Checkout the list of possible variables in the [storybook colors story](https://chameleon.ebury.now.sh/?path=/story/css-colors-all).
+Check out the list of possible variables in the [storybook colors story](https://chameleon.ebury.now.sh/?path=/story/css-colors-all).
 
 A few examples of a theme can be found in the [src/styles/themes/](src/styles/themes/) folder.
 
