@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "clipboard-copy": "3.2.0",
-    "flatpickr": "4.6.11",
+    "flatpickr": "4.6.13",
     "focus-trap": "6.6.1",
     "mitt": "3.0.0",
     "svg-country-flags": "1.2.10",
