@@ -38,6 +38,7 @@ export { default as EcInlineActions } from './components/ec-inline-actions';
 export { default as EcInlineInputField } from './components/ec-inline-input-field';
 export { default as EcInputField } from './components/ec-input-field';
 export { default as EcLoading } from './components/ec-loading';
+export { default as EcLoadingIcon } from './components/ec-loading-icon';
 export { default as EcMainContainer } from './components/ec-main-container';
 export { default as EcMenu } from './components/ec-menu';
 export { default as EcMetroline } from './components/ec-metroline';
