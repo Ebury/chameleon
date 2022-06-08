@@ -115,4 +115,6 @@ If you need to support every single locale on the planet, we recommend to polyfi
 ### Dependencies
 
 
+[focus-trap](https://focus-trap.github.io/focus-trap/)
+
 [floating-vue](https://floating-vue.starpad.dev/)

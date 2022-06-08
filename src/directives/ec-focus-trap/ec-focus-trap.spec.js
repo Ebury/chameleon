@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+
 import EcFocusTrap from './ec-focus-trap';
 
 jest.mock('focus-trap', () => ({
@@ -12,10 +13,6 @@ jest.mock('focus-trap', () => ({
 const { createFocusTrap } = require('focus-trap');
 
 describe('EcFocusTrap', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   function mountTemplate(template, opts, mountOpts) {
     const Wrapper = {
       directives: { EcFocusTrap },
@@ -51,7 +48,7 @@ describe('EcFocusTrap', () => {
     expect(focusTrapInstance).not.toBeUndefined();
 
     expect(focusTrapInstance.deactivate).toHaveBeenCalledTimes(0);
-    wrapper.destroy();
+    wrapper.unmount();
     expect(focusTrapInstance.deactivate).toHaveBeenCalledTimes(1);
   });
 
