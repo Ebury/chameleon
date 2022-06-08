@@ -1,13 +1,11 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+
 import EcBtn from './ec-btn.vue';
 
 describe('EcBtn', () => {
   function mountBtn(props, mountOpts) {
-    const localVue = createLocalVue();
-
     return mount(EcBtn, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -62,9 +60,10 @@ describe('EcBtn', () => {
       const wrapper = mountBtn({
         to: 'trade-finance',
         tag: 'ebury',
-      },
-      {
-        stubs: ['ebury'],
+      }, {
+        global: {
+          stubs: ['ebury'],
+        },
       });
 
       expect(wrapper.element).toMatchSnapshot();
@@ -75,7 +74,7 @@ describe('EcBtn', () => {
         isDisabled: true,
       });
 
-      expect(wrapper.attributes('disabled')).toBe('disabled');
+      expect(wrapper.attributes('disabled')).toBe('');
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -149,7 +148,7 @@ describe('EcBtn', () => {
         isLoading: true,
       });
 
-      expect(wrapper.attributes('disabled')).toBe('disabled');
+      expect(wrapper.attributes('disabled')).toBe('');
       expect(wrapper.findByDataTest('ec-btn__loading-spinner').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -228,7 +227,7 @@ describe('EcBtn', () => {
         },
       );
 
-      expect(wrapper.attributes('disabled')).toBe('disabled');
+      expect(wrapper.attributes('disabled')).toBe('');
       expect(wrapper.findByDataTest('ec-btn__loading-text').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-btn__text').classes('ec-btn__text--is-loading')).toBe(true);
       expect(wrapper.findByDataTest('ec-btn__loading-spinner').exists()).toBe(true);
@@ -248,6 +247,34 @@ describe('EcBtn', () => {
       expect(wrapper.findByDataTest('ec-btn__text').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-btn__loading-text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  describe(':attrs', () => {
+    it('should pass custom attributes', () => {
+      const wrapper = mountBtn(
+        {
+          id: 'my-button',
+          'data-test': 'my-custom-button',
+        },
+      );
+
+      expect(wrapper.attributes('id')).toBe('my-button');
+      expect(wrapper.attributes('data-test')).toBe('my-custom-button ec-btn');
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should pass a custom event handler', () => {
+      const clickSpy = jest.fn();
+      const wrapper = mountBtn(
+        {
+          onClick: clickSpy,
+        },
+      );
+
+      wrapper.findByDataTest('ec-btn').trigger('click');
+      expect(clickSpy).toHaveBeenCalledTimes(1);
+      expect(wrapper.emitted('click').length).toBe(1);
     });
   });
 });

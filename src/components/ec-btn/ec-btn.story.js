@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions';
-import storyRouter from 'storybook-vue-router';
+import storyRouter from 'storybook-vue3-router';
+
 import EcBtn from './ec-btn.vue';
 
 export default {
@@ -26,15 +27,18 @@ export default {
   },
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = ({ text, ...args }) => ({
   components: { EcBtn },
-  props: Object.keys(argTypes),
-  methods: {
-    onClick: action('click'),
+  setup() {
+    return {
+      onClick: action('click'),
+      text,
+      args,
+    };
   },
   template: `
     <div class="tw-p-24 tw-text-center">
-      <ec-btn v-bind="$props" v-on="{ click: onClick }">{{ text }}</ec-btn>
+      <ec-btn v-bind="args" v-on="{ click: onClick }">{{ text }}</ec-btn>
     </div>
   `,
 });
@@ -51,18 +55,26 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = (args, { argTypes }) => ({
+export const all = ({
+  text,
+  loadingText,
+  ...args
+}) => ({
   components: { EcBtn },
-  props: Object.keys(argTypes),
-  methods: {
-    onClick: action('click'),
+  setup() {
+    return {
+      args,
+      text,
+      loadingText,
+      onClick: action('click'),
+    };
   },
   template: `
     <div class="tw-m-20">
       <h3>Button tag *</h3>
 
       <ec-btn
-        v-bind="{ ...$props, loadingText: null }"
+        v-bind="args"
         class="tw-mt-20"
         @click="onClick"
         >
@@ -73,39 +85,39 @@ export const all = (args, { argTypes }) => ({
       </ec-btn>
 
       <ec-btn
-        v-if="icon"
-        v-bind="{ ...$props, loadingText: null }"
+        v-if="args.icon"
+        v-bind="args"
         class="tw-ml-20 tw-mt-20"
         @click="onClick"
       />
 
       <h3 class="tw-mt-20">Router link</h3>
       <ec-btn
-        v-bind="{ ...$props, loadingText: null, to: '/my/url/' }"
+        v-bind="{ ...args, to: '/my/url/' }"
         class="tw-mt-20"
-        @click.native="onClick"
+        @click="onClick"
         >
           {{text}}
       </ec-btn>
 
       <ec-btn
-        v-if="icon"
-        v-bind="{ ...$props, loadingText: null, to: '/my/url/' }"
+        v-if="args.icon"
+        v-bind="{ ...args, to: '/my/url/' }"
         class="tw-ml-20 tw-mt-20"
-        @click.native="onClick"
+        @click="onClick"
       />
 
       <h3 class="tw-mt-20">Anchor link - a tag</h3>
 
       <ec-btn
-        v-bind="{ ...$props, loadingText: null, href: 'http://www.ebury.com' }"
+        v-bind="{ ...args, href: 'https://ebury.com' }"
         class="tw-mt-20"
         @click.prevent.stop="onClick"
         >{{text}}</ec-btn>
 
       <ec-btn
-        v-if="icon"
-        v-bind="{ ...$props, loadingText: null, href: 'http://www.ebury.com' }"
+        v-if="args.icon"
+        v-bind="{ ...args, href: 'https://ebury.com' }"
         class="tw-ml-20 tw-mt-20"
         @click.prevent.stop="onClick"
       />
