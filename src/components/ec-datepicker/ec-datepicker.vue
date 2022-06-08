@@ -23,8 +23,8 @@
 
 <script>
 import flatpickr from 'flatpickr';
-import { getUid } from '../../utils/uid';
 
+import { getUid } from '../../utils/uid';
 import EcInputField from '../ec-input-field';
 
 export default {
@@ -90,6 +90,7 @@ export default {
       type: [String, Object],
     },
   },
+  emits: ['ready', 'value-change', 'open', 'close', 'blur'],
   data() {
     return {
       uid: getUid(),
@@ -179,7 +180,7 @@ export default {
       this.flatpickrInstance.currentYearElement.dataset.test = 'ec-datepicker__calendar-year';
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     /* istanbul ignore next */
     if (this.flatpickrInstance) {
       this.flatpickrInstance.destroy();
@@ -189,6 +190,7 @@ export default {
     getListeners() {
       const listeners = { ...this.$listeners };
       delete listeners['value-change'];
+      delete listeners['modelCompat:value-change']; // remove after removing @vue/compat
       delete listeners.open;
       delete listeners.close;
       delete listeners.ready;

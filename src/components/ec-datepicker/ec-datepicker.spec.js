@@ -1,13 +1,11 @@
-import {
-  mount,
-  createWrapper,
-  createLocalVue,
-} from '@vue/test-utils';
 import fakeTimers from '@sinonjs/fake-timers';
+import { DOMWrapper, mount } from '@vue/test-utils';
 import flatpickr from 'flatpickr';
 import { Spanish } from 'flatpickr/dist/l10n/es';
-import EcDatepicker from './ec-datepicker.vue';
+import { defineComponent, ref } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcDatepicker from './ec-datepicker.vue';
 
 describe('Datepicker', () => {
   let clock;
@@ -35,30 +33,28 @@ describe('Datepicker', () => {
 
   function mountDatepicker(props, mountOpts) {
     const inputWrapper = mount(EcDatepicker, {
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
 
-    const calendarWrapper = createWrapper(document.body).findByDataTest('ec-datepicker__calendar');
+    const calendarWrapper = new DOMWrapper(document.body).findByDataTest('ec-datepicker__calendar');
 
     return { inputWrapper, calendarWrapper };
   }
 
   function mountDatepickerAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcDatepicker },
       template,
       ...wrapperComponentOpts,
     });
 
     const inputWrapper = mount(Component, {
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
 
-    const calendarWrapper = createWrapper(document.body).findByDataTest('ec-datepicker__calendar');
+    const calendarWrapper = new DOMWrapper(document.body).findByDataTest('ec-datepicker__calendar');
 
     return { inputWrapper, calendarWrapper };
   }
@@ -172,10 +168,10 @@ describe('Datepicker', () => {
       ['random', true],
     ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
       if (error) {
-        withMockedConsole((errorSpy) => {
+        withMockedConsole((errorSpy, warnSpy) => {
           mountDatepicker({ level: str });
-          expect(errorSpy).toHaveBeenCalledTimes(1);
-          expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+          expect(warnSpy).toHaveBeenCalledTimes(1);
+          expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
         });
       } else {
         const { calendarWrapper } = mountDatepicker({ level: str });
@@ -386,10 +382,9 @@ describe('Datepicker', () => {
         '<ec-datepicker v-model="model" />',
         {},
         {
-          data() {
-            return {
-              model: null,
-            };
+          setup() {
+            const model = ref(null);
+            return { model };
           },
         },
       );
