@@ -5,7 +5,7 @@ import { create } from '@storybook/theming/create';
 const theme = create({
   base: 'light',
   brandTitle: 'Chameleon components',
-  brandUrl: 'https://company-160717.frontify.com/document/271391',
+  brandUrl: 'https://labs.ebury.rocks/',
   brandImage: '/ebury-chameleon-logo.png',
 });
 
