@@ -5,8 +5,9 @@ exports[`EcMainContainer should not display the titleIntro when title is not giv
   class="ec-main-container"
   data-test="ec-main-container"
 >
-  <!---->
-   
+  <!--v-if-->
+  
+  
 </div>
 `;
 
@@ -21,15 +22,13 @@ exports[`EcMainContainer should render both titles when they are given in props 
     <div
       class="tw-col-full"
     >
-      <!---->
-       
+      <!--v-if-->
       <h1
         class="ec-main-container__title"
         data-test="ec-main-container__title"
       >
         Trade Finance
       </h1>
-       
       <p
         class="ec-main-container__title-intro"
         data-test="ec-main-container__title-intro"
@@ -37,10 +36,10 @@ exports[`EcMainContainer should render both titles when they are given in props 
         Here you will be able to keep track of all your requests to Ebury and of your credit line.
       </p>
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
+  
 </div>
 `;
 
@@ -49,8 +48,9 @@ exports[`EcMainContainer should render empty if no props were given 1`] = `
   class="ec-main-container"
   data-test="ec-main-container"
 >
-  <!---->
-   
+  <!--v-if-->
+  
+  
 </div>
 `;
 
@@ -65,21 +65,19 @@ exports[`EcMainContainer should render without title intro when the titleIntro p
     <div
       class="tw-col-full"
     >
-      <!---->
-       
+      <!--v-if-->
       <h1
         class="ec-main-container__title"
         data-test="ec-main-container__title"
       >
         Trade Finance
       </h1>
-       
-      <!---->
+      <!--v-if-->
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
+  
 </div>
 `;
 
@@ -94,15 +92,13 @@ exports[`EcMainContainer should use given slot 1`] = `
     <div
       class="tw-col-full"
     >
-      <!---->
-       
+      <!--v-if-->
       <h1
         class="ec-main-container__title"
         data-test="ec-main-container__title"
       >
         Trade Finance
       </h1>
-       
       <p
         class="ec-main-container__title-intro"
         data-test="ec-main-container__title-intro"
@@ -110,13 +106,13 @@ exports[`EcMainContainer should use given slot 1`] = `
         Here you will be able to keep track of all your requests to Ebury and of your credit line.
       </p>
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
   <p>
     Random text
   </p>
+  
 </div>
 `;
 
@@ -135,20 +131,20 @@ exports[`EcMainContainer should use the given named breadcrumbs slot 1`] = `
         class="ec-main-container__breadcrumbs"
         data-test="ec-main-container__breadcrumbs"
       >
+        
         <a
           href="#"
         >
           Breadcrumbs
         </a>
+        
       </div>
-       
       <h1
         class="ec-main-container__title"
         data-test="ec-main-container__title"
       >
         Trade Finance
       </h1>
-       
       <p
         class="ec-main-container__title-intro"
         data-test="ec-main-container__title-intro"
@@ -156,10 +152,10 @@ exports[`EcMainContainer should use the given named breadcrumbs slot 1`] = `
         Here you will be able to keep track of all your requests to Ebury and of your credit line.
       </p>
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
+  
 </div>
 `;
 
@@ -174,15 +170,13 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
     <div
       class="tw-col-full sm:tw-col-9"
     >
-      <!---->
-       
+      <!--v-if-->
       <h1
         class="ec-main-container__title"
         data-test="ec-main-container__title"
       >
         Trade Finance
       </h1>
-       
       <p
         class="ec-main-container__title-intro"
         data-test="ec-main-container__title-intro"
@@ -190,18 +184,20 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
         Here you will be able to keep track of all your requests to Ebury and of your credit line.
       </p>
     </div>
-     
     <div
       class="tw-col-full sm:tw-col-3"
       data-test="ec-main-container__cta"
     >
+      
       <button
         class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width"
       >
         Test cta
       </button>
+      
     </div>
   </div>
-   
+  
+  
 </div>
 `;

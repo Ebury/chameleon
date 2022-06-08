@@ -1,11 +1,12 @@
 import { mount } from '@vue/test-utils';
-import EcNavigation from './ec-navigation.vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcNavigation from './ec-navigation.vue';
 
 describe('EcNavigation', () => {
   function mountNavigation(opts, mountOpts) {
     return mount(EcNavigation, {
-      propsData: {
+      props: {
         isCollapsed: false,
         isCollapsable: false,
         branding: {},
@@ -16,13 +17,13 @@ describe('EcNavigation', () => {
   }
 
   it('should throw an error if required props are missing', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mount(EcNavigation);
 
-      expect(errorSpy).toHaveBeenCalledTimes(3);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "isCollapsed"');
-      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "isCollapsable"');
-      expect(errorSpy.mock.calls[2][0]).toContain('Missing required prop: "branding"');
+      expect(warnSpy).toHaveBeenCalledTimes(4);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "isCollapsed"');
+      expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "isCollapsable"');
+      expect(warnSpy.mock.calls[3][0]).toContain('Missing required prop: "branding"');
     });
   });
 

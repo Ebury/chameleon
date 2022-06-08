@@ -1,5 +1,7 @@
-import EcNavigation from './ec-navigation.vue';
+import { ref } from 'vue';
+
 import { fixedContainerDecorator } from '../../../.storybook/utils';
+import EcNavigation from './ec-navigation.vue';
 
 export default {
   title: 'Layout/Navigation',
@@ -9,21 +11,29 @@ export default {
   ],
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = ({
+  showCopyright,
+  isCollapsable,
+  isCollapsed,
+  ...args
+}) => ({
   components: { EcNavigation },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
     return {
-      styles: {
+      showCopyright,
+      isCollapsable,
+      isCollapsed,
+      args,
+      styles: ref({
         placeholder: {
           backgroundColor: 'hsla(var(--ec-gray-color-level-8), .1)',
         },
-      },
+      }),
     };
   },
   template: `
     <ec-navigation
-      v-bind="{ ...$props, showCopyright: null }"
+      v-bind="args"
       :is-collapsed="isCollapsable && isCollapsed"
     >
       <template #user-info>

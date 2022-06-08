@@ -45,6 +45,7 @@ export default {
       type: Boolean,
     },
   },
+  emits: ['toggle'],
   methods: {
     toggle() {
       this.$emit('toggle');

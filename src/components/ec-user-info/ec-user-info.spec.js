@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
-import EcUserInfo from './ec-user-info.vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcUserInfo from './ec-user-info.vue';
 
 const user = {
   name: 'Ebury Demo 2',
@@ -11,7 +12,7 @@ const user = {
 describe('EcUserInfo', () => {
   it('should render as expected', () => {
     const wrapper = mount(EcUserInfo, {
-      propsData: {
+      props: {
         user,
       },
     });
@@ -20,7 +21,7 @@ describe('EcUserInfo', () => {
 
   it('should render slot for client selector', () => {
     const wrapper = mount(EcUserInfo, {
-      propsData: {
+      props: {
         user,
       },
       slots: {
@@ -37,25 +38,25 @@ describe('EcUserInfo', () => {
 
   it('should emit a toggle event', async () => {
     const wrapper = mount(EcUserInfo, {
-      propsData: {
+      props: {
         user,
       },
     });
     await wrapper.findByDataTest('ec-user-info__avatar').trigger('click');
-    expect(wrapper.emitted('toggle')).toBeTruthy();
+    expect(wrapper.emitted('toggle').length).toBe(1);
   });
 
   it('should throw an error if no props were given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mount(EcUserInfo);
-      expect(errorSpy).toHaveBeenCalled();
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "user"');
+      expect(warnSpy).toHaveBeenCalled();
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "user"');
     });
   });
 
   it('should not show text when collapsed', () => {
     const wrapper = mount(EcUserInfo, {
-      propsData: {
+      props: {
         user,
         isCollapsed: true,
       },
@@ -65,7 +66,7 @@ describe('EcUserInfo', () => {
 
   it('should show text when not collapsed', () => {
     const wrapper = mount(EcUserInfo, {
-      propsData: {
+      props: {
         user,
         isCollapsed: false,
       },

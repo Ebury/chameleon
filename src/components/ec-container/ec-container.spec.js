@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+
 import EcContainer from './ec-container.vue';
 
 describe('EcContainer', () => {
@@ -10,7 +11,7 @@ describe('EcContainer', () => {
   });
 
   it('should make the navigation collapsable when isCollapsable is given', () => {
-    const wrapper = mount(EcContainer, { propsData: { isCollapsable: true } });
+    const wrapper = mount(EcContainer, { props: { isCollapsable: true } });
 
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.findByDataTest('ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(true);

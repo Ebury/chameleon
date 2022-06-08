@@ -1,20 +1,38 @@
-import storyRouter from 'storybook-vue-router';
+import { action } from '@storybook/addon-actions';
+import storyRouter from 'storybook-vue3-router';
+
 import EcMenu from './ec-menu.vue';
 
 export default {
   title: 'Layout/Menu',
   component: EcMenu,
-  decorators: [storyRouter()],
+  decorators: [storyRouter([
+    {
+      path: '/foo',
+      component: { template: '<div></div>' },
+    },
+    {
+      path: '/bar',
+      component: { template: '<div></div>' },
+    },
+  ], {
+    beforeEach(to, from, next) {
+      action('route changed')(to, from);
+      next();
+    },
+  })],
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = ({ width, ...args }) => ({
   components: { EcMenu },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args, width };
+  },
   template: `
     <div class="tw-my-0 tw-mx-auto" :style="{ maxWidth: width + 'px' }">
       <p>Current path: {{ $route.fullPath }}</p>
       <div class="tw-bg-key-2">
-        <ec-menu v-bind="{ ...$props, width: null }" />
+        <ec-menu v-bind="args" />
       </div>
     </div>
   `,

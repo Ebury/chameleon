@@ -1,31 +1,32 @@
 import { mount } from '@vue/test-utils';
-import EcNavigationLink from './ec-navigation-link.vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcNavigationLink from './ec-navigation-link.vue';
 
 describe('EcNavigationLink', () => {
   it('should throw an error if prop text was not given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mount(EcNavigationLink);
-      expect(errorSpy).toHaveBeenCalled();
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "text"');
+      expect(warnSpy).toHaveBeenCalledTimes(5);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "text"');
     });
   });
 
   it('should throw an error if prop url was not given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mount(EcNavigationLink, {
-        propsData: {
+        props: {
           text: 'Random text',
         },
       });
-      expect(errorSpy).toHaveBeenCalled();
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "url"');
+      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "url"');
     });
   });
 
   describe('as router-link', () => {
     function mountAsRouterLink(opts, mountOpts) {
-      const propsData = {
+      const props = {
         text: 'Link',
         iconName: 'single-check',
         url: '/balances',
@@ -34,7 +35,7 @@ describe('EcNavigationLink', () => {
       };
 
       return mount(EcNavigationLink, {
-        propsData,
+        props,
         ...mountOpts,
       });
     }
@@ -77,7 +78,7 @@ describe('EcNavigationLink', () => {
 
   describe('as regular anchor', () => {
     function mountAsAnchor(opts, mountOpts) {
-      const propsData = {
+      const props = {
         text: 'Link',
         iconName: 'single-check',
         url: '/balances',
@@ -86,7 +87,7 @@ describe('EcNavigationLink', () => {
       };
 
       return mount(EcNavigationLink, {
-        propsData,
+        props,
         ...mountOpts,
       });
     }
@@ -129,7 +130,7 @@ describe('EcNavigationLink', () => {
     it('should pass listeners from parent to the root', () => {
       const clickSpy = jest.fn();
       const wrapper = mountAsAnchor({}, {
-        listeners: { click: clickSpy },
+        attrs: { onClick: clickSpy },
       });
 
       wrapper.trigger('click');

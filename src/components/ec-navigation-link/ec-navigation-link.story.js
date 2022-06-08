@@ -1,6 +1,7 @@
-import storyRouter from 'storybook-vue-router';
-import EcNavigationLink from './ec-navigation-link.vue';
+import storyRouter from 'storybook-vue3-router';
+
 import { DARK_THEME } from '../../../.storybook/backgrounds';
+import EcNavigationLink from './ec-navigation-link.vue';
 
 export default {
   title: 'Layout/Navigation Link',
@@ -10,11 +11,13 @@ export default {
   ],
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = ({ ...args }) => ({
   components: { EcNavigationLink },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args };
+  },
   template: `
-    <ec-navigation-link v-bind="$props" />
+    <ec-navigation-link v-bind="args" />
   `,
 });
 

@@ -12,11 +12,12 @@ exports[`EcPrivacyPolicy should display only with a title and the buttonText giv
     >
       Random Title
     </div>
-     
     <div
       class="ec-privacy-policy__item"
-    />
-     
+    >
+      
+      
+    </div>
     <div
       class="ec-privacy-policy__item"
     >
@@ -43,15 +44,15 @@ exports[`EcPrivacyPolicy should render with the slot given 1`] = `
     >
       Random Title
     </div>
-     
     <div
       class="ec-privacy-policy__item"
     >
+      
       <div>
         Slot default
       </div>
+      
     </div>
-     
     <div
       class="ec-privacy-policy__item"
     >

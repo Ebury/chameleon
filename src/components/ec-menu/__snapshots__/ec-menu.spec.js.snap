@@ -5,17 +5,19 @@ exports[`EcMenu should attach custom listeners passed in the link definition 1`]
   class="ec-menu"
   data-test="ec-menu"
 >
+  
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-collapsed"
+      class="ec-navigation-link ec-navigation-link--is-collapsed ec-menu__link"
       data-test="ec-menu__link foo"
+      datatest="foo"
       href="/foo"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -24,10 +26,7 @@ exports[`EcMenu should attach custom listeners passed in the link definition 1`]
           xlink:href="#ec-foo-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -38,6 +37,7 @@ exports[`EcMenu should attach custom listeners passed in the link definition 1`]
       </transition-stub>
     </a>
   </li>
+  
 </ul>
 `;
 
@@ -46,6 +46,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
   class="ec-menu"
   data-test="ec-menu"
 >
+  
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
@@ -53,10 +54,11 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
     <a
       class="ec-navigation-link ec-menu__link"
       data-test="ec-menu__link foo"
+      datatest="foo"
       href="/foo"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -65,10 +67,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
           xlink:href="#ec-foo-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -88,7 +87,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
       href="/bat"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -97,10 +96,7 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
           xlink:href="#ec-baz-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -110,31 +106,34 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
       </transition-stub>
     </a>
   </li>
+  
 </ul>
 `;
 
-exports[`EcMenu should not render if links are not supplied 1`] = `<!---->`;
+exports[`EcMenu should not render if links are not supplied 1`] = `<!--v-if-->`;
 
-exports[`EcMenu should not render if links are null 1`] = `<!---->`;
+exports[`EcMenu should not render if links are null 1`] = `<!--v-if-->`;
 
-exports[`EcMenu should not render if links is an empty array 1`] = `<!---->`;
+exports[`EcMenu should not render if links is an empty array 1`] = `<!--v-if-->`;
 
 exports[`EcMenu should render all items as compact when is horizontal 1`] = `
 <ul
   class="ec-menu ec-menu--horizontal"
   data-test="ec-menu"
 >
+  
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
+      class="ec-navigation-link ec-navigation-link--is-compact ec-menu__link"
       data-test="ec-menu__link foo"
+      datatest="foo"
       href="/foo"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -143,10 +142,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
           xlink:href="#ec-foo-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -161,12 +157,12 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
+      class="ec-navigation-link ec-navigation-link--is-compact ec-menu__link"
       data-test="ec-menu__link"
       href="/bat"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -175,10 +171,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
           xlink:href="#ec-baz-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -188,6 +181,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
       </transition-stub>
     </a>
   </li>
+  
 </ul>
 `;
 
@@ -196,17 +190,19 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
   class="ec-menu"
   data-test="ec-menu"
 >
+  
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-collapsed"
+      class="ec-navigation-link ec-navigation-link--is-collapsed ec-menu__link"
       data-test="ec-menu__link foo"
+      datatest="foo"
       href="/foo"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -215,10 +211,7 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
           xlink:href="#ec-foo-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -234,12 +227,12 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-collapsed"
+      class="ec-navigation-link ec-navigation-link--is-collapsed ec-menu__link"
       data-test="ec-menu__link"
       href="/bat"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -248,10 +241,7 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
           xlink:href="#ec-baz-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -262,6 +252,7 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
       </transition-stub>
     </a>
   </li>
+  
 </ul>
 `;
 
@@ -270,6 +261,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
   class="ec-menu"
   data-test="ec-menu"
 >
+  
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
@@ -277,10 +269,11 @@ exports[`EcMenu should render as expanded by default 1`] = `
     <a
       class="ec-navigation-link ec-menu__link"
       data-test="ec-menu__link foo"
+      datatest="foo"
       href="/foo"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -289,10 +282,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
           xlink:href="#ec-foo-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -312,7 +302,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
       href="/bat"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -321,10 +311,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
           xlink:href="#ec-baz-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -334,6 +321,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
       </transition-stub>
     </a>
   </li>
+  
 </ul>
 `;
 
@@ -342,17 +330,19 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
   class="ec-menu ec-menu--horizontal"
   data-test="ec-menu"
 >
+  
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link ec-navigation-link--is-compact"
+      class="ec-navigation-link ec-navigation-link--is-compact ec-menu__link"
       data-test="ec-menu__link foo"
+      datatest="foo"
       href="/foo"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -361,10 +351,7 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
           xlink:href="#ec-foo-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -374,6 +361,7 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
       </transition-stub>
     </a>
   </li>
+  
 </ul>
 `;
 
@@ -382,6 +370,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
   class="ec-menu"
   data-test="ec-menu"
 >
+  
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
@@ -389,10 +378,11 @@ exports[`EcMenu should render only links with a url property 1`] = `
     <a
       class="ec-navigation-link ec-menu__link"
       data-test="ec-menu__link foo"
+      datatest="foo"
       href="/foo"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -401,10 +391,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
           xlink:href="#ec-foo-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -424,7 +411,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
       href="/bat"
     >
       <svg
-        class="ec-navigation-link__icon ec-icon"
+        class="ec-icon ec-navigation-link__icon"
         data-test="ec-navigation-link__icon"
         height="24"
         width="24"
@@ -433,10 +420,7 @@ exports[`EcMenu should render only links with a url property 1`] = `
           xlink:href="#ec-baz-icon"
         />
       </svg>
-       
-      <transition-stub
-        name="ec-navigation-link__text-fade"
-      >
+      <transition-stub>
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -446,5 +430,6 @@ exports[`EcMenu should render only links with a url property 1`] = `
       </transition-stub>
     </a>
   </li>
+  
 </ul>
 `;

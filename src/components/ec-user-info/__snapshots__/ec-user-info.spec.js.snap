@@ -11,11 +11,8 @@ exports[`EcUserInfo should not show text when collapsed 1`] = `
     data-test="ec-user-info__avatar"
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
-   
-  <transition-stub
-    name="ec-user-info__client-fade"
-  >
-    <!---->
+  <transition-stub>
+    <!--v-if-->
   </transition-stub>
 </div>
 `;
@@ -31,10 +28,7 @@ exports[`EcUserInfo should render as expected 1`] = `
     data-test="ec-user-info__avatar"
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
-   
-  <transition-stub
-    name="ec-user-info__client-fade"
-  >
+  <transition-stub>
     <div
       class="ec-user-info__client-wrapper"
     >
@@ -45,7 +39,8 @@ exports[`EcUserInfo should render as expected 1`] = `
       >
         Ebury Demo 2
       </a>
-       
+      
+      
     </div>
   </transition-stub>
 </div>
@@ -62,10 +57,7 @@ exports[`EcUserInfo should render slot for client selector 1`] = `
     data-test="ec-user-info__avatar"
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
-   
-  <transition-stub
-    name="ec-user-info__client-fade"
-  >
+  <transition-stub>
     <div
       class="ec-user-info__client-wrapper"
     >
@@ -76,20 +68,20 @@ exports[`EcUserInfo should render slot for client selector 1`] = `
       >
         Ebury Demo 2
       </a>
-       
+      
       <select>
         <option
           value="ebury"
         >
           Ebury
         </option>
-         
         <option
           value="eburydemo2"
         >
           EburyDemo2
         </option>
       </select>
+      
     </div>
   </transition-stub>
 </div>
@@ -106,10 +98,7 @@ exports[`EcUserInfo should show text when not collapsed 1`] = `
     data-test="ec-user-info__avatar"
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
-   
-  <transition-stub
-    name="ec-user-info__client-fade"
-  >
+  <transition-stub>
     <div
       class="ec-user-info__client-wrapper"
     >
@@ -120,7 +109,8 @@ exports[`EcUserInfo should show text when not collapsed 1`] = `
       >
         Ebury Demo 2
       </a>
-       
+      
+      
     </div>
   </transition-stub>
 </div>

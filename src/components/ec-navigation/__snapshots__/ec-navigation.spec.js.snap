@@ -5,20 +5,18 @@ exports[`EcNavigation should be collapsable when isCollapsable is set 1`] = `
   class="ec-navigation ec-navigation--is-collapsable"
   data-test="ec-navigation"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
-  />
-   
-  <!---->
-   
-  <!---->
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -27,20 +25,18 @@ exports[`EcNavigation should be collapsed when isCollapsed is set to true 1`] = 
   class="ec-navigation ec-navigation--is-collapsed"
   data-test="ec-navigation"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
-  />
-   
-  <!---->
-   
-  <!---->
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -49,20 +45,18 @@ exports[`EcNavigation should be expanded when isCollapsed is set to false 1`] = 
   class="ec-navigation"
   data-test="ec-navigation"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
-  />
-   
-  <!---->
-   
-  <!---->
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -71,20 +65,18 @@ exports[`EcNavigation should not render branding if logo is given in branding ob
   class="ec-navigation"
   data-test="ec-navigation"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
-  />
-   
-  <!---->
-   
-  <!---->
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -93,20 +85,18 @@ exports[`EcNavigation should not render branding if no logo is given in branding
   class="ec-navigation"
   data-test="ec-navigation"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
-  />
-   
-  <!---->
-   
-  <!---->
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -115,20 +105,18 @@ exports[`EcNavigation should only render mandatory slot if no other slots were g
   class="ec-navigation"
   data-test="ec-navigation"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
-  />
-   
-  <!---->
-   
-  <!---->
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -137,51 +125,56 @@ exports[`EcNavigation should render all given slots 1`] = `
   class="ec-navigation"
   data-test="ec-navigation"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__user-info"
     data-test="ec-navigation__block ec-navigation__user-info"
   >
+    
     <div>
       User Info
     </div>
+    
   </div>
-   
   <div
     class="ec-navigation__block ec-navigation__call-to-action"
     data-test="ec-navigation__block ec-navigation__call-to-action"
   >
+    
     <div>
       CTA
     </div>
+    
   </div>
-   
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
   >
+    
     <div>
       Menu
     </div>
+    
   </div>
-   
   <div
     class="ec-navigation__block ec-navigation__footer-menu"
     data-test="ec-navigation__block ec-navigation__footer-menu"
   >
+    
     <div>
       Footer Menu
     </div>
+    
   </div>
-   
   <div
     class="ec-navigation__block ec-navigation__copyright"
     data-test="ec-navigation__block ec-navigation__copyright"
   >
+    
     <div>
       Copyright
     </div>
+    
   </div>
 </div>
 `;
@@ -202,19 +195,17 @@ exports[`EcNavigation should render branding logo and name when given 1`] = `
       src="/img/my.png"
     />
   </div>
-   
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
-  />
-   
-  <!---->
-   
-  <!---->
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
