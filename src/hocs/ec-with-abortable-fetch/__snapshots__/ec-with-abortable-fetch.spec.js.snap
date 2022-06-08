@@ -351,69 +351,6 @@ Array [
 ]
 `;
 
-exports[`EcWithAbortableFetch should throw an error if dataSource prop is missing 1`] = `
-[MockFunction] {
-  "calls": Array [
-    Array [
-      "[Vue warn]: Missing required prop: \\"dataSource\\"
-
-found in
-
----> <EcWithAbortableFetch>
-       <Root>",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "type": "return",
-      "value": undefined,
-    },
-  ],
-}
-`;
-
-exports[`EcWithAbortableFetch should throw an error if dataSource.fetch function is missing 1`] = `
-[MockFunction] {
-  "calls": Array [
-    Array [
-      "[Vue warn]: Invalid prop: custom validator check failed for prop \\"dataSource\\".
-
-found in
-
----> <EcWithAbortableFetch>
-       <Root>",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "type": "return",
-      "value": undefined,
-    },
-  ],
-}
-`;
-
-exports[`EcWithAbortableFetch should throw an error if dataSource.fetch is not a function 1`] = `
-[MockFunction] {
-  "calls": Array [
-    Array [
-      "[Vue warn]: Invalid prop: custom validator check failed for prop \\"dataSource\\".
-
-found in
-
----> <EcWithAbortableFetch>
-       <Root>",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "type": "return",
-      "value": undefined,
-    },
-  ],
-}
-`;
-
 exports[`EcWithAbortableFetch should transform props using given data transform function and pass them to given custom data prop: after fetch 1`] = `
 Object {
   "dataCustom": Object {

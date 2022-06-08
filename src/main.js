@@ -61,5 +61,6 @@ export { default as ecWithFilters } from './hocs/ec-with-filters';
 export { default as ecWithLoading } from './hocs/ec-with-loading';
 export { default as ecWithPagination } from './hocs/ec-with-pagination';
 export { default as ecWithSorting } from './hocs/ec-with-sorting';
+export { createHOC, createHOCc } from './hocs/hoc';
 export { default as Countdown } from './utils/countdown';
 export { default as flatpickr } from 'flatpickr';

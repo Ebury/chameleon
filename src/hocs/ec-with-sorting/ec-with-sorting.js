@@ -1,7 +1,6 @@
-import { createHOCc } from 'vue-hoc';
-
 import * as SortDirection from '../../enums/sort-direction';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
+import { createHOCc } from '../hoc';
 
 const withSorting = createHOCc({
   name: 'EcWithSorting',
@@ -65,6 +64,7 @@ const withSorting = createHOCc({
       ...props,
       sorts: this.internalSorts,
       sortCycle: null,
+      multiSort: null,
     };
   },
   listeners: {

@@ -42,8 +42,7 @@
     "mitt": "3.0.0",
     "svg-country-flags": "1.2.10",
     "tailwindcss": "2.2.19",
-    "vue": "3.2.37",
-    "vue-hoc": "0.4.7"
+    "vue": "3.2.37"
   },
   "devDependencies": {
     "@babel/core": "7.18.2",

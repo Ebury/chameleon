@@ -1,24 +1,23 @@
-import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
 import withPagination from './ec-with-pagination';
 
 describe('EcWithPagination', () => {
   function mountEcWithPagination(props, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       props: ['page', 'numberOfItems'],
-      render(h) {
+      render() {
         return h('div', {}, `Page: ${this.page}, # items: ${this.numberOfItems}`);
       },
     });
 
     const hocWrapper = mount(withPagination(Component), {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
 
-    const componentWrapper = createWrapper(hocWrapper.vm.$children[0].$vnode);
+    const componentWrapper = hocWrapper.findComponent(Component);
 
     return { hocWrapper, componentWrapper };
   }

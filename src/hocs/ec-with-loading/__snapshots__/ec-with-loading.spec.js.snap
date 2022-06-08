@@ -2,231 +2,245 @@
 
 exports[`EcWithLoading :props should hide loading when isLoading prop is set to false 1`] = `
 <div
-  class="ec-loading"
-  data-test="ec-loading"
+  data-v-app=""
 >
-  <!---->
-   
   <div
-    class="ec-loading__content ec-loading__content--is-transparent"
-    data-test="ec-loading__content"
+    class="ec-loading"
+    data-test="ec-loading"
   >
+    <!--v-if-->
     <div
-      data-custom="1"
-    />
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div
+        data-custom="1"
+      />
+      
+    </div>
   </div>
 </div>
 `;
 
 exports[`EcWithLoading :props should not render transparent when isLoadingTransparent is set to false 1`] = `
 <div
-  class="ec-loading"
-  data-test="ec-loading"
+  data-v-app=""
 >
   <div
-    class="ec-loading__backdrop"
-    data-test="ec-loading__backdrop"
-  >
-    <svg
-      class="ec-loading__icon ec-icon"
-      data-test="ec-loading__icon"
-      height="48"
-      width="48"
-    >
-      <use
-        xlink:href="#ec-simple-loading"
-      />
-    </svg>
-  </div>
-   
-  <div
-    class="ec-loading__content"
-    data-test="ec-loading__content"
+    class="ec-loading"
+    data-test="ec-loading"
   >
     <div
-      data-custom="1"
-    />
+      class="ec-loading__backdrop"
+      data-test="ec-loading__backdrop"
+    >
+      <svg
+        class="ec-icon ec-loading__icon"
+        data-test="ec-loading__icon"
+        height="48"
+        width="48"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+    <div
+      class="ec-loading__content"
+      data-test="ec-loading__content"
+    >
+      
+      <div
+        data-custom="1"
+      />
+      
+    </div>
   </div>
 </div>
 `;
 
 exports[`EcWithLoading :props should pass rest of the props to the wrapped component 1`] = `
 <div
-  class="ec-loading"
-  data-test="ec-loading"
+  data-v-app=""
 >
   <div
-    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-    data-test="ec-loading__backdrop"
-  >
-    <svg
-      class="ec-loading__icon ec-icon"
-      data-test="ec-loading__icon"
-      height="48"
-      width="48"
-    >
-      <use
-        xlink:href="#ec-simple-loading"
-      />
-    </svg>
-  </div>
-   
-  <div
-    class="ec-loading__content ec-loading__content--is-transparent"
-    data-test="ec-loading__content"
+    class="ec-loading"
+    data-test="ec-loading"
   >
     <div
-      data-custom="2"
-    />
+      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+      data-test="ec-loading__backdrop"
+    >
+      <svg
+        class="ec-icon ec-loading__icon"
+        data-test="ec-loading__icon"
+        height="48"
+        width="48"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div
+        data-custom="2"
+      />
+      
+    </div>
   </div>
 </div>
 `;
 
 exports[`EcWithLoading :props should render transparent by default 1`] = `
 <div
-  class="ec-loading"
-  data-test="ec-loading"
+  data-v-app=""
 >
   <div
-    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-    data-test="ec-loading__backdrop"
-  >
-    <svg
-      class="ec-loading__icon ec-icon"
-      data-test="ec-loading__icon"
-      height="48"
-      width="48"
-    >
-      <use
-        xlink:href="#ec-simple-loading"
-      />
-    </svg>
-  </div>
-   
-  <div
-    class="ec-loading__content ec-loading__content--is-transparent"
-    data-test="ec-loading__content"
+    class="ec-loading"
+    data-test="ec-loading"
   >
     <div
-      data-custom="1"
-    />
+      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+      data-test="ec-loading__backdrop"
+    >
+      <svg
+        class="ec-icon ec-loading__icon"
+        data-test="ec-loading__icon"
+        height="48"
+        width="48"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div
+        data-custom="1"
+      />
+      
+    </div>
   </div>
 </div>
 `;
 
 exports[`EcWithLoading :props should render transparent when isLoadingTransparent is set to true 1`] = `
 <div
-  class="ec-loading"
-  data-test="ec-loading"
+  data-v-app=""
 >
   <div
-    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-    data-test="ec-loading__backdrop"
-  >
-    <svg
-      class="ec-loading__icon ec-icon"
-      data-test="ec-loading__icon"
-      height="48"
-      width="48"
-    >
-      <use
-        xlink:href="#ec-simple-loading"
-      />
-    </svg>
-  </div>
-   
-  <div
-    class="ec-loading__content ec-loading__content--is-transparent"
-    data-test="ec-loading__content"
+    class="ec-loading"
+    data-test="ec-loading"
   >
     <div
-      data-custom="1"
-    />
+      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+      data-test="ec-loading__backdrop"
+    >
+      <svg
+        class="ec-icon ec-loading__icon"
+        data-test="ec-loading__icon"
+        height="48"
+        width="48"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div
+        data-custom="1"
+      />
+      
+    </div>
   </div>
 </div>
 `;
 
 exports[`EcWithLoading :props should show loading when isLoading prop is set to true 1`] = `
 <div
-  class="ec-loading"
-  data-test="ec-loading"
+  data-v-app=""
 >
   <div
-    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-    data-test="ec-loading__backdrop"
-  >
-    <svg
-      class="ec-loading__icon ec-icon"
-      data-test="ec-loading__icon"
-      height="48"
-      width="48"
-    >
-      <use
-        xlink:href="#ec-simple-loading"
-      />
-    </svg>
-  </div>
-   
-  <div
-    class="ec-loading__content ec-loading__content--is-transparent"
-    data-test="ec-loading__content"
+    class="ec-loading"
+    data-test="ec-loading"
   >
     <div
-      data-custom="1"
-    />
+      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+      data-test="ec-loading__backdrop"
+    >
+      <svg
+        class="ec-icon ec-loading__icon"
+        data-test="ec-loading__icon"
+        height="48"
+        width="48"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div
+        data-custom="1"
+      />
+      
+    </div>
   </div>
 </div>
 `;
 
-exports[`EcWithLoading :props should throw an error when isLoading prop is not set 1`] = `
-[MockFunction] {
-  "calls": Array [
-    Array [
-      "[Vue warn]: Invalid prop: type check failed for prop \\"show\\". Expected Boolean, got Undefined 
-
-found in
-
----> <EcLoading>
-       <Root>",
-    ],
-  ],
-  "results": Array [
-    Object {
-      "type": "return",
-      "value": undefined,
-    },
-  ],
-}
-`;
-
 exports[`EcWithLoading :props should use iconSize prop 1`] = `
 <div
-  class="ec-loading"
-  data-test="ec-loading"
+  data-v-app=""
 >
   <div
-    class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
-    data-test="ec-loading__backdrop"
-  >
-    <svg
-      class="ec-loading__icon ec-icon"
-      data-test="ec-loading__icon"
-      height="64"
-      width="64"
-    >
-      <use
-        xlink:href="#ec-simple-loading"
-      />
-    </svg>
-  </div>
-   
-  <div
-    class="ec-loading__content ec-loading__content--is-transparent"
-    data-test="ec-loading__content"
+    class="ec-loading"
+    data-test="ec-loading"
   >
     <div
-      data-custom="1"
-    />
+      class="ec-loading__backdrop ec-loading__backdrop--is-transparent"
+      data-test="ec-loading__backdrop"
+    >
+      <svg
+        class="ec-icon ec-loading__icon"
+        data-test="ec-loading__icon"
+        height="64"
+        width="64"
+      >
+        <use
+          xlink:href="#ec-simple-loading"
+        />
+      </svg>
+    </div>
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div
+        data-custom="1"
+      />
+      
+    </div>
   </div>
 </div>
 `;

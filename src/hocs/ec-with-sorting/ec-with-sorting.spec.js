@@ -1,32 +1,31 @@
-import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
+import { withMockedConsole } from '../../../tests/utils/console';
 import * as SortDirection from '../../enums/sort-direction';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 import withSorting from './ec-with-sorting';
-import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcWithSorting', () => {
   function mountEcWithSorting(props, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       props: {
         sorts: {
           type: Array,
           default: () => [],
         },
       },
-      render(h) {
+      render() {
         return h('div');
       },
     });
 
     const hocWrapper = mount(withSorting(Component), {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
 
-    const componentWrapper = createWrapper(hocWrapper.vm.$children[0].$vnode);
+    const componentWrapper = hocWrapper.findComponent(Component);
 
     return { hocWrapper, componentWrapper };
   }
@@ -37,9 +36,10 @@ describe('EcWithSorting', () => {
   });
 
   it('should throw an error if sort direction cycle is not valid', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcWithSorting({ sortCycle: ['HI', 'LO'] });
-      expect(errorSpy).toMatchSnapshot();
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "sortCycle".');
     });
   });
 

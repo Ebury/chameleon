@@ -1,27 +1,29 @@
-import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
 import withFilters from './ec-with-filters';
 
 describe('EcWithFilters', () => {
   function mountEcWithFilters(filters, props, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
+      compatConfig: {
+        MODE: 2,
+      },
       props: ['filters'],
       render() {
-        return (<div>
-          <span># of filters: { this.filters.length }</span>
-          {this.filters.map(filter => <span>{filter.name}</span>)}
-        </div>);
+        return h('div', {}, [
+          h('span', `# of filters: ${this.$props.filters.length}`),
+          ...this.$props.filters.map(filter => h('span', filter.name)),
+        ]);
       },
     });
 
     const hocWrapper = mount(withFilters(Component, filters), {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
 
-    const componentWrapper = createWrapper(hocWrapper.vm.$children[0].$vnode);
+    const componentWrapper = hocWrapper.findComponent(Component);
 
     return { hocWrapper, componentWrapper };
   }

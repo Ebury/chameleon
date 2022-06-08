@@ -1,24 +1,23 @@
-import { mount, createLocalVue, createWrapper } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
 import withFiltering from './ec-with-filtering';
 
 describe('EcWithFiltering', () => {
   function mountEcWithFiltering(props, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       props: ['filter'],
-      render(h) {
+      render() {
         return h('div', {}, `Filter: ${JSON.stringify(this.filter)}`);
       },
     });
 
     const hocWrapper = mount(withFiltering(Component), {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
 
-    const componentWrapper = createWrapper(hocWrapper.vm.$children[0].$vnode);
+    const componentWrapper = hocWrapper.findComponent(Component);
 
     return { hocWrapper, componentWrapper };
   }

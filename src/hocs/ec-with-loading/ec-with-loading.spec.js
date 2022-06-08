@@ -1,26 +1,25 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import withLoading from './ec-with-loading';
+import { mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import withLoading from './ec-with-loading';
 
 describe('EcWithLoading', () => {
   function mountEcWithLoading(props, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       props: {
         customProp: {
           type: Number,
           default: 1,
         },
       },
-      render(h) {
-        return h('div', { attrs: { 'data-custom': this.customProp } });
+      render() {
+        return h('div', { 'data-custom': this.customProp });
       },
     });
 
     const hocWrapper = mount(withLoading(Component), {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
 
@@ -29,9 +28,10 @@ describe('EcWithLoading', () => {
 
   describe(':props', () => {
     it('should throw an error when isLoading prop is not set', () => {
-      withMockedConsole((errorSpy) => {
+      withMockedConsole((errorSpy, warnSpy) => {
         mountEcWithLoading();
-        expect(errorSpy).toMatchSnapshot();
+        expect(warnSpy).toHaveBeenCalledTimes(4);
+        expect(warnSpy.mock.calls[2][0]).toContain('Invalid prop: type check failed for prop "show"');
       });
     });
 
