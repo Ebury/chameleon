@@ -1,6 +1,6 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
-const RouterViewStub = Vue.extend({
+const RouterViewStub = defineComponent({
   name: 'RouterViewStub',
   inheritAttrs: false,
   template: `
