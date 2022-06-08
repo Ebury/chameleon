@@ -1,5 +1,8 @@
 import { action } from '@storybook/addon-actions';
+import { reactive } from 'vue';
+
 import EcAlert from './ec-alert.vue';
+
 import './ec-alert.story.css';
 
 export default {
@@ -13,26 +16,18 @@ export default {
   },
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcAlert },
-  props: Object.keys(argTypes),
-  data() {
-    return { model: true };
-  },
-  watch: {
-    open: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  methods: {
-    onAction: action('action'),
-    onChange: action('change'),
+  setup() {
+    return {
+      args,
+      onAction: action('action'),
+      onChange: action('change'),
+    };
   },
   template: `
     <ec-alert
-      v-bind="$props"
-      v-model="model"
+      v-bind="args"
       v-on="{
         action: onAction,
         change: onChange,
@@ -52,16 +47,18 @@ basic.args = {
   open: true,
 };
 
-export const responsive = (args, { argTypes }) => ({
+export const responsive = args => ({
   components: { EcAlert },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args };
+  },
   template: `
     <div>
-      <ec-alert v-bind="$props" />
+      <ec-alert v-bind="args" />
 
       <ec-alert
         class="my-alert tw-mt-16"
-        v-bind="$props"
+        v-bind="args"
         subtitle="This alert has custom breakpoint at 640px, so it doesn't break the same way as the alert above with default breakpoint"
         :responsive="false" />
     </div>
@@ -73,102 +70,105 @@ responsive.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = (args, { argTypes }) => ({
+export const all = args => ({
   components: { EcAlert },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
+    const alerts = reactive([
+      {
+        title: 'Simple Alert',
+        data: [
+          { title: 'Info Alert', type: 'info' },
+          { title: 'Success Alert', type: 'success' },
+          { title: 'Warning Alert', type: 'warning' },
+          { title: 'Error Alert', type: 'error' },
+        ],
+      },
+      {
+        title: 'Dismissable Alert',
+        data: [
+          {
+            title: 'Info Alert', type: 'info', dismissable: true, model: true,
+          },
+          {
+            title: 'Success Alert', type: 'success', dismissable: true, model: true,
+          },
+          {
+            title: 'Warning Alert', type: 'warning', dismissable: true, model: true,
+          },
+          {
+            title: 'Error Alert', type: 'error', dismissable: true, model: true,
+          },
+        ],
+      },
+      {
+        title: 'Button Alert',
+        data: [
+          { title: 'Info Alert', type: 'info', 'button-text': 'Click here' },
+          { title: 'Success Alert', type: 'success', 'button-text': 'Click here' },
+          { title: 'Warning Alert', type: 'warning', 'button-text': 'Click here' },
+          { title: 'Error Alert', type: 'error', 'button-text': 'Click here' },
+        ],
+      },
+      {
+        title: 'Subtitle Alert',
+        data: [
+          { title: 'Info Alert', type: 'info', subtitle: 'subtitle' },
+          { title: 'Success Alert', type: 'success', subtitle: 'subtitle' },
+          { title: 'Warning Alert', type: 'warning', subtitle: 'subtitle' },
+          { title: 'Error Alert', type: 'error', subtitle: 'subtitle' },
+        ],
+      },
+      {
+        title: 'Custom, default and CTA Slot Alert',
+        data: [
+          {
+            title: 'Info Alert', type: 'info', custom: true, subtitle: 'subtitle',
+          },
+          {
+            title: 'Success Alert', type: 'success', custom: true, subtitle: 'subtitle',
+          },
+          {
+            title: 'Warning Alert', type: 'warning', custom: true, subtitle: 'subtitle',
+          },
+          {
+            title: 'Error Alert', type: 'error', custom: true, subtitle: 'subtitle',
+          },
+        ],
+      },
+      {
+        title: 'Complete Alert',
+        data: [
+          {
+            title: 'Info Alert', type: 'info', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+          },
+          {
+            title: 'Success Alert', type: 'success', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+          },
+          {
+            title: 'Warning Alert', type: 'warning', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+          },
+          {
+            title: 'Error Alert', type: 'error', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+          },
+        ],
+      },
+    ]);
+
     return {
-      alerts: [
-        {
-          title: 'Simple Alert',
-          data: [
-            { title: 'Info Alert', type: 'info' },
-            { title: 'Success Alert', type: 'success' },
-            { title: 'Warning Alert', type: 'warning' },
-            { title: 'Error Alert', type: 'error' },
-          ],
-        },
-        {
-          title: 'Dismissable Alert',
-          data: [
-            {
-              title: 'Info Alert', type: 'info', dismissable: true, model: true,
-            },
-            {
-              title: 'Success Alert', type: 'success', dismissable: true, model: true,
-            },
-            {
-              title: 'Warning Alert', type: 'warning', dismissable: true, model: true,
-            },
-            {
-              title: 'Error Alert', type: 'error', dismissable: true, model: true,
-            },
-          ],
-        },
-        {
-          title: 'Button Alert',
-          data: [
-            { title: 'Info Alert', type: 'info', 'button-text': 'Click here' },
-            { title: 'Success Alert', type: 'success', 'button-text': 'Click here' },
-            { title: 'Warning Alert', type: 'warning', 'button-text': 'Click here' },
-            { title: 'Error Alert', type: 'error', 'button-text': 'Click here' },
-          ],
-        },
-        {
-          title: 'Subtitle Alert',
-          data: [
-            { title: 'Info Alert', type: 'info', subtitle: 'subtitle' },
-            { title: 'Success Alert', type: 'success', subtitle: 'subtitle' },
-            { title: 'Warning Alert', type: 'warning', subtitle: 'subtitle' },
-            { title: 'Error Alert', type: 'error', subtitle: 'subtitle' },
-          ],
-        },
-        {
-          title: 'Custom, default and CTA Slot Alert',
-          data: [
-            {
-              title: 'Info Alert', type: 'info', custom: true, subtitle: 'subtitle',
-            },
-            {
-              title: 'Success Alert', type: 'success', custom: true, subtitle: 'subtitle',
-            },
-            {
-              title: 'Warning Alert', type: 'warning', custom: true, subtitle: 'subtitle',
-            },
-            {
-              title: 'Error Alert', type: 'error', custom: true, subtitle: 'subtitle',
-            },
-          ],
-        },
-        {
-          title: 'Complete Alert',
-          data: [
-            {
-              title: 'Info Alert', type: 'info', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
-            },
-            {
-              title: 'Success Alert', type: 'success', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
-            },
-            {
-              title: 'Warning Alert', type: 'warning', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
-            },
-            {
-              title: 'Error Alert', type: 'error', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
-            },
-          ],
-        },
-      ],
+      args,
+      alerts,
     };
   },
   template: `
     <div class="tw-m-16">
-      <template v-for="(block, blockIndex) in alerts">
-        <h3 class="tw-m-8" :key="blockIndex">{{ block.title }}</h3>
-        <ec-alert v-for="(alert, alertIndex) in block.data" :key="blockIndex + '-' + alertIndex" v-bind="alert" v-model="alert.model" class="tw-m-8">
-          <div v-if="alert.custom" slot-scope="{ title, subtitle }">
-            Custom: {{ title }} - {{ subtitle }}
-          </div>
-
+      <template v-for="(block, blockIndex) in alerts" :key="blockIndex">
+        <h3 class="tw-m-8">{{ block.title }}</h3>
+        <ec-alert v-for="(alert, alertIndex) in block.data" v-bind="alert" :key="blockIndex + '-' + alertIndex" v-model="alert.model" class="tw-m-8">
+          <template v-if="alert.custom" #default="{ title, subtitle }">
+            <div>
+              Custom: {{ title }} - {{ subtitle }}
+            </div>
+          </template>
           <template v-if="alert.custom" #cta>
             <a
               href="#"

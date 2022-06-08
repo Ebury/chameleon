@@ -100,6 +100,7 @@ export default {
       default: true,
     },
   },
+  emits: ['action', 'change'],
   computed: {
     icon() {
       switch (this.type) {
@@ -116,7 +117,7 @@ export default {
   },
   methods: {
     hasCtaSlot() {
-      return !!this.$scopedSlots.cta;
+      return !!this.$slots.cta;
     },
   },
 };
