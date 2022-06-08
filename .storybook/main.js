@@ -2,6 +2,11 @@
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
+  framework: '@storybook/vue3',
+  core: {
+    disableTelemetry: true,
+    enableCrashReports: false,
+  },
   staticDirs: ['../public', '../src/assets'],
   stories: [
     '../src/**/*.story.mdx',
@@ -46,11 +51,6 @@ module.exports = {
       },
     };
 
-    config.module.rules.push({
-      test: /\.story\.jsx?$/,
-      loaders: [require.resolve('@storybook/source-loader')],
-      enforce: 'pre',
-    });
     config.plugins.push(new StyleLintPlugin({
       files: ['**/*.{vue,htm,html,css}'],
       emitError: true,

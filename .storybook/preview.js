@@ -16,8 +16,7 @@ import { inlineSvgSprites } from '../src/icons/browser';
 import { getAllBackgrounds } from './backgrounds';
 
 import '../src/styles/themes/blue.css';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import '!!style-loader!css-loader!postcss-loader!../src/styles/main.css';
+import '../src/styles/main.css';
 
 config.sensitiveClass = 'tw-filter tw-blur-4';
 
@@ -31,7 +30,6 @@ configureCompat({
 });
 
 export const parameters = {
-  viewMode: 'docs',
   layout: 'fullscreen',
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: getAllBackgrounds('light'),
@@ -50,6 +48,9 @@ export const parameters = {
   },
 };
 
+if (process.env.NODE_ENV === 'production') {
+  parameters.viewMode = 'docs';
+}
 export const decorators = [withCssResources];
 
 cssVars();
