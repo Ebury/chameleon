@@ -37,11 +37,11 @@
     "@vue/compat": "3.2.37",
     "clipboard-copy": "3.2.0",
     "flatpickr": "4.6.11",
+    "floating-vue": "2.0.0-beta.16",
     "focus-trap": "6.6.1",
     "mitt": "3.0.0",
     "svg-country-flags": "1.2.10",
     "tailwindcss": "2.2.19",
-    "v-tooltip": "2.1.3",
     "vue": "3.2.37",
     "vue-hoc": "0.4.7"
   },

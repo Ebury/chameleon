@@ -1,59 +1,71 @@
 <template>
-  <v-popover
-    ref="popover"
+  <fv-dropdown
     v-bind="getOptions()"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-popover` : 'ec-popover'"
-    v-on="$listeners"
+    ref="popover"
+    :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-popover` : 'ec-popover'"
   >
     <slot />
-    <template slot="popover">
-      <slot name="popover" />
+    <template #popper="{ hide, shown }">
+      <slot
+        name="popper"
+        v-bind="{ hide, shown }"
+      />
     </template>
-  </v-popover>
+  </fv-dropdown>
 </template>
 
 <script>
-import { VPopover } from 'v-tooltip';
-
 export default {
-  components: {
-    VPopover,
-  },
+  name: 'EcPopover',
   inheritAttrs: false,
-  props: {
-    level: {
-      type: String,
-      default: '',
-    },
-    popoverInnerClass: {
-      type: String,
-      default: '',
-    },
-    popoverClass: {
-      type: String,
-      default: '',
-    },
-    popoverArrowClass: {
-      type: String,
-      default: '',
-    },
-  },
-  methods: {
-    getOptions() {
-      return {
-        popoverClass: `${this.popoverClass} ec-popover${this.level && ` ec-popover--${this.level}`}`.trim(),
-        popoverInnerClass: `${this.popoverInnerClass} ec-popover__inner`.trim(),
-        popoverArrowClass: `${this.popoverArrowClass} ec-popover__arrow`.trim(),
-        container: 'body',
-        boundariesElement: 'viewport',
-        ...this.$attrs,
-      };
-    },
-    update: /* istanbul ignore next */ function update() {
-      if (this.$refs.popover && this.$refs.popover.popperInstance) {
-        this.$refs.popover.popperInstance.scheduleUpdate();
-      }
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
+</script>
+
+<script setup>
+import { Dropdown as FvDropdown } from 'floating-vue';
+import { ref, toRefs, useAttrs } from 'vue';
+
+import { getUid } from '../../utils/uid';
+
+const attrs = useAttrs();
+const props = defineProps({
+  level: {
+    type: String,
+    default: '',
+  },
+  popperClass: {
+    type: String,
+    default: '',
+  },
+});
+
+const id = getUid();
+const popover = ref(null);
+
+const { level, popperClass } = toRefs(props);
+
+function getOptions() {
+  return {
+    popperClass: `${popperClass.value} ec-popover${level.value && ` ec-popover--${level.value}`}`.trim(),
+    container: 'body',
+    ariaId: `ec-popover-${id}`,
+    arrowOverflow: true, // to hide the arrow for popover
+    ...attrs,
+  };
+}
+
+/* istanbul ignore next */
+function update() {
+  if (popover.value) {
+    popover.value.onResize();
+  }
+}
+
+defineExpose({
+  update,
+});
+
 </script>

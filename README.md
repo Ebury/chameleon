@@ -111,3 +111,8 @@ If you need to support every single locale on the planet, we recommend to polyfi
 [PurgeCSS](https://purgecss.com/plugins/postcss.html)
 
 [Bootstrap Grid](https://getbootstrap.com/docs/4.0/layout/grid/)
+
+### Dependencies
+
+
+[floating-vue](https://floating-vue.starpad.dev/)

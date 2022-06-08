@@ -1,65 +1,56 @@
-import Vue from 'vue';
 import { mount } from '@vue/test-utils';
+
 import EcPopover from './ec-popover.vue';
 
 describe('EcPopover component', () => {
   function mountEcPopover(props, mountOpts) {
     return mount(EcPopover, {
-      propsData: { ...props },
-      stubs: { VPopover: true },
+      props,
+      global: {
+        stubs: { FvDropdown: true },
+      },
       ...mountOpts,
     });
   }
 
   it('should pass default options when no additional props are given', () => {
     const wrapper = mountEcPopover();
-    const attributes = wrapper.find('vpopover-stub').attributes();
-    expect(attributes.popoverclass).toBe('ec-popover');
-    expect(attributes.popoverinnerclass).toBe('ec-popover__inner');
-    expect(attributes.popoverarrowclass).toBe('ec-popover__arrow');
+    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should merge default options with given additional options', () => {
     const wrapper = mountEcPopover({
-      popoverClass: 'my-popover',
-      popoverInnerClass: 'my-inner-popover',
-      popoverArrowClass: 'my-arrow',
+      popperClass: 'my-popover',
     });
-    const attributes = wrapper.find('vpopover-stub').attributes();
-    expect(attributes.popoverclass).toBe('my-popover ec-popover');
-    expect(attributes.popoverinnerclass).toBe('my-inner-popover ec-popover__inner');
-    expect(attributes.popoverarrowclass).toBe('my-arrow ec-popover__arrow');
+    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should update options when additional options are also updated', async () => {
     const wrapper = mountEcPopover({ placement: 'left' });
-    expect(wrapper.find('vpopover-stub').attributes('placement')).toBe('left');
+    expect(wrapper.element).toMatchSnapshot('before');
 
     await wrapper.setProps({ placement: 'bottom' });
-    expect(wrapper.find('vpopover-stub').attributes('placement')).toBe('bottom');
+    expect(wrapper.element).toMatchSnapshot('after');
   });
 
-  it('should pass all events to the 3rd party tooltip component', () => {
-    const showStub = jest.fn();
-    const VPopoverStub = Vue.extend({
-      mounted() {
-        this.$emit('show');
-      },
-      template: '<div/>',
+  it('should pass all events to the 3rd party tooltip component', async () => {
+    const showSpy = jest.fn();
+    const wrapper = mountEcPopover({}, {
+      attrs: { onShow: showSpy },
     });
-
-    mountEcPopover({}, {
-      listeners: { show: showStub },
-      stubs: { VPopover: VPopoverStub },
-    });
-    expect(showStub).toHaveBeenCalledTimes(1);
+    await wrapper.findComponent({ name: 'FvDropdown' }).vm.$emit('show');
+    expect(showSpy).toHaveBeenCalledTimes(1);
   });
 
   it('should add the z-index level class if the level was given', () => {
     const wrapper = mountEcPopover({
       level: 'level-30',
     });
-    const attributes = wrapper.find('vpopover-stub').attributes();
-    expect(attributes.popoverclass).toBe('ec-popover ec-popover--level-30');
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should expose an update function', () => {
+    const wrapper = mountEcPopover();
+    expect(typeof wrapper.vm.update).toBe('function');
   });
 });

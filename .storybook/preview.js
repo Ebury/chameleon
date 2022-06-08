@@ -9,6 +9,7 @@ import hotpinkTheme from '!!raw-loader!../src/styles/themes/hotpink.css';
 import redTheme from '!!raw-loader!../src/styles/themes/red.css';
 import config from '../src/config';
 import { inlineSvgSprites } from '../src/icons/browser';
+import applyCompatPatches from '../src/utils/compat-patches';
 import { getAllBackgrounds } from './backgrounds';
 
 import '../src/styles/themes/blue.css';
@@ -25,6 +26,8 @@ configureCompat({
   MODE: 2,
   RENDER_FUNCTION: true,
 });
+
+applyCompatPatches();
 
 export const parameters = {
   layout: 'fullscreen',

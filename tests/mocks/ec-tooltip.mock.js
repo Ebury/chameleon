@@ -37,13 +37,13 @@ jest.mock('../../src/directives/ec-tooltip', () => {
   }
 
   const EcTooltipDirectiveMock = {
-    bind(el, { value }) {
+    beforeMount(el, { value }) {
       updateTooltipMock(el, value);
     },
-    update(el, { value }) {
+    updated(el, { value }) {
       updateTooltipMock(el, value);
     },
-    unbind(el) {
+    unmounted(el) {
       const dataTest = el.getAttribute('data-test') || '';
       el.setAttribute('data-test', dataTest.replace('ec-mock ec-tooltip-mock', '').trim());
       el.removeAttribute('data-ec-tooltip-mock-content');
