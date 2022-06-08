@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcFileDropzone from './ec-file-dropzone.vue';
 
 export default {
@@ -8,16 +10,18 @@ export default {
 
 export const basic = () => ({
   components: { EcFileDropzone },
-  data() {
-    return {
-      fileList: [],
-    };
-  },
-  methods: {
-    onChange(files) {
+  setup() {
+    const fileList = ref([]);
+
+    function onChange(files) {
       action('change')(files);
-      this.fileList = [...files];
-    },
+      fileList.value = [...files];
+    }
+
+    return {
+      fileList,
+      onChange,
+    };
   },
   template: `
     <div class="tw-p-24">

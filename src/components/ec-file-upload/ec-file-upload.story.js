@@ -1,4 +1,7 @@
+import { ref } from 'vue';
+
 import EcFileUpload from './ec-file-upload.vue';
+
 import './ec-file-upload.story.css';
 
 export default {
@@ -6,22 +9,20 @@ export default {
   component: EcFileUpload,
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = args => ({
   components: { EcFileUpload },
-  props: Object.keys(argTypes),
-  data() {
-    return {
-      model: [{ name: 'test' }],
-    };
+  setup() {
+    const model = ref([{ name: 'test' }]);
+    return { args, model };
   },
   template: `
     <div class="tw-p-24">
       <ec-file-upload
-        v-bind="$props"
+        v-bind="args"
         v-model="model"
       >
         <template #title>Drag and drop</template>
-        <template #subtitle>files here or <button class="file-upload-button" :disabled="isDisabled">browse</button>.</template>
+        <template #subtitle>files here or <button class="file-upload-button" :disabled="args.isDisabled">browse</button>.</template>
         <template #help-text>Attach documentation related to this transaction (ie. invoice(s), customer order, packing list, bill of lading, etc.)</template>
       </ec-file-upload>
 

@@ -22,15 +22,8 @@
       :is-disabled="isDisabled"
       @change="onChange"
     >
-      <slot
-        name="title"
-        slot="title"
-      />
-
-      <slot
-        name="subtitle"
-        slot="subtitle"
-      />
+      <template #title><slot name="title" /></template>
+      <template #subtitle><slot name="subtitle" /></template>
     </ec-file-dropzone>
 
     <div
@@ -78,6 +71,7 @@ export default {
       type: Boolean,
     },
   },
+  emits: ['change'],
   methods: {
     onChange(newFiles) {
       const newFilesNames = new Set(newFiles.map(file => file.name));

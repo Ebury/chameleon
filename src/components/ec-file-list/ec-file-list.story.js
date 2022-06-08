@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+
 import EcFileList from './ec-file-list.vue';
 
 export default {
@@ -14,23 +15,22 @@ const items = [
   { name: 'untitled.pdf' },
 ];
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcFileList },
-  props: Object.keys(argTypes),
-  methods: {
-    onDelete(item) {
-      action('delete');
-      console.log('delete', item.name);
-    },
+  setup() {
+    return {
+      args,
+      onDelete: action('delete'),
+    };
   },
   template: `
     <div class="tw-p-20">
-        <ec-file-list
-        v-bind="$props"
+      <ec-file-list
+        v-bind="args"
         v-on="{
           delete: onDelete,
         }">
-        </ec-file-list>
+      </ec-file-list>
     </div>
   `,
 });
