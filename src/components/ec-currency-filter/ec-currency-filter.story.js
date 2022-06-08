@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcCurrencyFilter from './ec-currency-filter.vue';
 
 export default {
@@ -12,29 +14,22 @@ export default {
   },
 };
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = args => ({
   components: { EcCurrencyFilter },
-  data() {
+  setup() {
+    const model = ref(args.value);
     return {
-      model: null,
+      args,
+      model,
+      onChange: action('change'),
     };
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  methods: {
-    onChange: action('change'),
   },
   template: `
     <div style="min-height: 450px;">
       <ec-currency-filter
         class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
+        v-bind="args"
         v-model="model"
-        v-bind="$props"
         v-on="{ change: onChange }"
       />
     </div>
@@ -96,5 +91,5 @@ basic.args = {
   locale: 'en',
   currencyItems,
   comparisonSymbolItems,
-  popoverOptions: { open: true },
+  popoverOptions: { shown: true },
 };

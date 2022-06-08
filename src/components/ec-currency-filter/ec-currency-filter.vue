@@ -4,7 +4,7 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-currency-filter` : 'ec-currency-filter'"
   >
     <ec-filter-popover
-      :popover-options="getPopoverOptions"
+      :popover-options="allPopoverOptions"
       :label="label"
       :number-of-selected-filters="numberOfSelectedFilters"
       data-test="ec-currency-filter__trigger"
@@ -69,10 +69,10 @@
 </template>
 
 <script>
-import EcSubmenu from '../ec-submenu';
-import EcMultipleValuesSelection from '../ec-multiple-values-selection';
-import EcFilterPopover from '../ec-filter-popover';
 import EcAmountFilterInput from '../ec-amount-filter-input';
+import EcFilterPopover from '../ec-filter-popover';
+import EcMultipleValuesSelection from '../ec-multiple-values-selection';
+import EcSubmenu from '../ec-submenu';
 
 export default {
   name: 'EcCurrencyFilter',
@@ -155,6 +155,7 @@ export default {
       type: String,
     },
   },
+  emits: ['change'],
   data() {
     return {
       activeTabIndex: 0,
@@ -166,7 +167,7 @@ export default {
     };
   },
   computed: {
-    getPopoverOptions() {
+    allPopoverOptions() {
       return {
         autoHide: !this.disableAutoHide, // autoHide of the ec-filter-popover should be disabled while the dropdown in ec-amount-filter-input is open, otherwise selecting value in the dropdown will close this popover too.
         ...this.popoverOptions,

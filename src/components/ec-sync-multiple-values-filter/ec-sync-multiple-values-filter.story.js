@@ -1,3 +1,5 @@
+import { ref } from 'vue';
+
 import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
 
 export default {
@@ -5,28 +7,21 @@ export default {
   component: EcSyncMultipleValuesFilter,
 };
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = ({ value, popoverOptions, ...args }) => ({
   components: { EcSyncMultipleValuesFilter },
-  data() {
+  setup() {
     return {
-      valueFromProps: null,
+      args,
+      popoverOptions,
+      model: ref(value),
     };
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) {
-        this.valueFromProps = newValue;
-      },
-    },
   },
   template: `
     <ec-sync-multiple-values-filter
       class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
-      v-model="valueFromProps"
-      v-bind="$props"
-      :popover-options="{ open: true }"
+      v-bind="args"
+      v-model="model"
+      :popover-options="{ shown: true, ...popoverOptions }"
     />
   `,
 });

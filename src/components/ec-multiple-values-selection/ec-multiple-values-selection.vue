@@ -169,6 +169,7 @@ export default {
       default: 'Search...',
     },
   },
+  emits: ['search', 'change'],
   data() {
     return {
       query: '',

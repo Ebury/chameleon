@@ -51,8 +51,8 @@
   </ec-filter-popover>
 </template>
 <script>
-import EcInputField from '../ec-input-field';
 import EcFilterPopover from '../ec-filter-popover';
+import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcDateRangeFilter',
@@ -104,6 +104,7 @@ export default {
       type: Object,
     },
   },
+  emits: ['change', 'blur'],
   computed: {
     fromValueDate: {
       get() {

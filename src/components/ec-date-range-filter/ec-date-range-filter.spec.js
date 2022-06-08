@@ -1,6 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcDateRangeFilter from './ec-date-range-filter.vue';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcDateRangeFilter from './ec-date-range-filter.vue';
 
 const label = 'Due date';
 const value = { from: '2020-03-14', to: '2020-04-10' };
@@ -8,7 +10,7 @@ const valueEmpty = { from: null, to: null };
 
 function mountEcDateRangeFilter(props, mountOpts) {
   return mount(EcDateRangeFilter, {
-    propsData: {
+    props: {
       fromLabelText: 'From',
       toLabelText: 'To',
       clearText: 'Clear dates',
@@ -20,17 +22,14 @@ function mountEcDateRangeFilter(props, mountOpts) {
 }
 
 function mountEcDateRangeFilterAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const localVue = createLocalVue();
-
-  const Component = localVue.extend({
+  const Component = defineComponent({
     components: { EcDateRangeFilter },
     template,
     ...wrapperComponentOpts,
   });
 
   return mount(Component, {
-    localVue,
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
@@ -57,10 +56,10 @@ describe('EcDateRangeFilter', () => {
   });
 
   it('should throw an error if no label prop was given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcDateRangeFilter();
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
     });
   });
 
@@ -68,31 +67,30 @@ describe('EcDateRangeFilter', () => {
     const wrapper = mountEcDateRangeFilter({ label });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     wrapper.findByDataTest('ec-date-range-filter__from-input').setValue('2020-11-06');
-    expect(wrapper.emitted('change')).toBeTruthy();
+    expect(wrapper.emitted('change').length).toBe(1);
   });
 
   it('should emit a change event when the clear dates button is clicked', async () => {
     const wrapper = mountEcDateRangeFilter({ label });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     wrapper.findByDataTest('ec-date-range-filter__clear-button').trigger('click');
-    expect(wrapper.emitted('change')).toBeTruthy();
-    expect(wrapper.emitted().change).toEqual([[null]]);
+    expect(wrapper.emitted('change')).toEqual([[null]]);
   });
 
   it('should not emit clear when there are no value for dates', async () => {
     const wrapper = mountEcDateRangeFilter({ label, value: valueEmpty });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     wrapper.findByDataTest('ec-date-range-filter__clear-button').trigger('click');
-    expect(wrapper.findByDataTest('ec-date-range-filter__clear-button').attributes('disabled')).toBe('disabled');
-    expect(wrapper.emitted('change')).toBeFalsy();
+    expect(wrapper.findByDataTest('ec-date-range-filter__clear-button').attributes('disabled')).toBe('');
+    expect(wrapper.emitted('change')).toBeUndefined();
   });
 
   it('should emit a blur event when the focus is moved away from the date input field', async () => {
     const wrapper = mountEcDateRangeFilter({ label });
     await wrapper.findByDataTest('ec-filter-popover__label').trigger('click');
-    await wrapper.findByDataTest('ec-date-range-filter__from-input').findByDataTest('ec-input-field__input').trigger('blur');
+    await wrapper.findByDataTest('ec-date-range-filter__from-input').trigger('blur');
 
-    expect(wrapper.emitted('blur')).toBeTruthy();
+    expect(wrapper.emitted('blur').length).toBe(1);
   });
 
   it('should update numberOfSelectedFilters when the dates are passed', async () => {
@@ -107,7 +105,7 @@ describe('EcDateRangeFilter', () => {
     );
 
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
-    expect(wrapper.findByDataTest('ec-filter-popover__badge').exists()).toBeFalsy();
+    expect(wrapper.findByDataTest('ec-filter-popover__badge').exists()).toBe(false);
 
     await wrapper.findByDataTest('ec-date-range-filter__from-input').setValue('2020-11-06');
     expect(wrapper.findByDataTest('ec-date-range-filter__from-input').element.value).toBe('2020-11-06');

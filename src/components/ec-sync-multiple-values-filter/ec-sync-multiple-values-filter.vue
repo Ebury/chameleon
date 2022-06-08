@@ -30,9 +30,9 @@
   </div>
 </template>
 <script>
-import EcMultipleValuesSelection from '../ec-multiple-values-selection';
-import EcFilterPopover from '../ec-filter-popover';
 import { removeDiacritics } from '../../utils/diacritics';
+import EcFilterPopover from '../ec-filter-popover';
+import EcMultipleValuesSelection from '../ec-multiple-values-selection';
 
 export default {
   name: 'EcSyncMultipleValuesFilter',
@@ -92,6 +92,7 @@ export default {
       default: false,
     },
   },
+  emits: ['change'],
   data() {
     return {
       query: '',

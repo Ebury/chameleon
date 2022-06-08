@@ -1,22 +1,44 @@
-import EcFilterPopover from './ec-filter-popover.vue';
+import { ref } from 'vue';
+
 import EcCheckbox from '../ec-checkbox';
+import EcFilterPopover from './ec-filter-popover.vue';
 
 export default {
   title: 'Filters/Filter Popover',
   component: EcFilterPopover,
 };
 
-export const all = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+export const all = ({
+  popoverOptions,
+  labelOne,
+  itemListOne,
+  labelTwo,
+  itemListTwo,
+  labelThree,
+  itemListThree,
+  ...args
+}) => ({
   components: { EcFilterPopover, EcCheckbox },
+  setup() {
+    return {
+      args,
+      labelOne,
+      itemListOne: ref(itemListOne),
+      labelTwo,
+      itemListTwo: ref(itemListTwo),
+      labelThree,
+      itemListThree: ref(itemListThree),
+      popoverOptions,
+    };
+  },
   template: `
     <div class="tw-flex tw-flex-row tw-justify-center tw-m-auto" style="min-height: 300px;">
       <ec-filter-popover
         class="tw-mr-16"
-        v-bind="$props"
+        v-bind="args"
         :label="labelOne"
         :numberOfSelectedFilters="0"
-        :popover-options="{ ...$props.popoverOptions, open: true }"
+        :popover-options="{ ...popoverOptions, shown: true }"
       >
         <template #filter>
           <ec-checkbox
@@ -34,7 +56,7 @@ export const all = (args, { argTypes }) => ({
 
       <ec-filter-popover
         class="tw-mr-16"
-        v-bind="$props"
+        v-bind="args"
         :label="labelTwo"
         :numberOfSelectedFilters="3"
       >
@@ -54,7 +76,7 @@ export const all = (args, { argTypes }) => ({
 
       <ec-filter-popover
         class="tw-mr-16"
-        v-bind="$props"
+        v-bind="args"
         :label="labelThree"
         :numberOfSelectedFilters="0"
       >

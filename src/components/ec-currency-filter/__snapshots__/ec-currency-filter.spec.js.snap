@@ -13,17 +13,14 @@ exports[`EcCurrencyFilter should count every selected currency and the amount to
   >
     Price
   </button>
-   
   <span
     class="ec-filter-popover__badge"
     data-test="ec-filter-popover__badge"
   >
-     3
-      
+    3
   </span>
-   
   <svg
-    class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+    class="ec-icon ec-icon--interactive ec-filter-popover__icon"
     height="16"
     width="16"
   >
@@ -47,17 +44,14 @@ exports[`EcCurrencyFilter should count every selected currency in numberOfSelect
   >
     Price
   </button>
-   
   <span
     class="ec-filter-popover__badge"
     data-test="ec-filter-popover__badge"
   >
-     2
-      
+    2
   </span>
-   
   <svg
-    class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+    class="ec-icon ec-icon--interactive ec-filter-popover__icon"
     height="16"
     width="16"
   >
@@ -81,17 +75,14 @@ exports[`EcCurrencyFilter should count the amount as 1 in numberOfSelectedFilter
   >
     Price
   </button>
-   
   <span
     class="ec-filter-popover__badge"
     data-test="ec-filter-popover__badge"
   >
-     1
-      
+    1
   </span>
-   
   <svg
-    class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+    class="ec-icon ec-icon--interactive ec-filter-popover__icon"
     height="16"
     width="16"
   >
@@ -106,7 +97,7 @@ exports[`EcCurrencyFilter should disable clear amount button if the amount is em
 <button
   class="ec-currency-filter__clear-amount"
   data-test="ec-currency-filter__clear-amount"
-  disabled="disabled"
+  disabled=""
 >
   Clear amount
 </button>
@@ -126,8 +117,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
   class="ec-amount-filter-input"
   data-test="ec-amount-filter-input"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-amount-filter-input__inputs-group"
   >
@@ -136,35 +126,35 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
       data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
+        autosize="min"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        offset="8"
-        placement="bottom-end"
-        popoverinnerclass="ec-dropdown-search__popover"
-        popperoptions="[object Object]"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
       >
+        
+        
         <div
           class="ec-input-field"
           data-test="ec-input-field"
         >
-          <!---->
-           
+          <!--v-if-->
           <input
             aria-describedby="ec-amount-filter-input-7"
             class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon my-sensitive-content-test-class"
             data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
             id="ec-amount-filter-input-7"
             placeholder=""
-            readonly="readonly"
+            readonly=""
             type="text"
           />
-           
           <div
             class="ec-input-field__icon-wrapper"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
-              class="ec-input-field__icon ec-icon"
+              class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
               height="24"
               width="24"
@@ -174,51 +164,60 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
               />
             </svg>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
-          
+        
+        
+         
+        
         <div>
           <ul
             class="ec-dropdown-search__item-list my-sensitive-content-test-class"
             data-test="ec-dropdown-search__item-list"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            <!--v-if-->
+            
+            
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="More than"
             >
+              
               More than
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="Equal to"
             >
+              
               Equal to
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="Less than"
             >
+              
               Less than
+              
             </li>
+            
+            
           </ul>
         </div>
+        
       </ec-stub>
     </div>
-     
     <div
       class="ec-input-field ec-amount-filter-input__amount"
       data-test="ec-input-field"
     >
-      <!---->
-       
+      <!--v-if-->
       <input
         aria-describedby="ec-amount-filter-input-7"
         class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-error my-sensitive-content-test-class"
@@ -227,13 +226,10 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
         placeholder="Enter an amount..."
         type="text"
       />
-       
-      <!---->
-       
-      <!---->
+      <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
-   
   <div
     class="ec-amount-filter-input__error-text"
     data-test="ec-amount-filter-input__error-text"
@@ -242,8 +238,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
     <span>
       Random validation error
     </span>
-     
-    <!---->
+    <!--v-if-->
   </div>
 </div>
 `;
@@ -257,8 +252,8 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
+    
     <div
       class="ec-multiple-values-selection__select-all"
     >
@@ -272,7 +267,6 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
           id="ec-checkbox-1"
           type="checkbox"
         />
-         
         <div
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
@@ -283,25 +277,25 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
               class="ec-checkbox__indeterminate-icon"
             />
           </span>
-           
           <label
             class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-1"
             title="Select all"
           >
+            
             Select all
+            
           </label>
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </div>
-     
     <div
       class="ec-multiple-values-selection__values"
     >
       <ul>
+        
         <li
           class="ec-multiple-values-selection__value-wrapper"
           data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -316,37 +310,35 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
               id="ec-checkbox-2"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-2"
                 title="GBP"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     GBP
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -363,7 +355,6 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
               id="ec-checkbox-3"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -371,7 +362,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -380,28 +371,27 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-3"
                 title="EUR"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     EUR
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -418,37 +408,35 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
               id="ec-checkbox-4"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-4"
                 title="JPY"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     JPY
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -465,7 +453,6 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
               id="ec-checkbox-5"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -473,7 +460,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -482,28 +469,27 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-5"
                 title="CAD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     CAD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -520,41 +506,41 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
               id="ec-checkbox-6"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-6"
                 title="USD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     USD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
+        
       </ul>
     </div>
+    
   </div>
 </div>
 `;
@@ -569,8 +555,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
     class="ec-amount-filter-input"
     data-test="ec-amount-filter-input"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-amount-filter-input__inputs-group"
     >
@@ -579,34 +564,34 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
         data-test="ec-dropdown ec-dropdown-search"
       >
         <ec-stub
+          autosize="min"
           class="ec-dropdown-search__trigger"
           data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-          offset="8"
-          placement="bottom-end"
-          popoverinnerclass="ec-dropdown-search__popover"
-          popperoptions="[object Object]"
+          distance="8"
+          placement="bottom-start"
+          popperclass="ec-dropdown-search__popover"
         >
+          
+          
           <div
             class="ec-input-field"
             data-test="ec-input-field"
           >
-            <!---->
-             
+            <!--v-if-->
             <input
               class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
               data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
               id="ec-amount-filter-input-7"
               placeholder=""
-              readonly="readonly"
+              readonly=""
               type="text"
             />
-             
             <div
               class="ec-input-field__icon-wrapper"
               data-test="ec-input-field__icon-wrapper"
             >
               <svg
-                class="ec-input-field__icon ec-icon"
+                class="ec-icon ec-input-field__icon"
                 data-test="ec-input-field__icon"
                 height="24"
                 width="24"
@@ -616,51 +601,60 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
                 />
               </svg>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
-            
+          
+          
+           
+          
           <div>
             <ul
               class="ec-dropdown-search__item-list"
               data-test="ec-dropdown-search__item-list"
             >
-              <!---->
-               
-              <!---->
-               
+              <!--v-if-->
+              <!--v-if-->
+              
+              
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
                 title="More than"
               >
+                
                 More than
+                
               </li>
               <li
                 class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
                 title="Equal to"
               >
+                
                 Equal to
+                
               </li>
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
                 title="Less than"
               >
+                
                 Less than
+                
               </li>
+              
+              
             </ul>
           </div>
+          
         </ec-stub>
       </div>
-       
       <div
         class="ec-input-field ec-amount-filter-input__amount"
         data-test="ec-input-field"
       >
-        <!---->
-         
+        <!--v-if-->
         <input
           class="ec-input-field__input ec-input-field__input--is-in-group-left"
           data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
@@ -668,16 +662,12 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
           placeholder="Enter an amount..."
           type="text"
         />
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </div>
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   
   <button
     class="ec-currency-filter__clear-amount"
     data-test="ec-currency-filter__clear-amount"
@@ -711,7 +701,7 @@ exports[`EcCurrencyFilter should render all given custom texts for amount tab 3`
 <button
   class="ec-currency-filter__clear-amount"
   data-test="ec-currency-filter__clear-amount"
-  disabled="disabled"
+  disabled=""
 >
   Custom clear amount text
 </button>
@@ -738,27 +728,26 @@ exports[`EcCurrencyFilter should render all given custom texts for currency tab 
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label ec-checkbox__label--is-single-line"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
       title="Custom Select all text"
     >
+      
       Custom Select all text
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -774,10 +763,10 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
     <ec-stub
       autohide="true"
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -790,11 +779,9 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
         >
           Price
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -803,10 +790,13 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content ec-filter-popover__filter-content--is-full-height"
       >
+        
         <div
           class="ec-currency-filter__content-wrapper"
         >
@@ -820,6 +810,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
               <ul
                 class="ec-submenu__header ec-submenu__header--no-gap"
               >
+                
                 <li
                   class="ec-submenu__header-item ec-submenu__header-item--is-full-width ec-submenu__header-item--is-active"
                   data-test="ec-submenu__header-item"
@@ -844,27 +835,31 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                     Amount
                   </a>
                 </li>
+                
               </ul>
             </div>
-             
             <main
               class="ec-submenu__main"
             >
-              <transition-group-stub
-                name="ec-submenu__fade"
-                tag="div"
-              >
+              <transition-group-stub>
+                
                 <div
                   data-test="ec-submenu__panel-0"
-                />
+                >
+                  
+                  
+                </div>
                 <div
                   data-test="ec-submenu__panel-1"
                   style="display: none;"
-                />
+                >
+                  
+                  
+                </div>
+                
               </transition-group-stub>
             </main>
           </div>
-           
           <div
             class="ec-currency-filter__tab"
             data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -873,8 +868,8 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
               class="ec-multiple-values-selection"
               data-test="ec-multiple-values-selection"
             >
-              <!---->
-               
+              <!--v-if-->
+              
               <div
                 class="ec-multiple-values-selection__select-all"
               >
@@ -888,34 +883,33 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                     id="ec-checkbox-1"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-1"
                       title="Select all"
                     >
+                      
                       Select all
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </div>
-               
               <div
                 class="ec-multiple-values-selection__values"
               >
                 <ul>
+                  
                   <li
                     class="ec-multiple-values-selection__value-wrapper"
                     data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -930,37 +924,35 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         id="ec-checkbox-2"
                         type="checkbox"
                       />
-                       
                       <div
                         class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
                         >
-                          <!---->
+                          <!--v-if-->
                         </span>
-                         
                         <label
                           class="ec-checkbox__label ec-checkbox__label--is-single-line"
                           data-test="ec-checkbox__label"
                           for="ec-checkbox-2"
                           title="GBP"
                         >
+                          
                           <div
                             class="ec-multiple-values-selection__label-wrapper"
                           >
-                            <!---->
-                             
+                            <!--v-if-->
                             <span
                               class="ec-multiple-values-selection__label-text"
                             >
                               GBP
                             </span>
                           </div>
+                          
                         </label>
                       </div>
-                       
-                      <!---->
+                      <!--v-if-->
                     </div>
                   </li>
                   <li
@@ -977,37 +969,35 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         id="ec-checkbox-3"
                         type="checkbox"
                       />
-                       
                       <div
                         class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
                         >
-                          <!---->
+                          <!--v-if-->
                         </span>
-                         
                         <label
                           class="ec-checkbox__label ec-checkbox__label--is-single-line"
                           data-test="ec-checkbox__label"
                           for="ec-checkbox-3"
                           title="EUR"
                         >
+                          
                           <div
                             class="ec-multiple-values-selection__label-wrapper"
                           >
-                            <!---->
-                             
+                            <!--v-if-->
                             <span
                               class="ec-multiple-values-selection__label-text"
                             >
                               EUR
                             </span>
                           </div>
+                          
                         </label>
                       </div>
-                       
-                      <!---->
+                      <!--v-if-->
                     </div>
                   </li>
                   <li
@@ -1024,37 +1014,35 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         id="ec-checkbox-4"
                         type="checkbox"
                       />
-                       
                       <div
                         class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
                         >
-                          <!---->
+                          <!--v-if-->
                         </span>
-                         
                         <label
                           class="ec-checkbox__label ec-checkbox__label--is-single-line"
                           data-test="ec-checkbox__label"
                           for="ec-checkbox-4"
                           title="JPY"
                         >
+                          
                           <div
                             class="ec-multiple-values-selection__label-wrapper"
                           >
-                            <!---->
-                             
+                            <!--v-if-->
                             <span
                               class="ec-multiple-values-selection__label-text"
                             >
                               JPY
                             </span>
                           </div>
+                          
                         </label>
                       </div>
-                       
-                      <!---->
+                      <!--v-if-->
                     </div>
                   </li>
                   <li
@@ -1071,37 +1059,35 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         id="ec-checkbox-5"
                         type="checkbox"
                       />
-                       
                       <div
                         class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
                         >
-                          <!---->
+                          <!--v-if-->
                         </span>
-                         
                         <label
                           class="ec-checkbox__label ec-checkbox__label--is-single-line"
                           data-test="ec-checkbox__label"
                           for="ec-checkbox-5"
                           title="CAD"
                         >
+                          
                           <div
                             class="ec-multiple-values-selection__label-wrapper"
                           >
-                            <!---->
-                             
+                            <!--v-if-->
                             <span
                               class="ec-multiple-values-selection__label-text"
                             >
                               CAD
                             </span>
                           </div>
+                          
                         </label>
                       </div>
-                       
-                      <!---->
+                      <!--v-if-->
                     </div>
                   </li>
                   <li
@@ -1118,44 +1104,43 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         id="ec-checkbox-6"
                         type="checkbox"
                       />
-                       
                       <div
                         class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
                         >
-                          <!---->
+                          <!--v-if-->
                         </span>
-                         
                         <label
                           class="ec-checkbox__label ec-checkbox__label--is-single-line"
                           data-test="ec-checkbox__label"
                           for="ec-checkbox-6"
                           title="USD"
                         >
+                          
                           <div
                             class="ec-multiple-values-selection__label-wrapper"
                           >
-                            <!---->
-                             
+                            <!--v-if-->
                             <span
                               class="ec-multiple-values-selection__label-text"
                             >
                               USD
                             </span>
                           </div>
+                          
                         </label>
                       </div>
-                       
-                      <!---->
+                      <!--v-if-->
                     </div>
                   </li>
+                  
                 </ul>
               </div>
+              
             </div>
           </div>
-           
           <div
             class="tw-p-16 ec-currency-filter__tab"
             data-test="ec-currency-filter__tab ec-currency-filter__tab--1"
@@ -1165,8 +1150,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
               class="ec-amount-filter-input"
               data-test="ec-amount-filter-input"
             >
-              <!---->
-               
+              <!--v-if-->
               <div
                 class="ec-amount-filter-input__inputs-group"
               >
@@ -1175,34 +1159,34 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                   data-test="ec-dropdown ec-dropdown-search"
                 >
                   <ec-stub
+                    autosize="min"
                     class="ec-dropdown-search__trigger"
                     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-                    offset="8"
-                    placement="bottom-end"
-                    popoverinnerclass="ec-dropdown-search__popover"
-                    popperoptions="[object Object]"
+                    distance="8"
+                    placement="bottom-start"
+                    popperclass="ec-dropdown-search__popover"
                   >
+                    
+                    
                     <div
                       class="ec-input-field"
                       data-test="ec-input-field"
                     >
-                      <!---->
-                       
+                      <!--v-if-->
                       <input
                         class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
                         data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
                         id="ec-amount-filter-input-7"
                         placeholder=""
-                        readonly="readonly"
+                        readonly=""
                         type="text"
                       />
-                       
                       <div
                         class="ec-input-field__icon-wrapper"
                         data-test="ec-input-field__icon-wrapper"
                       >
                         <svg
-                          class="ec-input-field__icon ec-icon"
+                          class="ec-icon ec-input-field__icon"
                           data-test="ec-input-field__icon"
                           height="24"
                           width="24"
@@ -1212,51 +1196,60 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                           />
                         </svg>
                       </div>
-                       
-                      <!---->
+                      <!--v-if-->
                     </div>
-                      
+                    
+                    
+                     
+                    
                     <div>
                       <ul
                         class="ec-dropdown-search__item-list"
                         data-test="ec-dropdown-search__item-list"
                       >
-                        <!---->
-                         
-                        <!---->
-                         
+                        <!--v-if-->
+                        <!--v-if-->
+                        
+                        
                         <li
                           class="ec-dropdown-search__item"
                           data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
                           title="More than"
                         >
+                          
                           More than
+                          
                         </li>
                         <li
                           class="ec-dropdown-search__item"
                           data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
                           title="Equal to"
                         >
+                          
                           Equal to
+                          
                         </li>
                         <li
                           class="ec-dropdown-search__item"
                           data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
                           title="Less than"
                         >
+                          
                           Less than
+                          
                         </li>
+                        
+                        
                       </ul>
                     </div>
+                    
                   </ec-stub>
                 </div>
-                 
                 <div
                   class="ec-input-field ec-amount-filter-input__amount"
                   data-test="ec-input-field"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <input
                     class="ec-input-field__input ec-input-field__input--is-in-group-left"
                     data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
@@ -1264,26 +1257,24 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                     placeholder="Enter an amount..."
                     type="text"
                   />
-                   
-                  <!---->
-                   
-                  <!---->
+                  <!--v-if-->
+                  <!--v-if-->
                 </div>
               </div>
-               
-              <!---->
+              <!--v-if-->
             </div>
-             
             <button
               class="ec-currency-filter__clear-amount"
               data-test="ec-currency-filter__clear-amount"
-              disabled="disabled"
+              disabled=""
             >
               Clear amount
             </button>
           </div>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -1298,13 +1289,12 @@ exports[`EcCurrencyFilter should render currencies tab in empty state when curre
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-multiple-values-selection__no-results-wrapper"
     >
       <svg
-        class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+        class="ec-icon ec-icon--info ec-multiple-values-selection__no-results-icon"
         data-test="ec-multiple-values-selection__no-results-icon"
         height="32"
         width="32"
@@ -1313,7 +1303,6 @@ exports[`EcCurrencyFilter should render currencies tab in empty state when curre
           xlink:href="#ec-simple-error"
         />
       </svg>
-       
       <span
         class="ec-multiple-values-selection__no-results-message"
       >
@@ -1333,13 +1322,12 @@ exports[`EcCurrencyFilter should render currencies tab in error state when curre
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-multiple-values-selection__error-wrapper"
     >
       <svg
-        class="ec-multiple-values-selection__error-icon ec-icon ec-icon--error"
+        class="ec-icon ec-icon--error ec-multiple-values-selection__error-icon"
         data-test="ec-multiple-values-selection__error-icon"
         height="32"
         width="32"
@@ -1348,7 +1336,6 @@ exports[`EcCurrencyFilter should render currencies tab in error state when curre
           xlink:href="#ec-simple-error"
         />
       </svg>
-       
       <span
         class="ec-multiple-values-selection__error-message"
       >
@@ -1368,13 +1355,12 @@ exports[`EcCurrencyFilter should render currencies tab in loading state when isL
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-multiple-values-selection__loading"
     >
       <svg
-        class="ec-loading-icon ec-icon"
+        class="ec-icon ec-loading-icon"
         data-test="ec-loading-icon"
         height="32"
         width="32"
@@ -1398,8 +1384,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
     class="ec-amount-filter-input"
     data-test="ec-amount-filter-input"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-amount-filter-input__inputs-group"
     >
@@ -1408,34 +1393,34 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
         data-test="ec-dropdown ec-dropdown-search"
       >
         <ec-stub
+          autosize="min"
           class="ec-dropdown-search__trigger"
           data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-          offset="8"
-          placement="bottom-end"
-          popoverinnerclass="ec-dropdown-search__popover"
-          popperoptions="[object Object]"
+          distance="8"
+          placement="bottom-start"
+          popperclass="ec-dropdown-search__popover"
         >
+          
+          
           <div
             class="ec-input-field"
             data-test="ec-input-field"
           >
-            <!---->
-             
+            <!--v-if-->
             <input
               class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
               data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
               id="ec-amount-filter-input-7"
               placeholder=""
-              readonly="readonly"
+              readonly=""
               type="text"
             />
-             
             <div
               class="ec-input-field__icon-wrapper"
               data-test="ec-input-field__icon-wrapper"
             >
               <svg
-                class="ec-input-field__icon ec-icon"
+                class="ec-icon ec-input-field__icon"
                 data-test="ec-input-field__icon"
                 height="24"
                 width="24"
@@ -1445,51 +1430,62 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
                 />
               </svg>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
-            
-          <div>
+          
+          
+           
+          
+          <div
+            style="width: 0px;"
+          >
             <ul
               class="ec-dropdown-search__item-list"
               data-test="ec-dropdown-search__item-list"
             >
-              <!---->
-               
-              <!---->
-               
+              <!--v-if-->
+              <!--v-if-->
+              
+              
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
                 title="More than"
               >
+                
                 More than
+                
               </li>
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
                 title="Equal to"
               >
+                
                 Equal to
+                
               </li>
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
                 title="Less than"
               >
+                
                 Less than
+                
               </li>
+              
+              
             </ul>
           </div>
+          
         </ec-stub>
       </div>
-       
       <div
         class="ec-input-field ec-amount-filter-input__amount"
         data-test="ec-input-field"
       >
-        <!---->
-         
+        <!--v-if-->
         <input
           class="ec-input-field__input ec-input-field__input--is-in-group-left"
           data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
@@ -1497,20 +1493,16 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
           placeholder="Enter an amount..."
           type="text"
         />
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </div>
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   
   <button
     class="ec-currency-filter__clear-amount"
     data-test="ec-currency-filter__clear-amount"
-    disabled="disabled"
+    disabled=""
   >
     Clear amount
   </button>
@@ -1526,8 +1518,8 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
+    
     <div
       class="ec-multiple-values-selection__select-all"
     >
@@ -1541,7 +1533,6 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
           id="ec-checkbox-1"
           type="checkbox"
         />
-         
         <div
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
@@ -1552,25 +1543,25 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               class="ec-checkbox__indeterminate-icon"
             />
           </span>
-           
           <label
             class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-1"
             title="Select all"
           >
+            
             Select all
+            
           </label>
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </div>
-     
     <div
       class="ec-multiple-values-selection__values"
     >
       <ul>
+        
         <li
           class="ec-multiple-values-selection__value-wrapper"
           data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1585,37 +1576,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-2"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-2"
                 title="GBP"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     GBP
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -1632,7 +1621,6 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-3"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -1640,7 +1628,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -1649,28 +1637,27 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-3"
                 title="EUR"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     EUR
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -1687,37 +1674,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-4"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-4"
                 title="JPY"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     JPY
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -1734,37 +1719,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-5"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-5"
                 title="CAD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     CAD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -1781,41 +1764,41 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-6"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-6"
                 title="USD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     USD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
+        
       </ul>
     </div>
+    
   </div>
 </div>
 `;
@@ -1829,8 +1812,8 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
+    
     <div
       class="ec-multiple-values-selection__select-all"
     >
@@ -1844,34 +1827,33 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
           id="ec-checkbox-1"
           type="checkbox"
         />
-         
         <div
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
           >
-            <!---->
+            <!--v-if-->
           </span>
-           
           <label
             class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-1"
             title="Select all"
           >
+            
             Select all
+            
           </label>
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </div>
-     
     <div
       class="ec-multiple-values-selection__values"
     >
       <ul>
+        
         <li
           class="ec-multiple-values-selection__value-wrapper"
           data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1886,37 +1868,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-2"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-2"
                 title="GBP"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     GBP
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -1933,37 +1913,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-3"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-3"
                 title="EUR"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     EUR
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -1980,37 +1958,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-4"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-4"
                 title="JPY"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     JPY
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2027,37 +2003,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-5"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-5"
                 title="CAD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     CAD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2074,41 +2048,41 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-6"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-6"
                 title="USD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     USD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
+        
       </ul>
     </div>
+    
   </div>
 </div>
 `;
@@ -2122,8 +2096,8 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
+    
     <div
       class="ec-multiple-values-selection__select-all"
     >
@@ -2137,7 +2111,6 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
           id="ec-checkbox-1"
           type="checkbox"
         />
-         
         <div
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
@@ -2148,25 +2121,25 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               class="ec-checkbox__indeterminate-icon"
             />
           </span>
-           
           <label
             class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-1"
             title="Select all"
           >
+            
             Select all
+            
           </label>
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </div>
-     
     <div
       class="ec-multiple-values-selection__values"
     >
       <ul>
+        
         <li
           class="ec-multiple-values-selection__value-wrapper"
           data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
@@ -2181,7 +2154,6 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-2"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -2189,7 +2161,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -2198,28 +2170,27 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-2"
                 title="GBP"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     GBP
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2236,37 +2207,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-3"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-3"
                 title="EUR"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     EUR
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2283,37 +2252,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-4"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-4"
                 title="JPY"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     JPY
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2330,37 +2297,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-5"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-5"
                 title="CAD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     CAD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2377,41 +2342,41 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-6"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-6"
                 title="USD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     USD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
+        
       </ul>
     </div>
+    
   </div>
 </div>
 `;
@@ -2425,8 +2390,8 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
+    
     <div
       class="ec-multiple-values-selection__select-all"
     >
@@ -2440,7 +2405,6 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
           id="ec-checkbox-1"
           type="checkbox"
         />
-         
         <div
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
@@ -2451,25 +2415,25 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               class="ec-checkbox__indeterminate-icon"
             />
           </span>
-           
           <label
             class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-1"
             title="Select all"
           >
+            
             Select all
+            
           </label>
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </div>
-     
     <div
       class="ec-multiple-values-selection__values"
     >
       <ul>
+        
         <li
           class="ec-multiple-values-selection__value-wrapper"
           data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
@@ -2484,7 +2448,6 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-2"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -2492,7 +2455,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -2501,28 +2464,27 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-2"
                 title="GBP"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     GBP
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2539,7 +2501,6 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-3"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -2547,7 +2508,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -2556,28 +2517,27 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-3"
                 title="EUR"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     EUR
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2594,37 +2554,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-4"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-4"
                 title="JPY"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     JPY
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2641,37 +2599,35 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-5"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-5"
                 title="CAD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     CAD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2688,41 +2644,41 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
               id="ec-checkbox-6"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-6"
                 title="USD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     USD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
+        
       </ul>
     </div>
+    
   </div>
 </div>
 `;
@@ -2736,8 +2692,8 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
+    
     <div
       class="ec-multiple-values-selection__select-all"
     >
@@ -2751,34 +2707,33 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
           id="ec-checkbox-1"
           type="checkbox"
         />
-         
         <div
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
           >
-            <!---->
+            <!--v-if-->
           </span>
-           
           <label
             class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-1"
             title="Select all"
           >
+            
             Select all
+            
           </label>
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </div>
-     
     <div
       class="ec-multiple-values-selection__values"
     >
       <ul>
+        
         <li
           class="ec-multiple-values-selection__value-wrapper"
           data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -2793,37 +2748,35 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-2"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-2"
                 title="GBP"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     GBP
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2840,37 +2793,35 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-3"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-3"
                 title="EUR"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     EUR
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2887,37 +2838,35 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-4"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-4"
                 title="JPY"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     JPY
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2934,37 +2883,35 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-5"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-5"
                 title="CAD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     CAD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -2981,41 +2928,41 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-6"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
               >
-                <!---->
+                <!--v-if-->
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-6"
                 title="USD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     USD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
+        
       </ul>
     </div>
+    
   </div>
 </div>
 `;
@@ -3029,8 +2976,8 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
     class="ec-multiple-values-selection"
     data-test="ec-multiple-values-selection"
   >
-    <!---->
-     
+    <!--v-if-->
+    
     <div
       class="ec-multiple-values-selection__select-all"
     >
@@ -3044,7 +2991,6 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
           id="ec-checkbox-1"
           type="checkbox"
         />
-         
         <div
           class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
         >
@@ -3052,7 +2998,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
           >
             <svg
-              class="ec-checkbox__check-icon ec-icon"
+              class="ec-icon ec-checkbox__check-icon"
               height="16"
               width="16"
             >
@@ -3061,25 +3007,25 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               />
             </svg>
           </span>
-           
           <label
             class="ec-checkbox__label ec-checkbox__label--is-single-line"
             data-test="ec-checkbox__label"
             for="ec-checkbox-1"
             title="Select all"
           >
+            
             Select all
+            
           </label>
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </div>
-     
     <div
       class="ec-multiple-values-selection__values"
     >
       <ul>
+        
         <li
           class="ec-multiple-values-selection__value-wrapper"
           data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
@@ -3094,7 +3040,6 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-2"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -3102,7 +3047,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -3111,28 +3056,27 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-2"
                 title="GBP"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     GBP
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -3149,7 +3093,6 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-3"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -3157,7 +3100,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -3166,28 +3109,27 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-3"
                 title="EUR"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     EUR
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -3204,7 +3146,6 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-4"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -3212,7 +3153,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -3221,28 +3162,27 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-4"
                 title="JPY"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     JPY
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -3259,7 +3199,6 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-5"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -3267,7 +3206,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -3276,28 +3215,27 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-5"
                 title="CAD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     CAD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
         <li
@@ -3314,7 +3252,6 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
               id="ec-checkbox-6"
               type="checkbox"
             />
-             
             <div
               class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
             >
@@ -3322,7 +3259,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
               >
                 <svg
-                  class="ec-checkbox__check-icon ec-icon"
+                  class="ec-icon ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -3331,32 +3268,33 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
                   />
                 </svg>
               </span>
-               
               <label
                 class="ec-checkbox__label ec-checkbox__label--is-single-line"
                 data-test="ec-checkbox__label"
                 for="ec-checkbox-6"
                 title="USD"
               >
+                
                 <div
                   class="ec-multiple-values-selection__label-wrapper"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <span
                     class="ec-multiple-values-selection__label-text"
                   >
                     USD
                   </span>
                 </div>
+                
               </label>
             </div>
-             
-            <!---->
+            <!--v-if-->
           </div>
         </li>
+        
       </ul>
     </div>
+    
   </div>
 </div>
 `;

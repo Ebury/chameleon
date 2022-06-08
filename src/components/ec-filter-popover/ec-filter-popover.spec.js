@@ -1,25 +1,24 @@
-import { mount } from '@vue/test-utils';
-import EcFilterPopover from './ec-filter-popover.vue';
+import { flushPromises, mount } from '@vue/test-utils';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcFilterPopover from './ec-filter-popover.vue';
 
 const label = 'Test label';
 const numberOfSelectedFilters = 0;
 
 function mountEcFilterPopover(props, mountOpts) {
   return mount(EcFilterPopover, {
-    propsData: {
-      ...props,
-    },
+    props,
     ...mountOpts,
   });
 }
 
 describe('EcFilterPopover', () => {
   it('should throw an error if no label prop were given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcFilterPopover({ numberOfSelectedFilters });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
+      expect(warnSpy).toHaveBeenCalledTimes(4);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "label"');
     });
   });
 
@@ -29,10 +28,10 @@ describe('EcFilterPopover', () => {
   });
 
   it('should throw an error if no numberOfSelectedFilters prop were given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcFilterPopover({ label });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "numberOfSelectedFilters"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "numberOfSelectedFilters"');
     });
   });
 
@@ -48,7 +47,7 @@ describe('EcFilterPopover', () => {
 
   it('should render correctly the named slot', () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters }, {
-      scopedSlots: {
+      slots: {
         filter: '<p>Test name slot</p>',
       },
     });
@@ -57,19 +56,26 @@ describe('EcFilterPopover', () => {
 
   it('should set the open status of the popover', async () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
-    await wrapper.findByDataTest('ec-popover-stub').vm.$emit('update:open', true);
+
+    await wrapper.findComponent({ name: 'EcPopoverStub' }).vm.$emit('update:shown', true);
+    await flushPromises();
+
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should reset the open status of the popover', async () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
-    await wrapper.findByDataTest('ec-popover-stub').vm.$emit('update:open', false);
+
+    await wrapper.findComponent({ name: 'EcPopoverStub' }).vm.$emit('update:shown', false);
+    await flushPromises();
+
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should emit after-open event', async () => {
+  it('should emit after-open event', () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
-    await wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
+
+    wrapper.findComponent({ name: 'EcPopoverStub' }).vm.$emit('apply-show');
     expect(wrapper.emitted('after-open')).toEqual([[]]);
   });
 

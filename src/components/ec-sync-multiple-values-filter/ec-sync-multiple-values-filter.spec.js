@@ -1,6 +1,7 @@
-import { mount } from '@vue/test-utils';
-import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
+import { flushPromises, mount } from '@vue/test-utils';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
 
 const items = [{
   value: 'success',
@@ -27,7 +28,7 @@ const items = [{
 
 function mountEcSyncMultipleValuesFilter(props, mountOpts) {
   return mount(EcSyncMultipleValuesFilter, {
-    propsData: {
+    props: {
       label: 'Status',
       ...props,
     },
@@ -42,11 +43,11 @@ describe('EcSyncMultipleValuesFilter', () => {
   });
 
   it('should throw an error if no prop label is given', () => {
-    withMockedConsole((errorSpy) => {
-      mountEcSyncMultipleValuesFilter({}, { propsData: {} });
-      expect(errorSpy).toHaveBeenCalledTimes(2);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
-      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "items"');
+    withMockedConsole((errorSpy, warnSpy) => {
+      mountEcSyncMultipleValuesFilter({}, { props: {} });
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "items"');
     });
   });
 
@@ -62,7 +63,7 @@ describe('EcSyncMultipleValuesFilter', () => {
       items,
     });
 
-    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-0').findByDataTest('ec-checkbox__label').trigger('click');
+    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-0').findByDataTest('ec-checkbox__input').setValue(true);
     expect(wrapper.emitted('change')).toEqual([
       [
         [items[0]],
@@ -75,7 +76,7 @@ describe('EcSyncMultipleValuesFilter', () => {
       value: [items[0]], items,
     });
 
-    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-1').findByDataTest('ec-checkbox__label').trigger('click');
+    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-1').findByDataTest('ec-checkbox__input').setValue(true);
     expect(wrapper.emitted('change')).toEqual([
       [
         [items[0], items[1]],
@@ -225,12 +226,12 @@ describe('EcSyncMultipleValuesFilter', () => {
     });
 
     document.activeElement.blur();
-    await wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
 
-    await wrapper.vm.$nextTick();
+    await wrapper.findComponent({ name: 'EcPopoverStub' }).vm.$emit('apply-show');
+    await flushPromises();
 
     expect(document.activeElement).toBe(wrapper.findByDataTest('ec-multiple-values-selection__search-input').element);
 
-    wrapper.destroy();
+    wrapper.unmount();
   });
 });
