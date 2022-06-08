@@ -1,4 +1,6 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import EcAmountFilterInput from './ec-amount-filter-input.vue';
 
 const comparisonSymbolItems = [
@@ -19,7 +21,7 @@ const comparisonSymbolItems = [
 describe('EcAmountFilterInput', () => {
   function mountAmountFilterInput(props, mountOpts) {
     return mount(EcAmountFilterInput, {
-      propsData: {
+      props: {
         comparisonSymbolItems,
         value: {},
         ...props,
@@ -29,17 +31,14 @@ describe('EcAmountFilterInput', () => {
   }
 
   function mountAmountFilterInputAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcAmountFilterInput },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -104,8 +103,8 @@ describe('EcAmountFilterInput', () => {
       });
 
       expect(wrapper.findByDataTest('ec-amount-filter-input__error-text').element).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-amount-filter-input__bottom-note').exists()).toBeFalsy();
-      expect(wrapper.findByDataTest('ec-amount-filter-input__warning-tooltip').exists()).toBeFalsy();
+      expect(wrapper.findByDataTest('ec-amount-filter-input__bottom-note').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-amount-filter-input__warning-tooltip').exists()).toBe(false);
     });
 
     it('should render the error tooltip when "errorTooltipMessage" is set', () => {
@@ -147,7 +146,7 @@ describe('EcAmountFilterInput', () => {
       expect(wrapper.emitted('comparison-symbol-change').length).toEqual(1);
       await selectComparisonSymbol(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('focus').length).toEqual(2);
+      expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(2);
       expect(wrapper.emitted('comparison-symbol-change').length).toEqual(2);
     });
@@ -156,13 +155,11 @@ describe('EcAmountFilterInput', () => {
       const wrapper = mountAmountFilterInput();
 
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('11');
-      await wrapper.findByDataTest('ec-amount-filter-input__amount').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('amount-change').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(1);
 
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('111');
-      await wrapper.findByDataTest('ec-amount-filter-input__amount').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('amount-change').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);
@@ -289,8 +286,7 @@ describe('EcAmountFilterInput', () => {
 });
 
 async function selectComparisonSymbol(wrapper, index) {
-  wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').trigger('mousedown');
-  wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').trigger('focus');
-  wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
-  await wrapper.vm.$nextTick();
+  await wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').trigger('mousedown');
+  await wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').trigger('focus');
+  await wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
 }

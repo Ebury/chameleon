@@ -32,10 +32,10 @@
     </label>
 
     <textarea
+      v-bind="$attrs"
       :id="textareaId"
       ref="textarea"
       v-model="textareaModel"
-      v-bind="$attrs"
       :rows="rows"
       :class="textareaClasses"
       :aria-describedby="errorMessageId"
@@ -60,10 +60,10 @@
 </template>
 
 <script>
-import EcIcon from '../ec-icon';
-import EcTooltip from '../../directives/ec-tooltip';
 import config from '../../config';
+import EcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
+import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcTextarea',
@@ -117,6 +117,7 @@ export default {
       default: false,
     },
   },
+  emits: ['value-change'],
   data() {
     return {
       uid: getUid(),

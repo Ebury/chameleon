@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcCurrencyInput from './ec-currency-input.vue';
 
 export default {
@@ -12,25 +14,24 @@ export default {
   },
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = args => ({
   components: { EcCurrencyInput },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
+    const model = ref({});
     return {
-      model: {},
+      args,
+      model,
+      onOpen: action('open'),
+      onFocus: action('focus'),
+      onChange: action('change'),
+      onAmountChange: action('amount-change'),
+      onCurrencyChange: action('currency-change'),
     };
-  },
-  methods: {
-    onOpen: action('open'),
-    onFocus: action('focus'),
-    onChange: action('change'),
-    onAmountChange: action('amount-change'),
-    onCurrencyChange: action('currency-change'),
   },
   template: `
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
       <ec-currency-input
-        v-bind="$props"
+        v-bind="args"
         v-on="{
           open: onOpen,
           focus: onFocus,

@@ -1,3 +1,5 @@
+import { ref } from 'vue';
+
 import EcCheckbox from './ec-checkbox.vue';
 
 export default {
@@ -5,23 +7,15 @@ export default {
   component: EcCheckbox,
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = ({ checked, ...args }) => ({
   components: { EcCheckbox },
-  props: Object.keys(argTypes),
-  data() {
-    return {
-      model: false,
-    };
-  },
-  watch: {
-    checked: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
+  setup() {
+    const model = ref(checked);
+    return { args, model };
   },
   template: `
     <div class="tw-p-24">
-      <ec-checkbox v-bind="$props" v-model="model" />
+      <ec-checkbox v-bind="args" v-model="model" />
     </div>
   `,
 });
@@ -37,27 +31,30 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = (args, { argTypes }) => ({
+export const all = ({
+  valueFromPropsChecked1,
+  valueFromPropsChecked2,
+  valueFromPropsHasError,
+  valueFromPropsLabel,
+  valueFromPropsErrorMessage,
+  valueFromPropsDisabled1,
+  valueFromPropsDisabled2,
+  args,
+}) => ({
   components: { EcCheckbox },
-  props: Object.keys(argTypes),
-  watch: {
-    valueFromPropsChecked1: {
-      immediate: true,
-      handler(newValue) {
-        this.checkbox1 = newValue;
-      },
-    },
-    valueFromPropsChecked2: {
-      immediate: true,
-      handler(newValue) {
-        this.checkbox2 = newValue;
-      },
-    },
-  },
-  data() {
+  setup() {
+    const checked1 = ref(valueFromPropsChecked1);
+    const checked2 = ref(valueFromPropsChecked2);
+
     return {
-      checkbox1: null,
-      checkbox2: null,
+      args,
+      checked1,
+      checked2,
+      valueFromPropsHasError,
+      valueFromPropsLabel,
+      valueFromPropsErrorMessage,
+      valueFromPropsDisabled1,
+      valueFromPropsDisabled2,
     };
   },
   template: `

@@ -1,29 +1,25 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
 
 import EcTextarea from './ec-textarea.vue';
 
 describe('EcTextarea', () => {
   function mountTextarea(props, mountOpts) {
     return mount(EcTextarea, {
-      propsData: {
-        ...props,
-      },
+      props,
       ...mountOpts,
     });
   }
 
   function mountTextareaAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcTextarea },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -86,7 +82,7 @@ describe('EcTextarea', () => {
     expect(document.activeElement).toBe(document.body);
     wrapper.findByDataTest('test-button').trigger('click');
     expect(document.activeElement).toBe(wrapper.findByDataTest('ec-textarea__textarea').element);
-    wrapper.destroy();
+    wrapper.unmount();
   });
 
   describe(':props', () => {

@@ -1,3 +1,5 @@
+import { ref } from 'vue';
+
 import EcTextarea from './ec-textarea.vue';
 
 export default {
@@ -5,23 +7,17 @@ export default {
   component: EcTextarea,
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = ({ value, ...args }) => ({
   components: { EcTextarea },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
     return {
-      model: null,
+      args,
+      model: ref(value),
     };
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
   },
   template: `
     <div class="tw-p-24">
-      <ec-textarea v-bind="$props" v-model="model" />
+      <ec-textarea v-bind="args" v-model="model" />
     </div>
   `,
 });
@@ -42,52 +38,52 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+export const all = ({
+  label, disabledLabel, errorLabel, warningLabel, errorMessage, ...args
+}) => ({
   components: {
     EcTextarea,
+  },
+  setup() {
+    return {
+      label,
+      disabledLabel,
+      errorLabel,
+      warningLabel,
+      errorMessage,
+      args,
+    };
   },
   template: `
   <div class="tw-grid-container">
     <div class="tw-grid">
       <div class="tw-col-full md:tw-col-4">
         <ec-textarea
+          v-bind="args"
           :label="label"
-          :placeholder="placeholder"
-          :note="note"
-          :bottom-note="bottomNote"
-          :label-tooltip="labelTooltip"
         />
       </div>
 
       <div class="tw-col-full md:tw-col-4">
         <ec-textarea
+          v-bind="args"
           :label="disabledLabel"
-          :placeholder="placeholder"
-          :note="note"
-          :label-tooltip="labelTooltip"
-          :bottom-note="bottomNote"
           disabled
         />
       </div>
 
       <div class="tw-col-full md:tw-col-4">
         <ec-textarea
+          v-bind="args"
           :label="warningLabel"
-          :placeholder="placeholder"
-          :note="note"
-          :label-tooltip="labelTooltip"
-          :bottom-note="bottomNote"
-          :is-warning="true"
+          is-warning
         />
       </div>
 
       <div class="tw-col-full md:tw-col-4">
         <ec-textarea
+          v-bind="args"
           :label="errorLabel"
-          :placeholder="placeholder"
-          :note="note"
-          :label-tooltip="labelTooltip"
           :error-message="errorMessage"
         />
       </div>

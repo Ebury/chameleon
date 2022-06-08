@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils';
 import clipboardCopy from 'clipboard-copy';
-import EcInlineInputField from './ec-inline-input-field.vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcInlineInputField from './ec-inline-input-field.vue';
 
 jest.mock('clipboard-copy');
 
@@ -12,7 +13,7 @@ describe('EcInlineInputField', () => {
 
   function mountInlineInputField(props, mountOpts) {
     return mount(EcInlineInputField, {
-      propsData: {
+      props: {
         label: 'Label',
         isEditable: true,
         value: inputFieldValue,
@@ -46,14 +47,14 @@ describe('EcInlineInputField', () => {
         const wrapper = mountInlineInputField();
 
         expect(wrapper.element).toMatchSnapshot();
-        expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBe(true);
       });
 
       it('should render with a sensitive class when isSensitive prop is set to true when isSensitive prop is set to true', () => {
         const wrapper = mountInlineInputField({ isSensitive: true });
 
         expect(wrapper.element).toMatchSnapshot();
-        expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-inline-input-field-value-text').exists()).toBe(true);
       });
 
       it('should render with a label tooltip when labelTooltip prop is set', () => {
@@ -68,7 +69,7 @@ describe('EcInlineInputField', () => {
           expect(wrapper.emitted('edit')).toBeUndefined();
           await wrapper.findByDataTest('ec-inline-input-field-value-text__action').trigger('click');
 
-          expect(wrapper.emitted('edit').length).toBeTruthy();
+          expect(wrapper.emitted('edit').length).toBe(1);
         });
       });
     });
@@ -78,7 +79,7 @@ describe('EcInlineInputField', () => {
         const wrapper = mountInlineInputField({ isEditing: true });
 
         expect(wrapper.element).toMatchSnapshot();
-        expect(wrapper.findByDataTest('ec-inline-input-field-edit').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-inline-input-field-edit').exists()).toBe(true);
       });
 
       it('should gain focus the input field', async () => {
@@ -99,20 +100,20 @@ describe('EcInlineInputField', () => {
         );
 
         expect(wrapper.element).toMatchSnapshot();
-        expect(wrapper.findByDataTest('ec-inline-input-field-edit').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-inline-input-field-edit').exists()).toBe(true);
       });
 
       it('should render properly when the errorMessage prop is given', () => {
         const wrapper = mountInlineInputField({ isEditing: true, errorMessage: 'error msg' });
 
         expect(wrapper.element).toMatchSnapshot();
-        expect(wrapper.findByDataTest('ec-input-field__error-text').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-input-field__error-text').exists()).toBe(true);
       });
 
       describe('@events', () => {
         it('should emit `cancel` event when esc key is pressed in the input field', async () => {
           const wrapper = mountInlineInputField({ isEditing: true });
-          const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
+          const editComponentWrapper = wrapper.findComponentByDataTest('ec-inline-input-field-edit');
 
           expect(editComponentWrapper.emitted('cancel')).toBeUndefined();
           expect(wrapper.emitted('cancel')).toBeUndefined();
@@ -124,7 +125,7 @@ describe('EcInlineInputField', () => {
 
         it('should emit `cancel` event when the cancel button is clicked', async () => {
           const wrapper = mountInlineInputField({ isEditing: true });
-          const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
+          const editComponentWrapper = wrapper.findComponentByDataTest('ec-inline-input-field-edit');
 
           expect(editComponentWrapper.emitted('cancel')).toBeUndefined();
           expect(wrapper.emitted('cancel')).toBeUndefined();
@@ -136,7 +137,7 @@ describe('EcInlineInputField', () => {
 
         it('should emit `submit` event when enter key is pressed in the input field', async () => {
           const wrapper = mountInlineInputField({ isEditing: true });
-          const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
+          const editComponentWrapper = wrapper.findComponentByDataTest('ec-inline-input-field-edit');
 
           expect(editComponentWrapper.emitted('submit')).toBeUndefined();
           expect(wrapper.emitted('submit')).toBeUndefined();
@@ -148,7 +149,7 @@ describe('EcInlineInputField', () => {
 
         it('should emit `submit` event when the submit button is clicked', async () => {
           const wrapper = mountInlineInputField({ isEditing: true });
-          const editComponentWrapper = wrapper.findByDataTest('ec-inline-input-field-edit');
+          const editComponentWrapper = wrapper.findComponentByDataTest('ec-inline-input-field-edit');
 
           expect(editComponentWrapper.emitted('submit')).toBeUndefined();
           expect(wrapper.emitted('submit')).toBeUndefined();
@@ -165,30 +166,30 @@ describe('EcInlineInputField', () => {
         const wrapper = mountInlineInputField({ isLoading: true });
 
         expect(wrapper.element).toMatchSnapshot();
-        expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBe(true);
       });
 
       it('should render with a sensitive class when isSensitive prop is set to true', () => {
         const wrapper = mountInlineInputField({ isLoading: true, isSensitive: true });
 
         expect(wrapper.element).toMatchSnapshot();
-        expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-inline-input-field-loading').exists()).toBe(true);
       });
     });
   });
 
   describe('when component is copiable', () => {
     it('should throw an error if the tooltip props were not given', () => {
-      withMockedConsole((errorSpy) => {
+      withMockedConsole((errorSpy, warnSpy) => {
         mountInlineInputField(
           {
             isEditable: false,
             isCopiable: true,
           },
         );
-        expect(errorSpy).toHaveBeenCalledTimes(2);
-        expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: type check failed for prop "tooltipTextSuccess"');
-        expect(errorSpy.mock.calls[1][0]).toContain('Invalid prop: type check failed for prop "tooltipTextError"');
+        expect(warnSpy).toHaveBeenCalledTimes(2);
+        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: type check failed for prop "tooltipTextSuccess"');
+        expect(warnSpy.mock.calls[1][0]).toContain('Invalid prop: type check failed for prop "tooltipTextError"');
       });
     });
 
@@ -208,7 +209,7 @@ describe('EcInlineInputField', () => {
       );
 
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBe(true);
     });
 
     it('should render with a sensitive class when isSensitive prop is set to true', () => {
@@ -223,7 +224,7 @@ describe('EcInlineInputField', () => {
       );
 
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy').exists()).toBe(true);
     });
 
     it('should show the success tooltip after successfully triggering the copy method', async () => {

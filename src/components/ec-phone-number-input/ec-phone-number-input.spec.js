@@ -1,6 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcPhoneNumberInput from './ec-phone-number-input.vue';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
 jest.mock('svg-country-flags/png100px/gb.png', () => '/my-path/gb.png');
 jest.mock('svg-country-flags/png100px/jm.png', () => '/my-path/jm.png');
@@ -17,7 +19,7 @@ const countries = [
 describe('EcPhoneNumberInput', () => {
   function mountPhoneNumberInput(props) {
     return mount(EcPhoneNumberInput, {
-      propsData: {
+      props: {
         countries,
         value: {},
         ...props,
@@ -26,17 +28,14 @@ describe('EcPhoneNumberInput', () => {
   }
 
   function mountPhoneNumberInputAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcPhoneNumberInput },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -93,8 +92,8 @@ describe('EcPhoneNumberInput', () => {
         errorMessage: 'Random error message',
       });
 
-      expect(wrapper.findByDataTest('ec-phone-number-input__bottom-note').exists()).toBeFalsy();
-      expect(wrapper.findByDataTest('ec-phone-number-input__error-text').exists()).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-phone-number-input__bottom-note').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-phone-number-input__error-text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -107,7 +106,7 @@ describe('EcPhoneNumberInput', () => {
         errorTooltipMessage,
       });
 
-      expect(wrapper.findByDataTest('ec-phone-number-input__bottom-note').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-phone-number-input__bottom-note').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-phone-number-input__error-tooltip').attributes('data-ec-tooltip-mock-content')).toBe(errorTooltipMessage);
     });
 
@@ -196,15 +195,15 @@ describe('EcPhoneNumberInput', () => {
       ['random', true],
     ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
       if (error) {
-        withMockedConsole((errorSpy) => {
+        withMockedConsole((errorSpy, warnSpy) => {
           mountPhoneNumberInput({ level: str });
-          expect(errorSpy).toHaveBeenCalledTimes(3);
+          expect(warnSpy).toHaveBeenCalledTimes(3);
           // this is the test for the phone number input field
-          expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+          expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
           // this is the test for the dropdown
-          expect(errorSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+          expect(warnSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
           // this is the test for the dropdownsearch
-          expect(errorSpy.mock.calls[2][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+          expect(warnSpy.mock.calls[2][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
         });
       } else {
         const wrapper = mountPhoneNumberInput({ level: str });
@@ -224,7 +223,7 @@ describe('EcPhoneNumberInput', () => {
       expect(wrapper.emitted('country-change').length).toEqual(1);
       await selectItem(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('focus').length).toEqual(2);
+      expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(2);
       expect(wrapper.emitted('country-change').length).toEqual(2);
     });
@@ -233,13 +232,11 @@ describe('EcPhoneNumberInput', () => {
       const wrapper = mountPhoneNumberInput();
 
       await wrapper.findByDataTest('ec-phone-number-input__number').setValue('11');
-      await wrapper.findByDataTest('ec-phone-number-input__number').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('phone-number-change').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(1);
 
       await wrapper.findByDataTest('ec-phone-number-input__number').setValue('111');
-      await wrapper.findByDataTest('ec-phone-number-input__number').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('phone-number-change').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);

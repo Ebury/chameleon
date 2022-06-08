@@ -1,7 +1,8 @@
 /* eslint no-underscore-dangle: "off" */
 import { mount } from '@vue/test-utils';
-import EcAmount from './ec-amount';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcAmount from './ec-amount';
 
 describe('EcAmount', () => {
   beforeEach(() => {
@@ -47,16 +48,16 @@ describe('EcAmount', () => {
     const { wrapper, input } = mountTemplate('<input v-ec-amount data-test="amount-input" />');
     const spy = jest.spyOn(input.element, 'removeEventListener');
 
-    wrapper.destroy();
+    wrapper.unmount();
 
     expect(spy).toHaveBeenCalledTimes(2);
   });
 
   it('should throw an error if the directive is not attached to an input', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       expect(() => mountTemplate('<div v-ec-amount="{}"></div>')).toThrowError(new TypeError('v-ec-amount requires 1 input'));
-      expect(errorSpy).toHaveBeenCalledTimes(2);
-      expect(errorSpy.mock.calls[0][0]).toContain('v-ec-amount requires 1 input');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of directive hook');
     });
   });
 

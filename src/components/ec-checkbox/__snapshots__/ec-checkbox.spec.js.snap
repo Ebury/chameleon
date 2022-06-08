@@ -12,31 +12,32 @@ exports[`EcCheckbox #slots #error-message - should render error-message slot ins
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
   <div
     class="ec-checkbox__error-text"
     data-test="ec-checkbox__error-text"
     id="ec-checkbox-error-1"
   >
+    
     Error message coming from slot
+    
   </div>
 </div>
 `;
@@ -53,31 +54,32 @@ exports[`EcCheckbox #slots #errorMessage - should render the error message slot 
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
   <div
     class="ec-checkbox__error-text"
     data-test="ec-checkbox__error-text"
     id="ec-checkbox-error-1"
   >
+    
     Test error message slot
+    
   </div>
 </div>
 `;
@@ -93,26 +95,25 @@ exports[`EcCheckbox #slots #label - should render label slot instead of label pr
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
+      
       Label message coming from slot
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -127,26 +128,25 @@ exports[`EcCheckbox #slots #label - should render the label slot if passed 1`] =
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
+      
       Test label message slot
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -158,11 +158,10 @@ exports[`EcCheckbox :props :disabled - should render the checkbox with a disable
   <input
     class="ec-checkbox__input"
     data-test="ec-checkbox__input"
-    disabled="disabled"
+    disabled=""
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
@@ -170,7 +169,7 @@ exports[`EcCheckbox :props :disabled - should render the checkbox with a disable
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked ec-checkbox__check-icon-wrapper--disabled ec-checkbox__check-icon-wrapper--checked-and-disabled"
     >
       <svg
-        class="ec-checkbox__check-icon ec-icon"
+        class="ec-icon ec-checkbox__check-icon"
         height="16"
         width="16"
       >
@@ -179,17 +178,17 @@ exports[`EcCheckbox :props :disabled - should render the checkbox with a disable
         />
       </svg>
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -201,11 +200,10 @@ exports[`EcCheckbox :props :disabled - should render the checkbox with a disable
   <input
     class="ec-checkbox__input"
     data-test="ec-checkbox__input"
-    disabled="disabled"
+    disabled=""
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
@@ -216,17 +214,17 @@ exports[`EcCheckbox :props :disabled - should render the checkbox with a disable
         class="ec-checkbox__indeterminate-icon"
       />
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -238,30 +236,29 @@ exports[`EcCheckbox :props :disabled - should render the checkbox with a disable
   <input
     class="ec-checkbox__input"
     data-test="ec-checkbox__input"
-    disabled="disabled"
+    disabled=""
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--disabled"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -277,31 +274,32 @@ exports[`EcCheckbox :props :error-message - should render the checkbox with an e
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--error"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
   <div
     class="ec-checkbox__error-text"
     data-test="ec-checkbox__error-text"
     id="ec-checkbox-error-1"
   >
+    
     Test error message prop
+    
   </div>
 </div>
 `;
@@ -317,7 +315,6 @@ exports[`EcCheckbox :props :indeterminate - should render even if the checkbox i
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
@@ -328,17 +325,17 @@ exports[`EcCheckbox :props :indeterminate - should render even if the checkbox i
         class="ec-checkbox__indeterminate-icon"
       />
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -353,7 +350,6 @@ exports[`EcCheckbox :props :indeterminate - should render the checkbox as checke
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
@@ -361,7 +357,7 @@ exports[`EcCheckbox :props :indeterminate - should render the checkbox as checke
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
     >
       <svg
-        class="ec-checkbox__check-icon ec-icon"
+        class="ec-icon ec-checkbox__check-icon"
         height="16"
         width="16"
       >
@@ -370,17 +366,17 @@ exports[`EcCheckbox :props :indeterminate - should render the checkbox as checke
         />
       </svg>
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -395,7 +391,6 @@ exports[`EcCheckbox :props :indeterminate - should render the checkbox as checke
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
@@ -406,17 +401,17 @@ exports[`EcCheckbox :props :indeterminate - should render the checkbox as checke
         class="ec-checkbox__indeterminate-icon"
       />
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -431,7 +426,6 @@ exports[`EcCheckbox :props :indeterminate - should render the checkbox as indete
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
@@ -442,17 +436,17 @@ exports[`EcCheckbox :props :indeterminate - should render the checkbox as indete
         class="ec-checkbox__indeterminate-icon"
       />
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -467,27 +461,26 @@ exports[`EcCheckbox :props :isSingleLine - should render the checkbox with in a 
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label ec-checkbox__label--is-single-line"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
       title="Test is single line prop"
     >
+      
       Test is single line prop
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -502,26 +495,25 @@ exports[`EcCheckbox :props :label - should render the checkbox with a label 1`] 
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
+      
       Test label prop
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -537,25 +529,24 @@ exports[`EcCheckbox attrs should pass all non-prop attributes to the hidden chec
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper"
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
     >
-      <!---->
+      <!--v-if-->
     </span>
-     
     <label
       class="ec-checkbox__label"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
     >
       
+      
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;

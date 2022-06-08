@@ -1,4 +1,4 @@
-import { format, unFormat, sanitizeInput } from './utils';
+import { format, sanitizeInput, unFormat } from './utils';
 
 const defaultOptions = {
   groupingSeparator: ',',

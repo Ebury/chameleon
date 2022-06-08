@@ -30,12 +30,12 @@
       >{{ note }}</span>
     </label>
     <input
+      v-bind="$attrs"
       :id="inputId"
       ref="input"
       v-model="inputModel"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input'"
       :class="inputClasses"
-      v-bind="$attrs"
       :type="type"
       :aria-describedby="errorMessageId"
       v-on="$listeners"
@@ -76,11 +76,11 @@
 </template>
 
 <script>
-import EcLoadingIcon from '../ec-loading-icon';
-import EcIcon from '../ec-icon';
-import EcTooltip from '../../directives/ec-tooltip';
 import config from '../../config';
+import EcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
+import EcIcon from '../ec-icon';
+import EcLoadingIcon from '../ec-loading-icon';
 
 export default {
   name: 'EcInputField',
@@ -152,6 +152,7 @@ export default {
       default: false,
     },
   },
+  emits: ['value-change', 'icon-click'],
   data() {
     return {
       uid: getUid(),

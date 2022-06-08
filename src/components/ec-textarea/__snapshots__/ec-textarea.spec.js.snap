@@ -5,16 +5,14 @@ exports[`EcTextarea :props should render as sensitive 1`] = `
   class="ec-textarea"
   data-test="ec-textarea"
 >
-  <!---->
-   
+  <!--v-if-->
   <textarea
     class="ec-textarea__textarea my-sensitive-content-test-class"
     data-test="ec-textarea__textarea"
     id="ec-textarea-1"
     rows="4"
   />
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -23,16 +21,14 @@ exports[`EcTextarea :props should render the textarea with a specific number of 
   class="ec-textarea"
   data-test="ec-textarea"
 >
-  <!---->
-   
+  <!--v-if-->
   <textarea
     class="ec-textarea__textarea"
     data-test="ec-textarea__textarea"
     id="ec-textarea-1"
     rows="5"
   />
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -41,15 +37,13 @@ exports[`EcTextarea :props should render with a bottom note 1`] = `
   class="ec-textarea"
   data-test="ec-textarea"
 >
-  <!---->
-   
+  <!--v-if-->
   <textarea
     class="ec-textarea__textarea"
     data-test="ec-textarea__textarea"
     id="ec-textarea-1"
     rows="4"
   />
-   
   <div
     class="ec-textarea__bottom-note"
     data-test="ec-textarea__bottom-note"
@@ -64,15 +58,13 @@ exports[`EcTextarea :props should render with a bottom note in a warning color t
   class="ec-textarea"
   data-test="ec-textarea"
 >
-  <!---->
-   
+  <!--v-if-->
   <textarea
     class="ec-textarea__textarea"
     data-test="ec-textarea__textarea"
     id="ec-textarea-1"
     rows="4"
   />
-   
   <div
     class="ec-textarea__bottom-note ec-textarea__bottom-note--is-warning"
     data-test="ec-textarea__bottom-note"
@@ -97,20 +89,17 @@ exports[`EcTextarea :props should render with a label 1`] = `
       data-test="ec-textarea__label-text"
     >
       Label lorem ipsum
-      <!---->
+      <!--v-if-->
     </span>
-     
-    <!---->
+    <!--v-if-->
   </label>
-   
   <textarea
     class="ec-textarea__textarea"
     data-test="ec-textarea__textarea"
     id="ec-textarea-1"
     rows="4"
   />
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -130,7 +119,7 @@ exports[`EcTextarea :props should render with a labelTooltip 1`] = `
     >
       Label lorem ipsum
       <svg
-        class="ec-textarea__tooltip ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-textarea__tooltip"
         data-ec-tooltip-mock-content="Label tooltip lorem ipsum"
         data-test="ec-textarea__tooltip ec-mock ec-tooltip-mock"
         height="14"
@@ -141,18 +130,15 @@ exports[`EcTextarea :props should render with a labelTooltip 1`] = `
         />
       </svg>
     </span>
-     
-    <!---->
+    <!--v-if-->
   </label>
-   
   <textarea
     class="ec-textarea__textarea"
     data-test="ec-textarea__textarea"
     id="ec-textarea-1"
     rows="4"
   />
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -166,8 +152,7 @@ exports[`EcTextarea :props should render with a note 1`] = `
     data-test="ec-textarea__label"
     for="ec-textarea-1"
   >
-    <!---->
-     
+    <!--v-if-->
     <span
       class="ec-textarea__note"
       data-test="ec-textarea__note"
@@ -175,15 +160,13 @@ exports[`EcTextarea :props should render with a note 1`] = `
       Note lorem ipsum
     </span>
   </label>
-   
   <textarea
     class="ec-textarea__textarea"
     data-test="ec-textarea__textarea"
     id="ec-textarea-1"
     rows="4"
   />
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -192,8 +175,7 @@ exports[`EcTextarea :props should render with an error message 1`] = `
   class="ec-textarea"
   data-test="ec-textarea"
 >
-  <!---->
-   
+  <!--v-if-->
   <textarea
     aria-describedby="ec-textarea-error-1"
     class="ec-textarea__textarea ec-textarea__textarea--has-error"
@@ -201,7 +183,6 @@ exports[`EcTextarea :props should render with an error message 1`] = `
     id="ec-textarea-1"
     rows="4"
   />
-   
   <div
     class="ec-textarea__error-text"
     data-test="ec-textarea__error-text"
@@ -217,17 +198,15 @@ exports[`EcTextarea renders as disabled 1`] = `
   class="ec-textarea"
   data-test="ec-textarea"
 >
-  <!---->
-   
+  <!--v-if-->
   <textarea
     class="ec-textarea__textarea"
     data-test="ec-textarea__textarea"
-    disabled="disabled"
+    disabled=""
     id="ec-textarea-1"
     rows="4"
   />
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -236,8 +215,7 @@ exports[`EcTextarea renders with a placeholder 1`] = `
   class="ec-textarea"
   data-test="ec-textarea"
 >
-  <!---->
-   
+  <!--v-if-->
   <textarea
     class="ec-textarea__textarea"
     data-test="ec-textarea__textarea"
@@ -245,8 +223,7 @@ exports[`EcTextarea renders with a placeholder 1`] = `
     placeholder="Placeholder lorem ipsum..."
     rows="4"
   />
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -255,16 +232,14 @@ exports[`EcTextarea should render as expected 1`] = `
   class="ec-textarea"
   data-test="ec-textarea"
 >
-  <!---->
-   
+  <!--v-if-->
   <textarea
     class="ec-textarea__textarea"
     data-test="ec-textarea__textarea"
     id="ec-textarea-1"
     rows="4"
   />
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -273,15 +248,13 @@ exports[`EcTextarea should render with a custom data test 1`] = `
   class="ec-textarea"
   data-test="ec-textarea"
 >
-  <!---->
-   
+  <!--v-if-->
   <textarea
     class="ec-textarea__textarea"
     data-test="custom data test ec-textarea__textarea"
     id="ec-textarea-1"
     rows="4"
   />
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;

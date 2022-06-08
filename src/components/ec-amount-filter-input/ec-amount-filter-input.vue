@@ -22,7 +22,7 @@
     </label>
 
     <div
-      ref="popperWidthReference"
+      ref="popoverWidthReference"
       class="ec-amount-filter-input__inputs-group"
     >
       <ec-dropdown
@@ -35,8 +35,8 @@
         :is-sensitive="isSensitive"
         :items="comparisonSymbolItems"
         :selected-text="comparisonSymbolModel.value"
-        :popper-modifiers="popperModifier"
         :popover-options="popoverOptions"
+        :popover-style="popoverStyle"
         :error-id="errorId"
         :error-message="errorMessage"
         @focus="onComparisonSymbolFocus"
@@ -104,11 +104,11 @@
 </template>
 
 <script>
+import EcTooltip from '../../directives/ec-tooltip';
+import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
-import EcTooltip from '../../directives/ec-tooltip';
-import { getUid } from '../../utils/uid';
 
 export default {
   name: 'EcAmountFilterInput',
@@ -163,23 +163,25 @@ export default {
       type: Array,
     },
   },
+  emits: [
+    'change',
+    'value-change',
+    'amount-change',
+    'comparison-symbol-change',
+    'focus',
+    'open',
+    'close',
+    'after-open',
+    'after-close',
+  ],
   data() {
     return {
       uid: getUid(),
       comparisonSymbolHasFocus: false,
-      popperModifier: {
-        setPopperWidth: {
-          enabled: true,
-          order: 841,
-          fn: /* istanbul ignore next */ (data) => {
-            data.styles.width = this.$refs.popperWidthReference.offsetWidth;
-            return data;
-          },
-        },
-      },
       popoverOptions: {
-        placement: 'bottom-end',
+        autoSize: 'min',
       },
+      popoverStyle: {},
     };
   },
   computed: {
@@ -215,6 +217,13 @@ export default {
         this.$emit('value-change', { ...this.value, amount: value });
       },
     },
+  },
+  mounted() {
+    if (this.$refs.popoverWidthReference) {
+      this.popoverStyle = {
+        width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
+      };
+    }
   },
   methods: {
     onAmountChange(evt) {

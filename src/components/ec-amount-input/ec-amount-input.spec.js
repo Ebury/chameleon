@@ -1,10 +1,12 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import EcAmountInput from './ec-amount-input.vue';
 
 describe('EcAmountInput', () => {
   function mountAmountInput(props, mountOpts) {
     return mount(EcAmountInput, {
-      propsData: {
+      props: {
         value: 0,
         ...props,
       },
@@ -13,16 +15,13 @@ describe('EcAmountInput', () => {
   }
 
   function mountAmountInputAsTemplate(template, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcAmountInput },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
       ...mountOpts,
     });
   }
@@ -114,7 +113,8 @@ describe('EcAmountInput', () => {
 
   it('should format the number for currency without decimals', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" locale="en" currency="JPY" />', {
+      '<ec-amount-input v-model="valueAmount" locale="en" currency="JPY" />',
+      {
         data() {
           return {
             valueAmount: null,
@@ -129,7 +129,8 @@ describe('EcAmountInput', () => {
 
   it('should remove existing decimals if currency changes to one without decimals', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" locale="en" :currency="currency" />', {
+      '<ec-amount-input v-model="valueAmount" locale="en" :currency="currency" />',
+      {
         data() {
           return {
             currency: 'GBP',
@@ -155,7 +156,8 @@ describe('EcAmountInput', () => {
 
   it('should allow typing only a negative sign into input when there is v-model', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" locale="en" />', {
+      '<ec-amount-input v-model="valueAmount" locale="en" />',
+      {
         data() {
           return {
             valueAmount: null,
@@ -171,7 +173,8 @@ describe('EcAmountInput', () => {
 
   it('should allow typing only a negative sign into masked input when there is v-model', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" is-masked locale="en" />', {
+      '<ec-amount-input v-model="valueAmount" is-masked locale="en" />',
+      {
         data() {
           return {
             valueAmount: null,
@@ -188,7 +191,8 @@ describe('EcAmountInput', () => {
 
   it('should allow to reset the value from the v-model', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" locale="en" />', {
+      '<ec-amount-input v-model="valueAmount" locale="en" />',
+      {
         data() {
           return {
             valueAmount: null,
@@ -211,7 +215,8 @@ describe('EcAmountInput', () => {
 
   it('should allow to reset the value from the v-model when masked', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" is-masked locale="en" />', {
+      '<ec-amount-input v-model="valueAmount" is-masked locale="en" />',
+      {
         data() {
           return {
             valueAmount: null,

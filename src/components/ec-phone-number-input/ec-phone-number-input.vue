@@ -22,7 +22,7 @@
     </label>
 
     <div
-      ref="popperWidthReference"
+      ref="popoverWidthReference"
       v-ec-tooltip="{ content: isDisabled ? disabledTooltipMessage : null }"
       data-test="ec-phone-number-input__input-group"
       class="ec-phone-number-input__input-group"
@@ -44,7 +44,7 @@
         :no-results-text="noCountriesText"
         :placeholder="countryPlaceholder"
         :popover-options="popoverOptions"
-        :popper-modifiers="popperModifier"
+        :popover-style="popoverStyle"
         :search-placeholder="searchCountryPlaceholder"
         :level="level"
         selected-text=" "
@@ -150,13 +150,12 @@
 </template>
 
 <script>
-import { getUid } from '../../utils/uid';
+import EcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
-
-import EcInputField from '../ec-input-field';
+import { getUid } from '../../utils/uid';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
-import EcTooltip from '../../directives/ec-tooltip';
+import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcPhoneNumberInput',
@@ -243,23 +242,15 @@ export default {
       },
     },
   },
+  emits: ['change', 'focus', 'open', 'after-open', 'value-change', 'country-change', 'phone-number-change'],
   data() {
     return {
       uid: getUid(),
       countriesHasFocus: false,
-      popperModifier: {
-        setPopperWidth: {
-          enabled: true,
-          order: 841,
-          fn: /* istanbul ignore next */ (data) => {
-            data.styles.width = this.$refs.popperWidthReference.offsetWidth;
-            return data;
-          },
-        },
-      },
       popoverOptions: {
-        placement: 'bottom-end',
+        autoSize: 'min',
       },
+      popoverStyle: {},
     };
   },
   computed: {
@@ -317,6 +308,13 @@ export default {
     isInvalid() {
       return !!this.errorMessage;
     },
+  },
+  mounted() {
+    if (this.$refs.popoverWidthReference) {
+      this.popoverStyle = {
+        width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
+      };
+    }
   },
   methods: {
     onFocusCountry() {

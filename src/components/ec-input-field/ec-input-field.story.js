@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref, watchEffect } from 'vue';
+
 import EcInputField from './ec-input-field.vue';
 
 export default {
@@ -12,33 +14,23 @@ export default {
   },
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcInputField },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
     return {
-      model: null,
+      args,
+      onInput: action('input'),
+      onChange: action('change'),
     };
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  methods: {
-    onInput: action('input'),
-    onChange: action('change'),
   },
   template: `
     <div class="tw-p-24">
       <ec-input-field
-        v-bind="$props"
+        v-bind="args"
         v-on="{
           input: onInput,
           change: onChange,
         }"
-        v-model="model"
       />
     </div>
   `,
@@ -48,7 +40,7 @@ export const basic = Template.bind({});
 
 basic.args = {
   label: 'Username',
-  value: null,
+  value: '',
   placeholder: 'My input',
   bottomNote: 'Your email',
   icon: 'simple-check',
@@ -59,45 +51,76 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = (args, { argTypes }) => ({
+export const all = ({
+  isSensitive,
+  isWarning,
+  labelTooltip,
+  isInGroup,
+
+  valueFromPropsNumber,
+  labelNumber,
+  noteNumber,
+  errorMessageNumber,
+  iconNumber,
+
+  valueFromPropsText,
+  labelText,
+  noteText,
+  bottomNoteText,
+  errorMessageText,
+  iconText,
+
+  valueFromPropsDate,
+  labelDate,
+  noteDate,
+  errorMessageDate,
+  iconDate,
+
+  ...args
+}) => ({
   components: { EcInputField },
-  props: Object.keys(argTypes),
-  watch: {
-    valueFromPropsNumber: {
-      immediate: true,
-      handler(newValue) {
-        this.valueNumber = newValue;
-      },
-    },
-    valueFromPropsText: {
-      immediate: true,
-      handler(newValue) {
-        this.valueText = newValue;
-      },
-    },
-    valueFromPropsDate: {
-      immediate: true,
-      handler(newValue) {
-        this.valueDate = newValue;
-      },
-    },
-  },
-  data() {
+  setup() {
+    const valueNumber = ref(0);
+    const valueText = ref('');
+    const valueDate = ref(null);
+
+    watchEffect(() => {
+      valueNumber.value = valueFromPropsNumber;
+      valueText.value = valueFromPropsText;
+      valueDate.value = valueFromPropsDate;
+    });
+
     return {
-      valueNumber: null,
-      valueText: '',
-      valueDate: null,
+      isSensitive,
+      isWarning,
+      labelTooltip,
+      isInGroup,
+      args,
+      valueNumber,
+      labelNumber,
+      noteNumber,
+      errorMessageNumber,
+      iconNumber,
+      valueText,
+      labelText,
+      noteText,
+      bottomNoteText,
+      errorMessageText,
+      iconText,
+      valueDate,
+      labelDate,
+      noteDate,
+      errorMessageDate,
+      iconDate,
+      onInput: action('input'),
+      onChange: action('change'),
     };
-  },
-  methods: {
-    onInput: action('input'),
-    onChange: action('change'),
   },
   template: `
     <div class="tw-grid-container">
       <div class="tw-grid">
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field type="number" min="5" max="10" v-model.number="valueNumber" :note="noteNumber" :label="labelNumber" :error-message="errorMessageNumber" :icon="iconNumber"  :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field type="number" min="5" max="10" v-model.number="valueNumber" :note="noteNumber" :label="labelNumber" :error-message="errorMessageNumber" :icon="iconNumber" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
@@ -164,7 +187,7 @@ all.args = {
   labelTooltip: 'Tooltip text',
 
   // number input
-  valueFromPropsNumber: '',
+  valueFromPropsNumber: 0,
   labelNumber: 'Number input',
   noteNumber: 'Max 80 chars',
   errorMessageNumber: 'error message',

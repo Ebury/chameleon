@@ -4,6 +4,7 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-checkbox` : 'ec-checkbox'"
   >
     <input
+      v-bind="$attrs"
       :id="id"
       ref="checkboxInput"
       v-model="inputModel"
@@ -11,7 +12,6 @@
       type="checkbox"
       class="ec-checkbox__input"
       :disabled="disabled"
-      v-bind="$attrs"
       data-test="ec-checkbox__input"
       @focus="inputIsFocused = true"
       @blur="inputIsFocused = false"
@@ -77,8 +77,8 @@
 </template>
 
 <script>
-import EcIcon from '../ec-icon';
 import { getUid } from '../../utils/uid';
+import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcCheckbox',
@@ -115,6 +115,7 @@ export default {
       type: Boolean,
     },
   },
+  emits: ['checked-value-change'],
   data() {
     return {
       uid: getUid(),

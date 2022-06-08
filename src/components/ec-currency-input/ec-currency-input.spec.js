@@ -1,4 +1,6 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import EcCurrencyInput from './ec-currency-input.vue';
 
 describe('EcCurrencyInput', () => {
@@ -6,7 +8,7 @@ describe('EcCurrencyInput', () => {
 
   function mountCurrencyInput(props, mountOpts) {
     return mount(EcCurrencyInput, {
-      propsData: {
+      props: {
         currencies,
         value: {},
         ...props,
@@ -16,17 +18,14 @@ describe('EcCurrencyInput', () => {
   }
 
   function mountCurrencyInputAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcCurrencyInput },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -78,9 +77,9 @@ describe('EcCurrencyInput', () => {
               isWarning: true,
               warningTooltipMessage: 'Warning tooltip message',
             });
-            expect(wrapper.findByDataTest('ec-currency-input__bottom-note').exists()).toBeFalsy();
-            expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').exists()).toBeFalsy();
-            expect(wrapper.findByDataTest('ec-currency-input__error-text').exists()).toBeTruthy();
+            expect(wrapper.findByDataTest('ec-currency-input__bottom-note').exists()).toBe(false);
+            expect(wrapper.findByDataTest('ec-currency-input__warning-tooltip').exists()).toBe(false);
+            expect(wrapper.findByDataTest('ec-currency-input__error-text').exists()).toBe(true);
           });
         });
       });
@@ -92,8 +91,8 @@ describe('EcCurrencyInput', () => {
           bottomNote: 'Bottom note message',
           errorMessage: 'Random message',
         });
-        expect(wrapper.findByDataTest('ec-currency-input__bottom-note').exists()).toBeFalsy();
-        expect(wrapper.findByDataTest('ec-currency-input__error-text').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-currency-input__bottom-note').exists()).toBe(false);
+        expect(wrapper.findByDataTest('ec-currency-input__error-text').exists()).toBe(true);
       });
     });
   });
@@ -143,9 +142,9 @@ describe('EcCurrencyInput', () => {
     it('should render properly', () => {
       const wrapper = mountCurrencyInput({ errorMessage });
       expect(wrapper.findByDataTest('ec-currency-input__error-text').element).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-currency-input__currencies').classes('ec-input-field__input--has-error')).toBeTruthy();
-      expect(wrapper.findByDataTest('ec-currency-input__amount').classes('ec-input-field__input--has-error')).toBeTruthy();
-      expect(wrapper.findByDataTest('ec-input-field__error-text').exists()).toBeFalsy();
+      expect(wrapper.findByDataTest('ec-currency-input__currencies').classes('ec-input-field__input--has-error')).toBe(true);
+      expect(wrapper.findByDataTest('ec-currency-input__amount').classes('ec-input-field__input--has-error')).toBe(true);
+      expect(wrapper.findByDataTest('ec-input-field__error-text').exists()).toBe(false);
     });
 
     describe('and there is a tooltip message relative to the error defined', () => {
@@ -281,7 +280,7 @@ describe('EcCurrencyInput', () => {
       expect(wrapper.emitted('currency-change').length).toEqual(1);
       await selectItem(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('focus').length).toEqual(2);
+      expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(2);
       expect(wrapper.emitted('currency-change').length).toEqual(2);
     });
@@ -290,13 +289,11 @@ describe('EcCurrencyInput', () => {
       const wrapper = mountCurrencyInput();
 
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
-      await wrapper.findByDataTest('ec-currency-input__amount').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('amount-change').length).toEqual(1);
       expect(wrapper.emitted('value-change').length).toEqual(1);
 
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('111');
-      await wrapper.findByDataTest('ec-currency-input__amount').trigger('change');
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('amount-change').length).toEqual(2);
       expect(wrapper.emitted('value-change').length).toEqual(2);

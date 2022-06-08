@@ -1,7 +1,5 @@
 <template>
   <ec-input-field
-    v-model="inputModel"
-    v-ec-amount="getFormattingOptions()"
     v-bind="{
       ...$attrs,
       ...$props,
@@ -10,15 +8,17 @@
       isMasked: null,
       currency: null,
     }"
-    v-on="{ ...$listeners, 'value-change': null }"
+    v-model="inputModel"
+    v-ec-amount="getFormattingOptions()"
+    v-on="getListeners()"
   />
 </template>
 
 <script>
-import EcInputField from '../ec-input-field';
 import EcAmount from '../../directives/ec-amount/ec-amount';
 import { format, unFormat } from '../../directives/ec-amount/utils';
 import { getDecimalSeparator, getGroupingSeparator } from '../../utils/number-format';
+import EcInputField from '../ec-input-field';
 
 export default {
   components: { EcInputField },
@@ -51,6 +51,7 @@ export default {
       default: false,
     },
   },
+  emits: ['value-change'],
   data() {
     return {
       formattedValue: '',
@@ -79,7 +80,7 @@ export default {
         }
 
         if (newValue === this.formattedValue) {
-          // the new value is exactly the same as the curent value, skip the assignment so it will not trigger other
+          // the new value is exactly the same as the current value, skip the assignment so it will not trigger other
           // setters and watchers.
           return;
         }
@@ -166,6 +167,12 @@ export default {
     },
     getDecimalSeparator() {
       return getDecimalSeparator(this.locale);
+    },
+    getListeners() {
+      const listeners = { ...this.$listeners };
+      delete listeners['value-change'];
+      delete listeners['modelCompat:value-change'];
+      return listeners;
     },
   },
 };

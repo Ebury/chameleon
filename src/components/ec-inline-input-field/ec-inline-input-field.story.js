@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcInlineInputField from './ec-inline-input-field.vue';
 
 export default {
@@ -6,29 +8,22 @@ export default {
   component: EcInlineInputField,
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcInlineInputField },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
+    const model = ref(args.value);
     return {
-      model: null,
+      model,
+      args,
+      onCancel: action('cancel'),
+      onEdit: action('edit'),
+      onSubmit: action('submit'),
     };
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  methods: {
-    onCancel: action('cancel'),
-    onEdit: action('edit'),
-    onSubmit: action('submit'),
   },
   template: `
     <div class="tw-p-24" style="width: 300px;">
       <ec-inline-input-field
-        v-bind="$props"
+        v-bind="args"
         v-model="model"
         v-on="{
           cancel: onCancel,
@@ -54,43 +49,46 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = (args, { argTypes }) => ({
+export const all = ({ ...args }) => ({
   components: { EcInlineInputField },
-  props: Object.keys(argTypes).filter(prop => prop !== 'isEditing' && prop !== 'isLoading'),
-  data() {
-    return {
-      model: null,
-      isEditing: false,
-      isLoading: false,
-    };
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  methods: {
-    onEdit() {
+  setup() {
+    const model = ref(args.value);
+    const isEditing = ref(false);
+    const isLoading = ref(false);
+
+    function onEdit() {
       action('edit')();
-      this.isEditing = true;
-    },
-    onCancel() {
+      isEditing.value = true;
+    }
+    function onCancel() {
       action('cancel')();
-      this.isEditing = false;
-    },
-    onSubmit(value) {
+      isEditing.value = false;
+    }
+    function onSubmit(value) {
       action('submit')();
-      this.isEditing = false;
-      this.isLoading = true;
+      isEditing.value = false;
+      isLoading.value = true;
 
       setTimeout(() => {
-        if (!this.errorMessage) {
-          this.model = value;
+        if (!args.errorMessage) {
+          model.value = value;
         }
-        this.isLoading = false;
+        isLoading.value = false;
       }, 1000);
-    },
+    }
+
+    return {
+      model,
+      args,
+      isEditing,
+      isLoading,
+      onEdit,
+      onCancel,
+      onSubmit,
+    };
+  },
+  methods: {
+
   },
   template: `
     <div class="tw-grid-container">
@@ -98,15 +96,9 @@ export const all = (args, { argTypes }) => ({
         <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field
             label="Inline Input Field"
-            :is-copiable="isCopiable"
-            :is-editable="isEditable"
+            v-bind="args"
             :is-editing="isEditing"
             :is-loading="isLoading"
-            :tooltip-text-success="tooltipTextSuccess"
-            :tooltip-text-error="tooltipTextError"
-            :label-tooltip="labelTooltip"
-            :is-sensitive="isSensitive"
-            :error-message="errorMessage"
             v-model="model"
             v-on="{
               cancel: onCancel,
@@ -133,12 +125,9 @@ export const all = (args, { argTypes }) => ({
         </div>
         <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field
+            v-bind="args"
             label="Inline Input Field - Copiable"
             :is-copiable="true"
-            :label-tooltip="labelTooltip"
-            :tooltip-text-success="tooltipTextSuccess"
-            :tooltip-text-error="tooltipTextError"
-            :is-sensitive="isSensitive"
             v-model="model"
           />
         </div>

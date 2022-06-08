@@ -8,9 +8,8 @@ exports[`EcInlineInputField when component is copiable should render as expected
     class="ec-inline-input-field__label"
   >
     Label
-    <!---->
+    <!--v-if-->
   </div>
-   
   <div
     class="ec-inline-input-field-copy"
     data-test="ec-inline-input-field-copy"
@@ -18,18 +17,15 @@ exports[`EcInlineInputField when component is copiable should render as expected
     <span
       class="ec-inline-input-field-copy__text"
     >
-      
-    Input field value
-  
+      Input field value
     </span>
-     
     <button
       class="ec-inline-input-field-copy__action"
       data-test="ec-inline-input-field-copy__action"
       type="button"
     >
       <svg
-        class="ec-inline-input-field-copy__icon ec-icon"
+        class="ec-icon ec-inline-input-field-copy__icon"
         data-test="ec-inline-input-field-copy__icon ec-mock ec-tooltip-mock"
         height="16"
         width="16"
@@ -52,7 +48,7 @@ exports[`EcInlineInputField when component is copiable should render with a labe
   >
     Label
     <svg
-      class="ec-inline-input-field__label-tooltip ec-icon ec-icon--interactive"
+      class="ec-icon ec-icon--interactive ec-inline-input-field__label-tooltip"
       data-ec-tooltip-mock-content="Testing the labelTooltip prop"
       data-test="ec-inline-input-field__label-tooltip ec-mock ec-tooltip-mock"
       height="14"
@@ -63,7 +59,7 @@ exports[`EcInlineInputField when component is copiable should render with a labe
       />
     </svg>
   </div>
-   
+  
   <div
     class="ec-inline-input-field-value-text"
     data-test="ec-inline-input-field-value-text"
@@ -71,18 +67,15 @@ exports[`EcInlineInputField when component is copiable should render with a labe
     <span
       class="ec-inline-input-field-value-text__text"
     >
-      
-    Input field value
-  
+      Input field value
     </span>
-     
     <button
       class="ec-inline-input-field-value-text__action"
       data-test="ec-inline-input-field-value-text__action"
       type="button"
     >
       <svg
-        class="ec-inline-input-field-value-text__edit-icon ec-icon"
+        class="ec-icon ec-inline-input-field-value-text__edit-icon"
         height="16"
         width="16"
       >
@@ -92,6 +85,7 @@ exports[`EcInlineInputField when component is copiable should render with a labe
       </svg>
     </button>
   </div>
+  
 </div>
 `;
 
@@ -103,9 +97,8 @@ exports[`EcInlineInputField when component is copiable should render with a sens
     class="ec-inline-input-field__label"
   >
     Label
-    <!---->
+    <!--v-if-->
   </div>
-   
   <div
     class="ec-inline-input-field-copy"
     data-test="ec-inline-input-field-copy"
@@ -113,18 +106,15 @@ exports[`EcInlineInputField when component is copiable should render with a sens
     <span
       class="ec-inline-input-field-copy__text my-sensitive-content-test-class"
     >
-      
-    Input field value
-  
+      Input field value
     </span>
-     
     <button
       class="ec-inline-input-field-copy__action"
       data-test="ec-inline-input-field-copy__action"
       type="button"
     >
       <svg
-        class="ec-inline-input-field-copy__icon ec-icon"
+        class="ec-icon ec-inline-input-field-copy__icon"
         data-test="ec-inline-input-field-copy__icon ec-mock ec-tooltip-mock"
         height="16"
         width="16"
@@ -142,8 +132,8 @@ exports[`EcInlineInputField when component is editable when the component is in 
 <div
   data-test="ec-inline-input-field"
 >
-  <!---->
-   
+  <!--v-if-->
+  
   <div
     data-test="ec-inline-input-field-edit"
   >
@@ -152,9 +142,8 @@ exports[`EcInlineInputField when component is editable when the component is in 
       for="ec-inline-input-field-edit__input-1"
     >
       Label
-      <!---->
+      <!--v-if-->
     </label>
-     
     <div
       class="ec-inline-input-field-edit__edit-panel"
     >
@@ -162,20 +151,16 @@ exports[`EcInlineInputField when component is editable when the component is in 
         class="ec-input-field"
         data-test="ec-input-field"
       >
-        <!---->
-         
+        <!--v-if-->
         <input
           class="ec-input-field__input"
           data-test="ec-inline-input-field-edit__input ec-input-field__input"
           id="ec-inline-input-field-edit__input-1"
           type="text"
         />
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </div>
-       
       <div
         class="ec-inline-input-field-edit__actions"
       >
@@ -185,7 +170,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
           type="button"
         >
           <svg
-            class="ec-inline-input-field-edit__action-icon ec-icon"
+            class="ec-icon ec-inline-input-field-edit__action-icon"
             height="16"
             width="16"
           >
@@ -194,14 +179,13 @@ exports[`EcInlineInputField when component is editable when the component is in 
             />
           </svg>
         </button>
-         
         <button
           class="ec-inline-input-field-edit__action"
           data-test="ec-inline-input-field-edit__cancel-action"
           type="button"
         >
           <svg
-            class="ec-inline-input-field-edit__action-icon ec-icon"
+            class="ec-icon ec-inline-input-field-edit__action-icon"
             height="16"
             width="16"
           >
@@ -213,6 +197,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       </div>
     </div>
   </div>
+  
 </div>
 `;
 
@@ -220,8 +205,8 @@ exports[`EcInlineInputField when component is editable when the component is in 
 <div
   data-test="ec-inline-input-field"
 >
-  <!---->
-   
+  <!--v-if-->
+  
   <div
     data-test="ec-inline-input-field-edit"
   >
@@ -230,9 +215,8 @@ exports[`EcInlineInputField when component is editable when the component is in 
       for="ec-inline-input-field-edit__input-1"
     >
       Label
-      <!---->
+      <!--v-if-->
     </label>
-     
     <div
       class="ec-inline-input-field-edit__edit-panel"
     >
@@ -240,8 +224,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
         class="ec-input-field"
         data-test="ec-input-field"
       >
-        <!---->
-         
+        <!--v-if-->
         <input
           aria-describedby="ec-input-field-error-2"
           class="ec-input-field__input ec-input-field__input--has-error"
@@ -249,9 +232,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
           id="ec-inline-input-field-edit__input-1"
           type="text"
         />
-         
-        <!---->
-         
+        <!--v-if-->
         <div
           class="ec-input-field__error-text"
           data-test="ec-input-field__error-text"
@@ -260,7 +241,6 @@ exports[`EcInlineInputField when component is editable when the component is in 
           error msg
         </div>
       </div>
-       
       <div
         class="ec-inline-input-field-edit__actions"
       >
@@ -270,7 +250,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
           type="button"
         >
           <svg
-            class="ec-inline-input-field-edit__action-icon ec-icon"
+            class="ec-icon ec-inline-input-field-edit__action-icon"
             height="16"
             width="16"
           >
@@ -279,14 +259,13 @@ exports[`EcInlineInputField when component is editable when the component is in 
             />
           </svg>
         </button>
-         
         <button
           class="ec-inline-input-field-edit__action"
           data-test="ec-inline-input-field-edit__cancel-action"
           type="button"
         >
           <svg
-            class="ec-inline-input-field-edit__action-icon ec-icon"
+            class="ec-icon ec-inline-input-field-edit__action-icon"
             height="16"
             width="16"
           >
@@ -298,6 +277,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       </div>
     </div>
   </div>
+  
 </div>
 `;
 
@@ -305,8 +285,8 @@ exports[`EcInlineInputField when component is editable when the component is in 
 <div
   data-test="ec-inline-input-field"
 >
-  <!---->
-   
+  <!--v-if-->
+  
   <div
     data-test="ec-inline-input-field-edit"
   >
@@ -315,9 +295,8 @@ exports[`EcInlineInputField when component is editable when the component is in 
       for="ec-inline-input-field-edit__input-1"
     >
       Label
-      <!---->
+      <!--v-if-->
     </label>
-     
     <div
       class="ec-inline-input-field-edit__edit-panel"
     >
@@ -325,20 +304,16 @@ exports[`EcInlineInputField when component is editable when the component is in 
         class="ec-input-field"
         data-test="ec-input-field"
       >
-        <!---->
-         
+        <!--v-if-->
         <input
           class="ec-input-field__input my-sensitive-content-test-class"
           data-test="ec-inline-input-field-edit__input ec-input-field__input"
           id="ec-inline-input-field-edit__input-1"
           type="text"
         />
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </div>
-       
       <div
         class="ec-inline-input-field-edit__actions"
       >
@@ -348,7 +323,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
           type="button"
         >
           <svg
-            class="ec-inline-input-field-edit__action-icon ec-icon"
+            class="ec-icon ec-inline-input-field-edit__action-icon"
             height="16"
             width="16"
           >
@@ -357,14 +332,13 @@ exports[`EcInlineInputField when component is editable when the component is in 
             />
           </svg>
         </button>
-         
         <button
           class="ec-inline-input-field-edit__action"
           data-test="ec-inline-input-field-edit__cancel-action"
           type="button"
         >
           <svg
-            class="ec-inline-input-field-edit__action-icon ec-icon"
+            class="ec-icon ec-inline-input-field-edit__action-icon"
             height="16"
             width="16"
           >
@@ -376,6 +350,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       </div>
     </div>
   </div>
+  
 </div>
 `;
 
@@ -387,9 +362,9 @@ exports[`EcInlineInputField when component is editable when the component is in 
     class="ec-inline-input-field__label"
   >
     Label
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
   <div
     class="ec-inline-input-field-value-text"
     data-test="ec-inline-input-field-value-text"
@@ -397,18 +372,15 @@ exports[`EcInlineInputField when component is editable when the component is in 
     <span
       class="ec-inline-input-field-value-text__text"
     >
-      
-    Input field value
-  
+      Input field value
     </span>
-     
     <button
       class="ec-inline-input-field-value-text__action"
       data-test="ec-inline-input-field-value-text__action"
       type="button"
     >
       <svg
-        class="ec-inline-input-field-value-text__edit-icon ec-icon"
+        class="ec-icon ec-inline-input-field-value-text__edit-icon"
         height="16"
         width="16"
       >
@@ -418,6 +390,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       </svg>
     </button>
   </div>
+  
 </div>
 `;
 
@@ -430,7 +403,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
   >
     Label
     <svg
-      class="ec-inline-input-field__label-tooltip ec-icon ec-icon--interactive"
+      class="ec-icon ec-icon--interactive ec-inline-input-field__label-tooltip"
       data-ec-tooltip-mock-content="Testing the labelTooltip prop"
       data-test="ec-inline-input-field__label-tooltip ec-mock ec-tooltip-mock"
       height="14"
@@ -441,7 +414,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       />
     </svg>
   </div>
-   
+  
   <div
     class="ec-inline-input-field-value-text"
     data-test="ec-inline-input-field-value-text"
@@ -449,18 +422,15 @@ exports[`EcInlineInputField when component is editable when the component is in 
     <span
       class="ec-inline-input-field-value-text__text"
     >
-      
-    Input field value
-  
+      Input field value
     </span>
-     
     <button
       class="ec-inline-input-field-value-text__action"
       data-test="ec-inline-input-field-value-text__action"
       type="button"
     >
       <svg
-        class="ec-inline-input-field-value-text__edit-icon ec-icon"
+        class="ec-icon ec-inline-input-field-value-text__edit-icon"
         height="16"
         width="16"
       >
@@ -470,6 +440,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       </svg>
     </button>
   </div>
+  
 </div>
 `;
 
@@ -481,9 +452,9 @@ exports[`EcInlineInputField when component is editable when the component is in 
     class="ec-inline-input-field__label"
   >
     Label
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
   <div
     class="ec-inline-input-field-value-text"
     data-test="ec-inline-input-field-value-text"
@@ -491,18 +462,15 @@ exports[`EcInlineInputField when component is editable when the component is in 
     <span
       class="ec-inline-input-field-value-text__text my-sensitive-content-test-class"
     >
-      
-    Input field value
-  
+      Input field value
     </span>
-     
     <button
       class="ec-inline-input-field-value-text__action"
       data-test="ec-inline-input-field-value-text__action"
       type="button"
     >
       <svg
-        class="ec-inline-input-field-value-text__edit-icon ec-icon"
+        class="ec-icon ec-inline-input-field-value-text__edit-icon"
         height="16"
         width="16"
       >
@@ -512,6 +480,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
       </svg>
     </button>
   </div>
+  
 </div>
 `;
 
@@ -523,9 +492,9 @@ exports[`EcInlineInputField when component is editable when the component is loa
     class="ec-inline-input-field__label"
   >
     Label
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
   <div
     class="ec-inline-input-field-loading"
     data-test="ec-inline-input-field-loading"
@@ -534,22 +503,20 @@ exports[`EcInlineInputField when component is editable when the component is loa
       class="ec-input-field"
       data-test="ec-input-field"
     >
-      <!---->
-       
+      <!--v-if-->
       <input
         class="ec-input-field__input ec-input-field__input--is-loading"
         data-test="ec-input-field__input"
         id="ec-input-field-1"
-        readonly="readonly"
+        readonly=""
         type="text"
       />
-       
       <div
         class="ec-input-field__icon-wrapper"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
-          class="ec-loading-icon ec-input-field__icon ec-icon"
+          class="ec-icon ec-loading-icon ec-input-field__icon"
           data-test="ec-loading-icon"
           height="24"
           width="24"
@@ -559,10 +526,8 @@ exports[`EcInlineInputField when component is editable when the component is loa
           />
         </svg>
       </div>
-       
-      <!---->
+      <!--v-if-->
     </div>
-     
     <div
       class="ec-inline-input-field-loading__ghost-actions"
     >
@@ -575,9 +540,8 @@ exports[`EcInlineInputField when component is editable when the component is loa
           xlink:href="#ec-simple-check"
         />
       </svg>
-       
       <svg
-        class="ec-inline-input-field-loading__close-action ec-icon"
+        class="ec-icon ec-inline-input-field-loading__close-action"
         height="16"
         width="16"
       >
@@ -587,6 +551,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
       </svg>
     </div>
   </div>
+  
 </div>
 `;
 
@@ -598,9 +563,9 @@ exports[`EcInlineInputField when component is editable when the component is loa
     class="ec-inline-input-field__label"
   >
     Label
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
   <div
     class="ec-inline-input-field-loading"
     data-test="ec-inline-input-field-loading"
@@ -609,22 +574,20 @@ exports[`EcInlineInputField when component is editable when the component is loa
       class="ec-input-field"
       data-test="ec-input-field"
     >
-      <!---->
-       
+      <!--v-if-->
       <input
         class="ec-input-field__input ec-input-field__input--is-loading my-sensitive-content-test-class"
         data-test="ec-input-field__input"
         id="ec-input-field-1"
-        readonly="readonly"
+        readonly=""
         type="text"
       />
-       
       <div
         class="ec-input-field__icon-wrapper"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
-          class="ec-loading-icon ec-input-field__icon ec-icon"
+          class="ec-icon ec-loading-icon ec-input-field__icon"
           data-test="ec-loading-icon"
           height="24"
           width="24"
@@ -634,10 +597,8 @@ exports[`EcInlineInputField when component is editable when the component is loa
           />
         </svg>
       </div>
-       
-      <!---->
+      <!--v-if-->
     </div>
-     
     <div
       class="ec-inline-input-field-loading__ghost-actions"
     >
@@ -650,9 +611,8 @@ exports[`EcInlineInputField when component is editable when the component is loa
           xlink:href="#ec-simple-check"
         />
       </svg>
-       
       <svg
-        class="ec-inline-input-field-loading__close-action ec-icon"
+        class="ec-icon ec-inline-input-field-loading__close-action"
         height="16"
         width="16"
       >
@@ -662,6 +622,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
       </svg>
     </div>
   </div>
+  
 </div>
 `;
 
@@ -673,17 +634,18 @@ exports[`EcInlineInputField when component is non-editable should render as expe
     class="ec-inline-input-field__label"
   >
     Label
-    <!---->
+    <!--v-if-->
   </div>
-   
   <div
     class="ec-inline-input-field__content"
   >
+    
     <a
       href="#"
     >
       Link
     </a>
+    
   </div>
 </div>
 `;
@@ -696,11 +658,13 @@ exports[`EcInlineInputField when component is non-editable should render with a 
     class="ec-inline-input-field__label"
   >
     Label
-    <!---->
+    <!--v-if-->
   </div>
-   
   <div
     class="ec-inline-input-field__content my-sensitive-content-test-class"
-  />
+  >
+    
+    
+  </div>
 </div>
 `;

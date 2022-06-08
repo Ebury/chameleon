@@ -89,9 +89,9 @@ function event(name) {
 }
 
 export {
-  format,
-  unFormat,
-  setCursor,
   event,
+  format,
   sanitizeInput,
+  setCursor,
+  unFormat,
 };

@@ -20,7 +20,7 @@
     </label>
 
     <div
-      ref="popperWidthReference"
+      ref="popoverWidthReference"
       class="ec-currency-input__input-group"
     >
       <div
@@ -37,8 +37,8 @@
         :class="{ 'ec-currency-input__currencies--is-focused': currenciesHasFocus }"
         :error-id="errorId"
         :items="currenciesItems"
-        :popper-modifiers="popperModifier"
         :popover-options="popoverOptions"
+        :popover-style="popoverStyle"
         :search-placeholder="searchCurrencyPlaceholder"
         :no-results-text="noCurrenciesText"
         class="ec-currency-input__currencies"
@@ -111,11 +111,11 @@
 </template>
 
 <script>
+import EcTooltip from '../../directives/ec-tooltip';
+import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
-import EcTooltip from '../../directives/ec-tooltip';
-import { getUid } from '../../utils/uid';
 
 export default {
   name: 'EcCurrencyInput',
@@ -193,23 +193,15 @@ export default {
       default: 'No results found',
     },
   },
+  emits: ['change', 'focus', 'amount-change', 'value-change', 'currency-change', 'open', 'after-open'],
   data() {
     return {
       uid: getUid(),
       currenciesHasFocus: false,
-      popperModifier: {
-        setPopperWidth: {
-          enabled: true,
-          order: 841,
-          fn: /* istanbul ignore next */ (data) => {
-            data.styles.width = this.$refs.popperWidthReference.offsetWidth;
-            return data;
-          },
-        },
-      },
       popoverOptions: {
-        placement: 'bottom-end',
+        autoSize: 'min',
       },
+      popoverStyle: {},
     };
   },
   computed: {
@@ -248,6 +240,13 @@ export default {
         this.$emit('value-change', { ...this.value, amount: value });
       },
     },
+  },
+  mounted() {
+    if (this.$refs.popoverWidthReference) {
+      this.popoverStyle = {
+        width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
+      };
+    }
   },
   methods: {
     onAmountChange(evt) {

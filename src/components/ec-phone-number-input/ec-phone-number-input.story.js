@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
 export default {
@@ -6,28 +8,27 @@ export default {
   component: EcPhoneNumberInput,
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = ({ countries, ...args }) => ({
   components: { EcPhoneNumberInput },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
     return {
-      model: {
-        country: this.$props.countries[0],
+      args,
+      countries,
+      model: ref({
+        country: countries[0],
         phoneNumber: '1234567890',
-      },
+      }),
+      onChange: action('change'),
+      onFocus: action('focus'),
+      onOpen: action('open'),
+      onPhoneNumberChange: action('phone-phone-number-change'),
+      onCountryChange: action('country-change'),
     };
-  },
-  methods: {
-    onChange: action('change'),
-    onFocus: action('focus'),
-    onOpen: action('open'),
-    onPhoneNumberChange: action('phone-phone-number-change'),
-    onCountryChange: action('country-change'),
   },
   template: `
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
       <ec-phone-number-input
-        v-bind="$props"
+        v-bind="{ ...args, countries }"
         v-on="{
           change: onChange,
           focus: onFocus,
@@ -38,7 +39,7 @@ export const basic = (args, { argTypes }) => ({
         v-model="model"
       />
 
-      <p class="tw-mt-48">Value: {{ model }}</p>
+      <p class="tw-mt-48">Value: <pre>{{ model }}</pre></p>
     </div>
   `,
 });
