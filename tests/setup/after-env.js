@@ -1,3 +1,5 @@
+import { configureCompat } from 'vue';
+
 import '@testing-library/jest-dom';
 
 import { Wrapper, WrapperArray } from '@vue/test-utils';
@@ -13,3 +15,16 @@ Wrapper.prototype.findByDataTest = function findByDataTest(dataTest) {
 };
 Wrapper.prototype.findAllByDataTest = findAllByDataTest;
 WrapperArray.prototype.findAllByDataTest = findAllByDataTest;
+
+// @vue/compiler-sfc
+config.global.compilerOptions = {
+  ...config.global.compilerOptions,
+  whitespace: 'condense',
+  comments: false,
+};
+
+// @vue/compat
+configureCompat({
+  MODE: 2,
+  RENDER_FUNCTION: true,
+});

@@ -40,6 +40,9 @@ module.exports = {
     'vue/multiline-html-element-content-newline': 'off',
     'vue/require-default-prop': 'off',
     'vue/singleline-html-element-content-newline': 'off',
+    // vue/compat
+    'vue/no-deprecated-dollar-listeners-api': 'off',
+    'vue/no-deprecated-v-on-native-modifier': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',

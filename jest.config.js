@@ -52,4 +52,17 @@ module.exports = {
     },
   },
   clearMocks: true,
+  globals: {
+    'vue-jest': {
+      compilerOptions: {
+        whitespace: 'condense',
+        comments: false,
+        compatConfig: {
+          MODE: 2,
+          RENDER_FUNCTION: true,
+        },
+      },
+    },
+  },
+  moduleNameMapper: { '^vue$': '@vue/compat' },
 };

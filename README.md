@@ -97,6 +97,8 @@ abort previous requests. If you support **IE11** browser, you have to include [A
 
 [Vue](https://vuejs.org/)
 
+[Vue/compat](https://www.npmjs.com/package/@vue/compat)
+
 [Vue CLI](https://cli.vuejs.org/)
 
 ### Storybook

@@ -23,6 +23,29 @@ module.exports = {
     },
   ],
   webpackFinal: (config) => {
+    // enable @vue/compat for stories
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      vue$: require.resolve('@vue/compat'),
+    };
+
+    // enable @vue/compat when compiling story templates
+    const vueLoaderRule = findRuleByLoader(config.module.rules, '/vue-loader/');
+    if (!vueLoaderRule) {
+      throw new Error('Unable to find vue loader rules in the webpack config. Configuration change?');
+    }
+
+    vueLoaderRule.options = {
+      ...vueLoaderRule.options,
+      compilerOptions: {
+        whitespace: 'condense',
+        compatConfig: {
+          MODE: 2,
+          RENDER_FUNCTION: true,
+        },
+      },
+    };
+
     config.module.rules.push({
       test: /\.story\.jsx?$/,
       loaders: [require.resolve('@storybook/source-loader')],
@@ -57,3 +80,23 @@ module.exports = {
     return config;
   },
 };
+
+function findRuleByLoader(rules, loaderName) {
+  if (!loaderName) {
+    throw new Error('Missing loader name');
+  }
+
+  return rules.find((rule) => {
+    if (rule.type === loaderName) {
+      return true;
+    }
+    if (rule.loader && rule.loader.includes(loaderName)) {
+      return true;
+    }
+    if (rule.use && findRuleByLoader(rule.use, loaderName)) {
+      return true;
+    }
+
+    return false;
+  });
+}

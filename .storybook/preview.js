@@ -2,9 +2,7 @@
 import cssVars from 'css-vars-ponyfill';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
-import Vue from 'vue';
-import { inlineSvgSprites } from '../src/icons/browser';
-import { getAllBackgrounds } from './backgrounds';
+import Vue, { configureCompat } from 'vue';
 
 /* eslint-disable import/no-webpack-loader-syntax */
 import bwTheme from '!!raw-loader!../src/styles/themes/b-w.css';
@@ -14,6 +12,8 @@ import hotpinkTheme from '!!raw-loader!../src/styles/themes/hotpink.css';
 /* eslint-enable */
 
 import config from '../src/config';
+import { inlineSvgSprites } from '../src/icons/browser';
+import { getAllBackgrounds } from './backgrounds';
 
 import '../src/styles/themes/blue.css';
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -24,6 +24,11 @@ config.sensitiveClass = 'tw-filter tw-blur-4';
 // SB bug workaround, remove this line if the following issue is fixed:
 // https://github.com/storybookjs/storybook/issues/14933
 Vue.prototype.toJSON = () => {};
+
+configureCompat({
+  MODE: 2,
+  RENDER_FUNCTION: true,
+});
 
 export const parameters = {
   viewMode: 'docs',
