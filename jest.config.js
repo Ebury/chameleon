@@ -1,30 +1,13 @@
 const customElements = new Set(['ec-stub']);
 
 module.exports = {
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'json',
-    'vue',
-  ],
-  transform: {
-    '^.+\\.vue$': 'vue-jest',
-    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '^.+\\.jsx?$': 'babel-jest',
-  },
+  preset: '@vue/cli-plugin-unit-jest/presets/default',
+  errorOnDeprecated: true,
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
   ],
-  snapshotSerializers: [
-    'jest-serializer-vue',
-  ],
   testMatch: [
     '<rootDir>/src/**/*.spec.(js|jsx|ts|tsx)',
-  ],
-  testURL: 'http://localhost/',
-  watchPlugins: [
-    'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname',
   ],
   setupFiles: [
     '<rootDir>/tests/setup/intl.js',
@@ -42,6 +25,7 @@ module.exports = {
     '!src/main.js',
     '!src/**/*.story.js',
     '!src/**/index.js',
+    '!src/**/.eslintrc.js',
     '!src/icons/**',
     '!src/assets/**',
   ],
