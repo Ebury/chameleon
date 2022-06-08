@@ -58,10 +58,9 @@ module.exports = {
       },
     };
 
+    // add stylelint (https://vue-loader.vuejs.org/guide/linting.html#stylelint)
     config.plugins.push(new StyleLintPlugin({
-      files: ['**/*.{vue,htm,html,css}'],
-      emitError: true,
-      emitWarning: true,
+      files: ['**/*.{vue,css}'],
     }));
 
     // make sure babel will transpile native ES6 modules

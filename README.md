@@ -113,6 +113,12 @@ abort previous requests. If you support **IE11** browser, you have to include [A
 
 [Cypress](https://www.cypress.io/)
 
+### Linting
+
+[ESLint](https://eslint.org/)
+
+[Stylelint](https://stylelint.io/)
+
 ### CSS
 
 [PostCSS](https://postcss.org/)
