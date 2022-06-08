@@ -63,7 +63,12 @@ module.exports = {
       emitError: true,
       emitWarning: true,
     }));
-    const babelRule = config.module.rules[0];
+
+    // make sure babel will transpile native ES6 modules
+    const babelRule = findRuleByLoader(config.module.rules, 'babel-loader');
+    if (!babelRule) {
+      throw new Error('Unable to find babel loader rules in the webpack config. Configuration change?');
+    }
     babelRule.exclude = /node_modules\/(?!(css-tree|color)\/).*/;
 
     // extract country flags from node_modules to icons folder

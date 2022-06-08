@@ -4,6 +4,9 @@ module.exports = {
   env: {
     node: true,
   },
+  parserOptions: {
+    parser: '@babel/eslint-parser',
+  },
   extends: [
     'plugin:vue/recommended',
     '@vue/airbnb',
@@ -43,9 +46,6 @@ module.exports = {
     // vue/compat
     'vue/no-deprecated-dollar-listeners-api': 'off',
     'vue/no-deprecated-v-on-native-modifier': 'off',
-  },
-  parserOptions: {
-    parser: 'babel-eslint',
   },
   overrides: [
     {
