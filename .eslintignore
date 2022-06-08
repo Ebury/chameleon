@@ -2,6 +2,8 @@
 !.stylelintrc.js
 !.eslintrc.js
 !.eslintrc.*.js
+node_modules
 dist
 coverage
 svg-sprites.js
+src/icons/currency-flags.js
