@@ -11,6 +11,7 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     '@vue/airbnb',
   ],
+  plugins: ['simple-import-sort'],
   rules: {
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'max-len': 'off',
@@ -25,6 +26,15 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'require-await': ['error'],
     'import/prefer-default-export': 'off',
+    'simple-import-sort/imports': ['error', {
+      groups: [
+        ['^@?(?!ebury)\\w'], // vendor
+        ['^@ebury\\/'], // ebury lib
+        ['^[^.\\u0000]', '^\\.', '^'], // both absolute and relative imports
+        ['^\\u0000'], // side effect imports
+      ],
+    }],
+    'simple-import-sort/exports': 'error',
     'vue/attributes-order': ['error', {
       order: [
         'GLOBAL',

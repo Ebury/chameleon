@@ -1,22 +1,20 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies,import/no-webpack-loader-syntax */
 import cssVars from 'css-vars-ponyfill';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import Vue, { configureCompat } from 'vue';
 
-/* eslint-disable import/no-webpack-loader-syntax */
 import bwTheme from '!!raw-loader!../src/styles/themes/b-w.css';
 import greenTheme from '!!raw-loader!../src/styles/themes/green.css';
-import redTheme from '!!raw-loader!../src/styles/themes/red.css';
 import hotpinkTheme from '!!raw-loader!../src/styles/themes/hotpink.css';
-/* eslint-enable */
-
+import redTheme from '!!raw-loader!../src/styles/themes/red.css';
 import config from '../src/config';
 import { inlineSvgSprites } from '../src/icons/browser';
 import { getAllBackgrounds } from './backgrounds';
 
 import '../src/styles/themes/blue.css';
 import '../src/styles/main.css';
+/* eslint-enable */
 
 config.sensitiveClass = 'tw-filter tw-blur-4';
 
@@ -51,6 +49,7 @@ export const parameters = {
 if (process.env.NODE_ENV === 'production') {
   parameters.viewMode = 'docs';
 }
+
 export const decorators = [withCssResources];
 
 cssVars();
