@@ -61,6 +61,10 @@
 <script>
 export default {
   name: 'EcSubmenu',
+  compatConfig: {
+    MODE: 2,
+    COMPILER_V_ON_NATIVE: true,
+  },
   model: {
     prop: 'activeIndex',
     event: 'change',
@@ -83,6 +87,7 @@ export default {
       default: true,
     },
   },
+  emits: ['change'],
 };
 </script>
 

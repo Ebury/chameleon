@@ -100,11 +100,11 @@
 </template>
 
 <script>
+import EcFocusTrap from '../../directives/ec-focus-trap';
+import * as KeyCode from '../../enums/key-code';
 import EcBtn from '../ec-btn';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
-import EcFocusTrap from '../../directives/ec-focus-trap';
-import * as KeyCode from '../../enums/key-code';
 
 export default {
   components: {
@@ -149,6 +149,7 @@ export default {
       default: () => ({}),
     },
   },
+  emits: ['negative', 'positive', 'close'],
   computed: {
     isLoadingPositiveButton() {
       return !!this.isLoading.positive;
@@ -178,7 +179,7 @@ export default {
       },
     },
   },
-  beforeDestroy() {
+  beforeUnmount() {
     document.removeEventListener('keyup', this.escapeIsPressed);
   },
   methods: {
@@ -213,13 +214,13 @@ export default {
       return options;
     },
     hasPositiveButton() {
-      return !!this.$scopedSlots.positive;
+      return !!this.$slots.positive;
     },
     hasNegativeButton() {
-      return !!this.$scopedSlots.negative;
+      return !!this.$slots.negative;
     },
     hasFooterLeftContent() {
-      return !!this.$scopedSlots.footerLeftContent;
+      return !!this.$slots.footerLeftContent;
     },
     hasFooter() {
       return this.hasFooterLeftContent() || this.hasPositiveButton() || this.hasNegativeButton();

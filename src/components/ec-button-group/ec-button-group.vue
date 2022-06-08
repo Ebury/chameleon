@@ -41,6 +41,7 @@ export default {
       validator: array => arrayOfObjectsContainsKey(array, ['value', 'text']),
     },
   },
+  emits: ['change'],
 };
 </script>
 

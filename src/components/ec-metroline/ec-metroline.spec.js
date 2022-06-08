@@ -1,20 +1,18 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcMetroline from './ec-metroline.vue';
-import EcMetrolineItem from '../ec-metroline-item';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcMetrolineItem from '../ec-metroline-item';
+import EcMetroline from './ec-metroline.vue';
 
 function mountMetrolineAsTemplate(template, wrapperComponentOpts) {
-  const localVue = createLocalVue();
-
-  const Component = localVue.extend({
+  const Component = defineComponent({
     components: { EcMetroline, EcMetrolineItem },
     template,
     ...wrapperComponentOpts,
   });
 
-  return mount(Component, {
-    localVue,
-  });
+  return mount(Component);
 }
 
 const metrolineWithItemsTemplate = `
@@ -38,8 +36,8 @@ const metrolineWithItemsTemplate = `
       >
         Edit
       </button>
-      
-      <button 
+
+      <button
         v-else-if="isCompleted"
         data-test="header-cta-completed">Download
       </button>
@@ -129,7 +127,7 @@ describe('EcMetroline', () => {
     });
 
     it('should throw an error if we don\'t pass an id', () => {
-      withMockedConsole((errorSpy) => {
+      withMockedConsole((errorSpy, warnSpy) => {
         mountMetrolineAsTemplate(
           `<ec-metroline>
             <ec-metroline-item>
@@ -140,8 +138,8 @@ describe('EcMetroline', () => {
           </ec-metroline>`,
         );
 
-        expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "id"');
-        expect(errorSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "id"');
+        expect(warnSpy).toHaveBeenCalledTimes(1);
       });
     });
   });
@@ -168,8 +166,7 @@ describe('EcMetroline', () => {
             </button>
           </template>
         </ec-metroline-item>
-      </ec-metroline>`,
-      {
+      </ec-metroline>`, {
         methods: {
           onChange,
         },
@@ -213,8 +210,7 @@ describe('EcMetroline', () => {
             </button>
           </template>
         </ec-metroline-item>
-      </ec-metroline>`,
-      {
+      </ec-metroline>`, {
         methods: {
           onChange,
         },
@@ -256,8 +252,7 @@ describe('EcMetroline', () => {
             </button>
           </template>
         </ec-metroline-item>
-      </ec-metroline>`,
-      {
+      </ec-metroline>`, {
         methods: {
           onComplete,
         },

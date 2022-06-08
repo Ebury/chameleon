@@ -1,4 +1,5 @@
 import fakeTimers from '@sinonjs/fake-timers';
+
 import Countdown from './countdown';
 
 describe('Countdown', () => {

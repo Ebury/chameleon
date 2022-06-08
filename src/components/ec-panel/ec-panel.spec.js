@@ -1,25 +1,24 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import EcPanel from './ec-panel.vue';
 
 function mountPanel(props, mountOpts) {
   return mount(EcPanel, {
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
 
 function mountPanelAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const localVue = createLocalVue();
-
-  const Component = localVue.extend({
+  const Component = defineComponent({
     components: { EcPanel },
     template,
     ...wrapperComponentOpts,
   });
 
   return mount(Component, {
-    localVue,
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
@@ -67,7 +66,7 @@ describe('EcPanel', () => {
           },
         );
 
-        expect(wrapper.findByDataTest('ec-panel__header-action--back').exists()).toBeTruthy();
+        expect(wrapper.findByDataTest('ec-panel__header-action--back').exists()).toBe(true);
         expect(wrapper.element).toMatchSnapshot();
       });
 
@@ -84,7 +83,7 @@ describe('EcPanel', () => {
           },
         );
 
-        expect(wrapper.findByDataTest('ec-panel__header-action--back').exists()).toBeFalsy();
+        expect(wrapper.findByDataTest('ec-panel__header-action--back').exists()).toBe(false);
         expect(wrapper.element).toMatchSnapshot();
       });
 
@@ -108,7 +107,7 @@ describe('EcPanel', () => {
         await wrapper.findByDataTest('ec-panel__header-action--back').trigger('click');
 
         expect(anyGivenCallback).toHaveBeenCalled();
-        expect(wrapper.findByDataTest('ec-panel').exists()).toBeFalsy();
+        expect(wrapper.findByDataTest('ec-panel').exists()).toBe(false);
       });
     });
   });

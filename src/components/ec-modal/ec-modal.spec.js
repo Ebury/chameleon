@@ -1,4 +1,6 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcModal from './ec-modal.vue';
 
@@ -6,23 +8,20 @@ jest.mock('../../directives/ec-focus-trap');
 
 function mountModal(props, mountOpts) {
   return mount(EcModal, {
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
 
 function mountModalAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const localVue = createLocalVue();
-
-  const Component = localVue.extend({
+  const Component = defineComponent({
     components: { EcModal },
     template,
     ...wrapperComponentOpts,
   });
 
   return mount(Component, {
-    localVue,
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
@@ -87,14 +86,14 @@ describe('EcModal', () => {
   });
 
   it('should throw an error when we try to pass a number not allowed on the z-index prop', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       // The error can be throw when we don't pass a number between 200 and 250
       mountModal({
         showModal: true,
         zIndex: 200,
       });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "zIndex"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "zIndex"');
     });
   });
 
@@ -111,8 +110,7 @@ describe('EcModal', () => {
   it('should render footer left section when slot is passed', () => {
     const wrapper = mountModal({
       showModal: true,
-    },
-    {
+    }, {
       slots: {
         footerLeftContent: '<p>Need Help ?</p>',
       },
@@ -125,8 +123,7 @@ describe('EcModal', () => {
   it('should render negative button if slot is passed', () => {
     const wrapper = mountModal({
       showModal: true,
-    },
-    {
+    }, {
       slots: {
         negative: 'Skip for now',
       },
@@ -143,8 +140,7 @@ describe('EcModal', () => {
         negative: true,
       },
       showModal: true,
-    },
-    {
+    }, {
       slots: {
         negative: 'Skip for now',
       },
@@ -161,8 +157,7 @@ describe('EcModal', () => {
         negative: 'warning',
       },
       showModal: true,
-    },
-    {
+    }, {
       slots: {
         negative: 'Negative button',
       },
@@ -176,8 +171,7 @@ describe('EcModal', () => {
   it('should render positive button if slot is passed', () => {
     const wrapper = mountModal({
       showModal: true,
-    },
-    {
+    }, {
       slots: {
         positive: 'Update management accounts',
       },
@@ -194,8 +188,7 @@ describe('EcModal', () => {
         positive: true,
       },
       showModal: true,
-    },
-    {
+    }, {
       slots: {
         positive: 'Update management accounts',
       },
@@ -212,8 +205,7 @@ describe('EcModal', () => {
         positive: 'error',
       },
       showModal: true,
-    },
-    {
+    }, {
       slots: {
         positive: 'Positive button',
       },
@@ -225,32 +217,28 @@ describe('EcModal', () => {
   });
 
   it('should emit a "positive" event when clicking on the positive button', () => {
-    const wrapper = mountModal(
-      {
-        showModal: true,
+    const wrapper = mountModal({
+      showModal: true,
+    }, {
+      slots: {
+        positive: 'Positive Button',
       },
-      {
-        slots: {
-          positive: 'Positive Button',
-        },
-      },
-    );
+    });
     wrapper.findByDataTest('ec-modal__positive-btn').trigger('click');
-    expect(wrapper.emitted().positive).toBeTruthy();
+    expect(wrapper.emitted('positive').length).toBe(1);
   });
 
   it('should emit a "negative" event when clicking on the negative button', () => {
     const wrapper = mountModal({
       showModal: true,
-    },
-    {
+    }, {
       slots: {
         negative: 'Negative Button',
       },
     });
 
     wrapper.findByDataTest('ec-modal__negative-btn').trigger('click');
-    expect(wrapper.emitted().negative).toBeTruthy();
+    expect(wrapper.emitted('negative').length).toBe(1);
   });
 
   it('should emit a "close" event when clicking on the close button', () => {
@@ -260,7 +248,7 @@ describe('EcModal', () => {
     });
 
     wrapper.findByDataTest('ec-modal__close').trigger('click');
-    expect(wrapper.emitted().close).toBeTruthy();
+    expect(wrapper.emitted('close').length).toBe(1);
   });
 
   it('should close the modal if ESC key is pressed and is closable', async () => {
@@ -275,7 +263,7 @@ describe('EcModal', () => {
     });
 
     await wrapper.trigger('keyup.esc');
-    expect(wrapper.emitted().close).toBeTruthy();
+    expect(wrapper.emitted('close').length).toBe(1);
   });
 
   it('should not close the modal if ESC key is pressed and is not closable', async () => {
@@ -349,7 +337,7 @@ describe('EcModal', () => {
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(addEventListenerSpy).toHaveBeenCalledWith('keyup', expect.any(Function));
 
-    await wrapper.destroy();
+    await wrapper.unmount();
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);

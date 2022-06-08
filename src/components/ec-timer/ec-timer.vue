@@ -70,6 +70,7 @@ export default {
       required: true,
     },
   },
+  emits: ['time-expired'],
   data() {
     return {
       radius: 24,
@@ -104,14 +105,14 @@ export default {
         if (value) {
           this.startCountdown();
         } else {
-          this.stopCountdow();
+          this.stopCountdown();
           this.secondsLeft = this.seconds;
         }
       },
     },
   },
-  beforeDestroy() {
-    this.stopCountdow();
+  beforeUnmount() {
+    this.stopCountdown();
   },
   methods: {
     startCountdown() {
@@ -122,14 +123,14 @@ export default {
       });
       this.countdown.on('time-expired', () => {
         /**
-         * Emited after the countdown is finish
+         * Emitted after the countdown is finish
          * @event time-expired
          * @type {void}
         */
         this.$emit('time-expired');
       });
     },
-    stopCountdow() {
+    stopCountdown() {
       if (this.countdown) {
         this.countdown.stop();
         this.countdown = null;

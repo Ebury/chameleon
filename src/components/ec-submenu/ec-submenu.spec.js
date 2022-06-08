@@ -1,26 +1,25 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcSubmenu from './ec-submenu.vue';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcSubmenu from './ec-submenu.vue';
 
 function mountSubmenu(props, mountOpts) {
   return mount(EcSubmenu, {
-    propsData: { ...props },
+    props: { ...props },
     ...mountOpts,
   });
 }
 
 function mountSubmenuAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const localVue = createLocalVue();
-
-  const Component = localVue.extend({
+  const Component = defineComponent({
     components: { EcSubmenu },
     template,
     ...wrapperComponentOpts,
   });
 
   return mount(Component, {
-    localVue,
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
@@ -52,23 +51,23 @@ const slots = {
 
 describe('EcSubmenu', () => {
   it('should throw an error if we don\'t pass any content', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mount(EcSubmenu);
-      expect(errorSpy).toHaveBeenCalled();
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "submenu"');
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "submenu"');
     });
   });
 
   it('should not render when passing null to submenu', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       const wrapper = mountSubmenu(
         { submenu: null },
         {
           slots,
         },
       );
-      expect(errorSpy).toHaveBeenCalled();
-      expect(errorSpy.mock.calls[0][0]).toContain('Expected Array, got Null ');
+      expect(warnSpy).toHaveBeenCalled();
+      expect(warnSpy.mock.calls[0][0]).toContain('Expected Array, got Null ');
       expect(wrapper.findByDataTest('ec-submenu').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });

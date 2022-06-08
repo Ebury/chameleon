@@ -89,6 +89,7 @@ export default {
       default: false,
     },
   },
+  emits: ['show-panel', 'back', 'close'],
   computed: {
     isBackEnabled() {
       return this.$listeners.back;
@@ -96,10 +97,10 @@ export default {
   },
   methods: {
     hasHeader() {
-      return !!this.$scopedSlots.header;
+      return !!this.$slots.header;
     },
     hasFooter() {
-      return !!this.$scopedSlots.footer;
+      return !!this.$slots.footer;
     },
     goBack() {
       this.$emit('show-panel', false);

@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
 import EcIcon from '../ec-icon';
@@ -12,32 +14,35 @@ export default {
   ],
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = ({
+  large, showModal, isClosable, isLoading, category, showFooterLeftContent, negativeHasText, positiveHasText, zIndex, ...args
+}) => ({
   components: { EcModal, EcIcon },
-  props: Object.keys(argTypes),
   directives: { EcTooltip },
-  watch: {
-    showModal: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  data() {
+  setup() {
+    const model = ref(showModal);
+    const tooltipConfig = ref({
+      content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
+      popperClass: ['ec-tooltip--bg-bright ec-tooltip--modal'],
+      triggers: ['click'],
+      placement: 'bottom',
+      html: true,
+    });
     return {
-      model: false,
-      tooltipConfig: {
-        content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
-        classes: ['ec-tooltip--bg-bright ec-tooltip--modal'],
-        trigger: 'click',
-        placement: 'bottom',
-      },
+      model,
+      tooltipConfig,
+      large,
+      args,
+      isClosable,
+      isLoading,
+      showFooterLeftContent,
+      negativeHasText,
+      positiveHasText,
+      zIndex,
+      onReject: action('reject'),
+      onAccept: action('accept'),
+      onClose: action('close'),
     };
-  },
-  methods: {
-    onReject: action('reject'),
-    onAccept: action('accept'),
-    onClose: action('close'),
-
   },
   template: `
     <div>
@@ -170,18 +175,15 @@ basic.parameters = {
   },
 };
 
-export const stackable = (args, { argTypes }) => ({
+export const stackable = () => ({
   components: { EcModal },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
     return {
-      showFirstModal: true,
-      showSecondModal: true,
+      showFirstModal: ref(true),
+      showSecondModal: ref(true),
+      firstModalAction: action('firstModalAction'),
+      secondModalAction: action('secondModalAction'),
     };
-  },
-  methods: {
-    firstModalAction: action('firstModalAction'),
-    secondModalAction: action('secondModalAction'),
   },
   template: `
     <div>
@@ -195,8 +197,10 @@ export const stackable = (args, { argTypes }) => ({
         </template>
 
         <template #main>
-          <a @click.prevent.stop="firstModalAction">Action first modal</a>
-          <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          <div>
+            <button @click.prevent.stop="firstModalAction">Action first modal</button>
+            <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          </div>
         </template>
       </ec-modal>
 
@@ -210,8 +214,10 @@ export const stackable = (args, { argTypes }) => ({
         </template>
 
         <template #main>
-          <a @click.prevent.stop="secondModalAction">Action second modal</a>
-          <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          <div>
+            <button @click.prevent.stop="secondModalAction">Action second modal</button>
+            <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          </div>
         </template>
       </ec-modal>
     </div>

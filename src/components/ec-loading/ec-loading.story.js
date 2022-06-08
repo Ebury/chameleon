@@ -1,23 +1,26 @@
 import { action } from '@storybook/addon-actions';
-import { fixedContainerDecorator } from '../../../.storybook/utils';
-import EcLoading from './ec-loading.vue';
-import EcPanel from '../ec-panel';
+
 import { DARK_THEME } from '../../../.storybook/backgrounds';
+import { fixedContainerDecorator } from '../../../.storybook/utils';
+import EcPanel from '../ec-panel';
+import EcLoading from './ec-loading.vue';
 
 export default {
   title: 'Loading',
   component: EcLoading,
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = args => ({
   components: { EcLoading },
-  props: Object.keys(argTypes),
-  methods: {
-    onClick: action('click'),
+  setup() {
+    return {
+      args,
+      onClick: action('click'),
+    };
   },
   template: `
     <div class="tw-p-24">
-      <ec-loading v-bind="$props">
+      <ec-loading v-bind="args">
         <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" @click="onClick">Test action</button>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ullam architecto obcaecati, facere corrupti,
           repellat veniam quam odit esse eum soluta sequi ea minus itaque exercitationem dignissimos rerum dicta earum iste,
@@ -44,9 +47,21 @@ basic.parameters = {
   },
 };
 
-export const withPanel = (args, { argTypes }) => ({
+export const withPanel = ({
+  siblingIsLoading,
+  panelIsLoading,
+  transparent,
+  ...args
+}) => ({
   components: { EcLoading, EcPanel },
-  props: Object.keys(argTypes),
+  setup() {
+    return {
+      args,
+      siblingIsLoading,
+      transparent,
+      panelIsLoading,
+    };
+  },
   template: `
     <div class="tw-h-screen">
       <ec-loading :show="siblingIsLoading" :transparent="transparent">
@@ -111,12 +126,14 @@ withPanel.args = {
 
 withPanel.decorators = [fixedContainerDecorator()];
 
-export const withDarkBackground = (args, { argTypes }) => ({
+export const withDarkBackground = args => ({
   components: { EcLoading },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args };
+  },
   template: `
     <div class="tw-h-screen">
-      <ec-loading v-bind="$props">
+      <ec-loading v-bind="args">
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ullam architecto obcaecati, facere corrupti,
           repellat veniam quam odit esse eum soluta sequi ea minus itaque exercitationem dignissimos rerum dicta earum iste,

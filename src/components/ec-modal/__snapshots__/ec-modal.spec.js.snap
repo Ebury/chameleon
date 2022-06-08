@@ -9,14 +9,15 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
     class="ec-modal__header"
     data-test="ec-modal__header"
   >
-     
+    
+    
     <a
       class="ec-modal__close"
       data-test="ec-modal__close"
       href="#"
     >
       <svg
-        class="ec-modal__close-icon ec-icon"
+        class="ec-icon ec-modal__close-icon"
         data-test="ec-modal__close-icon"
         height="24"
         width="24"
@@ -27,13 +28,14 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
       </svg>
     </a>
   </header>
-   
   <main
     class="ec-modal__main"
     data-test="ec-modal__main"
-  />
-   
-  <!---->
+  >
+    
+    
+  </main>
+  <!--v-if-->
 </div>
 `;
 
@@ -51,14 +53,15 @@ exports[`EcModal should have the style attribute z-index when the z-index props 
       class="ec-modal__header"
       data-test="ec-modal__header"
     >
-       
+      
+      
       <a
         class="ec-modal__close"
         data-test="ec-modal__close"
         href="#"
       >
         <svg
-          class="ec-modal__close-icon ec-icon"
+          class="ec-icon ec-modal__close-icon"
           data-test="ec-modal__close-icon"
           height="24"
           width="24"
@@ -69,13 +72,14 @@ exports[`EcModal should have the style attribute z-index when the z-index props 
         </svg>
       </a>
     </header>
-     
     <main
       class="ec-modal__main"
       data-test="ec-modal__main"
-    />
-     
-    <!---->
+    >
+      
+      
+    </main>
+    <!--v-if-->
   </div>
 </div>
 `;
@@ -85,23 +89,20 @@ exports[`EcModal should not render close button when isClosable is set to false 
   class="ec-modal__header"
   data-test="ec-modal__header"
 >
-   
-  <!---->
+  
+  
+  <!--v-if-->
 </header>
 `;
 
 exports[`EcModal should not render the modal if "showModal" is not set to true 1`] = `
-<transition-stub
-  name="ec-modal__fade"
->
-  <!---->
+<transition-stub>
+  <!--v-if-->
 </transition-stub>
 `;
 
 exports[`EcModal should render basic modal 1`] = `
-<transition-stub
-  name="ec-modal__fade"
->
+<transition-stub>
   <div
     class="ec-modal"
     data-test="ec-modal"
@@ -114,14 +115,15 @@ exports[`EcModal should render basic modal 1`] = `
         class="ec-modal__header"
         data-test="ec-modal__header"
       >
-         
+        
+        
         <a
           class="ec-modal__close"
           data-test="ec-modal__close"
           href="#"
         >
           <svg
-            class="ec-modal__close-icon ec-icon"
+            class="ec-icon ec-modal__close-icon"
             data-test="ec-modal__close-icon"
             height="24"
             width="24"
@@ -132,17 +134,17 @@ exports[`EcModal should render basic modal 1`] = `
           </svg>
         </a>
       </header>
-       
       <main
         class="ec-modal__main"
         data-test="ec-modal__main"
       >
+        
         <p>
           Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.
         </p>
+        
       </main>
-       
-      <!---->
+      <!--v-if-->
     </div>
   </div>
 </transition-stub>
@@ -153,14 +155,15 @@ exports[`EcModal should render close button 1`] = `
   class="ec-modal__header"
   data-test="ec-modal__header"
 >
-   
+  
+  
   <a
     class="ec-modal__close"
     data-test="ec-modal__close"
     href="#"
   >
     <svg
-      class="ec-modal__close-icon ec-icon"
+      class="ec-icon ec-modal__close-icon"
       data-test="ec-modal__close-icon"
       height="24"
       width="24"
@@ -182,14 +185,14 @@ exports[`EcModal should render footer left section when slot is passed 1`] = `
     class="ec-modal__footer-left-content"
     data-test="ec-modal__footer-left-content"
   >
+    
     <p>
       Need Help ?
     </p>
+    
   </div>
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </footer>
 `;
 
@@ -198,38 +201,39 @@ exports[`EcModal should render negative button if slot is passed 1`] = `
   class="ec-modal__footer"
   data-test="ec-modal__footer"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-loading ec-modal__btn-loading ec-modal__btn-loading--right"
     data-test="ec-loading"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
       data-test="ec-loading__content"
     >
+      
       <button
-        class="ec-btn ec-modal__negative-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
+        class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
         data-test="ec-modal__negative-btn ec-btn"
         type="button"
       >
-        <!---->
-         
+        <!--v-if-->
         <span
           class="ec-btn__text"
           data-test="ec-btn__text"
         >
+          
+          
           Skip for now
+          
+          
         </span>
-         
-        <!---->
+        <!--v-if-->
       </button>
+      
     </div>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </footer>
 `;
 
@@ -238,38 +242,39 @@ exports[`EcModal should render negative button with given category 1`] = `
   class="ec-modal__footer"
   data-test="ec-modal__footer"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-loading ec-modal__btn-loading ec-modal__btn-loading--right"
     data-test="ec-loading"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
       data-test="ec-loading__content"
     >
+      
       <button
-        class="ec-btn ec-modal__negative-btn ec-btn--md ec-btn--rounded ec-btn--warning"
+        class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--warning"
         data-test="ec-modal__negative-btn ec-btn"
         type="button"
       >
-        <!---->
-         
+        <!--v-if-->
         <span
           class="ec-btn__text"
           data-test="ec-btn__text"
         >
+          
+          
           Negative button
+          
+          
         </span>
-         
-        <!---->
+        <!--v-if-->
       </button>
+      
     </div>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </footer>
 `;
 
@@ -278,8 +283,7 @@ exports[`EcModal should render negative button with the loading status if slot i
   class="ec-modal__footer"
   data-test="ec-modal__footer"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-loading ec-modal__btn-loading ec-modal__btn-loading--right"
     data-test="ec-loading"
@@ -289,7 +293,7 @@ exports[`EcModal should render negative button with the loading status if slot i
       data-test="ec-loading__backdrop"
     >
       <svg
-        class="ec-loading__icon ec-icon"
+        class="ec-icon ec-loading__icon"
         data-test="ec-loading__icon"
         height="48"
         width="48"
@@ -299,31 +303,33 @@ exports[`EcModal should render negative button with the loading status if slot i
         />
       </svg>
     </div>
-     
     <div
       class="ec-loading__content"
       data-test="ec-loading__content"
     >
+      
       <button
-        class="ec-btn ec-modal__negative-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
+        class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
         data-test="ec-modal__negative-btn ec-btn"
         type="button"
       >
-        <!---->
-         
+        <!--v-if-->
         <span
           class="ec-btn__text"
           data-test="ec-btn__text"
         >
+          
+          
           Skip for now
+          
+          
         </span>
-         
-        <!---->
+        <!--v-if-->
       </button>
+      
     </div>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </footer>
 `;
 
@@ -332,36 +338,37 @@ exports[`EcModal should render positive button if slot is passed 1`] = `
   class="ec-modal__footer"
   data-test="ec-modal__footer"
 >
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-loading ec-modal__btn-loading"
     data-test="ec-loading"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
       data-test="ec-loading__content"
     >
+      
       <button
-        class="ec-btn ec-modal__positive-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-modal__positive-btn--right"
+        class="ec-modal__positive-btn--right ec-modal__positive-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary"
         data-test="ec-modal__positive-btn ec-btn"
         type="button"
       >
-        <!---->
-         
+        <!--v-if-->
         <span
           class="ec-btn__text"
           data-test="ec-btn__text"
         >
+          
+          
           Update management accounts
+          
+          
         </span>
-         
-        <!---->
+        <!--v-if-->
       </button>
+      
     </div>
   </div>
 </footer>
@@ -372,36 +379,37 @@ exports[`EcModal should render positive button with given category 1`] = `
   class="ec-modal__footer"
   data-test="ec-modal__footer"
 >
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-loading ec-modal__btn-loading"
     data-test="ec-loading"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
       data-test="ec-loading__content"
     >
+      
       <button
-        class="ec-btn ec-modal__positive-btn ec-btn--md ec-btn--rounded ec-btn--error ec-modal__positive-btn--right"
+        class="ec-modal__positive-btn--right ec-modal__positive-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--error"
         data-test="ec-modal__positive-btn ec-btn"
         type="button"
       >
-        <!---->
-         
+        <!--v-if-->
         <span
           class="ec-btn__text"
           data-test="ec-btn__text"
         >
+          
+          
           Positive button
+          
+          
         </span>
-         
-        <!---->
+        <!--v-if-->
       </button>
+      
     </div>
   </div>
 </footer>
@@ -412,10 +420,8 @@ exports[`EcModal should render positive button with the loading status if slot i
   class="ec-modal__footer"
   data-test="ec-modal__footer"
 >
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-loading ec-modal__btn-loading"
     data-test="ec-loading"
@@ -425,7 +431,7 @@ exports[`EcModal should render positive button with the loading status if slot i
       data-test="ec-loading__backdrop"
     >
       <svg
-        class="ec-loading__icon ec-icon"
+        class="ec-icon ec-loading__icon"
         data-test="ec-loading__icon"
         height="48"
         width="48"
@@ -435,44 +441,43 @@ exports[`EcModal should render positive button with the loading status if slot i
         />
       </svg>
     </div>
-     
     <div
       class="ec-loading__content"
       data-test="ec-loading__content"
     >
+      
       <button
-        class="ec-btn ec-modal__positive-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-modal__positive-btn--right"
+        class="ec-modal__positive-btn--right ec-modal__positive-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary"
         data-test="ec-modal__positive-btn ec-btn"
         type="button"
       >
-        <!---->
-         
+        <!--v-if-->
         <span
           class="ec-btn__text"
           data-test="ec-btn__text"
         >
+          
+          
           Update management accounts
+          
+          
         </span>
-         
-        <!---->
+        <!--v-if-->
       </button>
+      
     </div>
   </div>
 </footer>
 `;
 
 exports[`EcModal v-model should not render the modal when we pass to model false 1`] = `
-<transition-stub
-  name="ec-modal__fade"
->
-  <!---->
+<transition-stub>
+  <!--v-if-->
 </transition-stub>
 `;
 
 exports[`EcModal v-model should render the modal when we pass to model true 1`] = `
-<transition-stub
-  name="ec-modal__fade"
->
+<transition-stub>
   <div
     class="ec-modal"
     data-test="ec-modal"
@@ -485,14 +490,15 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
         class="ec-modal__header"
         data-test="ec-modal__header"
       >
-         
+        
+        
         <a
           class="ec-modal__close"
           data-test="ec-modal__close"
           href="#"
         >
           <svg
-            class="ec-modal__close-icon ec-icon"
+            class="ec-icon ec-modal__close-icon"
             data-test="ec-modal__close-icon"
             height="24"
             width="24"
@@ -503,22 +509,21 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
           </svg>
         </a>
       </header>
-       
       <main
         class="ec-modal__main"
         data-test="ec-modal__main"
-      />
-       
-      <!---->
+      >
+        
+        
+      </main>
+      <!--v-if-->
     </div>
   </div>
 </transition-stub>
 `;
 
 exports[`EcModal v-model should render the modal when we pass to model true 2`] = `
-<transition-stub
-  name="ec-modal__fade"
->
-  <!---->
+<transition-stub>
+  <!--v-if-->
 </transition-stub>
 `;
