@@ -15,12 +15,3 @@ updates:
   - dependency-name: clipboard-copy
     versions:
     - ">= 4"
-  - dependency-name: svg-sprite-loader
-    versions:
-    - ">= 6"
-  - dependency-name: svgo-loader
-    versions:
-    - ">= 3"
-  - dependency-name: svgo
-    versions:
-    - ">= 2"
