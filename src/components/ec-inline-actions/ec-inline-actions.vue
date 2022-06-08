@@ -1,75 +1,77 @@
 <template>
   <ec-popover
     v-bind="{
-      popperOptions,
-      ...getPopoverOptions,
+      placement: 'bottom-end',
+      distance: 10,
+      ...popoverOptions,
     }"
   >
     <slot />
-    <div
-      slot="popover"
-      class="ec-inline-actions"
-      data-test="ec-inline-actions"
-    >
-      <template v-for="(list, index) in items">
-        <ul
+    <template #popper>
+      <div
+        class="ec-inline-actions"
+        data-test="ec-inline-actions"
+      >
+        <template
+          v-for="(list, index) in items"
           :key="`${index}__list`"
-          data-test="ec-inline-actions__list"
         >
-          <li
-            v-for="(item, indexList) in list"
-            :key="item.text"
-            v-ec-tooltip.left="item.tooltip"
-            class="ec-inline-actions__item"
-            :data-test="`ec-inline-actions__item ec-inline-actions__item--${index}-${indexList}`"
-          >
-            <component
-              :is="componentTag(item)"
-              v-ec-close-popover="!item.disabled"
-              class="ec-inline-actions__button"
-              data-test="ec-inline-actions__button"
-              :class="{
-                'ec-inline-actions__button--disabled' : item.disabled
-              }"
-              :disabled="getDisabledAttr(item)"
-              :href="getHrefAttr(item)"
-              :download="getDownloadAttr(item)"
-              @click="doAction(item)"
+          <ul data-test="ec-inline-actions__list">
+            <li
+              v-for="(item, indexList) in list"
+              :key="item.text"
+              v-ec-tooltip.left="item.tooltip"
+              class="ec-inline-actions__item"
+              :data-test="`ec-inline-actions__item ec-inline-actions__item--${index}-${indexList}`"
             >
-              <slot
-                :name="`item-${item.name}`"
-                :item="item"
+              <component
+                :is="componentTag(item)"
+                v-ec-close-popover="!item.disabled"
+                class="ec-inline-actions__button"
+                data-test="ec-inline-actions__button"
+                :class="{
+                  'ec-inline-actions__button--disabled' : item.disabled
+                }"
+                :disabled="getDisabledAttr(item)"
+                :href="getHrefAttr(item)"
+                :download="getDownloadAttr(item)"
+                @click="doAction(item)"
               >
-                <ec-icon
-                  v-if="item.icon"
-                  :name="item.icon"
-                  :size="24"
-                  :type="item.iconType ? item.iconType : null"
-                  class="ec-inline-actions__icon"
-                  data-test="ec-inline-actions__icon"
-                  :class="{ 'ec-inline-actions__icon--no-type': !item.iconType || item.disabled }"
-                />
-                <span>{{ item.text }}</span>
-              </slot>
-            </component>
-          </li>
-        </ul>
-        <hr
-          :key="`${index}__delimiter`"
-          v-if="items.length !== index + 1"
-          class="ec-inline-actions__delimiter"
-          data-test="ec-inline-actions__delimiter"
-        >
-      </template>
-    </div>
+                <slot
+                  :name="`item-${item.name}`"
+                  :item="item"
+                >
+                  <ec-icon
+                    v-if="item.icon"
+                    :name="item.icon"
+                    :size="24"
+                    :type="item.iconType ? item.iconType : null"
+                    class="ec-inline-actions__icon"
+                    data-test="ec-inline-actions__icon"
+                    :class="{ 'ec-inline-actions__icon--no-type': !item.iconType || item.disabled }"
+                  />
+                  <span>{{ item.text }}</span>
+                </slot>
+              </component>
+            </li>
+          </ul>
+          <hr
+            :key="`${index}__delimiter`"
+            v-if="items.length !== index + 1"
+            class="ec-inline-actions__delimiter"
+            data-test="ec-inline-actions__delimiter"
+          >
+        </template>
+      </div>
+    </template>
   </ec-popover>
 </template>
 
 <script>
-import EcPopover from '../ec-popover';
 import EcClosePopover from '../../directives/ec-close-popover';
 import EcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
+import EcPopover from '../ec-popover';
 
 export default {
   components: { EcPopover, EcIcon },
@@ -81,32 +83,6 @@ export default {
     },
     popoverOptions: {
       type: Object,
-    },
-    popperModifiers: {
-      type: Object,
-      default: null,
-    },
-  },
-  data() {
-    return {
-      popperOptions: {
-        modifiers: {
-          // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
-          preventOverflow: {
-            priority: ['bottom', 'top'],
-          },
-          ...this.popperModifiers,
-        },
-      },
-    };
-  },
-  computed: {
-    getPopoverOptions() {
-      return {
-        offset: 10,
-        placement: 'bottom-start',
-        ...this.popoverOptions,
-      };
     },
   },
   methods: {

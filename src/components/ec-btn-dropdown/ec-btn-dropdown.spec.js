@@ -1,13 +1,11 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+
 import EcBtnDropdown from './ec-btn-dropdown.vue';
 
 describe('EcBtnDropdown', () => {
   function mountBtnDropdown(props, mountOpts) {
-    const localVue = createLocalVue();
-
     return mount(EcBtnDropdown, {
-      localVue,
-      propsData: {
+      props: {
         buttonText: 'Convert & Pay',
         ...props,
       },

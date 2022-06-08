@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+
 import EcDropdownSearch from './ec-dropdown-search.vue';
 
 describe('EcDropdownSearch - Keyboard navigation', () => {
@@ -24,7 +25,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const expectedItem = items[0];
       const wrapper = mountDropdownSearch({ items });
 
-      expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
+      expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBe(false);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
@@ -38,7 +39,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const expectedItem = items[2];
       const wrapper = mountDropdownSearch({ items, selected });
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
@@ -52,7 +53,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const expectedItem = items[4];
       const wrapper = mountDropdownSearch({ items, selected });
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
@@ -68,7 +69,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items });
       await openDropdown(wrapper);
 
-      expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
+      expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBe(false);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
@@ -82,7 +83,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items, selected });
       await openDropdown(wrapper);
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
@@ -96,7 +97,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items, selected });
       await openDropdown(wrapper);
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
@@ -122,7 +123,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items: allItemsDisabled, selected: allItemsDisabled[1] });
       await openDropdown(wrapper);
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBe(true);
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
@@ -135,7 +136,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const expectedItem = items[0];
       const wrapper = mountDropdownSearch({ items });
 
-      expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
+      expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBe(false);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
@@ -149,7 +150,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const expectedItem = items[1];
       const wrapper = mountDropdownSearch({ items, selected });
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
@@ -163,7 +164,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const expectedItem = items[2];
       const wrapper = mountDropdownSearch({ items, selected });
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
@@ -179,7 +180,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items });
       await openDropdown(wrapper);
 
-      expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBeFalsy();
+      expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBe(false);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
@@ -193,7 +194,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items, selected });
       await openDropdown(wrapper);
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
@@ -207,7 +208,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items, selected });
       await openDropdown(wrapper);
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
@@ -233,7 +234,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items: allItemsDisabled, selected: allItemsDisabled[1] });
       await openDropdown(wrapper);
 
-      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBeTruthy();
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBe(true);
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
@@ -248,7 +249,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.esc');
 
-      expect(wrapper.emitted('close').length).toBeTruthy();
+      expect(wrapper.emitted('close').length).toBe(1);
     });
 
     it('should close and do nothing', async () => {
@@ -264,7 +265,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
       const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
-        scopedSlots: {
+        slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
         attachTo: elem,
@@ -284,7 +285,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       document.body.appendChild(elem);
 
       const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
-        scopedSlots: {
+        slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
         attachTo: elem,
@@ -306,7 +307,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       document.body.appendChild(elem);
 
       const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
-        scopedSlots: {
+        slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
         attachTo: elem,
@@ -333,6 +334,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
+      await waitOnAfterOpenFocus();
+
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
@@ -349,6 +352,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
+      await waitOnAfterOpenFocus();
+
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
       expect(document.activeElement).toBe(document.body);
@@ -363,7 +368,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       document.body.appendChild(elem);
 
       const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
-        scopedSlots: {
+        slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
         attachTo: elem,
@@ -371,6 +376,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
+      await waitOnAfterOpenFocus();
+
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
@@ -382,7 +389,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       document.body.appendChild(elem);
 
       const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
-        scopedSlots: {
+        slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
         attachTo: elem,
@@ -390,6 +397,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
+      await waitOnAfterOpenFocus();
+
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
@@ -404,7 +413,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       document.body.appendChild(elem);
 
       const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
-        scopedSlots: {
+        slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
         attachTo: elem,
@@ -412,6 +421,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
+      await waitOnAfterOpenFocus();
+
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
       expect(document.activeElement).toBe(document.body);
@@ -426,7 +437,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       document.body.appendChild(elem);
 
       const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
-        scopedSlots: {
+        slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
         attachTo: elem,
@@ -443,7 +454,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       document.body.appendChild(elem);
 
       const wrapper = mountDropdownSearch({ items, isSearchEnabled: true }, {
-        scopedSlots: {
+        slots: {
           cta: '<div data-test="cta-data-test">My CTA</div>',
         },
         attachTo: elem,
@@ -451,6 +462,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
+      await waitOnAfterOpenFocus();
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
@@ -469,7 +481,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
 
-      expect(wrapper.emitted('open').length).toBeTruthy();
+      expect(wrapper.emitted('open').length).toBe(1);
     });
   });
 
@@ -488,7 +500,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
         await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
 
-        expect(wrapper.emitted('close').length).toBeTruthy();
+        expect(wrapper.emitted('close').length).toBe(1);
       });
     });
 
@@ -499,29 +511,17 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
           selected: items[0],
           isSearchEnabled: true,
         });
+
         const focus = jest.fn();
-        const popoverMock = jest.spyOn(wrapper.findByDataTest('ec-popover-dropdown-search').element, 'querySelector').mockImplementation(() => ({ focus }));
+        const popoverMock = jest.spyOn(HTMLElement.prototype, 'querySelector').mockImplementation(() => ({ focus }));
         await openDropdown(wrapper);
 
         await wrapper.findByDataTest('ec-dropdown-search__search-input').trigger('keydown.enter');
 
         expect(focus).toHaveBeenCalledTimes(1);
-        expect(wrapper.emitted('close').length).toBeTruthy();
+        expect(wrapper.emitted('close').length).toBe(1);
         popoverMock.mockRestore();
       });
-    });
-  });
-
-  describe('when the popover inside the dropdown is resized', () => {
-    it('should gain the focus the search input field', async () => {
-      const wrapper = mountDropdownSearch({ items });
-      const focusSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__search-input').element, 'focus');
-      await openDropdown(wrapper);
-
-      await wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('resize');
-
-      expect(focusSpy).toHaveBeenCalledTimes(2);
-      focusSpy.mockRestore();
     });
   });
 
@@ -534,7 +534,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const wrapper = mountDropdownSearch({ items });
 
       await openDropdown(wrapper);
-      wrapper.vm.popperOptions.onUpdate();
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element.scrollTop).toBe(0);
     });
@@ -550,7 +549,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
-      wrapper.vm.popperOptions.onUpdate();
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element.scrollTop).toBe(expectedScrollTop);
     });
@@ -566,7 +564,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
-      wrapper.vm.popperOptions.onUpdate();
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element.scrollTop).toBe(expectedScrollTop);
     });
@@ -584,7 +581,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
-      wrapper.vm.popperOptions.onUpdate();
 
       expect(setScrollTopSpy).toHaveBeenCalledTimes(0);
       setScrollTopSpy.mockRestore();
@@ -603,7 +599,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
-      wrapper.vm.popperOptions.onUpdate();
 
       expect(setScrollTopSpy).toHaveBeenCalledTimes(1);
       expect(setScrollTopSpy).toHaveBeenCalledWith(expectedScrollTop);
@@ -618,7 +613,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       mockElementOffsetTop(wrapper, itemIndex, 100);
       await openDropdown(wrapper);
-      wrapper.vm.popperOptions.onUpdate();
 
       expect(setScrollTopSpy).toHaveBeenCalledTimes(1);
       expect(setScrollTopSpy).toHaveBeenCalledWith(0);
@@ -632,7 +626,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
       await openDropdown(wrapper);
-      wrapper.vm.popperOptions.onUpdate();
 
       expect(setScrollTopSpy).toHaveBeenCalledTimes(1);
       expect(setScrollTopSpy).toHaveBeenCalledWith(0);
@@ -651,7 +644,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
 
       await openDropdown(wrapper);
-      wrapper.vm.popperOptions.onUpdate();
 
       expect(setScrollTopSpy).toHaveBeenCalledTimes(0);
       setScrollTopSpy.mockRestore();
@@ -661,7 +653,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
 function mountDropdownSearch(props, mountOpts) {
   return mount(EcDropdownSearch, {
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
@@ -700,6 +692,17 @@ function mockHtmlElementPosition(options) {
 async function openDropdown(wrapper) {
   expect(wrapper.emitted('open')).toBeUndefined();
   await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.enter');
-  await wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
-  expect(wrapper.emitted('open').length).toBeTruthy();
+  await wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('apply-show');
+  expect(wrapper.emitted('open').length).toBeGreaterThan(0);
+}
+
+async function waitOnAfterOpenFocus() {
+  // see the afterShow and its comment to understand why we do this to wait until the input gets focused:
+  await new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(resolve);
+      });
+    });
+  });
 }

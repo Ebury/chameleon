@@ -1,20 +1,21 @@
 import { mount } from '@vue/test-utils';
-import EcInlineActions from './ec-inline-actions.vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcInlineActions from './ec-inline-actions.vue';
 
 describe('EcInlineActions', () => {
   function mountEcInlineActions(props, mountOpts) {
     return mount(EcInlineActions, {
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
 
   it('should throw if no items prop were given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcInlineActions();
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "items"');
+      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "items"');
     });
   });
 
@@ -101,7 +102,7 @@ describe('EcInlineActions', () => {
         ],
       ],
     });
-    expect(wrapper.findByDataTest('ec-inline-actions__button').attributes('disabled')).toBe('disabled');
+    expect(wrapper.findByDataTest('ec-inline-actions__button').attributes('disabled')).toBe('');
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -173,7 +174,7 @@ describe('EcInlineActions', () => {
   });
 
   it('should not throw if action is null', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       const wrapper = mountEcInlineActions({
         items: [
           [
@@ -187,6 +188,7 @@ describe('EcInlineActions', () => {
       expect(wrapper.findByDataTest('ec-inline-actions__button').exists()).toBe(true);
       wrapper.findByDataTest('ec-inline-actions__button').trigger('click');
       expect(errorSpy).not.toHaveBeenCalled();
+      expect(warnSpy).not.toHaveBeenCalled();
     });
   });
 
@@ -220,7 +222,7 @@ describe('EcInlineActions', () => {
     const wrapper = mountEcInlineActions({
       popoverOptions: {
         placement: 'top',
-        offset: 20,
+        distance: 20,
       },
       items: [
         [

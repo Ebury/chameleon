@@ -20,7 +20,8 @@
       :items="items"
       :is-search-enabled="false"
       :max-visible-items="Infinity"
-      :popper-modifiers="popperModifiers"
+      :popover-options="popoverOptions"
+      :popover-style="popoverStyle"
       :disabled="isDisabled"
       :list-data-test="listDataTest"
       @change="(value) => $emit('change', value)"
@@ -70,35 +71,23 @@ export default {
       type: String,
     },
   },
+  emits: ['click', 'change'],
   data() {
     return {
       isOpen: false,
+      popoverOptions: {
+        autoSize: 'min',
+        placement: 'bottom-end',
+      },
+      popoverStyle: {},
     };
   },
-  computed: {
-    popperModifiers() {
-      return {
-        setPopperWidth: {
-          enabled: true,
-          order: 840,
-          fn: /* istanbul ignore next */ (data) => {
-            data.styles.width = this.$refs.popperReference.offsetWidth;
-            return data;
-          },
-        },
-        calculatePopperPosition: {
-          enabled: true,
-          order: 845,
-          fn: /* istanbul ignore next */ (data) => {
-            const refLeft = this.$refs.popperReference.getBoundingClientRect().left;
-            data.offsets.popper.left = refLeft;
-            data.popper.left = refLeft;
-
-            return data;
-          },
-        },
+  mounted() {
+    if (this.$refs.popperReference) {
+      this.popoverStyle = {
+        width: `${this.$refs.popperReference.offsetWidth}px`,
       };
-    },
+    }
   },
 };
 </script>

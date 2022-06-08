@@ -1,17 +1,17 @@
 <template>
   <ec-dropdown-search
+    v-bind="{ ...$attrs, 'data-test': 'ec-dropdown' }"
     v-model="selectedModel"
     class="ec-dropdown"
     :items="items"
     :placeholder="searchPlaceholder"
     :no-results-text="noResultsText"
     :is-search-enabled="isSearchEnabled"
-    v-bind="{ ...$attrs, 'data-test': 'ec-dropdown' }"
     :disabled="disabled"
     :level="level"
     :is-loading="isLoading"
-    :popper-modifiers="popperModifiers"
     :popover-options="popoverOptions"
+    :popover-style="popoverStyle"
     :is-sensitive="isSensitive"
     :tooltip-cta="tooltipCta"
     @change="onSelected"
@@ -144,11 +144,11 @@ export default {
     errorId: {
       type: String,
     },
-    popperModifiers: {
+    popoverOptions: {
       type: Object,
       default: null,
     },
-    popoverOptions: {
+    popoverStyle: {
       type: Object,
       default: null,
     },
@@ -157,6 +157,7 @@ export default {
       default: '',
     },
   },
+  emits: ['change', 'blur', 'focus', 'open', 'close', 'after-open', 'after-close'],
   data() {
     return {
       shouldEmitFocus: true,
@@ -199,10 +200,10 @@ export default {
       }
     },
     hasCtaSlot() {
-      return !!this.$scopedSlots.cta;
+      return !!this.$slots.cta;
     },
     hasItemSlot() {
-      return !!this.$scopedSlots.item;
+      return !!this.$slots.item;
     },
   },
 };

@@ -1,12 +1,13 @@
 import { action } from '@storybook/addon-actions';
-import EcDropdownSearch from './ec-dropdown-search.vue';
+
 import EcIcon from '../ec-icon';
+import EcDropdownSearch from './ec-dropdown-search.vue';
 
 export default {
   title: 'Dropdown Search',
   component: EcDropdownSearch,
   argTypes: {
-    boundariesElement: {
+    boundary: {
       options: ['viewport', 'scrollParent'],
       control: { type: 'select' },
     },
@@ -23,22 +24,26 @@ const items = [
   { text: 'Item 7' },
 ];
 
-export const all = (args, { argTypes }) => ({
+export const all = ({ boundary, paragraphText, ...args }) => ({
   components: { EcDropdownSearch, EcIcon },
-  props: Object.keys(argTypes),
+  setup() {
+    return {
+      boundary,
+      paragraphText,
+      args,
+    };
+  },
   data() {
     return {
       selectedItem: null,
       list: [
         {
           title: 'Basic',
-          popoverOptions: { placement: 'bottom-end' },
           style: {},
           instructions: '',
         },
         {
           title: 'In container with a dynamic width',
-          popoverOptions: { placement: 'bottom-end', boundariesElement: this.boundariesElement },
           style: {
             width: '300px',
             overflow: 'auto',
@@ -51,7 +56,6 @@ export const all = (args, { argTypes }) => ({
         },
         {
           title: 'With custom item template',
-          popoverOptions: { placement: 'bottom-end', boundariesElement: this.boundariesElement },
           style: {},
           instructions: '',
           hasParagraph: true,
@@ -74,7 +78,7 @@ export const all = (args, { argTypes }) => ({
             <div :style="dropdownSearch.style">
               <p class="tw-mb-8"><strong>{{ dropdownSearch.instructions }}</strong></p>
               <ec-dropdown-search
-                v-bind="{ ...$props, paragraphText: null, boundariesElement: null }"
+                v-bind="args"
                 :popover-options="dropdownSearch.popoverOptions"
                 v-model="selectedItem"
                 v-on="{ change: onChange }">
@@ -105,6 +109,6 @@ all.args = {
   disabled: false,
   isLoading: false,
   isSensitive: false,
-  boundariesElement: 'viewport',
+  boundary: 'viewport',
   paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.',
 };
