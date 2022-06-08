@@ -27,7 +27,6 @@ export default {
 </script>
 
 <style>
-
 .ec-table-footer {
   @apply tw-small-text;
 

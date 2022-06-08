@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+
 import { withMockedConsole } from '../../../tests/utils/console';
 import * as SortDirection from '../../enums/sort-direction';
 import EcTableSort from './ec-table-sort.vue';
@@ -6,7 +7,7 @@ import EcTableSort from './ec-table-sort.vue';
 describe('EcTableSort', () => {
   function mountEcTableSort(props, mountOpts) {
     return mount(EcTableSort, {
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -38,10 +39,10 @@ describe('EcTableSort', () => {
     });
 
     it('should validate direction prop', () => {
-      withMockedConsole((errorSpy) => {
+      withMockedConsole((errorSpy, warnSpy) => {
         mountEcTableSort({ direction: 'invalid' });
-        expect(errorSpy).toHaveBeenCalledTimes(1);
-        expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "direction"');
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "direction"');
       });
     });
   });

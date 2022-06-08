@@ -5,6 +5,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
   class="ec-table-filter"
   data-test="ec-table-filter"
 >
+  
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
@@ -15,10 +16,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
     >
       <ec-stub
         data-test="ec-stub ec-popover-stub"
-        offset="0, 8"
-        placement="bottom"
-        popper-options="[object Object]"
+        distance="8"
+        placement="bottom-start"
       >
+        
         <div
           class="ec-filter-popover__trigger"
           data-test="ec-filter-popover__trigger"
@@ -31,11 +32,9 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           >
             Payment status
           </button>
-           
-          <!---->
-           
+          <!--v-if-->
           <svg
-            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            class="ec-icon ec-icon--interactive ec-filter-popover__icon"
             height="16"
             width="16"
           >
@@ -44,22 +43,25 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             />
           </svg>
         </div>
-          
+        
+         
+        
         <div
           class="ec-filter-popover__filter-content"
         >
+          
           <div
             class="ec-multiple-values-selection"
             data-test="ec-multiple-values-selection"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            
+            <!--v-if-->
             <div
               class="ec-multiple-values-selection__values"
             >
               <ul>
+                
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
                   data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -74,37 +76,35 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                       id="ec-checkbox-1"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-1"
                         title="Paid"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Paid
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -121,37 +121,35 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                       id="ec-checkbox-2"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-2"
                         title="Cancelled"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Cancelled
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -168,43 +166,45 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                       id="ec-checkbox-3"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-3"
                         title="Overdue"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Overdue
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
+                
               </ul>
             </div>
+            
           </div>
+          
         </div>
+        
       </ec-stub>
     </div>
   </div>
@@ -218,10 +218,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
     >
       <ec-stub
         data-test="ec-stub ec-popover-stub"
-        offset="0, 8"
-        placement="bottom"
-        popper-options="[object Object]"
+        distance="8"
+        placement="bottom-start"
       >
+        
         <div
           class="ec-filter-popover__trigger"
           data-test="ec-filter-popover__trigger"
@@ -234,11 +234,9 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           >
             Fee type
           </button>
-           
-          <!---->
-           
+          <!--v-if-->
           <svg
-            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            class="ec-icon ec-icon--interactive ec-filter-popover__icon"
             height="16"
             width="16"
           >
@@ -247,22 +245,25 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
             />
           </svg>
         </div>
-          
+        
+         
+        
         <div
           class="ec-filter-popover__filter-content"
         >
+          
           <div
             class="ec-multiple-values-selection"
             data-test="ec-multiple-values-selection"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            
+            <!--v-if-->
             <div
               class="ec-multiple-values-selection__values"
             >
               <ul>
+                
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
                   data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -277,37 +278,35 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                       id="ec-checkbox-4"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-4"
                         title="Invoiced"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Invoiced
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -324,43 +323,45 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                       id="ec-checkbox-5"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-5"
                         title="Other type"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Other type
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
+                
               </ul>
             </div>
+            
           </div>
+          
         </div>
+        
       </ec-stub>
     </div>
   </div>
@@ -370,10 +371,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -386,11 +387,9 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
         >
           Due date
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -399,10 +398,13 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-date-range-filter"
           data-test="ec-date-range-filter"
@@ -424,12 +426,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   data-test="ec-input-field__label-text"
                 >
                   From
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
-                <!---->
+                <!--v-if-->
               </label>
-               
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__from-input ec-input-field__input"
@@ -437,12 +437,9 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </div>
-             
             <div
               class="ec-input-field ec-date-range-filter__to-input"
               data-test="ec-input-field"
@@ -457,12 +454,10 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                   data-test="ec-input-field__label-text"
                 >
                   To
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
-                <!---->
+                <!--v-if-->
               </label>
-               
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__to-input ec-input-field__input"
@@ -470,29 +465,27 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </div>
           </div>
-           
-          <!---->
-           
+          <!--v-if-->
           <button
             class="ec-date-range-filter__clear-button"
             data-test="ec-date-range-filter__clear-button"
-            disabled="disabled"
+            disabled=""
             type="button"
           >
             Clear dates
           </button>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
-   
-  <!---->
+  
+  <!--v-if-->
 </section>
 `;
 
@@ -500,7 +493,9 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
 <section
   class="ec-table-filter"
   data-test="ec-table-filter"
+  popover-options="[object Object]"
 >
+  
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
@@ -511,10 +506,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
     >
       <ec-stub
         data-test="ec-stub ec-popover-stub"
-        offset="0, 8"
-        placement="bottom"
-        popper-options="[object Object]"
+        distance="8"
+        placement="bottom-start"
       >
+        
         <div
           class="ec-filter-popover__trigger"
           data-test="ec-filter-popover__trigger"
@@ -527,11 +522,9 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
           >
             Payment status
           </button>
-           
-          <!---->
-           
+          <!--v-if-->
           <svg
-            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            class="ec-icon ec-icon--interactive ec-filter-popover__icon"
             height="16"
             width="16"
           >
@@ -540,22 +533,25 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             />
           </svg>
         </div>
-          
+        
+         
+        
         <div
           class="ec-filter-popover__filter-content"
         >
+          
           <div
             class="ec-multiple-values-selection"
             data-test="ec-multiple-values-selection"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            
+            <!--v-if-->
             <div
               class="ec-multiple-values-selection__values"
             >
               <ul>
+                
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
                   data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -570,37 +566,35 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                       id="ec-checkbox-1"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-1"
                         title="Paid"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Paid
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -617,37 +611,35 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                       id="ec-checkbox-2"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-2"
                         title="Cancelled"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Cancelled
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -664,43 +656,45 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                       id="ec-checkbox-3"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-3"
                         title="Overdue"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Overdue
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
+                
               </ul>
             </div>
+            
           </div>
+          
         </div>
+        
       </ec-stub>
     </div>
   </div>
@@ -714,10 +708,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
     >
       <ec-stub
         data-test="ec-stub ec-popover-stub"
-        offset="0, 8"
-        placement="bottom"
-        popper-options="[object Object]"
+        distance="8"
+        placement="bottom-start"
       >
+        
         <div
           class="ec-filter-popover__trigger"
           data-test="ec-filter-popover__trigger"
@@ -730,11 +724,9 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
           >
             Fee type
           </button>
-           
-          <!---->
-           
+          <!--v-if-->
           <svg
-            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            class="ec-icon ec-icon--interactive ec-filter-popover__icon"
             height="16"
             width="16"
           >
@@ -743,22 +735,25 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
             />
           </svg>
         </div>
-          
+        
+         
+        
         <div
           class="ec-filter-popover__filter-content"
         >
+          
           <div
             class="ec-multiple-values-selection"
             data-test="ec-multiple-values-selection"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            
+            <!--v-if-->
             <div
               class="ec-multiple-values-selection__values"
             >
               <ul>
+                
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
                   data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -773,37 +768,35 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                       id="ec-checkbox-4"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-4"
                         title="Invoiced"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Invoiced
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -820,43 +813,45 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                       id="ec-checkbox-5"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-5"
                         title="Other type"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Other type
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
+                
               </ul>
             </div>
+            
           </div>
+          
         </div>
+        
       </ec-stub>
     </div>
   </div>
@@ -866,10 +861,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -882,11 +877,9 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
         >
           Due date
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -895,10 +888,13 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-date-range-filter"
           data-test="ec-date-range-filter"
@@ -920,12 +916,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   data-test="ec-input-field__label-text"
                 >
                   From
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
-                <!---->
+                <!--v-if-->
               </label>
-               
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__from-input ec-input-field__input"
@@ -933,12 +927,9 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </div>
-             
             <div
               class="ec-input-field ec-date-range-filter__to-input"
               data-test="ec-input-field"
@@ -953,12 +944,10 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                   data-test="ec-input-field__label-text"
                 >
                   To
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
-                <!---->
+                <!--v-if-->
               </label>
-               
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__to-input ec-input-field__input"
@@ -966,29 +955,27 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </div>
           </div>
-           
-          <!---->
-           
+          <!--v-if-->
           <button
             class="ec-date-range-filter__clear-button"
             data-test="ec-date-range-filter__clear-button"
-            disabled="disabled"
+            disabled=""
             type="button"
           >
             Clear dates
           </button>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
-   
-  <!---->
+  
+  <!--v-if-->
 </section>
 `;
 
@@ -997,6 +984,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
   class="ec-table-filter"
   data-test="ec-table-filter"
 >
+  
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
@@ -1007,10 +995,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
     >
       <ec-stub
         data-test="ec-stub ec-popover-stub"
-        offset="0, 8"
-        placement="bottom"
-        popper-options="[object Object]"
+        distance="8"
+        placement="bottom-start"
       >
+        
         <div
           class="ec-filter-popover__trigger"
           data-test="ec-filter-popover__trigger"
@@ -1023,11 +1011,9 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           >
             Payment status
           </button>
-           
-          <!---->
-           
+          <!--v-if-->
           <svg
-            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            class="ec-icon ec-icon--interactive ec-filter-popover__icon"
             height="16"
             width="16"
           >
@@ -1036,22 +1022,25 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             />
           </svg>
         </div>
-          
+        
+         
+        
         <div
           class="ec-filter-popover__filter-content"
         >
+          
           <div
             class="ec-multiple-values-selection"
             data-test="ec-multiple-values-selection"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            
+            <!--v-if-->
             <div
               class="ec-multiple-values-selection__values"
             >
               <ul>
+                
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
                   data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1066,37 +1055,35 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                       id="ec-checkbox-1"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-1"
                         title="Paid"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Paid
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -1113,37 +1100,35 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                       id="ec-checkbox-2"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-2"
                         title="Cancelled"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Cancelled
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -1160,43 +1145,45 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                       id="ec-checkbox-3"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-3"
                         title="Overdue"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Overdue
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
+                
               </ul>
             </div>
+            
           </div>
+          
         </div>
+        
       </ec-stub>
     </div>
   </div>
@@ -1210,10 +1197,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
     >
       <ec-stub
         data-test="ec-stub ec-popover-stub"
-        offset="0, 8"
-        placement="bottom"
-        popper-options="[object Object]"
+        distance="8"
+        placement="bottom-start"
       >
+        
         <div
           class="ec-filter-popover__trigger"
           data-test="ec-filter-popover__trigger"
@@ -1226,11 +1213,9 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           >
             Fee type
           </button>
-           
-          <!---->
-           
+          <!--v-if-->
           <svg
-            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            class="ec-icon ec-icon--interactive ec-filter-popover__icon"
             height="16"
             width="16"
           >
@@ -1239,22 +1224,25 @@ exports[`EcTableFilter should render correctly if all the required props are pas
             />
           </svg>
         </div>
-          
+        
+         
+        
         <div
           class="ec-filter-popover__filter-content"
         >
+          
           <div
             class="ec-multiple-values-selection"
             data-test="ec-multiple-values-selection"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            
+            <!--v-if-->
             <div
               class="ec-multiple-values-selection__values"
             >
               <ul>
+                
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
                   data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1269,37 +1257,35 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                       id="ec-checkbox-4"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-4"
                         title="Invoiced"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Invoiced
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -1316,43 +1302,45 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                       id="ec-checkbox-5"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-5"
                         title="Other type"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Other type
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
+                
               </ul>
             </div>
+            
           </div>
+          
         </div>
+        
       </ec-stub>
     </div>
   </div>
@@ -1362,10 +1350,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -1378,11 +1366,9 @@ exports[`EcTableFilter should render correctly if all the required props are pas
         >
           Due date
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -1391,10 +1377,13 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-date-range-filter"
           data-test="ec-date-range-filter"
@@ -1416,12 +1405,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   data-test="ec-input-field__label-text"
                 >
                   From
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
-                <!---->
+                <!--v-if-->
               </label>
-               
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__from-input ec-input-field__input"
@@ -1429,12 +1416,9 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </div>
-             
             <div
               class="ec-input-field ec-date-range-filter__to-input"
               data-test="ec-input-field"
@@ -1449,12 +1433,10 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                   data-test="ec-input-field__label-text"
                 >
                   To
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
-                <!---->
+                <!--v-if-->
               </label>
-               
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__to-input ec-input-field__input"
@@ -1462,29 +1444,27 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </div>
           </div>
-           
-          <!---->
-           
+          <!--v-if-->
           <button
             class="ec-date-range-filter__clear-button"
             data-test="ec-date-range-filter__clear-button"
-            disabled="disabled"
+            disabled=""
             type="button"
           >
             Clear dates
           </button>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
-   
-  <!---->
+  
+  <!--v-if-->
 </section>
 `;
 
@@ -1493,6 +1473,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
   class="ec-table-filter"
   data-test="ec-table-filter"
 >
+  
   <div
     class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
@@ -1503,10 +1484,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
     >
       <ec-stub
         data-test="ec-stub ec-popover-stub"
-        offset="0, 8"
-        placement="bottom"
-        popper-options="[object Object]"
+        distance="8"
+        placement="bottom-start"
       >
+        
         <div
           class="ec-filter-popover__trigger"
           data-test="ec-filter-popover__trigger"
@@ -1519,11 +1500,9 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           >
             Payment status
           </button>
-           
-          <!---->
-           
+          <!--v-if-->
           <svg
-            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            class="ec-icon ec-icon--interactive ec-filter-popover__icon"
             height="16"
             width="16"
           >
@@ -1532,22 +1511,25 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             />
           </svg>
         </div>
-          
+        
+         
+        
         <div
           class="ec-filter-popover__filter-content"
         >
+          
           <div
             class="ec-multiple-values-selection"
             data-test="ec-multiple-values-selection"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            
+            <!--v-if-->
             <div
               class="ec-multiple-values-selection__values"
             >
               <ul>
+                
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
                   data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1562,37 +1544,35 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                       id="ec-checkbox-1"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-1"
                         title="Paid"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Paid
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -1609,37 +1589,35 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                       id="ec-checkbox-2"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-2"
                         title="Cancelled"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Cancelled
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -1656,43 +1634,45 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                       id="ec-checkbox-3"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-3"
                         title="Overdue"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Overdue
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
+                
               </ul>
             </div>
+            
           </div>
+          
         </div>
+        
       </ec-stub>
     </div>
   </div>
@@ -1706,10 +1686,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
     >
       <ec-stub
         data-test="ec-stub ec-popover-stub"
-        offset="0, 8"
-        placement="bottom"
-        popper-options="[object Object]"
+        distance="8"
+        placement="bottom-start"
       >
+        
         <div
           class="ec-filter-popover__trigger"
           data-test="ec-filter-popover__trigger"
@@ -1722,17 +1702,14 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           >
             Fee type
           </button>
-           
           <span
             class="ec-filter-popover__badge"
             data-test="ec-filter-popover__badge"
           >
-             1
-      
+            1
           </span>
-           
           <svg
-            class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+            class="ec-icon ec-icon--interactive ec-filter-popover__icon"
             height="16"
             width="16"
           >
@@ -1741,22 +1718,25 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             />
           </svg>
         </div>
-          
+        
+         
+        
         <div
           class="ec-filter-popover__filter-content"
         >
+          
           <div
             class="ec-multiple-values-selection"
             data-test="ec-multiple-values-selection"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            
+            <!--v-if-->
             <div
               class="ec-multiple-values-selection__values"
             >
               <ul>
+                
                 <li
                   class="ec-multiple-values-selection__value-wrapper"
                   data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
@@ -1771,7 +1751,6 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                       id="ec-checkbox-4"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
@@ -1779,7 +1758,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                         class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
                       >
                         <svg
-                          class="ec-checkbox__check-icon ec-icon"
+                          class="ec-icon ec-checkbox__check-icon"
                           height="16"
                           width="16"
                         >
@@ -1788,28 +1767,27 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                           />
                         </svg>
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-4"
                         title="Invoiced"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Invoiced
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
                 <li
@@ -1826,43 +1804,45 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                       id="ec-checkbox-5"
                       type="checkbox"
                     />
-                     
                     <div
                       class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
                       >
-                        <!---->
+                        <!--v-if-->
                       </span>
-                       
                       <label
                         class="ec-checkbox__label ec-checkbox__label--is-single-line"
                         data-test="ec-checkbox__label"
                         for="ec-checkbox-5"
                         title="Other type"
                       >
+                        
                         <div
                           class="ec-multiple-values-selection__label-wrapper"
                         >
-                          <!---->
-                           
+                          <!--v-if-->
                           <span
                             class="ec-multiple-values-selection__label-text"
                           >
                             Other type
                           </span>
                         </div>
+                        
                       </label>
                     </div>
-                     
-                    <!---->
+                    <!--v-if-->
                   </div>
                 </li>
+                
               </ul>
             </div>
+            
           </div>
+          
         </div>
+        
       </ec-stub>
     </div>
   </div>
@@ -1872,10 +1852,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -1888,11 +1868,9 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
         >
           Due date
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -1901,10 +1879,13 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-date-range-filter"
           data-test="ec-date-range-filter"
@@ -1926,12 +1907,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   data-test="ec-input-field__label-text"
                 >
                   From
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
-                <!---->
+                <!--v-if-->
               </label>
-               
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__from-input ec-input-field__input"
@@ -1939,12 +1918,9 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </div>
-             
             <div
               class="ec-input-field ec-date-range-filter__to-input"
               data-test="ec-input-field"
@@ -1959,12 +1935,10 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                   data-test="ec-input-field__label-text"
                 >
                   To
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
-                <!---->
+                <!--v-if-->
               </label>
-               
               <input
                 class="ec-input-field__input"
                 data-test="ec-date-range-filter__to-input ec-input-field__input"
@@ -1972,36 +1946,32 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </div>
           </div>
-           
-          <!---->
-           
+          <!--v-if-->
           <button
             class="ec-date-range-filter__clear-button"
             data-test="ec-date-range-filter__clear-button"
-            disabled="disabled"
+            disabled=""
             type="button"
           >
             Clear dates
           </button>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
-   
+  
   <button
     class="ec-table-filter__clear-filters-button"
     data-test="ec-table-filter__clear-filters-button"
     type="button"
   >
-    
     Clear filters
-  
   </button>
 </section>
 `;

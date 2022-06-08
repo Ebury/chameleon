@@ -5,9 +5,11 @@ exports[`EcTablePagination #slots should use given pages slot 1`] = `
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
+  
   <div>
     Pages slot: {"page":1,"numberOfItems":5,"totalPages":4,"total":20}
   </div>
+  
 </div>
 `;
 
@@ -16,9 +18,11 @@ exports[`EcTablePagination #slots should use given total slot 1`] = `
   class="ec-table-pagination__total"
   data-test="ec-table-pagination__total"
 >
+  
   <div>
     Total slot: {"page":1,"numberOfItems":5,"totalPages":4,"total":20}
   </div>
+  
 </div>
 `;
 
@@ -27,13 +31,14 @@ exports[`EcTablePagination should display first page information by calculating 
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
+  
   <span>
     1 of 4 pages
   </span>
-   
   <span>
     (20 items)
   </span>
+  
 </div>
 `;
 
@@ -42,13 +47,14 @@ exports[`EcTablePagination should display last page information by calculating t
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
+  
   <span>
     4 of 4 pages
   </span>
-   
   <span>
     (20 items)
   </span>
+  
 </div>
 `;
 
@@ -60,11 +66,11 @@ exports[`EcTablePagination should display next and prev buttons disabled if pagi
   <button
     class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
     data-test="ec-table-pagination__action--prev"
-    disabled="disabled"
+    disabled=""
     type="button"
   >
     <svg
-      class="ec-table-pagination__action-icon ec-icon"
+      class="ec-icon ec-table-pagination__action-icon"
       height="24"
       width="24"
     >
@@ -73,15 +79,14 @@ exports[`EcTablePagination should display next and prev buttons disabled if pagi
       />
     </svg>
   </button>
-   
   <button
     class="ec-table-pagination__action ec-table-pagination__action--next ec-table-pagination__action--is-disabled"
     data-test="ec-table-pagination__action--next"
-    disabled="disabled"
+    disabled=""
     type="button"
   >
     <svg
-      class="ec-table-pagination__action-icon ec-icon"
+      class="ec-icon ec-table-pagination__action-icon"
       height="24"
       width="24"
     >
@@ -104,7 +109,7 @@ exports[`EcTablePagination should display next and prev buttons enabled if pagin
     type="button"
   >
     <svg
-      class="ec-table-pagination__action-icon ec-icon"
+      class="ec-icon ec-table-pagination__action-icon"
       height="24"
       width="24"
     >
@@ -113,14 +118,13 @@ exports[`EcTablePagination should display next and prev buttons enabled if pagin
       />
     </svg>
   </button>
-   
   <button
     class="ec-table-pagination__action ec-table-pagination__action--next"
     data-test="ec-table-pagination__action--next"
     type="button"
   >
     <svg
-      class="ec-table-pagination__action-icon ec-icon"
+      class="ec-icon ec-table-pagination__action-icon"
       height="24"
       width="24"
     >
@@ -143,7 +147,7 @@ exports[`EcTablePagination should display only next button disabled if paginatio
     type="button"
   >
     <svg
-      class="ec-table-pagination__action-icon ec-icon"
+      class="ec-icon ec-table-pagination__action-icon"
       height="24"
       width="24"
     >
@@ -152,15 +156,14 @@ exports[`EcTablePagination should display only next button disabled if paginatio
       />
     </svg>
   </button>
-   
   <button
     class="ec-table-pagination__action ec-table-pagination__action--next ec-table-pagination__action--is-disabled"
     data-test="ec-table-pagination__action--next"
-    disabled="disabled"
+    disabled=""
     type="button"
   >
     <svg
-      class="ec-table-pagination__action-icon ec-icon"
+      class="ec-icon ec-table-pagination__action-icon"
       height="24"
       width="24"
     >
@@ -180,11 +183,11 @@ exports[`EcTablePagination should display only prev button disabled if paginatio
   <button
     class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
     data-test="ec-table-pagination__action--prev"
-    disabled="disabled"
+    disabled=""
     type="button"
   >
     <svg
-      class="ec-table-pagination__action-icon ec-icon"
+      class="ec-icon ec-table-pagination__action-icon"
       height="24"
       width="24"
     >
@@ -193,14 +196,13 @@ exports[`EcTablePagination should display only prev button disabled if paginatio
       />
     </svg>
   </button>
-   
   <button
     class="ec-table-pagination__action ec-table-pagination__action--next"
     data-test="ec-table-pagination__action--next"
     type="button"
   >
     <svg
-      class="ec-table-pagination__action-icon ec-icon"
+      class="ec-icon ec-table-pagination__action-icon"
       height="24"
       width="24"
     >
@@ -217,13 +219,14 @@ exports[`EcTablePagination should display page information by calculating total 
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
+  
   <span>
     2 of 4 pages
   </span>
-   
   <span>
     (20 items)
   </span>
+  
 </div>
 `;
 
@@ -232,13 +235,14 @@ exports[`EcTablePagination should display page information even if the total is 
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
+  
   <span>
     1 of 1 pages
   </span>
-   
   <span>
     (0 items)
   </span>
+  
 </div>
 `;
 
@@ -247,13 +251,14 @@ exports[`EcTablePagination should display page information when last page is inc
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
+  
   <span>
     6 of 6 pages
   </span>
-   
   <span>
     (29 items)
   </span>
+  
 </div>
 `;
 
@@ -267,28 +272,27 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
   >
     Items per page:
   </div>
-   
   <div
     class="ec-dropdown-search"
     data-test="ec-dropdown-search"
   >
     <ec-stub
+      autosize="max"
       class="ec-dropdown-search__trigger"
       data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-      offset="8"
-      placement="bottom"
-      popoverinnerclass="ec-dropdown-search__popover"
-      popperoptions="[object Object]"
+      distance="8"
+      placement="bottom-start"
+      popperclass="ec-dropdown-search__popover"
     >
+      
+      
       <button
         class="ec-table-pagination__action ec-table-pagination__action--page-size"
         data-test="ec-table-pagination__action--page-size"
       >
-        
-        50
-        
+        50 
         <svg
-          class="ec-table-pagination__action-icon ec-icon"
+          class="ec-icon ec-table-pagination__action-icon"
           height="24"
           width="24"
         >
@@ -297,46 +301,60 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
           />
         </svg>
       </button>
-        
+      
+      
+       
+      
       <div>
         <ul
           class="ec-dropdown-search__item-list"
           data-test="ec-dropdown-search__item-list"
         >
-          <!---->
-           
-          <!---->
-           
+          <!--v-if-->
+          <!--v-if-->
+          
+          
           <li
             class="ec-dropdown-search__item"
             data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
             title="5"
           >
+            
             5
+            
           </li>
           <li
             class="ec-dropdown-search__item"
             data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
             title="10"
           >
+            
             10
+            
           </li>
           <li
             class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
             data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
             title="50"
           >
+            
             50
+            
           </li>
           <li
             class="ec-dropdown-search__item"
             data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
             title="100"
           >
+            
             100
+            
           </li>
+          
+          
         </ul>
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -356,28 +374,27 @@ exports[`EcTablePagination should render as expected 1`] = `
     >
       Items per page:
     </div>
-     
     <div
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
       <ec-stub
+        autosize="max"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        offset="8"
-        placement="bottom"
-        popoverinnerclass="ec-dropdown-search__popover"
-        popperoptions="[object Object]"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
       >
+        
+        
         <button
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
-          
-        10
-        
+          10 
           <svg
-            class="ec-table-pagination__action-icon ec-icon"
+            class="ec-icon ec-table-pagination__action-icon"
             height="24"
             width="24"
           >
@@ -386,68 +403,83 @@ exports[`EcTablePagination should render as expected 1`] = `
             />
           </svg>
         </button>
-          
+        
+        
+         
+        
         <div>
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            <!--v-if-->
+            
+            
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
+              
               5
+              
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
+              
               10
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
+              
               50
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
+              
               100
+              
             </li>
+            
+            
           </ul>
         </div>
+        
       </ec-stub>
     </div>
   </div>
-   
   <div
     class="ec-table-pagination__current-page"
     data-test="ec-table-pagination__current-page"
   >
+    
     <span>
       1 of 1 pages
     </span>
-     
     <span>
       (0 items)
     </span>
+    
   </div>
-   
   <div
     class="ec-table-pagination__total"
     data-test="ec-table-pagination__total"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-table-pagination__actions"
     data-test="ec-table-pagination__actions"
@@ -455,11 +487,11 @@ exports[`EcTablePagination should render as expected 1`] = `
     <button
       class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
       data-test="ec-table-pagination__action--prev"
-      disabled="disabled"
+      disabled=""
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -468,15 +500,14 @@ exports[`EcTablePagination should render as expected 1`] = `
         />
       </svg>
     </button>
-     
     <button
       class="ec-table-pagination__action ec-table-pagination__action--next ec-table-pagination__action--is-disabled"
       data-test="ec-table-pagination__action--next"
-      disabled="disabled"
+      disabled=""
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >

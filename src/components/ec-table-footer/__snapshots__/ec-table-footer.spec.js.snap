@@ -12,9 +12,11 @@ exports[`EcTableFooter should render with footer slot 1`] = `
       <div
         class="ec-table-footer__contents"
       >
+        
         <p>
           Random text
         </p>
+        
       </div>
     </td>
   </tr>
@@ -32,7 +34,10 @@ exports[`EcTableFooter should render without footer slot 1`] = `
     >
       <div
         class="ec-table-footer__contents"
-      />
+      >
+        
+        
+      </div>
     </td>
   </tr>
 </tfoot>

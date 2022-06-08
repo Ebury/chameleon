@@ -6,9 +6,13 @@
     <component
       :is="filter.component"
       v-for="(filter, index) in filters"
+      v-bind="{
+        ...filter,
+        value: value[filter.name],
+        name: null,
+        component: null,
+      }"
       :key="filter.name"
-      :value="value[filter.name]"
-      v-bind="{ ...filter, name: null, component: null }"
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
       @change="onChange(filter.name, $event)"
@@ -72,10 +76,8 @@ export default {
       type: String,
       default: 'Clear filters',
     },
-    popoverOptions: {
-      type: Object,
-    },
   },
+  emits: ['change'],
   // TODO ONL-4893
   // data() {
   //   return {
