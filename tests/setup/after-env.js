@@ -1,20 +1,38 @@
+import { config, DOMWrapper, VueWrapper } from '@vue/test-utils';
 import { configureCompat } from 'vue';
 
 import '@testing-library/jest-dom';
 
-import { Wrapper, WrapperArray } from '@vue/test-utils';
-
 require('snapshot-diff/extend-expect');
+
+// [data-test]
+function findByDataTest(dataTest) {
+  return this.find(`[data-test~=${dataTest}]`);
+}
 
 function findAllByDataTest(dataTest) {
   return this.findAll(`[data-test~=${dataTest}]`);
 }
 
-Wrapper.prototype.findByDataTest = function findByDataTest(dataTest) {
-  return this.find(`[data-test~=${dataTest}]`);
-};
-Wrapper.prototype.findAllByDataTest = findAllByDataTest;
-WrapperArray.prototype.findAllByDataTest = findAllByDataTest;
+function findComponentByDataTest(dataTest) {
+  return this.findComponent(`[data-test~=${dataTest}]`);
+}
+
+function findAllComponentsByDataTest(dataTest) {
+  return this.findAllComponents(`[data-test~=${dataTest}]`);
+}
+
+VueWrapper.prototype.findByDataTest = findByDataTest;
+DOMWrapper.prototype.findByDataTest = findByDataTest;
+
+VueWrapper.prototype.findAllByDataTest = findAllByDataTest;
+DOMWrapper.prototype.findAllByDataTest = findAllByDataTest;
+
+VueWrapper.prototype.findComponentByDataTest = findComponentByDataTest;
+DOMWrapper.prototype.findComponentByDataTest = findComponentByDataTest;
+
+VueWrapper.prototype.findAllComponentsByDataTest = findAllComponentsByDataTest;
+DOMWrapper.prototype.findAllComponentsByDataTest = findAllComponentsByDataTest;
 
 // @vue/compiler-sfc
 config.global.compilerOptions = {

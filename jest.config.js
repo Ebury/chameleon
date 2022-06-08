@@ -1,3 +1,5 @@
+const customElements = new Set(['ec-stub']);
+
 module.exports = {
   moduleFileExtensions: [
     'js',
@@ -30,7 +32,7 @@ module.exports = {
   setupFilesAfterEnv: [
     '<rootDir>/tests/setup/after-env.js',
     '<rootDir>/tests/setup/chameleon-config.js',
-    '<rootDir>/tests/setup/auto-destroy.js',
+    '<rootDir>/tests/setup/auto-unmount.js',
     '<rootDir>/tests/stubs/index.js',
     '<rootDir>/tests/mocks/index.js',
   ],
@@ -52,10 +54,12 @@ module.exports = {
     },
   },
   clearMocks: true,
+  restoreMocks: true,
   globals: {
     'vue-jest': {
       compilerOptions: {
         whitespace: 'condense',
+        isCustomElement: tag => customElements.has(tag),
         comments: false,
         compatConfig: {
           MODE: 2,

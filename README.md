@@ -109,6 +109,8 @@ abort previous requests. If you support **IE11** browser, you have to include [A
 
 [Jest](https://jestjs.io/)
 
+[Vue Test Utils](https://test-utils.vuejs.org/)
+
 [Cypress](https://www.cypress.io/)
 
 ### CSS
