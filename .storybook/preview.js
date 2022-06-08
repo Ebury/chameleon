@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies,import/no-webpack-loader-syntax */
-import cssVars from 'css-vars-ponyfill';
 import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import Vue, { configureCompat } from 'vue';
@@ -52,5 +51,4 @@ if (process.env.NODE_ENV === 'production') {
 
 export const decorators = [withCssResources];
 
-cssVars();
 inlineSvgSprites(['rounded-icons', 'simple-icons', 'currency-flags'], '/img');
