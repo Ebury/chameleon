@@ -6,14 +6,14 @@ exports[`EcSmartTable #slots should render empty data with custom template 1`] =
   data-test="ec-smart-table-empty"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
-   
+  
   <div>
     Custom template - No items found
   </div>
+  
 </div>
 `;
 
@@ -23,14 +23,14 @@ exports[`EcSmartTable #slots should render empty data with custom template and c
   data-test="ec-smart-table-empty"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
-   
+  
   <div>
     Custom template - No data
   </div>
+  
 </div>
 `;
 
@@ -40,26 +40,29 @@ exports[`EcSmartTable #slots should render empty data with custom template, cust
   data-test="ec-smart-table-empty"
 >
   <div>
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
-          Header Actions total: 0, items: [], error: , loading: false
+          Header Actions total: 0, items: [], error: null, loading: false
         </div>
+        
+        
       </div>
     </div>
   </div>
-   
+  
   <div>
     Custom template - No data
   </div>
+  
 </div>
 `;
 
@@ -69,23 +72,27 @@ exports[`EcSmartTable #slots should render empty data with header-actions slot 1
   data-test="ec-smart-table-empty"
 >
   <div>
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
           Header Actions
         </div>
+        
+        
       </div>
     </div>
   </div>
-   No items found
+  
+  No items found
+  
 </div>
 `;
 
@@ -95,23 +102,27 @@ exports[`EcSmartTable #slots should render empty data with header-actions slot w
   data-test="ec-smart-table-empty"
 >
   <div>
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
-          Header Actions total: 0, items: [], error: , loading: false
+          Header Actions total: 0, items: [], error: null, loading: false
         </div>
+        
+        
       </div>
     </div>
   </div>
-   No items found
+  
+  No items found
+  
 </div>
 `;
 
@@ -121,14 +132,14 @@ exports[`EcSmartTable #slots should render error with custom template 1`] = `
   data-test="ec-smart-table-error"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
-   
+  
   <div>
     Custom template - Unexpected error while fetching data
   </div>
+  
 </div>
 `;
 
@@ -138,14 +149,14 @@ exports[`EcSmartTable #slots should render error with custom template and custom
   data-test="ec-smart-table-error"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
-   
+  
   <div>
     Custom template - Unexpected error
   </div>
+  
 </div>
 `;
 
@@ -155,26 +166,29 @@ exports[`EcSmartTable #slots should render error with custom template, custom er
   data-test="ec-smart-table-error"
 >
   <div>
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
           Header Actions total: 0, items: [], error: Unexpected error, loading: false
         </div>
+        
+        
       </div>
     </div>
   </div>
-   
+  
   <div>
     Custom template - Unexpected error
   </div>
+  
 </div>
 `;
 
@@ -184,19 +198,19 @@ exports[`EcSmartTable #slots should render in loading state by default with the 
   data-test="ec-smart-table"
 >
   <div>
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
         <div>
-          Header Actions total: , items: [], error: , loading: true
+          Header Actions total: undefined, items: [], error: null, loading: true
         </div>
+        
       </div>
     </div>
   </div>
@@ -212,7 +226,7 @@ exports[`EcSmartTable #slots should render in loading state by default with the 
         data-test="ec-loading__backdrop"
       >
         <svg
-          class="ec-loading__icon ec-icon"
+          class="ec-icon ec-loading__icon"
           data-test="ec-loading__icon"
           height="48"
           width="48"
@@ -222,12 +236,13 @@ exports[`EcSmartTable #slots should render in loading state by default with the 
           />
         </svg>
       </div>
-       
       <div
         class="ec-loading__content"
         data-test="ec-loading__content"
       >
-        <!---->
+        
+        <!--v-if-->
+        
       </div>
     </div>
   </div>
@@ -240,25 +255,19 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
   data-test="ec-smart-table"
 >
   <div>
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
         <div>
-          Header Actions total: 1, items: [
-  [
-    1,
-    2,
-    3
-  ]
-], error: , loading: false
+          Header Actions total: 1, items: [[1,2,3]], error: null, loading: false
         </div>
+        
       </div>
     </div>
   </div>
@@ -266,15 +275,14 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
     class="ec-loading"
     data-test="ec-loading"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
       data-test="ec-loading__content"
     >
+      
       <div>
-        <!---->
-         
+        <!--v-if-->
         <div
           class="ec-table-scroll-container"
           data-test="ec-table-scroll-container"
@@ -287,6 +295,7 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
               data-test="ec-table-head"
             >
               <tr>
+                
                 <th
                   class="ec-table-head__cell"
                   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -298,13 +307,9 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
                     <span
                       class="ec-table-head__cell-text"
                     >
-                      
-          Test 1
-        
+                      Test 1
                     </span>
-                     
-                    <!---->
-                     
+                    <!--v-if-->
                     <a
                       class="ec-table-sort ec-table-head__icon"
                       data-test="ec-table-sort"
@@ -321,8 +326,7 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
                           xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
-                       
-                      <!---->
+                      <!--v-if-->
                     </a>
                   </span>
                 </th>
@@ -337,14 +341,10 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
                     <span
                       class="ec-table-head__cell-text"
                     >
-                      
-          Test 2
-        
+                      Test 2
                     </span>
-                     
-                    <!---->
-                     
-                    <!---->
+                    <!--v-if-->
+                    <!--v-if-->
                   </span>
                 </th>
                 <th
@@ -358,13 +358,9 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
                     <span
                       class="ec-table-head__cell-text"
                     >
-                      
-          Test 3
-        
+                      Test 3
                     </span>
-                     
-                    <!---->
-                     
+                    <!--v-if-->
                     <a
                       class="ec-table-sort ec-table-head__icon"
                       data-test="ec-table-sort"
@@ -381,44 +377,53 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
                           xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
-                       
-                      <!---->
+                      <!--v-if-->
                     </a>
                   </span>
                 </th>
+                
               </tr>
             </thead>
-             
             <tbody>
+              
               <tr
                 class=""
                 data-test="ec-table__row ec-table__row--0"
               >
+                
                 <td
                   class="ec-table__cell"
                   data-test="ec-table__cell ec-table__cell--0"
                 >
+                  
                   1
+                  
                 </td>
                 <td
                   class="ec-table__cell"
                   data-test="ec-table__cell ec-table__cell--1"
                 >
+                  
                   2
+                  
                 </td>
                 <td
                   class="ec-table__cell"
                   data-test="ec-table__cell ec-table__cell--2"
                 >
+                  
                   3
+                  
                 </td>
+                
               </tr>
+              
             </tbody>
-             
-            <!---->
+            <!--v-if-->
           </table>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
@@ -431,9 +436,11 @@ exports[`EcSmartTable filtering should handle changes in filters and reload the 
   <div>
     # of filters: 2
   </div>
+   
   <div>
     value: {}
   </div>
+   
   <a
     data-test="my-table-filter__clear-button"
   >
@@ -442,11 +449,9 @@ exports[`EcSmartTable filtering should handle changes in filters and reload the 
 </div>
 `;
 
-exports[`EcSmartTable filtering should handle changes in filters and reload the table data: loading icon after loading filtered data 1`] = `undefined`;
-
 exports[`EcSmartTable filtering should handle changes in filters and reload the table data: loading icon while loading filtered data 1`] = `
 <svg
-  class="ec-loading__icon ec-icon"
+  class="ec-icon ec-loading__icon"
   data-test="ec-loading__icon"
   height="48"
   width="48"
@@ -464,9 +469,13 @@ exports[`EcSmartTable filtering should pass given prefilter with filter componen
   <div>
     # of filters: 2
   </div>
+   
   <div>
-    value: {"test1":"test-value-1"}
+    value: {
+  "test1": "test-value-1"
+}
   </div>
+   
   <a
     data-test="my-table-filter__clear-button"
   >
@@ -482,9 +491,11 @@ exports[`EcSmartTable filtering should render the given filter component 1`] = `
   <div>
     # of filters: 2
   </div>
+   
   <div>
     value: {}
   </div>
+   
   <a
     data-test="my-table-filter__clear-button"
   >
@@ -507,28 +518,27 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
     >
       Items per page:
     </div>
-     
     <div
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
       <ec-stub
+        autosize="max"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        offset="8"
-        placement="bottom"
-        popoverinnerclass="ec-dropdown-search__popover"
-        popperoptions="[object Object]"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
       >
+        
+        
         <button
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
-          
-        10
-        
+          10 
           <svg
-            class="ec-table-pagination__action-icon ec-icon"
+            class="ec-icon ec-table-pagination__action-icon"
             height="24"
             width="24"
           >
@@ -537,68 +547,83 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             />
           </svg>
         </button>
-          
+        
+        
+         
+        
         <div>
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            <!--v-if-->
+            
+            
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
+              
               5
+              
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
+              
               10
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
+              
               50
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
+              
               100
+              
             </li>
+            
+            
           </ul>
         </div>
+        
       </ec-stub>
     </div>
   </div>
-   
   <div
     class="ec-table-pagination__current-page"
     data-test="ec-table-pagination__current-page"
   >
+    
     <span>
       1 of 5 pages
     </span>
-     
     <span>
       (50 items)
     </span>
+    
   </div>
-   
   <div
     class="ec-table-pagination__total"
     data-test="ec-table-pagination__total"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-table-pagination__actions"
     data-test="ec-table-pagination__actions"
@@ -606,11 +631,11 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
     <button
       class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
       data-test="ec-table-pagination__action--prev"
-      disabled="disabled"
+      disabled=""
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -619,14 +644,13 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         />
       </svg>
     </button>
-     
     <button
       class="ec-table-pagination__action ec-table-pagination__action--next"
       data-test="ec-table-pagination__action--next"
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -653,28 +677,27 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
     >
       Items per page:
     </div>
-     
     <div
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
       <ec-stub
+        autosize="max"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        offset="8"
-        placement="bottom"
-        popoverinnerclass="ec-dropdown-search__popover"
-        popperoptions="[object Object]"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
       >
+        
+        
         <button
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
-          
-        10
-        
+          10 
           <svg
-            class="ec-table-pagination__action-icon ec-icon"
+            class="ec-icon ec-table-pagination__action-icon"
             height="24"
             width="24"
           >
@@ -683,68 +706,83 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             />
           </svg>
         </button>
-          
+        
+        
+         
+        
         <div>
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            <!--v-if-->
+            
+            
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
+              
               5
+              
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
+              
               10
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
+              
               50
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
+              
               100
+              
             </li>
+            
+            
           </ul>
         </div>
+        
       </ec-stub>
     </div>
   </div>
-   
   <div
     class="ec-table-pagination__current-page"
     data-test="ec-table-pagination__current-page"
   >
+    
     <span>
       2 of 5 pages
     </span>
-     
     <span>
       (50 items)
     </span>
+    
   </div>
-   
   <div
     class="ec-table-pagination__total"
     data-test="ec-table-pagination__total"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-table-pagination__actions"
     data-test="ec-table-pagination__actions"
@@ -755,7 +793,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -764,14 +802,13 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         />
       </svg>
     </button>
-     
     <button
       class="ec-table-pagination__action ec-table-pagination__action--next"
       data-test="ec-table-pagination__action--next"
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -789,17 +826,17 @@ exports[`EcSmartTable pagination should pass pages slot into the pagination 1`] 
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
+  
   <div>
     Pages: {"page":1,"numberOfItems":10,"totalPages":5,"total":50}
   </div>
+  
 </div>
 `;
 
-exports[`EcSmartTable pagination should re-fetch the data when next page is selected: loading icon after loading new page 1`] = `undefined`;
-
 exports[`EcSmartTable pagination should re-fetch the data when next page is selected: loading icon while loading new page 1`] = `
 <svg
-  class="ec-loading__icon ec-icon"
+  class="ec-icon ec-loading__icon"
   data-test="ec-loading__icon"
   height="48"
   width="48"
@@ -824,28 +861,27 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
     >
       Items per page:
     </div>
-     
     <div
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
       <ec-stub
+        autosize="max"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        offset="8"
-        placement="bottom"
-        popoverinnerclass="ec-dropdown-search__popover"
-        popperoptions="[object Object]"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
       >
+        
+        
         <button
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
-          
-        10
-        
+          10 
           <svg
-            class="ec-table-pagination__action-icon ec-icon"
+            class="ec-icon ec-table-pagination__action-icon"
             height="24"
             width="24"
           >
@@ -854,68 +890,83 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
             />
           </svg>
         </button>
-          
+        
+        
+         
+        
         <div>
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            <!--v-if-->
+            
+            
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
+              
               5
+              
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
+              
               10
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
+              
               50
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
+              
               100
+              
             </li>
+            
+            
           </ul>
         </div>
+        
       </ec-stub>
     </div>
   </div>
-   
   <div
     class="ec-table-pagination__current-page"
     data-test="ec-table-pagination__current-page"
   >
+    
     <span>
       2 of 5 pages
     </span>
-     
     <span>
       (50 items)
     </span>
+    
   </div>
-   
   <div
     class="ec-table-pagination__total"
     data-test="ec-table-pagination__total"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-table-pagination__actions"
     data-test="ec-table-pagination__actions"
@@ -926,7 +977,7 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -935,14 +986,13 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
         />
       </svg>
     </button>
-     
     <button
       class="ec-table-pagination__action ec-table-pagination__action--next"
       data-test="ec-table-pagination__action--next"
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -955,11 +1005,9 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
 </div>
 `;
 
-exports[`EcSmartTable pagination should re-fetch the data when page size is changed: loading icon after loading new page 1`] = `undefined`;
-
 exports[`EcSmartTable pagination should re-fetch the data when page size is changed: loading icon while loading new page 1`] = `
 <svg
-  class="ec-loading__icon ec-icon"
+  class="ec-icon ec-loading__icon"
   data-test="ec-loading__icon"
   height="48"
   width="48"
@@ -984,28 +1032,27 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
     >
       Items per page:
     </div>
-     
     <div
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
       <ec-stub
+        autosize="max"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        offset="8"
-        placement="bottom"
-        popoverinnerclass="ec-dropdown-search__popover"
-        popperoptions="[object Object]"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
       >
+        
+        
         <button
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
-          
-        50
-        
+          50 
           <svg
-            class="ec-table-pagination__action-icon ec-icon"
+            class="ec-icon ec-table-pagination__action-icon"
             height="24"
             width="24"
           >
@@ -1014,68 +1061,83 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
             />
           </svg>
         </button>
-          
+        
+        
+         
+        
         <div>
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            <!--v-if-->
+            
+            
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
+              
               5
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
+              
               10
+              
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
+              
               50
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
+              
               100
+              
             </li>
+            
+            
           </ul>
         </div>
+        
       </ec-stub>
     </div>
   </div>
-   
   <div
     class="ec-table-pagination__current-page"
     data-test="ec-table-pagination__current-page"
   >
+    
     <span>
       1 of 1 pages
     </span>
-     
     <span>
       (50 items)
     </span>
+    
   </div>
-   
   <div
     class="ec-table-pagination__total"
     data-test="ec-table-pagination__total"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-table-pagination__actions"
     data-test="ec-table-pagination__actions"
@@ -1083,11 +1145,11 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
     <button
       class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
       data-test="ec-table-pagination__action--prev"
-      disabled="disabled"
+      disabled=""
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -1096,15 +1158,14 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
         />
       </svg>
     </button>
-     
     <button
       class="ec-table-pagination__action ec-table-pagination__action--next ec-table-pagination__action--is-disabled"
       data-test="ec-table-pagination__action--next"
-      disabled="disabled"
+      disabled=""
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -1131,28 +1192,27 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
     >
       Items per page:
     </div>
-     
     <div
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
       <ec-stub
+        autosize="max"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        offset="8"
-        placement="bottom"
-        popoverinnerclass="ec-dropdown-search__popover"
-        popperoptions="[object Object]"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
       >
+        
+        
         <button
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
-          
-        10
-        
+          10 
           <svg
-            class="ec-table-pagination__action-icon ec-icon"
+            class="ec-icon ec-table-pagination__action-icon"
             height="24"
             width="24"
           >
@@ -1161,68 +1221,83 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             />
           </svg>
         </button>
-          
+        
+        
+         
+        
         <div>
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            <!--v-if-->
+            
+            
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
+              
               5
+              
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
+              
               10
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
+              
               50
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
+              
               100
+              
             </li>
+            
+            
           </ul>
         </div>
+        
       </ec-stub>
     </div>
   </div>
-   
   <div
     class="ec-table-pagination__current-page"
     data-test="ec-table-pagination__current-page"
   >
+    
     <span>
       2 of 5 pages
     </span>
-     
     <span>
       (50 items)
     </span>
+    
   </div>
-   
   <div
     class="ec-table-pagination__total"
     data-test="ec-table-pagination__total"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-table-pagination__actions"
     data-test="ec-table-pagination__actions"
@@ -1233,7 +1308,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -1242,14 +1317,13 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         />
       </svg>
     </button>
-     
     <button
       class="ec-table-pagination__action ec-table-pagination__action--next"
       data-test="ec-table-pagination__action--next"
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -1262,11 +1336,9 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
 </div>
 `;
 
-exports[`EcSmartTable pagination should re-fetch the data when prev page is selected: loading icon after loading new page 1`] = `undefined`;
-
 exports[`EcSmartTable pagination should re-fetch the data when prev page is selected: loading icon while loading new page 1`] = `
 <svg
-  class="ec-loading__icon ec-icon"
+  class="ec-icon ec-loading__icon"
   data-test="ec-loading__icon"
   height="48"
   width="48"
@@ -1291,28 +1363,27 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
     >
       Items per page:
     </div>
-     
     <div
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
       <ec-stub
+        autosize="max"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        offset="8"
-        placement="bottom"
-        popoverinnerclass="ec-dropdown-search__popover"
-        popperoptions="[object Object]"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
       >
+        
+        
         <button
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
-          
-        10
-        
+          10 
           <svg
-            class="ec-table-pagination__action-icon ec-icon"
+            class="ec-icon ec-table-pagination__action-icon"
             height="24"
             width="24"
           >
@@ -1321,68 +1392,83 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             />
           </svg>
         </button>
-          
+        
+        
+         
+        
         <div>
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            <!--v-if-->
+            
+            
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
+              
               5
+              
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
+              
               10
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
+              
               50
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
+              
               100
+              
             </li>
+            
+            
           </ul>
         </div>
+        
       </ec-stub>
     </div>
   </div>
-   
   <div
     class="ec-table-pagination__current-page"
     data-test="ec-table-pagination__current-page"
   >
+    
     <span>
       1 of 5 pages
     </span>
-     
     <span>
       (50 items)
     </span>
+    
   </div>
-   
   <div
     class="ec-table-pagination__total"
     data-test="ec-table-pagination__total"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-table-pagination__actions"
     data-test="ec-table-pagination__actions"
@@ -1390,11 +1476,11 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
     <button
       class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
       data-test="ec-table-pagination__action--prev"
-      disabled="disabled"
+      disabled=""
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -1403,14 +1489,13 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         />
       </svg>
     </button>
-     
     <button
       class="ec-table-pagination__action ec-table-pagination__action--next"
       data-test="ec-table-pagination__action--next"
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -1436,6 +1521,8 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
       <div
         class="ec-table-footer__contents"
       >
+        
+        
         <div
           class="ec-table-pagination"
           data-test="ec-smart-table-pagination ec-table-pagination"
@@ -1449,28 +1536,27 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
             >
               Items per page:
             </div>
-             
             <div
               class="ec-dropdown-search"
               data-test="ec-dropdown-search"
             >
               <ec-stub
+                autosize="max"
                 class="ec-dropdown-search__trigger"
                 data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-                offset="8"
-                placement="bottom"
-                popoverinnerclass="ec-dropdown-search__popover"
-                popperoptions="[object Object]"
+                distance="8"
+                placement="bottom-start"
+                popperclass="ec-dropdown-search__popover"
               >
+                
+                
                 <button
                   class="ec-table-pagination__action ec-table-pagination__action--page-size"
                   data-test="ec-table-pagination__action--page-size"
                 >
-                  
-        10
-        
+                  10 
                   <svg
-                    class="ec-table-pagination__action-icon ec-icon"
+                    class="ec-icon ec-table-pagination__action-icon"
                     height="24"
                     width="24"
                   >
@@ -1479,72 +1565,86 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                     />
                   </svg>
                 </button>
-                  
+                
+                
+                 
+                
                 <div>
                   <ul
                     class="ec-dropdown-search__item-list"
                     data-test="ec-dropdown-search__item-list"
                   >
-                    <!---->
-                     
-                    <!---->
-                     
+                    <!--v-if-->
+                    <!--v-if-->
+                    
+                    
                     <li
                       class="ec-dropdown-search__item"
                       data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
                       title="5"
                     >
+                      
                       5
+                      
                     </li>
                     <li
                       class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
                       data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
                       title="10"
                     >
+                      
                       10
+                      
                     </li>
                     <li
                       class="ec-dropdown-search__item"
                       data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
                       title="50"
                     >
+                      
                       50
+                      
                     </li>
                     <li
                       class="ec-dropdown-search__item"
                       data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
                       title="100"
                     >
+                      
                       100
+                      
                     </li>
+                    
+                    
                   </ul>
                 </div>
+                
               </ec-stub>
             </div>
           </div>
-           
           <div
             class="ec-table-pagination__current-page"
             data-test="ec-table-pagination__current-page"
           >
+            
             <span>
               1 of 5 pages
             </span>
-             
             <span>
               (50 items)
             </span>
+            
           </div>
-           
           <div
             class="ec-table-pagination__total"
             data-test="ec-table-pagination__total"
           >
+            
             <div>
               My custom footer
             </div>
+            
           </div>
-           
           <div
             class="ec-table-pagination__actions"
             data-test="ec-table-pagination__actions"
@@ -1552,11 +1652,11 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
             <button
               class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
               data-test="ec-table-pagination__action--prev"
-              disabled="disabled"
+              disabled=""
               type="button"
             >
               <svg
-                class="ec-table-pagination__action-icon ec-icon"
+                class="ec-icon ec-table-pagination__action-icon"
                 height="24"
                 width="24"
               >
@@ -1565,14 +1665,13 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                 />
               </svg>
             </button>
-             
             <button
               class="ec-table-pagination__action ec-table-pagination__action--next"
               data-test="ec-table-pagination__action--next"
               type="button"
             >
               <svg
-                class="ec-table-pagination__action-icon ec-icon"
+                class="ec-icon ec-table-pagination__action-icon"
                 height="24"
                 width="24"
               >
@@ -1583,6 +1682,8 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
             </button>
           </div>
         </div>
+        
+        
       </div>
     </td>
   </tr>
@@ -1602,9 +1703,13 @@ exports[`EcSmartTable pagination should render footer slot when pagination is no
       <div
         class="ec-table-footer__contents"
       >
+        
+        
         <div>
           My custom footer
         </div>
+        
+        
       </div>
     </td>
   </tr>
@@ -1625,28 +1730,27 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
     >
       Items per page:
     </div>
-     
     <div
       class="ec-dropdown-search"
       data-test="ec-dropdown-search"
     >
       <ec-stub
+        autosize="max"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        offset="8"
-        placement="bottom"
-        popoverinnerclass="ec-dropdown-search__popover"
-        popperoptions="[object Object]"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
       >
+        
+        
         <button
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
-          
-        10
-        
+          10 
           <svg
-            class="ec-table-pagination__action-icon ec-icon"
+            class="ec-icon ec-table-pagination__action-icon"
             height="24"
             width="24"
           >
@@ -1655,68 +1759,83 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
             />
           </svg>
         </button>
-          
+        
+        
+         
+        
         <div>
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
           >
-            <!---->
-             
-            <!---->
-             
+            <!--v-if-->
+            <!--v-if-->
+            
+            
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
               title="5"
             >
+              
               5
+              
             </li>
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
               title="10"
             >
+              
               10
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
               title="50"
             >
+              
               50
+              
             </li>
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
               title="100"
             >
+              
               100
+              
             </li>
+            
+            
           </ul>
         </div>
+        
       </ec-stub>
     </div>
   </div>
-   
   <div
     class="ec-table-pagination__current-page"
     data-test="ec-table-pagination__current-page"
   >
+    
     <span>
       1 of 5 pages
     </span>
-     
     <span>
       (50 items)
     </span>
+    
   </div>
-   
   <div
     class="ec-table-pagination__total"
     data-test="ec-table-pagination__total"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-table-pagination__actions"
     data-test="ec-table-pagination__actions"
@@ -1724,11 +1843,11 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
     <button
       class="ec-table-pagination__action ec-table-pagination__action--prev ec-table-pagination__action--is-disabled"
       data-test="ec-table-pagination__action--prev"
-      disabled="disabled"
+      disabled=""
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -1737,14 +1856,13 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
         />
       </svg>
     </button>
-     
     <button
       class="ec-table-pagination__action ec-table-pagination__action--next"
       data-test="ec-table-pagination__action--next"
       type="button"
     >
       <svg
-        class="ec-table-pagination__action-icon ec-icon"
+        class="ec-icon ec-table-pagination__action-icon"
         height="24"
         width="24"
       >
@@ -1763,11 +1881,12 @@ exports[`EcSmartTable should render empty data properly 1`] = `
   data-test="ec-smart-table-empty"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
-   No items found
+  
+  No items found
+  
 </div>
 `;
 
@@ -1777,11 +1896,12 @@ exports[`EcSmartTable should render error properly 1`] = `
   data-test="ec-smart-table-error"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
-   Unexpected error while fetching data
+  
+  Unexpected error while fetching data
+  
 </div>
 `;
 
@@ -1791,9 +1911,8 @@ exports[`EcSmartTable should render in loading state by default 1`] = `
   data-test="ec-smart-table"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
   <div
     class="tw-py-48"
@@ -1807,7 +1926,7 @@ exports[`EcSmartTable should render in loading state by default 1`] = `
         data-test="ec-loading__backdrop"
       >
         <svg
-          class="ec-loading__icon ec-icon"
+          class="ec-icon ec-loading__icon"
           data-test="ec-loading__icon"
           height="48"
           width="48"
@@ -1817,12 +1936,13 @@ exports[`EcSmartTable should render in loading state by default 1`] = `
           />
         </svg>
       </div>
-       
       <div
         class="ec-loading__content"
         data-test="ec-loading__content"
       >
-        <!---->
+        
+        <!--v-if-->
+        
       </div>
     </div>
   </div>
@@ -1840,22 +1960,20 @@ exports[`EcSmartTable should render it's own title instead of using the one insi
     >
       Random title
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
   <div
     class="ec-loading"
     data-test="ec-loading"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
       data-test="ec-loading__content"
     >
+      
       <div>
-        <!---->
-         
+        <!--v-if-->
         <div
           class="ec-table-scroll-container"
           data-test="ec-table-scroll-container"
@@ -1868,6 +1986,7 @@ exports[`EcSmartTable should render it's own title instead of using the one insi
               data-test="ec-table-head"
             >
               <tr>
+                
                 <th
                   class="ec-table-head__cell"
                   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -1879,13 +1998,9 @@ exports[`EcSmartTable should render it's own title instead of using the one insi
                     <span
                       class="ec-table-head__cell-text"
                     >
-                      
-          Test 1
-        
+                      Test 1
                     </span>
-                     
-                    <!---->
-                     
+                    <!--v-if-->
                     <a
                       class="ec-table-sort ec-table-head__icon"
                       data-test="ec-table-sort"
@@ -1902,8 +2017,7 @@ exports[`EcSmartTable should render it's own title instead of using the one insi
                           xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
-                       
-                      <!---->
+                      <!--v-if-->
                     </a>
                   </span>
                 </th>
@@ -1918,14 +2032,10 @@ exports[`EcSmartTable should render it's own title instead of using the one insi
                     <span
                       class="ec-table-head__cell-text"
                     >
-                      
-          Test 2
-        
+                      Test 2
                     </span>
-                     
-                    <!---->
-                     
-                    <!---->
+                    <!--v-if-->
+                    <!--v-if-->
                   </span>
                 </th>
                 <th
@@ -1939,13 +2049,9 @@ exports[`EcSmartTable should render it's own title instead of using the one insi
                     <span
                       class="ec-table-head__cell-text"
                     >
-                      
-          Test 3
-        
+                      Test 3
                     </span>
-                     
-                    <!---->
-                     
+                    <!--v-if-->
                     <a
                       class="ec-table-sort ec-table-head__icon"
                       data-test="ec-table-sort"
@@ -1962,44 +2068,53 @@ exports[`EcSmartTable should render it's own title instead of using the one insi
                           xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
-                       
-                      <!---->
+                      <!--v-if-->
                     </a>
                   </span>
                 </th>
+                
               </tr>
             </thead>
-             
             <tbody>
+              
               <tr
                 class=""
                 data-test="ec-table__row ec-table__row--0"
               >
+                
                 <td
                   class="ec-table__cell"
                   data-test="ec-table__cell ec-table__cell--0"
                 >
+                  
                   1
+                  
                 </td>
                 <td
                   class="ec-table__cell"
                   data-test="ec-table__cell ec-table__cell--1"
                 >
+                  
                   2
+                  
                 </td>
                 <td
                   class="ec-table__cell"
                   data-test="ec-table__cell ec-table__cell--2"
                 >
+                  
                   3
+                  
                 </td>
+                
               </tr>
+              
             </tbody>
-             
-            <!---->
+            <!--v-if-->
           </table>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
@@ -2011,23 +2126,21 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
   data-test="ec-smart-table"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
   <div
     class="ec-loading"
     data-test="ec-loading"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-loading__content ec-loading__content--is-transparent"
       data-test="ec-loading__content"
     >
+      
       <div>
-        <!---->
-         
+        <!--v-if-->
         <div
           class="ec-table-scroll-container"
           data-test="ec-table-scroll-container"
@@ -2040,6 +2153,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
               data-test="ec-table-head"
             >
               <tr>
+                
                 <th
                   class="ec-table-head__cell"
                   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -2051,13 +2165,9 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                     <span
                       class="ec-table-head__cell-text"
                     >
-                      
-          Test 1
-        
+                      Test 1
                     </span>
-                     
-                    <!---->
-                     
+                    <!--v-if-->
                     <a
                       class="ec-table-sort ec-table-head__icon"
                       data-test="ec-table-sort"
@@ -2074,8 +2184,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                           xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
-                       
-                      <!---->
+                      <!--v-if-->
                     </a>
                   </span>
                 </th>
@@ -2090,14 +2199,10 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                     <span
                       class="ec-table-head__cell-text"
                     >
-                      
-          Test 2
-        
+                      Test 2
                     </span>
-                     
-                    <!---->
-                     
-                    <!---->
+                    <!--v-if-->
+                    <!--v-if-->
                   </span>
                 </th>
                 <th
@@ -2111,13 +2216,9 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                     <span
                       class="ec-table-head__cell-text"
                     >
-                      
-          Test 3
-        
+                      Test 3
                     </span>
-                     
-                    <!---->
-                     
+                    <!--v-if-->
                     <a
                       class="ec-table-sort ec-table-head__icon"
                       data-test="ec-table-sort"
@@ -2134,44 +2235,53 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
                           xlink:href="#ec-simple-arrow-up-down"
                         />
                       </svg>
-                       
-                      <!---->
+                      <!--v-if-->
                     </a>
                   </span>
                 </th>
+                
               </tr>
             </thead>
-             
             <tbody>
+              
               <tr
                 class=""
                 data-test="ec-table__row ec-table__row--0"
               >
+                
                 <td
                   class="ec-table__cell"
                   data-test="ec-table__cell ec-table__cell--0"
                 >
+                  
                   1
+                  
                 </td>
                 <td
                   class="ec-table__cell"
                   data-test="ec-table__cell ec-table__cell--1"
                 >
+                  
                   2
+                  
                 </td>
                 <td
                   class="ec-table__cell"
                   data-test="ec-table__cell ec-table__cell--2"
                 >
+                  
                   3
+                  
                 </td>
+                
               </tr>
+              
             </tbody>
-             
-            <!---->
+            <!--v-if-->
           </table>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
@@ -2183,6 +2293,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -2194,77 +2305,9 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 1
-        
         </span>
-         
-        <!---->
-         
-        <a
-          class="ec-table-sort ec-table-head__icon"
-          data-test="ec-table-sort"
-          href="#"
-          title="Sorted descending"
-        >
-          <svg
-            class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
-            data-test="ec-table-sort__icon"
-            height="16"
-            width="16"
-          >
-            <use
-              xlink:href="#ec-simple-arrow-drop-down"
-            />
-          </svg>
-           
-          <span
-            class="ec-table-sort__text"
-          >
-            desc
-          </span>
-        </a>
-      </span>
-    </th>
-    <th
-      class="ec-table-head__cell"
-      data-test="ec-table-head__cell ec-table-head__cell--1"
-      scope="col"
-    >
-      <span
-        class="ec-table-head__cell-wrapper"
-      >
-        <span
-          class="ec-table-head__cell-text"
-        >
-          
-          Test 2
-        
-        </span>
-         
-        <!---->
-         
-        <!---->
-      </span>
-    </th>
-    <th
-      class="ec-table-head__cell"
-      data-test="ec-table-head__cell ec-table-head__cell--2"
-      scope="col"
-    >
-      <span
-        class="ec-table-head__cell-wrapper"
-      >
-        <span
-          class="ec-table-head__cell-text"
-        >
-          
-          Test 3
-        
-        </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -2281,60 +2324,6 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
-          <span
-            class="ec-table-sort__text"
-          >
-            asc
-          </span>
-        </a>
-      </span>
-    </th>
-  </tr>
-</thead>
-`;
-
-exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: After sorting different column ([ASC, null, ASC]) 1`] = `
-<thead
-  class="ec-table-head"
-  data-test="ec-table-head"
->
-  <tr>
-    <th
-      class="ec-table-head__cell"
-      data-test="ec-table-head__cell ec-table-head__cell--0"
-      scope="col"
-    >
-      <span
-        class="ec-table-head__cell-wrapper"
-      >
-        <span
-          class="ec-table-head__cell-text"
-        >
-          
-          Test 1
-        
-        </span>
-         
-        <!---->
-         
-        <a
-          class="ec-table-sort ec-table-head__icon"
-          data-test="ec-table-sort"
-          href="#"
-          title="Sorted ascending"
-        >
-          <svg
-            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
-            data-test="ec-table-sort__icon"
-            height="16"
-            width="16"
-          >
-            <use
-              xlink:href="#ec-simple-arrow-drop-down"
-            />
-          </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -2354,14 +2343,10 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 2
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -2375,130 +2360,9 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 3
-        
         </span>
-         
-        <!---->
-         
-        <a
-          class="ec-table-sort ec-table-head__icon"
-          data-test="ec-table-sort"
-          href="#"
-          title="Sorted ascending"
-        >
-          <svg
-            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
-            data-test="ec-table-sort__icon"
-            height="16"
-            width="16"
-          >
-            <use
-              xlink:href="#ec-simple-arrow-drop-down"
-            />
-          </svg>
-           
-          <span
-            class="ec-table-sort__text"
-          >
-            asc
-          </span>
-        </a>
-      </span>
-    </th>
-  </tr>
-</thead>
-`;
-
-exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: Initial state ([ASC, null, null]) 1`] = `
-<thead
-  class="ec-table-head"
-  data-test="ec-table-head"
->
-  <tr>
-    <th
-      class="ec-table-head__cell"
-      data-test="ec-table-head__cell ec-table-head__cell--0"
-      scope="col"
-    >
-      <span
-        class="ec-table-head__cell-wrapper"
-      >
-        <span
-          class="ec-table-head__cell-text"
-        >
-          
-          Test 1
-        
-        </span>
-         
-        <!---->
-         
-        <a
-          class="ec-table-sort ec-table-head__icon"
-          data-test="ec-table-sort"
-          href="#"
-          title="Sorted ascending"
-        >
-          <svg
-            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
-            data-test="ec-table-sort__icon"
-            height="16"
-            width="16"
-          >
-            <use
-              xlink:href="#ec-simple-arrow-drop-down"
-            />
-          </svg>
-           
-          <span
-            class="ec-table-sort__text"
-          >
-            asc
-          </span>
-        </a>
-      </span>
-    </th>
-    <th
-      class="ec-table-head__cell"
-      data-test="ec-table-head__cell ec-table-head__cell--1"
-      scope="col"
-    >
-      <span
-        class="ec-table-head__cell-wrapper"
-      >
-        <span
-          class="ec-table-head__cell-text"
-        >
-          
-          Test 2
-        
-        </span>
-         
-        <!---->
-         
-        <!---->
-      </span>
-    </th>
-    <th
-      class="ec-table-head__cell"
-      data-test="ec-table-head__cell ec-table-head__cell--2"
-      scope="col"
-    >
-      <span
-        class="ec-table-head__cell-wrapper"
-      >
-        <span
-          class="ec-table-head__cell-text"
-        >
-          
-          Test 3
-        
-        </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -2515,11 +2379,213 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
               xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
-           
-          <!---->
+          <!--v-if-->
         </a>
       </span>
     </th>
+    
+  </tr>
+</thead>
+`;
+
+exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: After sorting different column ([ASC, null, ASC]) 1`] = `
+<thead
+  class="ec-table-head"
+  data-test="ec-table-head"
+>
+  <tr>
+    
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--0"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 1
+        </span>
+        <!--v-if-->
+        <a
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
+          href="#"
+          title="Sorted ascending"
+        >
+          <svg
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
+            data-test="ec-table-sort__icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-arrow-drop-down"
+            />
+          </svg>
+          <span
+            class="ec-table-sort__text"
+          >
+            asc
+          </span>
+        </a>
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--1"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 2
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--2"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 3
+        </span>
+        <!--v-if-->
+        <a
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
+          href="#"
+          title="Not sorted"
+        >
+          <svg
+            class="ec-icon ec-table-sort__icon"
+            data-test="ec-table-sort__icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-arrow-up-down"
+            />
+          </svg>
+          <!--v-if-->
+        </a>
+      </span>
+    </th>
+    
+  </tr>
+</thead>
+`;
+
+exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: Initial state ([ASC, null, null]) 1`] = `
+<thead
+  class="ec-table-head"
+  data-test="ec-table-head"
+>
+  <tr>
+    
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--0"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 1
+        </span>
+        <!--v-if-->
+        <a
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
+          href="#"
+          title="Sorted ascending"
+        >
+          <svg
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
+            data-test="ec-table-sort__icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-arrow-drop-down"
+            />
+          </svg>
+          <span
+            class="ec-table-sort__text"
+          >
+            asc
+          </span>
+        </a>
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--1"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 2
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--2"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 3
+        </span>
+        <!--v-if-->
+        <a
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
+          href="#"
+          title="Not sorted"
+        >
+          <svg
+            class="ec-icon ec-table-sort__icon"
+            data-test="ec-table-sort__icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-arrow-up-down"
+            />
+          </svg>
+          <!--v-if-->
+        </a>
+      </span>
+    </th>
+    
   </tr>
 </thead>
 `;
@@ -2536,21 +2602,17 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC -> DESC 1`] = `
     <span
       class="ec-table-head__cell-text"
     >
-      
-          Test 1
-        
+      Test 1
     </span>
-     
-    <!---->
-     
+    <!--v-if-->
     <a
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
       href="#"
-      title="Sorted descending"
+      title="Sorted ascending"
     >
       <svg
-        class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
+        class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
         data-test="ec-table-sort__icon"
         height="16"
         width="16"
@@ -2559,11 +2621,10 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC -> DESC 1`] = `
           xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
-       
       <span
         class="ec-table-sort__text"
       >
-        desc
+        asc
       </span>
     </a>
   </span>
@@ -2582,13 +2643,9 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC 1`] = `
     <span
       class="ec-table-head__cell-text"
     >
-      
-          Test 1
-        
+      Test 1
     </span>
-     
-    <!---->
-     
+    <!--v-if-->
     <a
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
@@ -2605,7 +2662,6 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC 1`] = `
           xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
-       
       <span
         class="ec-table-sort__text"
       >
@@ -2628,31 +2684,30 @@ exports[`EcSmartTable sorting multi sort should sort column: DESC -> not sorted 
     <span
       class="ec-table-head__cell-text"
     >
-      
-          Test 1
-        
+      Test 1
     </span>
-     
-    <!---->
-     
+    <!--v-if-->
     <a
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
       href="#"
-      title="Not sorted"
+      title="Sorted ascending"
     >
       <svg
-        class="ec-icon ec-table-sort__icon"
+        class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
         data-test="ec-table-sort__icon"
         height="16"
         width="16"
       >
         <use
-          xlink:href="#ec-simple-arrow-up-down"
+          xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
-       
-      <!---->
+      <span
+        class="ec-table-sort__text"
+      >
+        asc
+      </span>
     </a>
   </span>
 </th>
@@ -2670,13 +2725,9 @@ exports[`EcSmartTable sorting multi sort should sort column: not sorted -> ASC 1
     <span
       class="ec-table-head__cell-text"
     >
-      
-          Test 1
-        
+      Test 1
     </span>
-     
-    <!---->
-     
+    <!--v-if-->
     <a
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
@@ -2693,7 +2744,6 @@ exports[`EcSmartTable sorting multi sort should sort column: not sorted -> ASC 1
           xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
-       
       <span
         class="ec-table-sort__text"
       >
@@ -2710,6 +2760,7 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -2721,13 +2772,9 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 1
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -2744,8 +2791,7 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
               xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
-           
-          <!---->
+          <!--v-if-->
         </a>
       </span>
     </th>
@@ -2760,14 +2806,10 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 2
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -2781,13 +2823,9 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 3
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -2804,11 +2842,11 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
               xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
-           
-          <!---->
+          <!--v-if-->
         </a>
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
@@ -2819,6 +2857,7 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -2830,13 +2869,9 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 1
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -2853,7 +2888,6 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -2873,14 +2907,10 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 2
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -2894,13 +2924,9 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 3
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -2917,7 +2943,6 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -2926,6 +2951,7 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
         </a>
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
@@ -2936,6 +2962,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -2947,13 +2974,9 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 1
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -2970,7 +2993,6 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -2990,14 +3012,10 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 2
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -3011,13 +3029,9 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 3
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -3034,11 +3048,11 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
               xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
-           
-          <!---->
+          <!--v-if-->
         </a>
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
@@ -3049,6 +3063,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -3060,73 +3075,9 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 1
-        
         </span>
-         
-        <!---->
-         
-        <a
-          class="ec-table-sort ec-table-head__icon"
-          data-test="ec-table-sort"
-          href="#"
-          title="Not sorted"
-        >
-          <svg
-            class="ec-icon ec-table-sort__icon"
-            data-test="ec-table-sort__icon"
-            height="16"
-            width="16"
-          >
-            <use
-              xlink:href="#ec-simple-arrow-up-down"
-            />
-          </svg>
-           
-          <!---->
-        </a>
-      </span>
-    </th>
-    <th
-      class="ec-table-head__cell"
-      data-test="ec-table-head__cell ec-table-head__cell--1"
-      scope="col"
-    >
-      <span
-        class="ec-table-head__cell-wrapper"
-      >
-        <span
-          class="ec-table-head__cell-text"
-        >
-          
-          Test 2
-        
-        </span>
-         
-        <!---->
-         
-        <!---->
-      </span>
-    </th>
-    <th
-      class="ec-table-head__cell"
-      data-test="ec-table-head__cell ec-table-head__cell--2"
-      scope="col"
-    >
-      <span
-        class="ec-table-head__cell-wrapper"
-      >
-        <span
-          class="ec-table-head__cell-text"
-        >
-          
-          Test 3
-        
-        </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -3143,7 +3094,6 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -3152,6 +3102,58 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         </a>
       </span>
     </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--1"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 2
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--2"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 3
+        </span>
+        <!--v-if-->
+        <a
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
+          href="#"
+          title="Not sorted"
+        >
+          <svg
+            class="ec-icon ec-table-sort__icon"
+            data-test="ec-table-sort__icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-arrow-up-down"
+            />
+          </svg>
+          <!--v-if-->
+        </a>
+      </span>
+    </th>
+    
   </tr>
 </thead>
 `;
@@ -3162,6 +3164,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -3173,13 +3176,9 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 1
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -3196,7 +3195,6 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -3216,14 +3214,10 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 2
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -3237,13 +3231,9 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
         <span
           class="ec-table-head__cell-text"
         >
-          
           Test 3
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -3260,11 +3250,11 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
               xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
-           
-          <!---->
+          <!--v-if-->
         </a>
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
@@ -3281,21 +3271,17 @@ exports[`EcSmartTable sorting single sort should sort column: ASC -> DESC 1`] = 
     <span
       class="ec-table-head__cell-text"
     >
-      
-          Test 1
-        
+      Test 1
     </span>
-     
-    <!---->
-     
+    <!--v-if-->
     <a
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
       href="#"
-      title="Sorted descending"
+      title="Sorted ascending"
     >
       <svg
-        class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
+        class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
         data-test="ec-table-sort__icon"
         height="16"
         width="16"
@@ -3304,11 +3290,10 @@ exports[`EcSmartTable sorting single sort should sort column: ASC -> DESC 1`] = 
           xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
-       
       <span
         class="ec-table-sort__text"
       >
-        desc
+        asc
       </span>
     </a>
   </span>
@@ -3327,13 +3312,9 @@ exports[`EcSmartTable sorting single sort should sort column: ASC 1`] = `
     <span
       class="ec-table-head__cell-text"
     >
-      
-          Test 1
-        
+      Test 1
     </span>
-     
-    <!---->
-     
+    <!--v-if-->
     <a
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
@@ -3350,7 +3331,6 @@ exports[`EcSmartTable sorting single sort should sort column: ASC 1`] = `
           xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
-       
       <span
         class="ec-table-sort__text"
       >
@@ -3373,31 +3353,30 @@ exports[`EcSmartTable sorting single sort should sort column: DESC -> not sorted
     <span
       class="ec-table-head__cell-text"
     >
-      
-          Test 1
-        
+      Test 1
     </span>
-     
-    <!---->
-     
+    <!--v-if-->
     <a
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
       href="#"
-      title="Not sorted"
+      title="Sorted ascending"
     >
       <svg
-        class="ec-icon ec-table-sort__icon"
+        class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
         data-test="ec-table-sort__icon"
         height="16"
         width="16"
       >
         <use
-          xlink:href="#ec-simple-arrow-up-down"
+          xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
-       
-      <!---->
+      <span
+        class="ec-table-sort__text"
+      >
+        asc
+      </span>
     </a>
   </span>
 </th>
@@ -3415,13 +3394,9 @@ exports[`EcSmartTable sorting single sort should sort column: not sorted -> ASC 
     <span
       class="ec-table-head__cell-text"
     >
-      
-          Test 1
-        
+      Test 1
     </span>
-     
-    <!---->
-     
+    <!--v-if-->
     <a
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
@@ -3438,7 +3413,6 @@ exports[`EcSmartTable sorting single sort should sort column: not sorted -> ASC 
           xlink:href="#ec-simple-arrow-drop-down"
         />
       </svg>
-       
       <span
         class="ec-table-sort__text"
       >

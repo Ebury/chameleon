@@ -32,10 +32,10 @@ export default {
   },
   methods: {
     hasFilterSlot() {
-      return !!this.$scopedSlots.filter;
+      return !!this.$slots.filter;
     },
     hasActionsSlot() {
-      return !!this.$scopedSlots.actions;
+      return !!this.$slots.actions;
     },
   },
 };

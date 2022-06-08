@@ -5,13 +5,13 @@
   >
     <ec-smart-table-heading :title="title">
       <template
-        slot="filter"
+        #filter
         v-if="hasFilterSlot()"
       >
         <slot name="filter" />
       </template>
       <template
-        slot="actions"
+        #actions
         v-if="hasActionsSlot()"
       >
         <slot
@@ -42,10 +42,10 @@ export default {
   },
   methods: {
     hasFilterSlot() {
-      return !!this.$scopedSlots.filter;
+      return !!this.$slots.filter;
     },
     hasActionsSlot() {
-      return !!this.$scopedSlots['header-actions'];
+      return !!this.$slots['header-actions'];
     },
   },
 };

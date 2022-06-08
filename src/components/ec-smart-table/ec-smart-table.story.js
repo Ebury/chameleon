@@ -1,16 +1,18 @@
 import { action } from '@storybook/addon-actions';
-import EcSmartTable from './ec-smart-table.vue';
-import EcTableFilter from '../ec-table-filter';
-import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
-import EcDateRangeFilter from '../ec-date-range-filter';
+import { markRaw } from 'vue';
+
 import * as SortDirection from '../../enums/sort-direction';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 import ecWithFilters from '../../hocs/ec-with-filters';
+import EcDateRangeFilter from '../ec-date-range-filter';
+import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
+import EcTableFilter from '../ec-table-filter';
+import EcSmartTable from './ec-smart-table.vue';
 
 const MySmartTableFilter = ecWithFilters(EcTableFilter, [{
   label: 'Payment status',
   name: 'paymentStatus',
-  component: EcSyncMultipleValuesFilter,
+  component: markRaw(EcSyncMultipleValuesFilter),
   items: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }, { text: 'Overdue', value: 'overdue' }],
   isSearchable: false,
   isSelectAll: false,
@@ -18,7 +20,7 @@ const MySmartTableFilter = ecWithFilters(EcTableFilter, [{
 }, {
   label: 'Fee type',
   name: 'feeType',
-  component: EcSyncMultipleValuesFilter,
+  component: markRaw(EcSyncMultipleValuesFilter),
   items: [{ text: 'Invoiced', value: 'invoiced' }, { text: 'Payment', value: 'payment' }],
   isSearchable: false,
   isSelectAll: false,
@@ -26,7 +28,7 @@ const MySmartTableFilter = ecWithFilters(EcTableFilter, [{
 }, {
   label: 'Due date',
   name: 'dueDate',
-  component: EcDateRangeFilter,
+  component: markRaw(EcDateRangeFilter),
   fromLabelText: 'From',
   toLabelText: 'To',
   clearText: 'Clear dates',
@@ -90,12 +92,16 @@ export default {
   component: EcSmartTable,
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = args => ({
   components: { EcSmartTable },
-  props: Object.keys(argTypes),
+  setup() {
+    return {
+      args,
+    };
+  },
   computed: {
     filterComponent() {
-      return this.isFilteringEnabled ? MySmartTableFilter : null;
+      return args.isFilteringEnabled ? MySmartTableFilter : null;
     },
   },
   data() {
@@ -121,9 +127,9 @@ export const basic = (args, { argTypes }) => ({
           return new Promise((resolve, reject) => {
             this.loadingTimeout = setTimeout(() => {
               action('resolving data')(sorts, page, numberOfItems, JSON.stringify(filter), JSON.stringify(fetchArgs));
-              if (this.failOnFetch) {
+              if (args.failOnFetch) {
                 reject(new Error('Random error'));
-              } else if (this.fetchEmptyList) {
+              } else if (args.fetchEmptyList) {
                 resolve({
                   items: [],
                   total: 0,
@@ -131,12 +137,12 @@ export const basic = (args, { argTypes }) => ({
                 });
               } else {
                 resolve({
-                  items: this.data,
+                  items: args.data,
                   total: 52,
-                  count: Math.min(this.data.length, numberOfItems),
+                  count: Math.min(args.data.length, numberOfItems),
                 });
               }
-            }, this.loadingDelay);
+            }, args.loadingDelay);
 
             cancelToken.addEventListener('abort', () => {
               action('fetch cancelled')();
@@ -157,7 +163,7 @@ export const basic = (args, { argTypes }) => ({
       <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
         <ec-smart-table
           v-bind="{
-            ...$props,
+            ...args,
             loadingDelay: null,
             failOnFetch: null,
             fetchEmptyList: null,
@@ -182,7 +188,7 @@ export const basic = (args, { argTypes }) => ({
             Empty state template - {{ emptyMessage }}
           </template>
           <template #footer><div class="tw-text-right">Custom footer info</div></template>
-          <template #pages="{ page, totalPages, total}">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
+          <template #pages="{ page, totalPages, total }">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
         </ec-smart-table>
       </div>
     </div>

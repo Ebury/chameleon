@@ -1,21 +1,24 @@
 <script>
-import { createHOCc, createHOC, createRenderFn } from 'vue-hoc';
-import EcTable from '../ec-table';
-import EcTablePagination from '../ec-table-pagination';
-import EcSmartTableEmpty from '../ec-smart-table-empty';
-import EcSmartTableError from '../ec-smart-table-error';
-import withSorting from '../../hocs/ec-with-sorting';
+import { h } from 'vue';
+
+import withAbortableFetch from '../../hocs/ec-with-abortable-fetch';
+import withFiltering from '../../hocs/ec-with-filtering';
 import withLoading from '../../hocs/ec-with-loading';
 import withPagination from '../../hocs/ec-with-pagination';
-import withFiltering from '../../hocs/ec-with-filtering';
-import withAbortableFetch from '../../hocs/ec-with-abortable-fetch';
+import withSorting from '../../hocs/ec-with-sorting';
+import { createHOC, createHOCc } from '../../hocs/hoc';
+import EcSmartTableEmpty from '../ec-smart-table-empty';
+import EcSmartTableError from '../ec-smart-table-error';
 import EcSmartTableHeading from '../ec-smart-table-heading';
+import EcTable from '../ec-table';
+import EcTablePagination from '../ec-table-pagination';
 
 const withEcSmartTableRenderer = (Component) => {
   const ComponentWithLoading = withLoading(Component);
 
   return createHOC(Component, {
-    functional: true,
+    name: 'EcSmartTableRenderer',
+    compatConfig: { MODE: 3, INSTANCE_SCOPED_SLOTS: true },
     props: {
       loading: Boolean,
       error: {},
@@ -23,17 +26,18 @@ const withEcSmartTableRenderer = (Component) => {
       errorMessage: String,
       emptyMessage: String,
     },
-    render(h, context) {
-      const { props, scopedSlots } = context;
+    render() {
+      const props = this.$props;
+      const slots = this.$scopedSlots;
       const {
         title, error, errorMessage, emptyMessage, data, loading, ...unusedProps
       } = props;
 
       if (error) {
-        return createRenderFn(EcSmartTableError).call(this, h, {
-          ...context,
-          props: { errorMessage, title },
-        });
+        return h(EcSmartTableError, {
+          errorMessage,
+          title,
+        }, slots);
       }
 
       const { items = [], total } = data || {};
@@ -48,60 +52,60 @@ const withEcSmartTableRenderer = (Component) => {
           totalRecords: total,
         };
 
-        const renderFilter = function renderFilter(filterSlot) {
-          if (filterSlot) {
-            return filterSlot();
-          }
-          return null;
+        const tableSlots = {
+          ...slots,
+          empty: null,
+          error: null,
+          filter: null,
+          'header-actions': null,
+          pages: null,
         };
 
         const renderHeaderActions = function renderHeaderActions(headerActionsSlot) {
-          if (headerActionsSlot) {
-            return (
-              headerActionsSlot({
-                loading, items, error, total,
-              })
-            );
-          }
-          return null;
+          return (
+            headerActionsSlot({
+              loading, items, error, total,
+            })
+          );
         };
 
         const renderTableComponent = function renderTableComponent() {
           if (isEmpty && loading) {
-            return (
-              <div class="tw-py-48">
-                { createRenderFn(ComponentWithLoading).call(this, h, { ...context, props: tableProps }) }
-              </div>
-            );
+            return h('div', { class: 'tw-py-48' }, h(ComponentWithLoading, { ...tableProps }, tableSlots));
           }
-          return createRenderFn(ComponentWithLoading).call(this, h, { ...context, props: tableProps });
+          return h(ComponentWithLoading, { ...tableProps }, tableSlots);
         };
 
-        return (
-          <div class="ec-smart-table" data-test="ec-smart-table">
-            <EcSmartTableHeading title={title}>
-              <template slot="filter">
-                {renderFilter(scopedSlots.filter)}
-              </template>
-              <template slot="actions">
-                {renderHeaderActions(scopedSlots['header-actions'])}
-              </template>
-            </EcSmartTableHeading>
-            {renderTableComponent.call(this)}
-          </div>
-        );
+        const renderTableHeading = function renderTableHeading() {
+          const actionsSlot = 'header-actions' in slots ? () => renderHeaderActions(slots['header-actions']) : null;
+          return h(EcSmartTableHeading, {
+            title,
+          }, {
+            filter: slots.filter,
+            actions: actionsSlot,
+          });
+        };
+
+        return h('div', {
+          class: 'ec-smart-table',
+          'data-test': 'ec-smart-table',
+        }, [
+          renderTableHeading(),
+          renderTableComponent(),
+        ]);
       }
 
-      return createRenderFn(EcSmartTableEmpty).call(this, h, {
-        ...context,
-        props: { emptyMessage, title },
-      });
+      return h(EcSmartTableEmpty, {
+        emptyMessage,
+        title,
+      }, slots);
     },
   });
 };
 
 const withEcSmartTableContainer = createHOCc({
   name: 'EcSmartTable',
+  compatConfig: { MODE: 3, INSTANCE_SCOPED_SLOTS: true },
   props: ['sorts', 'page', 'numberOfItems', 'filter', 'fetchArgs'],
   computed: {
     dataSourceFetchArgs() {
@@ -125,6 +129,7 @@ const withEcSmartTableContainer = createHOCc({
 
 const withEcSmartTablePagination = createHOCc({
   name: 'EcSmartTablePagination',
+  compatConfig: { MODE: 3, INSTANCE_SCOPED_SLOTS: true },
   props: ['page', 'numberOfItems', 'isPaginationEnabled'],
 }, {
   props(props) {
@@ -135,8 +140,8 @@ const withEcSmartTablePagination = createHOCc({
       isPaginationEnabled: null,
     };
   },
-  scopedSlots(scopedSlots) {
-    // normaly, footer slot is rendered by the ec-table, but we need to pass the EcTablePagination instead.
+  slots(slots) {
+    // normally, footer slot is rendered by the ec-table, but we need to pass the EcTablePagination instead.
     // EcTablePagination has another slot, called total, which we can use for showing the content of the original
     // footer slot.
     // so if you say
@@ -149,40 +154,33 @@ const withEcSmartTablePagination = createHOCc({
     //
     // and if the pagination is enabled it will render EcTablePagination and passes the content of footer slot
     // into the total slot:
-    // <tfoor><tr><td colspan="XX">
+    // <tfoot><tr><td colspan="XX">
     //   <EcTablePagination>
     //     <template #total><slot name="footer" /></template>
     //   </EcTablePagination>
-    // </td></tr></tfoor>
+    // </td></tr></tfoot>
 
     const {
       isPaginationEnabled, page, numberOfItems, data,
     } = this.$props;
     const { total } = data ?? {};
-    let footerSlot = scopedSlots.footer;
+    let footerSlot = slots.footer;
 
     if (isPaginationEnabled) {
-      footerSlot = () => this.$createElement(EcTablePagination, {
-        props: {
-          page,
-          total,
-          numberOfItems,
-        },
-        attrs: {
-          'data-test': 'ec-smart-table-pagination',
-        },
-        on: {
-          change: (newPage, newNumberOfItems) => this.$emit('pagination', newPage, newNumberOfItems),
-        },
-        scopedSlots: {
-          total: scopedSlots.footer,
-          pages: scopedSlots.pages,
-        },
+      footerSlot = () => h(EcTablePagination, {
+        page,
+        total,
+        numberOfItems,
+        'data-test': 'ec-smart-table-pagination',
+        onChange: (newPage, newNumberOfItems) => this.$emit('pagination', newPage, newNumberOfItems),
+      }, {
+        total: slots.footer,
+        pages: slots.pages,
       });
     }
 
     return {
-      ...scopedSlots,
+      ...slots,
       pages: null, // pages slot is passed to EcTablePagination, do not pass it down to ec-table
       footer: footerSlot,
     };
@@ -191,6 +189,7 @@ const withEcSmartTablePagination = createHOCc({
 
 const withEcSmartTableFilter = createHOCc({
   name: 'EcSmartTableFilter',
+  compatConfig: { MODE: 3, INSTANCE_SCOPED_SLOTS: true },
   props: ['filter', 'filterComponent'],
 }, {
   props(props) {
@@ -200,26 +199,22 @@ const withEcSmartTableFilter = createHOCc({
       filter: null,
     };
   },
-  scopedSlots(scopedSlots) {
-    let filterSlot;
+  slots(slots) {
+    let filterSlot = null;
     const { filter, filterComponent } = this.$props;
 
     if (filterComponent) {
-      filterSlot = () => this.$createElement(filterComponent, {
-        props: {
-          value: filter,
-        },
-        on: {
-          change: (filters) => {
-            this.$emit('pagination', 1); // reset the pagenigation to the first page
-            this.$emit('filtering', filters);
-          },
+      filterSlot = () => h(filterComponent, {
+        value: filter,
+        onChange: (filters) => {
+          this.$emit('pagination', 1); // reset the pagination to the first page
+          this.$emit('filtering', filters);
         },
       });
     }
 
     return {
-      ...scopedSlots,
+      ...slots,
       filter: filterSlot,
     };
   },
