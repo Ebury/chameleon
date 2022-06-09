@@ -149,7 +149,7 @@ export default {
       default: null,
     },
     popoverStyle: {
-      type: Object,
+      type: [Object, Function],
       default: null,
     },
     tooltipCta: {

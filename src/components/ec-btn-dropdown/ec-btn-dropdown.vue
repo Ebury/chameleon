@@ -21,7 +21,7 @@
       :is-search-enabled="false"
       :max-visible-items="Infinity"
       :popover-options="popoverOptions"
-      :popover-style="popoverStyle"
+      :popover-style="getPopoverStyle"
       :disabled="isDisabled"
       :list-data-test="listDataTest"
       @change="(value) => $emit('change', value)"
@@ -79,16 +79,20 @@ export default {
         autoSize: 'min',
         placement: 'bottom-end',
       },
-      popoverStyle: {},
     };
   },
-  mounted() {
-    if (this.$refs.popperReference) {
-      this.popoverStyle = {
-        width: `${this.$refs.popperReference.offsetWidth}px`,
-      };
-    }
+  methods: {
+    getPopoverStyle() {
+      if (this.$refs.popperReference) {
+        return {
+          width: `${this.$refs.popperReference.offsetWidth}px`,
+        };
+      }
+
+      return null;
+    },
   },
+
 };
 </script>
 

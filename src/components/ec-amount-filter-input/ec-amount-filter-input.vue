@@ -36,7 +36,7 @@
         :items="comparisonSymbolItems"
         :selected-text="comparisonSymbolModel.value"
         :popover-options="popoverOptions"
-        :popover-style="popoverStyle"
+        :popover-style="getPopoverStyle"
         :error-id="errorId"
         :error-message="errorMessage"
         @focus="onComparisonSymbolFocus"
@@ -181,7 +181,6 @@ export default {
       popoverOptions: {
         autoSize: 'min',
       },
-      popoverStyle: {},
     };
   },
   computed: {
@@ -218,13 +217,6 @@ export default {
       },
     },
   },
-  mounted() {
-    if (this.$refs.popoverWidthReference) {
-      this.popoverStyle = {
-        width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
-      };
-    }
-  },
   methods: {
     onAmountChange(evt) {
       this.$emit('change', evt);
@@ -238,6 +230,14 @@ export default {
     onComparisonSymbolFocus() {
       this.comparisonSymbolHasFocus = true;
       this.$emit('focus');
+    },
+    getPopoverStyle() {
+      if (this.$refs.popoverWidthReference) {
+        return {
+          width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
+        };
+      }
+      return null;
     },
   },
 };

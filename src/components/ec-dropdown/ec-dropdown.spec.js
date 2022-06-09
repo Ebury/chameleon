@@ -143,6 +143,11 @@ describe('EcDropdown', () => {
       const wrapper = mountDropdown({ popoverStyle: { width: '1234px' } });
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it('should render given popover style when it is a function', () => {
+      const wrapper = mountDropdown({ popoverStyle: () => ({ width: '1234px' }) });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('#slots', () => {

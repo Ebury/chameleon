@@ -164,7 +164,12 @@ describe('EcDropdownSearch', () => {
   });
 
   it('should render given popover style', () => {
-    const wrapper = mountDropdownSearch({ items, popoverStyle: { width: '1234px' } });
+    const wrapper = mountDropdownSearch({ popoverStyle: { width: '1234px' } });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render given popover style when it is a function', () => {
+    const wrapper = mountDropdownSearch({ popoverStyle: () => ({ width: '1234px' }) });
     expect(wrapper.element).toMatchSnapshot();
   });
 

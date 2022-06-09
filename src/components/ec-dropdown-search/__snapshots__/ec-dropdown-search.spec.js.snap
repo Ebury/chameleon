@@ -1058,55 +1058,72 @@ exports[`EcDropdownSearch should render given popover style 1`] = `
         </li>
         <!--v-if-->
         
-        
         <li
-          class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-          title="Item 1"
+          class="ec-dropdown-search__no-items"
+          data-test="ec-dropdown-search__no-items"
+          title="No results found"
         >
-          
-          Item 1
-          
-        </li>
-        <li
-          class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-          title="Item 2"
-        >
-          
-          Item 2
-          
-        </li>
-        <li
-          class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-          title="Item 3"
-        >
-          
-          Item 3
-          
-        </li>
-        <li
-          class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
-          data-ec-tooltip-mock-content="Random text"
-          data-ec-tooltip-mock-placement="right"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
-          title="Item 4"
-        >
-          
-          Item 4
-          
-        </li>
-        <li
-          class="ec-dropdown-search__item"
-          data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
-          title="Item 5"
-        >
-          
-          Item 5
-          
+          No results found
         </li>
         
+      </ul>
+    </div>
+    
+  </ec-stub>
+</div>
+`;
+
+exports[`EcDropdownSearch should render given popover style when it is a function 1`] = `
+<div
+  class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
+>
+  <ec-stub
+    autosize="max"
+    class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+  >
+    
+    
+     
+    
+    <div
+      style="width: 1234px;"
+    >
+      <ul
+        class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-icon ec-dropdown-search__search-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+        <!--v-if-->
+        
+        <li
+          class="ec-dropdown-search__no-items"
+          data-test="ec-dropdown-search__no-items"
+          title="No results found"
+        >
+          No results found
+        </li>
         
       </ul>
     </div>

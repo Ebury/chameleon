@@ -38,7 +38,7 @@
         :error-id="errorId"
         :items="currenciesItems"
         :popover-options="popoverOptions"
-        :popover-style="popoverStyle"
+        :popover-style="getPopoverStyle"
         :search-placeholder="searchCurrencyPlaceholder"
         :no-results-text="noCurrenciesText"
         class="ec-currency-input__currencies"
@@ -201,7 +201,6 @@ export default {
       popoverOptions: {
         autoSize: 'min',
       },
-      popoverStyle: {},
     };
   },
   computed: {
@@ -241,14 +240,16 @@ export default {
       },
     },
   },
-  mounted() {
-    if (this.$refs.popoverWidthReference) {
-      this.popoverStyle = {
-        width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
-      };
-    }
-  },
   methods: {
+    getPopoverStyle() {
+      if (this.$refs.popoverWidthReference) {
+        return {
+          width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
+        };
+      }
+
+      return null;
+    },
     onAmountChange(evt) {
       this.$emit('change', evt);
       this.$emit('amount-change', evt);

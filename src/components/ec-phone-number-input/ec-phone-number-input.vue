@@ -44,7 +44,7 @@
         :no-results-text="noCountriesText"
         :placeholder="countryPlaceholder"
         :popover-options="popoverOptions"
-        :popover-style="popoverStyle"
+        :popover-style="getPopoverStyle"
         :search-placeholder="searchCountryPlaceholder"
         :level="level"
         selected-text=" "
@@ -250,7 +250,6 @@ export default {
       popoverOptions: {
         autoSize: 'min',
       },
-      popoverStyle: {},
     };
   },
   computed: {
@@ -309,14 +308,16 @@ export default {
       return !!this.errorMessage;
     },
   },
-  mounted() {
-    if (this.$refs.popoverWidthReference) {
-      this.popoverStyle = {
-        width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
-      };
-    }
-  },
   methods: {
+    getPopoverStyle() {
+      if (this.$refs.popoverWidthReference) {
+        return {
+          width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
+        };
+      }
+
+      return null;
+    },
     onFocusCountry() {
       this.countriesHasFocus = true;
       this.$emit('focus');

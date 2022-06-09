@@ -34,7 +34,7 @@
     >
       <slot />
       <template #popper>
-        <div :style="popoverStyle">
+        <div :style="getPopoverStyle()">
           <ul
             ref="itemsOverflowContainer"
             :class="listClasses"
@@ -191,7 +191,7 @@ export default {
       default: null,
     },
     popoverStyle: {
-      type: Object,
+      type: [Object, Function],
       default: null,
     },
     tooltipOptions: {
@@ -273,6 +273,13 @@ export default {
         this.isOpen = true;
         this.$emit('open');
       }
+    },
+    getPopoverStyle() {
+      if (typeof this.popoverStyle === 'function') {
+        return this.popoverStyle();
+      }
+
+      return this.popoverStyle;
     },
     setOverflowHeight() {
       const overflowContainer = this.$refs.itemsOverflowContainer;
