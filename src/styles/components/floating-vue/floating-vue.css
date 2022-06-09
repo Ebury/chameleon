@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 /* originated from node_modules/floating-vue/dist/style.css */
 
 @import '../../tools/z-index.css';
@@ -314,3 +316,5 @@
 } EC: removed */
 
 /* stylelint-enable */
+
+/* purgecss end ignore */
