@@ -96,7 +96,7 @@ export default {
   .ec-btn-dropdown {
     @apply tw-inline-flex;
 
-    max-width: 217px;
+    max-width: 246px;
 
     &__dropdown-btn {
       @apply tw-rounded-l-none;
