@@ -35,6 +35,7 @@ export const basic = ({
       args,
       isClosable,
       isLoading,
+      category,
       showFooterLeftContent,
       negativeHasText,
       positiveHasText,

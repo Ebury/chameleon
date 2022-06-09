@@ -1,6 +1,9 @@
 import { action } from '@storybook/addon-actions';
 import storyRouter from 'storybook-vue3-router';
 
+import {
+  allAnchorsDark, allAnchorsLight, allButtonsDark, allButtonsLight, propsDark, propsLight,
+} from '../../styles/components/ec-btn/ec-btn.story';
 import EcBtn from './ec-btn.vue';
 
 export default {
@@ -154,4 +157,11 @@ all.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export * from '../../styles/components/ec-btn/ec-btn.story';
+export {
+  allAnchorsDark,
+  allAnchorsLight,
+  allButtonsDark,
+  allButtonsLight,
+  propsDark,
+  propsLight,
+};
