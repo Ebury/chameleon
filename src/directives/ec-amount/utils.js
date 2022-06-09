@@ -70,6 +70,7 @@ function joinIntegerAndDecimal(integer, decimal, decimalSeparator) {
   return decimal !== undefined ? integer + decimalSeparator + decimal : integer;
 }
 
+/* istanbul ignore next */
 function setCursor(el, position) {
   const setSelectionRange = function setSelectionRange() {
     el.setSelectionRange(position, position);
