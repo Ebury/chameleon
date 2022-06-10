@@ -112,18 +112,17 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcAmountFilterInput',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcAmountInput,
     EcDropdown,
     EcIcon,
   },
   directives: { EcTooltip },
-  model: {
-    prop: 'value',
-    event: 'value-change',
-  },
   props: {
-    value: {
+    modelValue: {
       type: Object,
     },
     locale: {
@@ -164,8 +163,8 @@ export default {
     },
   },
   emits: [
+    'update:modelValue',
     'change',
-    'value-change',
     'amount-change',
     'comparison-symbol-change',
     'focus',
@@ -195,8 +194,8 @@ export default {
     },
     comparisonSymbolModel: {
       get() {
-        if (this.value.comparisonSymbol) {
-          return this.value.comparisonSymbol;
+        if (this.modelValue.comparisonSymbol) {
+          return this.modelValue.comparisonSymbol;
         }
 
         return {
@@ -205,15 +204,15 @@ export default {
         };
       },
       set(value) {
-        this.$emit('value-change', { ...this.value, comparisonSymbol: value });
+        this.$emit('update:modelValue', { ...this.modelValue, comparisonSymbol: value });
       },
     },
     amountModel: {
       get() {
-        return this.value.amount;
+        return this.modelValue.amount;
       },
       set(value) {
-        this.$emit('value-change', { ...this.value, amount: value });
+        this.$emit('update:modelValue', { ...this.modelValue, amount: value });
       },
     },
   },

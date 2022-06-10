@@ -152,13 +152,12 @@ import EcPopover from '../ec-popover';
 
 export default {
   name: 'EcDropdownSearch',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: { EcPopover, EcIcon, EcLoading },
   directives: { EcTooltip },
   inheritAttrs: false,
-  model: {
-    prop: 'selected',
-    event: 'change',
-  },
   props: {
     placeholder: {
       type: String,
@@ -182,7 +181,7 @@ export default {
       type: Array,
       default: () => ([]),
     },
-    selected: {
+    modelValue: {
       type: [Object, Array],
       default: null,
     },
@@ -219,7 +218,7 @@ export default {
       default: '',
     },
   },
-  emits: ['change', 'close', 'open', 'after-close', 'after-open'],
+  emits: ['update:modelValue', 'change', 'close', 'open', 'after-close', 'after-open'],
   data() {
     return {
       isOpen: false,
@@ -341,13 +340,14 @@ export default {
       this.$emit('after-close');
     },
     select(item, options) {
+      this.$emit('update:modelValue', item);
       this.$emit('change', item);
       if (!options || !options.keyboardNavigation) {
         this.hide();
       } else {
         this.$nextTick(() => {
           // we need to give Vue chance to update all props and data after emitting change even to parent
-          // e.g. this.selected is still the old one by the time the $nextTick is registered.
+          // e.g. this.modelValue is still the old one by the time the $nextTick is registered.
           this.updateScroll();
         });
         // selecting an item might affect the position of the popover,
@@ -356,13 +356,13 @@ export default {
       }
     },
     isItemSelected(item) {
-      return toRaw(item) === toRaw(this.selected);
+      return toRaw(item) === toRaw(this.modelValue);
     },
     hasCta() {
       return !!this.$slots.cta;
     },
     onArrowKey(key) {
-      const selectedItemIndex = this.filteredItems.indexOf(toRaw(this.selected));
+      const selectedItemIndex = this.filteredItems.indexOf(toRaw(this.modelValue));
       let nextItem;
 
       if (selectedItemIndex >= 0) {
@@ -449,7 +449,7 @@ export default {
       const containerScrollHeight = this.$refs.itemsOverflowContainer.scrollHeight;
 
       if (containerHeight < containerScrollHeight) {
-        const selectedItemIndex = this.filteredItems.indexOf(toRaw(this.selected));
+        const selectedItemIndex = this.filteredItems.indexOf(toRaw(this.modelValue));
         const $elItems = this.$refs.itemElements;
 
         if ($elItems && $elItems.length && selectedItemIndex >= 0) {

@@ -18,10 +18,10 @@ export default {
   },
 };
 
-const Template = ({ value, ...args }) => ({
+const Template = ({ modelValue, ...args }) => ({
   components: { EcAmountInput },
   setup() {
-    const model = ref(value);
+    const model = ref(modelValue);
 
     function getModelType() {
       return typeof model.value;
@@ -51,16 +51,16 @@ basic.args = {
   locale: 'en',
   currency: 'GBP',
   label: 'Amount input',
-  value: '',
+  modelValue: '',
   isSensitive: false,
 };
 
 basic.parameters = {
   visualRegressionTests: {
     controls: {
-      'with-value': { value: '1234567.89' },
-      'with-masked-value': { value: '1234567.89', isMasked: true },
-      'locale-with-no-decimals': { value: '1234567.89', locale: 'de-ch', currency: 'JPY' },
+      'with-value': { modelValue: '1234567.89' },
+      'with-masked-value': { modelValue: '1234567.89', isMasked: true },
+      'locale-with-no-decimals': { modelValue: '1234567.89', locale: 'de-ch', currency: 'JPY' },
     },
   },
 };

@@ -41,7 +41,7 @@ export const basic = ({
             back: onBack,
             close: onClose,
           }"
-          v-model="model">
+          v-model:show="model">
           <template v-if="showHeader" #header>
             <h3 class="tw-mb-24">Header</h3>
 

@@ -76,12 +76,11 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcPanel',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcIcon,
-  },
-  model: {
-    prop: 'show',
-    event: 'show-panel',
   },
   props: {
     show: {
@@ -89,7 +88,7 @@ export default {
       default: false,
     },
   },
-  emits: ['show-panel', 'back', 'close'],
+  emits: ['update:show', 'back', 'close'],
   computed: {
     isBackEnabled() {
       return this.$listeners.back;
@@ -103,11 +102,11 @@ export default {
       return !!this.$slots.footer;
     },
     goBack() {
-      this.$emit('show-panel', false);
+      this.$emit('update:show', false);
       this.$emit('back');
     },
     closePanel() {
-      this.$emit('show-panel', false);
+      this.$emit('update:show', false);
       this.$emit('close');
     },
   },

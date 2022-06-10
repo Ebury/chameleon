@@ -13,7 +13,7 @@
       <template #filter>
         <div class="ec-currency-filter__content-wrapper">
           <ec-submenu
-            v-model="activeTabIndex"
+            v-model:activeIndex="activeTabIndex"
             class="ec-currency-filter__submenu"
             :submenu="submenu"
             is-full-width
@@ -76,15 +76,14 @@ import EcSubmenu from '../ec-submenu';
 
 export default {
   name: 'EcCurrencyFilter',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcAmountFilterInput,
     EcFilterPopover,
     EcMultipleValuesSelection,
     EcSubmenu,
-  },
-  model: {
-    prop: 'value',
-    event: 'change',
   },
   props: {
     label: {
@@ -95,7 +94,7 @@ export default {
     popoverOptions: {
       type: Object,
     },
-    value: {
+    modelValue: {
       type: Object,
       default: () => ({
         currencies: [],
@@ -155,7 +154,7 @@ export default {
       type: String,
     },
   },
-  emits: ['change'],
+  emits: ['update:modelValue', 'change'],
   data() {
     return {
       activeTabIndex: 0,
@@ -183,7 +182,7 @@ export default {
       }];
     },
     numberOfSelectedFilters() {
-      let number = this.value?.currencies?.length ?? 0;
+      let number = this.modelValue?.currencies?.length ?? 0;
 
       if (this.hasAmount) {
         number++;
@@ -192,11 +191,11 @@ export default {
       return number;
     },
     hasAmount() {
-      return typeof this.value?.amount === 'number';
+      return typeof this.modelValue?.amount === 'number';
     },
     selectedCurrenciesModel: {
       get() {
-        return this.value?.currencies;
+        return this.modelValue?.currencies;
       },
       set(value) {
         this.update({
@@ -230,7 +229,7 @@ export default {
     },
   },
   watch: {
-    value: {
+    modelValue: {
       immediate: true,
       handler(newValue) {
         this.internalAmountModel = {
@@ -262,7 +261,7 @@ export default {
         currencies: [],
         amount: null,
         comparisonSymbol: null,
-        ...this.value,
+        ...this.modelValue,
         ...value,
       };
 
@@ -276,6 +275,7 @@ export default {
         newValue = null;
       }
 
+      this.$emit('update:modelValue', newValue);
       this.$emit('change', newValue);
     },
   },

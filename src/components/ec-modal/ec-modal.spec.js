@@ -27,7 +27,7 @@ function mountModalAsTemplate(template, props, wrapperComponentOpts, mountOpts) 
 }
 
 describe('EcModal', () => {
-  it('should not render the modal if "showModal" is not set to true', () => {
+  it('should not render the modal if "show" is not set to true', () => {
     const wrapper = mountModal();
     expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe('EcModal', () => {
 
   it('should render basic modal', () => {
     const wrapper = mountModal(
-      { showModal: true },
+      { show: true },
       {
         slots: {
           main: '<p>Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>',
@@ -47,7 +47,7 @@ describe('EcModal', () => {
   });
 
   it('should render close button', () => {
-    const wrapper = mountModal({ showModal: true });
+    const wrapper = mountModal({ show: true });
 
     expect(wrapper.findByDataTest('ec-modal__close').exists()).toBe(true);
     expect(wrapper.findByDataTest('ec-modal__header').element).toMatchSnapshot();
@@ -55,7 +55,7 @@ describe('EcModal', () => {
 
   it('should not render close button when isClosable is set to false', () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
       isClosable: false,
     });
 
@@ -65,7 +65,7 @@ describe('EcModal', () => {
 
   it('should have the ec-modal--lg class', () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
       large: true,
     });
 
@@ -75,7 +75,7 @@ describe('EcModal', () => {
 
   it('should have the style attribute z-index when the z-index props is given', async () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
       zIndex: 210,
     });
 
@@ -89,7 +89,7 @@ describe('EcModal', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       // The error can be throw when we don't pass a number between 200 and 250
       mountModal({
-        showModal: true,
+        show: true,
         zIndex: 200,
       });
       expect(warnSpy).toHaveBeenCalledTimes(1);
@@ -99,7 +99,7 @@ describe('EcModal', () => {
 
   it('should not render the footer if slots for left content, positive, nor negative were not passed', () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
     }, {
       slots: {},
     });
@@ -109,7 +109,7 @@ describe('EcModal', () => {
 
   it('should render footer left section when slot is passed', () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
     }, {
       slots: {
         footerLeftContent: '<p>Need Help ?</p>',
@@ -122,7 +122,7 @@ describe('EcModal', () => {
 
   it('should render negative button if slot is passed', () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
     }, {
       slots: {
         negative: 'Skip for now',
@@ -139,7 +139,7 @@ describe('EcModal', () => {
       isLoading: {
         negative: true,
       },
-      showModal: true,
+      show: true,
     }, {
       slots: {
         negative: 'Skip for now',
@@ -156,7 +156,7 @@ describe('EcModal', () => {
       category: {
         negative: 'warning',
       },
-      showModal: true,
+      show: true,
     }, {
       slots: {
         negative: 'Negative button',
@@ -170,7 +170,7 @@ describe('EcModal', () => {
 
   it('should render positive button if slot is passed', () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
     }, {
       slots: {
         positive: 'Update management accounts',
@@ -187,7 +187,7 @@ describe('EcModal', () => {
       isLoading: {
         positive: true,
       },
-      showModal: true,
+      show: true,
     }, {
       slots: {
         positive: 'Update management accounts',
@@ -204,7 +204,7 @@ describe('EcModal', () => {
       category: {
         positive: 'error',
       },
-      showModal: true,
+      show: true,
     }, {
       slots: {
         positive: 'Positive button',
@@ -218,7 +218,7 @@ describe('EcModal', () => {
 
   it('should emit a "positive" event when clicking on the positive button', () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
     }, {
       slots: {
         positive: 'Positive Button',
@@ -230,7 +230,7 @@ describe('EcModal', () => {
 
   it('should emit a "negative" event when clicking on the negative button', () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
     }, {
       slots: {
         negative: 'Negative Button',
@@ -243,12 +243,13 @@ describe('EcModal', () => {
 
   it('should emit a "close" event when clicking on the close button', () => {
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
       isClosable: true,
     });
 
     wrapper.findByDataTest('ec-modal__close').trigger('click');
     expect(wrapper.emitted('close').length).toBe(1);
+    expect(wrapper.emitted('update:show').length).toBe(1);
   });
 
   it('should close the modal if ESC key is pressed and is closable', async () => {
@@ -256,7 +257,7 @@ describe('EcModal', () => {
     document.body.appendChild(elem);
 
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
       isClosable: true,
     }, {
       attachTo: elem,
@@ -264,6 +265,7 @@ describe('EcModal', () => {
 
     await wrapper.trigger('keyup.esc');
     expect(wrapper.emitted('close').length).toBe(1);
+    expect(wrapper.emitted('update:show').length).toBe(1);
   });
 
   it('should not close the modal if ESC key is pressed and is not closable', async () => {
@@ -271,7 +273,7 @@ describe('EcModal', () => {
     document.body.appendChild(elem);
 
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
       isClosable: false,
     }, {
       attachTo: elem,
@@ -279,13 +281,14 @@ describe('EcModal', () => {
 
     await wrapper.trigger('keyup.esc');
     expect(wrapper.emitted('close')).toBeUndefined();
+    expect(wrapper.emitted('update:show')).toBeUndefined();
   });
 
   it('should not close the modal if key other than ESC is pressed and is closable', async () => {
     const elem = document.createElement('div');
     document.body.appendChild(elem);
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
       isClosable: true,
     }, {
       attachTo: elem,
@@ -293,6 +296,7 @@ describe('EcModal', () => {
 
     await wrapper.trigger('keyup.space');
     expect(wrapper.emitted('close')).toBeUndefined();
+    expect(wrapper.emitted('update:show')).toBeUndefined();
   });
 
   it('should stop listening to keyup events when closed', async () => {
@@ -305,7 +309,7 @@ describe('EcModal', () => {
     document.body.appendChild(elem);
 
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
     }, {
       attachTo: elem,
     });
@@ -313,7 +317,7 @@ describe('EcModal', () => {
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(addEventListenerSpy).toHaveBeenCalledWith('keyup', expect.any(Function));
 
-    await wrapper.setProps({ showModal: false });
+    await wrapper.setProps({ show: false });
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);
@@ -329,7 +333,7 @@ describe('EcModal', () => {
     document.body.appendChild(elem);
 
     const wrapper = mountModal({
-      showModal: true,
+      show: true,
     }, {
       attachTo: elem,
     });
@@ -346,12 +350,12 @@ describe('EcModal', () => {
   describe('v-model', () => {
     it('should render the modal when we pass to model true', async () => {
       const wrapper = mountModalAsTemplate(
-        ' <ec-modal is-closable v-model="showModal"></ec-modal>',
+        ' <ec-modal is-closable v-model:show="show"></ec-modal>',
         {},
         {
           data() {
             return {
-              showModal: true,
+              show: true,
             };
           },
         },
@@ -362,19 +366,19 @@ describe('EcModal', () => {
 
       await wrapper.findByDataTest('ec-modal__close').trigger('click');
 
-      expect(wrapper.vm.showModal).toBe(false);
+      expect(wrapper.vm.show).toBe(false);
       expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should not render the modal when we pass to model false', () => {
       const wrapper = mountModalAsTemplate(
-        ' <ec-modal is-closable v-model="showModal"></ec-modal>',
+        ' <ec-modal is-closable v-model:show="show"></ec-modal>',
         {},
         {
           data() {
             return {
-              showModal: false,
+              show: false,
             };
           },
         },

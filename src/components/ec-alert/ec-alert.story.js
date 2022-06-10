@@ -163,7 +163,7 @@ export const all = args => ({
     <div class="tw-m-16">
       <template v-for="(block, blockIndex) in alerts" :key="blockIndex">
         <h3 class="tw-m-8">{{ block.title }}</h3>
-        <ec-alert v-for="(alert, alertIndex) in block.data" v-bind="alert" :key="blockIndex + '-' + alertIndex" v-model="alert.model" class="tw-m-8">
+        <ec-alert v-for="(alert, alertIndex) in block.data" v-bind="alert" :key="blockIndex + '-' + alertIndex" v-model:open="alert.model" class="tw-m-8">
           <template v-if="alert.custom" #default="{ title, subtitle }">
             <div>
               Custom: {{ title }} - {{ subtitle }}

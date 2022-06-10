@@ -87,7 +87,7 @@ describe('EcSubmenu', () => {
 
   it('should render the second panel if the second tab is clicked', async () => {
     const wrapper = mountSubmenuAsTemplate(
-      '<ec-submenu :submenu="submenu" v-model="activeIndex"/>',
+      '<ec-submenu :submenu="submenu" v-model:activeIndex="activeIndex"/>',
       {},
       {
         data() {
@@ -124,5 +124,16 @@ describe('EcSubmenu', () => {
     );
 
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should emit change event when index gets changed', async () => {
+    const wrapper = mountSubmenu(
+      { submenu, activeIndex: 0 },
+      { slots },
+    );
+
+    await wrapper.findByDataTest('ec-submenu__header-title-1').trigger('click');
+    expect(wrapper.emitted('change').length).toBe(1);
+    expect(wrapper.emitted('update:activeIndex').length).toBe(1);
   });
 });

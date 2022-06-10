@@ -15,12 +15,12 @@ export default {
 };
 
 export const basic = ({
-  large, showModal, isClosable, isLoading, category, showFooterLeftContent, negativeHasText, positiveHasText, zIndex, ...args
+  large, show, isClosable, isLoading, category, showFooterLeftContent, negativeHasText, positiveHasText, zIndex, ...args
 }) => ({
   components: { EcModal, EcIcon },
   directives: { EcTooltip },
   setup() {
-    const model = ref(showModal);
+    const model = ref(show);
     const tooltipConfig = ref({
       content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
       popperClass: ['ec-tooltip--bg-bright ec-tooltip--modal'],
@@ -60,7 +60,7 @@ export const basic = ({
           close: onClose,
         }"
         :z-index="zIndex"
-        v-model="model">
+        v-model:show="model">
 
         <template #header>
           <h2>Update your management accounts</h2>
@@ -102,7 +102,7 @@ export const basic = ({
           close: onClose,
         }"
         :z-index="zIndex"
-        v-model="model">
+        v-model:show="model">
         <template #header>
           <h2>Update your management accounts</h2>
         </template>
@@ -149,7 +149,7 @@ export const basic = ({
 const buttonCategories = ['', 'primary', 'secondary', 'success', 'error', 'warning'];
 
 basic.args = {
-  showModal: true,
+  show: true,
   showFooterLeftContent: true,
   isClosable: true,
   large: false,
@@ -191,7 +191,7 @@ export const stackable = () => ({
       <ec-modal
         is-closable
         large
-        v-model="showFirstModal">
+        v-model:show="showFirstModal">
 
         <template #header>
           <h2>First Modal</h2>
@@ -208,7 +208,7 @@ export const stackable = () => ({
       <ec-modal
         is-closable
         :z-index="zIndex"
-        v-model="showSecondModal">
+        v-model:show="showSecondModal">
 
         <template #header>
           <h2>Second Modal</h2>

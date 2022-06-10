@@ -205,7 +205,7 @@ const withEcSmartTableFilter = createHOCc({
 
     if (filterComponent) {
       filterSlot = () => h(filterComponent, {
-        value: filter,
+        modelValue: filter,
         onChange: (filters) => {
           this.$emit('pagination', 1); // reset the pagination to the first page
           this.$emit('filtering', filters);

@@ -95,7 +95,7 @@ exports[`EcModal should not render close button when isClosable is set to false 
 </header>
 `;
 
-exports[`EcModal should not render the modal if "showModal" is not set to true 1`] = `
+exports[`EcModal should not render the modal if "show" is not set to true 1`] = `
 <transition-stub>
   <!--v-if-->
 </transition-stub>

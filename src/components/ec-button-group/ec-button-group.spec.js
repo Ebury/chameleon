@@ -152,4 +152,19 @@ describe('EcButtonGroup', () => {
       expect(wrapper.vm.value).toBe('yes');
     });
   });
+
+  describe('@events', () => {
+    it('should emit change event', async () => {
+      const wrapper = mountButtonGroup({
+        modelValue: null,
+        items: [
+          { text: 'Yes', value: 'yes' },
+          { text: 'Maybe' },
+        ],
+      });
+
+      await wrapper.findByDataTest('ec-button-group__btn-1').trigger('click');
+      expect(wrapper.emitted('change').length).toBe(1);
+    });
+  });
 });

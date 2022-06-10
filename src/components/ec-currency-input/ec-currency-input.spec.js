@@ -10,7 +10,7 @@ describe('EcCurrencyInput', () => {
     return mount(EcCurrencyInput, {
       props: {
         currencies,
-        value: {},
+        modelValue: {},
         ...props,
       },
       ...mountOpts,
@@ -178,13 +178,11 @@ describe('EcCurrencyInput', () => {
 
     it('should render the amount correctly when we swap locale', async () => {
       const wrapper = mountCurrencyInput({ locale: 'es' });
-      wrapper.findByDataTest('ec-currency-input__amount').setValue('1111,11');
+      await wrapper.findByDataTest('ec-currency-input__amount').setValue('1111,11');
 
-      await wrapper.vm.$nextTick();
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('1.111,11');
 
-      wrapper.setProps({ locale: 'en' });
-      await wrapper.vm.$nextTick();
+      await wrapper.setProps({ locale: 'en' });
       expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('1,111.11');
     });
 
@@ -195,7 +193,7 @@ describe('EcCurrencyInput', () => {
     });
 
     it('should render the component with the dropdown part disabled when isCurrenciesDisabled is set true', () => {
-      const wrapper = mountCurrencyInput({ isCurrenciesDisabled: true, value: { currency: 'EUR' } });
+      const wrapper = mountCurrencyInput({ isCurrenciesDisabled: true, modelValue: { currency: 'EUR' } });
 
       expect(wrapper.findByDataTest('ec-currency-input__currencies').element).toMatchSnapshot();
     });
@@ -276,27 +274,27 @@ describe('EcCurrencyInput', () => {
       await selectItem(wrapper, 1);
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('value-change').length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
       expect(wrapper.emitted('currency-change').length).toEqual(1);
       await selectItem(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('value-change').length).toEqual(2);
+      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
       expect(wrapper.emitted('currency-change').length).toEqual(2);
     });
 
-    it('should emit value-change event when amount is set', async () => {
+    it('should emit update:modelValue event when amount is set', async () => {
       const wrapper = mountCurrencyInput();
 
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('amount-change').length).toEqual(1);
-      expect(wrapper.emitted('value-change').length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
 
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('111');
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('amount-change').length).toEqual(2);
-      expect(wrapper.emitted('value-change').length).toEqual(2);
+      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
     });
   });
 
@@ -450,8 +448,7 @@ describe('EcCurrencyInput', () => {
 });
 
 async function selectItem(wrapper, index) {
-  wrapper.findByDataTest('ec-currency-input__currencies').trigger('mousedown');
-  wrapper.findByDataTest('ec-currency-input__currencies').trigger('focus');
-  wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
-  await wrapper.vm.$nextTick();
+  await wrapper.findByDataTest('ec-currency-input__currencies').trigger('mousedown');
+  await wrapper.findByDataTest('ec-currency-input__currencies').trigger('focus');
+  await wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
 }

@@ -31,7 +31,7 @@ const filters = [{
   clearText: 'Clear dates',
 }];
 
-const value = { feeType: [{ text: 'Invoiced', value: 'invoiced' }] };
+const modelValue = { feeType: [{ text: 'Invoiced', value: 'invoiced' }] };
 
 function mountEcTableFilter(props, mountOpts) {
   return mount(EcTableFilter, {
@@ -68,7 +68,7 @@ describe('EcTableFilter', () => {
   });
 
   it('should render with pre-selected filters if the value prop is passed', () => {
-    const wrapper = mountEcTableFilter({ value, filters });
+    const wrapper = mountEcTableFilter({ modelValue, filters });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -95,7 +95,7 @@ describe('EcTableFilter', () => {
       {
         data() {
           return {
-            value,
+            value: modelValue,
             filters,
           };
         },
@@ -107,23 +107,26 @@ describe('EcTableFilter', () => {
   });
 
   it('should emit an empty object when clear filters button is clicked', () => {
-    const wrapper = mountEcTableFilter({ value, filters });
+    const wrapper = mountEcTableFilter({ modelValue, filters });
 
     wrapper.findByDataTest('ec-table-filter__clear-filters-button').trigger('click');
+    expect(wrapper.emitted('update:modelValue')).toEqual([[{}]]);
     expect(wrapper.emitted('change')).toEqual([[{}]]);
   });
 
   it('should emit a change event with an empty object when the user deselect the filter', async () => {
-    const wrapper = mountEcTableFilter({ value, filters });
+    const wrapper = mountEcTableFilter({ modelValue, filters });
     await wrapper.findByDataTest('ec-table-filter__filter-item-1').findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__input').setValue(false);
 
+    expect(wrapper.emitted('update:modelValue').length).toBe(1);
     expect(wrapper.emitted('change').length).toEqual(1);
   });
 
   it('should emit a change event with the selected filters object when the user select a filter', async () => {
-    const wrapper = mountEcTableFilter({ value, filters });
+    const wrapper = mountEcTableFilter({ modelValue, filters });
 
     await wrapper.findByDataTest('ec-table-filter__filter-item-0').findByDataTest('ec-checkbox__input').setValue(true);
+    expect(wrapper.emitted('update:modelValue').length).toBe(1);
     expect(wrapper.emitted('change').length).toBe(1);
   });
 });

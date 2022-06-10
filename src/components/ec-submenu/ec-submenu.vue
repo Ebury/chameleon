@@ -26,7 +26,7 @@
             href="#"
             class="ec-submenu__header-title"
             :data-test="`ec-submenu__header-title-${index}`"
-            @click.prevent.stop="$emit('change', index)"
+            @click.prevent.stop="select(index)"
           >{{ menuItem.headerTitle }}</a>
 
           <router-link
@@ -34,7 +34,7 @@
             :to="menuItem.route"
             class="ec-submenu__header-title"
             :data-test="`ec-submenu__header-title-${index}`"
-            @click.native="$emit('change', index)"
+            @click.native="select(index)"
           >{{ menuItem.headerTitle }}</router-link>
         </li>
       </ul>
@@ -64,10 +64,7 @@ export default {
   compatConfig: {
     MODE: 2,
     COMPILER_V_ON_NATIVE: true,
-  },
-  model: {
-    prop: 'activeIndex',
-    event: 'change',
+    COMPONENT_V_MODEL: false,
   },
   props: {
     submenu: {
@@ -87,7 +84,13 @@ export default {
       default: true,
     },
   },
-  emits: ['change'],
+  emits: ['update:activeIndex', 'change'],
+  methods: {
+    select(index) {
+      this.$emit('update:activeIndex', index);
+      this.$emit('change', index);
+    },
+  },
 };
 </script>
 

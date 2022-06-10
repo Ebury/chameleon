@@ -8,7 +8,7 @@
       v-for="(filter, index) in filters"
       v-bind="{
         ...filter,
-        value: value[filter.name],
+        modelValue: modelValue[filter.name],
         name: null,
         component: null,
       }"
@@ -49,13 +49,12 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcTableFilter',
-  components: { EcIcon },
-  model: {
-    prop: 'value',
-    event: 'change',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
   },
+  components: { EcIcon },
   props: {
-    value: {
+    modelValue: {
       type: Object,
       default: () => ({}),
     },
@@ -77,7 +76,7 @@ export default {
       default: 'Clear filters',
     },
   },
-  emits: ['change'],
+  emits: ['update:modelValue', 'change'],
   // TODO ONL-4893
   // data() {
   //   return {
@@ -86,7 +85,7 @@ export default {
   // },
   computed: {
     hasFilters() {
-      return !!Object.keys(this.value).length;
+      return !!Object.keys(this.modelValue).length;
     },
     // TODO ONL-4893
     // toggleMoreFiltersButtonIcon() {
@@ -103,15 +102,19 @@ export default {
     // },
     onChange(filterName, value) {
       if (!value || value.length === 0) {
-        const { [filterName]: currentValue, ...otherFilters } = this.value;
+        const { [filterName]: currentValue, ...otherFilters } = this.modelValue;
 
-        this.$emit('change', otherFilters);
+        this.update(otherFilters);
       } else {
-        this.$emit('change', { ...this.value, [filterName]: value });
+        this.update({ ...this.modelValue, [filterName]: value });
       }
     },
     clearFilters() {
-      this.$emit('change', {});
+      this.update({});
+    },
+    update(filters) {
+      this.$emit('update:modelValue', filters);
+      this.$emit('change', filters);
     },
   },
 };

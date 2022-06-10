@@ -7,12 +7,12 @@ export default {
   component: EcTextarea,
 };
 
-const Template = ({ value, ...args }) => ({
+const Template = ({ modelValue, ...args }) => ({
   components: { EcTextarea },
   setup() {
     return {
       args,
-      model: ref(value),
+      model: ref(modelValue),
     };
   },
   template: `
@@ -31,7 +31,7 @@ basic.args = {
   note: 'Textarea note',
   bottomNote: 'Text area bottom note',
   errorMessage: 'Textarea error message',
-  value: '',
+  modelValue: '',
 };
 
 basic.parameters = {

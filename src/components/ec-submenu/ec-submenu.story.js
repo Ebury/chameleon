@@ -26,7 +26,7 @@ export const basic = ({ activeIndex, ...args }) => ({
     <div class="tw-m-24">
       <ec-submenu
         v-bind="args"
-        v-model="model"
+        v-model:activeIndex="model"
         v-on="{
           change: onChange
         }">

@@ -7,13 +7,13 @@ export default {
   component: EcSyncMultipleValuesFilter,
 };
 
-const Template = ({ value, popoverOptions, ...args }) => ({
+const Template = ({ modelValue, popoverOptions, ...args }) => ({
   components: { EcSyncMultipleValuesFilter },
   setup() {
     return {
       args,
       popoverOptions,
-      model: ref(value),
+      model: ref(modelValue),
     };
   },
   template: `

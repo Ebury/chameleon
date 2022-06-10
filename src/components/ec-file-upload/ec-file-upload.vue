@@ -35,7 +35,7 @@
 
     <ec-file-list
       data-test="ec-file-upload__list"
-      :items="value"
+      :items="modelValue"
       :is-delete-disabled="isDisabled"
       @delete="onDelete"
     />
@@ -48,16 +48,15 @@ import EcFileList from '../ec-file-list';
 
 export default {
   name: 'EcFileUpload',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcFileDropzone,
     EcFileList,
   },
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
   props: {
-    value: {
+    modelValue: {
       type: Array,
       default: () => ([]),
     },
@@ -71,15 +70,19 @@ export default {
       type: Boolean,
     },
   },
-  emits: ['change'],
+  emits: ['update:modelValue', 'change'],
   methods: {
     onChange(newFiles) {
       const newFilesNames = new Set(newFiles.map(file => file.name));
-      const updatedFileList = this.value.filter(prevFile => !newFilesNames.has(prevFile.name));
-      this.$emit('change', [...updatedFileList, ...newFiles]);
+      const updatedFileList = this.modelValue.filter(prevFile => !newFilesNames.has(prevFile.name));
+      this.update([...updatedFileList, ...newFiles]);
     },
     onDelete(fileToDelete) {
-      this.$emit('change', this.value.filter(fileItem => fileItem !== fileToDelete));
+      this.update(this.modelValue.filter(fileItem => fileItem !== fileToDelete));
+    },
+    update(items) {
+      this.$emit('update:modelValue', items);
+      this.$emit('change', items);
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <transition name="ec-modal__fade">
     <div
-      v-if="showModal"
+      v-if="show"
       class="ec-modal"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-modal` : 'ec-modal'"
       :style="zIndexStyle"
@@ -107,18 +107,18 @@ import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
 
 export default {
+  name: 'EcModal',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcBtn,
     EcIcon,
     EcLoading,
   },
   directives: { EcFocusTrap },
-  model: {
-    prop: 'showModal',
-    event: 'close',
-  },
   props: {
-    showModal: {
+    show: {
       type: Boolean,
       default: false,
     },
@@ -149,7 +149,7 @@ export default {
       default: () => ({}),
     },
   },
-  emits: ['negative', 'positive', 'close'],
+  emits: ['update:show', 'negative', 'positive', 'close'],
   computed: {
     isLoadingPositiveButton() {
       return !!this.isLoading.positive;
@@ -168,7 +168,7 @@ export default {
     },
   },
   watch: {
-    showModal: {
+    show: {
       immediate: true,
       handler(value) {
         if (value) {
@@ -191,6 +191,7 @@ export default {
     },
     closeModal() {
       if (this.isClosable) {
+        this.$emit('update:show', false);
         this.$emit('close', false);
       }
     },

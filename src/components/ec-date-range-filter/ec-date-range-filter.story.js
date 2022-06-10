@@ -8,10 +8,10 @@ export default {
   component: EcDateRangeFilter,
 };
 
-const Template = ({ value, popoverOptions, ...args }) => ({
+const Template = ({ modelValue, popoverOptions, ...args }) => ({
   components: { EcDateRangeFilter },
   setup() {
-    const model = ref(value);
+    const model = ref(modelValue);
     return {
       args,
       popoverOptions,
@@ -42,5 +42,5 @@ basic.args = {
   fromErrorMessage: '',
   toErrorMessage: '',
   dateRangeErrorMessage: '',
-  value: { from: '2020-03-14', to: null },
+  modelValue: { from: '2020-03-14', to: null },
 };

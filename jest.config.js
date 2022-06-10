@@ -49,6 +49,7 @@ module.exports = {
         compatConfig: {
           MODE: 2,
           RENDER_FUNCTION: true,
+          COMPONENT_V_MODEL: false,
         },
       },
     },

@@ -41,18 +41,18 @@ describe('EcPanel', () => {
   });
 
   describe('@events', () => {
-    it('@close - should emit both "show-panel" and "close" events when the simple-close icon is clicked', () => {
+    it('@close - should emit both "update:show" and "close" events when the simple-close icon is clicked', () => {
       const wrapper = mountPanel({ show: true });
       wrapper.findByDataTest('ec-panel__header-action--close').trigger('click');
 
-      expect(wrapper.emitted('show-panel').length).toBe(1);
+      expect(wrapper.emitted('update:show').length).toBe(1);
       expect(wrapper.emitted('close').length).toBe(1);
     });
 
     describe('@back', () => {
       it('should render back button when event handler attribute is present', () => {
         const wrapper = mountPanelAsTemplate(
-          '<ec-panel v-model="show" @back="anyGivenCallback"></ec-panel>',
+          '<ec-panel v-model:show="show" @back="anyGivenCallback"></ec-panel>',
           {},
           {
             data() {
@@ -72,7 +72,7 @@ describe('EcPanel', () => {
 
       it('should not render back button when event handler attribute is not present', () => {
         const wrapper = mountPanelAsTemplate(
-          '<ec-panel v-model="show"></ec-panel>',
+          '<ec-panel v-model:show="show"></ec-panel>',
           {},
           {
             data() {
@@ -90,7 +90,7 @@ describe('EcPanel', () => {
       it('should emit a "back" event when the simple-chevron-left icon is clicked', async () => {
         const anyGivenCallback = jest.fn();
         const wrapper = mountPanelAsTemplate(
-          '<ec-panel v-model="show" @back="anyGivenCallback"></ec-panel>',
+          '<ec-panel v-model:show="show" @back="anyGivenCallback"></ec-panel>',
           {},
           {
             data() {
@@ -153,7 +153,7 @@ describe('EcPanel', () => {
   describe('v-model', () => {
     it('should render the panel when we pass to model true', async () => {
       const wrapper = mountPanelAsTemplate(
-        '<ec-panel v-model="show"></ec-panel>',
+        '<ec-panel v-model:show="show"></ec-panel>',
         {},
         {
           data() {
@@ -174,7 +174,7 @@ describe('EcPanel', () => {
 
     it('should not render the panel when we pass to model false', () => {
       const wrapper = mountPanelAsTemplate(
-        '<ec-panel v-model="show"></ec-panel>',
+        '<ec-panel v-model:show="show"></ec-panel>',
         {},
         {
           data() {

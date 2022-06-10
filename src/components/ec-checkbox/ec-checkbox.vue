@@ -15,7 +15,7 @@
       data-test="ec-checkbox__input"
       @focus="inputIsFocused = true"
       @blur="inputIsFocused = false"
-      v-on="$listeners"
+      v-on="{ ...$listeners, 'update:modelValue': null }"
     >
 
     <div
@@ -82,16 +82,15 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcCheckbox',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcIcon,
   },
   inheritAttrs: false,
-  model: {
-    prop: 'checked',
-    event: 'checked-value-change',
-  },
   props: {
-    checked: {
+    modelValue: {
       type: Boolean,
     },
     indeterminate: {
@@ -115,7 +114,7 @@ export default {
       type: Boolean,
     },
   },
-  emits: ['checked-value-change'],
+  emits: ['update:modelValue'],
   data() {
     return {
       uid: getUid(),
@@ -134,10 +133,10 @@ export default {
     },
     inputModel: {
       get() {
-        return this.checked;
+        return this.modelValue;
       },
       set(checked) {
-        this.$emit('checked-value-change', checked);
+        this.$emit('update:modelValue', checked);
       },
     },
   },

@@ -191,8 +191,7 @@ describe('EcSmartTable', () => {
 
   describe('sorting', () => {
     async function sortColumnByIndex(wrapper, index) {
-      wrapper.findByDataTest(`ec-table-head__cell--${index}`).findByDataTest('ec-table-sort__icon').trigger('click');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest(`ec-table-head__cell--${index}`).findByDataTest('ec-table-sort__icon').trigger('click');
     }
 
     it('should render sortable columns', async () => {
@@ -364,12 +363,12 @@ describe('EcSmartTable', () => {
   describe('filtering', () => {
     const TableFilter = defineComponent({
       name: 'MyTableFilter',
-      props: ['filters', 'value'],
+      props: ['filters', 'modelValue'],
       template: `
         <div data-test="my-table-filter">
           <div># of filters: {{ filters.length }}</div>
-          <div>value: {{ value }}</div>
-          <a data-test="my-table-filter__clear-button" @click="$emit('change', {})">Clear</a>
+          <div>value: {{ modelValue }}</div>
+          <a data-test="my-table-filter__clear-button" @click="$emit('update:modelValue', {}); $emit('change', {})">Clear</a>
         </div>
       `,
     });

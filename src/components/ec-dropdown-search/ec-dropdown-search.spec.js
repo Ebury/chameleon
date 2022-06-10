@@ -98,7 +98,7 @@ describe('EcDropdownSearch', () => {
   it('should pass information whether an item is selected to the item slot', () => {
     const wrapper = mountDropdownSearch({
       items,
-      selected: items[2],
+      modelValue: items[2],
     }, {
       slots: {
         item: ({ index, isSelected }) => h('div', `${index} - ${isSelected}`),

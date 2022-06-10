@@ -35,9 +35,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     it('should select the next item when another is already selected', async () => {
-      const selected = items[1];
+      const modelValue = items[1];
       const expectedItem = items[2];
-      const wrapper = mountDropdownSearch({ items, selected });
+      const wrapper = mountDropdownSearch({ items, modelValue });
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
@@ -49,9 +49,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     it('should skip those items that are disabled', async () => {
-      const selected = items[2];
+      const modelValue = items[2];
       const expectedItem = items[4];
-      const wrapper = mountDropdownSearch({ items, selected });
+      const wrapper = mountDropdownSearch({ items, modelValue });
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
@@ -78,9 +78,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     it('should select the next item when another is already selected', async () => {
-      const selected = items[1];
+      const modelValue = items[1];
       const expectedItem = items[2];
-      const wrapper = mountDropdownSearch({ items, selected });
+      const wrapper = mountDropdownSearch({ items, modelValue });
       await openDropdown(wrapper);
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBe(true);
@@ -92,9 +92,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     it('should skip those items that are disabled', async () => {
-      const selected = items[2];
+      const modelValue = items[2];
       const expectedItem = items[4];
-      const wrapper = mountDropdownSearch({ items, selected });
+      const wrapper = mountDropdownSearch({ items, modelValue });
       await openDropdown(wrapper);
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBe(true);
@@ -120,7 +120,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
         { id: 2, text: 'Item 2' },
         { id: 3, text: 'Item 3', disabled: true },
       ];
-      const wrapper = mountDropdownSearch({ items: allItemsDisabled, selected: allItemsDisabled[1] });
+      const wrapper = mountDropdownSearch({ items: allItemsDisabled, modelValue: allItemsDisabled[1] });
       await openDropdown(wrapper);
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBe(true);
@@ -146,9 +146,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     it('should select the previous item when another is already selected', async () => {
-      const selected = items[2];
+      const modelValue = items[2];
       const expectedItem = items[1];
-      const wrapper = mountDropdownSearch({ items, selected });
+      const wrapper = mountDropdownSearch({ items, modelValue });
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
@@ -160,9 +160,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     it('should skip those items that are disabled', async () => {
-      const selected = items[4];
+      const modelValue = items[4];
       const expectedItem = items[2];
-      const wrapper = mountDropdownSearch({ items, selected });
+      const wrapper = mountDropdownSearch({ items, modelValue });
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-selected')).toBe(true);
       expect(wrapper.emitted('change')).toBeUndefined();
@@ -189,9 +189,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     it('should select the previous item when another is already selected', async () => {
-      const selected = items[2];
+      const modelValue = items[2];
       const expectedItem = items[1];
-      const wrapper = mountDropdownSearch({ items, selected });
+      const wrapper = mountDropdownSearch({ items, modelValue });
       await openDropdown(wrapper);
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--2').classes('ec-dropdown-search__item--is-selected')).toBe(true);
@@ -203,9 +203,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     });
 
     it('should skip those items that are disabled', async () => {
-      const selected = items[4];
+      const modelValue = items[4];
       const expectedItem = items[2];
-      const wrapper = mountDropdownSearch({ items, selected });
+      const wrapper = mountDropdownSearch({ items, modelValue });
       await openDropdown(wrapper);
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--4').classes('ec-dropdown-search__item--is-selected')).toBe(true);
@@ -231,7 +231,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
         { id: 2, text: 'Item 2' },
         { id: 3, text: 'Item 3', disabled: true },
       ];
-      const wrapper = mountDropdownSearch({ items: allItemsDisabled, selected: allItemsDisabled[1] });
+      const wrapper = mountDropdownSearch({ items: allItemsDisabled, modelValue: allItemsDisabled[1] });
       await openDropdown(wrapper);
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item--1').classes('ec-dropdown-search__item--is-selected')).toBe(true);
@@ -493,7 +493,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       ])('should be closed (by %s key)', async (key) => {
         const wrapper = mountDropdownSearch({
           items,
-          selected: items[0],
+          modelValue: items[0],
           isSearchEnabled: false,
         });
         await openDropdown(wrapper);
@@ -508,7 +508,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       it('should be closed and the focus should be regained by the field that originally had it', async () => {
         const wrapper = mountDropdownSearch({
           items,
-          selected: items[0],
+          modelValue: items[0],
           isSearchEnabled: true,
         });
 
@@ -545,7 +545,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       [4, 150, 0],
     ])('should not scroll down if the selected item is visible (Item position: %d)', async (itemPosition, offsetTop, expectedScrollTop) => {
       const itemIndex = itemPosition - 1;
-      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex - 1] });
+      const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex - 1] });
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
@@ -560,7 +560,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       [8, 350, 200],
     ])('should scroll down if the selected item is below the visible ones (Item position: %d)', async (itemPosition, offsetTop, expectedScrollTop) => {
       const itemIndex = itemPosition - 1;
-      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex] });
+      const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex] });
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
@@ -575,7 +575,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       [5, 200],
     ])('should not scroll up if the selected item is visible (Item position: %d)', async (itemPosition, offsetTop) => {
       const itemIndex = itemPosition - 1;
-      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex] });
+      const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex] });
       const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
       jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
@@ -593,7 +593,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       [1, 0, 0],
     ])('should scroll up if the selected item is above the visible ones (Item position: %d)', async (itemPosition, offsetTop, expectedScrollTop) => {
       const itemIndex = itemPosition - 1;
-      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex] });
+      const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex] });
       const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
       jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
@@ -607,7 +607,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
     it('should scroll fully up if the selected item is the first one and there is some non-selectable item above it', async () => {
       const itemIndex = 0;
-      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex], isSearchEnabled: true });
+      const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex], isSearchEnabled: true });
       const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
       jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
@@ -621,7 +621,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
     it('should scroll fully up if the selected item is the first one', async () => {
       const itemIndex = 0;
-      const wrapper = mountDropdownSearch({ items, selected: items[itemIndex], isSearchEnabled: false });
+      const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex], isSearchEnabled: false });
       const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
       jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 

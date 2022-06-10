@@ -5,8 +5,8 @@ import { withMockedConsole } from '../../../tests/utils/console';
 import EcDateRangeFilter from './ec-date-range-filter.vue';
 
 const label = 'Due date';
-const value = { from: '2020-03-14', to: '2020-04-10' };
-const valueEmpty = { from: null, to: null };
+const modelValue = { from: '2020-03-14', to: '2020-04-10' };
+const modelValueEmpty = { from: null, to: null };
 
 function mountEcDateRangeFilter(props, mountOpts) {
   return mount(EcDateRangeFilter, {
@@ -14,7 +14,7 @@ function mountEcDateRangeFilter(props, mountOpts) {
       fromLabelText: 'From',
       toLabelText: 'To',
       clearText: 'Clear dates',
-      value,
+      modelValue,
       ...props,
     },
     ...mountOpts,
@@ -63,10 +63,10 @@ describe('EcDateRangeFilter', () => {
     });
   });
 
-  it('should emit a change event when corrects dates are given', async () => {
+  it('should emit a change event when correct dates are given', async () => {
     const wrapper = mountEcDateRangeFilter({ label });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
-    wrapper.findByDataTest('ec-date-range-filter__from-input').setValue('2020-11-06');
+    await wrapper.findByDataTest('ec-date-range-filter__from-input').setValue('2020-11-06');
     expect(wrapper.emitted('change').length).toBe(1);
   });
 
@@ -77,8 +77,8 @@ describe('EcDateRangeFilter', () => {
     expect(wrapper.emitted('change')).toEqual([[null]]);
   });
 
-  it('should not emit clear when there are no value for dates', async () => {
-    const wrapper = mountEcDateRangeFilter({ label, value: valueEmpty });
+  it('should not emit a change event when there are no value for dates', async () => {
+    const wrapper = mountEcDateRangeFilter({ label, modelValue: modelValueEmpty });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     wrapper.findByDataTest('ec-date-range-filter__clear-button').trigger('click');
     expect(wrapper.findByDataTest('ec-date-range-filter__clear-button').attributes('disabled')).toBe('');
@@ -99,7 +99,7 @@ describe('EcDateRangeFilter', () => {
       {},
       {
         data() {
-          return { value: valueEmpty, label };
+          return { value: modelValueEmpty, label };
         },
       },
     );
@@ -116,8 +116,8 @@ describe('EcDateRangeFilter', () => {
     expect(wrapper.findByDataTest('ec-filter-popover__badge').text()).toBe('2');
   });
 
-  it('should return undefined if no dates are passed in value prop', () => {
-    const wrapper = mountEcDateRangeFilter({ label, value: null });
+  it('should render if no dates are passed in value prop', () => {
+    const wrapper = mountEcDateRangeFilter({ label, modelValue: null });
     expect(wrapper.element).toMatchSnapshot();
   });
 });

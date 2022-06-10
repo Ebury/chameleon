@@ -232,7 +232,7 @@ describe('Datepicker', () => {
     });
 
     it('@close - should be emitted when the calendar closes', () => {
-      const { inputWrapper, calendarWrapper } = mountDatepicker({ value: new Date('2022-02-20') });
+      const { inputWrapper, calendarWrapper } = mountDatepicker({ modelValue: new Date('2022-02-20') });
 
       inputWrapper
         .findByDataTest('ec-datepicker')

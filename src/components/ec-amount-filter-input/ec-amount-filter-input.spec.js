@@ -23,7 +23,7 @@ describe('EcAmountFilterInput', () => {
     return mount(EcAmountFilterInput, {
       props: {
         comparisonSymbolItems,
-        value: {},
+        modelValue: {},
         ...props,
       },
       ...mountOpts,
@@ -126,11 +126,9 @@ describe('EcAmountFilterInput', () => {
       const wrapper = mountAmountFilterInput({ locale: 'es' });
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('1111,11');
 
-      wrapper.vm.$nextTick();
       expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1.111,11');
 
       await wrapper.setProps({ locale: 'en' });
-      wrapper.vm.$nextTick();
       expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1,111.11');
     });
   });
@@ -142,12 +140,12 @@ describe('EcAmountFilterInput', () => {
       await selectComparisonSymbol(wrapper, 1);
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('value-change').length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
       expect(wrapper.emitted('comparison-symbol-change').length).toEqual(1);
       await selectComparisonSymbol(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('value-change').length).toEqual(2);
+      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
       expect(wrapper.emitted('comparison-symbol-change').length).toEqual(2);
     });
 
@@ -157,12 +155,12 @@ describe('EcAmountFilterInput', () => {
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('11');
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('amount-change').length).toEqual(1);
-      expect(wrapper.emitted('value-change').length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
 
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('111');
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('amount-change').length).toEqual(2);
-      expect(wrapper.emitted('value-change').length).toEqual(2);
+      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
     });
   });
 

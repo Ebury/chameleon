@@ -62,7 +62,7 @@ basic.args = {
   disabled: false,
   isSensitive: false,
   errorMessage: '',
-  selected: null,
+  modelValue: null,
 };
 
 export const all = args => ({

@@ -10,7 +10,7 @@ export default {
   component: EcTableFilter,
 };
 
-const Template = ({ value, filters }) => ({
+const Template = ({ modelValue, filters }) => ({
   components: {
     EcTableFilter, EcSyncMultipleValuesFilter, EcDateRangeFilter, EcCurrencyFilter,
   },
@@ -18,7 +18,7 @@ const Template = ({ value, filters }) => ({
     const model = ref(null);
 
     watchEffect(() => {
-      model.value = value;
+      model.value = modelValue;
     });
 
     return { model, filters };
@@ -57,7 +57,7 @@ const currencyItems = [{
 export const basic = Template.bind({});
 
 basic.args = {
-  value: {
+  modelValue: {
     paymentStatus: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }],
     supplier: [{ text: 'Supplier 1', value: 'supplier1' }],
     dueDate: { from: '2021-11-11' },

@@ -56,11 +56,10 @@ import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcDateRangeFilter',
-  components: { EcFilterPopover, EcInputField },
-  model: {
-    prop: 'value',
-    event: 'change',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
   },
+  components: { EcFilterPopover, EcInputField },
   props: {
     label: {
       type: String,
@@ -100,44 +99,48 @@ export default {
     popoverOptions: {
       type: Object,
     },
-    value: {
+    modelValue: {
       type: Object,
     },
   },
-  emits: ['change', 'blur'],
+  emits: ['update:modelValue', 'change', 'blur'],
   computed: {
     fromValueDate: {
       get() {
-        return this.value?.from;
+        return this.modelValue?.from;
       },
       set(value) {
-        this.$emit('change', { from: value, to: this.toValueDate });
+        this.update({ from: value, to: this.toValueDate });
       },
     },
     toValueDate: {
       get() {
-        return this.value?.to;
+        return this.modelValue?.to;
       },
       set(value) {
-        this.$emit('change', { from: this.fromValueDate, to: value });
+        this.update({ from: this.fromValueDate, to: value });
       },
     },
     numberOfSelectedFilters() {
-      let dateSelected = 0;
+      let datesSelected = 0;
       if (this.fromValueDate && this.toValueDate) {
-        dateSelected = 2;
+        datesSelected = 2;
       } else if (this.fromValueDate || this.toValueDate) {
-        dateSelected = 1;
+        datesSelected = 1;
       }
-      return dateSelected;
+      return datesSelected;
     },
     isDisabled() {
       return !this.numberOfSelectedFilters > 0;
     },
   },
   methods: {
+    update(newValue) {
+      this.$emit('update:modelValue', newValue);
+      this.$emit('change', newValue);
+    },
     clear() {
-      this.$emit('change', null);
+      this.update(null);
     },
     onBlur() {
       this.$emit('blur', { from: this.fromValueDate, to: this.toValueDate });

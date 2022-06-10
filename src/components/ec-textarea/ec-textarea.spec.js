@@ -154,9 +154,9 @@ describe('EcTextarea', () => {
   });
 
   describe('@events', () => {
-    it('should emit the value when you type on the textarea', () => {
+    it('should emit the value when you type on the textarea', async () => {
       const wrapper = mountTextareaAsTemplate(
-        '<ec-textarea v-model="text" type="text" />',
+        '<ec-textarea v-model="text" />',
         {},
         {
           data() {
@@ -166,9 +166,10 @@ describe('EcTextarea', () => {
       );
 
       expect(wrapper.findByDataTest('ec-textarea__textarea').element.value).toBe('');
-      wrapper.findByDataTest('ec-textarea__textarea').setValue('Value lorem ipsum');
+      await wrapper.findByDataTest('ec-textarea__textarea').setValue('Value lorem ipsum');
       expect(wrapper.vm.text).toBe('Value lorem ipsum');
       expect(wrapper.findByDataTest('ec-textarea__textarea').element.value).toBe('Value lorem ipsum');
+      expect(wrapper.findComponent(EcTextarea).emitted('update:modelValue').length).toBe(1);
     });
   });
 });

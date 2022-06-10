@@ -38,7 +38,7 @@
       :class="inputClasses"
       :type="type"
       :aria-describedby="errorMessageId"
-      v-on="$listeners"
+      v-on="{ ...$listeners, 'update:modelValue': null }"
     >
     <div
       v-if="isIconWrapperVisible"
@@ -57,7 +57,7 @@
         data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
-        @click="$emit('icon-click', value);"
+        @click="$emit('icon-click', modelValue);"
       />
     </div>
     <div
@@ -84,13 +84,12 @@ import EcLoadingIcon from '../ec-loading-icon';
 
 export default {
   name: 'EcInputField',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: { EcIcon, EcLoadingIcon },
   directives: { EcTooltip },
   inheritAttrs: false,
-  model: {
-    prop: 'value',
-    event: 'value-change',
-  },
   props: {
     type: {
       type: String,
@@ -99,7 +98,7 @@ export default {
         return ['text', 'date', 'number', 'tel'].includes(value);
       },
     },
-    value: {
+    modelValue: {
       type: [Number, String, Date],
     },
     label: {
@@ -152,7 +151,7 @@ export default {
       default: false,
     },
   },
-  emits: ['value-change', 'icon-click'],
+  emits: ['update:modelValue', 'icon-click'],
   data() {
     return {
       uid: getUid(),
@@ -194,10 +193,10 @@ export default {
     },
     inputModel: {
       get() {
-        return this.value;
+        return this.modelValue;
       },
       set(value) {
-        this.$emit('value-change', value);
+        this.$emit('update:modelValue', value);
       },
     },
     isIconWrapperVisible() {

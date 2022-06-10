@@ -68,6 +68,7 @@ describe('EcMultipleValuesSelection', () => {
     const wrapper = mountEcMultipleValuesSelection({ items });
     await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select').findByDataTest('ec-checkbox__input').setValue(true);
     expect(wrapper.emitted('change').length).toBe(1);
+    expect(wrapper.emitted('update:modelValue').length).toBe(1);
   });
 
   it('should deselected items', async () => {
@@ -114,7 +115,7 @@ describe('EcMultipleValuesSelection', () => {
     it('should be indeterminate when at least one option is selected', () => {
       const wrapper = mountEcMultipleValuesSelection({
         items,
-        value: [items[0]],
+        modelValue: [items[0]],
         isSelectAll: true,
       });
 
@@ -124,7 +125,7 @@ describe('EcMultipleValuesSelection', () => {
     it('should not be indeterminate when all options are selected', () => {
       const wrapper = mountEcMultipleValuesSelection({
         items,
-        value: [...items],
+        modelValue: [...items],
         isSelectAll: true,
       });
       expect(wrapper.findByDataTest('ec-multiple-values-selection__select-all').element).toMatchSnapshot();

@@ -14,7 +14,7 @@
     :is-warning="isWarning"
     :error-message="errorMessage"
     :disabled="isDisabled"
-    :value="formattedValue"
+    :model-value="formattedValue"
     @icon-click="openCalendar()"
     @blur="onBlur"
     v-on="getListeners()"
@@ -29,16 +29,15 @@ import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcDatepicker',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcInputField,
   },
   inheritAttrs: false,
-  model: {
-    prop: 'value',
-    event: 'value-change',
-  },
   props: {
-    value: {
+    modelValue: {
       type: Date,
     },
     label: {
@@ -90,7 +89,7 @@ export default {
       type: [String, Object],
     },
   },
-  emits: ['ready', 'value-change', 'open', 'close', 'blur'],
+  emits: ['update:modelValue', 'ready', 'open', 'close', 'blur'],
   data() {
     return {
       uid: getUid(),
@@ -114,7 +113,7 @@ export default {
         }
       },
     },
-    value(newValue, oldValue) {
+    modelValue(newValue, oldValue) {
       if (newValue && newValue !== oldValue && !this.datesAreEqual(newValue, oldValue)) {
         this.flatpickrInstance.setDate(newValue, true);
       }
@@ -161,7 +160,7 @@ export default {
     if (this.flatpickrInstance.input) {
       // sync the value to the formattedValue after the flatpickr is initialized.
       //
-      // if the 'value' prop contains any initial value, that value got passed to the flatpickr via defaultValue option
+      // if the 'modelValue' prop contains any initial value, that value got passed to the flatpickr via defaultValue option
       // and a formatted value may be visible in the input now. we need to get that value from input to our
       // formattedValue in order to keep it in sync.
       // if we don't do that, an empty formattedValue can be passed to the ec-input-field via Vue props
@@ -189,8 +188,7 @@ export default {
   methods: {
     getListeners() {
       const listeners = { ...this.$listeners };
-      delete listeners['value-change'];
-      delete listeners['modelCompat:value-change']; // remove after removing @vue/compat
+      delete listeners['update:modelValue'];
       delete listeners.open;
       delete listeners.close;
       delete listeners.ready;
@@ -210,7 +208,7 @@ export default {
         // We need to update the time of "now" every time something changes otherwise flatpickr will only pick it once when imported.
         now: new Date(),
         allowInput: true,
-        defaultDate: this.value ? new Date(this.value) : null,
+        defaultDate: this.modelValue ? new Date(this.modelValue) : null,
         onDayCreate: this.onDayCreate,
         onReady: [...(this.options.onReady ?? []), () => {
           this.$emit('ready');
@@ -232,7 +230,7 @@ export default {
           }
 
           this.formattedValue = dateStr;
-          this.$emit('value-change', selectedDates[0] ?? null);
+          this.$emit('update:modelValue', selectedDates[0] ?? null);
         },
         onOpen: [...(this.options.onOpen ?? []), () => {
           this.$emit('open');
@@ -306,7 +304,7 @@ export default {
     onBlur(evt) {
       this.$emit('blur', evt);
       if (this.flatpickrInstance && !this.flatpickrInstance.input.value) {
-        this.$emit('value-change', null);
+        this.$emit('update:modelValue', null);
       }
     },
   },

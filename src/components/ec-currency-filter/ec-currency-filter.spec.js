@@ -68,7 +68,7 @@ describe('EcCurrencyFilter', () => {
       mountEcCurrencyFilter({}, {
         props: {},
       });
-      expect(warnSpy).toHaveBeenCalledTimes(5);
+      expect(warnSpy).toHaveBeenCalledTimes(3);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
       expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "currencyItems"');
       expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "comparisonSymbolItems"');
@@ -77,7 +77,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should preselect given filters from the value prop', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         currencies: [
           currencyItems[1],
           currencyItems[3],
@@ -94,7 +94,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should count every selected currency in numberOfSelectedFilters', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         currencies: [
           currencyItems[1],
           currencyItems[3],
@@ -107,7 +107,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should count the amount as 1 in numberOfSelectedFilters', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         amount: 1234,
         comparisonSymbol: comparisonSymbolItems[1],
       },
@@ -118,7 +118,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should count every selected currency and the amount together in numberOfSelectedFilters', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         currencies: [
           currencyItems[1],
           currencyItems[3],
@@ -159,7 +159,7 @@ describe('EcCurrencyFilter', () => {
       locale: 'es',
       isSensitive: true,
       errorMessage: 'Random validation error',
-      value: {
+      modelValue: {
         amount: 1234.56,
       },
     });
@@ -191,7 +191,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should disable clear amount button if the amount is empty', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         amount: null,
       },
     });
@@ -201,7 +201,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should enable clear amount button if the amount is not empty', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         amount: 1234,
       },
     });
@@ -307,7 +307,7 @@ describe('EcCurrencyFilter', () => {
       expect(wrapper.vm.value).toEqual(null);
     });
 
-    it.skip('should not update the v-model if a comparison symbol is selected until the amount is not empty', async () => { // MIG-TODO
+    it('should not update the v-model if a comparison symbol is selected until the amount is not empty', async () => { // MIG-TODO
       const wrapper = mountEcCurrencyFilterAsTemplate(
         '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
         {},
@@ -348,7 +348,7 @@ describe('EcCurrencyFilter', () => {
       });
     });
 
-    it.skip('should update the v-model if the amount is cleared by the user', async () => { // MIG-TODO
+    it('should update the v-model if the amount is cleared by the user', async () => { // MIG-TODO
       const wrapper = mountEcCurrencyFilterAsTemplate(
         '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
         {},
@@ -442,5 +442,10 @@ async function selectComparisonSymbol(wrapper, index) {
 }
 
 async function setAmount(wrapper, amount) {
-  await wrapper.findByDataTest('ec-amount-input').setValue(amount);
+  // we can use:
+  // await wrapper.findByDataTest('ec-amount-input').setValue(amount);
+  // because there's ec-amount-input directive that should re-format the value first and then we can trigger the change event.
+  wrapper.findByDataTest('ec-amount-input').element.value = amount;
+  await wrapper.findByDataTest('ec-amount-input').trigger('input');
+  await wrapper.findByDataTest('ec-amount-input').trigger('change');
 }

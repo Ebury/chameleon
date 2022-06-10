@@ -78,7 +78,7 @@ describe('EcAlert', () => {
 
   it('should dismiss the alert when user clicks on the dismiss icon', async () => {
     const wrapper = mountAlertAsTemplate(
-      '<ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />',
+      '<ec-alert v-model:open="isOpen" type="info" title="Custom random" dismissable />',
       {},
       {
         data() {
@@ -97,9 +97,15 @@ describe('EcAlert', () => {
     expect(wrapper.emitted('action').length).toBe(1);
   });
 
+  it('should emit the change event when user closes the alert', async () => {
+    const wrapper = mountAlert({ open: true, dismissable: true });
+    await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
+    expect(wrapper.emitted('change').length).toBe(1);
+  });
+
   it('should dismiss or show the alert when we change the v-model', async () => {
     const wrapper = mountAlertAsTemplate(
-      '<ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />',
+      '<ec-alert v-model:open="isOpen" type="info" title="Custom random" dismissable />',
       {},
       {
         data() {

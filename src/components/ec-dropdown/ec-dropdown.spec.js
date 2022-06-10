@@ -154,7 +154,7 @@ describe('EcDropdown', () => {
     it('should forward item slot', () => {
       const wrapper = mountDropdown({
         items,
-        selected: items[2],
+        modelValue: items[2],
       }, {
         slots: {
           item: ({ item, index, isSelected }) => h('div', `(${index}) ${item.text} - ${isSelected}`),
@@ -204,17 +204,17 @@ describe('EcDropdown', () => {
     });
 
     it('should display selected text in the readonly input', () => {
-      const wrapper = mountDropdown({ items, selected: items[0] });
+      const wrapper = mountDropdown({ items, modelValue: items[0] });
       expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe(items[0].text);
     });
 
     it('should display selectedText instead of selected item text if the prop is given', () => {
-      const wrapper = mountDropdown({ items, selected: items[0], selectedText: 'Random text' });
+      const wrapper = mountDropdown({ items, modelValue: items[0], selectedText: 'Random text' });
       expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('Random text');
     });
 
     it('should display empty text in the readonly input when nothing is selected', () => {
-      const wrapper = mountDropdown({ items, selected: null });
+      const wrapper = mountDropdown({ items, modelValue: null });
       expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
     });
   });

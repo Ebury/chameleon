@@ -8,7 +8,7 @@ describe('EcInputField', () => {
   function mountInputField(props, mountOpts) {
     return mount(EcInputField, {
       props: {
-        value: 'Text test',
+        modelValue: 'Text test',
         type: 'text',
         errorMessage: '',
         label: 'label test',

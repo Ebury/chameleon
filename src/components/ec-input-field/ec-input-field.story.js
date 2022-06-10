@@ -40,7 +40,7 @@ export const basic = Template.bind({});
 
 basic.args = {
   label: 'Username',
-  value: '',
+  modelValue: '',
   placeholder: 'My input',
   bottomNote: 'Your email',
   icon: 'simple-check',
@@ -160,7 +160,7 @@ export const all = ({
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field readonly placeholder="My input" :value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
+          <ec-input-field readonly placeholder="My input" :model-value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
         </div>
 
         <div class="tw-col-full"></div>

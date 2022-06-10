@@ -58,7 +58,7 @@
       <ec-amount-input
         v-model="amountModel"
         :locale="locale"
-        :currency="value.currency"
+        :currency="modelValue.currency"
         :error-id="errorId"
         :error-message="errorMessage"
         :disabled="isAmountDisabled"
@@ -119,18 +119,17 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcCurrencyInput',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcAmountInput,
     EcDropdown,
     EcIcon,
   },
   directives: { EcTooltip },
-  model: {
-    prop: 'value',
-    event: 'value-change',
-  },
   props: {
-    value: {
+    modelValue: {
       type: Object,
     },
     locale: {
@@ -193,7 +192,7 @@ export default {
       default: 'No results found',
     },
   },
-  emits: ['change', 'focus', 'amount-change', 'value-change', 'currency-change', 'open', 'after-open'],
+  emits: ['update:modelValue', 'change', 'focus', 'amount-change', 'currency-change', 'open', 'after-open'],
   data() {
     return {
       uid: getUid(),
@@ -225,18 +224,18 @@ export default {
     },
     currencyModel: {
       get() {
-        return this.currenciesItems.find(item => item.value === this.value.currency);
+        return this.currenciesItems.find(item => item.value === this.modelValue.currency);
       },
       set(item) {
-        this.$emit('value-change', { ...this.value, currency: item.value });
+        this.$emit('update:modelValue', { ...this.modelValue, currency: item.value });
       },
     },
     amountModel: {
       get() {
-        return this.value.amount;
+        return this.modelValue.amount;
       },
       set(value) {
-        this.$emit('value-change', { ...this.value, amount: value });
+        this.$emit('update:modelValue', { ...this.modelValue, amount: value });
       },
     },
   },

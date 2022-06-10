@@ -55,7 +55,7 @@ describe('EcCheckbox', () => {
     it(':disabled - should render the checkbox with a disabled attribute and not checked', () => {
       const wrapper = mountCheckbox({
         disabled: true,
-        checked: false,
+        modelValue: false,
       });
 
       expect(wrapper.element).toMatchSnapshot();
@@ -73,7 +73,7 @@ describe('EcCheckbox', () => {
     it(':disabled - should render the checkbox with a disabled attribute and checked', () => {
       const wrapper = mountCheckbox({
         disabled: true,
-        checked: true,
+        modelValue: true,
       });
 
       expect(wrapper.element).toMatchSnapshot();
@@ -89,7 +89,7 @@ describe('EcCheckbox', () => {
 
     it(':indeterminate - should render even if the checkbox is checked', () => {
       const wrapper = mountCheckbox({
-        checked: true,
+        modelValue: true,
         indeterminate: true,
       });
 
@@ -98,7 +98,7 @@ describe('EcCheckbox', () => {
 
     it(':indeterminate - should render the checkbox as checked when indeterminate has switched to false', async () => {
       const wrapper = mountCheckbox({
-        checked: true,
+        modelValue: true,
         indeterminate: true,
       });
 
@@ -175,11 +175,11 @@ describe('EcCheckbox', () => {
   });
 
   describe('@events', () => {
-    it('@checked-value-change - should be emitted when input is clicked', () => {
+    it('@update:modelValue - should be emitted when input is clicked', () => {
       const wrapper = mountCheckbox();
 
       wrapper.findByDataTest('ec-checkbox__input').setValue(true);
-      expect(wrapper.emitted('checked-value-change').length).toBe(1);
+      expect(wrapper.emitted('update:modelValue').length).toBe(1);
     });
 
     it('@change - should be emitted when input is clicked', () => {
