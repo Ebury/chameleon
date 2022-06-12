@@ -110,7 +110,7 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
 
 exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = `
 <ec-stub
-  autosize="max"
+  autosize="true"
   class="ec-dropdown-search__trigger"
   data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
   disabled="true"
@@ -168,7 +168,7 @@ exports[`EcDropdownSearch should merge given popoverOptions 1`] = `
 
 @@ -5,11 +5,12 @@
     <ec-stub
-      autosize=\\"max\\"
+      autosize=\\"true\\"
       class=\\"ec-dropdown-search__trigger\\"
       data-test=\\"ec-popover-dropdown-search ec-stub ec-popover-stub\\"
       distance=\\"8\\"
@@ -210,7 +210,7 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"
@@ -291,7 +291,7 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"
@@ -478,7 +478,7 @@ exports[`EcDropdownSearch should render as expected 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"
@@ -535,7 +535,7 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"
@@ -643,7 +643,7 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"
@@ -752,7 +752,7 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"
@@ -816,7 +816,7 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"
@@ -940,7 +940,7 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"
@@ -1020,7 +1020,7 @@ exports[`EcDropdownSearch should render given popover style 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"
@@ -1079,7 +1079,7 @@ exports[`EcDropdownSearch should render given popover style when it is a functio
   data-test="ec-dropdown-search"
 >
   <ec-stub
-    autosize="max"
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
     distance="8"

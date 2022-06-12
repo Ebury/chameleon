@@ -39,7 +39,7 @@ export const basic = Template.bind({});
 
 basic.args = {
   title: 'Error',
-  subtitle: 'Something was wrong with the update.',
+  subtitle: 'Something went wrong with the update.',
   type: 'error',
   buttonText: 'Read more',
   dismissable: true,
@@ -59,7 +59,7 @@ export const responsive = args => ({
       <ec-alert
         class="my-alert tw-mt-16"
         v-bind="args"
-        subtitle="This alert has custom breakpoint at 640px, so it doesn't break the same way as the alert above with default breakpoint"
+        subtitle="This alert has a custom breakpoint at 640px, so it doesn't break the same way as the alert above with the default breakpoint."
         :responsive="false" />
     </div>
   `,
@@ -112,26 +112,26 @@ export const all = args => ({
       {
         title: 'Subtitle Alert',
         data: [
-          { title: 'Info Alert', type: 'info', subtitle: 'subtitle' },
-          { title: 'Success Alert', type: 'success', subtitle: 'subtitle' },
-          { title: 'Warning Alert', type: 'warning', subtitle: 'subtitle' },
-          { title: 'Error Alert', type: 'error', subtitle: 'subtitle' },
+          { title: 'Info Alert', type: 'info', subtitle: 'Subtitle' },
+          { title: 'Success Alert', type: 'success', subtitle: 'Subtitle' },
+          { title: 'Warning Alert', type: 'warning', subtitle: 'Subtitle' },
+          { title: 'Error Alert', type: 'error', subtitle: 'Subtitle' },
         ],
       },
       {
         title: 'Custom, default and CTA Slot Alert',
         data: [
           {
-            title: 'Info Alert', type: 'info', custom: true, subtitle: 'subtitle',
+            title: 'Info Alert', type: 'info', custom: true, subtitle: 'Subtitle',
           },
           {
-            title: 'Success Alert', type: 'success', custom: true, subtitle: 'subtitle',
+            title: 'Success Alert', type: 'success', custom: true, subtitle: 'Subtitle',
           },
           {
-            title: 'Warning Alert', type: 'warning', custom: true, subtitle: 'subtitle',
+            title: 'Warning Alert', type: 'warning', custom: true, subtitle: 'Subtitle',
           },
           {
-            title: 'Error Alert', type: 'error', custom: true, subtitle: 'subtitle',
+            title: 'Error Alert', type: 'error', custom: true, subtitle: 'Subtitle',
           },
         ],
       },
@@ -139,16 +139,16 @@ export const all = args => ({
         title: 'Complete Alert',
         data: [
           {
-            title: 'Info Alert', type: 'info', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            title: 'Info Alert', type: 'info', subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
           },
           {
-            title: 'Success Alert', type: 'success', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            title: 'Success Alert', type: 'success', subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
           },
           {
-            title: 'Warning Alert', type: 'warning', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            title: 'Warning Alert', type: 'warning', subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
           },
           {
-            title: 'Error Alert', type: 'error', subtitle: 'subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            title: 'Error Alert', type: 'error', subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
           },
         ],
       },

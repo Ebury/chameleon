@@ -127,7 +127,7 @@ export const all = ({
 
       <p class="tw-mt-40"> * Disabled and loading states apply only to buttons.</p>
       <p> ** Custom loader text will replace the spinner loader if set.</p>
-      <p> *** Reverse cannot be combined with outline.</p>
+      <p> *** Reverse cannot be combined with an outline.</p>
     </div>
   `,
 });

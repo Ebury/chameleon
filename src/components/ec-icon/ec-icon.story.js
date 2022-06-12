@@ -278,3 +278,8 @@ export const withinAText = args => ({
     </div>
   `,
 });
+
+withinAText.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
+};

@@ -2,7 +2,7 @@ import EcIcon from '../ec-icon';
 import EcMainContainer from './ec-main-container.vue';
 
 const title = 'Trade Finance';
-const titleIntro = 'Here you will be able to keep track of all your requests to Ebury and of your credit line.';
+const titleIntro = 'Here you will be able to keep track of all your requests to Ebury and your credit line.';
 
 export default {
   title: 'Layout/Main Container',
@@ -47,7 +47,7 @@ export const withSlots = args => ({
       <template #cta>
         <div class="tw-text-center">
           <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width">
-            Test Cta
+            Test CTA
           </button>
         </div>
       </template>

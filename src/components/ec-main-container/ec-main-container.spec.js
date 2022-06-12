@@ -12,7 +12,7 @@ describe('EcMainContainer', () => {
   it('should render both titles when they are given in props', () => {
     const props = {
       title: 'Trade Finance',
-      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
+      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
     const wrapper = mount(EcMainContainer, {
       props,
@@ -23,7 +23,7 @@ describe('EcMainContainer', () => {
 
   it('should not display the titleIntro when title is not given', () => {
     const props = {
-      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
+      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
     const wrapper = mount(EcMainContainer, {
       props,
@@ -46,7 +46,7 @@ describe('EcMainContainer', () => {
   it('should use given slot', () => {
     const props = {
       title: 'Trade Finance',
-      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
+      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
     const wrapper = mount(EcMainContainer, {
       props,
@@ -61,7 +61,7 @@ describe('EcMainContainer', () => {
   it('should use the given named cta slot', () => {
     const props = {
       title: 'Trade Finance',
-      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
+      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
     const wrapper = mount(EcMainContainer, {
       props,
@@ -76,7 +76,7 @@ describe('EcMainContainer', () => {
   it('should use the given named breadcrumbs slot', () => {
     const props = {
       title: 'Trade Finance',
-      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and of your credit line.',
+      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
     const wrapper = mount(EcMainContainer, {
       props,

@@ -6,12 +6,6 @@ import EcDropdownSearch from './ec-dropdown-search.vue';
 export default {
   title: 'Dropdown Search',
   component: EcDropdownSearch,
-  argTypes: {
-    boundary: {
-      options: ['viewport', 'scrollParent'],
-      control: { type: 'select' },
-    },
-  },
 };
 
 const items = [
@@ -24,11 +18,10 @@ const items = [
   { text: 'Item 7' },
 ];
 
-export const all = ({ boundary, paragraphText, ...args }) => ({
+export const all = ({ paragraphText, ...args }) => ({
   components: { EcDropdownSearch, EcIcon },
   setup() {
     return {
-      boundary,
       paragraphText,
       args,
     };
@@ -75,7 +68,7 @@ export const all = ({ boundary, paragraphText, ...args }) => ({
           <p v-else>Selected item: None</p>
           <div v-for="(dropdownSearch, index) in list" :key="index" class="tw-my-20">
             <h3>{{ dropdownSearch.title }}</h3>
-            <div :style="dropdownSearch.style">
+            <div :style="dropdownSearch.style" :id="'dropdown-boundary-' + index">
               <p class="tw-mb-8"><strong>{{ dropdownSearch.instructions }}</strong></p>
               <ec-dropdown-search
                 v-bind="args"
@@ -109,6 +102,5 @@ all.args = {
   disabled: false,
   isLoading: false,
   isSensitive: false,
-  boundary: 'viewport',
   paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.',
 };

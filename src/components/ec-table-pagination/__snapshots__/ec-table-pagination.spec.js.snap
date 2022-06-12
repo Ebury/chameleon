@@ -277,7 +277,7 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
     data-test="ec-dropdown-search"
   >
     <ec-stub
-      autosize="max"
+      autosize="true"
       class="ec-dropdown-search__trigger"
       data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
       distance="8"
@@ -379,7 +379,7 @@ exports[`EcTablePagination should render as expected 1`] = `
       data-test="ec-dropdown-search"
     >
       <ec-stub
-        autosize="max"
+        autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         distance="8"

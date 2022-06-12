@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ref } from 'vue';
 
 import EcCheckbox from './ec-checkbox.vue';
@@ -7,10 +8,10 @@ export default {
   component: EcCheckbox,
 };
 
-const Template = ({ checked, ...args }) => ({
+const Template = ({ modelValue, ...args }) => ({
   components: { EcCheckbox },
   setup() {
-    const model = ref(checked);
+    const model = ref(modelValue);
     return { args, model };
   },
   template: `
@@ -24,7 +25,7 @@ export const basic = Template.bind({});
 basic.args = {
   label: 'I accept the terms and conditions',
   disabled: false,
-  checked: false,
+  modelValue: false,
 };
 
 basic.parameters = {
@@ -43,18 +44,19 @@ export const all = ({
 }) => ({
   components: { EcCheckbox },
   setup() {
-    const checked1 = ref(valueFromPropsChecked1);
-    const checked2 = ref(valueFromPropsChecked2);
+    const checkbox1 = ref(valueFromPropsChecked1);
+    const checkbox2 = ref(valueFromPropsChecked2);
 
     return {
       args,
-      checked1,
-      checked2,
+      checkbox1,
+      checkbox2,
       valueFromPropsHasError,
       valueFromPropsLabel,
       valueFromPropsErrorMessage,
       valueFromPropsDisabled1,
       valueFromPropsDisabled2,
+      onAction: action('open-terms'),
     };
   },
   template: `
@@ -62,7 +64,7 @@ export const all = ({
       <h3>Not checked</h3>
       <ec-checkbox class="tw-mb-24 tw-col-12">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
@@ -75,10 +77,10 @@ export const all = ({
 
       <h3>Checked</h3>
       <ec-checkbox
-        checked
+        :model-value="true"
         class="tw-mb-24 tw-col-12">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
@@ -95,7 +97,7 @@ export const all = ({
       <ec-checkbox class="tw-mb-24 tw-col-12"
         error-message="An error has occurred">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
@@ -112,16 +114,16 @@ export const all = ({
       <ec-checkbox class="tw-mb-24 tw-col-12"
         disabled>
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
       <h3>Disabled - checked</h3>
       <ec-checkbox class="tw-mb-24 tw-col-12"
-        checked
+        :model-value="true"
         disabled>
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
@@ -157,7 +159,7 @@ export const all = ({
         v-model="checkbox2"
         :disabled="valueFromPropsDisabled2">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
       <ec-checkbox
@@ -165,7 +167,7 @@ export const all = ({
         v-model="checkbox2"
         :disabled="valueFromPropsDisabled2">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
         <template #error-message>
           An error has occurred

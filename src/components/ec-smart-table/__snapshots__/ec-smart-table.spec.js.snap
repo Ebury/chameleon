@@ -523,7 +523,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
       data-test="ec-dropdown-search"
     >
       <ec-stub
-        autosize="max"
+        autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         distance="8"
@@ -682,7 +682,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
       data-test="ec-dropdown-search"
     >
       <ec-stub
-        autosize="max"
+        autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         distance="8"
@@ -866,7 +866,7 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
       data-test="ec-dropdown-search"
     >
       <ec-stub
-        autosize="max"
+        autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         distance="8"
@@ -1037,7 +1037,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
       data-test="ec-dropdown-search"
     >
       <ec-stub
-        autosize="max"
+        autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         distance="8"
@@ -1197,7 +1197,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
       data-test="ec-dropdown-search"
     >
       <ec-stub
-        autosize="max"
+        autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         distance="8"
@@ -1368,7 +1368,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
       data-test="ec-dropdown-search"
     >
       <ec-stub
-        autosize="max"
+        autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         distance="8"
@@ -1541,7 +1541,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
               data-test="ec-dropdown-search"
             >
               <ec-stub
-                autosize="max"
+                autosize="true"
                 class="ec-dropdown-search__trigger"
                 data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
                 distance="8"
@@ -1735,7 +1735,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
       data-test="ec-dropdown-search"
     >
       <ec-stub
-        autosize="max"
+        autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
         distance="8"

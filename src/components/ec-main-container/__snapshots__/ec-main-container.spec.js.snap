@@ -33,7 +33,7 @@ exports[`EcMainContainer should render both titles when they are given in props 
         class="ec-main-container__title-intro"
         data-test="ec-main-container__title-intro"
       >
-        Here you will be able to keep track of all your requests to Ebury and of your credit line.
+        Here you will be able to keep track of all your requests to Ebury and your credit line.
       </p>
     </div>
     <!--v-if-->
@@ -103,7 +103,7 @@ exports[`EcMainContainer should use given slot 1`] = `
         class="ec-main-container__title-intro"
         data-test="ec-main-container__title-intro"
       >
-        Here you will be able to keep track of all your requests to Ebury and of your credit line.
+        Here you will be able to keep track of all your requests to Ebury and your credit line.
       </p>
     </div>
     <!--v-if-->
@@ -149,7 +149,7 @@ exports[`EcMainContainer should use the given named breadcrumbs slot 1`] = `
         class="ec-main-container__title-intro"
         data-test="ec-main-container__title-intro"
       >
-        Here you will be able to keep track of all your requests to Ebury and of your credit line.
+        Here you will be able to keep track of all your requests to Ebury and your credit line.
       </p>
     </div>
     <!--v-if-->
@@ -181,7 +181,7 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
         class="ec-main-container__title-intro"
         data-test="ec-main-container__title-intro"
       >
-        Here you will be able to keep track of all your requests to Ebury and of your credit line.
+        Here you will be able to keep track of all your requests to Ebury and your credit line.
       </p>
     </div>
     <div

@@ -11,9 +11,7 @@ export default {
 const Template = args => ({
   components: { EcInlineInputField },
   setup() {
-    const model = ref(args.value);
     return {
-      model,
       args,
       onCancel: action('cancel'),
       onEdit: action('edit'),
@@ -24,7 +22,6 @@ const Template = args => ({
     <div class="tw-p-24" style="width: 300px;">
       <ec-inline-input-field
         v-bind="args"
-        v-model="model"
         v-on="{
           cancel: onCancel,
           edit: onEdit,
@@ -49,10 +46,9 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = ({ ...args }) => ({
+export const all = args => ({
   components: { EcInlineInputField },
   setup() {
-    const model = ref(args.value);
     const isEditing = ref(false);
     const isLoading = ref(false);
 
@@ -71,14 +67,13 @@ export const all = ({ ...args }) => ({
 
       setTimeout(() => {
         if (!args.errorMessage) {
-          model.value = value;
+          args.value = value;
         }
         isLoading.value = false;
       }, 1000);
     }
 
     return {
-      model,
       args,
       isEditing,
       isLoading,
@@ -86,9 +81,6 @@ export const all = ({ ...args }) => ({
       onCancel,
       onSubmit,
     };
-  },
-  methods: {
-
   },
   template: `
     <div class="tw-grid-container">
@@ -99,36 +91,34 @@ export const all = ({ ...args }) => ({
             v-bind="args"
             :is-editing="isEditing"
             :is-loading="isLoading"
-            v-model="model"
             v-on="{
               cancel: onCancel,
               edit: onEdit,
               submit: onSubmit,
             }"
           >
-            {{ model }}
+            {{ args.value }}
           </ec-inline-input-field>
         </div>
         <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field label="Inline Input Field - Uneditable">
-            {{ model }}
+            {{ args.value }}
           </ec-inline-input-field>
         </div>
         <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field label="Inline Input Field - Uneditable / No Plain Text">
-            <a href="#">{{ model }}</a>
+            <a href="#">{{ args.value }}</a>
           </ec-inline-input-field>
         </div>
         <div class="tw-col-full"></div>
         <div class="tw-col-full md:tw-col-4">
-          Value: {{ model }}
+          Value: {{ args.value }}
         </div>
         <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field
             v-bind="args"
             label="Inline Input Field - Copiable"
             :is-copiable="true"
-            v-model="model"
           />
         </div>
         <div class="tw-col-full md:tw-col-4">
@@ -137,7 +127,6 @@ export const all = ({ ...args }) => ({
             :is-editing="true"
             label="Inline Input Field - With Error"
             errorMessage="This field has an error"
-            v-model="model"
           />
         </div>
       </div>
