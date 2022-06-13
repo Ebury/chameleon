@@ -38,14 +38,14 @@
     "clipboard-copy": "3.2.0",
     "flatpickr": "4.6.13",
     "floating-vue": "2.0.0-beta.16",
-    "focus-trap": "6.9.3",
+    "focus-trap": "6.9.4",
     "mitt": "3.0.0",
     "svg-country-flags": "1.2.10",
     "tailwindcss": "2.2.19",
     "vue": "3.2.37"
   },
   "devDependencies": {
-    "@babel/core": "7.18.2",
+    "@babel/core": "7.18.5",
     "@babel/eslint-parser": "7.18.2",
     "@fullhuman/postcss-purgecss": "4.0.3",
     "@sinonjs/fake-timers": "9.1.2",
@@ -82,7 +82,7 @@
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-jest": "26.5.3",
     "eslint-plugin-simple-import-sort": "7.0.0",
-    "eslint-plugin-vue": "9.1.0",
+    "eslint-plugin-vue": "9.1.1",
     "eslint-plugin-vuejs-accessibility": "1.2.0",
     "intl": "1.2.5",
     "lint-staged": "13.0.1",
@@ -95,7 +95,7 @@
     "purgecss-from-html": "4.0.3",
     "snapshot-diff": "0.9.0",
     "storybook-vue3-router": "2.2.1",
-    "stylelint": "14.9.0",
+    "stylelint": "14.9.1",
     "stylelint-config-recommended-vue": "1.4.0",
     "stylelint-config-standard": "26.0.0",
     "stylelint-config-standard-scss": "4.0.0",
@@ -105,7 +105,7 @@
     "svgo-loader": "3.0.0",
     "vue-router": "4.0.16",
     "wait-on": "6.0.1",
-    "webpack-cli": "4.9.2",
+    "webpack-cli": "4.10.0",
     "yorkie": "2.0.0"
   },
   "gitHooks": {
