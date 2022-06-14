@@ -5,6 +5,10 @@ import { createHOC } from '../hoc';
 
 const withLoading = Component => createHOC(Component, {
   name: 'EcWithLoading',
+  compatConfig: {
+    MODE: 3,
+    INSTANCE_SCOPED_SLOTS: true,
+  },
   props: {
     isLoading: {},
     isLoadingTransparent: {},
@@ -22,7 +26,7 @@ const withLoading = Component => createHOC(Component, {
     }, h(Component, {
       ...this.$attrs,
       ...componentProps,
-    }, this.$slots));
+    }, this.$scopedSlots));
   },
 });
 

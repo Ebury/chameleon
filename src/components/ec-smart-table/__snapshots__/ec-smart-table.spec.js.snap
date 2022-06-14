@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcSmartTable #slots should pass ec-table slots 1`] = `
+<tr
+  class=""
+  data-test="ec-table__row ec-table__row--0"
+>
+  
+  <td
+    class="ec-table__cell"
+    data-test="ec-table__cell ec-table__cell--0"
+  >
+    
+    <div>
+      Cell data: {"content":1,"row":[1,2,3]}
+    </div>
+    
+  </td>
+  <td
+    class="ec-table__cell"
+    data-test="ec-table__cell ec-table__cell--1"
+  >
+    
+    2
+    
+  </td>
+  <td
+    class="ec-table__cell"
+    data-test="ec-table__cell ec-table__cell--2"
+  >
+    
+    3
+    
+  </td>
+  
+</tr>
+`;
+
 exports[`EcSmartTable #slots should render empty data with custom template 1`] = `
 <div
   class="ec-smart-table-empty"

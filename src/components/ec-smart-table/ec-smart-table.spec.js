@@ -187,6 +187,15 @@ describe('EcSmartTable', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it('should pass ec-table slots', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(data, { columns }, {
+        slots: {
+          col1: props => h('div', `Cell data: ${JSON.stringify(props)}`),
+        },
+      });
+      expect(wrapper.findByDataTest('ec-table__row--0').element).toMatchSnapshot();
+    });
   });
 
   describe('sorting', () => {
