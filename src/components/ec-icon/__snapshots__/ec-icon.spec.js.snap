@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcIcon should pass custom attributes 1`] = `
+<svg
+  class="ec-icon"
+  data-test="my-custom-icon"
+  id="my-icon"
+>
+  <use
+    xlink:href="#ec-random-icon"
+  />
+</svg>
+`;
+
 exports[`EcIcon should render properly when a name was given 1`] = `
 <svg
   class="ec-icon"

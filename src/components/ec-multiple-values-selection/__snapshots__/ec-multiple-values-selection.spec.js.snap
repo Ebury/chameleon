@@ -11,7 +11,6 @@ exports[`EcMultipleValuesSelection Select all should be indeterminate when at le
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
   >
@@ -22,18 +21,18 @@ exports[`EcMultipleValuesSelection Select all should be indeterminate when at le
         class="ec-checkbox__indeterminate-icon"
       />
     </span>
-     
     <label
       class="ec-checkbox__label ec-checkbox__label--is-single-line"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
       title="Select all"
     >
+      
       Select all
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -48,7 +47,6 @@ exports[`EcMultipleValuesSelection Select all should not be indeterminate when S
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
   >
@@ -56,7 +54,7 @@ exports[`EcMultipleValuesSelection Select all should not be indeterminate when S
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
     >
       <svg
-        class="ec-checkbox__check-icon ec-icon"
+        class="ec-icon ec-checkbox__check-icon"
         height="16"
         width="16"
       >
@@ -65,18 +63,18 @@ exports[`EcMultipleValuesSelection Select all should not be indeterminate when S
         />
       </svg>
     </span>
-     
     <label
       class="ec-checkbox__label ec-checkbox__label--is-single-line"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
       title="Select all"
     >
+      
       Select all
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -91,7 +89,6 @@ exports[`EcMultipleValuesSelection Select all should not be indeterminate when a
     id="ec-checkbox-1"
     type="checkbox"
   />
-   
   <div
     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
   >
@@ -99,7 +96,7 @@ exports[`EcMultipleValuesSelection Select all should not be indeterminate when a
       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
     >
       <svg
-        class="ec-checkbox__check-icon ec-icon"
+        class="ec-icon ec-checkbox__check-icon"
         height="16"
         width="16"
       >
@@ -108,18 +105,18 @@ exports[`EcMultipleValuesSelection Select all should not be indeterminate when a
         />
       </svg>
     </span>
-     
     <label
       class="ec-checkbox__label ec-checkbox__label--is-single-line"
       data-test="ec-checkbox__label"
       for="ec-checkbox-1"
       title="Select all"
     >
+      
       Select all
+      
     </label>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -128,14 +125,14 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  
+  <!--v-if-->
   <div
     class="ec-multiple-values-selection__values"
   >
     <ul>
+      
       <li
         class="ec-multiple-values-selection__value-wrapper"
         data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -150,27 +147,26 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
             id="ec-checkbox-1"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-1"
               title="Success"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -178,17 +174,16 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
                     xlink:href="#ec-rounded-check"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Success
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -205,27 +200,26 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
             id="ec-checkbox-2"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-2"
               title="Name two"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -233,17 +227,16 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
                     xlink:href="#ec-rounded-partial"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Name two
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -260,27 +253,26 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
             id="ec-checkbox-3"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-3"
               title="Cancelled"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                  class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -288,21 +280,22 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
                     xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Cancelled
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
+      
     </ul>
   </div>
+  
 </div>
 `;
 
@@ -315,7 +308,7 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
     class="ec-multiple-values-selection__search-area"
   >
     <svg
-      class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+      class="ec-icon ec-icon--interactive ec-multiple-values-selection__search-icon"
       data-test="ec-multiple-values-selection__search-icon"
       height="20"
       width="20"
@@ -324,7 +317,6 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
         xlink:href="#ec-simple-search"
       />
     </svg>
-     
     <input
       autocomplete="off"
       class="ec-multiple-values-selection__search-input"
@@ -333,13 +325,13 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
       type="text"
     />
   </div>
-   
-  <!---->
-   
+  
+  <!--v-if-->
   <div
     class="ec-multiple-values-selection__values"
   >
     <ul>
+      
       <li
         class="ec-multiple-values-selection__value-wrapper"
         data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -354,27 +346,26 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
             id="ec-checkbox-1"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-1"
               title="Success"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -382,17 +373,16 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
                     xlink:href="#ec-rounded-check"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Success
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -409,27 +399,26 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
             id="ec-checkbox-2"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-2"
               title="Name two"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -437,17 +426,16 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
                     xlink:href="#ec-rounded-partial"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Name two
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -464,27 +452,26 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
             id="ec-checkbox-3"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-3"
               title="Cancelled"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                  class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -492,21 +479,22 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
                     xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Cancelled
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
+      
     </ul>
   </div>
+  
 </div>
 `;
 
@@ -525,14 +513,14 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  
+  <!--v-if-->
   <div
     class="ec-multiple-values-selection__values"
   >
     <ul>
+      
       <li
         class="ec-multiple-values-selection__value-wrapper"
         data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -547,27 +535,26 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
             id="ec-checkbox-1"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-1"
               title="Success"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -575,17 +562,16 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
                     xlink:href="#ec-rounded-check"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Success
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -602,27 +588,26 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
             id="ec-checkbox-2"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-2"
               title="Name two"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -630,17 +615,16 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
                     xlink:href="#ec-rounded-partial"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Name two
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -657,27 +641,26 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
             id="ec-checkbox-3"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-3"
               title="Cancelled"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                  class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -685,21 +668,22 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
                     xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Cancelled
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
+      
     </ul>
   </div>
+  
 </div>
 `;
 
@@ -708,13 +692,12 @@ exports[`EcMultipleValuesSelection should render loading state 1`] = `
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-multiple-values-selection__loading"
   >
     <svg
-      class="ec-loading-icon ec-icon"
+      class="ec-icon ec-loading-icon"
       data-test="ec-loading-icon"
       height="32"
       width="32"
@@ -732,13 +715,12 @@ exports[`EcMultipleValuesSelection should set the empty state icon 1`] = `
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-multiple-values-selection__no-results-wrapper"
   >
     <svg
-      class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+      class="ec-icon ec-icon--info ec-multiple-values-selection__no-results-icon"
       data-test="ec-multiple-values-selection__no-results-icon"
       height="32"
       width="32"
@@ -747,7 +729,6 @@ exports[`EcMultipleValuesSelection should set the empty state icon 1`] = `
         xlink:href="#ec-simple-check"
       />
     </svg>
-     
     <span
       class="ec-multiple-values-selection__no-results-message"
     >
@@ -762,13 +743,12 @@ exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-multiple-values-selection__no-results-wrapper"
   >
     <svg
-      class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+      class="ec-icon ec-icon--info ec-multiple-values-selection__no-results-icon"
       data-test="ec-multiple-values-selection__no-results-icon"
       height="32"
       width="32"
@@ -777,7 +757,6 @@ exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
         xlink:href="#ec-simple-error"
       />
     </svg>
-     
     <span
       class="ec-multiple-values-selection__no-results-message"
     >
@@ -792,13 +771,12 @@ exports[`EcMultipleValuesSelection should set the error icon 1`] = `
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-multiple-values-selection__error-wrapper"
   >
     <svg
-      class="ec-multiple-values-selection__error-icon ec-icon ec-icon--error"
+      class="ec-icon ec-icon--error ec-multiple-values-selection__error-icon"
       data-test="ec-multiple-values-selection__error-icon"
       height="32"
       width="32"
@@ -807,7 +785,6 @@ exports[`EcMultipleValuesSelection should set the error icon 1`] = `
         xlink:href="#ec-simple-check"
       />
     </svg>
-     
     <span
       class="ec-multiple-values-selection__error-message"
     >
@@ -822,13 +799,12 @@ exports[`EcMultipleValuesSelection should set the error message 1`] = `
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-multiple-values-selection__error-wrapper"
   >
     <svg
-      class="ec-multiple-values-selection__error-icon ec-icon ec-icon--error"
+      class="ec-icon ec-icon--error ec-multiple-values-selection__error-icon"
       data-test="ec-multiple-values-selection__error-icon"
       height="32"
       width="32"
@@ -837,7 +813,6 @@ exports[`EcMultipleValuesSelection should set the error message 1`] = `
         xlink:href="#ec-simple-error"
       />
     </svg>
-     
     <span
       class="ec-multiple-values-selection__error-message"
     >
@@ -852,8 +827,8 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <!---->
-   
+  <!--v-if-->
+  
   <div
     class="ec-multiple-values-selection__select-all"
   >
@@ -867,7 +842,6 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         id="ec-checkbox-1"
         type="checkbox"
       />
-       
       <div
         class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
       >
@@ -875,7 +849,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
         >
           <svg
-            class="ec-checkbox__check-icon ec-icon"
+            class="ec-icon ec-checkbox__check-icon"
             height="16"
             width="16"
           >
@@ -884,25 +858,25 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
             />
           </svg>
         </span>
-         
         <label
           class="ec-checkbox__label ec-checkbox__label--is-single-line"
           data-test="ec-checkbox__label"
           for="ec-checkbox-1"
           title="Select all"
         >
+          
           Select all
+          
         </label>
       </div>
-       
-      <!---->
+      <!--v-if-->
     </div>
   </div>
-   
   <div
     class="ec-multiple-values-selection__values"
   >
     <ul>
+      
       <li
         class="ec-multiple-values-selection__value-wrapper"
         data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
@@ -917,7 +891,6 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
             id="ec-checkbox-2"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
@@ -925,7 +898,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
               class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
             >
               <svg
-                class="ec-checkbox__check-icon ec-icon"
+                class="ec-icon ec-checkbox__check-icon"
                 height="16"
                 width="16"
               >
@@ -934,18 +907,18 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                 />
               </svg>
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-2"
               title="Success"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -953,17 +926,16 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                     xlink:href="#ec-rounded-check"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Success
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -980,7 +952,6 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
             id="ec-checkbox-3"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
@@ -988,7 +959,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
               class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
             >
               <svg
-                class="ec-checkbox__check-icon ec-icon"
+                class="ec-icon ec-checkbox__check-icon"
                 height="16"
                 width="16"
               >
@@ -997,18 +968,18 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                 />
               </svg>
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-3"
               title="Name two"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -1016,17 +987,16 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                     xlink:href="#ec-rounded-partial"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Name two
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -1043,7 +1013,6 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
             id="ec-checkbox-4"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
@@ -1051,7 +1020,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
               class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
             >
               <svg
-                class="ec-checkbox__check-icon ec-icon"
+                class="ec-icon ec-checkbox__check-icon"
                 height="16"
                 width="16"
               >
@@ -1060,18 +1029,18 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                 />
               </svg>
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-4"
               title="Cancelled"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                  class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -1079,21 +1048,22 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                     xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Cancelled
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
+      
     </ul>
   </div>
+  
 </div>
 `;
 
@@ -1102,8 +1072,8 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
 >
-  <!---->
-   
+  <!--v-if-->
+  
   <div
     class="ec-multiple-values-selection__select-all"
   >
@@ -1117,34 +1087,33 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
         id="ec-checkbox-1"
         type="checkbox"
       />
-       
       <div
         class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
       >
         <span
           class="ec-checkbox__check-icon-wrapper"
         >
-          <!---->
+          <!--v-if-->
         </span>
-         
         <label
           class="ec-checkbox__label ec-checkbox__label--is-single-line"
           data-test="ec-checkbox__label"
           for="ec-checkbox-1"
           title="Select all"
         >
+          
           Select all
+          
         </label>
       </div>
-       
-      <!---->
+      <!--v-if-->
     </div>
   </div>
-   
   <div
     class="ec-multiple-values-selection__values"
   >
     <ul>
+      
       <li
         class="ec-multiple-values-selection__value-wrapper"
         data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1159,27 +1128,26 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
             id="ec-checkbox-2"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-2"
               title="Success"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -1187,17 +1155,16 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                     xlink:href="#ec-rounded-check"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Success
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -1214,27 +1181,26 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
             id="ec-checkbox-3"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-3"
               title="Name two"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                  class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -1242,17 +1208,16 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                     xlink:href="#ec-rounded-partial"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Name two
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
       <li
@@ -1269,27 +1234,26 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
             id="ec-checkbox-4"
             type="checkbox"
           />
-           
           <div
             class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
             >
-              <!---->
+              <!--v-if-->
             </span>
-             
             <label
               class="ec-checkbox__label ec-checkbox__label--is-single-line"
               data-test="ec-checkbox__label"
               for="ec-checkbox-4"
               title="Cancelled"
             >
+              
               <div
                 class="ec-multiple-values-selection__label-wrapper"
               >
                 <svg
-                  class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                  class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
                   height="24"
                   width="24"
                 >
@@ -1297,20 +1261,21 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
                     xlink:href="#ec-rounded-cancelled"
                   />
                 </svg>
-                 
                 <span
                   class="ec-multiple-values-selection__label-text"
                 >
                   Cancelled
                 </span>
               </div>
+              
             </label>
           </div>
-           
-          <!---->
+          <!--v-if-->
         </div>
       </li>
+      
     </ul>
   </div>
+  
 </div>
 `;

@@ -1,7 +1,13 @@
-import Vue from 'vue';
 import copyToClipboard from 'clipboard-copy';
-import EcIcon from './ec-icon.vue';
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  ref,
+} from 'vue';
+
 import { loadSvgSprites } from '../../icons/loader';
+import EcIcon from './ec-icon.vue';
 
 export default {
   title: 'Icon',
@@ -25,13 +31,13 @@ function readIconNamesFromSprite(svg) {
   return symbols.map(symbol => symbol.id.trim().replace(/^ec-/, ''));
 }
 
-const EcIconsGrid = Vue.extend({
+const EcIconsGrid = defineComponent({
   components: { EcIcon },
   props: ['icons', 'size', 'type', 'color', 'borderRadius'],
-  methods: {
-    copy(iconName) {
-      copyToClipboard(iconName);
-    },
+  setup() {
+    return {
+      copy: copyToClipboard,
+    };
   },
   template: `
     <div class="tw-flex tw-flex-wrap" :style="{ fill: color }">
@@ -42,12 +48,14 @@ const EcIconsGrid = Vue.extend({
   `,
 });
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcIcon },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args };
+  },
   template: `
     <div class="tw-p-24 tw-flex">
-      <ec-icon v-bind="$props" class="tw-m-auto" />
+      <ec-icon v-bind="args" class="tw-m-auto" />
     </div>
   `,
 });
@@ -63,9 +71,45 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const allIcons = (args, { argTypes }) => ({
+export const allIcons = args => ({
   components: { EcIcon, EcIconsGrid },
-  props: Object.keys(argTypes),
+  setup() {
+    const isLoading = ref(true);
+    const iconFilter = ref('');
+    const roundedIcons = ref([]);
+    const simpleIcons = ref([]);
+
+    function filterBy(arr, filterText) {
+      return filterText
+        ? arr.filter(item => item.toLowerCase().includes(filterText.toLowerCase()))
+        : arr;
+    }
+
+    const filteredRoundedIcons = computed(() => filterBy(roundedIcons.value, iconFilter.value));
+    const filteredSimpleIcons = computed(() => filterBy(simpleIcons.value, iconFilter.value));
+    const hasRoundedIcons = computed(() => filteredRoundedIcons.value.length > 0);
+    const hasSimpleIcons = computed(() => filteredSimpleIcons.value.length > 0);
+    const hasIcons = computed(() => hasRoundedIcons.value || hasSimpleIcons.value);
+
+    onMounted(async () => {
+      const [roundedSvgSprite, simpleSvgSprite] = await Promise.all(loadSvgSprites(['rounded-icons', 'simple-icons'], '/img'));
+      roundedIcons.value = readIconNamesFromSprite(roundedSvgSprite.svg).sort();
+      simpleIcons.value = readIconNamesFromSprite(simpleSvgSprite.svg).sort();
+
+      isLoading.value = false;
+    });
+
+    return {
+      args,
+      isLoading,
+      iconFilter,
+      filteredRoundedIcons,
+      filteredSimpleIcons,
+      hasRoundedIcons,
+      hasSimpleIcons,
+      hasIcons,
+    };
+  },
   template: `
     <div class="tw-p-32 tw-text-center" v-if="isLoading">
       Loading icons...
@@ -81,12 +125,12 @@ export const allIcons = (args, { argTypes }) => ({
       <div class="search-results">
         <template v-if="hasRoundedIcons">
           <h2>Rounded icons</h2>
-          <ec-icons-grid :icons="filteredRoundedIcons" v-bind="$props" />
+          <ec-icons-grid :icons="filteredRoundedIcons" v-bind="args" />
         </template>
 
         <template v-if="hasSimpleIcons">
           <h2>Simple icons</h2>
-          <ec-icons-grid :icons="filteredSimpleIcons" v-bind="$props" />
+          <ec-icons-grid :icons="filteredSimpleIcons" v-bind="args" />
         </template>
 
         <template v-if="!hasIcons">
@@ -95,47 +139,6 @@ export const allIcons = (args, { argTypes }) => ({
       </div>
     </div>
   `,
-  methods: {
-    filterBy(arr, filterBy) {
-      return filterBy
-        ? arr.filter(item => item.toLowerCase().includes(filterBy.toLowerCase()))
-        : arr;
-    },
-  },
-  async created() {
-    this.isLoading = true;
-
-    const [roundedSvgSprite, simpleSvgSprite] = await Promise.all(loadSvgSprites(['rounded-icons', 'simple-icons'], '/img'));
-    this.roundedIcons = readIconNamesFromSprite(roundedSvgSprite.svg).sort();
-    this.simpleIcons = readIconNamesFromSprite(simpleSvgSprite.svg).sort();
-
-    this.isLoading = false;
-  },
-  computed: {
-    filteredRoundedIcons() {
-      return this.filterBy(this.roundedIcons, this.iconFilter);
-    },
-    filteredSimpleIcons() {
-      return this.filterBy(this.simpleIcons, this.iconFilter);
-    },
-    hasRoundedIcons() {
-      return this.filteredRoundedIcons.length > 0;
-    },
-    hasSimpleIcons() {
-      return this.filteredSimpleIcons.length > 0;
-    },
-    hasIcons() {
-      return this.hasRoundedIcons || this.hasSimpleIcons;
-    },
-  },
-  data() {
-    return {
-      isLoading: true,
-      iconFilter: '',
-      roundedIcons: [],
-      simpleIcons: [],
-    };
-  },
 });
 
 allIcons.argTypes = {
@@ -167,9 +170,39 @@ allIcons.parameters = {
   },
 };
 
-export const allFlags = (args, { argTypes }) => ({
+export const allFlags = args => ({
   components: { EcIcon, EcIconsGrid },
-  props: Object.keys(argTypes),
+  setup() {
+    const isLoading = ref(true);
+    const flagFilter = ref('');
+    const currencyFlags = ref([]);
+
+    function filterBy(arr, filterText) {
+      return filterText
+        ? arr.filter(item => item.toLowerCase().includes(filterText.toLowerCase()))
+        : arr;
+    }
+
+    const filteredCurrencyFlags = computed(() => filterBy(currencyFlags.value, flagFilter.value));
+    const hasCurrencyFlags = computed(() => filteredCurrencyFlags.value.length > 0);
+    const hasIcons = computed(() => hasCurrencyFlags.value);
+
+    onMounted(async () => {
+      const [currencyFlagsSprite] = await Promise.all(loadSvgSprites(['currency-flags'], '/img'));
+      currencyFlags.value = readIconNamesFromSprite(currencyFlagsSprite.svg).sort();
+
+      isLoading.value = false;
+    });
+
+    return {
+      args,
+      isLoading,
+      flagFilter,
+      filteredCurrencyFlags,
+      hasCurrencyFlags,
+      hasIcons,
+    };
+  },
   template: `
     <div class="tw-p-32 tw-text-center" v-if="isLoading">
       Loading icons...
@@ -186,7 +219,7 @@ export const allFlags = (args, { argTypes }) => ({
 
         <template v-if="hasCurrencyFlags">
           <h2>Currency</h2>
-          <ec-icons-grid :icons="filteredCurrencyFlags" v-bind="$props" />
+          <ec-icons-grid :icons="filteredCurrencyFlags" v-bind="args" />
         </template>
 
         <template v-if="!hasIcons">
@@ -195,39 +228,6 @@ export const allFlags = (args, { argTypes }) => ({
       </div>
     </div>
   `,
-  methods: {
-    filterBy(arr, filterBy) {
-      return filterBy
-        ? arr.filter(item => item.toLowerCase().includes(filterBy.toLowerCase()))
-        : arr;
-    },
-  },
-  async created() {
-    this.isLoading = true;
-
-    const [currencyFlagsSprite] = await Promise.all(loadSvgSprites(['currency-flags'], '/img'));
-    this.currencyFlags = readIconNamesFromSprite(currencyFlagsSprite.svg).sort();
-
-    this.isLoading = false;
-  },
-  computed: {
-    filteredCurrencyFlags() {
-      return this.filterBy(this.currencyFlags, this.flagFilter);
-    },
-    hasCurrencyFlags() {
-      return this.filteredCurrencyFlags.length > 0;
-    },
-    hasIcons() {
-      return this.hasCurrencyFlags;
-    },
-  },
-  data() {
-    return {
-      isLoading: true,
-      flagFilter: '',
-      currencyFlags: [],
-    };
-  },
 });
 
 allFlags.argTypes = {
@@ -256,9 +256,11 @@ allFlags.parameters = {
   },
 };
 
-export const withinAText = (args, { argTypes }) => ({
+export const withinAText = args => ({
   components: { EcIcon },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args };
+  },
   template: `
     <div class="tw-p-8">
       <p>
@@ -276,3 +278,8 @@ export const withinAText = (args, { argTypes }) => ({
     </div>
   `,
 });
+
+withinAText.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
+};

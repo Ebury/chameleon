@@ -1,6 +1,7 @@
-import { mount } from '@vue/test-utils';
-import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
+import { flushPromises, mount } from '@vue/test-utils';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
 
 const items = [{
   value: 'success',
@@ -27,7 +28,7 @@ const items = [{
 
 function mountEcSyncMultipleValuesFilter(props, mountOpts) {
   return mount(EcSyncMultipleValuesFilter, {
-    propsData: {
+    props: {
       label: 'Status',
       ...props,
     },
@@ -42,45 +43,39 @@ describe('EcSyncMultipleValuesFilter', () => {
   });
 
   it('should throw an error if no prop label is given', () => {
-    withMockedConsole((errorSpy) => {
-      mountEcSyncMultipleValuesFilter({}, { propsData: {} });
-      expect(errorSpy).toHaveBeenCalledTimes(2);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
-      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "items"');
+    withMockedConsole((errorSpy, warnSpy) => {
+      mountEcSyncMultipleValuesFilter({}, { props: {} });
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "items"');
     });
   });
 
   it('should update the number of items selected in numberOfSelectedFilters', () => {
     const wrapper = mountEcSyncMultipleValuesFilter({
-      value: [items[0]], items,
+      modelValue: [items[0]], items,
     });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should emit change event when filter is clicked', async () => {
+  it('should emit update:modelValue and change events when filter is clicked', async () => {
     const wrapper = mountEcSyncMultipleValuesFilter({
       items,
     });
 
-    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-0').findByDataTest('ec-checkbox__label').trigger('click');
-    expect(wrapper.emitted('change')).toEqual([
-      [
-        [items[0]],
-      ],
-    ]);
+    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-0').findByDataTest('ec-checkbox__input').setValue(true);
+    expect(wrapper.emitted('update:modelValue')).toEqual([[[items[0]]]]);
+    expect(wrapper.emitted('change')).toEqual([[[items[0]]]]);
   });
 
-  it('should emit change event when filter is clicked while there are preselected filters', async () => {
+  it('should emit update:modelValue event when filter is clicked while there are preselected filters', async () => {
     const wrapper = mountEcSyncMultipleValuesFilter({
-      value: [items[0]], items,
+      modelValue: [items[0]], items,
     });
 
-    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-1').findByDataTest('ec-checkbox__label').trigger('click');
-    expect(wrapper.emitted('change')).toEqual([
-      [
-        [items[0], items[1]],
-      ],
-    ]);
+    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select-1').findByDataTest('ec-checkbox__input').setValue(true);
+    expect(wrapper.emitted('update:modelValue')).toEqual([[[items[0], items[1]]]]);
+    expect(wrapper.emitted('change')).toEqual([[[items[0], items[1]]]]);
   });
 
   it('should display loading state properly', () => {
@@ -172,7 +167,7 @@ describe('EcSyncMultipleValuesFilter', () => {
     const wrapper = mountEcSyncMultipleValuesFilter({
       items,
       isSearchable: true,
-      value: [items[0], items[1]],
+      modelValue: [items[0], items[1]],
     });
 
     await wrapper.findByDataTest('ec-multiple-values-selection__search-input').setValue('abcd');
@@ -225,12 +220,12 @@ describe('EcSyncMultipleValuesFilter', () => {
     });
 
     document.activeElement.blur();
-    await wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
 
-    await wrapper.vm.$nextTick();
+    await wrapper.findComponent({ name: 'EcPopoverStub' }).vm.$emit('apply-show');
+    await flushPromises();
 
     expect(document.activeElement).toBe(wrapper.findByDataTest('ec-multiple-values-selection__search-input').element);
 
-    wrapper.destroy();
+    wrapper.unmount();
   });
 });

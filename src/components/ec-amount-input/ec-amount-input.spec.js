@@ -1,11 +1,13 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import EcAmountInput from './ec-amount-input.vue';
 
 describe('EcAmountInput', () => {
   function mountAmountInput(props, mountOpts) {
     return mount(EcAmountInput, {
-      propsData: {
-        value: 0,
+      props: {
+        modelValue: 0,
         ...props,
       },
       ...mountOpts,
@@ -13,16 +15,13 @@ describe('EcAmountInput', () => {
   }
 
   function mountAmountInputAsTemplate(template, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcAmountInput },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
       ...mountOpts,
     });
   }
@@ -114,7 +113,8 @@ describe('EcAmountInput', () => {
 
   it('should format the number for currency without decimals', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" locale="en" currency="JPY" />', {
+      '<ec-amount-input v-model="valueAmount" locale="en" currency="JPY" />',
+      {
         data() {
           return {
             valueAmount: null,
@@ -129,7 +129,8 @@ describe('EcAmountInput', () => {
 
   it('should remove existing decimals if currency changes to one without decimals', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" locale="en" :currency="currency" />', {
+      '<ec-amount-input v-model="valueAmount" locale="en" :currency="currency" />',
+      {
         data() {
           return {
             currency: 'GBP',
@@ -155,7 +156,8 @@ describe('EcAmountInput', () => {
 
   it('should allow typing only a negative sign into input when there is v-model', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" locale="en" />', {
+      '<ec-amount-input v-model="valueAmount" locale="en" />',
+      {
         data() {
           return {
             valueAmount: null,
@@ -171,7 +173,8 @@ describe('EcAmountInput', () => {
 
   it('should allow typing only a negative sign into masked input when there is v-model', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" is-masked locale="en" />', {
+      '<ec-amount-input v-model="valueAmount" is-masked locale="en" />',
+      {
         data() {
           return {
             valueAmount: null,
@@ -180,15 +183,15 @@ describe('EcAmountInput', () => {
       },
     );
 
-    wrapper.findByDataTest('ec-amount-input').setValue('-');
-    await wrapper.vm.$nextTick();
+    await wrapper.findByDataTest('ec-amount-input').setValue('-');
     expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('-');
     expect(wrapper.vm.valueAmount).toBe('-');
   });
 
   it('should allow to reset the value from the v-model', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" locale="en" />', {
+      '<ec-amount-input v-model="valueAmount" locale="en" />',
+      {
         data() {
           return {
             valueAmount: null,
@@ -211,7 +214,8 @@ describe('EcAmountInput', () => {
 
   it('should allow to reset the value from the v-model when masked', async () => {
     const wrapper = mountAmountInputAsTemplate(
-      '<ec-amount-input v-model="valueAmount" is-masked locale="en" />', {
+      '<ec-amount-input v-model="valueAmount" is-masked locale="en" />',
+      {
         data() {
           return {
             valueAmount: null,
@@ -234,19 +238,19 @@ describe('EcAmountInput', () => {
 
   it('should ignore NaN values passed via value prop', () => {
     const wrapper = mountAmountInput({
-      value: NaN,
+      modelValue: NaN,
     });
     expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('');
   });
 
-  describe('@value-change event', () => {
+  describe('@update:modelValue event', () => {
     it('should format the value and emit the event to change the v-model on the parent', async () => {
       const wrapper = mountAmountInput();
       await wrapper.findByDataTest('ec-amount-input').setValue(222);
       expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('222');
 
       await wrapper.findByDataTest('ec-amount-input').setValue(1111.11);
-      expect(wrapper.emitted('value-change')).toEqual([
+      expect(wrapper.emitted('update:modelValue')).toEqual([
         [222],
         [1111.11],
       ]);
@@ -255,13 +259,13 @@ describe('EcAmountInput', () => {
     it('should not emit event if unmasked and the unformatted value is NaN (negative sign)', async () => {
       const wrapper = mountAmountInput();
       await wrapper.findByDataTest('ec-amount-input').setValue('-');
-      expect(wrapper.emitted('value-change')).toBeUndefined();
+      expect(wrapper.emitted('update:modelValue')).toBeUndefined();
     });
 
     it('should not emit event if unmasked and the unformatted value is NaN (decimals)', async () => {
       const wrapper = mountAmountInput();
       await wrapper.findByDataTest('ec-amount-input').setValue('.');
-      expect(wrapper.emitted('value-change')).toBeUndefined();
+      expect(wrapper.emitted('update:modelValue')).toBeUndefined();
     });
 
     it('should not emit event if unmasked and the unformatted value is not changing as user types', async () => {
@@ -275,7 +279,7 @@ describe('EcAmountInput', () => {
       await wrapper.findByDataTest('ec-amount-input').setValue('-1.011'); // invalid character - currency only supports 2 decimals
       await wrapper.findByDataTest('ec-amount-input').setValue('-1.02');
 
-      expect(wrapper.emitted('value-change')).toEqual([
+      expect(wrapper.emitted('update:modelValue')).toEqual([
         [-1],
         [-1.01],
         [-1.02],
@@ -295,7 +299,7 @@ describe('EcAmountInput', () => {
       await wrapper.findByDataTest('ec-amount-input').setValue('-1.011'); // invalid character - currency only supports 2 decimals
       await wrapper.findByDataTest('ec-amount-input').setValue('-1.02');
 
-      expect(wrapper.emitted('value-change')).toEqual([
+      expect(wrapper.emitted('update:modelValue')).toEqual([
         ['-'],
         ['-1'],
         ['-1.'],

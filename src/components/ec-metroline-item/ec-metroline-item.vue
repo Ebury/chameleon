@@ -104,8 +104,8 @@
 </template>
 
 <script>
-import EcIcon from '../ec-icon';
 import * as MetrolineItemStatus from '../../enums/metroline-item-status';
+import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcMetrolineItem',
@@ -151,7 +151,7 @@ export default {
   created() {
     this.metroline.register(this.id);
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.metroline.unregister(this.id);
   },
   methods: {

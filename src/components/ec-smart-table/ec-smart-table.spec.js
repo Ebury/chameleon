@@ -1,8 +1,9 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { flushPromises, mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
 import * as SortDirection from '../../enums/sort-direction';
-import EcSmartTable from './ec-smart-table.vue';
 import withFilters from '../../hocs/ec-with-filters';
-import flushPromises from '../../../tests/utils/flush-promises';
+import EcSmartTable from './ec-smart-table.vue';
 
 describe('EcSmartTable', () => {
   const columns = [
@@ -36,7 +37,7 @@ describe('EcSmartTable', () => {
 
   function mountEcSmartTable(props, mountOpts) {
     return mount(EcSmartTable, {
-      propsData: { dataSource, ...props },
+      props: { dataSource, ...props },
       ...mountOpts,
     });
   }
@@ -47,7 +48,6 @@ describe('EcSmartTable', () => {
     };
     const wrapper = mountEcSmartTable({ ...props, dataSource: resolvedDataSource }, mountOpts);
     await flushPromises();
-    wrapper.vm.$forceUpdate();
     return wrapper;
   }
 
@@ -57,7 +57,6 @@ describe('EcSmartTable', () => {
     };
     const wrapper = mountEcSmartTable({ ...props, dataSource: rejectedDataSource }, mountOpts);
     await flushPromises();
-    wrapper.vm.$forceUpdate();
     return wrapper;
   }
 
@@ -89,8 +88,10 @@ describe('EcSmartTable', () => {
   describe('#slots', () => {
     it('should render in loading state by default with the header-actions slot with props', () => {
       const wrapper = mountEcSmartTable({ columns }, {
-        scopedSlots: {
-          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+        slots: {
+          'header-actions': ({
+            total, items, error, loading,
+          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -98,8 +99,10 @@ describe('EcSmartTable', () => {
 
     it('should render resolved data properly with the header-actions slot with props', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(data, { columns }, {
-        scopedSlots: {
-          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+        slots: {
+          'header-actions': ({
+            total, items, error, loading,
+          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -107,8 +110,8 @@ describe('EcSmartTable', () => {
 
     it('should render empty data with custom template', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns }, {
-        scopedSlots: {
-          empty: '<div>Custom template - {{ props.emptyMessage }}</div>',
+        slots: {
+          empty: ({ emptyMessage }) => h('div', `Custom template - ${emptyMessage}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -116,8 +119,8 @@ describe('EcSmartTable', () => {
 
     it('should render empty data with custom template and custom emptyMessage prop', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns, emptyMessage: 'No data' }, {
-        scopedSlots: {
-          empty: '<div>Custom template - {{ props.emptyMessage }}</div>',
+        slots: {
+          empty: ({ emptyMessage }) => h('div', `Custom template - ${emptyMessage}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -125,7 +128,7 @@ describe('EcSmartTable', () => {
 
     it('should render empty data with header-actions slot', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns }, {
-        scopedSlots: {
+        slots: {
           'header-actions': '<div>Header Actions</div>',
         },
       });
@@ -134,8 +137,10 @@ describe('EcSmartTable', () => {
 
     it('should render empty data with header-actions slot with props', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns }, {
-        scopedSlots: {
-          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+        slots: {
+          'header-actions': ({
+            total, items, error, loading,
+          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -143,9 +148,11 @@ describe('EcSmartTable', () => {
 
     it('should render empty data with custom template, custom emptyMessage prop and header-actions slot with props', async () => {
       const wrapper = await mountEcSmartTableWithResolvedData(emptyData, { columns, emptyMessage: 'No data' }, {
-        scopedSlots: {
-          empty: '<div>Custom template - {{ props.emptyMessage }}</div>',
-          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+        slots: {
+          empty: ({ emptyMessage }) => h('div', `Custom template - ${emptyMessage}`),
+          'header-actions': ({
+            total, items, error, loading,
+          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -153,8 +160,8 @@ describe('EcSmartTable', () => {
 
     it('should render error with custom template', async () => {
       const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'), { columns }, {
-        scopedSlots: {
-          error: '<div>Custom template - {{ props.errorMessage }}</div>',
+        slots: {
+          error: ({ errorMessage }) => h('div', `Custom template - ${errorMessage}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -162,8 +169,8 @@ describe('EcSmartTable', () => {
 
     it('should render error with custom template and custom errorMessage prop', async () => {
       const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'), { columns, errorMessage: 'Unexpected error' }, {
-        scopedSlots: {
-          error: '<div>Custom template - {{ props.errorMessage }}</div>',
+        slots: {
+          error: ({ errorMessage }) => h('div', `Custom template - ${errorMessage}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -171,19 +178,29 @@ describe('EcSmartTable', () => {
 
     it('should render error with custom template, custom errorMessage prop and header-actions slot with props', async () => {
       const wrapper = await mountEcSmartTableWithRejectedData(new Error('Random error'), { columns, errorMessage: 'Unexpected error' }, {
-        scopedSlots: {
-          error: '<div>Custom template - {{ props.errorMessage }}</div>',
-          'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+        slots: {
+          error: ({ errorMessage }) => h('div', `Custom template - ${errorMessage}`),
+          'header-actions': ({
+            total, items, error, loading,
+          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should pass ec-table slots', async () => {
+      const wrapper = await mountEcSmartTableWithResolvedData(data, { columns }, {
+        slots: {
+          col1: props => h('div', `Cell data: ${JSON.stringify(props)}`),
+        },
+      });
+      expect(wrapper.findByDataTest('ec-table__row--0').element).toMatchSnapshot();
     });
   });
 
   describe('sorting', () => {
     async function sortColumnByIndex(wrapper, index) {
-      wrapper.findByDataTest(`ec-table-head__cell--${index}`).findByDataTest('ec-table-sort__icon').trigger('click');
-      await wrapper.vm.$nextTick();
+      await wrapper.findByDataTest(`ec-table-head__cell--${index}`).findByDataTest('ec-table-sort__icon').trigger('click');
     }
 
     it('should render sortable columns', async () => {
@@ -276,7 +293,7 @@ describe('EcSmartTable', () => {
       await wrapper.findByDataTest('ec-table-pagination__action--next').trigger('click');
       expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading new page');
       await flushPromises();
-      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading new page');
+      expect(wrapper.findByDataTest('ec-loading__icon').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after loading new page');
     });
 
@@ -292,7 +309,7 @@ describe('EcSmartTable', () => {
       await wrapper.findByDataTest('ec-table-pagination__action--prev').trigger('click'); // go to the first page
       expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading new page');
       await flushPromises();
-      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading new page');
+      expect(wrapper.findByDataTest('ec-loading__icon').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after loading new page');
     });
 
@@ -302,7 +319,7 @@ describe('EcSmartTable', () => {
       await wrapper.findByDataTest('ec-dropdown-search__item--2').trigger('click');
       expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading new page');
       await flushPromises();
-      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading new page');
+      expect(wrapper.findByDataTest('ec-loading__icon').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after loading new page');
     });
 
@@ -311,9 +328,9 @@ describe('EcSmartTable', () => {
         columns,
         isPaginationEnabled: false,
       }, {
-        scopedSlots: {
+        slots: {
           footer() {
-            return (<div>My custom footer</div>);
+            return h('div', 'My custom footer');
           },
         },
       });
@@ -326,9 +343,9 @@ describe('EcSmartTable', () => {
         columns,
         isPaginationEnabled: true,
       }, {
-        scopedSlots: {
+        slots: {
           footer() {
-            return (<div>My custom footer</div>);
+            return h('div', 'My custom footer');
           },
         },
       });
@@ -341,9 +358,9 @@ describe('EcSmartTable', () => {
         columns,
         isPaginationEnabled: true,
       }, {
-        scopedSlots: {
+        slots: {
           pages(slotProps) {
-            return (<div>Pages: { JSON.stringify(slotProps) }</div>);
+            return h('div', `Pages: ${JSON.stringify(slotProps)}`);
           },
         },
       });
@@ -353,19 +370,16 @@ describe('EcSmartTable', () => {
   });
 
   describe('filtering', () => {
-    const localVue = createLocalVue();
-
-    const TableFilter = localVue.extend({
+    const TableFilter = defineComponent({
       name: 'MyTableFilter',
-      props: ['filters', 'value'],
-      render() {
-        return (
-          <div data-test="my-table-filter">
-            <div># of filters: {this.filters.length}</div>
-            <div>value: {JSON.stringify(this.value)}</div>
-            <a data-test="my-table-filter__clear-button" onClick={() => this.$emit('change', {})}>Clear</a>
-          </div>);
-      },
+      props: ['filters', 'modelValue'],
+      template: `
+        <div data-test="my-table-filter">
+          <div># of filters: {{ filters.length }}</div>
+          <div>value: {{ modelValue }}</div>
+          <a data-test="my-table-filter__clear-button" @click="$emit('update:modelValue', {}); $emit('change', {})">Clear</a>
+        </div>
+      `,
     });
 
     const filters = [{ name: 'test1' }, { name: 'test2' }];
@@ -393,7 +407,7 @@ describe('EcSmartTable', () => {
 
       expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon while loading filtered data');
       await flushPromises();
-      expect(wrapper.findByDataTest('ec-loading__icon').element).toMatchSnapshot('loading icon after loading filtered data');
+      expect(wrapper.findByDataTest('ec-loading__icon').exists()).toBe(false);
     });
 
     it('should reset the page after changes in filters and reload the table data', async () => {

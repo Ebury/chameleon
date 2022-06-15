@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+
 import EcBtnDropdown from './ec-btn-dropdown.vue';
 
 export default {
@@ -6,18 +7,20 @@ export default {
   component: EcBtnDropdown,
 };
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = args => ({
   components: {
     EcBtnDropdown,
   },
-  methods: {
-    onClick: action('click'),
-    onChange: action('change'),
+  setup() {
+    return {
+      args,
+      onClick: action('click'),
+      onChange: action('change'),
+    };
   },
   template: `
     <div class="tw-m-24 tw-p-24 tw-flex tw-justify-center tw-bg-gray-2">
-      <ec-btn-dropdown v-bind="$props" v-on="{ click: onClick, change: onChange }" />
+      <ec-btn-dropdown v-bind="args" v-on="{ click: onClick, change: onChange }" />
     </div>
   `,
 });

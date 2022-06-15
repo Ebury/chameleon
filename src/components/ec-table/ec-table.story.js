@@ -1,8 +1,8 @@
 import { action } from '@storybook/addon-actions';
 
+import * as SortDirection from '../../enums/sort-direction';
 import EcIcon from '../ec-icon/ec-icon.vue';
 import EcTable from './ec-table.vue';
-import * as SortDirection from '../../enums/sort-direction';
 
 const columns = [
   {
@@ -75,16 +75,18 @@ export default {
   },
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcTable },
-  props: Object.keys(argTypes),
-  methods: {
-    onSort: action('sort'),
-    onRowClick: action('rowClick'),
+  setup() {
+    return {
+      args,
+      onSort: action('sort'),
+      onRowClick: action('rowClick'),
+    };
   },
   template: `
     <div class="tw-p-24">
-      <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }" />
+      <ec-table v-bind="args" v-on="{ sort: onSort, 'row-click': onRowClick }" />
     </div>
   `,
 });
@@ -103,32 +105,30 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = (args, { argTypes }) => ({
+export const all = args => ({
   components: { EcTable, EcIcon },
-  props: Object.keys(argTypes),
-  methods: {
-    onSort: action('sort'),
-    onRowClick: action('rowClick'),
+  setup() {
+    return {
+      args,
+      onSort: action('sort'),
+      onRowClick: action('rowClick'),
+    };
   },
   template: `
     <div class="tw-flex tw-flex-col">
       <h2 class="tw-m-24">Basic</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }" />
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'row-click': onRowClick }" />
         <p class="tw-mt-40"><em>NOTE:</em> Sorting in this example is not hooked into any functionality, because this is just a basic example. You can change the direction in the controls panel or if you want to see it working, checkout smart table story instead.</p>
       </div>
       <h2 class="tw-m-24">With custom column templates</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }">
-          <template
-            v-slot:col2="{ content, row }"
-          >
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'row-click': onRowClick }">
+          <template #col2="{ content, row }">
             <a href="#"><em><strong>{{ content }}</strong></em></a>
-            <div>This</br>is</br>a</br>very</br>tall</br>column</div>
+            <div>This<br/>is<br/>a<br/>very<br/>tall<br/>column</div>
           </template>
-          <template
-            v-slot:col4="{ content, row }"
-          >
+          <template #col4="{ content, row }">
             <small>This cell item has type of 'icon' so will be horizontally centered</small>
             <div>
               <ec-icon name="rounded-check" :size="24" />
@@ -138,7 +138,7 @@ export const all = (args, { argTypes }) => ({
       </div>
       <h2 class="tw-m-24">With footer slot</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }">
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'row-click': onRowClick }">
           <template #footer>
             <div class="tw-py-8">
               <a href="#">View all</a>
@@ -148,7 +148,7 @@ export const all = (args, { argTypes }) => ({
       </div>
       <h2 class="tw-m-24">With a fixed height and sticky column</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="$props" v-on="{ sort: onSort, 'row-click': onRowClick }" sticky-column="left"/>
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'row-click': onRowClick }" sticky-column="left"/>
       </div>
     </div>
   `,

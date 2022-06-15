@@ -1,6 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcCurrencyFilter from './ec-currency-filter.vue';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcCurrencyFilter from './ec-currency-filter.vue';
 
 const currencyItems = [{
   value: 'GBP',
@@ -33,7 +35,7 @@ const comparisonSymbolItems = [{
 describe('EcCurrencyFilter', () => {
   function mountEcCurrencyFilter(props, mountOpts) {
     return mount(EcCurrencyFilter, {
-      propsData: {
+      props: {
         label: 'Price',
         currencyItems,
         comparisonSymbolItems,
@@ -44,19 +46,14 @@ describe('EcCurrencyFilter', () => {
   }
 
   function mountEcCurrencyFilterAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcCurrencyFilter },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      propsData: {
-        ...props,
-      },
-      localVue,
+      props,
       ...mountOpts,
     });
   }
@@ -67,20 +64,20 @@ describe('EcCurrencyFilter', () => {
   });
 
   it('should throw an error if required props are not given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcCurrencyFilter({}, {
-        propsData: {},
+        props: {},
       });
-      expect(errorSpy).toHaveBeenCalledTimes(3);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
-      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "currencyItems"');
-      expect(errorSpy.mock.calls[2][0]).toContain('Missing required prop: "comparisonSymbolItems"');
+      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "currencyItems"');
+      expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "comparisonSymbolItems"');
     });
   });
 
   it('should preselect given filters from the value prop', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         currencies: [
           currencyItems[1],
           currencyItems[3],
@@ -97,7 +94,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should count every selected currency in numberOfSelectedFilters', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         currencies: [
           currencyItems[1],
           currencyItems[3],
@@ -110,7 +107,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should count the amount as 1 in numberOfSelectedFilters', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         amount: 1234,
         comparisonSymbol: comparisonSymbolItems[1],
       },
@@ -121,7 +118,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should count every selected currency and the amount together in numberOfSelectedFilters', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         currencies: [
           currencyItems[1],
           currencyItems[3],
@@ -162,7 +159,7 @@ describe('EcCurrencyFilter', () => {
       locale: 'es',
       isSensitive: true,
       errorMessage: 'Random validation error',
-      value: {
+      modelValue: {
         amount: 1234.56,
       },
     });
@@ -194,7 +191,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should disable clear amount button if the amount is empty', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         amount: null,
       },
     });
@@ -204,7 +201,7 @@ describe('EcCurrencyFilter', () => {
 
   it('should enable clear amount button if the amount is not empty', () => {
     const wrapper = mountEcCurrencyFilter({
-      value: {
+      modelValue: {
         amount: 1234,
       },
     });
@@ -305,12 +302,12 @@ describe('EcCurrencyFilter', () => {
         currencies: currencyItems,
       });
 
-      await selectAll(wrapper);
+      await deselectAll(wrapper);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot('after deselect all');
       expect(wrapper.vm.value).toEqual(null);
     });
 
-    it('should not update the v-model if a comparison symbol is selected until the amount is not empty', async () => {
+    it('should not update the v-model if a comparison symbol is selected until the amount is not empty', async () => { // MIG-TODO
       const wrapper = mountEcCurrencyFilterAsTemplate(
         '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
         {},
@@ -351,7 +348,7 @@ describe('EcCurrencyFilter', () => {
       });
     });
 
-    it('should update the v-model if the amount is cleared by the user', async () => {
+    it('should update the v-model if the amount is cleared by the user', async () => { // MIG-TODO
       const wrapper = mountEcCurrencyFilterAsTemplate(
         '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
         {},
@@ -417,15 +414,19 @@ describe('EcCurrencyFilter', () => {
 });
 
 async function selectCurrency(wrapper, index) {
-  await wrapper.findByDataTest(`ec-multiple-values-selection__checkbox-select-${index}`).findByDataTest('ec-checkbox__label').trigger('click');
+  await wrapper.findByDataTest(`ec-multiple-values-selection__checkbox-select-${index}`).findByDataTest('ec-checkbox__input').setValue(true);
 }
 
 async function deselectCurrency(wrapper, index) {
-  await wrapper.findByDataTest(`ec-multiple-values-selection__checkbox-deselect-${index}`).findByDataTest('ec-checkbox__label').trigger('click');
+  await wrapper.findByDataTest(`ec-multiple-values-selection__checkbox-deselect-${index}`).findByDataTest('ec-checkbox__input').setValue(false);
 }
 
 async function selectAll(wrapper) {
-  await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__label').trigger('click');
+  await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').setValue(true);
+}
+
+async function deselectAll(wrapper) {
+  await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').setValue(false);
 }
 
 async function selectTab(wrapper, index) {
@@ -441,6 +442,10 @@ async function selectComparisonSymbol(wrapper, index) {
 }
 
 async function setAmount(wrapper, amount) {
-  await wrapper.findByDataTest('ec-amount-input').setValue(amount);
+  // we can use:
+  // await wrapper.findByDataTest('ec-amount-input').setValue(amount);
+  // because there's ec-amount-input directive that should re-format the value first and then we can trigger the change event.
+  wrapper.findByDataTest('ec-amount-input').element.value = amount;
+  await wrapper.findByDataTest('ec-amount-input').trigger('input');
   await wrapper.findByDataTest('ec-amount-input').trigger('change');
 }

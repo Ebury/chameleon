@@ -1,25 +1,26 @@
 import { mount } from '@vue/test-utils';
-import EcIcon from './ec-icon.vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcIcon from './ec-icon.vue';
 
 describe('EcIcon', () => {
   function mountEcIcon(props, mountOpts) {
     return mount(EcIcon, {
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
 
   it('should throw if no props were given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcIcon();
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "name"');
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "name"');
     });
   });
 
   it('should render properly when a name was given', () => {
-    const wrapper = mount(EcIcon, { propsData: { name: 'random-icon' } });
+    const wrapper = mount(EcIcon, { props: { name: 'random-icon' } });
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -35,10 +36,35 @@ describe('EcIcon', () => {
   });
 
   it('should throw an error if type is not valid', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcIcon({ name: 'random-icon', type: 'invalid-value' });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
     });
+  });
+
+  it('should pass custom attributes', () => {
+    const wrapper = mountEcIcon({
+      name: 'random-icon',
+      id: 'my-icon',
+      'data-test': 'my-custom-icon',
+    });
+
+    expect(wrapper.attributes('id')).toBe('my-icon');
+    expect(wrapper.attributes('data-test')).toBe('my-custom-icon');
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should pass a custom event handler', () => {
+    const clickSpy = jest.fn();
+    const wrapper = mountEcIcon({
+      name: 'random-icon',
+      onClick: clickSpy,
+      'data-test': 'my-custom-icon',
+    });
+
+    wrapper.findByDataTest('my-custom-icon').trigger('click');
+    expect(clickSpy).toHaveBeenCalledTimes(1);
+    expect(wrapper.emitted('click').length).toBe(1);
   });
 });

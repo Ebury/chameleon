@@ -1,26 +1,32 @@
-import { createHOC, createRenderFn } from 'vue-hoc';
-import EcLoading from '../../components/ec-loading';
+import { h } from 'vue';
 
-const withLoading = (Component, options = {}, renderOptions = {}) => createHOC(Component, {
-  ...options,
+import EcLoading from '../../components/ec-loading';
+import { createHOC } from '../hoc';
+
+const withLoading = Component => createHOC(Component, {
   name: 'EcWithLoading',
-  functional: true,
+  compatConfig: {
+    MODE: 3,
+    INSTANCE_SCOPED_SLOTS: true,
+  },
   props: {
     isLoading: {},
     isLoadingTransparent: {},
     loadingIconSize: {},
-    ...options.props,
   },
-  render(h, context) {
-    const { props } = context;
+  render() {
     const {
       isLoading, isLoadingTransparent, loadingIconSize, ...componentProps
-    } = props;
-    return (
-      <EcLoading show={isLoading} transparent={isLoadingTransparent} size={loadingIconSize}>
-        {createRenderFn(Component, renderOptions).call(this, h, { ...context, props: componentProps })}
-      </EcLoading>
-    );
+    } = this.$props;
+
+    return h(EcLoading, {
+      show: isLoading,
+      transparent: isLoadingTransparent,
+      size: loadingIconSize,
+    }, h(Component, {
+      ...this.$attrs,
+      ...componentProps,
+    }, this.$scopedSlots));
   },
 });
 

@@ -1,27 +1,26 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcDropdownSearch from './ec-dropdown-search.vue';
+import { mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcDropdownSearch from './ec-dropdown-search.vue';
 
 describe('EcDropdownSearch', () => {
   function mountDropdownSearch(props, mountOpts) {
     return mount(EcDropdownSearch, {
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
 
   function mountAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcDropdownSearch },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -49,16 +48,16 @@ describe('EcDropdownSearch', () => {
     ['level-2', false],
     ['level-3', false],
     ['random', true],
-  ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
+  ])('should validate if the level prop("%s") is on the allowed array of strings', (level, error) => {
     if (error) {
-      withMockedConsole((errorSpy) => {
-        mountDropdownSearch({ items, level: str });
-        expect(errorSpy).toHaveBeenCalledTimes(1);
-        expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+      withMockedConsole((errorSpy, warnSpy) => {
+        mountDropdownSearch({ items, level });
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
       });
     } else {
-      const wrapper = mountDropdownSearch({ items, level: str });
-      expect(wrapper.findByDataTest('ec-popover-dropdown-search').attributes('level')).toBe(str);
+      const wrapper = mountDropdownSearch({ items, level });
+      expect(wrapper.findByDataTest('ec-popover-dropdown-search').attributes('level')).toBe(level);
     }
   });
 
@@ -76,8 +75,8 @@ describe('EcDropdownSearch', () => {
     const wrapper = mountDropdownSearch({
       items,
     }, {
-      scopedSlots: {
-        items: '<li>Items: <pre>{{ props }}</pre></li>',
+      slots: {
+        items: props => h('li', ['Items: ', h('pre', JSON.stringify(props, null, 2))]),
       },
     });
 
@@ -88,10 +87,8 @@ describe('EcDropdownSearch', () => {
     const wrapper = mountDropdownSearch({
       items,
     }, {
-      scopedSlots: {
-        item: `
-          <div><strong>{{ props.index }}.</strong>{{ props.item.text }}</div>
-        `,
+      slots: {
+        item: ({ index, item }) => h('div', [h('strong', `${index}.`), `${item.text}`]),
       },
     });
 
@@ -101,12 +98,10 @@ describe('EcDropdownSearch', () => {
   it('should pass information whether an item is selected to the item slot', () => {
     const wrapper = mountDropdownSearch({
       items,
-      selected: items[2],
+      modelValue: items[2],
     }, {
-      scopedSlots: {
-        item: `
-          <div>{{ props.index }} - {{ props.selected }}</div>
-        `,
+      slots: {
+        item: ({ index, isSelected }) => h('div', `${index} - ${isSelected}`),
       },
     });
 
@@ -117,7 +112,7 @@ describe('EcDropdownSearch', () => {
     const wrapper = mountDropdownSearch({
       items,
     }, {
-      scopedSlots: {
+      slots: {
         cta: '<button>My CTA</button>',
       },
     });
@@ -130,7 +125,7 @@ describe('EcDropdownSearch', () => {
       items,
       tooltipCta: 'Random tooltip',
     }, {
-      scopedSlots: {
+      slots: {
         cta: '<button>My CTA</button>',
       },
     });
@@ -155,7 +150,7 @@ describe('EcDropdownSearch', () => {
 
   it('should not render the search if isSearchEnabled is set to false', () => {
     const wrapper = mountDropdownSearch({ isSearchEnabled: false });
-    expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-dropdown-search__search-area').exists()).toBe(false);
   });
 
   it('should use the placeholder for search input if given', () => {
@@ -166,6 +161,16 @@ describe('EcDropdownSearch', () => {
   it('should disable the popover when disabled is set', () => {
     const wrapper = mountDropdownSearch({ disabled: true });
     expect(wrapper.findByDataTest('ec-popover-stub').element).toMatchSnapshot();
+  });
+
+  it('should render given popover style', () => {
+    const wrapper = mountDropdownSearch({ popoverStyle: { width: '1234px' } });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render given popover style when it is a function', () => {
+    const wrapper = mountDropdownSearch({ popoverStyle: () => ({ width: '1234px' }) });
+    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should use and update the v-model', async () => {
@@ -190,7 +195,7 @@ describe('EcDropdownSearch', () => {
 
     expect(wrapper.find('.ec-dropdown-search__item--is-selected').element).toMatchSnapshot();
     expect(changeSpy).not.toHaveBeenCalled();
-    await wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers[2].trigger('click');
+    await wrapper.findAllByDataTest('ec-dropdown-search__item')[2].trigger('click');
     expect(wrapper.find('.ec-dropdown-search__item--is-selected').element).toMatchSnapshot();
     expect(changeSpy).toHaveBeenCalledTimes(1);
     expect(changeSpy).toHaveBeenCalledWith(items[2]);
@@ -200,14 +205,14 @@ describe('EcDropdownSearch', () => {
   it('should not select disabled item', async () => {
     const wrapper = mountDropdownSearch({ items });
     expect(wrapper.emitted('change')).toBeUndefined();
-    expect(wrapper.find('.ec-dropdown-search__item--is-selected').element).toMatchSnapshot();
+    expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBe(false);
 
     const disabledItem = wrapper.find('.ec-dropdown-search__item--is-disabled');
     expect(disabledItem.exists()).toBe(true);
 
     await disabledItem.trigger('click');
     expect(wrapper.emitted('change')).toBeUndefined();
-    expect(wrapper.find('.ec-dropdown-search__item--is-selected').element).toMatchSnapshot();
+    expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBe(false);
   });
 
   it('should add a tooltip for any disabled item', () => {
@@ -276,7 +281,7 @@ describe('EcDropdownSearch', () => {
     ];
 
     function getItemTexts(wrapper) {
-      return wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers.map(itemWrapper => itemWrapper.text());
+      return wrapper.findAllByDataTest('ec-dropdown-search__item').map(itemWrapper => itemWrapper.text());
     }
 
     it('should filter items', async () => {
@@ -330,19 +335,19 @@ describe('EcDropdownSearch', () => {
         items: [],
         noResultsText: 'No custom items have been found',
       }, {
-        scopedSlots: {
-          empty: '<li class="my-slot"><div>Random message - {{ props.noResultsText }}</div></li>',
+        slots: {
+          empty: ({ noResultsText }) => h('li', { 'data-test': 'my-slot' }, [h('div', `Random message - ${noResultsText}`)]),
         },
       });
-      expect(wrapper.find('.my-slot').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('my-slot').element).toMatchSnapshot();
     });
 
     it('should not display the filter items if the isLoading prop is set to true', () => {
       const wrapper = mountDropdownSearch({ items: itemsToFilter, isLoading: true });
-      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(0);
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(0);
 
       wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('B');
-      expect(wrapper.findAll('.ec-dropdown-search__item').length).toBe(0);
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(0);
     });
   });
 
@@ -353,16 +358,16 @@ describe('EcDropdownSearch', () => {
     it('should propagate show and hide events from popover to the parent', () => {
       const wrapper = mountDropdownSearch();
 
-      wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
+      wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('show');
       expect(wrapper.emitted('open').length).toBe(1);
 
-      wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
+      wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('apply-show');
       expect(wrapper.emitted('after-open').length).toBe(1);
 
-      wrapper.findByDataTest('ec-popover-stub').vm.$emit('hide');
+      wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('hide');
       expect(wrapper.emitted('close').length).toBe(1);
 
-      wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-hide');
+      wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('apply-hide');
       expect(wrapper.emitted('after-close').length).toBe(1);
     });
 
@@ -375,18 +380,30 @@ describe('EcDropdownSearch', () => {
       });
 
       expect(document.activeElement).toBe(document.body);
-      await wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
-      await wrapper.findByDataTest('ec-popover-stub').vm.$emit('apply-show');
+      await wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('show');
+      await wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('apply-show');
+      await waitOnAfterOpenFocus();
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
     });
 
     it('should hide the popover after item has been selected', async () => {
       const wrapper = mountDropdownSearch({ items });
-      wrapper.findByDataTest('ec-popover-stub').vm.$emit('show');
-      await wrapper.findAllByDataTest('ec-dropdown-search__item').wrappers[1].trigger('click');
+      wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('show');
+      await wrapper.findAllByDataTest('ec-dropdown-search__item')[1].trigger('click');
 
       expect(wrapper.emitted('close').length).toBe(1);
     });
   });
 });
+
+async function waitOnAfterOpenFocus() {
+  // see the afterShow and its comment to understand why we do this to wait until the input gets focused:
+  await new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(resolve);
+      });
+    });
+  });
+}

@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcPanel from './ec-panel.vue';
 
@@ -10,27 +12,26 @@ export default {
   ],
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = ({
+  show, numberOfBodyParagraphs, numberOfPanelParagraphs, showHeader, showFooter, ...args
+}) => ({
   components: { EcPanel },
-  props: Object.keys(argTypes),
-  watch: {
-    show: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  data() {
+  setup() {
+    const model = ref(show);
     return {
-      model: true,
+      args,
+      model,
+      numberOfBodyParagraphs,
+      numberOfPanelParagraphs,
+      showHeader,
+      showFooter,
+      onBack: action('back'),
+      onClose: action('close'),
     };
   },
-  methods: {
-    onBack: action('back'),
-    onClose: action('close'),
-  },
   template: `
-    <div class="tw-bg-gray-7 tw-min-h-screen">
-      <div class="tw-max-w-screen-lg tw-my-0 tw-mx-auto tw-bg-gray-8 ec-panel-container tw-p-24">
+    <div class="tw-bg-gray-7 tw-min-h-screen ec-panel-container">
+      <div class="tw-max-w-screen-lg tw-my-0 tw-mx-auto tw-bg-gray-8 tw-p-24">
         <h1 class="tw-m-24">Panel story</h1>
 
         <div v-for="i in numberOfBodyParagraphs" class="tw-m-24">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore</div>
@@ -40,7 +41,7 @@ export const basic = (args, { argTypes }) => ({
             back: onBack,
             close: onClose,
           }"
-          v-model="model">
+          v-model:show="model">
           <template v-if="showHeader" #header>
             <h3 class="tw-mb-24">Header</h3>
 

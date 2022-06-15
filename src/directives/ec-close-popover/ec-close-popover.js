@@ -1,1 +1,1 @@
-export { VClosePopover as default } from 'v-tooltip';
+export { VClosePopper as default } from 'floating-vue';

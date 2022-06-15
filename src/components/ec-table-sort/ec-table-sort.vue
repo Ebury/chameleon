@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import EcIcon from '../ec-icon';
 import * as SortDirection from '../../enums/sort-direction';
+import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcTableSort',
@@ -39,6 +39,7 @@ export default {
       },
     },
   },
+  emits: ['sort'],
   computed: {
     icon() {
       if (this.isAsc || this.isDesc) {
@@ -71,7 +72,6 @@ export default {
 </script>
 
 <style>
-
 .ec-table-sort {
   @apply tw-select-none;
   @apply tw-cursor-pointer;

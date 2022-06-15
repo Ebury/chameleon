@@ -1,28 +1,14 @@
+const customElements = new Set(['ec-stub']);
+
 module.exports = {
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'json',
-    'vue',
-  ],
-  transform: {
-    '^.+\\.vue$': 'vue-jest',
-    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '^.+\\.jsx?$': 'babel-jest',
-  },
+  preset: '@vue/cli-plugin-unit-jest/presets/default',
+  errorOnDeprecated: true,
+  maxWorkers: '100%',
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
   ],
-  snapshotSerializers: [
-    'jest-serializer-vue',
-  ],
   testMatch: [
     '<rootDir>/src/**/*.spec.(js|jsx|ts|tsx)',
-  ],
-  testURL: 'http://localhost/',
-  watchPlugins: [
-    'jest-watch-typeahead/filename',
-    'jest-watch-typeahead/testname',
   ],
   setupFiles: [
     '<rootDir>/tests/setup/intl.js',
@@ -30,7 +16,7 @@ module.exports = {
   setupFilesAfterEnv: [
     '<rootDir>/tests/setup/after-env.js',
     '<rootDir>/tests/setup/chameleon-config.js',
-    '<rootDir>/tests/setup/auto-destroy.js',
+    '<rootDir>/tests/setup/auto-unmount.js',
     '<rootDir>/tests/stubs/index.js',
     '<rootDir>/tests/mocks/index.js',
   ],
@@ -40,6 +26,7 @@ module.exports = {
     '!src/main.js',
     '!src/**/*.story.js',
     '!src/**/index.js',
+    '!src/**/.eslintrc.js',
     '!src/icons/**',
     '!src/assets/**',
   ],
@@ -52,4 +39,20 @@ module.exports = {
     },
   },
   clearMocks: true,
+  restoreMocks: true,
+  globals: {
+    'vue-jest': {
+      compilerOptions: {
+        whitespace: 'condense',
+        isCustomElement: tag => customElements.has(tag),
+        comments: false,
+        compatConfig: {
+          MODE: 2,
+          RENDER_FUNCTION: true,
+          COMPONENT_V_MODEL: false,
+        },
+      },
+    },
+  },
+  moduleNameMapper: { '^vue$': '@vue/compat' },
 };

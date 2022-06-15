@@ -13,10 +13,10 @@ function attachFocusTrap(el, options) {
 }
 
 export default {
-  inserted(el, binding) {
+  mounted(el, binding) {
     attachFocusTrap(el, binding.value);
   },
-  update(el, { value, oldValue }) {
+  updated(el, { value, oldValue }) {
     /* istanbul ignore else */
     if (value && oldValue) {
       if (value.escapeDeactivates !== oldValue.escapeDeactivates || value.clickOutsideDeactivates !== oldValue.clickOutsideDeactivates) {
@@ -24,7 +24,7 @@ export default {
       }
     }
   },
-  unbind(el) {
+  beforeUnmount(el) {
     /* istanbul ignore else */
     if (el.__focusTrap) {
       el.__focusTrap.deactivate();

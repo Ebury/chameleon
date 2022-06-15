@@ -6,9 +6,13 @@
     <component
       :is="filter.component"
       v-for="(filter, index) in filters"
+      v-bind="{
+        ...filter,
+        modelValue: modelValue[filter.name],
+        name: null,
+        component: null,
+      }"
       :key="filter.name"
-      :value="value[filter.name]"
-      v-bind="{ ...filter, name: null, component: null }"
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
       @change="onChange(filter.name, $event)"
@@ -45,13 +49,12 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcTableFilter',
-  components: { EcIcon },
-  model: {
-    prop: 'value',
-    event: 'change',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
   },
+  components: { EcIcon },
   props: {
-    value: {
+    modelValue: {
       type: Object,
       default: () => ({}),
     },
@@ -72,10 +75,8 @@ export default {
       type: String,
       default: 'Clear filters',
     },
-    popoverOptions: {
-      type: Object,
-    },
   },
+  emits: ['update:modelValue', 'change'],
   // TODO ONL-4893
   // data() {
   //   return {
@@ -84,7 +85,7 @@ export default {
   // },
   computed: {
     hasFilters() {
-      return !!Object.keys(this.value).length;
+      return !!Object.keys(this.modelValue).length;
     },
     // TODO ONL-4893
     // toggleMoreFiltersButtonIcon() {
@@ -101,15 +102,19 @@ export default {
     // },
     onChange(filterName, value) {
       if (!value || value.length === 0) {
-        const { [filterName]: currentValue, ...otherFilters } = this.value;
+        const { [filterName]: currentValue, ...otherFilters } = this.modelValue;
 
-        this.$emit('change', otherFilters);
+        this.update(otherFilters);
       } else {
-        this.$emit('change', { ...this.value, [filterName]: value });
+        this.update({ ...this.modelValue, [filterName]: value });
       }
     },
     clearFilters() {
-      this.$emit('change', {});
+      this.update({});
+    },
+    update(filters) {
+      this.$emit('update:modelValue', filters);
+      this.$emit('change', filters);
     },
   },
 };

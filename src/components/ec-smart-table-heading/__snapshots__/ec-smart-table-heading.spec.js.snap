@@ -2,9 +2,8 @@
 
 exports[`EcSmartTableHeading should not render the title if title prop was not given 1`] = `
 <div>
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -15,24 +14,26 @@ exports[`EcSmartTableHeading should render given filter and header-actions slots
   >
     Random Title
   </div>
-   
   <div
     class="ec-smart-table-heading"
   >
     <div
       class="ec-smart-table-heading__filter"
     >
+      
       <div>
         Custom filter
       </div>
+      
     </div>
-     
     <div
       class="ec-smart-table-heading__actions"
     >
+      
       <div>
         Header Actions
       </div>
+      
     </div>
   </div>
 </div>
@@ -45,19 +46,19 @@ exports[`EcSmartTableHeading should render given filter slot 1`] = `
   >
     Random Title
   </div>
-   
   <div
     class="ec-smart-table-heading"
   >
     <div
       class="ec-smart-table-heading__filter"
     >
+      
       <div>
         Custom filter
       </div>
+      
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
 </div>
 `;
@@ -69,18 +70,18 @@ exports[`EcSmartTableHeading should render given header-actions slot 1`] = `
   >
     Random Title
   </div>
-   
   <div
     class="ec-smart-table-heading"
   >
-    <!---->
-     
+    <!--v-if-->
     <div
       class="ec-smart-table-heading__actions"
     >
+      
       <div>
         Header Actions
       </div>
+      
     </div>
   </div>
 </div>
@@ -93,7 +94,6 @@ exports[`EcSmartTableHeading should render properly 1`] = `
   >
     Random Title
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;

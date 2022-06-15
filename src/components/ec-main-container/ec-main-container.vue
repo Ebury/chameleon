@@ -58,10 +58,10 @@ export default {
   },
   methods: {
     hasCtaSlot() {
-      return !!this.$scopedSlots.cta;
+      return !!this.$slots.cta;
     },
     hasBreadcrumbs() {
-      return !!this.$scopedSlots.breadcrumbs;
+      return !!this.$slots.breadcrumbs;
     },
   },
 };

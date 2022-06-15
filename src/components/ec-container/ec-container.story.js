@@ -1,14 +1,15 @@
+import { onMounted, ref } from 'vue';
+
 import { fixedContainerDecorator } from '../../../.storybook/utils';
-import EcContainer from './ec-container.vue';
-import EcMainContainer from '../ec-main-container';
-import EcNavigation from '../ec-navigation';
-import EcMenu from '../ec-menu';
-import EcUserInfo from '../ec-user-info';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcIcon from '../ec-icon';
+import EcMainContainer from '../ec-main-container';
+import EcMenu from '../ec-menu';
+import EcNavigation from '../ec-navigation';
+import EcUserInfo from '../ec-user-info';
+import EcContainer from './ec-container.vue';
+
 import './ec-container.story.css';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import gravatar from '!!url-loader!../../../public/empty-gravatar.png';
 
 export default {
   title: 'Layout/Container',
@@ -18,11 +19,13 @@ export default {
   ],
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcContainer },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args };
+  },
   template: `
-    <ec-container v-bind="$props">
+    <ec-container v-bind="args">
       <template #navigation>
         <div class="tw-bg-key-2 tw-text-gray-8 tw-min-h-screen">Navigation panel</div>
       </template>
@@ -38,49 +41,53 @@ basic.args = {
   isCollapsable: false,
 };
 
-export const withNavigation = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: {
-    EcContainer, EcMainContainer, EcNavigation, EcMenu, EcUserInfo, EcDropdownSearch, EcIcon,
-  },
-  data() {
-    return {
-      selectedClient: {},
-      isCollapsedFromProps: null,
-      dropdownSearchWidth: {
-        enabled: true,
-        order: 845,
-        fn: (data) => {
-          // calculate precise position for the dropdown. Displaying dropdown using bottom placement is not
-          // enough because the position of the trigger can change and it's never precisely centered in the
-          // user info container
-          if (this.$refs.userInfo && this.$refs.userInfo.$el) {
-            const boundaryPadding = 24;
-            const width = this.$refs.userInfo.$el.offsetWidth - (2 * boundaryPadding);
-            const left = this.$refs.userInfo.$el.offsetLeft + boundaryPadding;
-            data.styles.width = width;
-            data.offsets.popper.width = width;
-            data.offsets.popper.left = left;
-            data.offsets.popper.right = left + width + boundaryPadding;
-          }
+export const withNavigation = ({
+  isCollapsable,
+  client,
+  clientItems,
+  branding,
+  menuLinks,
+  footerLinks,
+  copyrightText,
+  isCollapsed,
+  ...args
+}) => ({
+  setup() {
+    const userInfoRef = ref(null);
+    const popoverBoundaryPadding = ref(24);
+    const selectedClient = ref({});
+    const isCollapsedFromProps = ref(isCollapsed);
+    const popoverStyle = ref({});
 
-          return data;
-        },
-      },
+    function updateIsCollapsed() {
+      isCollapsedFromProps.value = !isCollapsedFromProps.value;
+    }
+
+    onMounted(() => {
+      popoverStyle.value = {
+        width: `${Math.max(userInfoRef.value.$el.offsetWidth - (2 * popoverBoundaryPadding.value), 120)}px`,
+      };
+    });
+
+    return {
+      isCollapsable,
+      client,
+      clientItems,
+      branding,
+      menuLinks,
+      footerLinks,
+      copyrightText,
+      selectedClient,
+      isCollapsedFromProps,
+      updateIsCollapsed,
+      userInfoRef,
+      popoverStyle,
+      popoverBoundaryPadding,
+      args,
     };
   },
-  watch: {
-    isCollapsed: {
-      immediate: true,
-      handler(newValue) {
-        this.isCollapsedFromProps = newValue;
-      },
-    },
-  },
-  methods: {
-    updateIsCollapsed() {
-      this.isCollapsedFromProps = !this.isCollapsedFromProps;
-    },
+  components: {
+    EcContainer, EcMainContainer, EcNavigation, EcMenu, EcUserInfo, EcDropdownSearch, EcIcon,
   },
   template: `
     <ec-container :is-collapsable="isCollapsable">
@@ -93,7 +100,7 @@ export const withNavigation = (args, { argTypes }) => ({
 
           <template #user-info>
             <ec-user-info
-              ref="userInfo"
+              ref="userInfoRef"
               :user="client"
               :is-collapsable="isCollapsable"
               :is-collapsed="isCollapsable && isCollapsedFromProps"
@@ -102,7 +109,13 @@ export const withNavigation = (args, { argTypes }) => ({
               <template #client-selector>
                 <ec-dropdown-search
                   :items="clientItems"
-                  :popper-modifiers="{ dropdownSearchWidth }"
+                  :popover-options="{
+                    placement: 'bottom',
+                    preventOverflow: true,
+                    autoSize: 'min',
+                    overflowPadding: popoverBoundaryPadding,
+                  }"
+                  :popover-style="popoverStyle"
                   v-model="selectedClient">
                   <a href="#" class="dropdown-search-link" @click.prevent>
                     <span>{{ selectedClient.text || client.name }}</span>
@@ -151,7 +164,7 @@ withNavigation.args = {
   client: {
     name: 'Ebury Demo 2',
     profileUrl: '/profile',
-    gravatar,
+    gravatar: '/empty-gravatar.png',
   },
   clientItems: [
     { text: 'Ebury Demo' },

@@ -13,8 +13,7 @@
     >
       <ec-navigation-link
         class="ec-menu__link"
-        :data-test="getLinkDataTest(link)"
-        v-bind="{ ...link, on: null }"
+        v-bind="{ ...link, on: null, 'data-test': getLinkDataTest(link) }"
         :is-collapsed="isCollapsed"
         :is-compact="horizontal"
         v-on="link.on"

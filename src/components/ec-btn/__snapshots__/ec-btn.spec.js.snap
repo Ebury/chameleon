@@ -1,16 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcBtn :attrs should pass custom attributes 1`] = `
+<button
+  class="ec-btn ec-btn--md"
+  data-test="my-custom-button ec-btn"
+  id="my-button"
+  type="submit"
+>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</button>
+`;
+
 exports[`EcBtn :props should render a <button> element with class "ec-btn--md" when size is set to md 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -20,11 +31,9 @@ exports[`EcBtn :props should render a <button> element with class "ec-btn--sm" w
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -32,19 +41,17 @@ exports[`EcBtn :props should render a button with a spinner loader if loading is
 <button
   class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
-  disabled="disabled"
+  disabled=""
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-btn__loading-spinner"
     data-test="ec-btn__loading-spinner"
   >
     <svg
-      class="ec-loading-icon ec-icon"
+      class="ec-icon ec-loading-icon"
       data-test="ec-loading-icon"
       height="22"
       width="22"
@@ -63,11 +70,9 @@ exports[`EcBtn :props should render a button with an outline when "isOutline" is
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -77,11 +82,9 @@ exports[`EcBtn :props should render a button with category "error" when category
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -91,11 +94,9 @@ exports[`EcBtn :props should render a button with category "primary" when catego
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -105,11 +106,9 @@ exports[`EcBtn :props should render a button with category "secondary" when cate
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -119,11 +118,9 @@ exports[`EcBtn :props should render a button with category "success" when catego
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -133,11 +130,9 @@ exports[`EcBtn :props should render a button with category "warning" when catego
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -145,19 +140,17 @@ exports[`EcBtn :props should render a button with only a loading spinner when lo
 <button
   class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
-  disabled="disabled"
+  disabled=""
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
+  <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-btn__loading-spinner"
     data-test="ec-btn__loading-spinner"
   >
     <svg
-      class="ec-loading-icon ec-icon"
+      class="ec-icon ec-loading-icon"
       data-test="ec-loading-icon"
       height="22"
       width="22"
@@ -177,7 +170,7 @@ exports[`EcBtn :props should render a button with only an icon when the "icon" i
   type="submit"
 >
   <svg
-    class="ec-btn__icon ec-icon"
+    class="ec-icon ec-btn__icon"
     data-test="ec-btn__icon"
     height="22"
     width="22"
@@ -186,10 +179,8 @@ exports[`EcBtn :props should render a button with only an icon when the "icon" i
       xlink:href="#ec-simple-check"
     />
   </svg>
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -199,11 +190,9 @@ exports[`EcBtn :props should render a button with type button if submit is set t
   data-test="ec-btn"
   type="button"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -213,11 +202,9 @@ exports[`EcBtn :props should render a button with type submit if submit is set t
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -225,14 +212,12 @@ exports[`EcBtn :props should render a disabled button when "isDisabled" is set t
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
-  disabled="disabled"
+  disabled=""
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -242,11 +227,9 @@ exports[`EcBtn :props should render a full width button when "isFullWidth" prop 
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -256,11 +239,9 @@ exports[`EcBtn :props should render a reversed button for the "error" category w
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -270,11 +251,9 @@ exports[`EcBtn :props should render a reversed button for the "primary" category
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -284,11 +263,9 @@ exports[`EcBtn :props should render a reversed button for the "secondary" catego
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -298,11 +275,9 @@ exports[`EcBtn :props should render a reversed button for the "success" category
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -312,11 +287,9 @@ exports[`EcBtn :props should render a reversed button for the "warning" category
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -326,11 +299,9 @@ exports[`EcBtn :props should render a rounded button when the "isRounded" is set
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -339,7 +310,10 @@ exports[`EcBtn :props should render a router link when we define the "to" prop 1
   class="ec-btn ec-btn--md"
   data-test="ec-btn ec-stub router-link-stub"
   to="trade-finance"
-/>
+>
+  
+  
+</ec-stub>
 `;
 
 exports[`EcBtn :props should render a router link with a custom tag when we define the "tag option" 1`] = `
@@ -348,11 +322,9 @@ exports[`EcBtn :props should render a router link with a custom tag when we defi
   data-test="ec-btn"
   to="trade-finance"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </ebury-stub>
 `;
 
@@ -361,7 +333,10 @@ exports[`EcBtn :props should render a router link with route object 1`] = `
   class="ec-btn ec-btn--md"
   data-test="ec-btn ec-stub router-link-stub"
   to="Route with name 'trade-finance'"
-/>
+>
+  
+  
+</ec-stub>
 `;
 
 exports[`EcBtn :props should render an <a> element when we define the "href" prop 1`] = `
@@ -370,11 +345,9 @@ exports[`EcBtn :props should render an <a> element when we define the "href" pro
   data-test="ec-btn"
   href="https://ebury.com/"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </a>
 `;
 
@@ -386,11 +359,9 @@ exports[`EcBtn :props should render given HTML attributes 1`] = `
   name="test-name"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;
 
@@ -400,16 +371,16 @@ exports[`EcBtn :slots should render a button with "Click me!" text 1`] = `
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
+  <!--v-if-->
   <span
     class="ec-btn__text"
     data-test="ec-btn__text"
   >
+    
     Click Me!
+    
   </span>
-   
-  <!---->
+  <!--v-if-->
 </button>
 `;
 
@@ -420,7 +391,7 @@ exports[`EcBtn :slots should render a button with "Click me!" text and an icon 1
   type="submit"
 >
   <svg
-    class="ec-btn__icon ec-icon ec-btn__icon--with-spacing"
+    class="ec-icon ec-btn__icon ec-btn__icon--with-spacing"
     data-test="ec-btn__icon"
     height="22"
     width="22"
@@ -429,15 +400,15 @@ exports[`EcBtn :slots should render a button with "Click me!" text and an icon 1
       xlink:href="#ec-simple-check"
     />
   </svg>
-   
   <span
     class="ec-btn__text"
     data-test="ec-btn__text"
   >
+    
     Click Me!
+    
   </span>
-   
-  <!---->
+  <!--v-if-->
 </button>
 `;
 
@@ -445,24 +416,24 @@ exports[`EcBtn :slots should render a button with a loading-text and a loading s
 <button
   class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
-  disabled="disabled"
+  disabled=""
   type="submit"
 >
-  <!---->
-   
+  <!--v-if-->
   <span
     class="ec-btn__text--is-loading ec-btn__text"
     data-test="ec-btn__text"
   >
+    
     Click Me!
+    
   </span>
-   
   <div
     class="ec-btn__loading-spinner"
     data-test="ec-btn__loading-spinner"
   >
     <svg
-      class="ec-loading-icon ec-icon"
+      class="ec-icon ec-loading-icon"
       data-test="ec-loading-icon"
       height="22"
       width="22"
@@ -479,18 +450,18 @@ exports[`EcBtn :slots should render a custom loading text instead of a spinner w
 <button
   class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
-  disabled="disabled"
+  disabled=""
   type="submit"
 >
-  <!---->
-   
+  <!--v-if-->
   <span
     data-test="ec-btn__loading-text"
   >
+    
     Loading...
+    
   </span>
-   
-  <!---->
+  <!--v-if-->
 </button>
 `;
 
@@ -500,10 +471,8 @@ exports[`EcBtn should render a <button> element by default 1`] = `
   data-test="ec-btn"
   type="submit"
 >
-  <!---->
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
 </button>
 `;

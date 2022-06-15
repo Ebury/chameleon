@@ -4,6 +4,7 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-checkbox` : 'ec-checkbox'"
   >
     <input
+      v-bind="$attrs"
       :id="id"
       ref="checkboxInput"
       v-model="inputModel"
@@ -11,11 +12,10 @@
       type="checkbox"
       class="ec-checkbox__input"
       :disabled="disabled"
-      v-bind="$attrs"
       data-test="ec-checkbox__input"
       @focus="inputIsFocused = true"
       @blur="inputIsFocused = false"
-      v-on="$listeners"
+      v-on="{ ...$listeners, 'update:modelValue': null }"
     >
 
     <div
@@ -77,21 +77,20 @@
 </template>
 
 <script>
-import EcIcon from '../ec-icon';
 import { getUid } from '../../utils/uid';
+import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcCheckbox',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcIcon,
   },
   inheritAttrs: false,
-  model: {
-    prop: 'checked',
-    event: 'checked-value-change',
-  },
   props: {
-    checked: {
+    modelValue: {
       type: Boolean,
     },
     indeterminate: {
@@ -115,6 +114,7 @@ export default {
       type: Boolean,
     },
   },
+  emits: ['update:modelValue'],
   data() {
     return {
       uid: getUid(),
@@ -133,10 +133,10 @@ export default {
     },
     inputModel: {
       get() {
-        return this.checked;
+        return this.modelValue;
       },
       set(checked) {
-        this.$emit('checked-value-change', checked);
+        this.$emit('update:modelValue', checked);
       },
     },
   },

@@ -1,30 +1,26 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcDropdown from './ec-dropdown.vue';
+import { mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcDropdown from './ec-dropdown.vue';
 
 describe('EcDropdown', () => {
   function mountDropdown(props, mountOpts) {
-    const localVue = createLocalVue();
-
     return mount(EcDropdown, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
 
   function mountAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcDropdown },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -79,13 +75,13 @@ describe('EcDropdown', () => {
       ['random', true],
     ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
       if (error) {
-        withMockedConsole((errorSpy) => {
+        withMockedConsole((errorSpy, warnSpy) => {
           mountDropdown({ items, level: str });
-          expect(errorSpy).toHaveBeenCalledTimes(2);
+          expect(warnSpy).toHaveBeenCalledTimes(2);
           // this is the test for the dropdown
-          expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+          expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
           // this is the test for the
-          expect(errorSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
+          expect(warnSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
         });
       } else {
         const wrapper = mountDropdown({ items, level: str });
@@ -104,7 +100,7 @@ describe('EcDropdown', () => {
     });
 
     it('should pass errorMessage prop to the triggering input', () => {
-      const wrapper = mountDropdown({ error: 'Random error' });
+      const wrapper = mountDropdown({ errorMessage: 'Random error' });
       expect(wrapper.findByDataTest('ec-input-field__error-text').element).toMatchSnapshot();
     });
 
@@ -138,8 +134,18 @@ describe('EcDropdown', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('renders properly when the labelTooltip prop is set', () => {
+    it('should render properly when the labelTooltip prop is set', () => {
       const wrapper = mountDropdown({ labelTooltip: 'Testing the labelTooltip prop' });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render given popover style', () => {
+      const wrapper = mountDropdown({ popoverStyle: { width: '1234px' } });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render given popover style when it is a function', () => {
+      const wrapper = mountDropdown({ popoverStyle: () => ({ width: '1234px' }) });
       expect(wrapper.element).toMatchSnapshot();
     });
   });
@@ -148,10 +154,10 @@ describe('EcDropdown', () => {
     it('should forward item slot', () => {
       const wrapper = mountDropdown({
         items,
-        selected: items[2],
+        modelValue: items[2],
       }, {
-        scopedSlots: {
-          item: '<div>({{ props.index }}) {{ props.item.text }} - {{ props.isSelected }}</div>',
+        slots: {
+          item: ({ item, index, isSelected }) => h('div', `(${index}) ${item.text} - ${isSelected}`),
         },
       });
       expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
@@ -159,7 +165,7 @@ describe('EcDropdown', () => {
 
     it('should forward CTA slot', () => {
       const wrapper = mountDropdown({}, {
-        scopedSlots: {
+        slots: {
           cta: '<button>My CTA</button>',
         },
       });
@@ -170,7 +176,7 @@ describe('EcDropdown', () => {
       const wrapper = mountDropdown({
         tooltipCta: 'Random tooltip',
       }, {
-        scopedSlots: {
+        slots: {
           cta: '<button>My CTA</button>',
         },
       });
@@ -190,25 +196,25 @@ describe('EcDropdown', () => {
         },
       );
 
-      expect(wrapper.vm.selected).toBe(null);
+      expect(wrapper.vm.selected).toEqual(null);
       await selectItem(wrapper, 0);
-      expect(wrapper.vm.selected).toBe(items[0]);
+      expect(wrapper.vm.selected).toEqual(items[0]);
       await selectItem(wrapper, 1);
-      expect(wrapper.vm.selected).toBe(items[1]);
+      expect(wrapper.vm.selected).toEqual(items[1]);
     });
 
     it('should display selected text in the readonly input', () => {
-      const wrapper = mountDropdown({ items, selected: items[0] });
+      const wrapper = mountDropdown({ items, modelValue: items[0] });
       expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe(items[0].text);
     });
 
     it('should display selectedText instead of selected item text if the prop is given', () => {
-      const wrapper = mountDropdown({ items, selected: items[0], selectedText: 'Random text' });
+      const wrapper = mountDropdown({ items, modelValue: items[0], selectedText: 'Random text' });
       expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('Random text');
     });
 
     it('should display empty text in the readonly input when nothing is selected', () => {
-      const wrapper = mountDropdown({ items, selected: null });
+      const wrapper = mountDropdown({ items, modelValue: null });
       expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
     });
   });
@@ -225,7 +231,7 @@ describe('EcDropdown', () => {
     it('should emit open event when the input is clicked (click mock)', () => {
       const wrapper = mountDropdown({ items });
 
-      wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('show');
+      wrapper.findComponentByDataTest('ec-popover-dropdown-search').vm.$emit('show');
       expect(wrapper.emitted('open').length).toBe(1);
     });
 
@@ -233,9 +239,9 @@ describe('EcDropdown', () => {
       const wrapper = mountDropdown({ items });
 
       // open the dropdown search first, otherwise the hide event won't do anything
-      wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('show');
+      wrapper.findComponentByDataTest('ec-popover-dropdown-search').vm.$emit('show');
 
-      wrapper.findByDataTest('ec-popover-dropdown-search').vm.$emit('hide');
+      wrapper.findComponentByDataTest('ec-popover-dropdown-search').vm.$emit('hide');
       expect(wrapper.emitted('close').length).toBe(1);
     });
 
@@ -253,8 +259,7 @@ describe('EcDropdown', () => {
 });
 
 async function selectItem(wrapper, index) {
-  wrapper.findByDataTest('ec-dropdown__input').trigger('mousedown');
-  wrapper.findByDataTest('ec-dropdown__input').trigger('click');
-  wrapper.findAllByDataTest('ec-dropdown-search__item').at(index).trigger('click');
-  await wrapper.vm.$nextTick();
+  await wrapper.findByDataTest('ec-dropdown__input').trigger('mousedown');
+  await wrapper.findByDataTest('ec-dropdown__input').trigger('click');
+  await wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
 }

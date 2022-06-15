@@ -15,9 +15,8 @@ exports[`EcInputField renders properly the icon when disabled 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -25,21 +24,19 @@ exports[`EcInputField renders properly the icon when disabled 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input ec-input-field__input--has-icon"
     data-test="ec-input-field__input"
-    disabled="disabled"
+    disabled=""
     id="ec-input-field-1"
     type="text"
   />
-   
   <div
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
-      class="ec-input-field__icon ec-icon"
+      class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
       height="20"
       width="20"
@@ -49,8 +46,7 @@ exports[`EcInputField renders properly the icon when disabled 1`] = `
       />
     </svg>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -69,9 +65,8 @@ exports[`EcInputField renders properly when disabled 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -79,18 +74,15 @@ exports[`EcInputField renders properly when disabled 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
-    disabled="disabled"
+    disabled=""
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -109,9 +101,8 @@ exports[`EcInputField renders properly when is loading 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -119,20 +110,18 @@ exports[`EcInputField renders properly when is loading 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input ec-input-field__input--is-loading"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
   />
-   
   <div
     class="ec-input-field__icon-wrapper"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
-      class="ec-loading-icon ec-input-field__icon ec-icon"
+      class="ec-icon ec-loading-icon ec-input-field__icon"
       data-test="ec-loading-icon"
       height="24"
       width="24"
@@ -142,8 +131,7 @@ exports[`EcInputField renders properly when is loading 1`] = `
       />
     </svg>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -163,7 +151,7 @@ exports[`EcInputField renders properly when the labelTooltip prop is set 1`] = `
     >
       label test
       <svg
-        class="ec-input-field__tooltip ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-input-field__tooltip"
         data-ec-tooltip-mock-content="Testing the labelTooltip prop"
         data-test="ec-input-field__tooltip ec-mock ec-tooltip-mock"
         height="14"
@@ -174,7 +162,6 @@ exports[`EcInputField renders properly when the labelTooltip prop is set 1`] = `
         />
       </svg>
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -182,17 +169,14 @@ exports[`EcInputField renders properly when the labelTooltip prop is set 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -211,9 +195,8 @@ exports[`EcInputField renders properly with the errorId from the parent 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -221,7 +204,6 @@ exports[`EcInputField renders properly with the errorId from the parent 1`] = `
       note test
     </span>
   </label>
-   
   <input
     aria-describedby="error-id-test"
     class="ec-input-field__input ec-input-field__input--has-error"
@@ -229,9 +211,7 @@ exports[`EcInputField renders properly with the errorId from the parent 1`] = `
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-input-field__error-text"
     data-test="ec-input-field__error-text"
@@ -257,9 +237,8 @@ exports[`EcInputField renders properly with the given prop errorMessage 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -267,7 +246,6 @@ exports[`EcInputField renders properly with the given prop errorMessage 1`] = `
       note test
     </span>
   </label>
-   
   <input
     aria-describedby="ec-input-field-error-1"
     class="ec-input-field__input ec-input-field__input--has-error"
@@ -275,9 +253,7 @@ exports[`EcInputField renders properly with the given prop errorMessage 1`] = `
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-input-field__error-text"
     data-test="ec-input-field__error-text"
@@ -303,9 +279,8 @@ exports[`EcInputField renders properly with the id from the parent 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -313,17 +288,14 @@ exports[`EcInputField renders properly with the id from the parent 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
     id="id-test"
     type="text"
   />
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -337,8 +309,7 @@ exports[`EcInputField renders properly without label 1`] = `
     data-test="ec-input-field__label"
     for="ec-input-field-1"
   >
-    <!---->
-     
+    <!--v-if-->
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -346,17 +317,14 @@ exports[`EcInputField renders properly without label 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -375,22 +343,18 @@ exports[`EcInputField renders properly without note 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
-    <!---->
+    <!--v-if-->
   </label>
-   
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -409,9 +373,8 @@ exports[`EcInputField renders properly without the error when the prop errorMess
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -419,7 +382,6 @@ exports[`EcInputField renders properly without the error when the prop errorMess
       note test
     </span>
   </label>
-   
   <input
     aria-describedby="ec-input-field-error-1"
     class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-error"
@@ -427,10 +389,8 @@ exports[`EcInputField renders properly without the error when the prop errorMess
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -449,9 +409,8 @@ exports[`EcInputField renders with bottom note 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -459,16 +418,13 @@ exports[`EcInputField renders with bottom note 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-input-field__bottom-note"
     data-test="ec-input-field__bottom-note"
@@ -493,9 +449,8 @@ exports[`EcInputField renders with the attrs min and max 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -503,7 +458,6 @@ exports[`EcInputField renders with the attrs min and max 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
@@ -512,10 +466,8 @@ exports[`EcInputField renders with the attrs min and max 1`] = `
     min="5"
     type="number"
   />
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -534,9 +486,8 @@ exports[`EcInputField renders with warning bottom note 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -544,16 +495,13 @@ exports[`EcInputField renders with warning bottom note 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-input-field__bottom-note ec-input-field__bottom-note--is-warning"
     data-test="ec-input-field__bottom-note"
@@ -578,9 +526,8 @@ exports[`EcInputField renders without bottom note if error message is given 1`] 
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -588,7 +535,6 @@ exports[`EcInputField renders without bottom note if error message is given 1`] 
       note test
     </span>
   </label>
-   
   <input
     aria-describedby="ec-input-field-error-1"
     class="ec-input-field__input ec-input-field__input--has-error"
@@ -596,9 +542,7 @@ exports[`EcInputField renders without bottom note if error message is given 1`] 
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-input-field__error-text"
     data-test="ec-input-field__error-text"
@@ -624,9 +568,8 @@ exports[`EcInputField should display properly with the given props 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -634,17 +577,14 @@ exports[`EcInputField should display properly with the given props 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -663,9 +603,8 @@ exports[`EcInputField should render given icon 1`] = `
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -673,20 +612,18 @@ exports[`EcInputField should render given icon 1`] = `
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input ec-input-field__input--has-icon"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
   />
-   
   <div
     class="ec-input-field__icon-wrapper"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
-      class="ec-input-field__icon ec-icon"
+      class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
       height="20"
       width="20"
@@ -696,8 +633,7 @@ exports[`EcInputField should render given icon 1`] = `
       />
     </svg>
   </div>
-   
-  <!---->
+  <!--v-if-->
 </div>
 `;
 
@@ -707,7 +643,7 @@ exports[`EcInputField should render given icon with given size 1`] = `
   data-test="ec-input-field__icon-wrapper"
 >
   <svg
-    class="ec-input-field__icon ec-icon"
+    class="ec-icon ec-input-field__icon"
     data-test="ec-input-field__icon"
     height="40"
     width="40"
@@ -734,9 +670,8 @@ exports[`EcInputField should render with a sensitive class when isSensitive prop
       data-test="ec-input-field__label-text"
     >
       label test
-      <!---->
+      <!--v-if-->
     </span>
-     
     <span
       class="ec-input-field__note"
       data-test="ec-input-field__note"
@@ -744,16 +679,13 @@ exports[`EcInputField should render with a sensitive class when isSensitive prop
       note test
     </span>
   </label>
-   
   <input
     class="ec-input-field__input my-sensitive-content-test-class"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
   />
-   
-  <!---->
-   
-  <!---->
+  <!--v-if-->
+  <!--v-if-->
 </div>
 `;

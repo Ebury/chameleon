@@ -1,4 +1,4 @@
-import { parse, walk, generate } from 'css-tree';
+import { generate, parse, walk } from 'css-tree';
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import tailwindCSS from '!!raw-loader!postcss-loader!./tailwind.story.css';

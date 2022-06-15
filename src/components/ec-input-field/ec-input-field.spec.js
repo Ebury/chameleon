@@ -1,13 +1,14 @@
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
 
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcInputField from './ec-input-field.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcInputField from './ec-input-field.vue';
 
 describe('EcInputField', () => {
   function mountInputField(props, mountOpts) {
     return mount(EcInputField, {
-      propsData: {
-        value: 'Text test',
+      props: {
+        modelValue: 'Text test',
         type: 'text',
         errorMessage: '',
         label: 'label test',
@@ -19,26 +20,23 @@ describe('EcInputField', () => {
     });
   }
   function mountInputFieldAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcInputField },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
 
   it('should validate given props', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountInputField({ type: 'random' });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
+      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
     });
   });
 
@@ -90,8 +88,8 @@ describe('EcInputField', () => {
     const wrapper = mountInputField(
       {},
       {
-        listeners: {
-          click: event,
+        attrs: {
+          onClick: event,
         },
       },
     );

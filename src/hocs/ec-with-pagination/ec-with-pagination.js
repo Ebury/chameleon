@@ -1,6 +1,5 @@
-import { createHOCc } from 'vue-hoc';
-
 import { DEFAULT_PAGE_SIZE } from '../../enums/pagination';
+import { createHOCc } from '../hoc';
 
 const withPagination = createHOCc({
   name: 'EcWithPagination',

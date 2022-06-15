@@ -43,6 +43,7 @@ export default {
   props: {
     messages: { type: Array, default: () => [] },
   },
+  emits: ['remove'],
   methods: {
     rememberTopItemPositions: /* istanbul ignore next */ function rememberTopItemPositions() {
       if (this.$refs.items) {
@@ -56,7 +57,6 @@ export default {
 </script>
 
 <style>
-
 .ec-toaster {
   @apply tw-fixed;
   @apply tw-z-notification;

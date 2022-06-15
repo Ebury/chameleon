@@ -2,20 +2,19 @@
   <component
     :is="componentTag"
     v-bind="{
-      ...$attrs,
+      ...attrs,
       ...componentProps,
-      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-btn` : 'ec-btn',
+      'data-test': attrs['data-test'] ? `${attrs['data-test']} ec-btn` : 'ec-btn',
     }"
     class="ec-btn"
     :class="getButtonClasses()"
-    v-on="$listeners"
   >
     <ec-icon
       v-if="icon"
       class="ec-btn__icon"
       data-test="ec-btn__icon"
       :class="{
-        'ec-btn__icon--with-spacing': $slots.default && icon,
+        'ec-btn__icon--with-spacing': hasDefaultSlot() && icon,
         'ec-btn__icon--no-loading-text' : isSpinnerLoaderVisible(),
         'ec-btn__icon--with-loading-text' : isTextLoaderVisible(),
       }"
@@ -31,7 +30,7 @@
     </span>
 
     <span
-      v-else-if="$slots.default"
+      v-else-if="hasDefaultSlot()"
       data-test="ec-btn__text"
       :class="{
         'ec-btn__text--is-loading' : isLoading,
@@ -52,130 +51,156 @@
 </template>
 
 <script>
+export default {
+  name: 'EcBtn',
+  compatConfig: {
+    MODE: 3,
+  },
+  inheritAttrs: false,
+};
+</script>
+
+<script setup>
+import {
+  computed,
+  toRefs,
+  useAttrs,
+  useSlots,
+} from 'vue';
+
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
 
-export default {
-  name: 'EcBtn',
-  components: {
-    EcIcon,
-    EcLoadingIcon,
-  },
-  inheritAttrs: false,
-  props: {
-    size: {
-      type: String,
-      default: 'md',
-      validator(value) {
-        return ['sm', 'md'].includes(value);
-      },
-    },
-    href: {
-      type: String,
-    },
-    to: {
-      type: [String, Object],
-    },
-    tag: {
-      type: String,
-    },
-    isDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    icon: {
-      type: String,
-    },
-    isRounded: {
-      type: Boolean,
-      default: false,
-    },
-    isOutline: {
-      type: Boolean,
-      default: false,
-    },
-    isFullWidth: {
-      type: Boolean,
-      default: false,
-    },
-    category: {
-      type: String,
-      validator(value) {
-        return ['primary', 'secondary', 'success', 'error', 'warning'].includes(value);
-      },
-    },
-    isReverse: {
-      type: Boolean,
-      default: false,
-    },
-    isLoading: {
-      type: Boolean,
-      default: false,
-    },
-    isSubmit: {
-      type: Boolean,
-      default: true,
+const slots = useSlots();
+const attrs = useAttrs();
+const props = defineProps({
+  size: {
+    type: String,
+    default: 'md',
+    validator(value) {
+      return ['sm', 'md'].includes(value);
     },
   },
-  computed: {
-    isRouterLink() {
-      return !!this.to;
+  href: {
+    type: String,
+  },
+  to: {
+    type: [String, Object],
+  },
+  tag: {
+    type: String,
+  },
+  isDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  icon: {
+    type: String,
+  },
+  isRounded: {
+    type: Boolean,
+    default: false,
+  },
+  isOutline: {
+    type: Boolean,
+    default: false,
+  },
+  isFullWidth: {
+    type: Boolean,
+    default: false,
+  },
+  category: {
+    type: String,
+    validator(value) {
+      return ['primary', 'secondary', 'success', 'error', 'warning'].includes(value);
     },
-    isAnchorLink() {
-      return !!this.href;
-    },
-    componentTag() {
-      if (this.isAnchorLink) {
-        return this.tag || 'a';
-      } if (this.isRouterLink) {
-        return this.tag || 'router-link';
-      }
-      return this.tag || 'button';
-    },
-    componentProps() {
-      const props = {
-        disabled: !this.isAnchorLink && (this.isDisabled || this.isLoading),
-      };
+  },
+  isReverse: {
+    type: Boolean,
+    default: false,
+  },
+  isLoading: {
+    type: Boolean,
+    default: false,
+  },
+  isSubmit: {
+    type: Boolean,
+    default: true,
+  },
+});
 
-      if (this.componentTag === 'button') {
-        props.type = this.isSubmit ? 'submit' : 'button';
-      }
-      if (this.to) {
-        props.to = this.to;
-      }
-      if (this.href) {
-        props.href = this.href;
-      }
+const {
+  size,
+  href,
+  to,
+  tag,
+  isDisabled,
+  icon,
+  isRounded,
+  isOutline,
+  isFullWidth,
+  category,
+  isReverse,
+  isLoading,
+  isSubmit,
+} = toRefs(props);
 
-      return props;
-    },
-  },
-  methods: {
-    isSpinnerLoaderVisible() {
-      return this.isLoading && !this.$slots['loading-text'];
-    },
-    isTextLoaderVisible() {
-      return this.isLoading && this.$slots['loading-text'];
-    },
-    getButtonClasses() {
-      return {
-        'ec-btn--sm': this.size === 'sm',
-        'ec-btn--md': this.size === 'md',
-        'ec-btn--rounded': this.isRounded,
-        'ec-btn--full-width': this.isFullWidth,
-        'ec-btn--icon-only': this.icon && !this.$slots.default,
-        [`ec-btn--${this.category}`]: this.category,
-        'ec-btn--outline': this.isOutline,
-        'ec-btn--primary-reverse': this.isReverse && this.category === 'primary',
-        'ec-btn--secondary-reverse': this.isReverse && this.category === 'secondary',
-        'ec-btn--success-reverse': this.isReverse && this.category === 'success',
-        'ec-btn--error-reverse': this.isReverse && this.category === 'error',
-        'ec-btn--warning-reverse': this.isReverse && this.category === 'warning',
-        'ec-btn--is-loading': this.isSpinnerLoaderVisible() || this.isTextLoaderVisible(),
-      };
-    },
-  },
-};
+const isRouterLink = computed(() => !!to.value);
+const isAnchorLink = computed(() => !!href.value);
+
+const componentTag = computed(() => {
+  if (isAnchorLink.value) {
+    return tag.value || 'a';
+  } if (isRouterLink.value) {
+    return tag.value || 'router-link';
+  }
+  return tag.value || 'button';
+});
+
+const componentProps = computed(() => {
+  const newProps = {};
+  if (!isAnchorLink.value && (isDisabled.value || isLoading.value)) {
+    newProps.disabled = true;
+  }
+  if (componentTag.value === 'button') {
+    newProps.type = isSubmit.value ? 'submit' : 'button';
+  }
+  if (to.value) {
+    newProps.to = to.value;
+  }
+  if (href.value) {
+    newProps.href = href.value;
+  }
+  return newProps;
+});
+
+function isSpinnerLoaderVisible() {
+  return isLoading.value && !slots['loading-text'];
+}
+function isTextLoaderVisible() {
+  return isLoading.value && !!slots['loading-text'];
+}
+function hasDefaultSlot() {
+  return !!slots.default;
+}
+
+function getButtonClasses() {
+  return {
+    'ec-btn--sm': size.value === 'sm',
+    'ec-btn--md': size.value === 'md',
+    'ec-btn--rounded': isRounded.value,
+    'ec-btn--full-width': isFullWidth.value,
+    'ec-btn--icon-only': icon.value && !hasDefaultSlot(),
+    [`ec-btn--${category.value}`]: category.value,
+    'ec-btn--outline': isOutline.value,
+    'ec-btn--primary-reverse': isReverse.value && category.value === 'primary',
+    'ec-btn--secondary-reverse': isReverse.value && category.value === 'secondary',
+    'ec-btn--success-reverse': isReverse.value && category.value === 'success',
+    'ec-btn--error-reverse': isReverse.value && category.value === 'error',
+    'ec-btn--warning-reverse': isReverse.value && category.value === 'warning',
+    'ec-btn--is-loading': isSpinnerLoaderVisible() || isTextLoaderVisible(),
+  };
+}
 </script>
 
 <style>

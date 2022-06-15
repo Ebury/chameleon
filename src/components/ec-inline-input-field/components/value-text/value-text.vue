@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import EcIcon from '../../../ec-icon';
 import config from '../../../../config';
+import EcIcon from '../../../ec-icon';
 
 export default {
   name: 'EcInlineInputFieldValueText',
@@ -40,6 +40,7 @@ export default {
       default: false,
     },
   },
+  emits: ['edit'],
   computed: {
     textClasses() {
       const classes = ['ec-inline-input-field-value-text__text'];

@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcAmountFilterInput from './ec-amount-filter-input.vue';
 
 export default {
@@ -12,32 +14,32 @@ export default {
   },
 };
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = args => ({
   components: {
     EcAmountFilterInput,
   },
-  data() {
-    return {
-      value: {
-        comparisonSymbol: {
-          text: 'Equal to',
-          value: '=',
-        },
+  setup() {
+    const value = ref({
+      comparisonSymbol: {
+        text: 'Equal to',
+        value: '=',
       },
+    });
+
+    return {
+      args,
+      value,
+      onOpen: action('open'),
+      onClose: action('close'),
+      onChange: action('change'),
+      onAmountChange: action('amount-change'),
+      onComparisonSymbolChange: action('comparison-symbol-change'),
     };
-  },
-  methods: {
-    onOpen: action('open'),
-    onClose: action('close'),
-    onChange: action('change'),
-    onAmountChange: action('amount-change'),
-    onComparisonSymbolChange: action('comparison-symbol-change'),
   },
   template: `
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
       <ec-amount-filter-input
-        v-bind="$props"
+        v-bind="args"
         v-on="{
           open: onOpen,
           close: onClose,

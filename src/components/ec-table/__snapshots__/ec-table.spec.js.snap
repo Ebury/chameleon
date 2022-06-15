@@ -2,8 +2,7 @@
 
 exports[`EcTable should have a column align to center if its type is icon 1`] = `
 <div>
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -16,6 +15,7 @@ exports[`EcTable should have a column align to center if its type is icon 1`] = 
         data-test="ec-table-head"
       >
         <tr>
+          
           <th
             class="ec-table-head__cell"
             data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -27,14 +27,10 @@ exports[`EcTable should have a column align to center if its type is icon 1`] = 
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Lorem
-        
+                Lorem
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
           <th
@@ -48,57 +44,66 @@ exports[`EcTable should have a column align to center if its type is icon 1`] = 
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Ipsum
-        
+                Ipsum
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
+          
         </tr>
       </thead>
-       
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             foo
+            
           </td>
           <td
             class="ec-table__cell ec-table__cell--is-type-icon"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             bar
+            
           </td>
+          
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             widgets
+            
           </td>
           <td
             class="ec-table__cell ec-table__cell--is-type-icon"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             doodads
+            
           </td>
+          
         </tr>
+        
       </tbody>
-       
-      <!---->
+      <!--v-if-->
     </table>
   </div>
 </div>
@@ -106,8 +111,7 @@ exports[`EcTable should have a column align to center if its type is icon 1`] = 
 
 exports[`EcTable should have a column align to the right if its type is currency 1`] = `
 <div>
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -120,6 +124,7 @@ exports[`EcTable should have a column align to the right if its type is currency
         data-test="ec-table-head"
       >
         <tr>
+          
           <th
             class="ec-table-head__cell"
             data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -131,14 +136,10 @@ exports[`EcTable should have a column align to the right if its type is currency
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Lorem
-        
+                Lorem
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
           <th
@@ -152,72 +153,80 @@ exports[`EcTable should have a column align to the right if its type is currency
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Ipsum
-        
+                Ipsum
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
+          
         </tr>
       </thead>
-       
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             foo
+            
           </td>
           <td
             class="ec-table__cell ec-table__cell--is-type-currency"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             bar
+            
           </td>
+          
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             widgets
+            
           </td>
           <td
             class="ec-table__cell ec-table__cell--is-type-currency"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             doodads
+            
           </td>
+          
         </tr>
+        
       </tbody>
-       
-      <!---->
+      <!--v-if-->
     </table>
   </div>
 </div>
 `;
 
-exports[`EcTable should not render if no props are supplied 1`] = `<!---->`;
+exports[`EcTable should not render if no props are supplied 1`] = `<!--v-if-->`;
 
-exports[`EcTable should not render if not provided with an empty array of data 1`] = `<!---->`;
+exports[`EcTable should not render if not provided with an empty array of data 1`] = `<!--v-if-->`;
 
-exports[`EcTable should not render if not provided with any data 1`] = `<!---->`;
+exports[`EcTable should not render if not provided with any data 1`] = `<!--v-if-->`;
 
 exports[`EcTable should render as expected if provided with data and columns 1`] = `
 <div>
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -230,6 +239,7 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
         data-test="ec-table-head"
       >
         <tr>
+          
           <th
             class="ec-table-head__cell"
             data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -241,14 +251,10 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Lorem
-        
+                Lorem
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
           <th
@@ -262,57 +268,66 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Ipsum
-        
+                Ipsum
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
+          
         </tr>
       </thead>
-       
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             foo
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             bar
+            
           </td>
+          
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             widgets
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             doodads
+            
           </td>
+          
         </tr>
+        
       </tbody>
-       
-      <!---->
+      <!--v-if-->
     </table>
   </div>
 </div>
@@ -320,8 +335,7 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
 
 exports[`EcTable should render as expected if provided with data and columns, with footer switched on 1`] = `
 <div>
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -334,6 +348,7 @@ exports[`EcTable should render as expected if provided with data and columns, wi
         data-test="ec-table-head"
       >
         <tr>
+          
           <th
             class="ec-table-head__cell"
             data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -345,14 +360,10 @@ exports[`EcTable should render as expected if provided with data and columns, wi
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Lorem
-        
+                Lorem
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
           <th
@@ -366,56 +377,65 @@ exports[`EcTable should render as expected if provided with data and columns, wi
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Ipsum
-        
+                Ipsum
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
+          
         </tr>
       </thead>
-       
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             foo
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             bar
+            
           </td>
+          
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             widgets
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             doodads
+            
           </td>
+          
         </tr>
+        
       </tbody>
-       
       <tfoot
         class="ec-table-footer"
         data-test="ec-table-footer"
@@ -428,9 +448,13 @@ exports[`EcTable should render as expected if provided with data and columns, wi
             <div
               class="ec-table-footer__contents"
             >
+              
+              
               <p>
                 Random text
               </p>
+              
+              
             </div>
           </td>
         </tr>
@@ -442,8 +466,7 @@ exports[`EcTable should render as expected if provided with data and columns, wi
 
 exports[`EcTable should render as expected if provided with data but no columns 1`] = `
 <div>
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -451,46 +474,58 @@ exports[`EcTable should render as expected if provided with data but no columns 
     <table
       class="ec-table"
     >
-      <!---->
-       
+      <!--v-if-->
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             foo
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             bar
+            
           </td>
+          
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             widgets
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             doodads
+            
           </td>
+          
         </tr>
+        
       </tbody>
-       
-      <!---->
+      <!--v-if-->
     </table>
   </div>
 </div>
@@ -498,8 +533,7 @@ exports[`EcTable should render as expected if provided with data but no columns 
 
 exports[`EcTable should render as expected if provided with data but no columns, and footer switched on 1`] = `
 <div>
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -507,45 +541,57 @@ exports[`EcTable should render as expected if provided with data but no columns,
     <table
       class="ec-table"
     >
-      <!---->
-       
+      <!--v-if-->
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             foo
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             bar
+            
           </td>
+          
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             widgets
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             doodads
+            
           </td>
+          
         </tr>
+        
       </tbody>
-       
       <tfoot
         class="ec-table-footer"
         data-test="ec-table-footer"
@@ -558,9 +604,13 @@ exports[`EcTable should render as expected if provided with data but no columns,
             <div
               class="ec-table-footer__contents"
             >
+              
+              
               <p>
                 Random text
               </p>
+              
+              
             </div>
           </td>
         </tr>
@@ -572,8 +622,7 @@ exports[`EcTable should render as expected if provided with data but no columns,
 
 exports[`EcTable should render as expected if provided with empty row and no columns, with footer switched on 1`] = `
 <div>
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -581,15 +630,18 @@ exports[`EcTable should render as expected if provided with empty row and no col
     <table
       class="ec-table"
     >
-      <!---->
-       
+      <!--v-if-->
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
-        />
+        >
+          
+          
+        </tr>
+        
       </tbody>
-       
       <tfoot
         class="ec-table-footer"
         data-test="ec-table-footer"
@@ -601,9 +653,13 @@ exports[`EcTable should render as expected if provided with empty row and no col
             <div
               class="ec-table-footer__contents"
             >
+              
+              
               <p>
                 Random text
               </p>
+              
+              
             </div>
           </td>
         </tr>
@@ -620,7 +676,6 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
   >
     Title example
   </div>
-   
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -634,6 +689,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
         data-test="ec-table-head"
       >
         <tr>
+          
           <th
             class="ec-table-head__cell"
             data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -645,14 +701,10 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Lorem
-        
+                Lorem
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
           <th
@@ -666,56 +718,65 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Ipsum
-        
+                Ipsum
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
+          
         </tr>
       </thead>
-       
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             foo
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             bar
+            
           </td>
+          
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             widgets
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             doodads
+            
           </td>
+          
         </tr>
+        
       </tbody>
-       
       <tfoot
         class="ec-table-footer"
         data-test="ec-table-footer"
@@ -728,9 +789,13 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
             <div
               class="ec-table-footer__contents"
             >
+              
+              
               <p>
                 Random text
               </p>
+              
+              
             </div>
           </td>
         </tr>
@@ -742,8 +807,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
 
 exports[`EcTable should render slots as expected 1`] = `
 <div>
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -756,6 +820,7 @@ exports[`EcTable should render slots as expected 1`] = `
         data-test="ec-table-head"
       >
         <tr>
+          
           <th
             class="ec-table-head__cell"
             data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -767,14 +832,10 @@ exports[`EcTable should render slots as expected 1`] = `
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Lorem
-        
+                Lorem
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
           <th
@@ -788,60 +849,69 @@ exports[`EcTable should render slots as expected 1`] = `
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Ipsum
-        
+                Ipsum
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
+          
         </tr>
       </thead>
-       
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             foo
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             <p>
               bar
             </p>
+            
           </td>
+          
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
+          
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--0"
           >
+            
             widgets
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             <p>
               doodads
             </p>
+            
           </td>
+          
         </tr>
+        
       </tbody>
-       
       <tfoot
         class="ec-table-footer"
         data-test="ec-table-footer"
@@ -854,9 +924,13 @@ exports[`EcTable should render slots as expected 1`] = `
             <div
               class="ec-table-footer__contents"
             >
+              
+              
               <p>
                 Random text
               </p>
+              
+              
             </div>
           </td>
         </tr>
@@ -872,6 +946,7 @@ exports[`EcTable should render sorting as expected 1`] = `
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -883,13 +958,9 @@ exports[`EcTable should render sorting as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Lorem
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -906,7 +977,6 @@ exports[`EcTable should render sorting as expected 1`] = `
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -926,13 +996,9 @@ exports[`EcTable should render sorting as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Ipsum
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -949,7 +1015,6 @@ exports[`EcTable should render sorting as expected 1`] = `
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -958,14 +1023,14 @@ exports[`EcTable should render sorting as expected 1`] = `
         </a>
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
 
 exports[`EcTable should render the style with the max-width on each cell of the column that have the prop given 1`] = `
 <div>
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-table-scroll-container"
     data-test="ec-table-scroll-container"
@@ -978,6 +1043,7 @@ exports[`EcTable should render the style with the max-width on each cell of the 
         data-test="ec-table-head"
       >
         <tr>
+          
           <th
             class="ec-table-head__cell"
             data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -990,14 +1056,10 @@ exports[`EcTable should render the style with the max-width on each cell of the 
               <span
                 class="ec-table-head__cell-text ec-table-head__cell-text--has-max-width"
               >
-                
-          Lorem
-        
+                Lorem
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
           <th
@@ -1011,59 +1073,68 @@ exports[`EcTable should render the style with the max-width on each cell of the 
               <span
                 class="ec-table-head__cell-text"
               >
-                
-          Ipsum
-        
+                Ipsum
               </span>
-               
-              <!---->
-               
-              <!---->
+              <!--v-if-->
+              <!--v-if-->
             </span>
           </th>
+          
         </tr>
       </thead>
-       
       <tbody>
+        
         <tr
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
+          
           <td
             class="ec-table__cell ec-table__cell--has-max-width"
             data-test="ec-table__cell ec-table__cell--0"
             style="max-width: 250px;"
           >
+            
             foo
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             bar
+            
           </td>
+          
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
+          
           <td
             class="ec-table__cell ec-table__cell--has-max-width"
             data-test="ec-table__cell ec-table__cell--0"
             style="max-width: 250px;"
           >
+            
             widgets
+            
           </td>
           <td
             class="ec-table__cell"
             data-test="ec-table__cell ec-table__cell--1"
           >
+            
             doodads
+            
           </td>
+          
         </tr>
+        
       </tbody>
-       
-      <!---->
+      <!--v-if-->
     </table>
   </div>
 </div>

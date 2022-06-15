@@ -22,7 +22,7 @@
     </label>
 
     <div
-      ref="popperWidthReference"
+      ref="popoverWidthReference"
       v-ec-tooltip="{ content: isDisabled ? disabledTooltipMessage : null }"
       data-test="ec-phone-number-input__input-group"
       class="ec-phone-number-input__input-group"
@@ -44,7 +44,7 @@
         :no-results-text="noCountriesText"
         :placeholder="countryPlaceholder"
         :popover-options="popoverOptions"
-        :popper-modifiers="popperModifier"
+        :popover-style="getPopoverStyle"
         :search-placeholder="searchCountryPlaceholder"
         :level="level"
         selected-text=" "
@@ -150,28 +150,26 @@
 </template>
 
 <script>
-import { getUid } from '../../utils/uid';
+import EcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
-
-import EcInputField from '../ec-input-field';
+import { getUid } from '../../utils/uid';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
-import EcTooltip from '../../directives/ec-tooltip';
+import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcPhoneNumberInput',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcInputField,
     EcDropdown,
     EcIcon,
   },
   directives: { EcTooltip },
-  model: {
-    prop: 'value',
-    event: 'value-change',
-  },
   props: {
-    value: {
+    modelValue: {
       type: Object,
     },
     label: {
@@ -243,22 +241,13 @@ export default {
       },
     },
   },
+  emits: ['update:modelValue', 'change', 'focus', 'open', 'after-open', 'country-change', 'phone-number-change'],
   data() {
     return {
       uid: getUid(),
       countriesHasFocus: false,
-      popperModifier: {
-        setPopperWidth: {
-          enabled: true,
-          order: 841,
-          fn: /* istanbul ignore next */ (data) => {
-            data.styles.width = this.$refs.popperWidthReference.offsetWidth;
-            return data;
-          },
-        },
-      },
       popoverOptions: {
-        placement: 'bottom-end',
+        autoSize: 'min',
       },
     };
   },
@@ -281,11 +270,11 @@ export default {
     },
     countriesModel: {
       get() {
-        return this.value.country;
+        return this.modelValue.country;
       },
       set(item) {
-        this.$emit('value-change', {
-          ...this.value,
+        this.$emit('update:modelValue', {
+          ...this.modelValue,
           country: item.value,
         });
       },
@@ -293,32 +282,41 @@ export default {
     phoneNumberModel: {
       get() {
         if (this.isMasked) {
-          return mask(this.value.phoneNumber);
+          return mask(this.modelValue.phoneNumber);
         }
 
-        return this.value.phoneNumber;
+        return this.modelValue.phoneNumber;
       },
       set(phoneNumber) {
-        this.$emit('value-change', {
-          ...this.value,
+        this.$emit('update:modelValue', {
+          ...this.modelValue,
           phoneNumber,
         });
       },
     },
     selectedCountryAreaCode() {
-      return this.value?.country?.areaCode || null;
+      return this.modelValue?.country?.areaCode || null;
     },
     selectedCountryImage() {
-      return this.getCountryFlagPath(this.value?.country?.countryCode);
+      return this.getCountryFlagPath(this.modelValue?.country?.countryCode);
     },
     selectedCountryName() {
-      return this.value?.country?.name;
+      return this.modelValue?.country?.name;
     },
     isInvalid() {
       return !!this.errorMessage;
     },
   },
   methods: {
+    getPopoverStyle() {
+      if (this.$refs.popoverWidthReference) {
+        return {
+          width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
+        };
+      }
+
+      return null;
+    },
     onFocusCountry() {
       this.countriesHasFocus = true;
       this.$emit('focus');

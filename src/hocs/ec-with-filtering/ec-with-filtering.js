@@ -1,4 +1,4 @@
-import { createHOCc } from 'vue-hoc';
+import { createHOCc } from '../hoc';
 
 const withFiltering = createHOCc({
   name: 'EcWithFiltering',

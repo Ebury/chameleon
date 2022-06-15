@@ -7,7 +7,7 @@ exports[`EcNavigationLink as regular anchor should be active when isActive is pa
   href="/balances"
 >
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -16,10 +16,7 @@ exports[`EcNavigationLink as regular anchor should be active when isActive is pa
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -37,7 +34,7 @@ exports[`EcNavigationLink as regular anchor should be compact when isCompact is 
   href="/balances"
 >
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -46,10 +43,7 @@ exports[`EcNavigationLink as regular anchor should be compact when isCompact is 
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -67,7 +61,7 @@ exports[`EcNavigationLink as regular anchor should be expanded by default 1`] = 
   href="/balances"
 >
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -76,10 +70,7 @@ exports[`EcNavigationLink as regular anchor should be expanded by default 1`] = 
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -97,7 +88,7 @@ exports[`EcNavigationLink as regular anchor should hide the text when is collaps
   href="/balances"
 >
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -106,10 +97,7 @@ exports[`EcNavigationLink as regular anchor should hide the text when is collaps
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -128,7 +116,7 @@ exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if
   href="/balances"
 >
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -137,10 +125,7 @@ exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -158,7 +143,7 @@ exports[`EcNavigationLink as regular anchor should show the text when is expande
   href="/balances"
 >
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -167,10 +152,7 @@ exports[`EcNavigationLink as regular anchor should show the text when is expande
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -188,8 +170,9 @@ exports[`EcNavigationLink as router-link should be active when isActive is passe
   data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
+  
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -198,10 +181,7 @@ exports[`EcNavigationLink as router-link should be active when isActive is passe
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -209,6 +189,7 @@ exports[`EcNavigationLink as router-link should be active when isActive is passe
       Link
     </span>
   </transition-stub>
+  
 </ec-stub>
 `;
 
@@ -219,8 +200,9 @@ exports[`EcNavigationLink as router-link should be compact when isCompact is pas
   data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
+  
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -229,10 +211,7 @@ exports[`EcNavigationLink as router-link should be compact when isCompact is pas
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -240,6 +219,7 @@ exports[`EcNavigationLink as router-link should be compact when isCompact is pas
       Link
     </span>
   </transition-stub>
+  
 </ec-stub>
 `;
 
@@ -250,8 +230,9 @@ exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
   data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
+  
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -260,10 +241,7 @@ exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -271,6 +249,7 @@ exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
       Link
     </span>
   </transition-stub>
+  
 </ec-stub>
 `;
 
@@ -281,8 +260,9 @@ exports[`EcNavigationLink as router-link should hide the text when is collapsed 
   data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
+  
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -291,10 +271,7 @@ exports[`EcNavigationLink as router-link should hide the text when is collapsed 
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -303,6 +280,7 @@ exports[`EcNavigationLink as router-link should hide the text when is collapsed 
       Link
     </span>
   </transition-stub>
+  
 </ec-stub>
 `;
 
@@ -313,8 +291,9 @@ exports[`EcNavigationLink as router-link should render as a router link if isRou
   data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
+  
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -323,10 +302,7 @@ exports[`EcNavigationLink as router-link should render as a router link if isRou
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -334,6 +310,7 @@ exports[`EcNavigationLink as router-link should render as a router link if isRou
       Link
     </span>
   </transition-stub>
+  
 </ec-stub>
 `;
 
@@ -344,8 +321,9 @@ exports[`EcNavigationLink as router-link should show the text when is expanded 1
   data-test="ec-navigation-link ec-stub router-link-stub"
   to="/balances"
 >
+  
   <svg
-    class="ec-navigation-link__icon ec-icon"
+    class="ec-icon ec-navigation-link__icon"
     data-test="ec-navigation-link__icon"
     height="24"
     width="24"
@@ -354,10 +332,7 @@ exports[`EcNavigationLink as router-link should show the text when is expanded 1
       xlink:href="#ec-single-check"
     />
   </svg>
-   
-  <transition-stub
-    name="ec-navigation-link__text-fade"
-  >
+  <transition-stub>
     <span
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
@@ -365,5 +340,6 @@ exports[`EcNavigationLink as router-link should show the text when is expanded 1
       Link
     </span>
   </transition-stub>
+  
 </ec-stub>
 `;

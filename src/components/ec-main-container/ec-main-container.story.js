@@ -1,18 +1,20 @@
-import EcMainContainer from './ec-main-container.vue';
 import EcIcon from '../ec-icon';
+import EcMainContainer from './ec-main-container.vue';
 
 const title = 'Trade Finance';
-const titleIntro = 'Here you will be able to keep track of all your requests to Ebury and of your credit line.';
+const titleIntro = 'Here you will be able to keep track of all your requests to Ebury and your credit line.';
 
 export default {
   title: 'Layout/Main Container',
   component: EcMainContainer,
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcMainContainer },
-  props: Object.keys(argTypes),
-  template: '<ec-main-container v-bind="$props" />',
+  setup() {
+    return { args };
+  },
+  template: '<ec-main-container v-bind="args" />',
 });
 
 export const basic = Template.bind({});
@@ -21,11 +23,13 @@ basic.args = {
   titleIntro,
 };
 
-export const withSlots = (args, { argTypes }) => ({
+export const withSlots = args => ({
   components: { EcMainContainer, EcIcon },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args };
+  },
   template: `
-    <ec-main-container v-bind="$props">
+    <ec-main-container v-bind="args">
       <template #breadcrumbs>
         <a href="#"
           @click.stop.prevent
@@ -43,7 +47,7 @@ export const withSlots = (args, { argTypes }) => ({
       <template #cta>
         <div class="tw-text-center">
           <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width">
-            Test Cta
+            Test CTA
           </button>
         </div>
       </template>

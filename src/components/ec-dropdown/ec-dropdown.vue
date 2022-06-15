@@ -1,17 +1,17 @@
 <template>
   <ec-dropdown-search
+    v-bind="{ ...$attrs, 'data-test': 'ec-dropdown' }"
     v-model="selectedModel"
     class="ec-dropdown"
     :items="items"
     :placeholder="searchPlaceholder"
     :no-results-text="noResultsText"
     :is-search-enabled="isSearchEnabled"
-    v-bind="{ ...$attrs, 'data-test': 'ec-dropdown' }"
     :disabled="disabled"
     :level="level"
     :is-loading="isLoading"
-    :popper-modifiers="popperModifiers"
     :popover-options="popoverOptions"
+    :popover-style="popoverStyle"
     :is-sensitive="isSensitive"
     :tooltip-cta="tooltipCta"
     @change="onSelected"
@@ -24,7 +24,7 @@
       :id="id"
       ref="trigger"
       :error-id="errorId"
-      :value="selectedTextValue"
+      :model-value="selectedTextValue"
       :label="label"
       :label-tooltip="labelTooltip"
       :error-message="errorMessage"
@@ -68,20 +68,19 @@ import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcDropdown',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcDropdownSearch, EcInputField,
   },
   inheritAttrs: false,
-  model: {
-    prop: 'selected',
-    event: 'change',
-  },
   props: {
     items: {
       type: Array,
       default: () => ([]),
     },
-    selected: {
+    modelValue: {
       type: [Object, Array],
       default: null,
     },
@@ -144,12 +143,12 @@ export default {
     errorId: {
       type: String,
     },
-    popperModifiers: {
+    popoverOptions: {
       type: Object,
       default: null,
     },
-    popoverOptions: {
-      type: Object,
+    popoverStyle: {
+      type: [Object, Function],
       default: null,
     },
     tooltipCta: {
@@ -157,6 +156,7 @@ export default {
       default: '',
     },
   },
+  emits: ['update:modelValue', 'change', 'blur', 'focus', 'open', 'close', 'after-open', 'after-close'],
   data() {
     return {
       shouldEmitFocus: true,
@@ -165,9 +165,10 @@ export default {
   computed: {
     selectedModel: {
       get() {
-        return this.selected;
+        return this.modelValue;
       },
       set(selectedItem) {
+        this.$emit('update:modelValue', selectedItem);
         this.$emit('change', selectedItem);
       },
     },
@@ -175,8 +176,8 @@ export default {
       if (this.selectedText) {
         return this.selectedText;
       }
-      if (this.selected) {
-        return this.selected.text;
+      if (this.modelValue) {
+        return this.modelValue.text;
       }
       return '';
     },
@@ -199,10 +200,10 @@ export default {
       }
     },
     hasCtaSlot() {
-      return !!this.$scopedSlots.cta;
+      return !!this.$slots.cta;
     },
     hasItemSlot() {
-      return !!this.$scopedSlots.item;
+      return !!this.$slots.item;
     },
   },
 };

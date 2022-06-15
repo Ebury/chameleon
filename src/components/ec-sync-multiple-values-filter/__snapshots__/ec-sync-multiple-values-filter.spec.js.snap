@@ -11,10 +11,10 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -27,11 +27,9 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -40,10 +38,13 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
@@ -52,7 +53,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
             class="ec-multiple-values-selection__search-area"
           >
             <svg
-              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              class="ec-icon ec-icon--interactive ec-multiple-values-selection__search-icon"
               data-test="ec-multiple-values-selection__search-icon"
               height="20"
               width="20"
@@ -61,7 +62,6 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                 xlink:href="#ec-simple-search"
               />
             </svg>
-             
             <input
               autocomplete="off"
               class="ec-multiple-values-selection__search-input"
@@ -70,13 +70,13 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
               type="text"
             />
           </div>
-           
-          <!---->
-           
+          
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -91,27 +91,26 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                     id="ec-checkbox-2"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-2"
                       title="Partially paid"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -119,23 +118,26 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                             xlink:href="#ec-rounded-partial"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Partially paid
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -152,10 +154,10 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -168,11 +170,9 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -181,10 +181,13 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
@@ -193,7 +196,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
             class="ec-multiple-values-selection__search-area"
           >
             <svg
-              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              class="ec-icon ec-icon--interactive ec-multiple-values-selection__search-icon"
               data-test="ec-multiple-values-selection__search-icon"
               height="20"
               width="20"
@@ -202,7 +205,6 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                 xlink:href="#ec-simple-search"
               />
             </svg>
-             
             <input
               autocomplete="off"
               class="ec-multiple-values-selection__search-input"
@@ -211,13 +213,13 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
               type="text"
             />
           </div>
-           
-          <!---->
-           
+          
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -232,27 +234,26 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                     id="ec-checkbox-1"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-1"
                       title="Success"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -260,23 +261,26 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                             xlink:href="#ec-rounded-check"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Success
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -293,10 +297,10 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -309,11 +313,9 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -322,16 +324,19 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
+          <!--v-if-->
+          
           <div
             class="ec-multiple-values-selection__select-all"
           >
@@ -345,34 +350,33 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
                 id="ec-checkbox-1"
                 type="checkbox"
               />
-               
               <div
                 class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
               >
                 <span
                   class="ec-checkbox__check-icon-wrapper"
                 >
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
                 <label
                   class="ec-checkbox__label ec-checkbox__label--is-single-line"
                   data-test="ec-checkbox__label"
                   for="ec-checkbox-1"
                   title="Select all"
                 >
+                  
                   Select all
+                  
                 </label>
               </div>
-               
-              <!---->
+              <!--v-if-->
             </div>
           </div>
-           
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -387,27 +391,26 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
                     id="ec-checkbox-2"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-2"
                       title="Success"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -415,23 +418,26 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
                             xlink:href="#ec-rounded-check"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Success
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -448,10 +454,10 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -464,11 +470,9 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -477,21 +481,23 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__no-results-wrapper"
           >
             <svg
-              class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+              class="ec-icon ec-icon--info ec-multiple-values-selection__no-results-icon"
               data-test="ec-multiple-values-selection__no-results-icon"
               height="32"
               width="32"
@@ -500,7 +506,6 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
                 xlink:href="#ec-simple-error"
               />
             </svg>
-             
             <span
               class="ec-multiple-values-selection__no-results-message"
             >
@@ -508,7 +513,9 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
             </span>
           </div>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -525,10 +532,10 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -541,11 +548,9 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -554,16 +559,19 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
+          <!--v-if-->
+          
           <div
             class="ec-multiple-values-selection__select-all"
           >
@@ -577,34 +585,33 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
                 id="ec-checkbox-1"
                 type="checkbox"
               />
-               
               <div
                 class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
               >
                 <span
                   class="ec-checkbox__check-icon-wrapper"
                 >
-                  <!---->
+                  <!--v-if-->
                 </span>
-                 
                 <label
                   class="ec-checkbox__label ec-checkbox__label--is-single-line"
                   data-test="ec-checkbox__label"
                   for="ec-checkbox-1"
                   title="Custom select all"
                 >
+                  
                   Custom select all
+                  
                 </label>
               </div>
-               
-              <!---->
+              <!--v-if-->
             </div>
           </div>
-           
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -619,27 +626,26 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
                     id="ec-checkbox-2"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-2"
                       title="Success"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -647,23 +653,26 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
                             xlink:href="#ec-rounded-check"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Success
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -680,10 +689,10 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -696,11 +705,9 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -709,10 +716,13 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
@@ -721,7 +731,7 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
             class="ec-multiple-values-selection__search-area"
           >
             <svg
-              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              class="ec-icon ec-icon--interactive ec-multiple-values-selection__search-icon"
               data-test="ec-multiple-values-selection__search-icon"
               height="20"
               width="20"
@@ -730,7 +740,6 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
                 xlink:href="#ec-simple-search"
               />
             </svg>
-             
             <input
               autocomplete="off"
               class="ec-multiple-values-selection__search-input"
@@ -739,12 +748,11 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
               type="text"
             />
           </div>
-           
           <div
             class="ec-multiple-values-selection__no-results-wrapper"
           >
             <svg
-              class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+              class="ec-icon ec-icon--info ec-multiple-values-selection__no-results-icon"
               data-test="ec-multiple-values-selection__no-results-icon"
               height="32"
               width="32"
@@ -753,7 +761,6 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
                 xlink:href="#ec-simple-error"
               />
             </svg>
-             
             <span
               class="ec-multiple-values-selection__no-results-message"
             >
@@ -761,7 +768,9 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
             </span>
           </div>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -778,10 +787,10 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -794,11 +803,9 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -807,21 +814,23 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__error-wrapper"
           >
             <svg
-              class="ec-multiple-values-selection__error-icon ec-icon ec-icon--error"
+              class="ec-icon ec-icon--error ec-multiple-values-selection__error-icon"
               data-test="ec-multiple-values-selection__error-icon"
               height="32"
               width="32"
@@ -830,7 +839,6 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
                 xlink:href="#ec-simple-error"
               />
             </svg>
-             
             <span
               class="ec-multiple-values-selection__error-message"
             >
@@ -838,7 +846,9 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
             </span>
           </div>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -855,10 +865,10 @@ exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = 
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -871,11 +881,9 @@ exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = 
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -884,21 +892,23 @@ exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = 
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__loading"
           >
             <svg
-              class="ec-loading-icon ec-icon"
+              class="ec-icon ec-loading-icon"
               data-test="ec-loading-icon"
               height="32"
               width="32"
@@ -909,7 +919,9 @@ exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = 
             </svg>
           </div>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -926,10 +938,10 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -942,11 +954,9 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -955,22 +965,25 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
-          <!---->
-           
+          <!--v-if-->
+          
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -985,27 +998,26 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                     id="ec-checkbox-1"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-1"
                       title="Success"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1013,17 +1025,16 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                             xlink:href="#ec-rounded-check"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Success
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
               <li
@@ -1040,27 +1051,26 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                     id="ec-checkbox-2"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-2"
                       title="Partially paid"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1068,17 +1078,16 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                             xlink:href="#ec-rounded-partial"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Partially paid
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
               <li
@@ -1095,27 +1104,26 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                     id="ec-checkbox-3"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-3"
                       title="Cancelled"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                          class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1123,23 +1131,26 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                             xlink:href="#ec-rounded-cancelled"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Cancelled
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -1156,10 +1167,10 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -1172,11 +1183,9 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -1185,10 +1194,13 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
@@ -1197,7 +1209,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
             class="ec-multiple-values-selection__search-area"
           >
             <svg
-              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              class="ec-icon ec-icon--interactive ec-multiple-values-selection__search-icon"
               data-test="ec-multiple-values-selection__search-icon"
               height="20"
               width="20"
@@ -1206,7 +1218,6 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                 xlink:href="#ec-simple-search"
               />
             </svg>
-             
             <input
               autocomplete="off"
               class="ec-multiple-values-selection__search-input"
@@ -1215,13 +1226,13 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
               type="text"
             />
           </div>
-           
-          <!---->
-           
+          
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1236,27 +1247,26 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                     id="ec-checkbox-1"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-1"
                       title="Success"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1264,17 +1274,16 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                             xlink:href="#ec-rounded-check"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Success
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
               <li
@@ -1291,27 +1300,26 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                     id="ec-checkbox-2"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-2"
                       title="Partially paid"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1319,17 +1327,16 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                             xlink:href="#ec-rounded-partial"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Partially paid
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
               <li
@@ -1346,27 +1353,26 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                     id="ec-checkbox-3"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-3"
                       title="Cancelled"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                          class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1374,23 +1380,26 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                             xlink:href="#ec-rounded-cancelled"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Cancelled
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -1407,10 +1416,10 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -1423,17 +1432,14 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
         >
           Status
         </button>
-         
         <span
           class="ec-filter-popover__badge"
           data-test="ec-filter-popover__badge"
         >
-           2
-      
+          2
         </span>
-         
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -1442,10 +1448,13 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
@@ -1454,7 +1463,7 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
             class="ec-multiple-values-selection__search-area"
           >
             <svg
-              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              class="ec-icon ec-icon--interactive ec-multiple-values-selection__search-icon"
               data-test="ec-multiple-values-selection__search-icon"
               height="20"
               width="20"
@@ -1463,7 +1472,6 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
                 xlink:href="#ec-simple-search"
               />
             </svg>
-             
             <input
               autocomplete="off"
               class="ec-multiple-values-selection__search-input"
@@ -1472,12 +1480,11 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
               type="text"
             />
           </div>
-           
           <div
             class="ec-multiple-values-selection__no-results-wrapper"
           >
             <svg
-              class="ec-multiple-values-selection__no-results-icon ec-icon ec-icon--info"
+              class="ec-icon ec-icon--info ec-multiple-values-selection__no-results-icon"
               data-test="ec-multiple-values-selection__no-results-icon"
               height="32"
               width="32"
@@ -1486,7 +1493,6 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
                 xlink:href="#ec-simple-error"
               />
             </svg>
-             
             <span
               class="ec-multiple-values-selection__no-results-message"
             >
@@ -1494,7 +1500,9 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
             </span>
           </div>
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -1511,10 +1519,10 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -1527,11 +1535,9 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -1540,22 +1546,25 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content ec-filter-popover__filter-content--is-full-height"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
-          <!---->
-           
+          <!--v-if-->
+          
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1570,27 +1579,26 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
                     id="ec-checkbox-1"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-1"
                       title="Success"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1598,23 +1606,26 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
                             xlink:href="#ec-rounded-check"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Success
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -1631,10 +1642,10 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -1647,11 +1658,9 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -1660,22 +1669,25 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
-          <!---->
-           
+          <!--v-if-->
+          
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1690,27 +1702,26 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                     id="ec-checkbox-1"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-1"
                       title="Success"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1718,17 +1729,16 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                             xlink:href="#ec-rounded-check"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Success
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
               <li
@@ -1745,27 +1755,26 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                     id="ec-checkbox-2"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-2"
                       title="Partially paid"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1773,17 +1782,16 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                             xlink:href="#ec-rounded-partial"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Partially paid
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
               <li
@@ -1800,27 +1808,26 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                     id="ec-checkbox-3"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-3"
                       title="Cancelled"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                          class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1828,23 +1835,26 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                             xlink:href="#ec-rounded-cancelled"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Cancelled
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -1871,10 +1881,10 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -1887,11 +1897,9 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
         >
           Status
         </button>
-         
-        <!---->
-         
+        <!--v-if-->
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -1900,10 +1908,13 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
@@ -1912,7 +1923,7 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
             class="ec-multiple-values-selection__search-area"
           >
             <svg
-              class="ec-multiple-values-selection__search-icon ec-icon ec-icon--interactive"
+              class="ec-icon ec-icon--interactive ec-multiple-values-selection__search-icon"
               data-test="ec-multiple-values-selection__search-icon"
               height="20"
               width="20"
@@ -1921,7 +1932,6 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
                 xlink:href="#ec-simple-search"
               />
             </svg>
-             
             <input
               autocomplete="off"
               class="ec-multiple-values-selection__search-input"
@@ -1930,13 +1940,13 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
               type="text"
             />
           </div>
-           
-          <!---->
-           
+          
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
@@ -1951,27 +1961,26 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
                     id="ec-checkbox-1"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-1"
                       title="Success"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -1979,23 +1988,26 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
                             xlink:href="#ec-rounded-check"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Success
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>
@@ -2012,10 +2024,10 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
-      offset="0, 8"
-      placement="bottom"
-      popper-options="[object Object]"
+      distance="8"
+      placement="bottom-start"
     >
+      
       <div
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
@@ -2028,17 +2040,14 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
         >
           Status
         </button>
-         
         <span
           class="ec-filter-popover__badge"
           data-test="ec-filter-popover__badge"
         >
-           1
-      
+          1
         </span>
-         
         <svg
-          class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
           height="16"
           width="16"
         >
@@ -2047,22 +2056,25 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
           />
         </svg>
       </div>
-        
+      
+       
+      
       <div
         class="ec-filter-popover__filter-content"
       >
+        
         <div
           class="ec-multiple-values-selection"
           data-test="ec-multiple-values-selection"
         >
-          <!---->
-           
-          <!---->
-           
+          <!--v-if-->
+          
+          <!--v-if-->
           <div
             class="ec-multiple-values-selection__values"
           >
             <ul>
+              
               <li
                 class="ec-multiple-values-selection__value-wrapper"
                 data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--selected"
@@ -2077,7 +2089,6 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                     id="ec-checkbox-1"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
@@ -2085,7 +2096,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
                     >
                       <svg
-                        class="ec-checkbox__check-icon ec-icon"
+                        class="ec-icon ec-checkbox__check-icon"
                         height="16"
                         width="16"
                       >
@@ -2094,18 +2105,18 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                         />
                       </svg>
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-1"
                       title="Success"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -2113,17 +2124,16 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                             xlink:href="#ec-rounded-check"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Success
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
               <li
@@ -2140,27 +2150,26 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                     id="ec-checkbox-2"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-2"
                       title="Partially paid"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--success"
+                          class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -2168,17 +2177,16 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                             xlink:href="#ec-rounded-partial"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Partially paid
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
               <li
@@ -2195,27 +2203,26 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                     id="ec-checkbox-3"
                     type="checkbox"
                   />
-                   
                   <div
                     class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
                     >
-                      <!---->
+                      <!--v-if-->
                     </span>
-                     
                     <label
                       class="ec-checkbox__label ec-checkbox__label--is-single-line"
                       data-test="ec-checkbox__label"
                       for="ec-checkbox-3"
                       title="Cancelled"
                     >
+                      
                       <div
                         class="ec-multiple-values-selection__label-wrapper"
                       >
                         <svg
-                          class="ec-multiple-values-selection__icon ec-icon ec-icon--error"
+                          class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
                           height="24"
                           width="24"
                         >
@@ -2223,23 +2230,26 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                             xlink:href="#ec-rounded-cancelled"
                           />
                         </svg>
-                         
                         <span
                           class="ec-multiple-values-selection__label-text"
                         >
                           Cancelled
                         </span>
                       </div>
+                      
                     </label>
                   </div>
-                   
-                  <!---->
+                  <!--v-if-->
                 </div>
               </li>
+              
             </ul>
           </div>
+          
         </div>
+        
       </div>
+      
     </ec-stub>
   </div>
 </div>

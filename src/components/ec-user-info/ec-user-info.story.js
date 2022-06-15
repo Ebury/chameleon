@@ -1,12 +1,12 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcUserInfo from './ec-user-info.vue';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import gravatar from '!!url-loader!../../../public/empty-gravatar.png';
 
 const client = {
   name: 'Ebury Demo 2',
   profileUrl: '/profile',
-  gravatar,
+  gravatar: '/empty-gravatar.png',
 };
 
 export default {
@@ -14,27 +14,20 @@ export default {
   component: EcUserInfo,
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = args => ({
   components: { EcUserInfo },
-  props: Object.keys(argTypes),
-  data() {
-    return { isCollapsedFromProps: false };
-  },
-  watch: {
-    isCollapsed: {
-      immediate: true,
-      handler(newValue) {
-        this.isCollapsedFromProps = newValue;
-      },
-    },
-  },
-  methods: {
-    onToggle: action('toggle'),
+  setup() {
+    const isCollapsedFromProps = ref(args.isCollapsed);
+    return {
+      isCollapsedFromProps,
+      args,
+      onToggle: action('toggle'),
+    };
   },
   template: `
     <div class="tw-bg-key-2 tw-w-1/4 tw-h-screen">
       <ec-user-info
-        v-bind="$props"
+        v-bind="args"
         :is-collapsed="isCollapsable && isCollapsedFromProps"
         @toggle="isCollapsedFromProps = !isCollapsedFromProps; onToggle()"
       >

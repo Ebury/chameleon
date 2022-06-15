@@ -5,7 +5,7 @@
   >
     <ec-input-field
       readonly
-      :value="value"
+      :model-value="value"
       :is-sensitive="isSensitive"
       :is-loading="true"
     />

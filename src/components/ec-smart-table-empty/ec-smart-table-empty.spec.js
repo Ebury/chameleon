@@ -1,9 +1,11 @@
 import { mount } from '@vue/test-utils';
+import { h } from 'vue';
+
 import EcSmartTableEmpty from './ec-smart-table-empty.vue';
 
 function mountEcSmartTableEmpty(props, mountOpts) {
   return mount(EcSmartTableEmpty, {
-    propsData: {
+    props: {
       title: 'Random Title',
       emptyMessage: 'Random empty message',
       ...props,
@@ -30,8 +32,8 @@ describe('EcSmartTableEmpty', () => {
 
   it('should render given empty slot', () => {
     const wrapper = mountEcSmartTableEmpty({ emptyMessage: 'Test empty message' }, {
-      scopedSlots: {
-        empty: '<strong>Empty Slot: {{props.emptyMessage}}</strong>',
+      slots: {
+        empty: ({ emptyMessage }) => h('strong', `Empty Slot: ${emptyMessage}`),
       },
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -39,7 +41,7 @@ describe('EcSmartTableEmpty', () => {
 
   it('should render given filter slot', () => {
     const wrapper = mountEcSmartTableEmpty(null, {
-      scopedSlots: {
+      slots: {
         filter: '<div>Custom filter</div>',
       },
     });
@@ -48,7 +50,7 @@ describe('EcSmartTableEmpty', () => {
 
   it('should render given header-actions slot', () => {
     const wrapper = mountEcSmartTableEmpty(null, {
-      scopedSlots: {
+      slots: {
         'header-actions': '<div>Header Actions</div>',
       },
     });
@@ -57,8 +59,10 @@ describe('EcSmartTableEmpty', () => {
 
   it('should render given header-actions slot with the props', () => {
     const wrapper = mountEcSmartTableEmpty(null, {
-      scopedSlots: {
-        'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+      slots: {
+        'header-actions': ({
+          total, items, error, loading,
+        }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
       },
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -66,7 +70,7 @@ describe('EcSmartTableEmpty', () => {
 
   it('should render given filter and header-actions slots', () => {
     const wrapper = mountEcSmartTableEmpty(null, {
-      scopedSlots: {
+      slots: {
         filter: '<div>Custom filter</div>',
         'header-actions': '<div>Header Actions</div>',
       },

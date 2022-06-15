@@ -1,23 +1,20 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import cssVars from 'css-vars-ponyfill';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+/* eslint-disable import/no-extraneous-dependencies,import/no-webpack-loader-syntax */
 import { withCssResources } from '@storybook/addon-cssresources';
-import Vue from 'vue';
-import { inlineSvgSprites } from '../src/icons/browser';
-import { getAllBackgrounds } from './backgrounds';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import Vue, { configureCompat } from 'vue';
 
-/* eslint-disable import/no-webpack-loader-syntax */
 import bwTheme from '!!raw-loader!../src/styles/themes/b-w.css';
 import greenTheme from '!!raw-loader!../src/styles/themes/green.css';
-import redTheme from '!!raw-loader!../src/styles/themes/red.css';
 import hotpinkTheme from '!!raw-loader!../src/styles/themes/hotpink.css';
-/* eslint-enable */
-
+import redTheme from '!!raw-loader!../src/styles/themes/red.css';
 import config from '../src/config';
+import { inlineSvgSprites } from '../src/icons/browser';
+import applyCompatPatches from '../src/utils/compat-patches';
+import { getAllBackgrounds } from './backgrounds';
 
 import '../src/styles/themes/blue.css';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import '!!style-loader!css-loader!postcss-loader!../src/styles/main.css';
+import '../src/styles/main.css';
+/* eslint-enable */
 
 config.sensitiveClass = 'tw-filter tw-blur-4';
 
@@ -25,8 +22,15 @@ config.sensitiveClass = 'tw-filter tw-blur-4';
 // https://github.com/storybookjs/storybook/issues/14933
 Vue.prototype.toJSON = () => {};
 
+configureCompat({
+  MODE: 2,
+  RENDER_FUNCTION: true,
+  COMPONENT_V_MODEL: false,
+});
+
+applyCompatPatches();
+
 export const parameters = {
-  viewMode: 'docs',
   layout: 'fullscreen',
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: getAllBackgrounds('light'),
@@ -45,7 +49,10 @@ export const parameters = {
   },
 };
 
+if (process.env.NODE_ENV === 'production') {
+  parameters.viewMode = 'docs';
+}
+
 export const decorators = [withCssResources];
 
-cssVars();
 inlineSvgSprites(['rounded-icons', 'simple-icons', 'currency-flags'], '/img');

@@ -1,7 +1,5 @@
 <template>
   <ec-input-field
-    v-model="inputModel"
-    v-ec-amount="getFormattingOptions()"
     v-bind="{
       ...$attrs,
       ...$props,
@@ -10,27 +8,29 @@
       isMasked: null,
       currency: null,
     }"
-    v-on="{ ...$listeners, 'value-change': null }"
+    v-model="inputModel"
+    v-ec-amount="getFormattingOptions()"
+    v-on="{ ...$listeners, 'update:modelValue': null }"
   />
 </template>
 
 <script>
-import EcInputField from '../ec-input-field';
 import EcAmount from '../../directives/ec-amount/ec-amount';
 import { format, unFormat } from '../../directives/ec-amount/utils';
 import { getDecimalSeparator, getGroupingSeparator } from '../../utils/number-format';
+import EcInputField from '../ec-input-field';
 
 export default {
+  name: 'EcAmountInput',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: { EcInputField },
   directives: { EcAmount },
   inheritAttrs: false,
-  model: {
-    prop: 'value',
-    event: 'value-change',
-  },
   props: {
     ...EcInputField.props,
-    value: {
+    modelValue: {
       validator: prop => typeof prop === 'number' || typeof prop === 'string' || prop === null,
       required: true,
       default: null,
@@ -51,6 +51,7 @@ export default {
       default: false,
     },
   },
+  emits: ['update:modelValue'],
   data() {
     return {
       formattedValue: '',
@@ -79,7 +80,7 @@ export default {
         }
 
         if (newValue === this.formattedValue) {
-          // the new value is exactly the same as the curent value, skip the assignment so it will not trigger other
+          // the new value is exactly the same as the current value, skip the assignment so it will not trigger other
           // setters and watchers.
           return;
         }
@@ -89,7 +90,7 @@ export default {
     },
   },
   watch: {
-    value: {
+    modelValue: {
       immediate: true,
       handler(newValue) {
         if (this.isMasked) {
@@ -106,7 +107,7 @@ export default {
 
           if (!Number.isNaN(newValue) && this.formattedValue !== '-') {
             if (typeof newValue === 'number') {
-              this.formattedValue = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.value);
+              this.formattedValue = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.modelValue);
             } else {
               this.formattedValue = format(newValue, this.getFormattingOptions());
             }
@@ -133,7 +134,7 @@ export default {
         const hasUnformattedValueChanged = this.unformattedValue !== unformattedValue;
         this.unformattedValue = unformattedValue;
         if (this.isMasked) {
-          this.$emit('value-change', this.formattedValue);
+          this.$emit('update:modelValue', this.formattedValue);
         } else {
           if (Number.isNaN(unformattedValue) || !hasUnformattedValueChanged) {
             // prevent emitting change events for NaN values or if the unformatted values hasn't changed.
@@ -142,15 +143,15 @@ export default {
             // 2. user typed "1", then "1.", then "1.0" -> unformattedValue is always the same, only the formattedValue changes.
             return;
           }
-          this.$emit('value-change', this.unformattedValue);
+          this.$emit('update:modelValue', this.unformattedValue);
         }
       } else {
         this.unformattedValue = null;
-        this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
+        this.$emit('update:modelValue', this.isMasked ? this.formattedValue : this.unformattedValue);
       }
     },
     isMasked() {
-      this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
+      this.$emit('update:modelValue', this.isMasked ? this.formattedValue : this.unformattedValue);
     },
   },
   methods: {

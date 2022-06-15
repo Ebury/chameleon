@@ -34,9 +34,10 @@
 
 <script>
 import clipboardCopy from 'clipboard-copy';
-import EcIcon from '../../../ec-icon';
-import EcTooltip from '../../../../directives/ec-tooltip';
+
 import config from '../../../../config';
+import EcTooltip from '../../../../directives/ec-tooltip';
+import EcIcon from '../../../ec-icon';
 
 export default {
   name: 'EcInlineInputFieldCopy',

@@ -1,6 +1,6 @@
 /* eslint no-underscore-dangle: "off" */
-import { format, setCursor, event } from './utils';
 import defaultOptions from './options';
+import { event, format, setCursor } from './utils';
 
 function getNumberOfSeparators(value, endIndex, separator) {
   const matches = value.substr(0, endIndex).match(new RegExp(`\\${separator}`, 'g'));
@@ -23,11 +23,11 @@ function getOptions(el) {
 }
 
 export default {
-  update(el, binding, vnode) {
+  updated(el, binding, vnode) {
     updateOptions(vnode.elm, binding);
   },
 
-  bind(el, binding, vnode) {
+  beforeMount(el, binding, vnode) {
     /* eslint no-param-reassign: "off" */
     // v-ec-amount used on a component that's not a input
     if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
@@ -82,7 +82,7 @@ export default {
     el.addEventListener('keydown', el.__keydownHandler);
   },
 
-  unbind(el) {
+  beforeUnmount(el) {
     el.removeEventListener('input', el.__inputHandler);
     el.removeEventListener('keydown', el.__keydownHandler);
 

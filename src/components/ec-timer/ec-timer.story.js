@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+
 import EcTimer from './ec-timer.vue';
 
 export default {
@@ -6,15 +7,17 @@ export default {
   component: EcTimer,
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = ({ ...args }) => ({
   components: { EcTimer },
-  props: Object.keys(argTypes),
-  methods: {
-    onTimeExpired: action('time-expired'),
+  setup() {
+    return {
+      args,
+      onTimeExpired: action('time-expired'),
+    };
   },
   template: `
     <div class="tw-flex tw-justify-center">
-      <ec-timer v-bind="$props" v-on="{ 'time-expired': onTimeExpired }" />
+      <ec-timer v-bind="args" v-on="{ 'time-expired': onTimeExpired }" />
     </div>
   `,
 });

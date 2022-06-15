@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcDateRangeFilter should render properly when all the props are given 1`] = `
+exports[`EcDateRangeFilter should render if no dates are passed in value prop 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-date-range-filter__trigger"
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -23,17 +23,9 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
       >
         Due date
       </button>
-       
-      <span
-        class="ec-filter-popover__badge"
-        data-test="ec-filter-popover__badge"
-      >
-         2
-      
-      </span>
-       
+      <!--v-if-->
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -42,10 +34,13 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
         />
       </svg>
     </div>
-      
+    
+     
+    
     <div
       class="ec-filter-popover__filter-content"
     >
+      
       <div
         class="ec-date-range-filter"
         data-test="ec-date-range-filter"
@@ -67,26 +62,20 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
                 data-test="ec-input-field__label-text"
               >
                 From
-                <!---->
+                <!--v-if-->
               </span>
-               
-              <!---->
+              <!--v-if-->
             </label>
-             
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
               id="ec-input-field-1"
-              max="2020-04-10"
               placeholder="dd/mm/yyyy"
               type="date"
             />
-             
-            <!---->
-             
-            <!---->
+            <!--v-if-->
+            <!--v-if-->
           </div>
-           
           <div
             class="ec-input-field ec-date-range-filter__to-input"
             data-test="ec-input-field"
@@ -101,12 +90,138 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
                 data-test="ec-input-field__label-text"
               >
                 To
-                <!---->
+                <!--v-if-->
               </span>
-               
-              <!---->
+              <!--v-if-->
             </label>
-             
+            <input
+              class="ec-input-field__input"
+              data-test="ec-date-range-filter__to-input ec-input-field__input"
+              id="ec-input-field-2"
+              placeholder="dd/mm/yyyy"
+              type="date"
+            />
+            <!--v-if-->
+            <!--v-if-->
+          </div>
+        </div>
+        <!--v-if-->
+        <button
+          class="ec-date-range-filter__clear-button"
+          data-test="ec-date-range-filter__clear-button"
+          disabled=""
+          type="button"
+        >
+          Clear dates
+        </button>
+      </div>
+      
+    </div>
+    
+  </ec-stub>
+</div>
+`;
+
+exports[`EcDateRangeFilter should render properly when all the props are given 1`] = `
+<div
+  class="ec-filter-popover"
+  data-test="ec-date-range-filter__trigger"
+>
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
+    distance="8"
+    placement="bottom-start"
+  >
+    
+    <div
+      class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        title="Due date"
+        type="button"
+      >
+        Due date
+      </button>
+      <span
+        class="ec-filter-popover__badge"
+        data-test="ec-filter-popover__badge"
+      >
+        2
+      </span>
+      <svg
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+    
+     
+    
+    <div
+      class="ec-filter-popover__filter-content"
+    >
+      
+      <div
+        class="ec-date-range-filter"
+        data-test="ec-date-range-filter"
+      >
+        <div
+          class="ec-date-range-filter__inputs-wrapper"
+        >
+          <div
+            class="ec-input-field ec-date-range-filter__from-input"
+            data-test="ec-input-field"
+          >
+            <label
+              class="ec-input-field__label"
+              data-test="ec-input-field__label"
+              for="ec-input-field-1"
+            >
+              <span
+                class="ec-input-field__label-text"
+                data-test="ec-input-field__label-text"
+              >
+                From
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </label>
+            <input
+              class="ec-input-field__input"
+              data-test="ec-date-range-filter__from-input ec-input-field__input"
+              id="ec-input-field-1"
+              max="2020-04-10"
+              placeholder="dd/mm/yyyy"
+              type="date"
+            />
+            <!--v-if-->
+            <!--v-if-->
+          </div>
+          <div
+            class="ec-input-field ec-date-range-filter__to-input"
+            data-test="ec-input-field"
+          >
+            <label
+              class="ec-input-field__label"
+              data-test="ec-input-field__label"
+              for="ec-input-field-2"
+            >
+              <span
+                class="ec-input-field__label-text"
+                data-test="ec-input-field__label-text"
+              >
+                To
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </label>
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
@@ -115,15 +230,11 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
               placeholder="dd/mm/yyyy"
               type="date"
             />
-             
-            <!---->
-             
-            <!---->
+            <!--v-if-->
+            <!--v-if-->
           </div>
         </div>
-         
-        <!---->
-         
+        <!--v-if-->
         <button
           class="ec-date-range-filter__clear-button"
           data-test="ec-date-range-filter__clear-button"
@@ -132,7 +243,9 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
           Clear dates
         </button>
       </div>
+      
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -144,10 +257,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -160,17 +273,14 @@ exports[`EcDateRangeFilter should render properly with an error message when the
       >
         Due date
       </button>
-       
       <span
         class="ec-filter-popover__badge"
         data-test="ec-filter-popover__badge"
       >
-         2
-      
+        2
       </span>
-       
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -179,10 +289,13 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         />
       </svg>
     </div>
-      
+    
+     
+    
     <div
       class="ec-filter-popover__filter-content"
     >
+      
       <div
         class="ec-date-range-filter"
         data-test="ec-date-range-filter"
@@ -204,12 +317,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
                 data-test="ec-input-field__label-text"
               >
                 From
-                <!---->
+                <!--v-if-->
               </span>
-               
-              <!---->
+              <!--v-if-->
             </label>
-             
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
@@ -218,12 +329,9 @@ exports[`EcDateRangeFilter should render properly with an error message when the
               placeholder="dd/mm/yyyy"
               type="date"
             />
-             
-            <!---->
-             
-            <!---->
+            <!--v-if-->
+            <!--v-if-->
           </div>
-           
           <div
             class="ec-input-field ec-date-range-filter__to-input"
             data-test="ec-input-field"
@@ -238,12 +346,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
                 data-test="ec-input-field__label-text"
               >
                 To
-                <!---->
+                <!--v-if-->
               </span>
-               
-              <!---->
+              <!--v-if-->
             </label>
-             
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
@@ -252,20 +358,16 @@ exports[`EcDateRangeFilter should render properly with an error message when the
               placeholder="dd/mm/yyyy"
               type="date"
             />
-             
-            <!---->
-             
-            <!---->
+            <!--v-if-->
+            <!--v-if-->
           </div>
         </div>
-         
         <p
           class="ec-date-range-filter__error-text"
           data-test="ec-date-range-filter__error-text"
         >
           This is the date range error message
         </p>
-         
         <button
           class="ec-date-range-filter__clear-button"
           data-test="ec-date-range-filter__clear-button"
@@ -274,7 +376,9 @@ exports[`EcDateRangeFilter should render properly with an error message when the
           Clear dates
         </button>
       </div>
+      
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -286,10 +390,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -302,17 +406,14 @@ exports[`EcDateRangeFilter should render properly with an error message when the
       >
         Due date
       </button>
-       
       <span
         class="ec-filter-popover__badge"
         data-test="ec-filter-popover__badge"
       >
-         2
-      
+        2
       </span>
-       
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -321,10 +422,13 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         />
       </svg>
     </div>
-      
+    
+     
+    
     <div
       class="ec-filter-popover__filter-content"
     >
+      
       <div
         class="ec-date-range-filter"
         data-test="ec-date-range-filter"
@@ -346,12 +450,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
                 data-test="ec-input-field__label-text"
               >
                 From
-                <!---->
+                <!--v-if-->
               </span>
-               
-              <!---->
+              <!--v-if-->
             </label>
-             
             <input
               aria-describedby="ec-input-field-error-1"
               class="ec-input-field__input ec-input-field__input--has-error"
@@ -361,9 +463,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
               placeholder="dd/mm/yyyy"
               type="date"
             />
-             
-            <!---->
-             
+            <!--v-if-->
             <div
               class="ec-input-field__error-text"
               data-test="ec-input-field__error-text"
@@ -372,7 +472,6 @@ exports[`EcDateRangeFilter should render properly with an error message when the
               This is the from field error message
             </div>
           </div>
-           
           <div
             class="ec-input-field ec-date-range-filter__to-input"
             data-test="ec-input-field"
@@ -387,12 +486,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
                 data-test="ec-input-field__label-text"
               >
                 To
-                <!---->
+                <!--v-if-->
               </span>
-               
-              <!---->
+              <!--v-if-->
             </label>
-             
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__to-input ec-input-field__input"
@@ -401,15 +498,11 @@ exports[`EcDateRangeFilter should render properly with an error message when the
               placeholder="dd/mm/yyyy"
               type="date"
             />
-             
-            <!---->
-             
-            <!---->
+            <!--v-if-->
+            <!--v-if-->
           </div>
         </div>
-         
-        <!---->
-         
+        <!--v-if-->
         <button
           class="ec-date-range-filter__clear-button"
           data-test="ec-date-range-filter__clear-button"
@@ -418,7 +511,9 @@ exports[`EcDateRangeFilter should render properly with an error message when the
           Clear dates
         </button>
       </div>
+      
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -430,10 +525,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -446,17 +541,14 @@ exports[`EcDateRangeFilter should render properly with an error message when the
       >
         Due date
       </button>
-       
       <span
         class="ec-filter-popover__badge"
         data-test="ec-filter-popover__badge"
       >
-         2
-      
+        2
       </span>
-       
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -465,10 +557,13 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         />
       </svg>
     </div>
-      
+    
+     
+    
     <div
       class="ec-filter-popover__filter-content"
     >
+      
       <div
         class="ec-date-range-filter"
         data-test="ec-date-range-filter"
@@ -490,12 +585,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
                 data-test="ec-input-field__label-text"
               >
                 From
-                <!---->
+                <!--v-if-->
               </span>
-               
-              <!---->
+              <!--v-if-->
             </label>
-             
             <input
               class="ec-input-field__input"
               data-test="ec-date-range-filter__from-input ec-input-field__input"
@@ -504,12 +597,9 @@ exports[`EcDateRangeFilter should render properly with an error message when the
               placeholder="dd/mm/yyyy"
               type="date"
             />
-             
-            <!---->
-             
-            <!---->
+            <!--v-if-->
+            <!--v-if-->
           </div>
-           
           <div
             class="ec-input-field ec-date-range-filter__to-input"
             data-test="ec-input-field"
@@ -524,12 +614,10 @@ exports[`EcDateRangeFilter should render properly with an error message when the
                 data-test="ec-input-field__label-text"
               >
                 To
-                <!---->
+                <!--v-if-->
               </span>
-               
-              <!---->
+              <!--v-if-->
             </label>
-             
             <input
               aria-describedby="ec-input-field-error-2"
               class="ec-input-field__input ec-input-field__input--has-error"
@@ -539,9 +627,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
               placeholder="dd/mm/yyyy"
               type="date"
             />
-             
-            <!---->
-             
+            <!--v-if-->
             <div
               class="ec-input-field__error-text"
               data-test="ec-input-field__error-text"
@@ -551,9 +637,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             </div>
           </div>
         </div>
-         
-        <!---->
-         
+        <!--v-if-->
         <button
           class="ec-date-range-filter__clear-button"
           data-test="ec-date-range-filter__clear-button"
@@ -562,137 +646,9 @@ exports[`EcDateRangeFilter should render properly with an error message when the
           Clear dates
         </button>
       </div>
-    </div>
-  </ec-stub>
-</div>
-`;
-
-exports[`EcDateRangeFilter should return undefined if no dates are passed in value prop 1`] = `
-<div
-  class="ec-filter-popover"
-  data-test="ec-date-range-filter__trigger"
->
-  <ec-stub
-    data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
-  >
-    <div
-      class="ec-filter-popover__trigger"
-      data-test="ec-filter-popover__trigger"
-    >
-      <button
-        class="ec-filter-popover__label"
-        data-test="ec-filter-popover__label"
-        title="Due date"
-        type="button"
-      >
-        Due date
-      </button>
-       
-      <!---->
-       
-      <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
-        height="16"
-        width="16"
-      >
-        <use
-          xlink:href="#ec-simple-chevron-down"
-        />
-      </svg>
-    </div>
       
-    <div
-      class="ec-filter-popover__filter-content"
-    >
-      <div
-        class="ec-date-range-filter"
-        data-test="ec-date-range-filter"
-      >
-        <div
-          class="ec-date-range-filter__inputs-wrapper"
-        >
-          <div
-            class="ec-input-field ec-date-range-filter__from-input"
-            data-test="ec-input-field"
-          >
-            <label
-              class="ec-input-field__label"
-              data-test="ec-input-field__label"
-              for="ec-input-field-1"
-            >
-              <span
-                class="ec-input-field__label-text"
-                data-test="ec-input-field__label-text"
-              >
-                From
-                <!---->
-              </span>
-               
-              <!---->
-            </label>
-             
-            <input
-              class="ec-input-field__input"
-              data-test="ec-date-range-filter__from-input ec-input-field__input"
-              id="ec-input-field-1"
-              placeholder="dd/mm/yyyy"
-              type="date"
-            />
-             
-            <!---->
-             
-            <!---->
-          </div>
-           
-          <div
-            class="ec-input-field ec-date-range-filter__to-input"
-            data-test="ec-input-field"
-          >
-            <label
-              class="ec-input-field__label"
-              data-test="ec-input-field__label"
-              for="ec-input-field-2"
-            >
-              <span
-                class="ec-input-field__label-text"
-                data-test="ec-input-field__label-text"
-              >
-                To
-                <!---->
-              </span>
-               
-              <!---->
-            </label>
-             
-            <input
-              class="ec-input-field__input"
-              data-test="ec-date-range-filter__to-input ec-input-field__input"
-              id="ec-input-field-2"
-              placeholder="dd/mm/yyyy"
-              type="date"
-            />
-             
-            <!---->
-             
-            <!---->
-          </div>
-        </div>
-         
-        <!---->
-         
-        <button
-          class="ec-date-range-filter__clear-button"
-          data-test="ec-date-range-filter__clear-button"
-          disabled="disabled"
-          type="button"
-        >
-          Clear dates
-        </button>
-      </div>
     </div>
+    
   </ec-stub>
 </div>
 `;

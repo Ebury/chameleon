@@ -1,7 +1,7 @@
 <template>
   <transition name="ec-modal__fade">
     <div
-      v-if="showModal"
+      v-if="show"
       class="ec-modal"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-modal` : 'ec-modal'"
       :style="zIndexStyle"
@@ -100,25 +100,25 @@
 </template>
 
 <script>
+import EcFocusTrap from '../../directives/ec-focus-trap';
+import * as KeyCode from '../../enums/key-code';
 import EcBtn from '../ec-btn';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
-import EcFocusTrap from '../../directives/ec-focus-trap';
-import * as KeyCode from '../../enums/key-code';
 
 export default {
+  name: 'EcModal',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcBtn,
     EcIcon,
     EcLoading,
   },
   directives: { EcFocusTrap },
-  model: {
-    prop: 'showModal',
-    event: 'close',
-  },
   props: {
-    showModal: {
+    show: {
       type: Boolean,
       default: false,
     },
@@ -149,6 +149,7 @@ export default {
       default: () => ({}),
     },
   },
+  emits: ['update:show', 'negative', 'positive', 'close'],
   computed: {
     isLoadingPositiveButton() {
       return !!this.isLoading.positive;
@@ -167,7 +168,7 @@ export default {
     },
   },
   watch: {
-    showModal: {
+    show: {
       immediate: true,
       handler(value) {
         if (value) {
@@ -178,7 +179,7 @@ export default {
       },
     },
   },
-  beforeDestroy() {
+  beforeUnmount() {
     document.removeEventListener('keyup', this.escapeIsPressed);
   },
   methods: {
@@ -190,6 +191,7 @@ export default {
     },
     closeModal() {
       if (this.isClosable) {
+        this.$emit('update:show', false);
         this.$emit('close', false);
       }
     },
@@ -213,13 +215,13 @@ export default {
       return options;
     },
     hasPositiveButton() {
-      return !!this.$scopedSlots.positive;
+      return !!this.$slots.positive;
     },
     hasNegativeButton() {
-      return !!this.$scopedSlots.negative;
+      return !!this.$slots.negative;
     },
     hasFooterLeftContent() {
-      return !!this.$scopedSlots.footerLeftContent;
+      return !!this.$slots.footerLeftContent;
     },
     hasFooter() {
       return this.hasFooterLeftContent() || this.hasPositiveButton() || this.hasNegativeButton();

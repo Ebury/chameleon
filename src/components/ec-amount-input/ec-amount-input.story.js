@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcAmountInput from './ec-amount-input.vue';
 
 export default {
@@ -16,31 +18,27 @@ export default {
   },
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = ({ modelValue, ...args }) => ({
   components: { EcAmountInput },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
+    const model = ref(modelValue);
+
+    function getModelType() {
+      return typeof model.value;
+    }
+
     return {
-      model: null,
+      args,
+      model,
+      getModelType,
+      onChange: action('change'),
+      onInput: action('input'),
     };
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  methods: {
-    getModelType() {
-      return typeof this.model;
-    },
-    onChange: action('change'),
-    onInput: action('input'),
   },
   template: `
     <div class="tw-p-24">
       <div>
-        <ec-amount-input v-bind="$props" v-on="{ change: onChange, input: onInput }" v-model="model" />
+        <ec-amount-input v-bind="args" v-on="{ change: onChange, input: onInput }" v-model="model" />
       </div>
       <div class="tw-mt-24">The input value: {{ model }} (type: {{ getModelType() }})</div>
     </div>
@@ -53,16 +51,16 @@ basic.args = {
   locale: 'en',
   currency: 'GBP',
   label: 'Amount input',
-  value: '',
+  modelValue: '',
   isSensitive: false,
 };
 
 basic.parameters = {
   visualRegressionTests: {
     controls: {
-      'with-value': { value: '1234567.89' },
-      'with-masked-value': { value: '1234567.89', isMasked: true },
-      'locale-with-no-decimals': { value: '1234567.89', locale: 'de-ch', currency: 'JPY' },
+      'with-value': { modelValue: '1234567.89' },
+      'with-masked-value': { modelValue: '1234567.89', isMasked: true },
+      'locale-with-no-decimals': { modelValue: '1234567.89', locale: 'de-ch', currency: 'JPY' },
     },
   },
 };

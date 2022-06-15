@@ -6,11 +6,12 @@ exports[`EcSmartTableEmpty should not render the title if title prop was not giv
   data-test="ec-smart-table-empty"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
-   Random empty message
+  
+  Random empty message
+  
 </div>
 `;
 
@@ -25,10 +26,11 @@ exports[`EcSmartTableEmpty should render default empty message 1`] = `
     >
       Random Title
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   No items found
+  
+  No items found
+  
 </div>
 `;
 
@@ -43,13 +45,13 @@ exports[`EcSmartTableEmpty should render given empty slot 1`] = `
     >
       Random Title
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
   <strong>
     Empty Slot: Test empty message
   </strong>
+  
 </div>
 `;
 
@@ -64,28 +66,36 @@ exports[`EcSmartTableEmpty should render given filter and header-actions slots 1
     >
       Random Title
     </div>
-     
     <div
       class="ec-smart-table-heading"
     >
       <div
         class="ec-smart-table-heading__filter"
       >
+        
+        
         <div>
           Custom filter
         </div>
+        
+        
       </div>
-       
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
           Header Actions
         </div>
+        
+        
       </div>
     </div>
   </div>
-   Random empty message
+  
+  Random empty message
+  
 </div>
 `;
 
@@ -100,22 +110,26 @@ exports[`EcSmartTableEmpty should render given filter slot 1`] = `
     >
       Random Title
     </div>
-     
     <div
       class="ec-smart-table-heading"
     >
       <div
         class="ec-smart-table-heading__filter"
       >
+        
+        
         <div>
           Custom filter
         </div>
+        
+        
       </div>
-       
-      <!---->
+      <!--v-if-->
     </div>
   </div>
-   Random empty message
+  
+  Random empty message
+  
 </div>
 `;
 
@@ -130,22 +144,26 @@ exports[`EcSmartTableEmpty should render given header-actions slot 1`] = `
     >
       Random Title
     </div>
-     
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
           Header Actions
         </div>
+        
+        
       </div>
     </div>
   </div>
-   Random empty message
+  
+  Random empty message
+  
 </div>
 `;
 
@@ -160,22 +178,26 @@ exports[`EcSmartTableEmpty should render given header-actions slot with the prop
     >
       Random Title
     </div>
-     
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
-          Header Actions total: 0, items: [], error: , loading: false
+          Header Actions total: 0, items: [], error: null, loading: false
         </div>
+        
+        
       </div>
     </div>
   </div>
-   Random empty message
+  
+  Random empty message
+  
 </div>
 `;
 
@@ -190,9 +212,10 @@ exports[`EcSmartTableEmpty should render properly 1`] = `
     >
       Random Title
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   Random empty message
+  
+  Random empty message
+  
 </div>
 `;

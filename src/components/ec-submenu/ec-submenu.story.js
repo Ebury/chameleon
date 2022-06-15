@@ -1,5 +1,7 @@
 import { action } from '@storybook/addon-actions';
-import storyRouter from 'storybook-vue-router';
+import storyRouter from 'storybook-vue3-router';
+import { ref } from 'vue';
+
 import EcSubmenu from './ec-submenu.vue';
 
 export default {
@@ -10,28 +12,21 @@ export default {
   ],
 };
 
-export const basic = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+export const basic = ({ activeIndex, ...args }) => ({
   components: { EcSubmenu },
-  data() {
+  setup() {
+    const model = ref(activeIndex);
     return {
-      model: 0,
+      model,
+      args,
+      onChange: action('change'),
     };
-  },
-  watch: {
-    activeIndex: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  methods: {
-    onChange: action('change'),
   },
   template: `
     <div class="tw-m-24">
       <ec-submenu
-        v-bind="$props"
-        v-model="model"
+        v-bind="args"
+        v-model:activeIndex="model"
         v-on="{
           change: onChange
         }">

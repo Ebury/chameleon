@@ -1,26 +1,26 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import withLoading from './ec-with-loading';
+import { mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import withLoading from './ec-with-loading';
 
 describe('EcWithLoading', () => {
-  function mountEcWithLoading(props, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+  function mountEcWithLoading(props, mountOpts, wrapperComponentOpts) {
+    const Component = defineComponent({
       props: {
         customProp: {
           type: Number,
           default: 1,
         },
       },
-      render(h) {
-        return h('div', { attrs: { 'data-custom': this.customProp } });
+      render() {
+        return h('div', { 'data-custom': this.customProp });
       },
+      ...wrapperComponentOpts,
     });
 
     const hocWrapper = mount(withLoading(Component), {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
 
@@ -29,9 +29,10 @@ describe('EcWithLoading', () => {
 
   describe(':props', () => {
     it('should throw an error when isLoading prop is not set', () => {
-      withMockedConsole((errorSpy) => {
+      withMockedConsole((errorSpy, warnSpy) => {
         mountEcWithLoading();
-        expect(errorSpy).toMatchSnapshot();
+        expect(warnSpy).toHaveBeenCalledTimes(5);
+        expect(warnSpy.mock.calls[3][0]).toContain('Invalid prop: type check failed for prop "show"');
       });
     });
 
@@ -67,6 +68,20 @@ describe('EcWithLoading', () => {
 
     it('should pass rest of the props to the wrapped component', () => {
       const hocWrapper = mountEcWithLoading({ isLoading: true, customProp: 2 });
+      expect(hocWrapper.element).toMatchSnapshot();
+    });
+
+    it('should pass slots', () => {
+      const hocWrapper = mountEcWithLoading({ isLoading: true, customProp: 2 }, {
+        slots: {
+          default({ slotProp }) {
+            return h('div', `Prop value: ${slotProp}`);
+          },
+        },
+      }, {
+        template: '<div><slot v-bind="{ slotProp: customProp }"></slot></div>',
+        render: null,
+      });
       expect(hocWrapper.element).toMatchSnapshot();
     });
   });

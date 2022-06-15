@@ -6,11 +6,12 @@ exports[`EcSmartTableError should not render the title if title prop was not giv
   data-test="ec-smart-table-error"
 >
   <div>
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </div>
-   Random error message
+  
+  Random error message
+  
 </div>
 `;
 
@@ -25,10 +26,11 @@ exports[`EcSmartTableError should render default error message 1`] = `
     >
       Random Title
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   Unexpected error while fetching data
+  
+  Unexpected error while fetching data
+  
 </div>
 `;
 
@@ -43,13 +45,13 @@ exports[`EcSmartTableError should render given error slot 1`] = `
     >
       Random Title
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   
+  
   <strong>
     Error Slot: Test error message
   </strong>
+  
 </div>
 `;
 
@@ -64,28 +66,36 @@ exports[`EcSmartTableError should render given filter and header-actions slots 1
     >
       Random Title
     </div>
-     
     <div
       class="ec-smart-table-heading"
     >
       <div
         class="ec-smart-table-heading__filter"
       >
+        
+        
         <div>
           Custom filter
         </div>
+        
+        
       </div>
-       
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
           Header Actions
         </div>
+        
+        
       </div>
     </div>
   </div>
-   Random error message
+  
+  Random error message
+  
 </div>
 `;
 
@@ -100,22 +110,26 @@ exports[`EcSmartTableError should render given filter slot 1`] = `
     >
       Random Title
     </div>
-     
     <div
       class="ec-smart-table-heading"
     >
       <div
         class="ec-smart-table-heading__filter"
       >
+        
+        
         <div>
           Custom filter
         </div>
+        
+        
       </div>
-       
-      <!---->
+      <!--v-if-->
     </div>
   </div>
-   Random error message
+  
+  Random error message
+  
 </div>
 `;
 
@@ -130,22 +144,26 @@ exports[`EcSmartTableError should render given header-actions slot 1`] = `
     >
       Random Title
     </div>
-     
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
           Header Actions
         </div>
+        
+        
       </div>
     </div>
   </div>
-   Random error message
+  
+  Random error message
+  
 </div>
 `;
 
@@ -160,22 +178,26 @@ exports[`EcSmartTableError should render given header-actions slot with the prop
     >
       Random Title
     </div>
-     
     <div
       class="ec-smart-table-heading"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-smart-table-heading__actions"
       >
+        
+        
         <div>
           Header Actions total: 0, items: [], error: Random error message, loading: false
         </div>
+        
+        
       </div>
     </div>
   </div>
-   Random error message
+  
+  Random error message
+  
 </div>
 `;
 
@@ -190,9 +212,10 @@ exports[`EcSmartTableError should render properly 1`] = `
     >
       Random Title
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
-   Random error message
+  
+  Random error message
+  
 </div>
 `;

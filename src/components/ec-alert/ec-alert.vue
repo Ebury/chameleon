@@ -14,7 +14,7 @@
       class="ec-alert__dismiss-icon"
       :class="`ec-alert__dismiss-icon--${type}`"
       data-test="ec-alert__dismiss-icon"
-      @click.stop.prevent="$emit('change', !open)"
+      @click.stop.prevent="onDismiss"
     >
       <ec-icon
         name="simple-close"
@@ -62,12 +62,11 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcAlert',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcIcon,
-  },
-  model: {
-    prop: 'open',
-    event: 'change',
   },
   props: {
     type: {
@@ -100,6 +99,7 @@ export default {
       default: true,
     },
   },
+  emits: ['update:open', 'action', 'change'],
   computed: {
     icon() {
       switch (this.type) {
@@ -116,7 +116,12 @@ export default {
   },
   methods: {
     hasCtaSlot() {
-      return !!this.$scopedSlots.cta;
+      return !!this.$slots.cta;
+    },
+    onDismiss() {
+      const newValue = !this.open;
+      this.$emit('update:open', newValue);
+      this.$emit('change', newValue);
     },
   },
 };

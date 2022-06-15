@@ -56,13 +56,13 @@
 </template>
 
 <script>
+import config from '../../config';
+import EcTooltip from '../../directives/ec-tooltip';
+import EcIcon from '../ec-icon';
 import EcInlineInputFieldCopy from './components/copy';
 import EcInlineInputFieldEdit from './components/edit';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldValueText from './components/value-text';
-import EcTooltip from '../../directives/ec-tooltip';
-import config from '../../config';
-import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcInlineInputField',
@@ -118,6 +118,7 @@ export default {
       type: String,
     },
   },
+  emits: ['cancel', 'edit', 'submit'],
   data() {
     return {
       valueForLoading: this.value,

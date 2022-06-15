@@ -4,10 +4,14 @@ module.exports = {
   env: {
     node: true,
   },
+  parserOptions: {
+    parser: '@babel/eslint-parser',
+  },
   extends: [
-    'plugin:vue/recommended',
+    'plugin:vue/vue3-recommended',
     '@vue/airbnb',
   ],
+  plugins: ['simple-import-sort'],
   rules: {
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'max-len': 'off',
@@ -16,11 +20,21 @@ module.exports = {
     'no-param-reassign': ['error', { props: false }],
     'no-plusplus': 'off', // we don't need this rule, we DO use semicolons!
     'no-restricted-syntax': 'off',
+    'no-restricted-exports': 'off',
     'no-underscore-dangle': ['error'],
     'no-use-before-define': 'off',
     'no-multiple-empty-lines': ['error', { max: 1 }],
-    'import/prefer-default-export': 'off',
     'require-await': ['error'],
+    'import/prefer-default-export': 'off',
+    'simple-import-sort/imports': ['error', {
+      groups: [
+        ['^@?(?!ebury)\\w'], // vendor
+        ['^@ebury\\/'], // ebury lib
+        ['^[^.\\u0000]', '^\\.', '^'], // both absolute and relative imports
+        ['^\\u0000'], // side effect imports
+      ],
+    }],
+    'simple-import-sort/exports': 'error',
     'vue/attributes-order': ['error', {
       order: [
         'GLOBAL',
@@ -37,12 +51,20 @@ module.exports = {
       ],
     }],
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'vue/multi-word-component-names': 'off',
     'vue/multiline-html-element-content-newline': 'off',
     'vue/require-default-prop': 'off',
     'vue/singleline-html-element-content-newline': 'off',
-  },
-  parserOptions: {
-    parser: 'babel-eslint',
+    'vue/one-component-per-file': 'off',
+    // vue/compat
+    'vue/no-deprecated-dollar-listeners-api': 'off',
+    'vue/no-deprecated-v-on-native-modifier': 'off',
+    // TODO:
+    'vuejs-accessibility/label-has-for': 'off',
+    'vuejs-accessibility/click-events-have-key-events': 'off',
+    'vuejs-accessibility/anchor-has-content': 'off',
+    'vuejs-accessibility/form-control-has-label': 'off',
+    'vuejs-accessibility/mouse-events-have-key-events': 'off',
   },
   overrides: [
     {
@@ -54,6 +76,7 @@ module.exports = {
       },
       rules: {
         'global-require': 'off',
+        'vue/require-prop-types': 'off',
       },
     },
     {
@@ -63,6 +86,14 @@ module.exports = {
       rules: {
         'import/no-extraneous-dependencies': 'off',
         'vue/require-prop-types': 'off',
+      },
+    },
+    {
+      files: [
+        '**/*.vue',
+      ],
+      rules: {
+        'import/first': 'off',
       },
     },
   ],

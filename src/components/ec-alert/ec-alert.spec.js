@@ -1,11 +1,13 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcAlert from './ec-alert.vue';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcAlert from './ec-alert.vue';
 
 describe('EcAlert', () => {
   function mountAlert(props, mountOpts) {
     return mount(EcAlert, {
-      propsData: {
+      props: {
         title: 'Title example',
         type: 'info',
         ...props,
@@ -15,29 +17,24 @@ describe('EcAlert', () => {
   }
 
   function mountAlertAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcAlert },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      propsData: {
-        ...props,
-      },
-      localVue,
+      props,
       ...mountOpts,
     });
   }
 
   it('should throw if no props were given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mount(EcAlert);
-      expect(errorSpy).toHaveBeenCalledTimes(2);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "type"');
-      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "title"');
+      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "type"');
+      expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "title"');
     });
   });
 
@@ -67,10 +64,10 @@ describe('EcAlert', () => {
   });
 
   it('should throw an error if type is not valid', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountAlert({ type: 'invalid-value' });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
     });
   });
 
@@ -81,7 +78,7 @@ describe('EcAlert', () => {
 
   it('should dismiss the alert when user clicks on the dismiss icon', async () => {
     const wrapper = mountAlertAsTemplate(
-      '<ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />',
+      '<ec-alert v-model:open="isOpen" type="info" title="Custom random" dismissable />',
       {},
       {
         data() {
@@ -100,9 +97,15 @@ describe('EcAlert', () => {
     expect(wrapper.emitted('action').length).toBe(1);
   });
 
+  it('should emit the change event when user closes the alert', async () => {
+    const wrapper = mountAlert({ open: true, dismissable: true });
+    await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
+    expect(wrapper.emitted('change').length).toBe(1);
+  });
+
   it('should dismiss or show the alert when we change the v-model', async () => {
     const wrapper = mountAlertAsTemplate(
-      '<ec-alert v-model="isOpen" type="info" title="Custom random" dismissable />',
+      '<ec-alert v-model:open="isOpen" type="info" title="Custom random" dismissable />',
       {},
       {
         data() {
@@ -121,10 +124,9 @@ describe('EcAlert', () => {
   it('should render with the default slot given', () => {
     const wrapper = mountAlert({
       subtitle: 'Subtitle example',
-    },
-    {
-      scopedSlots: {
-        default: '<div slot-scope="{ title, subtitle }">Custom: {{ title }} - {{ subtitle }}</div>',
+    }, {
+      slots: {
+        default: '<template #default="{ title, subtitle }"><div>Custom: {{ title }} - {{ subtitle }}</div></template>',
       },
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -133,9 +135,8 @@ describe('EcAlert', () => {
   it('should render with the cta slot given', () => {
     const wrapper = mountAlert({
       subtitle: 'Subtitle example',
-    },
-    {
-      scopedSlots: {
+    }, {
+      slots: {
         cta: '<a href="#">Click me</a>',
       },
     });

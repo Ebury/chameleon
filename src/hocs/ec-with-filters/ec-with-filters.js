@@ -1,4 +1,4 @@
-import { createHOC } from 'vue-hoc';
+import { createHOC } from '../hoc';
 
 function ecWithFilters(Component, filters = []) {
   const curriedComponent = createHOC(Component, {

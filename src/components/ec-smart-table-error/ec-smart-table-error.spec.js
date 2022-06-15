@@ -1,9 +1,11 @@
 import { mount } from '@vue/test-utils';
+import { h } from 'vue';
+
 import EcSmartTableError from './ec-smart-table-error.vue';
 
 function mountEcSmartTableError(props, mountOpts) {
   return mount(EcSmartTableError, {
-    propsData: {
+    props: {
       title: 'Random Title',
       errorMessage: 'Random error message',
       ...props,
@@ -30,8 +32,8 @@ describe('EcSmartTableError', () => {
 
   it('should render given error slot', () => {
     const wrapper = mountEcSmartTableError({ errorMessage: 'Test error message' }, {
-      scopedSlots: {
-        error: '<strong>Error Slot: {{props.errorMessage}}</strong>',
+      slots: {
+        error: ({ errorMessage }) => h('strong', `Error Slot: ${errorMessage}`),
       },
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -39,7 +41,7 @@ describe('EcSmartTableError', () => {
 
   it('should render given filter slot', () => {
     const wrapper = mountEcSmartTableError(null, {
-      scopedSlots: {
+      slots: {
         filter: '<div>Custom filter</div>',
       },
     });
@@ -48,7 +50,7 @@ describe('EcSmartTableError', () => {
 
   it('should render given header-actions slot', () => {
     const wrapper = mountEcSmartTableError(null, {
-      scopedSlots: {
+      slots: {
         'header-actions': '<div>Header Actions</div>',
       },
     });
@@ -57,8 +59,10 @@ describe('EcSmartTableError', () => {
 
   it('should render given header-actions slot with the props', () => {
     const wrapper = mountEcSmartTableError(null, {
-      scopedSlots: {
-        'header-actions': '<div slot-scope="{{ total, items, error, loading }}">Header Actions total: {{ total }}, items: {{ items }}, error: {{ error }}, loading: {{ loading }}</div>',
+      slots: {
+        'header-actions': ({
+          total, items, error, loading,
+        }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
       },
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -66,7 +70,7 @@ describe('EcSmartTableError', () => {
 
   it('should render given filter and header-actions slots', () => {
     const wrapper = mountEcSmartTableError(null, {
-      scopedSlots: {
+      slots: {
         filter: '<div>Custom filter</div>',
         'header-actions': '<div>Header Actions</div>',
       },

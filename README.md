@@ -1,6 +1,6 @@
 # Chameleon Components
 
-Chameleon Components is Ebury's vue.js 2.X components library.
+Chameleon Components is Ebury's vue.js 3.X components library.
 The library is being used for our Vue projects at Ebury, and more components are added regularly.
 
 Also, check out the latest version deployed in [Storybook](https://chameleon.ebury.now.sh/).
@@ -32,8 +32,7 @@ npm install
 npm start
 ```
 
-That's it!
-By now, you should be up and running. You can check the existing components or create new ones.
+That's it! By now, you should be up and running. You can check the existing components or create new ones.
 
 ## Contributing
 
@@ -73,29 +72,15 @@ A few examples of a theme can be found in the [src/styles/themes/](src/styles/th
 Some components, e.g. `ec-amount-input` or `ec-donut` require `Intl` API to format values properly or to detect
 what is the decimal/grouping separator for a current locale. They both do that via [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
 which might have issues in some browsers for not having all locales set up properly. See the issues we discovered in this [PR](https://github.com/Ebury/chameleon/pull/156#issuecomment-623705733).
-If you need to support every single locale on the planet, we recommend to polyfill the Intl API using [intl](https://www.npmjs.com/package/intl) package
-so it's consistent across all browsers.
-
-```html
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en|always"></script>
-```
-
-### CSS variables polyfill
-
-If you support **IE11** browser, you have to include the [CSS vars ponyfill](https://jhildenbiddle.github.io/css-vars-ponyfill/#/) when using our components.
-Follow their instructions how to [install it](https://jhildenbiddle.github.io/css-vars-ponyfill/#/?id=installation) an [used it](https://jhildenbiddle.github.io/css-vars-ponyfill/#/?id=usage).
-
-### AbortController polyfill
-
-`ec-smart-table` component uses `withAbortableFetch` HOC, which uses [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) to
-abort previous requests. If you support **IE11** browser, you have to include [AbortController polyfill](https://www.npmjs.com/package/abortcontroller-polyfill) in your code.
-
+If you need to support every single locale on the planet, we recommend to polyfill the Intl API using [formatjs.io](https://formatjs.io/docs/polyfills/intl-numberformat) packages so it's consistent across all browsers.
 
 ## References
 
 ### Vue.js
 
 [Vue](https://vuejs.org/)
+
+[Vue/compat](https://www.npmjs.com/package/@vue/compat)
 
 [Vue CLI](https://cli.vuejs.org/)
 
@@ -107,7 +92,15 @@ abort previous requests. If you support **IE11** browser, you have to include [A
 
 [Jest](https://jestjs.io/)
 
+[Vue Test Utils](https://test-utils.vuejs.org/)
+
 [Cypress](https://www.cypress.io/)
+
+### Linting
+
+[ESLint](https://eslint.org/)
+
+[Stylelint](https://stylelint.io/)
 
 ### CSS
 
@@ -117,6 +110,16 @@ abort previous requests. If you support **IE11** browser, you have to include [A
 
 [PurgeCSS](https://purgecss.com/plugins/postcss.html)
 
-[CSS vars ponyfill](https://jhildenbiddle.github.io/css-vars-ponyfill/#/)
-
 [Bootstrap Grid](https://getbootstrap.com/docs/4.0/layout/grid/)
+
+### Dependencies
+
+[flatpickr](https://flatpickr.js.org/)
+
+[focus-trap](https://focus-trap.github.io/focus-trap/)
+
+[floating-vue](https://floating-vue.starpad.dev/)
+
+[mitt](https://www.npmjs.com/package/mitt)
+
+[svg-country-flags](https://www.npmjs.com/package/svg-country-flags)

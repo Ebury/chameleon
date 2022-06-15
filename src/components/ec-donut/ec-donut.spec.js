@@ -1,11 +1,12 @@
 import { mount } from '@vue/test-utils';
-import EcDonut from './ec-donut.vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcDonut from './ec-donut.vue';
 
 describe('EcDonut', () => {
   function mountDonut(props, mountOpts) {
     return mount(EcDonut, {
-      propsData: {
+      props: {
         used: 20,
         amount: 100,
         ...props,
@@ -15,11 +16,11 @@ describe('EcDonut', () => {
   }
 
   it('should throw if no props were given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mount(EcDonut);
-      expect(errorSpy).toHaveBeenCalledTimes(2);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "amount"');
-      expect(errorSpy.mock.calls[1][0]).toContain('Missing required prop: "used"');
+      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "amount"');
+      expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "used"');
     });
   });
 
@@ -63,14 +64,12 @@ describe('EcDonut', () => {
   });
 
   it('should render slots as expected', () => {
-    const wrapper = mountDonut(
-      {}, {
-        scopedSlots: {
-          'reminder-legend': '<p>Reminder legend</p>',
-          'used-legend': '<p>Used legend</p>',
-        },
+    const wrapper = mountDonut({}, {
+      slots: {
+        'reminder-legend': '<p>Reminder legend</p>',
+        'used-legend': '<p>Used legend</p>',
       },
-    );
+    });
 
     expect(wrapper.element).toMatchSnapshot();
   });

@@ -1,6 +1,8 @@
-import EcIcon from '../../../components/ec-icon';
+import { computed, ref } from 'vue';
+
+import { DARK_THEME, LIGHT_THEME } from '../../../../.storybook/backgrounds';
 import EcBtn from '../../../components/ec-btn';
-import { LIGHT_THEME, DARK_THEME } from '../../../../.storybook/backgrounds';
+import EcIcon from '../../../components/ec-icon';
 
 export const propsDark = generatePropsStory('Props (dark)', DARK_THEME);
 export const propsLight = generatePropsStory('Props (light)', LIGHT_THEME);
@@ -10,10 +12,8 @@ export const allAnchorsDark = generateAllForElement('All Anchors (dark)', 'a', D
 export const allAnchorsLight = generateAllForElement('All Anchors (light)', 'a', LIGHT_THEME);
 
 function generatePropsStory(storyName, theme) {
-  const PropsStoryTemplate = (args, { argTypes }) => ({
-    props: Object.keys(argTypes),
-    // eslint-disable-next-line no-unused-vars
-    render(h) {
+  const PropsStoryTemplate = args => ({
+    render() {
       function renderSection(title, { btnText, ...props } = {}) {
         const types = ['primary', 'secondary', 'success', 'error', 'warning'];
 
@@ -21,7 +21,7 @@ function generatePropsStory(storyName, theme) {
           <div class="tw-col-full">
             <h3 class="tw-text-additional-18">{title}</h3>
             {types.map(type => (
-              <EcBtn key={type} {...{ props: { ...props, category: type } }} class="tw-mr-8">{btnText}</EcBtn>
+              <EcBtn key={type} {...{ ...props, category: type }} class="tw-mr-8">{btnText}</EcBtn>
             ))}
           </div>
         );
@@ -30,14 +30,14 @@ function generatePropsStory(storyName, theme) {
       return (
         <div class="tw-grid-container">
           <div class="tw-grid">
-            {renderSection('Default', { ...this.$props })}
-            {renderSection('Small', { ...this.$props, size: 'sm' })}
-            {renderSection('With icon', { ...this.$props, icon: 'simple-check' })}
-            {renderSection('Rounded', { ...this.$props, isRounded: true })}
-            {renderSection('Full width', { ...this.$props, isFullWidth: true })}
-            {renderSection('Outline', { ...this.$props, isOutline: true })}
-            {renderSection('Loading', { ...this.$props, isLoading: true })}
-            {renderSection('Reversed', { ...this.$props, isReverse: true })}
+            {renderSection('Default', { ...args })}
+            {renderSection('Small', { ...args, size: 'sm' })}
+            {renderSection('With icon', { ...args, icon: 'simple-check' })}
+            {renderSection('Rounded', { ...args, isRounded: true })}
+            {renderSection('Full width', { ...args, isFullWidth: true })}
+            {renderSection('Outline', { ...args, isOutline: true })}
+            {renderSection('Loading', { ...args, isLoading: true })}
+            {renderSection('Reversed', { ...args, isReverse: true })}
           </div>
         </div>
       );
@@ -72,25 +72,22 @@ function generatePropsStory(storyName, theme) {
   return storyFn;
 }
 
-function generateAllForElement(storyName, element, theme) {
+function generateAllForElement(storyName, elementName, theme) {
   const storyFn = () => ({
     components: { EcIcon },
-    data() {
-      return {
-        element,
-        types: ['primary', 'secondary', 'success', 'error', 'warning'],
-        disabled: [false, true],
-        rounded: [false, true],
-        outline: [false, true],
-        reverse: [false, true],
-        hasIcon: [false, true],
-        hasIconOnly: [false, true],
-        fullWidth: [false, true],
-        sizes: ['sm', 'md'],
-      };
-    },
-    computed: {
-      blocks() {
+    setup() {
+      const element = ref(elementName);
+      const types = ['primary', 'secondary', 'success', 'error', 'warning'];
+      const disabled = [false, true];
+      const rounded = [false, true];
+      const outline = [false, true];
+      const reverse = [false, true];
+      const hasIcon = [false, true];
+      const hasIconOnly = [false, true];
+      const fullWidth = [false, true];
+      const sizes = ['sm', 'md'];
+
+      const blocks = computed(() => {
         function cartesian(...args) {
           const result = [];
           const max = args.length - 1;
@@ -111,15 +108,16 @@ function generateAllForElement(storyName, element, theme) {
 
         // generate all possible combinations of props
         let combinations;
-        if (this.element !== 'a') {
-          combinations = cartesian(this.rounded, this.outline, this.reverse, this.hasIcon, this.hasIconOnly, this.fullWidth, this.sizes, this.disabled);
+        if (element.value !== 'a') {
+          combinations = cartesian(rounded, outline, reverse, hasIcon, hasIconOnly, fullWidth, sizes, disabled);
         } else {
-          combinations = cartesian(this.rounded, this.outline, this.reverse, this.hasIcon, this.hasIconOnly, this.fullWidth, this.sizes);
+          combinations = cartesian(rounded, outline, reverse, hasIcon, hasIconOnly, fullWidth, sizes);
         }
 
         // each row in the story will represent one combination, and each row will show all button types.
+        // eslint-disable-next-line no-shadow
         return combinations.map(([rounded, outline, reverse, hasIcon, hasIconOnly, fullWidth, size, disabled]) => {
-          const buttons = this.types.map((type) => {
+          const buttons = types.map((type) => {
             const buttonText = type;
             const classes = {
               'ec-btn': true,
@@ -151,12 +149,17 @@ function generateAllForElement(storyName, element, theme) {
             ].join(' '),
           };
         });
-      },
+      });
+
+      return {
+        element,
+        blocks,
+      };
     },
     template: `
       <div class="tw-m-20">
-        <template v-for="(block, blockIndex) in blocks">
-          <h3 :key="blockIndex" class="tw-m-8 tw-text-additional-18">{{block.title}}</h3>
+        <template v-for="(block, blockIndex) in blocks" :key="blockIndex">
+          <h3 class="tw-m-8 tw-text-additional-18">{{block.title}}</h3>
           <component :is="element" v-for="(button, buttonIndex) in block.buttons" :key="blockIndex + '-' + buttonIndex"
            :class="button.classes"
            class="tw-m-8"
@@ -169,7 +172,7 @@ function generateAllForElement(storyName, element, theme) {
               <ec-icon v-if="button.hasIcon" class="tw-mr-8" name="simple-check" :size="24" />
               {{ button.text }}
             </template>
-           </component>
+          </component>
         </template>
       </div>
     `,

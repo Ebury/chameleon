@@ -8,30 +8,33 @@ exports[`EcFileDropzone :props :isDisabled - should render as disabled 1`] = `
   <input
     class="ec-file-dropzone__input"
     data-test="ec-file-dropzone__input"
-    disabled="disabled"
-    multiple="multiple"
+    disabled=""
+    multiple=""
     type="file"
   />
-   
   <svg
     class="ec-file-dropzone__img ec-file-dropzone__img--is-disabled"
     height="40"
     width="50"
   >
     <use
-      href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      href="#ec-upload-cloud"
     />
   </svg>
-   
   <div
     class="ec-file-dropzone__title ec-file-dropzone__title--is-disabled"
     data-test="ec-file-dropzone__title"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-file-dropzone__subtitle ec-file-dropzone__subtitle--is-disabled"
     data-test="ec-file-dropzone__subtitle"
-  />
+  >
+    
+    
+  </div>
 </div>
 `;
 
@@ -43,31 +46,31 @@ exports[`EcFileDropzone should render correctly 1`] = `
   <input
     class="ec-file-dropzone__input"
     data-test="ec-file-dropzone__input"
-    multiple="multiple"
+    multiple=""
     type="file"
   />
-   
   <svg
     class="ec-file-dropzone__img"
     height="40"
     width="50"
   >
     <use
-      href="../../assets/img/upload-cloud.svg#ec-upload-cloud"
+      href="#ec-upload-cloud"
     />
   </svg>
-   
   <div
     class="ec-file-dropzone__title"
     data-test="ec-file-dropzone__title"
   >
+    
     Drag and drop
+    
   </div>
-   
   <div
     class="ec-file-dropzone__subtitle"
     data-test="ec-file-dropzone__subtitle"
   >
+    
     files here or 
     <span
       class="tw-text-key-4"
@@ -75,6 +78,7 @@ exports[`EcFileDropzone should render correctly 1`] = `
       browse
     </span>
     .
+    
   </div>
 </div>
 `;
