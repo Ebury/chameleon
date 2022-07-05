@@ -3,7 +3,11 @@ import FloatingVue, { VTooltip } from 'floating-vue';
 
 import { getUid } from '../../utils/uid';
 
-FloatingVue.options.boundary = 'viewport';
+FloatingVue.options.themes.tooltip = {
+  ...FloatingVue.options.themes.tooltip,
+  html: true,
+  boundary: 'viewport',
+};
 
 const origBeforeMount = VTooltip.beforeMount;
 
