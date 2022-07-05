@@ -40,13 +40,21 @@ const getProps = function getProps(Component) {
 
 function createRenderFn(Component, renderOptions) {
   return function render() {
-    const slots = mergeSlotsWithRenderOptions(this.$scopedSlots, renderOptions, this);
+    const currentSlots = { ...this.$scopedSlots };
+
+    for (const noScopedSlotKey of Object.keys(this.$slots)) {
+      if (!currentSlots[noScopedSlotKey]) {
+        currentSlots[noScopedSlotKey] = this.$slots[noScopedSlotKey];
+      }
+    }
+
+    const slots = mergeSlotsWithRenderOptions(currentSlots, renderOptions, this);
 
     return h(Component, {
       ...this.$attrs,
       ...mergePropsWithRenderOptions(this.$props, renderOptions, this),
       ...processListeners(renderOptions, this),
-    }, { ...slots });
+    }, slots);
   };
 }
 
@@ -115,7 +123,7 @@ function createHOC(Component, options = {}, renderOptions = {}) {
       INSTANCE_SCOPED_SLOTS: true,
     },
     props: { ...getProps(target), ...getProps(options) },
-    mixins: [],
+    mixins: options.mixins || [],
     name: options.name || `${target.name || 'Anonymous'}HOC`,
     render: options.render || createRenderFn(target, renderOptions),
   };
