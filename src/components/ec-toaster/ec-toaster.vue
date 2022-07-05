@@ -6,6 +6,8 @@
       class="ec-toaster__list"
       data-test="ec-toaster__list"
       @after-enter="rememberTopItemPositions"
+      @after-leave="rememberTopItemPositions"
+      @before-enter="rememberTopItemPositions"
       @before-leave="rememberTopItemPositions"
     >
       <li
@@ -30,28 +32,36 @@
   </div>
 </template>
 
-<script>
-import EcAlert from '../ec-alert';
-import EcToasterTouchDirective from './ec-toaster-touch';
+<script setup>
+import { onMounted, ref } from 'vue';
 
+import EcAlert from '../ec-alert';
+import VEcToasterTouch from './ec-toaster-touch';
+
+defineEmits(['remove']);
+
+defineProps({
+  messages: { type: Array, default: () => [] },
+});
+
+const items = ref([]);
+
+function rememberTopItemPositions() {
+  if (items.value) {
+    for (const item of items.value) {
+      item.style.top = `${item.offsetTop}px`;
+    }
+  }
+}
+
+onMounted(rememberTopItemPositions);
+</script>
+
+<script>
 export default {
   name: 'Toaster',
-  components: {
-    EcAlert,
-  },
-  directives: { EcToasterTouch: EcToasterTouchDirective },
-  props: {
-    messages: { type: Array, default: () => [] },
-  },
-  emits: ['remove'],
-  methods: {
-    rememberTopItemPositions: /* istanbul ignore next */ function rememberTopItemPositions() {
-      if (this.$refs.items) {
-        for (const item of this.$refs.items) {
-          item.style.top = `${item.offsetTop}px`;
-        }
-      }
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>
@@ -98,7 +108,7 @@ export default {
   }
 }
 
-.ec-toaster-items-transition-enter,
+.ec-toaster-items-transition-enter-from,
 .ec-toaster-items-transition-leave-to {
   @apply tw-opacity-0;
   @apply tw-transform-gpu tw-translate-x-full;

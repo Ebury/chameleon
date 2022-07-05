@@ -1,21 +1,24 @@
 export default {
-  bind(el, binding, vnode) {
+  compatConfig: {
+    MODE: 3,
+  },
+  mounted(el, binding, vnode) {
     let startX;
     let oldTransform;
 
     binding.handleStart = function handleStart(e) {
-      const touchobj = e.changedTouches[0];
-      startX = touchobj.pageX;
+      const touchObj = e.changedTouches[0];
+      startX = touchObj.pageX;
 
       el.classList.add('ec-toaster__item--swipe-active');
       oldTransform = el.style.transform;
     };
 
     binding.handleEnd = function handleEnd(e) {
-      const touchobj = e.changedTouches[0];
-      const distX = touchobj.pageX - startX;
+      const touchObj = e.changedTouches[0];
+      const distX = touchObj.pageX - startX;
       if (distX > binding.value.minDistance) {
-        vnode.elm.dispatchEvent(new CustomEvent('ec-toaster-touch-remove'));
+        vnode.el.dispatchEvent(new CustomEvent('ec-toaster-touch-remove'));
         el.classList.add('ec-toaster__item--removed-by-swipe');
       }
 
@@ -24,8 +27,8 @@ export default {
     };
 
     binding.handleMove = function handleMove(e) {
-      const touchobj = e.changedTouches[0];
-      const distX = touchobj.pageX - startX;
+      const touchObj = e.changedTouches[0];
+      const distX = touchObj.pageX - startX;
       if (distX > 0) {
         el.style.transform = `translateX(${distX}px)`;
       }
@@ -41,7 +44,7 @@ export default {
     el.addEventListener('touchmove', binding.handleMove, false);
     el.addEventListener('touchcancel', binding.handleCancel, false);
   },
-  unbind(el, binding) {
+  beforeUnmount(el, binding) {
     el.removeEventListener('touchstart', binding.handleStart, false);
     el.removeEventListener('touchend', binding.handleEnd, false);
     el.removeEventListener('touchmove', binding.handleMove, false);
