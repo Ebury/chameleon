@@ -40,6 +40,25 @@ exports[`HoC for @vue/compat preserve existing functionality of wrapped componen
 </div>
 `;
 
+exports[`HoC for @vue/compat preserve existing functionality of wrapped component should pass slots to the wrapped component via template 1`] = `
+<div>
+  
+  Slot prop value: 123
+  
+   
+  
+   
+  <div>
+    Default slot
+  </div>
+  
+   
+  
+  Third slot fallback
+  
+</div>
+`;
+
 exports[`HoC for @vue/compat preserve existing functionality of wrapped component should render the wrapped component 1`] = `
 <div>
   Wrapped component

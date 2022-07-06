@@ -2348,10 +2348,10 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
           href="#"
-          title="Sorted ascending"
+          title="Sorted descending"
         >
           <svg
-            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
             data-test="ec-table-sort__icon"
             height="16"
             width="16"
@@ -2363,7 +2363,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
           <span
             class="ec-table-sort__text"
           >
-            asc
+            desc
           </span>
         </a>
       </span>
@@ -2403,19 +2403,23 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
           href="#"
-          title="Not sorted"
+          title="Sorted ascending"
         >
           <svg
-            class="ec-icon ec-table-sort__icon"
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
             data-test="ec-table-sort__icon"
             height="16"
             width="16"
           >
             <use
-              xlink:href="#ec-simple-arrow-up-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-          <!--v-if-->
+          <span
+            class="ec-table-sort__text"
+          >
+            asc
+          </span>
         </a>
       </span>
     </th>
@@ -2504,19 +2508,23 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
           href="#"
-          title="Not sorted"
+          title="Sorted ascending"
         >
           <svg
-            class="ec-icon ec-table-sort__icon"
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
             data-test="ec-table-sort__icon"
             height="16"
             width="16"
           >
             <use
-              xlink:href="#ec-simple-arrow-up-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-          <!--v-if-->
+          <span
+            class="ec-table-sort__text"
+          >
+            asc
+          </span>
         </a>
       </span>
     </th>
@@ -2645,10 +2653,10 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC -> DESC 1`] = `
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
       href="#"
-      title="Sorted ascending"
+      title="Sorted descending"
     >
       <svg
-        class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
+        class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
         data-test="ec-table-sort__icon"
         height="16"
         width="16"
@@ -2660,7 +2668,7 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC -> DESC 1`] = `
       <span
         class="ec-table-sort__text"
       >
-        asc
+        desc
       </span>
     </a>
   </span>
@@ -2727,23 +2735,19 @@ exports[`EcSmartTable sorting multi sort should sort column: DESC -> not sorted 
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
       href="#"
-      title="Sorted ascending"
+      title="Not sorted"
     >
       <svg
-        class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
+        class="ec-icon ec-table-sort__icon"
         data-test="ec-table-sort__icon"
         height="16"
         width="16"
       >
         <use
-          xlink:href="#ec-simple-arrow-drop-down"
+          xlink:href="#ec-simple-arrow-up-down"
         />
       </svg>
-      <span
-        class="ec-table-sort__text"
-      >
-        asc
-      </span>
+      <!--v-if-->
     </a>
   </span>
 </th>
@@ -3118,23 +3122,19 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
           href="#"
-          title="Sorted ascending"
+          title="Not sorted"
         >
           <svg
-            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
+            class="ec-icon ec-table-sort__icon"
             data-test="ec-table-sort__icon"
             height="16"
             width="16"
           >
             <use
-              xlink:href="#ec-simple-arrow-drop-down"
+              xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
-          <span
-            class="ec-table-sort__text"
-          >
-            asc
-          </span>
+          <!--v-if-->
         </a>
       </span>
     </th>
@@ -3173,19 +3173,23 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
           href="#"
-          title="Not sorted"
+          title="Sorted ascending"
         >
           <svg
-            class="ec-icon ec-table-sort__icon"
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
             data-test="ec-table-sort__icon"
             height="16"
             width="16"
           >
             <use
-              xlink:href="#ec-simple-arrow-up-down"
+              xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-          <!--v-if-->
+          <span
+            class="ec-table-sort__text"
+          >
+            asc
+          </span>
         </a>
       </span>
     </th>
@@ -3314,10 +3318,10 @@ exports[`EcSmartTable sorting single sort should sort column: ASC -> DESC 1`] = 
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
       href="#"
-      title="Sorted ascending"
+      title="Sorted descending"
     >
       <svg
-        class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
+        class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
         data-test="ec-table-sort__icon"
         height="16"
         width="16"
@@ -3329,7 +3333,7 @@ exports[`EcSmartTable sorting single sort should sort column: ASC -> DESC 1`] = 
       <span
         class="ec-table-sort__text"
       >
-        asc
+        desc
       </span>
     </a>
   </span>
@@ -3396,23 +3400,19 @@ exports[`EcSmartTable sorting single sort should sort column: DESC -> not sorted
       class="ec-table-sort ec-table-head__icon"
       data-test="ec-table-sort"
       href="#"
-      title="Sorted ascending"
+      title="Not sorted"
     >
       <svg
-        class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
+        class="ec-icon ec-table-sort__icon"
         data-test="ec-table-sort__icon"
         height="16"
         width="16"
       >
         <use
-          xlink:href="#ec-simple-arrow-drop-down"
+          xlink:href="#ec-simple-arrow-up-down"
         />
       </svg>
-      <span
-        class="ec-table-sort__text"
-      >
-        asc
-      </span>
+      <!--v-if-->
     </a>
   </span>
 </th>
