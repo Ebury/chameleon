@@ -26,7 +26,6 @@ export const basic = ({
       popperClass: ['ec-tooltip--bg-bright ec-tooltip--modal'],
       triggers: ['click'],
       placement: 'bottom',
-      html: true,
     });
     return {
       model,

@@ -68,14 +68,12 @@ export const allColorsAndPositions = () => ({
   setup() {
     const tooltipConfig = reactive({
       content: '<p>Normal tooltip. Lorem ipsum dolor sit amet</p>',
-      html: true,
       shown: true,
       triggers: ['click'],
     });
 
     const customBgTooltipConfig = reactive({
       content: '<p>Popover like tooltip. Lorem ipsum dolor sit amet</p>',
-      html: true,
       popperClass: ['ec-tooltip--bg-bright'],
       triggers: ['click'],
       shown: true,

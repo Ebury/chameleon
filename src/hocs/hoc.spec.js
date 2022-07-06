@@ -200,6 +200,44 @@ describe('HoC for @vue/compat', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
+    it('should pass slots to the wrapped component via template', () => {
+      // There is a difference between passing slots via VTU options like we do in previous test
+      // and via template options.
+      //
+      // if we do mount(Comp, { slots: {} }) then each slot in the object, regardless if it's bound or not, becomes a scoped slot so then @vue/compat will pass
+      // all of them in legacy $scopedSlots and the $slots becomes an empty object.
+      //
+      // ... but if we pass slots via template, then all slots will appear in $slots object and only the one that is scoped (#first) will appear
+      // in $scopedSlots. In real world application, this scenario is more common than passing slots via slots option.
+      // hoc.js handles both these situation so let's test it here:
+
+      const WrappedComponent = {
+        template: `
+        <div>
+          <slot name="first" v-bind="{ slotProp: 123 }">First slot fallback</slot>
+          <slot>Default slot fallback</slot>
+          <slot name="third">Third slot fallback</slot>
+        </div>
+      `,
+      };
+
+      const MyHoc = createHOC(WrappedComponent);
+
+      const Wrapper = {
+        components: { MyHoc },
+        template: `
+          <my-hoc>
+            <template #first="{ slotProp }">Slot prop value: {{ slotProp }}</template>
+            <div>Default slot</div>
+          </my-hoc>
+        `,
+      };
+
+      const wrapper = mount(Wrapper);
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it('should pass event listeners to the wrapped component', async () => {
       const WrappedComponent = {
         template: `
