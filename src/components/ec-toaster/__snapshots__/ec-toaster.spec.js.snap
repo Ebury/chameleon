@@ -20,6 +20,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
     <li
       class="ec-toaster__item"
       data-test="ec-toaster__item"
+      style="top: 0px;"
     >
       <div
         class="ec-alert ec-alert--error ec-alert--is-responsive ec-toaster__item-content"
@@ -71,6 +72,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
     <li
       class="ec-toaster__item"
       data-test="ec-toaster__item"
+      style="top: 0px;"
     >
       <div
         class="ec-alert ec-alert--success ec-alert--is-responsive ec-toaster__item-content"
@@ -122,6 +124,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
     <li
       class="ec-toaster__item"
       data-test="ec-toaster__item"
+      style="top: 0px;"
     >
       <div
         class="ec-alert ec-alert--info ec-alert--is-responsive ec-toaster__item-content"
@@ -173,6 +176,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
     <li
       class="ec-toaster__item"
       data-test="ec-toaster__item"
+      style="top: 0px;"
     >
       <div
         class="ec-alert ec-alert--warning ec-alert--is-responsive ec-toaster__item-content"
@@ -230,6 +234,7 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
 <li
   class="ec-toaster__item"
   data-test="ec-toaster__item"
+  style="top: 0px;"
 >
   <div
     class="ec-alert ec-alert--success ec-alert--is-responsive ec-toaster__item-content"
