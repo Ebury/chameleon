@@ -105,9 +105,12 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
         autosize="min"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -143,7 +146,6 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
         </div>
         
         
-         
         
         <div>
           <ul
@@ -246,9 +248,12 @@ exports[`EcAmountFilterInput should render properly 1`] = `
         autosize="min"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -284,7 +289,6 @@ exports[`EcAmountFilterInput should render properly 1`] = `
         </div>
         
         
-         
         
         <div>
           <ul

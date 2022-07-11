@@ -9,6 +9,7 @@ exports[`EcDateRangeFilter should render if no dates are passed in value prop 1`
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -35,7 +36,6 @@ exports[`EcDateRangeFilter should render if no dates are passed in value prop 1`
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"
@@ -131,6 +131,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -162,7 +163,6 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"
@@ -259,6 +259,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -290,7 +291,6 @@ exports[`EcDateRangeFilter should render properly with an error message when the
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"
@@ -392,6 +392,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -423,7 +424,6 @@ exports[`EcDateRangeFilter should render properly with an error message when the
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"
@@ -527,6 +527,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -558,7 +559,6 @@ exports[`EcDateRangeFilter should render properly with an error message when the
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"

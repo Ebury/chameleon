@@ -29,9 +29,12 @@ exports[`EcBtnDropdown should render as expected 1`] = `
       autosize="min"
       class="ec-dropdown-search__trigger"
       data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+      disabled="false"
       distance="8"
       placement="bottom-end"
       popperclass="ec-dropdown-search__popover"
+      shift="false"
+      shown="false"
     >
       
       
@@ -55,7 +58,6 @@ exports[`EcBtnDropdown should render as expected 1`] = `
       </button>
       
       
-       
       
       <div>
         <ul
@@ -105,9 +107,12 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
       autosize="min"
       class="ec-dropdown-search__trigger"
       data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+      disabled="false"
       distance="8"
       placement="bottom-end"
       popperclass="ec-dropdown-search__popover"
+      shift="false"
+      shown="false"
     >
       
       
@@ -131,7 +136,6 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
       </button>
       
       
-       
       
       <div>
         <ul
@@ -204,6 +208,8 @@ exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
       distance="8"
       placement="bottom-end"
       popperclass="ec-dropdown-search__popover"
+      shift="false"
+      shown="false"
     >
       
       
@@ -228,7 +234,6 @@ exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
       </button>
       
       
-       
       
       <div>
         <ul

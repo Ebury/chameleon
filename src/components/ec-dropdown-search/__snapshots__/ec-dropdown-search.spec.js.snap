@@ -117,10 +117,11 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
   distance="8"
   placement="bottom-start"
   popperclass="ec-dropdown-search__popover"
+  shift="false"
+  shown="false"
 >
   
   
-   
   
   <div>
     <ul
@@ -166,20 +167,20 @@ exports[`EcDropdownSearch should merge given popoverOptions 1`] = `
 - First value
 + Second value
 
-@@ -5,11 +5,12 @@
-    <ec-stub
+@@ -6,11 +6,12 @@
       autosize=\\"true\\"
       class=\\"ec-dropdown-search__trigger\\"
       data-test=\\"ec-popover-dropdown-search ec-stub ec-popover-stub\\"
+      disabled=\\"false\\"
       distance=\\"8\\"
 -     placement=\\"bottom-start\\"
 +     offset=\\"16\\"
 +     placement=\\"top\\"
       popperclass=\\"ec-dropdown-search__popover\\"
+      shift=\\"false\\"
+      shown=\\"false\\"
     >
-      
-      
-       "
+      "
 `;
 
 exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip prop 1`] = `
@@ -187,7 +188,7 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -40,12 +40,12 @@
+@@ -42,12 +42,12 @@
           <!--v-if-->
           
           
@@ -213,13 +214,15 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
-     
     
     <div>
       <ul
@@ -294,13 +297,15 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
-     
     
     <div>
       <ul
@@ -481,13 +486,15 @@ exports[`EcDropdownSearch should render as expected 1`] = `
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
-     
     
     <div>
       <ul
@@ -538,13 +545,15 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
-     
     
     <div>
       <ul
@@ -646,13 +655,15 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
-     
     
     <div>
       <ul
@@ -755,9 +766,12 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
@@ -768,7 +782,6 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
     </a>
     
     
-     
     
     <div>
       <ul
@@ -819,13 +832,15 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
-     
     
     <div>
       <ul
@@ -943,13 +958,15 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
-     
     
     <div>
       <ul
@@ -1023,13 +1040,15 @@ exports[`EcDropdownSearch should render given popover style 1`] = `
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
-     
     
     <div
       style="width: 1234px;"
@@ -1082,13 +1101,15 @@ exports[`EcDropdownSearch should render given popover style when it is a functio
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
-     
     
     <div
       style="width: 1234px;"

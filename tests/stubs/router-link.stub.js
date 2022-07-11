@@ -4,6 +4,7 @@ const RouterLinkStub = defineComponent({
   name: 'RouterLinkStub',
   compatConfig: {
     MODE: 3,
+    ATTR_FALSE_VALUE: false,
   },
   compilerOptions: {
     whitespace: 'condense',

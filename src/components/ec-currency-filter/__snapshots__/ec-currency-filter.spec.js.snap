@@ -129,9 +129,12 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
         autosize="min"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -168,7 +171,6 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
         </div>
         
         
-         
         
         <div>
           <ul
@@ -567,9 +569,12 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
           autosize="min"
           class="ec-dropdown-search__trigger"
           data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+          disabled="false"
           distance="8"
           placement="bottom-start"
           popperclass="ec-dropdown-search__popover"
+          shift="false"
+          shown="false"
         >
           
           
@@ -605,7 +610,6 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
           </div>
           
           
-           
           
           <div>
             <ul
@@ -765,6 +769,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -791,7 +796,6 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content ec-filter-popover__filter-content--is-full-height"
@@ -1162,9 +1166,12 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                     autosize="min"
                     class="ec-dropdown-search__trigger"
                     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+                    disabled="false"
                     distance="8"
                     placement="bottom-start"
                     popperclass="ec-dropdown-search__popover"
+                    shift="false"
+                    shown="false"
                   >
                     
                     
@@ -1200,7 +1207,6 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                     </div>
                     
                     
-                     
                     
                     <div>
                       <ul
@@ -1396,9 +1402,12 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
           autosize="min"
           class="ec-dropdown-search__trigger"
           data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+          disabled="false"
           distance="8"
           placement="bottom-start"
           popperclass="ec-dropdown-search__popover"
+          shift="false"
+          shown="false"
         >
           
           
@@ -1434,7 +1443,6 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
           </div>
           
           
-           
           
           <div
             style="width: 0px;"

@@ -562,9 +562,12 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -585,7 +588,6 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         </button>
         
         
-         
         
         <div>
           <ul
@@ -721,9 +723,12 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -744,7 +749,6 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         </button>
         
         
-         
         
         <div>
           <ul
@@ -905,9 +909,12 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -928,7 +935,6 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
         </button>
         
         
-         
         
         <div>
           <ul
@@ -1076,9 +1082,12 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -1099,7 +1108,6 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
         </button>
         
         
-         
         
         <div>
           <ul
@@ -1236,9 +1244,12 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -1259,7 +1270,6 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         </button>
         
         
-         
         
         <div>
           <ul
@@ -1407,9 +1417,12 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -1430,7 +1443,6 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         </button>
         
         
-         
         
         <div>
           <ul
@@ -1580,9 +1592,12 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                 autosize="true"
                 class="ec-dropdown-search__trigger"
                 data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+                disabled="false"
                 distance="8"
                 placement="bottom-start"
                 popperclass="ec-dropdown-search__popover"
+                shift="false"
+                shown="false"
               >
                 
                 
@@ -1603,7 +1618,6 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                 </button>
                 
                 
-                 
                 
                 <div>
                   <ul
@@ -1774,9 +1788,12 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -1797,7 +1814,6 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
         </button>
         
         
-         
         
         <div>
           <ul

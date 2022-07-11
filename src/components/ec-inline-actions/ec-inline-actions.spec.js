@@ -14,7 +14,7 @@ describe('EcInlineActions', () => {
   it('should throw if no items prop were given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mountEcInlineActions();
-      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy).toHaveBeenCalledTimes(2);
       expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "items"');
     });
   });

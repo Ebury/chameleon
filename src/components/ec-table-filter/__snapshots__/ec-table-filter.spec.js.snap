@@ -18,6 +18,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
         data-test="ec-stub ec-popover-stub"
         distance="8"
         placement="bottom-start"
+        prevent-overflow="false"
       >
         
         <div
@@ -44,7 +45,6 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           </svg>
         </div>
         
-         
         
         <div
           class="ec-filter-popover__filter-content"
@@ -220,6 +220,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
         data-test="ec-stub ec-popover-stub"
         distance="8"
         placement="bottom-start"
+        prevent-overflow="false"
       >
         
         <div
@@ -246,7 +247,6 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
           </svg>
         </div>
         
-         
         
         <div
           class="ec-filter-popover__filter-content"
@@ -373,6 +373,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -399,7 +400,6 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -508,6 +508,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
         data-test="ec-stub ec-popover-stub"
         distance="8"
         placement="bottom-start"
+        prevent-overflow="false"
       >
         
         <div
@@ -534,7 +535,6 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
           </svg>
         </div>
         
-         
         
         <div
           class="ec-filter-popover__filter-content"
@@ -710,6 +710,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
         data-test="ec-stub ec-popover-stub"
         distance="8"
         placement="bottom-start"
+        prevent-overflow="false"
       >
         
         <div
@@ -736,7 +737,6 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
           </svg>
         </div>
         
-         
         
         <div
           class="ec-filter-popover__filter-content"
@@ -863,6 +863,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -889,7 +890,6 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -997,6 +997,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
         data-test="ec-stub ec-popover-stub"
         distance="8"
         placement="bottom-start"
+        prevent-overflow="false"
       >
         
         <div
@@ -1023,7 +1024,6 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           </svg>
         </div>
         
-         
         
         <div
           class="ec-filter-popover__filter-content"
@@ -1199,6 +1199,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
         data-test="ec-stub ec-popover-stub"
         distance="8"
         placement="bottom-start"
+        prevent-overflow="false"
       >
         
         <div
@@ -1225,7 +1226,6 @@ exports[`EcTableFilter should render correctly if all the required props are pas
           </svg>
         </div>
         
-         
         
         <div
           class="ec-filter-popover__filter-content"
@@ -1352,6 +1352,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -1378,7 +1379,6 @@ exports[`EcTableFilter should render correctly if all the required props are pas
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -1486,6 +1486,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
         data-test="ec-stub ec-popover-stub"
         distance="8"
         placement="bottom-start"
+        prevent-overflow="false"
       >
         
         <div
@@ -1512,7 +1513,6 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           </svg>
         </div>
         
-         
         
         <div
           class="ec-filter-popover__filter-content"
@@ -1688,6 +1688,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
         data-test="ec-stub ec-popover-stub"
         distance="8"
         placement="bottom-start"
+        prevent-overflow="false"
       >
         
         <div
@@ -1719,7 +1720,6 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
           </svg>
         </div>
         
-         
         
         <div
           class="ec-filter-popover__filter-content"
@@ -1854,6 +1854,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -1880,7 +1881,6 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"

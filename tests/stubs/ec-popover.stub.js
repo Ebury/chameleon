@@ -2,6 +2,13 @@ import { defineComponent } from 'vue';
 
 const EcPopoverStub = defineComponent({
   name: 'EcPopoverStub',
+  compatConfig: {
+    MODE: 3,
+    ATTR_FALSE_VALUE: false,
+  },
+  compilerOptions: {
+    whitespace: 'condense',
+  },
   inheritAttrs: false,
   methods: {
     update: jest.fn(),
