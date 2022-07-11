@@ -60,6 +60,32 @@ exports[`EcWithLoading :props should not render transparent when isLoadingTransp
 </div>
 `;
 
+exports[`EcWithLoading :props should pass all attrs to the wrapped component 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ec-loading"
+    data-test="ec-loading"
+  >
+    <!--v-if-->
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div
+        class="my-class"
+        data-custom="1"
+        data-test="my-data-test"
+        id="my-id"
+      />
+      
+    </div>
+  </div>
+</div>
+`;
+
 exports[`EcWithLoading :props should pass rest of the props to the wrapped component 1`] = `
 <div
   data-v-app=""
