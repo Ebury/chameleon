@@ -2,6 +2,12 @@ import { defineComponent } from 'vue';
 
 const RouterViewStub = defineComponent({
   name: 'RouterViewStub',
+  compatConfig: {
+    MODE: 3,
+  },
+  compilerOptions: {
+    whitespace: 'condense',
+  },
   inheritAttrs: false,
   template: `
   <ec-stub
