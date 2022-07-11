@@ -12,11 +12,11 @@
       data-test="ec-menu__item"
     >
       <ec-navigation-link
+        v-bind="{ ...link, on: null, dataTest: null, 'data-test': getLinkDataTest(link) }"
         class="ec-menu__link"
-        v-bind="{ ...link, on: null, 'data-test': getLinkDataTest(link) }"
         :is-collapsed="isCollapsed"
         :is-compact="horizontal"
-        v-on="link.on"
+        v-on="link.on || {}"
       />
     </li>
   </ul>

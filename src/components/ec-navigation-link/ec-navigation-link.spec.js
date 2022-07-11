@@ -7,7 +7,7 @@ describe('EcNavigationLink', () => {
   it('should throw an error if prop text was not given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcNavigationLink);
-      expect(warnSpy).toHaveBeenCalledTimes(5);
+      expect(warnSpy).toHaveBeenCalledTimes(4);
       expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "text"');
     });
   });
@@ -19,7 +19,7 @@ describe('EcNavigationLink', () => {
           text: 'Random text',
         },
       });
-      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy).toHaveBeenCalledTimes(2);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "url"');
     });
   });
@@ -73,6 +73,28 @@ describe('EcNavigationLink', () => {
       const wrapper = mountAsRouterLink({ isCompact: true });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.classes('ec-navigation-link--is-compact')).toBe(true);
+    });
+
+    it('should pass listeners from parent to the root', () => {
+      const clickSpy = jest.fn();
+      const wrapper = mountAsRouterLink({}, {
+        attrs: { onClick: clickSpy },
+      });
+
+      wrapper.trigger('click');
+      expect(clickSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should pass custom attributes', () => {
+      const wrapper = mountAsRouterLink(
+        {
+          id: 'my-link',
+          'data-test': 'my-custom-link',
+          class: 'my-custom-class',
+        },
+      );
+
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
@@ -135,6 +157,18 @@ describe('EcNavigationLink', () => {
 
       wrapper.trigger('click');
       expect(clickSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should pass custom attributes', () => {
+      const wrapper = mountAsAnchor(
+        {
+          id: 'my-link',
+          'data-test': 'my-custom-link',
+          class: 'my-custom-class',
+        },
+      );
+
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });

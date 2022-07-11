@@ -2,6 +2,12 @@ import { defineComponent } from 'vue';
 
 const RouterLinkStub = defineComponent({
   name: 'RouterLinkStub',
+  compatConfig: {
+    MODE: 3,
+  },
+  compilerOptions: {
+    whitespace: 'condense',
+  },
   inheritAttrs: false,
   template: `
   <ec-stub

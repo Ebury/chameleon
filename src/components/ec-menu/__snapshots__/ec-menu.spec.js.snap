@@ -11,9 +11,8 @@ exports[`EcMenu should attach custom listeners passed in the link definition 1`]
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-navigation-link--is-collapsed ec-menu__link"
-      data-test="ec-menu__link foo"
-      datatest="foo"
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
       <svg
@@ -52,9 +51,8 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link"
-      data-test="ec-menu__link foo"
-      datatest="foo"
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
       <svg
@@ -82,8 +80,8 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link"
-      data-test="ec-menu__link"
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
       <svg
@@ -127,9 +125,8 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-navigation-link--is-compact ec-menu__link"
-      data-test="ec-menu__link foo"
-      datatest="foo"
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
       <svg
@@ -157,8 +154,8 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-navigation-link--is-compact ec-menu__link"
-      data-test="ec-menu__link"
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
       <svg
@@ -196,9 +193,8 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-navigation-link--is-collapsed ec-menu__link"
-      data-test="ec-menu__link foo"
-      datatest="foo"
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
       <svg
@@ -227,8 +223,8 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-navigation-link--is-collapsed ec-menu__link"
-      data-test="ec-menu__link"
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
       <svg
@@ -267,9 +263,8 @@ exports[`EcMenu should render as expanded by default 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link"
-      data-test="ec-menu__link foo"
-      datatest="foo"
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
       <svg
@@ -297,8 +292,8 @@ exports[`EcMenu should render as expanded by default 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link"
-      data-test="ec-menu__link"
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
       <svg
@@ -336,9 +331,8 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-navigation-link--is-compact ec-menu__link"
-      data-test="ec-menu__link foo"
-      datatest="foo"
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
       <svg
@@ -376,9 +370,8 @@ exports[`EcMenu should render only links with a url property 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link"
-      data-test="ec-menu__link foo"
-      datatest="foo"
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
       <svg
@@ -406,8 +399,8 @@ exports[`EcMenu should render only links with a url property 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-navigation-link ec-menu__link"
-      data-test="ec-menu__link"
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
       <svg

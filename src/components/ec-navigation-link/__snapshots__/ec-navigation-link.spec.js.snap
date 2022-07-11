@@ -109,6 +109,34 @@ exports[`EcNavigationLink as regular anchor should hide the text when is collaps
 </a>
 `;
 
+exports[`EcNavigationLink as regular anchor should pass custom attributes 1`] = `
+<a
+  class="my-custom-class ec-navigation-link"
+  data-test="my-custom-link ec-navigation-link"
+  href="/balances"
+  id="my-link"
+>
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+    >
+      Link
+    </span>
+  </transition-stub>
+</a>
+`;
+
 exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if isRouterLink is set to false 1`] = `
 <a
   class="ec-navigation-link"
@@ -276,6 +304,37 @@ exports[`EcNavigationLink as router-link should hide the text when is collapsed 
       class="ec-navigation-link__text"
       data-test="ec-navigation-link__text"
       style="display: none;"
+    >
+      Link
+    </span>
+  </transition-stub>
+  
+</ec-stub>
+`;
+
+exports[`EcNavigationLink as router-link should pass custom attributes 1`] = `
+<ec-stub
+  active-class="ec-navigation-link--is-active"
+  class="my-custom-class ec-navigation-link"
+  data-test="my-custom-link ec-navigation-link ec-stub router-link-stub"
+  id="my-link"
+  to="/balances"
+>
+  
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
+  >
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub>
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
       Link
     </span>
