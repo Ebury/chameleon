@@ -85,6 +85,40 @@ describe('EcSmartTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should not pass attrs to the ec-table', async () => {
+    const wrapper = await mountEcSmartTableWithResolvedData(data, { columns }, {
+      attrs: {
+        id: 'my-table-id',
+        'data-test': 'my-data-test',
+        class: 'my-table',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should pass props to the ec-table', async () => {
+    const wrapper = await mountEcSmartTableWithResolvedData(data, {
+      columns,
+      maxHeight: '100px',
+      stickyColumn: 'left',
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should pass row-click event to the ec-table', async () => {
+    const onRowClick = jest.fn();
+
+    const wrapper = await mountEcSmartTableWithResolvedData(data, { columns }, {
+      attrs: {
+        onRowClick,
+      },
+    });
+    expect(wrapper.findByDataTest('ec-table__row--0').element).toMatchSnapshot();
+    await wrapper.findByDataTest('ec-table__row--0').trigger('click');
+    expect(onRowClick).toHaveBeenCalledTimes(1);
+    expect(onRowClick).toHaveBeenCalledWith({ data: data.items[0], rowIndex: 0 });
+  });
+
   describe('#slots', () => {
     it('should render in loading state by default with the header-actions slot with props', () => {
       const wrapper = mountEcSmartTable({ columns }, {

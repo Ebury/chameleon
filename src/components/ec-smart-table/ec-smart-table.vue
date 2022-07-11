@@ -27,7 +27,7 @@ const withEcSmartTableRenderer = (Component) => {
       emptyMessage: String,
     },
     render() {
-      const attrs = this.$attrs;
+      const { onSort, onRowClick } = this.$attrs;
       const props = this.$props;
       const slots = this.$scopedSlots;
       const {
@@ -46,10 +46,8 @@ const withEcSmartTableRenderer = (Component) => {
 
       if (loading || !isEmpty) {
         const tableProps = {
-          ...attrs,
-          onError: null,
-          onFiltering: null,
-          onPagination: null,
+          onSort,
+          onRowClick,
           ...unusedProps,
           isLoading: loading,
           isLoadingTransparent: !isEmpty,
