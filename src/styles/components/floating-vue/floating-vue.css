@@ -41,9 +41,9 @@
   /* EC: added */
   &.ec-tooltip,
   &.ec-popover {
-    @mixin ec-z-level-all;
-
     @apply tw-z-tooltip;
+
+    @mixin ec-z-level-all;
   }
 
   /* z-index: 10000; EC: removed */
