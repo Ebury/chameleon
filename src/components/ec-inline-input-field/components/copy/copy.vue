@@ -17,8 +17,8 @@
       <ec-icon
         v-ec-tooltip="{
           placement: 'left',
-          show: !!tooltipContent,
-          trigger: 'manual',
+          shown: !!tooltipContent,
+          triggers: ['manual'],
           content: tooltipContent ,
           classes: tooltipClasses,
           ...tooltipOptions,
