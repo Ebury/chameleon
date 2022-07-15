@@ -18,14 +18,10 @@
       @change="onFileInputChange"
     >
 
-    <svg
-      height="40"
-      width="50"
+    <ec-file-dropzone-upload-cloud-img
       class="ec-file-dropzone__img"
       :class="{'ec-file-dropzone__img--is-disabled': isDisabled}"
-    >
-      <use href="../../assets/img/upload-cloud.svg#ec-upload-cloud" />
-    </svg>
+    />
 
     <div
       data-test="ec-file-dropzone__title"
@@ -47,11 +43,15 @@
 </template>
 
 <script>
+import EcFileDropzoneUploadCloudImg from './components/ec-upload-cloud-img';
 
 const isNotFolder = file => !!file.type && !!file.size;
 
 export default {
   name: 'EcFileDropzone',
+  components: {
+    EcFileDropzoneUploadCloudImg,
+  },
   props: {
     isDisabled: {
       type: Boolean,
