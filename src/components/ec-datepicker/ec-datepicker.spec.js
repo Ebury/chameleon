@@ -252,6 +252,14 @@ describe('Datepicker', () => {
 
       expect(inputWrapper.emitted('blur').length).toBe(1);
     });
+
+    it('@change - should be emitted when the value changes', async () => {
+      const { inputWrapper } = mountDatepicker();
+
+      await setDatepickerInputValue(inputWrapper, '2022-01-21');
+
+      expect(inputWrapper.emitted('change').length).toBe(1);
+    });
   });
 
   describe('watchers', () => {
