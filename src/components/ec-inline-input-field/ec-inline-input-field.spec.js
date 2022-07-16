@@ -242,7 +242,7 @@ describe('EcInlineInputField', () => {
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-content')).toBe(tooltipTextSuccess);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-classes')).toBe('ec-tooltip--bg-success');
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-popper-class')).toBe('ec-tooltip--bg-success');
     });
 
     it('should show the error tooltip after unsuccessfully triggering the copy method', async () => {
@@ -260,7 +260,7 @@ describe('EcInlineInputField', () => {
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-content')).toBe(tooltipTextError);
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-classes')).toBe('ec-tooltip--bg-error');
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-popper-class')).toBe('ec-tooltip--bg-error');
     });
 
     it('should hide the tooltip after we move the cursor away from the copy button', async () => {
