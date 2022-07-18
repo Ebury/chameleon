@@ -18,7 +18,7 @@
       @change="onFileInputChange"
     >
 
-    <ec-file-dropzone-upload-cloud-img
+    <ec-upload-cloud
       class="ec-file-dropzone__img"
       :class="{'ec-file-dropzone__img--is-disabled': isDisabled}"
     />
@@ -43,14 +43,14 @@
 </template>
 
 <script>
-import EcFileDropzoneUploadCloudImg from './components/ec-upload-cloud-img';
+import EcUploadCloud from '../../images/ec-upload-cloud.vue';
 
 const isNotFolder = file => !!file.type && !!file.size;
 
 export default {
   name: 'EcFileDropzone',
   components: {
-    EcFileDropzoneUploadCloudImg,
+    EcUploadCloud,
   },
   props: {
     isDisabled: {
@@ -131,7 +131,7 @@ export default {
   }
 
   &__img {
-    @apply tw-fill-key-4 tw-mb-8;
+    @apply tw-mb-8;
 
     &--is-disabled {
       @apply tw-fill-gray-6;
