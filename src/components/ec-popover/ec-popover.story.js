@@ -70,7 +70,7 @@ export const zIndices = ({ trigger, ...args }) => ({
         <h1>Header</h1>
         <p>Lorem ipsum dolor sit amet, consectetur <strong>adipiscing elit</strong>. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.</p>
         <div class="tw-flex tw-flex-col tw-items-center">
-        <ec-popover class="tw-mb-4" popoverClass="ec-popover" v-bind="{ ...args, triggers: [trigger] }">
+        <ec-popover class="tw-mb-4" v-bind="{ ...args, triggers: [trigger] }">
           <button v-ec-tooltip="'Custom popover'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Custom</button>
           <template #popper="{ hide }">
             <div class="tw-bg-gray-8 tw-border tw-border-solid tw-border-gray-6 tw-p-8 tw-text-center">
@@ -80,7 +80,7 @@ export const zIndices = ({ trigger, ...args }) => ({
             </div>
           </template>
         </ec-popover>
-        <ec-popover class="tw-mb-4" popoverClass="ec-popover" v-bind="{ ...args, triggers: [trigger], placement: 'top' }">
+        <ec-popover class="tw-mb-4" v-bind="{ ...args, triggers: [trigger], placement: 'top' }">
           <button v-ec-tooltip="'Top placement popover'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Top</button>
           <template #popper="{ hide }">
             <div class="tw-bg-gray-8 tw-border tw-border-solid tw-border-gray-6 tw-p-8 tw-text-center">
@@ -90,7 +90,7 @@ export const zIndices = ({ trigger, ...args }) => ({
             </div>
           </template>
         </ec-popover>
-        <ec-popover class="tw-mb-4" popoverClass="ec-popover" v-bind="{ ...args, triggers: [trigger], placement: 'bottom' }">
+        <ec-popover class="tw-mb-4" v-bind="{ ...args, triggers: [trigger], placement: 'bottom' }">
           <button v-ec-tooltip="'Bottom placement popover'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Bottom</button>
           <template #popper="{ hide }">
             <div class="tw-bg-gray-8 tw-border tw-border-solid tw-border-gray-6 tw-p-8 tw-text-center">
@@ -110,7 +110,7 @@ export const zIndices = ({ trigger, ...args }) => ({
             </div>
           </template>
         </ec-popover>
-        <ec-popover class="tw-mb-4" popoverClass="ec-popover" v-bind="{ ...args, triggers: [trigger], placement: 'left' }">
+        <ec-popover class="tw-mb-4" v-bind="{ ...args, triggers: [trigger], placement: 'left' }">
           <button v-ec-tooltip="'Left placement popover'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Left</button>
           <template #popper="{ hide }">
             <div class="tw-bg-gray-8 tw-border tw-border-solid tw-border-gray-6 tw-p-8 tw-text-center">

@@ -146,6 +146,8 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
@@ -182,7 +184,6 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
     </div>
     
     
-     
     
     <div>
       <ul
@@ -211,9 +212,12 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
@@ -249,7 +253,6 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
     </div>
     
     
-     
     
     <div>
       <ul
@@ -334,9 +337,12 @@ exports[`EcDropdown :props should render given popover style 1`] = `
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
@@ -372,7 +378,6 @@ exports[`EcDropdown :props should render given popover style 1`] = `
     </div>
     
     
-     
     
     <div
       style="width: 1234px;"
@@ -403,9 +408,12 @@ exports[`EcDropdown :props should render given popover style when it is a functi
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
@@ -441,7 +449,6 @@ exports[`EcDropdown :props should render given popover style when it is a functi
     </div>
     
     
-     
     
     <div
       style="width: 1234px;"
@@ -472,9 +479,12 @@ exports[`EcDropdown :props should render properly when the labelTooltip prop is 
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
@@ -510,7 +520,6 @@ exports[`EcDropdown :props should render properly when the labelTooltip prop is 
     </div>
     
     
-     
     
     <div>
       <ul
@@ -539,9 +548,12 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
@@ -577,7 +589,6 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
     </div>
     
     
-     
     
     <div>
       <ul
@@ -638,9 +649,12 @@ exports[`EcDropdown should render as expected 1`] = `
     autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
@@ -676,7 +690,6 @@ exports[`EcDropdown should render as expected 1`] = `
     </div>
     
     
-     
     
     <div>
       <ul

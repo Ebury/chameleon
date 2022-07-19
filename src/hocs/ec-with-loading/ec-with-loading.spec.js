@@ -84,5 +84,16 @@ describe('EcWithLoading', () => {
       });
       expect(hocWrapper.element).toMatchSnapshot();
     });
+
+    it('should pass all attrs to the wrapped component', () => {
+      const hocWrapper = mountEcWithLoading({}, {
+        attrs: {
+          id: 'my-id',
+          class: 'my-class',
+          'data-test': 'my-data-test',
+        },
+      });
+      expect(hocWrapper.element).toMatchSnapshot();
+    });
   });
 });

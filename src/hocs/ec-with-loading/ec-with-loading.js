@@ -9,6 +9,7 @@ const withLoading = Component => createHOC(Component, {
     MODE: 3,
     INSTANCE_SCOPED_SLOTS: true,
   },
+  inheritAttrs: false,
   props: {
     isLoading: {},
     isLoadingTransparent: {},

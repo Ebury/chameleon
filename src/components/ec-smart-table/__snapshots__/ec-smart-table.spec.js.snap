@@ -562,9 +562,12 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -585,7 +588,6 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         </button>
         
         
-         
         
         <div>
           <ul
@@ -721,9 +723,12 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -744,7 +749,6 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
         </button>
         
         
-         
         
         <div>
           <ul
@@ -905,9 +909,12 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -928,7 +935,6 @@ exports[`EcSmartTable pagination should re-fetch the data when next page is sele
         </button>
         
         
-         
         
         <div>
           <ul
@@ -1076,9 +1082,12 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -1099,7 +1108,6 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
         </button>
         
         
-         
         
         <div>
           <ul
@@ -1236,9 +1244,12 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -1259,7 +1270,6 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         </button>
         
         
-         
         
         <div>
           <ul
@@ -1407,9 +1417,12 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -1430,7 +1443,6 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
         </button>
         
         
-         
         
         <div>
           <ul
@@ -1580,9 +1592,12 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                 autosize="true"
                 class="ec-dropdown-search__trigger"
                 data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+                disabled="false"
                 distance="8"
                 placement="bottom-start"
                 popperclass="ec-dropdown-search__popover"
+                shift="false"
+                shown="false"
               >
                 
                 
@@ -1603,7 +1618,6 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                 </button>
                 
                 
-                 
                 
                 <div>
                   <ul
@@ -1774,9 +1788,12 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -1797,7 +1814,6 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
         </button>
         
         
-         
         
         <div>
           <ul
@@ -1909,6 +1925,376 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
     </button>
   </div>
 </div>
+`;
+
+exports[`EcSmartTable should not pass attrs to the ec-table 1`] = `
+<div
+  class="ec-smart-table my-table"
+  data-test="my-data-test"
+  id="my-table-id"
+>
+  <div>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <div
+    class="ec-loading"
+    data-test="ec-loading"
+  >
+    <!--v-if-->
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div>
+        <!--v-if-->
+        <div
+          class="ec-table-scroll-container"
+          data-test="ec-table-scroll-container"
+        >
+          <table
+            class="ec-table"
+          >
+            <thead
+              class="ec-table-head"
+              data-test="ec-table-head"
+            >
+              <tr>
+                
+                <th
+                  class="ec-table-head__cell"
+                  data-test="ec-table-head__cell ec-table-head__cell--0"
+                  scope="col"
+                >
+                  <span
+                    class="ec-table-head__cell-wrapper"
+                  >
+                    <span
+                      class="ec-table-head__cell-text"
+                    >
+                      Test 1
+                    </span>
+                    <!--v-if-->
+                    <a
+                      class="ec-table-sort ec-table-head__icon"
+                      data-test="ec-table-sort"
+                      href="#"
+                      title="Not sorted"
+                    >
+                      <svg
+                        class="ec-icon ec-table-sort__icon"
+                        data-test="ec-table-sort__icon"
+                        height="16"
+                        width="16"
+                      >
+                        <use
+                          xlink:href="#ec-simple-arrow-up-down"
+                        />
+                      </svg>
+                      <!--v-if-->
+                    </a>
+                  </span>
+                </th>
+                <th
+                  class="ec-table-head__cell"
+                  data-test="ec-table-head__cell ec-table-head__cell--1"
+                  scope="col"
+                >
+                  <span
+                    class="ec-table-head__cell-wrapper"
+                  >
+                    <span
+                      class="ec-table-head__cell-text"
+                    >
+                      Test 2
+                    </span>
+                    <!--v-if-->
+                    <!--v-if-->
+                  </span>
+                </th>
+                <th
+                  class="ec-table-head__cell"
+                  data-test="ec-table-head__cell ec-table-head__cell--2"
+                  scope="col"
+                >
+                  <span
+                    class="ec-table-head__cell-wrapper"
+                  >
+                    <span
+                      class="ec-table-head__cell-text"
+                    >
+                      Test 3
+                    </span>
+                    <!--v-if-->
+                    <a
+                      class="ec-table-sort ec-table-head__icon"
+                      data-test="ec-table-sort"
+                      href="#"
+                      title="Not sorted"
+                    >
+                      <svg
+                        class="ec-icon ec-table-sort__icon"
+                        data-test="ec-table-sort__icon"
+                        height="16"
+                        width="16"
+                      >
+                        <use
+                          xlink:href="#ec-simple-arrow-up-down"
+                        />
+                      </svg>
+                      <!--v-if-->
+                    </a>
+                  </span>
+                </th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr
+                class=""
+                data-test="ec-table__row ec-table__row--0"
+              >
+                
+                <td
+                  class="ec-table__cell"
+                  data-test="ec-table__cell ec-table__cell--0"
+                >
+                  
+                  1
+                  
+                </td>
+                <td
+                  class="ec-table__cell"
+                  data-test="ec-table__cell ec-table__cell--1"
+                >
+                  
+                  2
+                  
+                </td>
+                <td
+                  class="ec-table__cell"
+                  data-test="ec-table__cell ec-table__cell--2"
+                >
+                  
+                  3
+                  
+                </td>
+                
+              </tr>
+              
+            </tbody>
+            <!--v-if-->
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable should pass props to the ec-table 1`] = `
+<div
+  class="ec-smart-table"
+  data-test="ec-smart-table"
+>
+  <div>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+  <div
+    class="ec-loading"
+    data-test="ec-loading"
+  >
+    <!--v-if-->
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div>
+        <!--v-if-->
+        <div
+          class="ec-table-scroll-container"
+          data-test="ec-table-scroll-container"
+          style="max-height: 100px;"
+        >
+          <table
+            class="ec-table"
+          >
+            <thead
+              class="ec-table-head"
+              data-test="ec-table-head"
+            >
+              <tr>
+                
+                <th
+                  class="ec-table-head__cell ec-table-head__cell--sticky-left"
+                  data-test="ec-table-head__cell ec-table-head__cell--0"
+                  scope="col"
+                >
+                  <span
+                    class="ec-table-head__cell-wrapper"
+                  >
+                    <span
+                      class="ec-table-head__cell-text"
+                    >
+                      Test 1
+                    </span>
+                    <!--v-if-->
+                    <a
+                      class="ec-table-sort ec-table-head__icon"
+                      data-test="ec-table-sort"
+                      href="#"
+                      title="Not sorted"
+                    >
+                      <svg
+                        class="ec-icon ec-table-sort__icon"
+                        data-test="ec-table-sort__icon"
+                        height="16"
+                        width="16"
+                      >
+                        <use
+                          xlink:href="#ec-simple-arrow-up-down"
+                        />
+                      </svg>
+                      <!--v-if-->
+                    </a>
+                  </span>
+                </th>
+                <th
+                  class="ec-table-head__cell"
+                  data-test="ec-table-head__cell ec-table-head__cell--1"
+                  scope="col"
+                >
+                  <span
+                    class="ec-table-head__cell-wrapper"
+                  >
+                    <span
+                      class="ec-table-head__cell-text"
+                    >
+                      Test 2
+                    </span>
+                    <!--v-if-->
+                    <!--v-if-->
+                  </span>
+                </th>
+                <th
+                  class="ec-table-head__cell"
+                  data-test="ec-table-head__cell ec-table-head__cell--2"
+                  scope="col"
+                >
+                  <span
+                    class="ec-table-head__cell-wrapper"
+                  >
+                    <span
+                      class="ec-table-head__cell-text"
+                    >
+                      Test 3
+                    </span>
+                    <!--v-if-->
+                    <a
+                      class="ec-table-sort ec-table-head__icon"
+                      data-test="ec-table-sort"
+                      href="#"
+                      title="Not sorted"
+                    >
+                      <svg
+                        class="ec-icon ec-table-sort__icon"
+                        data-test="ec-table-sort__icon"
+                        height="16"
+                        width="16"
+                      >
+                        <use
+                          xlink:href="#ec-simple-arrow-up-down"
+                        />
+                      </svg>
+                      <!--v-if-->
+                    </a>
+                  </span>
+                </th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr
+                class=""
+                data-test="ec-table__row ec-table__row--0"
+              >
+                
+                <td
+                  class="ec-table__cell ec-table__cell--sticky-left"
+                  data-test="ec-table__cell ec-table__cell--0"
+                >
+                  
+                  1
+                  
+                </td>
+                <td
+                  class="ec-table__cell"
+                  data-test="ec-table__cell ec-table__cell--1"
+                >
+                  
+                  2
+                  
+                </td>
+                <td
+                  class="ec-table__cell"
+                  data-test="ec-table__cell ec-table__cell--2"
+                >
+                  
+                  3
+                  
+                </td>
+                
+              </tr>
+              
+            </tbody>
+            <!--v-if-->
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable should pass row-click event to the ec-table 1`] = `
+<tr
+  class="ec-table__row--is-clickable"
+  data-test="ec-table__row ec-table__row--0"
+>
+  
+  <td
+    class="ec-table__cell"
+    data-test="ec-table__cell ec-table__cell--0"
+  >
+    
+    1
+    
+  </td>
+  <td
+    class="ec-table__cell"
+    data-test="ec-table__cell ec-table__cell--1"
+  >
+    
+    2
+    
+  </td>
+  <td
+    class="ec-table__cell"
+    data-test="ec-table__cell ec-table__cell--2"
+  >
+    
+    3
+    
+  </td>
+  
+</tr>
 `;
 
 exports[`EcSmartTable should render empty data properly 1`] = `

@@ -17,10 +17,10 @@
       <ec-icon
         v-ec-tooltip="{
           placement: 'left',
-          show: !!tooltipContent,
-          trigger: 'manual',
+          shown: !!tooltipContent,
+          triggers: ['manual'],
           content: tooltipContent ,
-          classes: tooltipClasses,
+          popperClass: tooltipClasses,
           ...tooltipOptions,
         }"
         class="ec-inline-input-field-copy__icon"

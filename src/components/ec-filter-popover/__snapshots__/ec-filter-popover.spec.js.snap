@@ -9,6 +9,7 @@ exports[`EcFilterPopover should display number of selected filters if the value 
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -40,7 +41,6 @@ exports[`EcFilterPopover should display number of selected filters if the value 
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"
@@ -62,6 +62,7 @@ exports[`EcFilterPopover should not display number of selected filters if the va
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -88,7 +89,6 @@ exports[`EcFilterPopover should not display number of selected filters if the va
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"
@@ -110,6 +110,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -136,7 +137,6 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"
@@ -161,6 +161,7 @@ exports[`EcFilterPopover should render properly when isFullHeight is set 1`] = `
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -187,7 +188,6 @@ exports[`EcFilterPopover should render properly when isFullHeight is set 1`] = `
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content ec-filter-popover__filter-content--is-full-height"
@@ -209,6 +209,7 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -235,7 +236,6 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"
@@ -257,6 +257,7 @@ exports[`EcFilterPopover should reset the open status of the popover 1`] = `
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -283,7 +284,6 @@ exports[`EcFilterPopover should reset the open status of the popover 1`] = `
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"
@@ -305,6 +305,7 @@ exports[`EcFilterPopover should set the open status of the popover 1`] = `
     data-test="ec-stub ec-popover-stub"
     distance="8"
     placement="bottom-start"
+    prevent-overflow="false"
   >
     
     <div
@@ -331,7 +332,6 @@ exports[`EcFilterPopover should set the open status of the popover 1`] = `
       </svg>
     </div>
     
-     
     
     <div
       class="ec-filter-popover__filter-content"

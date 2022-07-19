@@ -30,7 +30,7 @@
           </span>
           <ec-icon
             v-if="!!column.tooltip"
-            v-ec-tooltip="{ content:column.tooltip }"
+            v-ec-tooltip="{ content: column.tooltip }"
             class="ec-table-head__icon"
             data-test="ec-table-head__tooltip-icon"
             type="interactive"

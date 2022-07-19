@@ -80,9 +80,12 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
         autosize="min"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -118,7 +121,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
         </div>
         
         
-         
         
         <div>
           <ul
@@ -225,9 +227,12 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
         autosize="min"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -263,7 +268,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
         </div>
         
         
-         
         
         <div>
           <ul
@@ -358,9 +362,12 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
   autosize="min"
   class="ec-dropdown-search__trigger"
   data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+  disabled="false"
   distance="8"
   placement="bottom-start"
   popperclass="ec-dropdown-search__popover"
+  shift="false"
+  shown="false"
 >
   
   
@@ -396,7 +403,6 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
   </div>
   
   
-   
   
   <div>
     <ul
@@ -552,9 +558,12 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
     autosize="min"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
     distance="8"
     placement="bottom-start"
     popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
     
     
@@ -590,7 +599,6 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
     </div>
     
     
-     
     
     <div>
       <ul
@@ -648,9 +656,12 @@ exports[`EcCurrencyInput should render properly 1`] = `
         autosize="min"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -686,7 +697,6 @@ exports[`EcCurrencyInput should render properly 1`] = `
         </div>
         
         
-         
         
         <div>
           <ul
@@ -792,9 +802,12 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
         autosize="min"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -830,7 +843,6 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
         </div>
         
         
-         
         
         <div>
           <ul

@@ -13,6 +13,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -39,7 +40,6 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -156,6 +156,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -182,7 +183,6 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -299,6 +299,7 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -325,7 +326,6 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -456,6 +456,7 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -482,7 +483,6 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -534,6 +534,7 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -560,7 +561,6 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -691,6 +691,7 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -717,7 +718,6 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -789,6 +789,7 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -815,7 +816,6 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -867,6 +867,7 @@ exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = 
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -893,7 +894,6 @@ exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = 
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -940,6 +940,7 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -966,7 +967,6 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -1169,6 +1169,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -1195,7 +1196,6 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -1418,6 +1418,7 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -1449,7 +1450,6 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -1521,6 +1521,7 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -1547,7 +1548,6 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content ec-filter-popover__filter-content--is-full-height"
@@ -1644,6 +1644,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -1670,7 +1671,6 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -1883,6 +1883,7 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -1909,7 +1910,6 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"
@@ -2026,6 +2026,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
       data-test="ec-stub ec-popover-stub"
       distance="8"
       placement="bottom-start"
+      prevent-overflow="false"
     >
       
       <div
@@ -2057,7 +2058,6 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
         </svg>
       </div>
       
-       
       
       <div
         class="ec-filter-popover__filter-content"

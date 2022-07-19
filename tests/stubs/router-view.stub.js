@@ -4,6 +4,7 @@ const RouterViewStub = defineComponent({
   name: 'RouterViewStub',
   compatConfig: {
     MODE: 3,
+    ATTR_FALSE_VALUE: false,
   },
   compilerOptions: {
     whitespace: 'condense',

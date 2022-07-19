@@ -17,7 +17,7 @@ describe('EcFilterPopover', () => {
   it('should throw an error if no label prop were given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mountEcFilterPopover({ numberOfSelectedFilters });
-      expect(warnSpy).toHaveBeenCalledTimes(4);
+      expect(warnSpy).toHaveBeenCalledTimes(3);
       expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "label"');
     });
   });

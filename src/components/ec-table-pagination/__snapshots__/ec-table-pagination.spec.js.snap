@@ -280,9 +280,12 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
       autosize="true"
       class="ec-dropdown-search__trigger"
       data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+      disabled="false"
       distance="8"
       placement="bottom-start"
       popperclass="ec-dropdown-search__popover"
+      shift="false"
+      shown="false"
     >
       
       
@@ -303,7 +306,6 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
       </button>
       
       
-       
       
       <div>
         <ul
@@ -382,9 +384,12 @@ exports[`EcTablePagination should render as expected 1`] = `
         autosize="true"
         class="ec-dropdown-search__trigger"
         data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
         distance="8"
         placement="bottom-start"
         popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
       >
         
         
@@ -405,7 +410,6 @@ exports[`EcTablePagination should render as expected 1`] = `
         </button>
         
         
-         
         
         <div>
           <ul

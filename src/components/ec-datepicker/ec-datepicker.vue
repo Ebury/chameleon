@@ -17,6 +17,7 @@
     :model-value="formattedValue"
     @icon-click="openCalendar()"
     @blur="onBlur"
+    @change="onChange"
     v-on="getListeners()"
   />
 </template>
@@ -89,7 +90,7 @@ export default {
       type: [String, Object],
     },
   },
-  emits: ['update:modelValue', 'ready', 'open', 'close', 'blur'],
+  emits: ['update:modelValue', 'ready', 'open', 'close', 'blur', 'change'],
   data() {
     return {
       uid: getUid(),
@@ -116,6 +117,7 @@ export default {
     modelValue(newValue, oldValue) {
       if (newValue && newValue !== oldValue && !this.datesAreEqual(newValue, oldValue)) {
         this.flatpickrInstance.setDate(newValue, true);
+        this.$emit('change');
       }
 
       if (!newValue) {
@@ -193,6 +195,7 @@ export default {
       delete listeners.close;
       delete listeners.ready;
       delete listeners.blur;
+      delete listeners.change;
 
       return listeners;
     },
@@ -213,25 +216,6 @@ export default {
         onReady: [...(this.options.onReady ?? []), () => {
           this.$emit('ready');
         }],
-        onChange: (selectedDates, dateStr) => {
-          const date = selectedDates[0];
-          if (date) {
-            const isoDate = this.toIsoDate(date);
-
-            if (this.disabledDatesMap?.has(isoDate)) {
-              this.flatpickrInstance.clear();
-              return;
-            }
-
-            if (this.areWeekendsDisabled && this.isWeekendDay(date)) {
-              this.flatpickrInstance.clear();
-              return;
-            }
-          }
-
-          this.formattedValue = dateStr;
-          this.$emit('update:modelValue', selectedDates[0] ?? null);
-        },
         onOpen: [...(this.options.onOpen ?? []), () => {
           this.$emit('open');
         }],
@@ -305,6 +289,38 @@ export default {
       this.$emit('blur', evt);
       if (this.flatpickrInstance && !this.flatpickrInstance.input.value) {
         this.$emit('update:modelValue', null);
+        this.$emit('change');
+      }
+    },
+    onChange() {
+      if (this.flatpickrInstance) {
+        const dateStr = this.flatpickrInstance.input.value;
+        const date = this.flatpickrInstance.selectedDates[0];
+        if (dateStr && !date) {
+          return;
+        }
+        if (date) {
+          const isoDate = this.toIsoDate(date);
+
+          if (this.disabledDatesMap?.has(isoDate)) {
+            this.flatpickrInstance.clear();
+            return;
+          }
+
+          if (this.areWeekendsDisabled && this.isWeekendDay(date)) {
+            this.flatpickrInstance.clear();
+            return;
+          }
+        }
+
+        this.formattedValue = dateStr;
+
+        if (this.datesAreEqual(date, this.modelValue)) {
+          return;
+        }
+
+        this.$emit('update:modelValue', date ?? null);
+        this.$emit('change');
       }
     },
   },
