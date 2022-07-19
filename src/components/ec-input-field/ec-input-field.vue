@@ -1,6 +1,8 @@
 <template>
   <div
     class="ec-input-field"
+    :class="$attrs.class"
+    :style="$attrs.style"
     data-test="ec-input-field"
   >
     <label
@@ -30,18 +32,20 @@
       >{{ note }}</span>
     </label>
     <input
-      v-bind="$attrs"
-      :id="inputId"
-      ref="input"
+      v-bind="{
+        ...$attrs,
+        style: null,
+        class: inputClasses,
+        id: inputId,
+        'aria-describedby': errorMessageId,
+        'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input',
+        type,
+      }"
+      ref="inputRef"
       v-model="inputModel"
-      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-input-field__input` : 'ec-input-field__input'"
-      :class="inputClasses"
-      :type="type"
-      :aria-describedby="errorMessageId"
-      v-on="{ ...$listeners, 'update:modelValue': null }"
     >
     <div
-      v-if="isIconWrapperVisible"
+      v-if="isLoading || icon"
       class="ec-input-field__icon-wrapper"
       :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
       data-test="ec-input-field__icon-wrapper"
@@ -57,7 +61,7 @@
         data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
-        @click="$emit('icon-click', modelValue);"
+        @click="emit('icon-click', modelValue);"
       />
     </div>
     <div
@@ -75,142 +79,150 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import {
+  computed,
+  ref,
+  useAttrs,
+  watchEffect,
+} from 'vue';
+
 import config from '../../config';
-import EcTooltip from '../../directives/ec-tooltip';
+import VEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
 
+const attrs = useAttrs();
+const emit = defineEmits(['update:modelValue', 'icon-click']);
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'text',
+    validator(value) {
+      return ['text', 'date', 'number', 'tel'].includes(value);
+    },
+  },
+  modelValue: {
+    type: [Number, String, Date],
+  },
+  label: {
+    default: '',
+    type: String,
+  },
+  labelTooltip: {
+    default: '',
+    type: String,
+  },
+  note: {
+    default: '',
+    type: String,
+  },
+  bottomNote: {
+    default: '',
+    type: String,
+  },
+  errorMessage: {
+    default: '',
+    type: String,
+  },
+  icon: {
+    type: String,
+    default: '',
+  },
+  iconSize: {
+    type: Number,
+    default: 20,
+  },
+  isInGroup: {
+    type: String,
+  },
+  id: {
+    type: String,
+  },
+  errorId: {
+    type: String,
+  },
+  isLoading: {
+    type: Boolean,
+    default: false,
+  },
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+  isWarning: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const isInvalid = computed(() => !!props.errorMessage);
+const isDisabled = computed(() => !!attrs.disabled);
+
+const uid = getUid();
+const inputId = computed(() => props.id || `ec-input-field-${uid}`);
+const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-input-field-error-${uid}`) : null));
+
+const inputModel = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(value) {
+    emit('update:modelValue', value);
+  },
+});
+
+const inputClasses = computed(() => {
+  const classes = ['ec-input-field__input'];
+
+  if (props.isInGroup) {
+    classes.push(`ec-input-field__input--is-in-group-${props.isInGroup}`);
+  }
+  if (props.isLoading) {
+    classes.push('ec-input-field__input--is-loading');
+  }
+  if (isInvalid.value) {
+    classes.push('ec-input-field__input--has-error');
+  }
+  if (props.icon) {
+    classes.push('ec-input-field__input--has-icon');
+  }
+  if (props.isSensitive) {
+    classes.push(config.sensitiveClass);
+  }
+
+  return classes;
+});
+
+const inputRef = ref(null);
+
+function focus() {
+  if (inputRef.value) {
+    inputRef.value.focus();
+  }
+}
+
+watchEffect(() => {
+  // Hack: since we enabled @vue/compat we occasionally run into issues that the inputModel and value of the input are getting out of sync
+  // in order to fix it we should sync it automatically every time inputModel changes.
+  // we'll review if this is still a case after the @vue/compat is replaced with Vue 3 only.
+  const inputElement = inputRef.value;
+  if (inputElement && inputElement.value !== inputModel.value) {
+    inputElement.value = inputModel.value;
+  }
+});
+
+defineExpose({ focus, inputRef });
+</script>
+
+<script>
 export default {
   name: 'EcInputField',
   compatConfig: {
-    COMPONENT_V_MODEL: false,
+    MODE: 3,
   },
-  components: { EcIcon, EcLoadingIcon },
-  directives: { EcTooltip },
   inheritAttrs: false,
-  props: {
-    type: {
-      type: String,
-      default: 'text',
-      validator(value) {
-        return ['text', 'date', 'number', 'tel'].includes(value);
-      },
-    },
-    modelValue: {
-      type: [Number, String, Date],
-    },
-    label: {
-      default: '',
-      type: String,
-    },
-    labelTooltip: {
-      default: '',
-      type: String,
-    },
-    note: {
-      default: '',
-      type: String,
-    },
-    bottomNote: {
-      default: '',
-      type: String,
-    },
-    errorMessage: {
-      default: '',
-      type: String,
-    },
-    icon: {
-      type: String,
-      default: '',
-    },
-    iconSize: {
-      type: Number,
-      default: 20,
-    },
-    isInGroup: {
-      type: String,
-    },
-    id: {
-      type: String,
-    },
-    errorId: {
-      type: String,
-    },
-    isLoading: {
-      type: Boolean,
-      default: false,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
-    isWarning: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  emits: ['update:modelValue', 'icon-click'],
-  data() {
-    return {
-      uid: getUid(),
-    };
-  },
-  computed: {
-    inputClasses() {
-      const classes = ['ec-input-field__input'];
-
-      if (this.isInGroup) {
-        classes.push(`ec-input-field__input--is-in-group-${this.isInGroup}`);
-      }
-      if (this.isLoading) {
-        classes.push('ec-input-field__input--is-loading');
-      }
-      if (this.isInvalid) {
-        classes.push('ec-input-field__input--has-error');
-      }
-      if (this.icon) {
-        classes.push('ec-input-field__input--has-icon');
-      }
-      if (this.isSensitive) {
-        classes.push(config.sensitiveClass);
-      }
-
-      return classes;
-    },
-    inputId() {
-      return this.id || `ec-input-field-${this.uid}`;
-    },
-    errorMessageId() {
-      return this.isInvalid ? (this.errorId || `ec-input-field-error-${this.uid}`) : null;
-    },
-    isInvalid() {
-      return !!this.errorMessage;
-    },
-    isDisabled() {
-      return !!this.$attrs.disabled;
-    },
-    inputModel: {
-      get() {
-        return this.modelValue;
-      },
-      set(value) {
-        this.$emit('update:modelValue', value);
-      },
-    },
-    isIconWrapperVisible() {
-      return this.isLoading || this.icon;
-    },
-  },
-  methods: {
-    focus() {
-      this.$refs.input.focus();
-    },
-    getInputRef() {
-      return this.$refs.input;
-    },
-  },
 };
 </script>
 

@@ -156,7 +156,7 @@ export default {
     },
   },
   mounted() {
-    this.flatpickrInstance = flatpickr(this.$refs.input.getInputRef(), this.mergeWithDefaultOptions(this.options));
+    this.flatpickrInstance = flatpickr(this.$refs.input.inputRef, this.mergeWithDefaultOptions(this.options));
 
     /* istanbul ignore next */
     if (this.flatpickrInstance.input) {
