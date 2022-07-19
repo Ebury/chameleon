@@ -24,7 +24,7 @@ function getOptions(el) {
 
 export default {
   updated(el, binding, vnode) {
-    updateOptions(vnode.elm, binding);
+    updateOptions(vnode.el, binding);
   },
 
   beforeMount(el, binding, vnode) {
@@ -38,7 +38,7 @@ export default {
       throw new TypeError('v-ec-amount requires 1 input');
     }
 
-    updateOptions(vnode.elm, binding);
+    updateOptions(vnode.el, binding);
 
     el.__inputHandler = function inputHandler() {
       if (el.__preventHandlingNextInputEvent) {
@@ -46,7 +46,7 @@ export default {
         return;
       }
 
-      const options = getOptions(vnode.elm);
+      const options = getOptions(vnode.el);
 
       let positionFromStart = el.selectionStart;
       const numberOfSeparatorsBefore = getNumberOfSeparators(el.value, positionFromStart, options.groupingSeparator);

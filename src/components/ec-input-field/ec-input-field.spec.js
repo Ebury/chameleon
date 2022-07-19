@@ -35,7 +35,7 @@ describe('EcInputField', () => {
   it('should validate given props', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mountInputField({ type: 'random' });
-      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy).toHaveBeenCalledTimes(2);
       expect(warnSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
     });
   });
@@ -178,6 +178,11 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('renders properly when readonly', () => {
+    const wrapper = mountInputField({}, { attrs: { readonly: true } });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('renders properly the icon when disabled', () => {
     const wrapper = mountInputField({ icon: 'simple-check' }, { attrs: { disabled: true } });
     expect(wrapper.element).toMatchSnapshot();
@@ -211,6 +216,17 @@ describe('EcInputField', () => {
 
   it('renders without bottom note if error message is given', () => {
     const wrapper = mountInputField({ bottomNote: 'Random bottom note', errorMessage: 'Random error message' });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly custom attributes', () => {
+    const wrapper = mountInputField({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        style: { backgroundColor: 'hotpink' },
+      },
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 });

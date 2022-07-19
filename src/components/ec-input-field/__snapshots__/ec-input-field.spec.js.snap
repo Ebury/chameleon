@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcInputField renders properly custom attributes 1`] = `
+<div
+  class="ec-input-field my-class"
+  data-test="ec-input-field"
+  style="background-color: hotpink;"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="ec-input-field-1"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+      <!--v-if-->
+    </span>
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+  <input
+    class="ec-input-field__input"
+    data-test="my-data-test ec-input-field__input"
+    id="ec-input-field-1"
+    type="text"
+  />
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
 exports[`EcInputField renders properly the icon when disabled 1`] = `
 <div
   class="ec-input-field"
@@ -131,6 +167,42 @@ exports[`EcInputField renders properly when is loading 1`] = `
       />
     </svg>
   </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcInputField renders properly when readonly 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="ec-input-field-1"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+      <!--v-if-->
+    </span>
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+  <input
+    class="ec-input-field__input"
+    data-test="ec-input-field__input"
+    id="ec-input-field-1"
+    readonly=""
+    type="text"
+  />
+  <!--v-if-->
   <!--v-if-->
 </div>
 `;
