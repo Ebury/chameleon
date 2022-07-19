@@ -209,7 +209,7 @@ watchEffect(() => {
   // we'll review if this is still a case after the @vue/compat is replaced with Vue 3 only.
   const inputElement = inputRef.value;
   if (inputElement && inputElement.value !== inputModel.value) {
-    inputElement.value = inputModel.value;
+    inputElement.value = inputModel.value ?? '';
   }
 });
 
