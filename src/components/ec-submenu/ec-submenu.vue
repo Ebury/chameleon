@@ -34,7 +34,7 @@
             :to="menuItem.route"
             class="ec-submenu__header-title"
             :data-test="`ec-submenu__header-title-${index}`"
-            @click.native="select(index)"
+            @click="select(index)"
           >{{ menuItem.headerTitle }}</router-link>
         </li>
       </ul>
@@ -63,7 +63,6 @@ export default {
   name: 'EcSubmenu',
   compatConfig: {
     MODE: 2,
-    COMPILER_V_ON_NATIVE: true,
     COMPONENT_V_MODEL: false,
   },
   props: {
