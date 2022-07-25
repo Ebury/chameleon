@@ -49,6 +49,8 @@ export { default as EcTextarea } from './components/ec-textarea';
 export { default as EcTimer } from './components/ec-timer';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcUserInfo } from './components/ec-user-info';
+export { default as useEcPagination } from './composables/use-ec-pagination';
+export { default as useEcSorting } from './composables/use-ec-sorting';
 export { default as config } from './config';
 export { default as EcAmount } from './directives/ec-amount';
 export { default as EcClosePopover } from './directives/ec-close-popover';
@@ -59,8 +61,6 @@ export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch'
 export { default as ecWithFiltering } from './hocs/ec-with-filtering';
 export { default as ecWithFilters } from './hocs/ec-with-filters';
 export { default as ecWithLoading } from './hocs/ec-with-loading';
-export { default as ecWithPagination } from './hocs/ec-with-pagination';
-export { default as ecWithSorting } from './hocs/ec-with-sorting';
 export { createHOC, createHOCc } from './hocs/hoc';
 export { default as Countdown } from './utils/countdown';
 export { default as flatpickr } from 'flatpickr';
