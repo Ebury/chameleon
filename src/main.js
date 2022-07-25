@@ -58,7 +58,6 @@ export { default as EcFocusTrap } from './directives/ec-focus-trap';
 export { default as EcTooltip } from './directives/ec-tooltip';
 export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
-export { default as ecWithFilters } from './hocs/ec-with-filters';
 export { createHOC, createHOCc } from './hocs/hoc';
 export { default as Countdown } from './utils/countdown';
 export { default as flatpickr } from 'flatpickr';
