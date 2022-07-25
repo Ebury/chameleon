@@ -125,12 +125,12 @@ export const allIcons = args => ({
       <div class="search-results">
         <template v-if="hasRoundedIcons">
           <h2>Rounded icons</h2>
-          <ec-icons-grid :icons="filteredRoundedIcons" v-bind="args" />
+          <ec-icons-grid v-bind="args" :icons="filteredRoundedIcons" />
         </template>
 
         <template v-if="hasSimpleIcons">
           <h2>Simple icons</h2>
-          <ec-icons-grid :icons="filteredSimpleIcons" v-bind="args" />
+          <ec-icons-grid v-bind="args" :icons="filteredSimpleIcons" />
         </template>
 
         <template v-if="!hasIcons">
@@ -219,7 +219,7 @@ export const allFlags = args => ({
 
         <template v-if="hasCurrencyFlags">
           <h2>Currency</h2>
-          <ec-icons-grid :icons="filteredCurrencyFlags" v-bind="args" />
+          <ec-icons-grid v-bind="args" :icons="filteredCurrencyFlags" />
         </template>
 
         <template v-if="!hasIcons">

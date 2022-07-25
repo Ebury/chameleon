@@ -16,8 +16,7 @@ const Template = args => ({
   template: `
     <div class="tw-flex tw-h-screen">
       <div class="tw-m-auto">
-        <ec-inline-actions
-          v-bind="args">
+        <ec-inline-actions v-bind="args">
           <ec-icon name="simple-more" :size="24" />
           <template #item-reject="{ item }">This is a custom {{ item.text }}</template>
         </ec-inline-actions>
