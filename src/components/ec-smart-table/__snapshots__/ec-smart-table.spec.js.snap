@@ -472,11 +472,9 @@ exports[`EcSmartTable filtering should handle changes in filters and reload the 
   <div>
     # of filters: 2
   </div>
-   
   <div>
     value: {}
   </div>
-   
   <a
     data-test="my-table-filter__clear-button"
   >
@@ -505,13 +503,11 @@ exports[`EcSmartTable filtering should pass given prefilter with filter componen
   <div>
     # of filters: 2
   </div>
-   
   <div>
     value: {
   "test1": "test-value-1"
 }
   </div>
-   
   <a
     data-test="my-table-filter__clear-button"
   >
@@ -527,11 +523,9 @@ exports[`EcSmartTable filtering should render the given filter component 1`] = `
   <div>
     # of filters: 2
   </div>
-   
   <div>
     value: {}
   </div>
-   
   <a
     data-test="my-table-filter__clear-button"
   >

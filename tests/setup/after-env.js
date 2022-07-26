@@ -35,10 +35,16 @@ VueWrapper.prototype.findAllComponentsByDataTest = findAllComponentsByDataTest;
 DOMWrapper.prototype.findAllComponentsByDataTest = findAllComponentsByDataTest;
 
 // @vue/compiler-sfc
-config.global.compilerOptions = {
-  ...config.global.compilerOptions,
+const customElements = new Set(['ec-stub']);
+
+config.global.config.compilerOptions = {
   whitespace: 'condense',
+  isCustomElement: tag => customElements.has(tag),
   comments: false,
+  compatConfig: {
+    MODE: 3,
+    RENDER_FUNCTION: false,
+  },
 };
 
 // @vue/compat
