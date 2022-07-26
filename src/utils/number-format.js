@@ -1,5 +1,5 @@
 export function getDecimalSeparator(locale) {
-  // we could just use formatToParts function but it's not supported on IE11
+  // we could just use formatToParts function but it's not supported on Safari 11 and 12
   // and there's no polyfill for NumberFormat, only for DateTimeFormat
   //
   // return new Intl.NumberFormat(locale)
@@ -22,7 +22,7 @@ export function getDecimalSeparator(locale) {
 }
 
 export function getGroupingSeparator(locale) {
-  // we could just use formatToParts function but it's not supported on IE11
+  // we could just use formatToParts function but it's not supported on Safari 11 and 12
   // and there's no polyfill for NumberFormat, only for DateTimeFormat
   //
   // return new Intl.NumberFormat(locale)
@@ -43,4 +43,3 @@ export function getGroupingSeparator(locale) {
   }).format(10000);
   return formatted[2];
 }
-
