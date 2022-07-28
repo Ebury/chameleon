@@ -100,7 +100,7 @@ export const zIndices = ({ trigger, ...args }) => ({
             </div>
           </template>
         </ec-popover>
-        <ec-popover class="tw-mb-4" level="modal" v-bind="{ ...args, placement, triggers: [trigger], placement: 'right' }">
+        <ec-popover class="tw-mb-4" v-bind="{ ...args, placement, triggers: [trigger], placement: 'right' }" level="modal">
           <button v-ec-tooltip="'Right placement popover'" class="tw-mb-16 ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Right</button>
           <template #popper="{ hide }">
             <div class="tw-bg-gray-8 tw-border tw-border-solid tw-border-gray-6 tw-p-8 tw-text-center">

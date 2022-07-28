@@ -87,8 +87,8 @@ export const all = args => ({
       <div class="tw-grid">
         <div class="tw-col-full md:tw-col-4">
           <ec-inline-input-field
-            label="Inline Input Field"
             v-bind="args"
+            label="Inline Input Field"
             :is-editing="isEditing"
             :is-loading="isLoading"
             v-on="{

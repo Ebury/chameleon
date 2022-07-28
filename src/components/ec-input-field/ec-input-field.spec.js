@@ -229,4 +229,18 @@ describe('EcInputField', () => {
     });
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('should never assign undefined value to the input', async () => {
+    const wrapper = mountInputField({
+      modelValue: '1234',
+    });
+
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('1234');
+
+    await wrapper.setProps({
+      modelValue: undefined,
+    });
+
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
+  });
 });

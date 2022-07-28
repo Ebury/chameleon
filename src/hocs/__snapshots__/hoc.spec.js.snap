@@ -27,13 +27,11 @@ exports[`HoC for @vue/compat preserve existing functionality of wrapped componen
     Slot prop value: 123
   </div>
   
-   
   
   <div>
     Default slot
   </div>
   
-   
   
   Third slot fallback
   
@@ -45,14 +43,11 @@ exports[`HoC for @vue/compat preserve existing functionality of wrapped componen
   
   Slot prop value: 123
   
-   
   
-   
   <div>
     Default slot
   </div>
   
-   
   
   Third slot fallback
   

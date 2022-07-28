@@ -8,7 +8,13 @@ export default {
   title: 'Submenu',
   component: EcSubmenu,
   decorators: [
-    storyRouter(),
+    storyRouter([{
+      path: '/',
+      component: {},
+    }, {
+      path: '/submitted/',
+      component: {},
+    }]),
   ],
 };
 
@@ -26,7 +32,7 @@ export const basic = ({ activeIndex, ...args }) => ({
     <div class="tw-m-24">
       <ec-submenu
         v-bind="args"
-        v-model:activeIndex="model"
+        v-model:active-index="model"
         v-on="{
           change: onChange
         }">

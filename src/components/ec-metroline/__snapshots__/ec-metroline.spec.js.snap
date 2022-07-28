@@ -166,16 +166,13 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            
-                Continue
-              
+             Continue 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -235,7 +232,6 @@ exports[`EcMetroline order should have the correct next item order if we show, h
       <!--v-if-->
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--3"
@@ -381,16 +377,13 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            
-                Continue
-              
+             Continue 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-active"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -465,16 +458,13 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            
-                  Continue
-                
+             Continue 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--3"
@@ -620,16 +610,13 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            
-                Continue
-              
+             Continue 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -709,16 +696,13 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            
-                  Continue
-                
+             Continue 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--3"
@@ -790,9 +774,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
           <button
             data-test="footer-cta-button"
           >
-            
-                Continue
-              
+             Continue 
           </button>
           
         </div>
@@ -886,24 +868,18 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           <button
             data-test="footer-cta-button"
           >
-            
-        Continue
-      
+             Continue 
           </button>
-           
           <button
             data-test="footer-cta-complete-metroline"
           >
-            
-        Complete Metroline
-    
+             Complete Metroline 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -956,9 +932,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -1040,9 +1014,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -1069,24 +1041,18 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           <button
             data-test="footer-cta-button"
           >
-            
-        Continue
-      
+             Continue 
           </button>
-           
           <button
             data-test="footer-cta-complete-metroline"
           >
-            
-        Complete Metroline
-    
+             Complete Metroline 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -1139,9 +1105,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -1168,9 +1132,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           <button
             data-test="footer-cta-button"
           >
-            
-          Continue
-      
+             Continue 
           </button>
           
         </div>
@@ -1264,24 +1226,18 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           <button
             data-test="footer-cta-button"
           >
-            
-        Continue
-      
+             Continue 
           </button>
-           
           <button
             data-test="footer-cta-complete-metroline"
           >
-            
-        Complete Metroline
-    
+             Complete Metroline 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -1334,9 +1290,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -1418,8 +1372,7 @@ exports[`EcMetroline permissions should complete the metroline if we click on co
           <button
             data-test="header-cta-completed"
           >
-            Download
-      
+            Download 
           </button>
           
         </div>
@@ -1446,24 +1399,18 @@ exports[`EcMetroline permissions should complete the metroline if we click on co
           <button
             data-test="footer-cta-button"
           >
-            
-        Continue
-      
+             Continue 
           </button>
-           
           <button
             data-test="footer-cta-complete-metroline"
           >
-            
-        Complete Metroline
-    
+             Complete Metroline 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -1524,9 +1471,7 @@ exports[`EcMetroline permissions should complete the metroline if we click on co
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -1553,9 +1498,7 @@ exports[`EcMetroline permissions should complete the metroline if we click on co
           <button
             data-test="footer-cta-button"
           >
-            
-          Continue
-      
+             Continue 
           </button>
           
         </div>
@@ -1635,8 +1578,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
           <button
             data-test="header-cta-completed"
           >
-            Download
-      
+            Download 
           </button>
           
         </div>
@@ -1663,24 +1605,18 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
           <button
             data-test="footer-cta-button"
           >
-            
-        Continue
-      
+             Continue 
           </button>
-           
           <button
             data-test="footer-cta-complete-metroline"
           >
-            
-        Complete Metroline
-    
+             Complete Metroline 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -1741,9 +1677,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -1770,9 +1704,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
           <button
             data-test="footer-cta-button"
           >
-            
-          Continue
-      
+             Continue 
           </button>
           
         </div>
@@ -1852,9 +1784,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -1881,24 +1811,18 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="footer-cta-button"
           >
-            
-        Continue
-      
+             Continue 
           </button>
-           
           <button
             data-test="footer-cta-complete-metroline"
           >
-            
-        Complete Metroline
-    
+             Complete Metroline 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -1951,9 +1875,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -1980,9 +1902,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="footer-cta-button"
           >
-            
-          Continue
-      
+             Continue 
           </button>
           
         </div>
@@ -2062,9 +1982,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -2091,24 +2009,18 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="footer-cta-button"
           >
-            
-        Continue
-      
+             Continue 
           </button>
-           
           <button
             data-test="footer-cta-complete-metroline"
           >
-            
-        Complete Metroline
-    
+             Complete Metroline 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-active ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -2161,9 +2073,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
@@ -2190,9 +2100,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
           <button
             data-test="footer-cta-button"
           >
-            
-          Continue
-      
+             Continue 
           </button>
           
         </div>
@@ -2286,24 +2194,18 @@ exports[`EcMetroline should render a metroline with items 1`] = `
           <button
             data-test="footer-cta-button"
           >
-            
-        Continue
-      
+             Continue 
           </button>
-           
           <button
             data-test="footer-cta-complete-metroline"
           >
-            
-        Complete Metroline
-    
+             Complete Metroline 
           </button>
           
         </div>
       </div>
     </div>
   </div>
-   
   <div
     class="ec-metroline-item ec-metroline-item--is-last"
     data-test="ec-metroline-item ec-metroline-item--2"
@@ -2356,9 +2258,7 @@ exports[`EcMetroline should render a metroline with items 1`] = `
           <button
             data-test="header-cta-edit"
           >
-            
-        Edit
-      
+             Edit 
           </button>
           
         </div>
