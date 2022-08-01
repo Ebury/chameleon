@@ -36,7 +36,18 @@ describe('EcAmountInput', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should format the number when we pass it by the v-model', async () => {
+  it('should render with custom attributes', () => {
+    const wrapper = mountAmountInput({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should format the number when we pass it via the v-model', async () => {
     const wrapper = mountAmountInputAsTemplate(
       '<ec-amount-input v-model="valueAmount" />',
       {
@@ -52,7 +63,7 @@ describe('EcAmountInput', () => {
     expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111');
   });
 
-  it('should format the v-model when the isMasked is given', async () => {
+  it('should format the v-model when the isMasked prop is given', async () => {
     const wrapper = mountAmountInputAsTemplate(
       '<ec-amount-input v-model="valueAmount" is-masked />',
       {
@@ -111,7 +122,7 @@ describe('EcAmountInput', () => {
     expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('1,111.11');
   });
 
-  it('should format the number for currency without decimals', async () => {
+  it('should format the number for a currency without decimals', async () => {
     const wrapper = mountAmountInputAsTemplate(
       '<ec-amount-input v-model="valueAmount" locale="en" currency="JPY" />',
       {
@@ -171,7 +182,7 @@ describe('EcAmountInput', () => {
     expect(wrapper.vm.valueAmount).toBe(null);
   });
 
-  it('should allow typing only a negative sign into masked input when there is v-model', async () => {
+  it('should allow typing only a negative sign into the masked input when there is v-model', async () => {
     const wrapper = mountAmountInputAsTemplate(
       '<ec-amount-input v-model="valueAmount" is-masked locale="en" />',
       {
@@ -256,19 +267,19 @@ describe('EcAmountInput', () => {
       ]);
     });
 
-    it('should not emit event if unmasked and the unformatted value is NaN (negative sign)', async () => {
+    it('should not emit an event if unmasked and the unformatted value is NaN (negative sign)', async () => {
       const wrapper = mountAmountInput();
       await wrapper.findByDataTest('ec-amount-input').setValue('-');
       expect(wrapper.emitted('update:modelValue')).toBeUndefined();
     });
 
-    it('should not emit event if unmasked and the unformatted value is NaN (decimals)', async () => {
+    it('should not emit an event if unmasked and the unformatted value is NaN (decimals)', async () => {
       const wrapper = mountAmountInput();
       await wrapper.findByDataTest('ec-amount-input').setValue('.');
       expect(wrapper.emitted('update:modelValue')).toBeUndefined();
     });
 
-    it('should not emit event if unmasked and the unformatted value is not changing as user types', async () => {
+    it('should not emit an event if unmasked and the unformatted value is not changing as user types', async () => {
       const wrapper = mountAmountInput();
       await wrapper.findByDataTest('ec-amount-input').setValue('-');
       await wrapper.findByDataTest('ec-amount-input').setValue('-1');
@@ -288,6 +299,7 @@ describe('EcAmountInput', () => {
 
     it('should emit for each valid character that user types if masked', async () => {
       const wrapper = mountAmountInput({
+        modelValue: '',
         isMasked: true,
       });
       await wrapper.findByDataTest('ec-amount-input').setValue('-');
