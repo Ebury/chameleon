@@ -11,6 +11,7 @@
         <ec-table-filter
           v-model="filterModel"
           :filters="filters"
+          :clear-filters-button-text="clearFiltersButtonText"
           data-test="ec-smart-table__filter"
           @change="onFilterChanged"
         />
@@ -66,13 +67,13 @@
             v-if="isPaginationEnabled"
           >
             <ec-table-pagination
-              data-test="ec-smart-table-pagination"
               v-bind="{
                 page,
                 total: totalRecords,
                 numberOfItems,
                 itemsPerPageText,
               }"
+              data-test="ec-smart-table-pagination"
               @change="paginate"
             >
               <template #total>
@@ -145,6 +146,7 @@ const props = defineProps({
     type: String,
     default: 'No items found',
   },
+  clearFiltersButtonText: String,
   itemsPerPageText: String,
   isPaginationEnabled: Boolean,
   filters: {
