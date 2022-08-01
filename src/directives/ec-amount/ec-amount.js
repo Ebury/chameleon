@@ -1,6 +1,6 @@
 /* eslint no-underscore-dangle: "off" */
 import defaultOptions from './options';
-import { event, format, setCursor } from './utils';
+import { format, setCursor } from './utils';
 
 function getNumberOfSeparators(value, endIndex, separator) {
   const matches = value.substr(0, endIndex).match(new RegExp(`\\${separator}`, 'g'));
@@ -29,10 +29,9 @@ export default {
 
   beforeMount(el, binding, vnode) {
     /* eslint no-param-reassign: "off" */
-    // v-ec-amount used on a component that's not a input
+    // v-ec-amount used on a component that's not an input
     if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
-      const els = el.getElementsByTagName('input');
-      [el] = els;
+      [el] = el.getElementsByTagName('input');
     }
     if (el === undefined) {
       throw new TypeError('v-ec-amount requires 1 input');
@@ -71,7 +70,7 @@ export default {
       // run an infinite loop. To prevent that, let's signal we want to skip next input event
       // by setting __preventHandlingNextInputEvent to true.
       el.__preventHandlingNextInputEvent = true;
-      el.dispatchEvent(event('input'));
+      el.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
     };
 
     el.addEventListener('input', el.__inputHandler);

@@ -105,8 +105,23 @@ describe('EcAmount - utils', () => {
       ['£1,111,111.00', '111111100'],
       ['1,111,111.00£', '111111100'],
       ['1,111,111.001', '1111111001'],
-    ])('should sanitize the %s into a %s', (value, valueExpected) => {
-      expect(sanitizeInput(value)).toBe(valueExpected);
+    ])('should sanitize the %s into a %s if decimal separator is not defined', (value, valueExpected) => {
+      expect(sanitizeInput(value, '')).toBe(valueExpected);
+    });
+
+    it.each([
+      ['1,111.00', '1111.00'],
+      ['1,111.11', '1111.11'],
+      ['1.11', '1.11'],
+      ['1.1111', '1.1111'],
+      ['1,111,111.00', '1111111.00'],
+      ['1`111`111.00', '1111111.00'],
+      ['1,111,111`00', '111111100'],
+      ['£1,111,111.00', '1111111.00'],
+      ['1,111,111.00£', '1111111.00'],
+      ['1,111,111.001', '1111111.001'],
+    ])('should sanitize the %s into a %s but preserve the given decimal separator', (value, valueExpected) => {
+      expect(sanitizeInput(value, '.')).toBe(valueExpected);
     });
   });
 });
