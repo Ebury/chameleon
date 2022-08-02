@@ -26,15 +26,13 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+
 import EcIcon from '../ec-icon';
 
-export default {
-  name: 'EcLoading',
-  components: {
-    EcIcon,
-  },
-  props: {
+const props = defineProps(
+  {
     show: {
       type: Boolean,
       required: true,
@@ -48,10 +46,16 @@ export default {
       default: true,
     },
   },
-  computed: {
-    isTransparent() {
-      return this.transparent || !this.show;
-    },
+);
+
+const isTransparent = computed(() => props.transparent || !props.show);
+</script>
+
+<script>
+export default {
+  name: 'EcLoading',
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>

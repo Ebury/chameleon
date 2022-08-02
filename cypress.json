@@ -25,7 +25,7 @@
     
     "watchForFileChanges": true,
     
-    "pageLoadTimeout": 3000,
+    "pageLoadTimeout": 15000,
     "taskTimeout": 3000,
     "responseTimeout": 10000,
     "execTimeout": 3000,
