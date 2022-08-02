@@ -67,6 +67,17 @@ describe('EcTableFilter', () => {
     });
   });
 
+  it('should render custom attributes', () => {
+    const wrapper = mountEcTableFilter({ filters }, {
+      attrs: {
+        class: 'my-class',
+        id: 'my-id',
+        'data-test': 'my-data-test',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render with pre-selected filters if the value prop is passed', () => {
     const wrapper = mountEcTableFilter({ modelValue, filters });
     expect(wrapper.element).toMatchSnapshot();

@@ -445,7 +445,7 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
 exports[`EcSmartTable filtering should handle changes in filters and reload the table data 1`] = `
 <section
   class="ec-table-filter"
-  data-test="ec-smart-table__filter"
+  data-test="ec-smart-table__filter ec-table-filter"
 >
   
   <div
@@ -468,7 +468,7 @@ exports[`EcSmartTable filtering should handle changes in filters and reload the 
 exports[`EcSmartTable filtering should pass given prefilter to table filter 1`] = `
 <section
   class="ec-table-filter"
-  data-test="ec-smart-table__filter"
+  data-test="ec-smart-table__filter ec-table-filter"
 >
   
   <div
@@ -497,7 +497,7 @@ exports[`EcSmartTable filtering should pass given prefilter to table filter 1`] 
 exports[`EcSmartTable filtering should render the given filters 1`] = `
 <section
   class="ec-table-filter"
-  data-test="ec-smart-table__filter"
+  data-test="ec-smart-table__filter ec-table-filter"
 >
   
   <div
