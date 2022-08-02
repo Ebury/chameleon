@@ -19,33 +19,34 @@
   </div>
 </template>
 
-<script>
+<script setup>
+
 import { arrayOfObjectsContainsKey } from '../../utils/validators';
 import EcBtn from '../ec-btn';
 
+const emit = defineEmits(['update:modelValue', 'change']);
+
+defineProps({
+  // eslint-disable-next-line vue/require-prop-types
+  modelValue: {},
+  items: {
+    type: Array,
+    required: true,
+    validator: array => arrayOfObjectsContainsKey(array, ['value', 'text']),
+  },
+});
+
+function onSelected(value) {
+  emit('update:modelValue', value);
+  emit('change', value);
+}
+</script>
+
+<script>
 export default {
   name: 'EcButtonGroup',
   compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
-  components: {
-    EcBtn,
-  },
-  props: {
-    // eslint-disable-next-line vue/require-prop-types
-    modelValue: {},
-    items: {
-      type: Array,
-      required: true,
-      validator: array => arrayOfObjectsContainsKey(array, ['value', 'text']),
-    },
-  },
-  emits: ['update:modelValue', 'change'],
-  methods: {
-    onSelected(value) {
-      this.$emit('update:modelValue', value);
-      this.$emit('change', value);
-    },
+    MODE: 3,
   },
 };
 </script>
