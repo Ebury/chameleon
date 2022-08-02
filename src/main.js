@@ -1,7 +1,12 @@
 import * as SortDirection from './enums/sort-direction';
 import * as SortDirectionCycle from './enums/sort-direction-cycle';
+import availableCurrencyFlags from './icons/currency-flags';
+
+const availableCurrencyFlagsSet = new Set(availableCurrencyFlags);
 
 export { SortDirection, SortDirectionCycle };
+
+export { availableCurrencyFlags, availableCurrencyFlagsSet };
 
 export { default as EcAlert } from './components/ec-alert';
 export { default as EcAmountFilterInput } from './components/ec-amount-filter-input';
