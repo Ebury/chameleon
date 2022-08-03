@@ -550,3 +550,37 @@ exports[`EcCheckbox attrs should pass all non-prop attributes to the hidden chec
   <!--v-if-->
 </div>
 `;
+
+exports[`EcCheckbox attrs should render with custom attributes 1`] = `
+<div
+  class="ec-checkbox my-class"
+  data-test="my-data-test ec-checkbox"
+  style="top: 0px;"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-checkbox__label-checkbox-wrapper"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper"
+    >
+      <!--v-if-->
+    </span>
+    <label
+      class="ec-checkbox__label"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+    >
+      
+      
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;

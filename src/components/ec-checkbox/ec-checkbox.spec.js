@@ -204,6 +204,26 @@ describe('EcCheckbox', () => {
       );
       expect(wrapper.element).toMatchSnapshot();
     });
+    it('should render with custom attributes', () => {
+      const wrapper = mountCheckbox({}, {
+        attrs: {
+          'data-test': 'my-data-test',
+          class: 'my-class',
+          id: 'test-id',
+          style: 'top: 0px',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+    it('should pass listeners to checkbox input', async () => {
+      const clickSpy = jest.fn();
+      const wrapper = mountCheckbox({}, {
+        attrs: { onClick: clickSpy },
+      });
+
+      await wrapper.findByDataTest('ec-checkbox__input').trigger('click');
+      expect(clickSpy).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('v-model', () => {
