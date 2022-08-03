@@ -1,10 +1,17 @@
 .browserslistrc
 .circleci
 .cypress-cache
+.dockerignore
 .editorconfig
 .eslintignore
+.github
 .out
 .storybook
+.stylelintignore
+**/*.spec.js
+**/*.story.css
+**/*.story.js
+**/__snapshots__/**
 babel.config.js
 bitbucket-pipelines.yml
 coverage
@@ -18,3 +25,5 @@ public
 tests/**/*
 !tests/mocks/**
 !tests/stubs/**
+CODEOWNERS
+*.md
