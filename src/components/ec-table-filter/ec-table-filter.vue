@@ -1,7 +1,8 @@
 <template>
   <section
+    v-bind="$attrs"
     class="ec-table-filter"
-    data-test="ec-table-filter"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-table-filter` : 'ec-table-filter'"
   >
     <component
       :is="filter.component"
@@ -53,6 +54,7 @@ export default {
     COMPONENT_V_MODEL: false,
   },
   components: { EcIcon },
+  inheritAttrs: false,
   props: {
     modelValue: {
       type: Object,

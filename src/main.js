@@ -1,7 +1,12 @@
 import * as SortDirection from './enums/sort-direction';
 import * as SortDirectionCycle from './enums/sort-direction-cycle';
+import availableCurrencyFlags from './icons/currency-flags';
+
+const availableCurrencyFlagsSet = new Set(availableCurrencyFlags);
 
 export { SortDirection, SortDirectionCycle };
+
+export { availableCurrencyFlags, availableCurrencyFlagsSet };
 
 export { default as EcAlert } from './components/ec-alert';
 export { default as EcAmountFilterInput } from './components/ec-amount-filter-input';
@@ -49,18 +54,15 @@ export { default as EcTextarea } from './components/ec-textarea';
 export { default as EcTimer } from './components/ec-timer';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcUserInfo } from './components/ec-user-info';
+export { default as useEcPagination } from './composables/use-ec-pagination';
+export { default as useEcSorting } from './composables/use-ec-sorting';
 export { default as config } from './config';
-export { default as EcAmount } from './directives/ec-amount';
-export { default as EcClosePopover } from './directives/ec-close-popover';
-export { default as EcFocusTrap } from './directives/ec-focus-trap';
-export { default as EcTooltip } from './directives/ec-tooltip';
+export { default as EcAmount, default as VEcAmount } from './directives/ec-amount';
+export { default as EcClosePopover, default as VEcClosePopover } from './directives/ec-close-popover';
+export { default as EcFocusTrap, default as VEcFocusTrap } from './directives/ec-focus-trap';
+export { default as EcTooltip, default as VEcTooltip } from './directives/ec-tooltip';
 export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
-export { default as ecWithFiltering } from './hocs/ec-with-filtering';
-export { default as ecWithFilters } from './hocs/ec-with-filters';
-export { default as ecWithLoading } from './hocs/ec-with-loading';
-export { default as ecWithPagination } from './hocs/ec-with-pagination';
-export { default as ecWithSorting } from './hocs/ec-with-sorting';
 export { createHOC, createHOCc } from './hocs/hoc';
 export { default as Countdown } from './utils/countdown';
 export { default as flatpickr } from 'flatpickr';

@@ -1,15 +1,17 @@
 import { action } from '@storybook/addon-actions';
-import { markRaw } from 'vue';
+import { useFetch } from '@vueuse/core';
+import {
+  computed, markRaw, onBeforeUnmount, ref,
+} from 'vue';
 
 import * as SortDirection from '../../enums/sort-direction';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
-import ecWithFilters from '../../hocs/ec-with-filters';
 import EcDateRangeFilter from '../ec-date-range-filter';
+import EcIcon from '../ec-icon';
 import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
-import EcTableFilter from '../ec-table-filter';
 import EcSmartTable from './ec-smart-table.vue';
 
-const MySmartTableFilter = ecWithFilters(EcTableFilter, [{
+const defaultFilters = [{
   label: 'Payment status',
   name: 'paymentStatus',
   component: markRaw(EcSyncMultipleValuesFilter),
@@ -33,7 +35,7 @@ const MySmartTableFilter = ecWithFilters(EcTableFilter, [{
   toLabelText: 'To',
   clearText: 'Clear dates',
   errorMessage: '',
-}]);
+}];
 
 const columns = [
   {
@@ -65,7 +67,7 @@ const defaultSorts = [
   },
 ];
 
-const data = [
+const fakeData = [
   [
     'Lorem',
     'ipsum',
@@ -92,71 +94,134 @@ export default {
   component: EcSmartTable,
 };
 
+function useSmartTableFetch(reqInit, { urlBuilder, ...options } = {}) {
+  const url = ref(null);
+
+  const {
+    data,
+    isFetching,
+    error,
+    abort,
+    execute: refetch,
+    ...fetch
+  } = useFetch(url, {
+    method: 'GET',
+    ...reqInit,
+  }, {
+    refetch: true,
+    immediate: false,
+    ...options,
+  }).json();
+
+  function onFetch(payload) {
+    const newUrl = urlBuilder(payload);
+
+    abort();
+    url.value = newUrl;
+  }
+
+  function execute() {
+    abort();
+    refetch();
+  }
+
+  onBeforeUnmount(abort);
+
+  return {
+    isFetching, error, abort, data, onFetch, execute, ...fetch,
+  };
+}
+
 export const basic = args => ({
-  components: { EcSmartTable },
+  components: { EcSmartTable, EcIcon },
   setup() {
+    // sorting
+    const sortCycle = computed(() => (
+      // eslint-disable-next-line no-nested-ternary
+      args.sortCycle === 'lowest first'
+        ? SortDirectionCycle.LOWEST_FIRST
+        : args.sortCycle === 'highest first'
+          ? SortDirectionCycle.HIGHEST_FIRST : null
+    ));
+
+    // filters
+    const filters = computed(() => (args.isFilteringEnabled ? defaultFilters : null));
+    const selectedFilter = computed(() => prefilters[args.prefilter]);
+
+    // fake fetch API
+    function fakeFetch(url, ctx) {
+      const parsedUrl = new URL(url);
+      action('fetching')(parsedUrl.hostname, parsedUrl.pathname, [...parsedUrl.searchParams.entries()]);
+      const numberOfItems = Number(new URL(url).searchParams.get('numberOfItems'));
+
+      return new Promise((resolve, reject) => {
+        const timeoutId = setTimeout(() => {
+          if (args.failOnFetch) {
+            action('resolving with error')({});
+            reject(new Error('Random error'));
+          } else if (args.fetchEmptyList) {
+            action('resolving empty response')({});
+            resolve(new Response(JSON.stringify({
+              items: [],
+              total: 0,
+              count: 0,
+            })));
+          } else {
+            action('resolving with data')(args.fakeData);
+            resolve(new Response(JSON.stringify({
+              items: [...args.fakeData],
+              total: 52,
+              count: Math.min(args.fakeData.length, numberOfItems),
+            })));
+          }
+        }, args.loadingDelay);
+
+        ctx.signal.addEventListener('abort', () => {
+          action('fetch cancelled')({});
+          clearTimeout(timeoutId);
+        });
+      });
+    }
+
+    // fetch
+    function urlBuilder({
+      page, numberOfItems, sorts, filter, ...customProps
+    } = {}) {
+      const newUrl = new URL('/random/', 'http://example.com');
+      newUrl.searchParams.append('page', page);
+      newUrl.searchParams.append('numberOfItems', numberOfItems);
+      if (filter && Object.keys(filter).length) {
+        newUrl.searchParams.append('filter', JSON.stringify(filter));
+      }
+      if (sorts && sorts.length > 0) {
+        newUrl.searchParams.append('sorts', JSON.stringify(sorts));
+      }
+      for (const [key, value] of Object.entries(customProps)) {
+        newUrl.searchParams.append(key, JSON.stringify(value));
+      }
+
+      return newUrl.href;
+    }
+
+    const {
+      isFetching, error, data, onFetch, execute,
+    } = useSmartTableFetch({}, { fetch: fakeFetch, urlBuilder });
+
     return {
+      data,
+      isFetching,
+      error,
+      onFetch,
+      execute,
+      sortCycle,
+      filters,
+      selectedFilter,
       args,
+      onSort: action('sort'),
+      onAbort: action('abort'),
+      onError: action('error'),
+      onDownload: action('download'),
     };
-  },
-  computed: {
-    filterComponent() {
-      return args.isFilteringEnabled ? MySmartTableFilter : null;
-    },
-  },
-  data() {
-    return {
-      prefilters,
-      dataSource: {
-        fetch: ({
-          sorts,
-          page = 1,
-          numberOfItems,
-          filter,
-          ...fetchArgs
-        }, cancelToken) => {
-          // use real service in a real application:
-          // e.g.
-          // return myService.getData(sorts, page, numberOfItems, filter, cancelToken);
-          // and pass the cancelToken into a fetch() call
-          // e.g.
-          // getData: (sorts, page, numberOfItems, filter, cancelToken) => fetch('/my/url', { body: { sorts, page, numberOfItems, ...filter }, signal: cancelToken });
-
-          action('fetching')(sorts, page, numberOfItems, JSON.stringify(filter), JSON.stringify(fetchArgs));
-
-          return new Promise((resolve, reject) => {
-            this.loadingTimeout = setTimeout(() => {
-              action('resolving data')(sorts, page, numberOfItems, JSON.stringify(filter), JSON.stringify(fetchArgs));
-              if (args.failOnFetch) {
-                reject(new Error('Random error'));
-              } else if (args.fetchEmptyList) {
-                resolve({
-                  items: [],
-                  total: 0,
-                  count: 0,
-                });
-              } else {
-                resolve({
-                  items: args.data,
-                  total: 52,
-                  count: Math.min(args.data.length, numberOfItems),
-                });
-              }
-            }, args.loadingDelay);
-
-            cancelToken.addEventListener('abort', () => {
-              action('fetch cancelled')();
-              clearTimeout(this.loadingTimeout);
-            });
-          });
-        },
-      },
-    };
-  },
-  methods: {
-    onSort: action('sort'),
-    onAbort: action('abort'),
-    onError: action('error'),
   },
   template: `
     <div class="tw-flex tw-h-screen tw-px-20">
@@ -164,28 +229,44 @@ export const basic = args => ({
         <ec-smart-table
           v-bind="{
             ...args,
+            data: data?.items,
+            totalRecords: data?.total ?? 0,
+            isFetching,
+            error,
+            sortCycle,
+            filters,
+            filter: selectedFilter,
             loadingDelay: null,
             failOnFetch: null,
+            fakeData: null,
             fetchEmptyList: null,
             isFilteringEnabled: null,
             prefilter: null,
           }"
-          :data-source="dataSource"
-          :filter-component="filterComponent"
-          :filter="prefilters[prefilter]"
           v-on="{
+            fetch: onFetch,
             sort: onSort,
             abort: onAbort,
             error: onError,
           }">
           <template #header-actions="{ total, items, error, loading }">
-            <a href="#">Download</a>
+            <a
+              href="#"
+              v-if="!error && !loading"
+              @click.prevent.stop="onDownload">Download all {{ total }} item(s)</a>
+            <a @click.prevent.stop="execute()" href="#">Reload</a>
           </template>
           <template #error="{ errorMessage }">
-            <div class="tw-text-error">Error state template - {{ errorMessage }}</div>
+            <div class="tw-text-center tw-text-error tw-py-48">
+              <div><ec-icon name="simple-error" :size="48" class="tw-fill-error" /></div>
+              {{ errorMessage }}
+            </div>
           </template>
           <template #empty="{ emptyMessage }">
-            Empty state template - {{ emptyMessage }}
+            <div class="tw-text-center tw-py-48">
+              <div><ec-icon name="simple-info" :size="48" /></div>
+              {{ emptyMessage }}
+            </div>
           </template>
           <template #footer><div class="tw-text-right">Custom footer info</div></template>
           <template #pages="{ page, totalPages, total }">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
@@ -201,10 +282,7 @@ basic.argTypes = {
     control: { type: 'select' },
   },
   sortCycle: {
-    options: {
-      lowestFirst: SortDirectionCycle.LOWEST_FIRST,
-      highestFirst: SortDirectionCycle.HIGHEST_FIRST,
-    },
+    options: ['lowest first', 'highest first'],
     control: { type: 'select' },
   },
   prefilter: {
@@ -217,13 +295,13 @@ basic.args = {
   title: 'Title',
   columns,
   sorts: defaultSorts,
-  data,
-  fetchArgs: { customProp: 'customValue' },
-  multiSort: false,
+  isMultiSort: false,
+  additionalPayload: { customProp: 'customValue' },
   maxHeight: '',
   loadingDelay: 500,
   failOnFetch: false,
   fetchEmptyList: false,
+  fakeData,
   isPaginationEnabled: true,
   isFilteringEnabled: true,
   prefilter: 'all',

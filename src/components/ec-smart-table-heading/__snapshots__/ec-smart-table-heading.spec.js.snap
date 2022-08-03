@@ -1,14 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcSmartTableHeading should not render the title if title prop was not given 1`] = `
-<div>
+<div
+  data-v-app=""
+>
+  
   <!--v-if-->
   <!--v-if-->
+  
 </div>
 `;
 
 exports[`EcSmartTableHeading should render given filter and header-actions slots 1`] = `
-<div>
+<div
+  data-v-app=""
+>
+  
   <div
     class="ec-smart-table-heading-title"
   >
@@ -36,11 +43,15 @@ exports[`EcSmartTableHeading should render given filter and header-actions slots
       
     </div>
   </div>
+  
 </div>
 `;
 
 exports[`EcSmartTableHeading should render given filter slot 1`] = `
-<div>
+<div
+  data-v-app=""
+>
+  
   <div
     class="ec-smart-table-heading-title"
   >
@@ -60,11 +71,15 @@ exports[`EcSmartTableHeading should render given filter slot 1`] = `
     </div>
     <!--v-if-->
   </div>
+  
 </div>
 `;
 
 exports[`EcSmartTableHeading should render given header-actions slot 1`] = `
-<div>
+<div
+  data-v-app=""
+>
+  
   <div
     class="ec-smart-table-heading-title"
   >
@@ -84,16 +99,21 @@ exports[`EcSmartTableHeading should render given header-actions slot 1`] = `
       
     </div>
   </div>
+  
 </div>
 `;
 
 exports[`EcSmartTableHeading should render properly 1`] = `
-<div>
+<div
+  data-v-app=""
+>
+  
   <div
     class="ec-smart-table-heading-title"
   >
     Random Title
   </div>
   <!--v-if-->
+  
 </div>
 `;
