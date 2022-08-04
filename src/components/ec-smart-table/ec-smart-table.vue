@@ -119,7 +119,7 @@ export default {
 <script setup>
 import {
   computed, ref, unref, useAttrs,
-  useSlots, watchEffect,
+  useSlots, watch,
 } from 'vue';
 
 import useEcPagination from '../../composables/use-ec-pagination';
@@ -185,14 +185,18 @@ function onFilterChanged(filters) {
 }
 
 // fetching
-watchEffect(() => {
-  emit('fetch', {
-    page: unref(page),
-    numberOfItems: unref(numberOfItems),
-    sorts: unref(sorts),
-    filter: unref(filterModel),
-    ...unref(props.additionalPayload),
-  });
+const payload = computed(() => ({
+  page: unref(page),
+  numberOfItems: unref(numberOfItems),
+  sorts: unref(sorts),
+  filter: unref(filterModel),
+  ...unref(props.additionalPayload),
+}));
+
+watch(payload, () => {
+  emit('fetch', payload.value);
+}, {
+  immediate: true,
 });
 
 const isEmpty = computed(() => (props.data ?? []).length === 0);
