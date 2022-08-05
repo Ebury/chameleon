@@ -61,7 +61,7 @@
     "@storybook/builder-webpack5": "6.5.9",
     "@storybook/manager-webpack5": "6.5.9",
     "@storybook/source-loader": "6.5.9",
-    "@storybook/theming": "6.5.9",
+    "@storybook/theming": "6.5.10",
     "@storybook/vue3": "6.5.9",
     "@testing-library/jest-dom": "5.16.5",
     "@vue/cli-plugin-babel": "5.0.8",
