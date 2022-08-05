@@ -25,9 +25,11 @@ export default function useEcSorting({
       existingSort.direction = nextDirection(existingSort.direction, sortCycle);
       if (!existingSort.direction) {
         sorts.value = sorts.value.filter(sort => sort !== existingSort);
+      } else {
+        sorts.value = [...sorts.value];
       }
     } else if (isMultiSort) {
-      sorts.value.push({ column: columnName, direction: sortCycle[0] });
+      sorts.value = [...sorts.value, { column: columnName, direction: sortCycle[0] }];
     } else {
       sorts.value = [{ column: columnName, direction: sortCycle[0] }];
     }
