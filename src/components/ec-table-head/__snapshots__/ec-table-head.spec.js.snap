@@ -6,6 +6,7 @@ exports[`EcTableHead should have a column align to center if its type is icon 1`
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -17,14 +18,10 @@ exports[`EcTableHead should have a column align to center if its type is icon 1`
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column A
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -39,14 +36,10 @@ exports[`EcTableHead should have a column align to center if its type is icon 1`
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column B
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -60,16 +53,13 @@ exports[`EcTableHead should have a column align to center if its type is icon 1`
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column C
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
@@ -80,6 +70,7 @@ exports[`EcTableHead should have a column align to the right if its type is curr
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -91,14 +82,10 @@ exports[`EcTableHead should have a column align to the right if its type is curr
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column A
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -113,14 +100,10 @@ exports[`EcTableHead should have a column align to the right if its type is curr
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column B
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -134,21 +117,18 @@ exports[`EcTableHead should have a column align to the right if its type is curr
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column C
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
 
-exports[`EcTableHead should not render if no columns are supplied 1`] = `<!---->`;
+exports[`EcTableHead should not render if no columns are supplied 1`] = `<!--v-if-->`;
 
 exports[`EcTableHead should render as expected 1`] = `
 <thead
@@ -156,6 +136,7 @@ exports[`EcTableHead should render as expected 1`] = `
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -167,14 +148,10 @@ exports[`EcTableHead should render as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column A
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -189,14 +166,10 @@ exports[`EcTableHead should render as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column B
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -210,16 +183,13 @@ exports[`EcTableHead should render as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column C
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
@@ -230,6 +200,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -241,13 +212,10 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column A
-        
         </span>
-         
         <svg
-          class="ec-table-head__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-table-head__icon"
           data-ec-tooltip-mock-content="tooltip example"
           data-test="ec-table-head__tooltip-icon ec-mock ec-tooltip-mock"
           height="16"
@@ -257,8 +225,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
             xlink:href="#ec-simple-info"
           />
         </svg>
-         
-        <!---->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -273,13 +240,10 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column B
-        
         </span>
-         
         <svg
-          class="ec-table-head__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-table-head__icon"
           data-ec-tooltip-mock-content="tooltip example"
           data-test="ec-table-head__tooltip-icon ec-mock ec-tooltip-mock"
           height="16"
@@ -289,8 +253,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
             xlink:href="#ec-simple-info"
           />
         </svg>
-         
-        <!---->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -304,13 +267,10 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column C
-        
         </span>
-         
         <svg
-          class="ec-table-head__icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-table-head__icon"
           data-ec-tooltip-mock-content="tooltip example"
           data-test="ec-table-head__tooltip-icon ec-mock ec-tooltip-mock"
           height="16"
@@ -320,10 +280,10 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
             xlink:href="#ec-simple-info"
           />
         </svg>
-         
-        <!---->
+        <!--v-if-->
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
@@ -334,6 +294,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -345,13 +306,9 @@ exports[`EcTableHead should render sorting as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column A
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -368,7 +325,6 @@ exports[`EcTableHead should render sorting as expected 1`] = `
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -389,13 +345,9 @@ exports[`EcTableHead should render sorting as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column B
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -412,7 +364,6 @@ exports[`EcTableHead should render sorting as expected 1`] = `
               xlink:href="#ec-simple-arrow-drop-down"
             />
           </svg>
-           
           <span
             class="ec-table-sort__text"
           >
@@ -432,13 +383,9 @@ exports[`EcTableHead should render sorting as expected 1`] = `
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column C
-        
         </span>
-         
-        <!---->
-         
+        <!--v-if-->
         <a
           class="ec-table-sort ec-table-head__icon"
           data-test="ec-table-sort"
@@ -455,11 +402,11 @@ exports[`EcTableHead should render sorting as expected 1`] = `
               xlink:href="#ec-simple-arrow-up-down"
             />
           </svg>
-           
-          <!---->
+          <!--v-if-->
         </a>
       </span>
     </th>
+    
   </tr>
 </thead>
 `;
@@ -470,6 +417,7 @@ exports[`EcTableHead should render with max-width and ellipsis on the column tha
   data-test="ec-table-head"
 >
   <tr>
+    
     <th
       class="ec-table-head__cell"
       data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -481,14 +429,10 @@ exports[`EcTableHead should render with max-width and ellipsis on the column tha
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column A
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -504,14 +448,10 @@ exports[`EcTableHead should render with max-width and ellipsis on the column tha
         <span
           class="ec-table-head__cell-text ec-table-head__cell-text--has-max-width"
         >
-          
           Column B
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
     <th
@@ -525,16 +465,13 @@ exports[`EcTableHead should render with max-width and ellipsis on the column tha
         <span
           class="ec-table-head__cell-text"
         >
-          
           Column C
-        
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
     </th>
+    
   </tr>
 </thead>
 `;

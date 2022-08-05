@@ -8,19 +8,22 @@
 </template>
 
 <script>
-import EcIcon from '../ec-icon';
-
 export default {
   name: 'EcLoadingIcon',
-  components: {
-    EcIcon,
-  },
-  props: {
-    size: {
-      type: Number,
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
+</script>
+
+<script setup>
+import EcIcon from '../ec-icon';
+
+defineProps({
+  size: {
+    type: Number,
+  },
+});
 </script>
 
 <style>

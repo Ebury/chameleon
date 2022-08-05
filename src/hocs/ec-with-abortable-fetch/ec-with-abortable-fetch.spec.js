@@ -1,49 +1,50 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { flushPromises, mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
 import withAbortableFetch from './ec-with-abortable-fetch';
-import flushPromises from '../../../tests/utils/flush-promises';
 
 describe('EcWithAbortableFetch', () => {
-  function mountEcWithAbortableFetch(props, mountOpts, customProps = {}) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+  function mountEcWithAbortableFetch(props, mountOpts, customProps) {
+    const Component = defineComponent({
       name: 'WrappedComponent',
-      props: [customProps.dataProp ?? 'data', customProps.errorProp ?? 'error', customProps.loadingProp ?? 'loading'],
-      render(h) {
+      props: [customProps?.dataProp ?? 'data', customProps?.errorProp ?? 'error', customProps?.loadingProp ?? 'loading'],
+      render() {
         return h('div');
       },
     });
 
     const hocWrapper = mount(withAbortableFetch(Component, customProps), {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
 
-    const componentWrapper = hocWrapper.findComponent({ name: 'WrappedComponent' });
+    const componentWrapper = hocWrapper.findComponent(Component);
 
     return { hocWrapper, componentWrapper };
   }
 
   it('should throw an error if dataSource prop is missing', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcWithAbortableFetch();
-      expect(errorSpy).toMatchSnapshot();
+      expect(warnSpy).toHaveBeenCalledTimes(5);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "dataSource"');
     });
   });
 
   it('should throw an error if dataSource.fetch function is missing', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcWithAbortableFetch({ dataSource: {} });
-      expect(errorSpy).toMatchSnapshot();
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "dataSource".');
     });
   });
 
   it('should throw an error if dataSource.fetch is not a function', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcWithAbortableFetch({ dataSource: { fetch: true } });
-      expect(errorSpy).toMatchSnapshot();
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "dataSource".');
     });
   });
 
@@ -65,7 +66,7 @@ describe('EcWithAbortableFetch', () => {
 
     const { componentWrapper } = mountEcWithAbortableFetch({ dataSource });
     await flushPromises();
-    expect(getWrappedComponentState(componentWrapper).data).toBe(data);
+    expect(getWrappedComponentState(componentWrapper).data).toEqual(data);
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(dataSource.fetch).toMatchSnapshot();
   });
@@ -79,8 +80,8 @@ describe('EcWithAbortableFetch', () => {
     const errorSpy = jest.fn();
 
     const { componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
-      listeners: {
-        error: errorSpy,
+      attrs: {
+        onError: errorSpy,
       },
     });
     await flushPromises();
@@ -99,8 +100,8 @@ describe('EcWithAbortableFetch', () => {
     const errorSpy = jest.fn();
 
     const { componentWrapper, hocWrapper } = mountEcWithAbortableFetch({ dataSource }, {
-      listeners: {
-        error: errorSpy,
+      attrs: {
+        onError: errorSpy,
       },
     });
     await flushPromises();
@@ -170,8 +171,8 @@ describe('EcWithAbortableFetch', () => {
     const abortSpy = jest.fn();
 
     const { componentWrapper, hocWrapper } = mountEcWithAbortableFetch({ dataSource, fetchArgs }, {
-      listeners: {
-        abort: abortSpy,
+      attrs: {
+        onAbort: abortSpy,
       },
     });
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
@@ -197,8 +198,8 @@ describe('EcWithAbortableFetch', () => {
     const abortSpy = jest.fn();
 
     const { componentWrapper, hocWrapper } = mountEcWithAbortableFetch({ dataSource }, {
-      listeners: {
-        abort: abortSpy,
+      attrs: {
+        onAbort: abortSpy,
       },
     });
 
@@ -206,7 +207,7 @@ describe('EcWithAbortableFetch', () => {
     expect(cancelToken).toBeInstanceOf(global.AbortSignal);
     cancelToken.addEventListener('abort', abortSpy);
 
-    hocWrapper.destroy();
+    hocWrapper.unmount();
 
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(abortSpy).toHaveBeenCalledTimes(2);
@@ -214,7 +215,7 @@ describe('EcWithAbortableFetch', () => {
 
   it('should stop fetching and keep the state intact if fetch for rejected because of AbortError', async () => {
     class AbortError extends Error { // AbortError is not exposed in the DOM
-        name = 'AbortError'
+      name = 'AbortError';
     }
     const error = new AbortError();
     const dataSource = {
@@ -224,8 +225,8 @@ describe('EcWithAbortableFetch', () => {
     const errorSpy = jest.fn();
 
     const { componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
-      listeners: {
-        error: errorSpy,
+      attrs: {
+        onError: errorSpy,
       },
     });
     await flushPromises();
@@ -395,8 +396,8 @@ describe('EcWithAbortableFetch', () => {
     };
 
     const { componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
-      listeners: {
-        error: errorSpy,
+      attrs: {
+        onError: errorSpy,
       },
     }, customProps);
     await flushPromises();

@@ -1,11 +1,12 @@
 import { mount } from '@vue/test-utils';
-import EcLoading from './ec-loading.vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcLoading from './ec-loading.vue';
 
 describe('EcLoading', () => {
   function mountLoading(props, mountOpts) {
     return mount(EcLoading, {
-      propsData: {
+      props: {
         show: true,
         ...props,
       },
@@ -14,10 +15,10 @@ describe('EcLoading', () => {
   }
 
   it('should throw if no props were given', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mount(EcLoading);
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "show"');
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "show"');
     });
   });
 

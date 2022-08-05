@@ -58,6 +58,7 @@ export default {
       default: false,
     },
   },
+  emits: ['change'],
   data() {
     return {
       dragEnterLeaveEventCounter: 0,
@@ -74,7 +75,7 @@ export default {
     document.addEventListener('dragleave', this.onDragleave);
     document.addEventListener('drop', this.onDrop);
   },
-  beforeDestroy() {
+  beforeUnmount() {
     document.removeEventListener('dragenter', this.onDragenter);
     document.removeEventListener('dragover', this.onDragover);
     document.removeEventListener('dragleave', this.onDragleave);

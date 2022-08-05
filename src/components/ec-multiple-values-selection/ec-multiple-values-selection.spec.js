@@ -1,6 +1,8 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcMultipleValuesSelection from './ec-multiple-values-selection.vue';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcMultipleValuesSelection from './ec-multiple-values-selection.vue';
 
 const selectAllFiltersText = 'Select all';
 const items = [{
@@ -28,7 +30,7 @@ const items = [{
 
 function mountEcMultipleValuesSelection(props, mountOpts) {
   return mount(EcMultipleValuesSelection, {
-    propsData: {
+    props: {
       selectAllFiltersText,
       ...props,
     },
@@ -37,17 +39,14 @@ function mountEcMultipleValuesSelection(props, mountOpts) {
 }
 
 function mountEcMultipleValuesSelectionAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const localVue = createLocalVue();
-
-  const Component = localVue.extend({
+  const Component = defineComponent({
     components: { EcMultipleValuesSelection },
     template,
     ...wrapperComponentOpts,
   });
 
   return mount(Component, {
-    localVue,
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
@@ -58,17 +57,18 @@ describe('EcMultipleValuesSelection', () => {
   });
 
   it('should throw an error if required prop label is missing', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcMultipleValuesSelection();
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "items"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "items"');
     });
   });
 
   it('should emit selected items', async () => {
     const wrapper = mountEcMultipleValuesSelection({ items });
-    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select').findByDataTest('ec-checkbox__input').trigger('click');
+    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-select').findByDataTest('ec-checkbox__input').setValue(true);
     expect(wrapper.emitted('change').length).toBe(1);
+    expect(wrapper.emitted('update:modelValue').length).toBe(1);
   });
 
   it('should deselected items', async () => {
@@ -86,7 +86,7 @@ describe('EcMultipleValuesSelection', () => {
       },
     );
     expect(wrapper.vm.selectedFilters).toEqual([items[2]]);
-    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__input').trigger('click');
+    await wrapper.findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__input').setValue(false);
     expect(wrapper.vm.selectedFilters).toEqual([]);
   });
 
@@ -105,9 +105,9 @@ describe('EcMultipleValuesSelection', () => {
       },
     );
 
-    await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').trigger('click');
+    await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').setValue(true);
     expect(wrapper.element).toMatchSnapshot();
-    await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').trigger('click');
+    await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').setValue(false);
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -115,7 +115,7 @@ describe('EcMultipleValuesSelection', () => {
     it('should be indeterminate when at least one option is selected', () => {
       const wrapper = mountEcMultipleValuesSelection({
         items,
-        value: [items[0]],
+        modelValue: [items[0]],
         isSelectAll: true,
       });
 
@@ -125,7 +125,7 @@ describe('EcMultipleValuesSelection', () => {
     it('should not be indeterminate when all options are selected', () => {
       const wrapper = mountEcMultipleValuesSelection({
         items,
-        value: [...items],
+        modelValue: [...items],
         isSelectAll: true,
       });
       expect(wrapper.findByDataTest('ec-multiple-values-selection__select-all').element).toMatchSnapshot();
@@ -146,7 +146,7 @@ describe('EcMultipleValuesSelection', () => {
         },
       );
 
-      await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').trigger('click');
+      await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').setValue(true);
 
       expect(wrapper.findByDataTest('ec-multiple-values-selection__select-all').element).toMatchSnapshot();
     });
@@ -216,7 +216,7 @@ describe('EcMultipleValuesSelection', () => {
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-multiple-values-selection__search-input').element);
 
-      wrapper.destroy();
+      wrapper.unmount();
     });
   });
 });

@@ -1,13 +1,11 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+
 import EcBtnDropdown from './ec-btn-dropdown.vue';
 
 describe('EcBtnDropdown', () => {
   function mountBtnDropdown(props, mountOpts) {
-    const localVue = createLocalVue();
-
     return mount(EcBtnDropdown, {
-      localVue,
-      propsData: {
+      props: {
         buttonText: 'Convert & Pay',
         ...props,
       },
@@ -56,9 +54,8 @@ describe('EcBtnDropdown', () => {
   it('should emit the change event when the user clicks on an item of the dropdown list', async () => {
     const wrapper = mountBtnDropdown({ items });
 
-    wrapper.findByDataTest('ec-btn-dropdown__dropdown-btn').trigger('click');
-    wrapper.findAllByDataTest('ec-dropdown-search__item').at(0).trigger('click');
-    await wrapper.vm.$nextTick();
+    await wrapper.findByDataTest('ec-btn-dropdown__dropdown-btn').trigger('click');
+    await wrapper.findAllByDataTest('ec-dropdown-search__item').at(0).trigger('click');
 
     expect(wrapper.emitted('change').length).toBe(1);
     expect(wrapper.emitted('change')[0]).toEqual([items[0]]);

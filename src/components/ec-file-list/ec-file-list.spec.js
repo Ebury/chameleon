@@ -1,13 +1,11 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+
 import EcFileList from './ec-file-list.vue';
 
 describe('EcFileList', () => {
   function mountFileList(props, mountOpts) {
-    const localVue = createLocalVue();
-
     return mount(EcFileList, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }

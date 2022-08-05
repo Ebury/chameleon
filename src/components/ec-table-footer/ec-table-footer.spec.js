@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+
 import EcTableFooter from './ec-table-footer.vue';
 
 describe('EcTableFooter', () => {

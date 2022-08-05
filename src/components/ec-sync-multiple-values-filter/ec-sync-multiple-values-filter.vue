@@ -30,24 +30,23 @@
   </div>
 </template>
 <script>
-import EcMultipleValuesSelection from '../ec-multiple-values-selection';
-import EcFilterPopover from '../ec-filter-popover';
 import { removeDiacritics } from '../../utils/diacritics';
+import EcFilterPopover from '../ec-filter-popover';
+import EcMultipleValuesSelection from '../ec-multiple-values-selection';
 
 export default {
   name: 'EcSyncMultipleValuesFilter',
-  components: { EcFilterPopover, EcMultipleValuesSelection },
-  model: {
-    prop: 'value',
-    event: 'change',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
   },
+  components: { EcFilterPopover, EcMultipleValuesSelection },
   props: {
     label: {
       type: String,
       required: true,
       default: '',
     },
-    value: {
+    modelValue: {
       type: Array,
       required: false,
       default: () => ([]),
@@ -92,6 +91,7 @@ export default {
       default: false,
     },
   },
+  emits: ['update:modelValue', 'change'],
   data() {
     return {
       query: '',
@@ -103,9 +103,10 @@ export default {
     },
     selectedFilters: {
       get() {
-        return this.value;
+        return this.modelValue;
       },
       set(value) {
+        this.$emit('update:modelValue', value);
         this.$emit('change', value);
       },
     },

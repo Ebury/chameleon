@@ -1,13 +1,14 @@
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
 
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcInputField from './ec-input-field.vue';
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcInputField from './ec-input-field.vue';
 
 describe('EcInputField', () => {
   function mountInputField(props, mountOpts) {
     return mount(EcInputField, {
-      propsData: {
-        value: 'Text test',
+      props: {
+        modelValue: 'Text test',
         type: 'text',
         errorMessage: '',
         label: 'label test',
@@ -19,26 +20,23 @@ describe('EcInputField', () => {
     });
   }
   function mountInputFieldAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcInputField },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
 
   it('should validate given props', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountInputField({ type: 'random' });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
     });
   });
 
@@ -90,8 +88,8 @@ describe('EcInputField', () => {
     const wrapper = mountInputField(
       {},
       {
-        listeners: {
-          click: event,
+        attrs: {
+          onClick: event,
         },
       },
     );
@@ -180,6 +178,11 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('renders properly when readonly', () => {
+    const wrapper = mountInputField({}, { attrs: { readonly: true } });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('renders properly the icon when disabled', () => {
     const wrapper = mountInputField({ icon: 'simple-check' }, { attrs: { disabled: true } });
     expect(wrapper.element).toMatchSnapshot();
@@ -214,5 +217,30 @@ describe('EcInputField', () => {
   it('renders without bottom note if error message is given', () => {
     const wrapper = mountInputField({ bottomNote: 'Random bottom note', errorMessage: 'Random error message' });
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly custom attributes', () => {
+    const wrapper = mountInputField({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        style: { backgroundColor: 'hotpink' },
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should never assign undefined value to the input', async () => {
+    const wrapper = mountInputField({
+      modelValue: '1234',
+    });
+
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('1234');
+
+    await wrapper.setProps({
+      modelValue: undefined,
+    });
+
+    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
   });
 });

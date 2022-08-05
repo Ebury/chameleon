@@ -19,7 +19,6 @@ exports[`EcTimer :props should render as expected 1`] = `
       r="24"
       stroke-width="4"
     />
-     
     <circle
       class="ec-timer__remaining"
       cx="50%"
@@ -30,7 +29,6 @@ exports[`EcTimer :props should render as expected 1`] = `
       stroke-dashoffset="301.59289474462014"
       stroke-width="4"
     />
-     
     <text
       class="ec-timer__text"
       data-test="ec-timer__text"
@@ -39,8 +37,10 @@ exports[`EcTimer :props should render as expected 1`] = `
       x="50%"
       y="50%"
     >
+      20
       
-      20s
+      s
+      
     </text>
   </svg>
 </div>
@@ -65,7 +65,6 @@ exports[`EcTimer @events should emit an event called "time-expired" after the co
       r="24"
       stroke-width="4"
     />
-     
     <circle
       class="ec-timer__remaining"
       cx="50%"
@@ -76,7 +75,6 @@ exports[`EcTimer @events should emit an event called "time-expired" after the co
       stroke-dashoffset="150.79644737231007"
       stroke-width="4"
     />
-     
     <text
       class="ec-timer__text"
       data-test="ec-timer__text"
@@ -85,8 +83,10 @@ exports[`EcTimer @events should emit an event called "time-expired" after the co
       x="50%"
       y="50%"
     >
+      0
       
-      0s
+      s
+      
     </text>
   </svg>
 </div>
@@ -111,7 +111,6 @@ exports[`EcTimer slots should render with the slot given 1`] = `
       r="24"
       stroke-width="4"
     />
-     
     <circle
       class="ec-timer__remaining"
       cx="50%"
@@ -122,7 +121,6 @@ exports[`EcTimer slots should render with the slot given 1`] = `
       stroke-dashoffset="301.59289474462014"
       stroke-width="4"
     />
-     
     <text
       class="ec-timer__text"
       data-test="ec-timer__text"
@@ -131,8 +129,10 @@ exports[`EcTimer slots should render with the slot given 1`] = `
       x="50%"
       y="50%"
     >
+      20
       
-      20c
+      c
+      
     </text>
   </svg>
 </div>

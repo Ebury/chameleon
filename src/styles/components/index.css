@@ -1,5 +1,5 @@
 @import 'tailwindcss/components';
+@import 'floating-vue/floating-vue';
 @import 'ec-action-list/ec-action-list';
 @import 'ec-btn/ec-btn';
 @import 'ec-card/ec-card';
-@import 'v-tooltip';

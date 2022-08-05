@@ -12,34 +12,41 @@
       category="primary"
       class="ec-btn-group__btn"
       :is-submit="false"
-      :is-outline="value !== item.value"
+      :is-outline="modelValue !== item.value"
       :is-disabled="item.disabled"
-      @click="$emit('change', item.value)"
+      @click="onSelected(item.value)"
     >{{ item.text }}</ec-btn>
   </div>
 </template>
 
-<script>
+<script setup>
+
 import { arrayOfObjectsContainsKey } from '../../utils/validators';
 import EcBtn from '../ec-btn';
 
+const emit = defineEmits(['update:modelValue', 'change']);
+
+defineProps({
+  // eslint-disable-next-line vue/require-prop-types
+  modelValue: {},
+  items: {
+    type: Array,
+    required: true,
+    validator: array => arrayOfObjectsContainsKey(array, ['value', 'text']),
+  },
+});
+
+function onSelected(value) {
+  emit('update:modelValue', value);
+  emit('change', value);
+}
+</script>
+
+<script>
 export default {
   name: 'EcButtonGroup',
-  components: {
-    EcBtn,
-  },
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
-  props: {
-    // eslint-disable-next-line vue/require-prop-types
-    value: {},
-    items: {
-      type: Array,
-      required: true,
-      validator: array => arrayOfObjectsContainsKey(array, ['value', 'text']),
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>

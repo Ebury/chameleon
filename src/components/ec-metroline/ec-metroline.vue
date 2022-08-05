@@ -15,6 +15,7 @@ export default {
       metroline: this.metroline,
     };
   },
+  emits: ['change', 'complete'],
   data() {
     return {
       metroline: {

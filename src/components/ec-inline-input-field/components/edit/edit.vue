@@ -56,10 +56,10 @@
 </template>
 
 <script>
-import EcIcon from '../../../ec-icon';
-import EcInputField from '../../../ec-input-field';
 import EcTooltip from '../../../../directives/ec-tooltip';
 import { getUid } from '../../../../utils/uid';
+import EcIcon from '../../../ec-icon';
+import EcInputField from '../../../ec-input-field';
 
 export default {
   name: 'EcInlineInputFieldEdit',
@@ -87,6 +87,7 @@ export default {
       type: String,
     },
   },
+  emits: ['cancel', 'submit'],
   data() {
     return {
       inputId: `ec-inline-input-field-edit__input-${getUid()}`,

@@ -1,36 +1,33 @@
-import EcTableFilter from './ec-table-filter.vue';
-import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
-import EcDateRangeFilter from '../ec-date-range-filter';
+import { ref, watchEffect } from 'vue';
+
 import EcCurrencyFilter from '../ec-currency-filter';
+import EcDateRangeFilter from '../ec-date-range-filter';
+import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
+import EcTableFilter from './ec-table-filter.vue';
 
 export default {
   title: 'Filters/Table Filter',
   component: EcTableFilter,
 };
 
-const Template = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+const Template = ({ modelValue, filters }) => ({
   components: {
     EcTableFilter, EcSyncMultipleValuesFilter, EcDateRangeFilter, EcCurrencyFilter,
   },
-  data() {
-    return {
-      valueFromProps: null,
-    };
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) {
-        this.valueFromProps = newValue;
-      },
-    },
+  setup() {
+    const model = ref(null);
+
+    watchEffect(() => {
+      model.value = modelValue;
+    });
+
+    return { model, filters };
   },
   template: `
   <ec-table-filter
     class="tw-flex tw-items-center"
     :filters="filters"
-    v-model="valueFromProps"
+    v-model="model"
   />
   `,
 });
@@ -60,7 +57,7 @@ const currencyItems = [{
 export const basic = Template.bind({});
 
 basic.args = {
-  value: {
+  modelValue: {
     paymentStatus: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }],
     supplier: [{ text: 'Supplier 1', value: 'supplier1' }],
     dueDate: { from: '2021-11-11' },

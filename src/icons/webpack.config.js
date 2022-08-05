@@ -61,9 +61,7 @@ module.exports = {
           {
             loader: 'svgo-loader',
             options: {
-              plugins: [
-                { removeAttrs: { attrs: '(fill)' } },
-              ],
+              configFile: path.resolve(__dirname, 'svgo.config.js'),
             },
           },
         ],
@@ -85,6 +83,9 @@ module.exports = {
           },
           {
             loader: 'svgo-loader',
+            options: {
+              configFile: false,
+            },
           },
         ],
       },

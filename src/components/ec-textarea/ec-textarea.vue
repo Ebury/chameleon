@@ -32,15 +32,15 @@
     </label>
 
     <textarea
+      v-bind="$attrs"
       :id="textareaId"
       ref="textarea"
       v-model="textareaModel"
-      v-bind="$attrs"
       :rows="rows"
       :class="textareaClasses"
       :aria-describedby="errorMessageId"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-textarea__textarea` : 'ec-textarea__textarea'"
-      v-on="$listeners"
+      v-on="{ ...$listeners, 'update:modelValue': null }"
     />
 
     <div
@@ -60,22 +60,21 @@
 </template>
 
 <script>
-import EcIcon from '../ec-icon';
-import EcTooltip from '../../directives/ec-tooltip';
 import config from '../../config';
+import EcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
+import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcTextarea',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: { EcIcon },
   directives: { EcTooltip },
   inheritAttrs: false,
-  model: {
-    prop: 'value',
-    event: 'value-change',
-  },
   props: {
-    value: {
+    modelValue: {
       type: String,
     },
     rows: {
@@ -117,6 +116,7 @@ export default {
       default: false,
     },
   },
+  emits: ['update:modelValue'],
   data() {
     return {
       uid: getUid(),
@@ -146,10 +146,10 @@ export default {
     },
     textareaModel: {
       get() {
-        return this.value;
+        return this.modelValue;
       },
       set(value) {
-        this.$emit('value-change', value);
+        this.$emit('update:modelValue', value);
       },
     },
   },

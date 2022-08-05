@@ -1,16 +1,48 @@
 /* istanbul ignore file */
+import FloatingVue, { VTooltip } from 'floating-vue';
 
-import { VTooltip } from 'v-tooltip';
+import { getUid } from '../../utils/uid';
 
-Object.assign(VTooltip.options, {
-  defaultClass: 'ec-tooltip',
-  defaultTemplate: '<div class="ec-tooltip" role="tooltip"><div class="ec-tooltip__arrow"></div><div class="ec-tooltip__inner"></div></div>',
-  defaultArrowSelector: '.ec-tooltip__arrow, .ec-tooltip__arrow',
-  defaultLoadingClass: 'ec-tooltip__loading',
-  defaultInnerSelector: '.ec-tooltip__inner',
-  defaultTargetClass: 'ec-has-tooltip',
-  defaultContainer: 'body',
-  defaultBoundariesElement: 'viewport',
-});
+FloatingVue.options.themes.tooltip = {
+  ...FloatingVue.options.themes.tooltip,
+  html: true,
+  boundary: 'viewport',
+};
 
-export default VTooltip;
+const origBeforeMount = VTooltip.beforeMount;
+
+function bind(el, { value, ...args } = {}) {
+  let options = {};
+  const type = typeof value;
+  if (type === 'string') {
+    options = { content: value };
+  } else if (value && type === 'object') {
+    options = value;
+  } else {
+    options = { content: false };
+  }
+
+  if (!options.ariaId) {
+    options.ariaId = `ec-tooltip-${getUid()}`;
+  }
+
+  if (options.popperClass) {
+    options.popperClass = [...options.popperClass, 'ec-tooltip'];
+  } else {
+    options.popperClass = ['ec-tooltip'];
+  }
+
+  origBeforeMount.call(this, el, { value: options, ...args });
+}
+
+// each tooltip get a randomly generated ID. we'd rather give it our own using our uid service as
+// we can assign a custom ID via ariaId. in order to set it every time a tooltip is created, we need to patch the
+// mount function and assign ariaId to options passed into v-ec-tooltip="{}" directive.
+// https://github.com/Akryum/floating-vue/blob/main/packages/floating-vue/src/directives/v-tooltip.ts#L151
+const EcTooltipDirective = {
+  ...VTooltip,
+  beforeMount: bind,
+  updated: bind,
+};
+
+export default EcTooltipDirective;

@@ -4,7 +4,7 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-currency-filter` : 'ec-currency-filter'"
   >
     <ec-filter-popover
-      :popover-options="getPopoverOptions"
+      :popover-options="allPopoverOptions"
       :label="label"
       :number-of-selected-filters="numberOfSelectedFilters"
       data-test="ec-currency-filter__trigger"
@@ -13,7 +13,7 @@
       <template #filter>
         <div class="ec-currency-filter__content-wrapper">
           <ec-submenu
-            v-model="activeTabIndex"
+            v-model:activeIndex="activeTabIndex"
             class="ec-currency-filter__submenu"
             :submenu="submenu"
             is-full-width
@@ -69,22 +69,21 @@
 </template>
 
 <script>
-import EcSubmenu from '../ec-submenu';
-import EcMultipleValuesSelection from '../ec-multiple-values-selection';
-import EcFilterPopover from '../ec-filter-popover';
 import EcAmountFilterInput from '../ec-amount-filter-input';
+import EcFilterPopover from '../ec-filter-popover';
+import EcMultipleValuesSelection from '../ec-multiple-values-selection';
+import EcSubmenu from '../ec-submenu';
 
 export default {
   name: 'EcCurrencyFilter',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcAmountFilterInput,
     EcFilterPopover,
     EcMultipleValuesSelection,
     EcSubmenu,
-  },
-  model: {
-    prop: 'value',
-    event: 'change',
   },
   props: {
     label: {
@@ -95,7 +94,7 @@ export default {
     popoverOptions: {
       type: Object,
     },
-    value: {
+    modelValue: {
       type: Object,
       default: () => ({
         currencies: [],
@@ -155,6 +154,7 @@ export default {
       type: String,
     },
   },
+  emits: ['update:modelValue', 'change'],
   data() {
     return {
       activeTabIndex: 0,
@@ -166,7 +166,7 @@ export default {
     };
   },
   computed: {
-    getPopoverOptions() {
+    allPopoverOptions() {
       return {
         autoHide: !this.disableAutoHide, // autoHide of the ec-filter-popover should be disabled while the dropdown in ec-amount-filter-input is open, otherwise selecting value in the dropdown will close this popover too.
         ...this.popoverOptions,
@@ -182,7 +182,7 @@ export default {
       }];
     },
     numberOfSelectedFilters() {
-      let number = this.value?.currencies?.length ?? 0;
+      let number = this.modelValue?.currencies?.length ?? 0;
 
       if (this.hasAmount) {
         number++;
@@ -191,11 +191,11 @@ export default {
       return number;
     },
     hasAmount() {
-      return typeof this.value?.amount === 'number';
+      return typeof this.modelValue?.amount === 'number';
     },
     selectedCurrenciesModel: {
       get() {
-        return this.value?.currencies;
+        return this.modelValue?.currencies;
       },
       set(value) {
         this.update({
@@ -229,7 +229,7 @@ export default {
     },
   },
   watch: {
-    value: {
+    modelValue: {
       immediate: true,
       handler(newValue) {
         this.internalAmountModel = {
@@ -261,7 +261,7 @@ export default {
         currencies: [],
         amount: null,
         comparisonSymbol: null,
-        ...this.value,
+        ...this.modelValue,
         ...value,
       };
 
@@ -275,6 +275,7 @@ export default {
         newValue = null;
       }
 
+      this.$emit('update:modelValue', newValue);
       this.$emit('change', newValue);
     },
   },

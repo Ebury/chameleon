@@ -1,3 +1,6 @@
+import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcCheckbox from './ec-checkbox.vue';
 
 export default {
@@ -5,23 +8,15 @@ export default {
   component: EcCheckbox,
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = ({ modelValue, ...args }) => ({
   components: { EcCheckbox },
-  props: Object.keys(argTypes),
-  data() {
-    return {
-      model: false,
-    };
-  },
-  watch: {
-    checked: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
+  setup() {
+    const model = ref(modelValue);
+    return { args, model };
   },
   template: `
     <div class="tw-p-24">
-      <ec-checkbox v-bind="$props" v-model="model" />
+      <ec-checkbox v-bind="args" v-model="model" />
     </div>
   `,
 });
@@ -30,34 +25,38 @@ export const basic = Template.bind({});
 basic.args = {
   label: 'I accept the terms and conditions',
   disabled: false,
-  checked: false,
+  modelValue: false,
 };
 
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = (args, { argTypes }) => ({
+export const all = ({
+  valueFromPropsChecked1,
+  valueFromPropsChecked2,
+  valueFromPropsHasError,
+  valueFromPropsLabel,
+  valueFromPropsErrorMessage,
+  valueFromPropsDisabled1,
+  valueFromPropsDisabled2,
+  args,
+}) => ({
   components: { EcCheckbox },
-  props: Object.keys(argTypes),
-  watch: {
-    valueFromPropsChecked1: {
-      immediate: true,
-      handler(newValue) {
-        this.checkbox1 = newValue;
-      },
-    },
-    valueFromPropsChecked2: {
-      immediate: true,
-      handler(newValue) {
-        this.checkbox2 = newValue;
-      },
-    },
-  },
-  data() {
+  setup() {
+    const checkbox1 = ref(valueFromPropsChecked1);
+    const checkbox2 = ref(valueFromPropsChecked2);
+
     return {
-      checkbox1: null,
-      checkbox2: null,
+      args,
+      checkbox1,
+      checkbox2,
+      valueFromPropsHasError,
+      valueFromPropsLabel,
+      valueFromPropsErrorMessage,
+      valueFromPropsDisabled1,
+      valueFromPropsDisabled2,
+      onAction: action('open-terms'),
     };
   },
   template: `
@@ -65,7 +64,7 @@ export const all = (args, { argTypes }) => ({
       <h3>Not checked</h3>
       <ec-checkbox class="tw-mb-24 tw-col-12">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
@@ -78,10 +77,10 @@ export const all = (args, { argTypes }) => ({
 
       <h3>Checked</h3>
       <ec-checkbox
-        checked
+        :model-value="true"
         class="tw-mb-24 tw-col-12">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
@@ -98,7 +97,7 @@ export const all = (args, { argTypes }) => ({
       <ec-checkbox class="tw-mb-24 tw-col-12"
         error-message="An error has occurred">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
@@ -115,16 +114,16 @@ export const all = (args, { argTypes }) => ({
       <ec-checkbox class="tw-mb-24 tw-col-12"
         disabled>
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
       <h3>Disabled - checked</h3>
       <ec-checkbox class="tw-mb-24 tw-col-12"
-        checked
+        :model-value="true"
         disabled>
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
@@ -160,7 +159,7 @@ export const all = (args, { argTypes }) => ({
         v-model="checkbox2"
         :disabled="valueFromPropsDisabled2">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
       <ec-checkbox
@@ -168,7 +167,7 @@ export const all = (args, { argTypes }) => ({
         v-model="checkbox2"
         :disabled="valueFromPropsDisabled2">
         <template #label>
-          I accept the <a href="#" @click.stop.prevent="$emit('open-terms')"> terms and conditions </a>
+          I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
         <template #error-message>
           An error has occurred

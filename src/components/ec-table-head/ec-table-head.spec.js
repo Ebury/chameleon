@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils';
+
+import { withMockedConsole } from '../../../tests/utils/console';
 import * as SortDirection from '../../enums/sort-direction';
 import EcTableHead from './ec-table-head.vue';
-import { withMockedConsole } from '../../../tests/utils/console';
 
 describe('EcTableHead', () => {
   const columns = [
@@ -22,7 +23,7 @@ describe('EcTableHead', () => {
 
   function mountEcTableHead(props, mountOpts) {
     return mount(EcTableHead, {
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -33,10 +34,10 @@ describe('EcTableHead', () => {
   });
 
   it('should throw if the prop stickyColumn have a invalid value', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcTableHead({ columns, stickyColumn: 'test' });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "stickyColumn"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "stickyColumn"');
     });
   });
 

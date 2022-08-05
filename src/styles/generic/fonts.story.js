@@ -1,11 +1,7 @@
-export const fonts = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  // eslint-disable-next-line no-unused-vars
-  render(h) {
-    const {
-      fontWeight, fontStyle, fontSize, fontFamily, lineHeight,
-    } = this.$props;
-
+export const fonts = ({
+  fontWeight, fontStyle, fontSize, fontFamily, lineHeight,
+}) => ({
+  render() {
     const style = {
       fontWeight,
       fontStyle,
@@ -71,6 +67,10 @@ export const fonts = (args, { argTypes }) => ({
         <div class="tw-mini-header">Greek</div>
         <p style={style}>
           Σε ένα χωριό La Mancha, το όνομα του οποίου δεν έχω καμία επιθυμία να θυμηθώ, δεν έζησε πολύς καιρός από έναν από αυτούς τους κυρίους που κρατούν μια λόγχη στο ράφι, έναν παλιό κάδο, ένα άπαχο χάκερ και ένα λαγωνικό για μαθήματα.
+        </p>
+        <div class="tw-mini-header">Bulgarian</div>
+        <p style={style}>
+          В едно село Ла Манча, чието име нямам никакво желание да си спомням, живя не след дълго един от онези господа, които държат копие в стойката за копие, стар щит, постен хак и хрътка за курсиране.
         </p>
         <div class="tw-mini-header">Special characters</div>
         <p style={style}>

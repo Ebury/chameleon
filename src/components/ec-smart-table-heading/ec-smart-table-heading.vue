@@ -1,25 +1,23 @@
 <template>
-  <div>
+  <div
+    v-if="title"
+    class="ec-smart-table-heading-title"
+  >{{ title }}</div>
+  <div
+    v-if="hasSlot('filter') || hasSlot('actions')"
+    class="ec-smart-table-heading"
+  >
     <div
-      v-if="title"
-      class="ec-smart-table-heading-title"
-    >{{ title }}</div>
-    <div
-      v-if="hasFilterSlot() || hasActionsSlot()"
-      class="ec-smart-table-heading"
+      v-if="hasSlot('filter')"
+      class="ec-smart-table-heading__filter"
     >
-      <div
-        v-if="hasFilterSlot()"
-        class="ec-smart-table-heading__filter"
-      >
-        <slot name="filter" />
-      </div>
-      <div
-        v-if="hasActionsSlot()"
-        class="ec-smart-table-heading__actions"
-      >
-        <slot name="actions" />
-      </div>
+      <slot name="filter" />
+    </div>
+    <div
+      v-if="hasSlot('actions')"
+      class="ec-smart-table-heading__actions"
+    >
+      <slot name="actions" />
     </div>
   </div>
 </template>
@@ -27,18 +25,24 @@
 <script>
 export default {
   name: 'EcSmartTableHeading',
-  props: {
-    title: String,
-  },
-  methods: {
-    hasFilterSlot() {
-      return !!this.$scopedSlots.filter;
-    },
-    hasActionsSlot() {
-      return !!this.$scopedSlots.actions;
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
+</script>
+
+<script setup>
+import { useSlots } from 'vue';
+
+const slots = useSlots();
+
+defineProps({
+  title: String,
+});
+
+function hasSlot(slotName) {
+  return slotName in slots;
+}
 </script>
 
 <style>

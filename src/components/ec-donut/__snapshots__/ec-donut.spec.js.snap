@@ -23,7 +23,6 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
         r="48"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__remaining"
         cx="54"
@@ -34,7 +33,6 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
         stroke-dashoffset="0"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__used"
         cx="54"
@@ -47,7 +45,6 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
       />
     </svg>
   </div>
-   
   <div
     class="ec-donut__legend"
     data-test="ec-donut__legend"
@@ -57,7 +54,7 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
       data-test="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--used"
         height="14"
         width="14"
       >
@@ -65,15 +62,15 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
-     
     <div
       class="ec-donut__legend-remaining"
       data-test="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--remaining"
         height="14"
         width="14"
       >
@@ -81,7 +78,8 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
   </div>
 </div>
@@ -110,7 +108,6 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
         r="48"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__remaining"
         cx="54"
@@ -121,7 +118,6 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
         stroke-dashoffset="0"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__used"
         cx="54"
@@ -134,7 +130,6 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
       />
     </svg>
   </div>
-   
   <div
     class="ec-donut__legend"
     data-test="ec-donut__legend"
@@ -144,7 +139,7 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
       data-test="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--used"
         height="14"
         width="14"
       >
@@ -152,15 +147,15 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
-     
     <div
       class="ec-donut__legend-remaining"
       data-test="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--remaining"
         height="14"
         width="14"
       >
@@ -168,7 +163,8 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
   </div>
 </div>
@@ -197,7 +193,6 @@ exports[`EcDonut should display with the empty used 1`] = `
         r="48"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__remaining"
         cx="54"
@@ -208,7 +203,6 @@ exports[`EcDonut should display with the empty used 1`] = `
         stroke-dashoffset="0"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__used"
         cx="54"
@@ -221,7 +215,6 @@ exports[`EcDonut should display with the empty used 1`] = `
       />
     </svg>
   </div>
-   
   <div
     class="ec-donut__legend"
     data-test="ec-donut__legend"
@@ -231,7 +224,7 @@ exports[`EcDonut should display with the empty used 1`] = `
       data-test="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--used"
         height="14"
         width="14"
       >
@@ -239,15 +232,15 @@ exports[`EcDonut should display with the empty used 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
-     
     <div
       class="ec-donut__legend-remaining"
       data-test="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--remaining"
         height="14"
         width="14"
       >
@@ -255,7 +248,8 @@ exports[`EcDonut should display with the empty used 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
   </div>
 </div>
@@ -284,7 +278,6 @@ exports[`EcDonut should display with the full used 1`] = `
         r="48"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__remaining"
         cx="54"
@@ -295,7 +288,6 @@ exports[`EcDonut should display with the full used 1`] = `
         stroke-dashoffset="0"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__used"
         cx="54"
@@ -308,7 +300,6 @@ exports[`EcDonut should display with the full used 1`] = `
       />
     </svg>
   </div>
-   
   <div
     class="ec-donut__legend"
     data-test="ec-donut__legend"
@@ -318,7 +309,7 @@ exports[`EcDonut should display with the full used 1`] = `
       data-test="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--used"
         height="14"
         width="14"
       >
@@ -326,15 +317,15 @@ exports[`EcDonut should display with the full used 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
-     
     <div
       class="ec-donut__legend-remaining"
       data-test="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--remaining"
         height="14"
         width="14"
       >
@@ -342,7 +333,8 @@ exports[`EcDonut should display with the full used 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
   </div>
 </div>
@@ -371,7 +363,6 @@ exports[`EcDonut should display with the full used when is more used than amount
         r="48"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__remaining"
         cx="54"
@@ -382,7 +373,6 @@ exports[`EcDonut should display with the full used when is more used than amount
         stroke-dashoffset="0"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__used"
         cx="54"
@@ -395,7 +385,6 @@ exports[`EcDonut should display with the full used when is more used than amount
       />
     </svg>
   </div>
-   
   <div
     class="ec-donut__legend"
     data-test="ec-donut__legend"
@@ -405,7 +394,7 @@ exports[`EcDonut should display with the full used when is more used than amount
       data-test="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--used"
         height="14"
         width="14"
       >
@@ -413,15 +402,15 @@ exports[`EcDonut should display with the full used when is more used than amount
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
-     
     <div
       class="ec-donut__legend-remaining"
       data-test="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--remaining"
         height="14"
         width="14"
       >
@@ -429,7 +418,8 @@ exports[`EcDonut should display with the full used when is more used than amount
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
   </div>
 </div>
@@ -458,7 +448,6 @@ exports[`EcDonut should display with the half used 1`] = `
         r="48"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__remaining"
         cx="54"
@@ -469,7 +458,6 @@ exports[`EcDonut should display with the half used 1`] = `
         stroke-dashoffset="0"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__used"
         cx="54"
@@ -482,7 +470,6 @@ exports[`EcDonut should display with the half used 1`] = `
       />
     </svg>
   </div>
-   
   <div
     class="ec-donut__legend"
     data-test="ec-donut__legend"
@@ -492,7 +479,7 @@ exports[`EcDonut should display with the half used 1`] = `
       data-test="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--used"
         height="14"
         width="14"
       >
@@ -500,15 +487,15 @@ exports[`EcDonut should display with the half used 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
-     
     <div
       class="ec-donut__legend-remaining"
       data-test="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--remaining"
         height="14"
         width="14"
       >
@@ -516,7 +503,8 @@ exports[`EcDonut should display with the half used 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
   </div>
 </div>
@@ -545,7 +533,6 @@ exports[`EcDonut should render slots as expected 1`] = `
         r="48"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__remaining"
         cx="54"
@@ -556,7 +543,6 @@ exports[`EcDonut should render slots as expected 1`] = `
         stroke-dashoffset="0"
         stroke-width="11"
       />
-       
       <circle
         class="ec-donut__used"
         cx="54"
@@ -569,7 +555,6 @@ exports[`EcDonut should render slots as expected 1`] = `
       />
     </svg>
   </div>
-   
   <div
     class="ec-donut__legend"
     data-test="ec-donut__legend"
@@ -579,7 +564,7 @@ exports[`EcDonut should render slots as expected 1`] = `
       data-test="ec-donut__legend-used"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--used ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--used"
         height="14"
         width="14"
       >
@@ -587,18 +572,18 @@ exports[`EcDonut should render slots as expected 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
       <p>
         Used legend
       </p>
+      
     </div>
-     
     <div
       class="ec-donut__legend-remaining"
       data-test="ec-donut__legend-remaining"
     >
       <svg
-        class="ec-donut__legend-icon ec-donut__legend-icon--remaining ec-icon"
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--remaining"
         height="14"
         width="14"
       >
@@ -606,7 +591,8 @@ exports[`EcDonut should render slots as expected 1`] = `
           xlink:href="#ec-rounded-notification"
         />
       </svg>
-       
+      
+      
     </div>
   </div>
 </div>

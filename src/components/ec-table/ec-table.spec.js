@@ -1,11 +1,13 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
+
+import { withMockedConsole } from '../../../tests/utils/console';
 import * as SortDirection from '../../enums/sort-direction';
 import EcTable from './ec-table.vue';
-import { withMockedConsole } from '../../../tests/utils/console';
 
 function mountTable(props, mountOpts) {
   return mount(EcTable, {
-    propsData: {
+    props: {
       columns: [
         {
           name: 'lorem',
@@ -27,32 +29,29 @@ function mountTable(props, mountOpts) {
 }
 
 function mountTableAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const localVue = createLocalVue();
-
-  const Component = localVue.extend({
+  const Component = defineComponent({
     components: { EcTable },
     template,
     ...wrapperComponentOpts,
   });
 
   return mount(Component, {
-    localVue,
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
 
 describe('EcTable', () => {
   it('should not render if no props are supplied', () => {
-    const wrapper = mountTable(null, { propsData: {} });
+    const wrapper = mountTable(null, { props: {} });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should throw if the prop stickyColumn have a invalid value', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountTable({ stickyColumn: 'test' });
-      expect(errorSpy).toHaveBeenCalledTimes(2);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "stickyColumn"');
+      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "stickyColumn"');
     });
   });
 
@@ -93,8 +92,7 @@ describe('EcTable', () => {
         ['foo', 'bar'],
         ['widgets', 'doodads'],
       ],
-    },
-    {
+    }, {
       slots: {
         footer: '<p>Random text</p>',
       },
@@ -190,8 +188,8 @@ describe('EcTable', () => {
         ],
       },
       {
-        listeners: {
-          'row-click': onRowClick,
+        attrs: {
+          onRowClick,
         },
       },
     );
@@ -251,12 +249,9 @@ describe('EcTable', () => {
         ['foo', 'bar'],
         ['widgets', 'doodads'],
       ],
-    },
-    {
-      scopedSlots: {
-        col2: '<p>{{ props.content }}</p>',
-      },
+    }, {
       slots: {
+        col2: ({ content }) => h('p', content),
         footer: '<p>Random text</p>',
       },
     });
@@ -349,7 +344,7 @@ describe('EcTable', () => {
     const wrapper = mountTable({ columns });
     const wrapperArray = wrapper.findAllByDataTest('ec-table__cell--0');
     expect(wrapperArray.length).toBe(columns.length);
-    wrapperArray.wrappers.forEach(wrapperItem => expect(wrapperItem.attributes('style')).toBe('min-width: 250px;'));
+    wrapperArray.forEach(wrapperItem => expect(wrapperItem.attributes('style')).toBe('min-width: 250px;'));
   });
 
   it('should render the style with the max-width on each cell of the column that have the prop given', () => {

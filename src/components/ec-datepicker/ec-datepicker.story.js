@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
-
 import { Spanish } from 'flatpickr/dist/l10n/es';
 import { French } from 'flatpickr/dist/l10n/fr';
+
 import EcDatepicker from './ec-datepicker.vue';
 
 export default {
@@ -19,9 +19,13 @@ export default {
   },
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = args => ({
   components: { EcDatepicker },
-  props: Object.keys(argTypes),
+  setup() {
+    return {
+      args,
+    };
+  },
   data() {
     return {
       model: new Date('2022-02-24'),
@@ -66,9 +70,9 @@ export const basic = (args, { argTypes }) => ({
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
       <ec-datepicker
         v-bind="{
-          ...$props,
-          locale: getLocale($props.locale),
-          dateFormat: getDateFormat($props.dateFormat),
+          ...args,
+          locale: getLocale(args.locale),
+          dateFormat: getDateFormat(args.dateFormat),
         }"
         v-model="model"
         :are-weekends-disabled="disableWeekends"

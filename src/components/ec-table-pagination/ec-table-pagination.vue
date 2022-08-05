@@ -87,9 +87,9 @@
 </template>
 
 <script>
-import EcIcon from '../ec-icon';
-import EcDropdownSearch from '../ec-dropdown-search';
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from '../../enums/pagination';
+import EcDropdownSearch from '../ec-dropdown-search';
+import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcTablePagination',
@@ -116,6 +116,7 @@ export default {
       default: 'Items per page',
     },
   },
+  emits: ['change'],
   computed: {
     hasPrev() {
       return this.page > 1;

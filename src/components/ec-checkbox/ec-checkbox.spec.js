@@ -1,25 +1,24 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent, ref } from 'vue';
+
 import EcCheckbox from './ec-checkbox.vue';
 
 function mountCheckbox(props, mountOpts) {
   return mount(EcCheckbox, {
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
 
 function mountCheckboxAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const localVue = createLocalVue();
-
-  const Component = localVue.extend({
+  const Component = defineComponent({
     components: { EcCheckbox },
     template,
     ...wrapperComponentOpts,
   });
 
   return mount(Component, {
-    localVue,
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
@@ -56,7 +55,7 @@ describe('EcCheckbox', () => {
     it(':disabled - should render the checkbox with a disabled attribute and not checked', () => {
       const wrapper = mountCheckbox({
         disabled: true,
-        checked: false,
+        modelValue: false,
       });
 
       expect(wrapper.element).toMatchSnapshot();
@@ -74,7 +73,7 @@ describe('EcCheckbox', () => {
     it(':disabled - should render the checkbox with a disabled attribute and checked', () => {
       const wrapper = mountCheckbox({
         disabled: true,
-        checked: true,
+        modelValue: true,
       });
 
       expect(wrapper.element).toMatchSnapshot();
@@ -90,7 +89,7 @@ describe('EcCheckbox', () => {
 
     it(':indeterminate - should render even if the checkbox is checked', () => {
       const wrapper = mountCheckbox({
-        checked: true,
+        modelValue: true,
         indeterminate: true,
       });
 
@@ -99,7 +98,7 @@ describe('EcCheckbox', () => {
 
     it(':indeterminate - should render the checkbox as checked when indeterminate has switched to false', async () => {
       const wrapper = mountCheckbox({
-        checked: true,
+        modelValue: true,
         indeterminate: true,
       });
 
@@ -176,22 +175,22 @@ describe('EcCheckbox', () => {
   });
 
   describe('@events', () => {
-    it('@checked-value-change - should be emitted when input is clicked', () => {
+    it('@update:modelValue - should be emitted when input is clicked', () => {
       const wrapper = mountCheckbox();
 
-      wrapper.findByDataTest('ec-checkbox__input').trigger('click');
-      expect(wrapper.emitted('checked-value-change').length).toBe(1);
+      wrapper.findByDataTest('ec-checkbox__input').setValue(true);
+      expect(wrapper.emitted('update:modelValue').length).toBe(1);
     });
 
     it('@change - should be emitted when input is clicked', () => {
       const changeSpy = jest.fn();
       const wrapper = mountCheckbox({}, {
-        listeners: {
-          change: changeSpy,
+        attrs: {
+          onChange: changeSpy,
         },
       });
 
-      wrapper.findByDataTest('ec-checkbox__input').trigger('click');
+      wrapper.findByDataTest('ec-checkbox__input').setValue(true);
       expect(changeSpy).toHaveBeenCalledTimes(1);
     });
   });
@@ -208,77 +207,38 @@ describe('EcCheckbox', () => {
   });
 
   describe('v-model', () => {
-    it('should render the checkbox and toggle v-model value when input is clicked', () => {
+    it('should render the checkbox and toggle v-model value when input is clicked', async () => {
       const wrapper = mountCheckboxAsTemplate(
         '<ec-checkbox v-model="checked"></ec-checkbox>',
         {},
         {
-          data() {
-            return {
-              checked: true,
-            };
+          setup() {
+            const checked = ref(true);
+            return { checked };
           },
         },
       );
 
       expect(wrapper.findByDataTest('ec-checkbox').exists()).toBe(true);
       expect(wrapper.vm.checked).toBe(true);
-      wrapper.findByDataTest('ec-checkbox__input').trigger('click');
+      await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
       expect(wrapper.vm.checked).toBe(false);
     });
 
-    it('should render the checkbox and toggle v-model value when label is clicked', () => {
-      const wrapper = mountCheckboxAsTemplate(
-        '<ec-checkbox v-model="checked"></ec-checkbox>',
-        {},
-        {
-          data() {
-            return {
-              checked: true,
-            };
-          },
-        },
-      );
-
-      expect(wrapper.findByDataTest('ec-checkbox__label').exists()).toBe(true);
-      expect(wrapper.vm.checked).toBe(true);
-      wrapper.findByDataTest('ec-checkbox__label').trigger('click');
-      expect(wrapper.vm.checked).toBe(false);
-    });
-
-    it('should not change the value of v-model if disabled is enabled and user clicks the checkbox', () => {
+    it('should not change the value of v-model if disabled is enabled and user clicks the checkbox', async () => {
       const wrapper = mountCheckboxAsTemplate(
         '<ec-checkbox v-model="checked" disabled></ec-checkbox>',
         {},
         {
-          data() {
-            return {
-              checked: true,
-            };
+          setup() {
+            const checked = ref(true);
+            return { checked };
           },
         },
       );
 
       expect(wrapper.vm.checked).toBe(true);
-      wrapper.findByDataTest('ec-checkbox__input').trigger('click');
-      expect(wrapper.vm.checked).toBe(true);
-    });
-
-    it('should not change the value of v-model if disabled is enabled and user clicks the label', () => {
-      const wrapper = mountCheckboxAsTemplate(
-        '<ec-checkbox v-model="checked" disabled></ec-checkbox>',
-        {},
-        {
-          data() {
-            return {
-              checked: true,
-            };
-          },
-        },
-      );
-
-      expect(wrapper.vm.checked).toBe(true);
-      wrapper.findByDataTest('ec-checkbox__label').trigger('click');
+      await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
       expect(wrapper.vm.checked).toBe(true);
     });
   });

@@ -1,4 +1,4 @@
-import { createHOC } from 'vue-hoc';
+import { createHOC } from '../hoc';
 
 const identity = arg => arg;
 
@@ -38,7 +38,7 @@ const withAbortableFetch = (Component, {
       fetchedData: null,
     };
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.abort();
   },
   methods: {
@@ -70,14 +70,16 @@ const withAbortableFetch = (Component, {
   },
 }, {
   props(props) {
-    return {
+    const newProps = {
       ...props,
-      dataSource: null,
-      fetchArgs: null,
       [loadingProp]: loadingTransform(this.isFetching, this.fetchedData),
       [errorProp]: errorTransform(this.fetchError),
       [dataProp]: dataTransform(this.fetchedData),
     };
+
+    delete newProps.dataSource;
+    delete newProps.fetchArgs;
+    return newProps;
   },
 });
 

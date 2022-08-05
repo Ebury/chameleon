@@ -4,12 +4,10 @@ exports[`EcToaster messages prop should not render the toaster if no props are p
 <div
   class="ec-toaster"
 >
-  <transition-group-stub
-    class="ec-toaster__list"
-    data-test="ec-toaster__list"
-    name="ec-toaster-items-transition"
-    tag="ul"
-  />
+  <transition-group-stub>
+    
+    
+  </transition-group-stub>
 </div>
 `;
 
@@ -17,18 +15,15 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
 <div
   class="ec-toaster"
 >
-  <transition-group-stub
-    class="ec-toaster__list"
-    data-test="ec-toaster__list"
-    name="ec-toaster-items-transition"
-    tag="ul"
-  >
+  <transition-group-stub>
+    
     <li
       class="ec-toaster__item"
       data-test="ec-toaster__item"
+      style="top: 0px;"
     >
       <div
-        class="ec-alert ec-toaster__item-content ec-alert--error ec-alert--is-responsive"
+        class="ec-alert ec-alert--error ec-alert--is-responsive ec-toaster__item-content"
         data-test="ec-alert"
       >
         <a
@@ -46,42 +41,41 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
             />
           </svg>
         </a>
-         
         <svg
-          class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
+          class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
         >
           <use
             xlink:href="#ec-simple-error"
           />
         </svg>
-         
         <div
           class="ec-alert__content"
         >
+          
           <div
             class="ec-alert__title ec-alert__title--error"
             data-test="ec-alert__title"
           >
             random
           </div>
-           
           <div
             class="ec-alert__subtitle ec-alert__subtitle--error"
             data-test="ec-alert__subtitle"
           >
             random
           </div>
+          
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </li>
     <li
       class="ec-toaster__item"
       data-test="ec-toaster__item"
+      style="top: 0px;"
     >
       <div
-        class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
+        class="ec-alert ec-alert--success ec-alert--is-responsive ec-toaster__item-content"
         data-test="ec-alert"
       >
         <a
@@ -99,42 +93,41 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
             />
           </svg>
         </a>
-         
         <svg
-          class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
+          class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
         >
           <use
             xlink:href="#ec-simple-check"
           />
         </svg>
-         
         <div
           class="ec-alert__content"
         >
+          
           <div
             class="ec-alert__title ec-alert__title--success"
             data-test="ec-alert__title"
           >
             random
           </div>
-           
           <div
             class="ec-alert__subtitle ec-alert__subtitle--success"
             data-test="ec-alert__subtitle"
           >
             random
           </div>
+          
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </li>
     <li
       class="ec-toaster__item"
       data-test="ec-toaster__item"
+      style="top: 0px;"
     >
       <div
-        class="ec-alert ec-toaster__item-content ec-alert--info ec-alert--is-responsive"
+        class="ec-alert ec-alert--info ec-alert--is-responsive ec-toaster__item-content"
         data-test="ec-alert"
       >
         <a
@@ -152,42 +145,41 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
             />
           </svg>
         </a>
-         
         <svg
-          class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
+          class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
         >
           <use
             xlink:href="#ec-simple-info"
           />
         </svg>
-         
         <div
           class="ec-alert__content"
         >
+          
           <div
             class="ec-alert__title ec-alert__title--info"
             data-test="ec-alert__title"
           >
             random
           </div>
-           
           <div
             class="ec-alert__subtitle ec-alert__subtitle--info"
             data-test="ec-alert__subtitle"
           >
             random
           </div>
+          
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </li>
     <li
       class="ec-toaster__item"
       data-test="ec-toaster__item"
+      style="top: 0px;"
     >
       <div
-        class="ec-alert ec-toaster__item-content ec-alert--warning ec-alert--is-responsive"
+        class="ec-alert ec-alert--warning ec-alert--is-responsive ec-toaster__item-content"
         data-test="ec-alert"
       >
         <a
@@ -205,36 +197,35 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
             />
           </svg>
         </a>
-         
         <svg
-          class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
+          class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
         >
           <use
             xlink:href="#ec-simple-error"
           />
         </svg>
-         
         <div
           class="ec-alert__content"
         >
+          
           <div
             class="ec-alert__title ec-alert__title--warning"
             data-test="ec-alert__title"
           >
             random
           </div>
-           
           <div
             class="ec-alert__subtitle ec-alert__subtitle--warning"
             data-test="ec-alert__subtitle"
           >
             random
           </div>
+          
         </div>
-         
-        <!---->
+        <!--v-if-->
       </div>
     </li>
+    
   </transition-group-stub>
 </div>
 `;
@@ -243,9 +234,10 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
 <li
   class="ec-toaster__item"
   data-test="ec-toaster__item"
+  style="top: 0px;"
 >
   <div
-    class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
+    class="ec-alert ec-alert--success ec-alert--is-responsive ec-toaster__item-content"
     data-test="ec-alert"
   >
     <a
@@ -263,34 +255,32 @@ exports[`EcToaster should not contain initially a class of "ec-toaster__item--sw
         />
       </svg>
     </a>
-     
     <svg
-      class="ec-alert__icon ec-icon ec-alert__icon--alert-has-subtitle"
+      class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
     >
       <use
         xlink:href="#ec-simple-check"
       />
     </svg>
-     
     <div
       class="ec-alert__content"
     >
+      
       <div
         class="ec-alert__title ec-alert__title--success"
         data-test="ec-alert__title"
       >
         This is the title
       </div>
-       
       <div
         class="ec-alert__subtitle ec-alert__subtitle--success"
         data-test="ec-alert__subtitle"
       >
         This is the subtitle
       </div>
+      
     </div>
-     
-    <!---->
+    <!--v-if-->
   </div>
 </li>
 `;

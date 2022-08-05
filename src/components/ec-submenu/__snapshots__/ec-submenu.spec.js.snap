@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcSubmenu should not render when passing an empty array to submenu 1`] = `<!---->`;
+exports[`EcSubmenu should not render when passing an empty array to submenu 1`] = `<!--v-if-->`;
 
-exports[`EcSubmenu should not render when passing null to submenu 1`] = `<!---->`;
+exports[`EcSubmenu should not render when passing null to submenu 1`] = `<!--v-if-->`;
 
 exports[`EcSubmenu should render properly if hasHeaderGap prop is set to false 1`] = `
 <div
@@ -15,6 +15,7 @@ exports[`EcSubmenu should render properly if hasHeaderGap prop is set to false 1
     <ul
       class="ec-submenu__header ec-submenu__header--no-gap"
     >
+      
       <li
         class="ec-submenu__header-item ec-submenu__header-item--is-active"
         data-test="ec-submenu__header-item"
@@ -36,7 +37,9 @@ exports[`EcSubmenu should render properly if hasHeaderGap prop is set to false 1
           data-test="ec-submenu__header-title-1 ec-stub router-link-stub"
           to="/submitted"
         >
+          
           Repayments (30)
+          
         </ec-stub>
       </li>
       <li
@@ -48,30 +51,40 @@ exports[`EcSubmenu should render properly if hasHeaderGap prop is set to false 1
           data-test="ec-submenu__header-title-2 ec-stub router-link-stub"
           to="/submitted"
         >
+          
           Another Request (30)
+          
         </ec-stub>
       </li>
+      
     </ul>
   </div>
-   
   <main
     class="ec-submenu__main"
   >
-    <transition-group-stub
-      name="ec-submenu__fade"
-      tag="div"
-    >
+    <transition-group-stub>
+      
       <div
         data-test="ec-submenu__panel-0"
-      />
+      >
+        
+        
+      </div>
       <div
         data-test="ec-submenu__panel-1"
         style="display: none;"
-      />
+      >
+        
+        
+      </div>
       <div
         data-test="ec-submenu__panel-2"
         style="display: none;"
-      />
+      >
+        
+        
+      </div>
+      
     </transition-group-stub>
   </main>
 </div>
@@ -88,6 +101,7 @@ exports[`EcSubmenu should render properly if isFullWidth prop is set 1`] = `
     <ul
       class="ec-submenu__header"
     >
+      
       <li
         class="ec-submenu__header-item ec-submenu__header-item--is-full-width ec-submenu__header-item--is-active"
         data-test="ec-submenu__header-item"
@@ -109,7 +123,9 @@ exports[`EcSubmenu should render properly if isFullWidth prop is set 1`] = `
           data-test="ec-submenu__header-title-1 ec-stub router-link-stub"
           to="/submitted"
         >
+          
           Repayments (30)
+          
         </ec-stub>
       </li>
       <li
@@ -121,42 +137,49 @@ exports[`EcSubmenu should render properly if isFullWidth prop is set 1`] = `
           data-test="ec-submenu__header-title-2 ec-stub router-link-stub"
           to="/submitted"
         >
+          
           Another Request (30)
+          
         </ec-stub>
       </li>
+      
     </ul>
   </div>
-   
   <main
     class="ec-submenu__main"
   >
-    <transition-group-stub
-      name="ec-submenu__fade"
-      tag="div"
-    >
+    <transition-group-stub>
+      
       <div
         data-test="ec-submenu__panel-0"
       >
+        
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium?
         </p>
+        
       </div>
       <div
         data-test="ec-submenu__panel-1"
         style="display: none;"
       >
+        
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium?
         </p>
+        
       </div>
       <div
         data-test="ec-submenu__panel-2"
         style="display: none;"
       >
+        
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium?
         </p>
+        
       </div>
+      
     </transition-group-stub>
   </main>
 </div>
@@ -173,6 +196,7 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
     <ul
       class="ec-submenu__header"
     >
+      
       <li
         class="ec-submenu__header-item"
         data-test="ec-submenu__header-item"
@@ -194,7 +218,9 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
           data-test="ec-submenu__header-title-1 ec-stub router-link-stub"
           to="/submitted"
         >
+          
           Repayments (30)
+          
         </ec-stub>
       </li>
       <li
@@ -206,31 +232,40 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
           data-test="ec-submenu__header-title-2 ec-stub router-link-stub"
           to="/submitted"
         >
+          
           Another Request (30)
+          
         </ec-stub>
       </li>
+      
     </ul>
   </div>
-   
   <main
     class="ec-submenu__main"
   >
-    <transition-group-stub
-      name="ec-submenu__fade"
-      tag="div"
-    >
+    <transition-group-stub>
+      
       <div
         data-test="ec-submenu__panel-0"
         style="display: none;"
-      />
+      >
+        
+        
+      </div>
       <div
         data-test="ec-submenu__panel-1"
-        style=""
-      />
+      >
+        
+        
+      </div>
       <div
         data-test="ec-submenu__panel-2"
         style="display: none;"
-      />
+      >
+        
+        
+      </div>
+      
     </transition-group-stub>
   </main>
 </div>

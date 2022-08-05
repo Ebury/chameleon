@@ -70,6 +70,7 @@ function joinIntegerAndDecimal(integer, decimal, decimalSeparator) {
   return decimal !== undefined ? integer + decimalSeparator + decimal : integer;
 }
 
+/* istanbul ignore next */
 function setCursor(el, position) {
   const setSelectionRange = function setSelectionRange() {
     el.setSelectionRange(position, position);
@@ -81,17 +82,9 @@ function setCursor(el, position) {
   }
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events#The_old-fashioned_way
-function event(name) {
-  const evt = document.createEvent('Event');
-  evt.initEvent(name, true, true);
-  return evt;
-}
-
 export {
   format,
-  unFormat,
-  setCursor,
-  event,
   sanitizeInput,
+  setCursor,
+  unFormat,
 };

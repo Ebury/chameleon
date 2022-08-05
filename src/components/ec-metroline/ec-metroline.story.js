@@ -1,24 +1,40 @@
-import EcMetroline from './ec-metroline.vue';
-import EcMetrolineItem from '../ec-metroline-item';
-import EcIcon from '../ec-icon/ec-icon.vue';
+import { action } from '@storybook/addon-actions';
+
 import EcBtn from '../ec-btn/ec-btn.vue';
+import EcIcon from '../ec-icon/ec-icon.vue';
+import EcMetrolineItem from '../ec-metroline-item';
+import EcMetroline from './ec-metroline.vue';
 
 export default {
   title: 'Metroline',
   component: EcMetroline,
 };
 
-export const basic = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
+export const basic = ({ badgeText, ...args }) => ({
   components: {
     EcMetroline,
     EcMetrolineItem,
     EcIcon,
     EcBtn,
   },
+  setup() {
+    return {
+      badgeText,
+      args,
+      onChange: action('change'),
+      onComplete: action('complete'),
+      onAddDescription: action('add description'),
+    };
+  },
   template: `
     <div class="tw-m-24 tw-flex tw-justify-center">
-      <ec-metroline class="tw-max-w-screen-md">
+      <ec-metroline
+        class="tw-max-w-screen-md"
+        v-on="{
+          change: onChange,
+          complete: onComplete,
+        }"
+      >
         <ec-metroline-item
           :id="1"
           :badgeText="badgeText"
@@ -52,7 +68,7 @@ export const basic = (args, { argTypes }) => ({
             <a
               v-else-if="isCompleted"
               href="#"
-              @click.prevent.stop
+              @click.prevent.stop="onAddDescription"
               class="tw-flex tw-items-center"
             >
               Add Description

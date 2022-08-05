@@ -1,29 +1,25 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
 
 import EcTextarea from './ec-textarea.vue';
 
 describe('EcTextarea', () => {
   function mountTextarea(props, mountOpts) {
     return mount(EcTextarea, {
-      propsData: {
-        ...props,
-      },
+      props,
       ...mountOpts,
     });
   }
 
   function mountTextareaAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const localVue = createLocalVue();
-
-    const Component = localVue.extend({
+    const Component = defineComponent({
       components: { EcTextarea },
       template,
       ...wrapperComponentOpts,
     });
 
     return mount(Component, {
-      localVue,
-      propsData: { ...props },
+      props,
       ...mountOpts,
     });
   }
@@ -86,7 +82,7 @@ describe('EcTextarea', () => {
     expect(document.activeElement).toBe(document.body);
     wrapper.findByDataTest('test-button').trigger('click');
     expect(document.activeElement).toBe(wrapper.findByDataTest('ec-textarea__textarea').element);
-    wrapper.destroy();
+    wrapper.unmount();
   });
 
   describe(':props', () => {
@@ -158,9 +154,9 @@ describe('EcTextarea', () => {
   });
 
   describe('@events', () => {
-    it('should emit the value when you type on the textarea', () => {
+    it('should emit the value when you type on the textarea', async () => {
       const wrapper = mountTextareaAsTemplate(
-        '<ec-textarea v-model="text" type="text" />',
+        '<ec-textarea v-model="text" />',
         {},
         {
           data() {
@@ -170,9 +166,10 @@ describe('EcTextarea', () => {
       );
 
       expect(wrapper.findByDataTest('ec-textarea__textarea').element.value).toBe('');
-      wrapper.findByDataTest('ec-textarea__textarea').setValue('Value lorem ipsum');
+      await wrapper.findByDataTest('ec-textarea__textarea').setValue('Value lorem ipsum');
       expect(wrapper.vm.text).toBe('Value lorem ipsum');
       expect(wrapper.findByDataTest('ec-textarea__textarea').element.value).toBe('Value lorem ipsum');
+      expect(wrapper.findComponent(EcTextarea).emitted('update:modelValue').length).toBe(1);
     });
   });
 });

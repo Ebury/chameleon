@@ -30,7 +30,7 @@
           </span>
           <ec-icon
             v-if="!!column.tooltip"
-            v-ec-tooltip="{ content:column.tooltip }"
+            v-ec-tooltip="{ content: column.tooltip }"
             class="ec-table-head__icon"
             data-test="ec-table-head__tooltip-icon"
             type="interactive"
@@ -50,9 +50,9 @@
 </template>
 
 <script>
-import EcTableSort from '../ec-table-sort';
-import EcIcon from '../ec-icon';
 import EcTooltip from '../../directives/ec-tooltip';
+import EcIcon from '../ec-icon';
+import EcTableSort from '../ec-table-sort';
 
 export default {
   name: 'EcTableHead',
@@ -74,6 +74,7 @@ export default {
       },
     },
   },
+  emits: ['sort'],
   computed: {
     numberOfColumns() {
       return this.columns.length;
@@ -106,7 +107,6 @@ export default {
 </script>
 
 <style>
-
 .ec-table-head {
   &__cell-wrapper {
     @apply tw-flex tw-items-center;

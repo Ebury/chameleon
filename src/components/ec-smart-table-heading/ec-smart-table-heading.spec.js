@@ -1,9 +1,10 @@
 import { mount } from '@vue/test-utils';
+
 import EcSmartTableHeading from './ec-smart-table-heading.vue';
 
 function mountEcSmartTableHeading(props, mountOpts) {
   return mount(EcSmartTableHeading, {
-    propsData: {
+    props: {
       title: 'Random Title',
       ...props,
     },
@@ -24,7 +25,7 @@ describe('EcSmartTableHeading', () => {
 
   it('should render given filter slot', () => {
     const wrapper = mountEcSmartTableHeading(null, {
-      scopedSlots: {
+      slots: {
         filter: '<div>Custom filter</div>',
       },
     });
@@ -33,7 +34,7 @@ describe('EcSmartTableHeading', () => {
 
   it('should render given header-actions slot', () => {
     const wrapper = mountEcSmartTableHeading(null, {
-      scopedSlots: {
+      slots: {
         actions: '<div>Header Actions</div>',
       },
     });
@@ -42,7 +43,7 @@ describe('EcSmartTableHeading', () => {
 
   it('should render given filter and header-actions slots', () => {
     const wrapper = mountEcSmartTableHeading(null, {
-      scopedSlots: {
+      slots: {
         filter: '<div>Custom filter</div>',
         actions: '<div>Header Actions</div>',
       },

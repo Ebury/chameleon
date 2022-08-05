@@ -65,7 +65,7 @@
         class="ec-multiple-values-selection__select-all"
       >
         <ec-checkbox
-          :checked="allFiltersAreSelected"
+          :model-value="allFiltersAreSelected"
           :indeterminate="atLeastOneFilterIsSelected"
           :label="selectAllFiltersText"
           is-single-line
@@ -82,12 +82,12 @@
             :data-test="`ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--${ isItemChecked(item) ? 'selected' : 'not-selected' }`"
           >
             <ec-checkbox
-              :checked="isItemChecked(item)"
               class="ec-multiple-values-selection__checkbox"
               :data-test="`ec-multiple-values-selection__checkbox-${ isItemChecked(item) ? 'deselect' : 'select' } ec-multiple-values-selection__checkbox-${ isItemChecked(item) ? 'deselect' : 'select' }-${index}`"
               :is-single-line="true"
               :label="item.text"
-              @checked-value-change="isItemChecked(item) ? onDeselect(item) : onSelect(item)"
+              :model-value="isItemChecked(item)"
+              @update:model-value="isItemChecked(item) ? onDeselect(item) : onSelect(item)"
             >
               <template #label>
                 <div
@@ -117,12 +117,11 @@ import EcLoadingIcon from '../ec-loading-icon';
 
 export default {
   name: 'EcMultipleValuesSelection',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcCheckbox, EcIcon, EcLoadingIcon,
-  },
-  model: {
-    prop: 'value',
-    event: 'change',
   },
   props: {
     items: {
@@ -130,7 +129,7 @@ export default {
       required: true,
       default: () => ([]),
     },
-    value: {
+    modelValue: {
       type: Array,
       required: false,
       default: () => ([]),
@@ -169,6 +168,7 @@ export default {
       default: 'Search...',
     },
   },
+  emits: ['update:modelValue', 'search', 'change'],
   data() {
     return {
       query: '',
@@ -176,10 +176,10 @@ export default {
   },
   computed: {
     selectedValues() {
-      return new Set(this.value.map(item => item.value));
+      return new Set(this.modelValue.map(item => item.value));
     },
     allFiltersAreSelected() {
-      return this.value.length === this.items.length;
+      return this.modelValue.length === this.items.length;
     },
     atLeastOneFilterIsSelected() {
       return !this.allFiltersAreSelected && this.selectedValues.size > 0;
@@ -197,18 +197,18 @@ export default {
   methods: {
     toggleAll() {
       if (this.allFiltersAreSelected) {
-        this.$emit('change', []);
+        this.update([]);
       } else {
-        this.$emit('change', this.items);
+        this.update(this.items);
       }
     },
     onSelect(item) {
-      const newItems = [...this.value, item];
-      this.$emit('change', newItems);
+      const newItems = [...this.modelValue, item];
+      this.update(newItems);
     },
     onDeselect(item) {
-      const newItems = this.value.filter(selectedItem => selectedItem.value !== item.value);
-      this.$emit('change', newItems);
+      const newItems = this.modelValue.filter(selectedItem => selectedItem.value !== item.value);
+      this.update(newItems);
     },
     focus() {
       /* istanbul ignore else */
@@ -220,6 +220,10 @@ export default {
     },
     isItemChecked(item) {
       return this.selectedValues.has(item.value);
+    },
+    update(items) {
+      this.$emit('update:modelValue', items);
+      this.$emit('change', items);
     },
   },
 };

@@ -4,8 +4,7 @@ exports[`EcFileUpload #slots #help-text - should render the help text 1`] = `
 <div
   data-test="ec-file-upload"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-file-dropzone"
     data-test="ec-file-upload__dropzone"
@@ -13,10 +12,9 @@ exports[`EcFileUpload #slots #help-text - should render the help text 1`] = `
     <input
       class="ec-file-dropzone__input"
       data-test="ec-file-dropzone__input"
-      multiple="multiple"
+      multiple=""
       type="file"
     />
-     
     <svg
       class="tw-fill-key-4 ec-file-dropzone__img"
       height="40px"
@@ -29,36 +27,42 @@ exports[`EcFileUpload #slots #help-text - should render the help text 1`] = `
         d="M20.3741 5.10425C23.9395 5.10425 27.0697 6.981 28.8442 9.80724C29.8634 9.24871 31.0377 8.93034 32.2878 8.93034C36.1975 8.93034 39.3669 12.0449 39.3669 15.8869C39.3669 16.0047 39.3639 16.1219 39.358 16.2383L39.5396 16.2347C44.2121 16.2347 48 20.05 48 24.7564C48 29.4628 44.2121 33.2782 39.5396 33.2782C39.4817 33.2782 39.424 33.2776 39.3664 33.2764L39.3669 33.2782H7.94245L7.94631 33.2627C3.51315 32.995 0 29.289 0 24.7564C0 20.05 3.78786 16.2347 8.46043 16.2347C9.14224 16.2347 9.80521 16.3159 10.4403 16.4693C10.3868 16.0512 10.3597 15.6244 10.3597 15.1912C10.3597 9.62033 14.8433 5.10425 20.3741 5.10425Z"
         fill-rule="evenodd"
       />
-       
       <path
         clip-rule="evenodd"
         d="M24.7785 41.984V42.7999H23.2215V41.984H24.7785ZM24.7785 39.5362V41.1681H23.2215V39.5362H24.7785ZM24.7785 36.2724V38.7202H23.2215V36.2724H24.7785ZM24 18.7999L30 25.0884L28.8992 26.2421L24.7785 21.9233V35.4565H23.2215V21.9233L19.1008 26.2421L18 25.0884L24 18.7999Z"
         fill-rule="evenodd"
       />
     </svg>
-     
     <div
       class="ec-file-dropzone__title"
       data-test="ec-file-dropzone__title"
-    />
-     
+    >
+      
+      
+    </div>
     <div
       class="ec-file-dropzone__subtitle"
       data-test="ec-file-dropzone__subtitle"
-    />
+    >
+      
+      
+    </div>
   </div>
-   
   <div
     class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
   >
+    
     Help text
+    
   </div>
-   
   <div
     class="ec-file-list"
     data-test="ec-file-upload__list"
-  />
+  >
+    
+    
+  </div>
 </div>
 `;
 
@@ -66,8 +70,7 @@ exports[`EcFileUpload #slots #subtitle - should render the subtitle 1`] = `
 <div
   data-test="ec-file-upload"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-file-dropzone"
     data-test="ec-file-upload__dropzone"
@@ -75,10 +78,9 @@ exports[`EcFileUpload #slots #subtitle - should render the subtitle 1`] = `
     <input
       class="ec-file-dropzone__input"
       data-test="ec-file-dropzone__input"
-      multiple="multiple"
+      multiple=""
       type="file"
     />
-     
     <svg
       class="tw-fill-key-4 ec-file-dropzone__img"
       height="40px"
@@ -91,36 +93,44 @@ exports[`EcFileUpload #slots #subtitle - should render the subtitle 1`] = `
         d="M20.3741 5.10425C23.9395 5.10425 27.0697 6.981 28.8442 9.80724C29.8634 9.24871 31.0377 8.93034 32.2878 8.93034C36.1975 8.93034 39.3669 12.0449 39.3669 15.8869C39.3669 16.0047 39.3639 16.1219 39.358 16.2383L39.5396 16.2347C44.2121 16.2347 48 20.05 48 24.7564C48 29.4628 44.2121 33.2782 39.5396 33.2782C39.4817 33.2782 39.424 33.2776 39.3664 33.2764L39.3669 33.2782H7.94245L7.94631 33.2627C3.51315 32.995 0 29.289 0 24.7564C0 20.05 3.78786 16.2347 8.46043 16.2347C9.14224 16.2347 9.80521 16.3159 10.4403 16.4693C10.3868 16.0512 10.3597 15.6244 10.3597 15.1912C10.3597 9.62033 14.8433 5.10425 20.3741 5.10425Z"
         fill-rule="evenodd"
       />
-       
       <path
         clip-rule="evenodd"
         d="M24.7785 41.984V42.7999H23.2215V41.984H24.7785ZM24.7785 39.5362V41.1681H23.2215V39.5362H24.7785ZM24.7785 36.2724V38.7202H23.2215V36.2724H24.7785ZM24 18.7999L30 25.0884L28.8992 26.2421L24.7785 21.9233V35.4565H23.2215V21.9233L19.1008 26.2421L18 25.0884L24 18.7999Z"
         fill-rule="evenodd"
       />
     </svg>
-     
     <div
       class="ec-file-dropzone__title"
       data-test="ec-file-dropzone__title"
-    />
-     
+    >
+      
+      
+    </div>
     <div
       class="ec-file-dropzone__subtitle"
       data-test="ec-file-dropzone__subtitle"
     >
+      
+      
       Subtitle
+      
+      
     </div>
   </div>
-   
   <div
     class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-file-list"
     data-test="ec-file-upload__list"
-  />
+  >
+    
+    
+  </div>
 </div>
 `;
 
@@ -128,8 +138,7 @@ exports[`EcFileUpload #slots #title - should render the title 1`] = `
 <div
   data-test="ec-file-upload"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-file-dropzone"
     data-test="ec-file-upload__dropzone"
@@ -137,10 +146,9 @@ exports[`EcFileUpload #slots #title - should render the title 1`] = `
     <input
       class="ec-file-dropzone__input"
       data-test="ec-file-dropzone__input"
-      multiple="multiple"
+      multiple=""
       type="file"
     />
-     
     <svg
       class="tw-fill-key-4 ec-file-dropzone__img"
       height="40px"
@@ -153,36 +161,44 @@ exports[`EcFileUpload #slots #title - should render the title 1`] = `
         d="M20.3741 5.10425C23.9395 5.10425 27.0697 6.981 28.8442 9.80724C29.8634 9.24871 31.0377 8.93034 32.2878 8.93034C36.1975 8.93034 39.3669 12.0449 39.3669 15.8869C39.3669 16.0047 39.3639 16.1219 39.358 16.2383L39.5396 16.2347C44.2121 16.2347 48 20.05 48 24.7564C48 29.4628 44.2121 33.2782 39.5396 33.2782C39.4817 33.2782 39.424 33.2776 39.3664 33.2764L39.3669 33.2782H7.94245L7.94631 33.2627C3.51315 32.995 0 29.289 0 24.7564C0 20.05 3.78786 16.2347 8.46043 16.2347C9.14224 16.2347 9.80521 16.3159 10.4403 16.4693C10.3868 16.0512 10.3597 15.6244 10.3597 15.1912C10.3597 9.62033 14.8433 5.10425 20.3741 5.10425Z"
         fill-rule="evenodd"
       />
-       
       <path
         clip-rule="evenodd"
         d="M24.7785 41.984V42.7999H23.2215V41.984H24.7785ZM24.7785 39.5362V41.1681H23.2215V39.5362H24.7785ZM24.7785 36.2724V38.7202H23.2215V36.2724H24.7785ZM24 18.7999L30 25.0884L28.8992 26.2421L24.7785 21.9233V35.4565H23.2215V21.9233L19.1008 26.2421L18 25.0884L24 18.7999Z"
         fill-rule="evenodd"
       />
     </svg>
-     
     <div
       class="ec-file-dropzone__title"
       data-test="ec-file-dropzone__title"
     >
+      
+      
       Title
+      
+      
     </div>
-     
     <div
       class="ec-file-dropzone__subtitle"
       data-test="ec-file-dropzone__subtitle"
-    />
+    >
+      
+      
+    </div>
   </div>
-   
   <div
     class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-file-list"
     data-test="ec-file-upload__list"
-  />
+  >
+    
+    
+  </div>
 </div>
 `;
 
@@ -190,8 +206,7 @@ exports[`EcFileUpload :props :isDisabled - should render in disabled state 1`] =
 <div
   data-test="ec-file-upload"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-file-dropzone ec-file-dropzone--is-disabled"
     data-test="ec-file-upload__dropzone"
@@ -199,11 +214,10 @@ exports[`EcFileUpload :props :isDisabled - should render in disabled state 1`] =
     <input
       class="ec-file-dropzone__input"
       data-test="ec-file-dropzone__input"
-      disabled="disabled"
-      multiple="multiple"
+      disabled=""
+      multiple=""
       type="file"
     />
-     
     <svg
       class="tw-fill-key-4 ec-file-dropzone__img ec-file-dropzone__img--is-disabled"
       height="40px"
@@ -216,34 +230,41 @@ exports[`EcFileUpload :props :isDisabled - should render in disabled state 1`] =
         d="M20.3741 5.10425C23.9395 5.10425 27.0697 6.981 28.8442 9.80724C29.8634 9.24871 31.0377 8.93034 32.2878 8.93034C36.1975 8.93034 39.3669 12.0449 39.3669 15.8869C39.3669 16.0047 39.3639 16.1219 39.358 16.2383L39.5396 16.2347C44.2121 16.2347 48 20.05 48 24.7564C48 29.4628 44.2121 33.2782 39.5396 33.2782C39.4817 33.2782 39.424 33.2776 39.3664 33.2764L39.3669 33.2782H7.94245L7.94631 33.2627C3.51315 32.995 0 29.289 0 24.7564C0 20.05 3.78786 16.2347 8.46043 16.2347C9.14224 16.2347 9.80521 16.3159 10.4403 16.4693C10.3868 16.0512 10.3597 15.6244 10.3597 15.1912C10.3597 9.62033 14.8433 5.10425 20.3741 5.10425Z"
         fill-rule="evenodd"
       />
-       
       <path
         clip-rule="evenodd"
         d="M24.7785 41.984V42.7999H23.2215V41.984H24.7785ZM24.7785 39.5362V41.1681H23.2215V39.5362H24.7785ZM24.7785 36.2724V38.7202H23.2215V36.2724H24.7785ZM24 18.7999L30 25.0884L28.8992 26.2421L24.7785 21.9233V35.4565H23.2215V21.9233L19.1008 26.2421L18 25.0884L24 18.7999Z"
         fill-rule="evenodd"
       />
     </svg>
-     
     <div
       class="ec-file-dropzone__title ec-file-dropzone__title--is-disabled"
       data-test="ec-file-dropzone__title"
-    />
-     
+    >
+      
+      
+    </div>
     <div
       class="ec-file-dropzone__subtitle ec-file-dropzone__subtitle--is-disabled"
       data-test="ec-file-dropzone__subtitle"
-    />
+    >
+      
+      
+    </div>
   </div>
-   
   <div
     class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-file-list"
     data-test="ec-file-upload__list"
-  />
+  >
+    
+    
+  </div>
 </div>
 `;
 
@@ -260,10 +281,8 @@ exports[`EcFileUpload :props :label - should render with a label 1`] = `
     >
       Attachments
     </span>
-     
-    <!---->
+    <!--v-if-->
   </label>
-   
   <div
     class="ec-file-dropzone"
     data-test="ec-file-upload__dropzone"
@@ -271,10 +290,9 @@ exports[`EcFileUpload :props :label - should render with a label 1`] = `
     <input
       class="ec-file-dropzone__input"
       data-test="ec-file-dropzone__input"
-      multiple="multiple"
+      multiple=""
       type="file"
     />
-     
     <svg
       class="tw-fill-key-4 ec-file-dropzone__img"
       height="40px"
@@ -287,34 +305,41 @@ exports[`EcFileUpload :props :label - should render with a label 1`] = `
         d="M20.3741 5.10425C23.9395 5.10425 27.0697 6.981 28.8442 9.80724C29.8634 9.24871 31.0377 8.93034 32.2878 8.93034C36.1975 8.93034 39.3669 12.0449 39.3669 15.8869C39.3669 16.0047 39.3639 16.1219 39.358 16.2383L39.5396 16.2347C44.2121 16.2347 48 20.05 48 24.7564C48 29.4628 44.2121 33.2782 39.5396 33.2782C39.4817 33.2782 39.424 33.2776 39.3664 33.2764L39.3669 33.2782H7.94245L7.94631 33.2627C3.51315 32.995 0 29.289 0 24.7564C0 20.05 3.78786 16.2347 8.46043 16.2347C9.14224 16.2347 9.80521 16.3159 10.4403 16.4693C10.3868 16.0512 10.3597 15.6244 10.3597 15.1912C10.3597 9.62033 14.8433 5.10425 20.3741 5.10425Z"
         fill-rule="evenodd"
       />
-       
       <path
         clip-rule="evenodd"
         d="M24.7785 41.984V42.7999H23.2215V41.984H24.7785ZM24.7785 39.5362V41.1681H23.2215V39.5362H24.7785ZM24.7785 36.2724V38.7202H23.2215V36.2724H24.7785ZM24 18.7999L30 25.0884L28.8992 26.2421L24.7785 21.9233V35.4565H23.2215V21.9233L19.1008 26.2421L18 25.0884L24 18.7999Z"
         fill-rule="evenodd"
       />
     </svg>
-     
     <div
       class="ec-file-dropzone__title"
       data-test="ec-file-dropzone__title"
-    />
-     
+    >
+      
+      
+    </div>
     <div
       class="ec-file-dropzone__subtitle"
       data-test="ec-file-dropzone__subtitle"
-    />
+    >
+      
+      
+    </div>
   </div>
-   
   <div
     class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-file-list"
     data-test="ec-file-upload__list"
-  />
+  >
+    
+    
+  </div>
 </div>
 `;
 
@@ -325,8 +350,7 @@ exports[`EcFileUpload :props :note - should render with a note 1`] = `
   <label
     class="ec-file-upload__label"
   >
-    <!---->
-     
+    <!--v-if-->
     <span
       class="ec-file-upload__label-note"
       data-test="ec-file-upload__label-note"
@@ -334,7 +358,6 @@ exports[`EcFileUpload :props :note - should render with a note 1`] = `
       max 10mb
     </span>
   </label>
-   
   <div
     class="ec-file-dropzone"
     data-test="ec-file-upload__dropzone"
@@ -342,10 +365,9 @@ exports[`EcFileUpload :props :note - should render with a note 1`] = `
     <input
       class="ec-file-dropzone__input"
       data-test="ec-file-dropzone__input"
-      multiple="multiple"
+      multiple=""
       type="file"
     />
-     
     <svg
       class="tw-fill-key-4 ec-file-dropzone__img"
       height="40px"
@@ -358,34 +380,41 @@ exports[`EcFileUpload :props :note - should render with a note 1`] = `
         d="M20.3741 5.10425C23.9395 5.10425 27.0697 6.981 28.8442 9.80724C29.8634 9.24871 31.0377 8.93034 32.2878 8.93034C36.1975 8.93034 39.3669 12.0449 39.3669 15.8869C39.3669 16.0047 39.3639 16.1219 39.358 16.2383L39.5396 16.2347C44.2121 16.2347 48 20.05 48 24.7564C48 29.4628 44.2121 33.2782 39.5396 33.2782C39.4817 33.2782 39.424 33.2776 39.3664 33.2764L39.3669 33.2782H7.94245L7.94631 33.2627C3.51315 32.995 0 29.289 0 24.7564C0 20.05 3.78786 16.2347 8.46043 16.2347C9.14224 16.2347 9.80521 16.3159 10.4403 16.4693C10.3868 16.0512 10.3597 15.6244 10.3597 15.1912C10.3597 9.62033 14.8433 5.10425 20.3741 5.10425Z"
         fill-rule="evenodd"
       />
-       
       <path
         clip-rule="evenodd"
         d="M24.7785 41.984V42.7999H23.2215V41.984H24.7785ZM24.7785 39.5362V41.1681H23.2215V39.5362H24.7785ZM24.7785 36.2724V38.7202H23.2215V36.2724H24.7785ZM24 18.7999L30 25.0884L28.8992 26.2421L24.7785 21.9233V35.4565H23.2215V21.9233L19.1008 26.2421L18 25.0884L24 18.7999Z"
         fill-rule="evenodd"
       />
     </svg>
-     
     <div
       class="ec-file-dropzone__title"
       data-test="ec-file-dropzone__title"
-    />
-     
+    >
+      
+      
+    </div>
     <div
       class="ec-file-dropzone__subtitle"
       data-test="ec-file-dropzone__subtitle"
-    />
+    >
+      
+      
+    </div>
   </div>
-   
   <div
     class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-file-list"
     data-test="ec-file-upload__list"
-  />
+  >
+    
+    
+  </div>
 </div>
 `;
 
@@ -393,8 +422,7 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
 <div
   data-test="ec-file-upload"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-file-dropzone"
     data-test="ec-file-upload__dropzone"
@@ -402,10 +430,9 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
     <input
       class="ec-file-dropzone__input"
       data-test="ec-file-dropzone__input"
-      multiple="multiple"
+      multiple=""
       type="file"
     />
-     
     <svg
       class="tw-fill-key-4 ec-file-dropzone__img"
       height="40px"
@@ -418,40 +445,45 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
         d="M20.3741 5.10425C23.9395 5.10425 27.0697 6.981 28.8442 9.80724C29.8634 9.24871 31.0377 8.93034 32.2878 8.93034C36.1975 8.93034 39.3669 12.0449 39.3669 15.8869C39.3669 16.0047 39.3639 16.1219 39.358 16.2383L39.5396 16.2347C44.2121 16.2347 48 20.05 48 24.7564C48 29.4628 44.2121 33.2782 39.5396 33.2782C39.4817 33.2782 39.424 33.2776 39.3664 33.2764L39.3669 33.2782H7.94245L7.94631 33.2627C3.51315 32.995 0 29.289 0 24.7564C0 20.05 3.78786 16.2347 8.46043 16.2347C9.14224 16.2347 9.80521 16.3159 10.4403 16.4693C10.3868 16.0512 10.3597 15.6244 10.3597 15.1912C10.3597 9.62033 14.8433 5.10425 20.3741 5.10425Z"
         fill-rule="evenodd"
       />
-       
       <path
         clip-rule="evenodd"
         d="M24.7785 41.984V42.7999H23.2215V41.984H24.7785ZM24.7785 39.5362V41.1681H23.2215V39.5362H24.7785ZM24.7785 36.2724V38.7202H23.2215V36.2724H24.7785ZM24 18.7999L30 25.0884L28.8992 26.2421L24.7785 21.9233V35.4565H23.2215V21.9233L19.1008 26.2421L18 25.0884L24 18.7999Z"
         fill-rule="evenodd"
       />
     </svg>
-     
     <div
       class="ec-file-dropzone__title"
       data-test="ec-file-dropzone__title"
-    />
-     
+    >
+      
+      
+    </div>
     <div
       class="ec-file-dropzone__subtitle"
       data-test="ec-file-dropzone__subtitle"
-    />
+    >
+      
+      
+    </div>
   </div>
-   
   <div
     class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-file-list"
     data-test="ec-file-upload__list"
   >
+    
     <div
       class="ec-file-list__item"
       data-test="ec-file-list__item ec-file-list__item--0"
     >
       <svg
-        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-file-list__document-icon"
         data-test="ec-file-list__document-icon"
         height="20"
         width="20"
@@ -460,17 +492,13 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
           xlink:href="#ec-simple-document"
         />
       </svg>
-       
       <span
         class="ec-file-list__name"
         data-test="ec-file-list__name ec-file-list__name--0"
         title="file_1.pdf"
       >
-        
-      file_1.pdf
-    
+        file_1.pdf
       </span>
-       
       <button
         class="ec-file-list__delete-btn"
         data-test="ec-file-list__delete-btn--0"
@@ -481,9 +509,8 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
         >
           Delete document
         </span>
-         
         <svg
-          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-file-list__delete-icon"
           data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
           height="18"
           width="18"
@@ -499,7 +526,7 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
       data-test="ec-file-list__item ec-file-list__item--1"
     >
       <svg
-        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-file-list__document-icon"
         data-test="ec-file-list__document-icon"
         height="20"
         width="20"
@@ -508,17 +535,13 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
           xlink:href="#ec-simple-document"
         />
       </svg>
-       
       <span
         class="ec-file-list__name"
         data-test="ec-file-list__name ec-file-list__name--1"
         title="file_2.pdf"
       >
-        
-      file_2.pdf
-    
+        file_2.pdf
       </span>
-       
       <button
         class="ec-file-list__delete-btn"
         data-test="ec-file-list__delete-btn--1"
@@ -529,9 +552,8 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
         >
           Delete document
         </span>
-         
         <svg
-          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-file-list__delete-icon"
           data-test="ec-file-list__delete-icon ec-file-list__delete-icon--1"
           height="18"
           width="18"
@@ -542,6 +564,7 @@ exports[`EcFileUpload v-model should initialize with a value from the v-model 1`
         </svg>
       </button>
     </div>
+    
   </div>
 </div>
 `;
@@ -550,8 +573,7 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
 <div
   data-test="ec-file-upload"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-file-dropzone ec-file-dropzone--is-disabled"
     data-test="ec-file-upload__dropzone"
@@ -559,11 +581,10 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
     <input
       class="ec-file-dropzone__input"
       data-test="ec-file-dropzone__input"
-      disabled="disabled"
-      multiple="multiple"
+      disabled=""
+      multiple=""
       type="file"
     />
-     
     <svg
       class="tw-fill-key-4 ec-file-dropzone__img ec-file-dropzone__img--is-disabled"
       height="40px"
@@ -576,40 +597,45 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
         d="M20.3741 5.10425C23.9395 5.10425 27.0697 6.981 28.8442 9.80724C29.8634 9.24871 31.0377 8.93034 32.2878 8.93034C36.1975 8.93034 39.3669 12.0449 39.3669 15.8869C39.3669 16.0047 39.3639 16.1219 39.358 16.2383L39.5396 16.2347C44.2121 16.2347 48 20.05 48 24.7564C48 29.4628 44.2121 33.2782 39.5396 33.2782C39.4817 33.2782 39.424 33.2776 39.3664 33.2764L39.3669 33.2782H7.94245L7.94631 33.2627C3.51315 32.995 0 29.289 0 24.7564C0 20.05 3.78786 16.2347 8.46043 16.2347C9.14224 16.2347 9.80521 16.3159 10.4403 16.4693C10.3868 16.0512 10.3597 15.6244 10.3597 15.1912C10.3597 9.62033 14.8433 5.10425 20.3741 5.10425Z"
         fill-rule="evenodd"
       />
-       
       <path
         clip-rule="evenodd"
         d="M24.7785 41.984V42.7999H23.2215V41.984H24.7785ZM24.7785 39.5362V41.1681H23.2215V39.5362H24.7785ZM24.7785 36.2724V38.7202H23.2215V36.2724H24.7785ZM24 18.7999L30 25.0884L28.8992 26.2421L24.7785 21.9233V35.4565H23.2215V21.9233L19.1008 26.2421L18 25.0884L24 18.7999Z"
         fill-rule="evenodd"
       />
     </svg>
-     
     <div
       class="ec-file-dropzone__title ec-file-dropzone__title--is-disabled"
       data-test="ec-file-dropzone__title"
-    />
-     
+    >
+      
+      
+    </div>
     <div
       class="ec-file-dropzone__subtitle ec-file-dropzone__subtitle--is-disabled"
       data-test="ec-file-dropzone__subtitle"
-    />
+    >
+      
+      
+    </div>
   </div>
-   
   <div
     class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-file-list"
     data-test="ec-file-upload__list"
   >
+    
     <div
       class="ec-file-list__item"
       data-test="ec-file-list__item ec-file-list__item--0"
     >
       <svg
-        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-file-list__document-icon"
         data-test="ec-file-list__document-icon"
         height="20"
         width="20"
@@ -618,21 +644,17 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
           xlink:href="#ec-simple-document"
         />
       </svg>
-       
       <span
         class="ec-file-list__name"
         data-test="ec-file-list__name ec-file-list__name--0"
         title="file_1.pdf"
       >
-        
-      file_1.pdf
-    
+        file_1.pdf
       </span>
-       
       <button
         class="ec-file-list__delete-btn"
         data-test="ec-file-list__delete-btn--0"
-        disabled="disabled"
+        disabled=""
         type="button"
       >
         <span
@@ -640,9 +662,8 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
         >
           Delete document
         </span>
-         
         <svg
-          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-file-list__delete-icon"
           data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
           height="18"
           width="18"
@@ -658,7 +679,7 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
       data-test="ec-file-list__item ec-file-list__item--1"
     >
       <svg
-        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-file-list__document-icon"
         data-test="ec-file-list__document-icon"
         height="20"
         width="20"
@@ -667,21 +688,17 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
           xlink:href="#ec-simple-document"
         />
       </svg>
-       
       <span
         class="ec-file-list__name"
         data-test="ec-file-list__name ec-file-list__name--1"
         title="file_2.pdf"
       >
-        
-      file_2.pdf
-    
+        file_2.pdf
       </span>
-       
       <button
         class="ec-file-list__delete-btn"
         data-test="ec-file-list__delete-btn--1"
-        disabled="disabled"
+        disabled=""
         type="button"
       >
         <span
@@ -689,9 +706,8 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
         >
           Delete document
         </span>
-         
         <svg
-          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-file-list__delete-icon"
           data-test="ec-file-list__delete-icon ec-file-list__delete-icon--1"
           height="18"
           width="18"
@@ -702,6 +718,7 @@ exports[`EcFileUpload v-model should not update the v-model if we try to delete 
         </svg>
       </button>
     </div>
+    
   </div>
 </div>
 `;
@@ -710,8 +727,7 @@ exports[`EcFileUpload v-model should update the v-model if we delete an item 1`]
 <div
   data-test="ec-file-upload"
 >
-  <!---->
-   
+  <!--v-if-->
   <div
     class="ec-file-dropzone"
     data-test="ec-file-upload__dropzone"
@@ -719,10 +735,9 @@ exports[`EcFileUpload v-model should update the v-model if we delete an item 1`]
     <input
       class="ec-file-dropzone__input"
       data-test="ec-file-dropzone__input"
-      multiple="multiple"
+      multiple=""
       type="file"
     />
-     
     <svg
       class="tw-fill-key-4 ec-file-dropzone__img"
       height="40px"
@@ -735,40 +750,45 @@ exports[`EcFileUpload v-model should update the v-model if we delete an item 1`]
         d="M20.3741 5.10425C23.9395 5.10425 27.0697 6.981 28.8442 9.80724C29.8634 9.24871 31.0377 8.93034 32.2878 8.93034C36.1975 8.93034 39.3669 12.0449 39.3669 15.8869C39.3669 16.0047 39.3639 16.1219 39.358 16.2383L39.5396 16.2347C44.2121 16.2347 48 20.05 48 24.7564C48 29.4628 44.2121 33.2782 39.5396 33.2782C39.4817 33.2782 39.424 33.2776 39.3664 33.2764L39.3669 33.2782H7.94245L7.94631 33.2627C3.51315 32.995 0 29.289 0 24.7564C0 20.05 3.78786 16.2347 8.46043 16.2347C9.14224 16.2347 9.80521 16.3159 10.4403 16.4693C10.3868 16.0512 10.3597 15.6244 10.3597 15.1912C10.3597 9.62033 14.8433 5.10425 20.3741 5.10425Z"
         fill-rule="evenodd"
       />
-       
       <path
         clip-rule="evenodd"
         d="M24.7785 41.984V42.7999H23.2215V41.984H24.7785ZM24.7785 39.5362V41.1681H23.2215V39.5362H24.7785ZM24.7785 36.2724V38.7202H23.2215V36.2724H24.7785ZM24 18.7999L30 25.0884L28.8992 26.2421L24.7785 21.9233V35.4565H23.2215V21.9233L19.1008 26.2421L18 25.0884L24 18.7999Z"
         fill-rule="evenodd"
       />
     </svg>
-     
     <div
       class="ec-file-dropzone__title"
       data-test="ec-file-dropzone__title"
-    />
-     
+    >
+      
+      
+    </div>
     <div
       class="ec-file-dropzone__subtitle"
       data-test="ec-file-dropzone__subtitle"
-    />
+    >
+      
+      
+    </div>
   </div>
-   
   <div
     class="ec-file-upload__help-text"
     data-test="ec-file-upload__help-text"
-  />
-   
+  >
+    
+    
+  </div>
   <div
     class="ec-file-list"
     data-test="ec-file-upload__list"
   >
+    
     <div
       class="ec-file-list__item"
       data-test="ec-file-list__item ec-file-list__item--0"
     >
       <svg
-        class="ec-file-list__document-icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-file-list__document-icon"
         data-test="ec-file-list__document-icon"
         height="20"
         width="20"
@@ -777,17 +797,13 @@ exports[`EcFileUpload v-model should update the v-model if we delete an item 1`]
           xlink:href="#ec-simple-document"
         />
       </svg>
-       
       <span
         class="ec-file-list__name"
         data-test="ec-file-list__name ec-file-list__name--0"
         title="file_1.pdf"
       >
-        
-      file_1.pdf
-    
+        file_1.pdf
       </span>
-       
       <button
         class="ec-file-list__delete-btn"
         data-test="ec-file-list__delete-btn--0"
@@ -798,9 +814,8 @@ exports[`EcFileUpload v-model should update the v-model if we delete an item 1`]
         >
           Delete document
         </span>
-         
         <svg
-          class="ec-file-list__delete-icon ec-icon ec-icon--interactive"
+          class="ec-icon ec-icon--interactive ec-file-list__delete-icon"
           data-test="ec-file-list__delete-icon ec-file-list__delete-icon--0"
           height="18"
           width="18"
@@ -811,6 +826,7 @@ exports[`EcFileUpload v-model should update the v-model if we delete an item 1`]
         </svg>
       </button>
     </div>
+    
   </div>
 </div>
 `;

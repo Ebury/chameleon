@@ -13,8 +13,7 @@ exports[`EcPanel #slots #footer - should render footer slot section if slot is p
       class="ec-panel__header-icons"
       data-test="ec-panel__header-icons"
     >
-      <!---->
-       
+      <!--v-if-->
       <button
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
@@ -22,7 +21,7 @@ exports[`EcPanel #slots #footer - should render footer slot section if slot is p
         type="button"
       >
         <svg
-          class="ec-panel__header-icon ec-icon"
+          class="ec-icon ec-panel__header-icon"
           height="24"
           width="24"
         >
@@ -32,24 +31,26 @@ exports[`EcPanel #slots #footer - should render footer slot section if slot is p
         </svg>
       </button>
     </div>
-     
     <div
       class="ec-panel__content-container"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-panel__main"
         data-test="ec-panel__main"
-      />
-       
+      >
+        
+        
+      </div>
       <div
         class="ec-panel__footer"
         data-test="ec-panel__footer"
       >
+        
         <h2>
           Footer Section
         </h2>
+        
       </div>
     </div>
   </div>
@@ -69,8 +70,7 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
       class="ec-panel__header-icons"
       data-test="ec-panel__header-icons"
     >
-      <!---->
-       
+      <!--v-if-->
       <button
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
@@ -78,7 +78,7 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
         type="button"
       >
         <svg
-          class="ec-panel__header-icon ec-icon"
+          class="ec-icon ec-panel__header-icon"
           height="24"
           width="24"
         >
@@ -88,7 +88,6 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
         </svg>
       </button>
     </div>
-     
     <div
       class="ec-panel__content-container"
     >
@@ -96,17 +95,20 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
         class="ec-panel__header"
         data-test="ec-panel__header"
       >
+        
         <h2>
           Header Section
         </h2>
+        
       </div>
-       
       <div
         class="ec-panel__main"
         data-test="ec-panel__main"
-      />
-       
-      <!---->
+      >
+        
+        
+      </div>
+      <!--v-if-->
     </div>
   </div>
 </aside>
@@ -125,8 +127,7 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
       class="ec-panel__header-icons"
       data-test="ec-panel__header-icons"
     >
-      <!---->
-       
+      <!--v-if-->
       <button
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
@@ -134,7 +135,7 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
         type="button"
       >
         <svg
-          class="ec-panel__header-icon ec-icon"
+          class="ec-icon ec-panel__header-icon"
           height="24"
           width="24"
         >
@@ -144,28 +145,27 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
         </svg>
       </button>
     </div>
-     
     <div
       class="ec-panel__content-container"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-panel__main"
         data-test="ec-panel__main"
       >
+        
         <p>
           Main content section
         </p>
+        
       </div>
-       
-      <!---->
+      <!--v-if-->
     </div>
   </div>
 </aside>
 `;
 
-exports[`EcPanel :props :show - should not render the panel when is false 1`] = `<!---->`;
+exports[`EcPanel :props :show - should not render the panel when is false 1`] = `<!--v-if-->`;
 
 exports[`EcPanel :props :show - should render the panel when is true 1`] = `
 <aside
@@ -180,8 +180,7 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
       class="ec-panel__header-icons"
       data-test="ec-panel__header-icons"
     >
-      <!---->
-       
+      <!--v-if-->
       <button
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
@@ -189,7 +188,7 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
         type="button"
       >
         <svg
-          class="ec-panel__header-icon ec-icon"
+          class="ec-icon ec-panel__header-icon"
           height="24"
           width="24"
         >
@@ -199,18 +198,18 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
         </svg>
       </button>
     </div>
-     
     <div
       class="ec-panel__content-container"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-panel__main"
         data-test="ec-panel__main"
-      />
-       
-      <!---->
+      >
+        
+        
+      </div>
+      <!--v-if-->
     </div>
   </div>
 </aside>
@@ -229,8 +228,7 @@ exports[`EcPanel @events @back should not render back button when event handler 
       class="ec-panel__header-icons"
       data-test="ec-panel__header-icons"
     >
-      <!---->
-       
+      <!--v-if-->
       <button
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
@@ -238,7 +236,7 @@ exports[`EcPanel @events @back should not render back button when event handler 
         type="button"
       >
         <svg
-          class="ec-panel__header-icon ec-icon"
+          class="ec-icon ec-panel__header-icon"
           height="24"
           width="24"
         >
@@ -248,18 +246,18 @@ exports[`EcPanel @events @back should not render back button when event handler 
         </svg>
       </button>
     </div>
-     
     <div
       class="ec-panel__content-container"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-panel__main"
         data-test="ec-panel__main"
-      />
-       
-      <!---->
+      >
+        
+        
+      </div>
+      <!--v-if-->
     </div>
   </div>
 </aside>
@@ -285,7 +283,7 @@ exports[`EcPanel @events @back should render back button when event handler attr
         type="button"
       >
         <svg
-          class="ec-panel__header-icon ec-icon"
+          class="ec-icon ec-panel__header-icon"
           height="24"
           width="24"
         >
@@ -294,7 +292,6 @@ exports[`EcPanel @events @back should render back button when event handler attr
           />
         </svg>
       </button>
-       
       <button
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
@@ -302,7 +299,7 @@ exports[`EcPanel @events @back should render back button when event handler attr
         type="button"
       >
         <svg
-          class="ec-panel__header-icon ec-icon"
+          class="ec-icon ec-panel__header-icon"
           height="24"
           width="24"
         >
@@ -312,24 +309,24 @@ exports[`EcPanel @events @back should render back button when event handler attr
         </svg>
       </button>
     </div>
-     
     <div
       class="ec-panel__content-container"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-panel__main"
         data-test="ec-panel__main"
-      />
-       
-      <!---->
+      >
+        
+        
+      </div>
+      <!--v-if-->
     </div>
   </div>
 </aside>
 `;
 
-exports[`EcPanel v-model should not render the panel when we pass to model false 1`] = `<!---->`;
+exports[`EcPanel v-model should not render the panel when we pass to model false 1`] = `<!--v-if-->`;
 
 exports[`EcPanel v-model should render the panel when we pass to model true 1`] = `
 <aside
@@ -344,8 +341,7 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
       class="ec-panel__header-icons"
       data-test="ec-panel__header-icons"
     >
-      <!---->
-       
+      <!--v-if-->
       <button
         aria-label="Close panel"
         class="ec-panel__header-action ec-panel__header-action--close"
@@ -353,7 +349,7 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
         type="button"
       >
         <svg
-          class="ec-panel__header-icon ec-icon"
+          class="ec-icon ec-panel__header-icon"
           height="24"
           width="24"
         >
@@ -363,21 +359,21 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
         </svg>
       </button>
     </div>
-     
     <div
       class="ec-panel__content-container"
     >
-      <!---->
-       
+      <!--v-if-->
       <div
         class="ec-panel__main"
         data-test="ec-panel__main"
-      />
-       
-      <!---->
+      >
+        
+        
+      </div>
+      <!--v-if-->
     </div>
   </div>
 </aside>
 `;
 
-exports[`EcPanel v-model should render the panel when we pass to model true 2`] = `<!---->`;
+exports[`EcPanel v-model should render the panel when we pass to model true 2`] = `<!--v-if-->`;

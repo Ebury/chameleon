@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
 import EcIcon from '../ec-icon';
@@ -12,32 +14,35 @@ export default {
   ],
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = ({
+  large, show, isClosable, isLoading, category, showFooterLeftContent, negativeHasText, positiveHasText, zIndex, ...args
+}) => ({
   components: { EcModal, EcIcon },
-  props: Object.keys(argTypes),
   directives: { EcTooltip },
-  watch: {
-    showModal: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  data() {
+  setup() {
+    const model = ref(show);
+    const tooltipConfig = ref({
+      content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
+      popperClass: ['ec-tooltip--bg-bright ec-tooltip--modal'],
+      triggers: ['click'],
+      placement: 'bottom',
+    });
     return {
-      model: false,
-      tooltipConfig: {
-        content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
-        classes: ['ec-tooltip--bg-bright ec-tooltip--modal'],
-        trigger: 'click',
-        placement: 'bottom',
-      },
+      model,
+      tooltipConfig,
+      large,
+      args,
+      isClosable,
+      isLoading,
+      category,
+      showFooterLeftContent,
+      negativeHasText,
+      positiveHasText,
+      zIndex,
+      onReject: action('reject'),
+      onAccept: action('accept'),
+      onClose: action('close'),
     };
-  },
-  methods: {
-    onReject: action('reject'),
-    onAccept: action('accept'),
-    onClose: action('close'),
-
   },
   template: `
     <div>
@@ -54,7 +59,7 @@ export const basic = (args, { argTypes }) => ({
           close: onClose,
         }"
         :z-index="zIndex"
-        v-model="model">
+        v-model:show="model">
 
         <template #header>
           <h2>Update your management accounts</h2>
@@ -96,7 +101,7 @@ export const basic = (args, { argTypes }) => ({
           close: onClose,
         }"
         :z-index="zIndex"
-        v-model="model">
+        v-model:show="model">
         <template #header>
           <h2>Update your management accounts</h2>
         </template>
@@ -143,7 +148,7 @@ export const basic = (args, { argTypes }) => ({
 const buttonCategories = ['', 'primary', 'secondary', 'success', 'error', 'warning'];
 
 basic.args = {
-  showModal: true,
+  show: true,
   showFooterLeftContent: true,
   isClosable: true,
   large: false,
@@ -170,48 +175,49 @@ basic.parameters = {
   },
 };
 
-export const stackable = (args, { argTypes }) => ({
+export const stackable = () => ({
   components: { EcModal },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
     return {
-      showFirstModal: true,
-      showSecondModal: true,
+      showFirstModal: ref(true),
+      showSecondModal: ref(true),
+      firstModalAction: action('firstModalAction'),
+      secondModalAction: action('secondModalAction'),
     };
-  },
-  methods: {
-    firstModalAction: action('firstModalAction'),
-    secondModalAction: action('secondModalAction'),
   },
   template: `
     <div>
       <ec-modal
         is-closable
         large
-        v-model="showFirstModal">
+        v-model:show="showFirstModal">
 
         <template #header>
           <h2>First Modal</h2>
         </template>
 
         <template #main>
-          <a @click.prevent.stop="firstModalAction">Action first modal</a>
-          <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          <div>
+            <button @click.prevent.stop="firstModalAction">Action first modal</button>
+            <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          </div>
         </template>
       </ec-modal>
 
       <ec-modal
         is-closable
         :z-index="zIndex"
-        v-model="showSecondModal">
+        v-model:show="showSecondModal">
 
         <template #header>
           <h2>Second Modal</h2>
         </template>
 
         <template #main>
-          <a @click.prevent.stop="secondModalAction">Action second modal</a>
-          <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          <div>
+            <button @click.prevent.stop="secondModalAction">Action second modal</button>
+            <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+          </div>
         </template>
       </ec-modal>
     </div>

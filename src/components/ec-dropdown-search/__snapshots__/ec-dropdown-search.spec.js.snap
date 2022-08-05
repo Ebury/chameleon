@@ -12,7 +12,7 @@ exports[`EcDropdownSearch filtering should display custom no results message if 
 
 exports[`EcDropdownSearch filtering should display custom no results slot if no item matches 1`] = `
 <li
-  class="my-slot"
+  data-test="my-slot"
 >
   <div>
     Random message - No custom items have been found
@@ -40,13 +40,12 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
     data-test="ec-dropdown-search__search-area"
   >
     <svg
-      class="ec-dropdown-search__search-icon ec-icon"
+      class="ec-icon ec-dropdown-search__search-icon"
     >
       <use
         xlink:href="#ec-simple-search"
       />
     </svg>
-     
     <input
       autocomplete="off"
       class="ec-dropdown-search__search-input"
@@ -54,29 +53,35 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
       placeholder="Search..."
     />
   </li>
-   
-  <!---->
-   
+  <!--v-if-->
+  
+  
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
     title="Item 1"
   >
+    
     Item 1
+    
   </li>
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
     title="Item 2"
   >
+    
     Item 2
+    
   </li>
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
     title="Item 3"
   >
+    
     Item 3
+    
   </li>
   <li
     class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
@@ -85,29 +90,39 @@ exports[`EcDropdownSearch should add a tooltip for any disabled item 1`] = `
     data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
     title="Item 4"
   >
+    
     Item 4
+    
   </li>
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
     title="Item 5"
   >
+    
     Item 5
+    
   </li>
+  
+  
 </ul>
 `;
 
 exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = `
 <ec-stub
+  autosize="true"
   class="ec-dropdown-search__trigger"
   data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
   disabled="true"
-  offset="8"
-  placement="bottom"
-  popoverinnerclass="ec-dropdown-search__popover"
-  popperoptions="[object Object]"
+  distance="8"
+  placement="bottom-start"
+  popperclass="ec-dropdown-search__popover"
+  shift="false"
+  shown="false"
 >
-   
+  
+  
+  
   <div>
     <ul
       class="ec-dropdown-search__item-list"
@@ -118,13 +133,12 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
         data-test="ec-dropdown-search__search-area"
       >
         <svg
-          class="ec-dropdown-search__search-icon ec-icon"
+          class="ec-icon ec-dropdown-search__search-icon"
         >
           <use
             xlink:href="#ec-simple-search"
           />
         </svg>
-         
         <input
           autocomplete="off"
           class="ec-dropdown-search__search-input"
@@ -132,9 +146,8 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
           placeholder="Search..."
         />
       </li>
-       
-      <!---->
-       
+      <!--v-if-->
+      
       <li
         class="ec-dropdown-search__no-items"
         data-test="ec-dropdown-search__no-items"
@@ -142,8 +155,10 @@ exports[`EcDropdownSearch should disable the popover when disabled is set 1`] = 
       >
         No results found
       </li>
+      
     </ul>
   </div>
+  
 </ec-stub>
 `;
 
@@ -152,21 +167,20 @@ exports[`EcDropdownSearch should merge given popoverOptions 1`] = `
 - First value
 + Second value
 
-@@ -3,12 +3,12 @@
-    data-test=\\"ec-dropdown-search\\"
-  >
-    <ec-stub
+@@ -6,11 +6,12 @@
+      autosize=\\"true\\"
       class=\\"ec-dropdown-search__trigger\\"
       data-test=\\"ec-popover-dropdown-search ec-stub ec-popover-stub\\"
--     offset=\\"8\\"
--     placement=\\"bottom\\"
+      disabled=\\"false\\"
+      distance=\\"8\\"
+-     placement=\\"bottom-start\\"
 +     offset=\\"16\\"
 +     placement=\\"top\\"
-      popoverinnerclass=\\"ec-dropdown-search__popover\\"
-      popperoptions=\\"[object Object]\\"
+      popperclass=\\"ec-dropdown-search__popover\\"
+      shift=\\"false\\"
+      shown=\\"false\\"
     >
-       
-      <div>"
+      "
 `;
 
 exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip prop 1`] = `
@@ -174,10 +188,10 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -38,12 +38,12 @@
-           
-          <!---->
-           
+@@ -42,12 +42,12 @@
+          <!--v-if-->
+          
+          
           <li
             class=\\"ec-dropdown-search__item ec-dropdown-search__item--is-disabled\\"
 -           data-ec-tooltip-mock-content=\\"This reason should not be seen because it's overridden by tooltip.content.\\"
@@ -187,15 +201,9 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
             data-test=\\"ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock\\"
             title=\\"Random Item\\"
           >
-            Random Item
-          </li>"
+            
+            Random Item"
 `;
-
-exports[`EcDropdownSearch should not render the search if isSearchEnabled is set to false 1`] = `undefined`;
-
-exports[`EcDropdownSearch should not select disabled item 1`] = `undefined`;
-
-exports[`EcDropdownSearch should not select disabled item 2`] = `undefined`;
 
 exports[`EcDropdownSearch should not show the items when the loading is set to true 1`] = `
 <div
@@ -203,14 +211,19 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
   data-test="ec-dropdown-search"
 >
   <ec-stub
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-    offset="8"
-    placement="bottom"
-    popoverinnerclass="ec-dropdown-search__popover"
-    popperoptions="[object Object]"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
-     
+    
+    
+    
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -221,13 +234,12 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
           data-test="ec-dropdown-search__search-area"
         >
           <svg
-            class="ec-dropdown-search__search-icon ec-icon"
+            class="ec-icon ec-dropdown-search__search-icon"
           >
             <use
               xlink:href="#ec-simple-search"
             />
           </svg>
-           
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
@@ -235,9 +247,7 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
             placeholder="Search..."
           />
         </li>
-         
-        <!---->
-         
+        <!--v-if-->
         <li>
           <div
             class="ec-loading"
@@ -248,7 +258,7 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
               data-test="ec-loading__backdrop"
             >
               <svg
-                class="ec-loading__icon ec-icon"
+                class="ec-icon ec-loading__icon"
                 data-test="ec-loading__icon"
                 height="24"
                 width="24"
@@ -258,20 +268,22 @@ exports[`EcDropdownSearch should not show the items when the loading is set to t
                 />
               </svg>
             </div>
-             
             <div
               class="ec-loading__content ec-loading__content--is-transparent"
               data-test="ec-loading__content"
             >
+              
               <div
                 class="ec-dropdown-search__loading"
                 data-test="ec-dropdown-search__loading"
               />
+              
             </div>
           </div>
         </li>
       </ul>
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -282,14 +294,19 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
   data-test="ec-dropdown-search"
 >
   <ec-stub
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-    offset="8"
-    placement="bottom"
-    popoverinnerclass="ec-dropdown-search__popover"
-    popperoptions="[object Object]"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
-     
+    
+    
+    
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -300,13 +317,12 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
           data-test="ec-dropdown-search__search-area"
         >
           <svg
-            class="ec-dropdown-search__search-icon ec-icon"
+            class="ec-icon ec-dropdown-search__search-icon"
           >
             <use
               xlink:href="#ec-simple-search"
             />
           </svg>
-           
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
@@ -314,35 +330,41 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
             placeholder="Search..."
           />
         </li>
-         
-        <!---->
-         
+        <!--v-if-->
+        
+        
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
           title="Item 1"
         >
+          
           <div>
-            0 - 
+            0 - false
           </div>
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
           title="Item 2"
         >
+          
           <div>
-            1 - 
+            1 - false
           </div>
+          
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
           title="Item 3"
         >
+          
           <div>
-            2 - 
+            2 - true
           </div>
+          
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
@@ -351,21 +373,28 @@ exports[`EcDropdownSearch should pass information whether an item is selected to
           data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
           title="Item 4"
         >
+          
           <div>
-            3 - 
+            3 - false
           </div>
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
           title="Item 5"
         >
+          
           <div>
-            4 - 
+            4 - false
           </div>
+          
         </li>
+        
+        
       </ul>
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -380,13 +409,12 @@ exports[`EcDropdownSearch should render all given items 1`] = `
     data-test="ec-dropdown-search__search-area"
   >
     <svg
-      class="ec-dropdown-search__search-icon ec-icon"
+      class="ec-icon ec-dropdown-search__search-icon"
     >
       <use
         xlink:href="#ec-simple-search"
       />
     </svg>
-     
     <input
       autocomplete="off"
       class="ec-dropdown-search__search-input"
@@ -394,29 +422,35 @@ exports[`EcDropdownSearch should render all given items 1`] = `
       placeholder="Search..."
     />
   </li>
-   
-  <!---->
-   
+  <!--v-if-->
+  
+  
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
     title="Item 1"
   >
+    
     Item 1
+    
   </li>
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
     title="Item 2"
   >
+    
     Item 2
+    
   </li>
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
     title="Item 3"
   >
+    
     Item 3
+    
   </li>
   <li
     class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
@@ -425,15 +459,21 @@ exports[`EcDropdownSearch should render all given items 1`] = `
     data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
     title="Item 4"
   >
+    
     Item 4
+    
   </li>
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
     title="Item 5"
   >
+    
     Item 5
+    
   </li>
+  
+  
 </ul>
 `;
 
@@ -443,14 +483,19 @@ exports[`EcDropdownSearch should render as expected 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-    offset="8"
-    placement="bottom"
-    popoverinnerclass="ec-dropdown-search__popover"
-    popperoptions="[object Object]"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
-     
+    
+    
+    
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -461,13 +506,12 @@ exports[`EcDropdownSearch should render as expected 1`] = `
           data-test="ec-dropdown-search__search-area"
         >
           <svg
-            class="ec-dropdown-search__search-icon ec-icon"
+            class="ec-icon ec-dropdown-search__search-icon"
           >
             <use
               xlink:href="#ec-simple-search"
             />
           </svg>
-           
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
@@ -475,9 +519,8 @@ exports[`EcDropdownSearch should render as expected 1`] = `
             placeholder="Search..."
           />
         </li>
-         
-        <!---->
-         
+        <!--v-if-->
+        
         <li
           class="ec-dropdown-search__no-items"
           data-test="ec-dropdown-search__no-items"
@@ -485,8 +528,10 @@ exports[`EcDropdownSearch should render as expected 1`] = `
         >
           No results found
         </li>
+        
       </ul>
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -497,14 +542,19 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-    offset="8"
-    placement="bottom"
-    popoverinnerclass="ec-dropdown-search__popover"
-    popperoptions="[object Object]"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
-     
+    
+    
+    
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -515,13 +565,12 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
           data-test="ec-dropdown-search__search-area"
         >
           <svg
-            class="ec-dropdown-search__search-icon ec-icon"
+            class="ec-icon ec-dropdown-search__search-icon"
           >
             <use
               xlink:href="#ec-simple-search"
             />
           </svg>
-           
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
@@ -529,36 +578,44 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
             placeholder="Search..."
           />
         </li>
-         
         <li
           class="ec-dropdown-search__cta-area"
           data-test="ec-dropdown-search__cta-area ec-mock ec-tooltip-mock"
         >
+          
           <button>
             My CTA
           </button>
+          
         </li>
-         
+        
+        
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
           title="Item 1"
         >
+          
           Item 1
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
           title="Item 2"
         >
+          
           Item 2
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
           title="Item 3"
         >
+          
           Item 3
+          
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
@@ -567,17 +624,24 @@ exports[`EcDropdownSearch should render given cta slot 1`] = `
           data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
           title="Item 4"
         >
+          
           Item 4
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
           title="Item 5"
         >
+          
           Item 5
+          
         </li>
+        
+        
       </ul>
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -588,14 +652,19 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-    offset="8"
-    placement="bottom"
-    popoverinnerclass="ec-dropdown-search__popover"
-    popperoptions="[object Object]"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
-     
+    
+    
+    
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -606,13 +675,12 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
           data-test="ec-dropdown-search__search-area"
         >
           <svg
-            class="ec-dropdown-search__search-icon ec-icon"
+            class="ec-icon ec-dropdown-search__search-icon"
           >
             <use
               xlink:href="#ec-simple-search"
             />
           </svg>
-           
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
@@ -620,37 +688,45 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
             placeholder="Search..."
           />
         </li>
-         
         <li
           class="ec-dropdown-search__cta-area"
           data-ec-tooltip-mock-content="Random tooltip"
           data-test="ec-dropdown-search__cta-area ec-mock ec-tooltip-mock"
         >
+          
           <button>
             My CTA
           </button>
+          
         </li>
-         
+        
+        
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
           title="Item 1"
         >
+          
           Item 1
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
           title="Item 2"
         >
+          
           Item 2
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
           title="Item 3"
         >
+          
           Item 3
+          
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
@@ -659,17 +735,24 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
           data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
           title="Item 4"
         >
+          
           Item 4
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
           title="Item 5"
         >
+          
           Item 5
+          
         </li>
+        
+        
       </ul>
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -680,19 +763,26 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-    offset="8"
-    placement="bottom"
-    popoverinnerclass="ec-dropdown-search__popover"
-    popperoptions="[object Object]"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
+    
+    
     <a
       href="#"
     >
       Open me
     </a>
-      
+    
+    
+    
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -703,13 +793,12 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
           data-test="ec-dropdown-search__search-area"
         >
           <svg
-            class="ec-dropdown-search__search-icon ec-icon"
+            class="ec-icon ec-dropdown-search__search-icon"
           >
             <use
               xlink:href="#ec-simple-search"
             />
           </svg>
-           
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
@@ -717,9 +806,8 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
             placeholder="Search..."
           />
         </li>
-         
-        <!---->
-         
+        <!--v-if-->
+        
         <li
           class="ec-dropdown-search__no-items"
           data-test="ec-dropdown-search__no-items"
@@ -727,8 +815,10 @@ exports[`EcDropdownSearch should render given default slot 1`] = `
         >
           No results found
         </li>
+        
       </ul>
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -739,14 +829,19 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-    offset="8"
-    placement="bottom"
-    popoverinnerclass="ec-dropdown-search__popover"
-    popperoptions="[object Object]"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
-     
+    
+    
+    
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -757,13 +852,12 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
           data-test="ec-dropdown-search__search-area"
         >
           <svg
-            class="ec-dropdown-search__search-icon ec-icon"
+            class="ec-icon ec-dropdown-search__search-icon"
           >
             <use
               xlink:href="#ec-simple-search"
             />
           </svg>
-           
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
@@ -771,44 +865,50 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
             placeholder="Search..."
           />
         </li>
-         
-        <!---->
-         
+        <!--v-if-->
+        
+        
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
           title="Item 1"
         >
+          
           <div>
             <strong>
               0.
             </strong>
             Item 1
           </div>
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
           title="Item 2"
         >
+          
           <div>
             <strong>
               1.
             </strong>
             Item 2
           </div>
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
           title="Item 3"
         >
+          
           <div>
             <strong>
               2.
             </strong>
             Item 3
           </div>
+          
         </li>
         <li
           class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
@@ -817,27 +917,34 @@ exports[`EcDropdownSearch should render given item slot 1`] = `
           data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
           title="Item 4"
         >
+          
           <div>
             <strong>
               3.
             </strong>
             Item 4
           </div>
+          
         </li>
         <li
           class="ec-dropdown-search__item"
           data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
           title="Item 5"
         >
+          
           <div>
             <strong>
               4.
             </strong>
             Item 5
           </div>
+          
         </li>
+        
+        
       </ul>
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -848,14 +955,19 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
   data-test="ec-dropdown-search"
 >
   <ec-stub
+    autosize="true"
     class="ec-dropdown-search__trigger"
     data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-    offset="8"
-    placement="bottom"
-    popoverinnerclass="ec-dropdown-search__popover"
-    popperoptions="[object Object]"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
   >
-     
+    
+    
+    
     <div>
       <ul
         class="ec-dropdown-search__item-list"
@@ -866,13 +978,12 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
           data-test="ec-dropdown-search__search-area"
         >
           <svg
-            class="ec-dropdown-search__search-icon ec-icon"
+            class="ec-icon ec-dropdown-search__search-icon"
           >
             <use
               xlink:href="#ec-simple-search"
             />
           </svg>
-           
           <input
             autocomplete="off"
             class="ec-dropdown-search__search-input"
@@ -880,9 +991,8 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
             placeholder="Search..."
           />
         </li>
-         
-        <!---->
-         
+        <!--v-if-->
+        
         <li>
           Items: 
           <pre>
@@ -908,12 +1018,137 @@ exports[`EcDropdownSearch should render given items slot 1`] = `
   "4": {
     "id": 5,
     "text": "Item 5"
-  }
+  },
+  "key": 4
 }
           </pre>
         </li>
+        
       </ul>
     </div>
+    
+  </ec-stub>
+</div>
+`;
+
+exports[`EcDropdownSearch should render given popover style 1`] = `
+<div
+  class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
+>
+  <ec-stub
+    autosize="true"
+    class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
+  >
+    
+    
+    
+    <div
+      style="width: 1234px;"
+    >
+      <ul
+        class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-icon ec-dropdown-search__search-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+        <!--v-if-->
+        
+        <li
+          class="ec-dropdown-search__no-items"
+          data-test="ec-dropdown-search__no-items"
+          title="No results found"
+        >
+          No results found
+        </li>
+        
+      </ul>
+    </div>
+    
+  </ec-stub>
+</div>
+`;
+
+exports[`EcDropdownSearch should render given popover style when it is a function 1`] = `
+<div
+  class="ec-dropdown-search"
+  data-test="ec-dropdown-search"
+>
+  <ec-stub
+    autosize="true"
+    class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
+  >
+    
+    
+    
+    <div
+      style="width: 1234px;"
+    >
+      <ul
+        class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-icon ec-dropdown-search__search-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+        <!--v-if-->
+        
+        <li
+          class="ec-dropdown-search__no-items"
+          data-test="ec-dropdown-search__no-items"
+          title="No results found"
+        >
+          No results found
+        </li>
+        
+      </ul>
+    </div>
+    
   </ec-stub>
 </div>
 `;
@@ -924,13 +1159,12 @@ exports[`EcDropdownSearch should render the search by default 1`] = `
   data-test="ec-dropdown-search__search-area"
 >
   <svg
-    class="ec-dropdown-search__search-icon ec-icon"
+    class="ec-icon ec-dropdown-search__search-icon"
   >
     <use
       xlink:href="#ec-simple-search"
     />
   </svg>
-   
   <input
     autocomplete="off"
     class="ec-dropdown-search__search-input"
@@ -946,7 +1180,9 @@ exports[`EcDropdownSearch should use and update the v-model 1`] = `
   data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
   title="Item 1"
 >
+  
   Item 1
+  
 </li>
 `;
 
@@ -956,7 +1192,9 @@ exports[`EcDropdownSearch should use and update the v-model 2`] = `
   data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
   title="Item 3"
 >
+  
   Item 3
+  
 </li>
 `;
 
@@ -970,13 +1208,12 @@ exports[`EcDropdownSearch should use given list-data-test attribute 1`] = `
     data-test="ec-dropdown-search__search-area"
   >
     <svg
-      class="ec-dropdown-search__search-icon ec-icon"
+      class="ec-icon ec-dropdown-search__search-icon"
     >
       <use
         xlink:href="#ec-simple-search"
       />
     </svg>
-     
     <input
       autocomplete="off"
       class="ec-dropdown-search__search-input"
@@ -984,29 +1221,35 @@ exports[`EcDropdownSearch should use given list-data-test attribute 1`] = `
       placeholder="Search..."
     />
   </li>
-   
-  <!---->
-   
+  <!--v-if-->
+  
+  
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
     title="Item 1"
   >
+    
     Item 1
+    
   </li>
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
     title="Item 2"
   >
+    
     Item 2
+    
   </li>
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
     title="Item 3"
   >
+    
     Item 3
+    
   </li>
   <li
     class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
@@ -1015,15 +1258,21 @@ exports[`EcDropdownSearch should use given list-data-test attribute 1`] = `
     data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
     title="Item 4"
   >
+    
     Item 4
+    
   </li>
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
     title="Item 5"
   >
+    
     Item 5
+    
   </li>
+  
+  
 </ul>
 `;
 
@@ -1033,13 +1282,12 @@ exports[`EcDropdownSearch should use the placeholder for search input if given 1
   data-test="ec-dropdown-search__search-area"
 >
   <svg
-    class="ec-dropdown-search__search-icon ec-icon"
+    class="ec-icon ec-dropdown-search__search-icon"
   >
     <use
       xlink:href="#ec-simple-search"
     />
   </svg>
-   
   <input
     autocomplete="off"
     class="ec-dropdown-search__search-input"

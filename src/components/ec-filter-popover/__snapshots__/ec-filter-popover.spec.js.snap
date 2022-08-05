@@ -7,10 +7,11 @@ exports[`EcFilterPopover should display number of selected filters if the value 
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
+    prevent-overflow="false"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -23,17 +24,14 @@ exports[`EcFilterPopover should display number of selected filters if the value 
       >
         Test label
       </button>
-       
       <span
         class="ec-filter-popover__badge"
         data-test="ec-filter-popover__badge"
       >
-         5
-      
+        5
       </span>
-       
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -42,10 +40,15 @@ exports[`EcFilterPopover should display number of selected filters if the value 
         />
       </svg>
     </div>
-      
+    
+    
     <div
       class="ec-filter-popover__filter-content"
-    />
+    >
+      
+      
+    </div>
+    
   </ec-stub>
 </div>
 `;
@@ -57,10 +60,11 @@ exports[`EcFilterPopover should not display number of selected filters if the va
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
+    prevent-overflow="false"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -73,11 +77,9 @@ exports[`EcFilterPopover should not display number of selected filters if the va
       >
         Test label
       </button>
-       
-      <!---->
-       
+      <!--v-if-->
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -86,10 +88,15 @@ exports[`EcFilterPopover should not display number of selected filters if the va
         />
       </svg>
     </div>
-      
+    
+    
     <div
       class="ec-filter-popover__filter-content"
-    />
+    >
+      
+      
+    </div>
+    
   </ec-stub>
 </div>
 `;
@@ -101,10 +108,11 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
+    prevent-overflow="false"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -117,11 +125,9 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
       >
         Test label
       </button>
-       
-      <!---->
-       
+      <!--v-if-->
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -130,14 +136,18 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
         />
       </svg>
     </div>
-      
+    
+    
     <div
       class="ec-filter-popover__filter-content"
     >
+      
       <p>
         Test name slot
       </p>
+      
     </div>
+    
   </ec-stub>
 </div>
 `;
@@ -149,10 +159,11 @@ exports[`EcFilterPopover should render properly when isFullHeight is set 1`] = `
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
+    prevent-overflow="false"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -165,11 +176,9 @@ exports[`EcFilterPopover should render properly when isFullHeight is set 1`] = `
       >
         Test label
       </button>
-       
-      <!---->
-       
+      <!--v-if-->
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -178,10 +187,15 @@ exports[`EcFilterPopover should render properly when isFullHeight is set 1`] = `
         />
       </svg>
     </div>
-      
+    
+    
     <div
       class="ec-filter-popover__filter-content ec-filter-popover__filter-content--is-full-height"
-    />
+    >
+      
+      
+    </div>
+    
   </ec-stub>
 </div>
 `;
@@ -193,10 +207,11 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
+    prevent-overflow="false"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -209,11 +224,9 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
       >
         Test label
       </button>
-       
-      <!---->
-       
+      <!--v-if-->
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -222,10 +235,15 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
         />
       </svg>
     </div>
-      
+    
+    
     <div
       class="ec-filter-popover__filter-content"
-    />
+    >
+      
+      
+    </div>
+    
   </ec-stub>
 </div>
 `;
@@ -237,10 +255,11 @@ exports[`EcFilterPopover should reset the open status of the popover 1`] = `
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
+    prevent-overflow="false"
   >
+    
     <div
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
@@ -253,11 +272,9 @@ exports[`EcFilterPopover should reset the open status of the popover 1`] = `
       >
         Test label
       </button>
-       
-      <!---->
-       
+      <!--v-if-->
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -266,10 +283,15 @@ exports[`EcFilterPopover should reset the open status of the popover 1`] = `
         />
       </svg>
     </div>
-      
+    
+    
     <div
       class="ec-filter-popover__filter-content"
-    />
+    >
+      
+      
+    </div>
+    
   </ec-stub>
 </div>
 `;
@@ -281,10 +303,11 @@ exports[`EcFilterPopover should set the open status of the popover 1`] = `
 >
   <ec-stub
     data-test="ec-stub ec-popover-stub"
-    offset="0, 8"
-    placement="bottom"
-    popper-options="[object Object]"
+    distance="8"
+    placement="bottom-start"
+    prevent-overflow="false"
   >
+    
     <div
       class="ec-filter-popover__trigger ec-filter-popover__trigger--focused"
       data-test="ec-filter-popover__trigger"
@@ -297,11 +320,9 @@ exports[`EcFilterPopover should set the open status of the popover 1`] = `
       >
         Test label
       </button>
-       
-      <!---->
-       
+      <!--v-if-->
       <svg
-        class="ec-filter-popover__icon ec-icon ec-icon--interactive"
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
         height="16"
         width="16"
       >
@@ -310,10 +331,15 @@ exports[`EcFilterPopover should set the open status of the popover 1`] = `
         />
       </svg>
     </div>
-      
+    
+    
     <div
       class="ec-filter-popover__filter-content"
-    />
+    >
+      
+      
+    </div>
+    
   </ec-stub>
 </div>
 `;

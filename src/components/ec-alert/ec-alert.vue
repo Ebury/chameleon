@@ -14,7 +14,7 @@
       class="ec-alert__dismiss-icon"
       :class="`ec-alert__dismiss-icon--${type}`"
       data-test="ec-alert__dismiss-icon"
-      @click.stop.prevent="$emit('change', !open)"
+      @click.stop.prevent="onDismiss"
     >
       <ec-icon
         name="simple-close"
@@ -52,72 +52,82 @@
       class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button"
       :class="`ec-btn--${type === 'info' ? 'primary' : type}-reverse`"
       data-test="ec-alert__button"
-      @click="$emit('action')"
+      @click="emit('action')"
     >{{ buttonText }}</button>
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed, useSlots } from 'vue';
+
 import EcIcon from '../ec-icon';
 
+const emit = defineEmits(['update:open', 'action', 'change']);
+
+const props = defineProps({
+  type: {
+    type: String,
+    validator(value) {
+      return ['error', 'info', 'success', 'warning'].includes(value);
+    },
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  subtitle: {
+    type: String,
+  },
+  dismissable: {
+    type: Boolean,
+    default: false,
+  },
+  buttonText: {
+    type: String,
+  },
+  open: {
+    type: Boolean,
+    default: true,
+  },
+  responsive: {
+    type: Boolean,
+    default: true,
+  },
+});
+
+const slots = useSlots();
+
+const icon = computed(() => {
+  switch (props.type) {
+    case 'error':
+    case 'warning':
+      return 'simple-error';
+    case 'success':
+      return 'simple-check';
+    case 'info':
+    default:
+      return 'simple-info';
+  }
+});
+
+function hasCtaSlot() {
+  return !!slots.cta;
+}
+
+function onDismiss() {
+  const newValue = !props.open;
+  emit('update:open', newValue);
+  emit('change', newValue);
+}
+
+</script>
+
+<script>
 export default {
   name: 'EcAlert',
-  components: {
-    EcIcon,
-  },
-  model: {
-    prop: 'open',
-    event: 'change',
-  },
-  props: {
-    type: {
-      type: String,
-      validator(value) {
-        return ['error', 'info', 'success', 'warning'].includes(value);
-      },
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    subtitle: {
-      type: String,
-    },
-    dismissable: {
-      type: Boolean,
-      default: false,
-    },
-    buttonText: {
-      type: String,
-    },
-    open: {
-      type: Boolean,
-      default: true,
-    },
-    responsive: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  computed: {
-    icon() {
-      switch (this.type) {
-        case 'error':
-        case 'warning':
-          return 'simple-error';
-        case 'success':
-          return 'simple-check';
-        case 'info':
-        default:
-          return 'simple-info';
-      }
-    },
-  },
-  methods: {
-    hasCtaSlot() {
-      return !!this.$scopedSlots.cta;
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>

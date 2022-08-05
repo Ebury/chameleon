@@ -1,26 +1,25 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import EcSubmenu from './ec-submenu.vue';
+import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcSubmenu from './ec-submenu.vue';
 
 function mountSubmenu(props, mountOpts) {
   return mount(EcSubmenu, {
-    propsData: { ...props },
+    props: { ...props },
     ...mountOpts,
   });
 }
 
 function mountSubmenuAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const localVue = createLocalVue();
-
-  const Component = localVue.extend({
+  const Component = defineComponent({
     components: { EcSubmenu },
     template,
     ...wrapperComponentOpts,
   });
 
   return mount(Component, {
-    localVue,
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
@@ -52,23 +51,23 @@ const slots = {
 
 describe('EcSubmenu', () => {
   it('should throw an error if we don\'t pass any content', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mount(EcSubmenu);
-      expect(errorSpy).toHaveBeenCalled();
-      expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "submenu"');
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "submenu"');
     });
   });
 
   it('should not render when passing null to submenu', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       const wrapper = mountSubmenu(
         { submenu: null },
         {
           slots,
         },
       );
-      expect(errorSpy).toHaveBeenCalled();
-      expect(errorSpy.mock.calls[0][0]).toContain('Expected Array, got Null ');
+      expect(warnSpy).toHaveBeenCalled();
+      expect(warnSpy.mock.calls[0][0]).toContain('Expected Array, got Null ');
       expect(wrapper.findByDataTest('ec-submenu').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -88,7 +87,7 @@ describe('EcSubmenu', () => {
 
   it('should render the second panel if the second tab is clicked', async () => {
     const wrapper = mountSubmenuAsTemplate(
-      '<ec-submenu :submenu="submenu" v-model="activeIndex"/>',
+      '<ec-submenu :submenu="submenu" v-model:activeIndex="activeIndex"/>',
       {},
       {
         data() {
@@ -125,5 +124,16 @@ describe('EcSubmenu', () => {
     );
 
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should emit change event when index gets changed', async () => {
+    const wrapper = mountSubmenu(
+      { submenu, activeIndex: 0 },
+      { slots },
+    );
+
+    await wrapper.findByDataTest('ec-submenu__header-title-1').trigger('click');
+    expect(wrapper.emitted('change').length).toBe(1);
+    expect(wrapper.emitted('update:activeIndex').length).toBe(1);
   });
 });

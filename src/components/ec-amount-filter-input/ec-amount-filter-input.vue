@@ -22,7 +22,7 @@
     </label>
 
     <div
-      ref="popperWidthReference"
+      ref="popoverWidthReference"
       class="ec-amount-filter-input__inputs-group"
     >
       <ec-dropdown
@@ -35,8 +35,8 @@
         :is-sensitive="isSensitive"
         :items="comparisonSymbolItems"
         :selected-text="comparisonSymbolModel.value"
-        :popper-modifiers="popperModifier"
         :popover-options="popoverOptions"
+        :popover-style="getPopoverStyle"
         :error-id="errorId"
         :error-message="errorMessage"
         @focus="onComparisonSymbolFocus"
@@ -104,26 +104,25 @@
 </template>
 
 <script>
+import EcTooltip from '../../directives/ec-tooltip';
+import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
-import EcTooltip from '../../directives/ec-tooltip';
-import { getUid } from '../../utils/uid';
 
 export default {
   name: 'EcAmountFilterInput',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: {
     EcAmountInput,
     EcDropdown,
     EcIcon,
   },
   directives: { EcTooltip },
-  model: {
-    prop: 'value',
-    event: 'value-change',
-  },
   props: {
-    value: {
+    modelValue: {
       type: Object,
     },
     locale: {
@@ -163,22 +162,23 @@ export default {
       type: Array,
     },
   },
+  emits: [
+    'update:modelValue',
+    'change',
+    'amount-change',
+    'comparison-symbol-change',
+    'focus',
+    'open',
+    'close',
+    'after-open',
+    'after-close',
+  ],
   data() {
     return {
       uid: getUid(),
       comparisonSymbolHasFocus: false,
-      popperModifier: {
-        setPopperWidth: {
-          enabled: true,
-          order: 841,
-          fn: /* istanbul ignore next */ (data) => {
-            data.styles.width = this.$refs.popperWidthReference.offsetWidth;
-            return data;
-          },
-        },
-      },
       popoverOptions: {
-        placement: 'bottom-end',
+        autoSize: 'min',
       },
     };
   },
@@ -194,8 +194,8 @@ export default {
     },
     comparisonSymbolModel: {
       get() {
-        if (this.value.comparisonSymbol) {
-          return this.value.comparisonSymbol;
+        if (this.modelValue.comparisonSymbol) {
+          return this.modelValue.comparisonSymbol;
         }
 
         return {
@@ -204,15 +204,15 @@ export default {
         };
       },
       set(value) {
-        this.$emit('value-change', { ...this.value, comparisonSymbol: value });
+        this.$emit('update:modelValue', { ...this.modelValue, comparisonSymbol: value });
       },
     },
     amountModel: {
       get() {
-        return this.value.amount;
+        return this.modelValue.amount;
       },
       set(value) {
-        this.$emit('value-change', { ...this.value, amount: value });
+        this.$emit('update:modelValue', { ...this.modelValue, amount: value });
       },
     },
   },
@@ -229,6 +229,14 @@ export default {
     onComparisonSymbolFocus() {
       this.comparisonSymbolHasFocus = true;
       this.$emit('focus');
+    },
+    getPopoverStyle() {
+      if (this.$refs.popoverWidthReference) {
+        return {
+          width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
+        };
+      }
+      return null;
     },
   },
 };

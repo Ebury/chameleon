@@ -1,11 +1,13 @@
 import { mount } from '@vue/test-utils';
-import EcTablePagination from './ec-table-pagination.vue';
+import { h } from 'vue';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcTablePagination from './ec-table-pagination.vue';
 
 describe('EcTablePagination', () => {
   function mountEcTablePagination(props, mountOpts) {
     return mount(EcTablePagination, {
-      propsData: { ...props },
+      props: { ...props },
       ...mountOpts,
     });
   }
@@ -16,10 +18,10 @@ describe('EcTablePagination', () => {
   });
 
   it('should throw if the prop numberOfItems has a invalid value', () => {
-    withMockedConsole((errorSpy) => {
+    withMockedConsole((errorSpy, warnSpy) => {
       mountEcTablePagination({ numberOfItems: 7 });
-      expect(errorSpy).toHaveBeenCalledTimes(1);
-      expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "numberOfItems"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "numberOfItems"');
     });
   });
 
@@ -76,9 +78,9 @@ describe('EcTablePagination', () => {
   describe('#slots', () => {
     it('should use given pages slot', () => {
       const wrapper = mountEcTablePagination({ total: 20, numberOfItems: 5, page: 1 }, {
-        scopedSlots: {
+        slots: {
           pages(slotProps) {
-            return (<div>Pages slot: {JSON.stringify(slotProps)}</div>);
+            return h('div', `Pages slot: ${JSON.stringify(slotProps)}`);
           },
         },
       });
@@ -88,9 +90,9 @@ describe('EcTablePagination', () => {
 
     it('should use given total slot', () => {
       const wrapper = mountEcTablePagination({ total: 20, numberOfItems: 5, page: 1 }, {
-        scopedSlots: {
+        slots: {
           total(slotProps) {
-            return (<div>Total slot: {JSON.stringify(slotProps)}</div>);
+            return h('div', `Total slot: ${JSON.stringify(slotProps)}`);
           },
         },
       });

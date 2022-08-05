@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+
 import EcToaster from './ec-toaster.vue';
 
 const messages = [
@@ -16,7 +17,7 @@ const allTypeMessages = ['error', 'success', 'info', 'warning'].map((type, id) =
 
 function mountToaster(props, mountOpts) {
   return mount(EcToaster, {
-    propsData: { ...props },
+    props,
     ...mountOpts,
   });
 }
@@ -40,21 +41,21 @@ describe('EcToaster', () => {
       const wrapper = mountToaster({ messages });
       swipe(wrapper, 200, 251);
 
-      expect(wrapper.emitted('remove')).toBeTruthy();
+      expect(wrapper.emitted('remove').length).toBe(1);
       expect(wrapper.emitted('remove')[0]).toEqual([messages[0]]);
     });
     it('should not emit a "remove" event when toaster is swiped for less than 50px to the right', () => {
       const wrapper = mountToaster({ messages });
       swipe(wrapper, 200, 249);
 
-      expect(wrapper.emitted('remove')).toBeFalsy();
+      expect(wrapper.emitted('remove')).toBeUndefined();
     });
 
     it('should not emit a "remove" event when toaster is swiped to the left', () => {
       const wrapper = mountToaster({ messages });
       swipe(wrapper, 200, 199);
 
-      expect(wrapper.emitted('remove')).toBeFalsy();
+      expect(wrapper.emitted('remove')).toBeUndefined();
     });
 
     it('should add a class of "ec-toaster__item--swipe-active" when swap starts', () => {
@@ -126,8 +127,8 @@ describe('EcToaster', () => {
     const wrapper = mountToaster({ messages });
     wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
 
+    expect(wrapper.emitted('remove').length).toBe(1);
     expect(wrapper.emitted('remove')[0]).toEqual([messages[0]]);
-    expect(wrapper.emitted('remove')).toBeTruthy();
   });
 
   it('should not contain initially a class of "ec-toaster__item--swipe-active"', () => {

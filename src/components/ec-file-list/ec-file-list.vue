@@ -64,6 +64,7 @@ export default {
       default: false,
     },
   },
+  emits: ['delete'],
   methods: {
     onDelete(item) {
       this.$emit('delete', item);

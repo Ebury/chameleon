@@ -7,14 +7,14 @@ jest.mock('../../src/directives/ec-tooltip', () => {
 
     let content = null;
     let placement = null;
-    let classes = null;
+    let popperClass = null;
 
     if (typeof value === 'string') {
       content = value;
     }
 
     if (typeof value === 'object' && value) {
-      ({ placement, content, classes } = value);
+      ({ placement, content, popperClass } = value);
     }
 
     if (content) {
@@ -24,31 +24,31 @@ jest.mock('../../src/directives/ec-tooltip', () => {
       } else {
         el.removeAttribute('data-ec-tooltip-mock-placement');
       }
-      if (classes) {
-        el.setAttribute('data-ec-tooltip-mock-classes', classes);
+      if (popperClass) {
+        el.setAttribute('data-ec-tooltip-mock-popper-class', popperClass);
       } else {
-        el.removeAttribute('data-ec-tooltip-mock-classes');
+        el.removeAttribute('data-ec-tooltip-mock-popper-class');
       }
     } else {
       el.removeAttribute('data-ec-tooltip-mock-content');
       el.removeAttribute('data-ec-tooltip-mock-placement');
-      el.removeAttribute('data-ec-tooltip-mock-classes');
+      el.removeAttribute('data-ec-tooltip-mock-popper-class');
     }
   }
 
   const EcTooltipDirectiveMock = {
-    bind(el, { value }) {
+    beforeMount(el, { value }) {
       updateTooltipMock(el, value);
     },
-    update(el, { value }) {
+    updated(el, { value }) {
       updateTooltipMock(el, value);
     },
-    unbind(el) {
+    unmounted(el) {
       const dataTest = el.getAttribute('data-test') || '';
       el.setAttribute('data-test', dataTest.replace('ec-mock ec-tooltip-mock', '').trim());
       el.removeAttribute('data-ec-tooltip-mock-content');
       el.removeAttribute('data-ec-tooltip-mock-placement');
-      el.removeAttribute('data-ec-tooltip-mock-classes');
+      el.removeAttribute('data-ec-tooltip-mock-popper-class');
     },
   };
 

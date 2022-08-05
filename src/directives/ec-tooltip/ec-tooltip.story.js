@@ -1,29 +1,46 @@
+import { reactive } from 'vue';
+
 import EcTooltip from './ec-tooltip';
 
-const placements = ['right', 'top', 'bottom', 'left'];
+const defaultPlacements = ['right', 'top', 'bottom', 'left'];
 
 export default {
   title: 'Tooltip',
   argTypes: {
     placement: {
-      options: placements,
+      options: defaultPlacements,
       control: { type: 'select' },
     },
     trigger: {
       options: ['hover', 'click'],
       control: { type: 'select' },
     },
+    popperClass: {
+      options: [
+        '',
+        'ec-tooltip--level-1',
+        'ec-tooltip--level-2',
+        'ec-tooltip--level-3',
+        'ec-tooltip--bg-bright',
+        'ec-tooltip--bg-success',
+        'ec-tooltip--bg-error',
+      ],
+      control: { type: 'select' },
+    },
   },
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = ({ trigger, ...args }) => ({
   directives: { EcTooltip },
-  props: Object.keys(argTypes),
+  inheritAttrs: false,
+  setup() {
+    return { args, trigger };
+  },
   template: `
-    <div class="tw-m-48">
+    <div class="tw-m-80">
       <div
         class="tw-p-12 tw-rounded tw-text-gray-8 tw-my-auto tw-mx-20 tw-bg-additional-18"
-        v-ec-tooltip="$props">Hover over this element to see the tooltip.</div>
+        v-ec-tooltip="{ ...args, triggers: [trigger] }">Hover over this element to see the tooltip.</div>
     </div>
   `,
 });
@@ -32,14 +49,14 @@ export const basic = Template.bind({});
 
 basic.args = {
   content: 'Test tooltip',
-  show: true,
+  shown: true,
   placement: 'top',
   delay: 100,
-  classes: ['ec-tooltip--level-1'],
+  popperClass: '',
   trigger: 'hover',
-  offset: 0,
+  distance: 8,
+  skidding: 0,
   autoHide: true,
-  popperOptions: {},
 };
 
 basic.parameters = {
@@ -48,19 +65,24 @@ basic.parameters = {
 
 export const allColorsAndPositions = () => ({
   directives: { EcTooltip },
-  data() {
+  setup() {
+    const tooltipConfig = reactive({
+      content: '<p>Normal tooltip. Lorem ipsum dolor sit amet</p>',
+      shown: true,
+      triggers: ['click'],
+    });
+
+    const customBgTooltipConfig = reactive({
+      content: '<p>Popover like tooltip. Lorem ipsum dolor sit amet</p>',
+      popperClass: ['ec-tooltip--bg-bright'],
+      triggers: ['click'],
+      shown: true,
+    });
+
     return {
-      tooltipConfig: {
-        content: '<p>Normal tooltip. Lorem ipsum dolor sit amet</p>',
-        show: true,
-      },
-      whiteTooltipConfig: {
-        content: '<p>Popover like tooltip. Lorem ipsum dolor sit amet</p>',
-        classes: ['ec-tooltip--bg-bright'],
-        trigger: 'click',
-        show: true,
-      },
-      placements,
+      placements: defaultPlacements,
+      tooltipConfig,
+      customBgTooltipConfig,
     };
   },
   template: `
@@ -72,8 +94,8 @@ export const allColorsAndPositions = () => ({
             class="tw-col-2">
             <div
               v-ec-tooltip="{ ...tooltipConfig, placement: placement }"
-              class="tw-min-h-64 tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
-              Black tooltip
+              class="tw-min-h-64 tw-min-w-full tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
+              Default tooltip
             </div>
           </div>
         </div>
@@ -85,9 +107,9 @@ export const allColorsAndPositions = () => ({
             v-for="placement in placements"
             class="tw-col-2">
             <div
-              v-ec-tooltip="{ ...whiteTooltipConfig, placement: placement }"
-              class="tw-min-h-64 tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
-              White tooltip
+              v-ec-tooltip="{ ...customBgTooltipConfig, placement: placement }"
+              class="tw-min-h-64 tw-min-w-full tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
+              Custom bg tooltip
             </div>
           </div>
         </div>

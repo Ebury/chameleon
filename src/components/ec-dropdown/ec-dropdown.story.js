@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
+
 import EcDropdown from './ec-dropdown.vue';
 
 export default {
@@ -6,7 +8,7 @@ export default {
   component: EcDropdown,
 };
 
-const items = [
+const defaultItems = [
   { text: 'Item 1' },
   { text: 'Item 2' },
   { text: 'Item 3', disabled: true, disabledReason: 'Is disabled for a reason' },
@@ -16,36 +18,29 @@ const items = [
   { text: 'Item 7' },
 ];
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcDropdown },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
+    const model = ref(args.selected);
+
     return {
-      model: null,
+      args,
+      model,
+      onCta: action('cta'),
+      onChange: action('change'),
     };
-  },
-  watch: {
-    selected: {
-      immediate: true,
-      handler(newValue) { this.model = newValue; },
-    },
-  },
-  methods: {
-    onCta: action('cta'),
-    onChange: action('change'),
   },
   template: `
     <div class="tw-p-20">
-      <p v-if="selected">{{ model.text }}</p>
+      <p v-if="model">{{ model.text }}</p>
       <p v-else>Selected item: None</p>
       <div style="width: 300px;">
         <ec-dropdown
-          v-bind="$props"
+          v-bind="args"
           v-model="model"
           v-on="{
             change: onChange
-          }"
-          :is-sensitive="isSensitive">
+          }">
           <template #cta>
             <a href="#" @click.prevent="onCta" class="tw-block tw-py-8 tw-px-16">Do something</a>
           </template>
@@ -61,27 +56,31 @@ basic.args = {
   placeholder: 'Select item',
   searchPlaceholder: 'Search...',
   noResultsText: 'No results found',
-  items,
+  items: defaultItems,
   isSearchEnabled: true,
   isLoading: false,
   disabled: false,
   isSensitive: false,
   errorMessage: '',
-  selected: null,
+  modelValue: null,
 };
 
-export const all = (args, { argTypes }) => ({
+export const all = args => ({
   components: { EcDropdown },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
+    const itemsIncludingEmpty = ref([{ text: '' }, ...defaultItems]);
+    const selected = ref(null);
+    const disabledModel = ref(defaultItems[1]);
+    const items = ref(defaultItems);
+
     return {
-      itemsIncludingEmpty: [{ text: '' }, ...items],
-      selected: null,
-      disabledModel: items[1],
+      args,
+      items,
+      itemsIncludingEmpty,
+      selected,
+      disabledModel,
+      onCta: action('CTA'),
     };
-  },
-  methods: {
-    onCta: action('CTA'),
   },
   template: `
     <div class="tw-p-20">
@@ -197,10 +196,6 @@ export const all = (args, { argTypes }) => ({
     </div>
   `,
 });
-
-all.args = {
-  items,
-};
 
 all.parameters = {
   controls: { disable: true },

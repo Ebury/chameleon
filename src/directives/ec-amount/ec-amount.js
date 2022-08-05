@@ -1,6 +1,6 @@
 /* eslint no-underscore-dangle: "off" */
-import { format, setCursor, event } from './utils';
 import defaultOptions from './options';
+import { format, setCursor } from './utils';
 
 function getNumberOfSeparators(value, endIndex, separator) {
   const matches = value.substr(0, endIndex).match(new RegExp(`\\${separator}`, 'g'));
@@ -23,22 +23,21 @@ function getOptions(el) {
 }
 
 export default {
-  update(el, binding, vnode) {
-    updateOptions(vnode.elm, binding);
+  updated(el, binding, vnode) {
+    updateOptions(vnode.el, binding);
   },
 
-  bind(el, binding, vnode) {
+  beforeMount(el, binding, vnode) {
     /* eslint no-param-reassign: "off" */
-    // v-ec-amount used on a component that's not a input
+    // v-ec-amount used on a component that's not an input
     if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
-      const els = el.getElementsByTagName('input');
-      [el] = els;
+      [el] = el.getElementsByTagName('input');
     }
     if (el === undefined) {
       throw new TypeError('v-ec-amount requires 1 input');
     }
 
-    updateOptions(vnode.elm, binding);
+    updateOptions(vnode.el, binding);
 
     el.__inputHandler = function inputHandler() {
       if (el.__preventHandlingNextInputEvent) {
@@ -46,7 +45,7 @@ export default {
         return;
       }
 
-      const options = getOptions(vnode.elm);
+      const options = getOptions(vnode.el);
 
       let positionFromStart = el.selectionStart;
       const numberOfSeparatorsBefore = getNumberOfSeparators(el.value, positionFromStart, options.groupingSeparator);
@@ -71,7 +70,7 @@ export default {
       // run an infinite loop. To prevent that, let's signal we want to skip next input event
       // by setting __preventHandlingNextInputEvent to true.
       el.__preventHandlingNextInputEvent = true;
-      el.dispatchEvent(event('input'));
+      el.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
     };
 
     el.addEventListener('input', el.__inputHandler);
@@ -82,7 +81,7 @@ export default {
     el.addEventListener('keydown', el.__keydownHandler);
   },
 
-  unbind(el) {
+  beforeUnmount(el) {
     el.removeEventListener('input', el.__inputHandler);
     el.removeEventListener('keydown', el.__keydownHandler);
 

@@ -2,17 +2,18 @@
   <!-- If it is a router link -->
   <router-link
     v-if="isRouterLink"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-navigation-link` : 'ec-navigation-link',
+    }"
     active-class="ec-navigation-link--is-active"
     class="ec-navigation-link"
-    data-test="ec-navigation-link"
     :class="{
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
       'ec-navigation-link--is-collapsed': isCollapsed
     }"
-    :exact="isExact"
     :to="url"
-    v-on="$listeners"
   >
     <ec-icon
       class="ec-navigation-link__icon"
@@ -33,8 +34,11 @@
   <!-- If is a normal link that directs you outside the SPA -->
   <a
     v-else
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-navigation-link` : 'ec-navigation-link',
+    }"
     class="ec-navigation-link"
-    data-test="ec-navigation-link"
     :class="{
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
@@ -42,7 +46,6 @@
     }"
     :href="url"
     :target="target"
-    v-on="$listeners"
   >
     <ec-icon
       class="ec-navigation-link__icon"
@@ -64,9 +67,13 @@
 import EcIcon from '../ec-icon/ec-icon.vue';
 
 export default {
+  compatConfig: {
+    MODE: 3,
+  },
   components: {
     EcIcon,
   },
+  inheritAttrs: false,
   props: {
     text: {
       type: String,
@@ -80,10 +87,6 @@ export default {
     url: {
       type: String,
       required: true,
-    },
-    isExact: {
-      type: Boolean,
-      default: false,
     },
     isRouterLink: {
       type: Boolean,
@@ -108,7 +111,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 @import '../../styles/tools/transitions.css';
 
 .ec-navigation-link {

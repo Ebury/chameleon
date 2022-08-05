@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcPrivacyPolicy from './ec-privacy-policy.vue';
 
@@ -10,15 +11,17 @@ export default {
   ],
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = ({ ...args }) => ({
   components: { EcPrivacyPolicy },
-  props: Object.keys(argTypes),
-  methods: {
-    onAccept: action('accept'),
-    onNavigate: action('navigate'),
+  setup() {
+    return {
+      args,
+      onAccept: action('accept'),
+      onNavigate: action('navigate'),
+    };
   },
   template: `
-    <ec-privacy-policy v-bind="$props" v-on="{ accept: onAccept }">
+    <ec-privacy-policy v-bind="args" v-on="{ accept: onAccept }">
       This site uses cookies to ensure you get the best experience. For more information see our <a @click.prevent.stop="onNavigate">Privacy Policy</a>.
     </ec-privacy-policy>
   `,

@@ -1,12 +1,11 @@
-import { createWrapper, mount } from '@vue/test-utils';
+import { DOMWrapper, mount } from '@vue/test-utils';
+
 import EcFileDropzone from './ec-file-dropzone.vue';
 
 describe('EcFileDropzone', () => {
   function mountFileDropzone(props, mountOpts) {
     return mount(EcFileDropzone, {
-      propsData: {
-        ...props,
-      },
+      props,
       ...mountOpts,
     });
   }
@@ -25,14 +24,14 @@ describe('EcFileDropzone', () => {
     const wrapper = mountFileDropzone();
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
 
-    const bodyWrapper = createWrapper(document.body);
+    const bodyWrapper = new DOMWrapper(document.body);
     await bodyWrapper.trigger('dragenter');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
   });
 
   it('should not display the dragging status when an element is no longer dragged over the page', async () => {
     const wrapper = mountFileDropzone();
-    const bodyWrapper = createWrapper(document.body);
+    const bodyWrapper = new DOMWrapper(document.body);
 
     await bodyWrapper.trigger('dragenter');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
@@ -43,7 +42,7 @@ describe('EcFileDropzone', () => {
 
   it('should not change the dragging status when a dragover event is trigger over the page', async () => {
     const wrapper = mountFileDropzone();
-    const bodyWrapper = createWrapper(document.body);
+    const bodyWrapper = new DOMWrapper(document.body);
 
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(false);
 
@@ -65,7 +64,7 @@ describe('EcFileDropzone', () => {
 
   it('should not display the dragging status when an element is dropped over the page', async () => {
     const wrapper = mountFileDropzone();
-    const bodyWrapper = createWrapper(document.body);
+    const bodyWrapper = new DOMWrapper(document.body);
 
     await bodyWrapper.trigger('dragenter');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
@@ -76,7 +75,7 @@ describe('EcFileDropzone', () => {
 
   it('should display the dragging status when a dragleave event occurs but we still remain on the page (it is triggered by switching between elements on the page)', async () => {
     const wrapper = mountFileDropzone();
-    const bodyWrapper = createWrapper(document.body);
+    const bodyWrapper = new DOMWrapper(document.body);
 
     await bodyWrapper.trigger('dragenter');
     expect(wrapper.classes('ec-file-dropzone--dragging')).toBe(true);
@@ -97,7 +96,7 @@ describe('EcFileDropzone', () => {
   it('should stop listening to drag and drop events at document level after being destroyed', () => {
     const wrapper = mountFileDropzone();
     const spy = jest.spyOn(document, 'removeEventListener');
-    wrapper.destroy();
+    wrapper.unmount();
     expect(spy).toHaveBeenCalledTimes(4);
   });
 

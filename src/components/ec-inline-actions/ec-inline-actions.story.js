@@ -1,22 +1,24 @@
 import { action } from '@storybook/addon-actions';
-import EcInlineActions from './ec-inline-actions.vue';
+
 import EcIcon from '../ec-icon/ec-icon.vue';
+import EcInlineActions from './ec-inline-actions.vue';
 
 export default {
   title: 'Inline Actions',
   component: EcInlineActions,
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = args => ({
   components: { EcInlineActions, EcIcon },
-  props: Object.keys(argTypes),
+  setup() {
+    return { args };
+  },
   template: `
     <div class="tw-flex tw-h-screen">
       <div class="tw-m-auto">
-        <ec-inline-actions
-          v-bind="$props">
+        <ec-inline-actions v-bind="args">
           <ec-icon name="simple-more" :size="24" />
-          <template v-slot:item-reject="{ item }">This is a custom {{ item.text }}</template>
+          <template #item-reject="{ item }">This is a custom {{ item.text }}</template>
         </ec-inline-actions>
       </div>
     </div>
@@ -58,5 +60,5 @@ basic.args = {
       { action: action('lorem ipsum'), text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', icon: 'simple-sign-out' },
     ],
   ],
-  popoverOptions: { open: true },
+  popoverOptions: { shown: true },
 };

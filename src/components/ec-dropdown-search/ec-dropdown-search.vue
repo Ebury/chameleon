@@ -1,12 +1,12 @@
 <template>
   <div
-    ref="popperWidthReference"
-    class="ec-dropdown-search"
     v-bind="{
       ...$attrs,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-dropdown-search` : 'ec-dropdown-search',
       'list-data-test': null,
     }"
+    ref="popoverWrapper"
+    class="ec-dropdown-search"
     @keydown.tab="onTabKeyDown"
     @keydown.enter.space.prevent="onEnterOrSpaceKeyDown"
     @keydown.up.prevent="onArrowUpKeyDown"
@@ -14,148 +14,151 @@
     @keydown.esc="closeViaKeyboardNavigation"
   >
     <ec-popover
-      ref="popover"
-      class="ec-dropdown-search__trigger"
-      data-test="ec-popover-dropdown-search"
       v-bind="{
-        open: isOpen,
+        shown: isOpen,
         disabled: disabled,
-        placement: 'bottom',
-        offset: 8,
-        popoverInnerClass: 'ec-dropdown-search__popover',
-        popperOptions,
+        placement: 'bottom-start',
+        autoSize: true,
+        shift: false,
+        distance: 8,
+        popperClass: 'ec-dropdown-search__popover',
         level: level,
         ...popoverOptions,
       }"
+      ref="popover"
+      class="ec-dropdown-search__trigger"
+      data-test="ec-popover-dropdown-search"
       @hide="hide"
       @show="show"
       @apply-show="afterShow"
       @apply-hide="afterHide"
-      @resize="resize"
     >
       <slot />
-      <div slot="popover">
-        <ul
-          ref="itemsOverflowContainer"
-          :class="listClasses"
-          :data-test="`ec-dropdown-search__item-list ${$attrs['list-data-test'] || ''}`.trim()"
-          @keydown.tab="onTabKeyDown"
-          @keydown.up.prevent="onArrowUpKeyDown"
-          @keydown.down.prevent="onArrowDownKeyDown"
-          @keydown.esc="closeViaKeyboardNavigation"
-        >
-          <li
-            ref="searchArea"
-            v-if="isSearchEnabled"
-            class="ec-dropdown-search__search-area"
-            data-test="ec-dropdown-search__search-area"
+      <template #popper>
+        <div :style="getPopoverStyle()">
+          <ul
+            ref="itemsOverflowContainer"
+            :class="listClasses"
+            :data-test="`ec-dropdown-search__item-list ${$attrs['list-data-test'] || ''}`.trim()"
+            @keydown.tab="onTabKeyDown"
+            @keydown.up.prevent="onArrowUpKeyDown"
+            @keydown.down.prevent="onArrowDownKeyDown"
+            @keydown.esc="closeViaKeyboardNavigation"
           >
-            <ec-icon
-              class="ec-dropdown-search__search-icon"
-              name="simple-search"
-            />
-            <input
-              ref="searchInput"
-              v-model.trim="filterText"
-              autocomplete="off"
-              :placeholder="placeholder"
-              class="ec-dropdown-search__search-input"
-              data-test="ec-dropdown-search__search-input"
-              @keydown.enter="onEnterOrSpaceKeyDown"
-              @focus="isSearchInputFocused = true"
-              @blur="isSearchInputFocused = false"
+            <li
+              ref="searchArea"
+              v-if="isSearchEnabled"
+              class="ec-dropdown-search__search-area"
+              data-test="ec-dropdown-search__search-area"
             >
-          </li>
-          <li
-            ref="ctaArea"
-            v-if="hasCta()"
-            v-ec-tooltip.left="{ content: !!tooltipCta ? tooltipCta : null }"
-            class="ec-dropdown-search__cta-area"
-            :class="{
-              'ec-dropdown-search__cta-area--is-focused': isCtaAreaFocused,
-            }"
-            data-test="ec-dropdown-search__cta-area"
-            @click="hide"
-          >
-            <slot name="cta" />
-          </li>
-
-          <li v-if="isLoading">
-            <ec-loading
-              show
-              :size="24"
-            >
-              <div
-                class="ec-dropdown-search__loading"
-                data-test="ec-dropdown-search__loading"
+              <ec-icon
+                class="ec-dropdown-search__search-icon"
+                name="simple-search"
               />
-            </ec-loading>
-          </li>
-
-          <slot
-            v-else-if="isEmpty"
-            name="empty"
-            v-bind="{ noResultsText }"
-          >
+              <input
+                ref="searchInput"
+                v-model.trim="filterText"
+                autocomplete="off"
+                :placeholder="placeholder"
+                class="ec-dropdown-search__search-input"
+                data-test="ec-dropdown-search__search-input"
+                @keydown.enter="onEnterOrSpaceKeyDown"
+                @focus="isSearchInputFocused = true"
+                @blur="isSearchInputFocused = false"
+              >
+            </li>
             <li
-              class="ec-dropdown-search__no-items"
-              data-test="ec-dropdown-search__no-items"
-              :title="noResultsText"
-            >{{ noResultsText }}</li>
-          </slot>
-
-          <slot
-            v-else
-            name="items"
-            v-bind="filteredItems"
-          >
-            <li
-              v-for="(item, index) of filteredItems"
-              :key="item.id || index"
-              ref="itemElements"
-              v-ec-tooltip="{
-                placement: 'right',
-                content: item.disabled ? item.disabledReason : '',
-                ...tooltipOptions,
-                ...item.tooltip,
-              }"
-              :title="item.text"
-              class="ec-dropdown-search__item"
-              :data-test="`ec-dropdown-search__item ec-dropdown-search__item--${index}`"
+              ref="ctaArea"
+              v-if="hasCta()"
+              v-ec-tooltip.left="{ content: !!tooltipCta ? tooltipCta : null }"
+              class="ec-dropdown-search__cta-area"
               :class="{
-                'ec-dropdown-search__item--is-selected': item === selected,
-                'ec-dropdown-search__item--is-disabled': item.disabled,
+                'ec-dropdown-search__cta-area--is-focused': isCtaAreaFocused,
               }"
-              @click="!item.disabled && select(item)"
-            ><slot
-              name="item"
-              v-bind="{ item, index, isSelected: item === selected }"
-            >{{ item.text }}</slot></li>
-          </slot>
-        </ul>
-      </div>
+              data-test="ec-dropdown-search__cta-area"
+              @click="hide"
+            >
+              <slot name="cta" />
+            </li>
+
+            <li v-if="isLoading">
+              <ec-loading
+                show
+                :size="24"
+              >
+                <div
+                  class="ec-dropdown-search__loading"
+                  data-test="ec-dropdown-search__loading"
+                />
+              </ec-loading>
+            </li>
+
+            <slot
+              v-else-if="isEmpty"
+              name="empty"
+              v-bind="{ noResultsText }"
+            >
+              <li
+                class="ec-dropdown-search__no-items"
+                data-test="ec-dropdown-search__no-items"
+                :title="noResultsText"
+              >{{ noResultsText }}</li>
+            </slot>
+
+            <slot
+              v-else
+              name="items"
+              v-bind="filteredItems"
+            >
+              <li
+                v-for="(item, index) of filteredItems"
+                :key="item.id || index"
+                ref="itemElements"
+                v-ec-tooltip="{
+                  placement: 'right',
+                  content: item.disabled ? item.disabledReason : '',
+                  ...tooltipOptions,
+                  ...item.tooltip,
+                }"
+                :title="item.text"
+                class="ec-dropdown-search__item"
+                :data-test="`ec-dropdown-search__item ec-dropdown-search__item--${index}`"
+                :class="{
+                  'ec-dropdown-search__item--is-selected': isItemSelected(item),
+                  'ec-dropdown-search__item--is-disabled': item.disabled,
+                }"
+                @click="!item.disabled && select(item)"
+              ><slot
+                name="item"
+                v-bind="{ item, index, isSelected: isItemSelected(item) }"
+              >{{ item.text }}</slot></li>
+            </slot>
+          </ul>
+        </div>
+      </template>
     </ec-popover>
   </div>
 </template>
 
 <script>
-import { ARROW_UP, ARROW_DOWN } from '../../enums/key-code';
-import EcIcon from '../ec-icon';
-import EcPopover from '../ec-popover';
-import EcLoading from '../ec-loading';
-import EcTooltip from '../../directives/ec-tooltip';
-import { removeDiacritics } from '../../utils/diacritics';
+import { toRaw } from 'vue';
+
 import config from '../../config';
+import EcTooltip from '../../directives/ec-tooltip';
+import { ARROW_DOWN, ARROW_UP } from '../../enums/key-code';
+import { removeDiacritics } from '../../utils/diacritics';
+import EcIcon from '../ec-icon';
+import EcLoading from '../ec-loading';
+import EcPopover from '../ec-popover';
 
 export default {
   name: 'EcDropdownSearch',
+  compatConfig: {
+    COMPONENT_V_MODEL: false,
+  },
   components: { EcPopover, EcIcon, EcLoading },
   directives: { EcTooltip },
   inheritAttrs: false,
-  model: {
-    prop: 'selected',
-    event: 'change',
-  },
   props: {
     placeholder: {
       type: String,
@@ -179,7 +182,7 @@ export default {
       type: Array,
       default: () => ([]),
     },
-    selected: {
+    modelValue: {
       type: [Object, Array],
       default: null,
     },
@@ -187,11 +190,11 @@ export default {
       type: Object,
       default: null,
     },
-    tooltipOptions: {
-      type: Object,
+    popoverStyle: {
+      type: [Object, Function],
       default: null,
     },
-    popperModifiers: {
+    tooltipOptions: {
       type: Object,
       default: null,
     },
@@ -216,6 +219,7 @@ export default {
       default: '',
     },
   },
+  emits: ['update:modelValue', 'change', 'close', 'open', 'after-close', 'after-open'],
   data() {
     return {
       isOpen: false,
@@ -223,65 +227,6 @@ export default {
       initialFocusedElement: null,
       isSearchInputFocused: false,
       isCtaAreaFocused: false,
-      popperOptions: {
-        modifiers: {
-          // https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.priority
-          preventOverflow: {
-            priority: ['bottom', 'top'],
-          },
-          setPopperWidth: {
-            // Problem:
-            // The width of the popover should match the width of the dropdown-search root.
-            // There is no easy way how to configure it in popover or popper.js. There is an option to set
-            // boundaries element which popover should not escape, unfortunately, these boundaries are applied for
-            // both axis (x and y), but we want to limit it only the horizontal, e.g. if you have div, we don't
-            // want the popover to have width bigger than div, but we don't care about the height of the div and we
-            // want the popover to overflow the div by escaping from it via bottom or top edge.
-            //
-            // Solution: https://github.com/FezVrasta/popper.js/issues/794
-            // Popper.js has modifiers for extending its functionality. We just need to give proper order and execute
-            // function that will calculate new width for the popover. For the reference width, we will use
-            // the root element of the component. Without setting this, the width would be 100% of the boundariesElement,
-            // which is viewport.
-            enabled: true,
-            order: 840,
-            fn: /* istanbul ignore next */ (data) => {
-              data.styles.width = this.$refs.popperWidthReference.offsetWidth;
-              return data;
-            },
-          },
-          setOverflowHeight: {
-            enabled: true,
-            order: 845,
-            fn: /* istanbul ignore next */ (data) => {
-              const overflowContainer = this.$refs.itemsOverflowContainer;
-              const items = this.$refs.itemElements;
-              if (items && items.length > this.maxVisibleItems) {
-                let finalHeight = 0;
-                if (this.$refs.searchArea) {
-                  finalHeight += this.$refs.searchArea.offsetHeight;
-                }
-                if (this.$refs.ctaArea) {
-                  finalHeight += this.$refs.ctaArea.offsetHeight;
-                }
-
-                const visibleItems = Array.prototype.slice.call(items, 0, this.maxVisibleItems);
-                finalHeight = visibleItems.reduce((sum, curr) => sum + curr.offsetHeight, finalHeight);
-                overflowContainer.style.maxHeight = `${finalHeight}px`;
-              } else {
-                overflowContainer.style.maxHeight = 'auto';
-              }
-              return data;
-            },
-          },
-          ...this.popperModifiers,
-        },
-        onUpdate: () => {
-          // updating the scroll here rather than immediately after selecting an item as the popover is updated when
-          // an item is selected, and this can cause its dimensions to change when their items are dynamically sized
-          this.updateScroll();
-        },
-      },
     };
   },
   computed: {
@@ -323,48 +268,102 @@ export default {
       /* istanbul ignore else */
       if (!this.isOpen) {
         // necessary to regain the focus after tab/enter keyboard event if search feature is active
-        this.initialFocusedElement = this.$refs.popover.$el.querySelector(':focus');
+        this.initialFocusedElement = this.$refs.popoverWrapper.querySelector(':focus');
         this.blurCta();
         this.isOpen = true;
         this.$emit('open');
       }
     },
-    focusSearch() {
-      this.$nextTick(() => {
-        /* istanbul ignore else */
-        if (this.isOpen && this.isSearchEnabled) {
-          this.$refs.searchInput.focus();
-        }
-      });
+    getPopoverStyle() {
+      if (typeof this.popoverStyle === 'function') {
+        return this.popoverStyle();
+      }
+
+      return this.popoverStyle;
     },
-    afterShow() {
+    setOverflowHeight() {
+      const overflowContainer = this.$refs.itemsOverflowContainer;
+      if (!overflowContainer) {
+        return;
+      }
+      const items = this.$refs.itemElements;
+      if (items && items.length > this.maxVisibleItems) {
+        let finalHeight = 0;
+        if (this.$refs.searchArea) {
+          finalHeight += this.$refs.searchArea.offsetHeight;
+        }
+        if (this.$refs.ctaArea) {
+          finalHeight += this.$refs.ctaArea.offsetHeight;
+        }
+
+        const visibleItems = Array.prototype.slice.call(items, 0, this.maxVisibleItems);
+        finalHeight = visibleItems.reduce((sum, curr) => sum + curr.offsetHeight, finalHeight);
+        overflowContainer.style.maxHeight = `${finalHeight}px`;
+      } else {
+        overflowContainer.style.maxHeight = 'auto';
+      }
+    },
+    focusSearch() {
+      if (this.isOpen && this.isSearchEnabled && this.$refs.searchInput) {
+        this.$refs.searchInput.focus();
+      }
+    },
+    async afterShow() {
+      this.setOverflowHeight();
+      this.updateScroll();
+
       this.$emit('after-open');
-      this.focusSearch();
+
+      if (this.isSearchEnabled) {
+        // hack:
+        // we'd like to focus the search input after the dropdown is open, but ...
+        //
+        // Problem:
+        // Popover focus itself after gets open, we need to first wait on popover to gain its focus and then take it.
+        // see https://github.com/Akryum/floating-vue/blob/971beb5a4d1468bc09e09528d07c7af26aa71d0a/packages/floating-vue/src/components/Popper.ts#L776
+        //
+        // according to the nextFrame() function from popover's source, popover waits 2x RAFs before focusing its
+        // root element. So we need to wait 3 RAFs so we can do the same later ...
+        //
+        // A stupid situation requires stupid solutions:
+        await new Promise((resolve) => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(resolve);
+            });
+          });
+        });
+
+        this.focusSearch();
+      }
     },
     afterHide() {
       this.$emit('after-close');
     },
-    resize() {
-      // the first time the VPopover component is opened, after emitting the `apply-show`
-      // event, the component resizes and the focus on the search input field is lost, so
-      // the input field must regain the focus after this happens
-      this.focusSearch();
-    },
     select(item, options) {
+      this.$emit('update:modelValue', item);
       this.$emit('change', item);
       if (!options || !options.keyboardNavigation) {
         this.hide();
       } else {
+        this.$nextTick(() => {
+          // we need to give Vue chance to update all props and data after emitting change even to parent
+          // e.g. this.modelValue is still the old one by the time the $nextTick is registered.
+          this.updateScroll();
+        });
         // selecting an item might affect the position of the popover,
         // e.g. new item moves the trigger down
         this.$refs.popover.update();
       }
     },
+    isItemSelected(item) {
+      return toRaw(item) === toRaw(this.modelValue);
+    },
     hasCta() {
-      return !!this.$scopedSlots.cta;
+      return !!this.$slots.cta;
     },
     onArrowKey(key) {
-      const selectedItemIndex = this.filteredItems.indexOf(this.selected);
+      const selectedItemIndex = this.filteredItems.indexOf(toRaw(this.modelValue));
       let nextItem;
 
       if (selectedItemIndex >= 0) {
@@ -439,7 +438,7 @@ export default {
         this.loseFocus();
         if (this.isSearchEnabled) {
           // if the search is active the focus is lost from the trigger, then it must regain the focus
-          if (this.initialFocusedElement) {
+          if (this.initialFocusedElement && typeof this.initialFocusedElement.focus === 'function') {
             this.initialFocusedElement.focus();
             this.initialFocusedElement = null;
           }
@@ -451,7 +450,7 @@ export default {
       const containerScrollHeight = this.$refs.itemsOverflowContainer.scrollHeight;
 
       if (containerHeight < containerScrollHeight) {
-        const selectedItemIndex = this.filteredItems.indexOf(this.selected);
+        const selectedItemIndex = this.filteredItems.indexOf(toRaw(this.modelValue));
         const $elItems = this.$refs.itemElements;
 
         if ($elItems && $elItems.length && selectedItemIndex >= 0) {
@@ -499,25 +498,16 @@ export default {
 }
 
 .ec-dropdown-search {
-  &__popover {
-    @apply tw-shadow-level-1;
-    @apply tw-body-text;
-    @apply tw-bg-gray-8;
-    @apply tw-border-gray-6;
-  }
-
-  &__trigger {
-    /* this bit is not configurable in v-tooltip and it's very annoying to deal with
-       for context:
-       https://github.com/Akryum/v-tooltip/issues/160
-       https://github.com/Akryum/v-tooltip/issues/363
-
-       the issue is fixed in v3 alpha, we will remove this hack after updating
-    */
-    .trigger {
-      @apply tw-block !important;
+  /* stylelint-disable selector-max-class */
+  &__popover.v-popper--theme-dropdown {
+    .v-popper__inner {
+      @apply tw-shadow-level-1;
+      @apply tw-body-text;
+      @apply tw-bg-gray-8;
+      @apply tw-border-gray-6;
     }
   }
+  /* stylelint-enable */
 
   &__search-area {
     @apply tw-relative;

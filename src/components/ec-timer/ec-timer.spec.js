@@ -1,52 +1,51 @@
-import { mount } from '@vue/test-utils';
 import fakeTimers from '@sinonjs/fake-timers';
-import EcTimer from './ec-timer.vue';
+import { mount } from '@vue/test-utils';
+
 import { withMockedConsole } from '../../../tests/utils/console';
+import EcTimer from './ec-timer.vue';
 
 describe('EcTimer', () => {
   function mountTimer(props, mountOpts) {
     return mount(EcTimer, {
-      propsData: {
-        ...props,
-      },
+      props,
       ...mountOpts,
     });
   }
 
   describe(':props', () => {
     it('should throw an error if "seconds" prop is not given', () => {
-      withMockedConsole((errorSpy) => {
+      withMockedConsole((errorSpy, warnSpy) => {
         mountTimer({ isRunning: true });
 
-        expect(errorSpy).toHaveBeenCalledTimes(1);
-        expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "seconds"');
+        expect(warnSpy).toHaveBeenCalledTimes(2);
+        expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "seconds"');
       });
     });
 
     it('should throw an error if "seconds" prop is not an integer', () => {
-      withMockedConsole((errorSpy) => {
+      withMockedConsole((errorSpy, warnSpy) => {
         mountTimer({ seconds: 20.1, isRunning: true });
 
-        expect(errorSpy).toHaveBeenCalledTimes(1);
-        expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "seconds"');
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "seconds"');
       });
     });
 
     it('should throw an error if "seconds" prop is negative', () => {
-      withMockedConsole((errorSpy) => {
+      withMockedConsole((errorSpy, warnSpy) => {
         mountTimer({ seconds: -20, isRunning: true });
 
-        expect(errorSpy).toHaveBeenCalledTimes(1);
-        expect(errorSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "seconds"');
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "seconds"');
       });
     });
 
     it('should throw an error if "isRunning" prop is not given', () => {
-      withMockedConsole((errorSpy) => {
+      withMockedConsole((errorSpy, warnSpy) => {
         mountTimer({ seconds: 20 });
 
-        expect(errorSpy).toHaveBeenCalledTimes(1);
-        expect(errorSpy.mock.calls[0][0]).toContain('Missing required prop: "isRunning"');
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "isRunning"');
       });
     });
 
@@ -115,7 +114,7 @@ describe('EcTimer', () => {
       await wrapper.setProps({ isRunning: false });
       clock.tick(10000);
 
-      expect(wrapper.emitted('time-expired')).toBeFalsy();
+      expect(wrapper.emitted('time-expired')).toBeUndefined();
     });
 
     it('should not emit the time expired twice if you restart the timer', async () => {
@@ -126,9 +125,9 @@ describe('EcTimer', () => {
       await wrapper.setProps({ isRunning: true });
       clock.tick(10000);
 
-      expect(wrapper.emitted('time-expired')).toBeFalsy();
+      expect(wrapper.emitted('time-expired')).toBeUndefined();
       clock.tick(10000);
-      expect(wrapper.emitted('time-expired')).toBeTruthy();
+      expect(wrapper.emitted('time-expired').length).toBe(1);
     });
   });
 
@@ -137,7 +136,7 @@ describe('EcTimer', () => {
     const wrapper = mountTimer({ seconds: 20, isRunning: true });
 
     expect(clearTimeoutSpy).toHaveBeenCalledTimes(0);
-    wrapper.destroy();
+    wrapper.unmount();
     expect(clearTimeoutSpy).toHaveBeenCalledTimes(1);
   });
 });

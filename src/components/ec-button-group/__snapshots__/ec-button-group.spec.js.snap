@@ -5,38 +5,40 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
   class="ec-btn-group"
   data-test="ec-btn-group"
 >
+  
   <button
-    class="ec-btn ec-btn-group__btn ec-btn--md ec-btn--primary ec-btn--outline"
+    class="ec-btn-group__btn ec-btn ec-btn--md ec-btn--primary ec-btn--outline"
     data-test="ec-button-group__btn ec-button-group__btn-0 ec-btn"
     type="button"
   >
-    <!---->
-     
+    <!--v-if-->
     <span
       class="ec-btn__text"
       data-test="ec-btn__text"
     >
+      
       Yes
+      
     </span>
-     
-    <!---->
+    <!--v-if-->
   </button>
   <button
-    class="ec-btn ec-btn-group__btn ec-btn--md ec-btn--primary ec-btn--outline"
+    class="ec-btn-group__btn ec-btn ec-btn--md ec-btn--primary ec-btn--outline"
     data-test="ec-button-group__btn ec-button-group__btn-1 ec-btn"
     type="button"
   >
-    <!---->
-     
+    <!--v-if-->
     <span
       class="ec-btn__text"
       data-test="ec-btn__text"
     >
+      
       No
+      
     </span>
-     
-    <!---->
+    <!--v-if-->
   </button>
+  
 </div>
 `;
 
@@ -45,38 +47,40 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
   class="ec-btn-group"
   data-test="ec-btn-group"
 >
+  
   <button
-    class="ec-btn ec-btn-group__btn ec-btn--md ec-btn--primary ec-btn--outline"
+    class="ec-btn-group__btn ec-btn ec-btn--md ec-btn--primary ec-btn--outline"
     data-test="ec-button-group__btn ec-button-group__btn-0 ec-btn"
     type="button"
   >
-    <!---->
-     
+    <!--v-if-->
     <span
       class="ec-btn__text"
       data-test="ec-btn__text"
     >
+      
       Yes
+      
     </span>
-     
-    <!---->
+    <!--v-if-->
   </button>
   <button
-    class="ec-btn ec-btn-group__btn ec-btn--md ec-btn--primary ec-btn--outline"
+    class="ec-btn-group__btn ec-btn ec-btn--md ec-btn--primary ec-btn--outline"
     data-test="ec-button-group__btn ec-button-group__btn-1 ec-btn"
-    disabled="disabled"
+    disabled=""
     type="button"
   >
-    <!---->
-     
+    <!--v-if-->
     <span
       class="ec-btn__text"
       data-test="ec-btn__text"
     >
+      
       No
+      
     </span>
-     
-    <!---->
+    <!--v-if-->
   </button>
+  
 </div>
 `;

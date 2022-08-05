@@ -1,4 +1,5 @@
 import fs from 'fs';
+
 import { getDecimalSeparator, getGroupingSeparator } from './number-format';
 
 describe('Utils', () => {

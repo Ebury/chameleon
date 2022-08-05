@@ -1,4 +1,6 @@
 import { action } from '@storybook/addon-actions';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
+
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcToaster from './ec-toaster.vue';
 
@@ -10,58 +12,67 @@ export default {
   ],
 };
 
-export const basic = (args, { argTypes }) => ({
+export const basic = ({
+  messages, type, title, subtitle, ...args
+}) => ({
   components: { EcToaster },
-  props: Object.keys(argTypes),
-  data() {
+  setup() {
+    function useBodyHandler({ actionName }) {
+      const bodyHandler = action(actionName);
+
+      onMounted(() => {
+        document.addEventListener('click', bodyHandler);
+      });
+
+      onBeforeUnmount(() => {
+        document.removeEventListener('click', bodyHandler);
+      });
+    }
+
+    function useMessageStorage(initialMessages, newMessageDefaults) {
+      const model = ref(initialMessages);
+
+      function removeMessage(message) {
+        action('remove')(message);
+        model.value = model.value.filter(m => m !== message);
+      }
+
+      function addMessage() {
+        model.value.push({
+          id: +new Date(),
+          ...newMessageDefaults,
+          type,
+          title,
+          subtitle,
+        });
+      }
+      return {
+        model,
+        removeMessage,
+        addMessage,
+      };
+    }
+
+    useBodyHandler({ actionName: 'bodyClick' });
+    const { removeMessage, addMessage, model } = useMessageStorage(messages, { type, title, subtitle });
+
     return {
-      messagesFromProps: [],
+      model,
+      args,
+      removeMessage,
+      addMessage,
     };
   },
-  watch: {
-    messages: {
-      immediate: true,
-      handler(newValue) {
-        this.messagesFromProps = newValue;
-      },
-    },
-  },
-  methods: {
-    removeMessage(message) {
-      action('remove')(message);
-      this.messagesFromProps = this.messagesFromProps.filter(m => m !== message);
-    },
-    addMessage() {
-      this.messagesFromProps.push({
-        id: +new Date(),
-        type: this.type,
-        title: this.title,
-        subtitle: this.subtitle,
-      });
-    },
-    bodyHandler: action('bodyClick'),
-  },
-  // eslint-disable-next-line no-unused-vars
-  render(h) {
-    return (
-      <div class="tw-flex tw-items-center tw-justify-center tw-h-screen">
-        <div class="tw-fixed tw-right-0 tw-top-0 tw-w-full" style={{
-          maxWidth: '400px',
-        }}>
-          <EcToaster messages={this.messagesFromProps} onRemove={message => this.removeMessage(message)} />
-        </div>
-        <button
-          class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary"
-          onClick={this.addMessage}>Add another message</button>
+  template: `
+    <div class="tw-flex tw-items-center tw-justify-center tw-h-screen">
+      <div class="tw-fixed tw-right-0 tw-top-0 tw-w-full" style="max-width: 400px;">
+        <ec-toaster :messages="model" @remove="removeMessage"></ec-toaster>
       </div>
-    );
-  },
-  mounted() {
-    document.addEventListener('click', this.bodyHandler);
-  },
-  beforeDestroy() {
-    document.removeEventListener('click', this.bodyHandler);
-  },
+      <button
+          class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary"
+          @click="addMessage">Add another message</button>
+    </div>
+  `,
 });
 
 basic.argTypes = {

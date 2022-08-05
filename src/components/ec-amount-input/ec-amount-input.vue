@@ -1,172 +1,151 @@
 <template>
   <ec-input-field
-    v-model="inputModel"
-    v-ec-amount="getFormattingOptions()"
     v-bind="{
       ...$attrs,
       ...$props,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-amount-input` : 'ec-amount-input',
+      modelValue: null,
       locale: null,
       isMasked: null,
       currency: null,
     }"
-    v-on="{ ...$listeners, 'value-change': null }"
+    v-model="inputModel"
+    v-ec-amount="numberFormatOptions"
   />
 </template>
 
-<script>
-import EcInputField from '../ec-input-field';
-import EcAmount from '../../directives/ec-amount/ec-amount';
+<script setup>
+import { computed, ref, watch } from 'vue';
+
+import VEcAmount from '../../directives/ec-amount/ec-amount';
 import { format, unFormat } from '../../directives/ec-amount/utils';
 import { getDecimalSeparator, getGroupingSeparator } from '../../utils/number-format';
+import EcInputField from '../ec-input-field';
 
-export default {
-  components: { EcInputField },
-  directives: { EcAmount },
-  inheritAttrs: false,
-  model: {
-    prop: 'value',
-    event: 'value-change',
+const emit = defineEmits(['update:modelValue']);
+
+const props = defineProps({
+  ...EcInputField.props,
+  modelValue: {
+    validator: prop => typeof prop === 'number' || typeof prop === 'string' || prop === null,
+    required: true,
+    default: null,
   },
-  props: {
-    ...EcInputField.props,
-    value: {
-      validator: prop => typeof prop === 'number' || typeof prop === 'string' || prop === null,
-      required: true,
-      default: null,
-    },
-    isMasked: {
-      type: Boolean,
-      default: false,
-    },
-    locale: {
-      type: String,
-      default: 'en',
-    },
-    currency: {
-      type: String,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
+  isMasked: {
+    type: Boolean,
+    default: false,
   },
-  data() {
-    return {
-      formattedValue: '',
-      unformattedValue: null,
-    };
+  locale: {
+    type: String,
+    default: 'en',
   },
-  computed: {
-    precision() {
-      // Precision may vary because of locale and currency
-      // If currency is not given, use only locale and pass non existent currency, e.g. EN -> 2
-      // If currency is present, we might get different result, e.g. precision for EN with GBP is 2,
-      // but EN with JPY is 0.
-      const options = new Intl.NumberFormat(this.locale, { style: 'currency', currency: this.currency || 'XYZ' }).resolvedOptions();
-      return options.maximumFractionDigits;
-    },
-    inputModel: {
-      get() {
-        return this.formattedValue;
-      },
-      set(newValue) {
-        const newValueFormatted = format(newValue, this.getFormattingOptions());
-        if (newValueFormatted !== newValue) {
-          // it seems that ec-amount directive didn't have chance to format the newValue yet.
-          // so ignore this attempt to set invalid/unprocessed value
-          return;
-        }
-
-        if (newValue === this.formattedValue) {
-          // the new value is exactly the same as the curent value, skip the assignment so it will not trigger other
-          // setters and watchers.
-          return;
-        }
-
-        this.formattedValue = newValue;
-      },
-    },
+  currency: {
+    type: String,
   },
-  watch: {
-    value: {
-      immediate: true,
-      handler(newValue) {
-        if (this.isMasked) {
-          if (newValue === this.formattedValue) {
-            return;
-          }
+});
 
-          this.formattedValue = newValue;
-          this.unformattedValue = +(unFormat(newValue, this.getGroupingSeparator(), this.getDecimalSeparator()));
-        } else {
-          if (newValue === this.unformattedValue) {
-            return;
-          }
+// number format settings
+const precision = computed(() => {
+  const options = new Intl.NumberFormat(props.locale, { style: 'currency', currency: props.currency || 'XYZ' }).resolvedOptions();
+  return options.maximumFractionDigits;
+});
+const groupingSeparator = computed(() => getGroupingSeparator(props.locale));
+const decimalSeparator = computed(() => getDecimalSeparator(props.locale));
+const numberFormatOptions = computed(() => ({
+  precision: precision.value,
+  decimalSeparator: decimalSeparator.value,
+  groupingSeparator: groupingSeparator.value,
+}));
 
-          if (!Number.isNaN(newValue) && this.formattedValue !== '-') {
-            if (typeof newValue === 'number') {
-              this.formattedValue = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.value);
-            } else {
-              this.formattedValue = format(newValue, this.getFormattingOptions());
-            }
-          }
-          this.unformattedValue = newValue;
-        }
-      },
-    },
-    currency() {
-      if (this.formattedValue) {
-        const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
-        this.formattedValue = format(formatted, this.getFormattingOptions());
+// models
+const formattedValue = ref('');
+const unformattedValue = ref(null);
+
+const inputModel = computed({
+  get() {
+    return formattedValue.value;
+  },
+  set(newValue) {
+    const newValueFormatted = format(newValue, numberFormatOptions.value);
+    if (newValueFormatted !== newValue) {
+      return;
+    }
+
+    if (newValue === formattedValue.value) {
+      return;
+    }
+
+    formattedValue.value = newValue;
+  },
+});
+
+watch([() => props.currency, () => props.locale], () => {
+  if (formattedValue.value) {
+    const formatted = new Intl.NumberFormat(props.locale, { type: 'decimal', maximumFractionDigits: precision.value }).format(unformattedValue.value);
+    formattedValue.value = format(formatted, numberFormatOptions.value);
+  }
+});
+
+watch(formattedValue, (newValue) => {
+  if (newValue) {
+    const newUnformattedValue = +(unFormat(newValue, groupingSeparator.value, decimalSeparator.value));
+    const hasUnformattedValueChanged = unformattedValue.value !== newUnformattedValue;
+    unformattedValue.value = newUnformattedValue;
+    if (props.isMasked) {
+      emit('update:modelValue', formattedValue.value);
+    } else {
+      if (Number.isNaN(newUnformattedValue) || !hasUnformattedValueChanged) {
+        // prevent emitting update events for NaN values or if the unformatted values hasn't changed.
+        // this can happen in cases like:
+        // 1. user types "-" into the input field -> unformattedValue will be NaN
+        // 2. user typed "1", then "1.", then "1.0" -> unformattedValue is always the same, only the formattedValue changes.
+        return;
       }
-    },
-    locale() {
-      if (this.formattedValue) {
-        const formatted = new Intl.NumberFormat(this.locale, { type: 'decimal', maximumFractionDigits: this.precision }).format(this.unformattedValue);
-        this.formattedValue = format(formatted, this.getFormattingOptions());
-      }
-    },
-    formattedValue(newValue) {
-      if (newValue) {
-        const unformattedValue = +(unFormat(newValue, this.getGroupingSeparator(), this.getDecimalSeparator()));
-        const hasUnformattedValueChanged = this.unformattedValue !== unformattedValue;
-        this.unformattedValue = unformattedValue;
-        if (this.isMasked) {
-          this.$emit('value-change', this.formattedValue);
-        } else {
-          if (Number.isNaN(unformattedValue) || !hasUnformattedValueChanged) {
-            // prevent emitting change events for NaN values or if the unformatted values hasn't changed.
-            // this can happen in cases like:
-            // 1. user types "-" into the input field -> unformattedValue will be NaN
-            // 2. user typed "1", then "1.", then "1.0" -> unformattedValue is always the same, only the formattedValue changes.
-            return;
-          }
-          this.$emit('value-change', this.unformattedValue);
-        }
+      emit('update:modelValue', unformattedValue.value);
+    }
+  } else {
+    unformattedValue.value = null;
+    emit('update:modelValue', props.isMasked ? formattedValue.value : unformattedValue.value);
+  }
+});
+
+watch(() => props.modelValue, (newValue) => {
+  if (props.isMasked) {
+    if (newValue === formattedValue.value) {
+      return;
+    }
+
+    formattedValue.value = newValue;
+    unformattedValue.value = +(unFormat(newValue, groupingSeparator.value, decimalSeparator.value));
+  } else {
+    if (newValue === unformattedValue.value) {
+      return;
+    }
+
+    if (!Number.isNaN(newValue) && formattedValue.value !== '-') {
+      if (typeof newValue === 'number') {
+        formattedValue.value = new Intl.NumberFormat(props.locale, { type: 'decimal', maximumFractionDigits: precision.value }).format(newValue);
       } else {
-        this.unformattedValue = null;
-        this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
+        formattedValue.value = format(newValue, numberFormatOptions.value);
       }
-    },
-    isMasked() {
-      this.$emit('value-change', this.isMasked ? this.formattedValue : this.unformattedValue);
-    },
+    }
+    unformattedValue.value = newValue;
+  }
+}, {
+  immediate: true,
+});
+
+watch(() => props.isMasked, (newValue) => {
+  emit('update:modelValue', newValue ? formattedValue.value : unformattedValue.value);
+});
+</script>
+
+<script>
+export default {
+  name: 'EcAmountInput',
+  compatConfig: {
+    MODE: 3,
   },
-  methods: {
-    getFormattingOptions() {
-      return {
-        precision: this.precision,
-        decimalSeparator: this.getDecimalSeparator(),
-        groupingSeparator: this.getGroupingSeparator(),
-      };
-    },
-    getGroupingSeparator() {
-      return getGroupingSeparator(this.locale);
-    },
-    getDecimalSeparator() {
-      return getDecimalSeparator(this.locale);
-    },
-  },
+  inheritAttrs: false,
 };
 </script>

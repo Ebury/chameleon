@@ -1,3 +1,12 @@
+# 2.0.0 - Vue 3
+
+## BREAKING CHANGES
+
+* Released for Vue 3. All components are compatible with Vue version 2 and 3 when using `@vue/compat` package.
+* Updated @vue/cli to v5
+* Updated v-tooltip to floating-vue
+* Deprecated HoCs in favour of Composition API and `@vueuse/core`.
+
 # 1.0.0 - Initial release
 
 ## BREAKING CHANGES

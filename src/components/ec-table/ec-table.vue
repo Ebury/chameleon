@@ -24,7 +24,7 @@
             v-for="(row, rowIndex) in data"
             :key="rowIndex"
             :data-test="`ec-table__row ec-table__row--${rowIndex}`"
-            :class="{ 'ec-table__row--is-clickable': !!$listeners['row-click'] }"
+            :class="{ 'ec-table__row--is-clickable': !!$listeners['rowClick'] }"
             @click="$emit('row-click', { data: row, rowIndex })"
           >
             <td
@@ -62,8 +62,8 @@
 </template>
 
 <script>
-import EcTableHead from '../ec-table-head';
 import EcTableFooter from '../ec-table-footer';
+import EcTableHead from '../ec-table-head';
 
 export default {
   name: 'EcTable',
@@ -96,6 +96,7 @@ export default {
     },
     title: String,
   },
+  emits: ['sort', 'row-click'],
   computed: {
     numberOfColumns() {
       return (
@@ -131,7 +132,7 @@ export default {
       return null;
     },
     hasFooterSlot() {
-      return !!this.$scopedSlots.footer;
+      return !!this.$slots.footer;
     },
   },
 };

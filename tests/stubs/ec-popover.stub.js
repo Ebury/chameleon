@@ -1,7 +1,14 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 
-const EcPopoverStub = Vue.extend({
+const EcPopoverStub = defineComponent({
   name: 'EcPopoverStub',
+  compatConfig: {
+    MODE: 3,
+    ATTR_FALSE_VALUE: false,
+  },
+  compilerOptions: {
+    whitespace: 'condense',
+  },
   inheritAttrs: false,
   methods: {
     update: jest.fn(),
@@ -14,7 +21,7 @@ const EcPopoverStub = Vue.extend({
       'data-test': $attrs['data-test'] ? ($attrs['data-test'] + ' ec-stub ec-popover-stub') : 'ec-stub ec-popover-stub',
     }">
       <slot />
-      <slot name="popover" />
+      <slot name="popper" />
   </ec-stub>`,
 });
 
