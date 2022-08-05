@@ -20,7 +20,6 @@
       v-model="inputModel"
       @focus="inputIsFocused = true"
       @blur="inputIsFocused = false"
-      v-on="{ 'update:modelValue': null }"
     >
 
     <div
@@ -121,12 +120,12 @@ const props = defineProps(
   },
 );
 
-const uid = ref(getUid());
+const uid = getUid();
 const slots = useSlots();
 
-const id = computed(() => (`ec-checkbox-${uid.value}`));
+const id = `ec-checkbox-${uid}`;
 const isInvalid = computed(() => (!!props.errorMessage || !!slots['error-message']));
-const errorId = computed(() => (isInvalid.value ? `ec-checkbox-error-${uid.value}` : null));
+const errorId = computed(() => (isInvalid.value ? `ec-checkbox-error-${uid}` : null));
 
 const inputIsFocused = ref(false);
 const checkboxInput = ref(null);

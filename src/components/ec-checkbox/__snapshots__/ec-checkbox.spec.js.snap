@@ -561,6 +561,7 @@ exports[`EcCheckbox attrs should render with custom attributes 1`] = `
     class="ec-checkbox__input"
     data-test="ec-checkbox__input"
     id="ec-checkbox-1"
+    role="checkbox"
     type="checkbox"
   />
   <div

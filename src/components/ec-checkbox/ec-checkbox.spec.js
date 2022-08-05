@@ -204,6 +204,7 @@ describe('EcCheckbox', () => {
       );
       expect(wrapper.element).toMatchSnapshot();
     });
+
     it('should render with custom attributes', () => {
       const wrapper = mountCheckbox({}, {
         attrs: {
@@ -211,10 +212,12 @@ describe('EcCheckbox', () => {
           class: 'my-class',
           id: 'test-id',
           style: 'top: 0px',
+          role: 'checkbox',
         },
       });
       expect(wrapper.element).toMatchSnapshot();
     });
+
     it('should pass listeners to checkbox input', async () => {
       const clickSpy = jest.fn();
       const wrapper = mountCheckbox({}, {
