@@ -3,8 +3,15 @@ import { mount } from '@vue/test-utils';
 import EcMainContainer from './ec-main-container.vue';
 
 describe('EcMainContainer', () => {
+  function mountEcMainContainer(props, mountOpts) {
+    return mount(EcMainContainer, {
+      props,
+      ...mountOpts,
+    });
+  }
+
   it('should render empty if no props were given', () => {
-    const wrapper = mount(EcMainContainer);
+    const wrapper = mountEcMainContainer();
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -14,9 +21,7 @@ describe('EcMainContainer', () => {
       title: 'Trade Finance',
       titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
-    const wrapper = mount(EcMainContainer, {
-      props,
-    });
+    const wrapper = mountEcMainContainer(props);
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -25,9 +30,7 @@ describe('EcMainContainer', () => {
     const props = {
       titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
-    const wrapper = mount(EcMainContainer, {
-      props,
-    });
+    const wrapper = mountEcMainContainer(props);
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -36,9 +39,7 @@ describe('EcMainContainer', () => {
     const props = {
       title: 'Trade Finance',
     };
-    const wrapper = mount(EcMainContainer, {
-      props,
-    });
+    const wrapper = mountEcMainContainer(props);
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -48,8 +49,7 @@ describe('EcMainContainer', () => {
       title: 'Trade Finance',
       titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
-    const wrapper = mount(EcMainContainer, {
-      props,
+    const wrapper = mountEcMainContainer(props, {
       slots: {
         default: '<p>Random text</p>',
       },
@@ -63,8 +63,7 @@ describe('EcMainContainer', () => {
       title: 'Trade Finance',
       titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
-    const wrapper = mount(EcMainContainer, {
-      props,
+    const wrapper = mountEcMainContainer(props, {
       slots: {
         cta: '<button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width">Test cta</button>',
       },
@@ -78,8 +77,7 @@ describe('EcMainContainer', () => {
       title: 'Trade Finance',
       titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
-    const wrapper = mount(EcMainContainer, {
-      props,
+    const wrapper = mountEcMainContainer(props, {
       slots: {
         breadcrumbs: '<a href="#">Breadcrumbs</a>',
       },
