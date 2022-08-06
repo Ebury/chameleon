@@ -43,26 +43,37 @@
   </div>
 </template>
 
+<script setup>
+import { useSlots } from 'vue';
+
+// eslint-disable-next-line no-unused-vars
+const props = defineProps({
+  title: {
+    type: String,
+    default: null,
+  },
+  titleIntro: {
+    type: String,
+    default: null,
+  },
+});
+
+const slots = useSlots();
+
+function hasCtaSlot() {
+  return !!slots.cta;
+}
+
+function hasBreadcrumbs() {
+  return !!slots.breadcrumbs;
+}
+</script>
+
 <script>
 export default {
   name: 'EcMainContainer',
-  props: {
-    title: {
-      type: String,
-      default: null,
-    },
-    titleIntro: {
-      type: String,
-      default: null,
-    },
-  },
-  methods: {
-    hasCtaSlot() {
-      return !!this.$slots.cta;
-    },
-    hasBreadcrumbs() {
-      return !!this.$slots.breadcrumbs;
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>
