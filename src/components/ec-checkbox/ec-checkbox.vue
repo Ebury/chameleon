@@ -1,21 +1,25 @@
 <template>
   <div
     class="ec-checkbox"
+    :class="$attrs.class"
+    :style="$attrs.style"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-checkbox` : 'ec-checkbox'"
   >
     <input
-      v-bind="$attrs"
-      :id="id"
+      v-bind="{
+        ...$attrs,
+        style: null,
+        class: 'ec-checkbox__input',
+        id: id,
+        'aria-describedby': errorId,
+        disabled: disabled,
+        'data-test': 'ec-checkbox__input',
+        type: 'checkbox'
+      }"
       ref="checkboxInput"
       v-model="inputModel"
-      :aria-describedby="errorId"
-      type="checkbox"
-      class="ec-checkbox__input"
-      :disabled="disabled"
-      data-test="ec-checkbox__input"
       @focus="inputIsFocused = true"
       @blur="inputIsFocused = false"
-      v-on="{ ...$listeners, 'update:modelValue': null }"
     >
 
     <div
@@ -37,7 +41,7 @@
           'ec-checkbox__check-icon-wrapper--checked-and-disabled': disabled && inputModel,
           'ec-checkbox__check-icon-wrapper--indeterminate-and-disabled': disabled && indeterminate,
         }"
-        @click="$refs.checkboxInput.click()"
+        @click="checkboxInput.click()"
       >
         <span
           v-if="indeterminate"
@@ -76,20 +80,20 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import {
+  computed,
+  onMounted,
+  ref,
+  useSlots,
+  watch,
+} from 'vue';
+
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 
-export default {
-  name: 'EcCheckbox',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
-  components: {
-    EcIcon,
-  },
-  inheritAttrs: false,
-  props: {
+const props = defineProps(
+  {
     modelValue: {
       type: Boolean,
     },
@@ -114,48 +118,52 @@ export default {
       type: Boolean,
     },
   },
-  emits: ['update:modelValue'],
-  data() {
-    return {
-      uid: getUid(),
-      inputIsFocused: false,
-    };
+);
+
+const uid = getUid();
+const slots = useSlots();
+
+const id = `ec-checkbox-${uid}`;
+const isInvalid = computed(() => (!!props.errorMessage || !!slots['error-message']));
+const errorId = computed(() => (isInvalid.value ? `ec-checkbox-error-${uid}` : null));
+
+const inputIsFocused = ref(false);
+const checkboxInput = ref(null);
+
+const emit = defineEmits(['update:modelValue']);
+
+const inputModel = computed({
+  get() {
+    return props.modelValue;
   },
-  computed: {
-    id() {
-      return `ec-checkbox-${this.uid}`;
-    },
-    errorId() {
-      return this.isInvalid ? `ec-checkbox-error-${this.uid}` : null;
-    },
-    isInvalid() {
-      return !!this.errorMessage || !!this.$slots['error-message'];
-    },
-    inputModel: {
-      get() {
-        return this.modelValue;
-      },
-      set(checked) {
-        this.$emit('update:modelValue', checked);
-      },
-    },
+  set(checked) {
+    emit('update:modelValue', checked);
   },
-  watch: {
-    indeterminate(newValue) {
-      this.updateIndeterminate(newValue);
-    },
+});
+
+watch(() => props.indeterminate, (newValue) => {
+  updateIndeterminate(newValue);
+});
+
+function updateIndeterminate(newValue) {
+  if (checkboxInput.value) {
+    checkboxInput.value.indeterminate = !!newValue;
+  }
+}
+
+onMounted(() => {
+  updateIndeterminate(props.indeterminate);
+});
+
+</script>
+
+<script>
+export default {
+  name: 'EcCheckbox',
+  compatConfig: {
+    MODE: 3,
   },
-  mounted() {
-    this.updateIndeterminate(this.indeterminate);
-  },
-  methods: {
-    updateIndeterminate(newValue) {
-      /* istanbul ignore else */
-      if (this.$refs.checkboxInput) {
-        this.$refs.checkboxInput.indeterminate = !!newValue;
-      }
-    },
-  },
+  inheritAttrs: false,
 };
 </script>
 
