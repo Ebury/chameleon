@@ -46,8 +46,7 @@
 <script setup>
 import { useSlots } from 'vue';
 
-// eslint-disable-next-line no-unused-vars
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     default: null,
