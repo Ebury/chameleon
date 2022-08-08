@@ -40,7 +40,7 @@ export const all = ({
   valueFromPropsErrorMessage,
   valueFromPropsDisabled1,
   valueFromPropsDisabled2,
-  args,
+  ...args
 }) => ({
   components: { EcCheckbox },
   setup() {
