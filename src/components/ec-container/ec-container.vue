@@ -19,14 +19,20 @@
   </div>
 </template>
 
+<script setup>
+defineProps({
+  isCollapsable: {
+    type: Boolean,
+    default: false,
+  },
+});
+</script>
+
 <script>
 export default {
   name: 'EcContainer',
-  props: {
-    isCollapsable: {
-      type: Boolean,
-      default: false,
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>
