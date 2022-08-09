@@ -4,15 +4,15 @@
     data-test="ec-main-container"
   >
     <div
-      v-if="title || hasCtaSlot()"
+      v-if="title || hasSlot('cta')"
       class="tw-grid"
     >
       <template v-if="title">
         <div
-          :class="{ 'tw-col-full': true, 'sm:tw-col-9': hasCtaSlot() }"
+          :class="{ 'tw-col-full': true, 'sm:tw-col-9': hasSlot('cta') }"
         >
           <div
-            v-if="hasBreadcrumbs()"
+            v-if="hasSlot('breadcrumbs')"
             data-test="ec-main-container__breadcrumbs"
             class="ec-main-container__breadcrumbs"
           >
@@ -30,7 +30,7 @@
           >{{ titleIntro }}</p>
         </div>
       </template>
-      <template v-if="hasCtaSlot()">
+      <template v-if="hasSlot('cta')">
         <div
           class="tw-col-full sm:tw-col-3"
           data-test="ec-main-container__cta"
@@ -59,12 +59,8 @@ defineProps({
 
 const slots = useSlots();
 
-function hasCtaSlot() {
-  return !!slots.cta;
-}
-
-function hasBreadcrumbs() {
-  return !!slots.breadcrumbs;
+function hasSlot(slotName) {
+  return slotName in slots;
 }
 </script>
 
