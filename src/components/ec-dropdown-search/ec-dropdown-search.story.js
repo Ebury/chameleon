@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import { ref } from 'vue';
 
 import EcIcon from '../ec-icon';
 import EcDropdownSearch from './ec-dropdown-search.vue';
@@ -21,44 +22,42 @@ const items = [
 export const all = ({ paragraphText, ...args }) => ({
   components: { EcDropdownSearch, EcIcon },
   setup() {
+    const selectedItem = ref(null);
+
+    const dropdowns = [
+      {
+        title: 'Basic',
+        style: {},
+        instructions: '',
+      },
+      {
+        title: 'In a container with a dynamic width',
+        style: {
+          width: '300px',
+          overflow: 'auto',
+          resize: 'horizontal',
+          border: '1px solid #ccc',
+          backgroundColor: '#fafafa',
+        },
+        instructions: 'This is a block wrapper around the dropdown search. You can resize it and check how dropdown adapts.',
+        hasParagraph: true,
+      },
+      {
+        title: 'With custom item template',
+        style: {},
+        instructions: '',
+        hasParagraph: true,
+        hasCustomTemplate: true,
+      },
+    ];
+
     return {
+      dropdowns,
+      selectedItem,
       paragraphText,
       args,
+      onChange: action('change'),
     };
-  },
-  data() {
-    return {
-      selectedItem: null,
-      list: [
-        {
-          title: 'Basic',
-          style: {},
-          instructions: '',
-        },
-        {
-          title: 'In container with a dynamic width',
-          style: {
-            width: '300px',
-            overflow: 'auto',
-            resize: 'horizontal',
-            border: '1px solid #ccc',
-            backgroundColor: '#fafafa',
-          },
-          instructions: 'This is a block wrapper around the dropdown search. You can resize it and check how dropdown adapts.',
-          hasParagraph: true,
-        },
-        {
-          title: 'With custom item template',
-          style: {},
-          instructions: '',
-          hasParagraph: true,
-          hasCustomTemplate: true,
-        },
-      ],
-    };
-  },
-  methods: {
-    onChange: action('change'),
   },
   template: `
     <div class="tw-grid-container">
@@ -66,9 +65,9 @@ export const all = ({ paragraphText, ...args }) => ({
         <div class="tw-col-12" >
           <p v-if="selectedItem">Selected item: {{ selectedItem.text }}</p>
           <p v-else>Selected item: None</p>
-          <div v-for="(dropdownSearch, index) in list" :key="index" class="tw-my-20">
+          <div v-for="(dropdownSearch, index) in dropdowns" :key="index" class="tw-my-20">
             <h3>{{ dropdownSearch.title }}</h3>
-            <div :style="dropdownSearch.style" :id="'dropdown-boundary-' + index">
+            <div :style="dropdownSearch.style">
               <p class="tw-mb-8"><strong>{{ dropdownSearch.instructions }}</strong></p>
               <ec-dropdown-search
                 v-bind="args"
@@ -77,7 +76,7 @@ export const all = ({ paragraphText, ...args }) => ({
                 v-on="{ change: onChange }">
                 <a href="#" @click.prevent>
                   <span>Open</span>
-                  <ec-icon name="simple-arrow-drop-down" :size="16" fill="currentColor" />
+                  <ec-icon name="simple-arrow-drop-down" :size="16" class="tw-fill-current" />
                 </a>
                 <template v-if="dropdownSearch.hasCustomTemplate" #item="{ item, index, isSelected }">
                   <div>{{ index + 1 }}. {{ item.text }}</div>

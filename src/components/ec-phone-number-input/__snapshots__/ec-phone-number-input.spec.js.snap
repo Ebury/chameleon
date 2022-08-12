@@ -56,7 +56,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
     data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
   >
     <div
-      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
@@ -444,7 +444,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
     data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
   >
     <div
-      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
@@ -720,7 +720,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
     data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
   >
     <div
-      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
@@ -994,7 +994,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
     data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
   >
     <div
-      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
@@ -1266,7 +1266,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
     data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
   >
     <div
-      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
@@ -1563,7 +1563,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
     data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
   >
     <div
-      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
@@ -1837,7 +1837,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
     data-test="ec-phone-number-input__input-group ec-mock ec-tooltip-mock"
   >
     <div
-      class="ec-dropdown-search ec-dropdown ec-phone-number-input__countries"
+      class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
