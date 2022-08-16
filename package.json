@@ -76,7 +76,7 @@
     "babel-jest": "27.5.1",
     "babel-preset-vue": "2.0.2",
     "color": "4.2.3",
-    "css-tree": "2.2.0",
+    "css-tree": "2.2.1",
     "cypress": "9.7.0",
     "cypress-image-snapshot": "4.0.1",
     "eslint": "8.21.0",
