@@ -6,6 +6,16 @@ import EcDropdown from './ec-dropdown.vue';
 export default {
   title: 'Dropdown',
   component: EcDropdown,
+  argTypes: {
+    level: {
+      options: ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'],
+      control: { type: 'select' },
+    },
+    isInGroup: {
+      options: ['left', 'right'],
+      control: { type: 'select' },
+    },
+  },
 };
 
 const defaultItems = [
@@ -18,16 +28,19 @@ const defaultItems = [
   { text: 'Item 7' },
 ];
 
-const Template = args => ({
+const Template = ({ modelValue, ...args }) => ({
   components: { EcDropdown },
   setup() {
-    const model = ref(args.selected);
+    const model = ref(modelValue);
 
     return {
       args,
       model,
       onCta: action('cta'),
       onChange: action('change'),
+      onFocus: action('focus'),
+      onOpen: action('open'),
+      onClose: action('close'),
     };
   },
   template: `
@@ -39,7 +52,10 @@ const Template = args => ({
           v-bind="args"
           v-model="model"
           v-on="{
-            change: onChange
+            change: onChange,
+            focus: onFocus,
+            open: onOpen,
+            close: onClose,
           }">
           <template #cta>
             <a href="#" @click.prevent="onCta" class="tw-block tw-py-8 tw-px-16">Do something</a>

@@ -18,6 +18,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     document.activeElement.blur();
     // We need to clean the activeElement because of the jsdom bug.
     // jsdom preserves activeElement between tests even if the element has already been removed from the body
+    document.body.innerHTML = '';
   });
 
   describe('when dropdown is closed and the arrow down key is pressed', () => {
@@ -334,7 +335,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
-      await waitOnAfterOpenFocus();
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
 
@@ -352,14 +352,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
-      await waitOnAfterOpenFocus();
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      expect(document.activeElement).toBe(document.body);
-
-      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
-
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
     });
 
@@ -376,7 +371,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
-      await waitOnAfterOpenFocus();
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
@@ -397,7 +391,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
-      await waitOnAfterOpenFocus();
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
 
@@ -421,14 +414,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
-      await waitOnAfterOpenFocus();
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      expect(document.activeElement).toBe(document.body);
-
-      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
-
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
     });
 
@@ -462,7 +450,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
       await openDropdown(wrapper);
-      await waitOnAfterOpenFocus();
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('ec-dropdown-search__search-input').element);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
@@ -662,31 +649,19 @@ function mockElementOffsetTop(wrapper, index, value) {
   jest.spyOn(wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).element, 'offsetTop', 'get').mockReturnValueOnce(value);
 }
 
-// TODO: ONL-XXXX this pollutes global state and never cleans it up
 function mockHtmlElementPosition(options) {
-  Object.defineProperties(global.HTMLElement.prototype, {
-    clientHeight: {
-      configurable: true,
-      get() {
-        if (this.className.includes('ec-dropdown-search__item-list')) {
-          return (options && options.containerClientHeight) || 200;
-        }
-        return (options && options.clientHeight) || 50;
-      },
-    },
-    offsetHeight: {
-      configurable: true,
-      get() { return (options && options.offsetHeight) || 50; },
-    },
-    offsetTop: {
-      configurable: true,
-      get() { return (options && options.offsetTop) || 0; },
-    },
-    scrollHeight: {
-      configurable: true,
-      get() { return (options && options.scrollHeight) || 400; },
-    },
+  jest.spyOn(global.HTMLElement.prototype, 'clientHeight', 'get').mockImplementation(function mockClientHeight() {
+    if (this.className.includes('ec-dropdown-search__item-list')) {
+      return (options && options.containerClientHeight) || 200;
+    }
+    return (options && options.clientHeight) || 50;
   });
+
+  jest.spyOn(global.HTMLElement.prototype, 'offsetHeight', 'get').mockImplementation(() => (options && options.offsetHeight) || 50);
+
+  jest.spyOn(global.HTMLElement.prototype, 'offsetTop', 'get').mockImplementation(() => (options && options.offsetTop) || 0);
+
+  jest.spyOn(global.HTMLElement.prototype, 'scrollHeight', 'get').mockImplementation(() => (options && options.scrollHeight) || 400);
 }
 
 async function openDropdown(wrapper) {
@@ -694,6 +669,7 @@ async function openDropdown(wrapper) {
   await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.enter');
   await wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('apply-show');
   expect(wrapper.emitted('open').length).toBeGreaterThan(0);
+  await waitOnAfterOpenFocus();
 }
 
 async function waitOnAfterOpenFocus() {

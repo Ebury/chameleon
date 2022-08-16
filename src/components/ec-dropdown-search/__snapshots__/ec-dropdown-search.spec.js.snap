@@ -757,6 +757,66 @@ exports[`EcDropdownSearch should render given cta slot with a tooltip 1`] = `
 </div>
 `;
 
+exports[`EcDropdownSearch should render given custom attributes 1`] = `
+<div
+  class="my-custom-class ec-dropdown-search"
+  data-test="my-data-test ec-dropdown-search"
+  id="my-id"
+>
+  <ec-stub
+    autosize="true"
+    class="ec-dropdown-search__trigger"
+    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+    disabled="false"
+    distance="8"
+    placement="bottom-start"
+    popperclass="ec-dropdown-search__popover"
+    shift="false"
+    shown="false"
+  >
+    
+    
+    
+    <div>
+      <ul
+        class="ec-dropdown-search__item-list"
+        data-test="ec-dropdown-search__item-list"
+      >
+        <li
+          class="ec-dropdown-search__search-area"
+          data-test="ec-dropdown-search__search-area"
+        >
+          <svg
+            class="ec-icon ec-dropdown-search__search-icon"
+          >
+            <use
+              xlink:href="#ec-simple-search"
+            />
+          </svg>
+          <input
+            autocomplete="off"
+            class="ec-dropdown-search__search-input"
+            data-test="ec-dropdown-search__search-input"
+            placeholder="Search..."
+          />
+        </li>
+        <!--v-if-->
+        
+        <li
+          class="ec-dropdown-search__no-items"
+          data-test="ec-dropdown-search__no-items"
+          title="No results found"
+        >
+          No results found
+        </li>
+        
+      </ul>
+    </div>
+    
+  </ec-stub>
+</div>
+`;
+
 exports[`EcDropdownSearch should render given default slot 1`] = `
 <div
   class="ec-dropdown-search"
@@ -1151,6 +1211,42 @@ exports[`EcDropdownSearch should render given popover style when it is a functio
     
   </ec-stub>
 </div>
+`;
+
+exports[`EcDropdownSearch should render sensitive class 1`] = `
+<ul
+  class="ec-dropdown-search__item-list my-sensitive-content-test-class"
+  data-test="ec-dropdown-search__item-list"
+>
+  <li
+    class="ec-dropdown-search__search-area"
+    data-test="ec-dropdown-search__search-area"
+  >
+    <svg
+      class="ec-icon ec-dropdown-search__search-icon"
+    >
+      <use
+        xlink:href="#ec-simple-search"
+      />
+    </svg>
+    <input
+      autocomplete="off"
+      class="ec-dropdown-search__search-input"
+      data-test="ec-dropdown-search__search-input"
+      placeholder="Search..."
+    />
+  </li>
+  <!--v-if-->
+  
+  <li
+    class="ec-dropdown-search__no-items"
+    data-test="ec-dropdown-search__no-items"
+    title="No results found"
+  >
+    No results found
+  </li>
+  
+</ul>
 `;
 
 exports[`EcDropdownSearch should render the search by default 1`] = `

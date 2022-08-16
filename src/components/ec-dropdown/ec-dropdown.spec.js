@@ -50,6 +50,17 @@ describe('EcDropdown', () => {
     expect(wrapper.findByDataTest('ec-dropdown-search__search-area').exists()).toBe(false);
   });
 
+  it('should use custom attributes', () => {
+    const wrapper = mountDropdown({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        id: 'my-id',
+        class: 'my-class',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should use given list-data-test attribute', () => {
     const wrapper = mountDropdown({ items }, {
       attrs: {
@@ -196,6 +207,7 @@ describe('EcDropdown', () => {
         },
       );
 
+      await openDropdown(wrapper);
       expect(wrapper.vm.selected).toEqual(null);
       await selectItem(wrapper, 0);
       expect(wrapper.vm.selected).toEqual(items[0]);
@@ -220,8 +232,34 @@ describe('EcDropdown', () => {
   });
 
   describe('@events', () => {
+    it('should emit a focus event when opened', async () => {
+      const wrapper = mountDropdown({ items });
+      await openDropdown(wrapper);
+      expect(wrapper.emitted('focus').length).toEqual(1);
+    });
+
+    it('should emit a blur event when blurred', async () => {
+      const wrapper = mountDropdown({ items });
+      await openDropdown(wrapper);
+      await wrapper.findByDataTest('ec-dropdown__input').trigger('blur');
+      expect(wrapper.emitted('blur').length).toEqual(1);
+    });
+
+    it('should propagate an after-open event', () => {
+      const wrapper = mountDropdown({ items });
+      wrapper.findComponentByDataTest('ec-popover-dropdown-search').vm.$emit('apply-show');
+      expect(wrapper.emitted('after-open').length).toEqual(1);
+    });
+
+    it('should propagate an after-close event', () => {
+      const wrapper = mountDropdown({ items });
+      wrapper.findComponentByDataTest('ec-popover-dropdown-search').vm.$emit('apply-hide');
+      expect(wrapper.emitted('after-close').length).toEqual(1);
+    });
+
     it('should emit change event when an item is selected', async () => {
       const wrapper = mountDropdown({ items });
+      await openDropdown(wrapper);
       await selectItem(wrapper, 1);
 
       expect(wrapper.emitted('change').length).toEqual(1);
@@ -246,20 +284,32 @@ describe('EcDropdown', () => {
     });
 
     it('should not return focus back to readonly input if it already has it', async () => {
-      const wrapper = mountDropdown({ items });
-      const focusSpy = jest.spyOn(wrapper.findComponent({ ref: 'trigger' }).element, 'querySelector')
-        .mockImplementation(() => true);
-      await selectItem(wrapper, 1);
+      const focusSpy = jest.fn();
 
+      const wrapper = mountDropdown({ items }, {
+        attrs: {
+          onFocus: focusSpy,
+        },
+      });
+      await openDropdown(wrapper);
+      expect(focusSpy).toHaveBeenCalledTimes(1);
+      await selectItem(wrapper, 1);
       expect(focusSpy).toHaveBeenCalledTimes(1);
       expect(wrapper.emitted('change')[0]).toEqual([items[1]]);
-      focusSpy.mockRestore();
+
+      await selectItem(wrapper, 2);
+      expect(focusSpy).toHaveBeenCalledTimes(1);
+      expect(wrapper.emitted('change')[1]).toEqual([items[2]]);
     });
   });
 });
 
-async function selectItem(wrapper, index) {
+async function openDropdown(wrapper) {
   await wrapper.findByDataTest('ec-dropdown__input').trigger('mousedown');
   await wrapper.findByDataTest('ec-dropdown__input').trigger('click');
+  await wrapper.findByDataTest('ec-dropdown__input').trigger('focus');
+}
+
+async function selectItem(wrapper, index) {
   await wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
 }

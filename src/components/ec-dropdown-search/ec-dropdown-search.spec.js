@@ -61,6 +61,22 @@ describe('EcDropdownSearch', () => {
     }
   });
 
+  it('should render given custom attributes', () => {
+    const wrapper = mountDropdownSearch({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        id: 'my-id',
+        class: 'my-custom-class',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render sensitive class', () => {
+    const wrapper = mountDropdownSearch({ isSensitive: true });
+    expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
+  });
+
   it('should render given default slot', () => {
     const wrapper = mountDropdownSearch({}, {
       slots: {

@@ -122,7 +122,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
     class="ec-amount-filter-input__inputs-group"
   >
     <div
-      class="ec-dropdown-search ec-dropdown ec-amount-filter-input__comparison-symbol-selector"
+      class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
     >
       <ec-stub
@@ -562,7 +562,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
       class="ec-amount-filter-input__inputs-group"
     >
       <div
-        class="ec-dropdown-search ec-dropdown ec-amount-filter-input__comparison-symbol-selector"
+        class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
         data-test="ec-dropdown ec-dropdown-search"
       >
         <ec-stub
@@ -1159,7 +1159,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                 class="ec-amount-filter-input__inputs-group"
               >
                 <div
-                  class="ec-dropdown-search ec-dropdown ec-amount-filter-input__comparison-symbol-selector"
+                  class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
                   data-test="ec-dropdown ec-dropdown-search"
                 >
                   <ec-stub
@@ -1395,7 +1395,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
       class="ec-amount-filter-input__inputs-group"
     >
       <div
-        class="ec-dropdown-search ec-dropdown ec-amount-filter-input__comparison-symbol-selector"
+        class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
         data-test="ec-dropdown ec-dropdown-search"
       >
         <ec-stub
