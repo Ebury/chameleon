@@ -168,7 +168,7 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
     class="tw-grid"
   >
     <div
-      class="tw-col-full sm:tw-col-9"
+      class="tw-col-full md:tw-col-9"
     >
       <!--v-if-->
       <h1
@@ -185,7 +185,7 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
       </p>
     </div>
     <div
-      class="tw-col-full sm:tw-col-3"
+      class="tw-col-full md:tw-col-3"
       data-test="ec-main-container__cta"
     >
       
