@@ -9,7 +9,7 @@
     >
       <template v-if="title">
         <div
-          :class="{ 'tw-col-full': true, 'sm:tw-col-9': hasSlot('cta') }"
+          :class="{ 'tw-col-full': true, 'md:tw-col-9': hasSlot('cta') }"
         >
           <div
             v-if="hasSlot('breadcrumbs')"
@@ -32,7 +32,7 @@
       </template>
       <template v-if="hasSlot('cta')">
         <div
-          class="tw-col-full sm:tw-col-3"
+          class="tw-col-full md:tw-col-3"
           data-test="ec-main-container__cta"
         >
           <slot name="cta" />
