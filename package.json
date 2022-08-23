@@ -5,7 +5,7 @@
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
   "license": "MIT",
-  "homepage": "https://chameleon.ebury.now.sh/",
+  "homepage": "https://chameleon-ebury.vercel.app/",
   "repository": {
     "type": "git",
     "url": "https://github.com/ebury/chameleon.git"

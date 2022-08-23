@@ -34,7 +34,7 @@ module.exports = {
       },
     },
   ],
-  webpackFinal: (config) => {
+  webpackFinal: (config, { configType }) => {
     // enable @vue/compat for stories
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -88,6 +88,11 @@ module.exports = {
       }
       return resourceAssetsFilename;
     };
+
+    if (configType === 'PRODUCTION') {
+      config.cache = false;
+      babelRule.use[0].options.cacheDirectory = false;
+    }
 
     return config;
   },
