@@ -41,9 +41,7 @@ basic.parameters = {
 export const all = ({
   label, disabledLabel, errorLabel, warningLabel, errorMessage, ...args
 }) => ({
-  components: {
-    EcTextarea,
-  },
+  components: { EcTextarea },
   setup() {
     return {
       label,

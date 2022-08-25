@@ -1,6 +1,8 @@
 <template>
   <div
     class="ec-textarea"
+    :class="$attrs.class"
+    :style="$attrs.style"
     data-test="ec-textarea"
   >
     <label
@@ -32,15 +34,18 @@
     </label>
 
     <textarea
-      v-bind="$attrs"
+      v-bind="{ ...$attrs, class: null, style: null }"
       :id="textareaId"
-      ref="textarea"
+      ref="textareaRef"
       v-model="textareaModel"
       :rows="rows"
-      :class="textareaClasses"
+      :class="{
+        'ec-textarea__textarea': true,
+        'ec-textarea__textarea--has-error': isInvalid,
+        [config.sensitiveClass]: isSensitive,
+      }"
       :aria-describedby="errorMessageId"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-textarea__textarea` : 'ec-textarea__textarea'"
-      v-on="{ ...$listeners, 'update:modelValue': null }"
     />
 
     <div
@@ -59,104 +64,94 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed, ref } from 'vue';
+
 import config from '../../config';
-import EcTooltip from '../../directives/ec-tooltip';
+import VEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 
+const emit = defineEmits(['update:modelValue']);
+
+const props = defineProps({
+  modelValue: {
+    type: String,
+  },
+  rows: {
+    type: Number,
+    default: 4,
+  },
+  label: {
+    default: '',
+    type: String,
+  },
+  labelTooltip: {
+    default: '',
+    type: String,
+  },
+  note: {
+    default: '',
+    type: String,
+  },
+  bottomNote: {
+    default: '',
+    type: String,
+  },
+  errorMessage: {
+    default: '',
+    type: String,
+  },
+  id: {
+    type: String,
+  },
+  errorId: {
+    type: String,
+  },
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+  isWarning: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+defineExpose({
+  focus,
+});
+
+const isInvalid = computed(() => !!props.errorMessage);
+
+const textareaRef = ref(null);
+
+const uid = getUid();
+const textareaId = computed(() => props.id || `ec-textarea-${uid}`);
+const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-textarea-error-${uid}`) : null));
+
+const textareaModel = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(value) {
+    emit('update:modelValue', value);
+  },
+});
+
+function focus() {
+  if (textareaRef.value) {
+    textareaRef.value.focus();
+  }
+}
+</script>
+
+<script>
 export default {
   name: 'EcTextarea',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
-  components: { EcIcon },
-  directives: { EcTooltip },
   inheritAttrs: false,
-  props: {
-    modelValue: {
-      type: String,
-    },
-    rows: {
-      type: Number,
-      default: 4,
-    },
-    label: {
-      default: '',
-      type: String,
-    },
-    labelTooltip: {
-      default: '',
-      type: String,
-    },
-    note: {
-      default: '',
-      type: String,
-    },
-    bottomNote: {
-      default: '',
-      type: String,
-    },
-    errorMessage: {
-      default: '',
-      type: String,
-    },
-    id: {
-      type: String,
-    },
-    errorId: {
-      type: String,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
-    isWarning: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  emits: ['update:modelValue'],
-  data() {
-    return {
-      uid: getUid(),
-    };
-  },
-  computed: {
-    textareaClasses() {
-      const classes = ['ec-textarea__textarea'];
-
-      if (this.isInvalid) {
-        classes.push('ec-textarea__textarea--has-error');
-      }
-      if (this.isSensitive) {
-        classes.push(config.sensitiveClass);
-      }
-
-      return classes;
-    },
-    textareaId() {
-      return this.id || `ec-textarea-${this.uid}`;
-    },
-    errorMessageId() {
-      return this.isInvalid ? (this.errorId || `ec-textarea-error-${this.uid}`) : null;
-    },
-    isInvalid() {
-      return !!this.errorMessage;
-    },
-    textareaModel: {
-      get() {
-        return this.modelValue;
-      },
-      set(value) {
-        this.$emit('update:modelValue', value);
-      },
-    },
-  },
-  methods: {
-    focus() {
-      this.$refs.textarea.focus();
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>
