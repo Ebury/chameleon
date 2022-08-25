@@ -1,6 +1,6 @@
 <template>
   <thead
-    v-if="numberOfColumns"
+    v-if="columns.length > 0"
     class="ec-table-head"
     data-test="ec-table-head"
   >
@@ -49,59 +49,61 @@
   </thead>
 </template>
 
-<script>
-import EcTooltip from '../../directives/ec-tooltip';
+<script setup>
+import VEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import EcTableSort from '../ec-table-sort';
 
+const emit = defineEmits(['sort']);
+
+const props = defineProps({
+  columns: {
+    type: Array,
+    default: () => [],
+  },
+  sorts: {
+    type: Array,
+    default: () => [],
+  },
+  stickyColumn: {
+    type: String,
+    validator(value) {
+      return ['left', 'right'].includes(value);
+    },
+  },
+});
+
+function getSortDirection(column) {
+  const existingSort = props.sorts.find(sort => sort.column === column.name);
+  return existingSort && existingSort.direction;
+}
+
+function onSort(column) {
+  emit('sort', column);
+}
+
+function getWidthStyle(column) {
+  if (column && (column.maxWidth || column.minWidth)) {
+    return { maxWidth: column.maxWidth, minWidth: column.minWidth };
+  }
+  return null;
+}
+
+function getStickyColumnClass(colIndex, columns) {
+  if (props.stickyColumn === 'left' && colIndex === 0) {
+    return 'ec-table-head__cell--sticky-left';
+  } if (props.stickyColumn === 'right' && colIndex === columns.length - 1) {
+    return 'ec-table-head__cell--sticky-right';
+  }
+  return null;
+}
+</script>
+
+<script>
 export default {
   name: 'EcTableHead',
-  components: { EcTableSort, EcIcon },
-  directives: { EcTooltip },
-  props: {
-    columns: {
-      type: Array,
-      default: () => [],
-    },
-    sorts: {
-      type: Array,
-      default: () => [],
-    },
-    stickyColumn: {
-      type: String,
-      validator(value) {
-        return ['left', 'right'].includes(value);
-      },
-    },
-  },
-  emits: ['sort'],
-  computed: {
-    numberOfColumns() {
-      return this.columns.length;
-    },
-  },
-  methods: {
-    getSortDirection(column) {
-      const existingSort = this.sorts.find(sort => sort.column === column.name);
-      return existingSort && existingSort.direction;
-    },
-    onSort(column) {
-      this.$emit('sort', column);
-    },
-    getWidthStyle(column) {
-      if (column && (column.maxWidth || column.minWidth)) {
-        return { maxWidth: column.maxWidth, minWidth: column.minWidth };
-      }
-      return null;
-    },
-    getStickyColumnClass(colIndex, columns) {
-      if (this.stickyColumn === 'left' && colIndex === 0) {
-        return 'ec-table-head__cell--sticky-left';
-      } if (this.stickyColumn === 'right' && colIndex === columns.length - 1) {
-        return 'ec-table-head__cell--sticky-right';
-      }
-      return null;
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>
@@ -137,15 +139,16 @@ export default {
     box-shadow:
       inset 0 1px 0 theme('colors.gray.6'),
       inset 0 -1px 0 theme('colors.gray.6');
-    position: sticky;
     border-collapse: separate;
 
     &--sticky-left {
+      @apply tw-sticky;
       @apply tw-left-0;
       @apply tw-z-level-2;
     }
 
     &--sticky-right {
+      @apply tw-sticky;
       @apply tw-right-0;
       @apply tw-z-level-2;
     }

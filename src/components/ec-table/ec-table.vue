@@ -1,5 +1,5 @@
 <template>
-  <div v-if="numberOfRecords">
+  <div v-if="data.length > 0">
     <div
       v-if="title"
       class="ec-table__title"
@@ -24,8 +24,8 @@
             v-for="(row, rowIndex) in data"
             :key="rowIndex"
             :data-test="`ec-table__row ec-table__row--${rowIndex}`"
-            :class="{ 'ec-table__row--is-clickable': !!$listeners['rowClick'] }"
-            @click="$emit('row-click', { data: row, rowIndex })"
+            :class="{ 'ec-table__row--is-clickable': !!attrs.onRowClick }"
+            @click="attrs.onRowClick && attrs.onRowClick({ data: row, rowIndex })"
           >
             <td
               v-for="(content, colIndex) in row"
@@ -36,13 +36,13 @@
               :class="[
                 getStickyColumnClass(colIndex, columns),
                 {
-                  'ec-table__cell--is-type-icon': columns[colIndex] && columns[colIndex].type === 'icon',
-                  'ec-table__cell--is-type-currency': columns[colIndex] && columns[colIndex].type === 'currency',
-                  'ec-table__cell--has-max-width': columns[colIndex] && columns[colIndex].maxWidth,
+                  'ec-table__cell--is-type-icon': columns[colIndex]?.type === 'icon',
+                  'ec-table__cell--is-type-currency': columns[colIndex]?.type === 'currency',
+                  'ec-table__cell--has-max-width': !!columns[colIndex]?.maxWidth,
                 }]"
             >
               <slot
-                :name="getSlotName(colIndex)"
+                :name="`col${colIndex + 1}`"
                 :content="content"
                 :row="row"
               >{{ content }}</slot>
@@ -50,7 +50,7 @@
           </tr>
         </tbody>
         <ec-table-footer
-          v-if="hasFooterSlot()"
+          v-if="hasSlot('footer')"
           :colspan="numberOfColumns"
         >
           <slot name="footer" />
@@ -61,79 +61,76 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed, useAttrs, useSlots } from 'vue';
+
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
 
+const slots = useSlots();
+const attrs = useAttrs();
+// const emit = defineEmits(['sort', 'row-click']);
+const emit = defineEmits(['sort']);
+
+const props = defineProps({
+  columns: {
+    type: Array,
+    default: () => [],
+  },
+  sorts: {
+    type: Array,
+    default: () => [],
+  },
+  data: {
+    type: Array,
+    default: () => [],
+  },
+  totalRecords: {
+    type: Number,
+  },
+  maxHeight: String,
+  stickyColumn: {
+    type: String,
+    validator(value) {
+      return ['left', 'right'].includes(value);
+    },
+  },
+  title: String,
+});
+
+const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
+const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : null));
+
+function onSort(columnName) {
+  emit('sort', columnName);
+}
+
+function getColumnWidth(column) {
+  if (column && (column.maxWidth || column.minWidth)) {
+    return { maxWidth: column.maxWidth, minWidth: column.minWidth };
+  }
+  return null;
+}
+
+function getStickyColumnClass(colIndex, columns) {
+  if (props.stickyColumn === 'left' && colIndex === 0) {
+    return 'ec-table__cell--sticky-left';
+  } if (props.stickyColumn === 'right' && colIndex === columns.length - 1) {
+    return 'ec-table__cell--sticky-right';
+  }
+  return null;
+}
+
+function hasSlot(slotName) {
+  return slotName in slots;
+}
+</script>
+
+<script>
 export default {
   name: 'EcTable',
-  components: {
-    EcTableHead,
-    EcTableFooter,
-  },
-  props: {
-    columns: {
-      type: Array,
-      default: () => [],
-    },
-    sorts: {
-      type: Array,
-      default: () => [],
-    },
-    data: {
-      type: Array,
-      default: () => [],
-    },
-    totalRecords: {
-      type: Number,
-    },
-    maxHeight: String,
-    stickyColumn: {
-      type: String,
-      validator(value) {
-        return ['left', 'right'].includes(value);
-      },
-    },
-    title: String,
-  },
-  emits: ['sort', 'row-click'],
-  computed: {
-    numberOfColumns() {
-      return (
-        this.columns.length || (this.data[0] && this.data[0].length) || null
-      );
-    },
-    numberOfRecords() {
-      return this.data.length;
-    },
-    maxHeightStyle() {
-      return this.maxHeight ? { maxHeight: `${this.maxHeight}` } : null;
-    },
-  },
-  methods: {
-    getSlotName(index) {
-      return `col${index + 1}`;
-    },
-    onSort(columnName) {
-      this.$emit('sort', columnName);
-    },
-    getColumnWidth(column) {
-      if (column && (column.maxWidth || column.minWidth)) {
-        return { maxWidth: column.maxWidth, minWidth: column.minWidth };
-      }
-      return null;
-    },
-    getStickyColumnClass(colIndex, columns) {
-      if (this.stickyColumn === 'left' && colIndex === 0) {
-        return 'ec-table__cell--sticky-left';
-      } if (this.stickyColumn === 'right' && colIndex === columns.length - 1) {
-        return 'ec-table__cell--sticky-right';
-      }
-      return null;
-    },
-    hasFooterSlot() {
-      return !!this.$slots.footer;
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>
@@ -189,10 +186,9 @@ export default {
     }
 
     &--sticky-left {
+      @apply tw-sticky;
       @apply tw-left-0;
       @apply tw-bg-gray-7;
-
-      position: sticky;
 
       .ec-table__row--is-clickable:hover & {
         @apply tw-bg-key-6;
@@ -200,10 +196,9 @@ export default {
     }
 
     &--sticky-right {
+      @apply tw-sticky;
       @apply tw-right-0;
       @apply tw-bg-gray-7;
-
-      position: sticky;
 
       .ec-table__row--is-clickable:hover & {
         @apply tw-bg-key-6;
