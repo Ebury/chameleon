@@ -83,7 +83,7 @@
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-jest": "26.8.7",
     "eslint-plugin-simple-import-sort": "7.0.0",
-    "eslint-plugin-vue": "9.3.0",
+    "eslint-plugin-vue": "9.4.0",
     "eslint-plugin-vuejs-accessibility": "1.2.0",
     "intl": "1.2.5",
     "jest": "27.5.1",
