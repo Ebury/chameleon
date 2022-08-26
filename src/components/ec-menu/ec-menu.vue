@@ -40,8 +40,10 @@ const props = defineProps({
     default: () => [],
   },
 });
+
 const hasLinks = computed(() => Boolean(props.links && props.links.length));
 const validLinks = computed(() => props.links.filter(link => Boolean(link && link.url)));
+
 function getLinkDataTest(link) {
   return `ec-menu__link ${link.dataTest || ''}`.trim();
 }
