@@ -73,7 +73,7 @@
     "@vue/test-utils": "2.0.2",
     "@vue/vue3-jest": "27.0.0",
     "autoprefixer": "10.4.8",
-    "babel-jest": "27.5.1",
+    "babel-jest": "29.0.0",
     "babel-preset-vue": "2.0.2",
     "color": "4.2.3",
     "css-tree": "2.2.1",
