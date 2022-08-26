@@ -50,6 +50,9 @@ function getLinkDataTest(link) {
 <script>
 export default {
   name: 'EcMenu',
+  compatConfig: {
+    MODE: 3,
+  },
 };
 </script>
 
