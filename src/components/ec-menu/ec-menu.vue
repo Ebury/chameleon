@@ -22,37 +22,38 @@
   </ul>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+
 import EcNavigationLink from '../ec-navigation-link';
 
+const props = defineProps({
+  horizontal: {
+    type: Boolean,
+  },
+  isCollapsed: {
+    type: Boolean,
+    default: false,
+  },
+  links: {
+    type: Array,
+    default: () => [],
+  },
+});
+
+const hasLinks = computed(() => Boolean(props.links && props.links.length));
+const validLinks = computed(() => props.links.filter(link => Boolean(link && link.url)));
+
+function getLinkDataTest(link) {
+  return `ec-menu__link ${link.dataTest || ''}`.trim();
+}
+</script>
+
+<script>
 export default {
   name: 'EcMenu',
-  components: { EcNavigationLink },
-  props: {
-    horizontal: {
-      type: Boolean,
-    },
-    isCollapsed: {
-      type: Boolean,
-      default: false,
-    },
-    links: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  computed: {
-    hasLinks() {
-      return Boolean(this.links && this.links.length);
-    },
-    validLinks() {
-      return this.links.filter(link => Boolean(link && link.url));
-    },
-  },
-  methods: {
-    getLinkDataTest(link) {
-      return `ec-menu__link ${link.dataTest || ''}`.trim();
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>
