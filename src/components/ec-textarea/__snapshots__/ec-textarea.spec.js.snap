@@ -243,6 +243,24 @@ exports[`EcTextarea should render as expected 1`] = `
 </div>
 `;
 
+exports[`EcTextarea should render given custom attributes 1`] = `
+<div
+  class="ec-textarea my-custom-class"
+  data-test="ec-textarea"
+  style="top: 0px;"
+>
+  <!--v-if-->
+  <textarea
+    class="ec-textarea__textarea"
+    data-test="my-data-test ec-textarea__textarea"
+    id="ec-textarea-1"
+    role="input"
+    rows="4"
+  />
+  <!--v-if-->
+</div>
+`;
+
 exports[`EcTextarea should render with a custom data test 1`] = `
 <div
   class="ec-textarea"
