@@ -30,9 +30,21 @@ describe('EcTextarea', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render given custom attributes', () => {
+    const wrapper = mountTextarea({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-custom-class',
+        style: 'top: 0px',
+        role: 'input',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should set the v-model on the value of the textarea and change when it changes', async () => {
     const wrapper = mountTextareaAsTemplate(
-      '<ec-textarea v-model="text" type="text" />',
+      '<ec-textarea v-model="text" />',
       {},
       {
         data() {
