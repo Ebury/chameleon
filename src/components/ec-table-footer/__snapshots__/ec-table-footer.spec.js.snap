@@ -23,6 +23,27 @@ exports[`EcTableFooter should render with footer slot 1`] = `
 </tfoot>
 `;
 
+exports[`EcTableFooter should render with the given colspan 1`] = `
+<tfoot
+  class="ec-table-footer"
+  data-test="ec-table-footer"
+>
+  <tr>
+    <td
+      class="ec-table-footer__cell"
+      colspan="6"
+    >
+      <div
+        class="ec-table-footer__contents"
+      >
+        
+        
+      </div>
+    </td>
+  </tr>
+</tfoot>
+`;
+
 exports[`EcTableFooter should render without footer slot 1`] = `
 <tfoot
   class="ec-table-footer"

@@ -5,7 +5,7 @@ import { withMockedConsole } from '../../../tests/utils/console';
 import * as SortDirection from '../../enums/sort-direction';
 import EcTable from './ec-table.vue';
 
-function mountTable(props, mountOpts) {
+function mountEcTable(props, mountOpts) {
   return mount(EcTable, {
     props: {
       columns: [
@@ -43,20 +43,20 @@ function mountTableAsTemplate(template, props, wrapperComponentOpts, mountOpts) 
 
 describe('EcTable', () => {
   it('should not render if no props are supplied', () => {
-    const wrapper = mountTable(null, { props: {} });
+    const wrapper = mountEcTable(null, { props: {} });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should throw if the prop stickyColumn have a invalid value', () => {
     withMockedConsole((errorSpy, warnSpy) => {
-      mountTable({ stickyColumn: 'test' });
-      expect(warnSpy).toHaveBeenCalledTimes(3);
+      mountEcTable({ stickyColumn: 'test' });
+      expect(warnSpy).toHaveBeenCalledTimes(2);
       expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "stickyColumn"');
     });
   });
 
   it('should not render if not provided with any data', () => {
-    const wrapper = mountTable({
+    const wrapper = mountEcTable({
       columns: undefined,
       data: undefined,
     });
@@ -65,7 +65,7 @@ describe('EcTable', () => {
   });
 
   it('should not render if not provided with an empty array of data', () => {
-    const wrapper = mountTable({
+    const wrapper = mountEcTable({
       columns: undefined,
       data: [],
     });
@@ -74,7 +74,7 @@ describe('EcTable', () => {
   });
 
   it('should render as expected if provided with data but no columns', () => {
-    const wrapper = mountTable({
+    const wrapper = mountEcTable({
       columns: undefined,
       data: [
         ['foo', 'bar'],
@@ -86,7 +86,7 @@ describe('EcTable', () => {
   });
 
   it('should render as expected if provided with data but no columns, and footer switched on', () => {
-    const wrapper = mountTable({
+    const wrapper = mountEcTable({
       columns: undefined,
       data: [
         ['foo', 'bar'],
@@ -102,7 +102,7 @@ describe('EcTable', () => {
   });
 
   it('should render as expected if provided with data and columns', () => {
-    const wrapper = mountTable();
+    const wrapper = mountEcTable();
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -169,7 +169,7 @@ describe('EcTable', () => {
 
   it('the tr should have class ec-table-row--is-clickable if we set the listener on row-click', () => {
     const onRowClick = jest.fn();
-    const wrapper = mountTable(
+    const wrapper = mountEcTable(
       {
         columns: [
           {
@@ -199,7 +199,7 @@ describe('EcTable', () => {
   });
 
   it('should render as expected if provided with data and columns, with footer switched on', () => {
-    const wrapper = mountTable({}, {
+    const wrapper = mountEcTable({}, {
       slots: {
         footer: '<p>Random text</p>',
       },
@@ -209,7 +209,7 @@ describe('EcTable', () => {
   });
 
   it('should render as expected if provided with empty row and no columns, with footer switched on', () => {
-    const wrapper = mountTable({
+    const wrapper = mountEcTable({
       columns: [],
       data: [[]],
     }, {
@@ -222,7 +222,7 @@ describe('EcTable', () => {
   });
 
   it('should render as expected if provided with rows and columns, with footer switched on and the title given', () => {
-    const wrapper = mountTable({
+    const wrapper = mountEcTable({
       title: 'Title example',
     }, {
       slots: {
@@ -234,7 +234,7 @@ describe('EcTable', () => {
   });
 
   it('should render slots as expected', () => {
-    const wrapper = mountTable({
+    const wrapper = mountEcTable({
       columns: [
         {
           name: 'lorem',
@@ -260,7 +260,7 @@ describe('EcTable', () => {
   });
 
   it('should render sorting as expected', () => {
-    const wrapper = mountTable({
+    const wrapper = mountEcTable({
       sorts: [
         { column: 'lorem', direction: SortDirection.ASC },
         { column: 'ipsum', direction: SortDirection.DESC },
@@ -283,7 +283,7 @@ describe('EcTable', () => {
   });
 
   it('should notify parent about sorting', () => {
-    const wrapper = mountTable({
+    const wrapper = mountEcTable({
       columns: [
         {
           name: 'lorem',
@@ -302,7 +302,7 @@ describe('EcTable', () => {
   });
 
   it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left and the changes to right when the prop is get changed to right', async () => {
-    const wrapper = mountTable({ stickyColumn: 'left' });
+    const wrapper = mountEcTable({ stickyColumn: 'left' });
 
     expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(true);
     expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(false);
@@ -312,21 +312,23 @@ describe('EcTable', () => {
   });
 
   it('should have the style height the same as given on the prop', () => {
-    const wrapper = mountTable({ maxHeight: '400px' });
+    const wrapper = mountEcTable({ maxHeight: '400px' });
 
     expect(wrapper.findByDataTest('ec-table-scroll-container').attributes('style')).toBe('max-height: 400px;');
   });
 
   it('should emit the row-click event when you click on some row', async () => {
-    const wrapper = mountTable();
+    const onRowClick = jest.fn();
+    const wrapper = mountEcTable({}, {
+      attrs: {
+        onRowClick,
+      },
+    });
 
-    expect(wrapper.emitted('row-click')).toBe(undefined);
     await wrapper.findByDataTest('ec-table__row--0').trigger('click');
-    expect(wrapper.emitted('row-click')[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
-    expect(wrapper.emitted('row-click').length).toBe(1);
+    expect(onRowClick.mock.calls[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
     await wrapper.findByDataTest('ec-table__row--1').trigger('click');
-    expect(wrapper.emitted('row-click')[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
-    expect(wrapper.emitted('row-click').length).toBe(2);
+    expect(onRowClick.mock.calls[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
   });
 
   it('should render the style with the min-width on each cell of the column that have the prop given', () => {
@@ -341,7 +343,7 @@ describe('EcTable', () => {
         title: 'Ipsum',
       },
     ];
-    const wrapper = mountTable({ columns });
+    const wrapper = mountEcTable({ columns });
     const wrapperArray = wrapper.findAllByDataTest('ec-table__cell--0');
     expect(wrapperArray.length).toBe(columns.length);
     wrapperArray.forEach(wrapperItem => expect(wrapperItem.attributes('style')).toBe('min-width: 250px;'));
@@ -359,7 +361,7 @@ describe('EcTable', () => {
         title: 'Ipsum',
       },
     ];
-    const wrapper = mountTable({ columns });
+    const wrapper = mountEcTable({ columns });
 
     expect(wrapper.element).toMatchSnapshot();
   });

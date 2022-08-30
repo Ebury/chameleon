@@ -23,50 +23,54 @@
   </a>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+
 import * as SortDirection from '../../enums/sort-direction';
 import EcIcon from '../ec-icon';
 
+const emit = defineEmits(['sort']);
+
+const props = defineProps({
+  direction: {
+    type: String,
+    default: null,
+    validator(value) {
+      return value === null || value === '' || [SortDirection.ASC, SortDirection.DESC].includes(value);
+    },
+  },
+});
+
+const isAsc = computed(() => props.direction === SortDirection.ASC);
+const isDesc = computed(() => props.direction === SortDirection.DESC);
+
+const icon = computed(() => {
+  if (isAsc.value || isDesc.value) {
+    return 'simple-arrow-drop-down';
+  }
+  return 'simple-arrow-up-down';
+});
+
+const directionTitle = computed(() => {
+  if (isAsc.value) {
+    return 'Sorted ascending';
+  }
+  if (isDesc.value) {
+    return 'Sorted descending';
+  }
+  return 'Not sorted';
+});
+
+function onSort() {
+  emit('sort', props.direction);
+}
+</script>
+
+<script>
 export default {
   name: 'EcTableSort',
-  components: { EcIcon },
-  props: {
-    direction: {
-      type: String,
-      default: null,
-      validator(value) {
-        return value === null || value === '' || [SortDirection.ASC, SortDirection.DESC].includes(value);
-      },
-    },
-  },
-  emits: ['sort'],
-  computed: {
-    icon() {
-      if (this.isAsc || this.isDesc) {
-        return 'simple-arrow-drop-down';
-      }
-      return 'simple-arrow-up-down';
-    },
-    isAsc() {
-      return this.direction === SortDirection.ASC;
-    },
-    isDesc() {
-      return this.direction === SortDirection.DESC;
-    },
-    directionTitle() {
-      if (this.isAsc) {
-        return 'Sorted ascending';
-      }
-      if (this.isDesc) {
-        return 'Sorted descending';
-      }
-      return 'Not sorted';
-    },
-  },
-  methods: {
-    onSort() {
-      this.$emit('sort', this.direction);
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>
@@ -90,7 +94,7 @@ export default {
     @apply tw-fill-current;
 
     &--asc {
-      transform: rotateX(180deg);
+      @apply tw-transform tw-rotate-180;
     }
   }
 

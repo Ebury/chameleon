@@ -18,6 +18,10 @@
 
 <script>
 export default {
+  name: 'EcTableFooter',
+  compatConfig: {
+    MODE: 3,
+  },
   props: {
     colspan: {
       type: Number,
@@ -36,8 +40,6 @@ export default {
     @apply tw-bottom-0;
     @apply tw-bg-gray-7;
     @apply tw-rounded-b;
-
-    position: sticky;
   }
 
   &__contents {
