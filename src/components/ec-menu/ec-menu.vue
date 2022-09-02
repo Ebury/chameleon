@@ -3,7 +3,11 @@
     v-if="hasLinks"
     class="ec-menu"
     data-test="ec-menu"
-    :class="{'ec-menu--horizontal': horizontal }"
+    :class="{
+      'ec-menu--horizontal': horizontal && !isReversed,
+      'ec-menu--is-reversed': !horizontal && isReversed,
+      'ec-menu--is-reversed-horizontal': horizontal && isReversed
+    }"
   >
     <li
       v-for="(link, index) of validLinks"
@@ -39,6 +43,9 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  isReversed: {
+    type: Boolean,
+  },
 });
 
 const hasLinks = computed(() => Boolean(props.links && props.links.length));
@@ -71,11 +78,20 @@ export default {
     @apply tw-items-center tw-justify-center;
   }
 
+  &--is-reversed {
+    @apply tw-flex-col-reverse;
+  }
+
+  &--is-reversed-horizontal {
+    @apply tw-flex-row-reverse;
+  }
+
   &__item {
     @apply tw-block;
     @apply tw-min-w-full;
 
-    .ec-menu--horizontal & {
+    .ec-menu--horizontal &,
+    .ec-menu--is-reversed-horizontal & {
       @apply tw-inline-block;
       @apply tw-min-w-0;
 

@@ -359,6 +359,84 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
 </ul>
 `;
 
+exports[`EcMenu should render as expected when set to isReverse 1`] = `
+<ul
+  class="ec-menu ec-menu--is-reversed"
+  data-test="ec-menu"
+>
+  
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link foo ec-navigation-link"
+      href="/foo"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-foo-icon"
+        />
+      </svg>
+      <transition-stub>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Foo
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  
+</ul>
+`;
+
+exports[`EcMenu should render as expected when set to isReverse and horizontal 1`] = `
+<ul
+  class="ec-menu ec-menu--is-reversed-horizontal"
+  data-test="ec-menu"
+>
+  
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      data-test="ec-menu__link foo ec-navigation-link"
+      href="/foo"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-foo-icon"
+        />
+      </svg>
+      <transition-stub>
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Foo
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  
+</ul>
+`;
+
 exports[`EcMenu should render only links with a url property 1`] = `
 <ul
   class="ec-menu"
