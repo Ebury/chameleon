@@ -84,6 +84,7 @@ export default {
 
   &--is-reversed-horizontal {
     @apply tw-flex-row-reverse;
+    @apply tw-items-center tw-justify-center;
   }
 
   &__item {
