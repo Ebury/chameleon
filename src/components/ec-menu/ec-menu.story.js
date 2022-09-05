@@ -8,18 +8,24 @@ export default {
   component: EcMenu,
   decorators: [storyRouter([
     {
-      path: '/foo',
+      path: '/',
+      name: 'root',
       component: { template: '<div></div>' },
     },
     {
-      path: '/bar',
+      path: '/foo',
+      name: 'foo',
       component: { template: '<div></div>' },
+      beforeEnter: action('route changed'),
+    },
+    {
+      path: '/bar',
+      name: 'bar',
+      component: { template: '<div></div>' },
+      beforeEnter: action('route changed'),
     },
   ], {
-    beforeEach(to, from, next) {
-      action('route changed')(to, from);
-      next();
-    },
+    initialRoute: '/',
   })],
 };
 
