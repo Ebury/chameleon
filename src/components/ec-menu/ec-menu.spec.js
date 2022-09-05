@@ -59,6 +59,16 @@ describe('EcMenu', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render as expected when set to isReverse', () => {
+    const wrapper = mountEcMenu({ links: [links[0]], isReversed: true });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render as expected when set to isReverse and horizontal', () => {
+    const wrapper = mountEcMenu({ links: [links[0]], isReversed: true, horizontal: true });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render all items as compact when is horizontal', () => {
     const wrapper = mountEcMenu({ links, horizontal: true });
     expect(wrapper.element).toMatchSnapshot();
