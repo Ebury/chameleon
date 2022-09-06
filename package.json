@@ -95,7 +95,7 @@
     "postcss-nested": "5.0.6",
     "purgecss": "4.0.3",
     "purgecss-from-html": "4.0.3",
-    "snapshot-diff": "0.9.0",
+    "snapshot-diff": "0.10.0",
     "storybook-vue3-router": "2.3.1",
     "stylelint": "14.10.0",
     "stylelint-config-recommended-vue": "1.4.0",
