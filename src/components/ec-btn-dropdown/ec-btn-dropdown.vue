@@ -75,22 +75,23 @@ const popoverOptions = ref({
   autoSize: 'min',
   placement: 'bottom-end',
 });
+
+const popperReference = ref(null);
+function getPopoverStyle() {
+  if (popperReference.value) {
+    return {
+      width: `${popperReference.value.offsetWidth}px`,
+    };
+  }
+
+  return null;
+}
+
 </script>
 
 <script>
 export default {
   name: 'EcBtnDropdown',
-  methods: {
-    getPopoverStyle() {
-      if (this.$refs.popperReference) {
-        return {
-          width: `${this.$refs.popperReference.offsetWidth}px`,
-        };
-      }
-
-      return null;
-    },
-  },
   compatConfig: {
     MODE: 3,
   },
