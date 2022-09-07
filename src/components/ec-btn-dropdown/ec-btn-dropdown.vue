@@ -44,16 +44,14 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import EcBtn from '../ec-btn';
 import EcDropdownSearch from '../ec-dropdown-search';
+</script>
 
+<script>
 export default {
   name: 'EcBtnDropdown',
-  components: {
-    EcBtn,
-    EcDropdownSearch,
-  },
   props: {
     items: {
       type: Array,
@@ -92,7 +90,9 @@ export default {
       return null;
     },
   },
-
+  compatConfig: {
+    MODE: 3,
+  },
 };
 </script>
 
