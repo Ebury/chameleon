@@ -5,31 +5,31 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-btn-dropdown` : 'ec-btn-dropdown'"
   >
     <ec-btn
-      :is-disabled="isDisabled"
+      :is-disabled="props.isDisabled"
       :is-submit="false"
       is-reverse
       category="primary"
       is-rounded
       class="ec-btn-dropdown__btn"
       data-test="ec-btn-dropdown__btn"
-      @click="$emit('click')"
+      @click="emit('click')"
     >
-      {{ buttonText }}
+      {{ props.buttonText }}
     </ec-btn>
     <ec-dropdown-search
-      :items="items"
+      :items="props.items"
       :is-search-enabled="false"
       :max-visible-items="Infinity"
       :popover-options="popoverOptions"
       :popover-style="getPopoverStyle"
-      :disabled="isDisabled"
-      :list-data-test="listDataTest"
-      @change="(value) => $emit('change', value)"
+      :disabled="props.isDisabled"
+      :list-data-test="props.listDataTest"
+      @change="(value) => emit('change', value)"
       @open="isOpen = true"
       @close="isOpen = false"
     >
       <ec-btn
-        :is-disabled="isDisabled"
+        :is-disabled="props.isDisabled"
         is-reverse
         is-rounded
         category="primary"
@@ -45,40 +45,41 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 import EcBtn from '../ec-btn';
 import EcDropdownSearch from '../ec-dropdown-search';
+
+const props = defineProps({
+  items: {
+    type: Array,
+    default: () => [],
+  },
+  isDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  buttonText: {
+    type: String,
+    required: true,
+  },
+  listDataTest: {
+    type: String,
+  },
+});
+
+const emit = defineEmits(['click', 'change']);
+
+const isOpen = ref(false);
+const popoverOptions = ref({
+  autoSize: 'min',
+  placement: 'bottom-end',
+});
 </script>
 
 <script>
 export default {
   name: 'EcBtnDropdown',
-  props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
-    isDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    buttonText: {
-      type: String,
-      required: true,
-    },
-    listDataTest: {
-      type: String,
-    },
-  },
-  emits: ['click', 'change'],
-  data() {
-    return {
-      isOpen: false,
-      popoverOptions: {
-        autoSize: 'min',
-        placement: 'bottom-end',
-      },
-    };
-  },
   methods: {
     getPopoverStyle() {
       if (this.$refs.popperReference) {
