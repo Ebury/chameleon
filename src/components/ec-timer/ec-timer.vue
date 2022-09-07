@@ -83,15 +83,15 @@ const offset = computed(() => circumference.value + steps.value * secondsLeft.va
 const radius = ref(24);
 const strokeWidth = ref(4);
 const secondsLeft = ref(props.seconds);
-const countdown = ref(null);
+let countdown = null;
 
 function startCountdown() {
-  countdown.value = new Countdown();
-  countdown.value.start(props.seconds);
-  countdown.value.on('time-updated', (newValue) => {
+  countdown = new Countdown();
+  countdown.start(props.seconds);
+  countdown.on('time-updated', (newValue) => {
     secondsLeft.value = newValue;
   });
-  countdown.value.on('time-expired', () => {
+  countdown.on('time-expired', () => {
     /**
      * Emitted after the countdown is finish
      * @event time-expired
@@ -102,9 +102,9 @@ function startCountdown() {
 }
 
 function stopCountdown() {
-  if (countdown.value) {
-    countdown.value.stop();
-    countdown.value = null;
+  if (countdown) {
+    countdown.stop();
+    countdown = null;
   }
 }
 
