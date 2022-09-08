@@ -58,37 +58,39 @@
   </div>
 </template>
 
+<script setup>
+defineProps({
+  submenu: {
+    type: Array,
+    required: true,
+  },
+  activeIndex: {
+    type: Number,
+    default: 0,
+  },
+  isFullWidth: {
+    type: Boolean,
+    default: false,
+  },
+  hasHeaderGap: {
+    type: Boolean,
+    default: true,
+  },
+});
+
+const emit = defineEmits(['update:activeIndex', 'change']);
+
+function select(index) {
+  emit('update:activeIndex', index);
+  emit('change', index);
+}
+</script>
+
 <script>
 export default {
   name: 'EcSubmenu',
   compatConfig: {
-    MODE: 2,
-    COMPONENT_V_MODEL: false,
-  },
-  props: {
-    submenu: {
-      type: Array,
-      required: true,
-    },
-    activeIndex: {
-      type: Number,
-      default: 0,
-    },
-    isFullWidth: {
-      type: Boolean,
-      default: false,
-    },
-    hasHeaderGap: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  emits: ['update:activeIndex', 'change'],
-  methods: {
-    select(index) {
-      this.$emit('update:activeIndex', index);
-      this.$emit('change', index);
-    },
+    MODE: 3,
   },
 };
 </script>
