@@ -46,96 +46,87 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import {
+  computed, onBeforeUnmount, ref, watchEffect,
+} from 'vue';
+
 import Countdown from '../../utils/countdown';
 
+const props = defineProps({
+  /**
+   * Seconds to finish the countdown
+   */
+  seconds: {
+    type: Number,
+    required: true,
+    validator(value) {
+      return Number.isInteger(value) && value > 0;
+    },
+  },
+  /**
+   * Indicates if the countdown is running
+   */
+  isRunning: {
+    type: Boolean,
+    required: true,
+  },
+});
+const emit = defineEmits(['time-expired']);
+
+const diameter = computed(() => radius.value * 2 + strokeWidth.value);
+const viewbox = computed(() => `0 0 ${diameter.value} ${diameter.value}`);
+const circumference = computed(() => 2 * Math.PI * radius.value);
+const steps = computed(() => circumference.value / props.seconds);
+const offset = computed(() => circumference.value + steps.value * secondsLeft.value);
+
+const radius = ref(24);
+const strokeWidth = ref(4);
+const secondsLeft = ref(props.seconds);
+let countdown = null;
+
+function startCountdown() {
+  countdown = new Countdown();
+  countdown.start(props.seconds);
+  countdown.on('time-updated', (newValue) => {
+    secondsLeft.value = newValue;
+  });
+  countdown.on('time-expired', () => {
+    /**
+     * Emitted after the countdown is finish
+     * @event time-expired
+     * @type {void}
+     */
+    emit('time-expired');
+  });
+}
+
+function stopCountdown() {
+  if (countdown) {
+    countdown.stop();
+    countdown = null;
+  }
+}
+
+watchEffect(() => {
+  if (props.isRunning) {
+    startCountdown();
+  } else {
+    stopCountdown();
+    secondsLeft.value = props.seconds;
+  }
+});
+
+onBeforeUnmount(() => {
+  stopCountdown();
+});
+</script>
+
+<script>
 export default {
   name: 'EcTimer',
-  props: {
-    /**
-     * Seconds to finish the countdown
-    */
-    seconds: {
-      type: Number,
-      required: true,
-      validator(value) {
-        return Number.isInteger(value) && value > 0;
-      },
-    },
-    /**
-     * Indicates if the countdown is running
-    */
-    isRunning: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  emits: ['time-expired'],
-  data() {
-    return {
-      radius: 24,
-      strokeWidth: 4,
-      secondsLeft: this.seconds,
-      startTime: null,
-      currentTime: null,
-      countdown: null,
-    };
-  },
-  computed: {
-    diameter() {
-      return (this.radius * 2) + this.strokeWidth;
-    },
-    viewbox() {
-      return `0 0 ${this.diameter} ${this.diameter}`;
-    },
-    circumference() {
-      return 2 * Math.PI * this.radius;
-    },
-    steps() {
-      return this.circumference / this.seconds;
-    },
-    offset() {
-      return this.circumference + this.steps * this.secondsLeft;
-    },
-  },
-  watch: {
-    isRunning: {
-      immediate: true,
-      handler(value) {
-        if (value) {
-          this.startCountdown();
-        } else {
-          this.stopCountdown();
-          this.secondsLeft = this.seconds;
-        }
-      },
-    },
-  },
-  beforeUnmount() {
-    this.stopCountdown();
-  },
-  methods: {
-    startCountdown() {
-      this.countdown = new Countdown();
-      this.countdown.start(this.seconds);
-      this.countdown.on('time-updated', (secondsLeft) => {
-        this.secondsLeft = secondsLeft;
-      });
-      this.countdown.on('time-expired', () => {
-        /**
-         * Emitted after the countdown is finish
-         * @event time-expired
-         * @type {void}
-        */
-        this.$emit('time-expired');
-      });
-    },
-    stopCountdown() {
-      if (this.countdown) {
-        this.countdown.stop();
-        this.countdown = null;
-      }
-    },
+  compatConfig: {
+    MODE: 3,
   },
 };
 </script>
