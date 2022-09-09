@@ -32,21 +32,21 @@ describe('Utils', () => {
     it('should throw if no text is provided', () => {
       const textToBeMasked = null;
 
-      expect(() => mask(textToBeMasked)).toThrowError(new Error('Text is required'));
+      expect(() => mask(textToBeMasked)).toThrow(new Error('Text is required'));
     });
 
     it('should throw if no mask symbol is provided', () => {
       const textToBeMasked = 'lorem';
       const maskSybol = null;
 
-      expect(() => mask(textToBeMasked, maskSybol)).toThrowError(new Error('Mask symbol cannot be empty'));
+      expect(() => mask(textToBeMasked, maskSybol)).toThrow(new Error('Mask symbol cannot be empty'));
     });
 
     it('should throw if no mask symbol is provided', () => {
       const textToBeMasked = 'lorem';
       const maskSybol = null;
 
-      expect(() => mask(textToBeMasked, maskSybol)).toThrowError(new Error('Mask symbol cannot be empty'));
+      expect(() => mask(textToBeMasked, maskSybol)).toThrow(new Error('Mask symbol cannot be empty'));
     });
 
     it('should throw if visibleChars is not provided', () => {
@@ -54,7 +54,7 @@ describe('Utils', () => {
       const maskSybol = '#';
       const visibleChars = null;
 
-      expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrowError(new Error('Visible characters must be a number greater than zero'));
+      expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrow(new Error('Visible characters must be a number greater than zero'));
     });
 
     it('should throw if visibleChars is negative', () => {
@@ -62,7 +62,7 @@ describe('Utils', () => {
       const maskSybol = '#';
       const visibleChars = -1;
 
-      expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrowError(new Error('Visible characters must be a number greater than zero'));
+      expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrow(new Error('Visible characters must be a number greater than zero'));
     });
   });
 });
