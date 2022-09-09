@@ -41,8 +41,8 @@ describe('Countdown', () => {
     countdown.start(20);
     clock.tick(20000);
 
-    expect(timeExpiredMock).toBeCalledTimes(1);
-    expect(timeUpdatedMock).toBeCalledTimes(20);
+    expect(timeExpiredMock).toHaveBeenCalledTimes(1);
+    expect(timeUpdatedMock).toHaveBeenCalledTimes(20);
     expect(clock.countTimers()).toBe(0);
   });
 });

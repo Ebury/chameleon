@@ -16,8 +16,11 @@
   "scripts": {
     "icons": "webpack --config ./src/icons/webpack.config.js --mode=production",
     "lint": "npm run lint:js && npm run lint:style",
-    "lint:js": "vue-cli-service lint -- ./",
+    "lint:no-fix": "npm run lint:js:no-fix && npm run lint:style:no-fix",
+    "lint:js": "vue-cli-service lint ./",
+    "lint:js:no-fix": "vue-cli-service lint --no-fix ./",
     "lint:style": "stylelint ./src/**/*.{css,vue} --fix",
+    "lint:style:no-fix": "stylelint ./src/**/*.{css,vue}",
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit --watch",
     "test:visual": "cypress open",
