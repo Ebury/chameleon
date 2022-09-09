@@ -25,7 +25,7 @@ const Template = args => ({
   template: `
     <ec-badge
       v-bind="args"
-      class="tw-m-8 tw-text-center" 
+      class="tw-m-8" 
     />
   `,
 });

@@ -7,10 +7,9 @@
     }"
   >
     <slot
-      v-if="hasValueSlot"
-      name="custom"
+      v-if="hasSlot()"
     />
-    <span>
+    <span v-else>
       {{ props.value }}
     </span>
   </span>
@@ -33,7 +32,7 @@ const props = defineProps({
   },
 });
 const slots = useSlots();
-const hasValueSlot = () => !!slots.custom;
+const hasSlot = () => !!slots.default;
 </script>
 
 <script>
