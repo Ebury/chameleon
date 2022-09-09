@@ -84,7 +84,7 @@
     "cypress-image-snapshot": "4.0.1",
     "eslint": "8.21.0",
     "eslint-plugin-cypress": "2.12.1",
-    "eslint-plugin-jest": "27.0.1",
+    "eslint-plugin-jest": "27.0.2",
     "eslint-plugin-simple-import-sort": "8.0.0",
     "eslint-plugin-vue": "9.4.0",
     "eslint-plugin-vuejs-accessibility": "1.2.0",
