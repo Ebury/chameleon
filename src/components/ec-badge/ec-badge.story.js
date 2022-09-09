@@ -43,10 +43,19 @@ export const all = args => ({
       {
         title: 'Simple Badge',
         data: [
-          { value: '1', type: 'info' },
-          { value: '1', type: 'success' },
-          { value: '1', type: 'warning' },
-          { value: '1', type: 'error' },
+          { value: 'Info Badge', type: 'info' },
+          { value: 'Success Badge', type: 'success' },
+          { value: 'Warning Badge', type: 'warning' },
+          { value: 'Error Badge', type: 'error' },
+        ],
+      },
+      {
+        title: 'Default slot',
+        data: [
+          { value: 'Info Badge', type: 'info', custom: true },
+          { value: 'Success Badge', type: 'success', custom: true },
+          { value: 'Warning Badge', type: 'warning', custom: true },
+          { value: 'Error Badge', type: 'error', custom: true },
         ],
       },
     ]);
@@ -65,6 +74,9 @@ export const all = args => ({
           v-bind="badge" 
           :key="blockIndex + '-' + badgeIndex" 
           class="tw-m-8">
+          <template v-if="badge.custom" #default>   
+            Custom template: {{ badge.value }}
+          </template>
         </ec-badge>
       </template>
     </div>`,

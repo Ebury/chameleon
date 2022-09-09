@@ -6,9 +6,9 @@
       [`ec-badge--${props.type}`]: props.type
     }"
   >
-    <slot
-      v-if="hasSlot()"
-    />
+    <span v-if="hasDefaultSlot()">
+      <slot />
+    </span>
     <span v-else>
       {{ props.value }}
     </span>
@@ -32,7 +32,7 @@ const props = defineProps({
   },
 });
 const slots = useSlots();
-const hasSlot = () => !!slots.default;
+const hasDefaultSlot = () => !!slots.default;
 </script>
 
 <script>
