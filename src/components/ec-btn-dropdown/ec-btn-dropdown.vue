@@ -71,10 +71,10 @@ const props = defineProps({
 const emit = defineEmits(['click', 'change']);
 
 const isOpen = ref(false);
-const popoverOptions = ref({
+const popoverOptions = {
   autoSize: 'min',
   placement: 'bottom-end',
-});
+};
 
 const popperReference = ref(null);
 function getPopoverStyle() {
