@@ -44,9 +44,9 @@ export const all = args => ({
         title: 'Simple Badge',
         data: [
           { value: '1', type: 'info' },
-          { value: '10', type: 'success' },
-          { value: '100', type: 'warning' },
-          { value: '1000', type: 'error' },
+          { value: '1', type: 'success' },
+          { value: '1', type: 'warning' },
+          { value: '1', type: 'error' },
         ],
       },
     ]);
