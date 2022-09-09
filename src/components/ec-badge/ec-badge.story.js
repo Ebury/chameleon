@@ -2,8 +2,6 @@ import { reactive } from 'vue';
 
 import EcBadge from './ec-badge.vue';
 
-// import './ec-badge.story.css';
-
 export default {
   title: 'Badge',
   component: EcBadge,
@@ -75,7 +73,7 @@ export const all = args => ({
           :key="blockIndex + '-' + badgeIndex" 
           class="tw-m-8">
           <template v-if="badge.custom" #default>   
-            Custom template: {{ badge.value }}
+            Custom: {{ badge.value }}
           </template>
         </ec-badge>
       </template>
