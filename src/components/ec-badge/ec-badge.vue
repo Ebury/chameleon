@@ -1,8 +1,30 @@
 <template>
-  ec-badge
+  <span
+    class="ec-badge"
+    data-test="ec-badge"
+    :class="{
+      [`ec-alert--${props.type}`]: props.type
+    }"
+  >
+    {{ props.value }}
+  </span>
 </template>
 
 <script setup>
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'info',
+    validator(value) {
+      return ['error', 'info', 'success', 'warning'].includes(value);
+    },
+    required: true,
+  },
+  value: {
+    type: String,
+    required: true,
+  },
+});
 
 </script>
 
