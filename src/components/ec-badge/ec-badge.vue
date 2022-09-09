@@ -3,14 +3,14 @@
     class="ec-badge"
     data-test="ec-badge"
     :class="{
-      [`ec-badge--${props.type}`]: props.type
+      [`ec-badge--${type}`]: type
     }"
   >
     <span v-if="hasDefaultSlot()">
-      <slot />
+      <slot v-bind="{ value }" />
     </span>
     <span v-else>
-      {{ props.value }}
+      {{ value }}
     </span>
   </span>
 </template>
@@ -18,7 +18,7 @@
 <script setup>
 import { useSlots } from 'vue';
 
-const props = defineProps({
+defineProps({
   type: {
     type: String,
     validator(value) {

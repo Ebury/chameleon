@@ -72,8 +72,8 @@ export const all = args => ({
           v-bind="badge" 
           :key="blockIndex + '-' + badgeIndex" 
           class="tw-m-8">
-          <template v-if="badge.custom" #default>   
-            Custom: {{ badge.value }}
+          <template v-if="badge.custom" #default="{ value }">   
+            Custom: {{ value }}
           </template>
         </ec-badge>
       </template>

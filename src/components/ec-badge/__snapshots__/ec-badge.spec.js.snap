@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcBadge should render the badge with a value 1`] = `
+<span
+  class="ec-badge ec-badge--info"
+  data-test="ec-badge"
+>
+  <span>
+    Random value
+  </span>
+</span>
+`;
+
+exports[`EcBadge should render with the default slot given 1`] = `
+<span
+  class="ec-badge ec-badge--info"
+  data-test="ec-badge"
+>
+  <span>
+    
+     Custom: a random value
+    
+  </span>
+</span>
+`;
+
+exports[`EcBadge should use the type "error" 1`] = `
+<span
+  class="ec-badge ec-badge--error"
+  data-test="ec-badge"
+>
+  <span>
+    A random value
+  </span>
+</span>
+`;
+
+exports[`EcBadge should use the type "info" 1`] = `
+<span
+  class="ec-badge ec-badge--info"
+  data-test="ec-badge"
+>
+  <span>
+    A random value
+  </span>
+</span>
+`;
+
+exports[`EcBadge should use the type "success" 1`] = `
+<span
+  class="ec-badge ec-badge--success"
+  data-test="ec-badge"
+>
+  <span>
+    A random value
+  </span>
+</span>
+`;
+
+exports[`EcBadge should use the type "warning" 1`] = `
+<span
+  class="ec-badge ec-badge--warning"
+  data-test="ec-badge"
+>
+  <span>
+    A random value
+  </span>
+</span>
+`;
