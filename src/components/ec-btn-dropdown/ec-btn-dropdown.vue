@@ -5,7 +5,7 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-btn-dropdown` : 'ec-btn-dropdown'"
   >
     <ec-btn
-      :is-disabled="props.isDisabled"
+      :is-disabled="isDisabled"
       :is-submit="false"
       is-reverse
       category="primary"
@@ -14,22 +14,22 @@
       data-test="ec-btn-dropdown__btn"
       @click="emit('click')"
     >
-      {{ props.buttonText }}
+      {{ buttonText }}
     </ec-btn>
     <ec-dropdown-search
-      :items="props.items"
+      :items="items"
       :is-search-enabled="false"
       :max-visible-items="Infinity"
       :popover-options="popoverOptions"
       :popover-style="getPopoverStyle"
-      :disabled="props.isDisabled"
-      :list-data-test="props.listDataTest"
+      :disabled="isDisabled"
+      :list-data-test="listDataTest"
       @change="(value) => emit('change', value)"
       @open="isOpen = true"
       @close="isOpen = false"
     >
       <ec-btn
-        :is-disabled="props.isDisabled"
+        :is-disabled="isDisabled"
         is-reverse
         is-rounded
         category="primary"
@@ -50,7 +50,7 @@ import { ref } from 'vue';
 import EcBtn from '../ec-btn';
 import EcDropdownSearch from '../ec-dropdown-search';
 
-const props = defineProps({
+defineProps({
   items: {
     type: Array,
     default: () => [],
