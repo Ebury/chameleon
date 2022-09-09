@@ -3,29 +3,37 @@
     class="ec-badge"
     data-test="ec-badge"
     :class="{
-      [`ec-alert--${props.type}`]: props.type
+      [`ec-badge--${props.type}`]: props.type
     }"
   >
-    {{ props.value }}
+    <slot
+      v-if="hasValueSlot"
+      name="custom"
+    />
+    <span>
+      {{ props.value }}
+    </span>
   </span>
 </template>
 
 <script setup>
+import { useSlots } from 'vue';
+
 const props = defineProps({
   type: {
     type: String,
-    default: 'info',
     validator(value) {
       return ['error', 'info', 'success', 'warning'].includes(value);
     },
-    required: true,
+    default: 'info',
   },
   value: {
     type: String,
     required: true,
   },
 });
-
+const slots = useSlots();
+const hasValueSlot = () => !!slots.custom;
 </script>
 
 <script>
@@ -44,13 +52,28 @@ export default {
 }
 
 .ec-badge {
-  @apply tw-flex tw-justify-center tw-items-center;
-  @apply tw-ml-4;
-  @apply tw-bg-key-5 tw-text-gray-8;
-  @apply tw-rounded-1/2;
+  @apply tw-text-gray-8;
   @apply tw-text-center tw-flags-text;
+  @apply tw-py-0 tw-px-4;
 
-  width: var(--ec-filter-badge-width);
+  min-width: var(--ec-filter-badge-width);
   height: var(--ec-filter-badge-height);
+  border-radius: calc(var(--ec-filter-badge-width) / 2);
+
+  &--info {
+    @apply tw-bg-info;
+  }
+
+  &--success {
+    @apply tw-bg-success;
+  }
+
+  &--warning {
+    @apply tw-bg-warning;
+  }
+
+  &--error {
+    @apply tw-bg-error;
+  }
 }
 </style>
