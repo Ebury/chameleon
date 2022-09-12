@@ -1,329 +1,348 @@
 <template>
   <ec-input-field
-    :id="id"
-    ref="input"
+    v-bind="{
+      ...getEvents(),
+      style: attrs.style,
+      id,
+      label,
+      placeholder,
+      note,
+      bottomNote,
+      errorMessage,
+      isWarning,
+    }"
+    ref="inputRef"
     type="text"
     autocomplete="off"
     icon="simple-calendar"
-    class="ec-datepicker"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-datepicker`: 'ec-datepicker'"
-    :label="label"
-    :note="note"
-    :bottom-note="bottomNote"
-    :placeholder="placeholder"
-    :is-warning="isWarning"
-    :error-message="errorMessage"
+    :class="['ec-datepicker', attrs.class]"
+    :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-datepicker`: 'ec-datepicker'"
     :disabled="isDisabled"
     :model-value="formattedValue"
     @icon-click="openCalendar()"
     @blur="onBlur"
     @change="onChange"
-    v-on="getListeners()"
   />
 </template>
 
-<script>
+<script setup>
 import flatpickr from 'flatpickr';
+import {
+  onBeforeUnmount, onMounted, ref, useAttrs, watch,
+} from 'vue';
 
 import { getUid } from '../../utils/uid';
 import EcInputField from '../ec-input-field';
 
+const props = defineProps({
+  modelValue: {
+    type: Date,
+  },
+  label: {
+    type: String,
+  },
+  note: {
+    type: String,
+  },
+  bottomNote: {
+    type: String,
+  },
+  isWarning: {
+    type: Boolean,
+    default: false,
+  },
+  placeholder: {
+    type: String,
+  },
+  errorMessage: {
+    type: String,
+  },
+  isDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  disabledDates: {
+    type: Object,
+    default: () => {},
+  },
+  areWeekendsDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  level: {
+    type: String,
+    validator(value) {
+      return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3', ''].includes(value);
+    },
+    default: '',
+  },
+  options: {
+    type: Object,
+    default: () => ({}),
+  },
+  dateFormat: {
+    type: String,
+  },
+  locale: {
+    type: [String, Object],
+  },
+});
+
+const emit = defineEmits(['update:modelValue', 'ready', 'open', 'close', 'blur', 'change']);
+
+const uid = getUid();
+const id = `ec-datepicker-${uid}`;
+
+const inputRef = ref(null);
+
+// flatpickr instance
+let flatpickrInstance = null;
+
+onMounted(() => {
+  flatpickrInstance = flatpickr(inputRef.value.inputRef, mergeWithDefaultOptions(props.options));
+});
+
+onBeforeUnmount(() => {
+  if (flatpickrInstance) {
+    flatpickrInstance.destroy();
+  }
+});
+
+function openCalendar() {
+  if (flatpickrInstance) {
+    flatpickrInstance.open();
+  }
+}
+
+// custom classes and data-test
+const attrs = useAttrs();
+
+onMounted(() => {
+  if (flatpickrInstance.calendarContainer) {
+    flatpickrInstance.calendarContainer.dataset.test = 'ec-datepicker__calendar';
+    flatpickrInstance.calendarContainer.dataset.relDataTest = `${attrs['data-test'] ?? ''} ec-datepicker`.trim();
+    if (props.level) {
+      flatpickrInstance.calendarContainer.classList.add(`flatpickr-calendar--${props.level}`);
+    }
+    flatpickrInstance.monthsDropdownContainer.dataset.test = 'ec-datepicker__calendar-month';
+    flatpickrInstance.currentYearElement.dataset.test = 'ec-datepicker__calendar-year';
+  }
+});
+
+// model
+const formattedValue = ref('');
+
+onMounted(() => {
+  if (flatpickrInstance.input) {
+    formattedValue.value = flatpickrInstance.input.value;
+  }
+});
+
+watch(() => props.modelValue, (newValue, oldValue) => {
+  if (newValue && newValue !== oldValue && !datesAreEqual(newValue, oldValue)) {
+    flatpickrInstance.setDate(newValue, true);
+    emit('change');
+  }
+
+  if (!newValue) {
+    flatpickrInstance.clear();
+  }
+});
+
+function onChange() {
+  if (!flatpickrInstance) {
+    return;
+  }
+
+  const dateStr = flatpickrInstance.input.value;
+  const date = flatpickrInstance.selectedDates[0];
+  if (dateStr && !date) {
+    return;
+  }
+  if (date) {
+    const isoDate = toIsoDate(date);
+
+    if (disabledDatesMap?.has(isoDate)) {
+      flatpickrInstance.clear();
+      return;
+    }
+
+    if (props.areWeekendsDisabled && isWeekendDay(date)) {
+      flatpickrInstance.clear();
+      return;
+    }
+  }
+
+  formattedValue.value = dateStr;
+
+  if (datesAreEqual(date, props.modelValue)) {
+    return;
+  }
+
+  emit('update:modelValue', date ?? null);
+  emit('change');
+}
+
+function onBlur(evt) {
+  emit('blur', evt);
+  if (flatpickrInstance && !flatpickrInstance.input.value) {
+    emit('update:modelValue', null);
+    emit('change');
+  }
+}
+
+// options for flatpickr
+function mergeWithDefaultOptions(options) {
+  const mergedOptions = {
+    ...options,
+    // We need to update the time of "now" every time something changes otherwise flatpickr will only pick it once when imported.
+    now: new Date(),
+    allowInput: true,
+    defaultDate: props.modelValue ? new Date(props.modelValue) : null,
+    onDayCreate,
+    onReady: [...(props.options.onReady ?? []), () => {
+      emit('ready');
+    }],
+    onOpen: [...(props.options.onOpen ?? []), () => {
+      emit('open');
+    }],
+    onClose: [...(props.options.onClose ?? []), () => {
+      emit('close');
+    }],
+    prevArrow: '<svg><use xlink:href="#ec-simple-chevron-left"/></svg>',
+    nextArrow: '<svg><use xlink:href="#ec-simple-chevron-right"/></svg>',
+  };
+
+  if (props.locale) {
+    mergedOptions.locale = props.locale;
+  }
+
+  if (props.dateFormat) {
+    mergedOptions.dateFormat = props.dateFormat;
+  }
+
+  return mergedOptions;
+}
+
+watch(() => props.dateFormat, (newValue) => {
+  if (flatpickrInstance) {
+    flatpickrInstance.set('dateFormat', newValue);
+    if (flatpickrInstance.selectedDates.length) {
+      flatpickrInstance.setDate(flatpickrInstance.selectedDates[0], true);
+    }
+  }
+});
+
+watch(() => props.locale, (newValue) => {
+  if (flatpickrInstance) {
+    flatpickrInstance.set('locale', newValue);
+  }
+});
+
+watch(() => props.options, (newValue) => {
+  const newOptions = mergeWithDefaultOptions(newValue);
+  for (const [key, value] of Object.entries(newOptions)) {
+    if (!key.match(/on[A-Z]/)) {
+      flatpickrInstance.set(key, value);
+    }
+  }
+});
+
+function getEvents() {
+  const events = {};
+  for (const [key, value] of Object.entries(attrs)) {
+    if (key.match(/^on[A-Z]/)) {
+      events[key] = value;
+    }
+  }
+  return events;
+}
+
+// disabled dates
+let disabledDatesMap = new Map();
+
+watch(() => props.disabledDates, (newValue) => {
+  if (newValue) {
+    disabledDatesMap = new Map(Object.entries(newValue));
+  }
+  if (flatpickrInstance) {
+    flatpickrInstance.redraw();
+  }
+}, {
+  immediate: true,
+});
+
+watch(() => props.areWeekendsDisabled, () => {
+  if (flatpickrInstance) {
+    flatpickrInstance.redraw();
+  }
+});
+
+function onDayCreate(selectedDate, selectedDateFormatted, flatpickrInstance, dayElement) {
+  const date = dayElement.dateObj;
+  const isoDate = toIsoDate(date);
+
+  disableWeekends(dayElement);
+  if (disabledDatesMap?.size) {
+    disableSpecificDates(dayElement, isoDate);
+  }
+
+  dayElement.dataset.test = `ec-datepicker__calendar-day--${isoDate}`;
+}
+
+function disableWeekends(dayElement) {
+  if (props.areWeekendsDisabled && isWeekendDay(dayElement.dateObj)) {
+    setDisabledClass(dayElement);
+  }
+}
+
+function disableSpecificDates(dayElement, isoDate) {
+  if (disabledDatesMap.has(isoDate)) {
+    setDisabledClass(dayElement);
+    const reason = disabledDatesMap.get(isoDate);
+    if (reason) {
+      dayElement.title = reason;
+    }
+  }
+}
+
+function setDisabledClass(dayElement) {
+  dayElement.className = `${dayElement.className} flatpickr-disabled`;
+}
+
+// helpers
+function isWeekendDay(dateObj) {
+  const day = dateObj.getDay();
+
+  const isSaturday = day === 6;
+  const isSunday = day === 0;
+
+  return isSaturday || isSunday;
+}
+
+function toIsoDate(dateObj) {
+  const isoDateTime = new Date(Date.UTC(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate())).toISOString();
+  const [isoDate] = isoDateTime.split('T');
+
+  return isoDate;
+}
+
+function datesAreEqual(date1, date2) {
+  if (date1 instanceof Date && date2 instanceof Date) {
+    return date1.getTime() === date2.getTime();
+  }
+
+  return date1 === date2;
+}
+</script>
+
+<script>
 export default {
   name: 'EcDatepicker',
   compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
-  components: {
-    EcInputField,
+    MODE: 3,
   },
   inheritAttrs: false,
-  props: {
-    modelValue: {
-      type: Date,
-    },
-    label: {
-      type: String,
-    },
-    note: {
-      type: String,
-    },
-    bottomNote: {
-      type: String,
-    },
-    isWarning: {
-      type: Boolean,
-      default: false,
-    },
-    placeholder: {
-      type: String,
-    },
-    errorMessage: {
-      type: String,
-    },
-    isDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    disabledDates: {
-      type: Object,
-      default: () => {},
-    },
-    areWeekendsDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    level: {
-      type: String,
-      validator(value) {
-        return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3', ''].includes(value);
-      },
-      default: '',
-    },
-    options: {
-      type: Object,
-      default: () => ({}),
-    },
-    dateFormat: {
-      type: String,
-    },
-    locale: {
-      type: [String, Object],
-    },
-  },
-  emits: ['update:modelValue', 'ready', 'open', 'close', 'blur', 'change'],
-  data() {
-    return {
-      uid: getUid(),
-      formattedValue: '',
-    };
-  },
-  computed: {
-    id() {
-      return `ec-datepicker-${this.uid}`;
-    },
-  },
-  watch: {
-    disabledDates: {
-      immediate: true,
-      handler(newValue) {
-        if (newValue) {
-          this.disabledDatesMap = new Map(Object.entries(newValue));
-        }
-        if (this.flatpickrInstance) {
-          this.flatpickrInstance.redraw();
-        }
-      },
-    },
-    modelValue(newValue, oldValue) {
-      if (newValue && newValue !== oldValue && !this.datesAreEqual(newValue, oldValue)) {
-        this.flatpickrInstance.setDate(newValue, true);
-        this.$emit('change');
-      }
-
-      if (!newValue) {
-        this.flatpickrInstance.clear();
-      }
-    },
-    dateFormat(newValue) {
-      /* istanbul ignore next */
-      if (this.flatpickrInstance) {
-        this.flatpickrInstance.set('dateFormat', newValue);
-        if (this.flatpickrInstance.selectedDates.length) {
-          this.flatpickrInstance.setDate(this.flatpickrInstance.selectedDates[0], true);
-        }
-      }
-    },
-    locale(newValue) {
-      /* istanbul ignore next */
-      if (this.flatpickrInstance) {
-        this.flatpickrInstance.set('locale', newValue);
-      }
-    },
-    areWeekendsDisabled() {
-      /* istanbul ignore next */
-      if (this.flatpickrInstance) {
-        this.flatpickrInstance.redraw();
-      }
-    },
-    options(newValue) {
-      const newOptions = this.mergeWithDefaultOptions(newValue);
-      for (const [key, value] of Object.entries(newOptions)) {
-        // https://github.com/ankurk91/vue-flatpickr-component/blob/9.0.5/src/component.js#L186
-        if (!key.match(/on[A-Z]/)) {
-          this.flatpickrInstance.set(key, value);
-        }
-      }
-    },
-  },
-  mounted() {
-    this.flatpickrInstance = flatpickr(this.$refs.input.inputRef, this.mergeWithDefaultOptions(this.options));
-
-    /* istanbul ignore next */
-    if (this.flatpickrInstance.input) {
-      // sync the value to the formattedValue after the flatpickr is initialized.
-      //
-      // if the 'modelValue' prop contains any initial value, that value got passed to the flatpickr via defaultValue option
-      // and a formatted value may be visible in the input now. we need to get that value from input to our
-      // formattedValue in order to keep it in sync.
-      // if we don't do that, an empty formattedValue can be passed to the ec-input-field via Vue props
-      // in the nextTick, and that would reset the value in the input and in the flatpickr.
-      this.formattedValue = this.flatpickrInstance.input.value;
-    }
-
-    /* istanbul ignore next */
-    if (this.flatpickrInstance.calendarContainer) {
-      this.flatpickrInstance.calendarContainer.dataset.test = 'ec-datepicker__calendar';
-      this.flatpickrInstance.calendarContainer.dataset.relDataTest = `${this.$attrs['data-test'] ?? ''} ec-datepicker`.trim();
-      if (this.level) {
-        this.flatpickrInstance.calendarContainer.classList.add(`flatpickr-calendar--${this.level}`);
-      }
-      this.flatpickrInstance.monthsDropdownContainer.dataset.test = 'ec-datepicker__calendar-month';
-      this.flatpickrInstance.currentYearElement.dataset.test = 'ec-datepicker__calendar-year';
-    }
-  },
-  beforeUnmount() {
-    /* istanbul ignore next */
-    if (this.flatpickrInstance) {
-      this.flatpickrInstance.destroy();
-    }
-  },
-  methods: {
-    getListeners() {
-      const listeners = { ...this.$listeners };
-      delete listeners['update:modelValue'];
-      delete listeners.open;
-      delete listeners.close;
-      delete listeners.ready;
-      delete listeners.blur;
-      delete listeners.change;
-
-      return listeners;
-    },
-    openCalendar() {
-      /* istanbul ignore next */
-      if (this.flatpickrInstance) {
-        this.flatpickrInstance.open();
-      }
-    },
-    mergeWithDefaultOptions(options) {
-      const mergedOptions = {
-        ...options,
-        // We need to update the time of "now" every time something changes otherwise flatpickr will only pick it once when imported.
-        now: new Date(),
-        allowInput: true,
-        defaultDate: this.modelValue ? new Date(this.modelValue) : null,
-        onDayCreate: this.onDayCreate,
-        onReady: [...(this.options.onReady ?? []), () => {
-          this.$emit('ready');
-        }],
-        onOpen: [...(this.options.onOpen ?? []), () => {
-          this.$emit('open');
-        }],
-        onClose: [...(this.options.onClose ?? []), () => {
-          this.$emit('close');
-        }],
-        prevArrow: '<svg><use xlink:href="#ec-simple-chevron-left"/></svg>',
-        nextArrow: '<svg><use xlink:href="#ec-simple-chevron-right"/></svg>',
-      };
-
-      if (this.locale) {
-        mergedOptions.locale = this.locale;
-      }
-
-      if (this.dateFormat) {
-        mergedOptions.dateFormat = this.dateFormat;
-      }
-
-      return mergedOptions;
-    },
-    setDisabledClass(dayElement) {
-      dayElement.className = `${dayElement.className} flatpickr-disabled`;
-    },
-    toIsoDate(dateObj) {
-      const isoDateTime = new Date(Date.UTC(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate())).toISOString();
-      const [isoDate] = isoDateTime.split('T');
-
-      return isoDate;
-    },
-    isWeekendDay(dateObj) {
-      const day = dateObj.getDay();
-
-      const isSaturday = day === 6;
-      const isSunday = day === 0;
-
-      return isSaturday || isSunday;
-    },
-    disableWeekends(dayElement) {
-      if (this.areWeekendsDisabled && this.isWeekendDay(dayElement.dateObj)) {
-        this.setDisabledClass(dayElement);
-      }
-    },
-    disableSpecificDates(dayElement, isoDate) {
-      if (this.disabledDatesMap.has(isoDate)) {
-        this.setDisabledClass(dayElement);
-        const reason = this.disabledDatesMap.get(isoDate);
-        if (reason) {
-          dayElement.title = reason;
-        }
-      }
-    },
-    onDayCreate(selectedDate, selectedDateFormatted, flatpickrInstance, dayElement) {
-      const date = dayElement.dateObj;
-      const isoDate = this.toIsoDate(date);
-
-      this.disableWeekends(dayElement);
-      if (this.disabledDatesMap?.size) {
-        this.disableSpecificDates(dayElement, isoDate);
-      }
-
-      dayElement.dataset.test = `ec-datepicker__calendar-day--${isoDate}`;
-    },
-    datesAreEqual(date1, date2) {
-      if (date1 instanceof Date && date2 instanceof Date) {
-        return date1.getTime() === date2.getTime();
-      }
-
-      return date1 === date2;
-    },
-    onBlur(evt) {
-      this.$emit('blur', evt);
-      if (this.flatpickrInstance && !this.flatpickrInstance.input.value) {
-        this.$emit('update:modelValue', null);
-        this.$emit('change');
-      }
-    },
-    onChange() {
-      if (this.flatpickrInstance) {
-        const dateStr = this.flatpickrInstance.input.value;
-        const date = this.flatpickrInstance.selectedDates[0];
-        if (dateStr && !date) {
-          return;
-        }
-        if (date) {
-          const isoDate = this.toIsoDate(date);
-
-          if (this.disabledDatesMap?.has(isoDate)) {
-            this.flatpickrInstance.clear();
-            return;
-          }
-
-          if (this.areWeekendsDisabled && this.isWeekendDay(date)) {
-            this.flatpickrInstance.clear();
-            return;
-          }
-        }
-
-        this.formattedValue = dateStr;
-
-        if (this.datesAreEqual(date, this.modelValue)) {
-          return;
-        }
-
-        this.$emit('update:modelValue', date ?? null);
-        this.$emit('change');
-      }
-    },
-  },
 };
 </script>
 <style>
