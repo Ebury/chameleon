@@ -52,7 +52,7 @@ export default {
 
 .ec-badge {
   @apply tw-text-gray-8;
-  @apply tw-text-center tw-flags-text;
+  @apply tw-text-center tw-help-text;
   @apply tw-py-0 tw-px-4;
 
   min-width: var(--ec-filter-badge-width);
