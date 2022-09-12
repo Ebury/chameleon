@@ -11,7 +11,7 @@ jobs:
           command: CYPRESS_INSTALL_BINARY=0 npm ci
       - run:
           name: lint
-          command: npm run lint
+          command: npm run lint:no-fix
       - run:
           name: test
           command: npm run test -- --max-workers=2

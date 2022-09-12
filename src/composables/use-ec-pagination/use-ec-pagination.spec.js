@@ -26,7 +26,7 @@ describe('useEcPagination', () => {
       useEcPagination({
         initialNumberOfItems: 42,
       });
-    }).toThrowError(`Invalid number of items: 42. Expecting one of: ${PAGE_SIZES}`);
+    }).toThrow(`Invalid number of items: 42. Expecting one of: ${PAGE_SIZES}`);
   });
 
   it('should update the pagination when paginate is called', () => {
