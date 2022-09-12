@@ -128,7 +128,7 @@ describe('EcCurrencyFilter', () => {
       },
     });
 
-    expect(wrapper.findByDataTest('ec-filter-popover__trigger').element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-badge').element).toMatchSnapshot();
   });
 
   it('should render all given custom texts for currency tab', () => {

@@ -27,9 +27,7 @@
           v-if="numberOfSelectedFilters > 0"
           class="tw-ml-4"
           :value="numberOfSelectedFilters"
-        >
-          I am a custom component: {{ numberOfSelectedFilters }}
-        </ec-badge>
+        />
         <!-- <ec-badge-number size="20" value="numberOfSelectedFilters" />
         TODO Badge with https://fxsolutions.atlassian.net/browse/ONL-4909 -->
         <ec-icon
