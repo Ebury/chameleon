@@ -5,9 +5,9 @@ exports[`EcCurrencyFilter should count every selected currency and the amount to
   class="ec-badge ec-badge--info tw-ml-4"
   data-test="ec-badge"
 >
-  <span>
-    3
-  </span>
+  
+  3
+  
 </span>
 `;
 
@@ -28,9 +28,9 @@ exports[`EcCurrencyFilter should count every selected currency in numberOfSelect
     class="ec-badge ec-badge--info tw-ml-4"
     data-test="ec-badge"
   >
-    <span>
-      2
-    </span>
+    
+    2
+    
   </span>
   <svg
     class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -61,9 +61,9 @@ exports[`EcCurrencyFilter should count the amount as 1 in numberOfSelectedFilter
     class="ec-badge ec-badge--info tw-ml-4"
     data-test="ec-badge"
   >
-    <span>
-      1
-    </span>
+    
+    1
+    
   </span>
   <svg
     class="ec-icon ec-icon--interactive ec-filter-popover__icon"

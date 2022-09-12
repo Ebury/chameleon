@@ -2197,9 +2197,9 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             class="ec-badge ec-badge--info tw-ml-4"
             data-test="ec-badge"
           >
-            <span>
-              1
-            </span>
+            
+            1
+            
           </span>
           <svg
             class="ec-icon ec-icon--interactive ec-filter-popover__icon"

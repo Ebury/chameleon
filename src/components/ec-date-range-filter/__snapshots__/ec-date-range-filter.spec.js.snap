@@ -150,9 +150,9 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
         class="ec-badge ec-badge--info tw-ml-4"
         data-test="ec-badge"
       >
-        <span>
-          2
-        </span>
+        
+        2
+        
       </span>
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -280,9 +280,9 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         class="ec-badge ec-badge--info tw-ml-4"
         data-test="ec-badge"
       >
-        <span>
-          2
-        </span>
+        
+        2
+        
       </span>
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -415,9 +415,9 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         class="ec-badge ec-badge--info tw-ml-4"
         data-test="ec-badge"
       >
-        <span>
-          2
-        </span>
+        
+        2
+        
       </span>
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -552,9 +552,9 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         class="ec-badge ec-badge--info tw-ml-4"
         data-test="ec-badge"
       >
-        <span>
-          2
-        </span>
+        
+        2
+        
       </span>
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"

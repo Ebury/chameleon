@@ -6,17 +6,11 @@
       [`ec-badge--${type}`]: type
     }"
   >
-    <span v-if="hasDefaultSlot()">
-      <slot v-bind="{ value }" />
-    </span>
-    <span v-else>
-      {{ value }}
-    </span>
+    <slot v-bind="{ value }">{{ value }}</slot>
   </span>
 </template>
 
 <script setup>
-import { useSlots } from 'vue';
 
 defineProps({
   type: {
@@ -31,8 +25,6 @@ defineProps({
     required: true,
   },
 });
-const slots = useSlots();
-const hasDefaultSlot = () => !!slots.default;
 </script>
 
 <script>

@@ -14,7 +14,7 @@ describe('EcBadge', () => {
     });
   }
 
-  it('should render the badge with a value', () => {
+  it('should render as expected', () => {
     const wrapper = mountBadge({
       value: 'Random value',
     });
@@ -29,12 +29,6 @@ describe('EcBadge', () => {
       expect(warnSpy).toHaveBeenCalledTimes(1);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "value"');
     });
-  });
-
-  it('should display the badge with a default type', () => {
-    const wrapper = mountBadge({ value: 'a random value' });
-    const { type } = wrapper.props();
-    expect(type).toBe('info');
   });
 
   it.each(['error', 'info', 'success', 'warning'])('should use the type "%s"', (type) => {

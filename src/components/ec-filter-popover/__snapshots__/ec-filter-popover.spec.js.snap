@@ -28,9 +28,9 @@ exports[`EcFilterPopover should display number of selected filters if the value 
         class="ec-badge ec-badge--info tw-ml-4"
         data-test="ec-badge"
       >
-        <span>
-          5
-        </span>
+        
+        5
+        
       </span>
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"

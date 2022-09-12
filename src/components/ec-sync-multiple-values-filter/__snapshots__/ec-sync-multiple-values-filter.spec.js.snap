@@ -1437,9 +1437,9 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
           class="ec-badge ec-badge--info tw-ml-4"
           data-test="ec-badge"
         >
-          <span>
-            2
-          </span>
+          
+          2
+          
         </span>
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -2047,9 +2047,9 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
           class="ec-badge ec-badge--info tw-ml-4"
           data-test="ec-badge"
         >
-          <span>
-            1
-          </span>
+          
+          1
+          
         </span>
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
