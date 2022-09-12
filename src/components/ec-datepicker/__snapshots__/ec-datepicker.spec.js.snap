@@ -5228,6 +5228,38 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
 </div>
 `;
 
+exports[`Datepicker should not pass any additional attributes to the input 1`] = `
+<div
+  class="ec-input-field ec-datepicker"
+  data-test="ec-input-field"
+>
+  <!--v-if-->
+  <input
+    autocomplete="off"
+    class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
+    data-test="ec-datepicker ec-input-field__input"
+    id="ec-datepicker-1"
+    type="text"
+  />
+  <div
+    class="ec-input-field__icon-wrapper"
+    data-test="ec-input-field__icon-wrapper"
+  >
+    <svg
+      class="ec-icon ec-input-field__icon"
+      data-test="ec-input-field__icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-simple-calendar"
+      />
+    </svg>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
 exports[`Datepicker should open the calendar when we click on the input icon 1`] = `
 <div
   class="flatpickr-calendar animate open"
@@ -5779,10 +5811,11 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
 </div>
 `;
 
-exports[`Datepicker should pass the data-test down to input 1`] = `
+exports[`Datepicker should pass the data-test, class and style down to the input 1`] = `
 <div
-  class="ec-input-field ec-datepicker"
+  class="ec-input-field ec-datepicker my-class"
   data-test="ec-input-field"
+  style="color: hotpink;"
 >
   <!--v-if-->
   <input
