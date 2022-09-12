@@ -23,12 +23,13 @@
           data-test="ec-filter-popover__label"
           :title="label"
         >{{ label }}</button>
-        <span
+        <ec-badge
           v-if="numberOfSelectedFilters > 0"
-          class="ec-filter-popover__badge"
-          data-test="ec-filter-popover__badge"
-        > {{ numberOfSelectedFilters }}
-        </span>
+          class="tw-ml-4"
+          :value="numberOfSelectedFilters"
+        >
+          I am a custom component: {{ numberOfSelectedFilters }}
+        </ec-badge>
         <!-- <ec-badge-number size="20" value="numberOfSelectedFilters" />
         TODO Badge with https://fxsolutions.atlassian.net/browse/ONL-4909 -->
         <ec-icon
@@ -53,12 +54,13 @@
   </div>
 </template>
 <script>
+import EcBadge from '../ec-badge';
 import EcIcon from '../ec-icon';
 import EcPopover from '../ec-popover';
 
 export default {
   name: 'EcFilterPopover',
-  components: { EcPopover, EcIcon },
+  components: { EcPopover, EcIcon, EcBadge },
   props: {
     label: {
       type: String,
@@ -96,8 +98,6 @@ export default {
   --ec-filter-popover-width: 304px;
   --ec-filter-popover-height: 368px;
   --ec-filter-label-width: 120px;
-  --ec-filter-badge-width: 16px;
-  --ec-filter-badge-height: 16px;
 }
 
 .ec-filter-popover {
@@ -148,18 +148,6 @@ export default {
     @apply tw-flex-shrink-0;
     @apply tw-self-center;
     @apply tw-ml-4;
-  }
-
-  &__badge {
-    /* TODO remove this styles once we have the badge component */
-    @apply tw-flex tw-justify-center tw-items-center;
-    @apply tw-ml-4;
-    @apply tw-bg-key-5 tw-text-gray-8;
-    @apply tw-rounded-1/2;
-    @apply tw-text-center tw-flags-text;
-
-    width: var(--ec-filter-badge-width);
-    height: var(--ec-filter-badge-height);
   }
 
   &__filter-content {
