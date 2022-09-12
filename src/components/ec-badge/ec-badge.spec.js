@@ -32,6 +32,16 @@ describe('EcBadge', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should throw if prop value has not the correct type', () => {
+    withMockedConsole((_errorSpy, warnSpy) => {
+      mountBadge({ value: true });
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain(
+        'Invalid prop: type check failed for prop "value".',
+      );
+    });
+  });
+
   it('should throw if no props were given', () => {
     withMockedConsole((_errorSpy, warnSpy) => {
       mount(EcBadge);

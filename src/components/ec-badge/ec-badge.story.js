@@ -39,7 +39,7 @@ export const all = args => ({
   setup() {
     const badges = reactive([
       {
-        title: 'Simple text Badge',
+        title: 'Simple text',
         data: [
           { value: 'Info Badge', type: 'info' },
           { value: 'Success Badge', type: 'success' },
@@ -48,7 +48,7 @@ export const all = args => ({
         ],
       },
       {
-        title: 'Simple number Badge',
+        title: 'Simple number',
         data: [
           { value: 1, type: 'info' },
           { value: 10, type: 'success' },
