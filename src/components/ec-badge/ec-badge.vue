@@ -27,7 +27,7 @@ defineProps({
     default: 'info',
   },
   value: {
-    type: String,
+    type: [String, Number],
     required: true,
   },
 });
