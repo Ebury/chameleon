@@ -14,9 +14,18 @@ describe('EcBadge', () => {
     });
   }
 
-  it('should render as expected', () => {
+  it('should render as expected with a string value', () => {
     const wrapper = mountBadge({
       value: 'Random value',
+    });
+
+    expect(wrapper.findByDataTest('ec-badge').exists()).toBe(true);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render as expected with a number value', () => {
+    const wrapper = mountBadge({
+      value: 1,
     });
 
     expect(wrapper.findByDataTest('ec-badge').exists()).toBe(true);

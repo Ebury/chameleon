@@ -1,6 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcBadge should render as expected 1`] = `
+exports[`EcBadge should render as expected with a number value 1`] = `
+<span
+  class="ec-badge ec-badge--info"
+  data-test="ec-badge"
+>
+  
+  1
+  
+</span>
+`;
+
+exports[`EcBadge should render as expected with a string value 1`] = `
 <span
   class="ec-badge ec-badge--info"
   data-test="ec-badge"
