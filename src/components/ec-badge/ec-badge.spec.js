@@ -46,7 +46,9 @@ describe('EcBadge', () => {
     withMockedConsole((_errorSpy, warnSpy) => {
       mount(EcBadge);
       expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "value"');
+      expect(warnSpy.mock.calls[0][0]).toContain(
+        'Missing required prop: "value"',
+      );
     });
   });
 
