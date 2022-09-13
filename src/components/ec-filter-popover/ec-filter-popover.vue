@@ -28,8 +28,6 @@
           class="tw-ml-4"
           :value="numberOfSelectedFilters"
         />
-        <!-- <ec-badge-number size="20" value="numberOfSelectedFilters" />
-        TODO Badge with https://fxsolutions.atlassian.net/browse/ONL-4909 -->
         <ec-icon
           class="ec-filter-popover__icon"
           :size="16"
