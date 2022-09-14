@@ -25,10 +25,12 @@ exports[`EcFilterPopover should display number of selected filters if the value 
         Test label
       </button>
       <span
-        class="ec-filter-popover__badge"
-        data-test="ec-filter-popover__badge"
+        class="ec-badge ec-badge--info tw-ml-4"
+        data-test="ec-badge"
       >
+        
         5
+        
       </span>
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"

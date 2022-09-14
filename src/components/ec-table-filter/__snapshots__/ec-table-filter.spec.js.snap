@@ -2194,10 +2194,12 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
             Fee type
           </button>
           <span
-            class="ec-filter-popover__badge"
-            data-test="ec-filter-popover__badge"
+            class="ec-badge ec-badge--info tw-ml-4"
+            data-test="ec-badge"
           >
+            
             1
+            
           </span>
           <svg
             class="ec-icon ec-icon--interactive ec-filter-popover__icon"
