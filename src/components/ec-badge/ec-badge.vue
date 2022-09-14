@@ -52,7 +52,7 @@ export default {
   border-radius: calc(var(--ec-filter-badge-width) / 2);
 
   &--info {
-    @apply tw-bg-info;
+    @apply tw-bg-key-5;
   }
 
   &--success {
