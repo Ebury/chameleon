@@ -27,7 +27,7 @@ describe('useEcSorting', () => {
       useEcSorting({
         sortCycle: ['HI', 'LO'],
       });
-    }).toThrowError('Invalid sortCycle: HI,LO');
+    }).toThrow('Invalid sortCycle: HI,LO');
   });
 
   describe('multi sort', () => {

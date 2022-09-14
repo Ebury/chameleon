@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Spanish } from 'flatpickr/dist/l10n/es';
 import { French } from 'flatpickr/dist/l10n/fr';
+import { ref } from 'vue';
 
 import EcDatepicker from './ec-datepicker.vue';
 
@@ -22,34 +23,28 @@ export default {
 export const basic = args => ({
   components: { EcDatepicker },
   setup() {
-    return {
-      args,
-    };
-  },
-  data() {
-    return {
-      model: new Date('2022-02-24'),
-      disableWeekends: false,
-      notAvailableDates: {
-        '2022-02-21': 'Bank holiday',
-      },
-    };
-  },
-  methods: {
-    toggleWeekendAvailability() {
-      this.disableWeekends = !this.disableWeekends;
-    },
-    changeDisabledDates(date) {
-      this.notAvailableDates = {
+    const model = ref(new Date('2022-02-24'));
+
+    // weekends
+    const disableWeekends = ref(false);
+
+    function toggleWeekendAvailability() {
+      disableWeekends.value = !disableWeekends.value;
+    }
+
+    // disabled dates
+    const notAvailableDates = ref({
+      '2022-02-21': 'Bank holiday',
+    });
+
+    function changeDisabledDates(date) {
+      notAvailableDates.value = {
         [date]: 'Bank holiday',
       };
-    },
-    onReady: action('ready'),
-    onOpen: action('open'),
-    onClose: action('close'),
-    onChange: action('change'),
-    onBlur: action('blur'),
-    getLocale(locale) {
+    }
+
+    // options
+    function getLocale(locale) {
       switch (locale) {
         case 'FR':
           return French;
@@ -58,13 +53,30 @@ export const basic = args => ({
         default:
           return null;
       }
-    },
-    getDateFormat(dateFormat) {
+    }
+
+    function getDateFormat(dateFormat) {
       if (dateFormat === 'none') {
         return undefined;
       }
       return dateFormat;
-    },
+    }
+
+    return {
+      args,
+      model,
+      disableWeekends,
+      toggleWeekendAvailability,
+      notAvailableDates,
+      changeDisabledDates,
+      getLocale,
+      getDateFormat,
+      onReady: action('ready'),
+      onOpen: action('open'),
+      onClose: action('close'),
+      onChange: action('change'),
+      onBlur: action('blur'),
+    };
   },
   template: `
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">

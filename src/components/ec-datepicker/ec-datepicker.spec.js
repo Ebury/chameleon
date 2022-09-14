@@ -65,10 +65,25 @@ describe('Datepicker', () => {
     expect(inputWrapper.element).toMatchSnapshot();
   });
 
-  it('should pass the data-test down to input', () => {
-    const { inputWrapper } = mountDatepickerAsTemplate(
-      '<ec-datepicker data-test="my-data-test" />',
-    );
+  it('should pass the data-test, class and style down to the input', () => {
+    const { inputWrapper } = mountDatepicker({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        style: 'color: hotpink',
+      },
+    });
+
+    expect(inputWrapper.element).toMatchSnapshot();
+  });
+
+  it('should not pass any additional attributes to the input', () => {
+    const { inputWrapper } = mountDatepicker({}, {
+      attrs: {
+        'data-my-id': 'my-id',
+        'aria-label': 'input',
+      },
+    });
 
     expect(inputWrapper.element).toMatchSnapshot();
   });
@@ -204,10 +219,10 @@ describe('Datepicker', () => {
     });
   });
 
-  it('should open the calendar when we click on the input icon', () => {
+  it('should open the calendar when we click on the input icon', async () => {
     const { inputWrapper, calendarWrapper } = mountDatepicker();
 
-    inputWrapper
+    await inputWrapper
       .findByDataTest('ec-input-field__icon')
       .trigger('click');
 
@@ -259,6 +274,21 @@ describe('Datepicker', () => {
       await setDatepickerInputValue(inputWrapper, '2022-01-21');
 
       expect(inputWrapper.emitted('change').length).toBe(1);
+    });
+
+    it('should pass custom events to the input', async () => {
+      const customEventSpy = jest.fn();
+
+      const { inputWrapper } = mountDatepicker({}, {
+        attrs: {
+          onCustomEvent: customEventSpy,
+        },
+      });
+
+      await inputWrapper.findByDataTest('ec-datepicker').trigger('custom-event');
+
+      expect(customEventSpy).toHaveBeenCalledTimes(1);
+      expect(inputWrapper.emitted('custom-event')).toBeUndefined();
     });
   });
 

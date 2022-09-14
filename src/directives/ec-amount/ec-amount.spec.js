@@ -55,7 +55,7 @@ describe('EcAmount', () => {
 
   it('should throw an error if the directive is not attached to an input', () => {
     withMockedConsole((errorSpy, warnSpy) => {
-      expect(() => mountTemplate('<div v-ec-amount="{}"></div>')).toThrowError(new TypeError('v-ec-amount requires 1 input'));
+      expect(() => mountTemplate('<div v-ec-amount="{}"></div>')).toThrow(new TypeError('v-ec-amount requires 1 input'));
       expect(warnSpy).toHaveBeenCalledTimes(1);
       expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of directive hook');
     });

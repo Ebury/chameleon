@@ -12,7 +12,7 @@
       is-rounded
       class="ec-btn-dropdown__btn"
       data-test="ec-btn-dropdown__btn"
-      @click="$emit('click')"
+      @click="emit('click')"
     >
       {{ buttonText }}
     </ec-btn>
@@ -24,7 +24,7 @@
       :popover-style="getPopoverStyle"
       :disabled="isDisabled"
       :list-data-test="listDataTest"
-      @change="(value) => $emit('change', value)"
+      @change="(value) => emit('change', value)"
       @open="isOpen = true"
       @close="isOpen = false"
     >
@@ -44,55 +44,57 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
+
 import EcBtn from '../ec-btn';
 import EcDropdownSearch from '../ec-dropdown-search';
 
+defineProps({
+  items: {
+    type: Array,
+    default: () => [],
+  },
+  isDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  buttonText: {
+    type: String,
+    required: true,
+  },
+  listDataTest: {
+    type: String,
+  },
+});
+
+const emit = defineEmits(['click', 'change']);
+
+const isOpen = ref(false);
+const popoverOptions = {
+  autoSize: 'min',
+  placement: 'bottom-end',
+};
+
+const popperReference = ref(null);
+function getPopoverStyle() {
+  if (popperReference.value) {
+    return {
+      width: `${popperReference.value.offsetWidth}px`,
+    };
+  }
+
+  return null;
+}
+
+</script>
+
+<script>
 export default {
   name: 'EcBtnDropdown',
-  components: {
-    EcBtn,
-    EcDropdownSearch,
+  compatConfig: {
+    MODE: 3,
   },
-  props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
-    isDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    buttonText: {
-      type: String,
-      required: true,
-    },
-    listDataTest: {
-      type: String,
-    },
-  },
-  emits: ['click', 'change'],
-  data() {
-    return {
-      isOpen: false,
-      popoverOptions: {
-        autoSize: 'min',
-        placement: 'bottom-end',
-      },
-    };
-  },
-  methods: {
-    getPopoverStyle() {
-      if (this.$refs.popperReference) {
-        return {
-          width: `${this.$refs.popperReference.offsetWidth}px`,
-        };
-      }
-
-      return null;
-    },
-  },
-
 };
 </script>
 
