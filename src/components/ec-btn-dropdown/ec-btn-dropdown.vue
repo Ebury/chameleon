@@ -31,11 +31,13 @@
       <template #item="{ item }">
         <a
           v-if="item.href"
+          class="ec-dropdown-item__link"
           :href="item.href"
           v-on="item.on"
         >{{ item.text }}</a>
         <router-link
           v-else
+          class="ec-dropdown-item__link"
           :to="item.to"
           v-on="item.on"
         >{{ item.text }}
@@ -113,40 +115,49 @@ export default {
 </script>
 
 <style>
-  .ec-btn-dropdown {
-    @apply tw-inline-flex;
+.ec-btn-dropdown {
+  @apply tw-inline-flex;
 
-    max-width: 246px;
+  max-width: 246px;
 
-    &__dropdown-btn {
-      @apply tw-rounded-l-none;
-      @apply tw-border-gray-6 tw-border-l tw-border-solid;
-      @apply tw-bg-gray-7;
+  &__dropdown-btn {
+    @apply tw-rounded-l-none;
+    @apply tw-border-gray-6 tw-border-l tw-border-solid;
+    @apply tw-bg-gray-7;
 
-      &--is-open {
-        @apply tw-bg-key-4;
-        @apply tw-border-key-4;
-        @apply tw-text-gray-8;
-      }
-
-      &:hover {
-        @apply tw-border-key-3;
-        @apply tw-bg-key-3;
-      }
-
-      &:disabled {
-        @apply tw-text-gray-5;
-      }
+    &--is-open {
+      @apply tw-bg-key-4;
+      @apply tw-border-key-4;
+      @apply tw-text-gray-8;
     }
 
-    &__btn {
-      @apply tw-rounded-r-none;
-      @apply tw-px-16;
-      @apply tw-text-gray-3;
+    &:hover {
+      @apply tw-border-key-3;
+      @apply tw-bg-key-3;
+    }
 
-      &:disabled {
-        @apply tw-text-gray-5;
-      }
+    &:disabled {
+      @apply tw-text-gray-5;
     }
   }
+
+  &__btn {
+    @apply tw-rounded-r-none;
+    @apply tw-px-16;
+    @apply tw-text-gray-3;
+
+    &:disabled {
+      @apply tw-text-gray-5;
+    }
+  }
+}
+
+.ec-dropdown-item {
+  &__link {
+    @apply tw-text-gray-3;
+
+    &:hover {
+      @apply tw-no-underline; }
+  }
+}
 </style>
