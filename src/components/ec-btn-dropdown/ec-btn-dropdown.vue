@@ -28,6 +28,20 @@
       @open="isOpen = true"
       @close="isOpen = false"
     >
+      <template #item="{ item }">
+        <a
+          v-if="item.href"
+          :href="item.href"
+          v-on="item.on"
+        >{{ item.text }}</a>
+        <router-link
+          v-else
+          :to="item.to"
+          v-on="item.on"
+        >{{ item.text }}
+        </router-link>
+      </template>
+
       <ec-btn
         :is-disabled="isDisabled"
         is-reverse

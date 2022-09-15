@@ -134,7 +134,10 @@
               ><slot
                 name="item"
                 v-bind="{ item, index, isSelected: isItemSelected(item) }"
-              >{{ item.text }}</slot></li>
+              >
+                {{ item.text }}
+              </slot>
+              </li>
             </slot>
           </ul>
         </div>
