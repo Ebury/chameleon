@@ -117,9 +117,6 @@ import EcLoadingIcon from '../ec-loading-icon';
 
 export default {
   name: 'EcMultipleValuesSelection',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: {
     EcCheckbox, EcIcon, EcLoadingIcon,
   },

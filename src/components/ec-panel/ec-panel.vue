@@ -114,11 +114,7 @@ function closePanel() {
 
 <script>
 export default {
-  name: 'EcPanel',
   inheritAttrs: false,
-  compatConfig: {
-    MODE: 3,
-  },
 };
 </script>
 

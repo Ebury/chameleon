@@ -56,15 +56,6 @@ function getLinkDataTest(link) {
 }
 </script>
 
-<script>
-export default {
-  name: 'EcMenu',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 .ec-menu {
   @apply tw-list-none;

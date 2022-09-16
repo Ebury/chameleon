@@ -76,9 +76,6 @@ import EcSubmenu from '../ec-submenu';
 
 export default {
   name: 'EcCurrencyFilter',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: {
     EcAmountFilterInput,
     EcFilterPopover,

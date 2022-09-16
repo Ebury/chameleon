@@ -148,11 +148,7 @@ function focus() {
 
 <script>
 export default {
-  name: 'EcTextarea',
   inheritAttrs: false,
-  compatConfig: {
-    MODE: 3,
-  },
 };
 </script>
 

@@ -205,10 +205,6 @@ function hasSlot(name) {
 
 <script>
 export default {
-  name: 'EcDropdown',
-  compatConfig: {
-    MODE: 3,
-  },
   inheritAttrs: false,
 };
 </script>

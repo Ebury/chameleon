@@ -122,15 +122,6 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<script>
-export default {
-  name: 'EcTimer',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 .ec-timer {
   &__elapsed {

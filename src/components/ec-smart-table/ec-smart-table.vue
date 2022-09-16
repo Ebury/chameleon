@@ -107,15 +107,6 @@
 
 </template>
 
-<script>
-export default {
-  name: 'EcSmartTable',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <script setup>
 import {
   computed, ref, unref, useAttrs,

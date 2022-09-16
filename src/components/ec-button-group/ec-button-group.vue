@@ -42,15 +42,6 @@ function onSelected(value) {
 }
 </script>
 
-<script>
-export default {
-  name: 'EcButtonGroup',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 .ec-btn-group {
   &__btn:first-child {

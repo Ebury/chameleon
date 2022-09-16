@@ -56,9 +56,6 @@ import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcDateRangeFilter',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: { EcFilterPopover, EcInputField },
   props: {
     label: {
