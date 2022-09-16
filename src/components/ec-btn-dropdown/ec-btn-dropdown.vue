@@ -33,13 +33,13 @@
           v-if="item.href"
           class="ec-btn-dropdown__item-link"
           :href="item.href"
-          v-on="item.on"
+          v-on="item.on || {}"
         >{{ item.text }}</a>
         <router-link
           v-else
           class="ec-btn-dropdown__item-link"
           :to="item.to"
-          v-on="item.on"
+          v-on="item.on || {}"
         >{{ item.text }}
         </router-link>
       </template>
