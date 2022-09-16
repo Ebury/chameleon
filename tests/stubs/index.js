@@ -1,5 +1,4 @@
 import { config } from '@vue/test-utils';
-import Vue from 'vue';
 
 import EcPopoverStub from './ec-popover.stub';
 import RouterLinkStub from './router-link.stub';
@@ -12,5 +11,3 @@ config.global.stubs.RouterView = RouterViewStub;
 config.global.stubs.EcPopover = EcPopoverStub;
 
 config.renderStubDefaultSlot = true;
-
-Vue.config.ignoredElements = ['ec-stub']; // legacy
