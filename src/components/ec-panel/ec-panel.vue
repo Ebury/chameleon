@@ -2,7 +2,11 @@
   <aside
     v-if="show"
     class="ec-panel"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-panel` : 'ec-panel'"
+    v-bind="{
+      ...attrs,
+      onBack: null,
+      'data-test': attrs['data-test'] ? `${attrs['data-test']} ec-panel` : 'ec-panel',
+    }"
   >
     <div
       class="ec-panel__fixed-container"
@@ -44,7 +48,7 @@
 
       <div class="ec-panel__content-container">
         <div
-          v-if="hasHeader()"
+          v-if="hasSlot('header')"
           class="ec-panel__header"
           data-test="ec-panel__header"
         >
@@ -60,7 +64,7 @@
         </div>
 
         <div
-          v-if="hasFooter()"
+          v-if="hasSlot('footer')"
           class="ec-panel__footer"
           data-test="ec-panel__footer"
         >
@@ -71,44 +75,49 @@
   </aside>
 </template>
 
-<script>
+<script setup>
+import { computed, useAttrs, useSlots } from 'vue';
+
 import EcIcon from '../ec-icon';
 
+defineProps({
+  show: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const emit = defineEmits(['update:show', 'close']);
+
+const slots = useSlots();
+
+function hasSlot(slotName) {
+  return slotName in slots;
+}
+
+const attrs = useAttrs();
+
+const isBackEnabled = computed(() => !!attrs.onBack);
+
+function goBack() {
+  emit('update:show', false);
+  if (attrs.onBack) {
+    attrs.onBack();
+  }
+}
+
+function closePanel() {
+  emit('update:show', false);
+  emit('close');
+}
+</script>
+
+<script>
 export default {
   name: 'EcPanel',
+  inheritAttrs: false,
   compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
-  components: {
-    EcIcon,
-  },
-  props: {
-    show: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  emits: ['update:show', 'back', 'close'],
-  computed: {
-    isBackEnabled() {
-      return this.$listeners.back;
-    },
-  },
-  methods: {
-    hasHeader() {
-      return !!this.$slots.header;
-    },
-    hasFooter() {
-      return !!this.$slots.footer;
-    },
-    goBack() {
-      this.$emit('update:show', false);
-      this.$emit('back');
-    },
-    closePanel() {
-      this.$emit('update:show', false);
-      this.$emit('close');
-    },
+    MODE: 3,
   },
 };
 </script>
