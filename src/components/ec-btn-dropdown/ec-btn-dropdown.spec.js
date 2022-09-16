@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils';
 import EcBtnDropdown from './ec-btn-dropdown.vue';
 
 describe('EcBtnDropdown', () => {
+  console.log('prova');
   function mountBtnDropdown(props, mountOpts) {
     return mount(EcBtnDropdown, {
       props: {
