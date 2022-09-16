@@ -17,8 +17,8 @@ describe('EcLoading', () => {
   it('should throw if no props were given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcLoading);
-      expect(warnSpy).toHaveBeenCalledTimes(2);
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "show"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "show"');
     });
   });
 

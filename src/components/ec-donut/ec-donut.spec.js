@@ -18,9 +18,9 @@ describe('EcDonut', () => {
   it('should throw if no props were given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcDonut);
-      expect(warnSpy).toHaveBeenCalledTimes(3);
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "amount"');
-      expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "used"');
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "amount"');
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "used"');
     });
   });
 

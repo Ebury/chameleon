@@ -18,9 +18,9 @@ describe('EcPrivacyPolicy', () => {
   it('should throw if no props were given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcPrivacyPolicy);
-      expect(warnSpy).toHaveBeenCalledTimes(3);
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "title"');
-      expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "buttonText"');
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "title"');
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "buttonText"');
     });
   });
 

@@ -405,10 +405,6 @@ describe('EcSmartTable', () => {
 
   describe('filtering', () => {
     const FakeTableFilterComponent = {
-      compatConfig: {
-        MODE: 3,
-        ATTR_FALSE_VALUE: false,
-      },
       compilerOptions: {
         whitespace: 'condense',
       },
