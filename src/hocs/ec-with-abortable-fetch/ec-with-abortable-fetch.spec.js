@@ -27,8 +27,8 @@ describe('EcWithAbortableFetch', () => {
   it('should throw an error if dataSource prop is missing', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mountEcWithAbortableFetch();
-      expect(warnSpy).toHaveBeenCalledTimes(5);
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "dataSource"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "dataSource"');
     });
   });
 
