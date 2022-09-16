@@ -31,13 +31,13 @@
       <template #item="{ item }">
         <a
           v-if="item.href"
-          class="ec-dropdown-item__link"
+          class="ec-btn-dropdown__item-link"
           :href="item.href"
           v-on="item.on"
         >{{ item.text }}</a>
         <router-link
           v-else
-          class="ec-dropdown-item__link"
+          class="ec-btn-dropdown__item-link"
           :to="item.to"
           v-on="item.on"
         >{{ item.text }}
@@ -150,14 +150,13 @@ export default {
       @apply tw-text-gray-5;
     }
   }
-}
 
-.ec-dropdown-item {
-  &__link {
+  &__item-link {
     @apply tw-text-gray-3;
 
     &:hover {
-      @apply tw-no-underline; }
+      @apply tw-no-underline;
+    }
   }
 }
 </style>
