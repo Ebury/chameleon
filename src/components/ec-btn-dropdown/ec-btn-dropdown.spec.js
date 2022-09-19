@@ -60,4 +60,45 @@ describe('EcBtnDropdown', () => {
     expect(wrapper.emitted('change').length).toBe(1);
     expect(wrapper.emitted('change')[0]).toEqual([items[0]]);
   });
+
+  it('should render with a ctabtnlink slot given', () => {
+    const wrapper = mountBtnDropdown({
+      slots: {
+        ctabtnlink: `
+          <template #ctabtnlink="{buttonText}">
+          <router-link
+            class="ec-btn__text-link"
+            :to="items[0].to"
+          >{{ buttonText }}
+          </router-link>
+        </template>`,
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render with an item slot given', () => {
+    const wrapper = mountBtnDropdown({
+      slots: {
+        item: `
+        <template #item="{ item }">
+        <a
+          v-if="item.href"
+          class="ec-btn-dropdown__item-link"
+          :href="item.href"
+          v-on="item.on || {}"
+        >{{ item.text
+        }}</a>
+        <router-link
+          v-else
+          class="ec-btn-dropdown__item-link"
+          :to="item.to"
+          v-on="item.on || {}"
+        >{{ item.text }}
+        </router-link>
+      </template>`,
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
