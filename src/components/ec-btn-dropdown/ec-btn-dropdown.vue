@@ -14,7 +14,12 @@
       data-test="ec-btn-dropdown__btn"
       @click="emit('click')"
     >
-      {{ buttonText }}
+      <slot
+        name="ctabtnlink"
+        v-bind="{buttonText}"
+      >
+        {{ buttonText }}
+      </slot>
     </ec-btn>
     <ec-dropdown-search
       :items="items"
@@ -34,7 +39,8 @@
           class="ec-btn-dropdown__item-link"
           :href="item.href"
           v-on="item.on || {}"
-        >{{ item.text }}</a>
+        >{{ item.text
+        }}</a>
         <router-link
           v-else
           class="ec-btn-dropdown__item-link"
@@ -157,6 +163,22 @@ export default {
     &:hover {
       @apply tw-no-underline;
     }
+  }
+}
+
+.ec-btn-dropdown__btn:hover .ec-btn__text-link {
+  @apply tw-text-gray-8;
+}
+
+.ec-btn__text-link {
+  @apply tw-text-gray-3;
+
+  &:hover {
+    @apply tw-no-underline;
+  }
+
+  &:focus {
+    @apply tw-outline-none;
   }
 }
 </style>
