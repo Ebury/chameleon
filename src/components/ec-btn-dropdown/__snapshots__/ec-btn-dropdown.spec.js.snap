@@ -16,90 +16,7 @@ exports[`EcBtnDropdown should render as expected 1`] = `
       data-test="ec-btn__text"
     >
       
-      
       Convert & Pay
-      
-      
-    </span>
-    <!--v-if-->
-  </button>
-  <div
-    class="ec-dropdown-search"
-    data-test="ec-dropdown-search"
-  >
-    <ec-stub
-      autosize="min"
-      class="ec-dropdown-search__trigger"
-      data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-      disabled="false"
-      distance="8"
-      placement="bottom-end"
-      popperclass="ec-dropdown-search__popover"
-      shift="false"
-      shown="false"
-    >
-      
-      
-      <button
-        class="ec-btn-dropdown__dropdown-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse"
-        data-test="ec-btn-dropdown__dropdown-btn ec-btn"
-        type="submit"
-      >
-        <svg
-          class="ec-icon ec-btn__icon"
-          data-test="ec-btn__icon"
-          height="22"
-          width="22"
-        >
-          <use
-            xlink:href="#ec-simple-arrow-drop-down"
-          />
-        </svg>
-        <!--v-if-->
-        <!--v-if-->
-      </button>
-      
-      
-      
-      <div>
-        <ul
-          class="ec-dropdown-search__item-list"
-          data-test="ec-dropdown-search__item-list"
-        >
-          <!--v-if-->
-          <!--v-if-->
-          
-          
-          
-          
-        </ul>
-      </div>
-      
-    </ec-stub>
-  </div>
-</div>
-`;
-
-exports[`EcBtnDropdown should render with a ctabtnlink slot given 1`] = `
-<div
-  class="ec-btn-dropdown"
-  data-test="ec-btn-dropdown"
-  slots="[object Object]"
->
-  <button
-    class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
-    data-test="ec-btn-dropdown__btn ec-btn"
-    type="button"
-  >
-    <!--v-if-->
-    <span
-      class="ec-btn__text"
-      data-test="ec-btn__text"
-    >
-      
-      
-      Convert & Pay
-      
       
     </span>
     <!--v-if-->
@@ -177,9 +94,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
       data-test="ec-btn__text"
     >
       
-      
       Convert & Pay
-      
       
     </span>
     <!--v-if-->
@@ -273,100 +188,6 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
 </div>
 `;
 
-exports[`EcBtnDropdown should render with an item slot given 1`] = `
-<div
-  class="ec-btn-dropdown"
-  data-test="ec-btn-dropdown"
->
-  <button
-    class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
-    data-test="ec-btn-dropdown__btn ec-btn"
-    type="button"
-  >
-    <!--v-if-->
-    <span
-      class="ec-btn__text"
-      data-test="ec-btn__text"
-    >
-      
-      
-      Convert & Pay
-      
-      
-    </span>
-    <!--v-if-->
-  </button>
-  <div
-    class="ec-dropdown-search"
-    data-test="ec-dropdown-search"
-  >
-    <ec-stub
-      autosize="min"
-      class="ec-dropdown-search__trigger"
-      data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-      disabled="false"
-      distance="8"
-      placement="bottom-end"
-      popperclass="ec-dropdown-search__popover"
-      shift="false"
-      shown="false"
-    >
-      
-      
-      <button
-        class="ec-btn-dropdown__dropdown-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse"
-        data-test="ec-btn-dropdown__dropdown-btn ec-btn"
-        type="submit"
-      >
-        <svg
-          class="ec-icon ec-btn__icon"
-          data-test="ec-btn__icon"
-          height="22"
-          width="22"
-        >
-          <use
-            xlink:href="#ec-simple-arrow-drop-down"
-          />
-        </svg>
-        <!--v-if-->
-        <!--v-if-->
-      </button>
-      
-      
-      
-      <div>
-        <ul
-          class="ec-dropdown-search__item-list"
-          data-test="ec-dropdown-search__item-list"
-        >
-          <!--v-if-->
-          <!--v-if-->
-          
-          
-          <li
-            class="ec-dropdown-search__item"
-            data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-            title="Drawdown"
-          >
-            
-            <a
-              class="ec-btn-dropdown__item-link"
-              href="/trade/drawdown/"
-            >
-              Drawdown
-            </a>
-            
-          </li>
-          
-          
-        </ul>
-      </div>
-      
-    </ec-stub>
-  </div>
-</div>
-`;
-
 exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
 <div
   class="ec-btn-dropdown"
@@ -384,9 +205,7 @@ exports[`EcBtnDropdown should render with both buttons disabled 1`] = `
       data-test="ec-btn__text"
     >
       
-      
       Convert & Pay
-      
       
     </span>
     <!--v-if-->
