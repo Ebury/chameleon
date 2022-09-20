@@ -175,6 +175,7 @@ export default {
 
   &:hover {
     @apply tw-no-underline;
+    @apply tw-text-gray-8;
   }
 
   &:focus {
