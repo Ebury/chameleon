@@ -5,6 +5,8 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-btn-dropdown` : 'ec-btn-dropdown'"
   >
     <ec-btn
+      :href="href"
+      :to="to"
       :is-disabled="isDisabled"
       :is-submit="false"
       is-reverse
@@ -14,12 +16,7 @@
       data-test="ec-btn-dropdown__btn"
       @click="emit('click')"
     >
-      <slot
-        name="ctabtnlink"
-        v-bind="{buttonText}"
-      >
-        {{ buttonText }}
-      </slot>
+      {{ buttonText }}
     </ec-btn>
     <ec-dropdown-search
       :items="items"
@@ -87,6 +84,12 @@ defineProps({
   },
   listDataTest: {
     type: String,
+  },
+  href: {
+    type: String,
+  },
+  to: {
+    type: [String, Object],
   },
 });
 
@@ -164,10 +167,6 @@ export default {
       @apply tw-no-underline;
     }
   }
-}
-
-.ec-btn-dropdown__btn:hover .ec-btn__text-link {
-  @apply tw-text-gray-8;
 }
 
 .ec-btn__text-link {
