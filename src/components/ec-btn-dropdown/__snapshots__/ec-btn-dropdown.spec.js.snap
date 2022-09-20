@@ -78,6 +78,52 @@ exports[`EcBtnDropdown should render as expected 1`] = `
 </div>
 `;
 
+exports[`EcBtnDropdown should render with a 'href' prop 1`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <a
+    class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
+    data-test="ec-btn-dropdown__btn ec-btn"
+    href="/trade/drawdown/"
+  >
+    <!--v-if-->
+    <span
+      class="ec-btn__text"
+      data-test="ec-btn__text"
+    >
+      
+      Convert & Pay
+      
+    </span>
+    <!--v-if-->
+  </a>,
+}
+`;
+
+exports[`EcBtnDropdown should render with a 'to' prop 1`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <ec-stub
+    class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
+    data-test="ec-btn-dropdown__btn ec-btn ec-stub router-link-stub"
+    to="convert-and-pay"
+  >
+    
+    <!--v-if-->
+    <span
+      class="ec-btn__text"
+      data-test="ec-btn__text"
+    >
+      
+      Convert & Pay
+      
+    </span>
+    <!--v-if-->
+    
+  </ec-stub>,
+}
+`;
+
 exports[`EcBtnDropdown should render with a list of options on the dropdown search 1`] = `
 <div
   class="ec-btn-dropdown"

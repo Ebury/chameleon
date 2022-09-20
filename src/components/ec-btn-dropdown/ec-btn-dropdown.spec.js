@@ -58,11 +58,14 @@ describe('EcBtnDropdown', () => {
     expect(wrapper.emitted('click').length).toBe(1);
   });
 
-  it("should render an anchor tag with a 'to' prop", async () => {
+  it("should render with a 'to' prop", () => {
     const wrapper = mountBtnDropdown({ to: 'convert-and-pay' });
+    expect(wrapper.findByDataTest('ec-btn-dropdown__btn')).toMatchSnapshot();
+  });
 
-    await wrapper.findByDataTest('ec-btn-dropdown__btn').trigger('click');
-    expect(wrapper.emitted('click').length).toBe(1);
+  it("should render with a 'href' prop", () => {
+    const wrapper = mountBtnDropdown({ href: '/trade/drawdown/' });
+    expect(wrapper.findByDataTest('ec-btn-dropdown__btn')).toMatchSnapshot();
   });
 
   it('should emit the change event when the user clicks on an item of the dropdown list', async () => {
