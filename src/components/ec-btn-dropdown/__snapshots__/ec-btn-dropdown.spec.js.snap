@@ -277,7 +277,6 @@ exports[`EcBtnDropdown should render with an item slot given 1`] = `
 <div
   class="ec-btn-dropdown"
   data-test="ec-btn-dropdown"
-  slots="[object Object]"
 >
   <button
     class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
@@ -344,6 +343,20 @@ exports[`EcBtnDropdown should render with an item slot given 1`] = `
           <!--v-if-->
           
           
+          <li
+            class="ec-dropdown-search__item"
+            data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+            title="Drawdown"
+          >
+            
+            <a
+              class="ec-btn-dropdown__item-link"
+              href="/trade/drawdown/"
+            >
+              Drawdown
+            </a>
+            
+          </li>
           
           
         </ul>

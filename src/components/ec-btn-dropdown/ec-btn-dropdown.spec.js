@@ -13,7 +13,7 @@ describe('EcBtnDropdown', () => {
     });
   }
 
-  const items = [
+  let items = [
     { value: 'Spot', text: 'Spot' },
     { value: 'Convert', text: 'Convert' },
   ];
@@ -78,27 +78,29 @@ describe('EcBtnDropdown', () => {
   });
 
   it('should render with an item slot given', () => {
-    const wrapper = mountBtnDropdown({
-      slots: {
-        item: `
+    items = [
+      {
+        href: '/trade/drawdown/',
+        value: 'drawdown',
+        text: 'Drawdown',
+        disabled: false,
+      },
+    ];
+
+    const wrapper = mountBtnDropdown(
+      { items },
+      {
+        slots: {
+          item: `
         <template #item="{ item }">
         <a
-          v-if="item.href"
           class="ec-btn-dropdown__item-link"
-          :href="item.href"
-          v-on="item.on || {}"
-        >{{ item.text
-        }}</a>
-        <router-link
-          v-else
-          class="ec-btn-dropdown__item-link"
-          :to="item.to"
-          v-on="item.on || {}"
-        >{{ item.text }}
-        </router-link>
+          href="convert-and-pay"
+        >Convert & Pay</a>
       </template>`,
+        },
       },
-    });
+    );
     expect(wrapper.element).toMatchSnapshot();
   });
 });
