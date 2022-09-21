@@ -31,18 +31,18 @@
       @close="isOpen = false"
     >
       <template #item="{ item }">
+        <span v-if="item.disabled">{{ item.text }}</span>
         <a
-          v-if="item.href"
+          v-else-if="item.href"
           class="ec-btn-dropdown__item-link"
+          v-bind="item.attrs"
           :href="item.href"
-          v-on="item.on || {}"
-        >{{ item.text
-        }}</a>
+        >{{ item.text }}</a>
         <router-link
           v-else
           class="ec-btn-dropdown__item-link"
+          v-bind="item.attrs"
           :to="item.to"
-          v-on="item.on || {}"
         >{{ item.text }}
         </router-link>
       </template>
@@ -162,6 +162,7 @@ export default {
 
   &__item-link {
     @apply tw-text-gray-3;
+    @apply tw-inline-block tw-w-full;
 
     &:hover {
       @apply tw-no-underline;
