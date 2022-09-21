@@ -80,7 +80,12 @@
 </template>
 
 <script setup>
-import { computed, ref, useAttrs } from 'vue';
+import {
+  computed,
+  ref,
+  useAttrs,
+  watchEffect,
+} from 'vue';
 
 import config from '../../config';
 import VEcTooltip from '../../directives/ec-tooltip';
@@ -197,6 +202,15 @@ function focus() {
     inputRef.value.focus();
   }
 }
+
+watchEffect(() => {
+  // Hack: since Vue 3 we occasionally run into issues that the inputModel and value of the input are getting out of sync.
+  // in order to fix it we should sync it automatically every time inputModel changes.
+  const inputElement = inputRef.value;
+  if (inputElement && inputElement.value !== inputModel.value) {
+    inputElement.value = inputModel.value ?? '';
+  }
+});
 
 defineExpose({ focus, inputRef });
 </script>
