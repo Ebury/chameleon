@@ -25,7 +25,7 @@
     "test:watch": "vue-cli-service test:unit --watch",
     "test:visual": "cypress open",
     "test:visual:ci": "npm run start & wait-on http://localhost:42475/ && npm run test:visual:all",
-    "test:visual:all": "cypress run --browser chrome -e storyIdFilter='button-dropdown' --headless --config video=false,videosFolder=tests/integration/videos/chrome/,trashAssetsBeforeRuns=true && cypress run --browser firefox -e storyIdFilter='button-dropdown' --headless --config video=false,videosFolder=tests/integration/videos/firefox/,trashAssetsBeforeRuns=false",
+    "test:visual:all": "cypress run --browser chrome --headless --config video=false,videosFolder=tests/integration/videos/chrome/,trashAssetsBeforeRuns=true && cypress run --browser firefox --headless --config video=false,videosFolder=tests/integration/videos/firefox/,trashAssetsBeforeRuns=false",
     "prebuild-storybook": "npm run icons",
     "build-storybook": "build-storybook -o .out",
     "prestart": "npm run icons",
