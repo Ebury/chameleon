@@ -31,7 +31,10 @@
       @close="isOpen = false"
     >
       <template #item="{ item, index }">
-        <span v-if="item.disabled">
+        <span
+          v-if="item.disabled"
+          :data-test="`ec-btn-dropdown__item-disabled-link ec-btn-dropdown__item-link ec-btn-dropdown__item-link--${index}`"
+        >
           {{ item.text }}
         </span>
         <a
