@@ -51,13 +51,6 @@ describe('EcBtnDropdown', () => {
     expect(wrapper.emitted('click').length).toBe(1);
   });
 
-  it("should render an anchor tag with a 'href' prop", async () => {
-    const wrapper = mountBtnDropdown({ href: '/trade/drawdown/' });
-
-    await wrapper.findByDataTest('ec-btn-dropdown__btn').trigger('click');
-    expect(wrapper.emitted('click').length).toBe(1);
-  });
-
   it('should emit the change event when the user clicks on an item of the dropdown list', async () => {
     const wrapper = mountBtnDropdown({ items });
 
@@ -86,7 +79,7 @@ describe('EcBtnDropdown', () => {
     expect(wrapper.findByDataTest('ec-btn-dropdown__btn').element).toMatchSnapshot();
   });
 
-  it("should render with a 'href' prop", () => {
+  it('should emit a click event when the CTA button is clicked', () => {
     const wrapper = mountBtnDropdown({
       items: [{
         href: '/trade/drawdown/',
