@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcBtnDropdown should emit a click event when the CTA button is clicked 1`] = `
-<button
-  class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
-  data-test="ec-btn-dropdown__btn ec-btn"
-  type="button"
+exports[`EcBtnDropdown should attach 'attrs' to the rendered anchor 1`] = `
+<li
+  class="ec-dropdown-search__item"
+  data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+  title="Convert & Pay"
 >
-  <!--v-if-->
-  <span
-    class="ec-btn__text"
-    data-test="ec-btn__text"
+  
+  <a
+    class="ec-btn-dropdown__item-link"
+    data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0"
+    href="/convert-and-pay/"
+    id="item-link-id"
   >
-    
     Convert & Pay
-    
-  </span>
-  <!--v-if-->
-</button>
+  </a>
+  
+</li>
 `;
 
 exports[`EcBtnDropdown should render as expected 1`] = `
@@ -97,25 +97,6 @@ exports[`EcBtnDropdown should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcBtnDropdown should render with a 'to' prop 1`] = `
-<button
-  class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
-  data-test="ec-btn-dropdown__btn ec-btn"
-  type="button"
->
-  <!--v-if-->
-  <span
-    class="ec-btn__text"
-    data-test="ec-btn__text"
-  >
-    
-    Convert & Pay
-    
-  </span>
-  <!--v-if-->
-</button>
-`;
-
 exports[`EcBtnDropdown should render with a list of options on the dropdown search 1`] = `
 <div
   class="ec-btn-dropdown"
@@ -192,7 +173,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
             
             <ec-stub
               class="ec-btn-dropdown__item-link"
-              data-test="ec-stub router-link-stub"
+              data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0 ec-stub router-link-stub"
             >
               
               Spot
@@ -208,7 +189,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
             
             <ec-stub
               class="ec-btn-dropdown__item-link"
-              data-test="ec-stub router-link-stub"
+              data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1 ec-stub router-link-stub"
             >
               
               Convert
@@ -323,7 +304,7 @@ exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
     
     <ec-stub
       class="ec-btn-dropdown__item-link"
-      data-test="ec-stub router-link-stub"
+      data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0 ec-stub router-link-stub"
     >
       
       Spot
@@ -339,7 +320,7 @@ exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
     
     <ec-stub
       class="ec-btn-dropdown__item-link"
-      data-test="ec-stub router-link-stub"
+      data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1 ec-stub router-link-stub"
     >
       
       Convert
@@ -359,7 +340,9 @@ exports[`EcBtnDropdown when the CTA menu item is disabled should be a non clicka
   title="Convert & Pay"
 >
   
-  <span>
+  <span
+    data-test="ec-btn-dropdown__item-disabled-link ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0"
+  >
     Convert & Pay
   </span>
   

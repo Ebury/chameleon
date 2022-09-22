@@ -30,16 +30,23 @@
       @open="isOpen = true"
       @close="isOpen = false"
     >
-      <template #item="{ item }">
-        <span v-if="item.disabled">{{ item.text }}</span>
+      <template #item="{ item, index }">
+        <span
+          v-if="item.disabled"
+          :data-test="`ec-btn-dropdown__item-disabled-link ec-btn-dropdown__item-link ec-btn-dropdown__item-link--${index}`"
+        >
+          {{ item.text }}
+        </span>
         <a
           v-else-if="item.href"
+          :data-test="`ec-btn-dropdown__item-link ec-btn-dropdown__item-link--${index}`"
           class="ec-btn-dropdown__item-link"
           v-bind="item.attrs"
           :href="item.href"
         >{{ item.text }}</a>
         <router-link
           v-else
+          :data-test="`ec-btn-dropdown__item-link ec-btn-dropdown__item-link--${index}`"
           class="ec-btn-dropdown__item-link"
           v-bind="item.attrs"
           :to="item.to"
