@@ -79,49 +79,41 @@ exports[`EcBtnDropdown should render as expected 1`] = `
 `;
 
 exports[`EcBtnDropdown should render with a 'href' prop 1`] = `
-DOMWrapper {
-  "isDisabled": [Function],
-  "wrapperElement": <a
-    class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
-    data-test="ec-btn-dropdown__btn ec-btn"
-    href="/trade/drawdown/"
+<button
+  class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
+  data-test="ec-btn-dropdown__btn ec-btn"
+  type="button"
+>
+  <!--v-if-->
+  <span
+    class="ec-btn__text"
+    data-test="ec-btn__text"
   >
-    <!--v-if-->
-    <span
-      class="ec-btn__text"
-      data-test="ec-btn__text"
-    >
-      
-      Convert & Pay
-      
-    </span>
-    <!--v-if-->
-  </a>,
-}
+    
+    Convert & Pay
+    
+  </span>
+  <!--v-if-->
+</button>
 `;
 
 exports[`EcBtnDropdown should render with a 'to' prop 1`] = `
-DOMWrapper {
-  "isDisabled": [Function],
-  "wrapperElement": <ec-stub
-    class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
-    data-test="ec-btn-dropdown__btn ec-btn ec-stub router-link-stub"
-    to="convert-and-pay"
+<button
+  class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
+  data-test="ec-btn-dropdown__btn ec-btn"
+  type="button"
+>
+  <!--v-if-->
+  <span
+    class="ec-btn__text"
+    data-test="ec-btn__text"
   >
     
-    <!--v-if-->
-    <span
-      class="ec-btn__text"
-      data-test="ec-btn__text"
-    >
-      
-      Convert & Pay
-      
-    </span>
-    <!--v-if-->
+    Convert & Pay
     
-  </ec-stub>,
-}
+  </span>
+  <!--v-if-->
+</button>
 `;
 
 exports[`EcBtnDropdown should render with a list of options on the dropdown search 1`] = `
@@ -358,4 +350,18 @@ exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
   
   
 </ul>
+`;
+
+exports[`EcBtnDropdown when the CTA menu item is disabled should be a non clickable DOM element 1`] = `
+<li
+  class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+  data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+  title="Convert & Pay"
+>
+  
+  <span>
+    Convert & Pay
+  </span>
+  
+</li>
 `;

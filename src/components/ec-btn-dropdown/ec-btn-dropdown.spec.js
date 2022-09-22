@@ -58,16 +58,6 @@ describe('EcBtnDropdown', () => {
     expect(wrapper.emitted('click').length).toBe(1);
   });
 
-  it("should render with a 'to' prop", () => {
-    const wrapper = mountBtnDropdown({ to: 'convert-and-pay' });
-    expect(wrapper.findByDataTest('ec-btn-dropdown__btn')).toMatchSnapshot();
-  });
-
-  it("should render with a 'href' prop", () => {
-    const wrapper = mountBtnDropdown({ href: '/trade/drawdown/' });
-    expect(wrapper.findByDataTest('ec-btn-dropdown__btn')).toMatchSnapshot();
-  });
-
   it('should emit the change event when the user clicks on an item of the dropdown list', async () => {
     const wrapper = mountBtnDropdown({ items });
 
@@ -76,5 +66,56 @@ describe('EcBtnDropdown', () => {
 
     expect(wrapper.emitted('change').length).toBe(1);
     expect(wrapper.emitted('change')[0]).toEqual([items[0]]);
+  });
+
+  it("should render with a 'to' prop", () => {
+    const wrapper = mountBtnDropdown({
+      items: [{
+        items: [{
+          to: {
+            name: 'convert-and-pay',
+          },
+          attrs: {},
+          value: 'convert-and-pay',
+          text: 'Convert & Pay',
+          disabled: false,
+          disabledReason: '',
+        }],
+      }],
+    });
+    expect(wrapper.findByDataTest('ec-btn-dropdown__btn').element).toMatchSnapshot();
+  });
+
+  it("should render with a 'href' prop", () => {
+    const wrapper = mountBtnDropdown({
+      items: [{
+        href: '/trade/drawdown/',
+        value: 'drawdown',
+        text: 'Drawdown',
+        disabled: false,
+        disabledReason: '',
+      }],
+    });
+    expect(wrapper.findByDataTest('ec-btn-dropdown__btn').element).toMatchSnapshot();
+  });
+
+  describe('when the CTA menu item is disabled', () => {
+    it('should be a non clickable DOM element', async () => {
+      const wrapper = mountBtnDropdown({
+        items: [{
+          to: {
+            name: 'convert-and-pay',
+          },
+          attrs: {},
+          value: 'convert-and-pay',
+          text: 'Convert & Pay',
+          disabled: true,
+          disabledReason: '',
+        }],
+      });
+
+      await wrapper.findByDataTest('ec-btn-dropdown__dropdown-btn').trigger('click');
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').at(0).element).toMatchSnapshot();
+    });
   });
 });
