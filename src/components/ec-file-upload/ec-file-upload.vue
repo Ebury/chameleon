@@ -48,9 +48,6 @@ import EcFileList from '../ec-file-list';
 
 export default {
   name: 'EcFileUpload',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: {
     EcFileDropzone,
     EcFileList,

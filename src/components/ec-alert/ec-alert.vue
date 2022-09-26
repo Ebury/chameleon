@@ -120,16 +120,6 @@ function onDismiss() {
   emit('update:open', newValue);
   emit('change', newValue);
 }
-
-</script>
-
-<script>
-export default {
-  name: 'EcAlert',
-  compatConfig: {
-    MODE: 3,
-  },
-};
 </script>
 
 <style>

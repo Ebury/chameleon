@@ -1,5 +1,4 @@
 import { config, DOMWrapper, VueWrapper } from '@vue/test-utils';
-import { configureCompat } from 'vue';
 
 import '@testing-library/jest-dom';
 
@@ -41,15 +40,4 @@ config.global.config.compilerOptions = {
   whitespace: 'condense',
   isCustomElement: tag => customElements.has(tag),
   comments: false,
-  compatConfig: {
-    MODE: 3,
-    RENDER_FUNCTION: false,
-  },
 };
-
-// @vue/compat
-configureCompat({
-  MODE: 2,
-  RENDER_FUNCTION: true,
-  COMPONENT_V_MODEL: false,
-});

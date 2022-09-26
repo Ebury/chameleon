@@ -142,10 +142,6 @@ watch(() => props.isMasked, (newValue) => {
 
 <script>
 export default {
-  name: 'EcAmountInput',
-  compatConfig: {
-    MODE: 3,
-  },
   inheritAttrs: false,
 };
 </script>

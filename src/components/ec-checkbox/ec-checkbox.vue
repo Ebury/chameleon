@@ -154,15 +154,10 @@ function updateIndeterminate(newValue) {
 onMounted(() => {
   updateIndeterminate(props.indeterminate);
 });
-
 </script>
 
 <script>
 export default {
-  name: 'EcCheckbox',
-  compatConfig: {
-    MODE: 3,
-  },
   inheritAttrs: false,
 };
 </script>

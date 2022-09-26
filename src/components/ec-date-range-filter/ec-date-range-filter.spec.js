@@ -105,15 +105,15 @@ describe('EcDateRangeFilter', () => {
     );
 
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
-    expect(wrapper.findByDataTest('ec-filter-popover__badge').exists()).toBe(false);
+    expect(wrapper.findByDataTest('ec-badge').exists()).toBe(false);
 
     await wrapper.findByDataTest('ec-date-range-filter__from-input').setValue('2020-11-06');
     expect(wrapper.findByDataTest('ec-date-range-filter__from-input').element.value).toBe('2020-11-06');
-    expect(wrapper.findByDataTest('ec-filter-popover__badge').text()).toBe('1');
+    expect(wrapper.findByDataTest('ec-badge').text()).toBe('1');
 
     await wrapper.findByDataTest('ec-date-range-filter__to-input').setValue('2020-12-06');
     expect(wrapper.findByDataTest('ec-date-range-filter__to-input').element.value).toBe('2020-12-06');
-    expect(wrapper.findByDataTest('ec-filter-popover__badge').text()).toBe('2');
+    expect(wrapper.findByDataTest('ec-badge').text()).toBe('2');
   });
 
   it('should render if no dates are passed in value prop', () => {

@@ -108,9 +108,6 @@ import EcLoading from '../ec-loading';
 
 export default {
   name: 'EcModal',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: {
     EcBtn,
     EcIcon,

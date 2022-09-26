@@ -67,9 +67,6 @@
 import EcIcon from '../ec-icon/ec-icon.vue';
 
 export default {
-  compatConfig: {
-    MODE: 3,
-  },
   components: {
     EcIcon,
   },

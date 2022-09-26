@@ -1,34 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcCurrencyFilter should count every selected currency and the amount together in numberOfSelectedFilters 1`] = `
-<div
-  class="ec-filter-popover__trigger"
-  data-test="ec-filter-popover__trigger"
+<span
+  class="ec-badge ec-badge--info tw-ml-4"
+  data-test="ec-badge"
 >
-  <button
-    class="ec-filter-popover__label"
-    data-test="ec-filter-popover__label"
-    title="Price"
-    type="button"
-  >
-    Price
-  </button>
-  <span
-    class="ec-filter-popover__badge"
-    data-test="ec-filter-popover__badge"
-  >
-    3
-  </span>
-  <svg
-    class="ec-icon ec-icon--interactive ec-filter-popover__icon"
-    height="16"
-    width="16"
-  >
-    <use
-      xlink:href="#ec-simple-chevron-down"
-    />
-  </svg>
-</div>
+  
+  3
+  
+</span>
 `;
 
 exports[`EcCurrencyFilter should count every selected currency in numberOfSelectedFilters 1`] = `
@@ -45,10 +25,12 @@ exports[`EcCurrencyFilter should count every selected currency in numberOfSelect
     Price
   </button>
   <span
-    class="ec-filter-popover__badge"
-    data-test="ec-filter-popover__badge"
+    class="ec-badge ec-badge--info tw-ml-4"
+    data-test="ec-badge"
   >
+    
     2
+    
   </span>
   <svg
     class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -76,10 +58,12 @@ exports[`EcCurrencyFilter should count the amount as 1 in numberOfSelectedFilter
     Price
   </button>
   <span
-    class="ec-filter-popover__badge"
-    data-test="ec-filter-popover__badge"
+    class="ec-badge ec-badge--info tw-ml-4"
+    data-test="ec-badge"
   >
+    
     1
+    
   </span>
   <svg
     class="ec-icon ec-icon--interactive ec-filter-popover__icon"

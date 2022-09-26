@@ -16,11 +16,7 @@
 
 <script>
 export default {
-  name: 'EcPopover',
   inheritAttrs: false,
-  compatConfig: {
-    MODE: 3,
-  },
 };
 </script>
 

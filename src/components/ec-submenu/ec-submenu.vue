@@ -86,15 +86,6 @@ function select(index) {
 }
 </script>
 
-<script>
-export default {
-  name: 'EcSubmenu',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 @import '../../styles/tools/transitions.css';
 

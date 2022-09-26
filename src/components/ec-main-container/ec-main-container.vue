@@ -64,15 +64,6 @@ function hasSlot(slotName) {
 }
 </script>
 
-<script>
-export default {
-  name: 'EcMainContainer',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 .ec-main-container {
   @apply tw-p-24;
