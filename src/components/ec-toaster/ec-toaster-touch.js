@@ -1,7 +1,4 @@
 export default {
-  compatConfig: {
-    MODE: 3,
-  },
   mounted(el, binding, vnode) {
     let startX;
     let oldTransform;

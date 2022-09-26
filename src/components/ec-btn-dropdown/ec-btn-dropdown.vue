@@ -119,16 +119,6 @@ function getPopoverStyle() {
 
   return null;
 }
-
-</script>
-
-<script>
-export default {
-  name: 'EcBtnDropdown',
-  compatConfig: {
-    MODE: 3,
-  },
-};
 </script>
 
 <style>

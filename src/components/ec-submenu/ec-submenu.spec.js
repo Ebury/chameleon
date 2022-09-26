@@ -53,8 +53,8 @@ describe('EcSubmenu', () => {
   it('should throw an error if we don\'t pass any content', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcSubmenu);
-      expect(warnSpy).toHaveBeenCalledTimes(2);
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "submenu"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "submenu"');
     });
   });
 
@@ -66,7 +66,7 @@ describe('EcSubmenu', () => {
           slots,
         },
       );
-      expect(warnSpy).toHaveBeenCalled();
+      expect(warnSpy).toHaveBeenCalledTimes(1);
       expect(warnSpy.mock.calls[0][0]).toContain('Expected Array, got Null ');
       expect(wrapper.findByDataTest('ec-submenu').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();

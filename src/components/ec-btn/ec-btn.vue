@@ -52,10 +52,6 @@
 
 <script>
 export default {
-  name: 'EcBtn',
-  compatConfig: {
-    MODE: 3,
-  },
   inheritAttrs: false,
 };
 </script>

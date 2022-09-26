@@ -28,15 +28,6 @@ defineProps({
 });
 </script>
 
-<script>
-export default {
-  name: 'EcContainer',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 .ec-container {
   @apply tw-flex tw-flex-row tw-items-stretch;

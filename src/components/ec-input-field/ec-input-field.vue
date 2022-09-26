@@ -204,9 +204,8 @@ function focus() {
 }
 
 watchEffect(() => {
-  // Hack: since we enabled @vue/compat we occasionally run into issues that the inputModel and value of the input are getting out of sync
+  // Hack: since Vue 3 we occasionally run into issues that the inputModel and value of the input are getting out of sync.
   // in order to fix it we should sync it automatically every time inputModel changes.
-  // we'll review if this is still a case after the @vue/compat is replaced with Vue 3 only.
   const inputElement = inputRef.value;
   if (inputElement && inputElement.value !== inputModel.value) {
     inputElement.value = inputModel.value ?? '';
@@ -218,10 +217,6 @@ defineExpose({ focus, inputRef });
 
 <script>
 export default {
-  name: 'EcInputField',
-  compatConfig: {
-    MODE: 3,
-  },
   inheritAttrs: false,
 };
 </script>

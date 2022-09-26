@@ -1,9 +1,10 @@
 import { mount } from '@vue/test-utils';
 import { h } from 'vue';
 
+import { withMockedConsole } from '../../tests/utils/console';
 import { createHOC, createHOCc } from './hoc';
 
-describe('HoC for @vue/compat', () => {
+describe('HoC for Vue 3', () => {
   describe('props', () => {
     it('should merge props', () => {
       const WrappedComponent = {
@@ -180,12 +181,12 @@ describe('HoC for @vue/compat', () => {
     it('should pass slots to the wrapped component', () => {
       const WrappedComponent = {
         template: `
-        <div>
-          <slot name="first" v-bind="{ slotProp: 123 }">First slot fallback</slot>
-          <slot>Default slot fallback</slot>
-          <slot name="third">Third slot fallback</slot>
-        </div>
-      `,
+          <div>
+            <slot name="first" v-bind="{ slotProp: 123 }">First slot fallback</slot>
+            <slot>Default slot fallback</slot>
+            <slot name="third">Third slot fallback</slot>
+          </div>
+        `,
       };
 
       const MyHoC = createHOC(WrappedComponent);
@@ -193,7 +194,7 @@ describe('HoC for @vue/compat', () => {
       const wrapper = mount(MyHoC, {
         slots: {
           first: ({ slotProp }) => h('div', `Slot prop value: ${slotProp}`),
-          default: '<div>Default slot</div>',
+          default: () => h('div', 'Default slot'),
         },
       });
 
@@ -201,24 +202,14 @@ describe('HoC for @vue/compat', () => {
     });
 
     it('should pass slots to the wrapped component via template', () => {
-      // There is a difference between passing slots via VTU options like we do in previous test
-      // and via template options.
-      //
-      // if we do mount(Comp, { slots: {} }) then each slot in the object, regardless if it's bound or not, becomes a scoped slot so then @vue/compat will pass
-      // all of them in legacy $scopedSlots and the $slots becomes an empty object.
-      //
-      // ... but if we pass slots via template, then all slots will appear in $slots object and only the one that is scoped (#first) will appear
-      // in $scopedSlots. In real world application, this scenario is more common than passing slots via slots option.
-      // hoc.js handles both these situation so let's test it here:
-
       const WrappedComponent = {
         template: `
-        <div>
-          <slot name="first" v-bind="{ slotProp: 123 }">First slot fallback</slot>
-          <slot>Default slot fallback</slot>
-          <slot name="third">Third slot fallback</slot>
-        </div>
-      `,
+          <div>
+            <slot name="first" v-bind="{ slotProp: 123 }">First slot fallback</slot>
+            <slot>Default slot fallback</slot>
+            <slot name="third">Third slot fallback</slot>
+          </div>
+        `,
       };
 
       const MyHoc = createHOC(WrappedComponent);
@@ -241,10 +232,10 @@ describe('HoC for @vue/compat', () => {
     it('should pass event listeners to the wrapped component', async () => {
       const WrappedComponent = {
         template: `
-        <div>
-          <button data-test="my-button" @click="$emit('custom', 123)">Click me</button>
-        </div>
-      `,
+          <div>
+            <button data-test="my-button" @click="$emit('custom', 123)">Click me</button>
+          </div>
+        `,
       };
 
       const MyHoC = createHOC(WrappedComponent);
@@ -265,18 +256,23 @@ describe('HoC for @vue/compat', () => {
 
   describe('render props', () => {
     it('should throw an error if the props form is not supported', () => {
-      const WrappedComponent = {
-        props: { myProp: String },
-        template: '<div>{{ myProp }}</div>',
-      };
+      withMockedConsole((errorSpy, warnSpy) => {
+        const WrappedComponent = {
+          props: { myProp: String },
+          template: '<div>{{ myProp }}</div>',
+        };
 
-      const MyHoC = createHOC(WrappedComponent, {}, {
-        props: 123,
+        const MyHoC = createHOC(WrappedComponent, {}, {
+          props: 123,
+        });
+
+        expect(() => {
+          mount(MyHoC);
+        }).toThrow('Unrecognised props form in HoC: number');
+
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
       });
-
-      expect(() => {
-        mount(MyHoC);
-      }).toThrow('Unrecognised props form in HoC: number');
     });
 
     it('should pass props to the wrapped component', () => {
@@ -415,34 +411,44 @@ describe('HoC for @vue/compat', () => {
 
   describe('render listeners', () => {
     it('should throw an error if the props form is not supported', () => {
-      const WrappedComponent = {
-        template: '<div>Wrapped Component</div>',
-      };
+      withMockedConsole((errorSpy, warnSpy) => {
+        const WrappedComponent = {
+          template: '<div>Wrapped Component</div>',
+        };
 
-      const MyHoC = createHOC(WrappedComponent, {}, {
-        listeners: 123,
+        const MyHoC = createHOC(WrappedComponent, {}, {
+          listeners: 123,
+        });
+
+        expect(() => {
+          mount(MyHoC);
+        }).toThrow('Unrecognised listeners form in HoC: number');
+
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
       });
-
-      expect(() => {
-        mount(MyHoC);
-      }).toThrow('Unrecognised listeners form in HoC: number');
     });
 
     it('should throw an error if the listener name is in kebab-case', () => {
-      const WrappedComponent = {
-        template: '<div>Wrapped Component</div>',
-      };
+      withMockedConsole((errorSpy, warnSpy) => {
+        const WrappedComponent = {
+          template: '<div>Wrapped Component</div>',
+        };
 
-      const myEventSpy = jest.fn();
-      const MyHoC = createHOC(WrappedComponent, {}, {
-        listeners: {
-          'my-event': myEventSpy,
-        },
+        const myEventSpy = jest.fn();
+        const MyHoC = createHOC(WrappedComponent, {}, {
+          listeners: {
+            'my-event': myEventSpy,
+          },
+        });
+
+        expect(() => {
+          mount(MyHoC);
+        }).toThrow('Listener "my-event" should be in camelCase.');
+
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
       });
-
-      expect(() => {
-        mount(MyHoC);
-      }).toThrow('Listener "my-event" should be in camelCase.');
     });
 
     it('should pass the listener to the wrapped component', () => {
@@ -556,31 +562,41 @@ describe('HoC for @vue/compat', () => {
 
   describe('render slots', () => {
     it('should throw an error if the slots form is not supported', () => {
-      const WrappedComponent = {
-        template: '<div>Wrapped Component</div>',
-      };
+      withMockedConsole((errorSpy, warnSpy) => {
+        const WrappedComponent = {
+          template: '<div>Wrapped Component</div>',
+        };
 
-      const MyHoC = createHOC(WrappedComponent, {}, {
-        slots: {},
+        const MyHoC = createHOC(WrappedComponent, {}, {
+          slots: {},
+        });
+
+        expect(() => {
+          mount(MyHoC);
+        }).toThrow('Unrecognised slots form in HoC: object');
+
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
       });
-
-      expect(() => {
-        mount(MyHoC);
-      }).toThrow('Unrecognised slots form in HoC: object');
     });
 
     it('should throw an error if the slots are passed as scopedSlots', () => {
-      const WrappedComponent = {
-        template: '<div>Wrapped Component</div>',
-      };
+      withMockedConsole((errorSpy, warnSpy) => {
+        const WrappedComponent = {
+          template: '<div>Wrapped Component</div>',
+        };
 
-      const MyHoC = createHOC(WrappedComponent, {}, {
-        scopedSlots: () => {},
+        const MyHoC = createHOC(WrappedComponent, {}, {
+          scopedSlots: () => {},
+        });
+
+        expect(() => {
+          mount(MyHoC);
+        }).toThrow('Do not use scopedSlots in render options. Rename it to slots.');
+
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
       });
-
-      expect(() => {
-        mount(MyHoC);
-      }).toThrow('Do not use scopedSlots in render options. Rename it to slots.');
     });
 
     it('should pass the slot to the wrapped component', () => {
@@ -628,14 +644,14 @@ describe('HoC for @vue/compat', () => {
         slots(slots) {
           return {
             ...slots,
-            default: 'Default slot from HoC',
+            default: () => 'Default slot from HoC',
           };
         },
       });
 
       const wrapper = mount(MyHoC, {
         slots: {
-          default: 'Default slot from mounting',
+          default: () => 'Default slot from mounting',
         },
       });
       expect(wrapper.element).toMatchSnapshot();

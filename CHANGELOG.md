@@ -1,3 +1,9 @@
+# 2.1.0 - Vue 3
+
+## BREAKING CHANGES
+
+* Removed `@vue/compat` and running all components in Vue 3 mode only
+
 # 2.0.0 - Vue 3
 
 ## BREAKING CHANGES

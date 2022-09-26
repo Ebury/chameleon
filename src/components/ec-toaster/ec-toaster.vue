@@ -57,15 +57,6 @@ function rememberTopItemPositions() {
 onMounted(rememberTopItemPositions);
 </script>
 
-<script>
-export default {
-  name: 'Toaster',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 .ec-toaster {
   @apply tw-fixed;

@@ -159,9 +159,6 @@ import EcInputField from '../ec-input-field';
 
 export default {
   name: 'EcPhoneNumberInput',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: {
     EcInputField,
     EcDropdown,

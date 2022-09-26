@@ -27,15 +27,6 @@ defineProps({
 });
 </script>
 
-<script>
-export default {
-  name: 'EcBadge',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 :root {
   --ec-filter-badge-width: 16px;

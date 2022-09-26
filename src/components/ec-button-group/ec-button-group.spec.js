@@ -56,7 +56,7 @@ describe('EcButtonGroup', () => {
             { value: 'maybe' },
           ],
         });
-        expect(warnSpy).toHaveBeenCalled();
+        expect(warnSpy).toHaveBeenCalledTimes(1);
         expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "items"');
       });
     });
@@ -69,7 +69,7 @@ describe('EcButtonGroup', () => {
             { text: 'Maybe' },
           ],
         });
-        expect(warnSpy).toHaveBeenCalled();
+        expect(warnSpy).toHaveBeenCalledTimes(1);
         expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "items"');
       });
     });
@@ -159,7 +159,7 @@ describe('EcButtonGroup', () => {
         modelValue: null,
         items: [
           { text: 'Yes', value: 'yes' },
-          { text: 'Maybe' },
+          { text: 'No', value: 'no' },
         ],
       });
 

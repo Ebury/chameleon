@@ -49,7 +49,7 @@ describe('EcUserInfo', () => {
   it('should throw an error if no props were given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcUserInfo);
-      expect(warnSpy).toHaveBeenCalled();
+      expect(warnSpy).toHaveBeenCalledTimes(1);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "user"');
     });
   });

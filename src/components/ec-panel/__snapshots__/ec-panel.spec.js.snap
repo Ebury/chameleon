@@ -326,6 +326,55 @@ exports[`EcPanel @events @back should render back button when event handler attr
 </aside>
 `;
 
+exports[`EcPanel should use given attributes 1`] = `
+<aside
+  class="ec-panel my-class"
+  data-test="my-data-test ec-panel"
+  id="my-id"
+>
+  <div
+    class="ec-panel__fixed-container"
+    data-test="ec-panel__fixed-container"
+  >
+    <div
+      class="ec-panel__header-icons"
+      data-test="ec-panel__header-icons"
+    >
+      <!--v-if-->
+      <button
+        aria-label="Close panel"
+        class="ec-panel__header-action ec-panel__header-action--close"
+        data-test="ec-panel__header-action--close"
+        type="button"
+      >
+        <svg
+          class="ec-icon ec-panel__header-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="ec-panel__content-container"
+    >
+      <!--v-if-->
+      <div
+        class="ec-panel__main"
+        data-test="ec-panel__main"
+      >
+        
+        
+      </div>
+      <!--v-if-->
+    </div>
+  </div>
+</aside>
+`;
+
 exports[`EcPanel v-model should not render the panel when we pass to model false 1`] = `<!--v-if-->`;
 
 exports[`EcPanel v-model should render the panel when we pass to model true 1`] = `

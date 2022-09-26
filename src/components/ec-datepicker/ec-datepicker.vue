@@ -338,10 +338,6 @@ function datesAreEqual(date1, date2) {
 
 <script>
 export default {
-  name: 'EcDatepicker',
-  compatConfig: {
-    MODE: 3,
-  },
   inheritAttrs: false,
 };
 </script>

@@ -501,10 +501,6 @@ function loseFocus() {
 
 <script>
 export default {
-  name: 'EcDropdownSearch',
-  compatConfig: {
-    MODE: 3,
-  },
   inheritAttrs: false,
 };
 </script>

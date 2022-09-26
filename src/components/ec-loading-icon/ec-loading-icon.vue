@@ -7,15 +7,6 @@
   />
 </template>
 
-<script>
-export default {
-  name: 'EcLoadingIcon',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <script setup>
 import EcIcon from '../ec-icon';
 

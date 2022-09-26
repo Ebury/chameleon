@@ -36,9 +36,6 @@ import EcMultipleValuesSelection from '../ec-multiple-values-selection';
 
 export default {
   name: 'EcSyncMultipleValuesFilter',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: { EcFilterPopover, EcMultipleValuesSelection },
   props: {
     label: {

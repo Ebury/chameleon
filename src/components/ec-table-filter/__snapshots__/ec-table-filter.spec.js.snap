@@ -1470,7 +1470,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
 
 exports[`EcTableFilter should render custom attributes 1`] = `
 <section
-  class="ec-table-filter my-class"
+  class="my-class ec-table-filter"
   data-test="my-data-test ec-table-filter"
   id="my-id"
 >
