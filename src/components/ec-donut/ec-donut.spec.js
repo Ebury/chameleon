@@ -56,11 +56,11 @@ describe('EcDonut', () => {
 
   it('should get the correct computed properties', () => {
     const wrapper = mountDonut();
-    const circumference = 2 * Math.PI * wrapper.vm.radius;
+    const circumference = 2 * Math.PI * wrapper.vm.RADIUS;
     expect(wrapper.vm.percentageUsed).toBe(20);
     const offset = circumference * (1 - wrapper.vm.percentageUsed / 100);
-    expect(wrapper.vm.dashArray).toBe(circumference);
-    expect(wrapper.vm.dashOffset).toBe(offset);
+    expect(wrapper.vm.circumference).toBe(circumference);
+    expect(wrapper.vm.usedArcLength).toBe(offset);
   });
 
   it('should render slots as expected', () => {

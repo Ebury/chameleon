@@ -28,7 +28,7 @@
           :r="RADIUS"
           fill="transparent"
           stroke-width="11"
-          :stroke-dasharray="dashArray"
+          :stroke-dasharray="circumference"
           :stroke-dashoffset="0"
         />
         <circle
@@ -38,8 +38,8 @@
           :r="RADIUS"
           fill="transparent"
           stroke-width="11"
-          :stroke-dasharray="dashArray"
-          :stroke-dashoffset="dashOffset"
+          :stroke-dasharray="circumference"
+          :stroke-dashoffset="usedArcLength"
         />
       </svg>
     </div>
@@ -100,10 +100,9 @@ const percentageUsed = computed(() => {
   }
   return (props.used / props.amount) * 100;
 });
-// Calculate the circumference
-const dashArray = computed(() => 2 * Math.PI * RADIUS);
-// Calculate the how much needs to be offset of the used circle
-const dashOffset = computed(() => dashArray.value * (1 - percentageUsed.value / 100));
+
+const circumference = computed(() => 2 * Math.PI * RADIUS);
+const usedArcLength = computed(() => circumference.value * (1 - percentageUsed.value / 100));
 </script>
 
 <style>
