@@ -57,7 +57,6 @@
 defineProps({
   isCollapsed: {
     type: Boolean,
-    required: true,
     default: false,
   },
   isCollapsable: {
@@ -67,7 +66,6 @@ defineProps({
   branding: {
     type: Object,
     default: () => ({}),
-    required: true,
   },
   showBrandingLogo: {
     type: Boolean,
