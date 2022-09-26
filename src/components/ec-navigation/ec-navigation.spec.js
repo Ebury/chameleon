@@ -20,10 +20,8 @@ describe('EcNavigation', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcNavigation);
 
-      expect(warnSpy).toHaveBeenCalledTimes(3);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "isCollapsed"');
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "isCollapsable"');
-      expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "branding"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "isCollapsable"');
     });
   });
 
