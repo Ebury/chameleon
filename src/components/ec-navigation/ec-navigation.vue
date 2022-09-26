@@ -53,29 +53,32 @@
   </div>
 </template>
 
+<script setup>
+defineProps({
+  isCollapsed: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  isCollapsable: {
+    type: Boolean,
+    required: true,
+  },
+  branding: {
+    type: Object,
+    default: () => ({}),
+    required: true,
+  },
+  showBrandingLogo: {
+    type: Boolean,
+    default: true,
+  },
+});
+</script>
+
 <script>
 export default {
   name: 'EcNavigation',
-  props: {
-    isCollapsed: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
-    isCollapsable: {
-      type: Boolean,
-      required: true,
-    },
-    branding: {
-      type: Object,
-      default: () => ({}),
-      required: true,
-    },
-    showBrandingLogo: {
-      type: Boolean,
-      default: true,
-    },
-  },
 };
 </script>
 
