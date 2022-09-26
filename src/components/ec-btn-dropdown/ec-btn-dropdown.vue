@@ -54,7 +54,6 @@
         >{{ item.text }}
         </router-link>
       </template>
-
       <ec-btn
         :is-disabled="isDisabled"
         is-reverse
