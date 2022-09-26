@@ -99,132 +99,123 @@
   </transition>
 </template>
 
-<script>
-import EcFocusTrap from '../../directives/ec-focus-trap';
+<script setup>
+import {
+  computed, onBeforeUnmount, ref, useSlots, watchEffect,
+} from 'vue';
+
+import vEcFocusTrap from '../../directives/ec-focus-trap';
 import * as KeyCode from '../../enums/key-code';
 import EcBtn from '../ec-btn';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
 
-export default {
-  name: 'EcModal',
-  components: {
-    EcBtn,
-    EcIcon,
-    EcLoading,
-  },
-  directives: { EcFocusTrap },
-  props: {
-    show: {
-      type: Boolean,
-      default: false,
-    },
-    showFooterLeftContent: {
-      type: Boolean,
-      default: false,
-    },
-    isClosable: {
-      type: Boolean,
-      default: true,
-    },
-    large: {
-      type: Boolean,
-      default: false,
-    },
-    isLoading: {
-      type: Object,
-      default: () => ({}),
-    },
-    zIndex: {
-      type: Number,
-      validator(value) {
-        return value > 200 && value < 250;
-      },
-    },
-    category: {
-      type: Object,
-      default: () => ({}),
-    },
-  },
-  emits: ['update:show', 'negative', 'positive', 'close'],
-  computed: {
-    isLoadingPositiveButton() {
-      return !!this.isLoading.positive;
-    },
-    isLoadingNegativeButton() {
-      return !!this.isLoading.negative;
-    },
-    positiveButtonCategory() {
-      return this.category.positive || 'primary';
-    },
-    negativeButtonCategory() {
-      return this.category.negative || 'secondary';
-    },
-    zIndexStyle() {
-      return this.zIndex ? { zIndex: this.zIndex } : null;
-    },
-  },
-  watch: {
-    show: {
-      immediate: true,
-      handler(value) {
-        if (value) {
-          document.addEventListener('keyup', this.escapeIsPressed);
-        } else {
-          document.removeEventListener('keyup', this.escapeIsPressed);
-        }
-      },
-    },
-  },
-  beforeUnmount() {
-    document.removeEventListener('keyup', this.escapeIsPressed);
-  },
-  methods: {
-    negativeAction() {
-      this.$emit('negative');
-    },
-    positiveAction() {
-      this.$emit('positive');
-    },
-    closeModal() {
-      if (this.isClosable) {
-        this.$emit('update:show', false);
-        this.$emit('close', false);
-      }
-    },
-    escapeIsPressed(e) {
-      if (e.keyCode === KeyCode.ESC) {
-        this.closeModal();
-      }
-    },
-    getFocusTrapOptions() {
-      const options = {
-        escapeDeactivates: this.isClosable,
-        clickOutsideDeactivates: this.isClosable,
-      };
+const slots = useSlots();
 
-      if (this.hasPositiveButton()) {
-        options.initialFocus = /* istanbul ignore next */ () => this.$refs.positiveButton.$el;
-      } else if (this.hasNegativeButton()) {
-        options.initialFocus = /* istanbul ignore next */ () => this.$refs.negativeButton.$el;
-      }
-
-      return options;
-    },
-    hasPositiveButton() {
-      return !!this.$slots.positive;
-    },
-    hasNegativeButton() {
-      return !!this.$slots.negative;
-    },
-    hasFooterLeftContent() {
-      return !!this.$slots.footerLeftContent;
-    },
-    hasFooter() {
-      return this.hasFooterLeftContent() || this.hasPositiveButton() || this.hasNegativeButton();
+const props = defineProps({
+  show: {
+    type: Boolean,
+    default: false,
+  },
+  isClosable: {
+    type: Boolean,
+    default: true,
+  },
+  large: {
+    type: Boolean,
+    default: false,
+  },
+  isLoading: {
+    type: Object,
+    default: () => ({}),
+  },
+  zIndex: {
+    type: Number,
+    validator(value) {
+      return value > 200 && value < 250;
     },
   },
-};
+  category: {
+    type: Object,
+    default: () => ({}),
+  },
+});
+
+const emit = defineEmits(['update:show', 'negative', 'positive', 'close']);
+
+const positiveButton = ref(null);
+const negativeButton = ref(null);
+
+const isLoadingPositiveButton = computed(() => !!props.isLoading.positive);
+const isLoadingNegativeButton = computed(() => !!props.isLoading.negative);
+const positiveButtonCategory = computed(() => props.category.positive || 'primary');
+const negativeButtonCategory = computed(() => props.category.negative || 'secondary');
+const zIndexStyle = computed(() => (props.zIndex ? { zIndex: props.zIndex } : null));
+
+onBeforeUnmount(() => {
+  document.removeEventListener('keyup', escapeIsPressed);
+});
+
+function negativeAction() {
+  emit('negative');
+}
+
+function positiveAction() {
+  emit('positive');
+}
+
+function closeModal() {
+  if (props.isClosable) {
+    emit('update:show', false);
+    emit('close', false);
+  }
+}
+
+function escapeIsPressed(e) {
+  if (e.keyCode === KeyCode.ESC) {
+    closeModal();
+  }
+}
+
+function getFocusTrapOptions() {
+  const options = {
+    escapeDeactivates: props.isClosable,
+    clickOutsideDeactivates: props.isClosable,
+  };
+
+  if (hasPositiveButton()) {
+    options.initialFocus = /* istanbul ignore next */ () => positiveButton.value.$el;
+  } else if (hasNegativeButton()) {
+    options.initialFocus = /* istanbul ignore next */ () => negativeButton.value.$el;
+  }
+
+  return options;
+}
+
+function hasPositiveButton() {
+  return !!slots.positive;
+}
+
+function hasNegativeButton() {
+  return !!slots.negative;
+}
+
+function hasFooterLeftContent() {
+  return !!slots.footerLeftContent;
+}
+
+function hasFooter() {
+  return hasFooterLeftContent() || hasPositiveButton() || hasNegativeButton();
+}
+
+watchEffect(() => {
+  const value = props.show;
+  if (value) {
+    document.addEventListener('keyup', escapeIsPressed);
+  } else {
+    document.removeEventListener('keyup', escapeIsPressed);
+  }
+});
 </script>
 
 <style>
