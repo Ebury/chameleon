@@ -74,7 +74,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
 import EcIcon from '../ec-icon';
 
@@ -89,7 +89,7 @@ const props = defineProps({
   },
 });
 
-const radius = 48;
+const radius = ref(48);
 
 const percentageUsed = computed(() => {
   if (props.used > props.amount) {
@@ -101,7 +101,7 @@ const percentageUsed = computed(() => {
   return (props.used / props.amount) * 100;
 });
 // Calculate the circumference
-const dashArray = computed(() => 2 * Math.PI * radius);
+const dashArray = computed(() => 2 * Math.PI * radius.value);
 // Calculate the how much needs to be offset of the used circle
 const dashOffset = computed(() => dashArray.value * (1 - percentageUsed.value / 100));
 </script>
