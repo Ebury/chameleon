@@ -29,29 +29,24 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'EcUserInfo',
-  props: {
-    user: {
-      type: Object,
-      default: () => ({}),
-      required: true,
-    },
-    isCollapsed: {
-      type: Boolean,
-    },
-    isCollapsable: {
-      type: Boolean,
-    },
+<script setup>
+defineProps({
+  user: {
+    type: Object,
+    default: () => ({}),
   },
-  emits: ['toggle'],
-  methods: {
-    toggle() {
-      this.$emit('toggle');
-    },
+  isCollapsed: {
+    type: Boolean,
   },
-};
+  isCollapsable: {
+    type: Boolean,
+  },
+});
+const emit = defineEmits(['toggle']);
+
+function toggle() {
+  emit('toggle');
+}
 </script>
 
 <style>
