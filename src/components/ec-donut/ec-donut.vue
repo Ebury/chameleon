@@ -17,7 +17,7 @@
           class="ec-donut__background"
           cx="54"
           cy="54"
-          :r="radius"
+          :r="RADIUS"
           fill="transparent"
           stroke-width="11"
         />
@@ -25,7 +25,7 @@
           class="ec-donut__remaining"
           cx="54"
           cy="54"
-          :r="radius"
+          :r="RADIUS"
           fill="transparent"
           stroke-width="11"
           :stroke-dasharray="dashArray"
@@ -35,7 +35,7 @@
           class="ec-donut__used"
           cx="54"
           cy="54"
-          :r="radius"
+          :r="RADIUS"
           fill="transparent"
           stroke-width="11"
           :stroke-dasharray="dashArray"
@@ -74,7 +74,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 
 import EcIcon from '../ec-icon';
 
@@ -89,7 +89,7 @@ const props = defineProps({
   },
 });
 
-const radius = ref(48);
+const RADIUS = 48;
 
 const percentageUsed = computed(() => {
   if (props.used > props.amount) {
@@ -101,7 +101,7 @@ const percentageUsed = computed(() => {
   return (props.used / props.amount) * 100;
 });
 // Calculate the circumference
-const dashArray = computed(() => 2 * Math.PI * radius.value);
+const dashArray = computed(() => 2 * Math.PI * RADIUS);
 // Calculate the how much needs to be offset of the used circle
 const dashOffset = computed(() => dashArray.value * (1 - percentageUsed.value / 100));
 </script>
