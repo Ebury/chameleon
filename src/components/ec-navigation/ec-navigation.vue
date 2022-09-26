@@ -76,12 +76,6 @@ defineProps({
 });
 </script>
 
-<script>
-export default {
-  name: 'EcNavigation',
-};
-</script>
-
 <style>
 :root {
   --ec-navigation-width: 280px;
