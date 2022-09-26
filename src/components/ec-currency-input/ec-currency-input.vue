@@ -119,9 +119,6 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcCurrencyInput',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: {
     EcAmountInput,
     EcDropdown,

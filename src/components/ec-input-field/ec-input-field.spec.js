@@ -35,8 +35,8 @@ describe('EcInputField', () => {
   it('should validate given props', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mountInputField({ type: 'random' });
-      expect(warnSpy).toHaveBeenCalledTimes(2);
-      expect(warnSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
+      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
     });
   });
 

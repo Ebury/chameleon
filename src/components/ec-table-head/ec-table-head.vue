@@ -99,15 +99,6 @@ function getStickyColumnClass(colIndex, columns) {
 }
 </script>
 
-<script>
-export default {
-  name: 'EcTableHead',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 .ec-table-head {
   &__cell-wrapper {

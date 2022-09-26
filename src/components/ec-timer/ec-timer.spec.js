@@ -17,8 +17,8 @@ describe('EcTimer', () => {
       withMockedConsole((errorSpy, warnSpy) => {
         mountTimer({ isRunning: true });
 
-        expect(warnSpy).toHaveBeenCalledTimes(2);
-        expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "seconds"');
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "seconds"');
       });
     });
 

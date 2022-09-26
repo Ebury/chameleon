@@ -80,8 +80,6 @@ If you need to support every single locale on the planet, we recommend to polyfi
 
 [Vue](https://vuejs.org/)
 
-[Vue/compat](https://www.npmjs.com/package/@vue/compat)
-
 [Vue CLI](https://cli.vuejs.org/)
 
 ### Storybook

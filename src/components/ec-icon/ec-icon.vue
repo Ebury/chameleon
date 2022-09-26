@@ -8,15 +8,6 @@
   </svg>
 </template>
 
-<script>
-export default {
-  name: 'EcIcon',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <script setup>
 import { computed, toRefs } from 'vue';
 

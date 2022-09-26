@@ -35,30 +35,6 @@ module.exports = {
     },
   ],
   webpackFinal: (config, { configType }) => {
-    // enable @vue/compat for stories
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      vue$: require.resolve('@vue/compat'),
-    };
-
-    // enable @vue/compat when compiling story templates
-    const vueLoaderRule = findRuleByLoader(config.module.rules, '/vue-loader/');
-    if (!vueLoaderRule) {
-      throw new Error('Unable to find vue loader rules in the webpack config. Configuration change?');
-    }
-
-    vueLoaderRule.options = {
-      ...vueLoaderRule.options,
-      compilerOptions: {
-        whitespace: 'condense',
-        compatConfig: {
-          MODE: 2,
-          RENDER_FUNCTION: true,
-          COMPONENT_V_MODEL: false,
-        },
-      },
-    };
-
     // add stylelint (https://vue-loader.vuejs.org/guide/linting.html#stylelint)
     config.plugins.push(new StyleLintPlugin({
       files: ['**/*.{vue,css}'],

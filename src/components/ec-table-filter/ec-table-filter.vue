@@ -50,9 +50,6 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcTableFilter',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: { EcIcon },
   inheritAttrs: false,
   props: {

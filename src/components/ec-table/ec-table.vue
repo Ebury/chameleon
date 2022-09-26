@@ -126,15 +126,6 @@ function hasSlot(slotName) {
 }
 </script>
 
-<script>
-export default {
-  name: 'EcTable',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 @import '../../styles/tools/scrollbars';
 

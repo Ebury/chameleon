@@ -40,15 +40,7 @@ const getProps = function getProps(Component) {
 
 function createRenderFn(Component, renderOptions) {
   return function render() {
-    const currentSlots = { ...this.$scopedSlots };
-
-    for (const noScopedSlotKey of Object.keys(this.$slots)) {
-      if (!currentSlots[noScopedSlotKey]) {
-        currentSlots[noScopedSlotKey] = this.$slots[noScopedSlotKey];
-      }
-    }
-
-    const slots = mergeSlotsWithRenderOptions(currentSlots, renderOptions, this);
+    const slots = mergeSlotsWithRenderOptions(this.$slots, renderOptions, this);
 
     return h(Component, {
       ...this.$attrs,
@@ -118,10 +110,6 @@ function createHOC(Component, options = {}, renderOptions = {}) {
   const target = Component;
   return {
     ...options,
-    compatConfig: {
-      MODE: 3,
-      INSTANCE_SCOPED_SLOTS: true,
-    },
     props: { ...getProps(target), ...getProps(options) },
     mixins: options.mixins || [],
     name: options.name || `${target.name || 'Anonymous'}HOC`,

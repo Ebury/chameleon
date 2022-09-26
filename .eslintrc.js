@@ -57,10 +57,6 @@ module.exports = {
     'vue/one-component-per-file': 'off',
     'vue/require-default-prop': 'off',
     'vue/singleline-html-element-content-newline': 'off',
-    // vue/compat
-    'vue/no-deprecated-dollar-listeners-api': 'off',
-    'vue/no-deprecated-v-on-native-modifier': 'off',
-    'vue/no-deprecated-filter': 'off',
     // TODO:
     'vuejs-accessibility/anchor-has-content': 'off',
     'vuejs-accessibility/click-events-have-key-events': 'off',

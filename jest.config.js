@@ -46,12 +46,7 @@ module.exports = {
         whitespace: 'condense',
         isCustomElement: tag => customElements.has(tag),
         comments: false,
-        compatConfig: {
-          MODE: 3,
-          RENDER_FUNCTION: false,
-        },
       },
     },
   },
-  moduleNameMapper: { '^vue$': '@vue/compat' },
 };
