@@ -60,4 +60,50 @@ describe('EcBtnDropdown', () => {
     expect(wrapper.emitted('change').length).toBe(1);
     expect(wrapper.emitted('change')[0]).toEqual([items[0]]);
   });
+
+  it("should attach 'attrs' to the rendered anchor", async () => {
+    const clickSpy = jest.fn();
+    const wrapper = mountBtnDropdown({
+      items: [{
+        href: '/convert-and-pay/',
+        attrs: {
+          id: 'item-link-id',
+          onClick: clickSpy,
+        },
+        text: 'Convert & Pay',
+      }],
+    });
+    await wrapper.findByDataTest('ec-btn-dropdown__dropdown-btn').trigger('click');
+    expect(wrapper.findByDataTest('ec-dropdown-search__item--0').element).toMatchSnapshot();
+    await wrapper.findByDataTest('ec-btn-dropdown__item-link--0').trigger('click');
+    expect(clickSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should emit a click event when the CTA button is clicked', async () => {
+    const clickSpy = jest.fn();
+    const wrapper = mountBtnDropdown({}, { attrs: { onClick: clickSpy } });
+    await wrapper.findByDataTest('ec-btn-dropdown__btn').trigger('click');
+    expect(clickSpy).toHaveBeenCalledTimes(1);
+  });
+
+  describe('when the CTA menu item is disabled', () => {
+    it('should be a non clickable DOM element', async () => {
+      const clickSpy = jest.fn();
+      const wrapper = mountBtnDropdown({
+        items: [{
+          href: 'convert-and-pay',
+          attrs: {
+            onClick: clickSpy,
+          },
+          text: 'Convert & Pay',
+          disabled: true,
+        }],
+      });
+
+      await wrapper.findByDataTest('ec-btn-dropdown__dropdown-btn').trigger('click');
+      expect(wrapper.findByDataTest('ec-dropdown-search__item--0').element).toMatchSnapshot();
+      await wrapper.findByDataTest('ec-btn-dropdown__item-link--0').trigger('click');
+      expect(clickSpy).not.toHaveBeenCalled();
+    });
+  });
 });

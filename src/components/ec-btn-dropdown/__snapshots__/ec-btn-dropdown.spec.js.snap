@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcBtnDropdown should attach 'attrs' to the rendered anchor 1`] = `
+<li
+  class="ec-dropdown-search__item"
+  data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+  title="Convert & Pay"
+>
+  
+  <a
+    class="ec-btn-dropdown__item-link"
+    data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0"
+    href="/convert-and-pay/"
+    id="item-link-id"
+  >
+    Convert & Pay
+  </a>
+  
+</li>
+`;
+
 exports[`EcBtnDropdown should render as expected 1`] = `
 <div
   class="ec-btn-dropdown"
@@ -152,7 +171,14 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
             title="Spot"
           >
             
-            Spot
+            <ec-stub
+              class="ec-btn-dropdown__item-link"
+              data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0 ec-stub router-link-stub"
+            >
+              
+              Spot
+              
+            </ec-stub>
             
           </li>
           <li
@@ -161,7 +187,14 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
             title="Convert"
           >
             
-            Convert
+            <ec-stub
+              class="ec-btn-dropdown__item-link"
+              data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1 ec-stub router-link-stub"
+            >
+              
+              Convert
+              
+            </ec-stub>
             
           </li>
           
@@ -269,7 +302,14 @@ exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
     title="Spot"
   >
     
-    Spot
+    <ec-stub
+      class="ec-btn-dropdown__item-link"
+      data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0 ec-stub router-link-stub"
+    >
+      
+      Spot
+      
+    </ec-stub>
     
   </li>
   <li
@@ -278,10 +318,33 @@ exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
     title="Convert"
   >
     
-    Convert
+    <ec-stub
+      class="ec-btn-dropdown__item-link"
+      data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1 ec-stub router-link-stub"
+    >
+      
+      Convert
+      
+    </ec-stub>
     
   </li>
   
   
 </ul>
+`;
+
+exports[`EcBtnDropdown when the CTA menu item is disabled should be a non clickable DOM element 1`] = `
+<li
+  class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+  data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+  title="Convert & Pay"
+>
+  
+  <span
+    data-test="ec-btn-dropdown__item-disabled-link ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0"
+  >
+    Convert & Pay
+  </span>
+  
+</li>
 `;
