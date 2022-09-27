@@ -37,7 +37,7 @@
         :class="{ 'ec-currency-input__currencies--is-focused': currenciesHasFocus }"
         :error-id="errorId"
         :items="currenciesItems"
-        :popover-options="popoverOptions"
+        :popover-options="{autoSize: 'min'}"
         :popover-style="getPopoverStyle"
         :search-placeholder="searchCurrencyPlaceholder"
         :no-results-text="noCurrenciesText"
@@ -193,9 +193,6 @@ const errorId = computed(() => (props.errorMessage ? `ec-currency-input-field-${
 const id = `ec-currency-input-field-${uid}`;
 
 // popover
-const popoverOptions = {
-  autoSize: 'min',
-};
 const popoverWidthReference = ref(null);
 function getPopoverStyle() {
   if (popoverWidthReference.value) {
@@ -228,9 +225,9 @@ const amountModel = computed({
 });
 
 // focus
-let currenciesHasFocus = false;
+const currenciesHasFocus = ref(false);
 function onFocusCurrency() {
-  currenciesHasFocus = true;
+  currenciesHasFocus.value = true;
   emit('focus');
 }
 
@@ -240,7 +237,7 @@ function onAmountChange(evt) {
   emit('amount-change', evt);
 }
 function onCurrencyChange(evt) {
-  currenciesHasFocus = true;
+  currenciesHasFocus.value = true;
   emit('change', evt);
   emit('currency-change', evt);
 }
