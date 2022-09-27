@@ -187,25 +187,29 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'change', 'focus', 'amount-change', 'currency-change', 'open', 'after-open']);
 
+// ids
 const uid = getUid();
-let currenciesHasFocus = false;
+const errorId = computed(() => (props.errorMessage ? `ec-currency-input-field-${uid}` : null));
+const id = `ec-currency-input-field-${uid}`;
+
+// popover
 const popoverOptions = {
   autoSize: 'min',
 };
 const popoverWidthReference = ref(null);
-const attrs = useAttrs();
-const id = `ec-currency-input-field-${uid}`;
-
-const errorId = computed(() => (props.errorMessage ? `ec-currency-input-field-${uid}` : null));
-const currenciesItems = computed(() => props.currencies.map(currency => ({ text: currency, value: currency, id: currency })));
-const currenciesTooltipOptions = computed(() => {
-  const { content, placement = 'top' } = props.disabledCurrenciesTooltip || {};
-  if (!content) {
-    return null;
+function getPopoverStyle() {
+  if (popoverWidthReference.value) {
+    return {
+      width: `${popoverWidthReference.value.offsetWidth}px`,
+    };
   }
-  return { content, placement };
-});
 
+  return null;
+}
+
+const currenciesItems = computed(() => props.currencies.map(currency => ({ text: currency, value: currency, id: currency })));
+
+// models
 const currencyModel = computed({
   get() {
     return currenciesItems.value.find(item => item.value === props.modelValue.currency);
@@ -223,15 +227,14 @@ const amountModel = computed({
   },
 });
 
-function getPopoverStyle() {
-  if (popoverWidthReference.value) {
-    return {
-      width: `${popoverWidthReference.value.offsetWidth}px`,
-    };
-  }
-
-  return null;
+// focus
+let currenciesHasFocus = false;
+function onFocusCurrency() {
+  currenciesHasFocus = true;
+  emit('focus');
 }
+
+// onChange
 function onAmountChange(evt) {
   emit('change', evt);
   emit('amount-change', evt);
@@ -241,11 +244,9 @@ function onCurrencyChange(evt) {
   emit('change', evt);
   emit('currency-change', evt);
 }
-function onFocusCurrency() {
-  currenciesHasFocus = true;
-  emit('focus');
-}
 
+// attributes
+const attrs = useAttrs();
 function prefixedDataTest(dataTestSuffix) {
   const dataTestPrefix = attrs['data-test'];
   if (dataTestPrefix) {
@@ -256,6 +257,13 @@ function prefixedDataTest(dataTestSuffix) {
   return `ec-currency-input__${dataTestSuffix}`;
 }
 
+const currenciesTooltipOptions = computed(() => {
+  const { content, placement = 'top' } = props.disabledCurrenciesTooltip || {};
+  if (!content) {
+    return null;
+  }
+  return { content, placement };
+});
 </script>
 
 <style>
