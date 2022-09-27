@@ -9,7 +9,7 @@
       data-test="ec-user-info__avatar"
       :src="user.gravatar"
       :alt="user.name + ' gravatar'"
-      @click="toggle()"
+      @click="emit('toggle')"
     >
 
     <transition name="ec-user-info__client-fade">
@@ -43,10 +43,6 @@ defineProps({
   },
 });
 const emit = defineEmits(['toggle']);
-
-function toggle() {
-  emit('toggle');
-}
 </script>
 
 <style>
