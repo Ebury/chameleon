@@ -191,6 +191,7 @@ const props = defineProps({
   },
   countries: {
     type: Array,
+    default: () => ([]),
   },
   areCountriesLoading: {
     type: Boolean,
