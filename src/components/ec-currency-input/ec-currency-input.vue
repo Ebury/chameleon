@@ -110,166 +110,151 @@
   </div>
 </template>
 
-<script>
-import EcTooltip from '../../directives/ec-tooltip';
+<script setup>
+import { computed, ref, useAttrs } from 'vue';
+
+import VEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
 
-export default {
-  name: 'EcCurrencyInput',
-  components: {
-    EcAmountInput,
-    EcDropdown,
-    EcIcon,
+const props = defineProps({
+  modelValue: {
+    type: Object,
   },
-  directives: { EcTooltip },
-  props: {
-    modelValue: {
-      type: Object,
-    },
-    locale: {
-      type: String,
-      default: 'en',
-    },
-    label: {
-      type: String,
-    },
-    note: {
-      type: String,
-    },
-    bottomNote: {
-      type: String,
-    },
-    warningTooltipMessage: {
-      type: String,
-    },
-    isWarning: {
-      type: Boolean,
-      default: false,
-    },
-    errorMessage: {
-      type: String,
-    },
-    errorTooltipMessage: {
-      type: String,
-    },
-    currencies: {
-      type: Array,
-    },
-    currenciesAreLoading: {
-      type: Boolean,
-      default: false,
-    },
-    disabledCurrenciesTooltip: {
-      type: Object,
-    },
-    isCurrenciesDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    isAmountDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
-    amountPlaceholder: {
-      type: String,
-    },
-    searchCurrencyPlaceholder: {
-      type: String,
-      default: 'Search...',
-    },
-    noCurrenciesText: {
-      type: String,
-      default: 'No results found',
-    },
+  locale: {
+    type: String,
+    default: 'en',
   },
-  emits: ['update:modelValue', 'change', 'focus', 'amount-change', 'currency-change', 'open', 'after-open'],
-  data() {
-    return {
-      uid: getUid(),
-      currenciesHasFocus: false,
-      popoverOptions: {
-        autoSize: 'min',
-      },
-    };
+  label: {
+    type: String,
   },
-  computed: {
-    id() {
-      return `ec-currency-input-field-${this.uid}`;
-    },
-    errorId() {
-      return this.isInvalid ? `ec-currency-input-field-${this.uid}` : null;
-    },
-    isInvalid() {
-      return !!this.errorMessage;
-    },
-    currenciesItems() {
-      return this.currencies.map(currency => ({ text: currency, value: currency, id: currency }));
-    },
-    currenciesTooltipOptions() {
-      const { content, placement = 'top' } = this.disabledCurrenciesTooltip || {};
-      if (!content) {
-        return null;
-      }
-      return { content, placement };
-    },
-    currencyModel: {
-      get() {
-        return this.currenciesItems.find(item => item.value === this.modelValue.currency);
-      },
-      set(item) {
-        this.$emit('update:modelValue', { ...this.modelValue, currency: item.value });
-      },
-    },
-    amountModel: {
-      get() {
-        return this.modelValue.amount;
-      },
-      set(value) {
-        this.$emit('update:modelValue', { ...this.modelValue, amount: value });
-      },
-    },
+  note: {
+    type: String,
   },
-  methods: {
-    getPopoverStyle() {
-      if (this.$refs.popoverWidthReference) {
-        return {
-          width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
-        };
-      }
+  bottomNote: {
+    type: String,
+  },
+  warningTooltipMessage: {
+    type: String,
+  },
+  isWarning: {
+    type: Boolean,
+    default: false,
+  },
+  errorMessage: {
+    type: String,
+  },
+  errorTooltipMessage: {
+    type: String,
+  },
+  currencies: {
+    type: Array,
+  },
+  currenciesAreLoading: {
+    type: Boolean,
+    default: false,
+  },
+  disabledCurrenciesTooltip: {
+    type: Object,
+  },
+  isCurrenciesDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  isAmountDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+  amountPlaceholder: {
+    type: String,
+  },
+  searchCurrencyPlaceholder: {
+    type: String,
+    default: 'Search...',
+  },
+  noCurrenciesText: {
+    type: String,
+    default: 'No results found',
+  },
+});
 
-      return null;
-    },
-    onAmountChange(evt) {
-      this.$emit('change', evt);
-      this.$emit('amount-change', evt);
-    },
-    onCurrencyChange(evt) {
-      this.currenciesHasFocus = true;
-      this.$emit('change', evt);
-      this.$emit('currency-change', evt);
-    },
-    onFocusCurrency() {
-      this.currenciesHasFocus = true;
-      this.$emit('focus');
-    },
-    prefixedDataTest(dataTestSuffix) {
-      const dataTestPrefix = this.$attrs['data-test'];
-      if (dataTestPrefix) {
-        const dataTestPrefixes = [...dataTestPrefix.split(' '), 'ec-currency-input'];
-        return dataTestPrefixes.map(dataTest => `${dataTest}__${dataTestSuffix}`).join(' ');
-      }
+const emit = defineEmits(['update:modelValue', 'change', 'focus', 'amount-change', 'currency-change', 'open', 'after-open']);
 
-      return `ec-currency-input__${dataTestSuffix}`;
-    },
-  },
+const uid = getUid();
+let currenciesHasFocus = false;
+const popoverOptions = {
+  autoSize: 'min',
 };
+const popoverWidthReference = ref(null);
+const attrs = useAttrs();
+
+const id = computed(() => `ec-currency-input-field-${uid}`);
+const errorId = computed(() => (isInvalid.value ? `ec-currency-input-field-${uid}` : null));
+const isInvalid = computed(() => !!props.errorMessage);
+const currenciesItems = computed(() => props.currencies.map(currency => ({ text: currency, value: currency, id: currency })));
+const currenciesTooltipOptions = computed(() => {
+  const { content, placement = 'top' } = props.disabledCurrenciesTooltip || {};
+  if (!content) {
+    return null;
+  }
+  return { content, placement };
+});
+const currencyModel = computed({
+  get() {
+    return currenciesItems.value.find(item => item.value === props.modelValue.currency);
+  },
+  set(item) {
+    emit('update:modelValue', { ...props.modelValue, currency: item.value });
+  },
+});
+const amountModel = computed({
+  get() {
+    return props.modelValue.amount;
+  },
+  set(value) {
+    emit('update:modelValue', { ...props.modelValue, amount: value });
+  },
+});
+
+function getPopoverStyle() {
+  if (popoverWidthReference.value) {
+    return {
+      width: `${popoverWidthReference.value.offsetWidth}px`,
+    };
+  }
+
+  return null;
+}
+function onAmountChange(evt) {
+  emit('change', evt);
+  emit('amount-change', evt);
+}
+function onCurrencyChange(evt) {
+  currenciesHasFocus = true;
+  emit('change', evt);
+  emit('currency-change', evt);
+}
+function onFocusCurrency() {
+  currenciesHasFocus = true;
+  emit('focus');
+}
+
+function prefixedDataTest(dataTestSuffix) {
+  const dataTestPrefix = attrs['data-test'];
+  if (dataTestPrefix) {
+    const dataTestPrefixes = [...dataTestPrefix.split(' '), 'ec-currency-input'];
+    return dataTestPrefixes.map(dataTest => `${dataTest}__${dataTestSuffix}`).join(' ');
+  }
+
+  return `ec-currency-input__${dataTestSuffix}`;
+}
+
 </script>
 
 <style>
