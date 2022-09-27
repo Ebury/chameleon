@@ -104,7 +104,7 @@ import {
   computed, onBeforeUnmount, ref, useSlots, watchEffect,
 } from 'vue';
 
-import vEcFocusTrap from '../../directives/ec-focus-trap';
+import VEcFocusTrap from '../../directives/ec-focus-trap';
 import * as KeyCode from '../../enums/key-code';
 import EcBtn from '../ec-btn';
 import EcIcon from '../ec-icon';
