@@ -27,7 +27,7 @@
         v-if="isCurrenciesDisabled"
         v-ec-tooltip="currenciesTooltipOptions"
         class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
-        :class="{ 'ec-currency-input__currencies--is-disabled-and-has-error': isInvalid }"
+        :class="{ 'ec-currency-input__currencies--is-disabled-and-has-error': !!errorMessage }"
         :data-test="prefixedDataTest('currencies')"
       >{{ currencyModel && currencyModel.text }}</div>
       <ec-dropdown
@@ -52,8 +52,8 @@
         @focus="onFocusCurrency"
         @blur="currenciesHasFocus = false"
         @change="onCurrencyChange"
-        @open="$emit('open')"
-        @after-open="$emit('after-open')"
+        @open="emit('open')"
+        @after-open="emit('after-open')"
       />
       <ec-amount-input
         v-model="amountModel"
@@ -68,19 +68,19 @@
         class="ec-currency-input__amount"
         :data-test="prefixedDataTest('amount')"
         @change="onAmountChange"
-        @focus="$emit('focus')"
+        @focus="emit('focus')"
       />
     </div>
 
     <div
       :id="errorId"
-      v-if="isInvalid"
+      v-if="!!errorMessage"
       :data-test="prefixedDataTest('error-text')"
       class="ec-currency-input__error-text"
     >
       <span>{{ errorMessage }}</span>
       <ec-icon
-        v-if="isInvalid && errorTooltipMessage"
+        v-if="!!errorMessage && errorTooltipMessage"
         v-ec-tooltip="{ content: errorTooltipMessage }"
         class="ec-currency-input__error-tooltip"
         :data-test="prefixedDataTest('error-tooltip')"
@@ -194,10 +194,10 @@ const popoverOptions = {
 };
 const popoverWidthReference = ref(null);
 const attrs = useAttrs();
+const id = `ec-currency-input-field-${uid}`;
 
-const id = computed(() => `ec-currency-input-field-${uid}`);
-const errorId = computed(() => (isInvalid.value ? `ec-currency-input-field-${uid}` : null));
-const isInvalid = computed(() => !!props.errorMessage);
+// eslint-disable-next-line no-extra-boolean-cast
+const errorId = computed(() => (!!props.errorMessage ? `ec-currency-input-field-${uid}` : null));
 const currenciesItems = computed(() => props.currencies.map(currency => ({ text: currency, value: currency, id: currency })));
 const currenciesTooltipOptions = computed(() => {
   const { content, placement = 'top' } = props.disabledCurrenciesTooltip || {};
