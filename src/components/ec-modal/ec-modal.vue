@@ -67,7 +67,7 @@
               :category="negativeButtonCategory"
               class="ec-modal__negative-btn"
               data-test="ec-modal__negative-btn"
-              @click="negativeAction()"
+              @click="emit('negative');"
             >
               <slot name="negative" />
             </ec-btn>
@@ -87,7 +87,7 @@
               :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
               class="ec-modal__positive-btn"
               data-test="ec-modal__positive-btn"
-              @click="positiveAction()"
+              @click="emit('positive')"
             >
               <slot name="positive" />
             </ec-btn>
@@ -143,26 +143,26 @@ const props = defineProps({
 
 const emit = defineEmits(['update:show', 'negative', 'positive', 'close']);
 
+// buttons
 const positiveButton = ref(null);
 const negativeButton = ref(null);
-
 const isLoadingPositiveButton = computed(() => !!props.isLoading.positive);
 const isLoadingNegativeButton = computed(() => !!props.isLoading.negative);
 const positiveButtonCategory = computed(() => props.category.positive || 'primary');
 const negativeButtonCategory = computed(() => props.category.negative || 'secondary');
+function hasPositiveButton() {
+  return !!slots.positive;
+}
+function hasNegativeButton() {
+  return !!slots.negative;
+}
+
+// zIndex
 const zIndexStyle = computed(() => (props.zIndex ? { zIndex: props.zIndex } : null));
 
 onBeforeUnmount(() => {
   document.removeEventListener('keyup', escapeIsPressed);
 });
-
-function negativeAction() {
-  emit('negative');
-}
-
-function positiveAction() {
-  emit('positive');
-}
 
 function closeModal() {
   if (props.isClosable) {
@@ -171,6 +171,15 @@ function closeModal() {
   }
 }
 
+// keyup event listener
+watchEffect(() => {
+  const value = props.show;
+  if (value) {
+    document.addEventListener('keyup', escapeIsPressed);
+  } else {
+    document.removeEventListener('keyup', escapeIsPressed);
+  }
+});
 function escapeIsPressed(e) {
   if (e.keyCode === KeyCode.ESC) {
     closeModal();
@@ -192,30 +201,13 @@ function getFocusTrapOptions() {
   return options;
 }
 
-function hasPositiveButton() {
-  return !!slots.positive;
-}
-
-function hasNegativeButton() {
-  return !!slots.negative;
-}
-
+// footer
 function hasFooterLeftContent() {
   return !!slots.footerLeftContent;
 }
-
 function hasFooter() {
   return hasFooterLeftContent() || hasPositiveButton() || hasNegativeButton();
 }
-
-watchEffect(() => {
-  const value = props.show;
-  if (value) {
-    document.addEventListener('keyup', escapeIsPressed);
-  } else {
-    document.removeEventListener('keyup', escapeIsPressed);
-  }
-});
 </script>
 
 <style>
