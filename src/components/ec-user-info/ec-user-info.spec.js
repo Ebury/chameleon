@@ -1,6 +1,5 @@
 import { mount } from '@vue/test-utils';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcUserInfo from './ec-user-info.vue';
 
 const user = {
@@ -44,14 +43,6 @@ describe('EcUserInfo', () => {
     });
     await wrapper.findByDataTest('ec-user-info__avatar').trigger('click');
     expect(wrapper.emitted('toggle').length).toBe(1);
-  });
-
-  it('should throw an error if no props were given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mount(EcUserInfo);
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "user"');
-    });
   });
 
   it('should not show text when collapsed', () => {
