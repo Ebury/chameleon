@@ -161,7 +161,7 @@ function hasNegativeButton() {
 const zIndexStyle = computed(() => (props.zIndex ? { zIndex: props.zIndex } : null));
 
 onBeforeUnmount(() => {
-  document.removeEventListener('keyup', escapeIsPressed);
+  document.removeEventListener('keyup', onKeyUp);
 });
 
 function closeModal() {
@@ -175,12 +175,12 @@ function closeModal() {
 watchEffect(() => {
   const value = props.show;
   if (value) {
-    document.addEventListener('keyup', escapeIsPressed);
+    document.addEventListener('keyup', onKeyUp);
   } else {
-    document.removeEventListener('keyup', escapeIsPressed);
+    document.removeEventListener('keyup', onKeyUp);
   }
 });
-function escapeIsPressed(e) {
+function onKeyUp(e) {
   if (e.keyCode === KeyCode.ESC) {
     closeModal();
   }
