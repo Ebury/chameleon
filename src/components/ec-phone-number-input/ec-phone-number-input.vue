@@ -43,7 +43,7 @@
         :items="countriesItems"
         :no-results-text="noCountriesText"
         :placeholder="countryPlaceholder"
-        :popover-options="popoverOptions"
+        :popover-options="{autoSize: 'min'}"
         :popover-style="getPopoverStyle"
         :search-placeholder="searchCountryPlaceholder"
         :level="level"
@@ -259,9 +259,6 @@ function onFocusCountry() {
 }
 
 // popover
-const popoverOptions = ref({
-  autoSize: 'min',
-});
 const popoverWidthReference = ref(null);
 function getPopoverStyle() {
   if (popoverWidthReference.value) {
