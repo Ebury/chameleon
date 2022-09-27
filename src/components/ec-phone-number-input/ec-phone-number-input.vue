@@ -159,6 +159,7 @@ import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
 import EcInputField from '../ec-input-field';
 
+// props
 const props = defineProps({
   modelValue: {
     type: Object,
@@ -234,6 +235,7 @@ const props = defineProps({
   },
 });
 
+// emits
 const emit = defineEmits([
   'update:modelValue',
   'change',
@@ -244,15 +246,34 @@ const emit = defineEmits([
   'phone-number-change',
 ]);
 
+// ids
 const uid = getUid();
+const id = computed(() => `ec-phone-number-input-field-${uid}`);
+const errorId = computed(() => (isInvalid.value ? `ec-phone-number-input-${uid}` : null));
+
+// focus
 const countriesHasFocus = ref(false);
+function onFocusCountry() {
+  countriesHasFocus.value = true;
+  emit('focus');
+}
+
+// popover
 const popoverOptions = ref({
   autoSize: 'min',
 });
 const popoverWidthReference = ref(null);
+function getPopoverStyle() {
+  if (popoverWidthReference.value) {
+    return {
+      width: `${popoverWidthReference.value.offsetWidth}px`,
+    };
+  }
 
-const id = computed(() => `ec-phone-number-input-field-${uid}`);
-const errorId = computed(() => (isInvalid.value ? `ec-phone-number-input-${uid}` : null));
+  return null;
+}
+
+// items
 const countriesItems = computed(() => props.countries.map(country => ({
   areaCode: country.areaCode,
   iconPath: getCountryFlagPath(country.countryCode),
@@ -272,6 +293,27 @@ const countriesModel = computed({
     });
   },
 });
+const selectedCountryAreaCode = computed(() => props.modelValue?.country?.areaCode || null);
+const selectedCountryImage = computed(() => getCountryFlagPath(props.modelValue?.country?.countryCode));
+const selectedCountryName = computed(() => props.modelValue?.country?.name);
+function onCountryChange(evt) {
+  countriesHasFocus.value = true;
+  emit('change', evt);
+  emit('country-change', evt);
+}
+function getCountryFlagPath(countryCode) {
+  if (!countryCode) {
+    return null;
+  }
+  try {
+    // eslint-disable-next-line global-require, import/no-dynamic-require
+    return require(`svg-country-flags/png100px/${countryCode.toLowerCase()}.png`);
+  } catch (err) {
+    return null;
+  }
+}
+
+// input
 const phoneNumberModel = computed({
   get() {
     if (props.isMasked) {
@@ -287,47 +329,10 @@ const phoneNumberModel = computed({
     });
   },
 });
-const selectedCountryAreaCode = computed(() => props.modelValue?.country?.areaCode || null);
-const selectedCountryImage = computed(() => getCountryFlagPath(props.modelValue?.country?.countryCode));
-const selectedCountryName = computed(() => props.modelValue?.country?.name);
 const isInvalid = computed(() => !!props.errorMessage);
-
-function getPopoverStyle() {
-  if (popoverWidthReference.value) {
-    return {
-      width: `${popoverWidthReference.value.offsetWidth}px`,
-    };
-  }
-
-  return null;
-}
-
-function onFocusCountry() {
-  countriesHasFocus.value = true;
-  emit('focus');
-}
-
-function onCountryChange(evt) {
-  countriesHasFocus.value = true;
-  emit('change', evt);
-  emit('country-change', evt);
-}
-
 function onPhoneNumberChange(evt) {
   emit('change', evt);
   emit('phone-number-change', evt);
-}
-
-function getCountryFlagPath(countryCode) {
-  if (!countryCode) {
-    return null;
-  }
-  try {
-    // eslint-disable-next-line global-require, import/no-dynamic-require
-    return require(`svg-country-flags/png100px/${countryCode.toLowerCase()}.png`);
-  } catch (err) {
-    return null;
-  }
 }
 
 </script>
