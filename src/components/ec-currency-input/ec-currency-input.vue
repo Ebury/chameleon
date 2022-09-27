@@ -151,6 +151,7 @@ const props = defineProps({
   },
   currencies: {
     type: Array,
+    default: () => [],
   },
   currenciesAreLoading: {
     type: Boolean,
@@ -205,6 +206,7 @@ const currenciesTooltipOptions = computed(() => {
   }
   return { content, placement };
 });
+
 const currencyModel = computed({
   get() {
     return currenciesItems.value.find(item => item.value === props.modelValue.currency);
