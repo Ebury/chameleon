@@ -27,7 +27,7 @@
         v-if="isCurrenciesDisabled"
         v-ec-tooltip="currenciesTooltipOptions"
         class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
-        :class="{ 'ec-currency-input__currencies--is-disabled-and-has-error': !!errorMessage }"
+        :class="{ 'ec-currency-input__currencies--is-disabled-and-has-error': errorMessage }"
         :data-test="prefixedDataTest('currencies')"
       >{{ currencyModel && currencyModel.text }}</div>
       <ec-dropdown
@@ -74,13 +74,13 @@
 
     <div
       :id="errorId"
-      v-if="!!errorMessage"
+      v-if="errorMessage"
       :data-test="prefixedDataTest('error-text')"
       class="ec-currency-input__error-text"
     >
       <span>{{ errorMessage }}</span>
       <ec-icon
-        v-if="!!errorMessage && errorTooltipMessage"
+        v-if="errorMessage && errorTooltipMessage"
         v-ec-tooltip="{ content: errorTooltipMessage }"
         class="ec-currency-input__error-tooltip"
         :data-test="prefixedDataTest('error-tooltip')"
@@ -196,8 +196,7 @@ const popoverWidthReference = ref(null);
 const attrs = useAttrs();
 const id = `ec-currency-input-field-${uid}`;
 
-// eslint-disable-next-line no-extra-boolean-cast
-const errorId = computed(() => (!!props.errorMessage ? `ec-currency-input-field-${uid}` : null));
+const errorId = computed(() => (props.errorMessage ? `ec-currency-input-field-${uid}` : null));
 const currenciesItems = computed(() => props.currencies.map(currency => ({ text: currency, value: currency, id: currency })));
 const currenciesTooltipOptions = computed(() => {
   const { content, placement = 'top' } = props.disabledCurrenciesTooltip || {};
