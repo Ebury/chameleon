@@ -156,14 +156,25 @@ function hasPositiveButton() {
 function hasNegativeButton() {
   return !!slots.negative;
 }
+function getFocusTrapOptions() {
+  const options = {
+    escapeDeactivates: props.isClosable,
+    clickOutsideDeactivates: props.isClosable,
+  };
+
+  if (hasPositiveButton()) {
+    options.initialFocus = /* istanbul ignore next */ () => positiveButton.value.$el;
+  } else if (hasNegativeButton()) {
+    options.initialFocus = /* istanbul ignore next */ () => negativeButton.value.$el;
+  }
+
+  return options;
+}
 
 // zIndex
 const zIndexStyle = computed(() => (props.zIndex ? { zIndex: props.zIndex } : null));
 
-onBeforeUnmount(() => {
-  document.removeEventListener('keyup', onKeyUp);
-});
-
+// close modal
 function closeModal() {
   if (props.isClosable) {
     emit('update:show', false);
@@ -185,23 +196,11 @@ function onKeyUp(e) {
     closeModal();
   }
 }
+onBeforeUnmount(() => {
+  document.removeEventListener('keyup', onKeyUp);
+});
 
-function getFocusTrapOptions() {
-  const options = {
-    escapeDeactivates: props.isClosable,
-    clickOutsideDeactivates: props.isClosable,
-  };
-
-  if (hasPositiveButton()) {
-    options.initialFocus = /* istanbul ignore next */ () => positiveButton.value.$el;
-  } else if (hasNegativeButton()) {
-    options.initialFocus = /* istanbul ignore next */ () => negativeButton.value.$el;
-  }
-
-  return options;
-}
-
-// footer
+// modal footer
 function hasFooterLeftContent() {
   return !!slots.footerLeftContent;
 }
