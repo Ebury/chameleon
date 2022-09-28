@@ -113,13 +113,13 @@
 
     <div
       :id="errorId"
-      v-if="!!props.errorMessage"
+      v-if="errorMessage"
       data-test="ec-phone-number-input__error-text"
       class="ec-phone-number-input__error-text"
     >
       <span>{{ errorMessage }}</span>
       <ec-icon
-        v-if="!!props.errorMessage && errorTooltipMessage"
+        v-if="errorMessage && errorTooltipMessage"
         v-ec-tooltip="{ content: errorTooltipMessage }"
         class="ec-phone-number-input__error-tooltip"
         data-test="ec-phone-number-input__error-tooltip"
