@@ -43,7 +43,7 @@
         :items="countriesItems"
         :no-results-text="noCountriesText"
         :placeholder="countryPlaceholder"
-        :popover-options="{autoSize: 'min'}"
+        :popover-options="popoverOptions"
         :popover-style="getPopoverStyle"
         :search-placeholder="searchCountryPlaceholder"
         :level="level"
@@ -51,8 +51,8 @@
         @blur="countriesHasFocus = false"
         @change="onCountryChange"
         @focus="onFocusCountry"
-        @open="emit('open')"
-        @after-open="emit('after-open')"
+        @open="$emit('open')"
+        @after-open="$emit('after-open')"
       >
         <template #item="{ item }">
           <div class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center">
@@ -107,19 +107,19 @@
         :is-sensitive="isSensitive"
         :placeholder="phoneNumberPlaceholder"
         @change="onPhoneNumberChange"
-        @focus="emit('focus')"
+        @focus="$emit('focus')"
       />
     </div>
 
     <div
       :id="errorId"
-      v-if="errorMessage"
+      v-if="isInvalid"
       data-test="ec-phone-number-input__error-text"
       class="ec-phone-number-input__error-text"
     >
       <span>{{ errorMessage }}</span>
       <ec-icon
-        v-if="errorMessage && errorTooltipMessage"
+        v-if="isInvalid && errorTooltipMessage"
         v-ec-tooltip="{ content: errorTooltipMessage }"
         class="ec-phone-number-input__error-tooltip"
         data-test="ec-phone-number-input__error-tooltip"
@@ -149,188 +149,197 @@
   </div>
 </template>
 
-<script setup>
-import { computed, ref } from 'vue';
-
-import vEcTooltip from '../../directives/ec-tooltip';
+<script>
+import EcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
 import EcInputField from '../ec-input-field';
 
-// props
-const props = defineProps({
-  modelValue: {
-    type: Object,
+export default {
+  name: 'EcPhoneNumberInput',
+  components: {
+    EcInputField,
+    EcDropdown,
+    EcIcon,
   },
-  label: {
-    type: String,
-  },
-  note: {
-    type: String,
-  },
-  bottomNote: {
-    type: String,
-  },
-  isWarning: {
-    type: Boolean,
-    default: false,
-  },
-  isMasked: {
-    type: Boolean,
-    default: false,
-  },
-  warningTooltipMessage: {
-    type: String,
-  },
-  errorMessage: {
-    type: String,
-  },
-  errorTooltipMessage: {
-    type: String,
-  },
-  countries: {
-    type: Array,
-    default: () => ([]),
-  },
-  areCountriesLoading: {
-    type: Boolean,
-    default: false,
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  disabledTooltipMessage: {
-    type: String,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  countryPlaceholder: {
-    type: String,
-  },
-  phoneNumberPlaceholder: {
-    type: String,
-  },
-  isSearchEnabled: {
-    type: Boolean,
-    default: true,
-  },
-  searchCountryPlaceholder: {
-    type: String,
-    default: 'Search...',
-  },
-  noCountriesText: {
-    type: String,
-    default: 'No results found',
-  },
-  level: {
-    type: String,
-    validator(value) {
-      return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
+  directives: { EcTooltip },
+  props: {
+    modelValue: {
+      type: Object,
+    },
+    label: {
+      type: String,
+    },
+    note: {
+      type: String,
+    },
+    bottomNote: {
+      type: String,
+    },
+    isWarning: {
+      type: Boolean,
+      default: false,
+    },
+    isMasked: {
+      type: Boolean,
+      default: false,
+    },
+    warningTooltipMessage: {
+      type: String,
+    },
+    errorMessage: {
+      type: String,
+    },
+    errorTooltipMessage: {
+      type: String,
+    },
+    countries: {
+      type: Array,
+    },
+    areCountriesLoading: {
+      type: Boolean,
+      default: false,
+    },
+    isDisabled: {
+      type: Boolean,
+      default: false,
+    },
+    disabledTooltipMessage: {
+      type: String,
+    },
+    isSensitive: {
+      type: Boolean,
+      default: false,
+    },
+    countryPlaceholder: {
+      type: String,
+    },
+    phoneNumberPlaceholder: {
+      type: String,
+    },
+    isSearchEnabled: {
+      type: Boolean,
+      default: true,
+    },
+    searchCountryPlaceholder: {
+      type: String,
+      default: 'Search...',
+    },
+    noCountriesText: {
+      type: String,
+      default: 'No results found',
+    },
+    level: {
+      type: String,
+      validator(value) {
+        return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
+      },
     },
   },
-});
-
-// emits
-const emit = defineEmits([
-  'update:modelValue',
-  'change',
-  'focus',
-  'open',
-  'after-open',
-  'country-change',
-  'phone-number-change',
-]);
-
-// ids
-const uid = getUid();
-const id = computed(() => `ec-phone-number-input-field-${uid}`);
-const errorId = computed(() => (props.errorMessage ? `ec-phone-number-input-${uid}` : null));
-
-// focus
-const countriesHasFocus = ref(false);
-function onFocusCountry() {
-  countriesHasFocus.value = true;
-  emit('focus');
-}
-
-// popover
-const popoverWidthReference = ref(null);
-function getPopoverStyle() {
-  if (popoverWidthReference.value) {
+  emits: ['update:modelValue', 'change', 'focus', 'open', 'after-open', 'country-change', 'phone-number-change'],
+  data() {
     return {
-      width: `${popoverWidthReference.value.offsetWidth}px`,
+      uid: getUid(),
+      countriesHasFocus: false,
+      popoverOptions: {
+        autoSize: 'min',
+      },
     };
-  }
-
-  return null;
-}
-
-// items
-const countriesItems = computed(() => props.countries.map(country => ({
-  areaCode: country.areaCode,
-  iconPath: getCountryFlagPath(country.countryCode),
-  id: country.countryCode,
-  name: country.text,
-  text: `${country.text} ${country.areaCode}`, // the text is only displayed in the tooltip, it's just to make items searchable by area code and name of the country
-  value: country,
-})));
-const countriesModel = computed({
-  get() {
-    return props.modelValue.country;
   },
-  set(item) {
-    emit('update:modelValue', {
-      ...props.modelValue,
-      country: item.value,
-    });
-  },
-});
-const selectedCountryAreaCode = computed(() => props.modelValue?.country?.areaCode || null);
-const selectedCountryImage = computed(() => getCountryFlagPath(props.modelValue?.country?.countryCode));
-const selectedCountryName = computed(() => props.modelValue?.country?.name);
-function onCountryChange(evt) {
-  countriesHasFocus.value = true;
-  emit('change', evt);
-  emit('country-change', evt);
-}
-function getCountryFlagPath(countryCode) {
-  if (!countryCode) {
-    return null;
-  }
-  try {
-    // eslint-disable-next-line global-require, import/no-dynamic-require
-    return require(`svg-country-flags/png100px/${countryCode.toLowerCase()}.png`);
-  } catch (err) {
-    return null;
-  }
-}
+  computed: {
+    id() {
+      return `ec-phone-number-input-field-${this.uid}`;
+    },
+    errorId() {
+      return this.isInvalid ? `ec-phone-number-input-${this.uid}` : null;
+    },
+    countriesItems() {
+      return this.countries.map(country => ({
+        areaCode: country.areaCode,
+        iconPath: this.getCountryFlagPath(country.countryCode),
+        id: country.countryCode,
+        name: country.text,
+        text: `${country.text} ${country.areaCode}`, // the text is only displayed in the tooltip, it's just to make items searchable by area code and name of the country
+        value: country,
+      }));
+    },
+    countriesModel: {
+      get() {
+        return this.modelValue.country;
+      },
+      set(item) {
+        this.$emit('update:modelValue', {
+          ...this.modelValue,
+          country: item.value,
+        });
+      },
+    },
+    phoneNumberModel: {
+      get() {
+        if (this.isMasked) {
+          return mask(this.modelValue.phoneNumber);
+        }
 
-// input
-const phoneNumberModel = computed({
-  get() {
-    if (props.isMasked) {
-      return mask(props.modelValue.phoneNumber);
-    }
-
-    return props.modelValue.phoneNumber;
+        return this.modelValue.phoneNumber;
+      },
+      set(phoneNumber) {
+        this.$emit('update:modelValue', {
+          ...this.modelValue,
+          phoneNumber,
+        });
+      },
+    },
+    selectedCountryAreaCode() {
+      return this.modelValue?.country?.areaCode || null;
+    },
+    selectedCountryImage() {
+      return this.getCountryFlagPath(this.modelValue?.country?.countryCode);
+    },
+    selectedCountryName() {
+      return this.modelValue?.country?.name;
+    },
+    isInvalid() {
+      return !!this.errorMessage;
+    },
   },
-  set(phoneNumber) {
-    emit('update:modelValue', {
-      ...props.modelValue,
-      phoneNumber,
-    });
-  },
-});
-function onPhoneNumberChange(evt) {
-  emit('change', evt);
-  emit('phone-number-change', evt);
-}
+  methods: {
+    getPopoverStyle() {
+      if (this.$refs.popoverWidthReference) {
+        return {
+          width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
+        };
+      }
 
+      return null;
+    },
+    onFocusCountry() {
+      this.countriesHasFocus = true;
+      this.$emit('focus');
+    },
+    onCountryChange(evt) {
+      this.countriesHasFocus = true;
+      this.$emit('change', evt);
+      this.$emit('country-change', evt);
+    },
+    onPhoneNumberChange(evt) {
+      this.$emit('change', evt);
+      this.$emit('phone-number-change', evt);
+    },
+    getCountryFlagPath(countryCode) {
+      if (!countryCode) {
+        return null;
+      }
+      try {
+        // eslint-disable-next-line global-require, import/no-dynamic-require
+        return require(`svg-country-flags/png100px/${countryCode.toLowerCase()}.png`);
+      } catch (err) {
+        return null;
+      }
+    },
+  },
+};
 </script>
 
 <style>
