@@ -1,10 +1,11 @@
 import * as SortDirection from './enums/sort-direction';
 import * as SortDirectionCycle from './enums/sort-direction-cycle';
+import * as TooltipPlacement from './enums/tooltip-placement';
 import availableCurrencyFlags from './icons/currency-flags';
 
 const availableCurrencyFlagsSet = new Set(availableCurrencyFlags);
 
-export { SortDirection, SortDirectionCycle };
+export { SortDirection, SortDirectionCycle, TooltipPlacement };
 
 export { availableCurrencyFlags, availableCurrencyFlagsSet };
 

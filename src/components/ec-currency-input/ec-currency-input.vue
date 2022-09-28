@@ -114,6 +114,7 @@
 import { computed, ref, useAttrs } from 'vue';
 
 import VEcTooltip from '../../directives/ec-tooltip';
+import * as TooltipPlacement from '../../enums/tooltip-placement';
 import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
@@ -255,7 +256,7 @@ function prefixedDataTest(dataTestSuffix) {
 }
 
 const currenciesTooltipOptions = computed(() => {
-  const { content, placement = 'top' } = props.disabledCurrenciesTooltip || {};
+  const { content, placement = TooltipPlacement.TOP } = props.disabledCurrenciesTooltip || {};
   if (!content) {
     return null;
   }
