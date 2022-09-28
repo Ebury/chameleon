@@ -9,28 +9,26 @@
         <button
           class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn--sm"
           data-test="ec-privacy-policy__btn"
-          @click="$emit('accept')"
+          @click="emit('accept')"
         >{{ buttonText }}</button>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'EcPrivacyPolicy',
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    buttonText: {
-      type: String,
-      required: true,
-    },
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    required: true,
   },
-  emits: ['accept'],
-};
+  buttonText: {
+    type: String,
+    required: true,
+  },
+});
+
+const emit = defineEmits(['accept']);
 </script>
 
 <style>
