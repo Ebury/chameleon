@@ -113,13 +113,13 @@
 
     <div
       :id="errorId"
-      v-if="isInvalid"
+      v-if="!!props.errorMessage"
       data-test="ec-phone-number-input__error-text"
       class="ec-phone-number-input__error-text"
     >
       <span>{{ errorMessage }}</span>
       <ec-icon
-        v-if="isInvalid && errorTooltipMessage"
+        v-if="!!props.errorMessage && errorTooltipMessage"
         v-ec-tooltip="{ content: errorTooltipMessage }"
         class="ec-phone-number-input__error-tooltip"
         data-test="ec-phone-number-input__error-tooltip"
@@ -249,7 +249,7 @@ const emit = defineEmits([
 // ids
 const uid = getUid();
 const id = computed(() => `ec-phone-number-input-field-${uid}`);
-const errorId = computed(() => (isInvalid.value ? `ec-phone-number-input-${uid}` : null));
+const errorId = computed(() => (props.errorMessage ? `ec-phone-number-input-${uid}` : null));
 
 // focus
 const countriesHasFocus = ref(false);
@@ -326,7 +326,6 @@ const phoneNumberModel = computed({
     });
   },
 });
-const isInvalid = computed(() => !!props.errorMessage);
 function onPhoneNumberChange(evt) {
   emit('change', evt);
   emit('phone-number-change', evt);
