@@ -9,7 +9,7 @@
       data-test="ec-user-info__avatar"
       :src="user.gravatar"
       :alt="user.name + ' gravatar'"
-      @click="toggle()"
+      @click="emit('toggle')"
     >
 
     <transition name="ec-user-info__client-fade">
@@ -29,29 +29,20 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'EcUserInfo',
-  props: {
-    user: {
-      type: Object,
-      default: () => ({}),
-      required: true,
-    },
-    isCollapsed: {
-      type: Boolean,
-    },
-    isCollapsable: {
-      type: Boolean,
-    },
+<script setup>
+defineProps({
+  user: {
+    type: Object,
+    default: () => ({}),
   },
-  emits: ['toggle'],
-  methods: {
-    toggle() {
-      this.$emit('toggle');
-    },
+  isCollapsed: {
+    type: Boolean,
   },
-};
+  isCollapsable: {
+    type: Boolean,
+  },
+});
+const emit = defineEmits(['toggle']);
 </script>
 
 <style>
