@@ -7,62 +7,55 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'EcMetroline',
-  provide() {
-    return {
-      metroline: this.metroline,
-    };
+<script setup>
+import { provide, reactive, ref } from 'vue';
+
+const emit = defineEmits(['change', 'complete']);
+
+const metroline = reactive({
+  activeItemId: null,
+  lastItemId: null,
+  isCompleted: false,
+  register: (id) => {
+    metrolineItemIds.value.push(id);
+    metrolineItemIds.value.sort();
+
+    metroline.lastItemId = metrolineItemIds.value[metrolineItemIds.value.length - 1];
+    if (metrolineItemIds.value.length === 1) {
+      metroline.activeItemId = id;
+    }
   },
-  emits: ['change', 'complete'],
-  data() {
-    return {
-      metroline: {
-        activeItemId: null,
-        lastItemId: null,
-        isCompleted: false,
-        register: (id) => {
-          this.metrolineItemIds.push(id);
-          this.metrolineItemIds.sort();
-
-          this.metroline.lastItemId = this.metrolineItemIds[this.metrolineItemIds.length - 1];
-
-          if (this.metrolineItemIds.length === 1) {
-            this.metroline.activeItemId = id;
-          }
-        },
-        unregister: (id) => {
-          this.metrolineItemIds = this.metrolineItemIds.filter(item => item !== id);
-        },
-        goToNext: (id) => {
-          if (this.metroline.activeItemId > id) {
-            return;
-          }
-
-          const currentIndex = this.metrolineItemIds.findIndex(item => item === id);
-          const nextMetrolineItemId = this.metrolineItemIds[currentIndex + 1];
-          if (nextMetrolineItemId) {
-            this.metroline.activeItemId = nextMetrolineItemId;
-            this.$emit('change', this.metroline.activeItemId);
-          } else {
-            this.metroline.complete();
-          }
-        },
-        goTo: (id) => {
-          this.metroline.activeItemId = id;
-          this.metroline.isCompleted = false;
-          this.$emit('change', this.metroline.activeItemId);
-        },
-        complete: () => {
-          this.metroline.isCompleted = true;
-          this.$emit('complete');
-        },
-      },
-      metrolineItemIds: [],
-    };
+  unregister: (id) => {
+    metrolineItemIds.value = metrolineItemIds.value.filter(item => item !== id);
   },
-};
+  goToNext: (id) => {
+    if (metroline.activeItemId > id) {
+      return;
+    }
+
+    const currentIndex = metrolineItemIds.value.findIndex(item => item === id);
+    const nextMetrolineItemId = metrolineItemIds.value[currentIndex + 1];
+    if (nextMetrolineItemId) {
+      metroline.activeItemId = nextMetrolineItemId;
+      emit('change', metroline.activeItemId);
+    } else {
+      metroline.complete();
+    }
+  },
+  goTo: (id) => {
+    metroline.activeItemId = id;
+    metroline.isCompleted = false;
+    emit('change', metroline.activeItemId);
+  },
+  complete: () => {
+    metroline.isCompleted = true;
+    emit('complete');
+  },
+});
+
+const metrolineItemIds = ref([]);
+
+provide('metroline', metroline);
 </script>
 
 <style>

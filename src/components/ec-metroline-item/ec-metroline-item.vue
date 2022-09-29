@@ -103,69 +103,62 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import {
+  computed, inject, onBeforeUnmount, onMounted, toRefs,
+} from 'vue';
+
 import * as MetrolineItemStatus from '../../enums/metroline-item-status';
 import EcIcon from '../ec-icon';
 
-export default {
-  name: 'EcMetrolineItem',
-  components: { EcIcon },
-  inject: ['metroline'],
-  props: {
-    id: {
-      type: Number,
-      required: true,
-    },
-    badgeText: {
-      type: String,
-    },
-  },
-  computed: {
-    isReadOnly() {
-      return this.metroline.isCompleted;
-    },
-    isLast() {
-      return this.id === this.metroline.lastItemId;
-    },
-    status() {
-      if (this.id < this.metroline.activeItemId || this.metroline.isCompleted) {
-        return MetrolineItemStatus.COMPLETED;
-      }
+const metroline = inject('metroline');
 
-      if (this.id === this.metroline.activeItemId) {
-        return MetrolineItemStatus.ACTIVE;
-      }
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  },
+  badgeText: {
+    type: String,
+  },
+});
 
-      return MetrolineItemStatus.NEXT;
-    },
-    isNext() {
-      return this.status === MetrolineItemStatus.NEXT;
-    },
-    isActive() {
-      return this.status === MetrolineItemStatus.ACTIVE;
-    },
-    isCompleted() {
-      return this.status === MetrolineItemStatus.COMPLETED;
-    },
-  },
-  created() {
-    this.metroline.register(this.id);
-  },
-  beforeUnmount() {
-    this.metroline.unregister(this.id);
-  },
-  methods: {
-    goToNext() {
-      this.metroline.goToNext(this.id);
-    },
-    activateItem() {
-      this.metroline.goTo(this.id);
-    },
-    complete() {
-      this.metroline.complete();
-    },
-  },
-};
+const { id } = toRefs(props);
+
+const isReadOnly = computed(() => metroline.isCompleted);
+const isLast = computed(() => id.value === metroline.lastItemId);
+const status = computed(() => {
+  if (id.value < metroline.activeItemId || metroline.isCompleted) {
+    return MetrolineItemStatus.COMPLETED;
+  }
+
+  if (id.value === metroline.activeItemId) {
+    return MetrolineItemStatus.ACTIVE;
+  }
+
+  return MetrolineItemStatus.NEXT;
+});
+const isNext = computed(() => status.value === MetrolineItemStatus.NEXT);
+const isActive = computed(() => status.value === MetrolineItemStatus.ACTIVE);
+const isCompleted = computed(() => status.value === MetrolineItemStatus.COMPLETED);
+
+onMounted(() => {
+  metroline.register(id.value);
+});
+
+onBeforeUnmount(() => {
+  metroline.unregister(id.value);
+});
+
+function goToNext() {
+  metroline.goToNext(id.value);
+}
+function activateItem() {
+  metroline.goTo(id.value);
+}
+function complete() {
+  metroline.complete();
+}
 </script>
 
 <style>
