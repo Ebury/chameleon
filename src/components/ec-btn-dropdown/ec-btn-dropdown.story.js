@@ -27,7 +27,7 @@ const Template = args => ({
 
 export const basic = Template.bind({});
 basic.args = {
-  isDisabled: false,
+  isBtnDropdownDisabled: false,
   buttonText: 'Convert & Pay',
   items: [
     { value: 'Spot', text: 'Spot' },
@@ -38,12 +38,12 @@ basic.args = {
 export const disabled = Template.bind({});
 disabled.args = {
   ...basic.args,
-  isDisabled: true,
+  isBtnDropdownDisabled: true,
 };
 
 export const buttonLinks = Template.bind({});
 buttonLinks.args = {
-  isDisabled: false,
+  isBtnDropdownDisabled: false,
   buttonText: 'Button links',
   items: [
     {
@@ -68,7 +68,7 @@ buttonLinks.args = {
 
 export const onlySomeButtonLinksDisabled = Template.bind({});
 onlySomeButtonLinksDisabled.args = {
-  isDisabled: false,
+  isBtnDropdownDisabled: false,
   buttonText: 'Button links',
   items: [
     {
@@ -93,7 +93,7 @@ onlySomeButtonLinksDisabled.args = {
 
 export const allButtonLinksDisabled = Template.bind({});
 allButtonLinksDisabled.args = {
-  isDisabled: true,
+  isBtnDropdownDisabled: true,
   buttonText: 'Button links',
   items: [
     {

@@ -292,7 +292,7 @@ exports[`EcBtnDropdown when all menu items are disabled should render a disabled
 </button>
 `;
 
-exports[`EcBtnDropdown when isDisabled prop is true should render with dropdown-btn disabled 1`] = `
+exports[`EcBtnDropdown when isBtnDropdownDisabled prop is true should render with dropdown-btn disabled 1`] = `
 <button
   class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
   data-test="ec-btn-dropdown__btn ec-btn"
