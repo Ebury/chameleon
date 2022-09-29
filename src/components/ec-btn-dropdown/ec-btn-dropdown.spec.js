@@ -129,10 +129,10 @@ describe('EcBtnDropdown', () => {
     });
   });
 
-  describe('when isDisabled prop is true', () => {
+  describe('when isBtnDropdownDisabled prop is true', () => {
     it('should render with dropdown-btn disabled', () => {
       const wrapper = mountBtnDropdown({
-        isDisabled: true,
+        isBtnDropdownDisabled: true,
       });
       expect(wrapper.findByDataTest('ec-btn-dropdown__btn').element).toMatchSnapshot();
     });
