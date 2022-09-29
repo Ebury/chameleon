@@ -66,8 +66,8 @@ buttonLinks.args = {
   ],
 };
 
-export const buttonLinksDisabled = Template.bind({});
-buttonLinksDisabled.args = {
+export const onlySomeButtonLinksDisabled = Template.bind({});
+onlySomeButtonLinksDisabled.args = {
   isDisabled: false,
   buttonText: 'Button links',
   items: [
@@ -85,8 +85,33 @@ buttonLinksDisabled.args = {
       href: '/link2/',
       value: 'link2',
       text: 'Link2',
+      disabled: false,
+      disabledReason: '',
+    },
+  ],
+};
+
+export const allButtonLinksDisabled = Template.bind({});
+allButtonLinksDisabled.args = {
+  isDisabled: true,
+  buttonText: 'Button links',
+  items: [
+    {
+      to: {
+        name: 'link1',
+      },
+      attrs: {},
+      value: 'link1',
+      text: 'Link1',
       disabled: true,
-      disabledReason: 'This link is disabled',
+      disabledReason: 'Link1 is disabled',
+    },
+    {
+      href: '/link2/',
+      value: 'link2',
+      text: 'Link2',
+      disabled: true,
+      disabledReason: 'Link2 is disabled',
     },
   ],
 };
