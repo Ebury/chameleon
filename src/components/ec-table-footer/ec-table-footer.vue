@@ -16,18 +16,12 @@
   </tfoot>
 </template>
 
-<script>
-export default {
-  name: 'EcTableFooter',
-  compatConfig: {
-    MODE: 3,
+<script setup>
+defineProps({
+  colspan: {
+    type: Number,
   },
-  props: {
-    colspan: {
-      type: Number,
-    },
-  },
-};
+});
 </script>
 
 <style>

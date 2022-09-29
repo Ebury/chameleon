@@ -17,7 +17,7 @@
           class="ec-donut__background"
           cx="54"
           cy="54"
-          :r="radius"
+          :r="RADIUS"
           fill="transparent"
           stroke-width="11"
         />
@@ -25,21 +25,21 @@
           class="ec-donut__remaining"
           cx="54"
           cy="54"
-          :r="radius"
+          :r="RADIUS"
           fill="transparent"
           stroke-width="11"
-          :stroke-dasharray="dashArray"
+          :stroke-dasharray="circumference"
           :stroke-dashoffset="0"
         />
         <circle
           class="ec-donut__used"
           cx="54"
           cy="54"
-          :r="radius"
+          :r="RADIUS"
           fill="transparent"
           stroke-width="11"
-          :stroke-dasharray="dashArray"
-          :stroke-dashoffset="dashOffset"
+          :stroke-dasharray="circumference"
+          :stroke-dashoffset="usedArcLength"
         />
       </svg>
     </div>
@@ -73,47 +73,36 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+
 import EcIcon from '../ec-icon';
 
-export default {
-  name: 'EcDonut',
-  components: { EcIcon },
-  props: {
-    amount: {
-      type: Number,
-      required: true,
-    },
-    used: {
-      type: Number,
-      required: true,
-    },
+const props = defineProps({
+  amount: {
+    type: Number,
+    required: true,
   },
-  data() {
-    return {
-      radius: 48,
-    };
+  used: {
+    type: Number,
+    required: true,
   },
-  computed: {
-    percentageUsed() {
-      if (this.used > this.amount) {
-        return 100;
-      }
-      if (this.used <= 0) {
-        return 0;
-      }
-      return (this.used / this.amount) * 100;
-    },
-    // Calculate the circumference
-    dashArray() {
-      return 2 * Math.PI * this.radius;
-    },
-    // Calculate the how much needs to be offset of the used circle
-    dashOffset() {
-      return this.dashArray * (1 - this.percentageUsed / 100);
-    },
-  },
-};
+});
+
+const RADIUS = 48;
+
+const percentageUsed = computed(() => {
+  if (props.used > props.amount) {
+    return 100;
+  }
+  if (props.used <= 0) {
+    return 0;
+  }
+  return (props.used / props.amount) * 100;
+});
+
+const circumference = computed(() => 2 * Math.PI * RADIUS);
+const usedArcLength = computed(() => circumference.value * (1 - percentageUsed.value / 100));
 </script>
 
 <style>

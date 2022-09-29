@@ -51,15 +51,6 @@ const props = defineProps(
 const isTransparent = computed(() => props.transparent || !props.show);
 </script>
 
-<script>
-export default {
-  name: 'EcLoading',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 .ec-loading {
   @apply tw-relative;

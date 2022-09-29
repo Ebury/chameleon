@@ -22,15 +22,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'EcSmartTableHeading',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <script setup>
 import { useSlots } from 'vue';
 

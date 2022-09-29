@@ -112,9 +112,6 @@ import EcIcon from '../ec-icon';
 
 export default {
   name: 'EcAmountFilterInput',
-  compatConfig: {
-    COMPONENT_V_MODEL: false,
-  },
   components: {
     EcAmountInput,
     EcDropdown,

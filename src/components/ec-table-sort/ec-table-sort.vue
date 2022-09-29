@@ -66,15 +66,6 @@ function onSort() {
 }
 </script>
 
-<script>
-export default {
-  name: 'EcTableSort',
-  compatConfig: {
-    MODE: 3,
-  },
-};
-</script>
-
 <style>
 .ec-table-sort {
   @apply tw-select-none;

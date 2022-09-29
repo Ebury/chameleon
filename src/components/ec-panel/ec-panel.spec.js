@@ -24,6 +24,18 @@ function mountPanelAsTemplate(template, props, wrapperComponentOpts, mountOpts) 
 }
 
 describe('EcPanel', () => {
+  it('should use given attributes', () => {
+    const wrapper = mountPanel({ show: true }, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'my-id',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   describe(':props', () => {
     it(':show - should render the panel when is true', () => {
       const wrapper = mountPanel({ show: true });
@@ -41,7 +53,20 @@ describe('EcPanel', () => {
   });
 
   describe('@events', () => {
-    it('@close - should emit both "update:show" and "close" events when the simple-close icon is clicked', () => {
+    it('should pass custom events to the panel', () => {
+      const customEventSpy = jest.fn();
+
+      const wrapper = mountPanel({ show: true }, {
+        attrs: {
+          onCustom: customEventSpy,
+        },
+      });
+
+      wrapper.findByDataTest('ec-panel').trigger('custom');
+      expect(customEventSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('@close - should emit both "update:show" and "close" events when the close icon is clicked', () => {
       const wrapper = mountPanel({ show: true });
       wrapper.findByDataTest('ec-panel__header-action--close').trigger('click');
 
@@ -106,7 +131,7 @@ describe('EcPanel', () => {
 
         await wrapper.findByDataTest('ec-panel__header-action--back').trigger('click');
 
-        expect(anyGivenCallback).toHaveBeenCalled();
+        expect(anyGivenCallback).toHaveBeenCalledTimes(1);
         expect(wrapper.findByDataTest('ec-panel').exists()).toBe(false);
       });
     });

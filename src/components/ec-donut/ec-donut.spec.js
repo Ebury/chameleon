@@ -18,9 +18,9 @@ describe('EcDonut', () => {
   it('should throw if no props were given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcDonut);
-      expect(warnSpy).toHaveBeenCalledTimes(3);
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "amount"');
-      expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "used"');
+      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "amount"');
+      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "used"');
     });
   });
 
@@ -52,15 +52,6 @@ describe('EcDonut', () => {
   it('should display with the full used when is more used than amount', () => {
     const wrapper = mountDonut({ used: 120, amount: 100 });
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should get the correct computed properties', () => {
-    const wrapper = mountDonut();
-    const circumference = 2 * Math.PI * wrapper.vm.radius;
-    expect(wrapper.vm.percentageUsed).toBe(20);
-    const offset = circumference * (1 - wrapper.vm.percentageUsed / 100);
-    expect(wrapper.vm.dashArray).toBe(circumference);
-    expect(wrapper.vm.dashOffset).toBe(offset);
   });
 
   it('should render slots as expected', () => {
