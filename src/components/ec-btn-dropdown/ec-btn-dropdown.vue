@@ -5,6 +5,8 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-btn-dropdown` : 'ec-btn-dropdown'"
   >
     <ec-btn
+      :href="href"
+      :to="to"
       :is-disabled="isDisabled"
       :is-submit="false"
       is-reverse
@@ -28,6 +30,30 @@
       @open="isOpen = true"
       @close="isOpen = false"
     >
+      <template #item="{ item, index }">
+        <span
+          v-if="item.disabled"
+          :data-test="`ec-btn-dropdown__item-disabled-link ec-btn-dropdown__item-link ec-btn-dropdown__item-link--${index}`"
+        >
+          {{ item.text }}
+        </span>
+        <a
+          v-else-if="item.href"
+          v-bind="item.attrs"
+          :data-test="`ec-btn-dropdown__item-link ec-btn-dropdown__item-link--${index}`"
+          class="ec-btn-dropdown__item-link"
+          :href="item.href"
+        >{{ item.text }}
+        </a>
+        <router-link
+          v-else
+          v-bind="item.attrs"
+          :data-test="`ec-btn-dropdown__item-link ec-btn-dropdown__item-link--${index}`"
+          class="ec-btn-dropdown__item-link"
+          :to="item.to"
+        >{{ item.text }}
+        </router-link>
+      </template>
       <ec-btn
         :is-disabled="isDisabled"
         is-reverse
@@ -66,6 +92,12 @@ defineProps({
   listDataTest: {
     type: String,
   },
+  href: {
+    type: String,
+  },
+  to: {
+    type: [String, Object],
+  },
 });
 
 const emit = defineEmits(['click', 'change']);
@@ -89,40 +121,62 @@ function getPopoverStyle() {
 </script>
 
 <style>
-  .ec-btn-dropdown {
-    @apply tw-inline-flex;
+.ec-btn-dropdown {
+  @apply tw-inline-flex;
 
-    max-width: 246px;
+  max-width: 246px;
 
-    &__dropdown-btn {
-      @apply tw-rounded-l-none;
-      @apply tw-border-gray-6 tw-border-l tw-border-solid;
-      @apply tw-bg-gray-7;
+  &__dropdown-btn {
+    @apply tw-rounded-l-none;
+    @apply tw-border-gray-6 tw-border-l tw-border-solid;
+    @apply tw-bg-gray-7;
 
-      &--is-open {
-        @apply tw-bg-key-4;
-        @apply tw-border-key-4;
-        @apply tw-text-gray-8;
-      }
-
-      &:hover {
-        @apply tw-border-key-3;
-        @apply tw-bg-key-3;
-      }
-
-      &:disabled {
-        @apply tw-text-gray-5;
-      }
+    &--is-open {
+      @apply tw-bg-key-4;
+      @apply tw-border-key-4;
+      @apply tw-text-gray-8;
     }
 
-    &__btn {
-      @apply tw-rounded-r-none;
-      @apply tw-px-16;
-      @apply tw-text-gray-3;
+    &:hover {
+      @apply tw-border-key-3;
+      @apply tw-bg-key-3;
+    }
 
-      &:disabled {
-        @apply tw-text-gray-5;
-      }
+    &:disabled {
+      @apply tw-text-gray-5;
     }
   }
+
+  &__btn {
+    @apply tw-rounded-r-none;
+    @apply tw-px-16;
+    @apply tw-text-gray-3;
+
+    &:disabled {
+      @apply tw-text-gray-5;
+    }
+  }
+
+  &__item-link {
+    @apply tw-text-gray-3;
+    @apply tw-inline-block tw-w-full;
+
+    &:hover {
+      @apply tw-no-underline;
+    }
+  }
+}
+
+.ec-btn__text-link {
+  @apply tw-text-gray-3;
+
+  &:hover {
+    @apply tw-no-underline;
+    @apply tw-text-gray-8;
+  }
+
+  &:focus {
+    @apply tw-outline-none;
+  }
+}
 </style>
