@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
-import EcMetrolineItem from '../ec-metroline-item';
+import EcMetrolineItem from './components/ec-metroline-item';
 import EcMetroline from './ec-metroline.vue';
 
 function mountMetrolineAsTemplate(template, wrapperComponentOpts) {

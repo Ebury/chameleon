@@ -108,10 +108,16 @@ import {
   computed, inject, onBeforeUnmount, onMounted, toRefs,
 } from 'vue';
 
-import * as MetrolineItemStatus from '../../enums/metroline-item-status';
-import EcIcon from '../ec-icon';
+import METROLINE_SYMBOL from '../../../../symbols/provide-inject';
+import EcIcon from '../../../ec-icon';
 
-const metroline = inject('metroline');
+const METROLINE_ITEM_STATUS = {
+  next: 'next',
+  active: 'active',
+  completed: 'completed',
+};
+
+const metroline = inject(METROLINE_SYMBOL);
 
 const props = defineProps({
   id: {
@@ -129,18 +135,18 @@ const isReadOnly = computed(() => metroline.isCompleted);
 const isLast = computed(() => id.value === metroline.lastItemId);
 const status = computed(() => {
   if (id.value < metroline.activeItemId || metroline.isCompleted) {
-    return MetrolineItemStatus.COMPLETED;
+    return METROLINE_ITEM_STATUS.completed;
   }
 
   if (id.value === metroline.activeItemId) {
-    return MetrolineItemStatus.ACTIVE;
+    return METROLINE_ITEM_STATUS.active;
   }
 
-  return MetrolineItemStatus.NEXT;
+  return METROLINE_ITEM_STATUS.next;
 });
-const isNext = computed(() => status.value === MetrolineItemStatus.NEXT);
-const isActive = computed(() => status.value === MetrolineItemStatus.ACTIVE);
-const isCompleted = computed(() => status.value === MetrolineItemStatus.COMPLETED);
+const isNext = computed(() => status.value === METROLINE_ITEM_STATUS.next);
+const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.active);
+const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.completed);
 
 onMounted(() => {
   metroline.register(id.value);
