@@ -15,4 +15,6 @@
   --ec-theme-gray-color-level-6: 164, 10%, 88%;
   --ec-theme-gray-color-level-7: 164, 10%, 96%;
   --ec-theme-gray-color-level-8: 164, 10%, 100%;
+  --ec-theme-complementary-color-level-1: initial;
+  --ec-theme-complementary-color-level-2: initial;
 }
