@@ -42,82 +42,86 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import {
+  computed,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+} from 'vue';
+
 import EcUploadCloud from '../../images/ec-upload-cloud.vue';
 
-const isNotFolder = file => !!file.type && !!file.size;
+const emit = defineEmits(['change']);
 
-export default {
-  name: 'EcFileDropzone',
-  components: {
-    EcUploadCloud,
+const props = defineProps({
+  isDisabled: {
+    type: Boolean,
+    default: false,
   },
-  props: {
-    isDisabled: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  emits: ['change'],
-  data() {
-    return {
-      dragEnterLeaveEventCounter: 0,
-    };
-  },
-  computed: {
-    isDragging() {
-      return this.dragEnterLeaveEventCounter > 0;
-    },
-  },
-  mounted() {
-    document.addEventListener('dragenter', this.onDragenter);
-    document.addEventListener('dragover', this.onDragover);
-    document.addEventListener('dragleave', this.onDragleave);
-    document.addEventListener('drop', this.onDrop);
-  },
-  beforeUnmount() {
-    document.removeEventListener('dragenter', this.onDragenter);
-    document.removeEventListener('dragover', this.onDragover);
-    document.removeEventListener('dragleave', this.onDragleave);
-    document.removeEventListener('drop', this.onDrop);
-  },
-  methods: {
-    onFileInputChange() {
-      const files = [...this.$refs.fileInput.files].filter(isNotFolder);
-      if (files.length) {
-        this.$emit('change', files);
-        this.$refs.fileInput.value = '';
-      }
-    },
-    onComponentDrop(dragEvent) {
-      if (!this.isDisabled) {
-        const files = [...dragEvent.dataTransfer.files].filter(isNotFolder);
-        if (files.length) {
-          this.$emit('change', files);
-        }
-      }
-      this.disableDragging();
-    },
-    onDrop(dragEvent) {
-      dragEvent.preventDefault();
-      this.disableDragging();
-    },
-    onDragenter() {
-      this.dragEnterLeaveEventCounter++;
-    },
-    onDragover(dragEvent) {
-      // Necessary for the drop listener to work:
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API#define_a_drop_zone
-      dragEvent.preventDefault();
-    },
-    onDragleave() {
-      this.dragEnterLeaveEventCounter--;
-    },
-    disableDragging() {
-      this.dragEnterLeaveEventCounter = 0;
-    },
-  },
-};
+});
+
+const dragEnterLeaveEventCounter = ref(0);
+const isNotFolder = file => !!file.type && !!file.size;
+const fileInput = ref(null);
+
+const isDragging = computed(() => dragEnterLeaveEventCounter.value > 0);
+
+onMounted(() => {
+  document.addEventListener('dragenter', onDragenter);
+  document.addEventListener('dragover', onDragover);
+  document.addEventListener('dragleave', onDragleave);
+  document.addEventListener('drop', onDrop);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('dragenter', onDragenter);
+  document.removeEventListener('dragover', onDragover);
+  document.removeEventListener('dragleave', onDragleave);
+  document.removeEventListener('drop', onDrop);
+});
+
+function onFileInputChange() {
+  const files = [...fileInput.value.files].filter(isNotFolder);
+  if (files.length) {
+    emit('change', files);
+    fileInput.value.value = '';
+  }
+}
+
+function onComponentDrop(dragEvent) {
+  if (!props.isDisabled) {
+    const files = [...dragEvent.dataTransfer.files].filter(isNotFolder);
+    if (files.length) {
+      emit('change', files);
+    }
+  }
+  disableDragging();
+}
+
+function onDrop(dragEvent) {
+  dragEvent.preventDefault();
+  disableDragging();
+}
+
+function onDragenter() {
+  dragEnterLeaveEventCounter.value++;
+}
+
+function onDragover(dragEvent) {
+  // Necessary for the drop listener to work:
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API#define_a_drop_zone
+  dragEvent.preventDefault();
+}
+
+function onDragleave() {
+  dragEnterLeaveEventCounter.value--;
+}
+
+function disableDragging() {
+  dragEnterLeaveEventCounter.value = 0;
+}
+
 </script>
 
 <style>
