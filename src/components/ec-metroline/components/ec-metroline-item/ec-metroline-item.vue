@@ -105,7 +105,7 @@
 
 <script setup>
 import {
-  computed, inject, onBeforeUnmount, onMounted, toRefs,
+  computed, inject, onBeforeUnmount, onMounted,
 } from 'vue';
 
 import METROLINE_SYMBOL from '../../../../symbols/provide-inject';
@@ -129,16 +129,14 @@ const props = defineProps({
   },
 });
 
-const { id } = toRefs(props);
-
 const isReadOnly = computed(() => metroline.isCompleted);
-const isLast = computed(() => id.value === metroline.lastItemId);
+const isLast = computed(() => props.id === metroline.lastItemId);
 const status = computed(() => {
-  if (id.value < metroline.activeItemId || metroline.isCompleted) {
+  if (props.id < metroline.activeItemId || metroline.isCompleted) {
     return METROLINE_ITEM_STATUS.completed;
   }
 
-  if (id.value === metroline.activeItemId) {
+  if (props.id === metroline.activeItemId) {
     return METROLINE_ITEM_STATUS.active;
   }
 
@@ -149,18 +147,18 @@ const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.active);
 const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.completed);
 
 onMounted(() => {
-  metroline.register(id.value);
+  metroline.register(props.id);
 });
 
 onBeforeUnmount(() => {
-  metroline.unregister(id.value);
+  metroline.unregister(props.id);
 });
 
 function goToNext() {
-  metroline.goToNext(id.value);
+  metroline.goToNext(props.id);
 }
 function activateItem() {
-  metroline.goTo(id.value);
+  metroline.goTo(props.id);
 }
 function complete() {
   metroline.complete();
