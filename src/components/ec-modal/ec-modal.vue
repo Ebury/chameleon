@@ -8,7 +8,7 @@
       @click.self="closeModal()"
     >
       <div
-        v-ec-focus-trap="getFocusTrapOptions()"
+        ref="focusTrapTarget"
         class="ec-modal__content"
         data-test="ec-modal__content"
         :class="{ 'ec-modal--lg': large }"
@@ -100,11 +100,11 @@
 </template>
 
 <script setup>
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import {
-  computed, onBeforeUnmount, ref, useSlots, watchEffect,
+  computed, onBeforeUnmount, onMounted, ref, useSlots, watchEffect,
 } from 'vue';
 
-import VEcFocusTrap from '../../directives/ec-focus-trap';
 import * as KeyCode from '../../enums/key-code';
 import EcBtn from '../ec-btn';
 import EcIcon from '../ec-icon';
@@ -156,10 +156,20 @@ function hasPositiveButton() {
 function hasNegativeButton() {
   return !!slots.negative;
 }
+
+// zIndex
+const zIndexStyle = computed(() => (props.zIndex ? { zIndex: props.zIndex } : null));
+
+// focus trap
+const focusTrapTarget = ref(null);
+const focusTrapOptions = {
+  immediate: true,
+  escapeDeactivates: props.isClosable,
+  clickOutsideDeactivates: props.isClosable,
+};
 function getFocusTrapOptions() {
   const options = {
-    escapeDeactivates: props.isClosable,
-    clickOutsideDeactivates: props.isClosable,
+    ...focusTrapOptions,
   };
 
   if (hasPositiveButton()) {
@@ -170,12 +180,14 @@ function getFocusTrapOptions() {
 
   return options;
 }
-
-// zIndex
-const zIndexStyle = computed(() => (props.zIndex ? { zIndex: props.zIndex } : null));
+const { activate, deactivate } = useFocusTrap(focusTrapTarget, getFocusTrapOptions(focusTrapOptions));
+onMounted(() => {
+  activate();
+});
 
 // close modal
 function closeModal() {
+  deactivate();
   if (props.isClosable) {
     emit('update:show', false);
     emit('close', false);
