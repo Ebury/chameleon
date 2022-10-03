@@ -1,10 +1,19 @@
 import { mount } from '@vue/test-utils';
+// import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcModal from './ec-modal.vue';
 
-jest.mock('../../directives/ec-focus-trap');
+jest.mock('@vueuse/integrations/useFocusTrap', () => ({
+  __esModule: true,
+  useFocusTrap: jest.fn(() => ({
+    activate: jest.fn(),
+    deactivate: jest.fn(),
+    pause: jest.fn(),
+    unpause: jest.fn(),
+  })),
+}));
 
 function mountModal(props, mountOpts) {
   return mount(EcModal, {
