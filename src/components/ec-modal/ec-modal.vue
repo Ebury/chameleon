@@ -102,7 +102,7 @@
 <script setup>
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import {
-  computed, onBeforeUnmount, onMounted, ref, useSlots, watchEffect,
+  computed, onBeforeUnmount, onUnmounted, ref, useSlots, watchEffect,
 } from 'vue';
 
 import * as KeyCode from '../../enums/key-code';
@@ -180,14 +180,20 @@ function getFocusTrapOptions() {
 
   return options;
 }
-const { activate, deactivate } = useFocusTrap(focusTrapTarget, getFocusTrapOptions(focusTrapOptions));
-onMounted(() => {
-  activate();
+const { deactivate, pause, unpause } = useFocusTrap(focusTrapTarget, getFocusTrapOptions(focusTrapOptions));
+watchEffect(() => {
+  if (props.show) {
+    unpause();
+  } else {
+    pause();
+  }
+});
+onUnmounted(() => {
+  deactivate();
 });
 
 // close modal
 function closeModal() {
-  deactivate();
   if (props.isClosable) {
     emit('update:show', false);
     emit('close', false);
