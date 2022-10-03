@@ -1,8 +1,6 @@
 import { createEventHook } from '@vueuse/core';
 import Color from 'color';
-import {
-  getCurrentInstance, onBeforeMount, onBeforeUnmount,
-} from 'vue';
+import { getCurrentInstance, onBeforeUnmount, onMounted } from 'vue';
 
 export default {
   title: 'CSS/Colors',
@@ -13,7 +11,7 @@ function useCssResourceAddonSync({ global, document }) {
 
   let mutationObserver;
 
-  onBeforeMount(() => {
+  onMounted(() => {
     if (global.MutationObserver) {
       mutationObserver = new global.MutationObserver((ev) => {
         onChanged.trigger(ev);
