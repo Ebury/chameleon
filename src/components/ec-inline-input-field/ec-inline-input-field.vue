@@ -55,99 +55,86 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed, ref } from 'vue';
+
 import config from '../../config';
-import EcTooltip from '../../directives/ec-tooltip';
+import VEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import EcInlineInputFieldCopy from './components/copy';
 import EcInlineInputFieldEdit from './components/edit';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldValueText from './components/value-text';
 
-export default {
-  name: 'EcInlineInputField',
-  components: {
-    EcInlineInputFieldCopy,
-    EcInlineInputFieldEdit,
-    EcInlineInputFieldLoading,
-    EcInlineInputFieldValueText,
-    EcIcon,
+const props = defineProps({
+  label: {
+    default: '',
+    type: String,
   },
-  directives: { EcTooltip },
-  props: {
-    label: {
-      default: '',
-      type: String,
-    },
-    isEditable: {
-      type: Boolean,
-      default: false,
-    },
-    isCopiable: {
-      type: Boolean,
-      default: false,
-    },
-    isEditing: {
-      type: Boolean,
-      default: false,
-    },
-    isLoading: {
-      type: Boolean,
-      default: false,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
-    value: {
-      default: '',
-      type: String,
-    },
-    tooltipTextSuccess: {
-      type: String,
-    },
-    tooltipTextError: {
-      type: String,
-    },
-    labelTooltip: {
-      default: '',
-      type: String,
-    },
-    errorMessage: {
-      default: '',
-      type: String,
-    },
+  isEditable: {
+    type: Boolean,
+    default: false,
   },
-  emits: ['cancel', 'edit', 'submit'],
-  data() {
-    return {
-      valueForLoading: this.value,
-    };
+  isCopiable: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    textClasses() {
-      const classes = ['ec-inline-input-field__content'];
+  isEditing: {
+    type: Boolean,
+    default: false,
+  },
+  isLoading: {
+    type: Boolean,
+    default: false,
+  },
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+  value: {
+    default: '',
+    type: String,
+  },
+  tooltipTextSuccess: {
+    type: String,
+  },
+  tooltipTextError: {
+    type: String,
+  },
+  labelTooltip: {
+    default: '',
+    type: String,
+  },
+  errorMessage: {
+    default: '',
+    type: String,
+  },
+});
 
-      if (this.isSensitive) {
-        classes.push(config.sensitiveClass);
-      }
+const emit = defineEmits(['cancel', 'edit', 'submit']);
 
-      return classes;
-    },
-  },
-  methods: {
-    cancel() {
-      this.$emit('cancel');
-    },
-    edit() {
-      this.$emit('edit');
-    },
-    submit(data) {
-      this.valueForLoading = data.value;
-      this.$emit('submit', data.value);
-    },
-  },
-};
+const valueForLoading = ref(null);
+
+const textClasses = computed(() => {
+  const classes = ['ec-inline-input-field__content'];
+
+  if (props.isSensitive) {
+    classes.push(config.sensitiveClass);
+  }
+
+  return classes;
+});
+
+function cancel() {
+  emit('cancel');
+}
+function edit() {
+  emit('edit');
+}
+function submit(data) {
+  valueForLoading.value = data.value;
+  emit('submit', data.value);
+}
 </script>
 
 <style>
