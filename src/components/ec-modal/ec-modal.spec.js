@@ -10,9 +10,7 @@ jest.mock('@vueuse/integrations/useFocusTrap', () => ({
   useFocusTrap: jest.fn(() => ({
     activate: jest.fn(),
     deactivate: jest.fn(),
-    pause: jest.fn(() => {
-      console.log('i have been called');
-    }),
+    pause: jest.fn(),
     unpause: jest.fn(),
   })),
 }));
@@ -53,6 +51,7 @@ describe('EcModal', () => {
     await wrapper.findByDataTest('ec-modal__close').trigger('keydown', {
       key: '9',
     });
+    await wrapper.vm.$nextTick();
     // the only focusable element keep the focus
     expect(wrapper.findByDataTest('ec-modal__close').element).toHaveFocus();
   });
@@ -67,13 +66,6 @@ describe('EcModal', () => {
         immediate: true,
       });
   });
-
-  /* it('should be paused', async () => {
-    const wrapper = mountModal({ show: true });
-    const { pause } = useFocusTrap();
-    await wrapper.findByDataTest('ec-modal__close').trigger('click');
-    expect(pause).toHaveBeenCalledTimes(1);
-  }); */
 
   it('should render basic modal', () => {
     const wrapper = mountModal(
