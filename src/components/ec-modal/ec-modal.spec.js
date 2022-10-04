@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-// import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -40,6 +40,24 @@ describe('EcModal', () => {
     const wrapper = mountModal();
     expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should be focus trapped', async () => {
+    // const { activate } = useFocusTrap();
+    const wrapper = mountModal({ show: true });
+    await wrapper.findByDataTest('ec-modal__close').element.focus();
+    expect(wrapper.findByDataTest('ec-modal__close').element).toHaveFocus();
+    await wrapper.findByDataTest('ec-modal__close').trigger('keydown', {
+      key: '9',
+    });
+    expect(wrapper.findByDataTest('ec-modal__close').element).toHaveFocus();
+  });
+
+  it('should be paused', async () => {
+    const wrapper = mountModal({ show: true });
+    const { pause } = useFocusTrap();
+    await wrapper.findByDataTest('ec-modal__close').trigger('click');
+    expect(pause).toHaveBeenCalledTimes(1);
   });
 
   it('should render basic modal', () => {
