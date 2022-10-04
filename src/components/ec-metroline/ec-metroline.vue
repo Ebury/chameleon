@@ -10,7 +10,7 @@
 <script setup>
 import { provide, reactive, ref } from 'vue';
 
-import METROLINE_SYMBOL from '../../symbols/provide-inject';
+import METROLINE_PROVIDE_KEY from './ec-metroline-provide';
 
 const emit = defineEmits(['change', 'complete']);
 
@@ -57,7 +57,7 @@ const metroline = reactive({
 
 const metrolineItemIds = ref([]);
 
-provide(METROLINE_SYMBOL, metroline);
+provide(METROLINE_PROVIDE_KEY, metroline);
 </script>
 
 <style>

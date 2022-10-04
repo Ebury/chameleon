@@ -108,8 +108,8 @@ import {
   computed, inject, onBeforeUnmount, onMounted,
 } from 'vue';
 
-import METROLINE_SYMBOL from '../../../../symbols/provide-inject';
 import EcIcon from '../../../ec-icon';
+import METROLINE_PROVIDE_KEY from '../../ec-metroline-provide';
 
 const METROLINE_ITEM_STATUS = {
   next: 'next',
@@ -117,7 +117,7 @@ const METROLINE_ITEM_STATUS = {
   completed: 'completed',
 };
 
-const metroline = inject(METROLINE_SYMBOL);
+const metroline = inject(METROLINE_PROVIDE_KEY);
 
 const props = defineProps({
   id: {
