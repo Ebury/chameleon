@@ -108,7 +108,7 @@ function getDownloadAttr(item) {
 }
 
 function getHrefAttr(item) {
-  return !!item.href && !item.disabled ? item.href : null;
+  return item.href && !item.disabled ? item.href : null;
 }
 
 function getDisabledAttr(item) {
