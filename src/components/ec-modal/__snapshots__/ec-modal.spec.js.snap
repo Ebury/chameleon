@@ -1,54 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcModal should be focus trapped 1`] = `
-<transition-stub>
-  <div
-    class="ec-modal"
-    data-test="ec-modal"
-  >
-    <div
-      class="ec-modal__content"
-      data-test="ec-modal__content"
-    >
-      <header
-        class="ec-modal__header"
-        data-test="ec-modal__header"
-      >
-        
-        
-        <a
-          class="ec-modal__close"
-          data-test="ec-modal__close"
-          href="#"
-        >
-          <svg
-            class="ec-icon ec-modal__close-icon"
-            data-test="ec-modal__close-icon"
-            height="24"
-            width="24"
-          >
-            <use
-              xlink:href="#ec-simple-close"
-            />
-          </svg>
-        </a>
-      </header>
-      <main
-        class="ec-modal__main"
-        data-test="ec-modal__main"
-      >
-        
-        <p>
-          Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.
-        </p>
-        
-      </main>
-      <!--v-if-->
-    </div>
-  </div>
-</transition-stub>
-`;
-
 exports[`EcModal should have the ec-modal--lg class 1`] = `
 <div
   class="ec-modal__content ec-modal--lg"

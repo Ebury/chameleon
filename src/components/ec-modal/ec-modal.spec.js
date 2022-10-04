@@ -10,7 +10,9 @@ jest.mock('@vueuse/integrations/useFocusTrap', () => ({
   useFocusTrap: jest.fn(() => ({
     activate: jest.fn(),
     deactivate: jest.fn(),
-    pause: jest.fn(),
+    pause: jest.fn(() => {
+      console.log('i have been called');
+    }),
     unpause: jest.fn(),
   })),
 }));
@@ -43,14 +45,26 @@ describe('EcModal', () => {
   });
 
   it('should be focus trapped', async () => {
-    // const { activate } = useFocusTrap();
-    const wrapper = mountModal({ show: true });
+    const div = document.createElement('div');
+    div.id = 'root';
+    document.body.appendChild(div);
+    const wrapper = mountModal({ show: true }, { attachTo: '#root' });
     await wrapper.findByDataTest('ec-modal__close').element.focus();
-    expect(wrapper.findByDataTest('ec-modal__close').element).toHaveFocus();
     await wrapper.findByDataTest('ec-modal__close').trigger('keydown', {
       key: '9',
     });
     expect(wrapper.findByDataTest('ec-modal__close').element).toHaveFocus();
+  });
+
+  it('should be called with mandatory options', () => {
+    mountModal({ show: true });
+    const options = useFocusTrap.mock.calls[0][1];
+    expect(options)
+      .toEqual({
+        clickOutsideDeactivates: true,
+        escapeDeactivates: true,
+        immediate: true,
+      });
   });
 
   it('should be paused', async () => {
