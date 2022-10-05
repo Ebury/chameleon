@@ -201,10 +201,4 @@ function hasSlot(slotName) {
     }
   }
 }
-
-.ec-table-head {
-  &__cell {
-    @apply tw-text-gray-3;
-  }
-}
 </style>
