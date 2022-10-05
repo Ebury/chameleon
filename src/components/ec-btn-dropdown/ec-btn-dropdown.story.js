@@ -27,7 +27,7 @@ const Template = args => ({
 
 export const basic = Template.bind({});
 basic.args = {
-  isDisabled: false,
+  isBtnDropdownDisabled: false,
   buttonText: 'Convert & Pay',
   items: [
     { value: 'Spot', text: 'Spot' },
@@ -38,12 +38,12 @@ basic.args = {
 export const disabled = Template.bind({});
 disabled.args = {
   ...basic.args,
-  isDisabled: true,
+  isBtnDropdownDisabled: true,
 };
 
 export const buttonLinks = Template.bind({});
 buttonLinks.args = {
-  isDisabled: false,
+  isBtnDropdownDisabled: false,
   buttonText: 'Button links',
   items: [
     {
@@ -66,9 +66,9 @@ buttonLinks.args = {
   ],
 };
 
-export const buttonLinksDisabled = Template.bind({});
-buttonLinksDisabled.args = {
-  isDisabled: false,
+export const onlySomeButtonLinksDisabled = Template.bind({});
+onlySomeButtonLinksDisabled.args = {
+  isBtnDropdownDisabled: false,
   buttonText: 'Button links',
   items: [
     {
@@ -85,8 +85,33 @@ buttonLinksDisabled.args = {
       href: '/link2/',
       value: 'link2',
       text: 'Link2',
+      disabled: false,
+      disabledReason: '',
+    },
+  ],
+};
+
+export const allButtonLinksDisabled = Template.bind({});
+allButtonLinksDisabled.args = {
+  isBtnDropdownDisabled: true,
+  buttonText: 'Button links',
+  items: [
+    {
+      to: {
+        name: 'link1',
+      },
+      attrs: {},
+      value: 'link1',
+      text: 'Link1',
       disabled: true,
-      disabledReason: 'This link is disabled',
+      disabledReason: 'Link1 is disabled',
+    },
+    {
+      href: '/link2/',
+      value: 'link2',
+      text: 'Link2',
+      disabled: true,
+      disabledReason: 'Link2 is disabled',
     },
   ],
 };

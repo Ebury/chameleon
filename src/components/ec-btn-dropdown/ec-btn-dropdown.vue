@@ -7,7 +7,7 @@
     <ec-btn
       :href="href"
       :to="to"
-      :is-disabled="isDisabled"
+      :is-disabled="isBtnDropdownDisabled"
       :is-submit="false"
       is-reverse
       category="primary"
@@ -24,7 +24,7 @@
       :max-visible-items="Infinity"
       :popover-options="popoverOptions"
       :popover-style="getPopoverStyle"
-      :disabled="isDisabled"
+      :disabled="isBtnPopoverDisabled"
       :list-data-test="listDataTest"
       @change="(value) => emit('change', value)"
       @open="isOpen = true"
@@ -55,7 +55,7 @@
         </router-link>
       </template>
       <ec-btn
-        :is-disabled="isDisabled"
+        :is-disabled="isBtnPopoverDisabled"
         is-reverse
         is-rounded
         category="primary"
@@ -71,17 +71,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 import EcBtn from '../ec-btn';
 import EcDropdownSearch from '../ec-dropdown-search';
 
-defineProps({
+const props = defineProps({
   items: {
     type: Array,
     default: () => [],
   },
-  isDisabled: {
+  isBtnDropdownDisabled: {
     type: Boolean,
     default: false,
   },
@@ -103,6 +103,7 @@ defineProps({
 const emit = defineEmits(['click', 'change']);
 
 const isOpen = ref(false);
+const isBtnPopoverDisabled = computed(() => props.items.every(item => item.disabled));
 const popoverOptions = {
   autoSize: 'min',
   placement: 'bottom-end',
