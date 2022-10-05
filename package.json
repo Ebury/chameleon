@@ -37,6 +37,8 @@
     "git-tag": "git tag v$(npm view . version) && git push origin v$(npm view . version)"
   },
   "dependencies": {
+    "@storybook/builder-vite": "0.2.3",
+    "@vitejs/plugin-vue": "3.1.2",
     "@vueuse/core": "9.2.0",
     "@vueuse/integrations": "9.2.0",
     "clipboard-copy": "3.2.0",
@@ -44,8 +46,10 @@
     "floating-vue": "2.0.0-beta.16",
     "focus-trap": "6.9.4",
     "mitt": "3.0.0",
+    "postcss": "8.4.16",
     "svg-country-flags": "1.2.10",
     "tailwindcss": "2.2.19",
+    "vite": "3.0.9",
     "vue": "3.2.39"
   },
   "devDependencies": {
@@ -65,9 +69,7 @@
     "@storybook/theming": "6.5.12",
     "@storybook/vue3": "6.5.12",
     "@testing-library/jest-dom": "5.16.5",
-    "@vue/cli-plugin-babel": "5.0.8",
-    "@vue/cli-service": "5.0.8",
-    "@vue/compiler-sfc": "3.2.39",
+    "@vue/babel-preset-app": "5.0.8",
     "@vue/eslint-config-airbnb": "6.0.0",
     "@vue/test-utils": "2.0.2",
     "@vue/vue3-jest": "27.0.0",
@@ -87,7 +89,6 @@
     "jest": "27.5.1",
     "jest-serializer-vue": "2.0.2",
     "lint-staged": "13.0.3",
-    "postcss": "8.4.16",
     "postcss-html": "1.5.0",
     "postcss-import": "14.1.0",
     "postcss-mixins": "9.0.4",
@@ -100,7 +101,6 @@
     "stylelint-config-recommended-vue": "1.4.0",
     "stylelint-config-standard": "28.0.0",
     "stylelint-config-standard-scss": "5.0.0",
-    "stylelint-webpack-plugin": "3.3.0",
     "svg-sprite-loader": "6.0.11",
     "svgo": "2.8.0",
     "svgo-loader": "3.0.1",
