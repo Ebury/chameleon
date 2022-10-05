@@ -46,31 +46,26 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import EcIcon from '../ec-icon';
 
-export default {
-  name: 'EcFileList',
-  components: {
-    EcIcon,
+const emit = defineEmits(['delete']);
+
+defineProps({
+  items: {
+    type: Array,
+    default: () => [],
   },
-  props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
-    isDeleteDisabled: {
-      type: Boolean,
-      default: false,
-    },
+  isDeleteDisabled: {
+    type: Boolean,
+    default: false,
   },
-  emits: ['delete'],
-  methods: {
-    onDelete(item) {
-      this.$emit('delete', item);
-    },
-  },
-};
+});
+
+function onDelete(item) {
+  emit('delete', item);
+}
+
 </script>
 
 <style>
