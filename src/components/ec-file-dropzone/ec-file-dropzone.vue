@@ -35,7 +35,7 @@
       data-test="ec-file-dropzone__subtitle"
       class="ec-file-dropzone__subtitle"
       :class="{'ec-file-dropzone__subtitle--is-disabled': isDisabled}"
-      @click="$refs.fileInput.click()"
+      @click="fileInput.click()"
     >
       <slot name="subtitle" />
     </div>
