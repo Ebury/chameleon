@@ -103,69 +103,66 @@
   </div>
 </template>
 
-<script>
-import * as MetrolineItemStatus from '../../enums/metroline-item-status';
-import EcIcon from '../ec-icon';
+<script setup>
+import {
+  computed, inject, onBeforeUnmount, onMounted,
+} from 'vue';
 
-export default {
-  name: 'EcMetrolineItem',
-  components: { EcIcon },
-  inject: ['metroline'],
-  props: {
-    id: {
-      type: Number,
-      required: true,
-    },
-    badgeText: {
-      type: String,
-    },
-  },
-  computed: {
-    isReadOnly() {
-      return this.metroline.isCompleted;
-    },
-    isLast() {
-      return this.id === this.metroline.lastItemId;
-    },
-    status() {
-      if (this.id < this.metroline.activeItemId || this.metroline.isCompleted) {
-        return MetrolineItemStatus.COMPLETED;
-      }
+import EcIcon from '../../../ec-icon';
+import METROLINE_PROVIDE_KEY from '../../ec-metroline-provide';
 
-      if (this.id === this.metroline.activeItemId) {
-        return MetrolineItemStatus.ACTIVE;
-      }
-
-      return MetrolineItemStatus.NEXT;
-    },
-    isNext() {
-      return this.status === MetrolineItemStatus.NEXT;
-    },
-    isActive() {
-      return this.status === MetrolineItemStatus.ACTIVE;
-    },
-    isCompleted() {
-      return this.status === MetrolineItemStatus.COMPLETED;
-    },
-  },
-  created() {
-    this.metroline.register(this.id);
-  },
-  beforeUnmount() {
-    this.metroline.unregister(this.id);
-  },
-  methods: {
-    goToNext() {
-      this.metroline.goToNext(this.id);
-    },
-    activateItem() {
-      this.metroline.goTo(this.id);
-    },
-    complete() {
-      this.metroline.complete();
-    },
-  },
+const METROLINE_ITEM_STATUS = {
+  next: 'next',
+  active: 'active',
+  completed: 'completed',
 };
+
+const metroline = inject(METROLINE_PROVIDE_KEY);
+
+const props = defineProps({
+  id: {
+    type: Number,
+    required: true,
+  },
+  badgeText: {
+    type: String,
+  },
+});
+
+const isReadOnly = computed(() => metroline.isCompleted);
+const isLast = computed(() => props.id === metroline.lastItemId);
+const status = computed(() => {
+  if (props.id < metroline.activeItemId || metroline.isCompleted) {
+    return METROLINE_ITEM_STATUS.completed;
+  }
+
+  if (props.id === metroline.activeItemId) {
+    return METROLINE_ITEM_STATUS.active;
+  }
+
+  return METROLINE_ITEM_STATUS.next;
+});
+const isNext = computed(() => status.value === METROLINE_ITEM_STATUS.next);
+const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.active);
+const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.completed);
+
+onMounted(() => {
+  metroline.register(props.id);
+});
+
+onBeforeUnmount(() => {
+  metroline.unregister(props.id);
+});
+
+function goToNext() {
+  metroline.goToNext(props.id);
+}
+function activateItem() {
+  metroline.goTo(props.id);
+}
+function complete() {
+  metroline.complete();
+}
 </script>
 
 <style>
