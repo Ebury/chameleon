@@ -28,13 +28,6 @@ describe('EcBtnDropdown', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render with both buttons disabled', () => {
-    const wrapper = mountBtnDropdown({
-      isDisabled: true,
-    });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
   it('should use given list-data-test prop', () => {
     const wrapper = mountBtnDropdown({
       items,
@@ -86,7 +79,7 @@ describe('EcBtnDropdown', () => {
     expect(clickSpy).toHaveBeenCalledTimes(1);
   });
 
-  describe('when the CTA menu item is disabled', () => {
+  describe('when a menu item is disabled', () => {
     it('should be a non clickable DOM element', async () => {
       const clickSpy = jest.fn();
       const wrapper = mountBtnDropdown({
@@ -104,6 +97,44 @@ describe('EcBtnDropdown', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__item--0').element).toMatchSnapshot();
       await wrapper.findByDataTest('ec-btn-dropdown__item-link--0').trigger('click');
       expect(clickSpy).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('when all menu items are disabled', () => {
+    it('should render a disabled popover button', () => {
+      const allDisabledItems = [
+        {
+          to: {
+            name: 'convert-and-pay',
+          },
+          attrs: {},
+          value: 'convert-and-pay',
+          text: 'Convert & Pay',
+          disabled: true,
+          disabledReason: ' Payment creation is disabled at this time, contact your Relationship Manager.',
+        },
+        {
+          attrs: {},
+          href: '/payments/?add-new-payment',
+          value: 'pay',
+          text: 'Pay',
+          disabled: true,
+          disabledReason: ' Payment creation is disabled at this time, contact your Relationship Manager.',
+        }];
+
+      const wrapper = mountBtnDropdown({ items: allDisabledItems });
+      expect(wrapper
+        .findByDataTest('ec-btn-dropdown__dropdown-btn')
+        .element).toMatchSnapshot();
+    });
+  });
+
+  describe('when isBtnDropdownDisabled prop is true', () => {
+    it('should render with dropdown-btn disabled', () => {
+      const wrapper = mountBtnDropdown({
+        isBtnDropdownDisabled: true,
+      });
+      expect(wrapper.findByDataTest('ec-btn-dropdown__btn').element).toMatchSnapshot();
     });
   });
 });
