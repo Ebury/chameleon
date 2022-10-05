@@ -42,47 +42,42 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import EcFileDropzone from '../ec-file-dropzone';
 import EcFileList from '../ec-file-list';
 
-export default {
-  name: 'EcFileUpload',
-  components: {
-    EcFileDropzone,
-    EcFileList,
+const emit = defineEmits(['update:modelValue', 'change']);
+
+const props = defineProps({
+  modelValue: {
+    type: Array,
+    default: () => ([]),
   },
-  props: {
-    modelValue: {
-      type: Array,
-      default: () => ([]),
-    },
-    label: {
-      type: String,
-    },
-    note: {
-      type: String,
-    },
-    isDisabled: {
-      type: Boolean,
-    },
+  label: {
+    type: String,
   },
-  emits: ['update:modelValue', 'change'],
-  methods: {
-    onChange(newFiles) {
-      const newFilesNames = new Set(newFiles.map(file => file.name));
-      const updatedFileList = this.modelValue.filter(prevFile => !newFilesNames.has(prevFile.name));
-      this.update([...updatedFileList, ...newFiles]);
-    },
-    onDelete(fileToDelete) {
-      this.update(this.modelValue.filter(fileItem => fileItem !== fileToDelete));
-    },
-    update(items) {
-      this.$emit('update:modelValue', items);
-      this.$emit('change', items);
-    },
+  note: {
+    type: String,
   },
-};
+  isDisabled: {
+    type: Boolean,
+  },
+});
+
+function onChange(newFiles) {
+  const newFilesNames = new Set(newFiles.map(file => file.name));
+  const updatedFileList = props.modelValue.filter(prevFile => !newFilesNames.has(prevFile.name));
+  update([...updatedFileList, ...newFiles]);
+}
+
+function onDelete(fileToDelete) {
+  update(props.modelValue.filter(fileItem => fileItem !== fileToDelete));
+}
+
+function update(items) {
+  emit('update:modelValue', items);
+  emit('change', items);
+}
 </script>
 
 <style>
