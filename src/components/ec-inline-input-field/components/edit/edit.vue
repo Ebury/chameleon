@@ -55,59 +55,67 @@
   </div>
 </template>
 
-<script>
-import EcTooltip from '../../../../directives/ec-tooltip';
+<script setup>
+import {
+  computed, nextTick, onMounted, ref,
+} from 'vue';
+
+import VEcTooltip from '../../../../directives/ec-tooltip';
 import { getUid } from '../../../../utils/uid';
 import EcIcon from '../../../ec-icon';
 import EcInputField from '../../../ec-input-field';
 
-export default {
-  name: 'EcInlineInputFieldEdit',
-  components: { EcIcon, EcInputField },
-  directives: { EcTooltip },
-  props: {
-    label: {
-      default: '',
-      type: String,
-    },
-    value: {
-      default: '',
-      type: String,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
-    errorMessage: {
-      default: '',
-      type: String,
-    },
-    labelTooltip: {
-      default: '',
-      type: String,
-    },
+const inputId = computed(() => `ec-inline-input-field-edit__input-${getUid()}`);
+
+const props = defineProps({
+  label: {
+    default: '',
+    type: String,
   },
-  emits: ['cancel', 'submit'],
-  data() {
-    return {
-      inputId: `ec-inline-input-field-edit__input-${getUid()}`,
-      inputModel: this.value,
-    };
+  value: {
+    default: '',
+    type: String,
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$refs.input.focus();
-    });
+  isSensitive: {
+    type: Boolean,
+    default: false,
   },
-  methods: {
-    cancel() {
-      this.$emit('cancel');
-    },
-    submit() {
-      this.$emit('submit', { value: this.inputModel });
-    },
+  errorMessage: {
+    default: '',
+    type: String,
   },
-};
+  labelTooltip: {
+    default: '',
+    type: String,
+  },
+});
+
+const emit = defineEmits(['cancel', 'submit', 'update:value']);
+
+const inputModel = computed({
+  get() {
+    return props.value;
+  },
+  set(value) {
+    emit('update:value', value);
+  },
+});
+
+const input = ref(null);
+
+onMounted(() => {
+  nextTick(() => {
+    input.value.focus();
+  });
+});
+
+function cancel() {
+  emit('cancel');
+}
+
+function submit() {
+  emit('submit', { value: inputModel.value });
+}
 </script>
 
 <style>

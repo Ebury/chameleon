@@ -23,41 +23,38 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+
 import config from '../../../../config';
 import EcIcon from '../../../ec-icon';
 
-export default {
-  name: 'EcInlineInputFieldValueText',
-  components: { EcIcon },
-  props: {
-    value: {
-      default: '',
-      type: String,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
+const props = defineProps({
+  value: {
+    default: '',
+    type: String,
   },
-  emits: ['edit'],
-  computed: {
-    textClasses() {
-      const classes = ['ec-inline-input-field-value-text__text'];
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+});
 
-      if (this.isSensitive) {
-        classes.push(config.sensitiveClass);
-      }
+const emit = defineEmits(['edit']);
 
-      return classes;
-    },
-  },
-  methods: {
-    edit() {
-      this.$emit('edit');
-    },
-  },
-};
+const textClasses = computed(() => {
+  const classes = ['ec-inline-input-field-value-text__text'];
+
+  if (props.isSensitive) {
+    classes.push(config.sensitiveClass);
+  }
+
+  return classes;
+});
+
+function edit() {
+  emit('edit');
+}
 </script>
 
 <style>
