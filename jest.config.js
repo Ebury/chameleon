@@ -1,9 +1,11 @@
 const customElements = new Set(['ec-stub']);
 
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest/presets/default',
   errorOnDeprecated: true,
   maxWorkers: '100%',
+  transform: {
+    '^.+\\.vue$': 'vue-jest',
+  },
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
   ],

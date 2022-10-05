@@ -30,4 +30,4 @@ basic.parameters = {
   actions: { disable: true },
 };
 
-export { fonts } from '../generic/fonts.story';
+export { fonts } from '../generic/fonts.story.jsx';

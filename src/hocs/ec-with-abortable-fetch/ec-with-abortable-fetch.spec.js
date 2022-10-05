@@ -214,8 +214,11 @@ describe('EcWithAbortableFetch', () => {
   });
 
   it('should stop fetching and keep the state intact if fetch for rejected because of AbortError', async () => {
-    class AbortError extends Error { // AbortError is not exposed in the DOM
-      name = 'AbortError';
+    class AbortError extends Error {// AbortError is not exposed in the DOM
+      constructor() {
+        super();
+        this.name = 'AbortError';
+      }
     }
     const error = new AbortError();
     const dataSource = {
