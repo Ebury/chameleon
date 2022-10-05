@@ -48,6 +48,11 @@ module.exports = {
         8: 'hsl(var(--ec-gray-color-level-8))',
       },
 
+      complementary: {
+        1: 'hsl(var(--ec-complementary-color-level-1))',
+        2: 'hsl(var(--ec-complementary-color-level-2))',
+      },
+
       additional: {
         18: 'hsl(var(--ec-additional-color-level-18))',
         51: 'hsl(var(--ec-additional-color-level-51))',
@@ -127,6 +132,7 @@ module.exports = {
     backgroundColor: theme => theme('colors'),
     backgroundImage: {
       none: 'none',
+      'gradient-1': 'linear-gradient(132.46deg, theme(colors.complementary.2) 21.71%, theme(colors.key.4) 73.94%)',
       // 'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
       // 'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
       // 'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
@@ -937,7 +943,7 @@ module.exports = {
     backgroundBlendMode: [ /* 'responsive' */ ],
     backgroundClip: [ /* 'responsive' */ ],
     backgroundColor: [ /* 'responsive', 'dark', 'group-hover', 'focus-within', */ 'hover', 'focus' ],
-    backgroundImage: [ /* 'responsive' */ ],
+    backgroundImage: [ 'responsive' ],
     backgroundOpacity: [ /* 'responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus' */ ],
     backgroundPosition: [ /* 'responsive' */ ],
     backgroundRepeat: [ /* 'responsive' */ ],
