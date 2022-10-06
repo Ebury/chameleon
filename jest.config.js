@@ -4,7 +4,8 @@ module.exports = {
   errorOnDeprecated: true,
   maxWorkers: '100%',
   transform: {
-    '^.+\\.vue$': 'vue-jest',
+    '\\.[jt]s?$': 'babel-jest',
+    '^.+\\.vue$': 'vue3-jest',
   },
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
@@ -51,13 +52,5 @@ module.exports = {
       },
     },
   },
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'json',
-    // tell Jest to handle *.vue files
-    'vue',
-    'cjs',
-    'mjs',
-  ],
+  testEnvironment: 'jsdom',
 };

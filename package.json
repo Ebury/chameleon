@@ -70,6 +70,7 @@
     "@storybook/theming": "6.5.12",
     "@storybook/vue3": "6.5.12",
     "@testing-library/jest-dom": "5.16.5",
+    "@vue/babel-preset-app": "^5.0.8",
     "@vue/eslint-config-airbnb": "6.0.0",
     "@vue/test-utils": "2.0.2",
     "@vue/vue3-jest": "27.0.0",
@@ -102,8 +103,8 @@
     "svg-sprite-loader": "6.0.11",
     "svgo": "2.8.0",
     "svgo-loader": "3.0.1",
-    "vue-jest": "^5.0.0-alpha.10",
     "vue-router": "4.1.5",
+    "vue3-jest": "^27.0.0-alpha.1",
     "wait-on": "6.0.1",
     "webpack-cli": "^4.10.0",
     "yorkie": "2.0.0"
