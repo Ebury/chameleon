@@ -485,6 +485,22 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
     </ec-stub>
   </div>
   
+  <!-- TODO ONL-4893
+    &lt;button
+      type="button"
+      data-test="ec-table-filter__less-filters-button"
+      class="ec-table-filter__less-filters-button"
+      @click="onToggleMoreFilters()"
+    &gt;
+      {{ toggleMoreFiltersText }}
+      &lt;ec-icon
+        class="ec-table-filter__less-filters-button--icon"
+        :size="16"
+        :name="toggleMoreFiltersButtonIcon"
+        type="interactive"
+      /&gt;
+    &lt;/button&gt;
+    -->
   <!--v-if-->
 </section>
 `;
@@ -975,6 +991,22 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
     </ec-stub>
   </div>
   
+  <!-- TODO ONL-4893
+    &lt;button
+      type="button"
+      data-test="ec-table-filter__less-filters-button"
+      class="ec-table-filter__less-filters-button"
+      @click="onToggleMoreFilters()"
+    &gt;
+      {{ toggleMoreFiltersText }}
+      &lt;ec-icon
+        class="ec-table-filter__less-filters-button--icon"
+        :size="16"
+        :name="toggleMoreFiltersButtonIcon"
+        type="interactive"
+      /&gt;
+    &lt;/button&gt;
+    -->
   <!--v-if-->
 </section>
 `;
@@ -1464,6 +1496,22 @@ exports[`EcTableFilter should render correctly if all the required props are pas
     </ec-stub>
   </div>
   
+  <!-- TODO ONL-4893
+    &lt;button
+      type="button"
+      data-test="ec-table-filter__less-filters-button"
+      class="ec-table-filter__less-filters-button"
+      @click="onToggleMoreFilters()"
+    &gt;
+      {{ toggleMoreFiltersText }}
+      &lt;ec-icon
+        class="ec-table-filter__less-filters-button--icon"
+        :size="16"
+        :name="toggleMoreFiltersButtonIcon"
+        type="interactive"
+      /&gt;
+    &lt;/button&gt;
+    -->
   <!--v-if-->
 </section>
 `;
@@ -1954,6 +2002,22 @@ exports[`EcTableFilter should render custom attributes 1`] = `
     </ec-stub>
   </div>
   
+  <!-- TODO ONL-4893
+    &lt;button
+      type="button"
+      data-test="ec-table-filter__less-filters-button"
+      class="ec-table-filter__less-filters-button"
+      @click="onToggleMoreFilters()"
+    &gt;
+      {{ toggleMoreFiltersText }}
+      &lt;ec-icon
+        class="ec-table-filter__less-filters-button--icon"
+        :size="16"
+        :name="toggleMoreFiltersButtonIcon"
+        type="interactive"
+      /&gt;
+    &lt;/button&gt;
+    -->
   <!--v-if-->
 </section>
 `;
@@ -2458,6 +2522,22 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
     </ec-stub>
   </div>
   
+  <!-- TODO ONL-4893
+    &lt;button
+      type="button"
+      data-test="ec-table-filter__less-filters-button"
+      class="ec-table-filter__less-filters-button"
+      @click="onToggleMoreFilters()"
+    &gt;
+      {{ toggleMoreFiltersText }}
+      &lt;ec-icon
+        class="ec-table-filter__less-filters-button--icon"
+        :size="16"
+        :name="toggleMoreFiltersButtonIcon"
+        type="interactive"
+      /&gt;
+    &lt;/button&gt;
+    -->
   <button
     class="ec-table-filter__clear-filters-button"
     data-test="ec-table-filter__clear-filters-button"

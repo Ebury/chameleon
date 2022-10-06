@@ -1,5 +1,4 @@
 <template>
-  <!-- If it is a router link -->
   <router-link
     v-if="isRouterLink"
     v-bind="{
@@ -31,7 +30,6 @@
 
   </router-link>
 
-  <!-- If is a normal link that directs you outside the SPA -->
   <a
     v-else
     v-bind="{
