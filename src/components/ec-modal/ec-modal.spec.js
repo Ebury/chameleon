@@ -42,20 +42,6 @@ describe('EcModal', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should be focus trapped', async () => {
-    const div = document.createElement('div');
-    div.id = 'root';
-    document.body.appendChild(div);
-    const wrapper = mountModal({ show: true }, { attachTo: '#root' });
-    await wrapper.findByDataTest('ec-modal__close').element.focus();
-    await wrapper.findByDataTest('ec-modal__close').trigger('keydown', {
-      key: '9',
-    });
-    await wrapper.vm.$nextTick();
-    // the only focusable element keep the focus
-    expect(wrapper.findByDataTest('ec-modal__close').element).toHaveFocus();
-  });
-
   it('should be called with the "useFocusTrap composable" mandatory options', () => {
     mountModal({ show: true });
     const options = useFocusTrap.mock.calls[0][1];
