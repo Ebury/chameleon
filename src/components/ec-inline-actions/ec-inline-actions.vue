@@ -67,54 +67,53 @@
   </ec-popover>
 </template>
 
-<script>
-import EcClosePopover from '../../directives/ec-close-popover';
-import EcTooltip from '../../directives/ec-tooltip';
+<script setup>
+import VEcClosePopover from '../../directives/ec-close-popover';
+import VEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import EcPopover from '../ec-popover';
 
-export default {
-  components: { EcPopover, EcIcon },
-  directives: { EcClosePopover, EcTooltip },
-  props: {
-    items: {
-      type: Array,
-      required: true,
-    },
-    popoverOptions: {
-      type: Object,
-    },
+defineProps({
+  items: {
+    type: Array,
+    required: true,
   },
-  methods: {
-    doAction(item) {
-      return (item.action && !item.disabled) && item.action();
-    },
-    componentTag(item) {
-      if (item.href) {
-        return 'a';
-      }
-      return 'button';
-    },
-    getDownloadAttr(item) {
-      if (item.disabled) {
-        return null;
-      }
-      if (!!item.href && !!item.download) {
-        return item.download;
-      }
-      if (!!item.href && item.download === '') {
-        return '';
-      }
-      return null;
-    },
-    getHrefAttr(item) {
-      return !!item.href && !item.disabled ? item.href : null;
-    },
-    getDisabledAttr(item) {
-      return !item.href ? item.disabled : null;
-    },
+  popoverOptions: {
+    type: Object,
   },
-};
+});
+
+function doAction(item) {
+  return (item.action && !item.disabled) && item.action();
+}
+
+function componentTag(item) {
+  if (item.href) {
+    return 'a';
+  }
+  return 'button';
+}
+
+function getDownloadAttr(item) {
+  if (item.disabled) {
+    return null;
+  }
+  if (!!item.href && !!item.download) {
+    return item.download;
+  }
+  if (!!item.href && item.download === '') {
+    return '';
+  }
+  return null;
+}
+
+function getHrefAttr(item) {
+  return item.href && !item.disabled ? item.href : null;
+}
+
+function getDisabledAttr(item) {
+  return !item.href ? item.disabled : null;
+}
 </script>
 
 <style>

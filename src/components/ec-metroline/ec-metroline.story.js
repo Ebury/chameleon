@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 
 import EcBtn from '../ec-btn/ec-btn.vue';
 import EcIcon from '../ec-icon/ec-icon.vue';
-import EcMetrolineItem from '../ec-metroline-item';
+import EcMetrolineItem from './components/ec-metroline-item';
 import EcMetroline from './ec-metroline.vue';
 
 export default {
