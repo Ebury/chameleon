@@ -1,10 +1,17 @@
 const customElements = new Set(['ec-stub']);
 
 module.exports = {
+  testEnvironment: 'jsdom',
+  moduleFileExtensions: [
+    'js',
+    'jsx',
+    'json',
+    'vue',
+  ],
   errorOnDeprecated: true,
   maxWorkers: '100%',
   transform: {
-    '\\.[jt]s?$': 'babel-jest',
+    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.vue$': 'vue3-jest',
   },
   transformIgnorePatterns: [
@@ -12,6 +19,9 @@ module.exports = {
   ],
   testMatch: [
     '<rootDir>/src/**/*.spec.(js|jsx|ts|tsx)',
+  ],
+  snapshotSerializers: [
+    'jest-serializer-vue',
   ],
   setupFiles: [
     '<rootDir>/tests/setup/intl.js',
@@ -52,5 +62,5 @@ module.exports = {
       },
     },
   },
-  testEnvironment: 'jsdom',
+  testURL: 'http://localhost/',
 };
