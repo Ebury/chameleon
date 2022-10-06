@@ -1,13 +1,13 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies,import/no-webpack-loader-syntax */
 import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
+import bwTheme from '!!raw-loader!../src/styles/themes/b-w.css';
+import greenTheme from '!!raw-loader!../src/styles/themes/green.css';
+import hotpinkTheme from '!!raw-loader!../src/styles/themes/hotpink.css';
+import redTheme from '!!raw-loader!../src/styles/themes/red.css';
 import config from '../src/config';
 import { inlineSvgSprites } from '../src/icons/browser';
-import bwTheme from '../src/styles/themes/b-w.css';
-import greenTheme from '../src/styles/themes/green.css';
-import hotpinkTheme from '../src/styles/themes/hotpink.css';
-import redTheme from '../src/styles/themes/red.css';
 import { getAllBackgrounds } from './backgrounds';
 
 import '../src/styles/themes/blue.css';

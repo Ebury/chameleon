@@ -1,6 +1,7 @@
 import { generate, parse, walk } from 'css-tree';
 
-import tailwindCSS from './tailwind.story.css';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import tailwindCSS from '!!raw-loader!postcss-loader!./tailwind.story.css';
 
 const parsedCSS = parse(tailwindCSS);
 const rules = [];
