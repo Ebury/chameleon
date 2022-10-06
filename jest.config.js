@@ -33,6 +33,9 @@ module.exports = {
     '<rootDir>/tests/stubs/index.js',
     '<rootDir>/tests/mocks/index.js',
   ],
+  moduleNameMapper: {
+    '@vueuse/integrations/': '<rootDir>/node_modules/@vueuse/integrations',
+  },
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
