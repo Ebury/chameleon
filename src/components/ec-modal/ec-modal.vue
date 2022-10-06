@@ -162,14 +162,12 @@ const zIndexStyle = computed(() => (props.zIndex ? { zIndex: props.zIndex } : nu
 
 // focus trap
 const focusTrapTarget = ref(null);
-const focusTrapOptions = {
-  immediate: true,
-  escapeDeactivates: props.isClosable,
-  clickOutsideDeactivates: props.isClosable,
-};
+
 function getFocusTrapOptions() {
   const options = {
-    ...focusTrapOptions,
+    immediate: true,
+    escapeDeactivates: props.isClosable,
+    clickOutsideDeactivates: props.isClosable,
   };
 
   if (hasPositiveButton()) {
