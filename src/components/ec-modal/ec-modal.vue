@@ -180,7 +180,7 @@ function getFocusTrapOptions() {
 
   return options;
 }
-const { deactivate, pause, unpause } = useFocusTrap(focusTrapTarget, getFocusTrapOptions(focusTrapOptions));
+const { deactivate, pause, unpause } = useFocusTrap(focusTrapTarget, getFocusTrapOptions());
 watchEffect(() => {
   if (props.show) {
     unpause();
