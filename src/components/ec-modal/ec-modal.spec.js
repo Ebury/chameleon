@@ -1,10 +1,9 @@
 import { mount } from '@vue/test-utils';
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcModal from './ec-modal.vue';
-
-jest.mock('../../directives/ec-focus-trap');
 
 function mountModal(props, mountOpts) {
   return mount(EcModal, {
@@ -31,6 +30,17 @@ describe('EcModal', () => {
     const wrapper = mountModal();
     expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should be called with the "useFocusTrap composable" mandatory options', () => {
+    mountModal({ show: true });
+    const options = useFocusTrap.mock.calls[0][1];
+    expect(options)
+      .toEqual({
+        clickOutsideDeactivates: true,
+        escapeDeactivates: true,
+        immediate: true,
+      });
   });
 
   it('should render basic modal', () => {
@@ -386,6 +396,119 @@ describe('EcModal', () => {
 
       expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  describe('when second modal is present', () => {
+    it('should be rendered with a second modal', () => {
+      const template = `
+      <div>
+        <ec-modal
+          is-closable
+          large
+          v-model:show="showFirstModal">
+  
+          <template #header>
+            <h2>First Modal</h2>
+          </template>
+  
+          <template #main>
+            <div>
+              <button data-test="first-modal-action__btn">Action first modal</button>
+              <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+            </div>
+          </template>
+        </ec-modal>
+  
+        <ec-modal
+          is-closable
+          :z-index="zIndex"
+          v-model:show="showSecondModal">
+  
+          <template #header>
+            <h2>Second Modal</h2>
+          </template>
+  
+          <template #main>
+            <div>
+              <button data-test="second-modal-action__btn">Action second modal</button>
+              <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+            </div>
+          </template>
+        </ec-modal>
+      </div>
+    `;
+      const wrapper = mountModalAsTemplate(
+        template,
+        {},
+        {
+          data() {
+            return {
+              showFirstModal: true,
+              showSecondModal: true,
+              zIndex: 201,
+            };
+          },
+        },
+      );
+      expect(wrapper.findByDataTest('ec-modal').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('second-modal-action__btn').exists()).toBe(true);
+    });
+    it('should be rendered with a second modal button clickable', () => {
+      const template = `
+      <div>
+        <ec-modal
+          is-closable
+          large
+          v-model:show="showFirstModal">
+  
+          <template #header>
+            <h2>First Modal</h2>
+          </template>
+  
+          <template #main>
+            <div>
+              <button @click.prevent.stop="firstModalAction" data-test="first-modal-action__btn">Action first modal</button>
+              <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+            </div>
+          </template>
+        </ec-modal>
+  
+        <ec-modal
+          is-closable
+          :z-index="zIndex"
+          v-model:show="showSecondModal">
+  
+          <template #header>
+            <h2>Second Modal</h2>
+          </template>
+  
+          <template #main>
+            <div>
+              <button @click.prevent.stop="secondModalAction" data-test="second-modal-action__btn">Action second modal</button>
+              <p class="tw-mt-0">Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>
+            </div>
+          </template>
+        </ec-modal>
+      </div>
+    `;
+      const wrapper = mountModalAsTemplate(
+        template,
+        {},
+        {
+          data() {
+            return {
+              showFirstModal: true,
+              showSecondModal: true,
+              zIndex: 201,
+              firstModalAction: jest.fn(),
+              secondModalAction: jest.fn(),
+            };
+          },
+        },
+      );
+      wrapper.findByDataTest('second-modal-action__btn').trigger('click');
+      expect(wrapper.vm.secondModalAction).toHaveBeenCalled();
     });
   });
 });

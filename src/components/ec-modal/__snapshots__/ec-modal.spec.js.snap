@@ -3,7 +3,7 @@
 exports[`EcModal should have the ec-modal--lg class 1`] = `
 <div
   class="ec-modal__content ec-modal--lg"
-  data-test="ec-modal__content ec-mock ec-focus-trap-mock"
+  data-test="ec-modal__content"
 >
   <header
     class="ec-modal__header"
@@ -47,7 +47,7 @@ exports[`EcModal should have the style attribute z-index when the z-index props 
 >
   <div
     class="ec-modal__content"
-    data-test="ec-modal__content ec-mock ec-focus-trap-mock"
+    data-test="ec-modal__content"
   >
     <header
       class="ec-modal__header"
@@ -109,7 +109,7 @@ exports[`EcModal should render basic modal 1`] = `
   >
     <div
       class="ec-modal__content"
-      data-test="ec-modal__content ec-mock ec-focus-trap-mock"
+      data-test="ec-modal__content"
     >
       <header
         class="ec-modal__header"
@@ -484,7 +484,7 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
   >
     <div
       class="ec-modal__content"
-      data-test="ec-modal__content ec-mock ec-focus-trap-mock"
+      data-test="ec-modal__content"
     >
       <header
         class="ec-modal__header"
@@ -526,4 +526,63 @@ exports[`EcModal v-model should render the modal when we pass to model true 2`] 
 <transition-stub>
   <!--v-if-->
 </transition-stub>
+`;
+
+exports[`EcModal when second modal is present should be rendered with a second modal 1`] = `
+<div
+  class="ec-modal"
+  data-test="ec-modal"
+>
+  <div
+    class="ec-modal__content ec-modal--lg"
+    data-test="ec-modal__content"
+  >
+    <header
+      class="ec-modal__header"
+      data-test="ec-modal__header"
+    >
+      
+      <h2>
+        First Modal
+      </h2>
+      
+      <a
+        class="ec-modal__close"
+        data-test="ec-modal__close"
+        href="#"
+      >
+        <svg
+          class="ec-icon ec-modal__close-icon"
+          data-test="ec-modal__close-icon"
+          height="24"
+          width="24"
+        >
+          <use
+            xlink:href="#ec-simple-close"
+          />
+        </svg>
+      </a>
+    </header>
+    <main
+      class="ec-modal__main"
+      data-test="ec-modal__main"
+    >
+      
+      <div>
+        <button
+          data-test="first-modal-action__btn"
+        >
+          Action first modal
+        </button>
+        <p
+          class="tw-mt-0"
+        >
+          Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.
+        </p>
+      </div>
+      
+    </main>
+    <!--v-if-->
+  </div>
+</div>
 `;
