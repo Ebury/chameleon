@@ -22,7 +22,7 @@
     "lint:style": "stylelint ./src/**/*.{css,vue} --fix",
     "lint:style:no-fix": "stylelint ./src/**/*.{css,vue}",
     "test": "jest",
-    "test:watch": "vue-cli-service test:unit --watch",
+    "test:watch": "jest --watch",
     "test:visual": "cypress open",
     "test:visual:ci": "npm run start & wait-on http://localhost:42475/ && npm run test:visual:all",
     "test:visual:all": "cypress run --browser chrome --headless --config video=false,videosFolder=tests/integration/videos/chrome/,trashAssetsBeforeRuns=true && cypress run --browser firefox --headless --config video=false,videosFolder=tests/integration/videos/firefox/,trashAssetsBeforeRuns=false",
