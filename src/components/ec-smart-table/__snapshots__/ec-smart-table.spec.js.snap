@@ -461,22 +461,6 @@ exports[`EcSmartTable filtering should handle changes in filters and reload the 
     Test 2 (N/A)
   </div>
   
-  <!-- TODO ONL-4893
-    &lt;button
-      type="button"
-      data-test="ec-table-filter__less-filters-button"
-      class="ec-table-filter__less-filters-button"
-      @click="onToggleMoreFilters()"
-    &gt;
-      {{ toggleMoreFiltersText }}
-      &lt;ec-icon
-        class="ec-table-filter__less-filters-button--icon"
-        :size="16"
-        :name="toggleMoreFiltersButtonIcon"
-        type="interactive"
-      /&gt;
-    &lt;/button&gt;
-    -->
   <!--v-if-->
 </section>
 `;
@@ -500,22 +484,6 @@ exports[`EcSmartTable filtering should pass given prefilter to table filter 1`] 
     Test 2 (N/A)
   </div>
   
-  <!-- TODO ONL-4893
-    &lt;button
-      type="button"
-      data-test="ec-table-filter__less-filters-button"
-      class="ec-table-filter__less-filters-button"
-      @click="onToggleMoreFilters()"
-    &gt;
-      {{ toggleMoreFiltersText }}
-      &lt;ec-icon
-        class="ec-table-filter__less-filters-button--icon"
-        :size="16"
-        :name="toggleMoreFiltersButtonIcon"
-        type="interactive"
-      /&gt;
-    &lt;/button&gt;
-    -->
   <button
     class="ec-table-filter__clear-filters-button"
     data-test="ec-table-filter__clear-filters-button"
@@ -545,22 +513,6 @@ exports[`EcSmartTable filtering should render the given filters 1`] = `
     Test 2 (N/A)
   </div>
   
-  <!-- TODO ONL-4893
-    &lt;button
-      type="button"
-      data-test="ec-table-filter__less-filters-button"
-      class="ec-table-filter__less-filters-button"
-      @click="onToggleMoreFilters()"
-    &gt;
-      {{ toggleMoreFiltersText }}
-      &lt;ec-icon
-        class="ec-table-filter__less-filters-button--icon"
-        :size="16"
-        :name="toggleMoreFiltersButtonIcon"
-        type="interactive"
-      /&gt;
-    &lt;/button&gt;
-    -->
   <!--v-if-->
 </section>
 `;

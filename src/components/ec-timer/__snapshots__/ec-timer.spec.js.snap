@@ -37,9 +37,6 @@ exports[`EcTimer :props should render as expected 1`] = `
       x="50%"
       y="50%"
     >
-      <!--
-        @slot Additional text
-      -->
       20
       
       s
@@ -86,9 +83,6 @@ exports[`EcTimer @events should emit an event called "time-expired" after the co
       x="50%"
       y="50%"
     >
-      <!--
-        @slot Additional text
-      -->
       0
       
       s
@@ -135,9 +129,6 @@ exports[`EcTimer slots should render with the slot given 1`] = `
       x="50%"
       y="50%"
     >
-      <!--
-        @slot Additional text
-      -->
       20
       
       c

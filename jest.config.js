@@ -12,7 +12,7 @@ module.exports = {
   maxWorkers: '100%',
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
-    '^.+\\.vue$': 'vue3-jest',
+    '^.+\\.vue$': '@vue/vue3-jest',
   },
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
