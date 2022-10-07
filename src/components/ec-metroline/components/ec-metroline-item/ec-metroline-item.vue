@@ -109,7 +109,7 @@ import {
 } from 'vue';
 
 import EcIcon from '../../../ec-icon';
-import METROLINE_PROVIDE_KEY from '../../ec-metroline-provide';
+import { METROLINE_PROVIDE_KEY } from '../../ec-metroline-provide';
 
 const METROLINE_ITEM_STATUS = {
   next: 'next',
