@@ -10,7 +10,7 @@
 <script setup>
 import { provide, reactive, ref } from 'vue';
 
-import METROLINE_PROVIDE_KEY from './ec-metroline-provide';
+import { METROLINE_PROVIDE_KEY } from './ec-metroline-provide';
 
 const emit = defineEmits(['change', 'complete']);
 
