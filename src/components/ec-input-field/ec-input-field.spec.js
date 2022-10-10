@@ -45,6 +45,11 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('renders properly with the given prop autocomplete', () => {
+    const wrapper = mountInputField({ autocomplete: 'off' });
+    expect(wrapper.findByDataTest('ec-input-field__input').attributes('autocomplete')).toBe('off');
+  });
+
   it('renders properly with the given prop errorMessage', () => {
     const wrapper = mountInputField({ errorMessage: 'error msg' });
     expect(wrapper.element).toMatchSnapshot();

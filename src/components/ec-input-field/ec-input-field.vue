@@ -43,6 +43,7 @@
       }"
       ref="inputRef"
       v-model="inputModel"
+      :autocomplete="autocomplete"
     >
     <div
       v-if="isLoading || icon"
@@ -154,6 +155,10 @@ const props = defineProps({
   isWarning: {
     type: Boolean,
     default: false,
+  },
+  autocomplete: {
+    type: String,
+    default: null,
   },
 });
 
