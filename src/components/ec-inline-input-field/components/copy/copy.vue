@@ -3,7 +3,7 @@
     class="ec-inline-input-field-copy"
     data-test="ec-inline-input-field-copy"
   >
-    <span :class="textClasses">
+    <span :class="{ 'ec-inline-input-field-copy__text': true, [config.sensitiveClass]: isSensitive}">
       {{ value }}
     </span>
 
@@ -63,16 +63,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-});
-
-const textClasses = computed(() => {
-  const classes = ['ec-inline-input-field-copy__text'];
-
-  if (props.isSensitive) {
-    classes.push(config.sensitiveClass);
-  }
-
-  return classes;
 });
 
 const tooltipContent = computed(() => {

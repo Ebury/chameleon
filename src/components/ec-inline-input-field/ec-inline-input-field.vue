@@ -17,7 +17,7 @@
       <ec-inline-input-field-loading
         v-if="isLoading"
         :is-sensitive="isSensitive"
-        :value="valueForLoading"
+        :value="editedValue"
       />
       <ec-inline-input-field-edit
         v-else-if="isEditing"
@@ -26,7 +26,7 @@
         :is-sensitive="isSensitive"
         :error-message="errorMessage"
         :label-tooltip="labelTooltip"
-        @cancel="cancel"
+        @cancel="emit('cancel')"
         @submit="submit"
       />
       <ec-inline-input-field-value-text
@@ -34,7 +34,7 @@
         v-else
         :value="value"
         :is-sensitive="isSensitive"
-        @edit="edit"
+        @edit="emit('edit');"
       />
     </template>
 
@@ -48,7 +48,7 @@
 
     <div
       v-else
-      :class="textClasses"
+      :class="{ 'ec-inline-input-field__content': true, [config.sensitiveClass]: isSensitive}"
     >
       <slot />
     </div>
@@ -56,7 +56,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 
 import config from '../../config';
 import VEcTooltip from '../../directives/ec-tooltip';
@@ -113,26 +113,10 @@ const props = defineProps({
 
 const emit = defineEmits(['cancel', 'edit', 'submit']);
 
-const valueForLoading = ref(null);
+const editedValue = ref(props.value);
 
-const textClasses = computed(() => {
-  const classes = ['ec-inline-input-field__content'];
-
-  if (props.isSensitive) {
-    classes.push(config.sensitiveClass);
-  }
-
-  return classes;
-});
-
-function cancel() {
-  emit('cancel');
-}
-function edit() {
-  emit('edit');
-}
 function submit(data) {
-  valueForLoading.value = data.value;
+  editedValue.value = data.value;
   emit('submit', data.value);
 }
 </script>

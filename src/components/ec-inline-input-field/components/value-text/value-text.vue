@@ -3,16 +3,14 @@
     class="ec-inline-input-field-value-text"
     data-test="ec-inline-input-field-value-text"
   >
-    <span
-      :class="textClasses"
-    >
+    <span :class="{'ec-inline-input-field-value-text__text': true, [config.sensitiveClass]: isSensitive}">
       {{ value }}
     </span>
     <button
       type="button"
       class="ec-inline-input-field-value-text__action"
       data-test="ec-inline-input-field-value-text__action"
-      @click="edit"
+      @click="emit('edit');"
     >
       <ec-icon
         class="ec-inline-input-field-value-text__edit-icon"
@@ -24,12 +22,10 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-
 import config from '../../../../config';
 import EcIcon from '../../../ec-icon';
 
-const props = defineProps({
+defineProps({
   value: {
     default: '',
     type: String,
@@ -41,20 +37,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['edit']);
-
-const textClasses = computed(() => {
-  const classes = ['ec-inline-input-field-value-text__text'];
-
-  if (props.isSensitive) {
-    classes.push(config.sensitiveClass);
-  }
-
-  return classes;
-});
-
-function edit() {
-  emit('edit');
-}
 </script>
 
 <style>

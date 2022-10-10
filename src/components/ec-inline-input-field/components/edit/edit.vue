@@ -23,7 +23,7 @@
         data-test="ec-inline-input-field-edit__input"
         :error-message="errorMessage"
         @keydown.enter="submit"
-        @keydown.esc="cancel"
+        @keydown.esc="emit('cancel');"
       />
       <div class="ec-inline-input-field-edit__actions">
         <button
@@ -42,7 +42,7 @@
           type="button"
           class="ec-inline-input-field-edit__action"
           data-test="ec-inline-input-field-edit__cancel-action"
-          @click="cancel"
+          @click="emit('cancel');"
         >
           <ec-icon
             class="ec-inline-input-field-edit__action-icon"
@@ -56,16 +56,16 @@
 </template>
 
 <script setup>
-import {
-  computed, nextTick, onMounted, ref,
-} from 'vue';
+import { nextTick, onMounted, ref } from 'vue';
 
 import VEcTooltip from '../../../../directives/ec-tooltip';
 import { getUid } from '../../../../utils/uid';
 import EcIcon from '../../../ec-icon';
 import EcInputField from '../../../ec-input-field';
 
-const inputId = computed(() => `ec-inline-input-field-edit__input-${getUid()}`);
+const inputId = `ec-inline-input-field-edit__input-${getUid()}`;
+const inputModel = ref(props.value);
+const input = ref(null);
 
 const props = defineProps({
   label: {
@@ -90,28 +90,13 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['cancel', 'submit', 'update:value']);
-
-const inputModel = computed({
-  get() {
-    return props.value;
-  },
-  set(value) {
-    emit('update:value', value);
-  },
-});
-
-const input = ref(null);
+const emit = defineEmits(['cancel', 'submit']);
 
 onMounted(() => {
   nextTick(() => {
     input.value.focus();
   });
 });
-
-function cancel() {
-  emit('cancel');
-}
 
 function submit() {
   emit('submit', { value: inputModel.value });
