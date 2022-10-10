@@ -177,7 +177,7 @@ const selectedTextValue = computed(() => {
 const shouldEmitFocus = ref(true);
 const triggerRef = ref(null);
 
-function onSelected(args) {
+function onSelected() {
   // return focus back to the readonly input
   if (triggerRef.value && triggerRef.value.inputRef !== document.activeElement) {
     shouldEmitFocus.value = false;
