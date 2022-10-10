@@ -3,7 +3,7 @@ module.exports = {
   reportUnusedDisableDirectives: true,
   env: {
     node: true,
-    es2021: true,
+    es2022: true,
   },
   extends: [
     'plugin:vue/vue3-recommended',
