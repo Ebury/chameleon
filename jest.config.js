@@ -49,4 +49,13 @@ module.exports = {
       },
     },
   },
+  moduleFileExtensions: [
+    'js',
+    'jsx',
+    'json',
+    // tell Jest to handle *.vue files
+    'vue',
+    'cjs',
+    'mjs',
+  ],
 };
