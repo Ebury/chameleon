@@ -4,10 +4,6 @@ import { defineComponent } from 'vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
-jest.mock('svg-country-flags/png100px/gb.png', () => '/my-path/gb.png');
-jest.mock('svg-country-flags/png100px/jm.png', () => '/my-path/jm.png');
-jest.mock('svg-country-flags/png100px/es.png', () => '/my-path/es.png');
-
 const countries = [
   { areaCode: '+44', text: 'United Kingdom', countryCode: 'GB' },
   { areaCode: '+1 658', text: 'Jamaica', countryCode: 'JM' },

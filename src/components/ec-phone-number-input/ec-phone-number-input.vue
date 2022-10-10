@@ -151,6 +151,8 @@
 </template>
 
 <script>
+import countries from 'svg-country-flags/countries.json';
+
 import EcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';
@@ -333,12 +335,11 @@ export default {
       this.$emit('phone-number-change', evt);
     },
     getCountryFlagPath(countryCode) {
-      if (!countryCode) {
+      if (!countryCode || !Object.keys(countries).includes(countryCode)) {
         return null;
       }
       try {
-        // eslint-disable-next-line global-require, import/no-dynamic-require
-        return require(`svg-country-flags/png100px/${countryCode.toLowerCase()}.png`);
+        return `svg-country-flags/png100px/${countryCode.toLowerCase()}.png`;
       } catch (err) {
         return null;
       }
