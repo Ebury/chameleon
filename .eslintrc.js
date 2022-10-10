@@ -3,9 +3,7 @@ module.exports = {
   reportUnusedDisableDirectives: true,
   env: {
     node: true,
-  },
-  parserOptions: {
-    parser: '@babel/eslint-parser',
+    es2022: true,
   },
   extends: [
     'plugin:vue/vue3-recommended',
@@ -95,4 +93,9 @@ module.exports = {
       },
     },
   ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
 };

@@ -1,14 +1,27 @@
 const customElements = new Set(['ec-stub']);
 
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest/presets/default',
+  testEnvironment: 'jsdom',
+  moduleFileExtensions: [
+    'js',
+    'jsx',
+    'json',
+    'vue',
+  ],
   errorOnDeprecated: true,
   maxWorkers: '100%',
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+    '^.+\\.vue$': '@vue/vue3-jest',
+  },
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
   ],
   testMatch: [
     '<rootDir>/src/**/*.spec.(js|jsx|ts|tsx)',
+  ],
+  snapshotSerializers: [
+    'jest-serializer-vue',
   ],
   setupFiles: [
     '<rootDir>/tests/setup/intl.js',
@@ -20,6 +33,9 @@ module.exports = {
     '<rootDir>/tests/stubs/index.js',
     '<rootDir>/tests/mocks/index.js',
   ],
+  moduleNameMapper: {
+    '@vueuse/integrations/': '<rootDir>/node_modules/@vueuse/integrations',
+  },
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
@@ -49,13 +65,4 @@ module.exports = {
       },
     },
   },
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'json',
-    // tell Jest to handle *.vue files
-    'vue',
-    'cjs',
-    'mjs',
-  ],
 };
