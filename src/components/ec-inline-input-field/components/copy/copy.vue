@@ -3,7 +3,7 @@
     class="ec-inline-input-field-copy"
     data-test="ec-inline-input-field-copy"
   >
-    <span :class="textClasses">
+    <span :class="{ 'ec-inline-input-field-copy__text': true, [config.sensitiveClass]: isSensitive}">
       {{ value }}
     </span>
 
@@ -32,90 +32,74 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import clipboardCopy from 'clipboard-copy';
+import { computed, ref } from 'vue';
 
 import config from '../../../../config';
-import EcTooltip from '../../../../directives/ec-tooltip';
+import VEcTooltip from '../../../../directives/ec-tooltip';
 import EcIcon from '../../../ec-icon';
 
-export default {
-  name: 'EcInlineInputFieldCopy',
-  components: { EcIcon },
-  directives: { EcTooltip },
-  props: {
-    value: {
-      default: '',
-      type: String,
-    },
-    tooltipOptions: {
-      type: Object,
-      default: null,
-    },
-    tooltipTextSuccess: {
-      type: String,
-      required: true,
-    },
-    tooltipTextError: {
-      type: String,
-      required: true,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data() {
-    return {
-      isCopied: null,
-    };
-  },
-  computed: {
-    textClasses() {
-      const classes = ['ec-inline-input-field-copy__text'];
+const isCopied = ref(null);
 
-      if (this.isSensitive) {
-        classes.push(config.sensitiveClass);
-      }
+const props = defineProps({
+  value: {
+    default: '',
+    type: String,
+  },
+  tooltipOptions: {
+    type: Object,
+    default: null,
+  },
+  tooltipTextSuccess: {
+    type: String,
+    required: true,
+  },
+  tooltipTextError: {
+    type: String,
+    required: true,
+  },
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+});
 
-      return classes;
-    },
-    tooltipContent() {
-      switch (this.isCopied) {
-        case true:
-          return this.tooltipTextSuccess;
-        case false:
-          return this.tooltipTextError;
-        default:
-          return '';
-      }
-    },
-    tooltipClasses() {
-      switch (this.isCopied) {
-        case true:
-          return 'ec-tooltip--bg-success';
-        case false:
-          return 'ec-tooltip--bg-error';
-        default:
-          return '';
-      }
-    },
-  },
-  methods: {
-    hideTooltip() {
-      this.isCopied = null;
-    },
-    copy() {
-      clipboardCopy(this.value)
-        .then(() => {
-          this.isCopied = true;
-        })
-        .catch(() => {
-          this.isCopied = false;
-        });
-    },
-  },
-};
+const tooltipContent = computed(() => {
+  switch (isCopied.value) {
+    case true:
+      return props.tooltipTextSuccess;
+    case false:
+      return props.tooltipTextError;
+    default:
+      return '';
+  }
+});
+
+const tooltipClasses = computed(() => {
+  switch (isCopied.value) {
+    case true:
+      return 'ec-tooltip--bg-success';
+    case false:
+      return 'ec-tooltip--bg-error';
+    default:
+      return '';
+  }
+});
+
+function hideTooltip() {
+  isCopied.value = null;
+}
+
+function copy() {
+  clipboardCopy(props.value)
+    .then(() => {
+      isCopied.value = true;
+    })
+    .catch(() => {
+      isCopied.value = false;
+    });
+}
 </script>
 
 <style>
