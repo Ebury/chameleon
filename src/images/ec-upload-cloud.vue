@@ -18,9 +18,3 @@
     />
   </svg>
 </template>
-
-<script>
-export default {
-  name: 'EcUploadCloud',
-};
-</script>
