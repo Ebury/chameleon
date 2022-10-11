@@ -278,7 +278,7 @@ watch(() => props.areWeekendsDisabled, () => {
   }
 });
 
-function onDayCreate(selectedDate, selectedDateFormatted, flatpickrInstance, dayElement) {
+function onDayCreate(selectedDate, selectedDateFormatted, _, dayElement) {
   const date = dayElement.dateObj;
   const isoDate = toIsoDate(date);
 

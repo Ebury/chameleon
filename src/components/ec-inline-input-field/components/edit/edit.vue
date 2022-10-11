@@ -23,7 +23,7 @@
         data-test="ec-inline-input-field-edit__input"
         :error-message="errorMessage"
         @keydown.enter="submit"
-        @keydown.esc="cancel"
+        @keydown.esc="emit('cancel');"
       />
       <div class="ec-inline-input-field-edit__actions">
         <button
@@ -42,7 +42,7 @@
           type="button"
           class="ec-inline-input-field-edit__action"
           data-test="ec-inline-input-field-edit__cancel-action"
-          @click="cancel"
+          @click="emit('cancel');"
         >
           <ec-icon
             class="ec-inline-input-field-edit__action-icon"
@@ -55,59 +55,52 @@
   </div>
 </template>
 
-<script>
-import EcTooltip from '../../../../directives/ec-tooltip';
+<script setup>
+import { nextTick, onMounted, ref } from 'vue';
+
+import VEcTooltip from '../../../../directives/ec-tooltip';
 import { getUid } from '../../../../utils/uid';
 import EcIcon from '../../../ec-icon';
 import EcInputField from '../../../ec-input-field';
 
-export default {
-  name: 'EcInlineInputFieldEdit',
-  components: { EcIcon, EcInputField },
-  directives: { EcTooltip },
-  props: {
-    label: {
-      default: '',
-      type: String,
-    },
-    value: {
-      default: '',
-      type: String,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
-    errorMessage: {
-      default: '',
-      type: String,
-    },
-    labelTooltip: {
-      default: '',
-      type: String,
-    },
+const inputId = `ec-inline-input-field-edit__input-${getUid()}`;
+const inputModel = ref(props.value);
+const input = ref(null);
+
+const props = defineProps({
+  label: {
+    default: '',
+    type: String,
   },
-  emits: ['cancel', 'submit'],
-  data() {
-    return {
-      inputId: `ec-inline-input-field-edit__input-${getUid()}`,
-      inputModel: this.value,
-    };
+  value: {
+    default: '',
+    type: String,
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$refs.input.focus();
-    });
+  isSensitive: {
+    type: Boolean,
+    default: false,
   },
-  methods: {
-    cancel() {
-      this.$emit('cancel');
-    },
-    submit() {
-      this.$emit('submit', { value: this.inputModel });
-    },
+  errorMessage: {
+    default: '',
+    type: String,
   },
-};
+  labelTooltip: {
+    default: '',
+    type: String,
+  },
+});
+
+const emit = defineEmits(['cancel', 'submit']);
+
+onMounted(() => {
+  nextTick(() => {
+    input.value.focus();
+  });
+});
+
+function submit() {
+  emit('submit', { value: inputModel.value });
+}
 </script>
 
 <style>

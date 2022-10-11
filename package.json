@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "2.1.11",
+  "version": "2.1.14",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -17,12 +17,12 @@
     "icons": "webpack --config ./src/icons/webpack.config.js --mode=production",
     "lint": "npm run lint:js && npm run lint:style",
     "lint:no-fix": "npm run lint:js:no-fix && npm run lint:style:no-fix",
-    "lint:js": "vue-cli-service lint ./",
-    "lint:js:no-fix": "vue-cli-service lint --no-fix ./",
+    "lint:js": "eslint --fix ./",
+    "lint:js:no-fix": "eslint --no-fix ./",
     "lint:style": "stylelint ./src/**/*.{css,vue} --fix",
     "lint:style:no-fix": "stylelint ./src/**/*.{css,vue}",
-    "test": "vue-cli-service test:unit",
-    "test:watch": "vue-cli-service test:unit --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "test:visual": "cypress open",
     "test:visual:ci": "npm run start & wait-on http://localhost:42475/ && npm run test:visual:all",
     "test:visual:all": "cypress run --browser chrome --headless --config video=false,videosFolder=tests/integration/videos/chrome/,trashAssetsBeforeRuns=true && cypress run --browser firefox --headless --config video=false,videosFolder=tests/integration/videos/firefox/,trashAssetsBeforeRuns=false",
@@ -49,8 +49,6 @@
     "vue": "3.2.39"
   },
   "devDependencies": {
-    "@babel/core": "7.19.1",
-    "@babel/eslint-parser": "7.19.1",
     "@fullhuman/postcss-purgecss": "4.0.3",
     "@sinonjs/fake-timers": "9.1.2",
     "@storybook/addon-a11y": "6.5.12",
@@ -68,8 +66,6 @@
     "@storybook/vue3": "6.5.12",
     "@testing-library/jest-dom": "5.16.5",
     "@vue/cli-plugin-babel": "5.0.8",
-    "@vue/cli-plugin-eslint": "5.0.8",
-    "@vue/cli-plugin-unit-jest": "5.0.8",
     "@vue/cli-service": "5.0.8",
     "@vue/compiler-sfc": "3.2.39",
     "@vue/eslint-config-airbnb": "6.0.0",
@@ -77,12 +73,11 @@
     "@vue/vue3-jest": "27.0.0",
     "autoprefixer": "10.4.12",
     "babel-jest": "27.5.1",
-    "babel-preset-vue": "2.0.2",
     "color": "4.2.3",
     "css-tree": "2.2.1",
     "cypress": "9.7.0",
     "cypress-image-snapshot": "4.0.1",
-    "eslint": "8.23.1",
+    "eslint": "8.24.0",
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-jest": "27.0.4",
     "eslint-plugin-simple-import-sort": "8.0.0",
@@ -90,6 +85,7 @@
     "eslint-plugin-vuejs-accessibility": "1.2.0",
     "intl": "1.2.5",
     "jest": "27.5.1",
+    "jest-serializer-vue": "2.0.2",
     "lint-staged": "13.0.3",
     "postcss": "8.4.16",
     "postcss-html": "1.5.0",
@@ -122,7 +118,7 @@
       "git add"
     ],
     "*.{vue,js,jsx}": [
-      "vue-cli-service lint",
+      "eslint --fix ./",
       "git add"
     ]
   }

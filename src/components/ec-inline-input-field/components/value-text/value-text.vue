@@ -3,16 +3,14 @@
     class="ec-inline-input-field-value-text"
     data-test="ec-inline-input-field-value-text"
   >
-    <span
-      :class="textClasses"
-    >
+    <span :class="{'ec-inline-input-field-value-text__text': true, [config.sensitiveClass]: isSensitive}">
       {{ value }}
     </span>
     <button
       type="button"
       class="ec-inline-input-field-value-text__action"
       data-test="ec-inline-input-field-value-text__action"
-      @click="edit"
+      @click="emit('edit');"
     >
       <ec-icon
         class="ec-inline-input-field-value-text__edit-icon"
@@ -23,41 +21,22 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import config from '../../../../config';
 import EcIcon from '../../../ec-icon';
 
-export default {
-  name: 'EcInlineInputFieldValueText',
-  components: { EcIcon },
-  props: {
-    value: {
-      default: '',
-      type: String,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
+defineProps({
+  value: {
+    default: '',
+    type: String,
   },
-  emits: ['edit'],
-  computed: {
-    textClasses() {
-      const classes = ['ec-inline-input-field-value-text__text'];
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+});
 
-      if (this.isSensitive) {
-        classes.push(config.sensitiveClass);
-      }
-
-      return classes;
-    },
-  },
-  methods: {
-    edit() {
-      this.$emit('edit');
-    },
-  },
-};
+const emit = defineEmits(['edit']);
 </script>
 
 <style>
