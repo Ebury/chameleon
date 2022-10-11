@@ -42,7 +42,18 @@ describe('EcInputField', () => {
 
   it('should display properly with the given props', () => {
     const wrapper = mountInputField();
+    expect(wrapper.findByDataTest('ec-input-field__input').attributes('autocomplete')).toBe(undefined);
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly with the given prop autocomplete OFF', () => {
+    const wrapper = mountInputField({ autocomplete: 'off' });
+    expect(wrapper.findByDataTest('ec-input-field__input').attributes('autocomplete')).toBe('off');
+  });
+
+  it('renders properly with the given prop autocomplete ON', () => {
+    const wrapper = mountInputField({ autocomplete: 'on' });
+    expect(wrapper.findByDataTest('ec-input-field__input').attributes('autocomplete')).toBe('on');
   });
 
   it('renders properly with the given prop errorMessage', () => {

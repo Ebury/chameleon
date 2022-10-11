@@ -80,6 +80,7 @@ exports[`EcAmountFilterInput :props should render with a note when the "note" is
 
 exports[`EcAmountFilterInput :props should render with a placeholder when "amountPlaceholder" is set 1`] = `
 <input
+  autocomplete="off"
   class="ec-input-field__input ec-input-field__input--is-in-group-left"
   data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
   id="ec-input-field-3"
@@ -196,6 +197,7 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
     >
       <!--v-if-->
       <input
+        autocomplete="off"
         class="ec-input-field__input ec-input-field__input--is-in-group-left my-sensitive-content-test-class"
         data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
         id="ec-input-field-3"
@@ -339,6 +341,7 @@ exports[`EcAmountFilterInput should render properly 1`] = `
     >
       <!--v-if-->
       <input
+        autocomplete="off"
         class="ec-input-field__input ec-input-field__input--is-in-group-left"
         data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
         id="ec-input-field-3"
