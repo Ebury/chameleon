@@ -35,7 +35,7 @@
     "prerelease": "npm run lint && npm run test",
     "release": "npm version patch && git tag -d v$(npm view . version) && npm publish && git push",
     "git-tag": "git tag v$(npm view . version) && git push origin v$(npm view . version)",
-    "currency-icons": "mkdir -p public/svg-country-flags/png100px && cp -R node_modules/svg-country-flags/png100px/ public/svg-country-flags/png100px"
+    "currency-icons": "mkdir -p public/icons/country-flags/100 && cp -R node_modules/svg-country-flags/png100px/ public/icons/country-flags/100"
   },
   "dependencies": {
     "@storybook/builder-vite": "0.2.3",

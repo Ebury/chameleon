@@ -10,9 +10,6 @@ jobs:
           name: install
           command: CYPRESS_INSTALL_BINARY=0 npm ci
       - run:
-          name: currency-icons
-          command: npm run currency-icons
-      - run:
           name: lint
           command: npm run lint:no-fix
       - run:

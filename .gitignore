@@ -8,6 +8,7 @@ tests/integration/videos/
 tests/integration/reports/
 tests/integration/snapshots/**/__diff_output__/*
 tests/integration/screenshots/visual-regression/*
+public/icons
 
 # local env files
 .env.local

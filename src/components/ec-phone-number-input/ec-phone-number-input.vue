@@ -339,7 +339,7 @@ export default {
         return null;
       }
       try {
-        return `svg-country-flags/png100px/${countryCode.toLowerCase()}.png`;
+        return `icons/country-flags/100/${countryCode.toLowerCase()}.png`;
       } catch (err) {
         return null;
       }
