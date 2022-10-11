@@ -29,13 +29,12 @@
     "prebuild-storybook": "npm run icons",
     "build-storybook": "build-storybook -o .out",
     "prestart": "npm run icons",
-    "start": "npm run currency-icons && start-storybook -p 42475",
+    "start": "start-storybook -p 42475",
     "serve": "npm run start",
     "now-build": "npm run build-storybook",
     "prerelease": "npm run lint && npm run test",
     "release": "npm version patch && git tag -d v$(npm view . version) && npm publish && git push",
-    "git-tag": "git tag v$(npm view . version) && git push origin v$(npm view . version)",
-    "currency-icons": "mkdir -p $PWD/public/icons/country-flags/100 && cp -R $PWD/node_modules/svg-country-flags/png100px/ $PWD/public/icons/country-flags/100"
+    "git-tag": "git tag v$(npm view . version) && git push origin v$(npm view . version)"
   },
   "dependencies": {
     "@storybook/builder-vite": "0.2.3",
