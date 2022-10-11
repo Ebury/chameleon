@@ -26,7 +26,7 @@
     "test:visual": "cypress open",
     "test:visual:ci": "npm run start & wait-on http://localhost:42475/ && npm run test:visual:all",
     "test:visual:all": "cypress run --browser chrome --headless --config video=false,videosFolder=tests/integration/videos/chrome/,trashAssetsBeforeRuns=true && cypress run --browser firefox --headless --config video=false,videosFolder=tests/integration/videos/firefox/,trashAssetsBeforeRuns=false",
-    "prebuild-storybook": "npm run icons && npm run currency-icons",
+    "prebuild-storybook": "npm run icons",
     "build-storybook": "build-storybook -o .out",
     "prestart": "npm run icons",
     "start": "npm run currency-icons && start-storybook -p 42475",

@@ -5,7 +5,7 @@ module.exports = {
     disableTelemetry: true,
     enableCrashReports: false,
   },
-  staticDirs: ['../public', '../src/assets'],
+  staticDirs: ['../public', '../src/assets', { from: '../node_modules/svg-country-flags/png100px/', to: '/icons/country-flags/100' }],
   stories: [
     '../src/**/*.story.mdx',
     '../src/**/*.story.@(js|jsx|ts|tsx)',
