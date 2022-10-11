@@ -58,6 +58,9 @@ All of our components are exported by name from `@ebury/chameleon-components`, s
 import { ComponentName } from '@ebury/chameleon-components';
 ```
 
+**Note! If you are going to use `ec-phone-number-input`, you must host icons from `node_modules/svg-country-flags/png100px/` in your page's root url with path `icons/country-flags/100`.**
+For example icon with path `node_modules/svg-country-flags/png100px/gb.png` should be available in your project by url `icons/country-flags/100/gb.png`.
+
 ## Theming
 
 The components can use a custom theme. There are four color palettes used by the CSS, two of them can be adjusted via
