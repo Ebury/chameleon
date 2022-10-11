@@ -17,6 +17,7 @@
           :columns="columns"
           :sorts="sorts"
           :sticky-column="stickyColumn"
+          :sticky-header="stickyHeader"
           @sort="onSort"
         />
         <tbody>
@@ -94,6 +95,10 @@ const props = defineProps({
     validator(value) {
       return ['left', 'right'].includes(value);
     },
+  },
+  stickyHeader: {
+    type: Boolean,
+    default: false,
   },
   title: String,
 });
