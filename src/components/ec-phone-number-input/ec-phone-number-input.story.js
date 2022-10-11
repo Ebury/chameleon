@@ -55,6 +55,6 @@ basic.args = {
     { areaCode: '+1 658', text: 'Jamaica', countryCode: 'JM' },
     { areaCode: '+260', text: 'Zambia', countryCode: 'ZM' },
     { areaCode: '+973', text: 'Bahrain', countryCode: 'BH' },
-    { areaCode: '+201', text: 'New Country', countryCode: '' },
+    { areaCode: '+201', text: 'New Country', countryCode: 'XX' },
   ],
 };

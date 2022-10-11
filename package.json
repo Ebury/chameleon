@@ -31,7 +31,6 @@
     "prestart": "npm run icons",
     "start": "start-storybook -p 42475",
     "serve": "npm run start",
-    "now-build": "npm run build-storybook",
     "prerelease": "npm run lint && npm run test",
     "release": "npm version patch && git tag -d v$(npm view . version) && npm publish && git push",
     "git-tag": "git tag v$(npm view . version) && git push origin v$(npm view . version)"
