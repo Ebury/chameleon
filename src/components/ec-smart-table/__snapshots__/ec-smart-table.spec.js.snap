@@ -1915,7 +1915,7 @@ exports[`EcSmartTable should pass props to the ec-table 1`] = `
               <tr>
                 
                 <th
-                  class="ec-table-head__cell ec-table-head__cell--sticky-left"
+                  class="ec-table-head__cell ec-table-head__cell--sticky ec-table-head__cell--sticky-left"
                   data-test="ec-table-head__cell ec-table-head__cell--0"
                   scope="col"
                 >
