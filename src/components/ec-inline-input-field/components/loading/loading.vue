@@ -23,24 +23,20 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import EcIcon from '../../../ec-icon';
 import EcInputField from '../../../ec-input-field';
 
-export default {
-  name: 'EcInlineInputFieldLoading',
-  components: { EcIcon, EcInputField },
-  props: {
-    value: {
-      default: '',
-      type: String,
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
+defineProps({
+  value: {
+    default: '',
+    type: String,
   },
-};
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+});
 </script>
 
 <style>
