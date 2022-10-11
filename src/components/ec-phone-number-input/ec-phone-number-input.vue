@@ -106,6 +106,7 @@
         :error-message="errorMessage"
         :is-sensitive="isSensitive"
         :placeholder="phoneNumberPlaceholder"
+        :autocomplete="autocomplete"
         @change="onPhoneNumberChange"
         @focus="$emit('focus')"
       />
@@ -236,6 +237,10 @@ export default {
       validator(value) {
         return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
       },
+    },
+    autocomplete: {
+      type: String,
+      default: null,
     },
   },
   emits: ['update:modelValue', 'change', 'focus', 'open', 'after-open', 'country-change', 'phone-number-change'],
