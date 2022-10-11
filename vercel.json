@@ -1,5 +1,5 @@
 {
   "name": "chameleon-components",
-  "buildCommand": "npm run build-storybook",
+  "buildCommand": "npm run prebuild-storybook && npm run build-storybook",
   "outputDirectory": ".out"
 }
