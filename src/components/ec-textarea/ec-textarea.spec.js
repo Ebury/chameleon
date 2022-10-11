@@ -27,7 +27,18 @@ describe('EcTextarea', () => {
   it('should render as expected', () => {
     const wrapper = mountTextarea();
 
+    expect(wrapper.findByDataTest('ec-textarea__textarea').attributes('autocomplete')).toBe(undefined);
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly with the given prop autocomplete OFF', () => {
+    const wrapper = mountTextarea({ autocomplete: 'off' });
+    expect(wrapper.findByDataTest('ec-textarea__textarea').attributes('autocomplete')).toBe('off');
+  });
+
+  it('renders properly with the given prop autocomplete ON', () => {
+    const wrapper = mountTextarea({ autocomplete: 'on' });
+    expect(wrapper.findByDataTest('ec-textarea__textarea').attributes('autocomplete')).toBe('on');
   });
 
   it('should render given custom attributes', () => {

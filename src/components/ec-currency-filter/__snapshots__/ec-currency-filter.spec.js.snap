@@ -206,6 +206,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
       <!--v-if-->
       <input
         aria-describedby="ec-amount-filter-input-7"
+        autocomplete="off"
         class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-error my-sensitive-content-test-class"
         data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
         id="ec-input-field-9"
@@ -644,6 +645,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
       >
         <!--v-if-->
         <input
+          autocomplete="off"
           class="ec-input-field__input ec-input-field__input--is-in-group-left"
           data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
           id="ec-input-field-9"
@@ -677,6 +679,7 @@ exports[`EcCurrencyFilter should render all given custom texts for amount tab 1`
 
 exports[`EcCurrencyFilter should render all given custom texts for amount tab 2`] = `
 <input
+  autocomplete="off"
   class="ec-input-field__input ec-input-field__input--is-in-group-left"
   data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
   id="ec-input-field-9"
@@ -1241,6 +1244,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                 >
                   <!--v-if-->
                   <input
+                    autocomplete="off"
                     class="ec-input-field__input ec-input-field__input--is-in-group-left"
                     data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
                     id="ec-input-field-9"
@@ -1479,6 +1483,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
       >
         <!--v-if-->
         <input
+          autocomplete="off"
           class="ec-input-field__input ec-input-field__input--is-in-group-left"
           data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
           id="ec-input-field-9"

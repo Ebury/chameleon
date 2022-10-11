@@ -46,6 +46,7 @@
       }"
       :aria-describedby="errorMessageId"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-textarea__textarea` : 'ec-textarea__textarea'"
+      :autocomplete="autocomplete"
     />
 
     <div
@@ -115,6 +116,10 @@ const props = defineProps({
   isWarning: {
     type: Boolean,
     default: false,
+  },
+  autocomplete: {
+    type: String,
+    default: null,
   },
 });
 

@@ -11,6 +11,7 @@
     }"
     v-model="inputModel"
     v-ec-amount="numberFormatOptions"
+    autocomplete="off"
   />
 </template>
 
