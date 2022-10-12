@@ -113,11 +113,12 @@ export default {
 
 .ec-navigation-link {
   @apply tw-h6;
-  @apply tw-py-12 tw-px-24;
+  @apply tw-py-20 tw-px-24;
   @apply tw-flex tw-items-center;
   @apply tw-no-underline;
   @apply tw-text-gray-8;
   @apply tw-whitespace-nowrap;
+  @apply tw-normal-case;
 
   font-style: normal;
 
@@ -132,7 +133,6 @@ export default {
   }
 
   &--is-compact {
-    @apply tw-normal-case;
     @apply tw-p-0;
   }
 
@@ -159,15 +159,11 @@ export default {
   }
 
   &--is-active {
-    @apply tw-bg-key-4;
+    @apply tw-text-key-4;
 
     &:hover,
     &:focus {
-      @apply tw-text-gray-8;
-    }
-
-    &:focus {
-      background-color: hsla(var(--ec-key-color-level-4), 0.9);
+      color: hsla(var(--ec-key-color-level-4), 0.8);
     }
   }
 }
