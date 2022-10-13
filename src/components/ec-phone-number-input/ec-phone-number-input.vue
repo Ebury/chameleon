@@ -244,6 +244,10 @@ export default {
       type: String,
       default: null,
     },
+    iconsStaticPrefix: {
+      type: String,
+      default: '',
+    },
   },
   emits: ['update:modelValue', 'change', 'focus', 'open', 'after-open', 'country-change', 'phone-number-change'],
   data() {
@@ -339,7 +343,7 @@ export default {
         return null;
       }
       try {
-        return `icons/country-flags/100/${countryCode.toLowerCase()}.png`;
+        return `${this.iconsStaticPrefix}/icons/country-flags/100/${countryCode.toLowerCase()}.png`;
       } catch (err) {
         return null;
       }

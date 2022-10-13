@@ -58,9 +58,10 @@ All of our components are exported by name from `@ebury/chameleon-components`, s
 import { ComponentName } from '@ebury/chameleon-components';
 ```
 
-**Note!** If you are going to use `ec-phone-number-input`, you must host icons from `node_modules/svg-country-flags/png100px/` in your page's root url with path `icons/country-flags/100`.
+**NOTE!** If you are going to use `ec-phone-number-input`, you must host icons from `node_modules/svg-country-flags/png100px/` in your project.
 
-For example icon with path `node_modules/svg-country-flags/png100px/gb.png` should be available in your project by url `icons/country-flags/100/gb.png`.
+For example icon with path `node_modules/svg-country-flags/png100px/gb.png` should be available in your project by url `[your static prefix]/icons/country-flags/100/gb.png`. 
+Static prefix could be change by setting up respective `ec-phone-number-input` property.
 
 ## Theming
 

@@ -46,10 +46,12 @@
     "focus-trap": "6.9.4",
     "mitt": "3.0.0",
     "postcss": "8.4.16",
-    "svg-country-flags": "1.2.10",
     "tailwindcss": "2.2.19",
     "vite": "3.0.9",
     "vue": "3.2.39"
+  },
+  "peerDependencies": {
+    "svg-country-flags": "1.2.10"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "4.0.3",
