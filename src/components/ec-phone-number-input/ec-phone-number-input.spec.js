@@ -206,6 +206,12 @@ describe('EcPhoneNumberInput', () => {
         expect(wrapper.findByDataTest('ec-popover-dropdown-search').attributes('level')).toBe(str);
       }
     });
+
+    it('should render with icon static prefix', () => {
+      const wrapper = mountPhoneNumberInput({ iconsStaticPrefix: '/static' });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('@events', () => {
