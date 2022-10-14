@@ -55,7 +55,6 @@
             totalRecords,
             maxHeight,
             stickyColumn,
-            stickyHeader,
             sorts,
           }"
           v-on="{

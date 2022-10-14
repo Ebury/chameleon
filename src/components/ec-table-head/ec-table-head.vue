@@ -11,10 +11,7 @@
         :style="getWidthStyle(column)"
         :data-test="`ec-table-head__cell ec-table-head__cell--${colIndex}`"
         class="ec-table-head__cell"
-        :class="[
-          getStickyColumnClass(colIndex, columns),
-          {'ec-table-head__cell--sticky': stickyHeader}
-        ]"
+        :class="getStickyColumnClass(colIndex, columns)"
         :colspan="column.span"
         scope="col"
       >
@@ -68,10 +65,6 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  stickyHeader: {
-    type: Boolean,
-    default: false,
-  },
   stickyColumn: {
     type: String,
     validator(value) {
@@ -98,9 +91,9 @@ function getWidthStyle(column) {
 
 function getStickyColumnClass(colIndex, columns) {
   if (props.stickyColumn === 'left' && colIndex === 0) {
-    return 'ec-table-head__cell--sticky ec-table-head__cell--sticky-left';
+    return 'ec-table-head__cell--sticky-left';
   } if (props.stickyColumn === 'right' && colIndex === columns.length - 1) {
-    return 'ec-table-head__cell--sticky ec-table-head__cell--sticky-right';
+    return 'ec-table-head__cell--sticky-right';
   }
   return null;
 }
@@ -139,16 +132,14 @@ function getStickyColumnClass(colIndex, columns) {
       inset 0 -1px 0 theme('colors.gray.6');
     border-collapse: separate;
 
-    &--sticky {
-      @apply tw-sticky;
-    }
-
     &--sticky-left {
+      @apply tw-sticky;
       @apply tw-left-0;
       @apply tw-z-level-2;
     }
 
     &--sticky-right {
+      @apply tw-sticky;
       @apply tw-right-0;
       @apply tw-z-level-2;
     }
