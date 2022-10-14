@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vite';
 

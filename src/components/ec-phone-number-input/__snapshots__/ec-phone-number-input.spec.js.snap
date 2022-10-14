@@ -1926,7 +1926,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
                   alt="United Kingdom"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/static/icons/country-flags/100/gb.png"
+                  src="static/prefix/icons/country-flags/100/gb.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1958,7 +1958,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
                   alt="Jamaica"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/static/icons/country-flags/100/jm.png"
+                  src="static/prefix/icons/country-flags/100/jm.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1990,7 +1990,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
                   alt="Spain"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/static/icons/country-flags/100/es.png"
+                  src="static/prefix/icons/country-flags/100/es.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"

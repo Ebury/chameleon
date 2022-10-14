@@ -23,7 +23,7 @@ module.exports = {
       name: '@storybook/addon-postcss',
       options: {
         postcssLoaderOptions: {
-          // eslint-disable-next-line global-require
+          // eslint-disable-next-line global-require,import/no-extraneous-dependencies
           implementation: require('postcss'),
         },
       },

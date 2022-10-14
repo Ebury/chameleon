@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
+import config from '../../config';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
 const countries = [
@@ -208,7 +209,8 @@ describe('EcPhoneNumberInput', () => {
     });
 
     it('should render with icon static prefix', () => {
-      const wrapper = mountPhoneNumberInput({ iconsStaticPrefix: '/static' });
+      config.iconsStaticPrefix = 'static/prefix';
+      const wrapper = mountPhoneNumberInput();
 
       expect(wrapper.element).toMatchSnapshot();
     });
