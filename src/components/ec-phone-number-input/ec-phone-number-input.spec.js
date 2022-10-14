@@ -209,10 +209,12 @@ describe('EcPhoneNumberInput', () => {
     });
 
     it('should render with icon static prefix', () => {
+      const iconsStaticPrefixPrev = config.iconsStaticPrefix;
       config.iconsStaticPrefix = 'static/prefix';
       const wrapper = mountPhoneNumberInput();
 
       expect(wrapper.element).toMatchSnapshot();
+      config.iconsStaticPrefix = iconsStaticPrefixPrev;
     });
   });
 
