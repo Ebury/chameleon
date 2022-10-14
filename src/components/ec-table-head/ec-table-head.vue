@@ -131,15 +131,14 @@ function getStickyColumnClass(colIndex, columns) {
       inset 0 1px 0 theme('colors.gray.6'),
       inset 0 -1px 0 theme('colors.gray.6');
     border-collapse: separate;
+    @apply tw-sticky;
 
     &--sticky-left {
-      @apply tw-sticky;
       @apply tw-left-0;
       @apply tw-z-level-2;
     }
 
     &--sticky-right {
-      @apply tw-sticky;
       @apply tw-right-0;
       @apply tw-z-level-2;
     }
