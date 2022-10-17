@@ -331,11 +331,7 @@ function isItemSelected(item) {
   return toRaw(item) === toRaw(props.modelValue);
 }
 
-const selectedItemIndex = computed(() => {
-  console.log(props.modelValue);
-  console.log(toRaw(props.modelValue));
-  return filteredItems.value.indexOf(toRaw(props.modelValue));
-});
+const selectedItemIndex = computed(() => filteredItems.value.indexOf(toRaw(props.modelValue)));
 
 // CTA
 const isCtaAreaFocused = ref(false);
