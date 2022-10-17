@@ -331,7 +331,11 @@ function isItemSelected(item) {
   return toRaw(item) === toRaw(props.modelValue);
 }
 
-const selectedItemIndex = computed(() => filteredItems.value.indexOf(toRaw(props.modelValue)));
+const selectedItemIndex = computed(() => {
+  console.log(props.modelValue);
+  console.log(toRaw(props.modelValue));
+  return filteredItems.value.indexOf(toRaw(props.modelValue));
+});
 
 // CTA
 const isCtaAreaFocused = ref(false);
@@ -408,15 +412,24 @@ function setOverflowHeight() {
 }
 
 // keyboard navigation (UP, DOWN arrows)
-function onArrowUpKeyDown() {
+function onArrowUpKeyDown(event) {
+  console.log(event);
   onArrowKey(ARROW_UP);
 }
 
-function onArrowDownKeyDown() {
+function onArrowDownKeyDown(event) {
+  console.log(event);
   onArrowKey(ARROW_DOWN);
 }
 
 function onArrowKey(key) {
+  const selectedItem = document.activeElement;
+  const focusedIndex = (findElementByContent(itemsOverflowContainer.value.children, selectedItem.innerText));
+  const itemToFocusOnIndex = getFocusIndex(itemsOverflowContainer.value.children, focusedIndex, key);
+  console.log(itemToFocusOnIndex);
+  if ((selectedItem.value === undefined || selectedItem.value < 0) && focusedIndex !== null) {
+    itemsOverflowContainer.value.children[itemToFocusOnIndex].children[0].focus();
+  }
   let nextItem;
 
   if (selectedItemIndex.value >= 0) {
@@ -466,6 +479,31 @@ function onEnterOrSpaceKeyDown() {
   } else {
     show();
   }
+}
+
+function matchExact(r, str) {
+  const match = str.match(r);
+  return match && str === match[0];
+}
+
+function findElementByContent(items, text) {
+  let i = 0;
+  const itemsLength = items.length;
+  for (i; i < itemsLength; i++) {
+    const item = items[i];
+    if (matchExact(item.textContent, text)) {
+      return i;
+    }
+  }
+  return null;
+}
+
+function getFocusIndex(items, index, key) {
+  if (key === 40) {
+    return index + 1 === items.length ? 0 : index + 1;
+  }
+
+  return index - 1 < 0 ? items.length - 1 : index - 1;
 }
 
 function closeViaKeyboardNavigation() {
