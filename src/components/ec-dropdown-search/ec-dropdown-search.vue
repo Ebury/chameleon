@@ -412,24 +412,24 @@ function setOverflowHeight() {
 }
 
 // keyboard navigation (UP, DOWN arrows)
-function onArrowUpKeyDown(event) {
-  console.log(event);
+function onArrowUpKeyDown() {
   onArrowKey(ARROW_UP);
 }
 
-function onArrowDownKeyDown(event) {
-  console.log(event);
+function onArrowDownKeyDown() {
   onArrowKey(ARROW_DOWN);
 }
 
 function onArrowKey(key) {
   const selectedItem = document.activeElement;
-  const focusedIndex = (findElementByContent(itemsOverflowContainer.value.children, selectedItem.innerText));
-  const itemToFocusOnIndex = getFocusIndex(itemsOverflowContainer.value.children, focusedIndex, key);
-  console.log(itemToFocusOnIndex);
-  if ((selectedItem.value === undefined || selectedItem.value < 0) && focusedIndex !== null) {
-    itemsOverflowContainer.value.children[itemToFocusOnIndex].children[0].focus();
+  if (!!itemsOverflowContainer.value.children && !!selectedItem.innerText) {
+    const focusedIndex = (findElementByContent(itemsOverflowContainer.value.children, selectedItem.innerText));
+    const itemToFocusOnIndex = getFocusIndex(itemsOverflowContainer.value.children, focusedIndex, key);
+    if ((selectedItem.value === undefined || selectedItem.value < 0) && focusedIndex !== null) {
+      itemsOverflowContainer.value.children[itemToFocusOnIndex].children[0].focus();
+    }
   }
+
   let nextItem;
 
   if (selectedItemIndex.value >= 0) {

@@ -23,6 +23,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
   describe('when dropdown is closed and the arrow down key is pressed', () => {
     it('should select the first item when no item is selected yet', async () => {
+      // console.log('items', items);
       const expectedItem = items[0];
       const wrapper = mountDropdownSearch({ items });
 
