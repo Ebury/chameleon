@@ -499,10 +499,11 @@ function findElementByContent(items, text) {
 }
 
 function getFocusIndex(items, index, key) {
+  // if key is arrow down
   if (key === 40) {
     return index + 1 === items.length ? 0 : index + 1;
   }
-
+  // if key is arrow up
   return index - 1 < 0 ? items.length - 1 : index - 1;
 }
 
