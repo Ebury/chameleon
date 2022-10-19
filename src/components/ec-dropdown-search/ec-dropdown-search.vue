@@ -417,14 +417,7 @@ function onArrowDownKeyDown() {
 }
 
 function onArrowKey(key) {
-  const selectedItem = document.activeElement;
-  if (!!itemsOverflowContainer.value.children && !!selectedItem.innerText) {
-    const focusedIndex = (findElementByContent(itemsOverflowContainer.value.children, selectedItem.innerText));
-    const itemToFocusOnIndex = getFocusIndex(itemsOverflowContainer.value.children, focusedIndex, key);
-    if ((selectedItem.value === undefined || selectedItem.value < 0) && focusedIndex !== null) {
-      itemsOverflowContainer.value.children[itemToFocusOnIndex].children[0].focus();
-    }
-  }
+  focusDropdownItem(key);
 
   let nextItem;
 
@@ -477,12 +470,25 @@ function onEnterOrSpaceKeyDown() {
   }
 }
 
+function focusDropdownItem(key) {
+  if (props.items.length > 0 && isOpen.value) {
+    const selectedItem = document.activeElement;
+    if (!!itemsOverflowContainer.value.children && !!selectedItem.innerText) {
+      const focusedItemIndex = (findListItemByContent(itemsOverflowContainer.value.children, selectedItem.innerText));
+      const itemToFocusIndex = getItemIndexToFocus(props.items, focusedItemIndex, key);
+      if ((selectedItem.value === undefined || selectedItem.value < 0) && focusedItemIndex !== null) {
+        itemsOverflowContainer.value.children[itemToFocusIndex].children[0].focus();
+      }
+    }
+  }
+}
+
 function matchExact(r, str) {
   const match = str.match(r);
   return match && str === match[0];
 }
 
-function findElementByContent(items, text) {
+function findListItemByContent(items, text) {
   let i = 0;
   const itemsLength = items.length;
   for (i; i < itemsLength; i++) {
@@ -494,7 +500,7 @@ function findElementByContent(items, text) {
   return null;
 }
 
-function getFocusIndex(items, index, key) {
+function getItemIndexToFocus(items, index, key) {
   // if key is arrow down
   if (key === 40) {
     return index + 1 === items.length ? 0 : index + 1;
@@ -616,6 +622,7 @@ export default {
 
   &__item {
     @apply tw-truncate;
+    @apply tw-relative;
 
     @mixin ec-dropdown-search-item;
     @mixin ec-dropdown-search-item-hover-effect;
@@ -638,6 +645,19 @@ export default {
       @apply tw-bg-gray-8;
       @apply tw-text-gray-6;
     }
+  }
+}
+
+.ec-btn-dropdown__item-link {
+  @apply tw-py-8;
+  @apply tw-px-16;
+  @apply tw-inset-0;
+  @apply tw-w-full;
+  @apply tw-h-full;
+  @apply tw-absolute;
+
+  &:focus {
+    @apply tw-bg-gray-7;
   }
 }
 </style>
