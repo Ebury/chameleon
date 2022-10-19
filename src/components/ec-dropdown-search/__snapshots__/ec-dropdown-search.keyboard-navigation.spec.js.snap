@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcDropdownSearch - Keyboard navigation when dropdown is closed and the arrow down key is pressed should focus on the next focusable item when another is already focused 1`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <li
+    class="ec-dropdown-search__item"
+    data-test="ec-dropdown-search__item ec-dropdown-search__item--1"
+    title="Pay"
+  >
+    <a
+      class="ec-btn-dropdown__item-link"
+      data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1"
+      href="/payments/?add-new-payment"
+    >
+      Pay
+    </a>
+  </li>,
+}
+`;
+
+exports[`EcDropdownSearch - Keyboard navigation when dropdown is open and TAB key is pressed should focus on the first dropdown item focusable 1`] = `
+<a
+  aria-current="page"
+  class="router-link-active router-link-exact-active ec-btn-dropdown__item-link"
+  data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0"
+  href="/convert-and-pay/"
+>
+  Convert & Pay
+</a>
+`;
