@@ -221,6 +221,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  trapFocus: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // popover styles
@@ -260,24 +264,40 @@ function show() {
   }
 }
 
+function waitForPopoverFocus() {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(resolve);
+      });
+    });
+  });
+}
+
 async function afterShow() {
   setOverflowHeight();
 
   emit('after-open');
 
   if (props.isSearchEnabled) {
-    await new Promise((resolve) => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          requestAnimationFrame(resolve);
-        });
-      });
-    });
-
+    await waitForPopoverFocus();
     focusSearch();
+  } else if (canFocusCta()) {
+    await waitForPopoverFocus();
+    focusCta();
+  } else {
+    await waitForPopoverFocus();
+    focusFirstItem();
   }
 
   updateScroll();
+}
+
+function focusFirstItem() {
+  const tabbableItem = findTabbableElement(itemElements.value[0]);
+  if (tabbableItem) {
+    tabbableItem.focus();
+  }
 }
 
 // search
@@ -342,8 +362,20 @@ function blurCta() {
   }
 }
 
+function findTabbableElement(element) {
+  return element.querySelector(
+    'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+  );
+}
+
 function focusCta() {
-  isCtaAreaFocused.value = true;
+  const ctaAreaElementFocusable = findTabbableElement(ctaAreaWrapper.value);
+  if (ctaAreaElementFocusable) {
+    ctaAreaElementFocusable.focus();
+    isCtaAreaFocused.value = true;
+  }
+
+  return ctaAreaElementFocusable;
 }
 
 function canFocusCta() {
@@ -417,8 +449,6 @@ function onArrowDownKeyDown() {
 }
 
 function onArrowKey(key) {
-  focusDropdownItem(key);
-
   let nextItem;
 
   if (selectedItemIndex.value >= 0) {
@@ -446,16 +476,11 @@ function onTabKeyDown(event) {
       blurCta();
     } else if (canFocusCta()) {
       event.preventDefault();
-      const ctaAreaElementFocusable = ctaAreaWrapper.value.querySelector(
-        'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-      );
-      if (ctaAreaElementFocusable) {
-        ctaAreaElementFocusable.focus();
-        focusCta();
-      } else {
+      const ctaAreaElementFocusable = focusCta();
+      if (!ctaAreaElementFocusable) {
         closeViaKeyboardNavigation();
       }
-    } else {
+    } else if (!props.trapFocus) {
       closeViaKeyboardNavigation();
     }
   }
@@ -468,45 +493,6 @@ function onEnterOrSpaceKeyDown() {
   } else {
     show();
   }
-}
-
-function focusDropdownItem(key) {
-  if (props.items.length > 0 && isOpen.value) {
-    const selectedItem = document.activeElement;
-    if (!!itemsOverflowContainer.value.children && !!selectedItem.innerText) {
-      const focusedItemIndex = (findListItemByContent(itemsOverflowContainer.value.children, selectedItem.innerText));
-      const itemToFocusIndex = getItemIndexToFocus(props.items, focusedItemIndex, key);
-      if ((selectedItem.value === undefined || selectedItem.value < 0) && focusedItemIndex !== null) {
-        itemsOverflowContainer.value.children[itemToFocusIndex].children[0].focus();
-      }
-    }
-  }
-}
-
-function matchExact(r, str) {
-  const match = str.match(r);
-  return match && str === match[0];
-}
-
-function findListItemByContent(items, text) {
-  let i = 0;
-  const itemsLength = items.length;
-  for (i; i < itemsLength; i++) {
-    const item = items[i];
-    if (matchExact(item.textContent, text)) {
-      return i;
-    }
-  }
-  return null;
-}
-
-function getItemIndexToFocus(items, index, key) {
-  // if key is arrow down
-  if (key === 40) {
-    return index + 1 === items.length ? 0 : index + 1;
-  }
-  // if key is arrow up
-  return index - 1 < 0 ? items.length - 1 : index - 1;
 }
 
 function closeViaKeyboardNavigation() {
