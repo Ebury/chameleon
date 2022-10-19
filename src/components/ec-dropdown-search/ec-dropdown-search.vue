@@ -647,17 +647,4 @@ export default {
     }
   }
 }
-
-.ec-btn-dropdown__item-link {
-  @apply tw-py-8;
-  @apply tw-px-16;
-  @apply tw-inset-0;
-  @apply tw-w-full;
-  @apply tw-h-full;
-  @apply tw-absolute;
-
-  &:focus {
-    @apply tw-bg-gray-7;
-  }
-}
 </style>

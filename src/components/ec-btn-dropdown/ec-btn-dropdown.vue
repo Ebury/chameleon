@@ -160,7 +160,17 @@ function getPopoverStyle() {
 
   &__item-link {
     @apply tw-text-gray-3;
-    @apply tw-inline-block tw-w-full;
+    @apply tw-inline-block;
+    @apply tw-py-8;
+    @apply tw-px-16;
+    @apply tw-inset-0;
+    @apply tw-w-full;
+    @apply tw-h-full;
+    @apply tw-absolute;
+
+    &:focus {
+      @apply tw-bg-gray-7;
+    }
 
     &:hover {
       @apply tw-no-underline;
