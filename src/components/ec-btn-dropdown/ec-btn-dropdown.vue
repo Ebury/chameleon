@@ -19,7 +19,7 @@
       {{ buttonText }}
     </ec-btn>
     <ec-dropdown-search
-      :trap-focus="trapFocus"
+      :trap-focus="true"
       :items="items"
       :is-search-enabled="false"
       :max-visible-items="Infinity"
@@ -98,10 +98,6 @@ const props = defineProps({
   },
   to: {
     type: [String, Object],
-  },
-  trapFocus: {
-    type: Boolean,
-    default: false,
   },
 });
 
