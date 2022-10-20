@@ -144,6 +144,7 @@
 </template>
 
 <script setup>
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import {
   computed,
   nextTick,
@@ -161,7 +162,6 @@ import EcLoading from '../ec-loading';
 import EcPopover from '../ec-popover';
 
 const emit = defineEmits(['update:modelValue', 'change', 'close', 'open', 'after-close', 'after-open']);
-
 const props = defineProps({
   placeholder: {
     type: String,
@@ -252,6 +252,7 @@ function hide() {
   if (isOpen.value) {
     isOpen.value = false;
     emit('close');
+    deactivate(); // deactivate focus trap
   }
 }
 
@@ -290,6 +291,7 @@ async function afterShow() {
     focusFirstItem();
   }
 
+  activate(); // activate focus trap
   updateScroll();
 }
 
@@ -354,7 +356,16 @@ function isItemSelected(item) {
 const selectedItemIndex = computed(() => filteredItems.value.indexOf(toRaw(props.modelValue)));
 
 // CTA
+const itemsOverflowContainer = ref(null);
 const isCtaAreaFocused = ref(false);
+const { deactivate, activate } = useFocusTrap(itemsOverflowContainer, getFocusTrapOptions());
+function getFocusTrapOptions() {
+  return {
+    immediate: false,
+    escapeDeactivates: true,
+    clickOutsideDeactivates: true,
+  };
+}
 
 function blurCta() {
   if (hasCta() && isCtaAreaFocused.value) {
@@ -383,7 +394,6 @@ function canFocusCta() {
 }
 
 // popover overflow (max-height and scroll position)
-const itemsOverflowContainer = ref(null);
 const itemElements = ref([]);
 const searchAreaWrapper = ref(null);
 const ctaAreaWrapper = ref(null);
