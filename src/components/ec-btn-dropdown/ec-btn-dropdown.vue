@@ -47,7 +47,7 @@
         >{{ item.text }}
         </a>
         <router-link
-          v-else
+          v-else-if="item.to"
           v-bind="item.attrs"
           :data-test="`ec-btn-dropdown__item-link ec-btn-dropdown__item-link--${index}`"
           class="ec-btn-dropdown__item-link"
