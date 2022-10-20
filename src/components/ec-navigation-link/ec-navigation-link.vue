@@ -72,8 +72,7 @@ export default {
 <script setup>
 import EcIcon from '../ec-icon/ec-icon.vue';
 
-// eslint-disable-next-line no-unused-vars
-const props = defineProps({
+defineProps({
   text: {
     type: String,
     required: true,
