@@ -49,50 +49,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       expect(wrapper.emitted('open')).toBeUndefined();
     });
 
-    it('should focus on the next focusable item when another is already focused', async () => {
-      const elem = document.createElement('div');
-      const dropdownItems = [
-        {
-          to: {
-            name: 'convert-and-pay',
-          },
-          attrs: {},
-          value: 'convert-and-pay',
-          text: 'Convert & Pay',
-          disabled: false,
-          disabledReason: '',
-        },
-        {
-          attrs: {},
-          href: '/payments/?add-new-payment',
-          value: 'pay',
-          text: 'Pay',
-          disabled: false,
-          disabledReason: '',
-        },
-      ];
-      document.body.appendChild(elem);
-      const wrapper = mountDropdownSearch({
-        items: dropdownItems,
-        isSearchEnabled: false,
-      }, {
-        slots: {
-          items: `
-          <li title="Convert & Pay" data-test="ec-dropdown-search__item ec-dropdown-search__item--0" class="ec-dropdown-search__item">
-            <a href="/convert-and-pay/" class="router-link-active router-link-exact-active ec-btn-dropdown__item-link" data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0" aria-current="page">Convert & Pay</a>
-          </li>
-          <li title="Pay" data-test="ec-dropdown-search__item ec-dropdown-search__item--1" class="ec-dropdown-search__item">
-            <a data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1" class="ec-btn-dropdown__item-link" href="/payments/?add-new-payment">Pay</a>
-          </li>`,
-        },
-        attachTo: elem,
-      });
-
-      await wrapper.findByDataTest('ec-btn-dropdown__item-link--0').element.focus();
-      await wrapper.findByDataTest('ec-btn-dropdown__item-link--0').trigger('keydown.down');
-      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-btn-dropdown__item-link--1').element);
-    });
-
     it('should skip those items that are disabled', async () => {
       const modelValue = items[2];
       const expectedItem = items[4];
@@ -105,64 +61,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
-    });
-
-    describe('when the item focused is the last one in the list', () => {
-      it('should focus on the first item of the list', async () => {
-        const elem = document.createElement('div');
-        const dropdownItems = [
-          {
-            to: {
-              name: 'convert-and-pay',
-            },
-            attrs: {},
-            value: 'convert-and-pay',
-            text: 'Convert & Pay',
-            disabled: false,
-            disabledReason: '',
-          },
-          {
-            attrs: {},
-            href: '/payments/?add-new-payment',
-            value: 'pay',
-            text: 'Pay',
-            disabled: false,
-            disabledReason: '',
-          },
-          {
-            to: {
-              name: 'convert',
-            },
-            attrs: {},
-            value: 'convert',
-            text: 'Convert',
-            disabled: false,
-          },
-        ];
-        document.body.appendChild(elem);
-        const wrapper = mountDropdownSearch({
-          items: dropdownItems,
-          isSearchEnabled: false,
-        }, {
-          slots: {
-            items: `
-            <li title="Convert & Pay" data-test="ec-dropdown-search__item ec-dropdown-search__item--0" class="ec-dropdown-search__item">
-              <a href="/convert-and-pay/" class="router-link-active router-link-exact-active ec-btn-dropdown__item-link" data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0" aria-current="page">Convert & Pay</a>
-            </li>
-            <li title="Pay" data-test="ec-dropdown-search__item ec-dropdown-search__item--1" class="ec-dropdown-search__item">
-              <a data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1" class="ec-btn-dropdown__item-link" href="/payments/?add-new-payment">Pay</a>
-            </li>
-            <li title="Convert" data-test="ec-dropdown-search__item ec-dropdown-search__item--2" class="ec-dropdown-search__item">
-              <a href="/convert/" class="ec-btn-dropdown__item-link" data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--2">Convert</a>
-            </li>`,
-          },
-          attachTo: elem,
-        });
-
-        await wrapper.findByDataTest('ec-btn-dropdown__item-link--2').element.focus();
-        await wrapper.findByDataTest('ec-btn-dropdown__item-link--2').trigger('keydown.down');
-        expect(document.activeElement).toBe(wrapper.findByDataTest('ec-btn-dropdown__item-link--0').element);
-      });
     });
   });
 
@@ -364,58 +262,10 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
   });
 
   describe('when dropdown is open and TAB key is pressed', () => {
-    it('should focus on the first dropdown item focusable', async () => {
-      const elem = document.createElement('div');
-      const dropdownItems = [
-        {
-          to: {
-            name: 'convert-and-pay',
-          },
-          attrs: {},
-          value: 'convert-and-pay',
-          text: 'Convert & Pay',
-          disabled: false,
-          disabledReason: '',
-        },
-        {
-          attrs: {},
-          href: '/payments/?add-new-payment',
-          value: 'pay',
-          text: 'Pay',
-          disabled: false,
-          disabledReason: '',
-        },
-      ];
-      document.body.appendChild(elem);
-      const wrapper = mountDropdownSearch({
-        items: dropdownItems,
-        isSearchEnabled: false,
-      }, {
-        slots: {
-          items: `
-          <li title="Convert & Pay" data-test="ec-dropdown-search__item ec-dropdown-search__item--0" class="ec-dropdown-search__item">
-            <a href="/convert-and-pay/" class="router-link-active router-link-exact-active ec-btn-dropdown__item-link" data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0" aria-current="page">Convert & Pay</a>
-          </li>
-          <li title="Pay" data-test="ec-dropdown-search__item ec-dropdown-search__item--1" class="ec-dropdown-search__item">
-            <a data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1" class="ec-btn-dropdown__item-link" href="/payments/?add-new-payment">Pay</a>
-          </li>`,
-        },
-        attachTo: elem,
-      });
-
-      expect(document.activeElement).toBe(document.body);
-      await openDropdown(wrapper);
-      expect(document.activeElement).toBe(document.body);
-
-      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.space');
-      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
-      expect(document.activeElement).toBe(wrapper.findByDataTest('ec-btn-dropdown__item-link--0').element);
-    });
-
     it('should focus the cta if cta is enabled', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
-      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false, trapFocus: true }, {
         slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -423,41 +273,18 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       });
 
       expect(document.activeElement).toBe(document.body);
-      await openDropdown(wrapper);
-      expect(document.activeElement).toBe(document.body);
 
+      await openDropdown(wrapper);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
-    });
-
-    it('should lose the focus and close if cta is enabled and is focused', async () => {
-      const elem = document.createElement('div');
-      document.body.appendChild(elem);
-
-      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
-        slots: {
-          cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
-        },
-        attachTo: elem,
-      });
-
-      expect(document.activeElement).toBe(document.body);
-      await openDropdown(wrapper);
-      expect(document.activeElement).toBe(document.body);
-
-      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
-      expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
-
-      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
-      expect(document.activeElement).toBe(document.body);
     });
 
     it('should focus the cta if cta is enabled and an item is selected', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false, trapFocus: true }, {
         slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -465,14 +292,12 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       });
 
       expect(document.activeElement).toBe(document.body);
-      await openDropdown(wrapper);
-      expect(document.activeElement).toBe(document.body);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      expect(document.activeElement).toBe(document.body);
-
+      await openDropdown(wrapper);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+      expect(document.activeElement).toMatchSnapshot();
     });
 
     it('should lose the focus and close if search is enabled', async () => {
@@ -626,7 +451,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     describe('when the search feature is not active', () => {
       it.each([
         ['enter'],
-        ['space'],
       ])('should be closed (by %s key)', async (key) => {
         const wrapper = mountDropdownSearch({
           items,

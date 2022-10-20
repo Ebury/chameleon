@@ -8,7 +8,8 @@
     ref="popoverWrapper"
     class="ec-dropdown-search"
     @keydown.tab="onTabKeyDown"
-    @keydown.enter.space.prevent="onEnterOrSpaceKeyDown"
+    @keydown.enter.prevent="onEnterKeyDown"
+    @keydown.space.prevent="onSpaceKeyDown"
     @keydown.up.prevent="onArrowUpKeyDown"
     @keydown.down.prevent="onArrowDownKeyDown"
     @keydown.esc="closeViaKeyboardNavigation"
@@ -65,7 +66,7 @@
                 :placeholder="placeholder"
                 class="ec-dropdown-search__search-input"
                 data-test="ec-dropdown-search__search-input"
-                @keydown.enter="onEnterOrSpaceKeyDown"
+                @keydown.enter="onEnterKeyDown"
                 @focus="isSearchInputFocused = true"
                 @blur="isSearchInputFocused = false"
               >
@@ -289,14 +290,17 @@ async function afterShow() {
   } else if (canFocusCta()) {
     await waitForPopoverFocus();
     focusCta();
+    if (props.trapFocus === true) {
+      activate(); // activate focus trap
+    }
   } else {
     await waitForPopoverFocus();
     focusFirstItem();
+    if (props.trapFocus === true) {
+      activate(); // activate focus trap
+    }
   }
 
-  if (props.trapFocus === true) {
-    activate(); // activate focus trap
-  }
   updateScroll();
 }
 
@@ -501,11 +505,18 @@ function onTabKeyDown(event) {
   }
 }
 
-// keyboard navigation (ESC or space bar)
-function onEnterOrSpaceKeyDown() {
+// keyboard navigation (enter)
+function onEnterKeyDown() {
   if (isOpen.value) {
     closeViaKeyboardNavigation();
   } else {
+    show();
+  }
+}
+
+// keyboard navigation (space bar)
+function onSpaceKeyDown() {
+  if (!isOpen.value) {
     show();
   }
 }
