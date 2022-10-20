@@ -373,6 +373,7 @@ function getFocusTrapOptions() {
     immediate: false,
     escapeDeactivates: true,
     clickOutsideDeactivates: true,
+    fallbackFocus: popoverWrapper,
   };
 }
 

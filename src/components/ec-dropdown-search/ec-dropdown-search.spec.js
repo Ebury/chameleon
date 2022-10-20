@@ -297,12 +297,10 @@ describe('EcDropdownSearch', () => {
       },
     });
     const options = useFocusTrap.mock.calls[0][1];
-    expect(options)
-      .toEqual({
-        clickOutsideDeactivates: true,
-        escapeDeactivates: true,
-        immediate: false,
-      });
+    expect(Boolean(options.clickOutsideDeactivates)).toBe(true);
+    expect(Boolean(options.escapeDeactivates)).toBe(true);
+    expect(Boolean(options.immediate)).toBe(false);
+    expect(Boolean(options.fallbackFocus)).toBe(true);
   });
 
   describe('filtering', () => {
