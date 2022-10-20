@@ -64,48 +64,49 @@
 </template>
 
 <script>
+export default {
+  inheritAttrs: false,
+};
+</script>
+
+<script setup>
 import EcIcon from '../ec-icon/ec-icon.vue';
 
-export default {
-  components: {
-    EcIcon,
+// eslint-disable-next-line no-unused-vars
+const props = defineProps({
+  text: {
+    type: String,
+    required: true,
   },
-  inheritAttrs: false,
-  props: {
-    text: {
-      type: String,
-      required: true,
-    },
-    iconName: String,
-    iconSize: {
-      default: 24,
-      type: Number,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
-    isRouterLink: {
-      type: Boolean,
-      default: false,
-    },
-    isActive: {
-      type: Boolean,
-      default: false,
-    },
-    isCollapsed: {
-      type: Boolean,
-      default: false,
-    },
-    isCompact: {
-      type: Boolean,
-      default: false,
-    },
-    target: {
-      type: String,
-    },
+  iconName: String,
+  iconSize: {
+    default: 24,
+    type: Number,
   },
-};
+  url: {
+    type: String,
+    required: true,
+  },
+  isRouterLink: {
+    type: Boolean,
+    default: false,
+  },
+  isActive: {
+    type: Boolean,
+    default: false,
+  },
+  isCollapsed: {
+    type: Boolean,
+    default: false,
+  },
+  isCompact: {
+    type: Boolean,
+    default: false,
+  },
+  target: {
+    type: String,
+  },
+});
 </script>
 
 <style>
