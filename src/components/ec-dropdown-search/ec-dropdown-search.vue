@@ -124,6 +124,7 @@
                   ...tooltipOptions,
                   ...item.tooltip,
                 }"
+                :tabindex="!hasLinksInItems ? 0: -1"
                 :title="item.text"
                 :data-test="`ec-dropdown-search__item ec-dropdown-search__item--${index}`"
                 :class="{
@@ -290,13 +291,13 @@ async function afterShow() {
   } else if (canFocusCta()) {
     await waitForPopoverFocus();
     focusCta();
-    if (props.trapFocus === true) {
+    if (props.trapFocus === true && hasLinksInItems.value) {
       activate(); // activate focus trap
     }
   } else {
     await waitForPopoverFocus();
     focusFirstItem();
-    if (props.trapFocus === true) {
+    if (props.trapFocus === true && hasLinksInItems.value) {
       activate(); // activate focus trap
     }
   }
@@ -548,6 +549,8 @@ function loseFocus() {
     ctaAreaElementFocusable.blur();
   }
 }
+
+const hasLinksInItems = computed(() => props.items.some(item => !!item.to || !!item.href));
 </script>
 
 <script>
