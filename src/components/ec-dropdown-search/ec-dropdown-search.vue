@@ -252,7 +252,10 @@ function hide() {
   if (isOpen.value) {
     isOpen.value = false;
     emit('close');
-    deactivate(); // deactivate focus trap
+
+    if (props.trapFocus === true) {
+      deactivate(); // deactivate focus trap
+    }
   }
 }
 
@@ -291,7 +294,9 @@ async function afterShow() {
     focusFirstItem();
   }
 
-  activate(); // activate focus trap
+  if (props.trapFocus === true) {
+    activate(); // activate focus trap
+  }
   updateScroll();
 }
 
