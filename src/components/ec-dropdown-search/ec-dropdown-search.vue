@@ -294,8 +294,12 @@ async function afterShow() {
       activate(); // activate focus trap
     }
   } else {
-    focusFirstItem();
-    if (props.trapFocus === true && hasLinksInItems.value) {
+    if (!hasLinksInItems.value) {
+      itemElements.value[0].focus();
+    } else {
+      focusFirstItem();
+    }
+    if (props.trapFocus === true) {
       activate(); // activate focus trap
     }
   }
@@ -658,6 +662,11 @@ export default {
       @apply tw-cursor-default;
       @apply tw-bg-gray-8;
       @apply tw-text-gray-6;
+    }
+
+    &:focus {
+      @apply tw-bg-gray-7;
+      @apply tw-outline-none;
     }
   }
 }
