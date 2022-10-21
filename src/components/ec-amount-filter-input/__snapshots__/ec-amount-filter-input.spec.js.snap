@@ -160,6 +160,7 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="More than"
             >
               
@@ -169,6 +170,7 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="Equal to"
             >
               
@@ -178,6 +180,7 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="Less than"
             >
               
@@ -304,6 +307,7 @@ exports[`EcAmountFilterInput should render properly 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="More than"
             >
               
@@ -313,6 +317,7 @@ exports[`EcAmountFilterInput should render properly 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="Equal to"
             >
               
@@ -322,6 +327,7 @@ exports[`EcAmountFilterInput should render properly 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="Less than"
             >
               

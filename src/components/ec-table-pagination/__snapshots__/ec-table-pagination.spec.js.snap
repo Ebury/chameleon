@@ -319,6 +319,7 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
           <li
             class="ec-dropdown-search__item"
             data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+            tabindex="0"
             title="5"
           >
             
@@ -328,6 +329,7 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
           <li
             class="ec-dropdown-search__item"
             data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+            tabindex="0"
             title="10"
           >
             
@@ -337,6 +339,7 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
           <li
             class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
             data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+            tabindex="0"
             title="50"
           >
             
@@ -346,6 +349,7 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
           <li
             class="ec-dropdown-search__item"
             data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+            tabindex="0"
             title="100"
           >
             
@@ -423,6 +427,7 @@ exports[`EcTablePagination should render as expected 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="5"
             >
               
@@ -432,6 +437,7 @@ exports[`EcTablePagination should render as expected 1`] = `
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="10"
             >
               
@@ -441,6 +447,7 @@ exports[`EcTablePagination should render as expected 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="50"
             >
               
@@ -450,6 +457,7 @@ exports[`EcTablePagination should render as expected 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="100"
             >
               

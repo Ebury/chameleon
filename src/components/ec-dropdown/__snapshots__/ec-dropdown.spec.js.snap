@@ -43,6 +43,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 1"
   >
     
@@ -56,6 +57,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 2"
   >
     
@@ -69,6 +71,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
   <li
     class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 3"
   >
     
@@ -84,6 +87,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
     data-ec-tooltip-mock-content="Random text"
     data-ec-tooltip-mock-placement="right"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 4"
   >
     
@@ -97,6 +101,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 5"
   >
     
@@ -801,6 +806,7 @@ exports[`EcDropdown should use given list-data-test attribute 1`] = `
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 1"
   >
     
@@ -810,6 +816,7 @@ exports[`EcDropdown should use given list-data-test attribute 1`] = `
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 2"
   >
     
@@ -819,6 +826,7 @@ exports[`EcDropdown should use given list-data-test attribute 1`] = `
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 3"
   >
     
@@ -830,6 +838,7 @@ exports[`EcDropdown should use given list-data-test attribute 1`] = `
     data-ec-tooltip-mock-content="Random text"
     data-ec-tooltip-mock-placement="right"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 4"
   >
     
@@ -839,6 +848,7 @@ exports[`EcDropdown should use given list-data-test attribute 1`] = `
   <li
     class="ec-dropdown-search__item"
     data-test="ec-dropdown-search__item ec-dropdown-search__item--4 ec-mock ec-tooltip-mock"
+    tabindex="0"
     title="Item 5"
   >
     

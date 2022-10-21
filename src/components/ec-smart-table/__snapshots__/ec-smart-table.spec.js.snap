@@ -578,6 +578,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="5"
             >
               
@@ -587,6 +588,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="10"
             >
               
@@ -596,6 +598,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="50"
             >
               
@@ -605,6 +608,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="100"
             >
               
@@ -739,6 +743,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="5"
             >
               
@@ -748,6 +753,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="10"
             >
               
@@ -757,6 +763,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="50"
             >
               
@@ -766,6 +773,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="100"
             >
               
@@ -914,6 +922,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="5"
             >
               
@@ -923,6 +932,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="10"
             >
               
@@ -932,6 +942,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="50"
             >
               
@@ -941,6 +952,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="100"
             >
               
@@ -1076,6 +1088,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="5"
             >
               
@@ -1085,6 +1098,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="10"
             >
               
@@ -1094,6 +1108,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="50"
             >
               
@@ -1103,6 +1118,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="100"
             >
               
@@ -1236,6 +1252,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="5"
             >
               
@@ -1245,6 +1262,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="10"
             >
               
@@ -1254,6 +1272,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="50"
             >
               
@@ -1263,6 +1282,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="100"
             >
               
@@ -1411,6 +1431,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                     <li
                       class="ec-dropdown-search__item"
                       data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+                      tabindex="0"
                       title="5"
                     >
                       
@@ -1420,6 +1441,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                     <li
                       class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
                       data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+                      tabindex="0"
                       title="10"
                     >
                       
@@ -1429,6 +1451,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                     <li
                       class="ec-dropdown-search__item"
                       data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+                      tabindex="0"
                       title="50"
                     >
                       
@@ -1438,6 +1461,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
                     <li
                       class="ec-dropdown-search__item"
                       data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+                      tabindex="0"
                       title="100"
                     >
                       
@@ -1611,6 +1635,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="5"
             >
               
@@ -1620,6 +1645,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
             <li
               class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="10"
             >
               
@@ -1629,6 +1655,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="50"
             >
               
@@ -1638,6 +1665,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              tabindex="0"
               title="100"
             >
               
