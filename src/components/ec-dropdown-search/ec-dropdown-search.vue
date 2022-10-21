@@ -124,7 +124,7 @@
                   ...tooltipOptions,
                   ...item.tooltip,
                 }"
-                :tabindex="!hasLinksInItems ? 0: -1"
+                :tabindex="hasLinksInItems ? -1: 0"
                 :title="item.text"
                 :data-test="`ec-dropdown-search__item ec-dropdown-search__item--${index}`"
                 :class="{
