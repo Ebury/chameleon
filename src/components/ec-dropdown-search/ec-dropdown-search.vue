@@ -552,7 +552,7 @@ function loseFocus() {
   }
 }
 
-const hasLinksInItems = computed(() => props.items.some(item => !!item.to || !!item.href));
+const hasLinksInItems = computed(() => props.items.some(item => item.to || item.href));
 </script>
 
 <script>
