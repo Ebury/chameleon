@@ -146,7 +146,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
                   alt="United Kingdom"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/gb.png"
+                  src="icons/country-flags/100/gb.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -178,7 +178,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
                   alt="Jamaica"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/jm.png"
+                  src="icons/country-flags/100/jm.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -210,7 +210,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
                   alt="Spain"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/es.png"
+                  src="icons/country-flags/100/es.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -534,7 +534,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
                   alt="United Kingdom"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/gb.png"
+                  src="icons/country-flags/100/gb.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -566,7 +566,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
                   alt="Jamaica"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/jm.png"
+                  src="icons/country-flags/100/jm.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -598,7 +598,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
                   alt="Spain"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/es.png"
+                  src="icons/country-flags/100/es.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -809,7 +809,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
                   alt="United Kingdom"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/gb.png"
+                  src="icons/country-flags/100/gb.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -841,7 +841,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
                   alt="Jamaica"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/jm.png"
+                  src="icons/country-flags/100/jm.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -873,7 +873,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
                   alt="Spain"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/es.png"
+                  src="icons/country-flags/100/es.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1083,7 +1083,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
                   alt="United Kingdom"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/gb.png"
+                  src="icons/country-flags/100/gb.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1115,7 +1115,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
                   alt="Jamaica"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/jm.png"
+                  src="icons/country-flags/100/jm.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1147,7 +1147,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
                   alt="Spain"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/es.png"
+                  src="icons/country-flags/100/es.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1355,7 +1355,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
                   alt="United Kingdom"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/gb.png"
+                  src="icons/country-flags/100/gb.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1387,7 +1387,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
                   alt="Jamaica"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/jm.png"
+                  src="icons/country-flags/100/jm.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1419,7 +1419,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
                   alt="Spain"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/es.png"
+                  src="icons/country-flags/100/es.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1653,7 +1653,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
                   alt="United Kingdom"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/gb.png"
+                  src="icons/country-flags/100/gb.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1685,7 +1685,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
                   alt="Jamaica"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/jm.png"
+                  src="icons/country-flags/100/jm.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1717,7 +1717,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
                   alt="Spain"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/es.png"
+                  src="icons/country-flags/100/es.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1926,7 +1926,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
                   alt="United Kingdom"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="static/prefix/icons/country-flags/100/gb.png"
+                  src="static/prefixicons/country-flags/100/gb.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1958,7 +1958,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
                   alt="Jamaica"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="static/prefix/icons/country-flags/100/jm.png"
+                  src="static/prefixicons/country-flags/100/jm.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -1990,7 +1990,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
                   alt="Spain"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="static/prefix/icons/country-flags/100/es.png"
+                  src="static/prefixicons/country-flags/100/es.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -2189,7 +2189,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
                   alt="United Kingdom"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/gb.png"
+                  src="icons/country-flags/100/gb.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -2221,7 +2221,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
                   alt="Jamaica"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/jm.png"
+                  src="icons/country-flags/100/jm.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -2253,7 +2253,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
                   alt="Spain"
                   class="ec-phone-number-input__countries-item-flag"
                   data-test="ec-phone-number-input__countries-item-flag"
-                  src="/icons/country-flags/100/es.png"
+                  src="icons/country-flags/100/es.png"
                 />
                 <span
                   class="ec-phone-number-input__countries-item-name"
@@ -2390,7 +2390,7 @@ exports[`EcPhoneNumberInput v-model should preselect the country item in the dro
   <img
     class="ec-phone-number-input__countries-selected-image"
     data-test="ec-phone-number-input__countries-selected-image"
-    src="/icons/country-flags/100/gb.png"
+    src="icons/country-flags/100/gb.png"
   />
   <span
     class="ec-phone-number-input__countries-selected-area-code"

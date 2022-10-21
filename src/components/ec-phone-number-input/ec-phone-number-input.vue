@@ -342,7 +342,7 @@ export default {
         return null;
       }
       try {
-        return `${config.iconsStaticPrefix}/icons/country-flags/100/${countryCode.toLowerCase()}.png`;
+        return `${config.iconsStaticPrefix}icons/country-flags/100/${countryCode.toLowerCase()}.png`;
       } catch (err) {
         return null;
       }
