@@ -127,13 +127,15 @@ const toValueDate = computed({
 
 // disable clear button
 const numberOfSelectedFilters = computed(() => {
-  let datesSelected = 0;
   if (fromValueDate.value && toValueDate.value) {
-    datesSelected = 2;
-  } else if (fromValueDate.value || toValueDate.value) {
-    datesSelected = 1;
+    return 2;
+  } 
+  
+  if (fromValueDate.value || toValueDate.value) {
+    return 1;
   }
-  return datesSelected;
+  
+  return 0;
 });
 const isButtonDisabled = computed(() => numberOfSelectedFilters.value <= 0);
 
