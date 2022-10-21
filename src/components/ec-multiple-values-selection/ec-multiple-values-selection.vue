@@ -165,10 +165,6 @@ const props = defineProps({
 });
 const emit = defineEmits(['update:modelValue', 'search', 'change']);
 
-const selectedValues = computed(() => new Set(props.modelValue.map(item => item.value)));
-const allFiltersAreSelected = computed(() => props.modelValue.length === props.items.length);
-const atLeastOneFilterIsSelected = computed(() => !allFiltersAreSelected.value && selectedValues.value.size > 0);
-
 // search
 let searchQuery = '';
 const searchModel = computed({
@@ -192,6 +188,10 @@ function focus() {
 defineExpose({ focus, searchInputRef });
 
 // items
+const selectedValues = computed(() => new Set(props.modelValue.map(item => item.value)));
+const allFiltersAreSelected = computed(() => props.modelValue.length === props.items.length);
+const atLeastOneFilterIsSelected = computed(() => !allFiltersAreSelected.value && selectedValues.value.size > 0);
+
 function update(items) {
   emit('update:modelValue', items);
   emit('change', items);
