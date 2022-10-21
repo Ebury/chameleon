@@ -284,18 +284,16 @@ async function afterShow() {
   setOverflowHeight();
 
   emit('after-open');
+  await waitForPopoverFocus();
 
   if (props.isSearchEnabled) {
-    await waitForPopoverFocus();
     focusSearch();
   } else if (canFocusCta()) {
-    await waitForPopoverFocus();
     focusCta();
     if (props.trapFocus === true && hasLinksInItems.value) {
       activate(); // activate focus trap
     }
   } else {
-    await waitForPopoverFocus();
     focusFirstItem();
     if (props.trapFocus === true && hasLinksInItems.value) {
       activate(); // activate focus trap
@@ -374,7 +372,7 @@ function getFocusTrapOptions() {
     immediate: false,
     escapeDeactivates: true,
     clickOutsideDeactivates: true,
-    fallbackFocus: popoverWrapper,
+    fallbackFocus: () => popoverWrapper.value,
   };
 }
 
