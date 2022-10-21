@@ -135,7 +135,7 @@ const numberOfSelectedFilters = computed(() => {
   }
   return datesSelected;
 });
-const isDisabled = computed(() => !numberOfSelectedFilters.value > 0);
+const isButtonDisabled = computed(() => numberOfSelectedFilters.value <= 0);
 
 function clear() {
   update(null);
