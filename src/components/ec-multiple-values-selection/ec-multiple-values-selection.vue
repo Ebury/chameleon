@@ -185,7 +185,7 @@ function focus() {
     });
   }
 }
-defineExpose({ focus, searchInputRef });
+defineExpose({ focus });
 
 // items
 const selectedValues = computed(() => new Set(props.modelValue.map(item => item.value)));
