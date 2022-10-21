@@ -370,15 +370,12 @@ const selectedItemIndex = computed(() => filteredItems.value.indexOf(toRaw(props
 // CTA
 const itemsOverflowContainer = ref(null);
 const isCtaAreaFocused = ref(false);
-const { deactivate, activate } = useFocusTrap(itemsOverflowContainer, getFocusTrapOptions());
-function getFocusTrapOptions() {
-  return {
-    immediate: false,
-    escapeDeactivates: true,
-    clickOutsideDeactivates: true,
-    fallbackFocus: () => popoverWrapper.value,
-  };
-}
+const { deactivate, activate } = useFocusTrap(itemsOverflowContainer, {
+  immediate: false,
+  escapeDeactivates: true,
+  clickOutsideDeactivates: true,
+  fallbackFocus: () => popoverWrapper.value,
+});
 
 function blurCta() {
   if (hasCta() && isCtaAreaFocused.value) {
