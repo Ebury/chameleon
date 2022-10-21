@@ -41,7 +41,7 @@
         >{{ dateRangeErrorMessage }}</p>
         <button
           type="button"
-          :disabled="isDisabled"
+          :disabled="isButtonDisabled"
           class="ec-date-range-filter__clear-button"
           data-test="ec-date-range-filter__clear-button"
           @click="clear()"
@@ -129,12 +129,12 @@ const toValueDate = computed({
 const numberOfSelectedFilters = computed(() => {
   if (fromValueDate.value && toValueDate.value) {
     return 2;
-  } 
-  
+  }
+
   if (fromValueDate.value || toValueDate.value) {
     return 1;
   }
-  
+
   return 0;
 });
 const isButtonDisabled = computed(() => numberOfSelectedFilters.value <= 0);
