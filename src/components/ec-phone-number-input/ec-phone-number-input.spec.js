@@ -2,11 +2,8 @@ import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
+import config from '../../config';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
-
-jest.mock('svg-country-flags/png100px/gb.png', () => '/my-path/gb.png');
-jest.mock('svg-country-flags/png100px/jm.png', () => '/my-path/jm.png');
-jest.mock('svg-country-flags/png100px/es.png', () => '/my-path/es.png');
 
 const countries = [
   { areaCode: '+44', text: 'United Kingdom', countryCode: 'GB' },
@@ -209,6 +206,15 @@ describe('EcPhoneNumberInput', () => {
         const wrapper = mountPhoneNumberInput({ level: str });
         expect(wrapper.findByDataTest('ec-popover-dropdown-search').attributes('level')).toBe(str);
       }
+    });
+
+    it('should render with icon static prefix', () => {
+      const iconsStaticPrefixPrev = config.iconsStaticPrefix;
+      config.iconsStaticPrefix = 'static/prefix';
+      const wrapper = mountPhoneNumberInput();
+
+      expect(wrapper.element).toMatchSnapshot();
+      config.iconsStaticPrefix = iconsStaticPrefixPrev;
     });
   });
 
