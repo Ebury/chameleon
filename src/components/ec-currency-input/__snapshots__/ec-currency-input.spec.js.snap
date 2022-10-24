@@ -151,7 +151,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="GBP"
             >
               
@@ -161,7 +160,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="EUR"
             >
               
@@ -171,7 +169,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="USD"
             >
               
@@ -181,7 +178,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="JPY"
             >
               
@@ -303,7 +299,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="GBP"
             >
               
@@ -313,7 +308,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="EUR"
             >
               
@@ -323,7 +317,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="USD"
             >
               
@@ -333,7 +326,6 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="JPY"
             >
               
@@ -738,7 +730,6 @@ exports[`EcCurrencyInput should render properly 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="GBP"
             >
               
@@ -748,7 +739,6 @@ exports[`EcCurrencyInput should render properly 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="EUR"
             >
               
@@ -758,7 +748,6 @@ exports[`EcCurrencyInput should render properly 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="USD"
             >
               
@@ -768,7 +757,6 @@ exports[`EcCurrencyInput should render properly 1`] = `
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="JPY"
             >
               
@@ -889,7 +877,6 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="GBP"
             >
               
@@ -899,7 +886,6 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="EUR"
             >
               
@@ -909,7 +895,6 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="USD"
             >
               
@@ -919,7 +904,6 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="JPY"
             >
               

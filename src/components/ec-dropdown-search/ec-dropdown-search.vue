@@ -31,7 +31,7 @@
       data-test="ec-popover-dropdown-search"
       @hide="hide"
       @show="show"
-      @apply-show="afterShow"
+      @apply-show="afterShow(); focusAfterShow()"
       @apply-hide="emit('after-close')"
     >
       <slot />
@@ -124,7 +124,6 @@
                   ...tooltipOptions,
                   ...item.tooltip,
                 }"
-                :tabindex="hasLinksInItems ? -1: 0"
                 :title="item.text"
                 :data-test="`ec-dropdown-search__item ec-dropdown-search__item--${index}`"
                 :class="{
@@ -270,6 +269,19 @@ function show() {
   }
 }
 
+function afterShow() {
+  setOverflowHeight();
+
+  emit('after-open');
+
+  if (props.trapFocus) {
+    activate(); // activate focus trap
+  }
+
+  updateScroll();
+}
+
+// initial focus
 function waitForPopoverFocus() {
   return new Promise((resolve) => {
     requestAnimationFrame(() => {
@@ -280,35 +292,35 @@ function waitForPopoverFocus() {
   });
 }
 
-async function afterShow() {
-  setOverflowHeight();
+function findTabbableElement(element) {
+  return element.querySelector(
+    'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+  );
+}
 
-  emit('after-open');
+async function focusAfterShow() {
   await waitForPopoverFocus();
 
   if (props.isSearchEnabled) {
     focusSearch();
   } else if (canFocusCta()) {
     focusCta();
-    if (props.trapFocus === true && hasLinksInItems.value) {
-      activate(); // activate focus trap
-    }
+  } else if (props.trapFocus) {
+    focusFirstItem();
   } else {
-    if (!hasLinksInItems.value) {
-      itemElements.value[0].focus();
-    } else {
-      focusFirstItem();
-    }
-    if (props.trapFocus === true) {
-      activate(); // activate focus trap
+    const triggerElement = findTabbableElement(popoverWrapper.value);
+    if (triggerElement) {
+      triggerElement.focus();
     }
   }
-
-  updateScroll();
 }
 
 function focusFirstItem() {
-  const tabbableItem = findTabbableElement(itemElements.value[0]);
+  const nextItemIndex = filteredItems.value.findIndex(item => !item.disabled);
+  if (nextItemIndex === -1) {
+    return;
+  }
+  const tabbableItem = findTabbableElement(itemElements.value[nextItemIndex]);
   if (tabbableItem) {
     tabbableItem.focus();
   }
@@ -381,12 +393,6 @@ function blurCta() {
   if (hasCta() && isCtaAreaFocused.value) {
     isCtaAreaFocused.value = false;
   }
-}
-
-function findTabbableElement(element) {
-  return element.querySelector(
-    'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-  );
 }
 
 function focusCta() {
@@ -542,14 +548,10 @@ function loseFocus() {
     searchInput.value.blur();
   } else if (isCtaAreaFocused.value) {
     blurCta();
-    const ctaAreaElementFocusable = ctaAreaWrapper.value.querySelector(
-      'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-    );
+    const ctaAreaElementFocusable = findTabbableElement(ctaAreaWrapper.value);
     ctaAreaElementFocusable.blur();
   }
 }
-
-const hasLinksInItems = computed(() => props.items.some(item => item.to || item.href));
 </script>
 
 <script>

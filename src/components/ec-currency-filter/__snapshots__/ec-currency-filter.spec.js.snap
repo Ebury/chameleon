@@ -168,7 +168,6 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="More than"
             >
               
@@ -178,7 +177,6 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="Equal to"
             >
               
@@ -188,7 +186,6 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
             <li
               class="ec-dropdown-search__item"
               data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              tabindex="0"
               title="Less than"
             >
               
@@ -611,7 +608,6 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-                tabindex="0"
                 title="More than"
               >
                 
@@ -621,7 +617,6 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
               <li
                 class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-                tabindex="0"
                 title="Equal to"
               >
                 
@@ -631,7 +626,6 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-                tabindex="0"
                 title="Less than"
               >
                 
@@ -1213,7 +1207,6 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         <li
                           class="ec-dropdown-search__item"
                           data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-                          tabindex="0"
                           title="More than"
                         >
                           
@@ -1223,7 +1216,6 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         <li
                           class="ec-dropdown-search__item"
                           data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-                          tabindex="0"
                           title="Equal to"
                         >
                           
@@ -1233,7 +1225,6 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         <li
                           class="ec-dropdown-search__item"
                           data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-                          tabindex="0"
                           title="Less than"
                         >
                           
@@ -1455,7 +1446,6 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-                tabindex="0"
                 title="More than"
               >
                 
@@ -1465,7 +1455,6 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-                tabindex="0"
                 title="Equal to"
               >
                 
@@ -1475,7 +1464,6 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
               <li
                 class="ec-dropdown-search__item"
                 data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-                tabindex="0"
                 title="Less than"
               >
                 
