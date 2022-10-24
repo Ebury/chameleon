@@ -662,11 +662,6 @@ export default {
       @apply tw-bg-gray-8;
       @apply tw-text-gray-6;
     }
-
-    &:focus {
-      @apply tw-bg-gray-7;
-      @apply tw-outline-none;
-    }
   }
 }
 </style>
