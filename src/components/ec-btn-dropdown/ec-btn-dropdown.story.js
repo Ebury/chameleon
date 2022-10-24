@@ -101,6 +101,13 @@ onlySomeButtonLinksDisabled.args = {
       disabled: false,
       disabledReason: '',
     },
+    {
+      href: '/link3/',
+      value: 'link3',
+      text: 'Link3',
+      disabled: false,
+      disabledReason: '',
+    },
   ],
 };
 
