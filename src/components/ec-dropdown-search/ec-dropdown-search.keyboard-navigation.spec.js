@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { h } from 'vue';
 
 import EcDropdownSearch from './ec-dropdown-search.vue';
 
@@ -430,6 +431,32 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(document.body);
+    });
+
+    describe('when some items are disabled', () => {
+      it('should focus on the first enabled item', async () => {
+        const itemsWithFirstItemDisabled = [
+          { id: 1, text: 'Item 1', disabled: true },
+          { id: 2, text: 'Item 2' },
+          { id: 3, text: 'Item 3' },
+        ];
+        const elem = document.createElement('div');
+        document.body.appendChild(elem);
+        const wrapper = mountDropdownSearch({
+          items: itemsWithFirstItemDisabled,
+          isSearchEnabled: false,
+          trapFocus: true,
+        }, {
+          slots: {
+            item: ({ index, item }) => h('a', { 'data-test': `item-link--${index + 1}`, href: '#' }, `${item.text}`),
+          },
+          attachTo: elem,
+        });
+
+        expect(document.activeElement).toBe(document.body);
+        await openDropdown(wrapper);
+        expect(document.activeElement).toBe(wrapper.findByDataTest('item-link--2').element);
+      });
     });
   });
 
