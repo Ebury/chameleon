@@ -219,7 +219,7 @@ watchEffect(() => {
 defineExpose({ focus, inputRef });
 </script>
 
-<script>
+<script lang="ts">
 export default {
   inheritAttrs: false,
 };
