@@ -41,7 +41,7 @@
         >{{ dateRangeErrorMessage }}</p>
         <button
           type="button"
-          :disabled="isDisabled"
+          :disabled="isButtonDisabled"
           class="ec-date-range-filter__clear-button"
           data-test="ec-date-range-filter__clear-button"
           @click="clear()"
@@ -50,101 +50,104 @@
     </template>
   </ec-filter-popover>
 </template>
-<script>
+
+<script setup>
+import { computed } from 'vue';
+
 import EcFilterPopover from '../ec-filter-popover';
 import EcInputField from '../ec-input-field';
 
-export default {
-  name: 'EcDateRangeFilter',
-  components: { EcFilterPopover, EcInputField },
-  props: {
-    label: {
-      type: String,
-      required: true,
-      default: '',
-    },
-    fromLabelText: {
-      type: String,
-      required: false,
-      default: 'From',
-    },
-    toLabelText: {
-      type: String,
-      required: false,
-      default: 'To',
-    },
-    clearText: {
-      type: String,
-      required: false,
-      default: 'Clear dates',
-    },
-    fromErrorMessage: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    toErrorMessage: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    dateRangeErrorMessage: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    popoverOptions: {
-      type: Object,
-    },
-    modelValue: {
-      type: Object,
-    },
+const props = defineProps({
+  label: {
+    type: String,
+    required: true,
+    default: '',
   },
-  emits: ['update:modelValue', 'change', 'blur'],
-  computed: {
-    fromValueDate: {
-      get() {
-        return this.modelValue?.from;
-      },
-      set(value) {
-        this.update({ from: value, to: this.toValueDate });
-      },
-    },
-    toValueDate: {
-      get() {
-        return this.modelValue?.to;
-      },
-      set(value) {
-        this.update({ from: this.fromValueDate, to: value });
-      },
-    },
-    numberOfSelectedFilters() {
-      let datesSelected = 0;
-      if (this.fromValueDate && this.toValueDate) {
-        datesSelected = 2;
-      } else if (this.fromValueDate || this.toValueDate) {
-        datesSelected = 1;
-      }
-      return datesSelected;
-    },
-    isDisabled() {
-      return !this.numberOfSelectedFilters > 0;
-    },
+  fromLabelText: {
+    type: String,
+    required: false,
+    default: 'From',
   },
-  methods: {
-    update(newValue) {
-      this.$emit('update:modelValue', newValue);
-      this.$emit('change', newValue);
-    },
-    clear() {
-      this.update(null);
-    },
-    onBlur() {
-      this.$emit('blur', { from: this.fromValueDate, to: this.toValueDate });
-    },
+  toLabelText: {
+    type: String,
+    required: false,
+    default: 'To',
   },
-};
+  clearText: {
+    type: String,
+    required: false,
+    default: 'Clear dates',
+  },
+  fromErrorMessage: {
+    type: String,
+    required: false,
+    default: '',
+  },
+  toErrorMessage: {
+    type: String,
+    required: false,
+    default: '',
+  },
+  dateRangeErrorMessage: {
+    type: String,
+    required: false,
+    default: '',
+  },
+  popoverOptions: {
+    type: Object,
+  },
+  modelValue: {
+    type: Object,
+  },
+});
+
+const emit = defineEmits(['update:modelValue', 'change', 'blur']);
+
+// update selected dates
+function update(newValue) {
+  emit('update:modelValue', newValue);
+  emit('change', newValue);
+}
+const fromValueDate = computed({
+  get() {
+    return props.modelValue?.from;
+  },
+  set(value) {
+    update({ from: value, to: toValueDate.value });
+  },
+});
+const toValueDate = computed({
+  get() {
+    return props.modelValue?.to;
+  },
+  set(value) {
+    update({ from: fromValueDate.value, to: value });
+  },
+});
+
+// disable clear button
+const numberOfSelectedFilters = computed(() => {
+  if (fromValueDate.value && toValueDate.value) {
+    return 2;
+  }
+
+  if (fromValueDate.value || toValueDate.value) {
+    return 1;
+  }
+
+  return 0;
+});
+const isButtonDisabled = computed(() => numberOfSelectedFilters.value <= 0);
+
+function clear() {
+  update(null);
+}
+function onBlur() {
+  emit('blur', { from: fromValueDate.value, to: toValueDate.value });
+}
+
 </script>
+
 <style>
 @import '../../styles/tools/typography.css';
 
