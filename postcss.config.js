@@ -1,10 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
-const twStoryPath = require.resolve('./src/styles/utilities/tailwind.story.css');
-
 const purgecssFromHtmlExtractor = require('purgecss-from-html');
 
-module.exports = ({ file }) => {
+module.exports = () => {
   const config = {
     plugins: [
       require('postcss-import'),
@@ -16,10 +14,8 @@ module.exports = ({ file }) => {
     ],
   };
 
-  // Don't purge the story for TailwindCSS, otherwise it won't be able to get the full list of available utility classes.
-  const shouldPurgeFile = file !== twStoryPath;
   const isProd = process.env.NODE_ENV === 'production';
-  if (isProd && shouldPurgeFile) {
+  if (isProd) {
     // see https://purgecss.com/guides/vue.html for reference
     const purgecss = require('@fullhuman/postcss-purgecss')({
       content: [
@@ -53,9 +49,11 @@ module.exports = ({ file }) => {
           /^router-link(|-exact)-active$/,
           /data-v-.*/,
           /^ec-/,
+          /(:?|^)tw-/,
         ],
         deep: [
           /^ec-/,
+          /(:?|^)tw-/,
         ],
         greedy: [],
         keyframes: [],
