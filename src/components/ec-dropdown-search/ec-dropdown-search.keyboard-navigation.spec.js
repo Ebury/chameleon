@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { h } from 'vue';
 
 import EcDropdownSearch from './ec-dropdown-search.vue';
 
@@ -265,7 +266,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     it('should focus the cta if cta is enabled', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
-      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false, trapFocus: true }, {
         slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -273,41 +274,18 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       });
 
       expect(document.activeElement).toBe(document.body);
-      await openDropdown(wrapper);
-      expect(document.activeElement).toBe(document.body);
 
+      await openDropdown(wrapper);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
-    });
-
-    it('should lose the focus and close if cta is enabled and is focused', async () => {
-      const elem = document.createElement('div');
-      document.body.appendChild(elem);
-
-      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
-        slots: {
-          cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
-        },
-        attachTo: elem,
-      });
-
-      expect(document.activeElement).toBe(document.body);
-      await openDropdown(wrapper);
-      expect(document.activeElement).toBe(document.body);
-
-      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
-      expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
-
-      await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
-      expect(document.activeElement).toBe(document.body);
     });
 
     it('should focus the cta if cta is enabled and an item is selected', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false }, {
+      const wrapper = mountDropdownSearch({ items, isSearchEnabled: false, trapFocus: true }, {
         slots: {
           cta: '<a href="#" data-test="cta-data-test">My CTA</a>',
         },
@@ -315,14 +293,12 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
       });
 
       expect(document.activeElement).toBe(document.body);
-      await openDropdown(wrapper);
-      expect(document.activeElement).toBe(document.body);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
-      expect(document.activeElement).toBe(document.body);
-
+      await openDropdown(wrapper);
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.tab');
 
       expect(document.activeElement).toBe(wrapper.findByDataTest('cta-data-test').element);
+      expect(document.activeElement).toMatchSnapshot();
     });
 
     it('should lose the focus and close if search is enabled', async () => {
@@ -456,6 +432,32 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       expect(document.activeElement).toBe(document.body);
     });
+
+    describe('when some items are disabled', () => {
+      it('should focus on the first enabled item', async () => {
+        const itemsWithFirstItemDisabled = [
+          { id: 1, text: 'Item 1', disabled: true },
+          { id: 2, text: 'Item 2' },
+          { id: 3, text: 'Item 3' },
+        ];
+        const elem = document.createElement('div');
+        document.body.appendChild(elem);
+        const wrapper = mountDropdownSearch({
+          items: itemsWithFirstItemDisabled,
+          isSearchEnabled: false,
+          trapFocus: true,
+        }, {
+          slots: {
+            item: ({ index, item }) => h('a', { 'data-test': `item-link--${index + 1}`, href: '#' }, `${item.text}`),
+          },
+          attachTo: elem,
+        });
+
+        expect(document.activeElement).toBe(document.body);
+        await openDropdown(wrapper);
+        expect(document.activeElement).toBe(wrapper.findByDataTest('item-link--2').element);
+      });
+    });
   });
 
   describe('when dropdown is closed and the enter or space key is pressed', () => {
@@ -476,7 +478,6 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     describe('when the search feature is not active', () => {
       it.each([
         ['enter'],
-        ['space'],
       ])('should be closed (by %s key)', async (key) => {
         const wrapper = mountDropdownSearch({
           items,

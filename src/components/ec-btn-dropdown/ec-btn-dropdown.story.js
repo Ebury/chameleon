@@ -1,10 +1,23 @@
 import { action } from '@storybook/addon-actions';
+import storyRouter from 'storybook-vue3-router';
 
 import EcBtnDropdown from './ec-btn-dropdown.vue';
 
 export default {
   title: 'Button Dropdown',
   component: EcBtnDropdown,
+  decorators: [storyRouter([
+    {
+      path: '/',
+      name: 'root',
+      component: { template: '<div></div>' },
+    },
+    {
+      path: '/link1',
+      name: 'link1',
+      component: { template: '<div></div>' },
+    },
+  ])],
 };
 
 const Template = args => ({
@@ -85,6 +98,13 @@ onlySomeButtonLinksDisabled.args = {
       href: '/link2/',
       value: 'link2',
       text: 'Link2',
+      disabled: false,
+      disabledReason: '',
+    },
+    {
+      href: '/link3/',
+      value: 'link3',
+      text: 'Link3',
       disabled: false,
       disabledReason: '',
     },
