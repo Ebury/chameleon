@@ -47,7 +47,6 @@ const props = defineProps({
   filters: {
     type: Array,
     required: true,
-    default: () => ([]),
   },
   lessFiltersButtonText: {
     type: String,
