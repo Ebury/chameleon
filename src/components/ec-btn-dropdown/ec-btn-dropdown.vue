@@ -19,6 +19,7 @@
       {{ buttonText }}
     </ec-btn>
     <ec-dropdown-search
+      :trap-focus="true"
       :items="items"
       :is-search-enabled="false"
       :max-visible-items="Infinity"
@@ -46,7 +47,7 @@
         >{{ item.text }}
         </a>
         <router-link
-          v-else
+          v-else-if="item.to"
           v-bind="item.attrs"
           :data-test="`ec-btn-dropdown__item-link ec-btn-dropdown__item-link--${index}`"
           class="ec-btn-dropdown__item-link"
@@ -160,7 +161,17 @@ function getPopoverStyle() {
 
   &__item-link {
     @apply tw-text-gray-3;
-    @apply tw-inline-block tw-w-full;
+    @apply tw-inline-block;
+    @apply tw-py-8;
+    @apply tw-px-16;
+    @apply tw-inset-0;
+    @apply tw-w-full;
+    @apply tw-h-full;
+    @apply tw-absolute;
+
+    &:focus {
+      @apply tw-bg-gray-7;
+    }
 
     &:hover {
       @apply tw-no-underline;

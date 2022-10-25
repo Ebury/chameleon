@@ -151,12 +151,17 @@
 </template>
 
 <script>
+import countries from 'svg-country-flags/countries.json';
+
+import config from '../../config';
 import EcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
 import EcInputField from '../ec-input-field';
+
+const supportedCountries = new Set(Object.keys(countries));
 
 export default {
   name: 'EcPhoneNumberInput',
@@ -333,12 +338,11 @@ export default {
       this.$emit('phone-number-change', evt);
     },
     getCountryFlagPath(countryCode) {
-      if (!countryCode) {
+      if (!countryCode || !supportedCountries.has(countryCode)) {
         return null;
       }
       try {
-        // eslint-disable-next-line global-require, import/no-dynamic-require
-        return require(`svg-country-flags/png100px/${countryCode.toLowerCase()}.png`);
+        return `${config.iconsStaticPrefix}icons/country-flags/100/${countryCode.toLowerCase()}.png`;
       } catch (err) {
         return null;
       }
