@@ -1,6 +1,8 @@
 <template>
   <div
     class="ec-input-field"
+    :class="$attrs.class"
+    :style="$attrs.style"
     data-test="ec-input-field"
   >
     <label
@@ -88,7 +90,7 @@ import {
 
 import type { Maybe } from '../../../global';
 import config from '../../config';
-import VEcTooltip from '../../directives/ec-tooltip';
+import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
