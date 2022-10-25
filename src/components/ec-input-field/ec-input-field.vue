@@ -1,8 +1,6 @@
 <template>
   <div
     class="ec-input-field"
-    :class="$attrs.class"
-    :style="$attrs.style"
     data-test="ec-input-field"
   >
     <label
@@ -34,7 +32,7 @@
     <input
       v-bind="{
         ...$attrs,
-        style: null,
+        style: undefined,
         class: inputClasses,
         id: inputId,
         'aria-describedby': errorMessageId,
@@ -168,7 +166,7 @@ const isDisabled = computed(() => !!attrs.disabled);
 
 const uid = getUid();
 const inputId = computed(() => props.id || `ec-input-field-${uid}`);
-const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-input-field-error-${uid}`) : null));
+const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-input-field-error-${uid}`) : undefined));
 
 const inputModel = computed<typeof props.modelValue>({
   get() {
