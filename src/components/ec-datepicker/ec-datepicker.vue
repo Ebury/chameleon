@@ -63,7 +63,7 @@ const props = defineProps({
   },
   disabledDates: {
     type: Object,
-    default: () => {},
+    default: () => ({}),
   },
   areWeekendsDisabled: {
     type: Boolean,

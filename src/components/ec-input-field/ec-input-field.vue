@@ -80,7 +80,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   computed,
   ref,
@@ -88,6 +88,7 @@ import {
   watchEffect,
 } from 'vue';
 
+import type { Maybe } from '../../../global';
 import config from '../../config';
 import VEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
@@ -100,7 +101,7 @@ const props = defineProps({
   type: {
     type: String,
     default: 'text',
-    validator(value) {
+    validator(value: string) {
       return ['text', 'date', 'number', 'tel'].includes(value);
     },
   },
@@ -169,7 +170,7 @@ const uid = getUid();
 const inputId = computed(() => props.id || `ec-input-field-${uid}`);
 const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-input-field-error-${uid}`) : null));
 
-const inputModel = computed({
+const inputModel = computed<typeof props.modelValue>({
   get() {
     return props.modelValue;
   },
@@ -200,7 +201,7 @@ const inputClasses = computed(() => {
   return classes;
 });
 
-const inputRef = ref(null);
+const inputRef = ref<Maybe<HTMLInputElement>>(null);
 
 function focus() {
   if (inputRef.value) {
@@ -213,7 +214,7 @@ watchEffect(() => {
   // in order to fix it we should sync it automatically every time inputModel changes.
   const inputElement = inputRef.value;
   if (inputElement && inputElement.value !== inputModel.value) {
-    inputElement.value = inputModel.value ?? '';
+    inputElement.value = `${inputModel.value}` ?? '';
   }
 });
 

@@ -50,13 +50,13 @@
   </component>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   inheritAttrs: false,
 };
 </script>
 
-<script setup lang="ts">
+<script setup>
 import {
   computed,
   toRefs,
