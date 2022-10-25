@@ -64,7 +64,7 @@
         data-test="ec-table-pagination__action--prev"
         :class="{ 'ec-table-pagination__action--is-disabled': !hasPrev }"
         :disabled="!hasPrev"
-        @click.prevent.stop="$emit('change', page - 1, numberOfItems)"
+        @click.prevent.stop="emit('change', page - 1, numberOfItems)"
       ><ec-icon
         class="ec-table-pagination__action-icon"
         name="simple-chevron-left"
@@ -76,7 +76,7 @@
         data-test="ec-table-pagination__action--next"
         :class="{ 'ec-table-pagination__action--is-disabled': !hasNext }"
         :disabled="!hasNext"
-        @click.prevent.stop="$emit('change', page + 1, numberOfItems)"
+        @click.prevent.stop="emit('change', page + 1, numberOfItems)"
       ><ec-icon
         class="ec-table-pagination__action-icon"
         name="simple-chevron-right"
@@ -86,65 +86,63 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from '../../enums/pagination';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcIcon from '../ec-icon';
 
+const props = defineProps({
+  page: {
+    type: Number,
+    default: 1,
+  },
+  numberOfItems: {
+    type: Number,
+    default: DEFAULT_PAGE_SIZE,
+    validator(value) {
+      return PAGE_SIZES.includes(value);
+    },
+  },
+  total: {
+    type: Number,
+    default: 0,
+  },
+  itemsPerPageText: {
+    type: String,
+    default: 'Items per page',
+  },
+});
+
+const emit = defineEmits(['change']);
+
+const hasPrev = computed(() => props.page > 1);
+
+const hasNext = computed(() => props.page < totalPages.value);
+const totalPages = computed(() => {
+  if (props.total === 0) {
+    return 1;
+  }
+  return Math.ceil(props.total / props.numberOfItems);
+});
+const pageSizeItems = computed(() => PAGE_SIZES.map(pageSize => ({ text: pageSize, value: pageSize })));
+const pageSizeModel = computed({
+  get() {
+    return pageSizeItems.value.find(item => item.value === props.numberOfItems);
+  },
+  set(pageSizeItem) {
+    emit('change', 1, pageSizeItem.value);
+  },
+});
+const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
+
+</script>
+
+<script>
+
 export default {
-  name: 'EcTablePagination',
-  components: { EcIcon, EcDropdownSearch },
   inheritAttrs: false,
-  props: {
-    page: {
-      type: Number,
-      default: 1,
-    },
-    numberOfItems: {
-      type: Number,
-      default: DEFAULT_PAGE_SIZE,
-      validator(value) {
-        return PAGE_SIZES.includes(value);
-      },
-    },
-    total: {
-      type: Number,
-      default: 0,
-    },
-    itemsPerPageText: {
-      type: String,
-      default: 'Items per page',
-    },
-  },
-  emits: ['change'],
-  computed: {
-    hasPrev() {
-      return this.page > 1;
-    },
-    hasNext() {
-      return this.page < this.totalPages;
-    },
-    totalPages() {
-      if (this.total === 0) {
-        return 1;
-      }
-      return Math.ceil(this.total / this.numberOfItems);
-    },
-    pageSizeItems() {
-      return PAGE_SIZES.map(pageSize => ({ text: pageSize, value: pageSize }));
-    },
-    pageSizeModel: {
-      get() {
-        return this.pageSizeItems.find(item => item.value === this.numberOfItems);
-      },
-      set(pageSizeItem) {
-        this.$emit('change', 1, pageSizeItem.value);
-      },
-    },
-    selectedPageSizeText() {
-      return this.pageSizeModel?.text;
-    },
-  },
 };
 </script>
 
