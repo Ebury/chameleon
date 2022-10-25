@@ -10,7 +10,7 @@
       :prevent-overflow="false"
       :distance="8"
       @update:shown="onOpen"
-      @apply-show="$emit('after-open')"
+      @apply-show="emit('after-open')"
     >
       <div
         class="ec-filter-popover__trigger"
@@ -49,46 +49,43 @@
     </ec-popover>
   </div>
 </template>
-<script>
+
+<script setup>
+import { ref } from 'vue';
+
 import EcBadge from '../ec-badge';
 import EcIcon from '../ec-icon';
 import EcPopover from '../ec-popover';
 
-export default {
-  name: 'EcFilterPopover',
-  components: { EcPopover, EcIcon, EcBadge },
-  props: {
-    label: {
-      type: String,
-      required: true,
-      default: '',
-    },
-    numberOfSelectedFilters: {
-      type: Number,
-      required: true,
-      default: 0,
-    },
-    isFullHeight: {
-      type: Boolean,
-      default: false,
-    },
-    popoverOptions: {
-      type: Object,
-    },
+defineProps({
+  label: {
+    type: String,
+    required: true,
+    default: '',
   },
-  emits: ['after-open'],
-  data() {
-    return {
-      triggerIsFocused: false,
-    };
+  numberOfSelectedFilters: {
+    type: Number,
+    required: true,
+    default: 0,
   },
-  methods: {
-    onOpen(isOpen) {
-      this.triggerIsFocused = isOpen;
-    },
+  isFullHeight: {
+    type: Boolean,
+    default: false,
   },
-};
+  popoverOptions: {
+    type: Object,
+  },
+});
+
+const emit = defineEmits(['after-open']);
+
+const triggerIsFocused = ref(false);
+
+function onOpen(isOpen) {
+  triggerIsFocused.value = isOpen;
+}
 </script>
+
 <style>
 :root {
   --ec-filter-popover-width: 304px;
