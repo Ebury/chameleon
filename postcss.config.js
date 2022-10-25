@@ -53,9 +53,11 @@ module.exports = ({ file }) => {
           /^router-link(|-exact)-active$/,
           /data-v-.*/,
           /^ec-/,
+          /(:?|^)tw-/,
         ],
         deep: [
           /^ec-/,
+          /(:?|^)tw-/,
         ],
         greedy: [],
         keyframes: [],
