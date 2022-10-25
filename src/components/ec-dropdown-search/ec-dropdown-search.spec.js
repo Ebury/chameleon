@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import { defineComponent, h } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -287,6 +288,19 @@ describe('EcDropdownSearch', () => {
       },
     });
     expect(wrapper.findByDataTest('my-test-list').element).toMatchSnapshot();
+  });
+
+  it('should initialize the "useFocusTrap composable" with mandatory options', () => {
+    mountDropdownSearch({ }, {
+      slots: {
+        default: '<a href="#" @click.prevent>Open me</a>',
+      },
+    });
+    const options = useFocusTrap.mock.calls[0][1];
+    expect(options.clickOutsideDeactivates).toBe(true);
+    expect(options.escapeDeactivates).toBe(true);
+    expect(options.immediate).toBe(false);
+    expect(Boolean(options.fallbackFocus)).toBe(true);
   });
 
   describe('filtering', () => {

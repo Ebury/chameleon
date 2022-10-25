@@ -172,14 +172,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
             title="Spot"
           >
             
-            <ec-stub
-              class="ec-btn-dropdown__item-link"
-              data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0 ec-stub router-link-stub"
-            >
-              
-              Spot
-              
-            </ec-stub>
+            Spot
             
           </li>
           <li
@@ -188,14 +181,7 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
             title="Convert"
           >
             
-            <ec-stub
-              class="ec-btn-dropdown__item-link"
-              data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1 ec-stub router-link-stub"
-            >
-              
-              Convert
-              
-            </ec-stub>
+            Convert
             
           </li>
           
@@ -223,14 +209,7 @@ exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
     title="Spot"
   >
     
-    <ec-stub
-      class="ec-btn-dropdown__item-link"
-      data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0 ec-stub router-link-stub"
-    >
-      
-      Spot
-      
-    </ec-stub>
+    Spot
     
   </li>
   <li
@@ -239,14 +218,7 @@ exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
     title="Convert"
   >
     
-    <ec-stub
-      class="ec-btn-dropdown__item-link"
-      data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--1 ec-stub router-link-stub"
-    >
-      
-      Convert
-      
-    </ec-stub>
+    Convert
     
   </li>
   

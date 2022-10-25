@@ -8,7 +8,8 @@
     ref="popoverWrapper"
     class="ec-dropdown-search"
     @keydown.tab="onTabKeyDown"
-    @keydown.enter.space.prevent="onEnterOrSpaceKeyDown"
+    @keydown.enter.prevent="onEnterKeyDown"
+    @keydown.space.prevent="onSpaceKeyDown"
     @keydown.up.prevent="onArrowUpKeyDown"
     @keydown.down.prevent="onArrowDownKeyDown"
     @keydown.esc="closeViaKeyboardNavigation"
@@ -30,7 +31,7 @@
       data-test="ec-popover-dropdown-search"
       @hide="hide"
       @show="show"
-      @apply-show="afterShow"
+      @apply-show="afterShow(); focusAfterShow()"
       @apply-hide="emit('after-close')"
     >
       <slot />
@@ -65,7 +66,7 @@
                 :placeholder="placeholder"
                 class="ec-dropdown-search__search-input"
                 data-test="ec-dropdown-search__search-input"
-                @keydown.enter="onEnterOrSpaceKeyDown"
+                @keydown.enter="onEnterKeyDown"
                 @focus="isSearchInputFocused = true"
                 @blur="isSearchInputFocused = false"
               >
@@ -144,6 +145,7 @@
 </template>
 
 <script setup>
+import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import {
   computed,
   nextTick,
@@ -161,7 +163,6 @@ import EcLoading from '../ec-loading';
 import EcPopover from '../ec-popover';
 
 const emit = defineEmits(['update:modelValue', 'change', 'close', 'open', 'after-close', 'after-open']);
-
 const props = defineProps({
   placeholder: {
     type: String,
@@ -221,6 +222,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  trapFocus: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // popover styles
@@ -248,6 +253,10 @@ function hide() {
   if (isOpen.value) {
     isOpen.value = false;
     emit('close');
+
+    if (props.trapFocus === true) {
+      deactivate(); // deactivate focus trap
+    }
   }
 }
 
@@ -260,24 +269,61 @@ function show() {
   }
 }
 
-async function afterShow() {
+function afterShow() {
   setOverflowHeight();
 
   emit('after-open');
 
-  if (props.isSearchEnabled) {
-    await new Promise((resolve) => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          requestAnimationFrame(resolve);
-        });
-      });
-    });
-
-    focusSearch();
+  if (props.trapFocus) {
+    activate(); // activate focus trap
   }
 
   updateScroll();
+}
+
+// initial focus
+function waitForPopoverFocus() {
+  return new Promise((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(resolve);
+      });
+    });
+  });
+}
+
+function findTabbableElement(element) {
+  return element.querySelector(
+    'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+  );
+}
+
+async function focusAfterShow() {
+  await waitForPopoverFocus();
+
+  if (props.isSearchEnabled) {
+    focusSearch();
+  } else if (canFocusCta()) {
+    focusCta();
+  } else if (props.trapFocus) {
+    focusFirstItem();
+  } else {
+    const triggerElement = findTabbableElement(popoverWrapper.value);
+    if (triggerElement) {
+      triggerElement.focus();
+    }
+  }
+}
+
+function focusFirstItem() {
+  const nextItemIndex = filteredItems.value.findIndex(item => !item.disabled);
+  if (nextItemIndex === -1) {
+    return;
+  }
+  const tabbableItem = findTabbableElement(itemElements.value[nextItemIndex]);
+  if (tabbableItem) {
+    tabbableItem.focus();
+  }
 }
 
 // search
@@ -334,7 +380,14 @@ function isItemSelected(item) {
 const selectedItemIndex = computed(() => filteredItems.value.indexOf(toRaw(props.modelValue)));
 
 // CTA
+const itemsOverflowContainer = ref(null);
 const isCtaAreaFocused = ref(false);
+const { deactivate, activate } = useFocusTrap(itemsOverflowContainer, {
+  immediate: false,
+  escapeDeactivates: true,
+  clickOutsideDeactivates: true,
+  fallbackFocus: () => popoverWrapper.value,
+});
 
 function blurCta() {
   if (hasCta() && isCtaAreaFocused.value) {
@@ -343,7 +396,13 @@ function blurCta() {
 }
 
 function focusCta() {
-  isCtaAreaFocused.value = true;
+  const ctaAreaElementFocusable = findTabbableElement(ctaAreaWrapper.value);
+  if (ctaAreaElementFocusable) {
+    ctaAreaElementFocusable.focus();
+    isCtaAreaFocused.value = true;
+  }
+
+  return ctaAreaElementFocusable;
 }
 
 function canFocusCta() {
@@ -351,7 +410,6 @@ function canFocusCta() {
 }
 
 // popover overflow (max-height and scroll position)
-const itemsOverflowContainer = ref(null);
 const itemElements = ref([]);
 const searchAreaWrapper = ref(null);
 const ctaAreaWrapper = ref(null);
@@ -444,26 +502,28 @@ function onTabKeyDown(event) {
       blurCta();
     } else if (canFocusCta()) {
       event.preventDefault();
-      const ctaAreaElementFocusable = ctaAreaWrapper.value.querySelector(
-        'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-      );
-      if (ctaAreaElementFocusable) {
-        ctaAreaElementFocusable.focus();
-        focusCta();
-      } else {
+      const ctaAreaElementFocusable = focusCta();
+      if (!ctaAreaElementFocusable) {
         closeViaKeyboardNavigation();
       }
-    } else {
+    } else if (!props.trapFocus) {
       closeViaKeyboardNavigation();
     }
   }
 }
 
-// keyboard navigation (ESC or space bar)
-function onEnterOrSpaceKeyDown() {
+// keyboard navigation (enter)
+function onEnterKeyDown() {
   if (isOpen.value) {
     closeViaKeyboardNavigation();
   } else {
+    show();
+  }
+}
+
+// keyboard navigation (space bar)
+function onSpaceKeyDown() {
+  if (!isOpen.value) {
     show();
   }
 }
@@ -488,9 +548,7 @@ function loseFocus() {
     searchInput.value.blur();
   } else if (isCtaAreaFocused.value) {
     blurCta();
-    const ctaAreaElementFocusable = ctaAreaWrapper.value.querySelector(
-      'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-    );
+    const ctaAreaElementFocusable = findTabbableElement(ctaAreaWrapper.value);
     ctaAreaElementFocusable.blur();
   }
 }
@@ -581,6 +639,7 @@ export default {
 
   &__item {
     @apply tw-truncate;
+    @apply tw-relative;
 
     @mixin ec-dropdown-search-item;
     @mixin ec-dropdown-search-item-hover-effect;
