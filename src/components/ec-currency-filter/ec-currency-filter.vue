@@ -68,215 +68,187 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import {
+  computed, ref, watchEffect,
+} from 'vue';
+
 import EcAmountFilterInput from '../ec-amount-filter-input';
 import EcFilterPopover from '../ec-filter-popover';
 import EcMultipleValuesSelection from '../ec-multiple-values-selection';
 import EcSubmenu from '../ec-submenu';
 
-export default {
-  name: 'EcCurrencyFilter',
-  components: {
-    EcAmountFilterInput,
-    EcFilterPopover,
-    EcMultipleValuesSelection,
-    EcSubmenu,
+const props = defineProps({
+  label: {
+    type: String,
+    required: true,
+    default: '',
   },
-  props: {
-    label: {
-      type: String,
-      required: true,
-      default: '',
-    },
-    popoverOptions: {
-      type: Object,
-    },
-    modelValue: {
-      type: Object,
-      default: () => ({
-        currencies: [],
-        comparisonSymbol: null,
-        amount: null,
-      }),
-    },
-    currencyItems: {
-      type: Array,
-      required: true,
-      default: () => ([]),
-    },
-    isLoadingCurrencies: {
-      type: Boolean,
-      default: false,
-    },
-    currenciesEmptyMessage: {
-      type: String,
-    },
-    currenciesErrorMessage: {
-      type: String,
-    },
-    selectAllCurrenciesText: {
-      type: String,
-      default: 'Select all',
-    },
-    currencyTabHeaderText: {
-      type: String,
-      default: 'Currency',
-    },
-    comparisonSymbolItems: {
-      type: Array,
-      required: true,
-      default: () => ([]),
-    },
-    amountTabHeaderText: {
-      type: String,
-      default: 'Amount',
-    },
-    amountPlaceholder: {
-      type: String,
-      default: 'Enter an amount...',
-    },
-    clearAmountText: {
-      type: String,
-      default: 'Clear amount',
-    },
-    locale: {
-      type: String,
-      default: 'en',
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
-    errorMessage: {
-      type: String,
-    },
+  popoverOptions: {
+    type: Object,
   },
-  emits: ['update:modelValue', 'change'],
-  data() {
+  modelValue: {
+    type: Object,
+    default: () => ({
+      currencies: [],
+      comparisonSymbol: null,
+      amount: null,
+    }),
+  },
+  currencyItems: {
+    type: Array,
+    required: true,
+    default: () => ([]),
+  },
+  isLoadingCurrencies: {
+    type: Boolean,
+    default: false,
+  },
+  currenciesEmptyMessage: {
+    type: String,
+  },
+  currenciesErrorMessage: {
+    type: String,
+  },
+  selectAllCurrenciesText: {
+    type: String,
+    default: 'Select all',
+  },
+  currencyTabHeaderText: {
+    type: String,
+    default: 'Currency',
+  },
+  comparisonSymbolItems: {
+    type: Array,
+    required: true,
+    default: () => ([]),
+  },
+  amountTabHeaderText: {
+    type: String,
+    default: 'Amount',
+  },
+  amountPlaceholder: {
+    type: String,
+    default: 'Enter an amount...',
+  },
+  clearAmountText: {
+    type: String,
+    default: 'Clear amount',
+  },
+  locale: {
+    type: String,
+    default: 'en',
+  },
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+  errorMessage: {
+    type: String,
+  },
+});
+
+const activeTabIndex = ref(0);
+const disableAutoHide = ref(false);
+const internalAmountModel = ref({
+  comparisonSymbol: null,
+  amount: null,
+});
+
+const emit = defineEmits(['update:modelValue', 'change']);
+
+const allPopoverOptions = computed(() => ({
+  autoHide: !disableAutoHide.value, // autoHide of the ec-filter-popover should be disabled while the dropdown in ec-amount-filter-input is open, otherwise selecting value in the dropdown will close this popover too.
+  ...props.popoverOptions,
+}));
+const submenu = computed(() => [{
+  headerTitle: props.currencyTabHeaderText,
+  slotName: 'currency',
+}, {
+  headerTitle: props.amountTabHeaderText,
+  slotName: 'amount',
+}]);
+const numberOfSelectedFilters = computed(() => {
+  let number = props.modelValue?.currencies?.length ?? 0;
+
+  if (hasAmount.value) {
+    number++;
+  }
+
+  return number;
+});
+const hasAmount = computed(() => typeof props.modelValue?.amount === 'number');
+const selectedCurrenciesModel = computed({
+  get() {
+    return props.modelValue?.currencies;
+  },
+  set(value) {
+    update({
+      currencies: value,
+    });
+  },
+});
+const amountModel = computed({
+  get() {
     return {
-      activeTabIndex: 0,
-      disableAutoHide: false,
-      internalAmountModel: {
-        comparisonSymbol: null,
-        amount: null,
-      },
+      comparisonSymbol: internalAmountModel.value.comparisonSymbol,
+      amount: internalAmountModel.value.amount,
     };
   },
-  computed: {
-    allPopoverOptions() {
-      return {
-        autoHide: !this.disableAutoHide, // autoHide of the ec-filter-popover should be disabled while the dropdown in ec-amount-filter-input is open, otherwise selecting value in the dropdown will close this popover too.
-        ...this.popoverOptions,
-      };
-    },
-    submenu() {
-      return [{
-        headerTitle: this.currencyTabHeaderText,
-        slotName: 'currency',
-      }, {
-        headerTitle: this.amountTabHeaderText,
-        slotName: 'amount',
-      }];
-    },
-    numberOfSelectedFilters() {
-      let number = this.modelValue?.currencies?.length ?? 0;
-
-      if (this.hasAmount) {
-        number++;
-      }
-
-      return number;
-    },
-    hasAmount() {
-      return typeof this.modelValue?.amount === 'number';
-    },
-    selectedCurrenciesModel: {
-      get() {
-        return this.modelValue?.currencies;
-      },
-      set(value) {
-        this.update({
-          currencies: value,
-        });
-      },
-    },
-    amountModel: {
-      get() {
-        return {
-          comparisonSymbol: this.internalAmountModel.comparisonSymbol,
-          amount: this.internalAmountModel.amount,
-        };
-      },
-      set(value) {
-        // the amount and the comparison symbol are stored internally in the local state
-        // and they are not emitted to the parent until the amount input triggers the
-        // change event.
-        //
-        // we don't want the filter to be updating the parent model value each time a key is
-        // pressed because that would trigger lots of AJAX requests.
-        //
-        // what we will do instead is to store the value in the local state and emit its values
-        // when user changes focus and the amount input is no longer focused -> that will trigger
-        // change event.
-        this.internalAmountModel = {
-          ...this.internalAmountModel,
-          ...value,
-        };
-      },
-    },
+  set(value) {
+    internalAmountModel.value = {
+      ...internalAmountModel.value,
+      ...value,
+    };
   },
-  watch: {
-    modelValue: {
-      immediate: true,
-      handler(newValue) {
-        this.internalAmountModel = {
-          comparisonSymbol: newValue?.comparisonSymbol,
-          amount: newValue?.amount,
-        };
-      },
-    },
-  },
-  methods: {
-    onAmountChanged() {
-      this.update({ ...this.internalAmountModel });
-    },
-    onComparisonSymbolChanged() {
-      // it doesn't make sense to trigger the change event only if comparison symbol is set
-      // and there is no amount set by the user yet.
-      if (typeof this.internalAmountModel.amount === 'number') {
-        this.update({ ...this.internalAmountModel });
-      }
-    },
-    onClearAmount() {
-      this.update({
-        comparisonSymbol: null,
-        amount: null,
-      });
-    },
-    update(value) {
-      let newValue = {
-        currencies: [],
-        amount: null,
-        comparisonSymbol: null,
-        ...this.modelValue,
-        ...value,
-      };
+});
 
-      // if there are no selected currencies and no amount is selected, then emit null value.
-      // ec-table-filter must be able to determine where the filter is empty or not
-      // in order to show/hide clear filters functionality.
-      //
-      // we don't want every complicated filter polluting the logic inside its parent implementation
-      // so we rather sort it here.
-      if (newValue.currencies.length === 0 && typeof newValue.amount !== 'number') {
-        newValue = null;
-      }
+function onAmountChanged() {
+  update({ ...internalAmountModel.value });
+}
+function onComparisonSymbolChanged() {
+  // it doesn't make sense to trigger the change event only if comparison symbol is set
+  // and there is no amount set by the user yet.
+  if (typeof internalAmountModel.value.amount === 'number') {
+    update({ ...internalAmountModel.value });
+  }
+}
+function onClearAmount() {
+  update({
+    comparisonSymbol: null,
+    amount: null,
+  });
+}
+function update(value) {
+  let newValue = {
+    currencies: [],
+    amount: null,
+    comparisonSymbol: null,
+    ...props.modelValue,
+    ...value,
+  };
 
-      this.$emit('update:modelValue', newValue);
-      this.$emit('change', newValue);
-    },
-  },
-};
+  // if there are no selected currencies and no amount is selected, then emit null value.
+  // ec-table-filter must be able to determine where the filter is empty or not
+  // in order to show/hide clear filters functionality.
+  //
+  // we don't want every complicated filter polluting the logic inside its parent implementation
+  // so we rather sort it here.
+  if (newValue.currencies.length === 0 && typeof newValue.amount !== 'number') {
+    newValue = null;
+  }
+
+  emit('update:modelValue', newValue);
+  emit('change', newValue);
+}
+
+watchEffect(() => {
+  internalAmountModel.value = {
+    comparisonSymbol: props.modelValue?.comparisonSymbol,
+    amount: props.modelValue?.amount,
+  };
+});
+
 </script>
 
 <style>
