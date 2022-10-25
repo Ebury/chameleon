@@ -150,13 +150,6 @@ const props = defineProps({
 
 const activeTabIndex = ref(0);
 const disableAutoHide = ref(false);
-const internalAmountModel = ref({
-  comparisonSymbol: null,
-  amount: null,
-});
-
-const emit = defineEmits(['update:modelValue', 'change']);
-
 const allPopoverOptions = computed(() => ({
   autoHide: !disableAutoHide.value, // autoHide of the ec-filter-popover should be disabled while the dropdown in ec-amount-filter-input is open, otherwise selecting value in the dropdown will close this popover too.
   ...props.popoverOptions,
@@ -168,6 +161,8 @@ const submenu = computed(() => [{
   headerTitle: props.amountTabHeaderText,
   slotName: 'amount',
 }]);
+
+// model updating
 const numberOfSelectedFilters = computed(() => {
   let number = props.modelValue?.currencies?.length ?? 0;
 
@@ -188,6 +183,10 @@ const selectedCurrenciesModel = computed({
     });
   },
 });
+const internalAmountModel = ref({
+  comparisonSymbol: null,
+  amount: null,
+});
 const amountModel = computed({
   get() {
     return {
@@ -202,7 +201,6 @@ const amountModel = computed({
     };
   },
 });
-
 function onAmountChanged() {
   update({ ...internalAmountModel.value });
 }
@@ -241,13 +239,13 @@ function update(value) {
   emit('update:modelValue', newValue);
   emit('change', newValue);
 }
-
 watchEffect(() => {
   internalAmountModel.value = {
     comparisonSymbol: props.modelValue?.comparisonSymbol,
     amount: props.modelValue?.amount,
   };
 });
+const emit = defineEmits(['update:modelValue', 'change']);
 
 </script>
 
