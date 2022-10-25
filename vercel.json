@@ -1,0 +1,5 @@
+{
+  "name": "chameleon-components",
+  "buildCommand": "npm run build-storybook",
+  "outputDirectory": ".out"
+}

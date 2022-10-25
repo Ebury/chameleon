@@ -126,20 +126,20 @@ function getStickyColumnClass(colIndex, columns) {
     @apply tw-z-level-1;
     @apply tw-table-header;
     @apply tw-min-w-104;
+    @apply tw-text-gray-3;
 
     box-shadow:
       inset 0 1px 0 theme('colors.gray.6'),
       inset 0 -1px 0 theme('colors.gray.6');
     border-collapse: separate;
+    @apply tw-sticky;
 
     &--sticky-left {
-      @apply tw-sticky;
       @apply tw-left-0;
       @apply tw-z-level-2;
     }
 
     &--sticky-right {
-      @apply tw-sticky;
       @apply tw-right-0;
       @apply tw-z-level-2;
     }

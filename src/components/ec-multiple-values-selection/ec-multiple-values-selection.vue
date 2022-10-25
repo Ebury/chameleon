@@ -15,7 +15,7 @@
         :size="20"
       />
       <input
-        ref="searchInput"
+        ref="searchInputRef"
         v-model.trim="searchModel"
         type="text"
         autocomplete="off"
@@ -110,120 +110,111 @@
     </template>
   </div>
 </template>
-<script>
+
+<script setup>
+import { computed, nextTick, ref } from 'vue';
+
 import EcCheckbox from '../ec-checkbox';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
 
-export default {
-  name: 'EcMultipleValuesSelection',
-  components: {
-    EcCheckbox, EcIcon, EcLoadingIcon,
+const props = defineProps({
+  items: {
+    type: Array,
+    required: true,
+    default: () => ([]),
   },
-  props: {
-    items: {
-      type: Array,
-      required: true,
-      default: () => ([]),
-    },
-    modelValue: {
-      type: Array,
-      required: false,
-      default: () => ([]),
-    },
-    isLoading: {
-      type: Boolean,
-      default: false,
-    },
-    errorMessage: {
-      type: String,
-    },
-    errorIcon: {
-      type: String,
-      default: 'simple-error',
-    },
-    emptyMessage: {
-      type: String,
-    },
-    emptyIcon: {
-      type: String,
-      default: 'simple-error',
-    },
-    isSearchable: {
-      type: Boolean,
-    },
-    isSelectAll: {
-      type: Boolean,
-      default: false,
-    },
-    selectAllFiltersText: {
-      type: String,
-      default: 'Select all',
-    },
-    searchFilterPlaceholder: {
-      type: String,
-      default: 'Search...',
-    },
+  modelValue: {
+    type: Array,
+    required: false,
+    default: () => ([]),
   },
-  emits: ['update:modelValue', 'search', 'change'],
-  data() {
-    return {
-      query: '',
-    };
+  isLoading: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    selectedValues() {
-      return new Set(this.modelValue.map(item => item.value));
-    },
-    allFiltersAreSelected() {
-      return this.modelValue.length === this.items.length;
-    },
-    atLeastOneFilterIsSelected() {
-      return !this.allFiltersAreSelected && this.selectedValues.size > 0;
-    },
-    searchModel: {
-      get() {
-        return this.query;
-      },
-      set(value) {
-        this.query = value;
-        this.$emit('search', value);
-      },
-    },
+  errorMessage: {
+    type: String,
   },
-  methods: {
-    toggleAll() {
-      if (this.allFiltersAreSelected) {
-        this.update([]);
-      } else {
-        this.update(this.items);
-      }
-    },
-    onSelect(item) {
-      const newItems = [...this.modelValue, item];
-      this.update(newItems);
-    },
-    onDeselect(item) {
-      const newItems = this.modelValue.filter(selectedItem => selectedItem.value !== item.value);
-      this.update(newItems);
-    },
-    focus() {
-      /* istanbul ignore else */
-      if (this.isSearchable) {
-        this.$nextTick(() => {
-          this.$refs.searchInput?.focus();
-        });
-      }
-    },
-    isItemChecked(item) {
-      return this.selectedValues.has(item.value);
-    },
-    update(items) {
-      this.$emit('update:modelValue', items);
-      this.$emit('change', items);
-    },
+  errorIcon: {
+    type: String,
+    default: 'simple-error',
   },
-};
+  emptyMessage: {
+    type: String,
+  },
+  emptyIcon: {
+    type: String,
+    default: 'simple-error',
+  },
+  isSearchable: {
+    type: Boolean,
+  },
+  isSelectAll: {
+    type: Boolean,
+    default: false,
+  },
+  selectAllFiltersText: {
+    type: String,
+    default: 'Select all',
+  },
+  searchFilterPlaceholder: {
+    type: String,
+    default: 'Search...',
+  },
+});
+const emit = defineEmits(['update:modelValue', 'search', 'change']);
+
+// search
+let searchQuery = '';
+const searchModel = computed({
+  get() {
+    return searchQuery;
+  },
+  set(value) {
+    searchQuery = value;
+    emit('search', value);
+  },
+});
+
+const searchInputRef = ref(null);
+function focus() {
+  if (props.isSearchable) {
+    nextTick(() => {
+      searchInputRef?.value.focus();
+    });
+  }
+}
+defineExpose({ focus });
+
+// items
+const selectedValues = computed(() => new Set(props.modelValue.map(item => item.value)));
+const allFiltersAreSelected = computed(() => props.modelValue.length === props.items.length);
+const atLeastOneFilterIsSelected = computed(() => !allFiltersAreSelected.value && selectedValues.value.size > 0);
+
+function update(items) {
+  emit('update:modelValue', items);
+  emit('change', items);
+}
+function toggleAll() {
+  if (allFiltersAreSelected.value) {
+    update([]);
+  } else {
+    update(props.items);
+  }
+}
+function onSelect(item) {
+  const newItems = [...props.modelValue, item];
+  update(newItems);
+}
+function onDeselect(item) {
+  const newItems = props.modelValue.filter(selectedItem => selectedItem.value !== item.value);
+  update(newItems);
+}
+function isItemChecked(item) {
+  return selectedValues.value.has(item.value);
+}
+
 </script>
 
 <style>

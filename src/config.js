@@ -1,4 +1,5 @@
 let sensitiveClass = '';
+let iconsStaticPrefix = '';
 
 export default {
   get sensitiveClass() {
@@ -9,5 +10,11 @@ export default {
   },
   set sensitiveClass(value) {
     sensitiveClass = value;
+  },
+  get iconsStaticPrefix() {
+    return iconsStaticPrefix;
+  },
+  set iconsStaticPrefix(value) {
+    iconsStaticPrefix = value;
   },
 };
