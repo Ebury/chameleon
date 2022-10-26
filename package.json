@@ -29,7 +29,7 @@
     "prebuild-storybook": "npm run icons",
     "build-storybook": "vue-tsc --noEmit && build-storybook -o .out",
     "prestart": "npm run icons",
-    "start": "vue-tsc --noEmit --watch && start-storybook -p 42475",
+    "start": "vue-tsc --noEmit --watch & start-storybook -p 42475",
     "serve": "npm run start",
     "prerelease": "npm run lint && npm run test",
     "release": "npm version patch && git tag -d v$(npm view . version) && npm publish && git push",

@@ -2,7 +2,6 @@ import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
-import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
 import EcInputField from './ec-input-field.vue';
 
 describe('EcInputField', () => {
@@ -201,11 +200,7 @@ describe('EcInputField', () => {
   });
 
   it('renders properly when the labelTooltip prop is set', () => {
-    const wrapper = mountInputField({ labelTooltip: 'Testing the labelTooltip prop' }, {
-      global: {
-        directives: { EcTooltip },
-      },
-    });
+    const wrapper = mountInputField({ labelTooltip: 'Testing the labelTooltip prop' });
     expect(wrapper.element).toMatchSnapshot();
   });
 
