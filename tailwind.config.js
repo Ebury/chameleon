@@ -133,14 +133,14 @@ module.exports = {
     backgroundImage: {
       none: 'none',
       'gradient-1': 'linear-gradient(132.46deg, theme(colors.complementary.2) 21.71%, theme(colors.key.4) 73.94%)',
-      // 'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
-      // 'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
-      // 'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
-      // 'gradient-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
-      // 'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
-      // 'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
-      // 'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
-      // 'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
+      'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
+      'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
+      'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
+      'gradient-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+      'gradient-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+      'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
+      'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
+      'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
     },
     // backgroundOpacity: theme => theme('opacity'),
     // backgroundPosition: {
@@ -321,7 +321,7 @@ module.exports = {
     //   DEFAULT: '100%',
     // },
     // gap: (theme) => theme('spacing'),
-    // gradientColorStops: (theme) => theme('colors'),
+    gradientColorStops: theme => theme('colors'),
     // gridAutoColumns: {
     //   auto: 'auto',
     //   min: 'min-content',
@@ -985,7 +985,7 @@ module.exports = {
     fontVariantNumeric: [ /* 'responsive' */ ],
     fontWeight: [ /* 'responsive' */ ],
     gap: [ /* 'responsive' */ ],
-    gradientColorStops: [ /* 'responsive', 'dark', 'hover', 'focus' */ ],
+    gradientColorStops: [ /* 'responsive', 'dark', */ 'hover', 'focus' ],
     grayscale: [ /* 'responsive' */ ],
     gridAutoColumns: [ /* 'responsive' */ ],
     gridAutoFlow: [ /* 'responsive' */ ],
@@ -1161,7 +1161,7 @@ module.exports = {
     backgroundColor: true,
     backgroundOpacity: true,
     backgroundImage: true,
-    gradientColorStops: false, // very rarely used
+    gradientColorStops: true,
     boxDecorationBreak: true,
     backgroundSize: false, // very rarely used
     backgroundAttachment: false, // very rarely used
