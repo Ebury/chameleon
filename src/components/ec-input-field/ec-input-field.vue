@@ -1,8 +1,7 @@
 <template>
   <div
-    class="ec-input-field"
-    :class="$attrs.class"
-    :style="$attrs.style"
+    :class="['ec-input-field', attrs.class]"
+    :style="style"
     data-test="ec-input-field"
   >
     <label
@@ -81,6 +80,7 @@
 </template>
 
 <script setup lang="ts">
+import type { StyleValue } from 'vue';
 import {
   computed,
   ref,
@@ -90,12 +90,13 @@ import {
 
 import type { Maybe } from '../../../global';
 import config from '../../config';
-import VEcTooltip from '../../directives/ec-tooltip';
+import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
 
 const attrs = useAttrs();
+const style = attrs.style as unknown as StyleValue;
 const emit = defineEmits(['update:modelValue', 'icon-click']);
 const props = defineProps({
   type: {
