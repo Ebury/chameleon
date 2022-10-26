@@ -1,6 +1,8 @@
 <template>
   <div
     class="ec-input-field"
+    :class="$attrs.class"
+    :style="$attrs.style"
     data-test="ec-input-field"
   >
     <label
