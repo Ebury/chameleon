@@ -18,22 +18,6 @@
       class="ec-table-filter__filter-item"
       @change="onChange(filter.name, $event)"
     />
-    <!-- TODO ONL-4893
-    <button
-      type="button"
-      data-test="ec-table-filter__less-filters-button"
-      class="ec-table-filter__less-filters-button"
-      @click="onToggleMoreFilters()"
-    >
-      {{ toggleMoreFiltersText }}
-      <ec-icon
-        class="ec-table-filter__less-filters-button--icon"
-        :size="16"
-        :name="toggleMoreFiltersButtonIcon"
-        type="interactive"
-      />
-    </button>
-    -->
     <button
       v-if="hasFilters"
       type="button"
@@ -45,78 +29,61 @@
     </button>
   </section>
 </template>
+
 <script>
-import EcIcon from '../ec-icon';
-
 export default {
-  name: 'EcTableFilter',
-  components: { EcIcon },
   inheritAttrs: false,
-  props: {
-    modelValue: {
-      type: Object,
-      default: () => ({}),
-    },
-    filters: {
-      type: Array,
-      required: true,
-      default: () => ([]),
-    },
-    lessFiltersButtonText: {
-      type: String,
-      default: 'Less filters',
-    },
-    moreFiltersButtonText: {
-      type: String,
-      default: 'More filters',
-    },
-    clearFiltersButtonText: {
-      type: String,
-      default: 'Clear filters',
-    },
-  },
-  emits: ['update:modelValue', 'change'],
-  // TODO ONL-4893
-  // data() {
-  //   return {
-  //     isLessFilterActive: true,
-  //   };
-  // },
-  computed: {
-    hasFilters() {
-      return !!Object.keys(this.modelValue).length;
-    },
-    // TODO ONL-4893
-    // toggleMoreFiltersButtonIcon() {
-    //   return this.isLessFilterActive ? 'simple-chevron-down' : 'simple-chevron-up';
-    // },
-    // toggleMoreFiltersText() {
-    //   return this.isLessFilterActive ? this.moreFiltersButtonText : this.lessFiltersButtonText;
-    // },
-  },
-  methods: {
-    // TODO ONL-4893
-    // onToggleMoreFilters() {
-    //   this.isLessFilterActive = !this.isLessFilterActive;
-    // },
-    onChange(filterName, value) {
-      if (!value || value.length === 0) {
-        const { [filterName]: currentValue, ...otherFilters } = this.modelValue;
-
-        this.update(otherFilters);
-      } else {
-        this.update({ ...this.modelValue, [filterName]: value });
-      }
-    },
-    clearFilters() {
-      this.update({});
-    },
-    update(filters) {
-      this.$emit('update:modelValue', filters);
-      this.$emit('change', filters);
-    },
-  },
 };
+</script>
+
+<script setup>
+import { computed } from 'vue';
+
+const props = defineProps({
+  modelValue: {
+    type: Object,
+    default: () => ({}),
+  },
+  filters: {
+    type: Array,
+    required: true,
+  },
+  lessFiltersButtonText: {
+    type: String,
+    default: 'Less filters',
+  },
+  moreFiltersButtonText: {
+    type: String,
+    default: 'More filters',
+  },
+  clearFiltersButtonText: {
+    type: String,
+    default: 'Clear filters',
+  },
+});
+
+const emit = defineEmits(['update:modelValue', 'change']);
+
+const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
+
+function update(filters) {
+  emit('update:modelValue', filters);
+  emit('change', filters);
+}
+
+function onChange(filterName, value) {
+  if (!value || value.length === 0) {
+    const { [filterName]: currentValue, ...otherFilters } = props.modelValue;
+
+    update(otherFilters);
+  } else {
+    update({ ...props.modelValue, [filterName]: value });
+  }
+}
+
+function clearFilters() {
+  update({});
+}
 
 </script>
 
