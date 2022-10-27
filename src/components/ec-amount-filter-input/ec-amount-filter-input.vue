@@ -42,10 +42,10 @@
         @focus="onComparisonSymbolFocus"
         @blur="comparisonSymbolHasFocus = false"
         @change="onComparisonSymbolChange"
-        @open="$emit('open')"
-        @close="$emit('close')"
-        @after-open="$emit('after-open')"
-        @after-close="$emit('after-close')"
+        @open="emit('open')"
+        @close="emit('close')"
+        @after-open="emit('after-open')"
+        @after-close="emit('after-close')"
       />
 
       <ec-amount-input
@@ -59,7 +59,7 @@
         :error-message="errorMessage"
         :placeholder="amountPlaceholder"
         @change="onAmountChange"
-        @focus="$emit('focus')"
+        @focus="emit('focus')"
       />
     </div>
 
@@ -103,140 +103,129 @@
   </div>
 </template>
 
-<script>
-import EcTooltip from '../../directives/ec-tooltip';
+<script setup>
+import { computed, ref } from 'vue';
+
+import VEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
 
-export default {
-  name: 'EcAmountFilterInput',
-  components: {
-    EcAmountInput,
-    EcDropdown,
-    EcIcon,
+const props = defineProps({
+  modelValue: {
+    type: Object,
   },
-  directives: { EcTooltip },
-  props: {
-    modelValue: {
-      type: Object,
-    },
-    locale: {
-      type: String,
-      default: 'en',
-    },
-    isSensitive: {
-      type: Boolean,
-      default: false,
-    },
-    label: {
-      type: String,
-    },
-    note: {
-      type: String,
-    },
-    amountPlaceholder: {
-      type: String,
-    },
-    bottomNote: {
-      type: String,
-    },
-    isWarning: {
-      type: Boolean,
-      default: false,
-    },
-    warningTooltipMessage: {
-      type: String,
-    },
-    errorMessage: {
-      type: String,
-    },
-    errorTooltipMessage: {
-      type: String,
-    },
-    comparisonSymbolItems: {
-      type: Array,
-    },
+  locale: {
+    type: String,
+    default: 'en',
   },
-  emits: [
-    'update:modelValue',
-    'change',
-    'amount-change',
-    'comparison-symbol-change',
-    'focus',
-    'open',
-    'close',
-    'after-open',
-    'after-close',
-  ],
-  data() {
+  isSensitive: {
+    type: Boolean,
+    default: false,
+  },
+  label: {
+    type: String,
+  },
+  note: {
+    type: String,
+  },
+  amountPlaceholder: {
+    type: String,
+  },
+  bottomNote: {
+    type: String,
+  },
+  isWarning: {
+    type: Boolean,
+    default: false,
+  },
+  warningTooltipMessage: {
+    type: String,
+  },
+  errorMessage: {
+    type: String,
+  },
+  errorTooltipMessage: {
+    type: String,
+  },
+  comparisonSymbolItems: {
+    type: Array,
+  },
+});
+
+const emit = defineEmits([
+  'update:modelValue',
+  'change',
+  'amount-change',
+  'comparison-symbol-change',
+  'focus',
+  'open',
+  'close',
+  'after-open',
+  'after-close',
+]);
+
+const uid = getUid();
+const id = computed(() => `ec-amount-filter-input-${uid}`);
+const isInvalid = computed(() => !!props.errorMessage);
+const errorId = computed(() => (isInvalid.value ? `ec-amount-filter-input-${uid}` : null));
+
+// amount
+const amountModel = computed({
+  get() {
+    return props.modelValue.amount;
+  },
+  set(value) {
+    emit('update:modelValue', { ...props.modelValue, amount: value });
+  },
+});
+function onAmountChange(evt) {
+  emit('change', evt);
+  emit('amount-change', evt);
+}
+
+// comparison
+const comparisonSymbolHasFocus = ref(false);
+const comparisonSymbolModel = computed({
+  get() {
+    if (props.modelValue.comparisonSymbol) {
+      return props.modelValue.comparisonSymbol;
+    }
+
     return {
-      uid: getUid(),
-      comparisonSymbolHasFocus: false,
-      popoverOptions: {
-        autoSize: 'min',
-      },
+      value: null,
+      text: null,
     };
   },
-  computed: {
-    id() {
-      return `ec-amount-filter-input-${this.uid}`;
-    },
-    errorId() {
-      return this.isInvalid ? `ec-amount-filter-input-${this.uid}` : null;
-    },
-    isInvalid() {
-      return !!this.errorMessage;
-    },
-    comparisonSymbolModel: {
-      get() {
-        if (this.modelValue.comparisonSymbol) {
-          return this.modelValue.comparisonSymbol;
-        }
+  set(value) {
+    emit('update:modelValue', { ...props.modelValue, comparisonSymbol: value });
+  },
+});
+function onComparisonSymbolChange(evt) {
+  comparisonSymbolHasFocus.value = true;
+  emit('change', evt);
+  emit('comparison-symbol-change', evt);
+}
+function onComparisonSymbolFocus() {
+  comparisonSymbolHasFocus.value = true;
+  emit('focus');
+}
 
-        return {
-          value: null,
-          text: null,
-        };
-      },
-      set(value) {
-        this.$emit('update:modelValue', { ...this.modelValue, comparisonSymbol: value });
-      },
-    },
-    amountModel: {
-      get() {
-        return this.modelValue.amount;
-      },
-      set(value) {
-        this.$emit('update:modelValue', { ...this.modelValue, amount: value });
-      },
-    },
-  },
-  methods: {
-    onAmountChange(evt) {
-      this.$emit('change', evt);
-      this.$emit('amount-change', evt);
-    },
-    onComparisonSymbolChange(evt) {
-      this.comparisonSymbolHasFocus = true;
-      this.$emit('change', evt);
-      this.$emit('comparison-symbol-change', evt);
-    },
-    onComparisonSymbolFocus() {
-      this.comparisonSymbolHasFocus = true;
-      this.$emit('focus');
-    },
-    getPopoverStyle() {
-      if (this.$refs.popoverWidthReference) {
-        return {
-          width: `${this.$refs.popoverWidthReference.offsetWidth}px`,
-        };
-      }
-      return null;
-    },
-  },
+// popover
+const popoverOptions = {
+  autoSize: 'min',
 };
+const popoverWidthReference = ref(null);
+function getPopoverStyle() {
+  if (popoverWidthReference.value) {
+    return {
+      width: `${popoverWidthReference.value.offsetWidth}px`,
+    };
+  }
+  return null;
+}
+
 </script>
 
 <style>
