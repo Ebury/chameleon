@@ -1,5 +1,6 @@
 /* eslint-disable array-bracket-spacing */
 const plugin = require('tailwindcss/plugin');
+const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default;
 
 // see https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
 // for reference config
@@ -1240,6 +1241,7 @@ module.exports = {
   plugins: [
     plugin(typographyPlugin),
     plugin(flexboxGridPlugin),
+    plugin(stopColorPlugin),
   ],
 };
 
@@ -1312,4 +1314,14 @@ function flexboxGridPlugin({ addUtilities, theme }) {
   };
 
   addUtilities(grid, ['responsive']);
+}
+
+function stopColorPlugin({ matchUtilities, theme }) {
+  matchUtilities({
+    stop: value => ({
+      'stop-color': value,
+    }),
+  }, {
+    values: flattenColorPalette(theme('colors')),
+  });
 }
