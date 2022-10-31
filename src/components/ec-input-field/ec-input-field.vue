@@ -80,7 +80,6 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable simple-import-sort/imports */
 import type { StyleValue } from 'vue';
 
 import {
