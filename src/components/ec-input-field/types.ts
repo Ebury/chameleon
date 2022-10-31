@@ -5,7 +5,7 @@ export enum InputType {
   TEL = 'tel'
 }
 
-interface InputFieldProps {
+export interface InputFieldProps {
   type?: InputType,
   modelValue?: number | string | Date,
   label?: string,
