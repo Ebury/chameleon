@@ -512,7 +512,7 @@ describe('EcModal', () => {
     });
   });
 
-  describe('when isBackgroundTransparent is false', () => {
+  describe('when the background layer is not transparent', () => {
     it('should render with the css class ec-modal--background-filled', () => {
       const wrapper = mountModal({ show: true, isBackgroundTransparent: false });
       expect(wrapper.findByDataTest('ec-modal').classes('ec-modal--background-filled')).toBe(true);
