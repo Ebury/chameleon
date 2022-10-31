@@ -80,7 +80,6 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line simple-import-sort/imports
 import type { StyleValue } from 'vue';
 
 import {
@@ -103,7 +102,7 @@ const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 const emit = defineEmits(['update:modelValue', 'icon-click']);
 
-interface InputFieldPropType {
+interface Props {
   type?: InputType,
   modelValue?: number | string | Date,
   label?: string,
@@ -119,9 +118,12 @@ interface InputFieldPropType {
   isLoading?: boolean,
   isSensitive?: boolean,
   isWarning?: boolean,
-  autocomplete?: string,
+  autocomplete: string,
 }
-const props = withDefaults(defineProps<InputFieldPropType>(), {
+
+export type InputProp = Props;
+
+const props = withDefaults(defineProps<Props>(), {
   type: InputType.TEXT,
   label: '',
   labelTooltip: '',
