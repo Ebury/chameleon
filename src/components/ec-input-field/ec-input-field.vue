@@ -80,7 +80,9 @@
 </template>
 
 <script setup lang="ts">
+// eslint-disable-next-line simple-import-sort/imports
 import type { StyleValue } from 'vue';
+
 import {
   computed,
   ref,
@@ -193,10 +195,6 @@ defineExpose({ focus, inputRef });
 export default {
   inheritAttrs: false,
 };
-</script>
-
-<script lang="ts">
-
 </script>
 
 <style>
