@@ -3,7 +3,7 @@
     <div
       v-if="show"
       class="ec-modal"
-      :class="{'ec-modal--background-transparent': isBackgroundTransparent}"
+      :class="{'ec-modal--background-filled': !isBackgroundTransparent}"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-modal` : 'ec-modal'"
       :style="zIndexStyle"
       @click.self="closeModal()"
@@ -237,7 +237,7 @@ function hasFooter() {
 }
 
 .ec-modal {
-  @apply tw-bg-gray-8;
+  background: hsla(var(--ec-gray-color-level-2), 0.2);
   @apply tw-w-screen;
   @apply tw-h-screen;
   @apply tw-fixed;
@@ -362,8 +362,8 @@ function hasFooter() {
     }
   }
 
-  &--background-transparent {
-    background: hsla(var(--ec-gray-color-level-2), 0.2);
+  &--background-filled {
+    @apply tw-bg-gray-8;
   }
 }
 </style>

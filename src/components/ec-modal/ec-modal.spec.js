@@ -511,4 +511,31 @@ describe('EcModal', () => {
       expect(wrapper.vm.secondModalAction).toHaveBeenCalled();
     });
   });
+
+  describe('when isBackgroundTransparent is false', () => {
+    it('should render with the css class ec-modal--background-filled', () => {
+      const wrapper = mountModal({ show: true, isBackgroundTransparent: false });
+      expect(wrapper.findByDataTest('ec-modal').classes('ec-modal--background-filled')).toBe(true);
+      expect(wrapper.findByDataTest('ec-modal').element).toMatchSnapshot();
+    });
+
+    it('should render without a box shadow', () => {
+      const wrapper = mountModal({ show: true, isBackgroundTransparent: false });
+      expect(wrapper.findByDataTest('ec-modal__content').classes('tw-shadow-none')).toBe(true);
+      expect(wrapper.findByDataTest('ec-modal__content').element).toMatchSnapshot();
+    });
+
+    it('should render the footer with a transparent footer', () => {
+      const wrapper = mountModal({
+        show: true,
+        isBackgroundTransparent: false,
+      }, {
+        slots: {
+          footerLeftContent: '<p>Need Help ?</p>',
+        },
+      });
+      expect(wrapper.findByDataTest('ec-modal__footer').classes('tw-bg-transparent')).toBe(true);
+      expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
+    });
+  });
 });
