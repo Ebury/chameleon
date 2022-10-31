@@ -1,2 +1,6 @@
+/* purgecss start ignore */
+
 @import 'elements';
 @import 'tables';
+
+/* purgecss end ignore */
