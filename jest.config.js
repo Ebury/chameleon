@@ -7,12 +7,15 @@ module.exports = {
     'jsx',
     'json',
     'vue',
+    'ts',
+    'tsx',
   ],
   errorOnDeprecated: true,
   maxWorkers: '100%',
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\.tsx?$': 'ts-jest',
   },
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
