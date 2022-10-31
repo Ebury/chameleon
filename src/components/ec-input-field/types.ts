@@ -1,11 +1,11 @@
 export enum InputType {
   TEXT = 'text',
   DATE = 'date',
-  NUMBER = 'Number',
+  NUMBER = 'number',
   TEL = 'tel'
 }
 
-export interface InputFieldPropType {
+interface InputFieldProps {
   type?: InputType,
   modelValue?: number | string | Date,
   label?: string,
@@ -21,5 +21,5 @@ export interface InputFieldPropType {
   isLoading?: boolean,
   isSensitive?: boolean,
   isWarning?: boolean,
-  autocomplete: string,
+  autocomplete?: string,
 }

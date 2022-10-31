@@ -81,7 +81,6 @@
 
 <script setup lang="ts">
 import type { StyleValue } from 'vue';
-
 import {
   computed,
   ref,
@@ -95,14 +94,13 @@ import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
-import type { InputFieldPropType } from './types';
 import { InputType } from './types';
 
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 const emit = defineEmits(['update:modelValue', 'icon-click']);
 
-interface Props {
+interface InputFieldProps {
   type?: InputType,
   modelValue?: number | string | Date,
   label?: string,
@@ -118,12 +116,10 @@ interface Props {
   isLoading?: boolean,
   isSensitive?: boolean,
   isWarning?: boolean,
-  autocomplete: string,
+  autocomplete?: string,
 }
 
-export type InputProp = Props;
-
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<InputFieldProps>(), {
   type: InputType.TEXT,
   label: '',
   labelTooltip: '',
@@ -197,6 +193,10 @@ defineExpose({ focus, inputRef });
 export default {
   inheritAttrs: false,
 };
+</script>
+
+<script lang="ts">
+
 </script>
 
 <style>
