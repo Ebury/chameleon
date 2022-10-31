@@ -3,6 +3,7 @@
     <div
       v-if="show"
       class="ec-modal"
+      :class="{'ec-modal--background-transparent': isBackgroundTransparent}"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-modal` : 'ec-modal'"
       :style="zIndexStyle"
       @click.self="closeModal()"
@@ -11,7 +12,7 @@
         ref="focusTrapTarget"
         class="ec-modal__content"
         data-test="ec-modal__content"
-        :class="{ 'ec-modal--lg': large }"
+        :class="{ 'ec-modal--lg': large, 'tw-shadow-none': !isBackgroundTransparent }"
       >
         <header
           class="ec-modal__header"
@@ -44,6 +45,7 @@
         <footer
           v-if="hasFooter()"
           class="ec-modal__footer"
+          :class="{'tw-bg-transparent': !isBackgroundTransparent}"
           data-test="ec-modal__footer"
         >
           <div
@@ -113,6 +115,10 @@ import EcLoading from '../ec-loading';
 const slots = useSlots();
 
 const props = defineProps({
+  isBackgroundTransparent: {
+    type: Boolean,
+    default: true,
+  },
   show: {
     type: Boolean,
     default: false,
@@ -231,8 +237,7 @@ function hasFooter() {
 }
 
 .ec-modal {
-  background: hsla(var(--ec-gray-color-level-2), 0.2);
-
+  @apply tw-bg-gray-8;
   @apply tw-w-screen;
   @apply tw-h-screen;
   @apply tw-fixed;
@@ -355,6 +360,10 @@ function hasFooter() {
       max-width: var(--ec-modal-lg-max-width);
       max-height: 80vh;
     }
+  }
+
+  &--background-transparent {
+    background: hsla(var(--ec-gray-color-level-2), 0.2);
   }
 }
 </style>
