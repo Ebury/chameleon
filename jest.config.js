@@ -5,6 +5,8 @@ module.exports = {
   moduleFileExtensions: [
     'js',
     'jsx',
+    'tsx',
+    'ts',
     'json',
     'vue',
     'ts',

@@ -2,7 +2,6 @@ import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcInputField from './ec-input-field.vue';
 
 describe('EcInputField', () => {
@@ -32,14 +31,6 @@ describe('EcInputField', () => {
       ...mountOpts,
     });
   }
-
-  it('should validate given props', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountInputField({ type: 'random' });
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
-    });
-  });
 
   it('should display properly with the given props', () => {
     const wrapper = mountInputField();

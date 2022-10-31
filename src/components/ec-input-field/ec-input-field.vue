@@ -80,6 +80,7 @@
 </template>
 
 <script setup lang="ts">
+// eslint-disable-next-line simple-import-sort/imports
 import type { StyleValue } from 'vue';
 
 import {
@@ -95,74 +96,43 @@ import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
+import type { InputFieldPropType } from './types';
+import { InputType } from './types';
 
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 const emit = defineEmits(['update:modelValue', 'icon-click']);
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'text',
-    validator(value: string) {
-      return ['text', 'date', 'number', 'tel'].includes(value);
-    },
-  },
-  modelValue: {
-    type: [Number, String, Date],
-  },
-  label: {
-    default: '',
-    type: String,
-  },
-  labelTooltip: {
-    default: '',
-    type: String,
-  },
-  note: {
-    default: '',
-    type: String,
-  },
-  bottomNote: {
-    default: '',
-    type: String,
-  },
-  errorMessage: {
-    default: '',
-    type: String,
-  },
-  icon: {
-    type: String,
-    default: '',
-  },
-  iconSize: {
-    type: Number,
-    default: 20,
-  },
-  isInGroup: {
-    type: String,
-  },
-  id: {
-    type: String,
-  },
-  errorId: {
-    type: String,
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  isWarning: {
-    type: Boolean,
-    default: false,
-  },
-  autocomplete: {
-    type: String,
-    default: null,
-  },
+
+interface InputFieldPropType {
+  type?: InputType,
+  modelValue?: number | string | Date,
+  label?: string,
+  labelTooltip?: string,
+  note?: string,
+  bottomNote?: string,
+  errorMessage?: string,
+  icon?: string,
+  iconSize?: number,
+  isInGroup?: string,
+  id?: string,
+  errorId?: string,
+  isLoading?: boolean,
+  isSensitive?: boolean,
+  isWarning?: boolean,
+  autocomplete?: string,
+}
+const props = withDefaults(defineProps<InputFieldPropType>(), {
+  type: InputType.TEXT,
+  label: '',
+  labelTooltip: '',
+  note: '',
+  bottomNote: '',
+  errorMessage: '',
+  icon: '',
+  iconSize: 20,
+  isLoading: false,
+  isSensitive: false,
+  isWarning: false,
 });
 
 const isInvalid = computed(() => !!props.errorMessage);
@@ -212,8 +182,6 @@ function focus() {
 }
 
 watchEffect(() => {
-  // Hack: since Vue 3 we occasionally run into issues that the inputModel and value of the input are getting out of sync.
-  // in order to fix it we should sync it automatically every time inputModel changes.
   const inputElement = inputRef.value;
   if (inputElement && inputElement.value !== inputModel.value) {
     inputElement.value = `${inputModel.value}` ?? '';
