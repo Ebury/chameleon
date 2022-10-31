@@ -97,10 +97,13 @@ import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
 import { InputType } from './types';
+import type { InputFieldEvents } from './types';
 
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
-const emit = defineEmits(['update:modelValue', 'icon-click']);
+const emit = defineEmits<{(e: 'update:modelValue', value: InputFieldEvents['update:modelValue']): void
+  (e: 'icon-click', value: InputFieldEvents['icon-click']): void
+}>();
 
 interface InputFieldProps {
   type?: InputType,

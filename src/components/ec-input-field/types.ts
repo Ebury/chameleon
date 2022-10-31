@@ -5,6 +5,11 @@ export enum InputType {
   TEL = 'tel'
 }
 
+export interface InputFieldEvents {
+  'update:modelValue': InputFieldProps['modelValue']
+  'icon-click': InputFieldProps['modelValue']
+}
+
 export interface InputFieldProps {
   type?: InputType,
   modelValue?: number | string | Date,
