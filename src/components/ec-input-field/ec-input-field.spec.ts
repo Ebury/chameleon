@@ -1,15 +1,21 @@
+import type { MountingOptions } from '@vue/test-utils';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
+import type { InputHTMLAttributes } from 'vue';
 import { defineComponent } from 'vue';
 
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
+import { findByDataTest } from '../../../tests/utils/findUtils';
 import EcInputField from './ec-input-field.vue';
+import type { InputFieldProps } from './types';
+import { InputFieldEvent, InputType } from './types';
 
 describe('EcInputField', () => {
-  function mountInputField(props, mountOpts) {
-    return mount(EcInputField, {
+  function mountInputField(props?: InputFieldProps & InputHTMLAttributes, mountOpts?: MountingOptions<InputFieldProps>) {
+    return mount<InputFieldProps>(EcInputField, {
       props: {
         modelValue: 'Text test',
-        type: 'text',
+        type: InputType.TEXT,
         errorMessage: '',
         label: 'label test',
         note: 'note test',
@@ -19,14 +25,19 @@ describe('EcInputField', () => {
       ...mountOpts,
     });
   }
-  function mountInputFieldAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
+  function mountInputFieldAsTemplate(
+    template: string,
+    props: InputFieldProps,
+    wrapperComponentOpts: Record<string, unknown>,
+    mountOpts?: MountingOptions<InputFieldProps>,
+  ) {
     const Component = defineComponent({
       components: { EcInputField },
       template,
       ...wrapperComponentOpts,
     });
 
-    return mount(Component, {
+    return mount<InputFieldProps, MountingOptions<InputFieldProps>>(Component, {
       props,
       ...mountOpts,
     });
@@ -34,18 +45,18 @@ describe('EcInputField', () => {
 
   it('should display properly with the given props', () => {
     const wrapper = mountInputField();
-    expect(wrapper.findByDataTest('ec-input-field__input').attributes('autocomplete')).toBe(undefined);
+    expect(findByDataTest(wrapper, 'ec-input-field__input').attributes('autocomplete')).toBe(undefined);
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('renders properly with the given prop autocomplete OFF', () => {
     const wrapper = mountInputField({ autocomplete: 'off' });
-    expect(wrapper.findByDataTest('ec-input-field__input').attributes('autocomplete')).toBe('off');
+    expect(findByDataTest(wrapper, 'ec-input-field__input').attributes('autocomplete')).toBe('off');
   });
 
   it('renders properly with the given prop autocomplete ON', () => {
     const wrapper = mountInputField({ autocomplete: 'on' });
-    expect(wrapper.findByDataTest('ec-input-field__input').attributes('autocomplete')).toBe('on');
+    expect(findByDataTest(wrapper, 'ec-input-field__input').attributes('autocomplete')).toBe('on');
   });
 
   it('renders properly with the given prop errorMessage', () => {
@@ -82,7 +93,7 @@ describe('EcInputField', () => {
   });
 
   it('renders with the attrs min and max', () => {
-    const wrapper = mountInputField({ min: 5, max: 10, type: 'number' });
+    const wrapper = mountInputField({ min: 5, max: 10, type: InputType.NUMBER });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -97,7 +108,7 @@ describe('EcInputField', () => {
       },
     );
 
-    wrapper.findByDataTest('ec-input-field__input').trigger('click');
+    findByDataTest(wrapper, 'ec-input-field__input').trigger('click');
     expect(event).toHaveBeenCalledTimes(1);
   });
 
@@ -112,9 +123,9 @@ describe('EcInputField', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
+    expect((findByDataTest(wrapper, 'ec-input-field__input').element as HTMLInputElement).value).toBe('');
     await wrapper.setData({ text: 'some text' });
-    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('some text');
+    expect((findByDataTest(wrapper, 'ec-input-field__input').element as HTMLInputElement).value).toBe('some text');
   });
 
   it('should set the v-model on the value of the input when type is "tel" and change when it changes', async () => {
@@ -128,12 +139,12 @@ describe('EcInputField', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
+    expect((findByDataTest(wrapper, 'ec-input-field__input').element as HTMLInputElement).value).toBe('');
     await wrapper.setData({ text: '123456789' });
-    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('123456789');
+    expect((findByDataTest(wrapper, 'ec-input-field__input').element as HTMLInputElement).value).toBe('123456789');
   });
 
-  it('should emit the value when you write on the input', () => {
+  it('should emit the value when you write on the input', async () => {
     const wrapper = mountInputFieldAsTemplate(
       '<ec-input-field v-model="text" type="text" />',
       {},
@@ -144,36 +155,35 @@ describe('EcInputField', () => {
       },
     );
 
-    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
-    wrapper.findByDataTest('ec-input-field__input').setValue('some text');
-    expect(wrapper.vm.text).toBe('some text');
-    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('some text');
+    expect((findByDataTest(wrapper, 'ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    await findByDataTest(wrapper, 'ec-input-field__input').setValue('some text');
+    expect(wrapper.findComponent(EcInputField).emitted()[InputFieldEvent.UPDATE_MODEL_VALUE]?.[0]).toEqual(['some text']);
+    expect((findByDataTest(wrapper, 'ec-input-field__input').element as HTMLInputElement).value).toBe('some text');
   });
 
   it('should emit an event when we click on the icon', () => {
     const wrapper = mountInputField({ icon: 'simple-check' });
 
-    wrapper
-      .findByDataTest('ec-input-field__icon')
+    findByDataTest(wrapper, 'ec-input-field__icon')
       .trigger('click');
 
-    expect(wrapper.emitted('icon-click').length).toBe(1);
+    expect(wrapper.emitted(InputFieldEvent.ICON_CLICK)?.length).toBe(1);
   });
 
   it('should render given icon', () => {
     const wrapper = mountInputField({ icon: 'simple-check' });
-    expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').exists()).toBe(true);
+    expect(findByDataTest(wrapper, 'ec-input-field__icon-wrapper').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render given icon with given size', () => {
     const wrapper = mountInputField({ icon: 'simple-check', iconSize: 40 });
-    expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').element).toMatchSnapshot();
+    expect(findByDataTest(wrapper, 'ec-input-field__icon-wrapper').element).toMatchSnapshot();
   });
 
   it('should not render any icon if only the icon size is given', () => {
     const wrapper = mountInputField({ iconSize: 40 });
-    expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').exists()).toBe(false);
+    expect(findByDataTest(wrapper, 'ec-input-field__icon-wrapper').exists()).toBe(false);
   });
 
   it('renders properly when disabled', () => {
@@ -244,13 +254,13 @@ describe('EcInputField', () => {
       modelValue: '1234',
     });
 
-    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('1234');
+    expect((findByDataTest(wrapper, 'ec-input-field__input').element as HTMLInputElement).value).toBe('1234');
 
     await wrapper.setProps({
       modelValue: undefined,
     });
 
-    expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
+    expect((findByDataTest(wrapper, 'ec-input-field__input').element as HTMLInputElement).value).toBe('');
   });
 
   it('should be focusable from outside', async () => {
@@ -264,13 +274,13 @@ describe('EcInputField', () => {
       },
     );
 
-    document.activeElement.blur();
-    expect(document.activeElement).not.toBe(wrapper.findByDataTest('ec-input-field__input').element);
+    (document.activeElement as HTMLElement)?.blur();
+    expect(document.activeElement).not.toBe(findByDataTest(wrapper, 'ec-input-field__input').element);
     wrapper.findComponent(EcInputField).vm.focus();
 
     await wrapper.vm.$nextTick();
 
-    expect(document.activeElement).toBe(wrapper.findByDataTest('ec-input-field__input').element);
+    expect(document.activeElement).toBe(findByDataTest(wrapper, 'ec-input-field__input').element);
 
     wrapper.unmount();
   });
