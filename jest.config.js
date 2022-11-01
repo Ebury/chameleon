@@ -9,8 +9,6 @@ module.exports = {
     'ts',
     'json',
     'vue',
-    'ts',
-    'tsx',
   ],
   errorOnDeprecated: true,
   maxWorkers: '100%',
