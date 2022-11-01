@@ -1,7 +1,6 @@
 import type { MountingOptions } from '@vue/test-utils';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { mount } from '@vue/test-utils';
-import type { InputHTMLAttributes } from 'vue';
+import { mount, VueWrapper } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
@@ -11,20 +10,24 @@ import type { InputFieldProps } from './types';
 import { InputFieldEvent, InputType } from './types';
 
 describe('EcInputField', () => {
-  function mountInputField(props?: InputFieldProps & InputHTMLAttributes, mountOpts?: MountingOptions<InputFieldProps>) {
-    return mount<InputFieldProps>(EcInputField, {
-      props: {
-        modelValue: 'Text test',
-        type: InputType.TEXT,
-        errorMessage: '',
-        label: 'label test',
-        note: 'note test',
-        labelTooltip: '',
-        ...props,
+  function mountInputField(props?: InputFieldProps, mountOpts?: MountingOptions<InputFieldProps>) {
+    return mount<InputFieldProps>(
+      EcInputField as any,
+      {
+        props: {
+          modelValue: 'Text test',
+          type: InputType.TEXT,
+          errorMessage: '',
+          label: 'label test',
+          note: 'note test',
+          labelTooltip: '',
+          ...props,
+        },
+        ...mountOpts,
       },
-      ...mountOpts,
-    });
+    );
   }
+
   function mountInputFieldAsTemplate(
     template: string,
     props: InputFieldProps,
@@ -93,7 +96,7 @@ describe('EcInputField', () => {
   });
 
   it('renders with the attrs min and max', () => {
-    const wrapper = mountInputField({ min: 5, max: 10, type: InputType.NUMBER });
+    const wrapper = mountInputField({ type: InputType.NUMBER }, { attrs: { min: 5, max: 10 } });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -275,12 +278,12 @@ describe('EcInputField', () => {
     );
 
     (document.activeElement as HTMLElement)?.blur();
-    expect(document.activeElement).not.toBe(findByDataTest(wrapper, 'ec-input-field__input').element);
+    expect(document.activeElement).not.toBe(findByDataTest(wrapper as VueWrapper, 'ec-input-field__input').element);
     wrapper.findComponent(EcInputField).vm.focus();
 
     await wrapper.vm.$nextTick();
 
-    expect(document.activeElement).toBe(findByDataTest(wrapper, 'ec-input-field__input').element);
+    expect(document.activeElement).toBe(findByDataTest(wrapper as VueWrapper, 'ec-input-field__input').element);
 
     wrapper.unmount();
   });

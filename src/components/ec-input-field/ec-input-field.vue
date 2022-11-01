@@ -61,7 +61,7 @@
         data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
-        @click="emit('icon-click', modelValue);"
+        @click="emit(InputFieldEvent.ICON_CLICK, modelValue);"
       />
     </div>
     <div
@@ -95,10 +95,11 @@ import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
 import type { InputFieldEvents } from './types';
-import { InputType } from './types';
+import { InputFieldEvent, InputType } from './types';
 
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
+
 const emit = defineEmits<{(e: 'update:modelValue', value: InputFieldEvents['update:modelValue']): void
   (e: 'icon-click', value: InputFieldEvents['icon-click']): void
 }>();
@@ -148,7 +149,7 @@ const inputModel = computed<typeof props.modelValue>({
     return props.modelValue;
   },
   set(value) {
-    emit('update:modelValue', value);
+    emit(InputFieldEvent.UPDATE_MODEL_VALUE, value);
   },
 });
 
