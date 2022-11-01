@@ -80,9 +80,7 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line simple-import-sort/imports
 import type { StyleValue } from 'vue';
-
 import {
   computed,
   ref,
@@ -96,8 +94,8 @@ import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
-import { InputType } from './types';
 import type { InputFieldEvents } from './types';
+import { InputType } from './types';
 
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;

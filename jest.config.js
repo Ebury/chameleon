@@ -17,7 +17,7 @@ module.exports = {
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.vue$': '@vue/vue3-jest',
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.(j|t)sx?$': 'ts-jest',
   },
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
@@ -43,7 +43,7 @@ module.exports = {
   },
   collectCoverage: true,
   collectCoverageFrom: [
-    'src/**/*.{js,vue}',
+    'src/**/*.{ts,js,vue}',
     '!src/main.js',
     '!src/**/*.story.js',
     '!src/**/index.js',

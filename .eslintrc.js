@@ -27,15 +27,14 @@ module.exports = {
     'no-use-before-define': 'off',
     'require-await': ['error'],
     'import/prefer-default-export': 'off',
-    'simple-import-sort/imports': 'off',
-    // 'simple-import-sort/imports': ['error', {
-    //   groups: [
-    //     ['^@?(?!ebury)\\w'], // vendor
-    //     ['^@ebury\\/'], // ebury lib
-    //     ['^[^.\\u0000]', '^\\.', '^'], // both absolute and relative imports
-    //     ['^\\u0000'], // side effect imports
-    //   ],
-    // }],
+    'simple-import-sort/imports': ['error', {
+      groups: [
+        ['^@?(?!ebury)\\w'], // vendor
+        ['^@ebury\\/'], // ebury lib
+        ['^[^.\\u0000]', '^\\.', '^'], // both absolute and relative imports
+        ['^\\u0000'], // side effect imports
+      ],
+    }],
     'simple-import-sort/exports': 'error',
     'vue/attributes-order': ['error', {
       order: [
