@@ -94,8 +94,8 @@ import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
-import type { InputFieldEvents } from './types';
-import { InputFieldEvent, InputType } from './types';
+import type { InputFieldEvents, InputFieldExpose } from './types';
+import { InputFieldEvent, InputFieldType } from './types';
 
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
@@ -105,7 +105,7 @@ const emit = defineEmits<{(e: 'update:modelValue', value: InputFieldEvents['upda
 }>();
 
 interface InputFieldProps {
-  type?: InputType,
+  type?: InputFieldType,
   modelValue?: number | string | Date,
   label?: string,
   labelTooltip?: string,
@@ -124,7 +124,7 @@ interface InputFieldProps {
 }
 
 const props = withDefaults(defineProps<InputFieldProps>(), {
-  type: InputType.TEXT,
+  type: InputFieldType.TEXT,
   label: '',
   labelTooltip: '',
   note: '',
@@ -190,7 +190,7 @@ watchEffect(() => {
   }
 });
 
-defineExpose({ focus, inputRef });
+defineExpose<InputFieldExpose>({ focus, inputRef });
 </script>
 
 <script lang="ts">

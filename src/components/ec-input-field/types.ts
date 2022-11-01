@@ -1,4 +1,13 @@
-export enum InputType {
+import type { Ref } from 'vue';
+
+import type { Maybe } from '../../../global';
+
+export interface InputFieldExpose {
+  focus: ()=> void
+  inputRef: Ref<Maybe<HTMLInputElement>>
+}
+
+export enum InputFieldType {
   TEXT = 'text',
   DATE = 'date',
   NUMBER = 'number',
@@ -16,7 +25,7 @@ export interface InputFieldEvents {
 }
 
 export interface InputFieldProps {
-  type?: InputType,
+  type?: InputFieldType,
   modelValue?: number | string | Date,
   label?: string,
   labelTooltip?: string,

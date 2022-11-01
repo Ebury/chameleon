@@ -6,8 +6,8 @@ import { defineComponent } from 'vue';
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
 import { findByDataTest } from '../../../tests/utils/findUtils';
 import EcInputField from './ec-input-field.vue';
-import type { InputFieldProps } from './types';
-import { InputFieldEvent, InputType } from './types';
+import type { InputFieldExpose, InputFieldProps } from './types';
+import { InputFieldEvent, InputFieldType } from './types';
 
 describe('EcInputField', () => {
   function mountInputField(props?: InputFieldProps, mountOpts?: MountingOptions<InputFieldProps>) {
@@ -16,7 +16,7 @@ describe('EcInputField', () => {
       {
         props: {
           modelValue: 'Text test',
-          type: InputType.TEXT,
+          type: InputFieldType.TEXT,
           errorMessage: '',
           label: 'label test',
           note: 'note test',
@@ -96,7 +96,7 @@ describe('EcInputField', () => {
   });
 
   it('renders with the attrs min and max', () => {
-    const wrapper = mountInputField({ type: InputType.NUMBER }, { attrs: { min: 5, max: 10 } });
+    const wrapper = mountInputField({ type: InputFieldType.NUMBER }, { attrs: { min: 5, max: 10 } });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -279,7 +279,7 @@ describe('EcInputField', () => {
 
     (document.activeElement as HTMLElement)?.blur();
     expect(document.activeElement).not.toBe(findByDataTest(wrapper as VueWrapper, 'ec-input-field__input').element);
-    wrapper.findComponent(EcInputField).vm.focus();
+    (wrapper.findComponent(EcInputField).vm as unknown as InputFieldExpose).focus();
 
     await wrapper.vm.$nextTick();
 
