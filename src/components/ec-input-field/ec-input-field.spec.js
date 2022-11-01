@@ -252,4 +252,26 @@ describe('EcInputField', () => {
 
     expect(wrapper.findByDataTest('ec-input-field__input').element.value).toBe('');
   });
+
+  it('should be focusable from outside', async () => {
+    const elem = document.createElement('div');
+    document.body.appendChild(elem);
+
+    const wrapper = mount(
+      EcInputField,
+      {
+        attachTo: elem,
+      },
+    );
+
+    document.activeElement.blur();
+    expect(document.activeElement).not.toBe(wrapper.findByDataTest('ec-input-field__input').element);
+    wrapper.findComponent(EcInputField).vm.focus();
+
+    await wrapper.vm.$nextTick();
+
+    expect(document.activeElement).toBe(wrapper.findByDataTest('ec-input-field__input').element);
+
+    wrapper.unmount();
+  });
 });

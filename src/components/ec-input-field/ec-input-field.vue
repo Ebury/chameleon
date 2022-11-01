@@ -177,14 +177,14 @@ const inputClasses = computed(() => {
 const inputRef = ref<Maybe<HTMLInputElement>>(null);
 
 function focus() {
-  if (inputRef.value) {
-    inputRef.value.focus();
-  }
+  /* istanbul ignore next */
+  inputRef.value?.focus();
 }
 
 watchEffect(() => {
   const inputElement = inputRef.value;
   if (inputElement && inputElement.value !== inputModel.value) {
+    /* istanbul ignore next */
     inputElement.value = `${inputModel.value}` ?? '';
   }
 });
