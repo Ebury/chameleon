@@ -3,7 +3,7 @@ import type { Ref } from 'vue';
 import type { Maybe } from '../../../global';
 
 export interface InputFieldExpose {
-  focus: ()=> void
+  focus: () => void
   inputRef: Ref<Maybe<HTMLInputElement>>
 }
 
@@ -15,12 +15,12 @@ export enum InputFieldType {
 }
 
 export enum InputFieldEvent {
-  UPDATE_MODEL_VALUE='update:modelValue',
-  ICON_CLICK='icon-click'
+  UPDATE_MODEL_VALUE = 'update:modelValue',
+  ICON_CLICK = 'icon-click'
 }
 
 export interface InputFieldEvents {
-  [InputFieldEvent.UPDATE_MODEL_VALUE]: InputFieldProps['modelValue']
+  [InputFieldEvent.UPDATE_MODEL_VALUE]: InputEvent
   [InputFieldEvent.ICON_CLICK]: InputFieldProps['modelValue']
 }
 

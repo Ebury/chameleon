@@ -100,8 +100,8 @@ import { InputFieldEvent, InputFieldType } from './types';
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 
-const emit = defineEmits<{(e: 'update:modelValue', value: InputFieldEvents['update:modelValue']): void
-  (e: 'icon-click', value: InputFieldEvents['icon-click']): void
+const emit = defineEmits<{(e: InputFieldEvent.UPDATE_MODEL_VALUE, value: InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]): void
+  (e: InputFieldEvent.ICON_CLICK, value: InputFieldEvents[InputFieldEvent.ICON_CLICK]): void
 }>();
 
 interface InputFieldProps {
@@ -144,12 +144,12 @@ const uid = getUid();
 const inputId = computed(() => props.id || `ec-input-field-${uid}`);
 const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-input-field-error-${uid}`) : undefined));
 
-const inputModel = computed<typeof props.modelValue>({
+const inputModel = computed<InputFieldProps['modelValue']>({
   get() {
     return props.modelValue;
   },
   set(value) {
-    emit(InputFieldEvent.UPDATE_MODEL_VALUE, value);
+    emit(InputFieldEvent.UPDATE_MODEL_VALUE, value as unknown as InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]);
   },
 });
 
