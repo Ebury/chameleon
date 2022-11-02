@@ -202,7 +202,7 @@ interface PhoneNumberProps {
   isSearchEnabled?: boolean,
   searchCountryPlaceholder?: string,
   noCountriesText?: string,
-  level: PhoneNumberLevel,
+  level?: PhoneNumberLevel,
   autocomplete?: Maybe<InputHTMLAttributes['autocomplete']>
 }
 

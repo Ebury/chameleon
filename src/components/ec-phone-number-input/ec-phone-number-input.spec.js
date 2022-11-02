@@ -5,6 +5,12 @@ import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
 import config from '../../config';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
+const requiredProps = {
+  label: '',
+  note: '',
+  bottomNote: '',
+};
+
 const countries = [
   {
     areaCode: '+44',
@@ -37,6 +43,7 @@ describe('EcPhoneNumberInput', () => {
   function mountPhoneNumberInput(props) {
     return mount(EcPhoneNumberInput, {
       props: {
+        ...requiredProps,
         countries,
         modelValue: {},
         ...props,
@@ -308,7 +315,9 @@ describe('EcPhoneNumberInput', () => {
     it('should use the v-model with the country and emit the changes', async () => {
       const wrapper = mountPhoneNumberInputAsTemplate(
         '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
+        {
+          ...requiredProps,
+        },
         {
           data() {
             return {
@@ -333,7 +342,9 @@ describe('EcPhoneNumberInput', () => {
     it('should preselect the country item in the dropdown and the number in the input from the v-model', () => {
       const wrapper = mountPhoneNumberInputAsTemplate(
         '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
+        {
+          ...requiredProps,
+        },
         {
           data() {
             return {
@@ -359,7 +370,9 @@ describe('EcPhoneNumberInput', () => {
     it('should preselect a country item from the v-model and do not show the image if does not exist', () => {
       const wrapper = mountPhoneNumberInputAsTemplate(
         '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
+        {
+          ...requiredProps,
+        },
         {
           data() {
             return {
@@ -385,7 +398,9 @@ describe('EcPhoneNumberInput', () => {
     it('should preselect a country item from the v-model and do not show the image if country code is not set', () => {
       const wrapper = mountPhoneNumberInputAsTemplate(
         '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
+        {
+          ...requiredProps,
+        },
         {
           data() {
             return {
@@ -411,7 +426,9 @@ describe('EcPhoneNumberInput', () => {
     it('should preselect the country item in the dropdown and the number in the input from the v-model AND mask them when "is-masked" prop is true', () => {
       const wrapper = mountPhoneNumberInputAsTemplate(
         '<ec-phone-number-input :is-masked="true" :countries="countries" v-model="value" />',
-        {},
+        {
+          ...requiredProps,
+        },
         {
           data() {
             return {
@@ -434,7 +451,9 @@ describe('EcPhoneNumberInput', () => {
     it('should use the v-model with the phone number and emit the changes', async () => {
       const wrapper = mountPhoneNumberInputAsTemplate(
         '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
+        {
+          ...requiredProps,
+        },
         {
           data() {
             return {
