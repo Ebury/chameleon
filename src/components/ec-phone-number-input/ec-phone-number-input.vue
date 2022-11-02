@@ -173,13 +173,13 @@ import { PhoneNumberEvent, PhoneNumberLevel } from './types';
 
 const supportedCountries = new Set(Object.keys(countries));
 
-const emit = defineEmits<{(e: PhoneNumberEvent.UPDATE_MODEL_VALUE, value: PhoneNumberEvents[PhoneNumberEvent.UPDATE_MODEL_VALUE]): void
-  (e: PhoneNumberEvent.CHANGE, value: PhoneNumberEvents[PhoneNumberEvent.CHANGE]): void
-  (e: PhoneNumberEvent.FOCUS): void
-  (e: PhoneNumberEvent.OPEN): void
-  (e: PhoneNumberEvent.AFTER_OPEN): void
-  (e: PhoneNumberEvent.COUNTRY_CHANGE, value: PhoneNumberEvents[PhoneNumberEvent.COUNTRY_CHANGE]): void
-  (e: PhoneNumberEvent.PHONE_NUMBER_CHANGE, value: PhoneNumberEvents[PhoneNumberEvent.PHONE_NUMBER_CHANGE]): void
+const emit = defineEmits<{(e: 'update:modelValue', value: PhoneNumberEvents[PhoneNumberEvent.UPDATE_MODEL_VALUE]): void
+  (e: 'change', value: PhoneNumberEvents[PhoneNumberEvent.CHANGE]): void
+  (e: 'focus'): void
+  (e: 'open'): void
+  (e: 'after-open'): void
+  (e: 'country-change', value: PhoneNumberEvents[PhoneNumberEvent.COUNTRY_CHANGE]): void
+  (e: 'phone-number-change', value: PhoneNumberEvents[PhoneNumberEvent.PHONE_NUMBER_CHANGE]): void
 }>();
 
 interface PhoneNumberProps {
@@ -269,8 +269,11 @@ const phoneNumberModel = computed({
   },
 });
 
+/* istanbul ignore next : covered by snapshots */
 const selectedCountryAreaCode = computed(() => props.modelValue?.country?.areaCode || null);
+/* istanbul ignore next : covered by snapshots */
 const selectedCountryImage = computed(() => getCountryFlagPath(props.modelValue?.country?.countryCode));
+/* istanbul ignore next : covered by snapshots */
 const selectedCountryName = computed(() => props.modelValue?.country?.text);
 
 const isInvalid = computed(() => !!props.errorMessage);
@@ -311,11 +314,8 @@ function getCountryFlagPath(countryCode: string) {
   if (!countryCode || !supportedCountries.has(countryCode)) {
     return null;
   }
-  try {
-    return `${config.iconsStaticPrefix}icons/country-flags/100/${countryCode.toLowerCase()}.png`;
-  } catch (err) {
-    return null;
-  }
+
+  return `${config.iconsStaticPrefix}icons/country-flags/100/${countryCode.toLowerCase()}.png`;
 }
 
 function getItemProp(item: unknown, prop: keyof PhoneNumberCountryItem) {

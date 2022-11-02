@@ -100,8 +100,8 @@ import { InputFieldEvent, InputFieldType } from './types';
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 
-const emit = defineEmits<{(e: InputFieldEvent.UPDATE_MODEL_VALUE, value: InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]): void
-  (e: InputFieldEvent.ICON_CLICK, value: InputFieldEvents[InputFieldEvent.ICON_CLICK]): void
+const emit = defineEmits<{(e: 'update:modelValue', value: InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]): void
+  (e: 'icon-click', value: InputFieldEvents[InputFieldEvent.ICON_CLICK]): void
 }>();
 
 interface InputFieldProps {
