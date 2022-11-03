@@ -1,48 +1,50 @@
 <template>
-  <div
-    class="ec-full-screen-overlay"
-    data-test="ec-full-screen-overlay"
-  >
+  <transition name="ec-full-screen-overlay__fade">
     <div
-      ref="overlayContainer"
-      class="tw-col-full"
-      data-test="ec-full-screen-overlay__container"
+      class="ec-full-screen-overlay"
+      data-test="ec-full-screen-overlay"
     >
-      <div class="tw-grid tw-grid-cols-3">
-        <div class="tw-col-full sm:tw-col-3" />
-        <div class="tw-col-full sm:tw-col-6">
-          <div class="tw-grid">
-            <div class="tw-col-full sm:tw-col-9">
-              <h1
-                v-if="title"
-                data-test="ec-full-screen-overlay__title"
-                class="ec-full-screen-overlay__title"
-              >
-                {{ title }}
-              </h1>
-            </div>
-            <div class="tw-col-full sm:tw-col-3 tw-text-right">
-              <a
-                href="#"
-                data-test="ec-full-screen-overlay__close-icon-container"
-                @click="emit('closeOverlay')"
-              >
-                <ec-icon
-                  class="ec-full-screen-overlay__close-icon"
-                  data-test="ec-full-screen-overlay__close-icon"
-                  name="simple-close"
-                  type="interactive"
-                  :size="15"
-                />
-              </a>
+      <div
+        ref="overlayContainer"
+        class="tw-col-full"
+        data-test="ec-full-screen-overlay__container"
+      >
+        <div class="tw-grid tw-grid-cols-3">
+          <div class="tw-col-full sm:tw-col-3" />
+          <div class="tw-col-full sm:tw-col-6">
+            <div class="tw-grid">
+              <div class="tw-col-full sm:tw-col-9">
+                <h1
+                  v-if="title"
+                  data-test="ec-full-screen-overlay__title"
+                  class="ec-full-screen-overlay__title"
+                >
+                  {{ title }}
+                </h1>
+              </div>
+              <div class="tw-col-full sm:tw-col-3 tw-text-right">
+                <a
+                  href="#"
+                  data-test="ec-full-screen-overlay__close-icon-container"
+                  @click="emit('closeOverlay')"
+                >
+                  <ec-icon
+                    class="ec-full-screen-overlay__close-icon"
+                    data-test="ec-full-screen-overlay__close-icon"
+                    name="simple-close"
+                    type="interactive"
+                    :size="15"
+                  />
+                </a>
+              </div>
             </div>
           </div>
+          <div class="tw-col-full sm:tw-col-3" />
         </div>
-        <div class="tw-col-full sm:tw-col-3" />
       </div>
-    </div>
 
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script setup>
@@ -95,7 +97,7 @@ onUnmounted(() => {
       @apply tw-text-gray-3;
     }
 
-    &--fade {
+    &__fade {
       @mixin ec-fade-transition;
     }
   }
