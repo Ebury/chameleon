@@ -38,6 +38,7 @@
   "dependencies": {
     "@vueuse/core": "9.2.0",
     "@vueuse/integrations": "9.2.0",
+    "@vue/test-utils": "2.0.2",
     "clipboard-copy": "3.2.0",
     "flatpickr": "4.6.13",
     "floating-vue": "2.0.0-beta.16",
@@ -66,7 +67,6 @@
     "@vitejs/plugin-vue": "3.1.2",
     "@vue/babel-preset-app": "5.0.8",
     "@vue/eslint-config-airbnb": "6.0.0",
-    "@vue/test-utils": "2.0.2",
     "@vue/vue3-jest": "27.0.0",
     "autoprefixer": "10.4.12",
     "babel-jest": "27.5.1",
