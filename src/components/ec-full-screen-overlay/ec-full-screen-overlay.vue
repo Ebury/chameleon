@@ -1,6 +1,7 @@
 <template>
   <transition name="ec-full-screen-overlay__fade">
     <div
+      v-show="show"
       class="ec-full-screen-overlay"
       data-test="ec-full-screen-overlay"
     >
@@ -57,6 +58,10 @@ defineProps({
   title: {
     type: String,
     default: null,
+  },
+  show: {
+    type: Boolean,
+    default: false,
   },
 });
 

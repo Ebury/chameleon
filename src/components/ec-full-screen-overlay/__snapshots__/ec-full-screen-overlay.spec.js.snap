@@ -1,58 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcFullScreenOverlay should render properly 1`] = `
-<div
-  class="ec-full-screen-overlay"
-  data-test="ec-full-screen-overlay"
->
+<transition-stub>
   <div
-    class="tw-col-full"
-    data-test="ec-full-screen-overlay__container"
+    class="ec-full-screen-overlay"
+    data-test="ec-full-screen-overlay"
   >
     <div
-      class="tw-grid tw-grid-cols-3"
+      class="tw-col-full"
+      data-test="ec-full-screen-overlay__container"
     >
       <div
-        class="tw-col-full sm:tw-col-3"
-      />
-      <div
-        class="tw-col-full sm:tw-col-6"
+        class="tw-grid tw-grid-cols-3"
       >
         <div
-          class="tw-grid"
+          class="tw-col-full sm:tw-col-3"
+        />
+        <div
+          class="tw-col-full sm:tw-col-6"
         >
           <div
-            class="tw-col-full sm:tw-col-9"
+            class="tw-grid"
           >
-            <!--v-if-->
-          </div>
-          <div
-            class="tw-col-full sm:tw-col-3 tw-text-right"
-          >
-            <a
-              data-test="ec-full-screen-overlay__close-icon-container"
-              href="#"
+            <div
+              class="tw-col-full sm:tw-col-9"
             >
-              <svg
-                class="ec-icon ec-icon--interactive ec-full-screen-overlay__close-icon"
-                data-test="ec-full-screen-overlay__close-icon"
-                height="15"
-                width="15"
+              <!--v-if-->
+            </div>
+            <div
+              class="tw-col-full sm:tw-col-3 tw-text-right"
+            >
+              <a
+                data-test="ec-full-screen-overlay__close-icon-container"
+                href="#"
               >
-                <use
-                  xlink:href="#ec-simple-close"
-                />
-              </svg>
-            </a>
+                <svg
+                  class="ec-icon ec-icon--interactive ec-full-screen-overlay__close-icon"
+                  data-test="ec-full-screen-overlay__close-icon"
+                  height="15"
+                  width="15"
+                >
+                  <use
+                    xlink:href="#ec-simple-close"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
+        <div
+          class="tw-col-full sm:tw-col-3"
+        />
       </div>
-      <div
-        class="tw-col-full sm:tw-col-3"
-      />
     </div>
   </div>
-</div>
+</transition-stub>
 `;
 
 exports[`EcFullScreenOverlay should render with a title when provided 1`] = `

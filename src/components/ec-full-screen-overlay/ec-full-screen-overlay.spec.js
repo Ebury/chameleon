@@ -7,6 +7,7 @@ describe('EcFullScreenOverlay', () => {
   function mountFullScreenOverlay(props, mountOpts) {
     return mount(EcFullScreenOverlay, {
       props: {
+        show: true,
         ...props,
       },
       ...mountOpts,
