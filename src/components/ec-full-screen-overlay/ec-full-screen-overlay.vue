@@ -14,6 +14,7 @@
           <div class="tw-grid">
             <div class="tw-col-full sm:tw-col-9">
               <h1
+                v-if="title"
                 data-test="ec-full-screen-overlay__title"
                 class="ec-full-screen-overlay__title"
               >
@@ -23,6 +24,7 @@
             <div class="tw-col-full sm:tw-col-3 tw-text-right">
               <a
                 href="#"
+                data-test="ec-full-screen-overlay__close-icon-container"
                 @click="emit('closeOverlay')"
               >
                 <ec-icon
