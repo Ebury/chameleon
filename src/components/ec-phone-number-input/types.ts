@@ -9,8 +9,7 @@ export interface PhoneNumberCountry {
   countryCode: string
 }
 
-export interface PhoneNumberCountryItem {
-  areaCode: PhoneNumberCountry['areaCode'],
+export type PhoneNumberCountryItem = Pick<PhoneNumberCountry, 'areaCode'> & {
   iconPath: string,
   id: PhoneNumberCountry['countryCode'],
   name: PhoneNumberCountry['text'],
