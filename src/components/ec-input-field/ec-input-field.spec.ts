@@ -12,7 +12,7 @@ import { InputFieldEvent, InputFieldType } from './types';
 describe('EcInputField', () => {
   function mountInputField(props?: InputFieldProps, mountOpts?: MountingOptions<InputFieldProps>) {
     return mount<InputFieldProps>(
-      EcInputField as any,
+      EcInputField as any, // eslint-disable-line
       {
         props: {
           modelValue: 'Text test',
@@ -96,7 +96,12 @@ describe('EcInputField', () => {
   });
 
   it('renders with the attrs min and max', () => {
-    const wrapper = mountInputField({ type: InputFieldType.NUMBER }, { attrs: { min: 5, max: 10 } });
+    const wrapper = mountInputField({ type: InputFieldType.NUMBER }, {
+      attrs: {
+        min: 5,
+        max: 10,
+      },
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -237,7 +242,10 @@ describe('EcInputField', () => {
   });
 
   it('renders without bottom note if error message is given', () => {
-    const wrapper = mountInputField({ bottomNote: 'Random bottom note', errorMessage: 'Random error message' });
+    const wrapper = mountInputField({
+      bottomNote: 'Random bottom note',
+      errorMessage: 'Random error message',
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 

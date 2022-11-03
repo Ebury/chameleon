@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes } from 'vue';
 
-import type { Maybe } from '../../../global';
+import type { Maybe, ZIndexLevel } from '../../../global';
 import type { InputFieldEvents } from '../ec-input-field/types';
 
 export interface PhoneNumberCountry {
@@ -43,15 +43,6 @@ export interface PhoneNumberEvents {
   [PhoneNumberEvent.PHONE_NUMBER_CHANGE]: InputFieldEvents['update:modelValue']
 }
 
-export enum PhoneNumberLevel {
-  NOTIFICATION = 'notification',
-  MODAL = 'modal',
-  TOOLTIP = 'tooltip',
-  LEVEL1 = 'level-1',
-  LEVEL2 = 'level-2',
-  LEVEL3 = 'level-3'
-}
-
 export interface PhoneNumberProps {
   modelValue: PhoneNumberModel,
   label: string,
@@ -72,6 +63,6 @@ export interface PhoneNumberProps {
   isSearchEnabled?: boolean,
   searchCountryPlaceholder?: string,
   noCountriesText?: string,
-  level?: PhoneNumberLevel,
+  level?: ZIndexLevel,
   autocomplete?: Maybe<InputHTMLAttributes['autocomplete']>
 }

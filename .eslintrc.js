@@ -65,8 +65,6 @@ module.exports = {
     'vuejs-accessibility/mouse-events-have-key-events': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
-    'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': ['error'],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -106,6 +104,15 @@ module.exports = {
       ],
       rules: {
         'import/first': 'off',
+      },
+    },
+    {
+      files: [
+        '**/*.ts',
+      ],
+      rules: {
+        'no-shadow': 'off',
+        '@typescript-eslint/no-shadow': 'error',
       },
     },
   ],

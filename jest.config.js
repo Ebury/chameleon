@@ -13,7 +13,6 @@ module.exports = {
   errorOnDeprecated: true,
   maxWorkers: '100%',
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.vue$': '@vue/vue3-jest',
     '^.+\\.(j|t)sx?$': 'ts-jest',
   },
@@ -42,9 +41,9 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{ts,js,vue}',
-    '!src/main.js',
-    '!src/**/*.story.js',
-    '!src/**/index.js',
+    '!src/main.{ts,js}',
+    '!src/**/*.story.{ts,js,jsx}',
+    '!src/**/index.{ts,js}',
     '!src/**/.eslintrc.js',
     '!src/icons/**',
     '!src/assets/**',

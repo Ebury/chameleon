@@ -155,7 +155,7 @@ import * as countries from 'svg-country-flags/countries.json';
 import type { InputHTMLAttributes } from 'vue';
 import { computed, ref } from 'vue';
 
-import type { Maybe } from '../../../global';
+import type { Maybe, ZIndexLevel } from '../../../global';
 import config from '../../config';
 import vEcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
@@ -169,7 +169,7 @@ import type {
   PhoneNumberEvents,
   PhoneNumberModel,
 } from './types';
-import { PhoneNumberEvent, PhoneNumberLevel } from './types';
+import { PhoneNumberEvent } from './types';
 
 const supportedCountries = new Set(Object.keys(countries));
 
@@ -202,7 +202,7 @@ interface PhoneNumberProps {
   isSearchEnabled?: boolean,
   searchCountryPlaceholder?: string,
   noCountriesText?: string,
-  level?: PhoneNumberLevel,
+  level?: ZIndexLevel,
   autocomplete?: Maybe<InputHTMLAttributes['autocomplete']>
 }
 
