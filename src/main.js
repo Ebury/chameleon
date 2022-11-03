@@ -29,6 +29,7 @@ export { default as EcFileDropzone } from './components/ec-file-dropzone';
 export { default as EcFileList } from './components/ec-file-list';
 export { default as EcFileUpload } from './components/ec-file-upload';
 export { default as EcFilterPopover } from './components/ec-filter-popover';
+export { default as EcFullScreenOverlay } from './components/ec-full-screen-overlay';
 export { default as EcIcon } from './components/ec-icon';
 export { default as EcInlineActions } from './components/ec-inline-actions';
 export { default as EcInlineInputField } from './components/ec-inline-input-field';

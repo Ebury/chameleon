@@ -18,5 +18,7 @@ const Template = ({ modelValue, ...args }) => ({
 });
 
 export const basic = Template.bind({});
-basic.args = {};
+basic.args = {
+  title: 'I am a title',
+};
 
