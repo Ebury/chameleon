@@ -91,7 +91,7 @@ onUnmounted(() => {
     @apply tw-bg-gray-8;
     @apply tw-flex;
     @apply tw-justify-center;
-    @apply tw-overflow-y-scroll;
+    @apply tw-overflow-y-auto;
 
     &__content {
       max-width: 656px;
