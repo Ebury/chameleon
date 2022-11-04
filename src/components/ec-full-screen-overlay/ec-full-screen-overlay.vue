@@ -82,6 +82,7 @@ onUnmounted(() => {
 
 <style>
   @import '../../styles/tools/transitions.css';
+  @import '../../styles/tools/ec-full-screen-overlay.css';
 
   .ec-full-screen-overlay {
     @apply tw-min-h-screen;
@@ -129,6 +130,10 @@ onUnmounted(() => {
 
     &__fade {
       @mixin ec-fade-transition;
+    }
+
+    @media (max-width: 1024px) {
+      @mixin ec-full-screen-overlay-responsive;
     }
   }
 
