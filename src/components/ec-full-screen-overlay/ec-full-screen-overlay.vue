@@ -87,13 +87,14 @@ onUnmounted(() => {
     @apply tw-fixed;
     @apply tw-inset-0;
     @apply tw-bg-gray-8;
-    @apply tw-mt-24;
     @apply tw-flex;
     @apply tw-justify-center;
+    @apply tw-overflow-y-scroll;
 
     &__content {
       max-width: 656px;
       width: 656px;
+      @apply tw-mt-24;
     }
 
     &__header {
