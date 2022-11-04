@@ -28,7 +28,7 @@
     "test:visual:all": "cypress run --browser chrome --headless --config video=false,videosFolder=tests/integration/videos/chrome/,trashAssetsBeforeRuns=true && cypress run --browser firefox --headless --config video=false,videosFolder=tests/integration/videos/firefox/,trashAssetsBeforeRuns=false",
     "prebuild-storybook": "npm run icons",
     "build-storybook": "vue-tsc --noEmit && build-storybook -o .out",
-    "build-storybook-run": "vue-tsc --noEmit && live-server --port=42475 .out",
+    "build-storybook-run": "npm run build-storybook && live-server --port=42475 .out",
     "prestart": "npm run icons",
     "start": "vue-tsc --noEmit --watch & start-storybook -p 42475",
     "serve": "npm run start",
