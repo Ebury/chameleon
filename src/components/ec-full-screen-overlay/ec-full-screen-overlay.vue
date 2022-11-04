@@ -98,7 +98,6 @@ onUnmounted(() => {
     }
 
     &__header {
-      height: 40px;
       @apply tw-w-full;
       @apply tw-flex;
       @apply tw-mb-32;
