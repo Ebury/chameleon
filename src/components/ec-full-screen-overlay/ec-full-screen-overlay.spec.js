@@ -24,7 +24,7 @@ describe('EcFullScreenOverlay', () => {
   it('should render with a title', () => {
     const wrapper = mountFullScreenOverlay({ title: 'title' });
     expect(wrapper.findByDataTest('ec-full-screen-overlay__title').exists()).toBe(true);
-    expect(wrapper.findByDataTest('ec-full-screen-overlay__title')).toContain('title');
+    expect(wrapper.findByDataTest('ec-full-screen-overlay__title').text()).toContain('title');
     expect(wrapper.findByDataTest('ec-full-screen-overlay__title').element).toMatchSnapshot();
   });
 
