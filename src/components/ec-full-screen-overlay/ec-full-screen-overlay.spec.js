@@ -34,6 +34,7 @@ describe('EcFullScreenOverlay', () => {
     expect(options.clickOutsideDeactivates).toBe(false);
     expect(options.escapeDeactivates).toBe(false);
     expect(options.immediate).toBe(true);
+    expect(options.initialFocus).toBe(false);
   });
 
   it('should not be escapable', async () => {

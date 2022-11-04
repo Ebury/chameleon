@@ -36,6 +36,7 @@
               :size="24"
             />
           </button>
+
         </header>
         <main data-test="ec-full-screen-overlay__main">
           <slot name="main" />
@@ -70,6 +71,7 @@ const { deactivate } = useFocusTrap(overlayContent, {
   immediate: true,
   escapeDeactivates: false,
   clickOutsideDeactivates: false,
+  initialFocus: false,
 });
 
 onUnmounted(() => {
@@ -119,11 +121,10 @@ onUnmounted(() => {
     }
 
     &__title {
+      flex-grow: 1;
       @apply tw-h1;
       @apply tw-m-0;
       @apply tw-text-gray-3;
-
-      flex-grow: 1;
     }
 
     &__fade {
