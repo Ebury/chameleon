@@ -3,14 +3,9 @@ describe('Visual regression tests', () => {
     expect(
       Cypress.spec.name,
       'Visual regression tests cannot run in All Specs mode because of bugs in Cypress.\nsee https://github.com/cypress-io/cypress/issues/3090.\n',
-    )
-      .not
-      .to
-      .equal('All Specs');
+    ).not.to.equal('All Specs');
 
-    expect(Cypress.browser.isHeadless, 'Visual regression tests cannot run in non headless mode because of Cypress.\nsee https://github.com/cypress-io/cypress/issues/3324#issuecomment-542414532')
-      .to
-      .equal(false);
+    expect(Cypress.browser.isHeadless, 'Visual regression tests cannot run in non headless mode because of Cypress.\nsee https://github.com/cypress-io/cypress/issues/3324#issuecomment-542414532').to.equal(true);
 
     Cypress.log({
       displayName: 'INIT',
@@ -33,8 +28,7 @@ describe('Visual regression tests', () => {
           stories = stories.filter(story => story.id.match(storyIdFilter));
         }
 
-        stories = stories.map(story => storybookStore.fromId(story.id))
-          .filter(isStoryEnabled);
+        stories = stories.map(story => storybookStore.fromId(story.id)).filter(isStoryEnabled);
 
         Cypress.log({
           displayName: 'INIT',
@@ -60,10 +54,7 @@ describe('Visual regression tests', () => {
 });
 
 function visitStory(uuid, story, controls) {
-  const {
-    waitOn,
-    snapshotElement,
-  } = getStoryTestOptions(story);
+  const { waitOn, snapshotElement } = getStoryTestOptions(story);
 
   cy.visit(getStoryUrl(story, controls), { log: false });
   cy.log('Creating story snapshot', story);
@@ -78,14 +69,12 @@ function visitStory(uuid, story, controls) {
   }
 
   // give a DOM chance to load fonts too.
-  cy.window()
-    .then({
-      timeout: 120000,
-    }, win => new Cypress.Promise(resolve => win.requestIdleCallback(resolve)));
+  cy.window().then({
+    timeout: 120000,
+  }, win => new Cypress.Promise(resolve => win.requestIdleCallback(resolve)));
 
   if (snapshotElement) {
-    cy.get(snapshotElement)
-      .matchImageSnapshot(uuid);
+    cy.get(snapshotElement).matchImageSnapshot(uuid);
   } else {
     cy.matchImageSnapshot(uuid);
   }
@@ -143,11 +132,10 @@ function setBackgroundColor(story) {
   if (story.parameters && story.parameters.backgrounds) {
     const defaultBackground = story.parameters.backgrounds.values.find(bg => bg.name === story.parameters.backgrounds.default);
     if (defaultBackground && defaultBackground.value) {
-      cy.window()
-        .then((win) => {
-          win.document.body.style.backgroundColor = defaultBackground.value;
-          cy.log(`Background color for story set to ${defaultBackground.value}`);
-        });
+      cy.window().then((win) => {
+        win.document.body.style.backgroundColor = defaultBackground.value;
+        cy.log(`Background color for story set to ${defaultBackground.value}`);
+      });
     }
   }
 }

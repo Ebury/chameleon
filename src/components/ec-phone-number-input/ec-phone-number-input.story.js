@@ -8,10 +8,7 @@ export default {
   component: EcPhoneNumberInput,
 };
 
-export const basic = ({
-  countries,
-  ...args
-}) => ({
+export const basic = ({ countries, ...args }) => ({
   components: { EcPhoneNumberInput },
   setup() {
     return {
@@ -30,21 +27,19 @@ export const basic = ({
   },
   template: `
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
-    <ec-phone-number-input
-      v-bind="{ ...args, countries }"
-      v-on="{
+      <ec-phone-number-input
+        v-bind="{ ...args, countries }"
+        v-on="{
           change: onChange,
           focus: onFocus,
           open: onOpen,
           'phone-number-change': onPhoneNumberChange,
           'country-change': onCountryChange
         }"
-      v-model="model"
-    />
+        v-model="model"
+      />
 
-    <p class="tw-mt-48">Value:
-    <pre>{{ model }}</pre>
-    </p>
+      <p class="tw-mt-48">Value: <pre>{{ model }}</pre></p>
     </div>
   `,
 });
@@ -56,35 +51,11 @@ basic.args = {
   isDisabled: false,
   level: 'notification',
   countries: [
-    {
-      areaCode: '+44',
-      text: 'United Kingdom',
-      countryCode: 'GB',
-    },
-    {
-      areaCode: '+34',
-      text: 'Spain',
-      countryCode: 'ES',
-    },
-    {
-      areaCode: '+1 658',
-      text: 'Jamaica',
-      countryCode: 'JM',
-    },
-    {
-      areaCode: '+260',
-      text: 'Zambia',
-      countryCode: 'ZM',
-    },
-    {
-      areaCode: '+973',
-      text: 'Bahrain',
-      countryCode: 'BH',
-    },
-    {
-      areaCode: '+201',
-      text: 'New Country',
-      countryCode: 'XX',
-    },
+    { areaCode: '+44', text: 'United Kingdom', countryCode: 'GB' },
+    { areaCode: '+34', text: 'Spain', countryCode: 'ES' },
+    { areaCode: '+1 658', text: 'Jamaica', countryCode: 'JM' },
+    { areaCode: '+260', text: 'Zambia', countryCode: 'ZM' },
+    { areaCode: '+973', text: 'Bahrain', countryCode: 'BH' },
+    { areaCode: '+201', text: 'New Country', countryCode: 'XX' },
   ],
 };
