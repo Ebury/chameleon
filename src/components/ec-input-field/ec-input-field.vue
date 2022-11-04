@@ -183,10 +183,12 @@ function focus() {
 }
 
 watchEffect(() => {
+  // Hack: since Vue 3 we occasionally run into issues that the inputModel and value of the input are getting out of sync.
+  // in order to fix it we should sync it automatically every time inputModel changes.
   const inputElement = inputRef.value;
   if (inputElement && inputElement.value !== inputModel.value) {
     /* istanbul ignore next */
-    inputElement.value = `${inputModel.value}` ?? '';
+    inputElement.value = inputModel.value as string ?? '';
   }
 });
 
