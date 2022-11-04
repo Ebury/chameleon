@@ -21,8 +21,8 @@ exports[`EcFullScreenOverlay should render properly 1`] = `
           Full screen overlay title
         </h1>
         <button
-          class="ec-full-screen-overlay__close-icon-container"
-          data-test="ec-full-screen-overlay__close-icon-container"
+          class="ec-full-screen-overlay__close-icon-btn"
+          data-test="ec-full-screen-overlay__close-icon-btn"
         >
           <span
             class="tw-sr-only"
@@ -73,8 +73,8 @@ exports[`EcFullScreenOverlay should render slots as expected 1`] = `
           Full screen overlay title
         </h1>
         <button
-          class="ec-full-screen-overlay__close-icon-container"
-          data-test="ec-full-screen-overlay__close-icon-container"
+          class="ec-full-screen-overlay__close-icon-btn"
+          data-test="ec-full-screen-overlay__close-icon-btn"
         >
           <span
             class="tw-sr-only"

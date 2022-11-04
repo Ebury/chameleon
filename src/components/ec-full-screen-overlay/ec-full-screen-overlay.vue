@@ -23,8 +23,8 @@
           </h1>
 
           <button
-            class="ec-full-screen-overlay__close-icon-container"
-            data-test="ec-full-screen-overlay__close-icon-container"
+            class="ec-full-screen-overlay__close-icon-btn"
+            data-test="ec-full-screen-overlay__close-icon-btn"
             @click="emit('close-overlay')"
           >
             <span class="tw-sr-only">Close</span>
@@ -105,7 +105,7 @@ onUnmounted(() => {
       @apply tw-mb-32;
     }
 
-    &__close-icon-container {
+    &__close-icon-btn {
       width: 24px;
       height: 24px;
       @apply tw-bg-transparent;

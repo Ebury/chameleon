@@ -38,9 +38,12 @@ describe('EcFullScreenOverlay', () => {
   });
 
   it('should not be escapable', async () => {
-    const wrapper = mountFullScreenOverlay();
+    const elem = document.createElement('div');
+    document.body.appendChild(elem);
+    const wrapper = mountFullScreenOverlay({}, { attachTo: elem });
+    await wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').element.focus();
     await wrapper.findByDataTest('ec-full-screen-overlay').trigger('keydown.esc');
-    expect(wrapper.findByDataTest('ec-full-screen-overlay').exists()).toBe(true);
+    expect(document.activeElement).toEqual(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').element);
   });
 
   it('should render slots as expected', () => {
@@ -56,8 +59,8 @@ describe('EcFullScreenOverlay', () => {
   describe('when clicking on the "close" icon', () => {
     it('should propagate a "close-overlay" event to the parent', async () => {
       const wrapper = mountFullScreenOverlay();
-      expect(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-container').exists()).toBe(true);
-      await wrapper.findByDataTest('ec-full-screen-overlay__close-icon-container').trigger('click');
+      expect(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').exists()).toBe(true);
+      await wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').trigger('click');
       expect(wrapper.emitted('close-overlay').length).toBe(1);
     });
   });
