@@ -7,6 +7,7 @@ describe('EcFullScreenOverlay', () => {
   function mountFullScreenOverlay(props, mountOpts) {
     return mount(EcFullScreenOverlay, {
       props: {
+        title: 'Full screen overlay title',
         show: true,
         ...props,
       },
@@ -20,15 +21,11 @@ describe('EcFullScreenOverlay', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render with a title when provided', () => {
-    const wrapper = mountFullScreenOverlay({ title: 'Just a title' });
+  it('should render with a title', () => {
+    const wrapper = mountFullScreenOverlay({ title: 'title' });
     expect(wrapper.findByDataTest('ec-full-screen-overlay__title').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-full-screen-overlay__title')).toContain('title');
     expect(wrapper.findByDataTest('ec-full-screen-overlay__title').element).toMatchSnapshot();
-  });
-
-  it('should render without a title when not provided', () => {
-    const wrapper = mountFullScreenOverlay();
-    expect(wrapper.findByDataTest('ec-full-screen-overlay__title').exists()).toBe(false);
   });
 
   it('should initialize the "useFocusTrap composable" with mandatory options', () => {
@@ -46,11 +43,11 @@ describe('EcFullScreenOverlay', () => {
   });
 
   describe('when clicking on the "close" icon', () => {
-    it('should propagate a "closeOverlay" event to the parent', async () => {
+    it('should propagate a "close-overlay" event to the parent', async () => {
       const wrapper = mountFullScreenOverlay();
       expect(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-container').exists()).toBe(true);
       await wrapper.findByDataTest('ec-full-screen-overlay__close-icon-container').trigger('click');
-      expect(wrapper.emitted('closeOverlay').length).toBe(1);
+      expect(wrapper.emitted('close-overlay').length).toBe(1);
     });
   });
 });

@@ -1,47 +1,45 @@
 <template>
   <transition name="ec-full-screen-overlay__fade">
     <div
-      v-show="show"
+      v-if="show"
       class="ec-full-screen-overlay"
       data-test="ec-full-screen-overlay"
     >
       <div
-        ref="overlayContainer"
-        class="tw-col-full"
-        data-test="ec-full-screen-overlay__container"
+        ref="overlayContent"
+        class="ec-full-screen-overlay__content"
+        data-test="ec-full-screen-overlay__content"
       >
-        <div class="tw-grid tw-grid-cols-3">
-          <div class="tw-col-full sm:tw-col-3" />
-          <div class="tw-col-full sm:tw-col-6">
-            <div class="tw-grid">
-              <div class="tw-col-full sm:tw-col-9">
-                <h1
-                  v-if="title"
-                  data-test="ec-full-screen-overlay__title"
-                  class="ec-full-screen-overlay__title"
-                >
-                  {{ title }}
-                </h1>
-              </div>
-              <div class="tw-col-full sm:tw-col-3 tw-text-right">
-                <a
-                  href="#"
-                  data-test="ec-full-screen-overlay__close-icon-container"
-                  @click="emit('closeOverlay')"
-                >
-                  <ec-icon
-                    class="ec-full-screen-overlay__close-icon"
-                    data-test="ec-full-screen-overlay__close-icon"
-                    name="simple-close"
-                    type="interactive"
-                    :size="15"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="tw-col-full sm:tw-col-3" />
-        </div>
+        <header
+          class="ec-full-screen-overlay__header"
+          data-test="ec-full-screen-overlay__header"
+        >
+          <h1
+            v-if="title"
+            data-test="ec-full-screen-overlay__title"
+            class="ec-full-screen-overlay__title"
+          >
+            {{ title }}
+          </h1>
+
+          <button
+            class="ec-full-screen-overlay__close-icon-container"
+            data-test="ec-full-screen-overlay__close-icon-container"
+            @click="emit('close-overlay')"
+          >
+            <span class="tw-sr-only">Close</span>
+            <ec-icon
+              class="ec-full-screen-overlay__close-icon"
+              data-test="ec-full-screen-overlay__close-icon"
+              name="simple-close"
+              type="interactive"
+              :size="24"
+            />
+          </button>
+        </header>
+        <main data-test="ec-full-screen-overlay__main">
+          <slot name="main" />
+        </main>
       </div>
 
     </div>
@@ -57,7 +55,7 @@ import EcIcon from '../ec-icon';
 defineProps({
   title: {
     type: String,
-    default: null,
+    required: true,
   },
   show: {
     type: Boolean,
@@ -65,10 +63,10 @@ defineProps({
   },
 });
 
-const emit = defineEmits(['closeOverlay']);
+const emit = defineEmits(['close-overlay']);
 
-const overlayContainer = ref(null);
-const { deactivate } = useFocusTrap(overlayContainer, {
+const overlayContent = ref(null);
+const { deactivate } = useFocusTrap(overlayContent, {
   immediate: true,
   escapeDeactivates: false,
   clickOutsideDeactivates: false,
@@ -84,22 +82,48 @@ onUnmounted(() => {
   @import '../../styles/tools/transitions.css';
 
   .ec-full-screen-overlay {
-    @apply tw-flex tw-flex-row tw-items-stretch;
     @apply tw-min-h-screen;
     @apply tw-z-level-3;
-    @apply tw-absolute;
+    @apply tw-fixed;
     @apply tw-inset-0;
     @apply tw-bg-gray-8;
+    @apply tw-mt-24;
+    @apply tw-flex;
+    @apply tw-justify-center;
+
+    &__content {
+      max-width: 656px;
+      width: 656px;
+    }
+
+    &__header {
+      height: 40px;
+      @apply tw-w-full;
+      @apply tw-flex;
+      @apply tw-mb-32;
+    }
+
+    &__close-icon-container {
+      width: 24px;
+      height: 24px;
+      @apply tw-bg-transparent;
+      @apply tw-border-none;
+      @apply tw-p-0;
+      @apply tw-self-center;
+    }
 
     &__close-icon {
       @apply tw-text-gray-4;
       @apply tw-cursor-pointer;
+      @apply tw-justify-self-end;
     }
 
     &__title {
       @apply tw-h1;
       @apply tw-m-0;
       @apply tw-text-gray-3;
+
+      flex-grow: 1;
     }
 
     &__fade {
