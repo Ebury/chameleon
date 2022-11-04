@@ -42,12 +42,29 @@ describe('EcFullScreenOverlay', () => {
     expect(wrapper.findByDataTest('ec-full-screen-overlay').exists()).toBe(true);
   });
 
+  it('should render slots as expected', () => {
+    const wrapper = mountFullScreenOverlay({}, {
+      slots: {
+        main: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   describe('when clicking on the "close" icon', () => {
     it('should propagate a "close-overlay" event to the parent', async () => {
       const wrapper = mountFullScreenOverlay();
       expect(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-container').exists()).toBe(true);
       await wrapper.findByDataTest('ec-full-screen-overlay__close-icon-container').trigger('click');
       expect(wrapper.emitted('close-overlay').length).toBe(1);
+    });
+  });
+
+  describe('when "show" prop is false', () => {
+    it('should not render', () => {
+      const wrapper = mountFullScreenOverlay({ show: false });
+      expect(wrapper.findByDataTest('ec-full-screen-overlay').exists()).toBe(false);
     });
   });
 });
