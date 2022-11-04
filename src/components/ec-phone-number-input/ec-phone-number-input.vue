@@ -229,14 +229,14 @@ const id = computed(() => `ec-phone-number-input-field-${uid}`);
 
 const errorId = computed(() => (isInvalid.value ? `ec-phone-number-input-${uid}` : undefined));
 
-const countriesItems = computed<PhoneNumberCountryItem[]>(() => props.countries.map(country => ({
+const countriesItems = computed(() => props.countries.map(country => ({
   areaCode: country.areaCode,
   iconPath: getCountryFlagPath(country.countryCode),
   id: country.countryCode,
   name: country.text,
   text: `${country.text} ${country.areaCode}`, // the text is only displayed in the tooltip, it's just to make items searchable by area code and name of the country
   value: country,
-})) as PhoneNumberCountryItem[]);
+} as PhoneNumberCountryItem)));
 
 const countriesModel = computed({
   get() {
