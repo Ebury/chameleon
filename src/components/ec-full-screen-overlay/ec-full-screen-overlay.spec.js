@@ -56,6 +56,18 @@ describe('EcFullScreenOverlay', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  describe('when "title" prop is not provided', () => {
+    it('should launch a console warn', () => {
+      const warn = jest.spyOn(console, 'warn');
+      mount(EcFullScreenOverlay, {
+        props: {
+          show: true,
+        },
+      });
+      expect(warn).toHaveBeenCalledTimes(1);
+    });
+  });
+
   describe('when clicking on the "close" icon', () => {
     it('should propagate a "close-overlay" event to the parent', async () => {
       const wrapper = mountFullScreenOverlay();
