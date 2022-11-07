@@ -25,7 +25,7 @@
           <button
             class="ec-full-screen-overlay__close-icon-btn"
             data-test="ec-full-screen-overlay__close-icon-btn"
-            @click="emit('close-overlay')"
+            @click="emit('close')"
           >
             <span class="tw-sr-only">Close</span>
             <ec-icon
@@ -64,7 +64,7 @@ defineProps({
   },
 });
 
-const emit = defineEmits(['close-overlay']);
+const emit = defineEmits(['close']);
 
 const overlayContent = ref(null);
 const { deactivate } = useFocusTrap(overlayContent, {

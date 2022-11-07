@@ -69,11 +69,11 @@ describe('EcFullScreenOverlay', () => {
   });
 
   describe('when clicking on the "close" icon', () => {
-    it('should propagate a "close-overlay" event to the parent', async () => {
+    it('should propagate a "close" event to the parent', async () => {
       const wrapper = mountFullScreenOverlay();
       expect(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').exists()).toBe(true);
       await wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').trigger('click');
-      expect(wrapper.emitted('close-overlay').length).toBe(1);
+      expect(wrapper.emitted('close').length).toBe(1);
     });
   });
 
