@@ -95,8 +95,8 @@ onUnmounted(() => {
     @apply tw-overflow-y-auto;
 
     &__content {
-      max-width: 656px;
-      width: 656px;
+      max-width: 704px;
+      width: 704px;
       @apply tw-mt-24;
     }
 
