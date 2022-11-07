@@ -3,7 +3,7 @@
     <div
       v-if="show"
       class="ec-full-screen-overlay"
-      data-test="ec-full-screen-overlay"
+      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-full-screen-overlay` : 'ec-full-screen-overlay'"
     >
       <div
         ref="overlayContent"
@@ -95,8 +95,8 @@ onUnmounted(() => {
     @apply tw-overflow-y-auto;
 
     &__content {
-      max-width: 704px;
-      width: 704px;
+      max-width: 656px;
+      width: 100%;
       @apply tw-mt-24;
     }
 
