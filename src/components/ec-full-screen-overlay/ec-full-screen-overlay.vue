@@ -98,15 +98,15 @@ onUnmounted(() => {
     @apply tw-overflow-y-auto;
 
     &__content {
-      max-width: var(--ec-full-screen-overlay__content-width);
-      width: 100%;
-      @apply tw-mt-24;
+      @apply tw-m-16;
+      @apply tw-w-full;
+      @apply tw-max-w-full;
     }
 
     &__header {
+      @apply tw-mb-16;
       @apply tw-w-full;
       @apply tw-flex;
-      @apply tw-mb-32;
     }
 
     &__close-icon-btn {
@@ -119,9 +119,15 @@ onUnmounted(() => {
     }
 
     &__close-icon {
+      @mixin ec-text-color-transition;
+
       @apply tw-text-gray-4;
       @apply tw-cursor-pointer;
       @apply tw-justify-self-end;
+
+      &:hover {
+        fill: hsl(var(--ec-key-color-level-4));
+      }
     }
 
     &__title {
@@ -135,15 +141,15 @@ onUnmounted(() => {
       @mixin ec-fade-transition;
     }
 
-    @media (max-width: 1024px) {
-      .ec-full-screen-overlay__content {
-        @apply tw-m-16;
-        @apply tw-w-full;
-        @apply tw-max-w-full;
+    @media (min-width: 1024px) {
+      &__content {
+        max-width: var(--ec-full-screen-overlay__content-width);
+        width: 100%;
+        @apply tw-mt-24;
       }
 
-      .ec-full-screen-overlay__header {
-        @apply tw-mb-16;
+      &__header {
+        @apply tw-mb-32;
       }
     }
   }
