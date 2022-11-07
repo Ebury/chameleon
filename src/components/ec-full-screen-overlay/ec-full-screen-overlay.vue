@@ -82,7 +82,6 @@ onUnmounted(() => {
 
 <style>
   @import '../../styles/tools/transitions.css';
-  @import '../../styles/tools/ec-full-screen-overlay.css';
 
   :root {
     --ec-full-screen-overlay__content-width: 656px;
@@ -137,7 +136,15 @@ onUnmounted(() => {
     }
 
     @media (max-width: 1024px) {
-      @mixin ec-full-screen-overlay-responsive;
+      .ec-full-screen-overlay__content {
+        @apply tw-m-16;
+        @apply tw-w-full;
+        @apply tw-max-w-full;
+      }
+
+      .ec-full-screen-overlay__header {
+        @apply tw-mb-16;
+      }
     }
   }
 
