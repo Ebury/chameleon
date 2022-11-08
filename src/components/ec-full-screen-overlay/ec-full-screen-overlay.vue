@@ -118,7 +118,7 @@ onUnmounted(() => {
     }
 
     &__close-icon {
-      @mixin ec-text-color-transition;
+      transition: fill 0.3s ease;
 
       @apply tw-text-gray-4;
       @apply tw-cursor-pointer;
