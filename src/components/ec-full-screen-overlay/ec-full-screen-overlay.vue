@@ -84,7 +84,7 @@ onUnmounted(() => {
   @import '../../styles/tools/transitions.css';
 
   :root {
-    --ec-full-screen-overlay__content-width: 656px;
+    --ec-full-screen-overlay__content-width: 704px;
   }
 
   .ec-full-screen-overlay {
@@ -98,7 +98,7 @@ onUnmounted(() => {
     @apply tw-overflow-y-auto;
 
     &__content {
-      @apply tw-m-16;
+      @apply tw-p-16;
       @apply tw-w-full;
       @apply tw-max-w-full;
     }
@@ -145,7 +145,7 @@ onUnmounted(() => {
       &__content {
         max-width: var(--ec-full-screen-overlay__content-width);
         width: 100%;
-        @apply tw-mt-24;
+        @apply tw-p-24;
       }
 
       &__header {
