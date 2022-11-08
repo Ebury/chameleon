@@ -193,9 +193,10 @@ export default {
   }
 
   &__main {
-    @apply tw-mb-24;
-    @apply tw-ml-24;
+    @apply tw-pb-24;
+    @apply tw-pl-24;
     @apply tw-pr-16;
+    @apply tw-flex-grow;
 
     @screen md {
       @apply tw-overflow-y-scroll;
