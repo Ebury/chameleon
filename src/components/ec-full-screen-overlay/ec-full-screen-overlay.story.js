@@ -1,8 +1,12 @@
+import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcFullScreenOverlay from './ec-full-screen-overlay.vue';
 
 export default {
   title: 'Full Screen Overlay',
   component: EcFullScreenOverlay,
+  decorators: [
+    fixedContainerDecorator(),
+  ],
 };
 
 const Template = ({ ...args }) => ({
