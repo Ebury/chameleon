@@ -115,7 +115,6 @@ onUnmounted(() => {
       @apply tw-bg-transparent;
       @apply tw-border-none;
       @apply tw-p-0;
-      @apply tw-self-center;
     }
 
     &__close-icon {
