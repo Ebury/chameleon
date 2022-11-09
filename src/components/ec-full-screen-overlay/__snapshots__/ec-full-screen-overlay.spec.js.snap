@@ -1,6 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcFullScreenOverlay should render properly 1`] = `
+exports[`EcFullScreenOverlay #slots #header - should be rendered when passed 1`] = `
+<transition-stub>
+  <div
+    class="ec-full-screen-overlay"
+    data-test="ec-full-screen-overlay"
+  >
+    <div
+      class="ec-full-screen-overlay__content"
+      data-test="ec-full-screen-overlay__content"
+    >
+      <header
+        class="ec-full-screen-overlay__header"
+        data-test="ec-full-screen-overlay__header"
+      >
+        
+        Lorem Title
+        
+        <button
+          class="ec-full-screen-overlay__close-icon-btn"
+          data-test="ec-full-screen-overlay__close-icon-btn"
+        >
+          <span
+            class="tw-sr-only"
+          >
+            Close
+          </span>
+          <svg
+            class="ec-icon ec-icon--interactive ec-full-screen-overlay__close-icon"
+            data-test="ec-full-screen-overlay__close-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </button>
+      </header>
+      <main
+        data-test="ec-full-screen-overlay__main"
+      >
+        
+        
+      </main>
+    </div>
+  </div>
+</transition-stub>
+`;
+
+exports[`EcFullScreenOverlay #slots #main - should be rendered when passed 1`] = `
 <transition-stub>
   <div
     class="ec-full-screen-overlay"
@@ -45,6 +94,7 @@ exports[`EcFullScreenOverlay should render properly 1`] = `
         data-test="ec-full-screen-overlay__main"
       >
         
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies.
         
       </main>
     </div>
@@ -52,64 +102,63 @@ exports[`EcFullScreenOverlay should render properly 1`] = `
 </transition-stub>
 `;
 
-exports[`EcFullScreenOverlay should render slots as expected 1`] = `
-<transition-stub>
-  <div
-    class="ec-full-screen-overlay"
-    data-test="ec-full-screen-overlay"
-  >
-    <div
-      class="ec-full-screen-overlay__content"
-      data-test="ec-full-screen-overlay__content"
-    >
-      <header
-        class="ec-full-screen-overlay__header"
-        data-test="ec-full-screen-overlay__header"
-      >
-        <h1
-          class="ec-full-screen-overlay__title"
-          data-test="ec-full-screen-overlay__title"
-        >
-          Full screen overlay title
-        </h1>
-        <button
-          class="ec-full-screen-overlay__close-icon-btn"
-          data-test="ec-full-screen-overlay__close-icon-btn"
-        >
-          <span
-            class="tw-sr-only"
-          >
-            Close
-          </span>
-          <svg
-            class="ec-icon ec-icon--interactive ec-full-screen-overlay__close-icon"
-            data-test="ec-full-screen-overlay__close-icon"
-            height="24"
-            width="24"
-          >
-            <use
-              xlink:href="#ec-simple-close"
-            />
-          </svg>
-        </button>
-      </header>
-      <main
-        data-test="ec-full-screen-overlay__main"
-      >
-        
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        
-      </main>
-    </div>
-  </div>
-</transition-stub>
-`;
-
-exports[`EcFullScreenOverlay should render with a title 1`] = `
+exports[`EcFullScreenOverlay :props :title - should render the title 1`] = `
 <h1
   class="ec-full-screen-overlay__title"
   data-test="ec-full-screen-overlay__title"
 >
-  title
+  Lorem title
 </h1>
+`;
+
+exports[`EcFullScreenOverlay should render as expected 1`] = `
+<transition-stub>
+  <div
+    class="ec-full-screen-overlay"
+    data-test="ec-full-screen-overlay"
+  >
+    <div
+      class="ec-full-screen-overlay__content"
+      data-test="ec-full-screen-overlay__content"
+    >
+      <header
+        class="ec-full-screen-overlay__header"
+        data-test="ec-full-screen-overlay__header"
+      >
+        <h1
+          class="ec-full-screen-overlay__title"
+          data-test="ec-full-screen-overlay__title"
+        >
+          Full screen overlay title
+        </h1>
+        <button
+          class="ec-full-screen-overlay__close-icon-btn"
+          data-test="ec-full-screen-overlay__close-icon-btn"
+        >
+          <span
+            class="tw-sr-only"
+          >
+            Close
+          </span>
+          <svg
+            class="ec-icon ec-icon--interactive ec-full-screen-overlay__close-icon"
+            data-test="ec-full-screen-overlay__close-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </button>
+      </header>
+      <main
+        data-test="ec-full-screen-overlay__main"
+      >
+        
+        
+      </main>
+    </div>
+  </div>
+</transition-stub>
 `;

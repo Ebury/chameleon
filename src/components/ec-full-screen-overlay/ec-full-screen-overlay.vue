@@ -14,8 +14,13 @@
           class="ec-full-screen-overlay__header"
           data-test="ec-full-screen-overlay__header"
         >
+          <slot
+            v-if="hasHeaderSlot()"
+            name="header"
+          />
+
           <h1
-            v-if="title"
+            v-else-if="title"
             data-test="ec-full-screen-overlay__title"
             class="ec-full-screen-overlay__title"
           >
@@ -49,14 +54,14 @@
 
 <script setup>
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
-import { onUnmounted, ref } from 'vue';
+import { onUnmounted, ref, useSlots } from 'vue';
 
 import EcIcon from '../ec-icon';
 
 defineProps({
   title: {
     type: String,
-    required: true,
+    required: false,
   },
   show: {
     type: Boolean,
@@ -78,79 +83,66 @@ onUnmounted(() => {
   deactivate();
 });
 
+const slots = useSlots();
+
+function hasHeaderSlot() {
+  return !!slots.header;
+}
 </script>
 
 <style>
+  @import '../../styles/tools/scrollbars.css';
   @import '../../styles/tools/transitions.css';
 
   :root {
-    --ec-full-screen-overlay__content-width: 704px;
+    --ec-full-screen-overlay__content-width: 656px;
   }
 
   .ec-full-screen-overlay {
-    @apply tw-min-h-screen;
+    @apply tw-p-24;
     @apply tw-z-level-3;
     @apply tw-fixed;
     @apply tw-inset-0;
     @apply tw-bg-gray-8;
-    @apply tw-flex;
-    @apply tw-justify-center;
+    @apply tw-flex tw-justify-center;
     @apply tw-overflow-y-auto;
 
+    @mixin md-scrollbar;
+
     &__content {
-      @apply tw-p-16;
+      max-width: var(--ec-full-screen-overlay__content-width);
       @apply tw-w-full;
-      @apply tw-max-w-full;
+      @apply tw-self-baseline;
     }
 
     &__header {
-      @apply tw-mb-16;
+      @apply tw-mb-36;
       @apply tw-w-full;
       @apply tw-flex;
     }
 
     &__close-icon-btn {
-      width: 24px;
-      height: 24px;
+      line-height: 0;
+      @apply tw-self-baseline;
       @apply tw-bg-transparent;
       @apply tw-border-none;
       @apply tw-p-0;
+      @apply tw-ml-auto;
     }
 
     &__close-icon {
-      transition: fill 0.3s ease;
+      @mixin ec-fill-color-transition;
 
       @apply tw-text-gray-4;
       @apply tw-cursor-pointer;
-      @apply tw-justify-self-end;
 
       &:hover {
-        fill: hsl(var(--ec-key-color-level-4));
+        @apply tw-fill-key-4;
       }
-    }
-
-    &__title {
-      flex-grow: 1;
-      @apply tw-h1;
-      @apply tw-m-0;
-      @apply tw-text-gray-3;
     }
 
     &__fade {
       @mixin ec-fade-transition;
     }
-
-    @media (min-width: 1024px) {
-      &__content {
-        max-width: var(--ec-full-screen-overlay__content-width);
-        width: 100%;
-        @apply tw-p-24;
-      }
-
-      &__header {
-        @apply tw-mb-32;
-      }
-    }
   }
-
 </style>

@@ -23,3 +23,12 @@
   }
   /* stylelint-enable */
 }
+
+@define-mixin ec-fill-color-transition {
+  /* stylelint-disable scss/selector-no-redundant-nesting-selector */
+  & {
+    transition-property: fill;
+    @apply tw-duration-300 tw-ease-out;
+  }
+  /* stylelint-enable */
+}

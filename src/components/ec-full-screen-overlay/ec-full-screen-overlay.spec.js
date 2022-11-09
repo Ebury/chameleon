@@ -15,17 +15,10 @@ describe('EcFullScreenOverlay', () => {
     });
   }
 
-  it('should render properly', () => {
+  it('should render as expected', () => {
     const wrapper = mountFullScreenOverlay();
     expect(wrapper.findByDataTest('ec-full-screen-overlay').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should render with a title', () => {
-    const wrapper = mountFullScreenOverlay({ title: 'title' });
-    expect(wrapper.findByDataTest('ec-full-screen-overlay__title').exists()).toBe(true);
-    expect(wrapper.findByDataTest('ec-full-screen-overlay__title').text()).toContain('title');
-    expect(wrapper.findByDataTest('ec-full-screen-overlay__title').element).toMatchSnapshot();
   });
 
   it('should initialize the "useFocusTrap composable" with mandatory options', () => {
@@ -46,30 +39,22 @@ describe('EcFullScreenOverlay', () => {
     expect(document.activeElement).toEqual(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').element);
   });
 
-  it('should render slots as expected', () => {
-    const wrapper = mountFullScreenOverlay({}, {
-      slots: {
-        main: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      },
+  describe(':props', () => {
+    it(':show - should not render the overlay when is false', () => {
+      const wrapper = mountFullScreenOverlay({ show: false });
+      expect(wrapper.findByDataTest('ec-full-screen-overlay').exists()).toBe(false);
     });
 
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  describe('when "title" prop is not provided', () => {
-    it('should launch a console warn', () => {
-      const warn = jest.spyOn(console, 'warn');
-      mount(EcFullScreenOverlay, {
-        props: {
-          show: true,
-        },
-      });
-      expect(warn).toHaveBeenCalledTimes(1);
+    it(':title - should render the title', () => {
+      const wrapper = mountFullScreenOverlay({ title: 'Lorem title' });
+      expect(wrapper.findByDataTest('ec-full-screen-overlay__title').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-full-screen-overlay__title').text()).toContain('Lorem title');
+      expect(wrapper.findByDataTest('ec-full-screen-overlay__title').element).toMatchSnapshot();
     });
   });
 
-  describe('when clicking on the "close" icon', () => {
-    it('should propagate a "close" event to the parent', async () => {
+  describe('@events', () => {
+    it('@close - should be emitted when we click on the close button', async () => {
       const wrapper = mountFullScreenOverlay();
       expect(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').exists()).toBe(true);
       await wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').trigger('click');
@@ -77,11 +62,26 @@ describe('EcFullScreenOverlay', () => {
     });
   });
 
-  describe('when "show" prop is false', () => {
-    it('should not render', () => {
-      const wrapper = mountFullScreenOverlay({ show: false });
-      expect(wrapper.findByDataTest('ec-full-screen-overlay').exists()).toBe(false);
+  describe('#slots', () => {
+    it('#header - should be rendered when passed', () => {
+      const wrapper = mountFullScreenOverlay({}, {
+        slots: {
+          header: 'Lorem Title',
+        },
+      });
+
+      expect(wrapper.findByDataTest('ec-full-screen-overlay__title').exists()).toBe(false);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('#main - should be rendered when passed', () => {
+      const wrapper = mountFullScreenOverlay({}, {
+        slots: {
+          main: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies.',
+        },
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });
-
