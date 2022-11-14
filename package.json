@@ -21,7 +21,7 @@
     "lint:js:no-fix": "eslint --no-fix ./",
     "lint:style": "stylelint ./src/**/*.{css,vue} --fix",
     "lint:style:no-fix": "stylelint ./src/**/*.{css,vue}",
-    "test": "jest",
+    "test": "node --no-compilation-cache --expose-gc ./node_modules/.bin/jest --logHeapUsage",
     "test:watch": "jest --watch",
     "test:visual": "cypress open",
     "test:visual:ci": "npm run build-storybook-run & wait-on http://localhost:42475/ && npm run test:visual:all",
