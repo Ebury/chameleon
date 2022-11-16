@@ -50,6 +50,7 @@ export { default as EcPopover } from './components/ec-popover';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
 export { default as EcSmartTable } from './components/ec-smart-table';
 export { default as EcSubmenu } from './components/ec-submenu';
+export { default as EcSummaryInfo } from './components/ec-summary-info';
 export { default as EcSyncMultipleValuesFilter } from './components/ec-sync-multiple-values-filter';
 export { default as EcTable } from './components/ec-table';
 export { default as EcTableFilter } from './components/ec-table-filter';
