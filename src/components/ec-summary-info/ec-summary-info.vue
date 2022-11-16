@@ -8,6 +8,7 @@
     >
       <ec-icon
         class="ec-summary-info__icon"
+        data-test="ec-summary-info__icon"
         :class="{'tw-mr-12': iconName}"
         :name="iconName"
         :size="12"
@@ -24,7 +25,8 @@
       </div>
 
       <div
-        v-if="lineItems.length > 0"
+        v-if="lineItems.length > 0 || hasSlot('default')"
+        data-test="ec-summary-info__content-lines"
         class="ec-summary-info__content-lines"
       >
 
@@ -55,14 +57,16 @@
             />
           </span>
         </div>
-      </div>
 
-      <slot />
+        <slot />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+
+import { useSlots } from 'vue';
 
 import VEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
@@ -81,6 +85,12 @@ defineProps({
     default: () => [],
   },
 });
+
+const slots = useSlots();
+
+function hasSlot(name) {
+  return name in slots;
+}
 </script>
 
 <style>
