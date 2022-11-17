@@ -82,7 +82,6 @@ function hasSlot(name) {
 
 <style>
 .ec-summary-info {
-  width: 100%;
   @apply tw-flex;
 
   &__main-icon {
@@ -100,6 +99,8 @@ function hasSlot(name) {
 
   &__content-line-item-text {
     text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   &__content-line-item-text-title {
