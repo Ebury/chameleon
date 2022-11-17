@@ -19,11 +19,13 @@ exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
       />
     </svg>
   </div>
+  
   <div
     class="ec-summary-info__content"
   >
     <!--v-if-->
   </div>
+  
 </div>
 `;
 
@@ -77,6 +79,7 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
   data-test="ec-summary-info"
 >
   <!--v-if-->
+  
   <div
     class="ec-summary-info__content"
   >
@@ -136,10 +139,9 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
         <!--v-if-->
       </div>
       
-      
-      
     </div>
   </div>
+  
 </div>
 `;
 
@@ -149,11 +151,13 @@ exports[`EcSummaryInfo lineItems should render with the not given "lineItems" pr
   data-test="ec-summary-info"
 >
   <!--v-if-->
+  
   <div
     class="ec-summary-info__content"
   >
     <!--v-if-->
   </div>
+  
 </div>
 `;
 
@@ -176,24 +180,14 @@ exports[`EcSummaryInfo slots should render with the default slot given 1`] = `
       />
     </svg>
   </div>
+  
   <div
-    class="ec-summary-info__content"
+    data-test="default-slot"
   >
-    <div
-      data-test="ec-summary-info__content-lines"
-    >
-      
-      
-      
-      <div
-        data-test="default-slot"
-      >
-        <span>
-           Some text from a slot 
-        </span>
-      </div>
-      
-    </div>
+    <span>
+       Some text from a slot 
+    </span>
   </div>
+  
 </div>
 `;

@@ -15,51 +15,49 @@
       />
     </div>
 
-    <div class="ec-summary-info__content">
-      <div
-        v-if="lineItems.length > 0 || hasSlot('default')"
-        data-test="ec-summary-info__content-lines"
-      >
+    <slot>
+      <div class="ec-summary-info__content">
         <div
-          v-for="item in lineItems"
-          :key="item.text"
-          class="ec-summary-info__content-line-item"
+          v-if="lineItems.length > 0"
+          data-test="ec-summary-info__content-lines"
         >
-          <span
-            :title="item.text"
-            class="ec-summary-info__content-line-item-text"
-            :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-${item.stylePreset}`"
-            :class="`ec-summary-info__content-line-item-text-${item.stylePreset}`"
+          <div
+            v-for="item in lineItems"
+            :key="item.text"
+            class="ec-summary-info__content-line-item"
           >
-            {{ item.text }}
-          </span>
+            <span
+              :title="item.text"
+              class="ec-summary-info__content-line-item-text"
+              :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-${item.stylePreset}`"
+              :class="`ec-summary-info__content-line-item-text-${item.stylePreset}`"
+            >
+              {{ item.text }}
+            </span>
 
-          <span
-            v-if="item.iconName"
-            v-ec-tooltip="{
-              content: item.tooltipText
-            }"
-            :class="{'tw-ml-4': item.iconName}"
-          >
-            <ec-icon
-              :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${item.stylePreset}`"
-              class="ec-summary-info__content-line-item-icon"
-              :class="`ec-summary-info__content-line-item-icon-${item.stylePreset}`"
-              :name="item.iconName"
-              :size="14"
-            />
-          </span>
+            <span
+              v-if="item.iconName"
+              v-ec-tooltip="{
+                content: item.tooltipText
+              }"
+              :class="{'tw-ml-4': item.iconName}"
+            >
+              <ec-icon
+                :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${item.stylePreset}`"
+                class="ec-summary-info__content-line-item-icon"
+                :class="`ec-summary-info__content-line-item-icon-${item.stylePreset}`"
+                :name="item.iconName"
+                :size="14"
+              />
+            </span>
+          </div>
         </div>
-        <slot />
       </div>
-    </div>
+    </slot>
   </div>
 </template>
 
 <script setup>
-
-import { useSlots } from 'vue';
-
 import VEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 
@@ -73,12 +71,6 @@ defineProps({
     default: () => [],
   },
 });
-
-const slots = useSlots();
-
-function hasSlot(name) {
-  return name in slots;
-}
 </script>
 
 <style>
