@@ -6,11 +6,16 @@ export default {
   component: EcSummaryInfo,
 };
 
-const Template = args => ({
+const basicArgs = {
+  title: 'This is the title',
+  iconName: 'simple-sell',
+};
+
+const Template = () => ({
   components: { EcSummaryInfo },
   setup() {
     return {
-      args,
+      args: basicArgs,
     };
   },
   template: `
@@ -21,15 +26,27 @@ const Template = args => ({
 });
 
 export const basic = Template.bind({});
-basic.args = {
-  title: 'This is the title',
-  iconName: 'simple-sell',
-};
 
-export const withContentLinesProp = args => ({
+export const withContentLinesProp = () => ({
   components: { EcSummaryInfo },
   setup() {
-    return { args };
+    return {
+      args: {
+        ...basicArgs,
+        lineItems: [
+          {
+            text: 'Some text',
+            cssClasses: ['tw-text-gray-4', 'tw-uppercase'],
+            iconCssClasses: ['tw-h-16'],
+            iconName: 'simple-info',
+            tooltipText: 'Some tooltip text',
+          },
+          {
+            text: 'Another text',
+          },
+        ],
+      },
+    };
   },
   template: `
     <ec-summary-info
@@ -38,26 +55,10 @@ export const withContentLinesProp = args => ({
   `,
 });
 
-withContentLinesProp.args = {
-  ...basic.args,
-  lineItems: [
-    {
-      text: 'Some text',
-      cssClasses: ['tw-text-gray-4', 'tw-uppercase'],
-      iconCssClasses: ['tw-h-16'],
-      iconName: 'simple-info',
-      tooltipText: 'Some tooltip text',
-    },
-    {
-      text: 'Another text',
-    },
-  ],
-};
-
-export const withSlots = args => ({
+export const withSlots = () => ({
   components: { EcSummaryInfo, EcIcon },
   setup() {
-    return { args };
+    return { args: basicArgs };
   },
   template: `
     <ec-summary-info v-bind="args">
@@ -69,8 +70,4 @@ export const withSlots = args => ({
     </ec-summary-info>
   `,
 });
-
-withSlots.args = {
-  ...basic.args,
-};
 
