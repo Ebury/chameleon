@@ -37,7 +37,7 @@ describe('EcSummaryInfo', () => {
           {
             stylePreset: 'description',
             text: 'Some text',
-            iconName: 'simple-info',
+            showIcon: true,
             tooltipText: 'Some tooltip text',
           },
           {
@@ -100,7 +100,7 @@ describe('EcSummaryInfo', () => {
             lineItems: [
               {
                 stylePreset: 'description',
-                iconName: 'simple-info',
+                showIcon: true,
               },
             ],
           });
@@ -114,7 +114,7 @@ describe('EcSummaryInfo', () => {
             lineItems: [
               {
                 stylePreset: 'description',
-                iconName: 'simple-info',
+                showIcon: true,
                 tooltipText: 'Some tooltip text',
               },
             ],
@@ -147,7 +147,7 @@ describe('EcSummaryInfo', () => {
             lineItems: [
               {
                 stylePreset: 'help',
-                iconName: 'simple-info',
+                showIcon: true,
               },
             ],
           });
@@ -161,7 +161,7 @@ describe('EcSummaryInfo', () => {
             lineItems: [
               {
                 stylePreset: 'help',
-                iconName: 'simple-info',
+                showIcon: true,
                 tooltipText: 'Some tooltip text',
               },
             ],

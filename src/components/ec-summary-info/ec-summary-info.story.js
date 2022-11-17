@@ -52,7 +52,7 @@ export const withContentLinesProp = () => ({
           {
             stylePreset: 'description',
             text: 'Some text',
-            iconName: 'simple-info',
+            showIcon: true,
             tooltipText: 'Some tooltip text',
           },
           {
@@ -111,7 +111,7 @@ export const truncatedText = () => ({
           {
             stylePreset: 'description',
             text: 'A very very very long description',
-            iconName: 'simple-info',
+            showIcon: true,
             tooltipText: 'Some tooltip text',
           },
           {

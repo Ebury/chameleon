@@ -38,8 +38,9 @@ DOMWrapper {
     data-test="ec-mock ec-tooltip-mock"
   >
     <svg
-      class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
-      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
+      class="ec-icon ec-summary-info__content-line-item-icon-description ec-summary-info__content-line-item-icon"
+      data-ec-tooltip-mock-content="Some tooltip text"
+      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description ec-mock ec-tooltip-mock"
       height="14"
       width="14"
     >
@@ -60,8 +61,9 @@ DOMWrapper {
     data-test="ec-mock ec-tooltip-mock"
   >
     <svg
-      class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-help"
-      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-help"
+      class="ec-icon ec-summary-info__content-line-item-icon-help ec-summary-info__content-line-item-icon"
+      data-ec-tooltip-mock-content="Some tooltip text"
+      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-help ec-mock ec-tooltip-mock"
       height="14"
       width="14"
     >
@@ -115,8 +117,9 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
           data-test="ec-mock ec-tooltip-mock"
         >
           <svg
-            class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
-            data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
+            class="ec-icon ec-summary-info__content-line-item-icon-description ec-summary-info__content-line-item-icon"
+            data-ec-tooltip-mock-content="Some tooltip text"
+            data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description ec-mock ec-tooltip-mock"
             height="14"
             width="14"
           >
