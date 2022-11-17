@@ -74,24 +74,27 @@ export const truncateText = () => ({
         lineItems: [
           {
             stylePreset: 'title',
-            text: 'The title',
+            text: 'A very very very long title',
           },
           {
             stylePreset: 'description',
-            text: 'Some text',
+            text: 'A very very very long description',
             iconName: 'simple-info',
             tooltipText: 'Some tooltip text',
           },
           {
             stylePreset: 'help',
-            text: 'Another text',
+            text: 'A very very very long help text',
           },
         ],
       },
     };
   },
   template: `
-    <ec-summary-info v-bind="args" />
+    <ec-summary-info 
+      style="width: 100px;" 
+      v-bind="args" 
+    />
   `,
 });
 

@@ -26,6 +26,7 @@
           class="ec-summary-info__content-line-item"
         >
           <span
+            :title="item.text"
             class="ec-summary-info__content-line-item-text"
             :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-${item.stylePreset}`"
             :class="`ec-summary-info__content-line-item-text-${item.stylePreset}`"
@@ -91,10 +92,13 @@ function hasSlot(name) {
 
   &__content {
     @apply tw-flex-grow;
+    @apply tw-w-full;
   }
 
   &__content-line-item {
     line-height: 20px;
+    @apply tw-min-w-0;
+    @apply tw-flex;
   }
 
   &__content-line-item-text {
