@@ -12,31 +12,21 @@ describe('EcSummaryInfo', () => {
     });
   }
 
-  describe('title', () => {
-    it('should render with the given "title" prop', () => {
-      const wrapper = mountSummaryInfo({ title: 'Default title' });
-      expect(wrapper.findByDataTest('ec-summary-info__title').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it('should not render with not given "title" prop', () => {
-      const wrapper = mountSummaryInfo();
-      expect(wrapper.findByDataTest('ec-summary-info__title').exists()).toBe(false);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-  });
-
   describe('icon', () => {
     it('should render with the given "icon" prop', () => {
       const wrapper = mountSummaryInfo({ iconName: 'simple-sell' });
-      expect(wrapper.findByDataTest('ec-summary-info__icon').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-summary-info__main-icon').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should not render with the not given "icon" prop', () => {
       const wrapper = mountSummaryInfo();
-      expect(wrapper.findByDataTest('ec-summary-info__icon').exists()).toBe(false);
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-summary-info__main-icon').exists()).toBe(false);
+    });
+
+    it('should render the icon with the right name', () => {
+      const wrapper = mountSummaryInfo({ iconName: 'simple-sell' });
+      expect(wrapper.findByDataTest('ec-summary-info__main-icon__simple-sell').exists()).toBe(true);
     });
   });
 
@@ -45,13 +35,17 @@ describe('EcSummaryInfo', () => {
       const wrapper = mountSummaryInfo({
         lineItems: [
           {
+            stylePreset: 'title',
+            text: 'The title',
+          },
+          {
+            stylePreset: 'description',
             text: 'Some text',
-            cssClasses: ['tw-text-gray-4', 'tw-uppercase'],
-            iconCssClasses: ['tw-h-16'],
             iconName: 'simple-info',
             tooltipText: 'Some tooltip text',
           },
           {
+            stylePreset: 'help',
             text: 'Another text',
           },
         ],
@@ -63,13 +57,97 @@ describe('EcSummaryInfo', () => {
     it('should render with the not given "lineItems" prop', () => {
       const wrapper = mountSummaryInfo();
       expect(wrapper.findByDataTest('ec-summary-info__content-lines').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-title').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-description').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-help').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-help').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
+    });
+
+    describe('title', () => {
+      describe('when the title is present', () => {
+        it('should render the title', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'title',
+                text: 'testing the title',
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-title').exists()).toBe(true);
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-title').text()).toBe('testing the title');
+        });
+      });
+    });
+
+    describe('description', () => {
+      describe('when the description text is present', () => {
+        it('should render the description text', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'description',
+                text: 'testing the description',
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-description').exists()).toBe(true);
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-description').text()).toBe('testing the description');
+        });
+      });
+
+      describe('when the description icon is present', () => {
+        it('should render the description icon', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'description',
+                iconName: 'simple-info',
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').exists()).toBe(true);
+        });
+      });
+    });
+
+    describe('help', () => {
+      describe('when the help text is present', () => {
+        it('should render the help text', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'help',
+                text: 'testing the help text',
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-help').exists()).toBe(true);
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-help').text()).toBe('testing the help text');
+        });
+      });
+
+      describe('when the help icon is present', () => {
+        it('should render the help icon', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'help',
+                iconName: 'simple-info',
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-help').exists()).toBe(true);
+        });
+      });
     });
   });
 
   describe('slots', () => {
     it('should render with the default slot given', () => {
-      const wrapper = mountSummaryInfo({ title: 'The title' }, {
+      const wrapper = mountSummaryInfo({ iconName: 'simple-sell' }, {
         slots: {
           default: `<div data-test="default-slot">
             <span>

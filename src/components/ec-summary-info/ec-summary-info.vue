@@ -9,7 +9,7 @@
     >
       <ec-icon
         class="ec-summary-info__main-icon"
-        data-test="ec-summary-info__main-icon"
+        :data-test="`ec-summary-info__main-icon ec-summary-info__main-icon__${iconName}`"
         :name="iconName"
         :size="12"
       />
@@ -27,6 +27,7 @@
         >
           <span
             class="ec-summary-info__content-line-item-text"
+            :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-${item.stylePreset}`"
             :class="`ec-summary-info__content-line-item-text-${item.stylePreset}`"
           >
             {{ item.text }}
@@ -40,6 +41,7 @@
             :class="{'tw-ml-4': item.iconName}"
           >
             <ec-icon
+              :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${item.stylePreset}`"
               class="ec-summary-info__content-line-item-icon"
               :class="`ec-summary-info__content-line-item-icon-${item.stylePreset}`"
               :name="item.iconName"

@@ -1,29 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcSummaryInfo icon should not render with the not given "icon" prop 1`] = `
-<div
-  class="ec-summary-info"
-  data-test="ec-summary-info"
->
-  <!--v-if-->
-  <div
-    class="ec-summary-info__content"
-  >
-    <!--v-if-->
-    <!--v-if-->
-  </div>
-</div>
-`;
-
 exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
 <div
   class="ec-summary-info"
   data-test="ec-summary-info"
 >
-  <div>
+  <div
+    class="tw-mr-12"
+  >
     <svg
-      class="ec-icon ec-summary-info__icon tw-mr-12"
-      data-test="ec-summary-info__icon"
+      class="ec-icon ec-summary-info__main-icon"
+      data-test="ec-summary-info__main-icon ec-summary-info__main-icon__simple-sell"
       height="12"
       width="12"
     >
@@ -35,7 +22,6 @@ exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
   <div
     class="ec-summary-info__content"
   >
-    <!--v-if-->
     <!--v-if-->
   </div>
 </div>
@@ -50,17 +36,27 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
   <div
     class="ec-summary-info__content"
   >
-    <!--v-if-->
     <div
-      class="ec-summary-info__content-lines"
       data-test="ec-summary-info__content-lines"
     >
       
       <div
-        class="tw-text-gray-4 tw-uppercase ec-summary-info__content-line-item"
+        class="ec-summary-info__content-line-item"
       >
         <span
-          class=""
+          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-title"
+          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-title"
+        >
+          The title
+        </span>
+        <!--v-if-->
+      </div>
+      <div
+        class="ec-summary-info__content-line-item"
+      >
+        <span
+          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
+          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
         >
           Some text
         </span>
@@ -70,7 +66,8 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
           data-test="ec-mock ec-tooltip-mock"
         >
           <svg
-            class="ec-icon ec-summary-info__content-line-item-icon tw-h-16"
+            class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
+            data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
             height="14"
             width="14"
           >
@@ -84,7 +81,8 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
         class="ec-summary-info__content-line-item"
       >
         <span
-          class=""
+          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-help"
+          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-help"
         >
           Another text
         </span>
@@ -108,7 +106,6 @@ exports[`EcSummaryInfo lineItems should render with the not given "lineItems" pr
     class="ec-summary-info__content"
   >
     <!--v-if-->
-    <!--v-if-->
   </div>
 </div>
 `;
@@ -118,18 +115,24 @@ exports[`EcSummaryInfo slots should render with the default slot given 1`] = `
   class="ec-summary-info"
   data-test="ec-summary-info"
 >
-  <!--v-if-->
+  <div
+    class="tw-mr-12"
+  >
+    <svg
+      class="ec-icon ec-summary-info__main-icon"
+      data-test="ec-summary-info__main-icon ec-summary-info__main-icon__simple-sell"
+      height="12"
+      width="12"
+    >
+      <use
+        xlink:href="#ec-simple-sell"
+      />
+    </svg>
+  </div>
   <div
     class="ec-summary-info__content"
   >
     <div
-      class="ec-summary-info__title"
-      data-test="ec-summary-info__title"
-    >
-      The title
-    </div>
-    <div
-      class="ec-summary-info__content-lines"
       data-test="ec-summary-info__content-lines"
     >
       
@@ -144,41 +147,6 @@ exports[`EcSummaryInfo slots should render with the default slot given 1`] = `
       </div>
       
     </div>
-  </div>
-</div>
-`;
-
-exports[`EcSummaryInfo title should not render with not given "title" prop 1`] = `
-<div
-  class="ec-summary-info"
-  data-test="ec-summary-info"
->
-  <!--v-if-->
-  <div
-    class="ec-summary-info__content"
-  >
-    <!--v-if-->
-    <!--v-if-->
-  </div>
-</div>
-`;
-
-exports[`EcSummaryInfo title should render with the given "title" prop 1`] = `
-<div
-  class="ec-summary-info"
-  data-test="ec-summary-info"
->
-  <!--v-if-->
-  <div
-    class="ec-summary-info__content"
-  >
-    <div
-      class="ec-summary-info__title"
-      data-test="ec-summary-info__title"
-    >
-      Default title
-    </div>
-    <!--v-if-->
   </div>
 </div>
 `;
