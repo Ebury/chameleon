@@ -184,9 +184,9 @@ const emit = defineEmits<{(e: 'update:modelValue', value: PhoneNumberEvents[Phon
 
 interface PhoneNumberProps {
   modelValue: PhoneNumberModel,
-  label: string,
-  note: string,
-  bottomNote: string,
+  label?: string,
+  note?: string,
+  bottomNote?: string,
   isWarning?: boolean,
   isMasked?: boolean,
   warningTooltipMessage?: string,

@@ -44,9 +44,9 @@ export interface PhoneNumberEvents {
 
 export interface PhoneNumberProps {
   modelValue: PhoneNumberModel,
-  label: string,
-  note: string,
-  bottomNote: string,
+  label?: string,
+  note?: string,
+  bottomNote?: string,
   isWarning?: boolean,
   isMasked?: boolean,
   warningTooltipMessage?: string,
