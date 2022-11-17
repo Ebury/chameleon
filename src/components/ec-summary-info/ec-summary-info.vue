@@ -5,11 +5,11 @@
   >
     <div
       v-if="iconName"
+      class="tw-mr-12"
     >
       <ec-icon
-        class="ec-summary-info__icon"
-        data-test="ec-summary-info__icon"
-        :class="{'tw-mr-12': iconName}"
+        class="ec-summary-info__main-icon"
+        data-test="ec-summary-info__main-icon"
         :name="iconName"
         :size="12"
       />
@@ -17,27 +17,17 @@
 
     <div class="ec-summary-info__content">
       <div
-        v-if="title"
-        class="ec-summary-info__title"
-        data-test="ec-summary-info__title"
-      >
-        {{ title }}
-      </div>
-
-      <div
         v-if="lineItems.length > 0 || hasSlot('default')"
         data-test="ec-summary-info__content-lines"
-        class="ec-summary-info__content-lines"
       >
-
         <div
           v-for="item in lineItems"
           :key="item.text"
-          :class="[item.cssClasses]"
           class="ec-summary-info__content-line-item"
         >
           <span
-            :class="[item.textCssClasses]"
+            class="ec-summary-info__content-line-item-text"
+            :class="`ec-summary-info__content-line-item-text-${item.stylePreset}`"
           >
             {{ item.text }}
           </span>
@@ -51,13 +41,12 @@
           >
             <ec-icon
               class="ec-summary-info__content-line-item-icon"
-              :class="[item.iconCssClasses]"
+              :class="`ec-summary-info__content-line-item-icon-${item.stylePreset}`"
               :name="item.iconName"
               :size="14"
             />
           </span>
         </div>
-
         <slot />
       </div>
     </div>
@@ -72,10 +61,6 @@ import VEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 
 defineProps({
-  title: {
-    type: String,
-    default: null,
-  },
   iconName: {
     type: String,
     default: null,
@@ -94,17 +79,12 @@ function hasSlot(name) {
 </script>
 
 <style>
-:root {
-  --ec-summary-info--width: 184px;
-}
-
 .ec-summary-info {
-  max-width: var(--ec-summary-info--width);
+  width: 100%;
   @apply tw-flex;
 
-  &__icon {
+  &__main-icon {
     @apply tw-flex-grow-0;
-    @apply tw-mr-12;
     @apply tw-fill-gray-4;
   }
 
@@ -112,19 +92,39 @@ function hasSlot(name) {
     @apply tw-flex-grow;
   }
 
-  &__content-lines {
+  &__content-line-item {
+    line-height: 20px;
+  }
+
+  &__content-line-item-text {
+    text-overflow: ellipsis;
+  }
+
+  &__content-line-item-text-title {
+    @apply tw-text-gray-5;
     @apply tw-small-text;
+  }
+
+  &__content-line-item-text-description {
+    @apply tw-text-gray-3;
+    @apply tw-small-text;
+  }
+
+  &__content-line-item-text-help {
+    @apply tw-help-text;
     @apply tw-text-gray-5;
   }
 
   &__content-line-item-icon {
-    @apply tw-fill-gray-4;
     @apply tw-align-middle;
   }
 
-  &__title {
-    @apply tw-text-gray-5;
-    @apply tw-small-text;
+  &__content-line-item-icon-description {
+    @apply tw-fill-gray-3;
+  }
+
+  &__content-line-item-icon-help {
+    @apply tw-fill-gray-5;
   }
 }
 

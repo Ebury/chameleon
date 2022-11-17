@@ -7,25 +7,8 @@ export default {
 };
 
 const basicArgs = {
-  title: 'This is the title',
   iconName: 'simple-sell',
 };
-
-const Template = () => ({
-  components: { EcSummaryInfo },
-  setup() {
-    return {
-      args: basicArgs,
-    };
-  },
-  template: `
-    <ec-summary-info
-      v-bind="args"
-    />
-  `,
-});
-
-export const basic = Template.bind({});
 
 export const withContentLinesProp = () => ({
   components: { EcSummaryInfo },
@@ -35,13 +18,17 @@ export const withContentLinesProp = () => ({
         ...basicArgs,
         lineItems: [
           {
+            stylePreset: 'title',
+            text: 'The title',
+          },
+          {
+            stylePreset: 'description',
             text: 'Some text',
-            cssClasses: ['tw-text-gray-4', 'tw-uppercase'],
-            iconCssClasses: ['tw-h-16'],
             iconName: 'simple-info',
             tooltipText: 'Some tooltip text',
           },
           {
+            stylePreset: 'help',
             text: 'Another text',
           },
         ],
@@ -62,12 +49,49 @@ export const withSlots = () => ({
   },
   template: `
     <ec-summary-info v-bind="args">
-        <div class="tw-flex tw-small-text">
-          <span class="tw-text-key-4">
-            Some text from a slot
-          </span>
+        <div class="tw-small-text">
+          <div>
+            <span class="tw-text-gray-5 tw-small-text">
+              Slot title
+            </span>
+          </div>
+          <div>
+            <span class="tw-text-key-4">
+              Slot description
+            </span>
+          </div>
         </div>
     </ec-summary-info>
+  `,
+});
+
+export const truncateText = () => ({
+  components: { EcSummaryInfo, EcIcon },
+  setup() {
+    return {
+      args: {
+        ...basicArgs,
+        lineItems: [
+          {
+            stylePreset: 'title',
+            text: 'The title',
+          },
+          {
+            stylePreset: 'description',
+            text: 'Some text',
+            iconName: 'simple-info',
+            tooltipText: 'Some tooltip text',
+          },
+          {
+            stylePreset: 'help',
+            text: 'Another text',
+          },
+        ],
+      },
+    };
+  },
+  template: `
+    <ec-summary-info v-bind="args" />
   `,
 });
 
