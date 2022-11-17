@@ -77,6 +77,7 @@ const { deactivate } = useFocusTrap(overlayContent, {
   escapeDeactivates: false,
   clickOutsideDeactivates: false,
   initialFocus: false,
+  allowOutsideClick: true,
 });
 
 onUnmounted(() => {
