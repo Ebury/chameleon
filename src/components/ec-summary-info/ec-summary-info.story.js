@@ -65,7 +65,7 @@ export const withSlots = () => ({
   `,
 });
 
-export const truncateText = () => ({
+export const truncatedText = () => ({
   components: { EcSummaryInfo, EcIcon },
   setup() {
     return {

@@ -16,17 +16,13 @@ describe('EcSummaryInfo', () => {
     it('should render with the given "icon" prop', () => {
       const wrapper = mountSummaryInfo({ iconName: 'simple-sell' });
       expect(wrapper.findByDataTest('ec-summary-info__main-icon').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-summary-info__main-icon__simple-sell').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should not render with the not given "icon" prop', () => {
       const wrapper = mountSummaryInfo();
       expect(wrapper.findByDataTest('ec-summary-info__main-icon').exists()).toBe(false);
-    });
-
-    it('should render the icon with the right name', () => {
-      const wrapper = mountSummaryInfo({ iconName: 'simple-sell' });
-      expect(wrapper.findByDataTest('ec-summary-info__main-icon__simple-sell').exists()).toBe(true);
     });
   });
 
@@ -111,6 +107,22 @@ describe('EcSummaryInfo', () => {
           expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').exists()).toBe(true);
         });
       });
+
+      describe('when the tooltip is present on the icon', () => {
+        it('should render with the tooltip', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'description',
+                iconName: 'simple-info',
+                tooltipText: 'Some tooltip text',
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-tooltip-mock').exists()).toBe(true);
+          expect(wrapper.findByDataTest('ec-tooltip-mock')).toMatchSnapshot();
+        });
+      });
     });
 
     describe('help', () => {
@@ -140,6 +152,22 @@ describe('EcSummaryInfo', () => {
             ],
           });
           expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-help').exists()).toBe(true);
+        });
+      });
+
+      describe('when the tooltip is present on the icon', () => {
+        it('should render with the tooltip', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'help',
+                iconName: 'simple-info',
+                tooltipText: 'Some tooltip text',
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-tooltip-mock').exists()).toBe(true);
+          expect(wrapper.findByDataTest('ec-tooltip-mock')).toMatchSnapshot();
         });
       });
     });
