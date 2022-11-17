@@ -43,9 +43,13 @@
               :class="{'tw-ml-4': item.iconName}"
             >
               <ec-icon
+                v-if="item.iconName"
+                v-ec-tooltip="{
+                  content: item.tooltipText
+                }"
+                :class="[{'tw-ml-4': item.iconName}, `ec-summary-info__content-line-item-icon-${item.stylePreset}`]"
                 :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${item.stylePreset}`"
                 class="ec-summary-info__content-line-item-icon"
-                :class="`ec-summary-info__content-line-item-icon-${item.stylePreset}`"
                 :name="item.iconName"
                 :size="14"
               />

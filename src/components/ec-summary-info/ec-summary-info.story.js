@@ -7,8 +7,36 @@ export default {
 };
 
 const basicArgs = {
-  iconName: 'simple-sell',
+  iconName: 'simple-payment',
 };
+
+export const basic = () => ({
+  components: { EcSummaryInfo },
+  setup() {
+    return {
+      args: {
+        ...basicArgs,
+        lineItems: [
+          {
+            stylePreset: 'title',
+            text: 'The title',
+          },
+          {
+            stylePreset: 'description',
+            text: 'The description',
+          },
+        ],
+      },
+    };
+  },
+  template: `
+  <div class="tw-p-8">
+    <ec-summary-info
+      v-bind="args"
+    />
+  </div>
+  `,
+});
 
 export const withContentLinesProp = () => ({
   components: { EcSummaryInfo },
@@ -36,9 +64,11 @@ export const withContentLinesProp = () => ({
     };
   },
   template: `
-    <ec-summary-info
-      v-bind="args"
-    />
+    <div class="tw-p-8">
+      <ec-summary-info
+        v-bind="args"
+      />
+    </div>
   `,
 });
 
@@ -48,6 +78,7 @@ export const withSlots = () => ({
     return { args: basicArgs };
   },
   template: `
+  <div class="tw-p-8">
     <ec-summary-info v-bind="args">
         <div class="tw-small-text">
           <div>
@@ -62,6 +93,7 @@ export const withSlots = () => ({
           </div>
         </div>
     </ec-summary-info>
+  </div>
   `,
 });
 
@@ -91,10 +123,11 @@ export const truncatedText = () => ({
     };
   },
   template: `
+  <div class="tw-p-8 tw-w-96">
     <ec-summary-info 
-      style="width: 100px;" 
       v-bind="args" 
     />
+  </div>
   `,
 });
 
