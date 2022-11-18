@@ -11,7 +11,7 @@
         class="ec-summary-info__main-icon"
         :data-test="`ec-summary-info__main-icon ec-summary-info__main-icon__${iconName}`"
         :name="iconName"
-        :size="12"
+        :size="16"
       />
     </div>
 
@@ -21,7 +21,6 @@
         class="ec-summary-info__content"
       >
         <div
-
           data-test="ec-summary-info__content-lines"
         >
           <div
