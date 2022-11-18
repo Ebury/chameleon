@@ -45,19 +45,18 @@ describe('EcSummaryInfo', () => {
           },
         ],
       });
-      expect(wrapper.findByDataTest('ec-summary-info__content-lines').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-summary-info__content').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with the not given "lineItems" prop', () => {
       const wrapper = mountSummaryInfo();
-      expect(wrapper.findByDataTest('ec-summary-info__content-lines').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-summary-info__content').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-title').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-description').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-help').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-help').exists()).toBe(false);
-      expect(wrapper.element).toMatchSnapshot();
     });
 
     describe('title', () => {
