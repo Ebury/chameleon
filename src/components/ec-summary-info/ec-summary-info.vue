@@ -69,7 +69,6 @@ import EcIcon from '../ec-icon';
 defineProps({
   iconName: {
     type: String,
-    default: null,
   },
   lineItems: {
     type: Array,
