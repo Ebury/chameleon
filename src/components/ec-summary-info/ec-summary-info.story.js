@@ -30,7 +30,9 @@ export const basic = () => ({
     };
   },
   template: `
-  <div class="tw-p-8">
+  <div 
+    style="margin: -100px 0 0 -150px;" 
+    class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2">
     <ec-summary-info
       v-bind="args"
     />
@@ -64,7 +66,9 @@ export const withContentLinesProp = () => ({
     };
   },
   template: `
-    <div class="tw-p-8">
+  <div 
+    style="margin: -100px 0 0 -150px;" 
+    class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2">
       <ec-summary-info
         v-bind="args"
       />
@@ -78,7 +82,9 @@ export const withSlots = () => ({
     return { args: basicArgs };
   },
   template: `
-  <div class="tw-p-8">
+  <div 
+    style="margin: -100px 0 0 -150px;" 
+    class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2">
     <ec-summary-info v-bind="args">
         <div class="tw-small-text">
           <div>
@@ -123,7 +129,9 @@ export const truncatedText = () => ({
     };
   },
   template: `
-  <div class="tw-p-8 tw-w-96">
+  <div 
+    style="margin: -100px 0 0 -150px;" 
+    class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2 tw-w-96">
     <ec-summary-info 
       v-bind="args" 
     />
