@@ -25,7 +25,7 @@ exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
 </div>
 `;
 
-exports[`EcSummaryInfo lineItems description when the tooltip is present on the icon should render with the tooltip 1`] = `
+exports[`EcSummaryInfo lineItems description when the description has a tooltip should render with a tooltip 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <span
@@ -173,7 +173,7 @@ exports[`EcSummaryInfo lineItems should render with the not given "lineItems" pr
 </div>
 `;
 
-exports[`EcSummaryInfo lineItems text when the tooltip is present on the icon should render with the tooltip 1`] = `
+exports[`EcSummaryInfo lineItems text when the text has a tooltip should render with a tooltip 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <span

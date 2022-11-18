@@ -16,7 +16,6 @@ describe('EcSummaryInfo', () => {
     it('should render with the given "icon" prop', () => {
       const wrapper = mountSummaryInfo({ iconName: 'simple-sell' });
       expect(wrapper.findByDataTest('ec-summary-info__main-icon').exists()).toBe(true);
-      expect(wrapper.findByDataTest('ec-summary-info__main-icon__simple-sell').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -118,22 +117,8 @@ describe('EcSummaryInfo', () => {
         });
       });
 
-      describe('when the text icon is present', () => {
-        it('should render the text icon', () => {
-          const wrapper = mountSummaryInfo({
-            lineItems: [
-              {
-                stylePreset: 'text',
-                tooltipText: 'Some tooltip text',
-              },
-            ],
-          });
-          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-text').exists()).toBe(true);
-        });
-      });
-
-      describe('when the tooltip is present on the icon', () => {
-        it('should render with the tooltip', () => {
+      describe('when the text has a tooltip', () => {
+        it('should render with a tooltip', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
@@ -144,6 +129,18 @@ describe('EcSummaryInfo', () => {
           });
           expect(wrapper.findByDataTest('ec-tooltip-mock').exists()).toBe(true);
           expect(wrapper.findByDataTest('ec-tooltip-mock')).toMatchSnapshot();
+        });
+
+        it('should render an info icon', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'text',
+                tooltipText: 'Some tooltip text',
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-text').exists()).toBe(true);
         });
       });
     });
@@ -164,22 +161,8 @@ describe('EcSummaryInfo', () => {
         });
       });
 
-      describe('when the description icon is present', () => {
-        it('should render the description icon', () => {
-          const wrapper = mountSummaryInfo({
-            lineItems: [
-              {
-                stylePreset: 'description',
-                tooltipText: 'Some tooltip text',
-              },
-            ],
-          });
-          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').exists()).toBe(true);
-        });
-      });
-
-      describe('when the tooltip is present on the icon', () => {
-        it('should render with the tooltip', () => {
+      describe('when the description has a tooltip', () => {
+        it('should render with a tooltip', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
@@ -190,6 +173,18 @@ describe('EcSummaryInfo', () => {
           });
           expect(wrapper.findByDataTest('ec-tooltip-mock').exists()).toBe(true);
           expect(wrapper.findByDataTest('ec-tooltip-mock')).toMatchSnapshot();
+        });
+
+        it('should render an info icon', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'description',
+                tooltipText: 'Some tooltip text',
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').exists()).toBe(true);
         });
       });
     });
