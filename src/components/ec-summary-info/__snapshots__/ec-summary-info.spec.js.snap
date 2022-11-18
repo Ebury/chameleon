@@ -20,11 +20,7 @@ exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
     </svg>
   </div>
   
-  <div
-    class="ec-summary-info__content"
-  >
-    <!--v-if-->
-  </div>
+  <!--v-if-->
   
 </div>
 `;
@@ -73,6 +69,46 @@ DOMWrapper {
     </svg>
   </span>,
 }
+`;
+
+exports[`EcSummaryInfo lineItems should render with default stylePresets 1`] = `
+<span
+  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-title"
+  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-title"
+  title="title"
+>
+  title
+</span>
+`;
+
+exports[`EcSummaryInfo lineItems should render with default stylePresets 2`] = `
+<span
+  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
+  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
+  title="description"
+>
+  description
+</span>
+`;
+
+exports[`EcSummaryInfo lineItems should render with default stylePresets 3`] = `
+<span
+  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-help"
+  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-help"
+  title="help"
+>
+  help
+</span>
+`;
+
+exports[`EcSummaryInfo lineItems should render with default stylePresets 4`] = `
+<span
+  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
+  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
+  title="some extra description"
+>
+  some extra description
+</span>
 `;
 
 exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1`] = `
@@ -155,11 +191,7 @@ exports[`EcSummaryInfo lineItems should render with the not given "lineItems" pr
 >
   <!--v-if-->
   
-  <div
-    class="ec-summary-info__content"
-  >
-    <!--v-if-->
-  </div>
+  <!--v-if-->
   
 </div>
 `;

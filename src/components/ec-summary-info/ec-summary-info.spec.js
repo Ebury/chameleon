@@ -45,18 +45,44 @@ describe('EcSummaryInfo', () => {
           },
         ],
       });
-      expect(wrapper.findByDataTest('ec-summary-info__content').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-summary-info__content-lines').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with the not given "lineItems" prop', () => {
       const wrapper = mountSummaryInfo();
-      expect(wrapper.findByDataTest('ec-summary-info__content').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-summary-info__content-lines').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-title').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-description').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-text-help').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-help').exists()).toBe(false);
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should render with default stylePresets', () => {
+      const wrapper = mountSummaryInfo({
+        lineItems: [
+          {
+            text: 'title',
+          },
+          {
+            text: 'description',
+            tooltipText: 'Some tooltip text',
+          },
+          {
+            text: 'help',
+          },
+          {
+            text: 'some extra description',
+          },
+        ],
+      });
+
+      expect(wrapper.findByDataTest('ec-summary-info__content-lines').element.children[0].children[0]).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-summary-info__content-lines').element.children[1].children[0]).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-summary-info__content-lines').element.children[2].children[0]).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-summary-info__content-lines').element.children[3].children[0]).toMatchSnapshot();
     });
 
     describe('title', () => {

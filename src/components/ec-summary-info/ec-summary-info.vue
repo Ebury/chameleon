@@ -21,39 +21,43 @@
         class="ec-summary-info__content"
       >
         <div
-          v-for="(item, index) in lineItems"
-          :key="item.text"
-          class="ec-summary-info__content-line-item"
-        >
-          <span
-            :title="item.text"
-            class="ec-summary-info__content-line-item-text"
-            :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-${getStylePreset(item.stylePreset, index)}`"
-            :class="`ec-summary-info__content-line-item-text-${getStylePreset(item.stylePreset, index)}`"
-          >
-            {{ item.text }}
-          </span>
 
-          <span
-            v-if="item.tooltipText"
-            v-ec-tooltip="{
-              content: item.tooltipText
-            }"
-            class="tw-ml-4"
+          data-test="ec-summary-info__content-lines"
+        >
+          <div
+            v-for="(item, index) in lineItems"
+            :key="item.text"
+            class="ec-summary-info__content-line-item"
           >
-            <ec-icon
+            <span
+              :title="item.text"
+              class="ec-summary-info__content-line-item-text"
+              :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-${getStylePreset(item.stylePreset, index)}`"
+              :class="`ec-summary-info__content-line-item-text-${getStylePreset(item.stylePreset, index)}`"
+            >
+              {{ item.text }}
+            </span>
+
+            <span
+              v-if="item.tooltipText"
               v-ec-tooltip="{
                 content: item.tooltipText
               }"
-              :class="`ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
-              :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
-              class="ec-summary-info__content-line-item-icon"
-              name="simple-info"
-              :size="14"
-            />
-          </span>
+              class="tw-ml-4"
+            >
+              <ec-icon
+                v-ec-tooltip="{
+                  content: item.tooltipText
+                }"
+                :class="`ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
+                :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
+                class="ec-summary-info__content-line-item-icon"
+                name="simple-info"
+                :size="14"
+              />
+            </span>
+          </div>
         </div>
-
       </div>
     </slot>
   </div>
