@@ -50,8 +50,8 @@ DOMWrapper {
 
 exports[`EcSummaryInfo lineItems should render with default stylePresets 1`] = `
 <span
-  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-label"
-  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-label"
+  class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
+  data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
   title="label"
 >
   label
@@ -60,8 +60,8 @@ exports[`EcSummaryInfo lineItems should render with default stylePresets 1`] = `
 
 exports[`EcSummaryInfo lineItems should render with default stylePresets 2`] = `
 <span
-  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
-  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
+  class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
+  data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
   title="text"
 >
   text
@@ -70,8 +70,8 @@ exports[`EcSummaryInfo lineItems should render with default stylePresets 2`] = `
 
 exports[`EcSummaryInfo lineItems should render with default stylePresets 3`] = `
 <span
-  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-description"
-  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-description"
+  class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
+  data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
   title="description"
 >
   description
@@ -80,8 +80,8 @@ exports[`EcSummaryInfo lineItems should render with default stylePresets 3`] = `
 
 exports[`EcSummaryInfo lineItems should render with default stylePresets 4`] = `
 <span
-  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
-  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
+  class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
+  data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
   title="some extra text"
 >
   some extra text
@@ -106,8 +106,8 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
         class="ec-summary-info__content-line-item"
       >
         <span
-          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-label"
-          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-label"
+          class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
+          data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
           title="The label"
         >
           The label
@@ -118,8 +118,8 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
         class="ec-summary-info__content-line-item"
       >
         <span
-          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
-          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
+          class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
+          data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
           title="Some text"
         >
           Some text
@@ -146,8 +146,8 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
         class="ec-summary-info__content-line-item"
       >
         <span
-          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-description"
-          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-description"
+          class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
+          data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
           title="Another text"
         >
           Another text

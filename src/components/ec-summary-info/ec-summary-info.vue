@@ -30,8 +30,8 @@
           >
             <span
               :title="item.text"
-              class="ec-summary-info__content-line-item-text"
-              :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
+              class="ec-summary-info__content-line-item-content"
+              :data-test="`ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
               :class="`ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
             >
               {{ item.text }}
@@ -116,7 +116,7 @@ function getStylePreset(stylePreset, index) {
     @apply tw-flex;
   }
 
-  &__content-line-item-text {
+  &__content-line-item-content {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
