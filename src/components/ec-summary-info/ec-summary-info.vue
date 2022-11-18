@@ -22,15 +22,15 @@
           data-test="ec-summary-info__content-lines"
         >
           <div
-            v-for="item in lineItems"
+            v-for="(item, index) in lineItems"
             :key="item.text"
             class="ec-summary-info__content-line-item"
           >
             <span
               :title="item.text"
               class="ec-summary-info__content-line-item-text"
-              :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-${item.stylePreset}`"
-              :class="`ec-summary-info__content-line-item-text-${item.stylePreset}`"
+              :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-${getStylePreset(item.stylePreset, index)}`"
+              :class="`ec-summary-info__content-line-item-text-${getStylePreset(item.stylePreset, index)}`"
             >
               {{ item.text }}
             </span>
@@ -46,8 +46,8 @@
                 v-ec-tooltip="{
                   content: item.tooltipText
                 }"
-                :class="`ec-summary-info__content-line-item-icon-${item.stylePreset}`"
-                :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${item.stylePreset}`"
+                :class="`ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
+                :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
                 class="ec-summary-info__content-line-item-icon"
                 name="simple-info"
                 :size="14"
@@ -74,6 +74,24 @@ defineProps({
     default: () => [],
   },
 });
+
+function assignStylePresetAccordingToIndex(index) {
+  let stylePreset = 'title'; // index === 0
+  if (index === 1 || index > 2) {
+    stylePreset = 'description';
+  }
+  if (index === 2) {
+    stylePreset = 'help';
+  }
+  return stylePreset;
+}
+
+function getStylePreset(stylePreset, index) {
+  if (stylePreset) {
+    return stylePreset;
+  }
+  return assignStylePresetAccordingToIndex(index);
+}
 </script>
 
 <style>

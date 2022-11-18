@@ -18,17 +18,14 @@ export const basic = () => ({
         ...basicArgs,
         lineItems: [
           {
-            stylePreset: 'title',
             text: 'The title',
           },
           {
-            stylePreset: 'description',
             text: 'Some text',
             showIcon: true,
             tooltipText: 'Some tooltip text',
           },
           {
-            stylePreset: 'help',
             text: 'Another text',
           },
         ],
