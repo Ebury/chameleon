@@ -22,7 +22,6 @@ export const basic = () => ({
           },
           {
             text: 'Some text',
-            showIcon: true,
             tooltipText: 'Some tooltip text',
           },
           {
@@ -84,7 +83,6 @@ export const truncatedText = () => ({
           {
             stylePreset: 'description',
             text: 'A very very very long description',
-            showIcon: true,
             tooltipText: 'Some tooltip text',
           },
           {

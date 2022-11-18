@@ -36,7 +36,7 @@
             </span>
 
             <span
-              v-if="item.showIcon"
+              v-if="item.tooltipText"
               v-ec-tooltip="{
                 content: item.tooltipText
               }"
