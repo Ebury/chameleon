@@ -81,6 +81,7 @@ defineProps({
   @apply tw-flex;
 
   &__main-icon {
+    @apply tw-align-top;
     @apply tw-flex-grow-0;
     @apply tw-fill-gray-4;
   }
