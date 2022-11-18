@@ -23,36 +23,6 @@ export const basic = () => ({
           },
           {
             stylePreset: 'description',
-            text: 'The description',
-          },
-        ],
-      },
-    };
-  },
-  template: `
-  <div 
-    style="margin: -100px 0 0 -150px;" 
-    class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2">
-    <ec-summary-info
-      v-bind="args"
-    />
-  </div>
-  `,
-});
-
-export const withContentLinesProp = () => ({
-  components: { EcSummaryInfo },
-  setup() {
-    return {
-      args: {
-        ...basicArgs,
-        lineItems: [
-          {
-            stylePreset: 'title',
-            text: 'The title',
-          },
-          {
-            stylePreset: 'description',
             text: 'Some text',
             showIcon: true,
             tooltipText: 'Some tooltip text',

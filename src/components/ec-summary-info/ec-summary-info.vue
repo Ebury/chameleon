@@ -5,7 +5,7 @@
   >
     <div
       v-if="iconName"
-      class="tw-mr-12 tw-align-top"
+      class="tw-mr-12"
     >
       <ec-icon
         class="ec-summary-info__main-icon"
