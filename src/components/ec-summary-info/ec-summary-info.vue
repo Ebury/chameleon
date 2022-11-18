@@ -31,8 +31,8 @@
             <span
               :title="item.text"
               class="ec-summary-info__content-line-item-text"
-              :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-${getStylePreset(item.stylePreset, index)}`"
-              :class="`ec-summary-info__content-line-item-text-${getStylePreset(item.stylePreset, index)}`"
+              :data-test="`ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
+              :class="`ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
             >
               {{ item.text }}
             </span>
@@ -77,12 +77,12 @@ defineProps({
 });
 
 function assignStylePresetAccordingToIndex(index) {
-  let stylePreset = 'title'; // index === 0
+  let stylePreset = 'label'; // index === 0
   if (index === 1 || index > 2) {
-    stylePreset = 'description';
+    stylePreset = 'text';
   }
   if (index === 2) {
-    stylePreset = 'help';
+    stylePreset = 'description';
   }
   return stylePreset;
 }
@@ -122,17 +122,17 @@ function getStylePreset(stylePreset, index) {
     overflow: hidden;
   }
 
-  &__content-line-item-text-title {
+  &__content-line-item-content-label {
     @apply tw-text-gray-5;
     @apply tw-small-text;
   }
 
-  &__content-line-item-text-description {
+  &__content-line-item-content-text {
     @apply tw-text-gray-3;
     @apply tw-small-text;
   }
 
-  &__content-line-item-text-help {
+  &__content-line-item-content-description {
     @apply tw-help-text;
     @apply tw-text-gray-5;
   }
@@ -141,11 +141,11 @@ function getStylePreset(stylePreset, index) {
     @apply tw-align-middle;
   }
 
-  &__content-line-item-icon-description {
+  &__content-line-item-icon-text {
     @apply tw-fill-gray-3;
   }
 
-  &__content-line-item-icon-help {
+  &__content-line-item-icon-description {
     @apply tw-fill-gray-5;
   }
 }

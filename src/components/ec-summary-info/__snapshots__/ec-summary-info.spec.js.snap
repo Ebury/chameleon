@@ -48,66 +48,43 @@ DOMWrapper {
 }
 `;
 
-exports[`EcSummaryInfo lineItems help when the tooltip is present on the icon should render with the tooltip 1`] = `
-DOMWrapper {
-  "isDisabled": [Function],
-  "wrapperElement": <span
-    class="tw-ml-4"
-    data-ec-tooltip-mock-content="Some tooltip text"
-    data-test="ec-mock ec-tooltip-mock"
-  >
-    <svg
-      class="ec-icon ec-summary-info__content-line-item-icon-help ec-summary-info__content-line-item-icon"
-      data-ec-tooltip-mock-content="Some tooltip text"
-      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-help ec-mock ec-tooltip-mock"
-      height="14"
-      width="14"
-    >
-      <use
-        xlink:href="#ec-simple-info"
-      />
-    </svg>
-  </span>,
-}
-`;
-
 exports[`EcSummaryInfo lineItems should render with default stylePresets 1`] = `
 <span
-  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-title"
-  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-title"
-  title="title"
+  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-label"
+  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-label"
+  title="label"
 >
-  title
+  label
 </span>
 `;
 
 exports[`EcSummaryInfo lineItems should render with default stylePresets 2`] = `
 <span
-  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
-  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
+  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
+  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
+  title="text"
+>
+  text
+</span>
+`;
+
+exports[`EcSummaryInfo lineItems should render with default stylePresets 3`] = `
+<span
+  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-description"
+  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-description"
   title="description"
 >
   description
 </span>
 `;
 
-exports[`EcSummaryInfo lineItems should render with default stylePresets 3`] = `
-<span
-  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-help"
-  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-help"
-  title="help"
->
-  help
-</span>
-`;
-
 exports[`EcSummaryInfo lineItems should render with default stylePresets 4`] = `
 <span
-  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
-  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
-  title="some extra description"
+  class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
+  data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
+  title="some extra text"
 >
-  some extra description
+  some extra text
 </span>
 `;
 
@@ -129,11 +106,11 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
         class="ec-summary-info__content-line-item"
       >
         <span
-          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-title"
-          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-title"
-          title="The title"
+          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-label"
+          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-label"
+          title="The label"
         >
-          The title
+          The label
         </span>
         <!--v-if-->
       </div>
@@ -141,8 +118,8 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
         class="ec-summary-info__content-line-item"
       >
         <span
-          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
-          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-description"
+          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
+          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-text"
           title="Some text"
         >
           Some text
@@ -153,9 +130,9 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
           data-test="ec-mock ec-tooltip-mock"
         >
           <svg
-            class="ec-icon ec-summary-info__content-line-item-icon-description ec-summary-info__content-line-item-icon"
+            class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
             data-ec-tooltip-mock-content="Some tooltip text"
-            data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description ec-mock ec-tooltip-mock"
+            data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
             height="14"
             width="14"
           >
@@ -169,8 +146,8 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
         class="ec-summary-info__content-line-item"
       >
         <span
-          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-help"
-          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-text-help"
+          class="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-description"
+          data-test="ec-summary-info__content-line-item-text ec-summary-info__content-line-item-content-description"
           title="Another text"
         >
           Another text
@@ -194,6 +171,29 @@ exports[`EcSummaryInfo lineItems should render with the not given "lineItems" pr
   <!--v-if-->
   
 </div>
+`;
+
+exports[`EcSummaryInfo lineItems text when the tooltip is present on the icon should render with the tooltip 1`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <span
+    class="tw-ml-4"
+    data-ec-tooltip-mock-content="Some tooltip text"
+    data-test="ec-mock ec-tooltip-mock"
+  >
+    <svg
+      class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
+      data-ec-tooltip-mock-content="Some tooltip text"
+      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
+      height="14"
+      width="14"
+    >
+      <use
+        xlink:href="#ec-simple-info"
+      />
+    </svg>
+  </span>,
+}
 `;
 
 exports[`EcSummaryInfo slots should render with the default slot given 1`] = `

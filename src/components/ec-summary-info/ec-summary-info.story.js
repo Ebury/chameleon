@@ -18,7 +18,7 @@ export const basic = () => ({
         ...basicArgs,
         lineItems: [
           {
-            text: 'The title',
+            text: 'The label',
           },
           {
             text: 'Some text',
@@ -55,12 +55,12 @@ export const withSlots = () => ({
         <div class="tw-small-text">
           <div>
             <span class="tw-text-gray-5 tw-small-text">
-              Slot title
+              Slot label
             </span>
           </div>
           <div>
             <span class="tw-text-key-4">
-              Slot description
+              Slot text
             </span>
           </div>
         </div>
@@ -77,17 +77,17 @@ export const truncatedText = () => ({
         ...basicArgs,
         lineItems: [
           {
-            stylePreset: 'title',
-            text: 'A very very very long title',
+            stylePreset: 'label',
+            text: 'A very very very long label',
+          },
+          {
+            stylePreset: 'text',
+            text: 'A very very very long text',
+            tooltipText: 'Some tooltip text',
           },
           {
             stylePreset: 'description',
             text: 'A very very very long description',
-            tooltipText: 'Some tooltip text',
-          },
-          {
-            stylePreset: 'help',
-            text: 'A very very very long help text',
           },
         ],
       },
