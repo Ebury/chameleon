@@ -18,14 +18,14 @@ export const basic = () => ({
         ...basicArgs,
         lineItems: [
           {
-            text: 'The label',
+            text: 'Label',
           },
           {
-            text: 'Some text',
+            text: 'Text',
             tooltipText: 'Some tooltip text',
           },
           {
-            text: 'Another text',
+            text: 'Description',
           },
         ],
       },
