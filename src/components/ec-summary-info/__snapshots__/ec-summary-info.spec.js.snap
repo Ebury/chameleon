@@ -20,7 +20,13 @@ exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
     </svg>
   </div>
   
-  <!--v-if-->
+  <div
+    class="ec-summary-info__content"
+    data-test="ec-summary-info__content"
+  >
+    
+    
+  </div>
   
 </div>
 `;
@@ -35,8 +41,7 @@ DOMWrapper {
   >
     <svg
       class="ec-icon ec-summary-info__content-line-item-icon-description ec-summary-info__content-line-item-icon"
-      data-ec-tooltip-mock-content="Some tooltip text"
-      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description ec-mock ec-tooltip-mock"
+      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
       height="14"
       width="14"
     >
@@ -129,8 +134,7 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
       >
         <svg
           class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
-          data-ec-tooltip-mock-content="Some tooltip text"
-          data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
+          data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text"
           height="14"
           width="14"
         >
@@ -165,7 +169,13 @@ exports[`EcSummaryInfo lineItems should render with the not given "lineItems" pr
 >
   <!--v-if-->
   
-  <!--v-if-->
+  <div
+    class="ec-summary-info__content"
+    data-test="ec-summary-info__content"
+  >
+    
+    
+  </div>
   
 </div>
 `;
@@ -180,8 +190,7 @@ DOMWrapper {
   >
     <svg
       class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
-      data-ec-tooltip-mock-content="Some tooltip text"
-      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
+      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text"
       height="14"
       width="14"
     >

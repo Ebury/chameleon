@@ -50,7 +50,6 @@ describe('EcSummaryInfo', () => {
 
     it('should render with the not given "lineItems" prop', () => {
       const wrapper = mountSummaryInfo();
-      expect(wrapper.findByDataTest('ec-summary-info__content').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-label').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-text').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-text').exists()).toBe(false);
