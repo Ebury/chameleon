@@ -6,11 +6,11 @@ exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
   data-test="ec-summary-info"
 >
   <div
-    class="tw-mr-12"
+    class="tw-mr-8"
   >
     <svg
       class="ec-icon ec-summary-info__main-icon"
-      data-test="ec-summary-info__main-icon ec-summary-info__main-icon__simple-sell"
+      data-test="ec-summary-info__main-icon"
       height="16"
       width="16"
     >
@@ -202,11 +202,11 @@ exports[`EcSummaryInfo slots should render with the default slot given 1`] = `
   data-test="ec-summary-info"
 >
   <div
-    class="tw-mr-12"
+    class="tw-mr-8"
   >
     <svg
       class="ec-icon ec-summary-info__main-icon"
-      data-test="ec-summary-info__main-icon ec-summary-info__main-icon__simple-sell"
+      data-test="ec-summary-info__main-icon"
       height="16"
       width="16"
     >

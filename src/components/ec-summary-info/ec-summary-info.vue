@@ -5,11 +5,11 @@
   >
     <div
       v-if="iconName"
-      class="tw-mr-12"
+      class="tw-mr-8"
     >
       <ec-icon
         class="ec-summary-info__main-icon"
-        :data-test="`ec-summary-info__main-icon ec-summary-info__main-icon__${iconName}`"
+        data-test="ec-summary-info__main-icon"
         :name="iconName"
         :size="16"
       />
