@@ -5,20 +5,16 @@ exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
   class="ec-summary-info"
   data-test="ec-summary-info"
 >
-  <div
-    class="tw-mr-8"
+  <svg
+    class="ec-icon ec-summary-info__main-icon"
+    data-test="ec-summary-info__main-icon"
+    height="16"
+    width="16"
   >
-    <svg
-      class="ec-icon ec-summary-info__main-icon"
-      data-test="ec-summary-info__main-icon"
-      height="16"
-      width="16"
-    >
-      <use
-        xlink:href="#ec-simple-sell"
-      />
-    </svg>
-  </div>
+    <use
+      xlink:href="#ec-simple-sell"
+    />
+  </svg>
   
   <div
     class="ec-summary-info__content"
@@ -34,22 +30,17 @@ exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
 exports[`EcSummaryInfo lineItems description when the description has a tooltip should render with a tooltip 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
-  "wrapperElement": <span
-    class="tw-ml-4"
+  "wrapperElement": <svg
+    class="ec-icon ec-summary-info__content-line-item-icon-description ec-summary-info__content-line-item-icon"
     data-ec-tooltip-mock-content="Some tooltip text"
-    data-test="ec-mock ec-tooltip-mock"
+    data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description ec-mock ec-tooltip-mock"
+    height="14"
+    width="14"
   >
-    <svg
-      class="ec-icon ec-summary-info__content-line-item-icon-description ec-summary-info__content-line-item-icon"
-      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
-      height="14"
-      width="14"
-    >
-      <use
-        xlink:href="#ec-simple-info"
-      />
-    </svg>
-  </span>,
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>,
 }
 `;
 
@@ -127,22 +118,17 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
       >
         Some text
       </span>
-      <span
-        class="tw-ml-4"
+      <svg
+        class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
         data-ec-tooltip-mock-content="Some tooltip text"
-        data-test="ec-mock ec-tooltip-mock"
+        data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
+        height="14"
+        width="14"
       >
-        <svg
-          class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
-          data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text"
-          height="14"
-          width="14"
-        >
-          <use
-            xlink:href="#ec-simple-info"
-          />
-        </svg>
-      </span>
+        <use
+          xlink:href="#ec-simple-info"
+        />
+      </svg>
     </div>
     <div
       class="ec-summary-info__content-line-item"
@@ -183,22 +169,17 @@ exports[`EcSummaryInfo lineItems should render with the not given "lineItems" pr
 exports[`EcSummaryInfo lineItems text when the text has a tooltip should render with a tooltip 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
-  "wrapperElement": <span
-    class="tw-ml-4"
+  "wrapperElement": <svg
+    class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
     data-ec-tooltip-mock-content="Some tooltip text"
-    data-test="ec-mock ec-tooltip-mock"
+    data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
+    height="14"
+    width="14"
   >
-    <svg
-      class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
-      data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text"
-      height="14"
-      width="14"
-    >
-      <use
-        xlink:href="#ec-simple-info"
-      />
-    </svg>
-  </span>,
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>,
 }
 `;
 
@@ -207,20 +188,16 @@ exports[`EcSummaryInfo slots should render with the default slot given 1`] = `
   class="ec-summary-info"
   data-test="ec-summary-info"
 >
-  <div
-    class="tw-mr-8"
+  <svg
+    class="ec-icon ec-summary-info__main-icon"
+    data-test="ec-summary-info__main-icon"
+    height="16"
+    width="16"
   >
-    <svg
-      class="ec-icon ec-summary-info__main-icon"
-      data-test="ec-summary-info__main-icon"
-      height="16"
-      width="16"
-    >
-      <use
-        xlink:href="#ec-simple-sell"
-      />
-    </svg>
-  </div>
+    <use
+      xlink:href="#ec-simple-sell"
+    />
+  </svg>
   
   <div
     data-test="default-slot"
