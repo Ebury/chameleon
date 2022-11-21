@@ -61,14 +61,13 @@ defineProps({
   },
 });
 
-function assignStylePresetAccordingToIndex(index) {
-  let stylePreset = 'label'; // index === 0
-  if (index === 1 || index > 2) {
-    stylePreset = 'text';
-  }
-  if (index === 2) {
-    stylePreset = 'description';
-  }
+function getStylePresetByIndex(index) {
+  let stylePreset = '';
+  if (index === 0) { stylePreset = 'label'; }
+
+  if (index === 1 || index > 2) { stylePreset = 'text'; }
+
+  if (index === 2) { stylePreset = 'description'; }
   return stylePreset;
 }
 
@@ -76,7 +75,7 @@ function getStylePreset(stylePreset, index) {
   if (stylePreset) {
     return stylePreset;
   }
-  return assignStylePresetAccordingToIndex(index);
+  return getStylePresetByIndex(index);
 }
 </script>
 
