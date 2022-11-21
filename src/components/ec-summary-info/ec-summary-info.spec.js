@@ -44,13 +44,13 @@ describe('EcSummaryInfo', () => {
           },
         ],
       });
-      expect(wrapper.findByDataTest('ec-summary-info__content-lines').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-summary-info__content').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should render with the not given "lineItems" prop', () => {
       const wrapper = mountSummaryInfo();
-      expect(wrapper.findByDataTest('ec-summary-info__content-lines').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-summary-info__content').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-label').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-text').exists()).toBe(false);
       expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-text').exists()).toBe(false);
@@ -78,10 +78,10 @@ describe('EcSummaryInfo', () => {
         ],
       });
 
-      expect(wrapper.findByDataTest('ec-summary-info__content-lines').element.children[0].children[0]).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-summary-info__content-lines').element.children[1].children[0]).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-summary-info__content-lines').element.children[2].children[0]).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-summary-info__content-lines').element.children[3].children[0]).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-summary-info__content').element.children[0].children[0]).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-summary-info__content').element.children[1].children[0]).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-summary-info__content').element.children[2].children[0]).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-summary-info__content').element.children[3].children[0]).toMatchSnapshot();
     });
 
     describe('label', () => {

@@ -18,45 +18,43 @@
     <slot>
       <div
         v-if="lineItems.length > 0"
+        data-test="ec-summary-info__content"
         class="ec-summary-info__content"
       >
         <div
-          data-test="ec-summary-info__content-lines"
+          v-for="(item, index) in lineItems"
+          :key="item.text"
+          class="ec-summary-info__content-line-item"
         >
-          <div
-            v-for="(item, index) in lineItems"
-            :key="item.text"
-            class="ec-summary-info__content-line-item"
+          <span
+            :title="item.text"
+            class="ec-summary-info__content-line-item-content"
+            :data-test="`ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
+            :class="`ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
           >
-            <span
-              :title="item.text"
-              class="ec-summary-info__content-line-item-content"
-              :data-test="`ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
-              :class="`ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
-            >
-              {{ item.text }}
-            </span>
+            {{ item.text }}
+          </span>
 
-            <span
-              v-if="item.tooltipText"
+          <span
+            v-if="item.tooltipText"
+            v-ec-tooltip="{
+              content: item.tooltipText
+            }"
+            class="tw-ml-4"
+          >
+            <ec-icon
               v-ec-tooltip="{
                 content: item.tooltipText
               }"
-              class="tw-ml-4"
-            >
-              <ec-icon
-                v-ec-tooltip="{
-                  content: item.tooltipText
-                }"
-                :class="`ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
-                :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
-                class="ec-summary-info__content-line-item-icon"
-                name="simple-info"
-                :size="14"
-              />
-            </span>
-          </div>
+              :class="`ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
+              :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
+              class="ec-summary-info__content-line-item-icon"
+              name="simple-info"
+              :size="14"
+            />
+          </span>
         </div>
+
       </div>
     </slot>
   </div>

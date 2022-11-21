@@ -97,65 +97,62 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
   
   <div
     class="ec-summary-info__content"
+    data-test="ec-summary-info__content"
   >
+    
     <div
-      data-test="ec-summary-info__content-lines"
+      class="ec-summary-info__content-line-item"
     >
-      
-      <div
-        class="ec-summary-info__content-line-item"
+      <span
+        class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
+        data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
+        title="The label"
       >
-        <span
-          class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
-          data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
-          title="The label"
-        >
-          The label
-        </span>
-        <!--v-if-->
-      </div>
-      <div
-        class="ec-summary-info__content-line-item"
-      >
-        <span
-          class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
-          data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
-          title="Some text"
-        >
-          Some text
-        </span>
-        <span
-          class="tw-ml-4"
-          data-ec-tooltip-mock-content="Some tooltip text"
-          data-test="ec-mock ec-tooltip-mock"
-        >
-          <svg
-            class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
-            data-ec-tooltip-mock-content="Some tooltip text"
-            data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
-            height="14"
-            width="14"
-          >
-            <use
-              xlink:href="#ec-simple-info"
-            />
-          </svg>
-        </span>
-      </div>
-      <div
-        class="ec-summary-info__content-line-item"
-      >
-        <span
-          class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
-          data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
-          title="Another text"
-        >
-          Another text
-        </span>
-        <!--v-if-->
-      </div>
-      
+        The label
+      </span>
+      <!--v-if-->
     </div>
+    <div
+      class="ec-summary-info__content-line-item"
+    >
+      <span
+        class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
+        data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
+        title="Some text"
+      >
+        Some text
+      </span>
+      <span
+        class="tw-ml-4"
+        data-ec-tooltip-mock-content="Some tooltip text"
+        data-test="ec-mock ec-tooltip-mock"
+      >
+        <svg
+          class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
+          data-ec-tooltip-mock-content="Some tooltip text"
+          data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
+          height="14"
+          width="14"
+        >
+          <use
+            xlink:href="#ec-simple-info"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ec-summary-info__content-line-item"
+    >
+      <span
+        class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
+        data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
+        title="Another text"
+      >
+        Another text
+      </span>
+      <!--v-if-->
+    </div>
+    
   </div>
   
 </div>
