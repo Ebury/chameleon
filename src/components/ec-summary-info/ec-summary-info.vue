@@ -1,7 +1,7 @@
 <template>
   <div
     class="ec-summary-info"
-    data-test="ec-summary-info"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-summary-info` : `ec-summary-info`"
   >
     <div
       v-if="iconName"
