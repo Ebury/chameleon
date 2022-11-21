@@ -3,17 +3,13 @@
     class="ec-summary-info"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-summary-info` : `ec-summary-info`"
   >
-    <div
+    <ec-icon
       v-if="iconName"
-      class="tw-mr-8"
-    >
-      <ec-icon
-        class="ec-summary-info__main-icon"
-        data-test="ec-summary-info__main-icon"
-        :name="iconName"
-        :size="16"
-      />
-    </div>
+      class="ec-summary-info__main-icon"
+      data-test="ec-summary-info__main-icon"
+      :name="iconName"
+      :size="16"
+    />
 
     <slot>
       <div
@@ -33,22 +29,17 @@
           >
             {{ item.text }}
           </span>
-
-          <span
+          <ec-icon
             v-if="item.tooltipText"
             v-ec-tooltip="{
               content: item.tooltipText
             }"
-            class="tw-ml-4"
-          >
-            <ec-icon
-              :class="`ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
-              :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
-              class="ec-summary-info__content-line-item-icon"
-              name="simple-info"
-              :size="14"
-            />
-          </span>
+            :class="`ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
+            :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
+            class="ec-summary-info__content-line-item-icon"
+            name="simple-info"
+            :size="14"
+          />
         </div>
 
       </div>
@@ -97,6 +88,8 @@ function getStylePreset(stylePreset, index) {
     @apply tw-align-top;
     @apply tw-flex-grow-0;
     @apply tw-fill-gray-4;
+    @apply tw-mr-8;
+    @apply tw-flex-shrink-0;
   }
 
   &__content {
@@ -105,20 +98,15 @@ function getStylePreset(stylePreset, index) {
   }
 
   &__content-line-item {
-    line-height: 20px;
-    @apply tw-min-w-0;
-    @apply tw-flex;
+    @apply tw-flex tw-items-center;
   }
 
   &__content-line-item-content {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    @apply tw-truncate;
   }
 
   &__content-line-item-content-label {
-    @apply tw-text-gray-5;
-    @apply tw-small-text;
+    @apply tw-caption-text;
   }
 
   &__content-line-item-content-text {
@@ -132,7 +120,8 @@ function getStylePreset(stylePreset, index) {
   }
 
   &__content-line-item-icon {
-    @apply tw-align-middle;
+    @apply tw-flex-shrink-0;
+    @apply tw-ml-4;
   }
 
   &__content-line-item-icon-text {
