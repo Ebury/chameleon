@@ -88,8 +88,7 @@ function getStylePreset(stylePreset, index) {
   }
 
   &__content {
-    @apply tw-flex-grow;
-    @apply tw-w-full;
+    @apply tw-overflow-hidden;
   }
 
   &__content-line-item {
