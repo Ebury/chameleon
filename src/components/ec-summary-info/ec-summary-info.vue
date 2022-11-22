@@ -19,6 +19,7 @@
         <div
           v-for="(item, index) in lineItems"
           :key="item.text"
+          :data-test="`ec-summary-info__content-line-item-${index}`"
           class="ec-summary-info__content-line-item"
         >
           <span
