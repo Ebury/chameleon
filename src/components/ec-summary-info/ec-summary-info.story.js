@@ -94,12 +94,17 @@ export const truncatedText = () => ({
     };
   },
   template: `
-  <div 
-    style="margin: -100px 0 0 -150px;" 
-    class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2 tw-w-96">
-    <ec-summary-info 
-      v-bind="args" 
-    />
+  <div class="tw-mx-0 tw-my-auto tw-flex tw-justify-center tw-items-center tw-h-screen tw-w-screen">
+    <div
+      class="tw-grid tw-bg-gray-7 tw-flex-1"
+      style="max-width: 616px;">
+      <ec-summary-info
+        class="tw-col-4"
+        v-for="(item, index) in 3"
+        v-bind="args"
+        :key="index"
+      />
+    </div>
   </div>
   `,
 });
