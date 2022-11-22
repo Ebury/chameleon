@@ -98,6 +98,7 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
     
     <div
       class="ec-summary-info__content-line-item"
+      data-test="ec-summary-info__content-line-item-0"
     >
       <span
         class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
@@ -110,6 +111,7 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
     </div>
     <div
       class="ec-summary-info__content-line-item"
+      data-test="ec-summary-info__content-line-item-1"
     >
       <span
         class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
@@ -132,6 +134,7 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
     </div>
     <div
       class="ec-summary-info__content-line-item"
+      data-test="ec-summary-info__content-line-item-2"
     >
       <span
         class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
