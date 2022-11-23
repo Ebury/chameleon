@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "2.1.24",
+  "version": "2.1.25",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -11,7 +11,7 @@
     "url": "https://github.com/ebury/chameleon.git"
   },
   "engines": {
-    "node": ">=16"
+    "node": "16"
   },
   "scripts": {
     "icons": "webpack --config ./src/icons/webpack.config.js --mode=production",
