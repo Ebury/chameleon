@@ -2,6 +2,9 @@ const customElements = new Set(['ec-stub']);
 
 module.exports = {
   testEnvironment: 'jsdom',
+  testEnvironmentOptions: {
+    customExportConditions: ['node'],
+  },
   moduleFileExtensions: [
     'js',
     'jsx',

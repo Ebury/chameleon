@@ -66,7 +66,6 @@ export { default as EcAmount, default as VEcAmount } from './directives/ec-amoun
 export { default as EcClosePopover, default as VEcClosePopover } from './directives/ec-close-popover';
 export { default as EcTooltip, default as VEcTooltip } from './directives/ec-tooltip';
 export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
-export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
 export { createHOC, createHOCc } from './hocs/hoc';
 export { default as Countdown } from './utils/countdown';
 export { default as flatpickr } from 'flatpickr';
