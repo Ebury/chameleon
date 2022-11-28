@@ -27,6 +27,7 @@
 
 <script setup>
 import flatpickr from 'flatpickr';
+import debounce from 'lodash/debounce';
 import {
   onBeforeUnmount, onMounted, ref, useAttrs, watch,
 } from 'vue';
@@ -191,6 +192,12 @@ function onBlur(evt) {
   }
 }
 
+// In case the datepicker is open and the user scrolls we need to reposition the datepicker otherwise will appear detached from the input.
+const debouncedFlatpickrReposition = debounce(() => {
+  // eslint-disable-next-line no-underscore-dangle
+  flatpickrInstance._positionCalendar();
+}, 250);
+
 // options for flatpickr
 function mergeWithDefaultOptions(options) {
   const mergedOptions = {
@@ -205,8 +212,10 @@ function mergeWithDefaultOptions(options) {
     }],
     onOpen: [...(props.options.onOpen ?? []), () => {
       emit('open');
+      document.addEventListener('scroll', debouncedFlatpickrReposition, { capture: true });
     }],
     onClose: [...(props.options.onClose ?? []), () => {
+      document.removeEventListener('scroll', debouncedFlatpickrReposition, { capture: true });
       emit('close');
     }],
     prevArrow: '<svg><use xlink:href="#ec-simple-chevron-left"/></svg>',
