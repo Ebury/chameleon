@@ -269,12 +269,11 @@ const phoneNumberModel = computed({
   },
 });
 
-/* istanbul ignore next : covered by snapshots */
+/* c8 ignore start */
 const selectedCountryAreaCode = computed(() => props.modelValue?.country?.areaCode || null);
-/* istanbul ignore next : covered by snapshots */
 const selectedCountryImage = computed(() => getCountryFlagPath(props.modelValue?.country?.countryCode));
-/* istanbul ignore next : covered by snapshots */
 const selectedCountryName = computed(() => props.modelValue?.country?.text);
+/* c8 ignore stop */
 
 const isInvalid = computed(() => !!props.errorMessage);
 const popoverRef = ref();

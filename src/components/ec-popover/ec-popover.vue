@@ -53,12 +53,13 @@ function getOptions() {
   };
 }
 
-/* istanbul ignore next */
+/* c8 ignore start */
 function update() {
   if (popover.value) {
     popover.value.onResize();
   }
 }
+/* c8 ignore stop */
 
 defineExpose({
   update,

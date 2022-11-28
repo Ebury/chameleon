@@ -42,6 +42,7 @@ module.exports = {
     '@vueuse/integrations/': '<rootDir>/node_modules/@vueuse/integrations',
   },
   collectCoverage: true,
+  coverageProvider: 'v8',
   collectCoverageFrom: [
     'src/**/*.{ts,js,vue}',
     '!src/main.{ts,js}',
@@ -50,6 +51,8 @@ module.exports = {
     '!src/**/.eslintrc.js',
     '!src/icons/**',
     '!src/assets/**',
+    '!src/directives/ec-tooltip/ec-tooltip.js',
+    '!src/shims-vue.d.ts',
   ],
   coverageThreshold: {
     global: {

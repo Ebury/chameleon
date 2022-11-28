@@ -178,7 +178,7 @@ const inputClasses = computed(() => {
 const inputRef = ref<Maybe<HTMLInputElement>>(null);
 
 function focus() {
-  /* istanbul ignore next */
+  /* c8 ignore next */
   inputRef.value?.focus();
 }
 
@@ -187,7 +187,7 @@ watchEffect(() => {
   // in order to fix it we should sync it automatically every time inputModel changes.
   const inputElement = inputRef.value;
   if (inputElement && inputElement.value !== inputModel.value) {
-    /* istanbul ignore next */
+    /* c8 ignore next */
     inputElement.value = inputModel.value as string ?? '';
   }
 });

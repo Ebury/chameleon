@@ -1,4 +1,3 @@
-/* istanbul ignore file */
 import FloatingVue, { VTooltip } from 'floating-vue';
 
 import { getUid } from '../../utils/uid';
