@@ -194,7 +194,7 @@ function onBlur(evt) {
   }
 }
 
-const isTimeoutRunning = ref(false);
+const isTimeoutRunning = false;
 // In case the datepicker is open and the user scrolls we need to reposition the datepicker otherwise will appear detached from the input.
 /* istanbul ignore next */
 function debouncedFlatpickrReposition() {
