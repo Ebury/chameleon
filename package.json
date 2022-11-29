@@ -92,7 +92,7 @@
     "jest-serializer-vue": "2.0.2",
     "lint-staged": "13.0.3",
     "live-server": "1.2.2",
-    "postcss": "8.4.16",
+    "postcss": "8.4.19",
     "postcss-html": "1.5.0",
     "postcss-import": "14.1.0",
     "postcss-mixins": "9.0.4",
