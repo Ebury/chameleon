@@ -165,7 +165,9 @@ describe('EcWithAbortableFetch', () => {
 
   it('should abort previous fetch calls', async () => {
     const dataSource = {
-      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }).mockResolvedValueOnce({ result: 2 }),
+      fetch: jest.fn()
+        .mockImplementationOnce(() => new Promise((resolve) => { setTimeout(() => resolve({ result: 1 }), 1); }))
+        .mockImplementationOnce(() => new Promise((resolve) => { setTimeout(() => resolve({ result: 2 }), 1); })),
     };
     const fetchArgs = { prop: 1 };
     const abortSpy = jest.fn();
@@ -187,6 +189,7 @@ describe('EcWithAbortableFetch', () => {
 
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     await flushPromises();
+    await flushPromises(); // because of two mockImplementationOnce of the fetch
     expect(getWrappedComponentState(componentWrapper)).toMatchSnapshot();
     expect(abortSpy).toHaveBeenCalledTimes(2);
   });

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
-import { withMockedConsole } from '../../../tests/utils/console';
+import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
 import config from '../../config';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
@@ -21,6 +21,11 @@ describe('EcPhoneNumberInput', () => {
         modelValue: {},
         ...props,
       },
+      global: {
+        mocks: {
+          vEcTooltip: EcTooltipDirectiveMock,
+        },
+      },
     });
   }
 
@@ -33,6 +38,11 @@ describe('EcPhoneNumberInput', () => {
 
     return mount(Component, {
       props,
+      global: {
+        mocks: {
+          vEcTooltip: EcTooltipDirectiveMock,
+        },
+      },
       ...mountOpts,
     });
   }
@@ -180,32 +190,6 @@ describe('EcPhoneNumberInput', () => {
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('Norway');
 
       expect(wrapper.findByDataTest('ec-dropdown-search__item-list').element).toMatchSnapshot();
-    });
-
-    it.each([
-      ['modal', false],
-      ['tooltip', false],
-      ['notification', false],
-      ['level-1', false],
-      ['level-2', false],
-      ['level-3', false],
-      ['random', true],
-    ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
-      if (error) {
-        withMockedConsole((errorSpy, warnSpy) => {
-          mountPhoneNumberInput({ level: str });
-          expect(warnSpy).toHaveBeenCalledTimes(3);
-          // this is the test for the phone number input field
-          expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
-          // this is the test for the dropdown
-          expect(warnSpy.mock.calls[1][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
-          // this is the test for the dropdownsearch
-          expect(warnSpy.mock.calls[2][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
-        });
-      } else {
-        const wrapper = mountPhoneNumberInput({ level: str });
-        expect(wrapper.findByDataTest('ec-popover-dropdown-search').attributes('level')).toBe(str);
-      }
     });
 
     it('should render with icon static prefix', () => {

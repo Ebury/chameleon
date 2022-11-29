@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 import { ref, watchEffect } from 'vue';
 
@@ -14,9 +15,18 @@ export default {
   },
 };
 
-const Template = args => ({
+const Template = () => ({
   components: { EcInputField },
   setup() {
+    const args = {
+      label: 'Username',
+      modelValue: '',
+      placeholder: 'My input',
+      bottomNote: 'Your email',
+      icon: 'simple-check',
+      note: 'Max 80 chars.',
+    };
+
     return {
       args,
       onInput: action('input'),
@@ -38,51 +48,44 @@ const Template = args => ({
 
 export const basic = Template.bind({});
 
-basic.args = {
-  label: 'Username',
-  modelValue: '',
-  placeholder: 'My input',
-  bottomNote: 'Your email',
-  icon: 'simple-check',
-  note: 'Max 80 chars.',
-};
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = ({
-  isSensitive,
-  isWarning,
-  labelTooltip,
-  isInGroup,
-
-  valueFromPropsNumber,
-  labelNumber,
-  noteNumber,
-  errorMessageNumber,
-  iconNumber,
-
-  valueFromPropsText,
-  labelText,
-  noteText,
-  bottomNoteText,
-  errorMessageText,
-  iconText,
-
-  valueFromPropsDate,
-  labelDate,
-  noteDate,
-  errorMessageDate,
-  iconDate,
-
-  ...args
-}) => ({
+export const all = () => ({
   components: { EcInputField },
   setup() {
     const valueNumber = ref(0);
     const valueText = ref('');
-    const valueDate = ref(null);
+    const valueDate = ref('');
+
+    const isSensitive = false;
+    const isWarning = false;
+    const labelTooltip = 'Tooltip text';
+
+    // number input
+    const valueFromPropsNumber = 0;
+    const labelNumber = 'Number input';
+    const noteNumber = 'Max 80 chars';
+    const errorMessageNumber = 'error message';
+    const iconNumber = '';
+
+    // text input
+    const valueFromPropsText = '';
+    const labelText = 'Text input';
+    const noteText = 'Max 80 chars';
+    const bottomNoteText = 'Random bottom note text';
+    const errorMessageText = 'error message';
+    const iconText = '';
+
+    // date input
+    const valueFromPropsDate = '';
+    const labelDate = 'Date input';
+    const noteDate = 'Max 80 chars';
+    const errorMessageDate = 'error message';
+    const iconDate = '';
 
     watchEffect(() => {
       valueNumber.value = valueFromPropsNumber;
@@ -94,8 +97,6 @@ export const all = ({
       isSensitive,
       isWarning,
       labelTooltip,
-      isInGroup,
-      args,
       valueNumber,
       labelNumber,
       noteNumber,
@@ -180,31 +181,3 @@ export const all = ({
     </div>
   `,
 });
-
-all.args = {
-  isSensitive: false,
-  isWarning: false,
-  labelTooltip: 'Tooltip text',
-
-  // number input
-  valueFromPropsNumber: 0,
-  labelNumber: 'Number input',
-  noteNumber: 'Max 80 chars',
-  errorMessageNumber: 'error message',
-  iconNumber: '',
-
-  // text input
-  valueFromPropsText: '',
-  labelText: 'Text input',
-  noteText: 'Max 80 chars',
-  bottomNoteText: 'Random bottom note text',
-  errorMessageText: 'error message',
-  iconText: '',
-
-  // date input
-  valueFromPropsDate: '',
-  labelDate: 'Date input',
-  noteDate: 'Max 80 chars',
-  errorMessageDate: 'error message',
-  iconDate: '',
-};

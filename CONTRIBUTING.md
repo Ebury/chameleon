@@ -124,8 +124,8 @@ npm run test
 ```
 
 The test coverage is set to 100%, but if you think the test for a particular piece of code is not necessary, then mark the code with
-`/* istanbul ignore */` flags and get prepared to defend it during the PR. This process gives us visibility that every exclusion has
-been approved. For more information see the [istanbul docs](https://github.com/gotwarlost/istanbul/blob/master/ignoring-code-for-coverage.md)
+`/* c8 ignore */` flags and get prepared to defend it during the PR. This process gives us visibility that every exclusion has
+been approved. For more information see the [c8 docs](https://github.com/bcoe/c8/blob/main/README.md)
 
 ### Visual regression tests
 

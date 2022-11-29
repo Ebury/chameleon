@@ -171,9 +171,9 @@ function getFocusTrapOptions() {
   };
 
   if (hasPositiveButton()) {
-    options.initialFocus = /* istanbul ignore next */ () => positiveButton.value.$el;
+    options.initialFocus = /* c8 ignore next */ () => positiveButton.value.$el;
   } else if (hasNegativeButton()) {
-    options.initialFocus = /* istanbul ignore next */ () => negativeButton.value.$el;
+    options.initialFocus = /* c8 ignore next */ () => negativeButton.value.$el;
   }
 
   return options;

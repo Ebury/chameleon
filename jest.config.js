@@ -2,17 +2,22 @@ const customElements = new Set(['ec-stub']);
 
 module.exports = {
   testEnvironment: 'jsdom',
+  testEnvironmentOptions: {
+    customExportConditions: ['node'],
+  },
   moduleFileExtensions: [
     'js',
     'jsx',
+    'tsx',
+    'ts',
     'json',
     'vue',
   ],
   errorOnDeprecated: true,
   maxWorkers: '100%',
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\.(j|t)sx?$': 'ts-jest',
   },
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
@@ -37,14 +42,17 @@ module.exports = {
     '@vueuse/integrations/': '<rootDir>/node_modules/@vueuse/integrations',
   },
   collectCoverage: true,
+  coverageProvider: 'v8',
   collectCoverageFrom: [
-    'src/**/*.{js,vue}',
-    '!src/main.js',
-    '!src/**/*.story.js',
-    '!src/**/index.js',
+    'src/**/*.{ts,js,vue}',
+    '!src/main.{ts,js}',
+    '!src/**/*.story.{ts,js,jsx}',
+    '!src/**/index.{ts,js}',
     '!src/**/.eslintrc.js',
     '!src/icons/**',
     '!src/assets/**',
+    '!src/directives/ec-tooltip/ec-tooltip.js',
+    '!src/shims-vue.d.ts',
   ],
   coverageThreshold: {
     global: {

@@ -8,8 +8,10 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
     '@vue/airbnb',
+    '@vue/eslint-config-typescript/recommended',
   ],
-  plugins: ['simple-import-sort'],
+  parser: 'vue-eslint-parser',
+  plugins: ['simple-import-sort', '@typescript-eslint'],
   rules: {
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'default-param-last': 'off',
@@ -61,6 +63,18 @@ module.exports = {
     'vuejs-accessibility/form-control-has-label': 'off',
     'vuejs-accessibility/label-has-for': 'off',
     'vuejs-accessibility/mouse-events-have-key-events': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        '': 'never',
+        js: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
   overrides: [
     {
@@ -92,10 +106,27 @@ module.exports = {
         'import/first': 'off',
       },
     },
+    {
+      files: [
+        '**/*.ts',
+      ],
+      rules: {
+        'no-shadow': 'off',
+        '@typescript-eslint/no-shadow': 'error',
+      },
+    },
   ],
   parserOptions: {
+    parser: '@typescript-eslint/parser',
     ecmaFeatures: {
       jsx: true,
+    },
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.ts', '.tsx'],
+      },
     },
   },
 };
