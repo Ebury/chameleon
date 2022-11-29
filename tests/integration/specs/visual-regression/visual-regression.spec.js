@@ -62,8 +62,6 @@ function visitStory(uuid, story, controls) {
 
   setBackgroundColor(story);
 
-  // cy.get('#root:not(:empty)', { log: false }); TODO button props (dark) test falls here.
-
   if (waitOn) {
     cy.get(waitOn);
   }
