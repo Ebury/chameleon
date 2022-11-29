@@ -63,7 +63,7 @@ const props = defineProps({
   },
   disabledDates: {
     type: Object,
-    default: () => {},
+    default: () => ({}),
   },
   areWeekendsDisabled: {
     type: Boolean,
@@ -151,9 +151,11 @@ watch(() => props.modelValue, (newValue, oldValue) => {
 });
 
 function onChange() {
+  /* c8 ignore start */
   if (!flatpickrInstance) {
     return;
   }
+  /* c8 ignore stop */
 
   const dateStr = flatpickrInstance.input.value;
   const date = flatpickrInstance.selectedDates[0];

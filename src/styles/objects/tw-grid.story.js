@@ -258,7 +258,6 @@ export const nested = () => ({
         </div>
       </div>
     </div>
-  </div>
   `,
 });
 

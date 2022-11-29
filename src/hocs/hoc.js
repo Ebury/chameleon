@@ -9,7 +9,6 @@ const normalize = function normalize(props) {
   if (Array.isArray(props)) {
     const result = {};
     props.forEach((key) => {
-      /* istanbul ignore else */
       if (typeof key === 'string') {
         result[key] = {};
       }

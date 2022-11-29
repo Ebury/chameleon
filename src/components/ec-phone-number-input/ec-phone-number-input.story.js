@@ -49,6 +49,7 @@ basic.args = {
   note: 'Select country and set number',
   bottomNote: 'Phone number can be up to 14 characters',
   isDisabled: false,
+  level: 'notification',
   countries: [
     { areaCode: '+44', text: 'United Kingdom', countryCode: 'GB' },
     { areaCode: '+34', text: 'Spain', countryCode: 'ES' },

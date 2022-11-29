@@ -1,8 +1,7 @@
 <template>
   <div
-    class="ec-input-field"
-    :class="$attrs.class"
-    :style="$attrs.style"
+    :class="['ec-input-field', attrs.class]"
+    :style="style"
     data-test="ec-input-field"
   >
     <label
@@ -34,7 +33,7 @@
     <input
       v-bind="{
         ...$attrs,
-        style: null,
+        style: undefined,
         class: inputClasses,
         id: inputId,
         'aria-describedby': errorMessageId,
@@ -62,7 +61,7 @@
         data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
-        @click="emit('icon-click', modelValue);"
+        @click="emit(InputFieldEvent.ICON_CLICK, modelValue);"
       />
     </div>
     <div
@@ -80,7 +79,8 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { StyleValue } from 'vue';
 import {
   computed,
   ref,
@@ -88,78 +88,53 @@ import {
   watchEffect,
 } from 'vue';
 
+import type { Maybe } from '../../../global';
 import config from '../../config';
-import VEcTooltip from '../../directives/ec-tooltip';
+import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import EcLoadingIcon from '../ec-loading-icon';
+import type { InputFieldEvents, InputFieldExpose } from './types';
+import { InputFieldEvent, InputFieldType } from './types';
 
 const attrs = useAttrs();
-const emit = defineEmits(['update:modelValue', 'icon-click']);
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'text',
-    validator(value) {
-      return ['text', 'date', 'number', 'tel'].includes(value);
-    },
-  },
-  modelValue: {
-    type: [Number, String, Date],
-  },
-  label: {
-    default: '',
-    type: String,
-  },
-  labelTooltip: {
-    default: '',
-    type: String,
-  },
-  note: {
-    default: '',
-    type: String,
-  },
-  bottomNote: {
-    default: '',
-    type: String,
-  },
-  errorMessage: {
-    default: '',
-    type: String,
-  },
-  icon: {
-    type: String,
-    default: '',
-  },
-  iconSize: {
-    type: Number,
-    default: 20,
-  },
-  isInGroup: {
-    type: String,
-  },
-  id: {
-    type: String,
-  },
-  errorId: {
-    type: String,
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  isWarning: {
-    type: Boolean,
-    default: false,
-  },
-  autocomplete: {
-    type: String,
-    default: null,
-  },
+const style = attrs.style as unknown as StyleValue;
+
+const emit = defineEmits<{(e: 'update:modelValue', value: InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]): void
+  (e: 'icon-click', value: InputFieldEvents[InputFieldEvent.ICON_CLICK]): void
+}>();
+
+interface InputFieldProps {
+  type?: InputFieldType,
+  modelValue?: number | string | Date,
+  label?: string,
+  labelTooltip?: string,
+  note?: string,
+  bottomNote?: string,
+  errorMessage?: string,
+  icon?: string,
+  iconSize?: number,
+  isInGroup?: string,
+  id?: string,
+  errorId?: string,
+  isLoading?: boolean,
+  isSensitive?: boolean,
+  isWarning?: boolean,
+  autocomplete?: string,
+}
+
+const props = withDefaults(defineProps<InputFieldProps>(), {
+  type: InputFieldType.TEXT,
+  label: '',
+  labelTooltip: '',
+  note: '',
+  bottomNote: '',
+  errorMessage: '',
+  icon: '',
+  iconSize: 20,
+  isLoading: false,
+  isSensitive: false,
+  isWarning: false,
 });
 
 const isInvalid = computed(() => !!props.errorMessage);
@@ -167,14 +142,14 @@ const isDisabled = computed(() => !!attrs.disabled);
 
 const uid = getUid();
 const inputId = computed(() => props.id || `ec-input-field-${uid}`);
-const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-input-field-error-${uid}`) : null));
+const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-input-field-error-${uid}`) : undefined));
 
-const inputModel = computed({
+const inputModel = computed<InputFieldProps['modelValue']>({
   get() {
     return props.modelValue;
   },
   set(value) {
-    emit('update:modelValue', value);
+    emit(InputFieldEvent.UPDATE_MODEL_VALUE, value as unknown as InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]);
   },
 });
 
@@ -200,12 +175,11 @@ const inputClasses = computed(() => {
   return classes;
 });
 
-const inputRef = ref(null);
+const inputRef = ref<Maybe<HTMLInputElement>>(null);
 
 function focus() {
-  if (inputRef.value) {
-    inputRef.value.focus();
-  }
+  /* c8 ignore next */
+  inputRef.value?.focus();
 }
 
 watchEffect(() => {
@@ -213,14 +187,15 @@ watchEffect(() => {
   // in order to fix it we should sync it automatically every time inputModel changes.
   const inputElement = inputRef.value;
   if (inputElement && inputElement.value !== inputModel.value) {
-    inputElement.value = inputModel.value ?? '';
+    /* c8 ignore next */
+    inputElement.value = inputModel.value as string ?? '';
   }
 });
 
-defineExpose({ focus, inputRef });
+defineExpose<InputFieldExpose>({ focus, inputRef });
 </script>
 
-<script>
+<script lang="ts">
 export default {
   inheritAttrs: false,
 };

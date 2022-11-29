@@ -109,8 +109,7 @@
 
 <script setup>
 import {
-  computed, ref, unref, useAttrs,
-  useSlots, watch,
+  computed, ref, unref, useAttrs, useSlots, watch,
 } from 'vue';
 
 import useEcPagination from '../../composables/use-ec-pagination';
@@ -190,6 +189,7 @@ watch(payload, () => {
   immediate: true,
 });
 
+/* c8 ignore next */
 const isEmpty = computed(() => (props.data ?? []).length === 0);
 
 // slots

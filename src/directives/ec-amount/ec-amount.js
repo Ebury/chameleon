@@ -19,7 +19,7 @@ function updateOptions(el, binding) {
 }
 
 function getOptions(el) {
-  return /* istanbul ignore next */ el.__amountOptions || {};
+  return /* c8 ignore next */ el.__amountOptions || {};
 }
 
 export default {

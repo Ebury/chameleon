@@ -2388,6 +2388,7 @@ exports[`EcPhoneNumberInput v-model should preselect the country item in the dro
   data-test="ec-phone-number-input__countries-selected"
 >
   <img
+    alt="United Kingdom"
     class="ec-phone-number-input__countries-selected-image"
     data-test="ec-phone-number-input__countries-selected-image"
     src="icons/country-flags/100/gb.png"

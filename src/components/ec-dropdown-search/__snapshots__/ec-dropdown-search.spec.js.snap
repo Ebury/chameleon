@@ -168,17 +168,17 @@ exports[`EcDropdownSearch should merge given popoverOptions 1`] = `
 + Second value
 
 @@ -6,11 +6,12 @@
-      autosize=\\"true\\"
-      class=\\"ec-dropdown-search__trigger\\"
-      data-test=\\"ec-popover-dropdown-search ec-stub ec-popover-stub\\"
-      disabled=\\"false\\"
-      distance=\\"8\\"
--     placement=\\"bottom-start\\"
-+     offset=\\"16\\"
-+     placement=\\"top\\"
-      popperclass=\\"ec-dropdown-search__popover\\"
-      shift=\\"false\\"
-      shown=\\"false\\"
+      autosize="true"
+      class="ec-dropdown-search__trigger"
+      data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+      disabled="false"
+      distance="8"
+-     placement="bottom-start"
++     offset="16"
++     placement="top"
+      popperclass="ec-dropdown-search__popover"
+      shift="false"
+      shown="false"
     >
       "
 `;
@@ -193,13 +193,13 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
           
           
           <li
-            class=\\"ec-dropdown-search__item ec-dropdown-search__item--is-disabled\\"
--           data-ec-tooltip-mock-content=\\"This reason should not be seen because it's overridden by tooltip.content.\\"
--           data-ec-tooltip-mock-placement=\\"right\\"
-+           data-ec-tooltip-mock-content=\\"Content overridden by item\\"
-+           data-ec-tooltip-mock-placement=\\"top\\"
-            data-test=\\"ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock\\"
-            title=\\"Random Item\\"
+            class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
+-           data-ec-tooltip-mock-content="This reason should not be seen because it's overridden by tooltip.content."
+-           data-ec-tooltip-mock-placement="right"
++           data-ec-tooltip-mock-content="Content overridden by item"
++           data-ec-tooltip-mock-placement="top"
+            data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+            title="Random Item"
           >
             
             Random Item"

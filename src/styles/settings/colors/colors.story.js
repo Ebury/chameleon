@@ -6,14 +6,14 @@ export default {
   title: 'CSS/Colors',
 };
 
-function useCssResourceAddonSync({ global, document }) {
+function useCssResourceAddonSync({ window, document }) {
   const onChanged = createEventHook();
 
   let mutationObserver;
 
   onMounted(() => {
-    if (global.MutationObserver) {
-      mutationObserver = new global.MutationObserver((ev) => {
+    if (window.MutationObserver) {
+      mutationObserver = new window.MutationObserver((ev) => {
         onChanged.trigger(ev);
       });
       mutationObserver.observe(document.body, {
@@ -39,14 +39,14 @@ function useCssResourceAddonSync({ global, document }) {
 export const all = () => ({
   setup() {
     const vueInstance = getCurrentInstance();
-    const { onChanged } = useCssResourceAddonSync({ global, document });
+    const { onChanged } = useCssResourceAddonSync({ window, document });
     onChanged(() => {
       // we need to update Vue instance manually to trigger the render again and force getInfo() calls inside of the template to recalculate styles displayed in the texts
       vueInstance.update();
     });
 
     function getInfo(variable) {
-      const hslValue = global.getComputedStyle(document.documentElement).getPropertyValue(variable);
+      const hslValue = window.getComputedStyle(document.documentElement).getPropertyValue(variable);
       if (hslValue) {
         const color = new Color(`hsl(${hslValue})`);
         return `${color.hsl().string()}, ${color.hex()}, ${color.rgb()}`;
