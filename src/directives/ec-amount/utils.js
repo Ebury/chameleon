@@ -70,7 +70,7 @@ function joinIntegerAndDecimal(integer, decimal, decimalSeparator) {
   return decimal !== undefined ? integer + decimalSeparator + decimal : integer;
 }
 
-/* istanbul ignore next */
+/* c8 ignore start */
 function setCursor(el, position) {
   const setSelectionRange = function setSelectionRange() {
     el.setSelectionRange(position, position);
@@ -81,6 +81,7 @@ function setCursor(el, position) {
     setTimeout(setSelectionRange, 1); // Android Fix
   }
 }
+/* c8 ignore stop */
 
 export {
   format,

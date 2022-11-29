@@ -8,7 +8,10 @@ module.exports = {
   staticDirs: [
     '../public',
     '../src/assets',
-    { from: '../node_modules/svg-country-flags/png100px/', to: '/icons/country-flags/100' },
+    {
+      from: '../node_modules/svg-country-flags/png100px/',
+      to: '/icons/country-flags/100',
+    },
   ],
   stories: [
     '../src/**/*.story.mdx',
