@@ -22,8 +22,8 @@ const Template = ({ modelValue, ...args }) => ({
 
 export const basic = Template.bind({});
 basic.args = {
-  label: 'I accept the terms and conditions',
-  disabled: '',
+  label: 'The label',
+  disabled: false,
   modelValue: '',
 };
 

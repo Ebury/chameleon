@@ -25,11 +25,11 @@
 
     <div
       :class="{
-        'ec-radio-btn-__label-radio-wrapper': true,
-        'ec-radio-btn-__label-radio-wrapper--is-single-line': isSingleLine,
+        'ec-radio-btn__wrapper': true,
+        'ec-radio-btn__wrapper--is-single-line': isSingleLine,
       }"
     >
-      <span
+      <div
         class="ec-radio-btn__radio-icon-wrapper"
         :class="{
           'ec-radio-btn__radio-icon-wrapper--focused': inputIsFocused,
@@ -44,10 +44,10 @@
         }"
         @click="radioBtnInput.click()"
       >
-        <span
+        <div
           class="ec-radio-btn__radio-icon-wrapper-inner"
         >
-          <span
+          <div
             v-if="indeterminate"
             class="ec-radio-btn__indeterminate-icon"
           />
@@ -61,20 +61,38 @@
             name="rounded-notification"
             :size="16"
           />
-        </span>
-      </span>
+        </div>
+      </div>
 
-      <label
-        :for="id"
+      <div
         :class="{
-          'ec-radio-btn__label': true,
-          'ec-radio-btn__label--is-single-line': isSingleLine,
+          'ec-radio-btn__radio-text-wrapper': true,
+          'ec-radio-btn__radio-text-wrapper--is-single-line': isSingleLine,
         }"
-        :title="isSingleLine ? label : null"
-        data-test="ec-radio-btn__label"
       >
-        <slot name="label">{{ label }}</slot>
-      </label>
+        <label
+          :for="id"
+          :class="{
+            'ec-radio-btn__label': true
+          }"
+          :title="isSingleLine ? label : null"
+          data-test="ec-radio-btn__label"
+        >
+          <slot name="label">{{ label }}</slot>
+        </label>
+
+        <p
+          :for="id"
+          :class="{
+            'ec-radio-btn__description': true,
+            'ec-radio-btn__description--is-single-line': isSingleLine,
+          }"
+          :title="isSingleLine ? description : null"
+          data-test="ec-radio-btn__description"
+        >
+          {{ description }}
+        </p>
+      </div>
     </div>
 
     <div
@@ -112,6 +130,10 @@ const props = defineProps(
       type: Boolean,
     },
     label: {
+      default: '',
+      type: String,
+    },
+    description: {
       default: '',
       type: String,
     },
@@ -170,19 +192,13 @@ onMounted(() => {
 });
 </script>
 
-<script>
-export default {
-  inheritAttrs: false,
-};
-</script>
-
 <style>
 .ec-radio-btn {
   &__input {
     @apply tw-sr-only;
   }
 
-  &__label-radio-btn-wrapper {
+  &__wrapper {
     @apply tw-flex tw-flex-nowrap;
 
     &--is-single-line {
@@ -191,12 +207,25 @@ export default {
   }
 
   &__label {
+    @apply tw-align-top;
     @apply tw-input-label;
     @apply tw-flex-grow;
     @apply tw-min-w-0;
+  }
+
+  &__description {
+    @apply tw-small-text;
+    @apply tw-my-0;
 
     &--is-single-line {
-      @apply tw-small-text;
+      @apply tw-ml-8;
+    }
+  }
+
+  &__radio-text-wrapper {
+    &--is-single-line {
+      @apply tw-flex;
+      @apply tw-flex-nowrap;
     }
   }
 
