@@ -22,8 +22,11 @@ const Template = ({ modelValue, ...args }) => ({
 
 export const basic = Template.bind({});
 basic.args = {
-  label: 'The label',
   disabled: false,
   modelValue: '',
+  radios: [
+    { value: '1', label: 'One' },
+    { value: '2', label: 'Two' },
+  ],
 };
 
