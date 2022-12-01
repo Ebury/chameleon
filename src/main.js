@@ -49,6 +49,7 @@ export { default as EcPanel } from './components/ec-panel';
 export { default as EcPhoneNumberInput } from './components/ec-phone-number-input';
 export { default as EcPopover } from './components/ec-popover';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
+export { default as EcRadioBtn } from './components/ec-radio-btn';
 export { default as EcSmartTable } from './components/ec-smart-table';
 export { default as EcSubmenu } from './components/ec-submenu';
 export { default as EcSummaryInfo } from './components/ec-summary-info';
