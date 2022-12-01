@@ -104,6 +104,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   if (flatpickrInstance) {
+    document.removeEventListener('scroll', debouncedFlatpickrReposition, { capture: true, passive: true });
     flatpickrInstance.destroy();
   }
 });
@@ -193,6 +194,21 @@ function onBlur(evt) {
   }
 }
 
+let isTimeoutRunning = false;
+// In case the datepicker is open and the user scrolls we need to reposition the datepicker otherwise will appear detached from the input.
+/* c8 ignore start */
+function debouncedFlatpickrReposition() {
+  if (!isTimeoutRunning) {
+    isTimeoutRunning = true;
+    setTimeout(() => {
+      isTimeoutRunning = false;
+      // eslint-disable-next-line no-underscore-dangle
+      flatpickrInstance._positionCalendar();
+    }, 250);
+  }
+}
+/* c8 ignore stop */
+
 // options for flatpickr
 function mergeWithDefaultOptions(options) {
   const mergedOptions = {
@@ -207,8 +223,10 @@ function mergeWithDefaultOptions(options) {
     }],
     onOpen: [...(props.options.onOpen ?? []), () => {
       emit('open');
+      document.addEventListener('scroll', debouncedFlatpickrReposition, { capture: true, passive: true });
     }],
     onClose: [...(props.options.onClose ?? []), () => {
+      document.removeEventListener('scroll', debouncedFlatpickrReposition, { capture: true, passive: true });
       emit('close');
     }],
     prevArrow: '<svg><use xlink:href="#ec-simple-chevron-left"/></svg>',
