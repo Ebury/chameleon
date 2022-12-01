@@ -58,7 +58,7 @@
             }"
             class="ec-radio-btn__radio-icon"
             name="rounded-notification"
-            :size="16"
+            :size="iconSize"
           />
         </div>
       </div>
@@ -150,6 +150,10 @@ const props = defineProps(
     value: {
       default: '',
       type: String,
+    },
+    iconSize: {
+      default: 16,
+      type: Number,
     },
   },
 );
