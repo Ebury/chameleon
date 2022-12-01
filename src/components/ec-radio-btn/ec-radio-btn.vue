@@ -11,14 +11,14 @@
     class="ec-radio-btn"
     :class="[$attrs.class, {'tw-mt-16': radioIndex !== 0, 'ec-radio-btn--is-single-line': isSingleLine}]"
     :style="$attrs.style"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn` : 'ec-radio-btn'"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
     @click.prevent.stop="emit('update:modelValue', radio.value)"
   >
     <input
       v-bind="{
         ...$attrs,
         'aria-describedby': errorId,
-        'data-test': 'ec-radio-btn__input',
+        'data-test': `ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
         style: null,
         value: radio.value,
         class: 'ec-radio-btn__input',
@@ -77,7 +77,7 @@
             'ec-radio-btn__radio-label--disabled': disabled,
           }"
           :title="isSingleLine ? radio.label : null"
-          data-test="ec-radio-btn__radio-label"
+          :data-test="`ec-radio-btn__radio-label ec-radio-btn__radio-label-${radioIndex}`"
         >
           <slot name="label">{{ radio.label }}</slot>
         </label>
@@ -91,7 +91,7 @@
             'ec-radio-btn__radio-description--disabled': disabled,
           }"
           :title="isSingleLine ? radio.description : null"
-          data-test="ec-radio-btn__radio-description"
+          :data-test="`ec-radio-btn__radio-description ec-radio-btn__radio-description-${radioIndex}`"
         >
           {{ radio.description }}
         </p>
