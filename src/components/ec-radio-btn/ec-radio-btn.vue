@@ -6,96 +6,111 @@
     {{ label }}
   </div>
   <div
-    v-for="(radio, radioIndex) in radioButtons"
-    :key="radioIndex"
-    class="ec-radio-btn"
-    :class="[$attrs.class, {'tw-mt-16': radioIndex !== 0, 'ec-radio-btn--is-single-line': isSingleLine}]"
-    :style="$attrs.style"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
-    @click.prevent.stop="emit('update:modelValue', radio.value)"
+    class="ec-radio-btn__group"
+    :class="{'ec-radio-btn__group--is-single-line': isGroupInline}"
   >
-    <input
-      v-bind="{
-        ...$attrs,
-        'aria-describedby': errorId,
-        'data-test': `ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
-        style: null,
-        value: radio.value,
-        class: 'ec-radio-btn__input',
-        id: id,
-        disabled: disabled,
-        type: 'radio'
-      }"
-      v-model="inputModel"
-      @focus="setFocus(radioIndex)"
-      @blur="unsetFocus(radioIndex)"
-    >
-
     <div
-      :class="{
-        'ec-radio-btn__wrapper': true,
-        'ec-radio-btn__wrapper--is-single-line': isSingleLine,
-      }"
+      v-for="(radio, radioIndex) in radioButtons"
+      :key="radioIndex"
+      class="ec-radio-btn"
+      :class="[
+        $attrs.class,
+        {
+          'tw-mt-16': radioIndex !== 0 && !isGroupInline,
+          'tw-ml-40': radioIndex !== 0 && isGroupInline,
+        }
+      ]"
+      :style="$attrs.style"
+      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
+      @click.prevent.stop="emit('update:modelValue', radio.value)"
     >
+      <input
+        v-bind="{
+          ...$attrs,
+          'aria-describedby': errorId,
+          'data-test': `ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
+          style: null,
+          value: radio.value,
+          class: 'ec-radio-btn__input',
+          id: id,
+          disabled: disabled,
+          type: 'radio'
+        }"
+        v-model="inputModel"
+        @focus="setFocus(radioIndex)"
+        @blur="unsetFocus(radioIndex)"
+      >
+
       <div
-        class="ec-radio-btn__radio-icon-wrapper"
+        class="ec-radio-btn__wrapper"
         :class="{
-          'ec-radio-btn__radio-icon-wrapper--focused': inputIsFocused(radioIndex),
-          'ec-radio-btn__radio-icon-wrapper--checked': inputIsChecked(radio.value) && !disabled,
-          'ec-radio-btn__radio-icon-wrapper--checked-and-focused': inputIsChecked(radio.value) && inputIsFocused(radioIndex),
-          'ec-radio-btn__radio-icon-wrapper--error': isInvalid && !inputIsChecked(radio.value),
-          'ec-radio-btn__radio-icon-wrapper--disabled': disabled,
-          'ec-radio-btn__radio-icon-wrapper--checked-and-disabled': disabled && inputIsChecked(radio.value),
+          'ec-radio-btn__wrapper--is-single-line': isTextInline,
         }"
       >
         <div
-          class="ec-radio-btn__radio-icon-wrapper-inner"
+          class="ec-radio-btn__radio-icon-wrapper"
+          :class="{
+            'ec-radio-btn__radio-icon-wrapper--medium': iconSize === 'medium',
+            'ec-radio-btn__radio-icon-wrapper--focused': inputIsFocused(radioIndex),
+            'ec-radio-btn__radio-icon-wrapper--checked': inputIsChecked(radio.value) && !disabled,
+            'ec-radio-btn__radio-icon-wrapper--checked-and-focused': inputIsChecked(radio.value) && inputIsFocused(radioIndex),
+            'ec-radio-btn__radio-icon-wrapper--error': isInvalid && !inputIsChecked(radio.value),
+            'ec-radio-btn__radio-icon-wrapper--disabled': disabled,
+            'ec-radio-btn__radio-icon-wrapper--checked-and-disabled': disabled && inputIsChecked(radio.value),
+          }"
         >
-
-          <ec-icon
-            class="ec-radio-btn__radio-icon"
+          <div
+            class="ec-radio-btn__radio-icon-wrapper-inner"
             :class="{
-              'ec-radio-btn__radio-icon--checked': inputIsChecked(radio.value) && !disabled,
-              'ec-radio-btn__radio-icon--checked-and-disabled': disabled && inputIsChecked(radio.value)
+              'ec-radio-btn__radio-icon-wrapper-inner--medium': iconSize === 'medium',
             }"
-            name="rounded-notification"
-            :size="iconSize"
-          />
+          >
+
+            <ec-icon
+              class="ec-radio-btn__radio-icon"
+              :class="{
+                'ec-radio-btn__radio-icon--checked': inputIsChecked(radio.value) && !disabled,
+                'ec-radio-btn__radio-icon--checked-and-disabled': disabled && inputIsChecked(radio.value)
+              }"
+              name="rounded-notification"
+              :size="pxlsIconSize"
+            />
+          </div>
         </div>
-      </div>
 
-      <div
-        :class="{
-          'ec-radio-btn__radio-text-wrapper': true,
-          'ec-radio-btn__radio-text-wrapper--is-single-line': isSingleLine,
-        }"
-      >
-        <label
-          v-if="radio.label"
-          :for="id"
+        <div
+          class="ec-radio-btn__radio-text-wrapper"
           :class="{
-            'ec-radio-btn__radio-label': true,
-            'ec-radio-btn__radio-label--disabled': disabled,
+            'ec-radio-btn__radio-text-wrapper--is-single-line': isTextInline,
           }"
-          :title="isSingleLine ? radio.label : null"
-          :data-test="`ec-radio-btn__radio-label ec-radio-btn__radio-label-${radioIndex}`"
         >
-          <slot name="label">{{ radio.label }}</slot>
-        </label>
+          <label
+            v-if="radio.label"
+            :for="id"
+            class="ec-radio-btn__radio-label"
+            :class="{
+              'ec-radio-btn__radio-label--disabled': disabled,
+            }"
+            :title="isTextInline ? radio.label : null"
+            :data-test="`ec-radio-btn__radio-label ec-radio-btn__radio-label-${radioIndex}`"
+          >
+            <slot name="label">{{ radio.label }}</slot>
+          </label>
 
-        <p
-          v-if="radio.description"
-          :for="id"
-          :class="{
-            'ec-radio-btn__radio-description': true,
-            'ec-radio-btn__radio-description--is-single-line': isSingleLine,
-            'ec-radio-btn__radio-description--disabled': disabled,
-          }"
-          :title="isSingleLine ? radio.description : null"
-          :data-test="`ec-radio-btn__radio-description ec-radio-btn__radio-description-${radioIndex}`"
-        >
-          {{ radio.description }}
-        </p>
+          <p
+            v-if="radio.description"
+            :for="id"
+            class="ec-radio-btn__radio-description"
+            :class="{
+              'ec-radio-btn__radio-description--is-single-line': isTextInline,
+              'ec-radio-btn__radio-description--disabled': disabled,
+            }"
+            :title="isTextInline ? radio.description : null"
+            :data-test="`ec-radio-btn__radio-description ec-radio-btn__radio-description-${radioIndex}`"
+          >
+            {{ radio.description }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -103,6 +118,9 @@
     :id="id"
     v-if="isInvalid"
     class="ec-radio-btn__error-text"
+    :class="{
+      'tw-mr-32': iconSize === 'medium',
+    }"
     data-test="ec-radio-btn__error-text"
   >
     <slot name="error-message">{{ errorMessage }}</slot>
@@ -142,7 +160,11 @@ const props = defineProps(
       default: false,
       type: Boolean,
     },
-    isSingleLine: {
+    isGroupInline: {
+      default: false,
+      type: Boolean,
+    },
+    isTextInline: {
       default: false,
       type: Boolean,
     },
@@ -151,8 +173,8 @@ const props = defineProps(
       type: String,
     },
     iconSize: {
-      default: 16,
-      type: Number,
+      default: 'small',
+      type: String,
     },
   },
 );
@@ -198,15 +220,21 @@ function unsetFocus(radioIndex) {
 onMounted(() => {
   addFocusPropertyToRadios(props.radios);
 });
+
+const pxlsIconSize = computed(() => {
+  switch (props.iconSize) {
+    case 'small':
+      return 16;
+    case 'medium':
+      return 20;
+    default:
+      return 16;
+  }
+});
 </script>
 
 <style>
 .ec-radio-btn {
-  &--is-single-line {
-    @apply tw-mt-0;
-    @apply tw-flex tw-flex-nowrap;
-  }
-
   &__label {
     @apply tw-mb-16;
     @apply tw-small-strong;
@@ -312,6 +340,11 @@ onMounted(() => {
     &--error {
       @apply tw-border-error;
     }
+
+    &--medium {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   &__radio-icon-wrapper-inner {
@@ -321,6 +354,11 @@ onMounted(() => {
 
     width: 16px;
     height: 16px;
+
+    &--medium {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   &__radio-icon {
@@ -342,6 +380,13 @@ onMounted(() => {
     @apply tw-ml-28;
     @apply tw-help-text tw-text-error;
     @apply tw-mt-4;
+  }
+}
+
+.ec-radio-btn__group {
+  &--is-single-line {
+    @apply tw-mt-0;
+    @apply tw-flex tw-flex-nowrap;
   }
 }
 </style>

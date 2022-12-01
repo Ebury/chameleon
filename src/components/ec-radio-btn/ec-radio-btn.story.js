@@ -26,6 +26,26 @@ export const basic = () => ({
   `,
 });
 
+export const description = () => ({
+  components: { EcRadioBtn },
+  setup() {
+    return {
+      args: {
+        ...basicArgs,
+        radios: [
+          { value: 'y', label: 'Yes', description: 'Confirm option' },
+          { value: 'n', label: 'No', description: 'Reject option' },
+        ],
+      },
+    };
+  },
+  template: `
+    <div class="tw-p-24">
+      <ec-radio-btn v-bind="args"/>
+    </div>
+  `,
+});
+
 export const checked = () => ({
   components: { EcRadioBtn },
   setup() {
@@ -67,7 +87,7 @@ export const inlineRadioGroup = () => ({
     return {
       args: {
         ...basicArgs,
-        inlineRadioGroup: true,
+        isGroupInline: true,
       },
     };
   },
@@ -84,7 +104,11 @@ export const inlineText = () => ({
     return {
       args: {
         ...basicArgs,
-        inlineText: true,
+        radios: [
+          { value: 'y', label: 'Yes', description: '(Confirm)' },
+          { value: 'n', label: 'No', description: '(Reject)' },
+        ],
+        isTextInline: true,
       },
     };
   },
@@ -118,7 +142,7 @@ export const mediumIconSize = () => ({
     return {
       args: {
         ...basicArgs,
-        iconSize: 24,
+        iconSize: 'medium',
       },
     };
   },
