@@ -70,9 +70,11 @@
         }"
       >
         <label
+          v-if="radio.label"
           :for="id"
           :class="{
-            'ec-radio-btn__radio-label': true
+            'ec-radio-btn__radio-label': true,
+            'ec-radio-btn__radio-label--disabled': disabled,
           }"
           :title="isSingleLine ? radio.label : null"
           data-test="ec-radio-btn__radio-label"
@@ -81,10 +83,12 @@
         </label>
 
         <p
+          v-if="radio.description"
           :for="id"
           :class="{
             'ec-radio-btn__radio-description': true,
             'ec-radio-btn__radio-description--is-single-line': isSingleLine,
+            'ec-radio-btn__radio-description--disabled': disabled,
           }"
           :title="isSingleLine ? radio.description : null"
           data-test="ec-radio-btn__radio-description"
@@ -219,22 +223,34 @@ onMounted(() => {
   }
 
   &__radio-label {
+    @apply tw-cursor-pointer;
     @apply tw-align-top;
     @apply tw-input-label;
     @apply tw-flex-grow;
     @apply tw-min-w-0;
+
+    &--disabled {
+      @apply tw-cursor-default;
+    }
   }
 
   &__radio-description {
+    @apply tw-cursor-pointer;
     @apply tw-small-text;
     @apply tw-my-0;
 
     &--is-single-line {
       @apply tw-ml-8;
     }
+
+    &--disabled {
+      @apply tw-cursor-default;
+    }
   }
 
   &__radio-text-wrapper {
+    @apply tw-cursor-pointer;
+
     &--is-single-line {
       @apply tw-flex;
       @apply tw-flex-nowrap;
@@ -297,7 +313,6 @@ onMounted(() => {
 
   &__radio-icon-wrapper-inner {
     @apply tw-rounded-1/2;
-    @apply tw-cursor-pointer;
     @apply tw-bg-gray-8;
     @apply tw-absolute;
 
