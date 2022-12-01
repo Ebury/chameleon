@@ -41,7 +41,7 @@
         class="ec-radio-btn__radio-icon-wrapper"
         :class="{
           'ec-radio-btn__radio-icon-wrapper--focused': inputIsFocused(radioIndex),
-          'ec-radio-btn__radio-icon-wrapper--checked': inputIsChecked(radio.value),
+          'ec-radio-btn__radio-icon-wrapper--checked': inputIsChecked(radio.value) && !disabled,
           'ec-radio-btn__radio-icon-wrapper--checked-and-focused': inputIsChecked(radio.value) && inputIsFocused(radioIndex),
           'ec-radio-btn__radio-icon-wrapper--error': isInvalid && !inputIsChecked(radio.value),
           'ec-radio-btn__radio-icon-wrapper--disabled': disabled,
@@ -51,12 +51,13 @@
         <div
           class="ec-radio-btn__radio-icon-wrapper-inner"
         >
+
           <ec-icon
-            :class="{
-              'ec-radio-btn__radio-icon--disabled': disabled,
-              'ec-radio-btn__radio-icon--checked': inputIsChecked(radio.value),
-            }"
             class="ec-radio-btn__radio-icon"
+            :class="{
+              'ec-radio-btn__radio-icon--checked': inputIsChecked(radio.value) && !disabled,
+              'ec-radio-btn__radio-icon--checked-and-disabled': disabled && inputIsChecked(radio.value)
+            }"
             name="rounded-notification"
             :size="iconSize"
           />
@@ -97,16 +98,14 @@
         </p>
       </div>
     </div>
-
-    <div
-      :id="id"
-      v-if="isInvalid"
-      class="ec-radio-btn__error-text"
-      data-test="ec-radio-btn__error-text"
-    >
-      <slot name="error-message">{{ errorMessage }}</slot>
-    </div>
-
+  </div>
+  <div
+    :id="id"
+    v-if="isInvalid"
+    class="ec-radio-btn__error-text"
+    data-test="ec-radio-btn__error-text"
+  >
+    <slot name="error-message">{{ errorMessage }}</slot>
   </div>
 </template>
 
@@ -330,16 +329,17 @@ onMounted(() => {
     @apply tw-absolute;
     @apply tw-left-1/2 tw-top-1/2;
 
-    &--disabled {
-      @apply tw-fill-gray-6;
-    }
-
     &--checked {
       @apply tw-fill-key-4;
+    }
+
+    &--checked-and-disabled {
+      @apply tw-fill-gray-6;
     }
   }
 
   &__error-text {
+    @apply tw-ml-28;
     @apply tw-help-text tw-text-error;
     @apply tw-mt-4;
   }
