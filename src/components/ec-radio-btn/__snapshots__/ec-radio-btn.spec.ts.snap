@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcRadioBtn :props :disabled - should render the radio button with a disabled attribute and checked 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <!--v-if-->
+  <div
+    class="ec-radio-btn__group"
+    data-test="ec-radio-btn__group"
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  
+</div>
+`;
+
 exports[`EcRadioBtn :props :error-message - should render the radio button with an error message 1`] = `
 <div
   class="ec-radio-btn__error-text"

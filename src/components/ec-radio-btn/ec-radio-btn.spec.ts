@@ -1,7 +1,6 @@
 import type { MountingOptions } from '@vue/test-utils';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
-import { wrap } from 'module';
-import { defineComponent, ref } from 'vue';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
 import { EcRadioBtn } from '../../main';
@@ -96,7 +95,7 @@ describe('EcRadioBtn', () => {
         modelValue: 'y',
       });
 
-      expect(wrapper.findByDataTest('ec-radio-btn__input ec-radio-btn__input').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-radio-btn').element).toMatchSnapshot();
     });
   });
 
