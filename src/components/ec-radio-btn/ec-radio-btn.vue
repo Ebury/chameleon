@@ -22,7 +22,7 @@
       ]"
       :style="style"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
-      @click.prevent.stop="emit('update:modelValue', radio.value)"
+      @click.prevent.stop="emit(RadioBtnEvent.UPDATE_MODEL_VALUE, radio.value)"
     >
       <input
         v-bind="{
@@ -120,19 +120,28 @@
 </template>
 
 <script setup lang="ts">
-import type { ComputedRef, StyleValue } from 'vue';
+import type { StyleValue } from 'vue';
 import {
   computed, onMounted, ref, useAttrs, useSlots, withDefaults,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
-import type {
-  RadioBtnEvent, RadioBtnEvents, RadioBtnOption, RadioBtnProps,
-} from './types';
+import type { RadioBtnEvents, RadioBtnOption } from './types';
+import { RadioBtnEvent } from './types';
 
 interface RadioBtn extends RadioBtnOption {
     isFocused: boolean
+}
+// This must be equal with exaxtly the same interface in the types.ts
+export interface RadioBtnProps {
+  options: RadioBtnOption[],
+  modelValue: string,
+  label: string,
+  errorMessage: string,
+  disabled: boolean,
+  isGroupedInline: boolean,
+  isTextInline: boolean
 }
 
 const props = withDefaults(defineProps<RadioBtnProps>(), {
@@ -157,11 +166,11 @@ const errorId = computed<string>(() => (isInvalid.value ? `ec-radio-btn-error-${
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioBtnEvents[RadioBtnEvent.UPDATE_MODEL_VALUE]): void,
 }>();
 
-const inputModel: ComputedRef<string> = computed<RadioBtnProps['modelValue']>(() => props.modelValue);
+const inputModel = computed<RadioBtnProps['modelValue']>(() => props.modelValue);
 
 const radioButtons = ref<RadioBtn[]>([]);
 
-function addFocusPropertyToRadios(options: RadioBtnOption[]) : void {
+function addFocusPropertyToRadios(options: RadioBtnOption[]) {
   if (options?.length > 0) {
     radioButtons.value = options.map(radio => ({
       ...radio,
