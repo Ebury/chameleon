@@ -69,7 +69,7 @@
                 'ec-radio-btn__radio-icon--checked-and-disabled': disabled && inputIsChecked(radio.value)
               }"
               name="rounded-notification"
-              :size="16"
+              :size="20"
             />
           </div>
         </div>
@@ -242,9 +242,11 @@ onMounted(() => {
   &__radio-description {
     @apply tw-cursor-pointer;
     @apply tw-small-text;
-    @apply tw-my-0;
+    @apply tw-mb-0;
+    @apply tw-mt-8;
 
     &--is-single-line {
+      @apply tw-mt-0;
       @apply tw-ml-8;
     }
 
@@ -255,6 +257,7 @@ onMounted(() => {
 
   &__radio-text-wrapper {
     @apply tw-cursor-pointer;
+    @apply tw-pt-4;
 
     &--is-single-line {
       @apply tw-flex;
@@ -265,7 +268,7 @@ onMounted(() => {
   &__radio-icon-wrapper {
     @apply tw-cursor-pointer;
     @apply tw-bg-gray-8;
-    @apply tw-w-20 tw-h-20;
+    @apply tw-w-24 tw-h-24;
     @apply tw-flex-shrink-0;
     @apply tw-border-2 tw-border-solid tw-border-gray-4;
     @apply tw-flex tw-items-center tw-justify-center;
@@ -320,13 +323,12 @@ onMounted(() => {
     @apply tw-rounded-1/2;
     @apply tw-bg-gray-8;
     @apply tw-absolute;
-
-    width: 16px;
-    height: 16px;
+    @apply tw-w-20 tw-h-20;
   }
 
   &__radio-icon {
     transform: translate(-50%, -50%);
+    padding: 2px;
     @apply tw-fill-gray-8;
     @apply tw-absolute;
     @apply tw-left-1/2 tw-top-1/2;
@@ -341,7 +343,7 @@ onMounted(() => {
   }
 
   &__error-text {
-    @apply tw-ml-28;
+    @apply tw-ml-32;
     @apply tw-help-text tw-text-error;
     @apply tw-mt-4;
   }
