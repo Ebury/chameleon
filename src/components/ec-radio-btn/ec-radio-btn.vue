@@ -50,7 +50,6 @@
         <div
           class="ec-radio-btn__radio-icon-wrapper"
           :class="{
-            'ec-radio-btn__radio-icon-wrapper--medium': iconSize === 'medium',
             'ec-radio-btn__radio-icon-wrapper--focused': inputIsFocused(radioIndex),
             'ec-radio-btn__radio-icon-wrapper--checked': inputIsChecked(radio.value) && !disabled,
             'ec-radio-btn__radio-icon-wrapper--checked-and-focused': inputIsChecked(radio.value) && inputIsFocused(radioIndex),
@@ -61,9 +60,6 @@
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
-            :class="{
-              'ec-radio-btn__radio-icon-wrapper-inner--medium': iconSize === 'medium',
-            }"
           >
 
             <ec-icon
@@ -73,7 +69,7 @@
                 'ec-radio-btn__radio-icon--checked-and-disabled': disabled && inputIsChecked(radio.value)
               }"
               name="rounded-notification"
-              :size="pxlsIconSize"
+              :size="16"
             />
           </div>
         </div>
@@ -93,7 +89,9 @@
             }"
             :title="isTextInline ? radio.label : null"
             :data-test="`ec-radio-btn__radio-label ec-radio-btn__radio-label-${radioIndex}`"
-          />
+          >
+            {{ radio.label }}
+          </label>
 
           <p
             v-if="radio.description"
@@ -116,9 +114,6 @@
     :id="id"
     v-if="isInvalid"
     class="ec-radio-btn__error-text"
-    :class="{
-      'tw-mr-32': iconSize === 'medium',
-    }"
     data-test="ec-radio-btn__error-text"
   >
     <slot name="error-message">{{ errorMessage }}</slot>
@@ -217,17 +212,6 @@ function unsetFocus(radioIndex) {
 
 onMounted(() => {
   addFocusPropertyToRadios(props.radios);
-});
-
-const pxlsIconSize = computed(() => {
-  switch (props.iconSize) {
-    case 'small':
-      return 16;
-    case 'medium':
-      return 20;
-    default:
-      return 16;
-  }
 });
 </script>
 
@@ -338,11 +322,6 @@ const pxlsIconSize = computed(() => {
     &--error {
       @apply tw-border-error;
     }
-
-    &--medium {
-      width: 24px;
-      height: 24px;
-    }
   }
 
   &__radio-icon-wrapper-inner {
@@ -352,11 +331,6 @@ const pxlsIconSize = computed(() => {
 
     width: 16px;
     height: 16px;
-
-    &--medium {
-      width: 20px;
-      height: 20px;
-    }
   }
 
   &__radio-icon {
