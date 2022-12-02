@@ -120,64 +120,51 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   computed,
+  ComputedRef,
   onMounted,
+  Ref,
   ref,
   useSlots,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
+import {
+  RadioBtnEvent, RadioBtnEvents, RadioBtnOption, RadioBtnProps,
+} from './types';
 
-const props = defineProps(
-  {
-    options: {
-      default: () => [],
-      type: Array,
-    },
-    modelValue: {
-      default: '',
-      type: String,
-    },
-    label: {
-      default: '',
-      type: String,
-    },
-    errorMessage: {
-      default: '',
-      type: String,
-    },
-    disabled: {
-      default: false,
-      type: Boolean,
-    },
-    isGroupInline: {
-      default: false,
-      type: Boolean,
-    },
-    isTextInline: {
-      default: false,
-      type: Boolean,
-    },
-  },
-);
+interface RadioBtn extends RadioBtnOption {
+    isFocused: boolean
+}
+
+const props = withDefaults(defineProps<RadioBtnProps>(), {
+  options: [],
+  modelValue: '',
+  label: '',
+  errorMessage: '',
+  disabled: false,
+  isGroupedInline: false,
+  isTextInline: false,
+});
 
 const uid = getUid();
 const slots = useSlots();
 
 const id = `ec-radio-btn-${uid}`;
-const isInvalid = computed(() => (!!props.errorMessage || !!slots['error-message']));
-const errorId = computed(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : null));
+const isInvalid: ComputedRef<boolean> = computed(() => (!!props.errorMessage || !!slots['error-message']));
+const errorId : ComputedRef<string | null> = computed(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : null));
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits<{(e: 'update:modelValue', value: RadioBtnEvents[RadioBtnEvent.UPDATE_MODEL_VALUE]): void,
+}>();
 
-const inputModel = computed(() => props.modelValue);
+const inputModel: ComputedRef<string> = computed<RadioBtnProps['modelValue']>(() => props.modelValue);
 
-const radioButtons = ref([]);
+const radioButtons: Ref<RadioBtn[]> = ref([]);
 
-function addFocusPropertyToRadios(options) {
+function addFocusPropertyToRadios(options: RadioBtnOption[]) : void {
   if (options?.length > 0) {
     radioButtons.value = options.map(radio => ({
       ...radio,
@@ -186,19 +173,19 @@ function addFocusPropertyToRadios(options) {
   }
 }
 
-function inputIsChecked(radioValue) {
+function inputIsChecked(radioValue: string) {
   return inputModel.value === radioValue;
 }
 
-function inputIsFocused(radioIndex) {
+function inputIsFocused(radioIndex: number) {
   return radioButtons.value[radioIndex].isFocused;
 }
 
-function setFocus(radioIndex) {
+function setFocus(radioIndex: number) {
   radioButtons.value[radioIndex].isFocused = true;
 }
 
-function unsetFocus(radioIndex) {
+function unsetFocus(radioIndex: number) {
   radioButtons.value[radioIndex].isFocused = false;
 }
 
