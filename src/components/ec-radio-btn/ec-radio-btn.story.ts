@@ -20,12 +20,12 @@ export const basic = () => ({
     const model = ref('');
     return {
       args: basicArgs,
-      label: 'Select one option',
+      label: 'Select one options',
       model,
     };
   },
   template: `
-    <div class="tw-p-24">
+    <div class="tw-px-24 tw-pt-4 tw-pb-24">
       <ec-radio-btn v-bind="args" :label="label" v-model="model"/>
     </div>
   `,
@@ -53,37 +53,37 @@ export const all = () => ({
   template: `
     <div class="tw-max-w-screen-sm tw-m-24">
       <h3>Description</h3>
-      <div class="tw-p-24">
+      <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn v-bind="args" v-model="modelUnchecked" :options="optionsWithDescription" />
       </div>
 
       <h3>Checked</h3>
-      <div class="tw-p-24">
+      <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn v-bind="args" v-model="modelChecked" />
       </div>
 
       <h3>Unchecked Disabled</h3>
-      <div class="tw-p-24">
+      <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn v-bind="args" v-model="modelUnchecked" :disabled="true" />
       </div>
 
       <h3>Checked Disabled</h3>
-      <div class="tw-p-24">
+      <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn v-bind="args" v-model="modelChecked" :disabled="true" />
       </div>
 
       <h3>Inline Radio Group</h3>
-      <div class="tw-p-24">
+      <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn v-bind="args" v-model="modelChecked" :is-group-inline="true" />
       </div>
 
       <h3>Inline Text</h3>
-      <div class="tw-p-24">
+      <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn v-bind="args" v-model="modelChecked" :is-text-inline="true" :options="optionsWithDescription" />
       </div>
 
       <h3>Error</h3>
-      <div class="tw-p-24">
+      <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn v-bind="args" v-model="modelUnchecked" :error-message="errorMessage" />
       </div>
     </div>

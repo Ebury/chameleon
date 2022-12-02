@@ -1,32 +1,31 @@
-/* import { mount } from '@vue/test-utils';
+import type { MountingOptions } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import { defineComponent, ref } from 'vue';
 
-import EcCheckbox from './ec-radio-btn.vue';
+import type { CVueWrapper } from '../../../tests/utils/global';
+import { EcRadioBtn } from '../../main';
+import type { RadioBtnProps } from './types';
 
-function mountCheckbox(props, mountOpts) {
-  return mount(EcCheckbox, {
-    props,
-    ...mountOpts,
-  });
+function mountRadioBtn(props?: RadioBtnProps, mountOpts?: MountingOptions<RadioBtnProps>): CVueWrapper {
+  return mount<RadioBtnProps>(
+    EcRadioBtn as any, // eslint-disable-line
+    {
+      props: {
+        options: [
+          { value: 'y', label: 'Yes' },
+          { value: 'n', label: 'No' },
+        ],
+        ...props,
+      },
+      ...mountOpts,
+    },
+  ) as CVueWrapper;
 }
 
-function mountCheckboxAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const Component = defineComponent({
-    components: { EcCheckbox },
-    template,
-    ...wrapperComponentOpts,
-  });
-
-  return mount(Component, {
-    props,
-    ...mountOpts,
-  });
-}
-
-describe('EcCheckbox', () => {
-  describe(':props', () => {
+describe('EcRadioBtn', () => {
+  /* describe(':props', () => {
     it(':label - should render the checkbox with a label', () => {
-      const wrapper = mountCheckbox({
+      const wrapper = mountRadioBtn({
         label: 'Test label prop',
       });
 
@@ -35,7 +34,7 @@ describe('EcCheckbox', () => {
     });
 
     it(':isSingleLine - should render the checkbox with in a single line with the label as a title', () => {
-      const wrapper = mountCheckbox({
+      const wrapper = mountRadioBtn({
         label: 'Test is single line prop',
         isSingleLine: true,
       });
@@ -44,7 +43,7 @@ describe('EcCheckbox', () => {
     });
 
     it(':error-message - should render the checkbox with an error message', () => {
-      const wrapper = mountCheckbox({
+      const wrapper = mountRadioBtn({
         'error-message': 'Test error message prop',
       });
 
@@ -53,7 +52,7 @@ describe('EcCheckbox', () => {
     });
 
     it(':disabled - should render the checkbox with a disabled attribute and not checked', () => {
-      const wrapper = mountCheckbox({
+      const wrapper = mountRadioBtn({
         disabled: true,
         modelValue: false,
       });
@@ -62,7 +61,7 @@ describe('EcCheckbox', () => {
     });
 
     it(':disabled - should render the checkbox with a disabled attribute and indeterminate', () => {
-      const wrapper = mountCheckbox({
+      const wrapper = mountRadioBtn({
         disabled: true,
         indeterminate: true,
       });
@@ -71,7 +70,7 @@ describe('EcCheckbox', () => {
     });
 
     it(':disabled - should render the checkbox with a disabled attribute and checked', () => {
-      const wrapper = mountCheckbox({
+      const wrapper = mountRadioBtn({
         disabled: true,
         modelValue: true,
       });
@@ -80,7 +79,7 @@ describe('EcCheckbox', () => {
     });
 
     it(':indeterminate - should render the checkbox as indeterminate', () => {
-      const wrapper = mountCheckbox({
+      const wrapper = mountRadioBtn({
         indeterminate: true,
       });
 
@@ -88,7 +87,7 @@ describe('EcCheckbox', () => {
     });
 
     it(':indeterminate - should render even if the checkbox is checked', () => {
-      const wrapper = mountCheckbox({
+      const wrapper = mountRadioBtn({
         modelValue: true,
         indeterminate: true,
       });
@@ -97,7 +96,7 @@ describe('EcCheckbox', () => {
     });
 
     it(':indeterminate - should render the checkbox as checked when indeterminate has switched to false', async () => {
-      const wrapper = mountCheckbox({
+      const wrapper = mountRadioBtn({
         modelValue: true,
         indeterminate: true,
       });
@@ -110,11 +109,11 @@ describe('EcCheckbox', () => {
 
       expect(wrapper.element).toMatchSnapshot('after');
     });
-  });
+  }); */
 
-  describe('#slots', () => {
+/*   describe('#slots', () => {
     it('#errorMessage - should render the error message slot if passed', () => {
-      const wrapper = mountCheckbox(
+      const wrapper = mountRadioBtn(
         {},
         {
           slots: {
@@ -128,7 +127,7 @@ describe('EcCheckbox', () => {
     });
 
     it('#error-message - should render error-message slot instead of error-message prop when both are passed', () => {
-      const wrapper = mountCheckbox(
+      const wrapper = mountRadioBtn(
         {
           'error-message': 'Error message coming from props',
         },
@@ -144,7 +143,7 @@ describe('EcCheckbox', () => {
     });
 
     it('#label - should render the label slot if passed', () => {
-      const wrapper = mountCheckbox(
+      const wrapper = mountRadioBtn(
         {},
         {
           slots: {
@@ -158,7 +157,7 @@ describe('EcCheckbox', () => {
     });
 
     it('#label - should render label slot instead of label prop when both are passed', () => {
-      const wrapper = mountCheckbox(
+      const wrapper = mountRadioBtn(
         {
           label: 'Label message coming from props',
         },
@@ -176,7 +175,7 @@ describe('EcCheckbox', () => {
 
   describe('@events', () => {
     it('@update:modelValue - should be emitted when input is clicked', () => {
-      const wrapper = mountCheckbox();
+      const wrapper = mountRadioBtn();
 
       wrapper.findByDataTest('ec-checkbox__input').setValue(true);
       expect(wrapper.emitted('update:modelValue').length).toBe(1);
@@ -184,7 +183,7 @@ describe('EcCheckbox', () => {
 
     it('@change - should be emitted when input is clicked', () => {
       const changeSpy = jest.fn();
-      const wrapper = mountCheckbox({}, {
+      const wrapper = mountRadioBtn({}, {
         attrs: {
           onChange: changeSpy,
         },
@@ -197,7 +196,7 @@ describe('EcCheckbox', () => {
 
   describe('attrs', () => {
     it('should pass all non-prop attributes to the hidden checkbox input', () => {
-      const wrapper = mountCheckbox(
+      const wrapper = mountRadioBtn(
         {
           'aria-label': 'Random label',
         },
@@ -206,7 +205,7 @@ describe('EcCheckbox', () => {
     });
 
     it('should render with custom attributes', () => {
-      const wrapper = mountCheckbox({}, {
+      const wrapper = mountRadioBtn({}, {
         attrs: {
           'data-test': 'my-data-test',
           class: 'my-class',
@@ -220,7 +219,7 @@ describe('EcCheckbox', () => {
 
     it('should pass listeners to checkbox input', async () => {
       const clickSpy = jest.fn();
-      const wrapper = mountCheckbox({}, {
+      const wrapper = mountRadioBtn({}, {
         attrs: { onClick: clickSpy },
       });
 
@@ -231,7 +230,7 @@ describe('EcCheckbox', () => {
 
   describe('v-model', () => {
     it('should render the checkbox and toggle v-model value when input is clicked', async () => {
-      const wrapper = mountCheckboxAsTemplate(
+      const wrapper = mountRadioBtnAsTemplate(
         '<ec-checkbox v-model="checked"></ec-checkbox>',
         {},
         {
@@ -249,7 +248,7 @@ describe('EcCheckbox', () => {
     });
 
     it('should not change the value of v-model if disabled is enabled and user clicks the checkbox', async () => {
-      const wrapper = mountCheckboxAsTemplate(
+      const wrapper = mountRadioBtnAsTemplate(
         '<ec-checkbox v-model="checked" disabled></ec-checkbox>',
         {},
         {
@@ -264,6 +263,6 @@ describe('EcCheckbox', () => {
       await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
       expect(wrapper.vm.checked).toBe(true);
     });
-  });
+  }); */
 });
- */
+
