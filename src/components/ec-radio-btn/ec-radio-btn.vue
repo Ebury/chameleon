@@ -214,6 +214,7 @@ onMounted(() => {
 
   &__wrapper {
     @apply tw-flex tw-flex-nowrap;
+    @apply tw-content-center;
 
     &--is-single-line {
       @apply tw-items-center;
@@ -222,7 +223,6 @@ onMounted(() => {
 
   &__radio-label {
     @apply tw-cursor-pointer;
-    @apply tw-align-top;
     @apply tw-input-label;
     @apply tw-flex-grow;
     @apply tw-min-w-0;
@@ -250,7 +250,6 @@ onMounted(() => {
 
   &__radio-text-wrapper {
     @apply tw-cursor-pointer;
-    @apply tw-pt-4;
 
     &--is-single-line {
       @apply tw-flex;
