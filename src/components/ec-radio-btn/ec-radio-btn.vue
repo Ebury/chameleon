@@ -7,7 +7,7 @@
   </div>
   <div
     class="ec-radio-btn__group"
-    :class="{'ec-radio-btn__group--is-single-line': isGroupedInline}"
+    :class="{'ec-radio-btn__group--is-single-line': isGroupInline}"
   >
     <div
       v-for="(radio, radioIndex) in radioButtons"
@@ -16,8 +16,8 @@
       :class="[
         $attrs.class,
         {
-          'tw-mt-16': radioIndex !== 0 && !isGroupedInline,
-          'tw-ml-40': radioIndex !== 0 && isGroupedInline,
+          'tw-mt-16': radioIndex !== 0 && !isGroupInline,
+          'tw-ml-40': radioIndex !== 0 && isGroupInline,
         }
       ]"
       :style="style"
@@ -140,7 +140,7 @@ export interface RadioBtnProps {
   label: string,
   errorMessage: string,
   disabled: boolean,
-  isGroupedInline: boolean,
+  isGroupInline: boolean,
   isTextInline: boolean
 }
 
@@ -150,7 +150,7 @@ const props = withDefaults(defineProps<RadioBtnProps>(), {
   label: '',
   errorMessage: '',
   disabled: false,
-  isGroupedInline: false,
+  isGroupInline: false,
   isTextInline: false,
 });
 
