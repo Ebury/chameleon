@@ -93,9 +93,7 @@
             }"
             :title="isTextInline ? radio.label : null"
             :data-test="`ec-radio-btn__radio-label ec-radio-btn__radio-label-${radioIndex}`"
-          >
-            <slot name="label">{{ radio.label }}</slot>
-          </label>
+          />
 
           <p
             v-if="radio.description"
