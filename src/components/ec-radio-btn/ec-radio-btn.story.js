@@ -1,3 +1,5 @@
+import { ref } from 'vue';
+
 import EcRadioBtn from './ec-radio-btn.vue';
 
 export default {
@@ -7,7 +9,6 @@ export default {
 
 const basicArgs = {
   label: 'Select one option',
-  modelValue: '',
   radios: [
     { value: 'y', label: 'Yes' },
     { value: 'n', label: 'No' },
@@ -17,11 +18,12 @@ const basicArgs = {
 export const basic = () => ({
   components: { EcRadioBtn },
   setup() {
-    return { args: basicArgs };
+    const model = ref('');
+    return { args: basicArgs, model };
   },
   template: `
     <div class="tw-p-24">
-      <ec-radio-btn v-bind="args"/>
+      <ec-radio-btn v-bind="args" v-model="model"/>
     </div>
   `,
 });
@@ -29,6 +31,7 @@ export const basic = () => ({
 export const description = () => ({
   components: { EcRadioBtn },
   setup() {
+    const model = ref('');
     return {
       args: {
         ...basicArgs,
@@ -37,11 +40,12 @@ export const description = () => ({
           { value: 'n', label: 'No', description: 'Reject option' },
         ],
       },
+      model,
     };
   },
   template: `
     <div class="tw-p-24">
-      <ec-radio-btn v-bind="args"/>
+      <ec-radio-btn v-bind="args" v-model="model" />
     </div>
   `,
 });
@@ -49,16 +53,17 @@ export const description = () => ({
 export const checked = () => ({
   components: { EcRadioBtn },
   setup() {
+    const model = ref('y');
     return {
       args: {
         ...basicArgs,
-        modelValue: 'y',
       },
+      model,
     };
   },
   template: `
     <div class="tw-p-24">
-      <ec-radio-btn v-bind="args"/>
+      <ec-radio-btn v-bind="args" v-model="model" />
     </div>
   `,
 });
@@ -66,17 +71,19 @@ export const checked = () => ({
 export const checkedDisabled = () => ({
   components: { EcRadioBtn },
   setup() {
+    const model = ref('y');
     return {
       args: {
         ...basicArgs,
         modelValue: 'y',
         disabled: true,
       },
+      model,
     };
   },
   template: `
     <div class="tw-p-24">
-      <ec-radio-btn v-bind="args" />
+      <ec-radio-btn v-bind="args" v-model="model" />
     </div>
   `,
 });
@@ -84,11 +91,13 @@ export const checkedDisabled = () => ({
 export const inlineRadioGroup = () => ({
   components: { EcRadioBtn },
   setup() {
+    const model = ref('y');
     return {
       args: {
         ...basicArgs,
         isGroupInline: true,
       },
+      model,
     };
   },
   template: `
@@ -101,6 +110,7 @@ export const inlineRadioGroup = () => ({
 export const inlineText = () => ({
   components: { EcRadioBtn },
   setup() {
+    const model = ref('y');
     return {
       args: {
         ...basicArgs,
@@ -110,11 +120,12 @@ export const inlineText = () => ({
         ],
         isTextInline: true,
       },
+      model,
     };
   },
   template: `
     <div class="tw-p-24">
-      <ec-radio-btn v-bind="args" />
+      <ec-radio-btn v-bind="args" v-model="model" />
     </div>
   `,
 });
@@ -122,33 +133,18 @@ export const inlineText = () => ({
 export const uncheckedDisabled = () => ({
   components: { EcRadioBtn },
   setup() {
+    const model = ref('y');
     return {
       args: {
         ...basicArgs,
         disabled: true,
       },
+      model,
     };
   },
   template: `
     <div class="tw-p-24">
-      <ec-radio-btn v-bind="args" />
-    </div>
-  `,
-});
-
-export const mediumIconSize = () => ({
-  components: { EcRadioBtn },
-  setup() {
-    return {
-      args: {
-        ...basicArgs,
-        iconSize: 'medium',
-      },
-    };
-  },
-  template: `
-    <div class="tw-p-24">
-      <ec-radio-btn v-bind="args" />
+      <ec-radio-btn v-bind="args" v-model="model" />
     </div>
   `,
 });
@@ -156,16 +152,18 @@ export const mediumIconSize = () => ({
 export const error = () => ({
   components: { EcRadioBtn },
   setup() {
+    const model = ref('');
     return {
       args: {
         ...basicArgs,
         errorMessage: 'One of the options must be selected',
       },
+      model,
     };
   },
   template: `
     <div class="tw-p-24">
-      <ec-radio-btn v-bind="args" />
+      <ec-radio-btn v-bind="args" v-model="model" />
     </div>
   `,
 });
