@@ -13,6 +13,19 @@ exports[`EcPopover component should add the z-index level class if the level was
 </fv-dropdown-stub>
 `;
 
+exports[`EcPopover component should attach to a different element when provided 1`] = `
+<fv-dropdown-stub
+  ariaid="ec-popover-1"
+  arrowoverflow="true"
+  container="custom-element"
+  data-test="ec-popover"
+  popperclass="ec-popover"
+>
+  
+  
+</fv-dropdown-stub>
+`;
+
 exports[`EcPopover component should merge default options with given additional options 1`] = `
 <fv-dropdown-stub
   ariaid="ec-popover-1"
