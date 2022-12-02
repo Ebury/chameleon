@@ -7,7 +7,7 @@
   </div>
   <div
     class="ec-radio-btn__group"
-    :class="{'ec-radio-btn__group--is-single-line': isGroupInline}"
+    :class="{'ec-radio-btn__group--is-single-line': isGroupedInline}"
   >
     <div
       v-for="(radio, radioIndex) in radioButtons"
@@ -16,11 +16,11 @@
       :class="[
         $attrs.class,
         {
-          'tw-mt-16': radioIndex !== 0 && !isGroupInline,
-          'tw-ml-40': radioIndex !== 0 && isGroupInline,
+          'tw-mt-16': radioIndex !== 0 && !isGroupedInline,
+          'tw-ml-40': radioIndex !== 0 && isGroupedInline,
         }
       ]"
-      :style="$attrs.style"
+      :style="style"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
       @click.prevent.stop="emit('update:modelValue', radio.value)"
     >
@@ -29,7 +29,6 @@
           ...$attrs,
           'aria-describedby': errorId,
           'data-test': `ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
-          style: null,
           value: radio.value,
           class: 'ec-radio-btn__input',
           id: id,
@@ -87,7 +86,7 @@
             :class="{
               'ec-radio-btn__radio-label--disabled': disabled,
             }"
-            :title="isTextInline ? radio.label : null"
+            :title="isTextInline ? radio.label : undefined"
             :data-test="`ec-radio-btn__radio-label ec-radio-btn__radio-label-${radioIndex}`"
           >
             {{ radio.label }}
@@ -101,7 +100,7 @@
               'ec-radio-btn__radio-description--is-single-line': isTextInline,
               'ec-radio-btn__radio-description--disabled': disabled,
             }"
-            :title="isTextInline ? radio.description : null"
+            :title="isTextInline ? radio.description : undefined"
             :data-test="`ec-radio-btn__radio-description ec-radio-btn__radio-description-${radioIndex}`"
           >
             {{ radio.description }}
@@ -121,18 +120,14 @@
 </template>
 
 <script setup lang="ts">
+import type { ComputedRef, StyleValue } from 'vue';
 import {
-  computed,
-  ComputedRef,
-  onMounted,
-  Ref,
-  ref,
-  useSlots,
+  computed, onMounted, ref, useAttrs, useSlots, withDefaults,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
-import {
+import type {
   RadioBtnEvent, RadioBtnEvents, RadioBtnOption, RadioBtnProps,
 } from './types';
 
@@ -141,7 +136,7 @@ interface RadioBtn extends RadioBtnOption {
 }
 
 const props = withDefaults(defineProps<RadioBtnProps>(), {
-  options: [],
+  options: () => [],
   modelValue: '',
   label: '',
   errorMessage: '',
@@ -152,17 +147,19 @@ const props = withDefaults(defineProps<RadioBtnProps>(), {
 
 const uid = getUid();
 const slots = useSlots();
+const attrs = useAttrs();
+const style = attrs.style as unknown as StyleValue;
 
 const id = `ec-radio-btn-${uid}`;
-const isInvalid: ComputedRef<boolean> = computed(() => (!!props.errorMessage || !!slots['error-message']));
-const errorId : ComputedRef<string | null> = computed(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : null));
+const isInvalid = computed<boolean>(() => (!!props.errorMessage || !!slots['error-message']));
+const errorId = computed<string>(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : ''));
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioBtnEvents[RadioBtnEvent.UPDATE_MODEL_VALUE]): void,
 }>();
 
 const inputModel: ComputedRef<string> = computed<RadioBtnProps['modelValue']>(() => props.modelValue);
 
-const radioButtons: Ref<RadioBtn[]> = ref([]);
+const radioButtons = ref<RadioBtn[]>([]);
 
 function addFocusPropertyToRadios(options: RadioBtnOption[]) : void {
   if (options?.length > 0) {
