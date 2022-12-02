@@ -9,7 +9,7 @@ export default {
 
 const basicArgs = {
   label: 'Select one option',
-  radios: [
+  options: [
     { value: 'y', label: 'Yes' },
     { value: 'n', label: 'No' },
   ],
@@ -35,7 +35,7 @@ export const description = () => ({
     return {
       args: {
         ...basicArgs,
-        radios: [
+        options: [
           { value: 'y', label: 'Yes', description: 'Confirm option' },
           { value: 'n', label: 'No', description: 'Reject option' },
         ],
@@ -114,7 +114,7 @@ export const inlineText = () => ({
     return {
       args: {
         ...basicArgs,
-        radios: [
+        options: [
           { value: 'y', label: 'Yes', description: '(Confirm)' },
           { value: 'n', label: 'No', description: '(Reject)' },
         ],

@@ -133,7 +133,7 @@ import EcIcon from '../ec-icon';
 
 const props = defineProps(
   {
-    radios: {
+    options: {
       default: () => [],
       type: Array,
     },
@@ -161,14 +161,6 @@ const props = defineProps(
       default: false,
       type: Boolean,
     },
-    value: {
-      default: '',
-      type: String,
-    },
-    iconSize: {
-      default: 'small',
-      type: String,
-    },
   },
 );
 
@@ -185,9 +177,9 @@ const inputModel = computed(() => props.modelValue);
 
 const radioButtons = ref([]);
 
-function addFocusPropertyToRadios(radios) {
-  if (radios?.length > 0) {
-    radioButtons.value = radios.map(radio => ({
+function addFocusPropertyToRadios(options) {
+  if (options?.length > 0) {
+    radioButtons.value = options.map(radio => ({
       ...radio,
       isFocused: false,
     }));
@@ -211,7 +203,7 @@ function unsetFocus(radioIndex) {
 }
 
 onMounted(() => {
-  addFocusPropertyToRadios(props.radios);
+  addFocusPropertyToRadios(props.options);
 });
 </script>
 
