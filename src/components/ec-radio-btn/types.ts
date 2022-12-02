@@ -8,7 +8,7 @@ export interface RadioBtnEvents {
 
 export interface RadioBtnOption {
     label: string,
-    value: string | number | boolean,
+    value: string,
     description?: string
   }
 
@@ -19,6 +19,6 @@ export interface RadioBtnProps {
     errorMessage: string,
     disabled: boolean,
     isGroupedInline: boolean,
-    isTextInline: boolean
+    isTextInline: boolean | null
   }
 
