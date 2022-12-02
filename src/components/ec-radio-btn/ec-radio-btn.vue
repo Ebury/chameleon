@@ -1,11 +1,13 @@
 <template>
   <div
     v-if="label"
+    data-test="ec-radio-btn__label"
     class="ec-radio-btn__label"
   >
     {{ label }}
   </div>
   <div
+    data-test="ec-radio-btn__group"
     class="ec-radio-btn__group"
     :class="{'ec-radio-btn__group--is-single-line': isGroupInline}"
   >
@@ -28,7 +30,7 @@
         v-bind="{
           ...$attrs,
           'aria-describedby': errorId,
-          'data-test': `ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
+          'data-test': `ec-radio-btn__input ec-radio-btn__input ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
           value: radio.value,
           class: 'ec-radio-btn__input',
           id: id,
@@ -74,6 +76,7 @@
         </div>
 
         <div
+          data-test="ec-radio-btn__radio-text-wrapper"
           class="ec-radio-btn__radio-text-wrapper"
           :class="{
             'ec-radio-btn__radio-text-wrapper--is-single-line': isTextInline,

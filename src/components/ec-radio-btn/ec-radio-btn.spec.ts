@@ -1,5 +1,6 @@
 import type { MountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
+import { wrap } from 'module';
 import { defineComponent, ref } from 'vue';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
@@ -7,7 +8,7 @@ import { EcRadioBtn } from '../../main';
 import type { RadioBtnProps } from './types';
 
 function mountRadioBtn(props?: RadioBtnProps, mountOpts?: MountingOptions<RadioBtnProps>): CVueWrapper {
-  return mount<RadioBtnProps>(
+  return mount(
     EcRadioBtn as any, // eslint-disable-line
     {
       props: {
@@ -23,93 +24,81 @@ function mountRadioBtn(props?: RadioBtnProps, mountOpts?: MountingOptions<RadioB
 }
 
 describe('EcRadioBtn', () => {
-  /* describe(':props', () => {
-    it(':label - should render the checkbox with a label', () => {
+  describe(':props', () => {
+    it(':label - should render the radio button with a label', () => {
       const wrapper = mountRadioBtn({
         label: 'Test label prop',
+        options: [
+          { value: 'y', label: 'Yes' },
+          { value: 'n', label: 'No' },
+        ],
       });
 
-      expect(wrapper.findByDataTest('ec-checkbox__label').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':isSingleLine - should render the checkbox with in a single line with the label as a title', () => {
+    it(':isGroupInline - should render the radio buttons on a single line', () => {
       const wrapper = mountRadioBtn({
-        label: 'Test is single line prop',
-        isSingleLine: true,
+        options: [
+          { value: 'y', label: 'Yes' },
+          { value: 'n', label: 'No' },
+        ],
+        isGroupInline: true,
       });
 
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-radio-btn__group').element).toMatchSnapshot();
     });
 
-    it(':error-message - should render the checkbox with an error message', () => {
+    it.skip(':isTextInline - should render the radio buttons text (label and description) on a single line', () => {
       const wrapper = mountRadioBtn({
-        'error-message': 'Test error message prop',
+        options: [
+          { value: 'oneOpt', label: 'One option' },
+        ],
+        isTextInline: true,
       });
 
-      expect(wrapper.findByDataTest('ec-checkbox__error-text').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-radio-btn__radio-text-wrapper').element).toMatchSnapshot();
     });
 
-    it(':disabled - should render the checkbox with a disabled attribute and not checked', () => {
+    it(':error-message - should render the radio button with an error message', () => {
       const wrapper = mountRadioBtn({
+        options: [
+          { value: 'y', label: 'Yes' },
+          { value: 'n', label: 'No' },
+        ],
+        errorMessage: 'Test error message prop',
+      });
+
+      expect(wrapper.findByDataTest('ec-radio-btn__error-text').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-radio-btn__error-text').element).toMatchSnapshot();
+    });
+
+    it.skip(':disabled - should render the radio button with a disabled attribute', () => {
+      const wrapper = mountRadioBtn({
+        options: [
+          { value: 'y', label: 'Yes' },
+        ],
         disabled: true,
-        modelValue: false,
       });
 
-      expect(wrapper.element).toMatchSnapshot();
+      console.log(wrapper.findByDataTest('ec-radio-btn__input ec-radio-btn__input').element);
+      // expect(wrapper.findByDataTest('ec-radio-btn__input ec-radio-btn__input').element.disabled).toBe(true);
+      expect(wrapper.findByDataTest('ec-radio-btn__input ec-radio-btn__input').element).toMatchSnapshot();
     });
 
-    it(':disabled - should render the checkbox with a disabled attribute and indeterminate', () => {
+    it.only(':disabled - should render the radio button with a disabled attribute and checked', () => {
       const wrapper = mountRadioBtn({
+        options: [
+          { value: 'y', label: 'Yes' },
+        ],
         disabled: true,
-        indeterminate: true,
+        modelValue: 'y',
       });
 
-      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-radio-btn__input ec-radio-btn__input').element).toMatchSnapshot();
     });
-
-    it(':disabled - should render the checkbox with a disabled attribute and checked', () => {
-      const wrapper = mountRadioBtn({
-        disabled: true,
-        modelValue: true,
-      });
-
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':indeterminate - should render the checkbox as indeterminate', () => {
-      const wrapper = mountRadioBtn({
-        indeterminate: true,
-      });
-
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':indeterminate - should render even if the checkbox is checked', () => {
-      const wrapper = mountRadioBtn({
-        modelValue: true,
-        indeterminate: true,
-      });
-
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':indeterminate - should render the checkbox as checked when indeterminate has switched to false', async () => {
-      const wrapper = mountRadioBtn({
-        modelValue: true,
-        indeterminate: true,
-      });
-
-      expect(wrapper.element).toMatchSnapshot('before');
-
-      await wrapper.setProps({
-        indeterminate: false,
-      });
-
-      expect(wrapper.element).toMatchSnapshot('after');
-    });
-  }); */
+  });
 
 /*   describe('#slots', () => {
     it('#errorMessage - should render the error message slot if passed', () => {
@@ -122,7 +111,7 @@ describe('EcRadioBtn', () => {
         },
       );
 
-      expect(wrapper.findByDataTest('ec-checkbox__error-text').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-radio-btn__error-text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -138,7 +127,7 @@ describe('EcRadioBtn', () => {
         },
       );
 
-      expect(wrapper.findByDataTest('ec-checkbox__error-text').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-radio-btn__error-text').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -152,7 +141,7 @@ describe('EcRadioBtn', () => {
         },
       );
 
-      expect(wrapper.findByDataTest('ec-checkbox__label').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -168,7 +157,7 @@ describe('EcRadioBtn', () => {
         },
       );
 
-      expect(wrapper.findByDataTest('ec-checkbox__label').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
   });
@@ -177,7 +166,7 @@ describe('EcRadioBtn', () => {
     it('@update:modelValue - should be emitted when input is clicked', () => {
       const wrapper = mountRadioBtn();
 
-      wrapper.findByDataTest('ec-checkbox__input').setValue(true);
+      wrapper.findByDataTest('ec-radio-btn__input').setValue(true);
       expect(wrapper.emitted('update:modelValue').length).toBe(1);
     });
 
@@ -189,13 +178,13 @@ describe('EcRadioBtn', () => {
         },
       });
 
-      wrapper.findByDataTest('ec-checkbox__input').setValue(true);
+      wrapper.findByDataTest('ec-radio-btn__input').setValue(true);
       expect(changeSpy).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('attrs', () => {
-    it('should pass all non-prop attributes to the hidden checkbox input', () => {
+    it('should pass all non-prop attributes to the hidden radio button input', () => {
       const wrapper = mountRadioBtn(
         {
           'aria-label': 'Random label',
@@ -211,27 +200,27 @@ describe('EcRadioBtn', () => {
           class: 'my-class',
           id: 'test-id',
           style: 'top: 0px',
-          role: 'checkbox',
+          role: 'radio button',
         },
       });
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should pass listeners to checkbox input', async () => {
+    it('should pass listeners to radio button input', async () => {
       const clickSpy = jest.fn();
       const wrapper = mountRadioBtn({}, {
         attrs: { onClick: clickSpy },
       });
 
-      await wrapper.findByDataTest('ec-checkbox__input').trigger('click');
+      await wrapper.findByDataTest('ec-radio-btn__input').trigger('click');
       expect(clickSpy).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('v-model', () => {
-    it('should render the checkbox and toggle v-model value when input is clicked', async () => {
+    it('should render the radio button and toggle v-model value when input is clicked', async () => {
       const wrapper = mountRadioBtnAsTemplate(
-        '<ec-checkbox v-model="checked"></ec-checkbox>',
+        '<ec-radio-btn v-model="checked"></ec-radio-btn>',
         {},
         {
           setup() {
@@ -241,15 +230,15 @@ describe('EcRadioBtn', () => {
         },
       );
 
-      expect(wrapper.findByDataTest('ec-checkbox').exists()).toBe(true);
+      expect(wrapper.findByDataTest('ec-radio-btn').exists()).toBe(true);
       expect(wrapper.vm.checked).toBe(true);
-      await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
+      await wrapper.findByDataTest('ec-radio-btn__input').setValue(false);
       expect(wrapper.vm.checked).toBe(false);
     });
 
-    it('should not change the value of v-model if disabled is enabled and user clicks the checkbox', async () => {
+    it('should not change the value of v-model if disabled is enabled and user clicks the radio button', async () => {
       const wrapper = mountRadioBtnAsTemplate(
-        '<ec-checkbox v-model="checked" disabled></ec-checkbox>',
+        '<ec-radio-btn v-model="checked" disabled></ec-radio-btn>',
         {},
         {
           setup() {
@@ -260,7 +249,7 @@ describe('EcRadioBtn', () => {
       );
 
       expect(wrapper.vm.checked).toBe(true);
-      await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
+      await wrapper.findByDataTest('ec-radio-btn__input').setValue(false);
       expect(wrapper.vm.checked).toBe(true);
     });
   }); */

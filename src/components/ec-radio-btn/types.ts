@@ -14,11 +14,11 @@ export interface RadioBtnOption {
 
 export interface RadioBtnProps {
     options: RadioBtnOption[],
-    modelValue: string,
-    label: string,
-    errorMessage: string,
-    disabled: boolean,
-    isGroupInline: boolean,
-    isTextInline: boolean
+    modelValue?: string,
+    label?: string,
+    errorMessage?: string,
+    disabled?: boolean,
+    isGroupInline?: boolean,
+    isTextInline?: boolean
   }
 

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcRadioBtn :props :error-message - should render the radio button with an error message 1`] = `
+<div
+  class="ec-radio-btn__error-text"
+  data-test="ec-radio-btn__error-text"
+  id="ec-radio-btn-1"
+>
+  
+  Test error message prop
+  
+</div>
+`;
+
+exports[`EcRadioBtn :props :isGroupInline - should render the radio buttons on a single line 1`] = `
+<div
+  class="ec-radio-btn__group ec-radio-btn__group--is-single-line"
+  data-test="ec-radio-btn__group"
+>
+  
+  
+</div>
+`;
+
+exports[`EcRadioBtn :props :label - should render the radio button with a label 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="ec-radio-btn__label"
+    data-test="ec-radio-btn__label"
+  >
+    Test label prop
+  </div>
+  <div
+    class="ec-radio-btn__group"
+    data-test="ec-radio-btn__group"
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  
+</div>
+`;
