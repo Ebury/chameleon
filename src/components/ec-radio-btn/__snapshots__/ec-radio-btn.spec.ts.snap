@@ -626,6 +626,17 @@ exports[`EcRadioBtn :props :label - should render the radio button without a lab
 </div>
 `;
 
+exports[`EcRadioBtn accessibility should focus on the option selected with arrow key 1`] = `
+<input
+  aria-describedby=""
+  class="ec-radio-btn__input"
+  data-test="ec-radio-btn__input ec-radio-btn__input-1"
+  id="ec-radio-btn-1"
+  type="radio"
+  value="n"
+/>
+`;
+
 exports[`EcRadioBtn attrs should render with custom attributes 1`] = `
 <div
   data-v-app=""

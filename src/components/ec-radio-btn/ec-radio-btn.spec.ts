@@ -241,7 +241,7 @@ describe('EcRadioBtn', () => {
     });
   });
 
-  /* describe('accessibility', () => {
+  describe('accessibility', () => {
     it('should focus on the option selected with arrow key', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
@@ -263,6 +263,6 @@ describe('EcRadioBtn', () => {
       expect(wrapper.findByDataTest('ec-radio-btn__input-1').element).toMatchSnapshot();
       expect((wrapper.vm as any).modelValue).toBe('n');
     });
-  }); */
+  });
 });
 
