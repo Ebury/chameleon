@@ -6,10 +6,6 @@ import type { CVueWrapper } from '../../../tests/utils/global';
 import { EcRadioBtn } from '../../main';
 import type { RadioBtnProps } from './types';
 
-interface RadioWrapper extends CVueWrapper{
-  $data: RadioBtnProps
-}
-
 function mountRadioBtn(props?: Partial<RadioBtnProps>, mountOpts?: MountingOptions<RadioBtnProps>): CVueWrapper {
   return mount(
     EcRadioBtn as any, // eslint-disable-line
@@ -222,7 +218,7 @@ describe('EcRadioBtn', () => {
       });
 
       await wrapper.findByDataTest('ec-radio-btn-1').trigger('click');
-      expect((wrapper.vm as any).modelValue).toBe('n');
+      expect((wrapper.vm as typeof EcRadioBtn).modelValue).toBe('n');
     });
 
     it('should not change the value of v-model if disabled is enabled and user clicks the radio button', async () => {
@@ -237,7 +233,7 @@ describe('EcRadioBtn', () => {
       });
 
       await wrapper.findByDataTest('ec-radio-btn-1').trigger('click');
-      expect((wrapper.vm.$props as RadioBtnProps).modelValue).toBe('y');
+      expect((wrapper.vm as typeof EcRadioBtn).$data.modelValue).toBe('y');
     });
   });
 
@@ -261,7 +257,7 @@ describe('EcRadioBtn', () => {
       await inputElement.focus();
       await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('keydown.down');
       expect(wrapper.findByDataTest('ec-radio-btn__input-1').element).toMatchSnapshot();
-      expect((wrapper.vm as any).modelValue).toBe('n');
+      expect((wrapper.vm as typeof EcRadioBtn).modelValue).toBe('n');
     });
   });
 });
