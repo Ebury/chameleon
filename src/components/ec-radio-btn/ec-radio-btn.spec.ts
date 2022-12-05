@@ -259,9 +259,9 @@ describe('EcRadioBtn', () => {
 
       const inputElement = (wrapper.findByDataTest('ec-radio-btn__input-0').element as HTMLInputElement);
       await inputElement.focus();
-      await inputElement.trigger('keydown.down');
+      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('keydown.down');
       expect(wrapper.findByDataTest('ec-radio-btn__input-1').element).toMatchSnapshot();
-      expect((wrapper.vm.$props as RadioBtnProps).modelValue).toBe('n');
+      expect(wrapper.vm.$data.modelValue).toBe('n');
     });
   });
 });
