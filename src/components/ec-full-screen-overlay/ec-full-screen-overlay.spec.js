@@ -39,6 +39,15 @@ describe('EcFullScreenOverlay', () => {
     expect(document.activeElement).toEqual(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').element);
   });
 
+  describe('defineExpose', () => {
+    it('should return the container that was exposed', () => {
+      const wrapper = mountFullScreenOverlay();
+      const container = wrapper.vm.getFocusTrapContainer();
+      const { overlayContent } = wrapper.vm;
+      expect(container).toEqual(overlayContent);
+    });
+  });
+
   describe(':props', () => {
     it(':show - should not render the overlay when is false', () => {
       const wrapper = mountFullScreenOverlay({ show: false });

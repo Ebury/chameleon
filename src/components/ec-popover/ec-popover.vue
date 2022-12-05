@@ -22,9 +22,12 @@ export default {
 
 <script setup>
 import { Dropdown as FvDropdown } from 'floating-vue';
-import { ref, toRefs, useAttrs } from 'vue';
+import {
+  inject, ref, toRefs, useAttrs,
+} from 'vue';
 
 import { getUid } from '../../utils/uid';
+import { POPOVER_CONTAINER_KEY } from './ec-popover-provide';
 
 const attrs = useAttrs();
 const props = defineProps({
@@ -42,11 +45,12 @@ const id = getUid();
 const popover = ref(null);
 
 const { level, popperClass } = toRefs(props);
+const { container: containerInject } = inject(POPOVER_CONTAINER_KEY, { container: ref('body') });
 
 function getOptions() {
   return {
     popperClass: `${popperClass.value} ec-popover${level.value && ` ec-popover--${level.value}`}`.trim(),
-    container: 'body',
+    container: containerInject.value,
     ariaId: `ec-popover-${id}`,
     arrowOverflow: true, // to hide the arrow for popover
     ...attrs,

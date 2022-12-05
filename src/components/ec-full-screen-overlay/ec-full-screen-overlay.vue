@@ -80,6 +80,14 @@ const { deactivate } = useFocusTrap(overlayContent, {
   allowOutsideClick: true,
 });
 
+function getFocusTrapContainer() {
+  return overlayContent.value;
+}
+
+defineExpose({
+  getFocusTrapContainer,
+});
+
 onUnmounted(() => {
   deactivate();
 });
