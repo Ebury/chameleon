@@ -49,7 +49,7 @@ describe('EcRadioBtn', () => {
       expect(wrapper.findByDataTest('ec-radio-btn__group').element).toMatchSnapshot();
     });
 
-    it.skip(':isTextInline - should render the radio buttons text (label and description) on a single line', () => {
+    it(':isTextInline - should render the radio buttons text (label and description) on a single line', () => {
       const wrapper = mountRadioBtn({
         options: [
           { value: 'oneOpt', label: 'One option' },
@@ -73,7 +73,7 @@ describe('EcRadioBtn', () => {
       expect(wrapper.findByDataTest('ec-radio-btn__error-text').element).toMatchSnapshot();
     });
 
-    it.skip(':disabled - should render the radio button with a disabled attribute', () => {
+    it(':disabled - should render the radio button with a disabled attribute', () => {
       const wrapper = mountRadioBtn({
         options: [
           { value: 'y', label: 'Yes' },
@@ -86,7 +86,7 @@ describe('EcRadioBtn', () => {
       expect(wrapper.findByDataTest('ec-radio-btn__input ec-radio-btn__input').element).toMatchSnapshot();
     });
 
-    it.only(':disabled - should render the radio button with a disabled attribute and checked', () => {
+    it(':disabled - should render the radio button with a disabled attribute and checked', () => {
       const wrapper = mountRadioBtn({
         options: [
           { value: 'y', label: 'Yes' },
@@ -95,6 +95,9 @@ describe('EcRadioBtn', () => {
         modelValue: 'y',
       });
 
+      const inputElement = (wrapper.findByDataTest('ec-radio-btn__input').element as HTMLInputElement);
+      expect(inputElement.disabled).toBe(true);
+      expect(inputElement.value).toBe('y');
       expect(wrapper.findByDataTest('ec-radio-btn').element).toMatchSnapshot();
     });
   });

@@ -30,7 +30,7 @@
         v-bind="{
           ...$attrs,
           'aria-describedby': errorId,
-          'data-test': `ec-radio-btn__input ec-radio-btn__input ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
+          'data-test': `ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
           value: radio.value,
           class: 'ec-radio-btn__input',
           id: id,
@@ -125,7 +125,7 @@
 <script setup lang="ts">
 import type { StyleValue } from 'vue';
 import {
-  computed, onMounted, ref, useAttrs, useSlots, withDefaults,
+  computed, ref, useAttrs, useSlots, withDefaults,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
@@ -139,12 +139,12 @@ interface RadioBtn extends RadioBtnOption {
 // This must be equal with exaxtly the same interface in the types.ts
 export interface RadioBtnProps {
   options: RadioBtnOption[],
-  modelValue: string,
-  label: string,
-  errorMessage: string,
-  disabled: boolean,
-  isGroupInline: boolean,
-  isTextInline: boolean
+  modelValue?: string,
+  label?: string,
+  errorMessage?: string,
+  disabled?: boolean,
+  isGroupInline?: boolean,
+  isTextInline?: boolean
 }
 
 const props = withDefaults(defineProps<RadioBtnProps>(), {
@@ -198,9 +198,11 @@ function unsetFocus(radioIndex: number) {
   radioButtons.value[radioIndex].isFocused = false;
 }
 
-onMounted(() => {
+function init() {
   addFocusPropertyToRadios(props.options);
-});
+}
+
+init();
 </script>
 
 <style>

@@ -2,19 +2,52 @@
 
 exports[`EcRadioBtn :props :disabled - should render the radio button with a disabled attribute and checked 1`] = `
 <div
-  data-v-app=""
+  class="ec-radio-btn"
+  data-test="ec-radio-btn ec-radio-btn-0"
 >
-  
-  <!--v-if-->
+  <input
+    aria-describedby=""
+    class="ec-radio-btn__input"
+    data-test="ec-radio-btn__input ec-radio-btn__input-0"
+    disabled=""
+    id="ec-radio-btn-1"
+    type="radio"
+    value="y"
+  />
   <div
-    class="ec-radio-btn__group"
-    data-test="ec-radio-btn__group"
+    class="ec-radio-btn__wrapper"
   >
-    
-    
+    <div
+      class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--disabled ec-radio-btn__radio-icon-wrapper--checked-and-disabled"
+    >
+      <div
+        class="ec-radio-btn__radio-icon-wrapper-inner"
+      >
+        <svg
+          class="ec-icon ec-radio-btn__radio-icon ec-radio-btn__radio-icon--checked-and-disabled"
+          height="20"
+          width="20"
+        >
+          <use
+            xlink:href="#ec-rounded-notification"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="ec-radio-btn__radio-text-wrapper"
+      data-test="ec-radio-btn__radio-text-wrapper"
+    >
+      <label
+        class="ec-radio-btn__radio-label ec-radio-btn__radio-label--disabled"
+        data-test="ec-radio-btn__radio-label ec-radio-btn__radio-label-0"
+        for="ec-radio-btn-1"
+      >
+        Yes
+      </label>
+      <!--v-if-->
+    </div>
   </div>
-  <!--v-if-->
-  
 </div>
 `;
 
@@ -37,6 +70,23 @@ exports[`EcRadioBtn :props :isGroupInline - should render the radio buttons on a
 >
   
   
+</div>
+`;
+
+exports[`EcRadioBtn :props :isTextInline - should render the radio buttons text (label and description) on a single line 1`] = `
+<div
+  class="ec-radio-btn__radio-text-wrapper ec-radio-btn__radio-text-wrapper--is-single-line"
+  data-test="ec-radio-btn__radio-text-wrapper"
+>
+  <label
+    class="ec-radio-btn__radio-label"
+    data-test="ec-radio-btn__radio-label ec-radio-btn__radio-label-0"
+    for="ec-radio-btn-1"
+    title="One option"
+  >
+    One option
+  </label>
+  <!--v-if-->
 </div>
 `;
 
