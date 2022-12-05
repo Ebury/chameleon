@@ -6,6 +6,10 @@ import type { CVueWrapper } from '../../../tests/utils/global';
 import { EcRadioBtn } from '../../main';
 import type { RadioBtnProps } from './types';
 
+interface RadioWrapper extends CVueWrapper{
+  $data: RadioBtnProps
+}
+
 function mountRadioBtn(props?: Partial<RadioBtnProps>, mountOpts?: MountingOptions<RadioBtnProps>): CVueWrapper {
   return mount(
     EcRadioBtn as any, // eslint-disable-line
@@ -180,7 +184,7 @@ describe('EcRadioBtn', () => {
   });
 
   describe('@events', () => {
-    it('@update:modelValue - should be emitted when input is clicked', () => {
+    it('@update:modelValue - should be emitted when input is clicked', async () => {
       const wrapper = mountRadioBtn({
         options: [
           { value: 'y', label: 'Yes' },
@@ -188,8 +192,8 @@ describe('EcRadioBtn', () => {
         ],
       });
 
-      wrapper.findByDataTest('ec-radio-btn__input-0').setValue('y');
-      expect(wrapper.emitted('update:modelValue').length).toBe(1);
+      await wrapper.findByDataTest('ec-radio-btn-0').trigger('click');
+      expect(wrapper.emitted('update:modelValue')?.length).toBe(1);
     });
   });
 
@@ -218,7 +222,7 @@ describe('EcRadioBtn', () => {
       });
 
       await wrapper.findByDataTest('ec-radio-btn-1').trigger('click');
-      expect((wrapper.vm.$props as RadioBtnProps).modelValue).toBe('n');
+      expect((wrapper.vm.$data.modelValue)).toBe('n');
     });
 
     it('should not change the value of v-model if disabled is enabled and user clicks the radio button', async () => {
@@ -238,7 +242,7 @@ describe('EcRadioBtn', () => {
   });
 
   describe('accessibility', () => {
-    it.only('should focus on the option selected with arrow key', async () => {
+    it('should focus on the option selected with arrow key', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
