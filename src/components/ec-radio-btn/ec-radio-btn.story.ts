@@ -43,7 +43,7 @@ export const all = () => ({
     const modelInlineRadioGroup = ref<RadioBtnProps['modelValue']>('y');
     const modelInlineText = ref<RadioBtnProps['modelValue']>('y');
     const modelError = ref<RadioBtnProps['modelValue']>('');
-    const optionsWithDescription = [
+    const optionsWithDescription: RadioBtnProps['options'] = [
       { value: 'y', label: 'Yes', description: 'Confirm' },
       { value: 'n', label: 'No', description: 'Dismiss' },
     ];
