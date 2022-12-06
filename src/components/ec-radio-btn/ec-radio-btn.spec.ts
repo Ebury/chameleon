@@ -190,6 +190,7 @@ describe('EcRadioBtn', () => {
 
       await wrapper.findByDataTest('ec-radio-btn-0').trigger('click');
       expect(wrapper.emitted('update:modelValue')?.length).toBe(1);
+      expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['y']);
     });
   });
 
