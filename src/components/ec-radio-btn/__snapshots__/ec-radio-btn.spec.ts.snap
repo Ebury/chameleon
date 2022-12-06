@@ -256,18 +256,6 @@ exports[`EcRadioBtn :props :disabled - should render the checked radio button wi
 />
 `;
 
-exports[`EcRadioBtn :props :disabled - should render the unchecked radio button with a disabled attribute 1`] = `
-<input
-  aria-describedby=""
-  class="ec-radio-btn__input"
-  data-test="ec-radio-btn__input ec-radio-btn__input-0"
-  disabled=""
-  id="ec-radio-btn-1"
-  type="radio"
-  value=""
-/>
-`;
-
 exports[`EcRadioBtn :props :error-message - should render the radio button with an error message 1`] = `
 <div
   class="ec-radio-btn__error-text"
@@ -278,6 +266,18 @@ exports[`EcRadioBtn :props :error-message - should render the radio button with 
   Test error message prop
   
 </div>
+`;
+
+exports[`EcRadioBtn :props :isDisabled - should render the unchecked radio button with a disabled attribute 1`] = `
+<input
+  aria-describedby=""
+  class="ec-radio-btn__input"
+  data-test="ec-radio-btn__input ec-radio-btn__input-0"
+  disabled=""
+  id="ec-radio-btn-1"
+  type="radio"
+  value=""
+/>
 `;
 
 exports[`EcRadioBtn :props :isGroupInline - should render the radio buttons on a single line 1`] = `

@@ -17,7 +17,7 @@ export interface RadioBtnProps {
     modelValue?: string,
     label?: string,
     errorMessage?: string,
-    disabled?: boolean,
+    isDisabled?: boolean,
     isGroupInline?: boolean,
     isTextInline?: boolean
   }

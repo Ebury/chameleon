@@ -77,12 +77,12 @@ export const all = () => ({
 
       <h3>Unchecked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn v-bind="args" v-model="modelUncheckedDisabled" :disabled="true" />
+        <ec-radio-btn v-bind="args" v-model="modelUncheckedDisabled" :is-disabled="true" />
       </div>
 
       <h3>Checked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn v-bind="args" v-model="modelCheckedDisabled" :disabled="true" />
+        <ec-radio-btn v-bind="args" v-model="modelCheckedDisabled" :is-disabled="true" />
       </div>
 
       <h3>Inline Radio Group</h3>

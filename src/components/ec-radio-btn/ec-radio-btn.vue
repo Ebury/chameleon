@@ -34,7 +34,7 @@
           value: radio.value,
           class: 'ec-radio-btn__input',
           id: id,
-          disabled: disabled,
+          disabled: isDisabled,
           type: 'radio'
         }"
         :value="modelValue"
@@ -56,8 +56,8 @@
             'ec-radio-btn__radio-icon-wrapper--checked': isOptionChecked(radio.value) && !disabled && !isOptionFocused(radioIndex),
             'ec-radio-btn__radio-icon-wrapper--checked-and-focused': isOptionChecked(radio.value) && isOptionFocused(radioIndex),
             'ec-radio-btn__radio-icon-wrapper--error': isInvalid && !isOptionChecked(radio.value),
-            'ec-radio-btn__radio-icon-wrapper--disabled': disabled,
-            'ec-radio-btn__radio-icon-wrapper--checked-and-disabled': disabled && isOptionChecked(radio.value),
+            'ec-radio-btn__radio-icon-wrapper--disabled': isDisabled,
+            'ec-radio-btn__radio-icon-wrapper--checked-and-disabled': isDisabled && isOptionChecked(radio.value),
           }"
         >
           <div
@@ -67,8 +67,8 @@
             <ec-icon
               class="ec-radio-btn__radio-icon"
               :class="{
-                'ec-radio-btn__radio-icon--checked': isOptionChecked(radio.value) && !disabled,
-                'ec-radio-btn__radio-icon--checked-and-disabled': disabled && isOptionChecked(radio.value)
+                'ec-radio-btn__radio-icon--checked': isOptionChecked(radio.value) && !isDisabled,
+                'ec-radio-btn__radio-icon--checked-and-disabled': isDisabled && isOptionChecked(radio.value)
               }"
               name="rounded-notification"
               :size="20"
@@ -88,7 +88,7 @@
             :for="id"
             class="ec-radio-btn__radio-label"
             :class="{
-              'ec-radio-btn__radio-label--disabled': disabled,
+              'ec-radio-btn__radio-label--disabled': isDisabled,
             }"
             :title="isTextInline ? radio.label : undefined"
             :data-test="`ec-radio-btn__radio-label ec-radio-btn__radio-label-${radioIndex}`"
@@ -102,7 +102,7 @@
             class="ec-radio-btn__radio-description"
             :class="{
               'ec-radio-btn__radio-description--is-single-line': isTextInline,
-              'ec-radio-btn__radio-description--disabled': disabled,
+              'ec-radio-btn__radio-description--disabled': isDisabled,
             }"
             :title="isTextInline ? radio.description : undefined"
             :data-test="`ec-radio-btn__radio-description ec-radio-btn__radio-description-${radioIndex}`"
@@ -143,7 +143,7 @@ export interface RadioBtnProps {
   modelValue?: string,
   label?: string,
   errorMessage?: string,
-  disabled?: boolean,
+  isDisabled?: boolean,
   isGroupInline?: boolean,
   isTextInline?: boolean
 }
@@ -153,7 +153,7 @@ const props = withDefaults(defineProps<RadioBtnProps>(), {
   modelValue: '',
   label: '',
   errorMessage: '',
-  disabled: false,
+  isDisabled: false,
   isGroupInline: false,
   isTextInline: false,
 });
@@ -196,7 +196,7 @@ function unsetFocus(radioIndex: number) {
 }
 
 function onRadioBtnClick(value: string) {
-  if (!props.disabled) {
+  if (!props.isDisabled) {
     emit(RadioBtnEvent.UPDATE_MODEL_VALUE, value);
   }
 }

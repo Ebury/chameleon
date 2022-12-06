@@ -85,12 +85,12 @@ describe('EcRadioBtn', () => {
       expect(wrapper.findByDataTest('ec-radio-btn__error-text').element).toMatchSnapshot();
     });
 
-    it(':disabled - should render the unchecked radio button with a disabled attribute', () => {
+    it(':isDisabled - should render the unchecked radio button with a disabled attribute', () => {
       const wrapper = mountRadioBtn({
         options: [
           { value: 'y', label: 'Yes' },
         ],
-        disabled: true,
+        isDisabled: true,
       });
       const inputElement = (wrapper.findByDataTest('ec-radio-btn__input').element as HTMLInputElement);
       expect(inputElement.disabled).toBe(true);
@@ -102,7 +102,7 @@ describe('EcRadioBtn', () => {
         options: [
           { value: 'y', label: 'Yes' },
         ],
-        disabled: true,
+        isDisabled: true,
         modelValue: 'y',
       });
 
@@ -229,7 +229,7 @@ describe('EcRadioBtn', () => {
           { value: 'n', label: 'No' },
         ],
         modelValue: 'y',
-        disabled: true,
+        isDisabled: true,
       });
 
       await wrapper.findByDataTest('ec-radio-btn-1').trigger('click');
