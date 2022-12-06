@@ -147,38 +147,6 @@ describe('EcRadioBtn', () => {
     });
   });
 
-  describe('#slots', () => {
-    it('#errorMessage - should render the error message slot if passed', () => {
-      const wrapper = mountRadioBtn(
-        {},
-        {
-          slots: {
-            'error-message': 'Test error message slot',
-          },
-        },
-      );
-
-      expect(wrapper.findByDataTest('ec-radio-btn__error-text').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it('#error-message - should render error-message slot instead of error-message prop when both are passed', () => {
-      const wrapper = mountRadioBtn(
-        {
-          errorMessage: 'Error message coming from props',
-        },
-        {
-          slots: {
-            'error-message': 'Error message coming from slot',
-          },
-        },
-      );
-
-      expect(wrapper.findByDataTest('ec-radio-btn__error-text').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-  });
-
   describe('@events', () => {
     it('@update:modelValue - should be emitted when input is clicked', async () => {
       const wrapper = mountRadioBtn({

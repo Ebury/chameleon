@@ -117,15 +117,13 @@
     v-if="isInvalid"
     class="ec-radio-btn__error-text"
     data-test="ec-radio-btn__error-text"
-  >
-    <slot name="error-message">{{ errorMessage }}</slot>
-  </div>
+  />
 </template>
 
 <script setup lang="ts">
 import type { StyleValue } from 'vue';
 import {
-  computed, ref, useAttrs, useSlots, withDefaults,
+  computed, ref, useAttrs, withDefaults,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
@@ -158,12 +156,11 @@ const props = withDefaults(defineProps<RadioBtnProps>(), {
 });
 
 const uid = getUid();
-const slots = useSlots();
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 
 const id = `ec-radio-btn-${uid}`;
-const isInvalid = computed(() => (!!props.errorMessage || !!slots['error-message']));
+const isInvalid = computed(() => props.errorMessage);
 const errorId = computed(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : ''));
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioBtnEvents[RadioBtnEvent.UPDATE_MODEL_VALUE]): void,
