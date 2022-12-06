@@ -207,37 +207,6 @@ describe('EcRadioBtn', () => {
     });
   });
 
-  describe('v-model', () => {
-    it('should render the radio button and toggle v-model value when input is clicked', async () => {
-      const wrapper = mountRadioBtn({
-        label: 'Test label prop',
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-        ],
-        modelValue: 'y',
-      });
-
-      await wrapper.findByDataTest('ec-radio-btn-1').trigger('click');
-      expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['n']);
-    });
-
-    it('should not change the value of v-model if disabled is enabled and user clicks the radio button', async () => {
-      const wrapper = mountRadioBtn({
-        label: 'Test label prop',
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-        ],
-        modelValue: 'y',
-        isDisabled: true,
-      });
-
-      await wrapper.findByDataTest('ec-radio-btn-1').trigger('click');
-      expect(wrapper.emitted()['update:modelValue']).toEqual(undefined);
-    });
-  });
-
   describe('focus', () => {
     it('should be focused', async () => {
       const elem = document.createElement('div');
