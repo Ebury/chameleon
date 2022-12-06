@@ -45,7 +45,7 @@ export const all = () => ({
     const modelError = ref<RadioBtnProps['modelValue']>('');
     const optionsWithDescription = [
       { value: 'y', label: 'Yes', description: 'Confirm' },
-      { value: 'n', label: 'No', description: 'Reject' },
+      { value: 'n', label: 'No', description: 'Dismiss' },
     ];
     const errorMessage = 'One of the options must be selected';
 
