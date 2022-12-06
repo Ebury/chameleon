@@ -146,7 +146,6 @@ export interface RadioButtonProps {
 }
 
 const props = withDefaults(defineProps<RadioButtonProps>(), {
-  options: () => [],
   modelValue: '',
   label: '',
   errorMessage: '',
