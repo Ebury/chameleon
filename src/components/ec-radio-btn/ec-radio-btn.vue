@@ -37,8 +37,8 @@
           type: 'radio'
         }"
         :value="modelValue"
-        @focus="setFocus(radioIndex)"
-        @blur="unsetFocus(radioIndex)"
+        @focus="setFocusState(radioIndex, true)"
+        @blur="setFocusState(radioIndex, false)"
       >
 
       <div
@@ -182,12 +182,8 @@ function isOptionFocused(radioIndex: number) {
   return radioButtons.value[radioIndex].isFocused;
 }
 
-function setFocus(radioIndex: number) {
-  radioButtons.value[radioIndex].isFocused = true;
-}
-
-function unsetFocus(radioIndex: number) {
-  radioButtons.value[radioIndex].isFocused = false;
+function setFocusState(radioIndex: number, state: boolean) {
+  radioButtons.value[radioIndex].isFocused = state;
 }
 
 function onRadioBtnClick(value: string) {
