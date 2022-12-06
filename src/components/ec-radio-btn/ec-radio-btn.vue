@@ -51,12 +51,12 @@
         <div
           class="ec-radio-btn__radio-icon-wrapper"
           :class="{
-            'ec-radio-btn__radio-icon-wrapper--focused': inputIsFocused(radioIndex),
-            'ec-radio-btn__radio-icon-wrapper--checked': inputIsChecked(radio.value) && !disabled,
-            'ec-radio-btn__radio-icon-wrapper--checked-and-focused': inputIsChecked(radio.value) && inputIsFocused(radioIndex),
-            'ec-radio-btn__radio-icon-wrapper--error': isInvalid && !inputIsChecked(radio.value),
+            'ec-radio-btn__radio-icon-wrapper--focused': isOptionFocused(radioIndex),
+            'ec-radio-btn__radio-icon-wrapper--checked': isOptionChecked(radio.value) && !disabled,
+            'ec-radio-btn__radio-icon-wrapper--checked-and-focused': isOptionChecked(radio.value) && isOptionFocused(radioIndex),
+            'ec-radio-btn__radio-icon-wrapper--error': isInvalid && !isOptionChecked(radio.value),
             'ec-radio-btn__radio-icon-wrapper--disabled': disabled,
-            'ec-radio-btn__radio-icon-wrapper--checked-and-disabled': disabled && inputIsChecked(radio.value),
+            'ec-radio-btn__radio-icon-wrapper--checked-and-disabled': disabled && isOptionChecked(radio.value),
           }"
         >
           <div
@@ -66,8 +66,8 @@
             <ec-icon
               class="ec-radio-btn__radio-icon"
               :class="{
-                'ec-radio-btn__radio-icon--checked': inputIsChecked(radio.value) && !disabled,
-                'ec-radio-btn__radio-icon--checked-and-disabled': disabled && inputIsChecked(radio.value)
+                'ec-radio-btn__radio-icon--checked': isOptionChecked(radio.value) && !disabled,
+                'ec-radio-btn__radio-icon--checked-and-disabled': disabled && isOptionChecked(radio.value)
               }"
               name="rounded-notification"
               :size="20"
@@ -180,11 +180,11 @@ function addFocusPropertyToRadios(options: RadioBtnOption[]) {
   }
 }
 
-function inputIsChecked(radioValue: string) {
+function isOptionChecked(radioValue: string) {
   return props.modelValue === radioValue;
 }
 
-function inputIsFocused(radioIndex: number) {
+function isOptionFocused(radioIndex: number) {
   return radioButtons.value[radioIndex].isFocused;
 }
 
