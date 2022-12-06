@@ -4,9 +4,9 @@ import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
 import { EcRadioBtn } from '../../main';
-import type { RadioBtnProps } from './types';
+import type { RadioButtonProps } from './types';
 
-function mountRadioBtn(props?: Partial<RadioBtnProps>, mountOpts?: MountingOptions<RadioBtnProps>): CVueWrapper {
+function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: MountingOptions<RadioButtonProps>): CVueWrapper {
   return mount(
     EcRadioBtn as any, // eslint-disable-line
     {

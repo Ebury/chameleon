@@ -1,14 +1,14 @@
 import { ref } from 'vue';
 
 import EcRadioBtn from './ec-radio-btn.vue';
-import type { RadioBtnProps } from './types';
+import type { RadioButtonProps } from './types';
 
 export default {
   title: 'Radio Button',
   component: EcRadioBtn,
 };
 
-const basicArgs: Pick<RadioBtnProps, 'options'> = {
+const basicArgs: Pick<RadioButtonProps, 'options'> = {
   options: [
     { value: 'y', label: 'Yes' },
     { value: 'n', label: 'No' },
@@ -18,7 +18,7 @@ const basicArgs: Pick<RadioBtnProps, 'options'> = {
 export const basic = () => ({
   components: { EcRadioBtn },
   setup() {
-    const modelValue = ref<RadioBtnProps['modelValue']>('');
+    const modelValue = ref<RadioButtonProps['modelValue']>('');
     return {
       args: basicArgs,
       label: 'Select one options',
@@ -35,15 +35,15 @@ export const basic = () => ({
 export const all = () => ({
   components: { EcRadioBtn },
   setup() {
-    const modelUnchecked = ref<RadioBtnProps['modelValue']>('');
-    const modelChecked = ref<RadioBtnProps['modelValue']>('y');
-    const modelDescription = ref<RadioBtnProps['modelValue']>('');
-    const modelCheckedDisabled = ref<RadioBtnProps['modelValue']>('y');
-    const modelUncheckedDisabled = ref<RadioBtnProps['modelValue']>('y');
-    const modelInlineRadioGroup = ref<RadioBtnProps['modelValue']>('y');
-    const modelInlineText = ref<RadioBtnProps['modelValue']>('y');
-    const modelError = ref<RadioBtnProps['modelValue']>('');
-    const optionsWithDescription: RadioBtnProps['options'] = [
+    const modelUnchecked = ref<RadioButtonProps['modelValue']>('');
+    const modelChecked = ref<RadioButtonProps['modelValue']>('y');
+    const modelDescription = ref<RadioButtonProps['modelValue']>('');
+    const modelCheckedDisabled = ref<RadioButtonProps['modelValue']>('y');
+    const modelUncheckedDisabled = ref<RadioButtonProps['modelValue']>('y');
+    const modelInlineRadioGroup = ref<RadioButtonProps['modelValue']>('y');
+    const modelInlineText = ref<RadioButtonProps['modelValue']>('y');
+    const modelError = ref<RadioButtonProps['modelValue']>('');
+    const optionsWithDescription: RadioButtonProps['options'] = [
       { value: 'y', label: 'Yes', description: 'Confirm' },
       { value: 'n', label: 'No', description: 'Dismiss' },
     ];

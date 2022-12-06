@@ -128,15 +128,15 @@ import {
 
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
-import type { RadioBtnEvents, RadioBtnOption } from './types';
-import { RadioBtnEvent } from './types';
+import type { RadioButtonEvents, RadioButtonOption } from './types';
+import { RadioButtonEvent } from './types';
 
-interface RadioBtn extends RadioBtnOption {
+interface RadioBtn extends RadioButtonOption {
     isFocused: boolean
 }
 
-export interface RadioBtnProps {
-  options: RadioBtnOption[],
+export interface RadioButtonProps {
+  options: RadioButtonOption[],
   modelValue?: string,
   label?: string,
   errorMessage?: string,
@@ -145,7 +145,7 @@ export interface RadioBtnProps {
   isTextInline?: boolean
 }
 
-const props = withDefaults(defineProps<RadioBtnProps>(), {
+const props = withDefaults(defineProps<RadioButtonProps>(), {
   options: () => [],
   modelValue: '',
   label: '',
@@ -163,12 +163,12 @@ const id = `ec-radio-btn-${uid}`;
 const isInvalid = computed(() => props.errorMessage);
 const errorId = computed(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : ''));
 
-const emit = defineEmits<{(e: 'update:modelValue', value: RadioBtnEvents[RadioBtnEvent.UPDATE_MODEL_VALUE]): void,
+const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]): void,
 }>();
 
 const radioButtons = ref<RadioBtn[]>([]);
 
-function addFocusPropertyToRadios(options: RadioBtnOption[]) {
+function addFocusPropertyToRadios(options: RadioButtonOption[]) {
   radioButtons.value = options.map(radio => ({
     ...radio,
     isFocused: false,
@@ -193,7 +193,7 @@ function unsetFocus(radioIndex: number) {
 
 function onRadioBtnClick(value: string) {
   if (!props.isDisabled) {
-    emit(RadioBtnEvent.UPDATE_MODEL_VALUE, value);
+    emit(RadioButtonEvent.UPDATE_MODEL_VALUE, value);
   }
 }
 
