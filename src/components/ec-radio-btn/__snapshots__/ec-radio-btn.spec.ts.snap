@@ -752,7 +752,7 @@ exports[`EcRadioBtn attrs should render with custom attributes 1`] = `
 
 exports[`EcRadioBtn focus should be checked and focused 1`] = `
 <div
-  class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--focused ec-radio-btn__radio-icon-wrapper--checked ec-radio-btn__radio-icon-wrapper--checked-and-focused"
+  class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--checked-and-focused"
   data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
 >
   <div

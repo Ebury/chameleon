@@ -52,8 +52,8 @@
           :data-test="`ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-${radioIndex}`"
           class="ec-radio-btn__radio-icon-wrapper"
           :class="{
-            'ec-radio-btn__radio-icon-wrapper--focused': isOptionFocused(radioIndex),
-            'ec-radio-btn__radio-icon-wrapper--checked': isOptionChecked(radio.value) && !disabled,
+            'ec-radio-btn__radio-icon-wrapper--focused': isOptionFocused(radioIndex) && !isOptionChecked(radio.value),
+            'ec-radio-btn__radio-icon-wrapper--checked': isOptionChecked(radio.value) && !disabled && !isOptionFocused(radioIndex),
             'ec-radio-btn__radio-icon-wrapper--checked-and-focused': isOptionChecked(radio.value) && isOptionFocused(radioIndex),
             'ec-radio-btn__radio-icon-wrapper--error': isInvalid && !isOptionChecked(radio.value),
             'ec-radio-btn__radio-icon-wrapper--disabled': disabled,
