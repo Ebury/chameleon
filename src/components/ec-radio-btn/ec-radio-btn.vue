@@ -24,7 +24,7 @@
       ]"
       :style="style"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
-      @click.prevent.stop="emit(RadioBtnEvent.UPDATE_MODEL_VALUE, radio.value)"
+      @click.prevent.stop="onRadioBtnClick(radio.value)"
     >
       <input
         v-bind="{
@@ -37,7 +37,7 @@
           disabled: disabled,
           type: 'radio'
         }"
-        v-model="inputModel"
+        :value="modelValue"
         @focus="setFocus(radioIndex)"
         @blur="unsetFocus(radioIndex)"
       >
@@ -169,8 +169,6 @@ const errorId = computed<string>(() => (isInvalid.value ? `ec-radio-btn-error-${
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioBtnEvents[RadioBtnEvent.UPDATE_MODEL_VALUE]): void,
 }>();
 
-const inputModel = computed<RadioBtnProps['modelValue']>(() => props.modelValue);
-
 const radioButtons = ref<RadioBtn[]>([]);
 
 function addFocusPropertyToRadios(options: RadioBtnOption[]) {
@@ -183,7 +181,7 @@ function addFocusPropertyToRadios(options: RadioBtnOption[]) {
 }
 
 function inputIsChecked(radioValue: string) {
-  return inputModel.value === radioValue;
+  return props.modelValue === radioValue;
 }
 
 function inputIsFocused(radioIndex: number) {
@@ -196,6 +194,12 @@ function setFocus(radioIndex: number) {
 
 function unsetFocus(radioIndex: number) {
   radioButtons.value[radioIndex].isFocused = false;
+}
+
+function onRadioBtnClick(value: string) {
+  if (!props.disabled) {
+    emit(RadioBtnEvent.UPDATE_MODEL_VALUE, value);
+  }
 }
 
 function init() {
