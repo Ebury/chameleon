@@ -28,7 +28,6 @@
     >
       <input
         v-bind="{
-          ...$attrs,
           'aria-describedby': errorId,
           'data-test': `ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
           value: radio.value,

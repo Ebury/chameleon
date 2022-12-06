@@ -194,19 +194,6 @@ describe('EcRadioBtn', () => {
     });
   });
 
-  describe('attrs', () => {
-    it('should render with custom attributes', () => {
-      const wrapper = mountRadioBtn({}, {
-        attrs: {
-          'data-test': 'my-data-test',
-          class: 'my-class',
-          id: 'test-id',
-        },
-      });
-      expect(wrapper.element).toMatchSnapshot();
-    });
-  });
-
   describe('focus', () => {
     it('should be focused', async () => {
       const elem = document.createElement('div');
