@@ -218,7 +218,7 @@ describe('EcRadioBtn', () => {
       });
 
       await wrapper.findByDataTest('ec-radio-btn-1').trigger('click');
-      expect((wrapper.vm as typeof EcRadioBtn).modelValue).toBe('n');
+      expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['n']);
     });
 
     it('should not change the value of v-model if disabled is enabled and user clicks the radio button', async () => {
@@ -233,31 +233,7 @@ describe('EcRadioBtn', () => {
       });
 
       await wrapper.findByDataTest('ec-radio-btn-1').trigger('click');
-      expect((wrapper.vm as typeof EcRadioBtn).$data.modelValue).toBe('y');
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should focus on the option selected with arrow key', async () => {
-      const elem = document.createElement('div');
-      document.body.appendChild(elem);
-
-      const wrapper = mountRadioBtn({
-        label: 'Test label prop',
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-        ],
-        modelValue: 'y',
-      }, {
-        attachTo: elem,
-      });
-
-      const inputElement = (wrapper.findByDataTest('ec-radio-btn__input-0').element as HTMLInputElement);
-      await inputElement.focus();
-      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('keydown.down');
-      expect(wrapper.findByDataTest('ec-radio-btn__input-1').element).toMatchSnapshot();
-      expect((wrapper.vm as typeof EcRadioBtn).modelValue).toBe('n');
+      expect(wrapper.emitted()['update:modelValue']).toEqual(undefined);
     });
   });
 });
