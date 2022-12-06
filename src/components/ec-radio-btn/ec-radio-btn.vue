@@ -137,7 +137,7 @@ import { RadioBtnEvent } from './types';
 interface RadioBtn extends RadioBtnOption {
     isFocused: boolean
 }
-// This must be equal with exaxtly the same interface in the types.ts
+
 export interface RadioBtnProps {
   options: RadioBtnOption[],
   modelValue?: string,
@@ -164,8 +164,8 @@ const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 
 const id = `ec-radio-btn-${uid}`;
-const isInvalid = computed<boolean>(() => (!!props.errorMessage || !!slots['error-message']));
-const errorId = computed<string>(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : ''));
+const isInvalid = computed(() => (!!props.errorMessage || !!slots['error-message']));
+const errorId = computed(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : ''));
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioBtnEvents[RadioBtnEvent.UPDATE_MODEL_VALUE]): void,
 }>();
