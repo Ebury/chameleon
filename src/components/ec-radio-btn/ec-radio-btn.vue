@@ -22,7 +22,6 @@
           'tw-ml-40': radioIndex !== 0 && isGroupInline,
         }
       ]"
-      :style="style"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
       @click.prevent.stop="onRadioBtnClick(radio.value)"
     >
@@ -121,9 +120,8 @@
 </template>
 
 <script setup lang="ts">
-import type { StyleValue } from 'vue';
 import {
-  computed, ref, useAttrs, withDefaults,
+  computed, ref, withDefaults,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
@@ -155,8 +153,6 @@ const props = withDefaults(defineProps<RadioButtonProps>(), {
 });
 
 const uid = getUid();
-const attrs = useAttrs();
-const style = attrs.style as unknown as StyleValue;
 
 const id = `ec-radio-btn-${uid}`;
 const isInvalid = computed(() => props.errorMessage);
