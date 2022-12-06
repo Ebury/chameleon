@@ -173,12 +173,10 @@ const emit = defineEmits<{(e: 'update:modelValue', value: RadioBtnEvents[RadioBt
 const radioButtons = ref<RadioBtn[]>([]);
 
 function addFocusPropertyToRadios(options: RadioBtnOption[]) {
-  if (options?.length > 0) {
-    radioButtons.value = options.map(radio => ({
-      ...radio,
-      isFocused: false,
-    }));
-  }
+  radioButtons.value = options.map(radio => ({
+    ...radio,
+    isFocused: false,
+  }));
 }
 
 function isOptionChecked(radioValue: string) {

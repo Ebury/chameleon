@@ -27,7 +27,7 @@ export const basic = () => ({
   },
   template: `
     <div class="tw-px-24 tw-pt-4 tw-pb-24">
-      <ec-radio-btn v-bind="args" :label="label" v-model="model"/>
+      <ec-radio-btn v-bind="args" :label="label" v-model="modelValue"/>
     </div>
   `,
 });
