@@ -18,16 +18,16 @@ const basicArgs: Pick<RadioBtnProps, 'options'> = {
 export const basic = () => ({
   components: { EcRadioBtn },
   setup() {
-    const model = ref('');
+    const modelValue = ref<RadioBtnProps['modelValue']>('');
     return {
       args: basicArgs,
       label: 'Select one options',
-      model,
+      modelValue,
     };
   },
   template: `
     <div class="tw-px-24 tw-pt-4 tw-pb-24">
-      <ec-radio-btn v-bind="args" :label="label" v-model="model"/>
+      <ec-radio-btn v-bind="ecProps" />
     </div>
   `,
 });
@@ -35,14 +35,14 @@ export const basic = () => ({
 export const all = () => ({
   components: { EcRadioBtn },
   setup() {
-    const modelUnchecked = ref('');
-    const modelChecked = ref('y');
-    const modelDescription = ref('');
-    const modelCheckedDisabled = ref('y');
-    const modelUncheckedDisabled = ref('y');
-    const modelInlineRadioGroup = ref('y');
-    const modelInlineText = ref('y');
-    const modelError = ref('');
+    const modelUnchecked = ref<RadioBtnProps['modelValue']>('');
+    const modelChecked = ref<RadioBtnProps['modelValue']>('y');
+    const modelDescription = ref<RadioBtnProps['modelValue']>('');
+    const modelCheckedDisabled = ref<RadioBtnProps['modelValue']>('y');
+    const modelUncheckedDisabled = ref<RadioBtnProps['modelValue']>('y');
+    const modelInlineRadioGroup = ref<RadioBtnProps['modelValue']>('y');
+    const modelInlineText = ref<RadioBtnProps['modelValue']>('y');
+    const modelError = ref<RadioBtnProps['modelValue']>('');
     const optionsWithDescription = [
       { value: 'y', label: 'Yes', description: 'Confirm' },
       { value: 'n', label: 'No', description: 'Reject' },
