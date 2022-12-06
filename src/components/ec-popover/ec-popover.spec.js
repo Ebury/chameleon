@@ -1,6 +1,8 @@
 import { mount } from '@vue/test-utils';
+import { ref } from 'vue';
 
 import EcPopover from './ec-popover.vue';
+import { POPOVER_CONTAINER_KEY } from './ec-popover-provide';
 
 describe('EcPopover component', () => {
   function mountEcPopover(props, mountOpts) {
@@ -52,5 +54,17 @@ describe('EcPopover component', () => {
   it('should expose an update function', () => {
     const wrapper = mountEcPopover();
     expect(typeof wrapper.vm.update).toBe('function');
+  });
+
+  it('should attach to a different element when provided', () => {
+    const wrapper = mount(EcPopover, {
+      global: {
+        stubs: { FvDropdown: true },
+        provide: {
+          [POPOVER_CONTAINER_KEY]: { container: ref('custom-element') },
+        },
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
   });
 });
