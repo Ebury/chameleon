@@ -28,6 +28,7 @@ exports[`EcRadioBtn #slots #error-message - should render error-message slot ins
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--error"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -75,6 +76,7 @@ exports[`EcRadioBtn #slots #error-message - should render error-message slot ins
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--error"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-1"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -148,6 +150,7 @@ exports[`EcRadioBtn #slots #errorMessage - should render the error message slot 
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--error"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -195,6 +198,7 @@ exports[`EcRadioBtn #slots #errorMessage - should render the error message slot 
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--error"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-1"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -299,6 +303,7 @@ exports[`EcRadioBtn :props :isGroupInline - should render the radio buttons on a
     >
       <div
         class="ec-radio-btn__radio-icon-wrapper"
+        data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -346,6 +351,7 @@ exports[`EcRadioBtn :props :isGroupInline - should render the radio buttons on a
     >
       <div
         class="ec-radio-btn__radio-icon-wrapper"
+        data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-1"
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -430,6 +436,7 @@ exports[`EcRadioBtn :props :label - should render the radio button with a label 
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -477,6 +484,7 @@ exports[`EcRadioBtn :props :label - should render the radio button with a label 
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-1"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -542,6 +550,7 @@ exports[`EcRadioBtn :props :label - should render the radio button without a lab
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -589,6 +598,7 @@ exports[`EcRadioBtn :props :label - should render the radio button without a lab
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-1"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -654,6 +664,7 @@ exports[`EcRadioBtn attrs should render with custom attributes 1`] = `
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -701,6 +712,7 @@ exports[`EcRadioBtn attrs should render with custom attributes 1`] = `
       >
         <div
           class="ec-radio-btn__radio-icon-wrapper"
+          data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-1"
         >
           <div
             class="ec-radio-btn__radio-icon-wrapper-inner"
@@ -735,5 +747,68 @@ exports[`EcRadioBtn attrs should render with custom attributes 1`] = `
   </div>
   <!--v-if-->
   
+</div>
+`;
+
+exports[`EcRadioBtn focus should be checked and focused 1`] = `
+<div
+  class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--focused ec-radio-btn__radio-icon-wrapper--checked ec-radio-btn__radio-icon-wrapper--checked-and-focused"
+  data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
+>
+  <div
+    class="ec-radio-btn__radio-icon-wrapper-inner"
+  >
+    <svg
+      class="ec-icon ec-radio-btn__radio-icon ec-radio-btn__radio-icon--checked"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-rounded-notification"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`EcRadioBtn focus should be focused 1`] = `
+<div
+  class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--focused"
+  data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
+>
+  <div
+    class="ec-radio-btn__radio-icon-wrapper-inner"
+  >
+    <svg
+      class="ec-icon ec-radio-btn__radio-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-rounded-notification"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`EcRadioBtn focus should be not focused 1`] = `
+<div
+  class="ec-radio-btn__radio-icon-wrapper"
+  data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
+>
+  <div
+    class="ec-radio-btn__radio-icon-wrapper-inner"
+  >
+    <svg
+      class="ec-icon ec-radio-btn__radio-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-rounded-notification"
+      />
+    </svg>
+  </div>
 </div>
 `;

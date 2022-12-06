@@ -49,6 +49,7 @@
         }"
       >
         <div
+          :data-test="`ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-${radioIndex}`"
           class="ec-radio-btn__radio-icon-wrapper"
           :class="{
             'ec-radio-btn__radio-icon-wrapper--focused': isOptionFocused(radioIndex),

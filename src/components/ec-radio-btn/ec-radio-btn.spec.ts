@@ -236,5 +236,66 @@ describe('EcRadioBtn', () => {
       expect(wrapper.emitted()['update:modelValue']).toEqual(undefined);
     });
   });
+
+  describe('focus', () => {
+    it('should be focused', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+      const wrapper = mountRadioBtn(
+        {
+          options: [
+            { value: 'y', label: 'Yes' },
+            { value: 'n', label: 'No' },
+          ],
+        },
+        {
+          attachTo: elem,
+        },
+      );
+
+      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('focus');
+      expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
+    });
+
+    it('should be checked and focused', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+      const wrapper = mountRadioBtn(
+        {
+          options: [
+            { value: 'y', label: 'Yes' },
+            { value: 'n', label: 'No' },
+          ],
+          modelValue: 'y',
+        },
+        {
+          attachTo: elem,
+        },
+      );
+
+      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('focus');
+      expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
+    });
+
+    it('should be not focused', async () => {
+      const elem = document.createElement('div');
+      document.body.appendChild(elem);
+      const wrapper = mountRadioBtn(
+        {
+          options: [
+            { value: 'y', label: 'Yes' },
+            { value: 'n', label: 'No' },
+          ],
+        },
+        {
+          attachTo: elem,
+        },
+      );
+
+      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('focus');
+      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('blur');
+      expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
+    });
+  });
 });
 
