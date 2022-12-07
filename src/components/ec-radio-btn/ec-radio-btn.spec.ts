@@ -179,6 +179,7 @@ describe('EcRadioBtn', () => {
       );
 
       await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('focus');
+      expect(document.activeElement).toMatchSnapshot();
       expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
     });
 
@@ -199,6 +200,7 @@ describe('EcRadioBtn', () => {
       );
 
       await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('focus');
+      expect(document.activeElement).toMatchSnapshot();
       expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
     });
 
@@ -219,6 +221,7 @@ describe('EcRadioBtn', () => {
 
       await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('focus');
       await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('blur');
+      expect(document.activeElement).toMatchSnapshot();
       expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
     });
   });
