@@ -29,7 +29,7 @@ export const basic = () => ({
   },
   template: `
     <div class="tw-px-24 tw-pt-4 tw-pb-24">
-      <ec-radio-btn @change="onChange" v-bind="args" :label="label" v-model="modelValue"/>
+      <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelValue"/>
     </div>
   `,
 });
@@ -63,43 +63,44 @@ export const all = () => ({
       modelInlineRadioGroup,
       modelInlineText,
       modelError,
+      onChange: action('change'),
     };
   },
   template: `
     <div class="tw-max-w-screen-sm tw-m-24">
       <h3>Description</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @change="onChange" v-bind="args" v-model="modelDescription" :options="optionsWithDescription" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelDescription" :options="optionsWithDescription" />
       </div>
 
       <h3>Checked</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @change="onChange" v-bind="args" v-model="modelChecked" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelChecked" />
       </div>
 
       <h3>Unchecked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @change="onChange" v-bind="args" v-model="modelUncheckedDisabled" :is-disabled="true" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelUncheckedDisabled" :is-disabled="true" />
       </div>
 
       <h3>Checked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @change="onChange" v-bind="args" v-model="modelCheckedDisabled" :is-disabled="true" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelCheckedDisabled" :is-disabled="true" />
       </div>
 
       <h3>Inline Radio Group</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @change="onChange" v-bind="args" v-model="modelInlineRadioGroup" :is-group-inline="true" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelInlineRadioGroup" :is-group-inline="true" />
       </div>
 
       <h3>Inline Text</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @change="onChange" v-bind="args" v-model="modelInlineText" :is-text-inline="true" :options="optionsWithDescription" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelInlineText" :is-text-inline="true" :options="optionsWithDescription" />
       </div>
 
       <h3>Error</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @change="onChange" v-bind="args" v-model="modelError" :error-message="errorMessage" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelError" :error-message="errorMessage" />
       </div>
     </div>
   `,
