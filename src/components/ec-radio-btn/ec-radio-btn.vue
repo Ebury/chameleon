@@ -23,7 +23,7 @@
         }
       ]"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
-      @click.prevent.stop="onRadioBtnClick(radio.value)"
+      @click="onRadioBtnClick(radio.value)"
     >
       <input
         v-bind="{
