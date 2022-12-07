@@ -133,7 +133,7 @@ interface RadioButton extends RadioButtonOption {
     isFocused: boolean
 }
 
-export interface RadioButtonProps {
+interface RadioButtonProps {
   options: RadioButtonOption[],
   modelValue?: string,
   label?: string,
