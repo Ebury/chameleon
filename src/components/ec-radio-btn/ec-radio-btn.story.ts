@@ -21,7 +21,7 @@ export const basic = () => ({
     return {
       args: basicArgs,
       modelValue,
-      onChange: action('change'),
+      onChange: action('update:modelValue'),
     };
   },
   template: `
