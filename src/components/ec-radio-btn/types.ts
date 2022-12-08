@@ -5,20 +5,15 @@ export enum RadioButtonEvent {
 export interface RadioButtonEvents {
     [RadioButtonEvent.UPDATE_MODEL_VALUE]: RadioButtonProps['modelValue']
   }
-
-export interface RadioButtonOption {
-    label: string,
-    value: string,
-    description?: string
-  }
-
 export interface RadioButtonProps {
-    options: RadioButtonOption[],
     modelValue?: string,
     label?: string,
-    errorMessage?: string,
+    description?: string,
     isDisabled?: boolean,
-    isGroupInline?: boolean,
     isTextInline?: boolean
+    value: string,
+    id?: string,
+    errorMessage?: string,
+    hasError?: boolean,
   }
 

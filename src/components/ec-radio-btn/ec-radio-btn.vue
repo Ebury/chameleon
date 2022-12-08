@@ -1,124 +1,107 @@
 <template>
   <div
-    v-if="label"
-    data-test="ec-radio-btn__label"
-    class="ec-radio-btn__label"
+    class="ec-radio-btn"
+    :class="[$attrs.class]"
+    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn` : `ec-radio-btn ec-radio-btn`"
+    @click="onRadioBtnClick();"
   >
-    {{ label }}
-  </div>
-  <div
-    ref="radioGroup"
-    data-test="ec-radio-btn__group"
-    class="ec-radio-btn__group"
-    :class="{'ec-radio-btn__group--is-single-line': isGroupInline}"
-  >
-    <div
-      v-for="(radio, radioIndex) in radioButtons"
-      :key="radioIndex"
-      class="ec-radio-btn"
-      :class="[
-        $attrs.class,
-        {
-          'tw-mt-16': radioIndex !== 0 && !isGroupInline,
-          'tw-ml-40': radioIndex !== 0 && isGroupInline,
-        }
-      ]"
-      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
-      @click="onRadioBtnClick(radio.value, radioIndex);"
+    <input
+      v-bind="{
+        'aria-describedby': errorId,
+        value: value,
+        id: id,
+        disabled: isDisabled,
+        type: 'radio'
+      }"
+      ref="inputRadioRef"
+      class="ec-radio-btn__input"
+      data-test="ec-radio-btn__input"
+      :value="modelValue"
+      :name="id"
+      @focus="setFocusState(true)"
+      @blur="setFocusState(false)"
     >
-      <input
-        v-bind="{
-          'aria-describedby': errorId,
-          'data-test': `ec-radio-btn__input ec-radio-btn__input-${radioIndex}`,
-          value: radio.value,
-          class: 'ec-radio-btn__input',
-          id: id,
-          disabled: isDisabled,
-          type: 'radio'
-        }"
-        :value="modelValue"
-        :name="id"
-        @focus="setFocusState(radioIndex, true)"
-        @blur="setFocusState(radioIndex, false)"
-      >
 
+    <div
+      class="ec-radio-btn__wrapper"
+      :class="{
+        'ec-radio-btn__wrapper--is-single-line': isTextInline,
+      }"
+    >
       <div
-        class="ec-radio-btn__wrapper"
+        data-test="ec-radio-btn__radio-icon-wrapper"
+        class="ec-radio-btn__radio-icon-wrapper"
         :class="{
-          'ec-radio-btn__wrapper--is-single-line': isTextInline,
+          'ec-radio-btn__radio-icon-wrapper--focused': isFocused && !isChecked,
+          'ec-radio-btn__radio-icon-wrapper--checked': isChecked && !isDisabled && !isFocused,
+          'ec-radio-btn__radio-icon-wrapper--checked-and-focused': isChecked && isFocused,
+          'ec-radio-btn__radio-icon-wrapper--error': hasError && !isChecked,
+          'ec-radio-btn__radio-icon-wrapper--disabled': isDisabled,
+          'ec-radio-btn__radio-icon-wrapper--checked-and-disabled': isDisabled && isChecked,
         }"
       >
         <div
-          :data-test="`ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-${radioIndex}`"
-          class="ec-radio-btn__radio-icon-wrapper"
-          :class="{
-            'ec-radio-btn__radio-icon-wrapper--focused': isOptionFocused(radioIndex) && !isOptionChecked(radio.value),
-            'ec-radio-btn__radio-icon-wrapper--checked': isOptionChecked(radio.value) && !isDisabled && !isOptionFocused(radioIndex),
-            'ec-radio-btn__radio-icon-wrapper--checked-and-focused': isOptionChecked(radio.value) && isOptionFocused(radioIndex),
-            'ec-radio-btn__radio-icon-wrapper--error': isInvalid && !isOptionChecked(radio.value),
-            'ec-radio-btn__radio-icon-wrapper--disabled': isDisabled,
-            'ec-radio-btn__radio-icon-wrapper--checked-and-disabled': isDisabled && isOptionChecked(radio.value),
-          }"
+          class="ec-radio-btn__radio-icon-wrapper-inner"
         >
-          <div
-            class="ec-radio-btn__radio-icon-wrapper-inner"
-          >
 
-            <ec-icon
-              class="ec-radio-btn__radio-icon"
-              :class="{
-                'ec-radio-btn__radio-icon--checked': isOptionChecked(radio.value) && !isDisabled,
-                'ec-radio-btn__radio-icon--checked-and-disabled': isDisabled && isOptionChecked(radio.value)
-              }"
-              name="rounded-notification"
-              :size="20"
-            />
-          </div>
-        </div>
-
-        <div
-          data-test="ec-radio-btn__radio-text-wrapper"
-          class="ec-radio-btn__radio-text-wrapper"
-          :class="{
-            'ec-radio-btn__radio-text-wrapper--is-single-line': isTextInline,
-          }"
-        >
-          <label
-            v-if="radio.label"
-            :for="id"
-            class="ec-radio-btn__radio-label"
+          <ec-icon
+            class="ec-radio-btn__radio-icon"
             :class="{
-              'ec-radio-btn__radio-label--disabled': isDisabled,
+              'ec-radio-btn__radio-icon--checked': isChecked && !isDisabled,
+              'ec-radio-btn__radio-icon--checked-and-disabled': isDisabled && isChecked
             }"
-            :title="isTextInline ? radio.label : undefined"
-            :data-test="`ec-radio-btn__radio-label ec-radio-btn__radio-label-${radioIndex}`"
-          >
-            {{ radio.label }}
-          </label>
-
-          <p
-            v-if="radio.description"
-            :for="id"
-            class="ec-radio-btn__radio-description"
-            :class="{
-              'ec-radio-btn__radio-description--is-single-line': isTextInline,
-              'ec-radio-btn__radio-description--disabled': isDisabled,
-            }"
-            :title="isTextInline ? radio.description : undefined"
-            :data-test="`ec-radio-btn__radio-description ec-radio-btn__radio-description-${radioIndex}`"
-          >
-            {{ radio.description }}
-          </p>
+            name="rounded-notification"
+            :size="20"
+          />
         </div>
       </div>
+
+      <div
+        data-test="ec-radio-btn__radio-text-wrapper"
+        class="ec-radio-btn__radio-text-wrapper"
+        :class="{
+          'ec-radio-btn__radio-text-wrapper--is-single-line': isTextInline,
+        }"
+      >
+        <label
+          v-if="label"
+          :for="id"
+          class="ec-radio-btn__radio-label"
+          :class="{
+            'ec-radio-btn__radio-label--disabled': isDisabled,
+          }"
+          :title="isTextInline ? label : undefined"
+          data-test="ec-radio-btn__radio-label"
+        >
+          <slot name="label">{{ label }}</slot>
+        </label>
+
+        <p
+          v-if="description"
+          :for="id"
+          class="ec-radio-btn__radio-description"
+          :class="{
+            'ec-radio-btn__radio-description--is-single-line': isTextInline,
+            'ec-radio-btn__radio-description--disabled': isDisabled,
+          }"
+          :title="isTextInline ? description : undefined"
+          data-test="ec-radio-btn__radio-description"
+        >
+          <slot name="description">{{ description }}</slot>
+        </p>
+      </div>
+    </div>
+
+    <div
+      :id="errorId"
+      v-if="errorMessage"
+      class="ec-radio-btn__error-text"
+      data-test="ec-radio-btn__error-text"
+    >
+      <slot name="error-message">{{ errorMessage }}</slot>
     </div>
   </div>
-  <div
-    :id="id"
-    v-if="isInvalid"
-    class="ec-radio-btn__error-text"
-    data-test="ec-radio-btn__error-text"
-  />
+
 </template>
 
 <script setup lang="ts">
@@ -128,85 +111,58 @@ import {
 
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
-import type { RadioButtonEvents, RadioButtonOption } from './types';
+import type { RadioButtonEvents } from './types';
 import { RadioButtonEvent } from './types';
 
-interface RadioButton extends RadioButtonOption {
-    isFocused: boolean
-}
-
 interface RadioButtonProps {
-  options: RadioButtonOption[],
+  value: string,
   modelValue?: string,
   label?: string,
-  errorMessage?: string,
+  description?: string,
   isDisabled?: boolean,
-  isGroupInline?: boolean,
-  isTextInline?: boolean
+  isTextInline?: boolean,
+  id?: string,
+  errorMessage?: string,
+  hasError?: boolean
 }
 
 const props = withDefaults(defineProps<RadioButtonProps>(), {
   modelValue: '',
   label: '',
+  description: '',
   errorMessage: '',
+  hasError: false,
   isDisabled: false,
-  isGroupInline: false,
   isTextInline: false,
+  id: '',
 });
 
 const uid = getUid();
 
-const id = `ec-radio-btn-${uid}`;
-const isInvalid = computed(() => props.errorMessage);
-const errorId = computed(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : ''));
-const radioGroup = ref();
+const id = props.id ? `ec-radio-btn-${props.id}` : 'ec-radio-btn';
+const errorId = computed(() => (props.hasError ? `ec-radio-btn-error-${uid}` : ''));
+const inputRadioRef = ref();
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]): void,
 }>();
 
-const radioButtons = ref<RadioButton[]>([]);
+const isChecked = computed(() => props.modelValue === props.value);
+const isFocused = ref(false);
 
-function addFocusPropertyToRadios(options: RadioButtonOption[]) {
-  radioButtons.value = options.map(radio => ({
-    ...radio,
-    isFocused: false,
-  }));
+function setFocusState(state: boolean) {
+  isFocused.value = state;
 }
 
-function isOptionChecked(radioValue: string) {
-  return props.modelValue === radioValue;
-}
-
-function isOptionFocused(radioIndex: number) {
-  return radioButtons.value[radioIndex].isFocused;
-}
-
-function setFocusState(radioIndex: number, state: boolean) {
-  radioButtons.value[radioIndex].isFocused = state;
-}
-
-function onRadioBtnClick(value: string, index: number) {
+function onRadioBtnClick() {
   if (!props.isDisabled) {
-    radioGroup.value.children[index].children[0].focus();
-    emit(RadioButtonEvent.UPDATE_MODEL_VALUE, value);
+    inputRadioRef.value.focus();
+    emit(RadioButtonEvent.UPDATE_MODEL_VALUE, props.value);
   }
 }
-
-function init() {
-  addFocusPropertyToRadios(props.options);
-}
-
-init();
 </script>
 
 <style>
 .ec-radio-btn {
-  &__label {
-    @apply tw-mb-16;
-    @apply tw-small-strong;
-    @apply tw-text-gray-3;
-  }
-
   &__input {
     @apply tw-sr-only;
   }
@@ -337,13 +293,6 @@ init();
     @apply tw-ml-32;
     @apply tw-help-text tw-text-error;
     @apply tw-mt-4;
-  }
-}
-
-.ec-radio-btn__group {
-  &--is-single-line {
-    @apply tw-mt-0;
-    @apply tw-flex tw-flex-nowrap;
   }
 }
 </style>
