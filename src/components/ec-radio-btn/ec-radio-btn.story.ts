@@ -65,7 +65,7 @@ export const all = () => ({
       modelInlineText,
       modelError,
       hasError,
-      onChange: action('change'),
+      onChange: action('update:modelValue'),
     };
   },
   template: `
