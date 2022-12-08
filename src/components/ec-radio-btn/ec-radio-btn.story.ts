@@ -12,7 +12,6 @@ export default {
 
 const basicArgs: Pick<RadioButtonProps, 'value' | 'label'> = {
   value: 'y',
-  label: 'Yes',
 };
 
 export const basic = () => ({
@@ -35,14 +34,18 @@ export const basic = () => ({
 export const all = () => ({
   components: { EcRadioBtn },
   setup() {
+    const label = ref<RadioButtonProps['label']>('Yes');
+    const description = ref<RadioButtonProps['description']>('Confirm');
+    const modelLabel = ref<RadioButtonProps['modelValue']>('');
+    const modelSlotLabel = ref<RadioButtonProps['modelValue']>('');
+    const modelDescription = ref<RadioButtonProps['modelValue']>('');
+    const modelSlotDescription = ref<RadioButtonProps['modelValue']>('');
     const modelUnchecked = ref<RadioButtonProps['modelValue']>('');
     const modelChecked = ref<RadioButtonProps['modelValue']>('y');
-    const modelDescription = ref<RadioButtonProps['modelValue']>('');
     const modelCheckedDisabled = ref<RadioButtonProps['modelValue']>('y');
-    const modelUncheckedDisabled = ref<RadioButtonProps['modelValue']>('y');
+    const modelUncheckedDisabled = ref<RadioButtonProps['modelValue']>('');
     const modelInlineText = ref<RadioButtonProps['modelValue']>('y');
     const modelError = ref<RadioButtonProps['modelValue']>('');
-    const description = ref<RadioButtonProps['description']>('Confirm');
     const hasError = ref<RadioButtonProps['hasError']>(true);
     const errorMessage = 'One of the options must be selected';
 
@@ -50,9 +53,13 @@ export const all = () => ({
       args: basicArgs,
       modelChecked,
       modelUnchecked,
+      label,
       description,
       errorMessage,
+      modelLabel,
+      modelSlotLabel,
       modelDescription,
+      modelSlotDescription,
       modelCheckedDisabled,
       modelUncheckedDisabled,
       modelInlineText,
@@ -63,59 +70,74 @@ export const all = () => ({
   },
   template: `
     <div class="tw-max-w-screen-sm tw-m-24">
+      <h3>Label</h3>
+      <div class="tw-px-24 tw-pt-4 tw-pb-24">
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelLabel"></ec-radio-btn>
+      </div>
+
+
       <h3>Slot label</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelDescription" :description="description">
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelSlotLabel">
           <template #label>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
+            <span class="tw-text-key-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
+            </span>
           </template>
         </ec-radio-btn>
       </div>
 
+      <h3>Description</h3>
+      <div class="tw-px-24 tw-pt-4 tw-pb-24">
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelDescription" :description="description"></ec-radio-btn>
+      </div>
+
       <h3>Slot Description</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelDescription" :description="description">
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelSlotDescription">
           <template #description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
-          </template>
+            <span class="tw-text-key-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
+            </span>
+            </template>
         </ec-radio-btn>
       </div>
 
       <h3>Checked</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelChecked" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelChecked" />
       </div>
 
       <h3>Unchecked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelUncheckedDisabled" :is-disabled="true" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelUncheckedDisabled" :is-disabled="true" />
       </div>
 
       <h3>Checked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelCheckedDisabled" :is-disabled="true" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelCheckedDisabled" :is-disabled="true" />
       </div>
 
       <h3>Inline Text</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelInlineText" :is-text-inline="true" :description="description" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelInlineText" :is-text-inline="true" :description="description" />
       </div>
 
       <h3>Has Error</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelError" :has-error="hasError" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError" :has-error="hasError" />
       </div>
 
       <h3>Error Message</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelError" :error-message="errorMessage" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError" :error-message="errorMessage" />
       </div>
 
       <h3>Slot Error Message</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelError" :error-message="errorMessage">
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError" :error-message="errorMessage">
           <template #error-message>
-            An error has occurred
+            <span class="tw-text-key-4">An error has occurred</span>
           </template>
         </ec-radio-btn>
       </div>

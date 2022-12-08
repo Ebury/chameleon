@@ -17,7 +17,7 @@
       class="ec-radio-btn__input"
       data-test="ec-radio-btn__input"
       :value="modelValue"
-      :name="id"
+      :name="name"
       @focus="setFocusState(true)"
       @blur="setFocusState(false)"
     >
@@ -29,26 +29,26 @@
       }"
     >
       <div
-        data-test="ec-radio-btn__radio-icon-wrapper"
-        class="ec-radio-btn__radio-icon-wrapper"
+        data-test="ec-radio-btn__icon-wrapper"
+        class="ec-radio-btn__icon-wrapper"
         :class="{
-          'ec-radio-btn__radio-icon-wrapper--focused': isFocused && !isChecked,
-          'ec-radio-btn__radio-icon-wrapper--checked': isChecked && !isDisabled && !isFocused,
-          'ec-radio-btn__radio-icon-wrapper--checked-and-focused': isChecked && isFocused,
-          'ec-radio-btn__radio-icon-wrapper--error': hasError && !isChecked,
-          'ec-radio-btn__radio-icon-wrapper--disabled': isDisabled,
-          'ec-radio-btn__radio-icon-wrapper--checked-and-disabled': isDisabled && isChecked,
+          'ec-radio-btn__icon-wrapper--focused': isFocused && !isChecked,
+          'ec-radio-btn__icon-wrapper--checked': isChecked && !isDisabled && !isFocused,
+          'ec-radio-btn__icon-wrapper--checked-and-focused': isChecked && isFocused,
+          'ec-radio-btn__icon-wrapper--error': hasError && !isChecked,
+          'ec-radio-btn__icon-wrapper--disabled': isDisabled && !isChecked,
+          'ec-radio-btn__icon-wrapper--checked-and-disabled': isDisabled && isChecked,
         }"
       >
         <div
-          class="ec-radio-btn__radio-icon-wrapper-inner"
+          class="ec-radio-btn__icon-wrapper-inner"
         >
 
           <ec-icon
-            class="ec-radio-btn__radio-icon"
+            class="ec-radio-btn__icon"
             :class="{
-              'ec-radio-btn__radio-icon--checked': isChecked && !isDisabled,
-              'ec-radio-btn__radio-icon--checked-and-disabled': isDisabled && isChecked
+              'ec-radio-btn__icon--checked': isChecked && !isDisabled,
+              'ec-radio-btn__icon--checked-and-disabled': isDisabled && isChecked
             }"
             name="rounded-notification"
             :size="20"
@@ -57,35 +57,35 @@
       </div>
 
       <div
-        data-test="ec-radio-btn__radio-text-wrapper"
-        class="ec-radio-btn__radio-text-wrapper"
+        v-if="hasLabel"
+        data-test="ec-radio-btn__text-wrapper"
+        class="ec-radio-btn__text-wrapper"
         :class="{
-          'ec-radio-btn__radio-text-wrapper--is-single-line': isTextInline,
+          'ec-radio-btn__text-wrapper--is-single-line': isTextInline,
         }"
       >
         <label
-          v-if="label"
-          :for="id"
-          class="ec-radio-btn__radio-label"
+          :for="name"
+          class="ec-radio-btn__label"
           :class="{
-            'ec-radio-btn__radio-label--disabled': isDisabled,
+            'ec-radio-btn__label--disabled': isDisabled,
           }"
           :title="isTextInline ? label : undefined"
-          data-test="ec-radio-btn__radio-label"
+          data-test="ec-radio-btn__label"
         >
           <slot name="label">{{ label }}</slot>
         </label>
 
         <p
-          v-if="description"
+          v-if="hasDescription"
           :for="id"
-          class="ec-radio-btn__radio-description"
+          class="ec-radio-btn__description"
           :class="{
-            'ec-radio-btn__radio-description--is-single-line': isTextInline,
-            'ec-radio-btn__radio-description--disabled': isDisabled,
+            'ec-radio-btn__description--is-single-line': isTextInline,
+            'ec-radio-btn__description--disabled': isDisabled,
           }"
           :title="isTextInline ? description : undefined"
-          data-test="ec-radio-btn__radio-description"
+          data-test="ec-radio-btn__description"
         >
           <slot name="description">{{ description }}</slot>
         </p>
@@ -106,7 +106,7 @@
 
 <script setup lang="ts">
 import {
-  computed, ref, withDefaults,
+  computed, ref, useSlots, withDefaults,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
@@ -121,7 +121,7 @@ interface RadioButtonProps {
   description?: string,
   isDisabled?: boolean,
   isTextInline?: boolean,
-  id?: string,
+  name?: string,
   errorMessage?: string,
   hasError?: boolean
 }
@@ -134,13 +134,14 @@ const props = withDefaults(defineProps<RadioButtonProps>(), {
   hasError: false,
   isDisabled: false,
   isTextInline: false,
-  id: '',
+  name: '',
 });
 
 const uid = getUid();
+const slots = useSlots();
 
-const id = props.id ? `ec-radio-btn-${props.id}` : 'ec-radio-btn';
-const errorId = computed(() => (props.hasError ? `ec-radio-btn-error-${uid}` : ''));
+const id = `ec-radio-btn-${uid}`;
+const errorId = computed(() => (props.hasError ? `ec-radio-btn-error-${id}` : ''));
 const inputRadioRef = ref();
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]): void,
@@ -148,6 +149,9 @@ const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonEvents[Radi
 
 const isChecked = computed(() => props.modelValue === props.value);
 const isFocused = ref(false);
+
+const hasLabel = computed(() => (!!props.label || !!slots.label));
+const hasDescription = computed(() => (!!props.description || !!slots.description));
 
 function setFocusState(state: boolean) {
   isFocused.value = state;
@@ -176,7 +180,7 @@ function onRadioBtnClick() {
     }
   }
 
-  &__radio-label {
+  &__label {
     @apply tw-cursor-pointer;
     @apply tw-input-label;
     @apply tw-flex-grow;
@@ -187,7 +191,7 @@ function onRadioBtnClick() {
     }
   }
 
-  &__radio-description {
+  &__description {
     @apply tw-cursor-pointer;
     @apply tw-small-text;
     @apply tw-mb-0;
@@ -203,7 +207,7 @@ function onRadioBtnClick() {
     }
   }
 
-  &__radio-text-wrapper {
+  &__text-wrapper {
     @apply tw-cursor-pointer;
 
     &--is-single-line {
@@ -212,7 +216,7 @@ function onRadioBtnClick() {
     }
   }
 
-  &__radio-icon-wrapper {
+  &__icon-wrapper {
     @apply tw-cursor-pointer;
     @apply tw-bg-gray-8;
     @apply tw-w-24 tw-h-24;
@@ -254,10 +258,13 @@ function onRadioBtnClick() {
 
     &--checked-and-disabled {
       @apply tw-bg-gray-6;
+      @apply tw-border-gray-6;
 
       &:hover,
       &:focus {
         @apply tw-bg-gray-6;
+        @apply tw-border-gray-6;
+        @apply tw-cursor-default;
       }
     }
 
@@ -266,14 +273,14 @@ function onRadioBtnClick() {
     }
   }
 
-  &__radio-icon-wrapper-inner {
+  &__icon-wrapper-inner {
     @apply tw-rounded-1/2;
     @apply tw-bg-gray-8;
     @apply tw-absolute;
     @apply tw-w-20 tw-h-20;
   }
 
-  &__radio-icon {
+  &__icon {
     transform: translate(-50%, -50%);
     padding: 2px;
     @apply tw-fill-gray-8;

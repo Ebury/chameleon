@@ -12,7 +12,7 @@ export interface RadioButtonProps {
     isDisabled?: boolean,
     isTextInline?: boolean
     value: string,
-    id?: string,
+    name?: string,
     errorMessage?: string,
     hasError?: boolean,
   }
