@@ -11,10 +11,8 @@ function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: MountingOp
     EcRadioBtn as any, // eslint-disable-line
     {
       props: {
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-        ],
+        value: 'y',
+        label: 'Yes',
         ...props,
       },
       ...mountOpts,
@@ -23,155 +21,130 @@ function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: MountingOp
 }
 
 describe('EcRadioBtn', () => {
-  it('should have a "name" attribute equal to the "for" attribute', () => {
+  it('should render properly', () => {
     const wrapper = mountRadioBtn();
-    const nameAttr = wrapper.findByDataTest('ec-radio-btn__input-0').attributes('name');
-    const forAttr = wrapper.findByDataTest('ec-radio-btn__radio-label-0').attributes('for');
-    expect(nameAttr).toBe(forAttr);
-    expect(wrapper.findByDataTest('ec-radio-btn-0')).toMatchSnapshot();
+    expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should have the same "name" attribute among all radios', () => {
-    const wrapper = mountRadioBtn();
-    const nameAttr1 = wrapper.findByDataTest('ec-radio-btn__input-0').attributes('name');
-    const nameAttr2 = wrapper.findByDataTest('ec-radio-btn__input-1').attributes('name');
-    expect(nameAttr1).toBe(nameAttr2);
-  });
-
-  describe(':props', () => {
-    it(':label - should render the radio button with a label', () => {
-      const wrapper = mountRadioBtn({
-        label: 'Test label prop',
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-        ],
+  describe('props', () => {
+    describe('name', () => {
+      it('should have a "name" attribute on the input equal to the "for" attribute on the label', () => {
+        const wrapper = mountRadioBtn();
+        const nameAttr = wrapper.findByDataTest('ec-radio-btn__input').attributes('name');
+        const forAttr = wrapper.findByDataTest('ec-radio-btn__label').attributes('for');
+        expect(nameAttr).toBe(forAttr);
+        expect(wrapper.findByDataTest('ec-radio-btn')).toMatchSnapshot();
       });
-
-      expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(true);
-      expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':label - should render the radio button without a label', () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-        ],
+    describe('label', () => {
+      it('should render the radio button with the given label', () => {
+        const wrapper = mountRadioBtn();
+
+        expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(true);
+        expect(wrapper.element).toMatchSnapshot();
       });
 
-      expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(false);
-      expect(wrapper.element).toMatchSnapshot();
+      it('should render the radio button without label when not present', () => {
+        const wrapper = mountRadioBtn({ value: 'y', label: undefined });
+
+        expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(false);
+        expect(wrapper.element).toMatchSnapshot();
+      });
     });
 
-    it(':isGroupInline - should render the radio buttons on a single line', () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-        ],
-        isGroupInline: true,
-      });
+    describe('isTextInline', () => {
+      it('should render the radio buttons text (label and description) on a single line', () => {
+        const wrapper = mountRadioBtn({
+          isTextInline: true,
+        });
 
-      expect(wrapper.findByDataTest('ec-radio-btn__group').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-radio-btn__text-wrapper').element).toMatchSnapshot();
+      });
     });
 
-    it(':isTextInline - should render the radio buttons text (label and description) on a single line', () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'oneOpt', label: 'One option' },
-        ],
-        isTextInline: true,
+    describe('error', () => {
+      it('should render the radio button with a given error message', () => {
+        const wrapper = mountRadioBtn({
+          errorMessage: 'Test error message prop',
+        });
+
+        expect(wrapper.findByDataTest('ec-radio-btn__error-text').exists()).toBe(true);
+        expect(wrapper.findByDataTest('ec-radio-btn__error-text').element).toMatchSnapshot();
       });
 
-      expect(wrapper.findByDataTest('ec-radio-btn__radio-text-wrapper').element).toMatchSnapshot();
+      it('should render the radio button with a error style on icon', () => {
+        const wrapper = mountRadioBtn({
+          hasError: true,
+        });
+
+        expect(wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element).toMatchSnapshot();
+      });
     });
 
-    it(':error-message - should render the radio button with an error message', () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-        ],
-        errorMessage: 'Test error message prop',
+    describe('isDisabled', () => {
+      it('should render the unchecked radio button with a disabled attribute', () => {
+        const wrapper = mountRadioBtn({
+          isDisabled: true,
+        });
+        const inputElement = (wrapper.findByDataTest('ec-radio-btn__input').element as HTMLInputElement);
+        expect(inputElement.disabled).toBe(true);
+        expect(inputElement).toMatchSnapshot();
       });
 
-      expect(wrapper.findByDataTest('ec-radio-btn__error-text').exists()).toBe(true);
-      expect(wrapper.findByDataTest('ec-radio-btn__error-text').element).toMatchSnapshot();
+      it('should render the unchecked radio button with a disabled icon', () => {
+        const wrapper = mountRadioBtn({
+          isDisabled: true,
+        });
+        const icon = (wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element as HTMLInputElement);
+        expect(icon).toMatchSnapshot();
+      });
+
+      it('should render the checked radio button with a disabled attribute', () => {
+        const wrapper = mountRadioBtn({
+          isDisabled: true,
+          modelValue: 'y',
+        });
+
+        const inputElement = (wrapper.findByDataTest('ec-radio-btn__input').element as HTMLInputElement);
+        expect(inputElement.disabled).toBe(true);
+        expect(inputElement.value).toBe('y');
+        expect(inputElement).toMatchSnapshot();
+      });
+
+      it('should render the checked radio button with a disabled icon', () => {
+        const wrapper = mountRadioBtn({
+          isDisabled: true,
+          modelValue: 'y',
+        });
+
+        const icon = (wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element as HTMLInputElement);
+        expect(icon).toMatchSnapshot();
+      });
     });
 
-    it(':isDisabled - should render the unchecked radio button with a disabled attribute', () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'y', label: 'Yes' },
-        ],
-        isDisabled: true,
-      });
-      const inputElement = (wrapper.findByDataTest('ec-radio-btn__input').element as HTMLInputElement);
-      expect(inputElement.disabled).toBe(true);
-      expect(inputElement).toMatchSnapshot();
-    });
+    describe('description', () => {
+      it('should render with a description when present', () => {
+        const wrapper = mountRadioBtn({
+          description: 'Testing description',
+        });
 
-    it(':disabled - should render the checked radio button with a disabled attribute', () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'y', label: 'Yes' },
-        ],
-        isDisabled: true,
-        modelValue: 'y',
+        expect(wrapper.findByDataTest('ec-radio-btn__description').exists()).toBe(true);
+        expect(wrapper.findByDataTest('ec-radio-btn__description').text()).toBe('Testing description');
       });
 
-      const inputElement = (wrapper.findByDataTest('ec-radio-btn__input').element as HTMLInputElement);
-      expect(inputElement.disabled).toBe(true);
-      expect(inputElement.value).toBe('y');
-      expect(inputElement).toMatchSnapshot();
-    });
-
-    it(':options - should render as many radios as given by the parent', () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-          { value: 'm', label: 'Maybe' },
-        ],
+      it('should not render with a description when not present', () => {
+        const wrapper = mountRadioBtn();
+        expect(wrapper.findByDataTest('ec-radio-btn__description').exists()).toBe(false);
       });
-
-      const radioContainer = (wrapper.findByDataTest('ec-radio-btn__group').element as HTMLInputElement);
-      expect(radioContainer.children.length).toBe(3);
-    });
-
-    it(':description - should render with a description when present', () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'y', label: 'Testing label', description: 'Testing description' },
-        ],
-      });
-
-      expect(wrapper.findByDataTest('ec-radio-btn__radio-description').exists()).toBe(true);
-      expect(wrapper.findByDataTest('ec-radio-btn__radio-description').text()).toBe('Testing description');
-    });
-
-    it(':description - should not render with a description when not present', () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'y', label: 'Testing label' },
-        ],
-      });
-
-      expect(wrapper.findByDataTest('ec-radio-btn__radio-description').exists()).toBe(false);
     });
   });
 
-  describe('@events', () => {
+  describe('events', () => {
     it('@update:modelValue - should be emitted when input is clicked', async () => {
-      const wrapper = mountRadioBtn({
-        options: [
-          { value: 'y', label: 'Yes' },
-          { value: 'n', label: 'No' },
-        ],
-      });
+      const wrapper = mountRadioBtn();
 
-      await wrapper.findByDataTest('ec-radio-btn-0').trigger('click');
+      await wrapper.findByDataTest('ec-radio-btn').trigger('click');
       expect(wrapper.emitted('update:modelValue')?.length).toBe(1);
       expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['y']);
     });
@@ -181,84 +154,43 @@ describe('EcRadioBtn', () => {
     it('should be focused', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
-      const wrapper = mountRadioBtn(
-        {
-          options: [
-            { value: 'y', label: 'Yes' },
-            { value: 'n', label: 'No' },
-          ],
-        },
-        {
-          attachTo: elem,
-        },
-      );
+      const wrapper = mountRadioBtn({}, { attachTo: elem });
 
-      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('focus');
+      await wrapper.findByDataTest('ec-radio-btn__input').trigger('focus');
       expect(document.activeElement).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element).toMatchSnapshot();
     });
 
     it('should be checked and focused', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
-      const wrapper = mountRadioBtn(
-        {
-          options: [
-            { value: 'y', label: 'Yes' },
-            { value: 'n', label: 'No' },
-          ],
-          modelValue: 'y',
-        },
-        {
-          attachTo: elem,
-        },
-      );
+      const wrapper = mountRadioBtn({ modelValue: 'y' }, { attachTo: elem });
 
-      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('focus');
+      await wrapper.findByDataTest('ec-radio-btn__input').trigger('focus');
       expect(document.activeElement).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element).toMatchSnapshot();
     });
 
     it('should be not focused', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
-      const wrapper = mountRadioBtn(
-        {
-          options: [
-            { value: 'y', label: 'Yes' },
-            { value: 'n', label: 'No' },
-          ],
-        },
-        {
-          attachTo: elem,
-        },
-      );
+      const wrapper = mountRadioBtn({}, { attachTo: elem });
 
-      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('focus');
-      await wrapper.findByDataTest('ec-radio-btn__input-0').trigger('blur');
+      await wrapper.findByDataTest('ec-radio-btn__input').trigger('focus');
+      await wrapper.findByDataTest('ec-radio-btn__input').trigger('blur');
       expect(document.activeElement).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element).toMatchSnapshot();
     });
 
     describe('when clicking on radio option', () => {
       it('should be checked and focused', async () => {
         const elem = document.createElement('div');
         document.body.appendChild(elem);
-        const wrapper = mountRadioBtn(
-          {
-            options: [
-              { value: 'y', label: 'Yes' },
-              { value: 'n', label: 'No' },
-            ],
-          },
-          {
-            attachTo: elem,
-          },
-        );
-        const inputElement = wrapper.findByDataTest('ec-radio-btn__input-0').element;
-        await wrapper.findByDataTest('ec-radio-btn-0').trigger('click');
+        const wrapper = mountRadioBtn({}, { attachTo: elem });
+        const inputElement = wrapper.findByDataTest('ec-radio-btn__input').element;
+        await wrapper.findByDataTest('ec-radio-btn').trigger('click');
         expect(document.activeElement).toEqual(inputElement);
-        expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element).toMatchSnapshot();
       });
     });
   });
