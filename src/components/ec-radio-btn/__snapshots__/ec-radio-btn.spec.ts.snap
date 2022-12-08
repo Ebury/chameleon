@@ -834,6 +834,27 @@ exports[`EcRadioBtn focus should be not focused 2`] = `
 </div>
 `;
 
+exports[`EcRadioBtn focus when clicking on radio option should be checked and focused 1`] = `
+<div
+  class="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper--focused"
+  data-test="ec-radio-btn__radio-icon-wrapper ec-radio-btn__radio-icon-wrapper-0"
+>
+  <div
+    class="ec-radio-btn__radio-icon-wrapper-inner"
+  >
+    <svg
+      class="ec-icon ec-radio-btn__radio-icon"
+      height="20"
+      width="20"
+    >
+      <use
+        xlink:href="#ec-rounded-notification"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
 exports[`EcRadioBtn should have a "name" attribute equal to the "for" attribute 1`] = `
 DOMWrapper {
   "isDisabled": [Function],

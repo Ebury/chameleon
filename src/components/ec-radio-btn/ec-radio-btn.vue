@@ -7,6 +7,7 @@
     {{ label }}
   </div>
   <div
+    ref="radioGroup"
     data-test="ec-radio-btn__group"
     class="ec-radio-btn__group"
     :class="{'ec-radio-btn__group--is-single-line': isGroupInline}"
@@ -23,7 +24,7 @@
         }
       ]"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn-${radioIndex}` : `ec-radio-btn ec-radio-btn-${radioIndex}`"
-      @click="onRadioBtnClick(radio.value)"
+      @click="onRadioBtnClick(radio.value, radioIndex);"
     >
       <input
         v-bind="{
@@ -158,6 +159,7 @@ const uid = getUid();
 const id = `ec-radio-btn-${uid}`;
 const isInvalid = computed(() => props.errorMessage);
 const errorId = computed(() => (isInvalid.value ? `ec-radio-btn-error-${uid}` : ''));
+const radioGroup = ref();
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]): void,
 }>();
@@ -183,8 +185,9 @@ function setFocusState(radioIndex: number, state: boolean) {
   radioButtons.value[radioIndex].isFocused = state;
 }
 
-function onRadioBtnClick(value: string) {
+function onRadioBtnClick(value: string, index: number) {
   if (!props.isDisabled) {
+    radioGroup.value.children[index].children[0].focus();
     emit(RadioButtonEvent.UPDATE_MODEL_VALUE, value);
   }
 }

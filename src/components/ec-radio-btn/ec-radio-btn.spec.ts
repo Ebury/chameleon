@@ -239,6 +239,28 @@ describe('EcRadioBtn', () => {
       expect(document.activeElement).toMatchSnapshot();
       expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
     });
+
+    describe('when clicking on radio option', () => {
+      it('should be checked and focused', async () => {
+        const elem = document.createElement('div');
+        document.body.appendChild(elem);
+        const wrapper = mountRadioBtn(
+          {
+            options: [
+              { value: 'y', label: 'Yes' },
+              { value: 'n', label: 'No' },
+            ],
+          },
+          {
+            attachTo: elem,
+          },
+        );
+        const inputElement = wrapper.findByDataTest('ec-radio-btn__input-0').element;
+        await wrapper.findByDataTest('ec-radio-btn-0').trigger('click');
+        expect(document.activeElement).toEqual(inputElement);
+        expect(wrapper.findByDataTest('ec-radio-btn__radio-icon-wrapper-0').element).toMatchSnapshot();
+      });
+    });
   });
 });
 
