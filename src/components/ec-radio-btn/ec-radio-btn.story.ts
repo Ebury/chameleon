@@ -78,7 +78,7 @@ export const all = () => ({
 
       <h3>Slot label</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelSlotLabel">
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelSlotLabel">
           <template #label>
             <span class="tw-text-key-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
@@ -135,7 +135,7 @@ export const all = () => ({
 
       <h3>Slot Error Message</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError" :error-message="errorMessage">
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError">
           <template #error-message>
             <span class="tw-text-key-4">An error has occurred</span>
           </template>

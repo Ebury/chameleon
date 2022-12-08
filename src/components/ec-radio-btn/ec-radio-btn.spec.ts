@@ -137,6 +137,11 @@ describe('EcRadioBtn', () => {
         const wrapper = mountRadioBtn();
         expect(wrapper.findByDataTest('ec-radio-btn__description').exists()).toBe(false);
       });
+
+      it('should not render when label is not present', () => {
+        const wrapper = mountRadioBtn({ label: undefined, description: 'Test description' });
+        expect(wrapper.findByDataTest('ec-radio-btn__description').exists()).toBe(false);
+      });
     });
   });
 
@@ -147,6 +152,104 @@ describe('EcRadioBtn', () => {
       await wrapper.findByDataTest('ec-radio-btn').trigger('click');
       expect(wrapper.emitted('update:modelValue')?.length).toBe(1);
       expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['y']);
+    });
+  });
+
+  describe('slots', () => {
+    describe('errorMessage', () => {
+      it('should render the error message slot if passed', () => {
+        const wrapper = mountRadioBtn(
+          {},
+          {
+            slots: {
+              'error-message': 'Test error message slot',
+            },
+          },
+        );
+
+        expect(wrapper.findByDataTest('ec-radio-btn__error-text').exists()).toBe(true);
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('should render error-message slot instead of error-message prop when both are passed', () => {
+        const wrapper = mountRadioBtn(
+          {
+            errorMessage: 'Error message coming from props',
+          },
+          {
+            slots: {
+              'error-message': 'Error message coming from slot',
+            },
+          },
+        );
+
+        expect(wrapper.findByDataTest('ec-radio-btn__error-text').exists()).toBe(true);
+        expect(wrapper.element).toMatchSnapshot();
+      });
+    });
+
+    describe('label', () => {
+      it('should render the label slot if passed', () => {
+        const wrapper = mountRadioBtn(
+          {},
+          {
+            slots: {
+              label: 'Test label message slot',
+            },
+          },
+        );
+
+        expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(true);
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('should render label slot instead of label prop when both are passed', () => {
+        const wrapper = mountRadioBtn(
+          {
+            label: 'Label message coming from props',
+          },
+          {
+            slots: {
+              label: 'Label message coming from slot',
+            },
+          },
+        );
+
+        expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(true);
+        expect(wrapper.element).toMatchSnapshot();
+      });
+    });
+
+    describe('description', () => {
+      it('should render the description slot if passed', () => {
+        const wrapper = mountRadioBtn(
+          {},
+          {
+            slots: {
+              description: 'Test description message slot',
+            },
+          },
+        );
+
+        expect(wrapper.findByDataTest('ec-radio-btn__description').exists()).toBe(true);
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('should render description slot instead of description prop when both are passed', () => {
+        const wrapper = mountRadioBtn(
+          {
+            description: 'Description message coming from props',
+          },
+          {
+            slots: {
+              description: 'Description message coming from slot',
+            },
+          },
+        );
+
+        expect(wrapper.findByDataTest('ec-radio-btn__description').exists()).toBe(true);
+        expect(wrapper.element).toMatchSnapshot();
+      });
     });
   });
 

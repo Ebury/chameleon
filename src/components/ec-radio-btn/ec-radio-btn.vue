@@ -94,7 +94,7 @@
 
     <div
       :id="errorId"
-      v-if="errorMessage"
+      v-if="hasErrorMessage"
       class="ec-radio-btn__error-text"
       data-test="ec-radio-btn__error-text"
     >
@@ -152,6 +152,7 @@ const isFocused = ref(false);
 
 const hasLabel = computed(() => (!!props.label || !!slots.label));
 const hasDescription = computed(() => (!!props.description || !!slots.description));
+const hasErrorMessage = computed(() => (!!props.errorMessage || !!slots['error-message']));
 
 function setFocusState(state: boolean) {
   isFocused.value = state;
