@@ -23,6 +23,21 @@ function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: MountingOp
 }
 
 describe('EcRadioBtn', () => {
+  it('should have a "name" attribute equal to the "for" attribute', () => {
+    const wrapper = mountRadioBtn();
+    const nameAttr = wrapper.findByDataTest('ec-radio-btn__input-0').attributes('name');
+    const forAttr = wrapper.findByDataTest('ec-radio-btn__radio-label-0').attributes('for');
+    expect(nameAttr).toBe(forAttr);
+    expect(wrapper.findByDataTest('ec-radio-btn-0')).toMatchSnapshot();
+  });
+
+  it('should have the same "name" attribute among all radios', () => {
+    const wrapper = mountRadioBtn();
+    const nameAttr1 = wrapper.findByDataTest('ec-radio-btn__input-0').attributes('name');
+    const nameAttr2 = wrapper.findByDataTest('ec-radio-btn__input-1').attributes('name');
+    expect(nameAttr1).toBe(nameAttr2);
+  });
+
   describe(':props', () => {
     it(':label - should render the radio button with a label', () => {
       const wrapper = mountRadioBtn({
