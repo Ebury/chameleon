@@ -165,7 +165,8 @@ import EcIcon from '../ec-icon';
 import EcInputField from '../ec-input-field';
 import { InputFieldType } from '../ec-input-field/types';
 import type {
-  PhoneNumberCountry, PhoneNumberCountryItem,
+  PhoneNumberCountry,
+  PhoneNumberCountryItem,
   PhoneNumberEvents,
   PhoneNumberModel,
 } from './types';

@@ -33,7 +33,7 @@ export { default as EcFullScreenOverlay } from './components/ec-full-screen-over
 export { default as EcIcon } from './components/ec-icon';
 export { default as EcInlineActions } from './components/ec-inline-actions';
 export { default as EcInlineInputField } from './components/ec-inline-input-field';
-export { default as EcInputField } from './components/ec-input-field';
+export { default as EcInputField, types as EcInputFieldTypes } from './components/ec-input-field';
 export { default as EcLoading } from './components/ec-loading';
 export { default as EcLoadingIcon } from './components/ec-loading-icon';
 export { default as EcMainContainer } from './components/ec-main-container';
@@ -46,7 +46,7 @@ export { default as EcMultipleValuesSelection } from './components/ec-multiple-v
 export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
 export { default as EcPanel } from './components/ec-panel';
-export { default as EcPhoneNumberInput } from './components/ec-phone-number-input';
+export { default as EcPhoneNumberInput, types as EcPhoneNumberInputTypes } from './components/ec-phone-number-input';
 export { default as EcPopover } from './components/ec-popover';
 export { POPOVER_CONTAINER_KEY } from './components/ec-popover/ec-popover-provide';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
