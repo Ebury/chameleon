@@ -7,7 +7,7 @@
   >
     <input
       v-bind="{
-        'aria-describedby': `${errorId} ${label} ${description}`,
+        'aria-describedby': `${errorId} ${labelId} ${descriptionId}`,
         value: value,
         id: id,
         disabled: isDisabled,
@@ -131,7 +131,9 @@ const uid = getUid();
 const slots = useSlots();
 
 const id = `ec-radio-btn-${uid}`;
-const errorId = computed(() => (props.hasError ? `ec-radio-btn-error-${id}` : ''));
+const errorId = `error-${id}`;
+const labelId = `label-${id}`;
+const descriptionId = `description-${id}`;
 const inputRadioRef = ref();
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]): void,
