@@ -131,9 +131,9 @@ const uid = getUid();
 const slots = useSlots();
 
 const id = `ec-radio-btn-${uid}`;
-const errorId = `error-${id}`;
-const labelId = `label-${id}`;
-const descriptionId = `description-${id}`;
+const errorId = `${id}-error`;
+const labelId = `${id}-label`;
+const descriptionId = `${id}-description`;
 const inputRadioRef = ref();
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]): void,
