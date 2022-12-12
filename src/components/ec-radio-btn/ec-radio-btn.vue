@@ -77,6 +77,7 @@
         </label>
 
         <p
+          :id="descriptionId"
           v-if="hasDescription"
           class="ec-radio-btn__description"
           :class="{
