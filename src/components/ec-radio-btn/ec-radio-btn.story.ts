@@ -46,6 +46,8 @@ export const all = () => ({
     const modelUncheckedDisabled = ref<RadioButtonProps['modelValue']>('');
     const modelInlineText = ref<RadioButtonProps['modelValue']>('y');
     const modelError = ref<RadioButtonProps['modelValue']>('');
+    const modelErrorMessage = ref<RadioButtonProps['modelValue']>('');
+    const modelSlotErrorMessage = ref<RadioButtonProps['modelValue']>('');
     const hasError = ref<RadioButtonProps['hasError']>(true);
     const errorMessage = 'One of the options must be selected';
 
@@ -64,6 +66,8 @@ export const all = () => ({
       modelUncheckedDisabled,
       modelInlineText,
       modelError,
+      modelErrorMessage,
+      modelSlotErrorMessage,
       hasError,
       onChange: action('update:modelValue'),
     };
@@ -130,12 +134,12 @@ export const all = () => ({
 
       <h3>Error Message</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError" :error-message="errorMessage" />
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelErrorMessage" :error-message="errorMessage" />
       </div>
 
       <h3>Slot Error Message</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError">
+        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelSlotErrorMessage">
           <template #error-message>
             <span class="tw-text-key-4">An error has occurred</span>
           </template>
