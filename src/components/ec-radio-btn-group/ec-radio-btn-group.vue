@@ -5,11 +5,11 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn-group` : `ec-radio-btn-group`"
   >
     <div
-      v-if="label"
+      v-if="hasLabel"
       data-test="ec-radio-btn-group__label"
       class="ec-radio-btn-group__label"
     >
-      {{ label }}
+      <slot name="label">{{ label }}</slot>
     </div>
     <div
       class="ec-radio-btn-group__radio-btn-wrapper"
@@ -37,7 +37,7 @@
     </div>
     <div
       :id="errorId"
-      v-if="errorId"
+      v-if="hasErrorMessage"
       class="ec-radio-btn-group__error-text"
       data-test="ec-radio-btn-group__error-text"
     >
@@ -50,6 +50,7 @@
 <script setup lang="ts">
 import {
   computed,
+  useSlots,
   withDefaults,
 } from 'vue';
 
@@ -80,15 +81,18 @@ const props = withDefaults(defineProps<RadioButtonGroupProps>(), {
 });
 
 const uid = getUid();
+const slots = useSlots();
 const isInvalid = computed(() => !!props.errorMessage);
 const errorId = computed(() => (isInvalid.value ? `ec-radio-btn-group-error-${uid}` : ''));
+const hasLabel = computed(() => (!!props.label || !!slots.label));
+const hasErrorMessage = computed(() => (!!props.errorMessage || !!slots['error-message']));
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonGroupEvents[RadioButtonGroupEvent.UPDATE_MODEL_VALUE]): void,
 }>();
 </script>
 
 <style>
-.ec-radio-btn__group {
+.ec-radio-btn-group {
   &__label {
     @apply tw-mb-16;
     @apply tw-small-strong;
@@ -96,11 +100,10 @@ const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonGroupEvents
   }
 
   &__radio-btn-wrapper {
-    @apply tw-flex tw-flex-nowrap;
-    @apply tw-content-center;
-
     &--is-single-line {
       @apply tw-items-center;
+      @apply tw-mt-0;
+      @apply tw-flex tw-flex-nowrap;
     }
   }
 
@@ -108,11 +111,6 @@ const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonGroupEvents
     @apply tw-ml-32;
     @apply tw-help-text tw-text-error;
     @apply tw-mt-4;
-  }
-
-  &--is-single-line {
-    @apply tw-mt-0;
-    @apply tw-flex tw-flex-nowrap;
   }
 }
 </style>

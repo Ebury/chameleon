@@ -37,22 +37,24 @@ export const basic = () => ({
   `,
 });
 
-/* export const all = () => ({
+export const all = () => ({
   components: { EcRadioBtnGroup },
   setup() {
-    const label = ref<RadioButtonProps['label']>('Yes');
-    const description = ref<RadioButtonProps['description']>('Confirm');
-    const modelLabel = ref<RadioButtonProps['modelValue']>('');
-    const modelSlotLabel = ref<RadioButtonProps['modelValue']>('');
-    const modelDescription = ref<RadioButtonProps['modelValue']>('');
-    const modelSlotDescription = ref<RadioButtonProps['modelValue']>('');
-    const modelUnchecked = ref<RadioButtonProps['modelValue']>('');
-    const modelChecked = ref<RadioButtonProps['modelValue']>('y');
-    const modelCheckedDisabled = ref<RadioButtonProps['modelValue']>('y');
-    const modelUncheckedDisabled = ref<RadioButtonProps['modelValue']>('');
-    const modelInlineText = ref<RadioButtonProps['modelValue']>('y');
-    const modelError = ref<RadioButtonProps['modelValue']>('');
-    const hasError = ref<RadioButtonProps['hasError']>(true);
+    const label = ref<RadioButtonGroupProps['label']>('Select an option');
+    const modelLabel = ref<RadioButtonGroupProps['modelValue']>('');
+    const modelSlotLabel = ref<RadioButtonGroupProps['modelValue']>('');
+    const optionsWithDescription = ref<RadioButtonGroupProps['options']>([
+      { value: 'y', label: 'Yes', description: 'Confirm' },
+      { value: 'n', label: 'No', description: 'Reject' },
+    ]);
+    const modelDescription = ref<RadioButtonGroupProps['modelValue']>('');
+    const modelUnchecked = ref<RadioButtonGroupProps['modelValue']>('');
+    const modelChecked = ref<RadioButtonGroupProps['modelValue']>('y');
+    const modelCheckedDisabled = ref<RadioButtonGroupProps['modelValue']>('y');
+    const modelUncheckedDisabled = ref<RadioButtonGroupProps['modelValue']>('');
+    const modelInlineText = ref<RadioButtonGroupProps['modelValue']>('y');
+    const modelGroupInlineText = ref<RadioButtonGroupProps['modelValue']>('y');
+    const modelError = ref<RadioButtonGroupProps['modelValue']>('');
     const errorMessage = 'One of the options must be selected';
 
     return {
@@ -60,17 +62,16 @@ export const basic = () => ({
       modelChecked,
       modelUnchecked,
       label,
-      description,
       errorMessage,
+      optionsWithDescription,
       modelLabel,
       modelSlotLabel,
       modelDescription,
-      modelSlotDescription,
       modelCheckedDisabled,
       modelUncheckedDisabled,
       modelInlineText,
+      modelGroupInlineText,
       modelError,
-      hasError,
       onChange: action('update:modelValue'),
     };
   },
@@ -78,74 +79,77 @@ export const basic = () => ({
     <div class="tw-max-w-screen-sm tw-m-24">
       <h3>Label</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelLabel"></ec-radio-btn>
+        <ec-radio-btn-group @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelLabel"></ec-radio-btn-group>
       </div>
 
       <h3>Slot label</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelSlotLabel">
+        <ec-radio-btn-group @update:modelValue="onChange" v-bind="args" v-model="modelSlotLabel">
           <template #label>
             <span class="tw-text-key-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
+              Select an option
             </span>
           </template>
-        </ec-radio-btn>
+        </ec-radio-btn-group>
       </div>
 
       <h3>Description</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelDescription" :description="description"></ec-radio-btn>
-      </div>
-
-      <h3>Slot Description</h3>
-      <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelSlotDescription">
-          <template #description>
-            <span class="tw-text-key-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
-            </span>
-            </template>
-        </ec-radio-btn>
+        <ec-radio-btn-group 
+          @update:modelValue="onChange" 
+          v-bind="args" 
+          v-model="modelDescription" 
+          :options="optionsWithDescription" />
       </div>
 
       <h3>Checked</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelChecked" />
+        <ec-radio-btn-group @update:modelValue="onChange" v-bind="args" v-model="modelChecked" />
       </div>
 
       <h3>Unchecked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelUncheckedDisabled" :is-disabled="true" />
+        <ec-radio-btn-group @update:modelValue="onChange" v-bind="args" v-model="modelUncheckedDisabled" :is-disabled="true" />
       </div>
 
       <h3>Checked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelCheckedDisabled" :is-disabled="true" />
+        <ec-radio-btn-group @update:modelValue="onChange" v-bind="args" v-model="modelCheckedDisabled" :is-disabled="true" />
       </div>
 
       <h3>Inline Text</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelInlineText" :is-text-inline="true" :description="description" />
+        <ec-radio-btn-group 
+          @update:modelValue="onChange" 
+          v-bind="args"
+          v-model="modelInlineText" 
+          :is-text-inline="true" 
+          :options="optionsWithDescription" />
       </div>
 
-      <h3>Has Error</h3>
+      <h3>Group Inline</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError" :has-error="hasError" />
+        <ec-radio-btn-group 
+          @update:modelValue="onChange" 
+          v-bind="args" 
+          v-model="modelInlineText" 
+          :is-group-inline="true" 
+          :options="optionsWithDescription" />
       </div>
 
       <h3>Error Message</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError" :error-message="errorMessage" />
+        <ec-radio-btn-group @update:modelValue="onChange" v-bind="args" v-model="modelError" :error-message="errorMessage" />
       </div>
 
       <h3>Slot Error Message</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
-        <ec-radio-btn @update:modelValue="onChange" v-bind="args" :label="label" v-model="modelError">
+        <ec-radio-btn-group @update:modelValue="onChange" v-bind="args" v-model="modelError">
           <template #error-message>
             <span class="tw-text-key-4">An error has occurred</span>
           </template>
-        </ec-radio-btn>
+        </ec-radio-btn-group>
       </div>
     </div>
   `,
-}); */
+});
