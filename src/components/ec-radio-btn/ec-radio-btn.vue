@@ -1,7 +1,7 @@
 <template>
   <div
     class="ec-radio-btn"
-    :class="[$attrs.class]"
+    :class="[$attrs.class, {'ec-radio-btn--is-disabled': isDisabled}]"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn` : `ec-radio-btn ec-radio-btn`"
     @click="onClick();"
   >
@@ -161,6 +161,12 @@ function onClick() {
 
 <style>
 .ec-radio-btn {
+  @apply tw-cursor-pointer;
+
+  &--is-disabled {
+    @apply tw-cursor-default;
+  }
+
   &__input {
     @apply tw-sr-only;
   }
@@ -209,7 +215,6 @@ function onClick() {
   }
 
   &__icon-wrapper {
-    @apply tw-cursor-pointer;
     @apply tw-bg-gray-8;
     @apply tw-w-24 tw-h-24;
     @apply tw-flex-shrink-0;
