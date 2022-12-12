@@ -274,11 +274,12 @@ function onClick() {
   }
 
   &__icon {
-    transform: translate(-50%, -50%);
     padding: 2px;
+    @apply tw-translate-x-1/2 tw--translate-y-1/2;
+    @apply tw-p-1;
     @apply tw-fill-gray-8;
     @apply tw-absolute;
-    @apply tw-left-1/2 tw-top-1/2;
+    @apply tw-left-0 tw-top-0;
 
     &--checked {
       @apply tw-fill-key-4;
