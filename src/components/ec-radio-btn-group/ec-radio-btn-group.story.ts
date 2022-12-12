@@ -11,12 +11,11 @@ export default {
   component: EcRadioBtnGroup,
 };
 
-const basicArgs: Pick<RadioButtonGroupProps, 'options' | 'name'> = {
+const basicArgs: Pick<RadioButtonGroupProps, 'options'> = {
   options: [
     { value: 'y', label: 'Yes' },
     { value: 'n', label: 'No' },
   ],
-  name: 'basic',
 };
 
 export const basic = () => ({
@@ -26,12 +25,17 @@ export const basic = () => ({
     return {
       args: basicArgs,
       modelValue,
+      name: 'basic',
       onChange: action('update:modelValue'),
     };
   },
   template: `
     <div class="tw-p-24">
-      <ec-radio-btn-group  @update:model-value="onChange" v-bind="args" v-model="modelValue"/>
+      <ec-radio-btn-group 
+        name="name" 
+        @update:model-value="onChange" 
+        v-bind="args" 
+        v-model="modelValue" />
     </div>
   `,
 });
