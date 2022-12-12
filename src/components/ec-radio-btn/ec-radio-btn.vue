@@ -202,8 +202,6 @@ function onClick() {
   }
 
   &__text-wrapper {
-    @apply tw-cursor-pointer;
-
     &--is-single-line {
       @apply tw-flex;
       @apply tw-flex-nowrap;
