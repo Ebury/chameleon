@@ -32,6 +32,7 @@
             'tw-ml-40': optionIndex !== 0 && isGroupInline,
           }
         ]"
+        @update:model-value="emit('update:modelValue', modelValue);"
       />
     </div>
     <div
@@ -54,7 +55,7 @@ import {
 
 import { getUid } from '../../utils/uid';
 import EcRadioBtn from '../ec-radio-btn';
-import type { RadioButtonOption } from './types';
+import type { RadioButtonGroupEvent, RadioButtonGroupEvents, RadioButtonOption } from './types';
 
 interface RadioButtonGroupProps {
   options: RadioButtonOption[],
@@ -81,6 +82,9 @@ const props = withDefaults(defineProps<RadioButtonGroupProps>(), {
 const uid = getUid();
 const isInvalid = computed(() => !!props.errorMessage);
 const errorId = computed(() => (isInvalid.value ? `ec-radio-btn-group-error-${uid}` : ''));
+
+const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonGroupEvents[RadioButtonGroupEvent.UPDATE_MODEL_VALUE]): void,
+}>();
 </script>
 
 <style>

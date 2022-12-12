@@ -1,3 +1,11 @@
+export enum RadioButtonGroupEvent {
+  UPDATE_MODEL_VALUE = 'update:modelValue',
+}
+
+export interface RadioButtonGroupEvents {
+  [RadioButtonGroupEvent.UPDATE_MODEL_VALUE]: RadioButtonGroupProps['modelValue']
+}
+
 export interface RadioButtonOption {
   label: string,
   value: string,
