@@ -7,7 +7,7 @@
   >
     <input
       v-bind="{
-        'aria-describedby': errorId,
+        'aria-describedby': `${errorId} ${label} ${description}`,
         value: value,
         id: id,
         disabled: isDisabled,
