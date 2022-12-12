@@ -106,7 +106,7 @@
 
 <script setup lang="ts">
 import {
-  computed, ref, useSlots, withDefaults,
+  computed, ref, useSlots,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
@@ -126,15 +126,7 @@ interface RadioButtonProps {
   hasError?: boolean
 }
 
-const props = withDefaults(defineProps<RadioButtonProps>(), {
-  modelValue: '',
-  label: '',
-  description: '',
-  errorMessage: '',
-  hasError: false,
-  isDisabled: false,
-  isTextInline: false,
-});
+const props = defineProps<RadioButtonProps>();
 
 const uid = getUid();
 const slots = useSlots();
