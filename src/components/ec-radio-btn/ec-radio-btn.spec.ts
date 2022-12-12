@@ -28,11 +28,11 @@ describe('EcRadioBtn', () => {
 
   describe('props', () => {
     describe('name', () => {
-      it('should have a "name" attribute on the input equal to the "for" attribute on the label', () => {
+      it('should have a "id" attribute on the input equal to the "for" attribute on the label', () => {
         const wrapper = mountRadioBtn();
-        const nameAttr = wrapper.findByDataTest('ec-radio-btn__input').attributes('name');
-        const forAttr = wrapper.findByDataTest('ec-radio-btn__label').attributes('for');
-        expect(nameAttr).toBe(forAttr);
+        const inputId = wrapper.findByDataTest('ec-radio-btn__input').attributes('id');
+        const labelForAttr = wrapper.findByDataTest('ec-radio-btn__label').attributes('for');
+        expect(inputId).toBe(labelForAttr);
         expect(wrapper.findByDataTest('ec-radio-btn')).toMatchSnapshot();
       });
     });

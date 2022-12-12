@@ -51,6 +51,7 @@ exports[`EcRadioBtn focus should be checked and focused 1`] = `
             <label
               class="ec-radio-btn__label"
               data-test="ec-radio-btn__label"
+              for="ec-radio-btn-1"
             >
               
               Yes
@@ -132,6 +133,7 @@ exports[`EcRadioBtn focus should be focused 1`] = `
             <label
               class="ec-radio-btn__label"
               data-test="ec-radio-btn__label"
+              for="ec-radio-btn-1"
             >
               
               Yes
@@ -223,6 +225,7 @@ exports[`EcRadioBtn focus should be not focused 1`] = `
             <label
               class="ec-radio-btn__label"
               data-test="ec-radio-btn__label"
+              for="ec-radio-btn-1"
             >
               
               Yes
@@ -386,6 +389,7 @@ exports[`EcRadioBtn props isTextInline should render the radio buttons text (lab
   <label
     class="ec-radio-btn__label"
     data-test="ec-radio-btn__label"
+    for="ec-radio-btn-1"
     title="Yes"
   >
     
@@ -436,6 +440,7 @@ exports[`EcRadioBtn props label should render the radio button with the given la
       <label
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
       >
         
         Yes
@@ -487,7 +492,7 @@ exports[`EcRadioBtn props label should render the radio button without label whe
 </div>
 `;
 
-exports[`EcRadioBtn props name should have a "name" attribute on the input equal to the "for" attribute on the label 1`] = `
+exports[`EcRadioBtn props name should have a "id" attribute on the input equal to the "for" attribute on the label 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <div
@@ -529,6 +534,7 @@ DOMWrapper {
         <label
           class="ec-radio-btn__label"
           data-test="ec-radio-btn__label"
+          for="ec-radio-btn-1"
         >
           
           Yes
@@ -582,6 +588,7 @@ exports[`EcRadioBtn should render properly 1`] = `
       <label
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
       >
         
         Yes
@@ -634,6 +641,7 @@ exports[`EcRadioBtn slots description should render description slot instead of 
       <label
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
       >
         
         Yes
@@ -642,6 +650,7 @@ exports[`EcRadioBtn slots description should render description slot instead of 
       <p
         class="ec-radio-btn__description"
         data-test="ec-radio-btn__description"
+        id="ec-radio-btn-1-description"
       >
         
         Description message coming from slot
@@ -693,6 +702,7 @@ exports[`EcRadioBtn slots description should render the description slot if pass
       <label
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
       >
         
         Yes
@@ -701,6 +711,7 @@ exports[`EcRadioBtn slots description should render the description slot if pass
       <p
         class="ec-radio-btn__description"
         data-test="ec-radio-btn__description"
+        id="ec-radio-btn-1-description"
       >
         
         Test description message slot
@@ -752,6 +763,7 @@ exports[`EcRadioBtn slots errorMessage should render error-message slot instead 
       <label
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
       >
         
         Yes
@@ -812,6 +824,7 @@ exports[`EcRadioBtn slots errorMessage should render the error message slot if p
       <label
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
       >
         
         Yes
@@ -872,6 +885,7 @@ exports[`EcRadioBtn slots label should render label slot instead of label prop w
       <label
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
       >
         
         Label message coming from slot
@@ -924,6 +938,7 @@ exports[`EcRadioBtn slots label should render the label slot if passed 1`] = `
       <label
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
       >
         
         Test label message slot
