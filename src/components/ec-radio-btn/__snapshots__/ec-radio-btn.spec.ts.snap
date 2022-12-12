@@ -16,7 +16,7 @@ exports[`EcRadioBtn focus should be checked and focused 1`] = `
         data-test="ec-radio-btn ec-radio-btn"
       >
         <input
-          aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+          aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
           class="ec-radio-btn__input"
           data-test="ec-radio-btn__input"
           id="ec-radio-btn-1"
@@ -98,7 +98,7 @@ exports[`EcRadioBtn focus should be focused 1`] = `
         data-test="ec-radio-btn ec-radio-btn"
       >
         <input
-          aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+          aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
           class="ec-radio-btn__input"
           data-test="ec-radio-btn__input"
           id="ec-radio-btn-1"
@@ -189,7 +189,7 @@ exports[`EcRadioBtn focus should be not focused 1`] = `
         data-test="ec-radio-btn ec-radio-btn"
       >
         <input
-          aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+          aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
           class="ec-radio-btn__input"
           data-test="ec-radio-btn__input"
           id="ec-radio-btn-1"
@@ -305,7 +305,7 @@ exports[`EcRadioBtn props error should render the radio button with a given erro
 <div
   class="ec-radio-btn__error-text"
   data-test="ec-radio-btn__error-text"
-  id="error-ec-radio-btn-1"
+  id="ec-radio-btn-1-error"
 >
   
   Test error message prop
@@ -315,7 +315,7 @@ exports[`EcRadioBtn props error should render the radio button with a given erro
 
 exports[`EcRadioBtn props isDisabled should render the checked radio button with a disabled attribute 1`] = `
 <input
-  aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+  aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
   class="ec-radio-btn__input"
   data-test="ec-radio-btn__input"
   disabled=""
@@ -348,7 +348,7 @@ exports[`EcRadioBtn props isDisabled should render the checked radio button with
 
 exports[`EcRadioBtn props isDisabled should render the unchecked radio button with a disabled attribute 1`] = `
 <input
-  aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+  aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
   class="ec-radio-btn__input"
   data-test="ec-radio-btn__input"
   disabled=""
@@ -402,7 +402,7 @@ exports[`EcRadioBtn props label should render the radio button with the given la
   data-test="ec-radio-btn ec-radio-btn"
 >
   <input
-    aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
     class="ec-radio-btn__input"
     data-test="ec-radio-btn__input"
     id="ec-radio-btn-1"
@@ -454,7 +454,7 @@ exports[`EcRadioBtn props label should render the radio button without label whe
   data-test="ec-radio-btn ec-radio-btn"
 >
   <input
-    aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
     class="ec-radio-btn__input"
     data-test="ec-radio-btn__input"
     id="ec-radio-btn-1"
@@ -495,7 +495,7 @@ DOMWrapper {
     data-test="ec-radio-btn ec-radio-btn"
   >
     <input
-      aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+      aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
       class="ec-radio-btn__input"
       data-test="ec-radio-btn__input"
       id="ec-radio-btn-1"
@@ -548,7 +548,7 @@ exports[`EcRadioBtn should render properly 1`] = `
   data-test="ec-radio-btn ec-radio-btn"
 >
   <input
-    aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
     class="ec-radio-btn__input"
     data-test="ec-radio-btn__input"
     id="ec-radio-btn-1"
@@ -600,7 +600,7 @@ exports[`EcRadioBtn slots description should render description slot instead of 
   data-test="ec-radio-btn ec-radio-btn"
 >
   <input
-    aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
     class="ec-radio-btn__input"
     data-test="ec-radio-btn__input"
     id="ec-radio-btn-1"
@@ -659,7 +659,7 @@ exports[`EcRadioBtn slots description should render the description slot if pass
   data-test="ec-radio-btn ec-radio-btn"
 >
   <input
-    aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
     class="ec-radio-btn__input"
     data-test="ec-radio-btn__input"
     id="ec-radio-btn-1"
@@ -718,7 +718,7 @@ exports[`EcRadioBtn slots errorMessage should render error-message slot instead 
   data-test="ec-radio-btn ec-radio-btn"
 >
   <input
-    aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
     class="ec-radio-btn__input"
     data-test="ec-radio-btn__input"
     id="ec-radio-btn-1"
@@ -763,7 +763,7 @@ exports[`EcRadioBtn slots errorMessage should render error-message slot instead 
   <div
     class="ec-radio-btn__error-text"
     data-test="ec-radio-btn__error-text"
-    id="error-ec-radio-btn-1"
+    id="ec-radio-btn-1-error"
   >
     
     Error message coming from slot
@@ -778,7 +778,7 @@ exports[`EcRadioBtn slots errorMessage should render the error message slot if p
   data-test="ec-radio-btn ec-radio-btn"
 >
   <input
-    aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
     class="ec-radio-btn__input"
     data-test="ec-radio-btn__input"
     id="ec-radio-btn-1"
@@ -823,7 +823,7 @@ exports[`EcRadioBtn slots errorMessage should render the error message slot if p
   <div
     class="ec-radio-btn__error-text"
     data-test="ec-radio-btn__error-text"
-    id="error-ec-radio-btn-1"
+    id="ec-radio-btn-1-error"
   >
     
     Test error message slot
@@ -838,7 +838,7 @@ exports[`EcRadioBtn slots label should render label slot instead of label prop w
   data-test="ec-radio-btn ec-radio-btn"
 >
   <input
-    aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
     class="ec-radio-btn__input"
     data-test="ec-radio-btn__input"
     id="ec-radio-btn-1"
@@ -890,7 +890,7 @@ exports[`EcRadioBtn slots label should render the label slot if passed 1`] = `
   data-test="ec-radio-btn ec-radio-btn"
 >
   <input
-    aria-describedby="error-ec-radio-btn-1 label-ec-radio-btn-1 description-ec-radio-btn-1"
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
     class="ec-radio-btn__input"
     data-test="ec-radio-btn__input"
     id="ec-radio-btn-1"
