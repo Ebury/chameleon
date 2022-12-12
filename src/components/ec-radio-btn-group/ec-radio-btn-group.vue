@@ -32,7 +32,7 @@
             'tw-ml-40': optionIndex !== 0 && isGroupInline,
           }
         ]"
-        @update:model-value="emit('update:modelValue', modelValue);"
+        @update:model-value="emit('update:modelValue', $event);"
       />
     </div>
     <div

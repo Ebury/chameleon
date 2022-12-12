@@ -31,7 +31,6 @@ export const basic = () => ({
   },
   template: `
     <div class="tw-p-24">
-      {{modelValue}}
       <ec-radio-btn-group @update:model-value="onChange" v-bind="args" v-model="modelValue"/>
     </div>
   `,
