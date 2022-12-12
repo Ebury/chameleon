@@ -3,7 +3,7 @@
     class="ec-radio-btn"
     :class="[$attrs.class]"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn` : `ec-radio-btn ec-radio-btn`"
-    @click="onRadioBtnClick();"
+    @click="onClick();"
   >
     <input
       v-bind="{
@@ -148,7 +148,7 @@ function setFocusState(state: boolean) {
   isFocused.value = state;
 }
 
-function onRadioBtnClick() {
+function onClick() {
   if (!props.isDisabled) {
     inputRadioRef.value.focus();
     emit(RadioButtonEvent.UPDATE_MODEL_VALUE, props.value);
