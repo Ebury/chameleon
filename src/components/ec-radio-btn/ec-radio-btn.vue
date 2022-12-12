@@ -78,7 +78,6 @@
 
         <p
           v-if="hasDescription"
-          :for="id"
           class="ec-radio-btn__description"
           :class="{
             'ec-radio-btn__description--is-single-line': isTextInline,
