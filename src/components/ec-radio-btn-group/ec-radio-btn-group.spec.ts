@@ -1,18 +1,21 @@
-/* import type { MountingOptions } from '@vue/test-utils'; */
-
-/* import { mount } from '@vue/test-utils';
+import type { MountingOptions } from '@vue/test-utils';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
-import { EcRadioBtn } from '../../main';
-import type { RadioButtonProps } from './types';
+import { EcRadioBtnGroup } from '../../main';
+import type { RadioButtonGroupProps } from './types';
 
-function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: MountingOptions<RadioButtonProps>): CVueWrapper {
+function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: MountingOptions<RadioButtonGroupProps>): CVueWrapper {
   return mount(
-    EcRadioBtn as any, // eslint-disable-line
+    EcRadioBtnGroup as any, // eslint-disable-line
     {
       props: {
-        value: 'y',
-        label: 'Yes',
+        options: [
+          { value: 'y', label: 'Yes' },
+          { value: 'n', label: 'No' },
+        ],
+        name: 'testingNameProp',
         ...props,
       },
       ...mountOpts,
@@ -22,14 +25,14 @@ function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: MountingOp
 
 describe('EcRadioBtn', () => {
   it('should render properly', () => {
-    const wrapper = mountRadioBtn();
+    const wrapper = mountRadioBtnGroup();
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  describe('props', () => {
+/*   describe('props', () => {
     describe('name', () => {
       it('should have a "name" attribute on the input equal to the "for" attribute on the label', () => {
-        const wrapper = mountRadioBtn();
+        const wrapper = mountRadioBtnGroup();
         const nameAttr = wrapper.findByDataTest('ec-radio-btn__input').attributes('name');
         const forAttr = wrapper.findByDataTest('ec-radio-btn__label').attributes('for');
         expect(nameAttr).toBe(forAttr);
@@ -39,14 +42,14 @@ describe('EcRadioBtn', () => {
 
     describe('label', () => {
       it('should render the radio button with the given label', () => {
-        const wrapper = mountRadioBtn();
+        const wrapper = mountRadioBtnGroup();
 
         expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(true);
         expect(wrapper.element).toMatchSnapshot();
       });
 
       it('should render the radio button without label when not present', () => {
-        const wrapper = mountRadioBtn({ value: 'y', label: undefined });
+        const wrapper = mountRadioBtnGroup({ value: 'y', label: undefined });
 
         expect(wrapper.findByDataTest('ec-radio-btn__label').exists()).toBe(false);
         expect(wrapper.element).toMatchSnapshot();
@@ -55,7 +58,7 @@ describe('EcRadioBtn', () => {
 
     describe('isTextInline', () => {
       it('should render the radio buttons text (label and description) on a single line', () => {
-        const wrapper = mountRadioBtn({
+        const wrapper = mountRadioBtnGroup({
           isTextInline: true,
         });
 
@@ -65,7 +68,7 @@ describe('EcRadioBtn', () => {
 
     describe('error', () => {
       it('should render the radio button with a given error message', () => {
-        const wrapper = mountRadioBtn({
+        const wrapper = mountRadioBtnGroup({
           errorMessage: 'Test error message prop',
         });
 
@@ -74,7 +77,7 @@ describe('EcRadioBtn', () => {
       });
 
       it('should render the radio button with a error style on icon', () => {
-        const wrapper = mountRadioBtn({
+        const wrapper = mountRadioBtnGroup({
           hasError: true,
         });
 
@@ -84,7 +87,7 @@ describe('EcRadioBtn', () => {
 
     describe('isDisabled', () => {
       it('should render the unchecked radio button with a disabled attribute', () => {
-        const wrapper = mountRadioBtn({
+        const wrapper = mountRadioBtnGroup({
           isDisabled: true,
         });
         const inputElement = (wrapper.findByDataTest('ec-radio-btn__input').element as HTMLInputElement);
@@ -93,7 +96,7 @@ describe('EcRadioBtn', () => {
       });
 
       it('should render the unchecked radio button with a disabled icon', () => {
-        const wrapper = mountRadioBtn({
+        const wrapper = mountRadioBtnGroup({
           isDisabled: true,
         });
         const icon = (wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element as HTMLInputElement);
@@ -101,7 +104,7 @@ describe('EcRadioBtn', () => {
       });
 
       it('should render the checked radio button with a disabled attribute', () => {
-        const wrapper = mountRadioBtn({
+        const wrapper = mountRadioBtnGroup({
           isDisabled: true,
           modelValue: 'y',
         });
@@ -113,7 +116,7 @@ describe('EcRadioBtn', () => {
       });
 
       it('should render the checked radio button with a disabled icon', () => {
-        const wrapper = mountRadioBtn({
+        const wrapper = mountRadioBtnGroup({
           isDisabled: true,
           modelValue: 'y',
         });
@@ -125,7 +128,7 @@ describe('EcRadioBtn', () => {
 
     describe('description', () => {
       it('should render with a description when present', () => {
-        const wrapper = mountRadioBtn({
+        const wrapper = mountRadioBtnGroup({
           description: 'Testing description',
         });
 
@@ -134,12 +137,12 @@ describe('EcRadioBtn', () => {
       });
 
       it('should not render with a description when not present', () => {
-        const wrapper = mountRadioBtn();
+        const wrapper = mountRadioBtnGroup();
         expect(wrapper.findByDataTest('ec-radio-btn__description').exists()).toBe(false);
       });
 
       it('should not render when label is not present', () => {
-        const wrapper = mountRadioBtn({ label: undefined, description: 'Test description' });
+        const wrapper = mountRadioBtnGroup({ label: undefined, description: 'Test description' });
         expect(wrapper.findByDataTest('ec-radio-btn__description').exists()).toBe(false);
       });
     });
@@ -147,7 +150,7 @@ describe('EcRadioBtn', () => {
 
   describe('events', () => {
     it('@update:modelValue - should be emitted when input is clicked', async () => {
-      const wrapper = mountRadioBtn();
+      const wrapper = mountRadioBtnGroup();
 
       await wrapper.findByDataTest('ec-radio-btn').trigger('click');
       expect(wrapper.emitted('update:modelValue')?.length).toBe(1);
@@ -158,7 +161,7 @@ describe('EcRadioBtn', () => {
   describe('slots', () => {
     describe('errorMessage', () => {
       it('should render the error message slot if passed', () => {
-        const wrapper = mountRadioBtn(
+        const wrapper = mountRadioBtnGroup(
           {},
           {
             slots: {
@@ -172,7 +175,7 @@ describe('EcRadioBtn', () => {
       });
 
       it('should render error-message slot instead of error-message prop when both are passed', () => {
-        const wrapper = mountRadioBtn(
+        const wrapper = mountRadioBtnGroup(
           {
             errorMessage: 'Error message coming from props',
           },
@@ -190,7 +193,7 @@ describe('EcRadioBtn', () => {
 
     describe('label', () => {
       it('should render the label slot if passed', () => {
-        const wrapper = mountRadioBtn(
+        const wrapper = mountRadioBtnGroup(
           {},
           {
             slots: {
@@ -204,7 +207,7 @@ describe('EcRadioBtn', () => {
       });
 
       it('should render label slot instead of label prop when both are passed', () => {
-        const wrapper = mountRadioBtn(
+        const wrapper = mountRadioBtnGroup(
           {
             label: 'Label message coming from props',
           },
@@ -222,7 +225,7 @@ describe('EcRadioBtn', () => {
 
     describe('description', () => {
       it('should render the description slot if passed', () => {
-        const wrapper = mountRadioBtn(
+        const wrapper = mountRadioBtnGroup(
           {},
           {
             slots: {
@@ -236,7 +239,7 @@ describe('EcRadioBtn', () => {
       });
 
       it('should render description slot instead of description prop when both are passed', () => {
-        const wrapper = mountRadioBtn(
+        const wrapper = mountRadioBtnGroup(
           {
             description: 'Description message coming from props',
           },
@@ -257,7 +260,7 @@ describe('EcRadioBtn', () => {
     it('should be focused', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
-      const wrapper = mountRadioBtn({}, { attachTo: elem });
+      const wrapper = mountRadioBtnGroup({}, { attachTo: elem });
 
       await wrapper.findByDataTest('ec-radio-btn__input').trigger('focus');
       expect(document.activeElement).toMatchSnapshot();
@@ -267,7 +270,7 @@ describe('EcRadioBtn', () => {
     it('should be checked and focused', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
-      const wrapper = mountRadioBtn({ modelValue: 'y' }, { attachTo: elem });
+      const wrapper = mountRadioBtnGroup({ modelValue: 'y' }, { attachTo: elem });
 
       await wrapper.findByDataTest('ec-radio-btn__input').trigger('focus');
       expect(document.activeElement).toMatchSnapshot();
@@ -277,7 +280,7 @@ describe('EcRadioBtn', () => {
     it('should be not focused', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
-      const wrapper = mountRadioBtn({}, { attachTo: elem });
+      const wrapper = mountRadioBtnGroup({}, { attachTo: elem });
 
       await wrapper.findByDataTest('ec-radio-btn__input').trigger('focus');
       await wrapper.findByDataTest('ec-radio-btn__input').trigger('blur');
@@ -289,13 +292,13 @@ describe('EcRadioBtn', () => {
       it('should be checked and focused', async () => {
         const elem = document.createElement('div');
         document.body.appendChild(elem);
-        const wrapper = mountRadioBtn({}, { attachTo: elem });
+        const wrapper = mountRadioBtnGroup({}, { attachTo: elem });
         const inputElement = wrapper.findByDataTest('ec-radio-btn__input').element;
         await wrapper.findByDataTest('ec-radio-btn').trigger('click');
         expect(document.activeElement).toEqual(inputElement);
         expect(wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element).toMatchSnapshot();
       });
     });
-  });
-}); */
+  }); */
+});
 

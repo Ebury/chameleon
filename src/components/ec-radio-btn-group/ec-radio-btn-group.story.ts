@@ -43,6 +43,10 @@ export const basic = () => ({
 export const all = () => ({
   components: { EcRadioBtnGroup },
   setup() {
+    const optionsWithDescription = ref<RadioButtonGroupProps['options']>([
+      { value: 'y', label: 'Yes', description: 'Confirm' },
+      { value: 'n', label: 'No', description: 'Reject' },
+    ]);
     const label = ref<RadioButtonGroupProps['label']>('Select an option');
     const nameLabel = ref<RadioButtonGroupProps['name']>('labelStory');
     const slotNameLabel = ref<RadioButtonGroupProps['name']>('slotLabelStory');
@@ -57,10 +61,6 @@ export const all = () => ({
     const nameSlotErrorMessage = ref<RadioButtonGroupProps['name']>('slotErrorMessageStory');
     const modelLabel = ref<RadioButtonGroupProps['modelValue']>('');
     const modelSlotLabel = ref<RadioButtonGroupProps['modelValue']>('');
-    const optionsWithDescription = ref<RadioButtonGroupProps['options']>([
-      { value: 'y', label: 'Yes', description: 'Confirm' },
-      { value: 'n', label: 'No', description: 'Reject' },
-    ]);
     const modelDescription = ref<RadioButtonGroupProps['modelValue']>('');
     const modelUnchecked = ref<RadioButtonGroupProps['modelValue']>('');
     const modelChecked = ref<RadioButtonGroupProps['modelValue']>('y');
