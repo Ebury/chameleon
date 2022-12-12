@@ -134,7 +134,6 @@ const props = withDefaults(defineProps<RadioButtonProps>(), {
   hasError: false,
   isDisabled: false,
   isTextInline: false,
-  name: '',
 });
 
 const uid = getUid();
