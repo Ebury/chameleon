@@ -186,8 +186,7 @@ export const all = () => ({
           @update:modelValue="onChange" 
           v-bind="args" 
           v-model="modelGroupInline" 
-          :is-group-inline="true" 
-          :options="optionsWithDescription" />
+          :is-group-inline="true" />
       </div>
 
       <h3>Error Message</h3>
