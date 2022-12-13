@@ -7,14 +7,14 @@ export interface RadioButtonEvents {
   }
 
 export interface RadioButtonProps {
+    value: string,
     modelValue?: string,
     label?: string,
     description?: string,
     isDisabled?: boolean,
-    isTextInline?: boolean
-    value: string,
+    isTextInline?: boolean,
     name?: string,
     errorMessage?: string,
-    hasError?: boolean,
+    hasError?: boolean
   }
 
