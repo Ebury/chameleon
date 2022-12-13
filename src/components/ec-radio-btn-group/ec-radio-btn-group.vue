@@ -50,7 +50,6 @@
 import {
   computed,
   useSlots,
-  withDefaults,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
@@ -68,16 +67,7 @@ interface RadioButtonGroupProps {
   isGroupInline?: boolean,
 }
 
-const props = withDefaults(defineProps<RadioButtonGroupProps>(), {
-  options: () => [],
-  name: '',
-  modelValue: '',
-  label: '',
-  errorMessage: '',
-  isDisabled: false,
-  isTextInline: false,
-  isGroupInline: false,
-});
+const props = defineProps<RadioButtonGroupProps>();
 
 const uid = getUid();
 const slots = useSlots();
