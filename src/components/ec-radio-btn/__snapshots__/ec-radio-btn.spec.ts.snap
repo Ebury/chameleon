@@ -52,6 +52,7 @@ exports[`EcRadioBtn focus should be checked and focused 1`] = `
               class="ec-radio-btn__label"
               data-test="ec-radio-btn__label"
               for="ec-radio-btn-1"
+              id="ec-radio-btn-1-label"
             >
               
               Yes
@@ -134,6 +135,7 @@ exports[`EcRadioBtn focus should be focused 1`] = `
               class="ec-radio-btn__label"
               data-test="ec-radio-btn__label"
               for="ec-radio-btn-1"
+              id="ec-radio-btn-1-label"
             >
               
               Yes
@@ -226,6 +228,7 @@ exports[`EcRadioBtn focus should be not focused 1`] = `
               class="ec-radio-btn__label"
               data-test="ec-radio-btn__label"
               for="ec-radio-btn-1"
+              id="ec-radio-btn-1-label"
             >
               
               Yes
@@ -390,6 +393,7 @@ exports[`EcRadioBtn props isTextInline should render the radio buttons text (lab
     class="ec-radio-btn__label"
     data-test="ec-radio-btn__label"
     for="ec-radio-btn-1"
+    id="ec-radio-btn-1-label"
     title="Yes"
   >
     
@@ -441,6 +445,7 @@ exports[`EcRadioBtn props label should render the radio button with the given la
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
         for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
       >
         
         Yes
@@ -535,6 +540,7 @@ DOMWrapper {
           class="ec-radio-btn__label"
           data-test="ec-radio-btn__label"
           for="ec-radio-btn-1"
+          id="ec-radio-btn-1-label"
         >
           
           Yes
@@ -589,6 +595,7 @@ exports[`EcRadioBtn should render properly 1`] = `
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
         for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
       >
         
         Yes
@@ -642,6 +649,7 @@ exports[`EcRadioBtn slots description should render description slot instead of 
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
         for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
       >
         
         Yes
@@ -703,6 +711,7 @@ exports[`EcRadioBtn slots description should render the description slot if pass
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
         for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
       >
         
         Yes
@@ -764,6 +773,7 @@ exports[`EcRadioBtn slots errorMessage should render error-message slot instead 
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
         for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
       >
         
         Yes
@@ -825,6 +835,7 @@ exports[`EcRadioBtn slots errorMessage should render the error message slot if p
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
         for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
       >
         
         Yes
@@ -886,6 +897,7 @@ exports[`EcRadioBtn slots label should render label slot instead of label prop w
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
         for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
       >
         
         Label message coming from slot
@@ -939,6 +951,7 @@ exports[`EcRadioBtn slots label should render the label slot if passed 1`] = `
         class="ec-radio-btn__label"
         data-test="ec-radio-btn__label"
         for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
       >
         
         Test label message slot
