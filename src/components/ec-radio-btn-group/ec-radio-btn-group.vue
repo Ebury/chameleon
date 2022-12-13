@@ -1,7 +1,6 @@
 <template>
   <div
     class="ec-radio-btn-group"
-    :class="[$attrs.class]"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn-group` : `ec-radio-btn-group`"
   >
     <div
@@ -60,7 +59,7 @@ import type { RadioButtonGroupEvent, RadioButtonGroupEvents, RadioButtonOption }
 
 interface RadioButtonGroupProps {
   options: RadioButtonOption[],
-  name: string,
+  name?: string,
   modelValue?: string,
   label?: string,
   errorMessage?: string,

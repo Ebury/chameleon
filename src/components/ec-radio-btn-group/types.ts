@@ -7,8 +7,8 @@ export interface RadioButtonGroupEvents {
 }
 
 export interface RadioButtonOption {
-  label: string,
   value: string,
+  label?: string,
   description?: string
 }
 
