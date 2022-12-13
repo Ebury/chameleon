@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcRadioBtn should render properly 1`] = `
+<div
+  class="ec-radio-btn-group"
+  data-test="ec-radio-btn-group"
+>
+  <!--v-if-->
+  <div
+    class="ec-radio-btn-group__radio-btn-wrapper"
+  >
+    
+    <div
+      class="ec-radio-btn"
+      data-test="ec-radio-btn ec-radio-btn"
+    >
+      <input
+        aria-describedby="ec-radio-btn-2-error ec-radio-btn-2-label ec-radio-btn-2-description"
+        class="ec-radio-btn__input"
+        data-test="ec-radio-btn__input"
+        id="ec-radio-btn-2"
+        name="testingNameProp"
+        type="radio"
+        value=""
+      />
+      <div
+        class="ec-radio-btn__wrapper"
+      >
+        <div
+          class="ec-radio-btn__icon-wrapper"
+          data-test="ec-radio-btn__icon-wrapper"
+        >
+          <div
+            class="ec-radio-btn__icon-wrapper-inner"
+          >
+            <svg
+              class="ec-icon ec-radio-btn__icon"
+              height="20"
+              width="20"
+            >
+              <use
+                xlink:href="#ec-rounded-notification"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="ec-radio-btn__text-wrapper"
+          data-test="ec-radio-btn__text-wrapper"
+        >
+          <label
+            class="ec-radio-btn__label"
+            data-test="ec-radio-btn__label"
+            for="ec-radio-btn-2"
+            id="ec-radio-btn-2-label"
+          >
+            
+            Yes
+            
+          </label>
+          <!--v-if-->
+        </div>
+      </div>
+      <!--v-if-->
+    </div>
+    <div
+      class="ec-radio-btn tw-mt-16"
+      data-test="ec-radio-btn ec-radio-btn"
+    >
+      <input
+        aria-describedby="ec-radio-btn-3-error ec-radio-btn-3-label ec-radio-btn-3-description"
+        class="ec-radio-btn__input"
+        data-test="ec-radio-btn__input"
+        id="ec-radio-btn-3"
+        name="testingNameProp"
+        type="radio"
+        value=""
+      />
+      <div
+        class="ec-radio-btn__wrapper"
+      >
+        <div
+          class="ec-radio-btn__icon-wrapper"
+          data-test="ec-radio-btn__icon-wrapper"
+        >
+          <div
+            class="ec-radio-btn__icon-wrapper-inner"
+          >
+            <svg
+              class="ec-icon ec-radio-btn__icon"
+              height="20"
+              width="20"
+            >
+              <use
+                xlink:href="#ec-rounded-notification"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="ec-radio-btn__text-wrapper"
+          data-test="ec-radio-btn__text-wrapper"
+        >
+          <label
+            class="ec-radio-btn__label"
+            data-test="ec-radio-btn__label"
+            for="ec-radio-btn-3"
+            id="ec-radio-btn-3-label"
+          >
+            
+            No
+            
+          </label>
+          <!--v-if-->
+        </div>
+      </div>
+      <!--v-if-->
+    </div>
+    
+  </div>
+  <!--v-if-->
+</div>
+`;
