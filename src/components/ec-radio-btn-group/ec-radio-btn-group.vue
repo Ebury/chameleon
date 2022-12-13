@@ -11,6 +11,7 @@
       <slot name="label">{{ label }}</slot>
     </div>
     <div
+      data-test="ec-radio-btn-group__radio-btn-wrapper"
       class="ec-radio-btn-group__radio-btn-wrapper"
       :class="{'ec-radio-btn-group__radio-btn-wrapper--is-single-line': isGroupInline}"
     >
