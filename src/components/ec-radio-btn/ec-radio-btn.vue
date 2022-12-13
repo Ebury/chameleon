@@ -1,7 +1,6 @@
 <template>
   <div
     class="ec-radio-btn"
-    :class="[$attrs.class]"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn` : `ec-radio-btn ec-radio-btn`"
     @click="onClick();"
   >
@@ -65,6 +64,7 @@
         }"
       >
         <label
+          :id="labelId"
           :for="id"
           class="ec-radio-btn__label"
           :class="{
