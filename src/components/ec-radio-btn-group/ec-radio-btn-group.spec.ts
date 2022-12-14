@@ -15,7 +15,6 @@ function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: 
           { value: 'y', label: 'Yes' },
           { value: 'n', label: 'No' },
         ],
-        name: 'testingNameProp',
         ...props,
       },
       ...mountOpts,
@@ -75,14 +74,12 @@ describe('EcRadioBtn', () => {
       expect(givenPropsRadio2.value).toBe(expectedPropsRadio2.value);
     });
 
-    describe('name', () => {
-      it('should have the same given "name" attribute among all the radio inputs', () => {
-        const wrapper = mountRadioBtnGroup();
-        const radioBtnsWrapper = wrapper.findByDataTest('ec-radio-btn-group').element.children[0];
-        const firstRadioInput = radioBtnsWrapper.children[0].children[0];
-        const secondRadioInput = radioBtnsWrapper.children[1].children[0];
-        expect(firstRadioInput.getAttribute('name')).toBe(secondRadioInput.getAttribute('name'));
-      });
+    it('should have the same given "name" attribute among all the radio inputs', () => {
+      const wrapper = mountRadioBtnGroup();
+      const radioBtnsWrapper = wrapper.findByDataTest('ec-radio-btn-group').element.children[0];
+      const firstRadioInput = radioBtnsWrapper.children[0].children[0];
+      const secondRadioInput = radioBtnsWrapper.children[1].children[0];
+      expect(firstRadioInput.getAttribute('name')).toBe(secondRadioInput.getAttribute('name'));
     });
 
     describe('label', () => {
