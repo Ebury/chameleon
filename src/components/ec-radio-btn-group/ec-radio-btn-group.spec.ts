@@ -42,7 +42,6 @@ describe('EcRadioBtn', () => {
       const givenPropsRadio2 = wrapper.findAllComponents(EcRadioBtn)[1].vm;
 
       const expectedPropsRadio1 = {
-        name: 'testingNameProp',
         isDisabled: true,
         isTextInline: true,
         modelValue: 'y',
@@ -52,7 +51,6 @@ describe('EcRadioBtn', () => {
         value: 'y',
       };
       const expectedPropsRadio2 = {
-        name: 'testingNameProp',
         isDisabled: true,
         isTextInline: true,
         modelValue: 'y',
@@ -62,7 +60,6 @@ describe('EcRadioBtn', () => {
         value: 'n',
       };
 
-      expect(givenPropsRadio1.name).toBe(expectedPropsRadio1.name);
       expect(givenPropsRadio1.isDisabled).toBe(expectedPropsRadio1.isDisabled);
       expect(givenPropsRadio1.isTextInline).toBe(expectedPropsRadio1.isTextInline);
       expect(givenPropsRadio1.label).toBe(expectedPropsRadio1.label);
@@ -70,7 +67,6 @@ describe('EcRadioBtn', () => {
       expect(givenPropsRadio1.hasError).toBe(expectedPropsRadio1.hasError);
       expect(givenPropsRadio1.value).toBe(expectedPropsRadio1.value);
 
-      expect(givenPropsRadio2.name).toBe(expectedPropsRadio2.name);
       expect(givenPropsRadio2.isDisabled).toBe(expectedPropsRadio2.isDisabled);
       expect(givenPropsRadio2.isTextInline).toBe(expectedPropsRadio2.isTextInline);
       expect(givenPropsRadio2.label).toBe(expectedPropsRadio2.label);

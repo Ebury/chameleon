@@ -22,7 +22,7 @@
         :is-disabled="isDisabled"
         :has-error="isInvalid"
         :model-value="modelValue"
-        :name="name"
+        :name="nameId"
         :value="option.value"
         :label="option.label"
         :description="option.description"
@@ -59,7 +59,6 @@ import type { RadioButtonGroupEvent, RadioButtonGroupEvents, RadioButtonOption }
 
 interface RadioButtonGroupProps {
   options: RadioButtonOption[],
-  name?: string,
   modelValue?: string,
   label?: string,
   errorMessage?: string,
@@ -71,11 +70,13 @@ interface RadioButtonGroupProps {
 const props = defineProps<RadioButtonGroupProps>();
 
 const uid = getUid();
+const id = `ec-radio-btn-group-${uid}`;
+const errorId = computed(() => (isInvalid.value ? `${id}-error` : ''));
+const nameId = `${id}-name`;
 const slots = useSlots();
 const isInvalid = computed(() => !!props.errorMessage);
-const errorId = computed(() => (isInvalid.value ? `ec-radio-btn-group-error-${uid}` : ''));
-const hasLabel = computed(() => (!!props.label || !!slots.label));
 const hasErrorMessage = computed(() => (!!props.errorMessage || !!slots['error-message']));
+const hasLabel = computed(() => (!!props.label || !!slots.label));
 
 const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonGroupEvents[RadioButtonGroupEvent.UPDATE_MODEL_VALUE]): void,
 }>();

@@ -14,7 +14,6 @@ export interface RadioButtonOption {
 
 export interface RadioButtonGroupProps {
   options: RadioButtonOption[],
-  name?: string,
   modelValue?: string,
   label?: string,
   errorMessage?: string,

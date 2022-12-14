@@ -4,7 +4,7 @@ exports[`EcRadioBtn props error should render the radio button with a given erro
 <div
   class="ec-radio-btn-group__error-text"
   data-test="ec-radio-btn-group__error-text"
-  id="ec-radio-btn-group-error-1"
+  id="ec-radio-btn-group-1-error"
 >
   
   Test error message prop
@@ -27,7 +27,7 @@ exports[`EcRadioBtn props isGroupInline should render the radio buttons on a sin
       class="ec-radio-btn__input"
       data-test="ec-radio-btn__input"
       id="ec-radio-btn-2"
-      name="testingNameProp"
+      name="ec-radio-btn-group-1-name"
       type="radio"
     />
     <div
@@ -79,7 +79,7 @@ exports[`EcRadioBtn props isGroupInline should render the radio buttons on a sin
       class="ec-radio-btn__input"
       data-test="ec-radio-btn__input"
       id="ec-radio-btn-3"
-      name="testingNameProp"
+      name="ec-radio-btn-group-1-name"
       type="radio"
     />
     <div
@@ -130,6 +130,7 @@ exports[`EcRadioBtn props label should render the radio button without label whe
 <div
   class="ec-radio-btn-group"
   data-test="ec-radio-btn-group"
+  name="testingNameProp"
 >
   <!--v-if-->
   <div
@@ -146,7 +147,7 @@ exports[`EcRadioBtn props label should render the radio button without label whe
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-2"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -198,7 +199,7 @@ exports[`EcRadioBtn props label should render the radio button without label whe
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-3"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -251,6 +252,7 @@ exports[`EcRadioBtn props label should render with the given label 1`] = `
 <div
   class="ec-radio-btn-group"
   data-test="ec-radio-btn-group"
+  name="testingNameProp"
 >
   <div
     class="ec-radio-btn-group__label"
@@ -274,7 +276,7 @@ exports[`EcRadioBtn props label should render with the given label 1`] = `
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-2"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -326,7 +328,7 @@ exports[`EcRadioBtn props label should render with the given label 1`] = `
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-3"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -379,6 +381,7 @@ exports[`EcRadioBtn should render properly 1`] = `
 <div
   class="ec-radio-btn-group"
   data-test="ec-radio-btn-group"
+  name="testingNameProp"
 >
   <!--v-if-->
   <div
@@ -395,7 +398,7 @@ exports[`EcRadioBtn should render properly 1`] = `
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-2"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -447,7 +450,7 @@ exports[`EcRadioBtn should render properly 1`] = `
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-3"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -500,6 +503,7 @@ exports[`EcRadioBtn slots errorMessage should render error-message slot instead 
 <div
   class="ec-radio-btn-group"
   data-test="ec-radio-btn-group"
+  name="testingNameProp"
 >
   <!--v-if-->
   <div
@@ -516,7 +520,7 @@ exports[`EcRadioBtn slots errorMessage should render error-message slot instead 
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-2"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -568,7 +572,7 @@ exports[`EcRadioBtn slots errorMessage should render error-message slot instead 
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-3"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -616,7 +620,7 @@ exports[`EcRadioBtn slots errorMessage should render error-message slot instead 
   <div
     class="ec-radio-btn-group__error-text"
     data-test="ec-radio-btn-group__error-text"
-    id="ec-radio-btn-group-error-1"
+    id="ec-radio-btn-group-1-error"
   >
     
     Error message coming from slot
@@ -629,6 +633,7 @@ exports[`EcRadioBtn slots errorMessage should render the error message slot if p
 <div
   class="ec-radio-btn-group"
   data-test="ec-radio-btn-group"
+  name="testingNameProp"
 >
   <!--v-if-->
   <div
@@ -645,7 +650,7 @@ exports[`EcRadioBtn slots errorMessage should render the error message slot if p
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-2"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -697,7 +702,7 @@ exports[`EcRadioBtn slots errorMessage should render the error message slot if p
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-3"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -758,6 +763,7 @@ exports[`EcRadioBtn slots label should render label slot instead of label prop w
 <div
   class="ec-radio-btn-group"
   data-test="ec-radio-btn-group"
+  name="testingNameProp"
 >
   <div
     class="ec-radio-btn-group__label"
@@ -781,7 +787,7 @@ exports[`EcRadioBtn slots label should render label slot instead of label prop w
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-2"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -833,7 +839,7 @@ exports[`EcRadioBtn slots label should render label slot instead of label prop w
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-3"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -886,6 +892,7 @@ exports[`EcRadioBtn slots label should render the label slot if passed 1`] = `
 <div
   class="ec-radio-btn-group"
   data-test="ec-radio-btn-group"
+  name="testingNameProp"
 >
   <div
     class="ec-radio-btn-group__label"
@@ -909,7 +916,7 @@ exports[`EcRadioBtn slots label should render the label slot if passed 1`] = `
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-2"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
@@ -961,7 +968,7 @@ exports[`EcRadioBtn slots label should render the label slot if passed 1`] = `
         class="ec-radio-btn__input"
         data-test="ec-radio-btn__input"
         id="ec-radio-btn-3"
-        name="testingNameProp"
+        name="ec-radio-btn-group-1-name"
         type="radio"
       />
       <div
