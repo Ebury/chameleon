@@ -3,7 +3,7 @@ import type { MountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
-import { EcRadioBtnGroup } from '../../main';
+import { EcRadioBtn, EcRadioBtnGroup } from '../../main';
 import type { RadioButtonGroupProps } from './types';
 
 function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: MountingOptions<RadioButtonGroupProps>) {
@@ -32,26 +32,51 @@ describe('EcRadioBtn', () => {
   describe('props', () => {
     it('should render the child component (radio-btn) with all the given props', () => {
       const wrapper = mountRadioBtnGroup({
+        options: [{ value: 'y', label: 'Yes', description: 'Confirm' }, { value: 'n', label: 'No', description: 'Reject' }],
         isDisabled: true,
         isTextInline: true,
-        isGroupInline: true,
         modelValue: 'y',
-        label: 'A testing label',
         errorMessage: 'A testing error message',
       });
-      const givenProps = wrapper.props();
-      const expectedProps = {
-        options: [{ value: 'y', label: 'Yes' }, { value: 'n', label: 'No' }],
+      const givenPropsRadio1 = wrapper.findAllComponents(EcRadioBtn)[0].vm;
+      const givenPropsRadio2 = wrapper.findAllComponents(EcRadioBtn)[1].vm;
+
+      const expectedPropsRadio1 = {
         name: 'testingNameProp',
         isDisabled: true,
         isTextInline: true,
-        isGroupInline: true,
         modelValue: 'y',
-        label: 'A testing label',
-        errorMessage: 'A testing error message',
+        label: 'Yes',
+        description: 'Confirm',
+        hasError: true,
+        value: 'y',
+      };
+      const expectedPropsRadio2 = {
+        name: 'testingNameProp',
+        isDisabled: true,
+        isTextInline: true,
+        modelValue: 'y',
+        label: 'No',
+        description: 'Reject',
+        hasError: true,
+        value: 'n',
       };
 
-      expect(givenProps).toEqual(expectedProps);
+      expect(givenPropsRadio1.name).toBe(expectedPropsRadio1.name);
+      expect(givenPropsRadio1.isDisabled).toBe(expectedPropsRadio1.isDisabled);
+      expect(givenPropsRadio1.isTextInline).toBe(expectedPropsRadio1.isTextInline);
+      expect(givenPropsRadio1.label).toBe(expectedPropsRadio1.label);
+      expect(givenPropsRadio1.description).toBe(expectedPropsRadio1.description);
+      expect(givenPropsRadio1.hasError).toBe(expectedPropsRadio1.hasError);
+      expect(givenPropsRadio1.value).toBe(expectedPropsRadio1.value);
+
+      expect(givenPropsRadio2.name).toBe(expectedPropsRadio2.name);
+      expect(givenPropsRadio2.isDisabled).toBe(expectedPropsRadio2.isDisabled);
+      expect(givenPropsRadio2.isTextInline).toBe(expectedPropsRadio2.isTextInline);
+      expect(givenPropsRadio2.label).toBe(expectedPropsRadio2.label);
+      expect(givenPropsRadio2.description).toBe(expectedPropsRadio2.description);
+      expect(givenPropsRadio2.hasError).toBe(expectedPropsRadio2.hasError);
+      expect(givenPropsRadio2.value).toBe(expectedPropsRadio2.value);
     });
 
     describe('name', () => {
