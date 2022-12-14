@@ -38,10 +38,10 @@ describe('EcRadioBtn', () => {
         modelValue: 'y',
         errorMessage: 'A testing error message',
       });
-      const givenPropsRadio1: RadioButtonProps = wrapper.findAllComponents(EcRadioBtn)[0].vm;
-      const givenPropsRadio2: RadioButtonProps = wrapper.findAllComponents(EcRadioBtn)[1].vm;
+      const givenPropsRadio1 = wrapper.findAllComponents(EcRadioBtn)[0].props();
+      const givenPropsRadio2 = wrapper.findAllComponents(EcRadioBtn)[1].props();
 
-      const expectedPropsRadio1 = {
+      const expectedPropsRadio1: RadioButtonProps = {
         isDisabled: true,
         isTextInline: true,
         modelValue: 'y',
@@ -49,8 +49,9 @@ describe('EcRadioBtn', () => {
         description: 'Confirm',
         hasError: true,
         value: 'y',
+        errorMessage: undefined,
       };
-      const expectedPropsRadio2 = {
+      const expectedPropsRadio2: RadioButtonProps = {
         isDisabled: true,
         isTextInline: true,
         modelValue: 'y',
@@ -58,21 +59,11 @@ describe('EcRadioBtn', () => {
         description: 'Reject',
         hasError: true,
         value: 'n',
+        errorMessage: undefined,
       };
 
-      expect(givenPropsRadio1.isDisabled).toBe(expectedPropsRadio1.isDisabled);
-      expect(givenPropsRadio1.isTextInline).toBe(expectedPropsRadio1.isTextInline);
-      expect(givenPropsRadio1.label).toBe(expectedPropsRadio1.label);
-      expect(givenPropsRadio1.description).toBe(expectedPropsRadio1.description);
-      expect(givenPropsRadio1.hasError).toBe(expectedPropsRadio1.hasError);
-      expect(givenPropsRadio1.value).toBe(expectedPropsRadio1.value);
-
-      expect(givenPropsRadio2.isDisabled).toBe(expectedPropsRadio2.isDisabled);
-      expect(givenPropsRadio2.isTextInline).toBe(expectedPropsRadio2.isTextInline);
-      expect(givenPropsRadio2.label).toBe(expectedPropsRadio2.label);
-      expect(givenPropsRadio2.description).toBe(expectedPropsRadio2.description);
-      expect(givenPropsRadio2.hasError).toBe(expectedPropsRadio2.hasError);
-      expect(givenPropsRadio2.value).toBe(expectedPropsRadio2.value);
+      expect({ ...givenPropsRadio1, name: undefined }).toEqual(expectedPropsRadio1);
+      expect({ ...givenPropsRadio2, name: undefined }).toEqual(expectedPropsRadio2);
     });
 
     it('should have the same given "name" attribute among all the radio inputs', () => {
