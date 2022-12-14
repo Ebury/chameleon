@@ -68,8 +68,8 @@ describe('EcRadioBtn', () => {
 
     it('should have the same given "name" attribute among all the radio inputs', () => {
       const wrapper = mountRadioBtnGroup();
-      const givenNamePropRadio1: string | undefined = wrapper.findAllComponents(EcRadioBtn)[0].vm.name;
-      const givenNamePropRadio2: string | undefined = wrapper.findAllComponents(EcRadioBtn)[1].vm.name;
+      const givenNamePropRadio1: string | undefined = wrapper.findAllComponents(EcRadioBtn)[0].props().name;
+      const givenNamePropRadio2: string | undefined = wrapper.findAllComponents(EcRadioBtn)[1].props().name;
       expect(givenNamePropRadio1).toBe(givenNamePropRadio2);
       expect(givenNamePropRadio1).not.toBe('');
       expect(wrapper.element).toMatchSnapshot();
