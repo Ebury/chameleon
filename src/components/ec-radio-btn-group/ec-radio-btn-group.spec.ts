@@ -4,6 +4,7 @@ import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
 import { EcRadioBtn, EcRadioBtnGroup } from '../../main';
+import type { RadioButtonProps } from '../ec-radio-btn/types';
 import type { RadioButtonGroupProps } from './types';
 
 function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: MountingOptions<RadioButtonGroupProps>) {
@@ -37,8 +38,8 @@ describe('EcRadioBtn', () => {
         modelValue: 'y',
         errorMessage: 'A testing error message',
       });
-      const givenPropsRadio1 = wrapper.findAllComponents(EcRadioBtn)[0].vm;
-      const givenPropsRadio2 = wrapper.findAllComponents(EcRadioBtn)[1].vm;
+      const givenPropsRadio1: RadioButtonProps = wrapper.findAllComponents(EcRadioBtn)[0].vm;
+      const givenPropsRadio2: RadioButtonProps = wrapper.findAllComponents(EcRadioBtn)[1].vm;
 
       const expectedPropsRadio1 = {
         isDisabled: true,
@@ -76,10 +77,7 @@ describe('EcRadioBtn', () => {
 
     it('should have the same given "name" attribute among all the radio inputs', () => {
       const wrapper = mountRadioBtnGroup();
-      const radioBtnsWrapper = wrapper.findByDataTest('ec-radio-btn-group').element.children[0];
-      const firstRadioInput = radioBtnsWrapper.children[0].children[0];
-      const secondRadioInput = radioBtnsWrapper.children[1].children[0];
-      expect(firstRadioInput.getAttribute('name')).toBe(secondRadioInput.getAttribute('name'));
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     describe('label', () => {
