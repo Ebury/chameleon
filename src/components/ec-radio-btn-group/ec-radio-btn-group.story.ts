@@ -83,7 +83,7 @@ export const all = () => ({
       <h3>Label</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args" 
           :label="label" 
           v-model="modelLabel" />
@@ -92,7 +92,7 @@ export const all = () => ({
       <h3>Slot label</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args" 
           v-model="modelSlotLabel">
           <template #label>
@@ -106,7 +106,7 @@ export const all = () => ({
       <h3>Description</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args" 
           v-model="modelDescription" 
           :options="optionsWithDescription" />
@@ -115,7 +115,7 @@ export const all = () => ({
       <h3>Checked</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args" 
           v-model="modelChecked" />
       </div>
@@ -123,7 +123,7 @@ export const all = () => ({
       <h3>Unchecked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group 
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args" 
           v-model="modelUncheckedDisabled" 
           :is-disabled="true" />
@@ -132,7 +132,7 @@ export const all = () => ({
       <h3>Checked Disabled</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group 
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args" 
           v-model="modelCheckedDisabled" 
           :is-disabled="true" />
@@ -141,7 +141,7 @@ export const all = () => ({
       <h3>Inline Text</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group 
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args"
           v-model="modelInlineText" 
           :is-text-inline="true" 
@@ -151,7 +151,7 @@ export const all = () => ({
       <h3>Group Inline</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group 
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args" 
           v-model="modelGroupInline" 
           :is-group-inline="true" />
@@ -160,7 +160,7 @@ export const all = () => ({
       <h3>Error Message</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group 
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args" 
           v-model="modelError" 
           :error-message="errorMessage" />
@@ -169,7 +169,7 @@ export const all = () => ({
       <h3>Slot Error Message</h3>
       <div class="tw-px-24 tw-pt-4 tw-pb-24">
         <ec-radio-btn-group 
-          @update:modelValue="onChange" 
+          @update:model-value="onChange" 
           v-bind="args" 
           v-model="modelSlotError">
           <template #error-message>
