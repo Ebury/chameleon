@@ -6,7 +6,7 @@ import type { CVueWrapper } from '../../../tests/utils/global';
 import { EcRadioBtnGroup } from '../../main';
 import type { RadioButtonGroupProps } from './types';
 
-function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: MountingOptions<RadioButtonGroupProps>): CVueWrapper {
+function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: MountingOptions<RadioButtonGroupProps>) {
   return mount(
     EcRadioBtnGroup as any, // eslint-disable-line
     {
