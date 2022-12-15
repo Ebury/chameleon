@@ -37,7 +37,7 @@
     "git-tag": "git tag v$(npm view . version) && git push origin v$(npm view . version)"
   },
   "dependencies": {
-    "@vueuse/core": "9.2.0",
+    "@vueuse/core": "9.6.0",
     "@vueuse/integrations": "9.2.0",
     "clipboard-copy": "3.2.0",
     "flatpickr": "4.6.13",
