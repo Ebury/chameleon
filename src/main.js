@@ -51,6 +51,7 @@ export { default as EcPopover } from './components/ec-popover';
 export { POPOVER_CONTAINER_KEY } from './components/ec-popover/ec-popover-provide';
 export { default as EcPrivacyPolicy } from './components/ec-privacy-policy';
 export { default as EcRadioBtn, types as EcRadioBtnTypes } from './components/ec-radio-btn';
+export { default as EcRadioBtnGroup, types as EcRadioBtnGroupTypes } from './components/ec-radio-btn-group';
 export { default as EcSmartTable } from './components/ec-smart-table';
 export { default as EcSubmenu } from './components/ec-submenu';
 export { default as EcSummaryInfo } from './components/ec-summary-info';
