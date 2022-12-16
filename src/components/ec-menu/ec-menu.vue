@@ -80,12 +80,13 @@ function getLinkDataTest(link) {
 
   &__item {
     @apply tw-block;
-    @apply tw-min-w-full;
+    @apply tw-w-full;
 
     .ec-menu--horizontal &,
     .ec-menu--is-reversed-horizontal & {
       @apply tw-inline-block;
       @apply tw-min-w-0;
+      @apply tw-w-auto;
 
       /* stylelint-disable selector-max-class */
       + .ec-menu__item {

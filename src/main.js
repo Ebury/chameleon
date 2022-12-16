@@ -67,7 +67,7 @@ export { default as useEcSorting } from './composables/use-ec-sorting';
 export { default as config } from './config';
 export { default as EcAmount, default as VEcAmount } from './directives/ec-amount';
 export { default as EcClosePopover, default as VEcClosePopover } from './directives/ec-close-popover';
-export { default as EcTooltip, default as VEcTooltip } from './directives/ec-tooltip';
+export { default as EcTooltip, default as VEcTooltip, default as vEcTooltip } from './directives/ec-tooltip';
 export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
 export { createHOC, createHOCc } from './hocs/hoc';
