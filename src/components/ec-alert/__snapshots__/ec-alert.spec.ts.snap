@@ -1,0 +1,411 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcAlert should display only with a title and the type given 1`] = `
+<div
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--info"
+        data-test="ec-alert__title"
+      >
+        Random Title
+      </div>
+      <!--v-if-->
+      
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`EcAlert should display with a button with the text given in the buttonText 1`] = `
+<div
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--info"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <!--v-if-->
+      
+    </div>
+    <button
+      class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button ec-btn--primary-reverse"
+      data-test="ec-alert__button"
+    >
+      Button text
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcAlert should display with a subtitle given 1`] = `
+<div
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--info"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <div
+        class="ec-alert__subtitle ec-alert__subtitle--info"
+        data-test="ec-alert__subtitle"
+      >
+        Subtitle example
+      </div>
+      
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`EcAlert should render the dismiss icon when is given the prop dismissable 1`] = `
+<div
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <a
+    class="ec-alert__dismiss-icon ec-alert__dismiss-icon--info"
+    data-test="ec-alert__dismiss-icon"
+    href="#"
+  >
+    <svg
+      class="ec-icon"
+      height="16"
+      width="16"
+    >
+      <use
+        xlink:href="#ec-simple-close"
+      />
+    </svg>
+  </a>
+  <svg
+    class="ec-icon ec-alert__icon"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--info"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <!--v-if-->
+      
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`EcAlert should render with the cta slot given 1`] = `
+<div
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--info"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <div
+        class="ec-alert__subtitle ec-alert__subtitle--info"
+        data-test="ec-alert__subtitle"
+      >
+        Subtitle example
+      </div>
+      
+    </div>
+    
+    <a
+      href="#"
+    >
+      Click me
+    </a>
+    
+  </div>
+</div>
+`;
+
+exports[`EcAlert should render with the default slot given 1`] = `
+<div
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div>
+        Custom: Title example - Subtitle example
+      </div>
+      
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`EcAlert should use the given type for the alert type and for the button too 1`] = `
+<div
+  class="ec-alert ec-alert--error ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon"
+  >
+    <use
+      xlink:href="#ec-simple-error"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--error"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <!--v-if-->
+      
+    </div>
+    <button
+      class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button ec-btn--error-reverse"
+      data-test="ec-alert__button"
+    >
+      Warning button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcAlert should use the type "error" 1`] = `
+<div
+  class="ec-alert ec-alert--error ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon"
+  >
+    <use
+      xlink:href="#ec-simple-error"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--error"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <!--v-if-->
+      
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`EcAlert should use the type "info" 1`] = `
+<div
+  class="ec-alert ec-alert--info ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--info"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <!--v-if-->
+      
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`EcAlert should use the type "success" 1`] = `
+<div
+  class="ec-alert ec-alert--success ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon"
+  >
+    <use
+      xlink:href="#ec-simple-check"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--success"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <!--v-if-->
+      
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`EcAlert should use the type "warning" 1`] = `
+<div
+  class="ec-alert ec-alert--warning ec-alert--is-responsive"
+  data-test="ec-alert"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon"
+  >
+    <use
+      xlink:href="#ec-simple-error"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--warning"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <!--v-if-->
+      
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;
