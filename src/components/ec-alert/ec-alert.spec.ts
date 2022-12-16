@@ -1,36 +1,49 @@
+import type { MountingOptions } from '@vue/test-utils';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
+import type { CVueWrapper } from '../../../tests/utils/global';
+
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcAlert from './ec-alert.vue';
+import { AlertProps, AlertType } from './types';
+import { PropsAlertType } from './types';
 
 describe('EcAlert', () => {
-  function mountAlert(props, mountOpts) {
-    return mount(EcAlert, {
-      props: {
-        title: 'Title example',
-        type: 'info',
-        ...props,
+  function mountAlert(props?: Partial<AlertProps>, mountOpts?: MountingOptions<AlertProps>): CVueWrapper {
+    return mount(
+      EcAlert as any,
+      {
+        props: {
+          propsType: PropsAlertType.TEXT,
+          title: 'Title example',
+          type: 'info',
+          ...props,
+        },
+        ...mountOpts,
       },
-      ...mountOpts,
-    });
+    ) as CVueWrapper;
   }
 
-  function mountAlertAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
+  function mountAlertAsTemplate(
+    template: string,
+    wrapperComponentOpts?: Record<string, unknown>,
+    mountOpts?: MountingOptions<AlertProps>,
+  ) {
     const Component = defineComponent({
       components: { EcAlert },
       template,
       ...wrapperComponentOpts,
     });
 
-    return mount(Component, {
-      props,
+    return mount<AlertProps, MountingOptions<AlertProps>>(Component, {
       ...mountOpts,
     });
   }
 
   it('should throw if no props were given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
+    withMockedConsole((warnSpy) => {
       mount(EcAlert);
       expect(warnSpy).toHaveBeenCalledTimes(2);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "type"');
@@ -39,7 +52,7 @@ describe('EcAlert', () => {
   });
 
   it('should display only with a title and the type given', () => {
-    const wrapper = mountAlert({ title: 'Random Title', type: 'info' });
+    const wrapper = mountAlert({ title: 'Random Title', type: AlertType.INFO });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -54,21 +67,13 @@ describe('EcAlert', () => {
   });
 
   it('should use the given type for the alert type and for the button too', () => {
-    const wrapper = mountAlert({ type: 'error', buttonText: 'Warning button' });
+    const wrapper = mountAlert({ type: AlertType.ERROR, buttonText: 'Warning button' });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it.each(['error', 'info', 'success', 'warning'])('should use the type "%s"', (type) => {
-    const wrapper = mountAlert({ type });
+  it.each([AlertType.ERROR, AlertType.INFO, AlertType.SUCCESS, AlertType.WARNING])('should use the type "%s"', (alertType) => {
+    const wrapper = mountAlert({ type: alertType});
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should throw an error if type is not valid', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountAlert({ type: 'invalid-value' });
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "type"');
-    });
   });
 
   it('should render the dismiss icon when is given the prop dismissable', () => {
@@ -79,13 +84,13 @@ describe('EcAlert', () => {
   it('should dismiss the alert when user clicks on the dismiss icon', async () => {
     const wrapper = mountAlertAsTemplate(
       '<ec-alert v-model:open="isOpen" type="info" title="Custom random" dismissable />',
-      {},
       {
         data() {
           return { isOpen: true };
         },
       },
-    );
+    ) as unknown as CVueWrapper;
+    
     expect(wrapper.findByDataTest('ec-alert__dismiss-icon').exists()).toBe(true);
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
     expect(wrapper.isVisible()).toBe(false);
@@ -94,31 +99,30 @@ describe('EcAlert', () => {
   it('should emit the event when user clicks on the button', async () => {
     const wrapper = mountAlert({ buttonText: 'Click here' });
     await wrapper.findByDataTest('ec-alert__button').trigger('click');
-    expect(wrapper.emitted('action').length).toBe(1);
+    expect(wrapper.emitted('action')?.length).toBe(1);
   });
 
   it('should emit the change event when user closes the alert', async () => {
     const wrapper = mountAlert({ open: true, dismissable: true });
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
-    expect(wrapper.emitted('change').length).toBe(1);
+    expect(wrapper.emitted('change')?.length).toBe(1);
   });
 
   it('should dismiss or show the alert when we change the v-model', async () => {
     const wrapper = mountAlertAsTemplate(
-      '<ec-alert v-model:open="isOpen" type="info" title="Custom random" dismissable />',
-      {},
+      '<ec-alert v-model:open="isOpen" type="AlertType.INFO" title="Custom random" dismissable />',
       {
         data() {
           return { isOpen: true };
         },
       },
-    );
+    ) as unknown as CVueWrapper;
 
     expect(wrapper.vm.isOpen).toBe(true);
     expect(wrapper.isVisible()).toBe(true);
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
     expect(wrapper.isVisible()).toBe(false);
-    expect(wrapper.vm.isOpen).toBe(false);
+    expect(wrapper.vm.open).toBe(false);
   });
 
   it('should render with the default slot given', () => {
