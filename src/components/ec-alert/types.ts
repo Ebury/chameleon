@@ -6,9 +6,9 @@ export enum PropsAlertType {
 }
 
 export enum AlertType {
-    ERROR = 'error', 
-    INFO = 'info', 
-    SUCCESS = 'success', 
+    ERROR = 'error',
+    INFO = 'info',
+    SUCCESS = 'success',
     WARNING = 'warning'
 }
 

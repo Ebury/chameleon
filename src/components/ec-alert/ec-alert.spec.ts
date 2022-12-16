@@ -4,16 +4,14 @@ import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
-
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcAlert from './ec-alert.vue';
-import { AlertProps, AlertType } from './types';
-import { PropsAlertType } from './types';
+import type { AlertProps } from './types';
+import { AlertType, PropsAlertType } from './types';
 
 describe('EcAlert', () => {
   function mountAlert(props?: Partial<AlertProps>, mountOpts?: MountingOptions<AlertProps>): CVueWrapper {
     return mount(
-      EcAlert as any,
+      EcAlert as any, // eslint-disable-line
       {
         props: {
           propsType: PropsAlertType.TEXT,
@@ -37,19 +35,11 @@ describe('EcAlert', () => {
       ...wrapperComponentOpts,
     });
 
-    return mount<AlertProps, MountingOptions<AlertProps>>(Component, {
-      ...mountOpts,
-    });
+    return mount(
+      Component,
+      mountOpts,
+    );
   }
-
-  it('should throw if no props were given', () => {
-    withMockedConsole((warnSpy) => {
-      mount(EcAlert);
-      expect(warnSpy).toHaveBeenCalledTimes(2);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "type"');
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "title"');
-    });
-  });
 
   it('should display only with a title and the type given', () => {
     const wrapper = mountAlert({ title: 'Random Title', type: AlertType.INFO });
@@ -72,7 +62,7 @@ describe('EcAlert', () => {
   });
 
   it.each([AlertType.ERROR, AlertType.INFO, AlertType.SUCCESS, AlertType.WARNING])('should use the type "%s"', (alertType) => {
-    const wrapper = mountAlert({ type: alertType});
+    const wrapper = mountAlert({ type: alertType });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -89,8 +79,8 @@ describe('EcAlert', () => {
           return { isOpen: true };
         },
       },
-    ) as unknown as CVueWrapper;
-    
+    ) as CVueWrapper;
+
     expect(wrapper.findByDataTest('ec-alert__dismiss-icon').exists()).toBe(true);
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
     expect(wrapper.isVisible()).toBe(false);
@@ -116,13 +106,17 @@ describe('EcAlert', () => {
           return { isOpen: true };
         },
       },
-    ) as unknown as CVueWrapper;
+    ) as CVueWrapper;
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(wrapper.vm.isOpen).toBe(true);
     expect(wrapper.isVisible()).toBe(true);
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
     expect(wrapper.isVisible()).toBe(false);
-    expect(wrapper.vm.open).toBe(false);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    expect(wrapper.vm.isOpen).toBe(false);
   });
 
   it('should render with the default slot given', () => {
