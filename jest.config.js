@@ -17,7 +17,7 @@ module.exports = {
   maxWorkers: '100%',
   transform: {
     '^.+\\.vue$': '@vue/vue3-jest',
-    '^.+\\.(j|t)sx?$': 'ts-jest',
+    '^.+\\.(j|t)sx?$': '@swc/jest',
   },
   transformIgnorePatterns: [
     'node_modules/(?!(svg-country-flags)/)',
@@ -53,6 +53,7 @@ module.exports = {
     '!src/assets/**',
     '!src/directives/ec-tooltip/ec-tooltip.js',
     '!src/shims-vue.d.ts',
+    '!src/enums/tooltip-placement.js',
   ],
   coverageThreshold: {
     global: {

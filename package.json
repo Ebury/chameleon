@@ -34,7 +34,8 @@
     "serve": "npm run start",
     "prerelease": "npm run lint && npm run test",
     "release": "npm version patch && git tag -d v$(npm view . version) && npm publish && git push",
-    "git-tag": "git tag v$(npm view . version) && git push origin v$(npm view . version)"
+    "git-tag": "git tag v$(npm view . version) && git push origin v$(npm view . version)",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@vueuse/core": "9.2.0",
@@ -63,6 +64,8 @@
     "@storybook/source-loader": "6.5.12",
     "@storybook/theming": "6.5.12",
     "@storybook/vue3": "6.5.12",
+    "@swc/core": "1.3.23",
+    "@swc/jest": "0.2.24",
     "@testing-library/jest-dom": "5.16.5",
     "@types/jest": "29.2.3",
     "@types/node": "18.11.9",
@@ -92,6 +95,7 @@
     "jest-serializer-vue": "2.0.2",
     "lint-staged": "13.0.3",
     "live-server": "1.2.2",
+    "patch-package": "6.5.0",
     "postcss": "8.4.16",
     "postcss-html": "1.5.0",
     "postcss-import": "14.1.0",
