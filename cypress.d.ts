@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from 'cypress/vue';
 
 type MountParams = Parameters<typeof mount>
