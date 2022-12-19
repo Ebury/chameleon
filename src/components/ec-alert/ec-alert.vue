@@ -26,74 +26,63 @@
       :class="{ 'ec-alert__icon--alert-has-subtitle': subtitle }"
       :name="icon"
     />
-    <div class="ec-alert__content">
-      <slot v-bind="{ title, subtitle }">
-        <div
-          class="ec-alert__title"
-          :class="`ec-alert__title--${type}`"
-          data-test="ec-alert__title"
-        >{{ title }}</div>
-        <div
-          v-if="subtitle"
-          class="ec-alert__subtitle"
-          :class="`ec-alert__subtitle--${type}`"
-          data-test="ec-alert__subtitle"
-        >{{ subtitle }}</div>
-      </slot>
+    <div class="ec-alert__body">
+      <div class="ec-alert__content">
+        <slot v-bind="{ title, subtitle }">
+          <div
+            class="ec-alert__title"
+            :class="`ec-alert__title--${type}`"
+            data-test="ec-alert__title"
+          >{{ title }}</div>
+          <div
+            v-if="subtitle"
+            class="ec-alert__subtitle"
+            :class="`ec-alert__subtitle--${type}`"
+            data-test="ec-alert__subtitle"
+          >{{ subtitle }}</div>
+        </slot>
+      </div>
+      <slot
+        v-if="hasCtaSlot()"
+        name="cta"
+      />
+
+      <button
+        v-else-if="buttonText"
+        class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button"
+        :class="`ec-btn--${type === 'info' ? 'primary' : type}-reverse`"
+        data-test="ec-alert__button"
+        @click="emit(AlertEvent.ACTION)"
+      >{{ buttonText }}</button>
     </div>
-
-    <slot
-      v-if="hasCtaSlot()"
-      name="cta"
-    />
-
-    <button
-      v-else-if="buttonText"
-      class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button"
-      :class="`ec-btn--${type === 'info' ? 'primary' : type}-reverse`"
-      data-test="ec-alert__button"
-      @click="emit('action')"
-    >{{ buttonText }}</button>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, useSlots } from 'vue';
 
 import EcIcon from '../ec-icon';
+import type { AlertEvents } from './types';
+import { AlertEvent, AlertType } from './types';
 
-const emit = defineEmits(['update:open', 'action', 'change']);
+const emit = defineEmits<{(e: 'update:open', value: AlertEvents[AlertEvent.UPDATE_OPEN]): void
+  (e: 'action'): void
+  (e: 'change', value: AlertEvents[AlertEvent.CHANGE]): void
+}>();
 
-const props = defineProps({
-  type: {
-    type: String,
-    validator(value) {
-      return ['error', 'info', 'success', 'warning'].includes(value);
-    },
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  subtitle: {
-    type: String,
-  },
-  dismissable: {
-    type: Boolean,
-    default: false,
-  },
-  buttonText: {
-    type: String,
-  },
-  open: {
-    type: Boolean,
-    default: true,
-  },
-  responsive: {
-    type: Boolean,
-    default: true,
-  },
+interface AlertProps {
+  type: AlertType,
+  title: string,
+  subtitle?: string,
+  dismissable?: boolean,
+  buttonText?: string,
+  open?: boolean,
+  responsive?: boolean
+}
+
+const props = withDefaults(defineProps<AlertProps>(), {
+  open: true,
+  responsive: true,
 });
 
 const slots = useSlots();
@@ -117,8 +106,8 @@ function hasCtaSlot() {
 
 function onDismiss() {
   const newValue = !props.open;
-  emit('update:open', newValue);
-  emit('change', newValue);
+  emit(AlertEvent.UPDATE_OPEN, newValue);
+  emit(AlertEvent.CHANGE, newValue);
 }
 </script>
 
@@ -133,9 +122,7 @@ function onDismiss() {
   @apply tw-flex tw-flex-col tw-items-center;
 
   &--is-responsive {
-    @media (min-width: 480px) {
-      @mixin ec-alert-responsive;
-    }
+    @mixin ec-alert-responsive;
   }
 
   &__button {
