@@ -17,7 +17,7 @@ export default {
   },
 };
 
-const args = {
+const args: AlertProps = {
   title: 'Error',
   subtitle: 'Something went wrong with the update.',
   type: 'error',
