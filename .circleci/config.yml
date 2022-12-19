@@ -15,6 +15,9 @@ jobs:
       - run:
           name: test
           command: npm run test -- --max-workers=2
+      - run:
+          name: test:cy
+          command: npm run test:cy
 
 workflows:
   version: 2

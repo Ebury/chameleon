@@ -1,14 +1,19 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "exclude": [
-    "./cypress.config.ts"
+    "./cypress.config.ts",
+    "cypress"
   ],
   "compilerOptions": {
     "allowJs": true,
     "sourceMap": true,
     "types": [
       "jest",
-      "node"
+      "node",
+      "cypress"
     ]
-  }
+  },
+  "include": [
+    "cypress.d.ts"
+  ]
 }
