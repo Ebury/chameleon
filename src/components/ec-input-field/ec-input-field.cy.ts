@@ -12,7 +12,7 @@ describe('InputField', () => {
     cy.mount<InputFieldProps>(
       EcInputField,
       {
-        props: { modelValue: 'Some tex' },
+        props: { modelValue: 'Some text' },
       },
     );
 
