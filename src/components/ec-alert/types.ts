@@ -1,10 +1,3 @@
-export enum PropsAlertType {
-  TEXT = 'text',
-  DATE = 'date',
-  NUMBER = 'number',
-  TEL = 'tel'
-}
-
 export enum AlertType {
     ERROR = 'error',
     INFO = 'info',
@@ -25,7 +18,6 @@ export interface AlertEvents {
 }
 
 export interface AlertProps {
-  propsType?: PropsAlertType,
   type: AlertType,
   title: string,
   subtitle?: string,

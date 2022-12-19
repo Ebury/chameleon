@@ -63,7 +63,7 @@ import { computed, useSlots } from 'vue';
 
 import EcIcon from '../ec-icon';
 import type { AlertEvents } from './types';
-import { AlertEvent, AlertType, PropsAlertType } from './types';
+import { AlertEvent, AlertType } from './types';
 
 const emit = defineEmits<{(e: 'update:open', value: AlertEvents[AlertEvent.UPDATE_OPEN]): void
   (e: 'action'): void
@@ -71,7 +71,6 @@ const emit = defineEmits<{(e: 'update:open', value: AlertEvents[AlertEvent.UPDAT
 }>();
 
 interface AlertProps {
-  propsType?: PropsAlertType,
   type: AlertType,
   title: string,
   subtitle?: string,
@@ -82,7 +81,6 @@ interface AlertProps {
 }
 
 const props = withDefaults(defineProps<AlertProps>(), {
-  propsType: PropsAlertType.TEXT,
   open: true,
   responsive: true,
 });

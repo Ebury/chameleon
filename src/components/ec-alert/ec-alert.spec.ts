@@ -6,7 +6,7 @@ import { defineComponent } from 'vue';
 import type { CVueWrapper } from '../../../tests/utils/global';
 import EcAlert from './ec-alert.vue';
 import type { AlertProps } from './types';
-import { AlertType, PropsAlertType } from './types';
+import { AlertType } from './types';
 
 describe('EcAlert', () => {
   function mountAlert(props?: Partial<AlertProps>, mountOpts?: MountingOptions<AlertProps>): CVueWrapper {
@@ -14,7 +14,6 @@ describe('EcAlert', () => {
       EcAlert as any, // eslint-disable-line
       {
         props: {
-          propsType: PropsAlertType.TEXT,
           title: 'Title example',
           type: 'info',
           ...props,
