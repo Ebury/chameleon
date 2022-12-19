@@ -17,7 +17,17 @@ export default {
   },
 };
 
-const Template = args => ({
+const args = {
+  title: 'Error',
+  subtitle: 'Something went wrong with the update.',
+  type: 'error',
+  buttonText: 'Read more',
+  dismissable: true,
+  responsive: true,
+  open: true,
+};
+
+const Template = () => ({
   components: { EcAlert },
   setup() {
     return {
@@ -38,17 +48,7 @@ const Template = args => ({
 
 export const basic = Template.bind({});
 
-basic.args = {
-  title: 'Error',
-  subtitle: 'Something went wrong with the update.',
-  type: 'error',
-  buttonText: 'Read more',
-  dismissable: true,
-  responsive: true,
-  open: true,
-};
-
-export const responsive = args => ({
+export const responsive = () => ({
   components: { EcAlert },
   setup() {
     return { args };
@@ -66,12 +66,12 @@ export const responsive = args => ({
   `,
 });
 
-responsive.args = { ...basic.args };
+responsive.args = { ...args };
 responsive.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = args => ({
+export const all = () => ({
   components: { EcAlert },
   setup() {
     const alerts = reactive([
