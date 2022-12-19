@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { reactive } from 'vue';
 
 import EcAlert from './ec-alert.vue';
+import { type AlertProps, AlertType } from './types';
 
 import './ec-alert.story.css';
 
@@ -11,7 +12,7 @@ export default {
   component: EcAlert,
   argTypes: {
     type: {
-      options: ['error', 'info', 'success', 'warning'],
+      options: [AlertType.ERROR, AlertType.INFO, AlertType.SUCCESS, AlertType.WARNING],
       control: { type: 'select' },
     },
   },
@@ -20,7 +21,7 @@ export default {
 const args: AlertProps = {
   title: 'Error',
   subtitle: 'Something went wrong with the update.',
-  type: 'error',
+  type: AlertType.ERROR,
   buttonText: 'Read more',
   dismissable: true,
   responsive: true,
@@ -78,61 +79,61 @@ export const all = () => ({
       {
         title: 'Simple Alert',
         data: [
-          { title: 'Info Alert', type: 'info' },
-          { title: 'Success Alert', type: 'success' },
-          { title: 'Warning Alert', type: 'warning' },
-          { title: 'Error Alert', type: 'error' },
+          { title: 'Info Alert', type: AlertType.INFO },
+          { title: 'Success Alert', type: AlertType.SUCCESS },
+          { title: 'Warning Alert', type: AlertType.WARNING },
+          { title: 'Error Alert', type: AlertType.ERROR },
         ],
       },
       {
         title: 'Dismissable Alert',
         data: [
           {
-            title: 'Info Alert', type: 'info', dismissable: true, model: true,
+            title: 'Info Alert', type: AlertType.INFO, dismissable: true, model: true,
           },
           {
-            title: 'Success Alert', type: 'success', dismissable: true, model: true,
+            title: 'Success Alert', type: AlertType.SUCCESS, dismissable: true, model: true,
           },
           {
-            title: 'Warning Alert', type: 'warning', dismissable: true, model: true,
+            title: 'Warning Alert', type: AlertType.WARNING, dismissable: true, model: true,
           },
           {
-            title: 'Error Alert', type: 'error', dismissable: true, model: true,
+            title: 'Error Alert', type: AlertType.ERROR, dismissable: true, model: true,
           },
         ],
       },
       {
         title: 'Button Alert',
         data: [
-          { title: 'Info Alert', type: 'info', 'button-text': 'Click here' },
-          { title: 'Success Alert', type: 'success', 'button-text': 'Click here' },
-          { title: 'Warning Alert', type: 'warning', 'button-text': 'Click here' },
-          { title: 'Error Alert', type: 'error', 'button-text': 'Click here' },
+          { title: 'Info Alert', type: AlertType.INFO, 'button-text': 'Click here' },
+          { title: 'Success Alert', type: AlertType.SUCCESS, 'button-text': 'Click here' },
+          { title: 'Warning Alert', type: AlertType.WARNING, 'button-text': 'Click here' },
+          { title: 'Error Alert', type: AlertType.ERROR, 'button-text': 'Click here' },
         ],
       },
       {
         title: 'Subtitle Alert',
         data: [
-          { title: 'Info Alert', type: 'info', subtitle: 'Subtitle' },
-          { title: 'Success Alert', type: 'success', subtitle: 'Subtitle' },
-          { title: 'Warning Alert', type: 'warning', subtitle: 'Subtitle' },
-          { title: 'Error Alert', type: 'error', subtitle: 'Subtitle' },
+          { title: 'Info Alert', type: AlertType.INFO, subtitle: 'Subtitle' },
+          { title: 'Success Alert', type: AlertType.SUCCESS, subtitle: 'Subtitle' },
+          { title: 'Warning Alert', type: AlertType.WARNING, subtitle: 'Subtitle' },
+          { title: 'Error Alert', type: AlertType.ERROR, subtitle: 'Subtitle' },
         ],
       },
       {
         title: 'Custom, default and CTA Slot Alert',
         data: [
           {
-            title: 'Info Alert', type: 'info', custom: true, subtitle: 'Subtitle',
+            title: 'Info Alert', type: AlertType.INFO, custom: true, subtitle: 'Subtitle',
           },
           {
-            title: 'Success Alert', type: 'success', custom: true, subtitle: 'Subtitle',
+            title: 'Success Alert', type: AlertType.SUCCESS, custom: true, subtitle: 'Subtitle',
           },
           {
-            title: 'Warning Alert', type: 'warning', custom: true, subtitle: 'Subtitle',
+            title: 'Warning Alert', type: AlertType.WARNING, custom: true, subtitle: 'Subtitle',
           },
           {
-            title: 'Error Alert', type: 'error', custom: true, subtitle: 'Subtitle',
+            title: 'Error Alert', type: AlertType.ERROR, custom: true, subtitle: 'Subtitle',
           },
         ],
       },
@@ -140,16 +141,16 @@ export const all = () => ({
         title: 'Complete Alert',
         data: [
           {
-            title: 'Info Alert', type: 'info', subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            title: 'Info Alert', type: AlertType.INFO, subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
           },
           {
-            title: 'Success Alert', type: 'success', subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            title: 'Success Alert', type: AlertType.SUCCESS, subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
           },
           {
-            title: 'Warning Alert', type: 'warning', subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            title: 'Warning Alert', type: AlertType.WARNING, subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
           },
           {
-            title: 'Error Alert', type: 'error', subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
+            title: 'Error Alert', type: AlertType.ERROR, subtitle: 'Subtitle', 'button-text': 'Click here', dismissable: true, model: true,
           },
         ],
       },
