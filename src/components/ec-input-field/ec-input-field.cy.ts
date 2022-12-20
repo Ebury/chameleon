@@ -42,7 +42,6 @@ function mountInputFieldAsTemplate (
     template,
     ...wrapperComponentOpts,
   });
-debugger;
   return cy.mount<InputFieldProps, MountingOptions<InputFieldProps>>(Component, {
     props,
     ...mountOpts,
@@ -152,6 +151,23 @@ describe('InputField', () => {
     cy.get('@onIconClick').should('have.been.calledOnce');
   });
 
+  it('should render given icon', () => {
+    mountInputField({ icon: 'simple-check' });
+    cy.get('[data-test=ec-input-field__icon-wrapper]').should('exist');
+    cy.get('[data-test=ec-input-field]').matchImageSnapshot();
+  });
+
+  it('should render given icon with given size', () => {
+    mountInputField({ icon: 'simple-check', iconSize: 40 });
+    cy.get('[data-test=ec-input-field__icon-wrapper]').matchImageSnapshot();
+  });
+
+  it('should not render any icon if only the icon size is given', () => {
+    mountInputField({ iconSize: 40 });
+    cy.get('[data-test=ec-input-field__icon-wrapper]').should('not.exist');
+  });
+
+
   it('renders properly when disabled', () => {
     mountInputField({}, { attrs: { disabled: true } });
     cy.get('[data-test=ec-input-field]').matchImageSnapshot();
@@ -209,7 +225,7 @@ describe('InputField', () => {
   });
 
   it('should be focusable from outside', () => {
-    const wrapper = mountInputField();
+    mountInputField();
 
     cy.get('[data-test=ec-input-field__input]').should('not.be.focused');
     cy.get('[data-test=ec-input-field__label]').click();

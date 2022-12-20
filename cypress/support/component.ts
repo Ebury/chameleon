@@ -19,8 +19,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from 'cypress/vue';
 
-import './commands';
+import { inlineSvgSprites } from '../../src/icons/browser';
 
+import './commands';
 // Augment the Cypress namespace to include type definitions for
 // your custom command.
 // Alternatively, can be defined in cypress/support/component.d.ts
@@ -35,6 +36,7 @@ declare global {
 }
 
 Cypress.Commands.add('mount', mount);
+inlineSvgSprites(['rounded-icons', 'simple-icons', 'currency-flags'], '/src/assets/img');
 
 // Example use:
 // cy.mount(MyComponent)
