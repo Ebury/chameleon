@@ -27,3 +27,4 @@ tests/**/*
 !tests/stubs/**
 CODEOWNERS
 *.md
+patches

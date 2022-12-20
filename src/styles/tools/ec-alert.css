@@ -15,12 +15,37 @@
     }
   }
 
+  .ec-alert__body {
+
+    @media (min-width: 640px) {
+      @apply tw-flex;
+      @apply tw-flex-row;
+      @apply tw-flex-grow;
+    }
+  }
+
   .ec-alert__content {
     @apply tw-text-left;
   }
 
   .ec-alert__button {
     @apply tw-my-0 tw-mx-24;
+    @apply tw-self-center;
+  }
+
+  @media (max-width: 640px) {
+    .ec-alert__button {
+      @apply tw-mt-16;
+      @apply tw-ml-0;
+    }
+
+    .ec-alert__content {
+      @apply tw-mt-4;
+    }
+
+    .ec-alert__icon {
+      @apply tw-self-start;
+    }
   }
 
   @mixin-content;
