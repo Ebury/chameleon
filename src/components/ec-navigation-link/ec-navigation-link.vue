@@ -142,6 +142,7 @@ defineProps({
 
   &__icon {
     @apply tw-fill-current;
+    @apply tw-flex-shrink-0;
   }
 
   &__text {
