@@ -7,7 +7,6 @@ import 'tailwindcss/dist/tailwind.min.css';
 import '../../styles/main.css';
 import '../../styles/themes/blue.css';
 import type { MountingOptions } from '@vue/test-utils';
-import { defineComponent } from 'vue';
 
 import config from '../../config'
 
@@ -29,23 +28,6 @@ function mountInputField (
       ...mountOpts,
     },
   );
-}
-
-function mountInputFieldAsTemplate (
-  template: string,
-  props?: InputFieldProps,
-  wrapperComponentOpts?: Record<string, unknown>,
-  mountOpts?: MountingOptions<InputFieldProps>,
-) {
-  const Component = defineComponent({
-    components: { EcInputField },
-    template,
-    ...wrapperComponentOpts,
-  });
-  return cy.mount<InputFieldProps, MountingOptions<InputFieldProps>>(Component, {
-    props,
-    ...mountOpts,
-  });
 }
 
 describe('InputField', () => {
