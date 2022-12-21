@@ -46,6 +46,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{ts,js,vue}',
     '!src/main.{ts,js}',
+    '!src/**/types.ts',
     '!src/**/*.story.{ts,js,jsx}',
     '!src/**/index.{ts,js}',
     '!src/**/.eslintrc.js',
