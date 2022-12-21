@@ -2,7 +2,9 @@
 import { action } from '@storybook/addon-actions';
 import { ref, watchEffect } from 'vue';
 
+import { IconName } from '../ec-icon/iconNames';
 import EcInputField from './ec-input-field.vue';
+import type { InputFieldProps } from './types';
 
 export default {
   title: 'Input Field',
@@ -23,9 +25,9 @@ const Template = () => ({
       modelValue: '',
       placeholder: 'My input',
       bottomNote: 'Your email',
-      icon: 'simple-check',
+      icon: IconName.SimpleCheck,
       note: 'Max 80 chars.',
-    };
+    } as InputFieldProps;
 
     return {
       args,
@@ -141,7 +143,7 @@ export const all = () => ({
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Input with icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field placeholder="My input" icon="${IconName.SimpleInfo}" v-model="valueText" label="Input with icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
@@ -153,11 +155,11 @@ export const all = () => ({
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Short label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
+          <ec-input-field placeholder="My input" icon="${IconName.SimpleInfo}" v-model="valueText" label="Short label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" icon="simple-info" v-model="valueText" label="Input with bottom note" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
+          <ec-input-field placeholder="My input" icon="${IconName.SimpleInfo}" v-model="valueText" label="Input with bottom note" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
