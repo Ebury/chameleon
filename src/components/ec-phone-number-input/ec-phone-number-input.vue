@@ -124,8 +124,8 @@
         v-ec-tooltip="{ content: errorTooltipMessage }"
         class="ec-phone-number-input__error-tooltip"
         data-test="ec-phone-number-input__error-tooltip"
-        type="error"
-        name="simple-error"
+        :type="IconType.ERROR"
+        :name="IconName.SimpleError"
         :size="14"
       />
     </div>
@@ -142,8 +142,8 @@
         v-ec-tooltip="{ content: warningTooltipMessage }"
         class="ec-phone-number-input__warning-tooltip"
         data-test="ec-phone-number-input__warning-tooltip"
-        type="warning"
-        name="simple-error"
+        :type="IconType.WARNING"
+        :name="IconName.SimpleError"
         :size="14"
       />
     </div>
@@ -162,6 +162,7 @@ import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
+import { IconName, IconType } from '../ec-icon/types';
 import EcInputField from '../ec-input-field';
 import { InputFieldType } from '../ec-input-field/types';
 import type {
