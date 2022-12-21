@@ -22,7 +22,7 @@ function mountInputField (
         errorMessage: '',
         label: 'label test',
         note: 'note test',
-        labelTooltip: '',
+        labelTooltip: 'Some tooltip',
         ...props,
       },
       ...mountOpts,
@@ -34,6 +34,12 @@ describe('InputField', () => {
   it('should display properly with the given props', () => {
     mountInputField({ modelValue: 'Some text' });
     cy.get('[data-test*=ec-input-field__input]').invoke('attr', 'autocomplete').should('eq', undefined);
+    cy.get('[data-test=ec-input-field]').matchImageSnapshot();
+  });
+
+  it('should display tooltip', () => {
+    mountInputField();
+    cy.get('[data-test=ec-input-field__tooltip]').trigger('mouseenter');
     cy.get('[data-test=ec-input-field]').matchImageSnapshot();
   });
 
