@@ -49,7 +49,7 @@
               'ec-radio-btn__icon--checked': isChecked && !isDisabled,
               'ec-radio-btn__icon--checked-and-disabled': isDisabled && isChecked
             }"
-            name="rounded-notification"
+            :name="IconName.RoundedNotification"
             :size="20"
           />
         </div>
@@ -111,6 +111,7 @@ import {
 
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
 import type { RadioButtonEvents } from './types';
 import { RadioButtonEvent } from './types';
 

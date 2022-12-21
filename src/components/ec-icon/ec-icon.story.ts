@@ -8,23 +8,25 @@ import {
 
 import { loadSvgSprites } from '../../icons/loader';
 import EcIcon from './ec-icon.vue';
+import type { IconProps } from './types';
+import { IconName, IconType } from './types';
 
 export default {
   title: 'Icon',
   component: EcIcon,
   argTypes: {
     type: {
-      options: ['error', 'success', 'warning', 'info'],
+      options: [IconType.ERROR, IconType.SUCCESS, IconType.WARNING, IconType.INFO],
       control: { type: 'select' },
     },
     name: {
-      options: ['simple-check', 'rounded-check'],
+      options: [IconName.SimpleCheck, IconName.RoundedCheck],
       control: { type: 'select' },
     },
   },
 };
 
-function readIconNamesFromSprite(svg) {
+function readIconNamesFromSprite(svg: string) {
   const placeholder = document.createElement('div');
   placeholder.innerHTML = svg;
   const symbols = Array.from(placeholder.querySelectorAll('symbol[id^=ec-]'));
@@ -48,7 +50,7 @@ const EcIconsGrid = defineComponent({
   `,
 });
 
-const Template = args => ({
+const Template = (args: IconProps) => ({
   components: { EcIcon },
   setup() {
     return { args };
@@ -63,7 +65,7 @@ const Template = args => ({
 export const basic = Template.bind({});
 
 basic.args = {
-  name: 'simple-check',
+  name: IconName.SimpleCheck,
   size: 48,
 };
 
@@ -146,7 +148,7 @@ allIcons.argTypes = {
     control: { type: 'color' },
   },
   type: {
-    options: ['error', 'success', 'warning', 'info', 'interactive'],
+    options: [IconType.ERROR, IconType.SUCCESS, IconType.WARNING, IconType.INFO, IconType.INTERACTIVE],
     control: { type: 'select' },
   },
   name: {
@@ -165,7 +167,7 @@ allIcons.parameters = {
     snapshotElement: '.search-results',
     controls: {
       large: { size: 64 },
-      'type-error': { type: 'error' },
+      'type-error': { type: IconType.ERROR },
     },
   },
 };
