@@ -64,6 +64,16 @@ exports[`EcIcon should use the type "success" 1`] = `
 </svg>
 `;
 
+exports[`EcIcon should use the type "undefined" 1`] = `
+<svg
+  class="ec-icon"
+>
+  <use
+    xlink:href="#ec-simple-add"
+  />
+</svg>
+`;
+
 exports[`EcIcon should use the type "warning" 1`] = `
 <svg
   class="ec-icon ec-icon--warning"
