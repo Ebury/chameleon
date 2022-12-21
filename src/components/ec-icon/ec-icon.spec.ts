@@ -30,10 +30,10 @@ describe('EcIcon', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it.each([IconType.ERROR, IconType.INFO, IconType.SUCCESS, IconType.WARNING])('should use the type "%s"', (type) => {
+  it.each([undefined, IconType.ERROR, IconType.INFO, IconType.SUCCESS, IconType.WARNING])('should use the type "%s"', (type) => {
     const wrapper = mountEcIcon({ name: IconName.SimpleAdd, type });
     expect(wrapper.element).toMatchSnapshot();
-    expect(wrapper.classes(`ec-icon--${type}`)).toBe(true);
+    expect(wrapper.classes(`ec-icon--${type}`)).toBe(!!type);
   });
 
   it('should pass custom attributes', () => {

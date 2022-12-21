@@ -23,7 +23,8 @@ const props = defineProps<IconProps>();
 
 const { name, size, type } = toRefs(props);
 
-const typeClass = computed(() => { debugger; return type?.value ? `ec-icon--${type.value}` : null; });
+/* c8 ignore next */
+const typeClass = computed(() => (type?.value ? `ec-icon--${type.value}` : null));
 </script>
 
 <style>
