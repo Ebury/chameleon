@@ -14,7 +14,7 @@
     "node": "16"
   },
   "scripts": {
-    "icons": "webpack --config ./src/icons/webpack.config.js --mode=production",
+    "icons": "webpack --config ./src/icons/webpack.config.js --mode=production && node ./src/icons/buildTypes.js > ./src/components/ec-icon/iconNames.ts",
     "lint": "npm run lint:js && npm run lint:style",
     "lint:no-fix": "npm run lint:js:no-fix && npm run lint:style:no-fix",
     "lint:js": "eslint --fix ./",

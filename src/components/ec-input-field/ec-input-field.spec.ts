@@ -5,6 +5,7 @@ import { defineComponent } from 'vue';
 
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
 import type { CVueWrapper } from '../../../tests/utils/global';
+import { IconName } from '../ec-icon/iconNames';
 import EcInputField from './ec-input-field.vue';
 import type { InputFieldExpose, InputFieldProps } from './types';
 import { InputFieldEvent, InputFieldType } from './types';
@@ -170,7 +171,7 @@ describe('EcInputField', () => {
   });
 
   it('should emit an event when we click on the icon', () => {
-    const wrapper = mountInputField({ icon: 'simple-check' });
+    const wrapper = mountInputField({ icon: IconName.SimpleCheck });
 
     wrapper.findByDataTest('ec-input-field__icon')
       .trigger('click');
@@ -179,13 +180,13 @@ describe('EcInputField', () => {
   });
 
   it('should render given icon', () => {
-    const wrapper = mountInputField({ icon: 'simple-check' });
+    const wrapper = mountInputField({ icon: IconName.SimpleCheck });
     expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render given icon with given size', () => {
-    const wrapper = mountInputField({ icon: 'simple-check', iconSize: 40 });
+    const wrapper = mountInputField({ icon: IconName.SimpleCheck, iconSize: 40 });
     expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').element).toMatchSnapshot();
   });
 
@@ -205,7 +206,7 @@ describe('EcInputField', () => {
   });
 
   it('renders properly the icon when disabled', () => {
-    const wrapper = mountInputField({ icon: 'simple-check' }, { attrs: { disabled: true } });
+    const wrapper = mountInputField({ icon: IconName.SimpleCheck }, { attrs: { disabled: true } });
     expect(wrapper.element).toMatchSnapshot();
   });
 

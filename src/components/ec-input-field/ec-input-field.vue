@@ -82,10 +82,7 @@
 <script setup lang="ts">
 import type { StyleValue } from 'vue';
 import {
-  computed,
-  ref,
-  useAttrs,
-  watchEffect,
+  computed, ref, useAttrs, watchEffect,
 } from 'vue';
 
 import type { Maybe } from '../../../global';
@@ -93,6 +90,7 @@ import config from '../../config';
 import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
+import type { IconName } from '../ec-icon/types';
 import EcLoadingIcon from '../ec-loading-icon';
 import type { InputFieldEvents, InputFieldExpose } from './types';
 import { InputFieldEvent, InputFieldType } from './types';
@@ -112,7 +110,7 @@ interface InputFieldProps {
   note?: string,
   bottomNote?: string,
   errorMessage?: string,
-  icon?: string,
+  icon?: IconName,
   iconSize?: number,
   isInGroup?: string,
   id?: string,
@@ -130,7 +128,6 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   note: '',
   bottomNote: '',
   errorMessage: '',
-  icon: '',
   iconSize: 20,
   isLoading: false,
   isSensitive: false,
