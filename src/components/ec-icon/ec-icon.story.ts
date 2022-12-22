@@ -1,38 +1,27 @@
 import copyToClipboard from 'clipboard-copy';
-import {
-  computed,
-  defineComponent,
-  onMounted,
-  ref,
-} from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 
-import { loadSvgSprites } from '../../icons/loader';
 import EcIcon from './ec-icon.vue';
+import { IconName, IconType } from './types';
 
 export default {
   title: 'Icon',
   component: EcIcon,
   argTypes: {
     type: {
-      options: ['error', 'success', 'warning', 'info'],
+      options: [IconType.ERROR, IconType.SUCCESS, IconType.WARNING, IconType.INFO],
       control: { type: 'select' },
     },
     name: {
-      options: ['simple-check', 'rounded-check'],
+      options: Object.values(IconName),
       control: { type: 'select' },
     },
   },
 };
 
-function readIconNamesFromSprite(svg) {
-  const placeholder = document.createElement('div');
-  placeholder.innerHTML = svg;
-  const symbols = Array.from(placeholder.querySelectorAll('symbol[id^=ec-]'));
-  return symbols.map(symbol => symbol.id.trim().replace(/^ec-/, ''));
-}
-
 const EcIconsGrid = defineComponent({
   components: { EcIcon },
+  // eslint-disable-next-line vue/require-prop-types
   props: ['icons', 'size', 'type', 'color', 'borderRadius'],
   setup() {
     return {
@@ -48,10 +37,12 @@ const EcIconsGrid = defineComponent({
   `,
 });
 
-const Template = args => ({
+const Template = (args: unknown) => ({
   components: { EcIcon },
   setup() {
-    return { args };
+    return {
+      args,
+    };
   },
   template: `
     <div class="tw-p-24 tw-flex">
@@ -62,46 +53,40 @@ const Template = args => ({
 
 export const basic = Template.bind({});
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.args = {
-  name: 'simple-check',
+  name: IconName.SimpleCheck,
   size: 48,
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const allIcons = args => ({
+export const allIcons = (args: unknown) => ({
   components: { EcIcon, EcIconsGrid },
   setup() {
-    const isLoading = ref(true);
     const iconFilter = ref('');
-    const roundedIcons = ref([]);
-    const simpleIcons = ref([]);
+    const roundedIcons = Object.values(IconName).filter(iconName => iconName.indexOf('rounded') === 0).sort();
+    const simpleIcons = Object.values(IconName).filter(iconName => iconName.indexOf('simple') === 0).sort();
 
-    function filterBy(arr, filterText) {
+    function filterBy(arr: string[], filterText: string) {
       return filterText
         ? arr.filter(item => item.toLowerCase().includes(filterText.toLowerCase()))
         : arr;
     }
 
-    const filteredRoundedIcons = computed(() => filterBy(roundedIcons.value, iconFilter.value));
-    const filteredSimpleIcons = computed(() => filterBy(simpleIcons.value, iconFilter.value));
+    const filteredRoundedIcons = computed(() => filterBy(roundedIcons, iconFilter.value));
+    const filteredSimpleIcons = computed(() => filterBy(simpleIcons, iconFilter.value));
     const hasRoundedIcons = computed(() => filteredRoundedIcons.value.length > 0);
     const hasSimpleIcons = computed(() => filteredSimpleIcons.value.length > 0);
     const hasIcons = computed(() => hasRoundedIcons.value || hasSimpleIcons.value);
 
-    onMounted(async () => {
-      const [roundedSvgSprite, simpleSvgSprite] = await Promise.all(loadSvgSprites(['rounded-icons', 'simple-icons'], '/img'));
-      roundedIcons.value = readIconNamesFromSprite(roundedSvgSprite.svg).sort();
-      simpleIcons.value = readIconNamesFromSprite(simpleSvgSprite.svg).sort();
-
-      isLoading.value = false;
-    });
-
     return {
       args,
-      isLoading,
       iconFilter,
       filteredRoundedIcons,
       filteredSimpleIcons,
@@ -111,10 +96,7 @@ export const allIcons = args => ({
     };
   },
   template: `
-    <div class="tw-p-32 tw-text-center" v-if="isLoading">
-      Loading icons...
-    </div>
-    <div class="tw-p-32 tw-mx-auto" style="max-width: 900px;" v-else>
+    <div class="tw-p-32 tw-mx-auto" style="max-width: 900px;">
       <input
         v-model="iconFilter"
         placeholder="Search icon by name"
@@ -146,7 +128,7 @@ allIcons.argTypes = {
     control: { type: 'color' },
   },
   type: {
-    options: ['error', 'success', 'warning', 'info', 'interactive'],
+    options: [IconType.ERROR, IconType.SUCCESS, IconType.WARNING, IconType.INFO, IconType.INTERACTIVE],
     control: { type: 'select' },
   },
   name: {
@@ -165,34 +147,27 @@ allIcons.parameters = {
     snapshotElement: '.search-results',
     controls: {
       large: { size: 64 },
-      'type-error': { type: 'error' },
+      'type-error': { type: IconType.ERROR },
     },
   },
 };
 
-export const allFlags = args => ({
+export const allFlags = (args: unknown) => ({
   components: { EcIcon, EcIconsGrid },
   setup() {
     const isLoading = ref(true);
     const flagFilter = ref('');
-    const currencyFlags = ref([]);
+    const currencyFlags = Object.values(IconName).filter(iconName => iconName.indexOf('currency') === 0).sort();
 
-    function filterBy(arr, filterText) {
+    function filterBy(arr: string[], filterText: string) {
       return filterText
         ? arr.filter(item => item.toLowerCase().includes(filterText.toLowerCase()))
         : arr;
     }
 
-    const filteredCurrencyFlags = computed(() => filterBy(currencyFlags.value, flagFilter.value));
+    const filteredCurrencyFlags = computed(() => filterBy(currencyFlags, flagFilter.value));
     const hasCurrencyFlags = computed(() => filteredCurrencyFlags.value.length > 0);
     const hasIcons = computed(() => hasCurrencyFlags.value);
-
-    onMounted(async () => {
-      const [currencyFlagsSprite] = await Promise.all(loadSvgSprites(['currency-flags'], '/img'));
-      currencyFlags.value = readIconNamesFromSprite(currencyFlagsSprite.svg).sort();
-
-      isLoading.value = false;
-    });
 
     return {
       args,
@@ -204,10 +179,7 @@ export const allFlags = args => ({
     };
   },
   template: `
-    <div class="tw-p-32 tw-text-center" v-if="isLoading">
-      Loading icons...
-    </div>
-    <div class="tw-p-32 tw-mx-auto" style="max-width: 900px;" v-else>
+    <div class="tw-p-32 tw-mx-auto" style="max-width: 900px;">
       <input
         v-model="flagFilter"
         placeholder="Search flag by name"
@@ -256,11 +228,8 @@ allFlags.parameters = {
   },
 };
 
-export const withinAText = args => ({
+export const withinAText = () => ({
   components: { EcIcon },
-  setup() {
-    return { args };
-  },
   template: `
     <div class="tw-p-8">
       <p>
@@ -273,7 +242,7 @@ export const withinAText = args => ({
         duis labore proident reprehenderit pariatur ex quis incididunt ut ipsum.
       </p>
       <button class="ec-btn ec-btn--rounded ec-btn--md ec-btn--primary ec-btn--outline tw-mt-16">
-        <ec-icon name="simple-sign-out" class="tw-fill-current tw-mr-8" :size="24" /><span>Icon inside of a button</span>
+        <ec-icon name="${IconName.SimpleSignOut}" class="tw-fill-current tw-mr-8" :size="24" /><span>Icon inside of a button</span>
       </button>
     </div>
   `,

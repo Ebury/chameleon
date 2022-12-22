@@ -7,7 +7,7 @@ describe('EcNavigationLink', () => {
   it('should throw an error if prop text was not given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcNavigationLink);
-      expect(warnSpy).toHaveBeenCalledTimes(3);
+      expect(warnSpy).toHaveBeenCalledTimes(2);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "text"');
     });
   });
@@ -19,7 +19,7 @@ describe('EcNavigationLink', () => {
           text: 'Random text',
         },
       });
-      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy).toHaveBeenCalledTimes(1);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "url"');
     });
   });

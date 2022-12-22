@@ -19,8 +19,8 @@
         v-ec-tooltip="{ content: labelTooltip }"
         class="ec-input-field__tooltip"
         data-test="ec-input-field__tooltip"
-        type="interactive"
-        name="simple-info"
+        :type="IconType.INTERACTIVE"
+        :name="IconName.SimpleInfo"
         :size="14"
       />
       </span>
@@ -56,7 +56,7 @@
         :size="24"
       />
       <ec-icon
-        v-else
+        v-else-if="icon"
         class="ec-input-field__icon"
         data-test="ec-input-field__icon"
         :name="icon"
@@ -90,7 +90,7 @@ import config from '../../config';
 import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
-import type { IconName } from '../ec-icon/types';
+import { IconName, IconType } from '../ec-icon/types';
 import EcLoadingIcon from '../ec-loading-icon';
 import type { InputFieldEvents, InputFieldExpose } from './types';
 import { InputFieldEvent, InputFieldType } from './types';

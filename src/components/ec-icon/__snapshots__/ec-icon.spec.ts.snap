@@ -7,7 +7,7 @@ exports[`EcIcon should pass custom attributes 1`] = `
   id="my-icon"
 >
   <use
-    xlink:href="#ec-random-icon"
+    xlink:href="#ec-simple-add"
   />
 </svg>
 `;
@@ -17,7 +17,7 @@ exports[`EcIcon should render properly when a name was given 1`] = `
   class="ec-icon"
 >
   <use
-    xlink:href="#ec-random-icon"
+    xlink:href="#ec-simple-add"
   />
 </svg>
 `;
@@ -29,7 +29,7 @@ exports[`EcIcon should use the given size prop 1`] = `
   width="16"
 >
   <use
-    xlink:href="#ec-random-icon"
+    xlink:href="#ec-simple-add"
   />
 </svg>
 `;
@@ -39,7 +39,7 @@ exports[`EcIcon should use the type "error" 1`] = `
   class="ec-icon ec-icon--error"
 >
   <use
-    xlink:href="#ec-random-icon"
+    xlink:href="#ec-simple-add"
   />
 </svg>
 `;
@@ -49,7 +49,7 @@ exports[`EcIcon should use the type "info" 1`] = `
   class="ec-icon ec-icon--info"
 >
   <use
-    xlink:href="#ec-random-icon"
+    xlink:href="#ec-simple-add"
   />
 </svg>
 `;
@@ -59,7 +59,17 @@ exports[`EcIcon should use the type "success" 1`] = `
   class="ec-icon ec-icon--success"
 >
   <use
-    xlink:href="#ec-random-icon"
+    xlink:href="#ec-simple-add"
+  />
+</svg>
+`;
+
+exports[`EcIcon should use the type "undefined" 1`] = `
+<svg
+  class="ec-icon"
+>
+  <use
+    xlink:href="#ec-simple-add"
   />
 </svg>
 `;
@@ -69,7 +79,7 @@ exports[`EcIcon should use the type "warning" 1`] = `
   class="ec-icon ec-icon--warning"
 >
   <use
-    xlink:href="#ec-random-icon"
+    xlink:href="#ec-simple-add"
   />
 </svg>
 `;

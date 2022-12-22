@@ -17,7 +17,7 @@
       @click.stop.prevent="onDismiss"
     >
       <ec-icon
-        name="simple-close"
+        :name="IconName.SimpleClose"
         :size="16"
       />
     </a>
@@ -62,6 +62,7 @@
 import { computed, useSlots } from 'vue';
 
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
 import type { AlertEvents } from './types';
 import { AlertEvent, AlertType } from './types';
 
@@ -89,14 +90,14 @@ const slots = useSlots();
 
 const icon = computed(() => {
   switch (props.type) {
-    case 'error':
-    case 'warning':
-      return 'simple-error';
-    case 'success':
-      return 'simple-check';
-    case 'info':
+    case AlertType.ERROR:
+    case AlertType.WARNING:
+      return IconName.SimpleError;
+    case AlertType.SUCCESS:
+      return IconName.SimpleCheck;
+    case AlertType.INFO:
     default:
-      return 'simple-info';
+      return IconName.SimpleInfo;
   }
 });
 

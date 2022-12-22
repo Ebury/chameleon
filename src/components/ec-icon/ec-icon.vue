@@ -8,28 +8,23 @@
   </svg>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, toRefs } from 'vue';
 
-const props = defineProps({
-  name: {
-    type: String,
-    required: true,
-  },
-  size: {
-    type: Number,
-  },
-  type: {
-    type: String,
-    validator(value) {
-      return ['error', 'info', 'success', 'warning', 'interactive'].includes(value);
-    },
-  },
-});
+import type { IconName, IconType } from './types';
+
+interface IconProps {
+  name: IconName,
+  size?: number,
+  type?: IconType,
+}
+
+const props = defineProps<IconProps>();
 
 const { name, size, type } = toRefs(props);
 
-const typeClass = computed(() => (type.value ? `ec-icon--${type.value}` : null));
+/* c8 ignore next */
+const typeClass = computed(() => (type?.value ? `ec-icon--${type.value}` : null));
 </script>
 
 <style>
