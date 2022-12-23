@@ -1,27 +1,28 @@
 version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1
 jobs:
   build:
     working_directory: ~/chameleon
     docker:
-      - image: circleci/node:lts
+      - image: cypress/base:16.18.1
+        environment:
+          TERM: xterm
     steps:
       - checkout
       - run:
           name: install
-          command: CYPRESS_INSTALL_BINARY=0 npm ci
+          command: npm ci
       - run:
           name: lint
           command: npm run lint:no-fix
       - run:
           name: test
           command: npm run test -- --max-workers=2
+      - run:
+          name: test:cy
+          command: npm run test:cy
 
 workflows:
   version: 2
   build_lint_and_test:
     jobs:
       - build
-      - cypress/run:
-          component: true
