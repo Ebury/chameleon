@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/chameleon
     docker:
-      - image: cypress/included:12.1.0
+      - image: cypress/included:12.2.0
     steps:
       - checkout
       - run:
@@ -13,11 +13,11 @@ jobs:
           name: lint
           command: npm run lint:no-fix
       - run:
-          name: test
-          command: npm run test -- --max-workers=2
-      - run:
           name: test:cy
           command: npm run test:cy -- --spec '**/ec-input-field.cy.ts'
+      - run:
+          name: test
+          command: npm run test -- --max-workers=2
       - store_artifacts:
           path: ~/chameleon/tests/integration/screenshots
       - store_artifacts:
