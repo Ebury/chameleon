@@ -23,7 +23,7 @@ jobs:
       - store_artifacts:
           path: ~/chameleon/tests/integration/screenshots
       - store_artifacts:
-          path: ~/chameleon/tests/integration/snapshots
+          path: ~/chameleon/tests/integration/snapshots/**/*.diff.png
 
 workflows:
   version: 2
