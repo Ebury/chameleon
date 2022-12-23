@@ -36,7 +36,7 @@ describe('InputField', () => {
     cy.get('body')
       .should('have.css', 'font-family')
       .and('match', /Roboto/);
-    cy.wait(50);
+    cy.wait(100);
     cy.get('[data-test*=ec-input-field__input]').invoke('attr', 'autocomplete').should('eq', undefined);
     cy.get('[data-test=ec-input-field]').matchImageSnapshot();
   });
