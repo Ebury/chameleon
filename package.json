@@ -22,7 +22,7 @@
     "lint:style": "stylelint ./src/**/*.{css,vue} --fix",
     "lint:style:no-fix": "stylelint ./src/**/*.{css,vue}",
     "test": "jest",
-    "test:cy": "ELECTRON_EXTRA_LAUNCH_ARGS=--disable-color-correct-rendering cypress run --component",
+    "test:cy": "cypress run --component",
     "test:watch": "jest --watch",
     "test:visual": "cypress open",
     "test:visual:ci": "npm run build-storybook-run & wait-on http://localhost:42475/ && npm run test:visual:all",
