@@ -13,15 +13,8 @@ jobs:
           name: lint
           command: npm run lint:no-fix
       - run:
-          name: Start virtual monitor
-          command:  export DISPLAY=:1
-                    Xvfb :1 -screen 0 1024x768x16 2>/dev/null &
-      - run:
           name: test:cy
           command: npm run test:cy -- --spec '**/ec-input-field.cy.ts'
-      - run:
-          name: unset DISPLAY
-          command: kill %1
       - run:
           name: test
           command: npm run test -- --max-workers=2
