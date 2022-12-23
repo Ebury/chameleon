@@ -3,9 +3,7 @@ jobs:
   build:
     working_directory: ~/chameleon
     docker:
-      - image: cypress/base:16.18.1
-        environment:
-          TERM: xterm
+      - image: circleci/node:lts
     steps:
       - checkout
       - run:
