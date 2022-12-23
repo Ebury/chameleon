@@ -20,6 +20,8 @@ jobs:
       - run:
           name: test:cy
           command: npm run test:cy -- --spec '**/ec-input-field.cy.ts'
+      - store_artifacts:
+          path: ~/chameleon/tests/integration/screenshots
 
 workflows:
   version: 2
