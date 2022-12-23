@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/chameleon
     docker:
-      - image: circleci/node:lts
+      - image: cypress/included:12.1.0
     steps:
       - checkout
       - run:
