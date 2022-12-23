@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/chameleon
     docker:
-      - image: cypress/base:16.18.1
+      - image: cypress/browsers:node16.16.0-chrome107-ff107
         environment:
           TERM: xterm
     steps:
