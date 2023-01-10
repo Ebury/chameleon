@@ -75,7 +75,6 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'chameleon/vue-props-interface': 'error',
   },
   overrides: [
     {
@@ -105,6 +104,7 @@ module.exports = {
       ],
       rules: {
         'import/first': 'off',
+        'chameleon/vue-props-interface': 'error',
       },
     },
     {

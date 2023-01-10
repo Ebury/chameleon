@@ -59,7 +59,8 @@ module.exports = {
       const typesFile = path.resolve(path.parse(context.getPhysicalFilename()).dir, 'types.ts');
 
       const project = new Project();
-      project.addSourceFilesAtPaths('**/*.ts');
+      project.addSourceFilesAtPaths(typesFile);
+
       const sourceFile = project.getSourceFileOrThrow(typesFile);
       const fileInterfaceDeclaration = sourceFile.getInterfaces()
         .find(declaration => declaration?.getStructure()?.name === vueInterfaceDeclaration?.id?.name);
@@ -78,7 +79,6 @@ module.exports = {
           node,
           message: 'defineProps must be typed by props interface: defineProps<SomeInterfaceProps>',
         });
-        return;
       }
 
       const interfaceExportDeclaration = context.getScope()
@@ -96,6 +96,7 @@ module.exports = {
           node,
           message: `Interface ${propsInterfaceName} can't be exported. Export it in types.ts file instead.`,
         });
+        return;
       }
 
       const interfaceDeclaration = context.getScope()
@@ -115,7 +116,7 @@ module.exports = {
         } catch (e) {
           context.report({
             node,
-            message: `Can't proceed file types.ts. This file must be placed in the same directory as ${context.getFilename()}`,
+            message: `Can't proceed file types.ts. This file must be placed in the same directory as ${context.getFilename()}: ${e.message}`,
           });
           return;
         }
