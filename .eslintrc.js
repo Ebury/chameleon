@@ -11,7 +11,7 @@ module.exports = {
     '@vue/eslint-config-typescript/recommended',
   ],
   parser: 'vue-eslint-parser',
-  plugins: ['simple-import-sort', '@typescript-eslint'],
+  plugins: ['simple-import-sort', '@typescript-eslint', 'chameleon'],
   rules: {
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'default-param-last': 'off',
@@ -75,6 +75,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'chameleon/vue-props-interface': 'error',
   },
   overrides: [
     {
