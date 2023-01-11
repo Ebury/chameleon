@@ -134,5 +134,18 @@ ruleTester.run('vue-props-interface', rule, {
       },
       errors: [{ message: 'defineProps must be typed by props interface: defineProps<SomeInterfaceProps>', line: 15 }],
     },
+    {
+      filename: 'test.vue',
+      code: `
+        <script setup lang="ts">
+
+          const props = defineProps<RadioButtonProps>();
+        </script>`,
+      parser: require.resolve('vue-eslint-parser'),
+      parserOptions: {
+        parser: require.resolve('@typescript-eslint/parser'),
+      },
+      errors: [{ message: 'Interface  RadioButtonProps must be defined in script setup', line: 4 }],
+    },
   ],
 });

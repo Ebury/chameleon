@@ -103,6 +103,14 @@ module.exports = {
           }) => type === 'TSInterfaceDeclaration' && id?.name === propsInterfaceName,
         );
 
+      if (propsInterfaceName && !interfaceDeclaration && isScriptLangTS) {
+        context.report({
+          node,
+          message: `Interface  ${propsInterfaceName} must be defined in script setup`,
+        });
+        return;
+      }
+
       if (interfaceDeclaration) {
         let difference;
         try {
