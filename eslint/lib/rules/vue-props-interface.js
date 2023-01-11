@@ -1,26 +1,20 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-/**
- * @fileoverview Props TS interface should be defined properly in .vue and types.ts file.
- * @author Anton Lazarev
- */
-
 const utils = require('eslint-plugin-vue/lib/utils');
 const path = require('path');
 const { Project } = require('ts-morph');
 const { isEqual } = require('lodash');
 
-/** @type {import('eslint').Rule.RuleModule} */
 module.exports = {
   meta: {
-    type: null, // `problem`, `suggestion`, or `layout`
+    type: null,
     docs: {
       description: 'Props TS interface should be exported in types.ts file.',
       recommended: false,
       url: null,
     },
     fixable: null,
-    schema: [], // Add a schema if the rule has options
+    schema: [],
   },
 
   create(context) {

@@ -1,20 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-/**
- * @fileoverview Props TS interface should be exported in types.ts file.
- * @author Anton Lazarev
- */
-
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const { RuleTester } = require('eslint');
 const rule = require('../../../lib/rules/vue-props-interface');
-
-//------------------------------------------------------------------------------
-// Tests
-//------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
 ruleTester.run('vue-props-interface', rule, {
