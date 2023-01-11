@@ -8,10 +8,8 @@ This rule is aimed to check whether interfaces in `types.ts` and `<script setup 
 
 ## Rule Details
 
-This rule aims to...
-
-Examples of **incorrect** code for this rule, 
-pay attention to the isTextInline property in `RadioButtonProps` within `script` and `types.ts`:
+Examples of **incorrect** code for this rule. 
+Take note of the `isTextInline` property in `RadioButtonProps` within `script` and `types.ts`, and see if you can spot a difference:
 
 ```typescript
 <script setup lang="ts">
@@ -22,7 +20,7 @@ pay attention to the isTextInline property in `RadioButtonProps` within `script`
   label?: string,
   description?: string,
   isDisabled?: boolean,
-  isTextInline?: string,
+  isTextInline: boolean,
   name?: string,
   errorMessage?: string,
   hasError?: boolean
@@ -53,7 +51,7 @@ export interface RadioButtonProps {
   hasError?: boolean
 }
 ```
-This code is incorrect because script lang is ts, and in this case `defineProps` must be typed by interface.
+This following code is incorrect because `<script>` lang is `ts`, and in this case `defineProps` must be typed by interface.
 ```typescript
 <script setup lang="ts">
   const props = defineProps({
