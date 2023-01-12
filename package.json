@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "2.1.38",
+  "version": "2.1.39",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -84,6 +84,7 @@
     "cypress": "10.11.0",
     "cypress-image-snapshot": "4.0.1",
     "eslint": "8.24.0",
+    "eslint-plugin-chameleon": "file:eslint/lib",
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-jest": "27.1.6",
     "eslint-plugin-simple-import-sort": "8.0.0",
@@ -113,6 +114,7 @@
     "svgo": "2.8.0",
     "svgo-loader": "3.0.1",
     "ts-jest": "29.0.3",
+    "ts-morph": "17.0.1",
     "typescript": "4.8.4",
     "vite": "3.0.9",
     "vue-eslint-parser": "9.1.0",
