@@ -5,6 +5,7 @@ export enum IconName {
   CurrencyBbd = 'currency-bbd',
   CurrencyBgn = 'currency-bgn',
   CurrencyBhd = 'currency-bhd',
+  CurrencyBrl = 'currency-brl',
   CurrencyBsd = 'currency-bsd',
   CurrencyBwp = 'currency-bwp',
   CurrencyBzd = 'currency-bzd',
