@@ -5,6 +5,7 @@ export default [
   "BBD",
   "BGN",
   "BHD",
+  "BRL",
   "BSD",
   "BWP",
   "BZD",
