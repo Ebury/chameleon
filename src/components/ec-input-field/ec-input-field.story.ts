@@ -15,23 +15,32 @@ export default {
       options: ['left', 'right'],
       control: { type: 'select' },
     },
+    iconType: {
+      options: IconType,
+      control: { type: 'select' },
+    },
+    icon: {
+      options: IconName,
+      control: { type: 'select' },
+    },
   },
 };
 
-const Template = () => ({
+const Template = (args: InputFieldProps) => ({
   components: { EcInputField },
   setup() {
-    const args = {
+    const baseArgs = {
       label: 'Username',
       modelValue: '',
       placeholder: 'My input',
       bottomNote: 'Your email',
       icon: IconName.SimpleCheck,
       note: 'Max 80 chars.',
+      ...args,
     } as InputFieldProps;
 
     return {
-      args,
+      args: baseArgs,
       onInput: action('input'),
       onChange: action('change'),
     };
