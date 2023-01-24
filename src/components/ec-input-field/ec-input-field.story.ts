@@ -6,11 +6,16 @@ import { IconName } from '../ec-icon/iconNames';
 import { IconType } from '../ec-icon/types';
 import EcInputField from './ec-input-field.vue';
 import type { InputFieldProps } from './types';
+import { InputFieldType } from './types';
 
 export default {
   title: 'Input Field',
   component: EcInputField,
   argTypes: {
+    type: {
+      options: InputFieldType,
+      control: { type: 'select' },
+    },
     isInGroup: {
       options: ['left', 'right'],
       control: { type: 'select' },
