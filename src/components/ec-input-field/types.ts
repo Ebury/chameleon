@@ -1,7 +1,7 @@
 import type { Ref } from 'vue';
 
 import type { Maybe } from '../../../global';
-import type { IconName } from '../ec-icon/iconNames';
+import type { IconName, IconType } from '../ec-icon/types';
 
 export interface InputFieldExpose {
   focus: () => void
@@ -35,6 +35,7 @@ export interface InputFieldProps {
   errorMessage?: string,
   icon?: IconName,
   iconSize?: number,
+  iconType?: IconType,
   isInGroup?: string,
   id?: string,
   errorId?: string,

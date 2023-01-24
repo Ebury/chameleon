@@ -3,6 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { ref, watchEffect } from 'vue';
 
 import { IconName } from '../ec-icon/iconNames';
+import { IconType } from '../ec-icon/types';
 import EcInputField from './ec-input-field.vue';
 import type { InputFieldProps } from './types';
 
@@ -160,6 +161,10 @@ export const all = () => ({
 
         <div class="tw-col-full md:tw-col-4">
           <ec-input-field placeholder="My input" icon="${IconName.SimpleInfo}" v-model="valueText" label="Input with bottom note" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
+        </div>
+
+        <div class="tw-col-full md:tw-col-4">
+          <ec-input-field placeholder="My input" icon="${IconName.SimpleCheck}" iconType="${IconType.SUCCESS}" v-model="valueText" label="Input with success green icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
