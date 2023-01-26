@@ -61,6 +61,7 @@
         data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
+        :type="iconType"
         @click="emit(InputFieldEvent.ICON_CLICK, modelValue);"
       />
     </div>
@@ -112,6 +113,7 @@ interface InputFieldProps {
   errorMessage?: string,
   icon?: IconName,
   iconSize?: number,
+  iconType?: IconType,
   isInGroup?: string,
   id?: string,
   errorId?: string,

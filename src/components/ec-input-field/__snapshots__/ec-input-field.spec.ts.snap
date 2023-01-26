@@ -727,6 +727,24 @@ exports[`EcInputField should render given icon with given size 1`] = `
 </div>
 `;
 
+exports[`EcInputField should render given icon with success colour 1`] = `
+<div
+  class="ec-input-field__icon-wrapper"
+  data-test="ec-input-field__icon-wrapper"
+>
+  <svg
+    class="ec-icon ec-icon--success ec-input-field__icon"
+    data-test="ec-input-field__icon"
+    height="20"
+    width="20"
+  >
+    <use
+      xlink:href="#ec-simple-check"
+    />
+  </svg>
+</div>
+`;
+
 exports[`EcInputField should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
   class="ec-input-field"
