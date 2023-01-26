@@ -6,6 +6,7 @@ import { defineComponent } from 'vue';
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
 import type { CVueWrapper } from '../../../tests/utils/global';
 import { IconName } from '../ec-icon/iconNames';
+import { IconType } from '../ec-icon/types';
 import EcInputField from './ec-input-field.vue';
 import type { InputFieldExpose, InputFieldProps } from './types';
 import { InputFieldEvent, InputFieldType } from './types';
@@ -187,6 +188,11 @@ describe('EcInputField', () => {
 
   it('should render given icon with given size', () => {
     const wrapper = mountInputField({ icon: IconName.SimpleCheck, iconSize: 40 });
+    expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').element).toMatchSnapshot();
+  });
+
+  it('should render given icon with success colour', () => {
+    const wrapper = mountInputField({ icon: IconName.SimpleCheck, iconType: IconType.SUCCESS });
     expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').element).toMatchSnapshot();
   });
 
