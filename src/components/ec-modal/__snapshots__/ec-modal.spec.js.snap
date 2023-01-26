@@ -1,5 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcModal should disable the negative button when the "isDisabled" given prop is true 1`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <button
+    class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
+    data-test="ec-modal__negative-btn ec-btn"
+    disabled=""
+    type="button"
+  >
+    <!--v-if-->
+    <span
+      class="ec-btn__text"
+      data-test="ec-btn__text"
+    >
+      
+      
+      negative Button
+      
+      
+    </span>
+    <!--v-if-->
+  </button>,
+}
+`;
+
+exports[`EcModal should disable the positive button when the "isDisabled" given prop is true 1`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <button
+    class="ec-modal__positive-btn--right ec-modal__positive-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary"
+    data-test="ec-modal__positive-btn ec-btn"
+    disabled=""
+    type="button"
+  >
+    <!--v-if-->
+    <span
+      class="ec-btn__text"
+      data-test="ec-btn__text"
+    >
+      
+      
+      Positive Button
+      
+      
+    </span>
+    <!--v-if-->
+  </button>,
+}
+`;
+
 exports[`EcModal should have the ec-modal--lg class 1`] = `
 <div
   class="ec-modal__content ec-modal--lg"
@@ -468,6 +518,54 @@ exports[`EcModal should render positive button with the loading status if slot i
     </div>
   </div>
 </footer>
+`;
+
+exports[`EcModal should render with an enabled negative button by default 1`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <button
+    class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
+    data-test="ec-modal__negative-btn ec-btn"
+    type="button"
+  >
+    <!--v-if-->
+    <span
+      class="ec-btn__text"
+      data-test="ec-btn__text"
+    >
+      
+      
+      Negative Button
+      
+      
+    </span>
+    <!--v-if-->
+  </button>,
+}
+`;
+
+exports[`EcModal should render with an enabled positive button by default 1`] = `
+DOMWrapper {
+  "isDisabled": [Function],
+  "wrapperElement": <button
+    class="ec-modal__positive-btn--right ec-modal__positive-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary"
+    data-test="ec-modal__positive-btn ec-btn"
+    type="button"
+  >
+    <!--v-if-->
+    <span
+      class="ec-btn__text"
+      data-test="ec-btn__text"
+    >
+      
+      
+      Positive Button
+      
+      
+    </span>
+    <!--v-if-->
+  </button>,
+}
 `;
 
 exports[`EcModal v-model should not render the modal when we pass to model false 1`] = `

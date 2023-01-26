@@ -62,6 +62,7 @@
           >
             <ec-btn
               ref="negativeButton"
+              :is-disabled="isNegativeButtonDisabled"
               is-rounded
               :is-submit="false"
               :category="negativeButtonCategory"
@@ -82,6 +83,7 @@
             <ec-btn
               ref="positiveButton"
               :category="positiveButtonCategory"
+              :is-disabled="isPositiveButtonDisabled"
               is-rounded
               :is-submit="false"
               :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
@@ -139,6 +141,14 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  positiveButtonProps: {
+    type: Object,
+    default: () => ({}),
+  },
+  negativeButtonProps: {
+    type: Object,
+    default: () => ({}),
+  },
 });
 
 const emit = defineEmits(['update:show', 'negative', 'positive', 'close']);
@@ -150,6 +160,8 @@ const isLoadingPositiveButton = computed(() => !!props.isLoading.positive);
 const isLoadingNegativeButton = computed(() => !!props.isLoading.negative);
 const positiveButtonCategory = computed(() => props.category.positive || 'primary');
 const negativeButtonCategory = computed(() => props.category.negative || 'secondary');
+const isPositiveButtonDisabled = computed(() => props.positiveButtonProps.isDisabled || false);
+const isNegativeButtonDisabled = computed(() => props.negativeButtonProps.isDisabled || false);
 function hasPositiveButton() {
   return !!slots.positive;
 }
