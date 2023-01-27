@@ -382,10 +382,6 @@ buttonsDisabled.args = {
   showFooterLeftContent: true,
   large: false,
   zIndex: 201,
-  isLoading: {
-    positive: false,
-    negative: false,
-  },
   negativeHasText: true,
   positiveHasText: true,
   positiveButtonProps: {
