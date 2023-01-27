@@ -243,17 +243,11 @@ stackable.parameters = {
 };
 
 export const buttonsDisabled = ({
-  large, show, isClosable, isLoading, category, showFooterLeftContent, negativeHasText, positiveHasText, zIndex, ...args
+  large, show, isClosable, isLoading, category, showFooterLeftContent, negativeHasText, positiveHasText, zIndex, positiveButtonProps, negativeButtonProps, ...args
 }) => ({
   components: { EcModal, EcIcon },
   directives: { EcTooltip },
   setup() {
-    const positiveButtonProps = ref({
-      isDisabled: true,
-    });
-    const negativeButtonProps = ref({
-      isDisabled: true,
-    });
     const model = ref(show);
     const tooltipConfig = ref({
       content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
@@ -386,17 +380,18 @@ export const buttonsDisabled = ({
 buttonsDisabled.args = {
   show: true,
   showFooterLeftContent: true,
-  isClosable: true,
   large: false,
   zIndex: 201,
   isLoading: {
     positive: false,
     negative: false,
   },
-  category: {
-    positive: null,
-    negative: null,
-  },
   negativeHasText: true,
   positiveHasText: true,
+  positiveButtonProps: {
+    isDisabled: true,
+  },
+  negativeButtonProps: {
+    isDisabled: true,
+  },
 };
