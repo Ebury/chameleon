@@ -62,6 +62,7 @@
           >
             <ec-btn
               ref="negativeButton"
+              :is-disabled="isNegativeButtonDisabled"
               is-rounded
               :is-submit="false"
               :category="negativeButtonCategory"
@@ -82,6 +83,7 @@
             <ec-btn
               ref="positiveButton"
               :category="positiveButtonCategory"
+              :is-disabled="isPositiveButtonDisabled"
               is-rounded
               :is-submit="false"
               :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
@@ -125,6 +127,9 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  // isLoading - DEPRECATED
+  // TODO: remove the prop below and use it as part
+  // of the positiveButtonProps/negativeButtonProps
   isLoading: {
     type: Object,
     default: () => ({}),
@@ -135,7 +140,18 @@ const props = defineProps({
       return value > 200 && value < 250;
     },
   },
+  // category - DEPRECATED
+  // TODO: remove the prop below and use it as part
+  // of the positiveButtonProps/negativeButtonProps
   category: {
+    type: Object,
+    default: () => ({}),
+  },
+  positiveButtonProps: {
+    type: Object,
+    default: () => ({}),
+  },
+  negativeButtonProps: {
     type: Object,
     default: () => ({}),
   },
@@ -150,6 +166,8 @@ const isLoadingPositiveButton = computed(() => !!props.isLoading.positive);
 const isLoadingNegativeButton = computed(() => !!props.isLoading.negative);
 const positiveButtonCategory = computed(() => props.category.positive || 'primary');
 const negativeButtonCategory = computed(() => props.category.negative || 'secondary');
+const isPositiveButtonDisabled = computed(() => props.positiveButtonProps.isDisabled || false);
+const isNegativeButtonDisabled = computed(() => props.negativeButtonProps.isDisabled || false);
 function hasPositiveButton() {
   return !!slots.positive;
 }
