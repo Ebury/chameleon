@@ -390,13 +390,3 @@ buttonsDisabled.args = {
   negativeHasText: true,
   positiveHasText: true,
 };
-
-buttonsDisabled.parameters = {
-  visualRegressionTests: {
-    controls: {
-      large: { large: true },
-      'no-texts': { negativeHasText: false, positiveHasText: false },
-      category: { 'category.negative': buttonCategories[3], 'category.positive': buttonCategories[4] },
-    },
-  },
-};
