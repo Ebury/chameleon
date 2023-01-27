@@ -127,6 +127,9 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  // isLoading - DEPRECATED
+  // TODO: remove the prop below and use it as part
+  // of the positiveButtonProps/negativeButtonProps
   isLoading: {
     type: Object,
     default: () => ({}),
@@ -137,6 +140,9 @@ const props = defineProps({
       return value > 200 && value < 250;
     },
   },
+  // category - DEPRECATED
+  // TODO: remove the prop below and use it as part
+  // of the positiveButtonProps/negativeButtonProps
   category: {
     type: Object,
     default: () => ({}),
