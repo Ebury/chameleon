@@ -15,7 +15,7 @@ export default {
 };
 
 export const basic = ({
-  large, show, isClosable, isLoading, category, showFooterLeftContent, negativeHasText, positiveHasText, zIndex, ...args
+  large, show, isClosable, isLoading, category, showFooterLeftContent, negativeHasText, positiveHasText, zIndex, positiveButtonProps, negativeButtonProps, ...args
 }) => ({
   components: { EcModal, EcIcon },
   directives: { EcTooltip },
@@ -38,6 +38,8 @@ export const basic = ({
       showFooterLeftContent,
       negativeHasText,
       positiveHasText,
+      positiveButtonProps,
+      negativeButtonProps,
       zIndex,
       onReject: action('reject'),
       onAccept: action('accept'),
@@ -50,6 +52,8 @@ export const basic = ({
       <ec-modal
         v-if="!large"
         :large="large"
+        :positive-button-props="positiveButtonProps"
+        :negative-button-props="negativeButtonProps"
         :is-closable="isClosable"
         :is-loading="isLoading"
         :category="category"
@@ -160,6 +164,12 @@ basic.args = {
   category: {
     positive: null,
     negative: null,
+  },
+  positiveButtonProps: {
+    isDisabled: false,
+  },
+  negativeButtonProps: {
+    isDisabled: false,
   },
   negativeHasText: true,
   positiveHasText: true,
