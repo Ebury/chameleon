@@ -14,6 +14,30 @@ export default {
   ],
 };
 
+const basicProps = {
+  show: true,
+  showFooterLeftContent: true,
+  isClosable: true,
+  large: false,
+  zIndex: 201,
+  isLoading: {
+    positive: false,
+    negative: false,
+  },
+  category: {
+    positive: null,
+    negative: null,
+  },
+  positiveButtonProps: {
+    isDisabled: false,
+  },
+  negativeButtonProps: {
+    isDisabled: false,
+  },
+  negativeHasText: true,
+  positiveHasText: true,
+};
+
 export const basic = ({
   large, show, isClosable, isLoading, category, showFooterLeftContent, negativeHasText, positiveHasText, zIndex, positiveButtonProps, negativeButtonProps, ...args
 }) => ({
@@ -151,29 +175,7 @@ export const basic = ({
 
 const buttonCategories = ['', 'primary', 'secondary', 'success', 'error', 'warning'];
 
-basic.args = {
-  show: true,
-  showFooterLeftContent: true,
-  isClosable: true,
-  large: false,
-  zIndex: 201,
-  isLoading: {
-    positive: false,
-    negative: false,
-  },
-  category: {
-    positive: null,
-    negative: null,
-  },
-  positiveButtonProps: {
-    isDisabled: false,
-  },
-  negativeButtonProps: {
-    isDisabled: false,
-  },
-  negativeHasText: true,
-  positiveHasText: true,
-};
+basic.args = { ...basicProps };
 
 basic.parameters = {
   visualRegressionTests: {
@@ -378,12 +380,7 @@ export const buttonsDisabled = ({
 });
 
 buttonsDisabled.args = {
-  show: true,
-  showFooterLeftContent: true,
-  large: false,
-  zIndex: 201,
-  negativeHasText: true,
-  positiveHasText: true,
+  ...basicProps,
   positiveButtonProps: {
     isDisabled: true,
   },
