@@ -210,7 +210,7 @@ exports[`EcBtn :props should render a button with type submit if submit is set t
 
 exports[`EcBtn :props should render a disabled button when "isDisabled" is set to true 1`] = `
 <button
-  class="ec-btn ec-btn--md"
+  class="ec-btn ec-btn--md ec-btn--disabled"
   data-test="ec-btn"
   disabled=""
   type="submit"

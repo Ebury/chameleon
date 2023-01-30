@@ -65,14 +65,14 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
     <!--v-if-->
   </button>
   <button
-    class="ec-btn-group__btn ec-btn ec-btn--md ec-btn--primary ec-btn--outline"
+    class="ec-btn-group__btn ec-btn ec-btn--md ec-btn--primary ec-btn--outline ec-btn--disabled"
     data-test="ec-button-group__btn ec-button-group__btn-1 ec-btn"
     disabled=""
     type="button"
   >
     <!--v-if-->
     <span
-      class="ec-btn__text"
+      class="ec-btn__text ec-btn__text--disabled"
       data-test="ec-btn__text"
     >
       
