@@ -17,6 +17,7 @@
         'ec-btn__icon--with-spacing': hasDefaultSlot() && icon,
         'ec-btn__icon--no-loading-text' : isSpinnerLoaderVisible(),
         'ec-btn__icon--with-loading-text' : isTextLoaderVisible(),
+        'ec-btn__icon--disabled': isDisabled
       }"
       :name="icon"
       :size="22"
@@ -35,6 +36,7 @@
       :class="{
         'ec-btn__text--is-loading' : isLoading,
         'ec-btn__text': true,
+        'ec-btn__text--disabled': isDisabled
       }"
     >
       <slot />
@@ -195,6 +197,7 @@ function getButtonClasses() {
     'ec-btn--error-reverse': isReverse.value && category.value === 'error',
     'ec-btn--warning-reverse': isReverse.value && category.value === 'warning',
     'ec-btn--is-loading': isSpinnerLoaderVisible() || isTextLoaderVisible(),
+    'ec-btn--disabled': isDisabled.value,
   };
 }
 </script>
@@ -212,6 +215,23 @@ function getButtonClasses() {
     &__text--is-loading,
     &__icon--no-loading-text {
       @apply tw-invisible;
+    }
+
+    &--disabled {
+      @apply tw-bg-gray-6;
+      @apply tw-cursor-default;
+    }
+
+    &--disabled:hover {
+      @apply tw-bg-gray-6;
+    }
+
+    &__text--disabled {
+      @apply tw-text-gray-5;
+    }
+
+    &__icon--disabled {
+      @apply tw-fill-gray-5;
     }
 
     &__icon--with-loading-text {
