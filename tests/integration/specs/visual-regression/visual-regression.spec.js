@@ -71,7 +71,6 @@ function visitStory(uuid, story, controls) {
     timeout: 120000,
   }, win => new Cypress.Promise(resolve => win.requestIdleCallback(resolve)));
 
-  cy.wait(500);
   if (snapshotElement) {
     cy.get(snapshotElement).matchImageSnapshot(uuid);
   } else {
