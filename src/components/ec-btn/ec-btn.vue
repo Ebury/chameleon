@@ -197,7 +197,7 @@ function getButtonClasses() {
     'ec-btn--error-reverse': isReverse.value && category.value === 'error',
     'ec-btn--warning-reverse': isReverse.value && category.value === 'warning',
     'ec-btn--is-loading': isSpinnerLoaderVisible() || isTextLoaderVisible(),
-    'ec-btn--disabled': props.isDisabled,
+    'ec-btn--disabled': isDisabled.value,
   };
 }
 </script>
