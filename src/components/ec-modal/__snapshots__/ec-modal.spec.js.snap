@@ -11,7 +11,7 @@ DOMWrapper {
   >
     <!--v-if-->
     <span
-      class="ec-btn__text ec-btn__text--disabled"
+      class="ec-btn__text"
       data-test="ec-btn__text"
     >
       
@@ -36,7 +36,7 @@ DOMWrapper {
   >
     <!--v-if-->
     <span
-      class="ec-btn__text ec-btn__text--disabled"
+      class="ec-btn__text"
       data-test="ec-btn__text"
     >
       
