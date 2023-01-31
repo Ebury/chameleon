@@ -7,7 +7,7 @@ coverage
 tests/integration/videos/
 tests/integration/reports/
 tests/integration/snapshots/**/__diff_output__/*
-tests/integration/screenshots/visual-regression/*
+tests/integration/screenshots/**
 
 # local env files
 .env.local
@@ -26,3 +26,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+/tests/integration/screenshots/visual-regression.spec.js/

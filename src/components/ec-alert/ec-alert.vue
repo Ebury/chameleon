@@ -134,6 +134,7 @@ function onDismiss() {
   &__content {
     @apply tw-flex-grow;
     @apply tw-text-center;
+    @apply tw-self-center;
   }
 
   &__title {
