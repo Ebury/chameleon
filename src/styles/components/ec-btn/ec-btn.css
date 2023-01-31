@@ -302,7 +302,6 @@
       @apply tw-bg-transparent;
       @apply tw-text-gray-6;
       @apply tw-border-gray-6;
-      @apply tw-cursor-default tw-pointer-events-none;
     }
   }
 }
