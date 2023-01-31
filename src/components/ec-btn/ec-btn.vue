@@ -188,16 +188,13 @@ function getButtonClasses() {
     'ec-btn--full-width': isFullWidth.value,
     'ec-btn--icon-only': icon.value && !hasDefaultSlot(),
     [`ec-btn--${category.value}`]: category.value,
-    'ec-btn--outline': isOutline.value && !isDisabled.value,
-    'ec-btn--primary-reverse': isReverse.value && category.value === 'primary' && !isDisabled.value,
-    'ec-btn--secondary-reverse': isReverse.value && category.value === 'secondary' && !isDisabled.value,
-    'ec-btn--success-reverse': isReverse.value && category.value === 'success' && !isDisabled.value,
-    'ec-btn--error-reverse': isReverse.value && category.value === 'error' && !isDisabled.value,
-    'ec-btn--warning-reverse': isReverse.value && category.value === 'warning' && !isDisabled.value,
+    'ec-btn--outline': isOutline.value,
+    'ec-btn--primary-reverse': isReverse.value && category.value === 'primary',
+    'ec-btn--secondary-reverse': isReverse.value && category.value === 'secondary',
+    'ec-btn--success-reverse': isReverse.value && category.value === 'success',
+    'ec-btn--error-reverse': isReverse.value && category.value === 'error',
+    'ec-btn--warning-reverse': isReverse.value && category.value === 'warning',
     'ec-btn--is-loading': isSpinnerLoaderVisible() || isTextLoaderVisible(),
-    'ec-btn--disabled': isDisabled.value && !isOutline.value && !isReverse.value,
-    'ec-btn--outline-disabled': isDisabled.value && isOutline.value,
-    'ec-btn--reverse-disabled': isDisabled.value && isReverse.value,
   };
 }
 </script>

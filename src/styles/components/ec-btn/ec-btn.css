@@ -49,6 +49,13 @@
     @apply tw-outline-none;
   }
 
+  &:disabled {
+    @apply tw-bg-gray-6;
+    @apply tw-text-gray-5;
+    @apply tw-cursor-default;
+    @apply tw-pointer-events-none;
+  }
+
   &--primary {
     @apply tw-bg-key-4;
 
@@ -285,33 +292,17 @@
     }
   }
 
-  &--outline-disabled,
-  &--reverse-disabled {
-    @apply tw-bg-transparent;
-    @apply tw-text-gray-6;
-    @apply tw-fill-gray-6;
-  }
-
-  &--outline-disabled {
-    @apply tw-border-gray-6;
-  }
-
-  &:disabled,
-  &--disabled {
+  &[disabled='true'] {
     @apply tw-bg-gray-6;
     @apply tw-text-gray-5;
-    @apply tw-fill-gray-5;
-  }
+    @apply tw-cursor-default;
+    @apply tw-pointer-events-none;
 
-  &:disabled,
-  &--reverse-disabled,
-  &--outline-disabled,
-  &--disabled {
-    @apply tw-cursor-default tw-pointer-events-none;
-  }
-
-  &:disabled:hover,
-  &--disabled:hover {
-    @apply tw-bg-gray-6;
+    &.ec-btn--outline {
+      @apply tw-bg-transparent;
+      @apply tw-text-gray-6;
+      @apply tw-border-gray-6;
+      @apply tw-cursor-default tw-pointer-events-none;
+    }
   }
 }
