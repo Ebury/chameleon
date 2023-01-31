@@ -145,10 +145,10 @@ describe('EcButtonGroup', () => {
       );
       expect(wrapper.vm.value).toBe('yes');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBe(false);
-      expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline-disabled')).toBe(true);
+      expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBe(true);
       await wrapper.findByDataTest('ec-button-group__btn-1').trigger('click');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBe(false);
-      expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline-disabled')).toBe(true);
+      expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBe(true);
       expect(wrapper.vm.value).toBe('yes');
     });
   });
