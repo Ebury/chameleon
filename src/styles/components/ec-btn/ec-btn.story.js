@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 
 import { DARK_THEME, LIGHT_THEME } from '../../../../.storybook/backgrounds';
 import EcBtn from '../../../components/ec-btn';
@@ -12,36 +12,61 @@ export const allAnchorsDark = generateAllForElement('All Anchors (dark)', 'a', D
 export const allAnchorsLight = generateAllForElement('All Anchors (light)', 'a', LIGHT_THEME);
 
 function generatePropsStory(storyName, theme) {
-  const PropsStoryTemplate = args => ({
-    render() {
-      function renderSection(title, { btnText, ...props } = {}) {
-        const types = ['primary', 'secondary', 'success', 'error', 'warning'];
-
-        return (
-          <div class="tw-col-full">
-            <h3 class="tw-text-additional-18">{title}</h3>
-            {types.map(type => (
-              <EcBtn key={type} {...{ ...props, category: type }} class="tw-mr-8">{btnText}</EcBtn>
-            ))}
-          </div>
-        );
-      }
-
-      return (
-        <div class="tw-grid-container">
-          <div class="tw-grid">
-            {renderSection('Default', { ...args })}
-            {renderSection('Small', { ...args, size: 'sm' })}
-            {renderSection('With icon', { ...args, icon: 'simple-check' })}
-            {renderSection('Rounded', { ...args, isRounded: true })}
-            {renderSection('Full width', { ...args, isFullWidth: true })}
-            {renderSection('Outline', { ...args, isOutline: true })}
-            {renderSection('Loading', { ...args, isLoading: true })}
-            {renderSection('Reversed', { ...args, isReverse: true })}
-          </div>
-        </div>
-      );
+  const RenderButtonsComponent = defineComponent({
+    components: {
+      EcBtn,
     },
+    setup() {
+      const types = ['primary', 'secondary', 'success', 'error', 'warning'];
+
+      return {
+        types,
+      };
+    },
+    template: `
+
+      <div class="tw-col-full">
+      <h3 class="tw-text-additional-18">{{$attrs.title}}</h3>
+      <EcBtn
+        v-for="type in types"
+        :key="type"
+        v-bind="{...{ ...$attrs, category: type }}"
+        class="tw-mr-8"
+      >
+        {{$attrs.btnText}}
+      </EcBtn>
+      </div>
+    `,
+  });
+
+  const PropsStoryTemplate = args => ({
+    components: {
+      RenderButtonsComponent,
+    },
+    setup() {
+      const types = ['primary', 'secondary', 'success', 'error', 'warning'];
+
+      return {
+        types,
+        args,
+      };
+    },
+    template: `
+      <div class="tw-grid-container">
+      <div class="tw-grid">
+        <RenderButtonsComponent title="Default" v-bind="{ ...args }"/>
+        <RenderButtonsComponent title="Small" v-bind="{ ...args, size: 'sm' }"/>
+        <RenderButtonsComponent title="With icon" v-bind="{ ...args, icon: 'simple-check' }"/>
+        <RenderButtonsComponent title="Rounded" v-bind="{ ...args, isRounded: true }"/>
+        <RenderButtonsComponent title="Full width" v-bind="{ ...args, isFullWidth: true }"/>
+        <RenderButtonsComponent title="Outline" v-bind="{ ...args, isOutline: true }"/>
+        <RenderButtonsComponent title="Loading" v-bind="{ ...args, isLoading: true }"/>
+        <RenderButtonsComponent title="Reversed" v-bind="{ ...args, isReverse: true }"/>
+        <RenderButtonsComponent title="Disabled" v-bind="{ ...args, isDisabled: true }"/>
+        <RenderButtonsComponent title="Disabled Outline" v-bind="{ ...args, isDisabled: true, isOutline: true }"/>
+      </div>
+      </div>
+    `,
   });
 
   const storyFn = PropsStoryTemplate.bind({});
@@ -59,7 +84,10 @@ function generatePropsStory(storyName, theme) {
   };
   storyFn.parameters = {
     docs: { disable: true },
-    backgrounds: { default: theme.name, values: [theme] },
+    backgrounds: {
+      default: theme.name,
+      values: [theme],
+    },
     actions: { disable: true },
     visualRegressionTests: {
       controls: {
@@ -91,6 +119,7 @@ function generateAllForElement(storyName, elementName, theme) {
         function cartesian(...args) {
           const result = [];
           const max = args.length - 1;
+
           function helper(arr, i) {
             for (let j = 0, l = args[i].length; j < l; j++) {
               const a = arr.slice(0);
@@ -102,6 +131,7 @@ function generateAllForElement(storyName, elementName, theme) {
               }
             }
           }
+
           helper([], 0);
           return result;
         }
@@ -131,7 +161,11 @@ function generateAllForElement(storyName, elementName, theme) {
             };
 
             return {
-              classes, text: buttonText, hasIcon, hasIconOnly, disabled,
+              classes,
+              text: buttonText,
+              hasIcon,
+              hasIconOnly,
+              disabled,
             };
           });
 
@@ -158,28 +192,33 @@ function generateAllForElement(storyName, elementName, theme) {
     },
     template: `
       <div class="tw-m-20">
-        <template v-for="(block, blockIndex) in blocks" :key="blockIndex">
-          <h3 class="tw-m-8 tw-text-additional-18">{{block.title}}</h3>
-          <component :is="element" v-for="(button, buttonIndex) in block.buttons" :key="blockIndex + '-' + buttonIndex"
-           :class="button.classes"
-           class="tw-m-8"
-           :disabled="button.disabled"
-           >
-            <template v-if="button.hasIconOnly">
-              <ec-icon name="simple-check" :size="24" />
-            </template>
-            <template v-else>
-              <ec-icon v-if="button.hasIcon" class="tw-mr-8" name="simple-check" :size="24" />
-              {{ button.text }}
-            </template>
-          </component>
-        </template>
+      <template v-for="(block, blockIndex) in blocks" :key="blockIndex">
+        <h3 class="tw-m-8 tw-text-additional-18">{{ block.title }}</h3>
+        <component :is="element"
+                   v-for="(button, buttonIndex) in block.buttons"
+                   :key="blockIndex + '-' + buttonIndex"
+                   :class="button.classes"
+                   class="tw-m-8"
+                   :disabled="button.disabled"
+        >
+          <template v-if="button.hasIconOnly">
+            <ec-icon name="simple-check" :size="24"/>
+          </template>
+          <template v-else>
+            <ec-icon v-if="button.hasIcon" class="tw-mr-8" name="simple-check" :size="24"/>
+            {{ button.text }}
+          </template>
+        </component>
+      </template>
       </div>
     `,
   });
   storyFn.storyName = storyName;
   storyFn.parameters = {
-    backgrounds: { default: theme.name, values: [theme] },
+    backgrounds: {
+      default: theme.name,
+      values: [theme],
+    },
     controls: { disable: true },
     actions: { disable: true },
     docs: { disable: true },

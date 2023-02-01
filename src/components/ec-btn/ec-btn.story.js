@@ -3,7 +3,7 @@ import storyRouter from 'storybook-vue3-router';
 
 import {
   allAnchorsDark, allAnchorsLight, allButtonsDark, allButtonsLight, propsDark, propsLight,
-} from '../../styles/components/ec-btn/ec-btn.story.jsx';
+} from '../../styles/components/ec-btn/ec-btn.story';
 import EcBtn from './ec-btn.vue';
 
 export default {

@@ -51,7 +51,7 @@
 
   &:disabled {
     @apply tw-bg-gray-6;
-    @apply tw-text-gray-8;
+    @apply tw-text-gray-5;
     @apply tw-cursor-default;
     @apply tw-pointer-events-none;
   }
