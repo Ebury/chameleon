@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcOptionCard renders properly with the required optionTitle prop 1`] = `
+<button
+  class="ec-option-card"
+  data-test="ec-option-card"
+  type="button"
+>
+  <span
+    data-test="ec-option-card__title"
+  >
+    <!--v-if-->
+    Test Option Card
+  </span>
+  <!--v-if-->
+</button>
+`;
+
+exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is set to true 1`] = `
+<button
+  class="ec-option-card ec-option-card--disabled"
+  data-test="ec-option-card"
+  disabled=""
+  type="button"
+>
+  <span
+    data-test="ec-option-card__title"
+  >
+    <svg
+      alt="Test option card with Icon and caption"
+      class="ec-icon ec-option-card__title-img ec-option-card__title-img--disabled"
+      data-test="ec-option-card__title-img"
+      height="15"
+      width="15"
+    >
+      <use
+        xlink:href="#ec-simple-eye"
+      />
+    </svg>
+    Test option card with Icon and caption
+  </span>
+  <p
+    class="ec-option-card__caption ec-option-card__caption--disabled"
+    data-test="ec-option-card__caption"
+  >
+    Test Caption
+  </p>
+</button>
+`;
+
+exports[`EcOptionCard should render the Option card with the classes related to the type "accent" when optionCardType prop is set 1`] = `
+<button
+  class="ec-option-card ec-option-card--accent"
+  data-test="ec-option-card"
+  type="button"
+>
+  <span
+    data-test="ec-option-card__title"
+  >
+    <svg
+      alt="Test title"
+      class="ec-icon ec-option-card__title-img ec-option-card__title-img--accent"
+      data-test="ec-option-card__title-img"
+      height="15"
+      width="15"
+    >
+      <use
+        xlink:href="#ec-simple-info"
+      />
+    </svg>
+    Test title
+  </span>
+  <p
+    class="ec-option-card__caption ec-option-card__caption--accent"
+    data-test="ec-option-card__caption"
+  >
+    Test Caption
+  </p>
+</button>
+`;
+
+exports[`EcOptionCard should render the Option card with the classes related to the type "danger" when optionCardType prop is set 1`] = `
+<button
+  class="ec-option-card ec-option-card--danger"
+  data-test="ec-option-card"
+  type="button"
+>
+  <span
+    data-test="ec-option-card__title"
+  >
+    <svg
+      alt="Test title"
+      class="ec-icon ec-option-card__title-img ec-option-card__title-img--danger"
+      data-test="ec-option-card__title-img"
+      height="15"
+      width="15"
+    >
+      <use
+        xlink:href="#ec-simple-info"
+      />
+    </svg>
+    Test title
+  </span>
+  <p
+    class="ec-option-card__caption ec-option-card__caption--danger"
+    data-test="ec-option-card__caption"
+  >
+    Test Caption
+  </p>
+</button>
+`;
