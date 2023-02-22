@@ -167,10 +167,6 @@ function setClickAction() {
   &__title-img {
     @apply tw-mr-8 tw-fill-gray-3;
 
-    &--disabled {
-      @apply tw-fill-gray-4;
-    }
-
     &--accent {
       @apply tw-fill-key-4;
     }
@@ -178,14 +174,14 @@ function setClickAction() {
     &--danger {
       @apply tw-fill-error;
     }
+
+    &--disabled {
+      @apply tw-fill-gray-4;
+    }
   }
 
   &__caption {
     @apply tw-small-text tw-text-gray-5 tw-mt-4 tw-m-0;
-
-    &--disabled {
-      @apply tw-text-gray-5;
-    }
 
     &--accent {
       @apply tw-text-gray-3;
@@ -193,6 +189,10 @@ function setClickAction() {
 
     &--danger {
       @apply tw-text-gray-3;
+    }
+
+    &--disabled {
+      @apply tw-text-gray-5;
     }
   }
 }
