@@ -199,6 +199,8 @@ function complete() {
 
   &__content {
     @apply tw-w-full;
+    @apply tw-flex-1;
+    @apply tw-min-w-0;
   }
 
   &__header {

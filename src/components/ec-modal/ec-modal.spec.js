@@ -144,6 +144,33 @@ describe('EcModal', () => {
     expect(wrapper.findByDataTest('ec-modal__footer').element).toMatchSnapshot();
   });
 
+  it('should render with an enabled negative button by default', () => {
+    const wrapper = mountModal({
+      show: true,
+    }, {
+      slots: {
+        negative: 'Negative Button',
+      },
+    });
+    expect(wrapper.findByDataTest('ec-modal__negative-btn').isDisabled()).toBe(false);
+    expect(wrapper.findByDataTest('ec-modal__negative-btn')).toMatchSnapshot();
+  });
+
+  it('should disable the negative button when the "isDisabled" given prop is true', () => {
+    const wrapper = mountModal({
+      show: true,
+      negativeButtonProps: {
+        isDisabled: true,
+      },
+    }, {
+      slots: {
+        negative: 'negative Button',
+      },
+    });
+    expect(wrapper.findByDataTest('ec-modal__negative-btn').isDisabled()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__negative-btn')).toMatchSnapshot();
+  });
+
   it('should render negative button with the loading status if slot is passed', () => {
     const wrapper = mountModal({
       isLoading: {
@@ -236,6 +263,33 @@ describe('EcModal', () => {
     });
     wrapper.findByDataTest('ec-modal__positive-btn').trigger('click');
     expect(wrapper.emitted('positive').length).toBe(1);
+  });
+
+  it('should render with an enabled positive button by default', () => {
+    const wrapper = mountModal({
+      show: true,
+    }, {
+      slots: {
+        positive: 'Positive Button',
+      },
+    });
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').isDisabled()).toBe(false);
+    expect(wrapper.findByDataTest('ec-modal__positive-btn')).toMatchSnapshot();
+  });
+
+  it('should disable the positive button when the "isDisabled" given prop is true', () => {
+    const wrapper = mountModal({
+      show: true,
+      positiveButtonProps: {
+        isDisabled: true,
+      },
+    }, {
+      slots: {
+        positive: 'Positive Button',
+      },
+    });
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').isDisabled()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__positive-btn')).toMatchSnapshot();
   });
 
   it('should emit a "negative" event when clicking on the negative button', () => {
