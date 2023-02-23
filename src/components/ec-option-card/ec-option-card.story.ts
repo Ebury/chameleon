@@ -24,41 +24,41 @@ const Template = (args: OptionCardProps) => ({
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8">
           <h5>Default</h5>
-          <ec-option-card to="internal-route" optionCardIconName="${IconName.SimpleWand}" optionTitle="Option Card default" optionCaption="In-app route" v-bind="args" />
+          <ec-option-card to="internal-route" iconName="${IconName.SimpleWand}" title="Option Card default" caption="In-app route" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
           <h5>Accent</h5>
-          <ec-option-card to="internal-route" optionCardIconName="${IconName.SimpleWand}" optionTitle="Option Card accent" optionCaption="In-app route" optionCardType="accent" v-bind="args" />
+          <ec-option-card to="internal-route" iconName="${IconName.SimpleWand}" title="Option Card accent" caption="In-app route" type="accent" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
           <h5>Danger</h5>
-          <ec-option-card href="/external-link" optionCardIconName="${IconName.SimpleWand}" optionTitle="Option Card danger" optionCaption="External link" optionCardType="danger" v-bind="args" />
+          <ec-option-card href="/external-link" iconName="${IconName.SimpleWand}" title="Option Card danger" caption="External link" type="danger" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
           <h5>Disabled</h5>
-          <ec-option-card href="/external-link" :isDisabled="true" optionCardIconName="${IconName.SimpleWand}" optionTitle="Option Card accent disabled" optionCaption="External link" optionCardType="accent" v-bind="args" />
+          <ec-option-card href="/external-link" :isDisabled="true" iconName="${IconName.SimpleWand}" title="Option Card accent disabled" caption="External link" type="accent" v-bind="args" />
         </div>
       </div>
 
       <h3 class="tw-my-8">Title and caption</h3>
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card to="internal-route" optionTitle="Option Card - no icon" optionCaption="In-app route" v-bind="args" />
+          <ec-option-card to="internal-route" title="Option Card - no icon" caption="In-app route" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card to="internal-route" optionTitle="Option Card - no icon accent" optionCaption="In-app route" optionCardType="accent" v-bind="args" />
+          <ec-option-card to="internal-route" title="Option Card - no icon accent" caption="In-app route" type="accent" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card to="internal-route" optionTitle="Option Card - no icon danger" optionCaption="In-app route" optionCardType="danger" v-bind="args" />
+          <ec-option-card to="internal-route" title="Option Card - no icon danger" caption="In-app route" type="danger" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card to="internal-route" :isDisabled="true" optionTitle="Option Card - no icon disabled" optionCaption="In-app route" optionCardType="danger" v-bind="args" />
+          <ec-option-card to="internal-route" :isDisabled="true" title="Option Card - no icon disabled" caption="In-app route" type="danger" v-bind="args" />
         </div>
 
       </div>
@@ -66,38 +66,45 @@ const Template = (args: OptionCardProps) => ({
       <h3 class="tw-my-8">Icon and Title</h3>
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card optionCardIconName="${IconName.SimpleInfo}" optionTitle="Title and icon only" v-bind="args" />
+          <ec-option-card iconName="${IconName.SimpleInfo}" title="Title and icon only" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card optionCardIconName="${IconName.SimpleInfo}" optionTitle="Title and icon only accent" optionCardType="accent" v-bind="args" />
+          <ec-option-card iconName="${IconName.SimpleInfo}" title="Title and icon only accent" type="accent" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card optionCardIconName="${IconName.SimpleInfo}" optionTitle="Title and icon only danger" optionCardType="danger" v-bind="args" />
+          <ec-option-card iconName="${IconName.SimpleInfo}" title="Title and icon only danger" type="danger" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card :isDisabled="true" optionCardIconName="${IconName.SimpleInfo}" optionTitle="Title and icon disabled" v-bind="args" />
+          <ec-option-card :isDisabled="true" iconName="${IconName.SimpleInfo}" title="Title and icon disabled" v-bind="args" />
         </div>
       </div>
 
       <h3 class="tw-my-8">Title only</h3>
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card optionTitle="Title only default" v-bind="args" />
+          <ec-option-card title="Title only default" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card optionTitle="Title only accent" optionCardType="accent" v-bind="args" />
+          <ec-option-card title="Title only accent" type="accent" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card optionTitle="Title only danger" optionCardType="danger" v-bind="args" />
+          <ec-option-card title="Title only danger" type="danger" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8">
-          <ec-option-card :isDisabled="true" optionTitle="Title only disabled" optionCardType="accent" v-bind="args" />
+          <ec-option-card :isDisabled="true" title="Title only disabled" type="accent" v-bind="args" />
+        </div>
+      </div>
+
+      <h3 class="tw-my-8">Long title and caption</h3>
+      <div class="tw-flex tw-flex-wrap">
+        <div class="tw-my-8 tw-mr-8">
+          <ec-option-card title="Borem ipsum dolor sit amet cons adipiscing elit" caption="Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton, Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton" v-bind="args" />
         </div>
       </div>
     </div>  

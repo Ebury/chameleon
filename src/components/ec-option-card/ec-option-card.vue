@@ -11,23 +11,24 @@
     @click="setClickAction()"
   >
     <span
-      data-test="ec-option-card__title"
+      data-test="ec-option-card__title-img"
     >
       <ec-icon
-        v-if="optionCardIconName && optionTitle"
-        data-test="ec-option-card__title-img"
-        class="ec-option-card__title-img"
+        v-if="iconName && title"
+        data-test="ec-option-card__icon"
+        class="ec-option-card__icon"
         :class="getOptionIconClass()"
-        :name="optionCardIconName"
-        :alt="optionTitle"
-        :size="15"
-      />{{ optionTitle }}</span>
+        :name="iconName"
+        :alt="title"
+        :size="24"
+      /><p class="ec-option-card__title">{{ title }}</p>
+    </span>
     <p
-      v-if="optionCaption"
+      v-if="caption"
       class="ec-option-card__caption"
-      :class="getOptionCaptionClass()"
+      :class="getcaptionClass()"
       data-test="ec-option-card__caption"
-    >{{ optionCaption }}</p>
+    >{{ caption }}</p>
   </component>
 </template>
 
@@ -40,30 +41,29 @@ import {
 
 import EcIcon from '../ec-icon';
 import type { IconName } from '../ec-icon/types';
-import { OptionCardType } from './types';
+import { OptionCardEvent, OptionCardType } from './types';
 
 const attrs = useAttrs();
 
 interface OptionCardProps {
   isDisabled?: boolean,
-  isSubmit?: boolean,
-  optionTitle: string,
-  optionCaption?: string,
-  optionCardIconName?: IconName,
-  optionCardType?: OptionCardType,
+  title: string,
+  caption?: string,
+  iconName?: IconName,
+  type?: OptionCardType,
   to?: string,
   href?: string,
 }
 
 const props = defineProps<OptionCardProps>();
+const emit = defineEmits<{(e: 'click'): void}>();
 
 const {
   isDisabled,
-  isSubmit,
-  optionTitle,
-  optionCaption,
-  optionCardIconName,
-  optionCardType,
+  title,
+  caption,
+  iconName,
+  type,
   to,
   href,
 } = toRefs(props);
@@ -79,50 +79,41 @@ const componentTag = computed(() => {
 
 const isOptionCardDisabled = computed(() => ({ disabled: isDisabled?.value }));
 
-const optionCardButtonType = computed(() => (isSubmit?.value ? 'submit' : 'button'));
-
 const optionCardNavigationType = computed(() => (to?.value ? { to: to.value } : { href: href?.value }));
 
-const componentProps = computed(() => {
-  const newProps = {
-    ...isOptionCardDisabled.value,
-    ...(componentTag.value === 'button' && { type: optionCardButtonType.value }),
-    ...optionCardNavigationType.value,
-  };
-
-  return newProps;
-});
-
-const emit = defineEmits(['click', 'submit']);
+const componentProps = computed(() => ({
+  ...isOptionCardDisabled.value,
+  ...(componentTag.value === 'button' && { type: componentTag.value }),
+  ...optionCardNavigationType.value,
+}));
 
 function getOptionCardClasses() {
   return {
     'ec-option-card--disabled': Boolean(isDisabled?.value),
-    'ec-option-card--accent': optionCardType?.value === OptionCardType.OPTION_CARD_ACCENT,
-    'ec-option-card--danger': optionCardType?.value === OptionCardType.OPTION_CARD_DANGER,
+    'ec-option-card--accent': type?.value === OptionCardType.OPTION_CARD_ACCENT,
+    'ec-option-card--danger': type?.value === OptionCardType.OPTION_CARD_DANGER,
   };
 }
 
 function getOptionIconClass() {
   return {
-    'ec-option-card__title-img--disabled': Boolean(isDisabled?.value),
-    'ec-option-card__title-img--accent': optionCardType?.value === OptionCardType.OPTION_CARD_ACCENT,
-    'ec-option-card__title-img--danger': !isDisabled?.value && (optionCardType?.value === OptionCardType.OPTION_CARD_DANGER),
-
+    'ec-option-card__icon--disabled': Boolean(isDisabled?.value),
+    'ec-option-card__icon--accent': type?.value === OptionCardType.OPTION_CARD_ACCENT,
+    'ec-option-card__icon--danger': !isDisabled?.value && (type?.value === OptionCardType.OPTION_CARD_DANGER),
   };
 }
 
-function getOptionCaptionClass() {
+function getcaptionClass() {
   return {
     'ec-option-card__caption--disabled': Boolean(isDisabled?.value),
-    'ec-option-card__caption--accent': optionCardType?.value === OptionCardType.OPTION_CARD_ACCENT,
-    'ec-option-card__caption--danger': !isDisabled?.value && (optionCardType?.value === OptionCardType.OPTION_CARD_DANGER),
+    'ec-option-card__caption--accent': type?.value === OptionCardType.OPTION_CARD_ACCENT,
+    'ec-option-card__caption--danger': !isDisabled?.value && (type?.value === OptionCardType.OPTION_CARD_DANGER),
   };
 }
 
 function setClickAction() {
   if (componentTag.value === 'button' && !isDisabled?.value) {
-    return optionCardButtonType.value === 'submit' ? emit('submit') : emit('click');
+    return emit(OptionCardEvent.OPTION_CARD_CLICK);
   }
   return null;
 }
@@ -131,7 +122,7 @@ function setClickAction() {
 <style>
 :root {
   --ec-option-card-width: 304px;
-  --ec-option-card-max-height: 80px;
+  --ec-option-card-max-height: min-content;
   --ec-option-card-min-height: 56px;
 }
 
@@ -164,8 +155,14 @@ function setClickAction() {
     @apply tw-bg-gray-7;
   }
 
-  &__title-img {
+  &__title {
+    @apply tw-inline;
+    @apply tw-align-middle;
+  }
+
+  &__icon {
     @apply tw-mr-8 tw-fill-gray-3;
+    @apply tw-align-middle;
 
     &--accent {
       @apply tw-fill-key-4;
@@ -181,7 +178,7 @@ function setClickAction() {
   }
 
   &__caption {
-    @apply tw-small-text tw-text-gray-5 tw-mt-4 tw-m-0;
+    @apply tw-small-text tw-text-gray-5 tw-m-0 tw-mt-8;
 
     &--accent {
       @apply tw-text-gray-3;

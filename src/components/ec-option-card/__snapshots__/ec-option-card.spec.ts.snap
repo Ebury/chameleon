@@ -1,16 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcOptionCard renders properly with the required optionTitle prop 1`] = `
+exports[`EcOptionCard renders properly with the required title prop 1`] = `
 <button
   class="ec-option-card"
   data-test="ec-option-card"
   type="button"
 >
   <span
-    data-test="ec-option-card__title"
+    data-test="ec-option-card__title-img"
   >
     <!--v-if-->
-    Test Option Card
+    <p
+      class="ec-option-card__title"
+    >
+      Test Option Card
+    </p>
   </span>
   <!--v-if-->
 </button>
@@ -24,20 +28,24 @@ exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is
   type="button"
 >
   <span
-    data-test="ec-option-card__title"
+    data-test="ec-option-card__title-img"
   >
     <svg
       alt="Test option card with Icon and caption"
-      class="ec-icon ec-option-card__title-img ec-option-card__title-img--disabled"
-      data-test="ec-option-card__title-img"
-      height="15"
-      width="15"
+      class="ec-icon ec-option-card__icon ec-option-card__icon--disabled"
+      data-test="ec-option-card__icon"
+      height="24"
+      width="24"
     >
       <use
         xlink:href="#ec-simple-eye"
       />
     </svg>
-    Test option card with Icon and caption
+    <p
+      class="ec-option-card__title"
+    >
+      Test option card with Icon and caption
+    </p>
   </span>
   <p
     class="ec-option-card__caption ec-option-card__caption--disabled"
@@ -48,27 +56,51 @@ exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is
 </button>
 `;
 
-exports[`EcOptionCard should render the Option card with the classes related to the type "accent" when optionCardType prop is set 1`] = `
+exports[`EcOptionCard should emit the click event when the Option card is a button 1`] = `
+<button
+  class="ec-option-card"
+  data-test="ec-option-card"
+  type="button"
+>
+  <span
+    data-test="ec-option-card__title-img"
+  >
+    <!--v-if-->
+    <p
+      class="ec-option-card__title"
+    >
+      Test Option Card
+    </p>
+  </span>
+  <!--v-if-->
+</button>
+`;
+
+exports[`EcOptionCard should render the Option card with the classes related to the type "accent" when type prop is set 1`] = `
 <button
   class="ec-option-card ec-option-card--accent"
   data-test="ec-option-card"
   type="button"
 >
   <span
-    data-test="ec-option-card__title"
+    data-test="ec-option-card__title-img"
   >
     <svg
       alt="Test title"
-      class="ec-icon ec-option-card__title-img ec-option-card__title-img--accent"
-      data-test="ec-option-card__title-img"
-      height="15"
-      width="15"
+      class="ec-icon ec-option-card__icon ec-option-card__icon--accent"
+      data-test="ec-option-card__icon"
+      height="24"
+      width="24"
     >
       <use
         xlink:href="#ec-simple-info"
       />
     </svg>
-    Test title
+    <p
+      class="ec-option-card__title"
+    >
+      Test title
+    </p>
   </span>
   <p
     class="ec-option-card__caption ec-option-card__caption--accent"
@@ -79,27 +111,31 @@ exports[`EcOptionCard should render the Option card with the classes related to 
 </button>
 `;
 
-exports[`EcOptionCard should render the Option card with the classes related to the type "danger" when optionCardType prop is set 1`] = `
+exports[`EcOptionCard should render the Option card with the classes related to the type "danger" when type prop is set 1`] = `
 <button
   class="ec-option-card ec-option-card--danger"
   data-test="ec-option-card"
   type="button"
 >
   <span
-    data-test="ec-option-card__title"
+    data-test="ec-option-card__title-img"
   >
     <svg
       alt="Test title"
-      class="ec-icon ec-option-card__title-img ec-option-card__title-img--danger"
-      data-test="ec-option-card__title-img"
-      height="15"
-      width="15"
+      class="ec-icon ec-option-card__icon ec-option-card__icon--danger"
+      data-test="ec-option-card__icon"
+      height="24"
+      width="24"
     >
       <use
         xlink:href="#ec-simple-info"
       />
     </svg>
-    Test title
+    <p
+      class="ec-option-card__title"
+    >
+      Test title
+    </p>
   </span>
   <p
     class="ec-option-card__caption ec-option-card__caption--danger"
