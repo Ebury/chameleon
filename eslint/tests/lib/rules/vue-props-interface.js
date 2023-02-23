@@ -147,5 +147,30 @@ ruleTester.run('vue-props-interface', rule, {
       },
       errors: [{ message: 'Interface  RadioButtonProps must be defined in script setup', line: 4 }],
     },
+    {
+      filename: 'test.vue',
+      code: `
+      <script setup lang="ts">
+        interface RadioButtonProps {
+          value: string,
+          someExtraProp?: string,
+          modelValue?: string,
+          label?: string,
+          description?: string,
+          isDisabled?: boolean,
+          isTextInline?: boolean,
+          name?: string,
+          errorMessage?: string,
+          hasError?: boolean
+        }
+
+        const props = defineProps<RadioButtonProps>();
+      </script>`,
+      parser: require.resolve('vue-eslint-parser'),
+      parserOptions: {
+        parser: require.resolve('@typescript-eslint/parser'),
+      },
+      errors: [{ message: 'These properties of interface RadioButtonProps are different in test.vue and types.ts: someExtraProp', line: 16 }],
+    },
   ],
 });
