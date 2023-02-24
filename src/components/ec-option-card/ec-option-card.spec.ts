@@ -93,20 +93,12 @@ describe('EcOptionCard', () => {
     expect(wrapper.findByDataTest('ec-option-card').attributes('disabled')).toBeDefined();
   });
 
-  it('renders the Option Card disabled (anchor) if the isDisabled prop is set to true', () => {
+  it('The Option Card button should be rendered with the disabled attribute undefined', () => {
     const wrapper = mountEcOptionCard({
-      isDisabled: true, title: 'Test title', href: '/test-href',
+      isDisabled: false, iconName: IconName.SimpleEye, title: 'Test title', caption: 'Test Caption',
     });
 
-    expect(wrapper.findByDataTest('ec-option-card').attributes('disabled')).toBe('true');
-  });
-
-  it('renders the Option Card disabled (router-link) if the isDisabled prop is set to true', () => {
-    const wrapper = mountEcOptionCard({
-      isDisabled: true, title: 'Test title', to: '/test-route',
-    });
-
-    expect(wrapper.findByDataTest('ec-option-card').attributes('disabled')).toBe('true');
+    expect(wrapper.findByDataTest('ec-option-card').attributes('disabled')).toBeUndefined();
   });
 
   it('should emit the click event when the Option card is a button', async () => {

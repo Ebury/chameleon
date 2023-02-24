@@ -81,8 +81,7 @@ const componentTag = computed(() => {
 /* c8 ignore end */
 
 const componentProps = computed(() => ({
-  disabled: Boolean(isDisabled?.value),
-  ...(componentTag.value === 'button' && { type: componentTag.value }),
+  ...(componentTag.value === 'button' && { type: componentTag.value, disabled: Boolean(isDisabled?.value) }),
   ...(to?.value ? { to: to.value } : { href: href?.value }),
 }));
 
