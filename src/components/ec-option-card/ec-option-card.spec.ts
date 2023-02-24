@@ -59,7 +59,7 @@ describe('EcOptionCard', () => {
     expect(wrapper.findByDataTest('ec-option-card__icon').exists()).toBe(true);
   });
 
-  it.each([OptionCardType.OPTION_CARD_ACCENT, OptionCardType.OPTION_CARD_DANGER])('should render the Option card with the classes related to the type "%s" when type prop is set', (cardType) => {
+  it.each([OptionCardType.ACCENT, OptionCardType.DANGER])('should render the Option card with the classes related to the type "%s" when type prop is set', (cardType) => {
     const wrapper = mountEcOptionCard({
       iconName: IconName.SimpleInfo,
       type: cardType,
@@ -88,27 +88,27 @@ describe('EcOptionCard', () => {
     const wrapper = mountEcOptionCard();
 
     await wrapper.findByDataTest('ec-option-card').trigger('click');
-    expect(wrapper.emitted(OptionCardEvent.OPTION_CARD_CLICK)?.length).toBe(1);
+    expect(wrapper.emitted(OptionCardEvent.CLICK)?.length).toBe(1);
   });
 
   it('should not emit the click event when the Option card button is disabled', async () => {
     const wrapper = mountEcOptionCard({ isDisabled: true, title: 'Test title disabled' });
 
     await wrapper.findByDataTest('ec-option-card').trigger('click');
-    expect(wrapper.emitted(OptionCardEvent.OPTION_CARD_CLICK)?.length).toBe(undefined);
+    expect(wrapper.emitted(OptionCardEvent.CLICK)?.length).toBe(undefined);
   });
 
   it('should not emit the click event when the Option card is an href', async () => {
     const wrapper = mountEcOptionCard({ title: 'Test click with anchor', href: '/test-link' });
 
     await wrapper.findByDataTest('ec-option-card').trigger('click');
-    expect(wrapper.emitted(OptionCardEvent.OPTION_CARD_CLICK)?.length).toBe(undefined);
+    expect(wrapper.emitted(OptionCardEvent.CLICK)?.length).toBe(undefined);
   });
 
   it('should not emit the click event when the Option card is a router link', async () => {
     const wrapper = mountEcOptionCard({ title: 'Test click with router', to: 'route-test' });
 
     await wrapper.findByDataTest('ec-option-card').trigger('click');
-    expect(wrapper.emitted(OptionCardEvent.OPTION_CARD_CLICK)?.length).toBe(undefined);
+    expect(wrapper.emitted(OptionCardEvent.CLICK)?.length).toBe(undefined);
   });
 });

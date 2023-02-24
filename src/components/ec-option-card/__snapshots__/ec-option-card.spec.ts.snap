@@ -56,26 +56,6 @@ exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is
 </button>
 `;
 
-exports[`EcOptionCard should emit the click event when the Option card is a button 1`] = `
-<button
-  class="ec-option-card"
-  data-test="ec-option-card"
-  type="button"
->
-  <span
-    data-test="ec-option-card__title-img"
-  >
-    <!--v-if-->
-    <p
-      class="ec-option-card__title"
-    >
-      Test Option Card
-    </p>
-  </span>
-  <!--v-if-->
-</button>
-`;
-
 exports[`EcOptionCard should render the Option card with the classes related to the type "accent" when type prop is set 1`] = `
 <button
   class="ec-option-card ec-option-card--accent"

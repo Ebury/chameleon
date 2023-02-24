@@ -2,7 +2,6 @@ import type { IconName } from '../ec-icon/types';
 
 export interface OptionCardProps {
   isDisabled?: boolean,
-  isSubmit?: boolean,
   title: string,
   caption?: string,
   iconName?: IconName,
@@ -12,18 +11,14 @@ export interface OptionCardProps {
 }
 
 export enum OptionCardType {
-  OPTION_CARD_ACCENT = 'accent',
-  OPTION_CARD_DANGER = 'danger',
+  ACCENT = 'accent',
+  DANGER = 'danger',
 }
 
 export enum OptionCardEvent {
-  OPTION_CARD_CLICK = 'click'
+  CLICK = 'click'
 }
 
 export interface OptionCardEvents {
-  [OptionCardEvent.OPTION_CARD_CLICK]: undefined
-}
-
-export interface OptionCardTypeEmits {
-  (click: OptionCardEvent.OPTION_CARD_CLICK): void
+  [OptionCardEvent.CLICK]: undefined
 }
