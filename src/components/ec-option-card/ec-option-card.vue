@@ -111,18 +111,16 @@ function handleClick() {
 
 <style>
 :root {
-  --ec-option-card-width: 304px;
   --ec-option-card-max-height: min-content;
   --ec-option-card-min-height: 56px;
 }
 
 .ec-option-card {
+  @apply tw-flex tw-flex-col;
+  @apply tw-p-16;
   @apply tw-border tw-border-solid tw-rounded tw-border-gray-6;
   @apply tw-text-left tw-body-text tw-text-gray-3;
-  @apply tw-p-16;
-  @apply tw-flex tw-flex-col;
 
-  width: var(--ec-option-card-width);
   max-height: var(--ec-option-card-max-height);
   min-height: var(--ec-option-card-min-height);
 
