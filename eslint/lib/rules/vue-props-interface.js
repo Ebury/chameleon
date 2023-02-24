@@ -18,9 +18,38 @@ module.exports = {
   },
 
   create(context) {
+    function getDiffProps(fileInterfaceStructure, vueInterface) {
+      const fileInterfaceProperties = fileInterfaceStructure.properties.map(property => property.name);
+      const vueInterfaceProperties = vueInterface?.body?.body?.map(property => property.key.name);
+
+      if (fileInterfaceProperties.length > vueInterfaceProperties.length) {
+        return fileInterfaceProperties.reduce((acc, fileInterfaceProperty) => {
+          if (!vueInterfaceProperties.includes(fileInterfaceProperty)) {
+            return {
+              ...acc,
+              [fileInterfaceProperty]: false,
+            };
+          }
+          return acc;
+        }, {});
+      }
+
+      return vueInterfaceProperties.reduce((acc, vueInterfaceProperty) => {
+        if (!fileInterfaceProperties.includes(vueInterfaceProperty)) {
+          return {
+            ...acc,
+            [vueInterfaceProperty]: false,
+          };
+        }
+        return acc;
+      }, {});
+    }
+
     function areInterfacesSame(fileInterface, vueInterface) {
       const fileInterfaceStructure = fileInterface.getStructure();
-      if (fileInterfaceStructure.properties.length !== vueInterface?.body?.body?.length) return false;
+      if (fileInterfaceStructure.properties.length !== vueInterface?.body?.body?.length) {
+        return getDiffProps(fileInterfaceStructure, vueInterface);
+      }
 
       const vueScriptSourceCode = context.getSourceCode().text;
 
