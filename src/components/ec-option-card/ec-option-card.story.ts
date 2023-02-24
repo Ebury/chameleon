@@ -1,10 +1,43 @@
 import { IconName } from '../ec-icon/iconNames';
 import EcOptionCard from './ec-option-card.vue';
 import type { OptionCardProps } from './types';
+import { OptionCardType } from './types';
 
 export default {
   title: 'Option Card',
   component: EcOptionCard,
+  argTypes: {
+    iconName: {
+      options: IconName,
+      control: { type: 'select' },
+    },
+    isDisabled: {
+      control: { type: 'boolean' },
+    },
+    title: {
+      control: {
+        type: 'text',
+      },
+    },
+    caption: {
+      control: {
+        type: 'text',
+      },
+    },
+    type: {
+      options: OptionCardType,
+    },
+    to: {
+      control: {
+        type: 'text',
+      },
+    },
+    href: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 };
 
 const Template = (args: OptionCardProps) => ({

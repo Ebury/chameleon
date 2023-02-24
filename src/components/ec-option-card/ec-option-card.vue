@@ -113,19 +113,11 @@ function handleClick() {
 </script>
 
 <style>
-:root {
-  --ec-option-card-max-height: min-content;
-  --ec-option-card-min-height: 56px;
-}
-
 .ec-option-card {
   @apply tw-flex tw-flex-col;
   @apply tw-p-16;
   @apply tw-border tw-border-solid tw-rounded tw-border-gray-6;
   @apply tw-text-left tw-body-text tw-text-gray-3;
-
-  max-height: var(--ec-option-card-max-height);
-  min-height: var(--ec-option-card-min-height);
 
   &--accent {
     @apply tw-text-key-4;
