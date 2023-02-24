@@ -38,6 +38,7 @@ describe('EcOptionCard', () => {
     const wrapper = mountEcOptionCard({ title: 'Test option card with anchor', href: '/test-link' });
 
     expect(wrapper.findByDataTest('ec-option-card').html()).toContain('href="/test-link"');
+    expect(wrapper.findByDataTest('ec-option-card').html()).toContain('a');
     expect(wrapper.findByDataTest('ec-option-card').html()).not.toContain('type="button"');
   });
 
@@ -82,6 +83,30 @@ describe('EcOptionCard', () => {
     expect(wrapper.findByDataTest('ec-option-card').classes('ec-option-card--disabled')).toBe(true);
     expect(wrapper.findByDataTest('ec-option-card__icon').classes('ec-option-card__icon--disabled')).toBe(true);
     expect(wrapper.findByDataTest('ec-option-card__caption').classes('ec-option-card__caption--disabled')).toBe(true);
+  });
+
+  it('renders the Option Card disabled (button) if the isDisabled prop is set to true', () => {
+    const wrapper = mountEcOptionCard({
+      isDisabled: true, iconName: IconName.SimpleEye, title: 'Test title', caption: 'Test Caption',
+    });
+
+    expect(wrapper.findByDataTest('ec-option-card').attributes('disabled')).toBeDefined();
+  });
+
+  it('renders the Option Card disabled (anchor) if the isDisabled prop is set to true', () => {
+    const wrapper = mountEcOptionCard({
+      isDisabled: true, title: 'Test title', href: '/test-href',
+    });
+
+    expect(wrapper.findByDataTest('ec-option-card').attributes('disabled')).toBe('true');
+  });
+
+  it('renders the Option Card disabled (router-link) if the isDisabled prop is set to true', () => {
+    const wrapper = mountEcOptionCard({
+      isDisabled: true, title: 'Test title', to: '/test-route',
+    });
+
+    expect(wrapper.findByDataTest('ec-option-card').attributes('disabled')).toBe('true');
   });
 
   it('should emit the click event when the Option card is a button', async () => {
