@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { action } from '@storybook/addon-actions';
+
 import { IconName } from '../ec-icon/iconNames';
 import EcOptionCard from './ec-option-card.vue';
 import type { OptionCardProps } from './types';
@@ -49,6 +52,7 @@ const Template = (args: OptionCardProps) => ({
 
     return {
       args: baseArgs,
+      onClick: action('click'),
     };
   },
   template: `
@@ -99,45 +103,45 @@ const Template = (args: OptionCardProps) => ({
       <h3 class="tw-my-8">Icon and Title</h3>
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" iconName="${IconName.SimpleInfo}" title="Title and icon only" v-bind="args" />
+          <ec-option-card class="tw-container" iconName="${IconName.SimpleInfo}" title="Title and icon only" v-on="{click: onClick}" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" iconName="${IconName.SimpleInfo}" title="Title and icon only accent" type="accent" v-bind="args" />
+          <ec-option-card class="tw-container" iconName="${IconName.SimpleInfo}" title="Title and icon only accent" type="accent" v-on="{click: onClick}" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" iconName="${IconName.SimpleInfo}" title="Title and icon only danger" type="danger" v-bind="args" />
+          <ec-option-card class="tw-container" iconName="${IconName.SimpleInfo}" title="Title and icon only danger" type="danger" v-on="{click: onClick}" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" :isDisabled="true" iconName="${IconName.SimpleInfo}" title="Title and icon disabled" v-bind="args" />
+          <ec-option-card class="tw-container" :isDisabled="true" iconName="${IconName.SimpleInfo}" title="Title and icon disabled" v-on="{click: onClick}" v-bind="args" />
         </div>
       </div>
 
       <h3 class="tw-my-8">Title only</h3>
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" title="Title only default" v-bind="args" />
+          <ec-option-card class="tw-container" title="Title only default" v-on="{click: onClick}" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" title="Title only accent" type="accent" v-bind="args" />
+          <ec-option-card class="tw-container" title="Title only accent" type="accent" v-on="{click: onClick}" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" title="Title only danger" type="danger" v-bind="args" />
+          <ec-option-card class="tw-container" title="Title only danger" type="danger" v-on="{click: onClick}" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" :isDisabled="true" title="Title only disabled" type="accent" v-bind="args" />
+          <ec-option-card class="tw-container" :isDisabled="true" title="Title only disabled" type="accent" v-on="{click: onClick}" v-bind="args" />
         </div>
       </div>
 
       <h3 class="tw-my-8">Long title and caption</h3>
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" title="Borem ipsum dolor sit amet cons adipiscing elit" caption="Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton, Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton" v-bind="args" />
+          <ec-option-card class="tw-container" title="Borem ipsum dolor sit amet cons adipiscing elit" caption="Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton, Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton" v-on="{click: onClick}" v-bind="args" />
         </div>
       </div>
     </div>  

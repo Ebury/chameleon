@@ -33,11 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  computed,
-  toRefs,
-  useAttrs,
-} from 'vue';
+import { computed, toRefs, useAttrs } from 'vue';
 
 import EcIcon from '../ec-icon';
 import type { IconName } from '../ec-icon/types';
@@ -59,57 +55,51 @@ const props = defineProps<OptionCardProps>();
 const emit = defineEmits<{(e: 'click'): void}>();
 
 const {
-  isDisabled,
   title,
   caption,
   iconName,
-  type,
-  to,
-  href,
 } = toRefs(props);
 
-/* This code is tested but coverage doesn't recognise it - hence the ignore coverage */
-/* c8 ignore start */
 const componentTag = computed(() => {
-  if (to?.value) {
+  if (props.to) {
     return 'router-link';
-  } if (href?.value) {
+  }
+
+  if (props.href) {
     return 'a';
   }
+
   return 'button';
 });
-/* c8 ignore end */
 
 const componentProps = computed(() => ({
-  ...(componentTag.value === 'button' && { type: componentTag.value, disabled: Boolean(isDisabled?.value) }),
-  ...(to?.value ? { to: to.value } : { href: href?.value }),
+  ...(componentTag.value === 'button' && { type: componentTag.value, disabled: Boolean(props.isDisabled) }),
+  ...(props.to ? { to: props.to } : { href: props.href }),
 }));
 
 const getOptionCardClasses = computed(() => ({
-  'ec-option-card--disabled': Boolean(isDisabled?.value),
-  'ec-option-card--accent': type?.value === OptionCardType.ACCENT,
-  'ec-option-card--danger': type?.value === OptionCardType.DANGER,
+  'ec-option-card--disabled': Boolean(props.isDisabled),
+  'ec-option-card--accent': props.type === OptionCardType.ACCENT,
+  'ec-option-card--danger': props.type === OptionCardType.DANGER,
 }));
 
 const getOptionIconClass = computed(() => ({
-  'ec-option-card__icon--disabled': Boolean(isDisabled?.value),
-  'ec-option-card__icon--accent': type?.value === OptionCardType.ACCENT,
-  'ec-option-card__icon--danger': !isDisabled?.value && (type?.value === OptionCardType.DANGER),
+  'ec-option-card__icon--disabled': Boolean(props.isDisabled),
+  'ec-option-card__icon--accent': props.type === OptionCardType.ACCENT,
+  'ec-option-card__icon--danger': !props.isDisabled && (props.type === OptionCardType.DANGER),
 }));
 
 const getcaptionClass = computed(() => ({
-  'ec-option-card__caption--disabled': Boolean(isDisabled?.value),
-  'ec-option-card__caption--accent': type?.value === OptionCardType.ACCENT,
-  'ec-option-card__caption--danger': !isDisabled?.value && (type?.value === OptionCardType.DANGER),
+  'ec-option-card__caption--disabled': Boolean(props.isDisabled),
+  'ec-option-card__caption--accent': props.type === OptionCardType.ACCENT,
+  'ec-option-card__caption--danger': !props.isDisabled && (props.type === OptionCardType.DANGER),
 }));
 
-/* c8 ignore start */
 function handleClick() {
-  if (componentTag.value === 'button' && !isDisabled?.value) {
+  if (componentTag.value === 'button' && !props.isDisabled) {
     emit(OptionCardEvent.CLICK);
   }
 }
-/* c8 ignore end */
 </script>
 
 <style>
@@ -118,6 +108,7 @@ function handleClick() {
   @apply tw-p-16;
   @apply tw-border tw-border-solid tw-rounded tw-border-gray-6;
   @apply tw-text-left tw-body-text tw-text-gray-3;
+  @apply tw-bg-transparent;
 
   &--accent {
     @apply tw-text-key-4;
