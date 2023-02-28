@@ -45,6 +45,7 @@ export { default as EcModal } from './components/ec-modal';
 export { default as EcMultipleValuesSelection } from './components/ec-multiple-values-selection';
 export { default as EcNavigation } from './components/ec-navigation';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
+export { default as EcOptionCard, types as EcOptionCardTypes } from './components/ec-option-card';
 export { default as EcPanel } from './components/ec-panel';
 export { default as EcPhoneNumberInput, types as EcPhoneNumberInputTypes } from './components/ec-phone-number-input';
 export { default as EcPopover } from './components/ec-popover';
