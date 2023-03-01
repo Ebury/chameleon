@@ -147,15 +147,10 @@
 <script setup>
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import {
-  computed,
-  nextTick,
-  ref,
-  toRaw,
-  useSlots,
+  computed, nextTick, ref, toRaw, useSlots, watch,
 } from 'vue';
 
 import config from '../../config';
-import VEcTooltip from '../../directives/ec-tooltip';
 import { ARROW_DOWN, ARROW_UP } from '../../enums/key-code';
 import { removeDiacritics } from '../../utils/diacritics';
 import EcIcon from '../ec-icon';
@@ -450,6 +445,10 @@ function updateScroll() {
     }
   }
 }
+
+watch(() => itemElements.value, () => {
+  setOverflowHeight();
+});
 
 function setOverflowHeight() {
   const overflowContainer = itemsOverflowContainer.value;
