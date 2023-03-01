@@ -1438,6 +1438,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
             <ul
               class="ec-dropdown-search__item-list"
               data-test="ec-dropdown-search__item-list"
+              style="max-height: auto;"
             >
               <!--v-if-->
               <!--v-if-->

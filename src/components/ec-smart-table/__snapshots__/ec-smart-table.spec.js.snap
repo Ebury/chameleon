@@ -570,6 +570,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
+            style="max-height: auto;"
           >
             <!--v-if-->
             <!--v-if-->
@@ -731,6 +732,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
+            style="max-height: auto;"
           >
             <!--v-if-->
             <!--v-if-->
@@ -906,6 +908,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
+            style="max-height: auto;"
           >
             <!--v-if-->
             <!--v-if-->
@@ -1068,6 +1071,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
+            style="max-height: auto;"
           >
             <!--v-if-->
             <!--v-if-->
@@ -1228,6 +1232,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
           <ul
             class="ec-dropdown-search__item-list"
             data-test="ec-dropdown-search__item-list"
+            style="max-height: auto;"
           >
             <!--v-if-->
             <!--v-if-->
