@@ -188,19 +188,7 @@ exports[`EcDropdownSearch should merge given tooltipOptions and item.tooltip pro
 - First value
 + Second value
 
-@@ -18,11 +18,10 @@
-      
-      <div>
-        <ul
-          class="ec-dropdown-search__item-list"
-          data-test="ec-dropdown-search__item-list"
--         style="max-height: auto;"
-        >
-          <li
-            class="ec-dropdown-search__search-area"
-            data-test="ec-dropdown-search__search-area"
-          >
-@@ -43,12 +42,12 @@
+@@ -42,12 +42,12 @@
           <!--v-if-->
           
           

@@ -448,7 +448,7 @@ function updateScroll() {
 }
 
 watch(() => itemElements.value, () => {
-  setOverflowHeight();
+  if (isOpen.value) setOverflowHeight();
 });
 
 function setOverflowHeight() {

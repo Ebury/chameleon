@@ -4,7 +4,6 @@ exports[`EcPhoneNumberInput :props should accept a custom "no countries" search 
 <ul
   class="ec-dropdown-search__item-list"
   data-test="ec-dropdown-search__item-list"
-  style="max-height: 0px;"
 >
   <li
     class="ec-dropdown-search__search-area"

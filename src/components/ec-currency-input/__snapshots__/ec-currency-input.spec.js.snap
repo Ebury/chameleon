@@ -502,7 +502,6 @@ exports[`EcCurrencyInput :props should render the non-results message passed as 
 <ul
   class="ec-dropdown-search__item-list"
   data-test="ec-dropdown-search__item-list ec-currency-input__currencies-list"
-  style="max-height: auto;"
 >
   <li
     class="ec-dropdown-search__search-area"
