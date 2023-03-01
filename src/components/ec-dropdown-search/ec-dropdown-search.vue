@@ -151,6 +151,7 @@ import {
 } from 'vue';
 
 import config from '../../config';
+import vEcTooltip from '../../directives/ec-tooltip';
 import { ARROW_DOWN, ARROW_UP } from '../../enums/key-code';
 import { removeDiacritics } from '../../utils/diacritics';
 import EcIcon from '../ec-icon';
