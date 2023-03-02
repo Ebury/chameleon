@@ -23,7 +23,7 @@ describe('Visual regression tests', () => {
         const storybookStore = previewFrame.__STORYBOOK_STORY_STORE__;
         let stories = Object.values(storybookStore.getStoriesJsonData().stories);
 
-        const storyIdFilter = Cypress.env('storyIdFilter');
+        const storyIdFilter = 'icon';
         if (storyIdFilter) {
           stories = stories.filter(story => story.id.match(storyIdFilter));
         }
@@ -46,6 +46,7 @@ describe('Visual regression tests', () => {
           const controls = Object.entries(getStoryControls(story));
           for (let i = 0; i < controls.length; i++) {
             const [name, controlsOpts] = controls[i];
+            cy.log(name);
             visitStory(getStoryUuid(story, `${i}__${name}`), story, controlsOpts);
           }
         }

@@ -143,6 +143,7 @@ export enum IconName {
   SimplePostalCode = 'simple-postal-code',
   SimpleReason = 'simple-reason',
   SimpleRefresh = 'simple-refresh',
+  SimpleRelationship = 'simple-relationship',
   SimpleRequest = 'simple-request',
   SimpleSearch = 'simple-search',
   SimpleSell = 'simple-sell',
