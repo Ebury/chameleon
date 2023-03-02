@@ -147,11 +147,7 @@
 <script setup>
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import {
-  computed,
-  nextTick,
-  ref,
-  toRaw,
-  useSlots,
+  computed, nextTick, ref, toRaw, useSlots, watch,
 } from 'vue';
 
 import config from '../../config';
@@ -450,6 +446,10 @@ function updateScroll() {
     }
   }
 }
+
+watch(() => itemElements.value, () => {
+  if (isOpen.value) setOverflowHeight();
+});
 
 function setOverflowHeight() {
   const overflowContainer = itemsOverflowContainer.value;
