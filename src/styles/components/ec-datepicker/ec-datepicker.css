@@ -722,16 +722,17 @@ span.flatpickr-weekday {
 
 .flatpickr-day.flatpickr-disabled,
 .flatpickr-day.flatpickr-disabled:hover,
-.flatpickr-day.prevMonthDay,
-.flatpickr-day.nextMonthDay,
-.flatpickr-day.notAllowed,
-.flatpickr-day.notAllowed.prevMonthDay,
-.flatpickr-day.notAllowed.nextMonthDay {
+.flatpickr-day.notAllowed {
   @apply tw-text-gray-6; /* color: rgba(57,57,57,0.3); EC: replaced */
 
   background: transparent;
   border-color: transparent;
   cursor: default;
+}
+
+.flatpickr-day.prevMonthDay, 
+.flatpickr-day.nextMonthDay {
+  @apply tw-text-gray-5;
 }
 
 .flatpickr-day.flatpickr-disabled,
