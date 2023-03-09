@@ -720,10 +720,13 @@ span.flatpickr-weekday {
   box-shadow: -5px 0 0 #ebfbff, 5px 0 0 #ebfbff; /* box-shadow: -5px 0 0 #e6e6e6, 5px 0 0 #e6e6e6; EC: replace */
 }
 
+.flatpickr-day.prevMonthDay, 
+.flatpickr-day.nextMonthDay {
+  @apply tw-text-gray-5;
+}
+
 .flatpickr-day.flatpickr-disabled,
 .flatpickr-day.flatpickr-disabled:hover,
-.flatpickr-day.prevMonthDay,
-.flatpickr-day.nextMonthDay,
 .flatpickr-day.notAllowed,
 .flatpickr-day.notAllowed.prevMonthDay,
 .flatpickr-day.notAllowed.nextMonthDay {
