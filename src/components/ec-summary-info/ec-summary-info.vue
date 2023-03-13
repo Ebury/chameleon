@@ -24,8 +24,8 @@
         >
           <span
             :title="item.text"
-            :data-test="itemClasses('ec-summary-info__content-line-item-content', index, item.stylePreset).join(' ')"
-            :class="itemClasses('ec-summary-info__content-line-item-content', index, item.stylePreset, item?.isSensitive)"
+            :data-test="getItemClasses('ec-summary-info__content-line-item-content', index, item.stylePreset).join(' ')"
+            :class="getItemClasses('ec-summary-info__content-line-item-content', index, item.stylePreset, item.isSensitive)"
           >
             {{ item.text }}
           </span>
@@ -34,8 +34,8 @@
             v-ec-tooltip="{
               content: item.tooltipText
             }"
-            :class="itemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset, item?.isSensitive)"
-            :data-test="itemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset).join(' ')"
+            :class="getItemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset)"
+            :data-test="getItemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset).join(' ')"
             :name="IconName.SimpleInfo"
             :size="14"
           />
@@ -52,18 +52,21 @@ import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
 import type { Item } from './types';
+import { StylePreset } from './types';
 
 interface SummaryProps {
   iconName?: IconName,
   lineItems: Item[]
 }
 
-defineProps<SummaryProps>();
+withDefaults(defineProps<SummaryProps>(), {
+  lineItems: () => [],
+});
 
 function getStylePresetByIndex(index: number) {
-  if (index === 1 || index > 2) { return 'text'; }
-  if (index === 2) { return 'description'; }
-  return 'label';
+  if (index === 1 || index > 2) { return StylePreset.TEXT; }
+  if (index === 2) { return StylePreset.DESCRIPTION; }
+  return StylePreset.LABEL;
 }
 
 function getStylePreset(index: number, stylePreset?: string) {
@@ -73,7 +76,7 @@ function getStylePreset(index: number, stylePreset?: string) {
   return getStylePresetByIndex(index);
 }
 
-function itemClasses(mainClass: string, index: number, stylePreset?: string, isSensitive = false) {
+function getItemClasses(mainClass: string, index: number, stylePreset?: string, isSensitive = false) {
   const classes = [mainClass, `${mainClass}-${getStylePreset(index, stylePreset)}`];
   if (isSensitive) {
     classes.push(config.sensitiveClass);

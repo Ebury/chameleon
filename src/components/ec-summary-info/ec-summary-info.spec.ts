@@ -6,6 +6,7 @@ import type { CVueWrapper } from '../../../tests/utils/global';
 import { IconName } from '../ec-icon/types';
 import EcSummaryInfo from './ec-summary-info.vue';
 import type { SummaryProps } from './types';
+import { StylePreset } from './types';
 
 describe('EcSummaryInfo', () => {
   function mountSummaryInfo(props?: Partial<SummaryProps>, mountOpts?: MountingOptions<SummaryProps>) {
@@ -38,16 +39,16 @@ describe('EcSummaryInfo', () => {
       const wrapper = mountSummaryInfo({
         lineItems: [
           {
-            stylePreset: 'label',
+            stylePreset: StylePreset.LABEL,
             text: 'The label',
           },
           {
-            stylePreset: 'text',
+            stylePreset: StylePreset.TEXT,
             text: 'Some text',
             tooltipText: 'Some tooltip text',
           },
           {
-            stylePreset: 'description',
+            stylePreset: StylePreset.DESCRIPTION,
             text: 'Another text',
           },
         ],
@@ -70,14 +71,14 @@ describe('EcSummaryInfo', () => {
       const wrapper = mountSummaryInfo({
         lineItems: [
           {
-            text: 'label',
+            text: StylePreset.LABEL,
           },
           {
-            text: 'text',
+            text: StylePreset.TEXT,
             tooltipText: 'Some tooltip text',
           },
           {
-            text: 'description',
+            text: StylePreset.DESCRIPTION,
           },
           {
             text: 'some extra text',
@@ -97,7 +98,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'label',
+                stylePreset: StylePreset.LABEL,
                 text: 'testing the label',
               },
             ],
@@ -115,7 +116,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'text',
+                stylePreset: StylePreset.TEXT,
                 text: 'testing the text',
               },
             ],
@@ -130,7 +131,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'text',
+                stylePreset: StylePreset.TEXT,
                 tooltipText: 'Some tooltip text',
               },
             ],
@@ -143,7 +144,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'text',
+                stylePreset: StylePreset.TEXT,
                 tooltipText: 'Some tooltip text',
               },
             ],
@@ -159,7 +160,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'description',
+                stylePreset: StylePreset.DESCRIPTION,
                 text: 'testing the description',
               },
             ],
@@ -174,7 +175,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'description',
+                stylePreset: StylePreset.DESCRIPTION,
                 tooltipText: 'Some tooltip text',
               },
             ],
@@ -187,7 +188,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'description',
+                stylePreset: StylePreset.DESCRIPTION,
                 tooltipText: 'Some tooltip text',
               },
             ],
@@ -201,15 +202,13 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'description',
-                tooltipText: 'Some tooltip text',
+                stylePreset: StylePreset.DESCRIPTION,
                 text: 'Some text',
                 isSensitive: true,
               },
             ],
           });
           expect(wrapper.findByDataTest('ec-tooltip-mock').classes('my-sensitive-content-test-class')).toBe(true);
-          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').classes('my-sensitive-content-test-class')).toBe(true);
           expect(wrapper.findByDataTest('ec-tooltip-mock')).toMatchSnapshot();
         });
       });
