@@ -208,8 +208,8 @@ describe('EcSummaryInfo', () => {
               },
             ],
           });
-          expect(wrapper.findByDataTest('ec-tooltip-mock').classes('my-sensitive-content-test-class')).toBe(true);
-          expect(wrapper.findByDataTest('ec-tooltip-mock')).toMatchSnapshot();
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-description').classes('my-sensitive-content-test-class')).toBe(true);
+          expect(wrapper.element).toMatchSnapshot();
         });
       });
     });
