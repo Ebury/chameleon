@@ -1,20 +1,28 @@
+import type { MountingOptions } from '@vue/test-utils';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
 
+import type { CVueWrapper } from '../../../tests/utils/global';
+import { IconName } from '../ec-icon/types';
 import EcSummaryInfo from './ec-summary-info.vue';
+import type { SummaryProps } from './types';
 
 describe('EcSummaryInfo', () => {
-  function mountSummaryInfo(props, mountOpts) {
-    return mount(EcSummaryInfo, {
-      props: {
-        ...props,
+  function mountSummaryInfo(props?: Partial<SummaryProps>, mountOpts?: MountingOptions<SummaryProps>) {
+    return mount(EcSummaryInfo as any, // eslint-disable-line 
+      {
+        props: {
+          lineItems: [],
+          ...props,
+        },
+        ...mountOpts,
       },
-      ...mountOpts,
-    });
+    ) as CVueWrapper;
   }
 
   describe('icon', () => {
     it('should render with the given "icon" prop', () => {
-      const wrapper = mountSummaryInfo({ iconName: 'simple-sell' });
+      const wrapper = mountSummaryInfo({ iconName: IconName.SimpleSell });
       expect(wrapper.findByDataTest('ec-summary-info__main-icon').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -94,6 +102,7 @@ describe('EcSummaryInfo', () => {
               },
             ],
           });
+
           expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-label').exists()).toBe(true);
           expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-label').text()).toBe('testing the label');
         });
@@ -186,12 +195,30 @@ describe('EcSummaryInfo', () => {
           expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').exists()).toBe(true);
         });
       });
+
+      describe('when the description isSensitive', () => {
+        it('should render description and tooltip with a sensitive class', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: 'description',
+                tooltipText: 'Some tooltip text',
+                text: 'Some text',
+                isSensitive: true,
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-tooltip-mock').classes('my-sensitive-content-test-class')).toBe(true);
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').classes('my-sensitive-content-test-class')).toBe(true);
+          expect(wrapper.findByDataTest('ec-tooltip-mock')).toMatchSnapshot();
+        });
+      });
     });
   });
 
   describe('slots', () => {
     it('should render with the default slot given', () => {
-      const wrapper = mountSummaryInfo({ iconName: 'simple-sell' }, {
+      const wrapper = mountSummaryInfo({ iconName: IconName.SimpleSell }, {
         slots: {
           default: `<div data-test="default-slot">
             <span>
