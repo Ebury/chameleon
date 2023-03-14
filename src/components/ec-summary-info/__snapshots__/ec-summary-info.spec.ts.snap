@@ -31,7 +31,7 @@ exports[`EcSummaryInfo lineItems description when the description has a tooltip 
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <svg
-    class="ec-icon ec-summary-info__content-line-item-icon-description ec-summary-info__content-line-item-icon"
+    class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
     data-ec-tooltip-mock-content="Some tooltip text"
     data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description ec-mock ec-tooltip-mock"
     height="14"
@@ -42,6 +42,37 @@ DOMWrapper {
     />
   </svg>,
 }
+`;
+
+exports[`EcSummaryInfo lineItems description when the description isSensitive should render description and tooltip with a sensitive class 1`] = `
+<div
+  class="ec-summary-info"
+  data-test="ec-summary-info"
+>
+  <!--v-if-->
+  
+  <div
+    class="ec-summary-info__content"
+    data-test="ec-summary-info__content"
+  >
+    
+    <div
+      class="ec-summary-info__content-line-item"
+      data-test="ec-summary-info__content-line-item-0"
+    >
+      <span
+        class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description my-sensitive-content-test-class"
+        data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
+        title="Some text"
+      >
+        Some text
+      </span>
+      <!--v-if-->
+    </div>
+    
+  </div>
+  
+</div>
 `;
 
 exports[`EcSummaryInfo lineItems should render with default stylePresets 1`] = `
@@ -121,7 +152,7 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
         Some text
       </span>
       <svg
-        class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
+        class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text"
         data-ec-tooltip-mock-content="Some tooltip text"
         data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
         height="14"
@@ -173,7 +204,7 @@ exports[`EcSummaryInfo lineItems text when the text has a tooltip should render 
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <svg
-    class="ec-icon ec-summary-info__content-line-item-icon-text ec-summary-info__content-line-item-icon"
+    class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text"
     data-ec-tooltip-mock-content="Some tooltip text"
     data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
     height="14"

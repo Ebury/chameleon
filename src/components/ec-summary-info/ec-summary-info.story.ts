@@ -1,38 +1,39 @@
+
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
 import EcSummaryInfo from './ec-summary-info.vue';
+import type { SummaryProps } from './types';
+import { StylePreset } from './types';
 
 export default {
   title: 'Summary Info',
   component: EcSummaryInfo,
+  argTypes: {
+    iconName: {
+      control: {
+        type: 'select',
+        options: IconName,
+      },
+    },
+    lineItems: {
+      control: {
+        type: 'object',
+      },
+    },
+  },
 };
 
 const basicArgs = {
-  iconName: 'simple-payment',
+  iconName: IconName.SimplePayment,
 };
 
-export const basic = () => ({
+const Template = (args: Partial<SummaryProps>) => ({
   components: { EcSummaryInfo },
   setup() {
-    return {
-      args: {
-        ...basicArgs,
-        lineItems: [
-          {
-            text: 'Label',
-          },
-          {
-            text: 'Text',
-            tooltipText: 'Some tooltip text',
-          },
-          {
-            text: 'Description',
-          },
-        ],
-      },
-    };
+    return { args };
   },
   template: `
-  <div 
+    <div 
     style="margin: -100px 0 0 -150px;" 
     class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2">
       <ec-summary-info
@@ -41,6 +42,29 @@ export const basic = () => ({
     </div>
   `,
 });
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const basic = Template.bind({}) as any;
+basic.args = {
+  ...basicArgs,
+  lineItems: [
+    {
+      text: 'Label',
+      stylePreset: StylePreset.LABEL,
+    },
+    {
+      text: 'Text',
+      stylePreset: StylePreset.TEXT,
+      isSensitive: false,
+      tooltipText: 'Tooltip text for Text',
+    },
+    {
+      text: 'Description',
+      stylePreset: StylePreset.DESCRIPTION,
+      tooltipText: 'Tooltip text for Description',
+    },
+  ],
+};
 
 export const withSlots = () => ({
   components: { EcSummaryInfo, EcIcon },
@@ -77,16 +101,16 @@ export const truncatedText = () => ({
         ...basicArgs,
         lineItems: [
           {
-            stylePreset: 'label',
+            stylePreset: StylePreset.LABEL,
             text: 'A very very very long label',
           },
           {
-            stylePreset: 'text',
+            stylePreset: StylePreset.TEXT,
             text: 'A very very very long text',
             tooltipText: 'Some tooltip text',
           },
           {
-            stylePreset: 'description',
+            stylePreset: StylePreset.DESCRIPTION,
             text: 'A very very very long description',
           },
         ],

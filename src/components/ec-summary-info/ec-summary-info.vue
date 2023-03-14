@@ -24,9 +24,8 @@
         >
           <span
             :title="item.text"
-            class="ec-summary-info__content-line-item-content"
-            :data-test="`ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
-            :class="`ec-summary-info__content-line-item-content-${getStylePreset(item.stylePreset, index)}`"
+            :data-test="getItemClasses('ec-summary-info__content-line-item-content', index, item.stylePreset).join(' ')"
+            :class="getItemClasses('ec-summary-info__content-line-item-content', index, item.stylePreset, item.isSensitive)"
           >
             {{ item.text }}
           </span>
@@ -35,10 +34,9 @@
             v-ec-tooltip="{
               content: item.tooltipText
             }"
-            :class="`ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
-            :data-test="`ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-${getStylePreset(item.stylePreset, index)}`"
-            class="ec-summary-info__content-line-item-icon"
-            name="simple-info"
+            :class="getItemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset)"
+            :data-test="getItemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset).join(' ')"
+            :name="IconName.SimpleInfo"
             :size="14"
           />
         </div>
@@ -48,31 +46,42 @@
   </div>
 </template>
 
-<script setup>
-import VEcTooltip from '../../directives/ec-tooltip';
+<script setup lang="ts">
+import config from '../../config';
+import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
+import type { Item } from './types';
+import { StylePreset } from './types';
 
-defineProps({
-  iconName: {
-    type: String,
-  },
-  lineItems: {
-    type: Array,
-    default: () => [],
-  },
-});
-
-function getStylePresetByIndex(index) {
-  if (index === 1 || index > 2) { return 'text'; }
-  if (index === 2) { return 'description'; }
-  return 'label';
+interface SummaryProps {
+  iconName?: IconName,
+  lineItems: Item[]
 }
 
-function getStylePreset(stylePreset, index) {
+withDefaults(defineProps<SummaryProps>(), {
+  lineItems: () => [],
+});
+
+function getStylePresetByIndex(index: number) {
+  if (index === 1 || index > 2) { return StylePreset.TEXT; }
+  if (index === 2) { return StylePreset.DESCRIPTION; }
+  return StylePreset.LABEL;
+}
+
+function getStylePreset(index: number, stylePreset?: StylePreset) {
   if (stylePreset) {
     return stylePreset;
   }
   return getStylePresetByIndex(index);
+}
+
+function getItemClasses(mainClass: string, index: number, stylePreset?: StylePreset, isSensitive = false) {
+  const classes = [mainClass, `${mainClass}-${getStylePreset(index, stylePreset)}`];
+  if (isSensitive) {
+    classes.push(config.sensitiveClass);
+  }
+  return classes;
 }
 </script>
 

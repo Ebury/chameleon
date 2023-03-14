@@ -1,20 +1,29 @@
+import type { MountingOptions } from '@vue/test-utils';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
 
+import type { CVueWrapper } from '../../../tests/utils/global';
+import { IconName } from '../ec-icon/types';
 import EcSummaryInfo from './ec-summary-info.vue';
+import type { SummaryProps } from './types';
+import { StylePreset } from './types';
 
 describe('EcSummaryInfo', () => {
-  function mountSummaryInfo(props, mountOpts) {
-    return mount(EcSummaryInfo, {
-      props: {
-        ...props,
+  function mountSummaryInfo(props?: Partial<SummaryProps>, mountOpts?: MountingOptions<SummaryProps>) {
+    return mount(EcSummaryInfo as any, // eslint-disable-line 
+      {
+        props: {
+          lineItems: [],
+          ...props,
+        },
+        ...mountOpts,
       },
-      ...mountOpts,
-    });
+    ) as CVueWrapper;
   }
 
   describe('icon', () => {
     it('should render with the given "icon" prop', () => {
-      const wrapper = mountSummaryInfo({ iconName: 'simple-sell' });
+      const wrapper = mountSummaryInfo({ iconName: IconName.SimpleSell });
       expect(wrapper.findByDataTest('ec-summary-info__main-icon').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -30,16 +39,16 @@ describe('EcSummaryInfo', () => {
       const wrapper = mountSummaryInfo({
         lineItems: [
           {
-            stylePreset: 'label',
+            stylePreset: StylePreset.LABEL,
             text: 'The label',
           },
           {
-            stylePreset: 'text',
+            stylePreset: StylePreset.TEXT,
             text: 'Some text',
             tooltipText: 'Some tooltip text',
           },
           {
-            stylePreset: 'description',
+            stylePreset: StylePreset.DESCRIPTION,
             text: 'Another text',
           },
         ],
@@ -62,14 +71,14 @@ describe('EcSummaryInfo', () => {
       const wrapper = mountSummaryInfo({
         lineItems: [
           {
-            text: 'label',
+            text: StylePreset.LABEL,
           },
           {
-            text: 'text',
+            text: StylePreset.TEXT,
             tooltipText: 'Some tooltip text',
           },
           {
-            text: 'description',
+            text: StylePreset.DESCRIPTION,
           },
           {
             text: 'some extra text',
@@ -89,11 +98,12 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'label',
+                stylePreset: StylePreset.LABEL,
                 text: 'testing the label',
               },
             ],
           });
+
           expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-label').exists()).toBe(true);
           expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-label').text()).toBe('testing the label');
         });
@@ -106,7 +116,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'text',
+                stylePreset: StylePreset.TEXT,
                 text: 'testing the text',
               },
             ],
@@ -121,7 +131,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'text',
+                stylePreset: StylePreset.TEXT,
                 tooltipText: 'Some tooltip text',
               },
             ],
@@ -134,7 +144,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'text',
+                stylePreset: StylePreset.TEXT,
                 tooltipText: 'Some tooltip text',
               },
             ],
@@ -150,7 +160,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'description',
+                stylePreset: StylePreset.DESCRIPTION,
                 text: 'testing the description',
               },
             ],
@@ -165,7 +175,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'description',
+                stylePreset: StylePreset.DESCRIPTION,
                 tooltipText: 'Some tooltip text',
               },
             ],
@@ -178,7 +188,7 @@ describe('EcSummaryInfo', () => {
           const wrapper = mountSummaryInfo({
             lineItems: [
               {
-                stylePreset: 'description',
+                stylePreset: StylePreset.DESCRIPTION,
                 tooltipText: 'Some tooltip text',
               },
             ],
@@ -186,12 +196,28 @@ describe('EcSummaryInfo', () => {
           expect(wrapper.findByDataTest('ec-summary-info__content-line-item-icon-description').exists()).toBe(true);
         });
       });
+
+      describe('when the description isSensitive', () => {
+        it('should render description and tooltip with a sensitive class', () => {
+          const wrapper = mountSummaryInfo({
+            lineItems: [
+              {
+                stylePreset: StylePreset.DESCRIPTION,
+                text: 'Some text',
+                isSensitive: true,
+              },
+            ],
+          });
+          expect(wrapper.findByDataTest('ec-summary-info__content-line-item-content-description').classes('my-sensitive-content-test-class')).toBe(true);
+          expect(wrapper.element).toMatchSnapshot();
+        });
+      });
     });
   });
 
   describe('slots', () => {
     it('should render with the default slot given', () => {
-      const wrapper = mountSummaryInfo({ iconName: 'simple-sell' }, {
+      const wrapper = mountSummaryInfo({ iconName: IconName.SimpleSell }, {
         slots: {
           default: `<div data-test="default-slot">
             <span>
