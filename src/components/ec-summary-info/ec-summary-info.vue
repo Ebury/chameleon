@@ -69,14 +69,14 @@ function getStylePresetByIndex(index: number) {
   return StylePreset.LABEL;
 }
 
-function getStylePreset(index: number, stylePreset?: string) {
+function getStylePreset(index: number, stylePreset?: StylePreset) {
   if (stylePreset) {
     return stylePreset;
   }
   return getStylePresetByIndex(index);
 }
 
-function getItemClasses(mainClass: string, index: number, stylePreset?: string, isSensitive = false) {
+function getItemClasses(mainClass: string, index: number, stylePreset?: StylePreset, isSensitive = false) {
   const classes = [mainClass, `${mainClass}-${getStylePreset(index, stylePreset)}`];
   if (isSensitive) {
     classes.push(config.sensitiveClass);
