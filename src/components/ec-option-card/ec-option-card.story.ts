@@ -30,11 +30,6 @@ export default {
     type: {
       options: OptionCardType,
     },
-    to: {
-      control: {
-        type: 'text',
-      },
-    },
     href: {
       control: {
         type: 'text',
@@ -144,7 +139,7 @@ const Template = (args: OptionCardProps) => ({
           <ec-option-card class="tw-container" title="Borem ipsum dolor sit amet cons adipiscing elit" caption="Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton, Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton" v-on="{click: onClick}" v-bind="args" />
         </div>
       </div>
-    </div>  
+    </div>
 `,
 });
 

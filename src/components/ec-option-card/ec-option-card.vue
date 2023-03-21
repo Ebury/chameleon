@@ -34,6 +34,7 @@
 
 <script setup lang="ts">
 import { computed, toRefs, useAttrs } from 'vue';
+import type { RouteLocationRaw } from 'vue-router';
 
 import EcIcon from '../ec-icon';
 import type { IconName } from '../ec-icon/types';
@@ -47,7 +48,7 @@ interface OptionCardProps {
   caption?: string,
   iconName?: IconName,
   type?: OptionCardType,
-  to?: string,
+  to?: RouteLocationRaw,
   href?: string,
 }
 

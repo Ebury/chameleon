@@ -1,4 +1,5 @@
 import type { IconName } from '../ec-icon/types';
+import type { RouteLocationRaw } from "vue-router";
 
 export interface OptionCardProps {
   isDisabled?: boolean,
@@ -6,7 +7,7 @@ export interface OptionCardProps {
   caption?: string,
   iconName?: IconName,
   type?: OptionCardType,
-  to?: string,
+  to?: RouteLocationRaw,
   href?: string,
 }
 

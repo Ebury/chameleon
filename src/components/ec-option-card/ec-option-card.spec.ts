@@ -50,6 +50,14 @@ describe('EcOptionCard', () => {
     expect(wrapper.findByDataTest('ec-option-card').html()).not.toContain('type="button"');
   });
 
+  it('renders the Option Card as with a router link when the to prop is passed with named route', () => {
+    const wrapper = mountEcOptionCard({ title: 'Test option card with router link', to: { name: 'named-route' } });
+
+    expect(wrapper.findByDataTest('ec-option-card').html()).toContain('router-link');
+    expect(wrapper.findByDataTest('ec-option-card').html()).toContain('to="[object Object]"');
+    expect(wrapper.findByDataTest('ec-option-card').html()).not.toContain('type="button"');
+  });
+
   it('renders properly when an Icon is passed', () => {
     const wrapper = mountEcOptionCard({ iconName: IconName.SimpleEye, title: 'Test option card with Icon' });
     expect(wrapper.findByDataTest('ec-option-card__icon').exists()).toBe(true);
