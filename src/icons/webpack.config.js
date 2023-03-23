@@ -93,7 +93,7 @@ module.exports = {
   },
   plugins: [
     new SvgSpriteLoaderPlugin({ plainSprite: true }),
-    new CurrencyFlagsManifestPlugin({ manifestPath: path.resolve(__dirname, 'currency-flags.ts') }),
+    new CurrencyFlagsManifestPlugin({ manifestPath: path.resolve(__dirname, 'currency-flags', 'currency-flags.ts') }),
   ],
 };
 
