@@ -1,4 +1,4 @@
-export default [
+export const flags = [
   "AED",
   "ANG",
   "AUD",
@@ -71,4 +71,6 @@ export default [
   "XCD",
   "ZAR",
   "ZMW"
-];
+] as const;
+
+export type AvailableCurrencyFlags = typeof flags[number];

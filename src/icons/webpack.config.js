@@ -26,7 +26,7 @@ class CurrencyFlagsManifestPlugin {
         }
         fs.writeFileSync(
           this.opts.manifestPath,
-          `export default ${JSON.stringify(flags.sort(), null, 2)};`,
+          `export const flags = ${JSON.stringify(flags.sort(), null, 2)} as const;\n\nexport type AvailableCurrencyFlags = typeof flags[number];\n`,
         );
       });
     });
@@ -93,7 +93,7 @@ module.exports = {
   },
   plugins: [
     new SvgSpriteLoaderPlugin({ plainSprite: true }),
-    new CurrencyFlagsManifestPlugin({ manifestPath: path.resolve(__dirname, 'currency-flags.js') }),
+    new CurrencyFlagsManifestPlugin({ manifestPath: path.resolve(__dirname, 'currency-flags.ts') }),
   ],
 };
 
