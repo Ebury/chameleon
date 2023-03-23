@@ -1,13 +1,13 @@
 import * as SortDirection from './enums/sort-direction';
 import * as SortDirectionCycle from './enums/sort-direction-cycle';
 import * as TooltipPlacement from './enums/tooltip-placement';
-import availableCurrencyFlags from './icons/currency-flags';
+import availableCurrencyFlags, { AvailableCurrencyFlags } from './icons/currency-flags';
 
 const availableCurrencyFlagsSet = new Set(availableCurrencyFlags);
 
 export { SortDirection, SortDirectionCycle, TooltipPlacement };
 
-export { availableCurrencyFlags, availableCurrencyFlagsSet };
+export { AvailableCurrencyFlags, availableCurrencyFlags, availableCurrencyFlagsSet };
 
 export { default as EcAlert, types as EcAlertTypes } from './components/ec-alert';
 export { default as EcAmountFilterInput } from './components/ec-amount-filter-input';
