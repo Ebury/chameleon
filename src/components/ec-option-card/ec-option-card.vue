@@ -1,34 +1,36 @@
 <template>
-  <component
-    :is="componentTag"
-    v-bind="{
-      ...attrs,
-      ...componentProps,
-      'data-test': attrs['data-test'] ? `${attrs['data-test']} ec-option-card` : 'ec-option-card',
-    }"
+  <div
+    data-test="ec-option-card"
     class="ec-option-card"
     :class="getOptionCardClasses"
-    @click="handleClick()"
   >
-    <ec-option-card-item
-      :is-disabled="isDisabled"
-      :title="title"
-      :caption="caption"
-      :icon-name="iconName"
-      :type="type"
-    />
-  </component>
+    <span data-test="ec-option-card__title-img">
+      <ec-icon
+        v-if="iconName && title"
+        data-test="ec-option-card__icon"
+        class="ec-option-card__icon"
+        :class="getOptionIconClass"
+        :name="iconName"
+        :alt="title"
+        :size="24"
+      />
+      <p class="ec-option-card__title">{{ title }}</p>
+    </span>
+    <p
+      v-if="caption"
+      class="ec-option-card__caption"
+      :class="getCaptionClass"
+      data-test="ec-option-card__caption"
+    >{{ caption }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { computed, toRefs, useAttrs } from 'vue';
-import type { RouteLocationRaw } from 'vue-router';
+import { computed, toRefs } from 'vue';
 
-import type { IconName } from '../ec-icon/types';
-import EcOptionCardItem from './ec-option-card-item.vue';
-import { OptionCardEvent, OptionCardType } from './types';
-
-const attrs = useAttrs();
+import EcIcon from '../ec-icon';
+import type { IconName } from '../ec-icon/iconNames';
+import { OptionCardType } from './types';
 
 interface OptionCardProps {
   isDisabled?: boolean,
@@ -36,12 +38,9 @@ interface OptionCardProps {
   caption?: string,
   iconName?: IconName,
   type?: OptionCardType,
-  to?: RouteLocationRaw,
-  href?: string,
 }
 
 const props = defineProps<OptionCardProps>();
-const emit = defineEmits<{(e: 'click'): void}>();
 
 const {
   title,
@@ -49,37 +48,27 @@ const {
   iconName,
 } = toRefs(props);
 
-const componentTag = computed(() => {
-  if (props.to) {
-    return 'router-link';
-  }
-
-  if (props.href) {
-    return 'a';
-  }
-
-  return 'button';
-});
-
-const componentProps = computed(() => ({
-  ...(componentTag.value === 'button' && { type: componentTag.value, disabled: Boolean(props.isDisabled) }),
-  ...(props.to ? { to: props.to } : { href: props.href }),
-}));
-
 const getOptionCardClasses = computed(() => ({
   'ec-option-card--disabled': Boolean(props.isDisabled),
   'ec-option-card--accent': props.type === OptionCardType.ACCENT,
   'ec-option-card--danger': props.type === OptionCardType.DANGER,
 }));
 
-function handleClick() {
-  if (componentTag.value === 'button' && !props.isDisabled) {
-    emit(OptionCardEvent.CLICK);
-  }
-}
+const getOptionIconClass = computed(() => ({
+  'ec-option-card__icon--disabled': Boolean(props.isDisabled),
+  'ec-option-card__icon--accent': props.type === OptionCardType.ACCENT,
+  'ec-option-card__icon--danger': !props.isDisabled && (props.type === OptionCardType.DANGER),
+}));
+
+const getCaptionClass = computed(() => ({
+  'ec-option-card__caption--disabled': Boolean(props.isDisabled),
+  'ec-option-card__caption--accent': props.type === OptionCardType.ACCENT,
+  'ec-option-card__caption--danger': !props.isDisabled && (props.type === OptionCardType.DANGER),
+}));
+
 </script>
 
-<style>
+<style scoped>
 .ec-option-card {
   @apply tw-flex tw-flex-col;
   @apply tw-p-16;
@@ -144,4 +133,5 @@ function handleClick() {
     }
   }
 }
+
 </style>
