@@ -68,7 +68,7 @@ const getCaptionClass = computed(() => ({
 
 </script>
 
-<style scoped>
+<style>
 .ec-option-card {
   @apply tw-flex tw-flex-col;
   @apply tw-p-16;
