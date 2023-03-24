@@ -12,6 +12,14 @@ export interface OptionCardProps {
   href?: string,
 }
 
+export interface OptionCardItemProps {
+  isDisabled?: boolean,
+  title: string,
+  caption?: string,
+  iconName?: IconName,
+  type?: OptionCardType,
+}
+
 export enum OptionCardType {
   ACCENT = 'accent',
   DANGER = 'danger',

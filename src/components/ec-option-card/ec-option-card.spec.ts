@@ -60,12 +60,12 @@ describe('EcOptionCard', () => {
 
   it('renders properly when an Icon is passed', () => {
     const wrapper = mountEcOptionCard({ iconName: IconName.SimpleEye, title: 'Test option card with Icon' });
-    expect(wrapper.findByDataTest('ec-option-card__icon').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card-item__icon').exists()).toBe(true);
   });
 
   it('renders properly when an Icon and Title and Caption is passed', () => {
     const wrapper = mountEcOptionCard({ iconName: IconName.SimpleEye, title: 'Test option card with Icon and caption', caption: 'Test Caption' });
-    expect(wrapper.findByDataTest('ec-option-card__icon').exists()).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card-item__icon').exists()).toBe(true);
   });
 
   it.each([OptionCardType.ACCENT, OptionCardType.DANGER])('should render the Option card with the classes related to the type "%s" when type prop is set', (cardType) => {
@@ -78,8 +78,8 @@ describe('EcOptionCard', () => {
 
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.findByDataTest('ec-option-card').classes(`ec-option-card--${cardType}`)).toBe(true);
-    expect(wrapper.findByDataTest('ec-option-card__icon').classes(`ec-option-card__icon--${cardType}`)).toBe(true);
-    expect(wrapper.findByDataTest('ec-option-card__caption').classes(`ec-option-card__caption--${cardType}`)).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card-item__icon').classes(`ec-option-card-item__icon--${cardType}`)).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card-item__caption').classes(`ec-option-card-item__caption--${cardType}`)).toBe(true);
   });
 
   it('renders the Option Card disabled if the isDisabled prop is set to true', () => {
@@ -89,8 +89,8 @@ describe('EcOptionCard', () => {
 
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.findByDataTest('ec-option-card').classes('ec-option-card--disabled')).toBe(true);
-    expect(wrapper.findByDataTest('ec-option-card__icon').classes('ec-option-card__icon--disabled')).toBe(true);
-    expect(wrapper.findByDataTest('ec-option-card__caption').classes('ec-option-card__caption--disabled')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card-item__icon').classes('ec-option-card-item__icon--disabled')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card-item__caption').classes('ec-option-card-item__caption--disabled')).toBe(true);
   });
 
   it('renders the Option Card disabled (button) if the isDisabled prop is set to true', () => {

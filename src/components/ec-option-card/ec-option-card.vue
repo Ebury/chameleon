@@ -10,25 +10,13 @@
     :class="getOptionCardClasses"
     @click="handleClick()"
   >
-    <span
-      data-test="ec-option-card__title-img"
-    >
-      <ec-icon
-        v-if="iconName && title"
-        data-test="ec-option-card__icon"
-        class="ec-option-card__icon"
-        :class="getOptionIconClass"
-        :name="iconName"
-        :alt="title"
-        :size="24"
-      /><p class="ec-option-card__title">{{ title }}</p>
-    </span>
-    <p
-      v-if="caption"
-      class="ec-option-card__caption"
-      :class="getcaptionClass"
-      data-test="ec-option-card__caption"
-    >{{ caption }}</p>
+    <ec-option-card-item
+      :is-disabled="isDisabled"
+      :title="title"
+      :caption="caption"
+      :icon-name="iconName"
+      :type="type"
+    />
   </component>
 </template>
 
@@ -36,8 +24,8 @@
 import { computed, toRefs, useAttrs } from 'vue';
 import type { RouteLocationRaw } from 'vue-router';
 
-import EcIcon from '../ec-icon';
 import type { IconName } from '../ec-icon/types';
+import EcOptionCardItem from './ec-option-card-item.vue';
 import { OptionCardEvent, OptionCardType } from './types';
 
 const attrs = useAttrs();
@@ -82,18 +70,6 @@ const getOptionCardClasses = computed(() => ({
   'ec-option-card--disabled': Boolean(props.isDisabled),
   'ec-option-card--accent': props.type === OptionCardType.ACCENT,
   'ec-option-card--danger': props.type === OptionCardType.DANGER,
-}));
-
-const getOptionIconClass = computed(() => ({
-  'ec-option-card__icon--disabled': Boolean(props.isDisabled),
-  'ec-option-card__icon--accent': props.type === OptionCardType.ACCENT,
-  'ec-option-card__icon--danger': !props.isDisabled && (props.type === OptionCardType.DANGER),
-}));
-
-const getcaptionClass = computed(() => ({
-  'ec-option-card__caption--disabled': Boolean(props.isDisabled),
-  'ec-option-card__caption--accent': props.type === OptionCardType.ACCENT,
-  'ec-option-card__caption--danger': !props.isDisabled && (props.type === OptionCardType.DANGER),
 }));
 
 function handleClick() {
