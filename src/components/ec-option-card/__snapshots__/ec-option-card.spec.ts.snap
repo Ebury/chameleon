@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcOptionCard renders properly with the required title prop 1`] = `
-<button
+<div
   class="ec-option-card"
   data-test="ec-option-card"
-  type="button"
 >
   <span
     data-test="ec-option-card__title-img"
@@ -17,15 +16,13 @@ exports[`EcOptionCard renders properly with the required title prop 1`] = `
     </p>
   </span>
   <!--v-if-->
-</button>
+</div>
 `;
 
 exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is set to true 1`] = `
-<button
+<div
   class="ec-option-card ec-option-card--disabled"
   data-test="ec-option-card"
-  disabled=""
-  type="button"
 >
   <span
     data-test="ec-option-card__title-img"
@@ -53,14 +50,13 @@ exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is
   >
     Test Caption
   </p>
-</button>
+</div>
 `;
 
 exports[`EcOptionCard should render the Option card with the classes related to the type "accent" when type prop is set 1`] = `
-<button
+<div
   class="ec-option-card ec-option-card--accent"
   data-test="ec-option-card"
-  type="button"
 >
   <span
     data-test="ec-option-card__title-img"
@@ -88,14 +84,13 @@ exports[`EcOptionCard should render the Option card with the classes related to 
   >
     Test Caption
   </p>
-</button>
+</div>
 `;
 
 exports[`EcOptionCard should render the Option card with the classes related to the type "danger" when type prop is set 1`] = `
-<button
+<div
   class="ec-option-card ec-option-card--danger"
   data-test="ec-option-card"
-  type="button"
 >
   <span
     data-test="ec-option-card__title-img"
@@ -123,5 +118,5 @@ exports[`EcOptionCard should render the Option card with the classes related to 
   >
     Test Caption
   </p>
-</button>
+</div>
 `;
