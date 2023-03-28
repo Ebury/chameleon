@@ -67,6 +67,6 @@ export { default as EcTooltip, default as VEcTooltip, default as vEcTooltip } fr
 export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
 export { createHOC, createHOCc } from './hocs/hoc';
-export { AvailableCurrencyFlags, availableCurrencyFlagsSet, flags } from './icons/currency-flags';
+export { availableCurrencyFlagsSet, types as AvailableCurrencyFlagsTypes, flags } from './icons/currency-flags';
 export { default as Countdown } from './utils/countdown';
 export { default as flatpickr } from 'flatpickr';
