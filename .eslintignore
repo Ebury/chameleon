@@ -6,4 +6,4 @@ node_modules
 dist
 coverage
 svg-sprites.js
-src/icons/currency-flags.js
+src/icons/currency-flags/currency-flags.ts
