@@ -1,11 +1,8 @@
 import * as SortDirection from './enums/sort-direction';
 import * as SortDirectionCycle from './enums/sort-direction-cycle';
 import * as TooltipPlacement from './enums/tooltip-placement';
-import { AvailableCurrencyFlags, availableCurrencyFlagsSet, flags } from './icons/currency-flags';
 
 export { SortDirection, SortDirectionCycle, TooltipPlacement };
-
-export { AvailableCurrencyFlags, availableCurrencyFlagsSet, flags };
 
 export { default as EcAlert, types as EcAlertTypes } from './components/ec-alert';
 export { default as EcAmountFilterInput } from './components/ec-amount-filter-input';
@@ -70,5 +67,6 @@ export { default as EcTooltip, default as VEcTooltip, default as vEcTooltip } fr
 export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
 export { createHOC, createHOCc } from './hocs/hoc';
+export { AvailableCurrencyFlags, availableCurrencyFlagsSet, flags } from './icons/currency-flags';
 export { default as Countdown } from './utils/countdown';
 export { default as flatpickr } from 'flatpickr';
