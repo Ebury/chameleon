@@ -6,8 +6,6 @@ export interface OptionCardProps {
   caption?: string,
   iconName?: IconName,
   type?: OptionCardType,
-  to?: string,
-  href?: string,
 }
 
 export enum OptionCardType {
