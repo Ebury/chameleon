@@ -74,5 +74,4 @@ export const flags = [
   "ZMW"
 ] as const;
 
-export type AvailableCurrencyFlags = typeof flags[number];
 export const availableCurrencyFlagsSet = new Set(flags);
