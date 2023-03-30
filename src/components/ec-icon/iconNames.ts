@@ -134,6 +134,7 @@ export enum IconName {
   SimpleHelp = 'simple-help',
   SimpleInfo = 'simple-info',
   SimpleLoading = 'simple-loading',
+  SimpleLocker = 'simple-locker',
   SimpleMail = 'simple-mail',
   SimpleMore = 'simple-more',
   SimpleNumbers = 'simple-numbers',
