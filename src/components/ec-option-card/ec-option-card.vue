@@ -14,7 +14,10 @@
         :alt="title"
         :size="24"
       />
-      <p class="ec-option-card__title">{{ title }}</p>
+      <p
+        data-test="ec-option-card__title"
+        class="ec-option-card__title"
+      >{{ title }}</p>
     </span>
     <p
       v-if="caption"
