@@ -11,6 +11,7 @@ exports[`EcOptionCard renders properly with the required title prop 1`] = `
     <!--v-if-->
     <p
       class="ec-option-card__title"
+      data-test="ec-option-card__title"
     >
       Test Option Card
     </p>
@@ -40,6 +41,7 @@ exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is
     </svg>
     <p
       class="ec-option-card__title"
+      data-test="ec-option-card__title"
     >
       Test option card with Icon and caption
     </p>
@@ -74,6 +76,7 @@ exports[`EcOptionCard should render the Option card with the classes related to 
     </svg>
     <p
       class="ec-option-card__title"
+      data-test="ec-option-card__title"
     >
       Test title
     </p>
@@ -108,6 +111,7 @@ exports[`EcOptionCard should render the Option card with the classes related to 
     </svg>
     <p
       class="ec-option-card__title"
+      data-test="ec-option-card__title"
     >
       Test title
     </p>
