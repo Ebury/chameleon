@@ -71,4 +71,41 @@ describe('EcOptionCard', () => {
     expect(wrapper.findByDataTest('ec-option-card__icon').classes('ec-option-card__icon--disabled')).toBe(true);
     expect(wrapper.findByDataTest('ec-option-card__caption').classes('ec-option-card__caption--disabled')).toBe(true);
   });
+
+  it('renders the Option Card disabled and with the classes related to the type "accent" when type prop is set to accent and isDisabled prop is set to true', () => {
+    const wrapper = mountEcOptionCard({
+      isDisabled: true,
+      type: OptionCardType.ACCENT,
+      iconName: IconName.SimpleEye,
+      title: 'Test option card with Icon and caption',
+      caption: 'Test Caption',
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-option-card').classes('ec-option-card--disabled')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card__icon').classes('ec-option-card__icon--disabled')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card__caption').classes('ec-option-card__caption--disabled')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card').classes('ec-option-card--accent')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card__icon').classes('ec-option-card__icon--accent')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card__caption').classes('ec-option-card__caption--accent')).toBe(true);
+  });
+
+  it('renders the Option Card disabled and with the classes related to the type "danger" when type prop is set to accent and isDisabled prop is set to true', () => {
+    const wrapper = mountEcOptionCard({
+      isDisabled: true,
+      type: OptionCardType.DANGER,
+      iconName: IconName.SimpleEye,
+      title: 'Test option card with Icon and caption',
+      caption: 'Test Caption',
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-option-card').classes('ec-option-card--disabled')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card__icon').classes('ec-option-card__icon--disabled')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card__caption').classes('ec-option-card__caption--disabled')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card').classes('ec-option-card--danger')).toBe(true);
+    expect(wrapper.findByDataTest('ec-option-card__icon').classes('ec-option-card__icon--danger')).toBe(false);
+    expect(wrapper.findByDataTest('ec-option-card__caption').classes('ec-option-card__caption--danger')).toBe(false);
+  });
+
 });
