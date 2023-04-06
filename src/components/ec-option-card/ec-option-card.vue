@@ -1,6 +1,6 @@
 <template>
   <div
-    :data-test="getOptionCardDataTest"
+    :data-test="dataTest"
     class="ec-option-card"
     :class="getOptionCardClasses"
   >
@@ -51,16 +51,11 @@ const {
   iconName,
 } = toRefs(props);
 
-const getOptionCardDataTest = computed(() => {
-  let optionCardDataTest = 'ec-option-card';
-  if (props.isDisabled) {
-    optionCardDataTest += ' ec-option-card--disabled';
-  }
-  if (props.type) {
-    optionCardDataTest += ` ec-option-card--${props.type}`;
-  }
-  return optionCardDataTest;
-});
+const dataTest = computed(() => [
+  'ec-option-card',
+  props.isDisabled && 'ec-option-card--disabled',
+  props.type && `ec-option-card--${props.type}`,
+].filter(Boolean).join(' '));
 
 const getOptionCardClasses = computed(() => ({
   'ec-option-card--disabled': Boolean(props.isDisabled),
