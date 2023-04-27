@@ -4,13 +4,14 @@ import { DARK_THEME } from '../../../.storybook/backgrounds';
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcPanel from '../ec-panel';
 import EcLoading from './ec-loading.vue';
+import type { LoadingProps } from './types';
 
 export default {
   title: 'Loading',
   component: EcLoading,
 };
 
-export const basic = args => ({
+export const basic = (args: LoadingProps) => ({
   components: { EcLoading },
   setup() {
     return {
@@ -52,7 +53,7 @@ export const withPanel = ({
   panelIsLoading,
   transparent,
   ...args
-}) => ({
+}: LoadingProps & {siblingIsLoading: boolean, panelIsLoading: boolean}) => ({
   components: { EcLoading, EcPanel },
   setup() {
     return {
@@ -126,7 +127,7 @@ withPanel.args = {
 
 withPanel.decorators = [fixedContainerDecorator()];
 
-export const withDarkBackground = args => ({
+export const withDarkBackground = (args: LoadingProps) => ({
   components: { EcLoading },
   setup() {
     return { args };

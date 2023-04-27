@@ -10,7 +10,7 @@
       data-test="ec-loading__backdrop"
     >
       <ec-icon
-        name="simple-loading"
+        :name="IconName.SimpleLoading"
         :size="size"
         class="ec-loading__icon"
         data-test="ec-loading__icon"
@@ -26,27 +26,22 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
 
-const props = defineProps(
-  {
-    show: {
-      type: Boolean,
-      required: true,
-    },
-    size: {
-      type: Number,
-      default: 48,
-    },
-    transparent: {
-      type: Boolean,
-      default: true,
-    },
-  },
-);
+interface LoadingProps {
+    show: boolean,
+    size?: number,
+    transparent?: boolean,
+}
+
+const props = withDefaults(defineProps<LoadingProps>(), {
+  size: 48,
+  transparent: true,
+});
 
 const isTransparent = computed(() => props.transparent || !props.show);
 </script>

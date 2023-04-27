@@ -1,11 +1,12 @@
-import { mount } from '@vue/test-utils';
+import { mount, type MountingOptions } from '@vue/test-utils';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcLoading from './ec-loading.vue';
+import type { LoadingProps } from './types';
 
 describe('EcLoading', () => {
-  function mountLoading(props, mountOpts) {
-    return mount(EcLoading, {
+  function mountLoading(props?: Partial<LoadingProps>, mountOpts: MountingOptions<LoadingProps> = {}) {
+    return mount<LoadingProps>(EcLoading as any, {
       props: {
         show: true,
         ...props,
@@ -15,8 +16,8 @@ describe('EcLoading', () => {
   }
 
   it('should throw if no props were given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mount(EcLoading);
+    withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
+      mount(EcLoading as any);
       expect(warnSpy).toHaveBeenCalledTimes(1);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "show"');
     });
