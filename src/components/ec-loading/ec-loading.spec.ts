@@ -1,4 +1,5 @@
-import { mount, type MountingOptions } from '@vue/test-utils';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { type MountingOptions, mount } from '@vue/test-utils';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcLoading from './ec-loading.vue';
@@ -6,18 +7,20 @@ import type { LoadingProps } from './types';
 
 describe('EcLoading', () => {
   function mountLoading(props?: Partial<LoadingProps>, mountOpts: MountingOptions<LoadingProps> = {}) {
-    return mount<LoadingProps>(EcLoading as any, {
-      props: {
-        show: true,
-        ...props,
+    return mount<LoadingProps>(EcLoading as any, // eslint-disable-line
+      {
+        props: {
+          show: true,
+          ...props,
+        },
+        ...mountOpts,
       },
-      ...mountOpts,
-    });
+    );
   }
 
   it('should throw if no props were given', () => {
     withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
-      mount(EcLoading as any);
+      mount(EcLoading as any); // eslint-disable-line
       expect(warnSpy).toHaveBeenCalledTimes(1);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "show"');
     });
