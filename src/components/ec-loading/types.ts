@@ -4,19 +4,3 @@ export interface LoadingProps {
     transparent?: boolean,
 }
 
-/*
-{
-    show: {
-      type: Boolean,
-      required: true,
-    },
-    size: {
-      type: Number,
-      default: 48,
-    },
-    transparent: {
-      type: Boolean,
-      default: true,
-    },
-  },
-*/
