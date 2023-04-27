@@ -17,6 +17,7 @@ function getIconNames() {
   return icons;
 }
 
+// eslint-disable-next-line no-console
 console.log(`export enum IconName {
 ${
   getIconNames().map(([name, value]) => `  ${name} = '${value}'`).join(',\n')
