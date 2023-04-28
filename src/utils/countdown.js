@@ -33,9 +33,14 @@ export default class Countdown {
       this.emit('time-updated', {
         seconds: this.secondsLeft,
         minutes: this.minutesLeft,
+        totalSeconds: this.totalSeconds,
+      });
+    } else {
+      this.emit('time-updated', {
+        seconds: this.seconds,
+        totalSeconds: this.totalSeconds,
       });
     }
-    this.emit('seconds-updated', { seconds: this.seconds });
 
     if (this.totalSeconds <= 0) {
       this.stop();
