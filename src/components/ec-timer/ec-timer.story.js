@@ -39,14 +39,10 @@ stopped.parameters = {
 };
 
 export const stoppedWithMinutes = Template.bind({});
-stopped.args = {
+stoppedWithMinutes.args = {
   seconds: 30,
   showMinutes: true,
   isRunning: false,
-};
-
-stopped.parameters = {
-  visualRegressionTests: { disable: true },
 };
 
 export const ShowMinutes = Template.bind({});
