@@ -42,7 +42,7 @@ export const ShowMinutes = Template.bind({});
 ShowMinutes.args = {
   ...basic.args,
   showMinutes: true,
-  seconds: 80,
+  seconds: 20,
   isRunning: true,
 };
 
