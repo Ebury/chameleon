@@ -28,8 +28,19 @@
         :stroke-dasharray="circumference"
         :stroke-dashoffset="offset"
       />
-
       <text
+        v-if="showMinutes"
+        x="50%"
+        y="50%"
+        data-test="ec-timer__text"
+        class="ec-timer__text"
+        dominant-baseline="central"
+        text-anchor="middle"
+      >
+        {{ minutesLeft }}:{{ secondsLeft }}
+      </text>
+      <text
+        v-else
         x="50%"
         y="50%"
         data-test="ec-timer__text"
@@ -48,7 +59,8 @@
 
 <script setup>
 import {
-  computed, onBeforeUnmount, ref, watchEffect,
+  computed, onBeforeUnmount, ref,
+  watchEffect,
 } from 'vue';
 
 import Countdown from '../../utils/countdown';
@@ -63,6 +75,10 @@ const props = defineProps({
     validator(value) {
       return Number.isInteger(value) && value > 0;
     },
+  },
+  showMinutes: {
+    type: Boolean,
+    default: false,
   },
   /**
    * Indicates if the countdown is running
@@ -83,13 +99,17 @@ const offset = computed(() => circumference.value + steps.value * secondsLeft.va
 const radius = ref(24);
 const strokeWidth = ref(4);
 const secondsLeft = ref(props.seconds);
+const minutesLeft = ref(null);
 let countdown = null;
 
 function startCountdown() {
   countdown = new Countdown();
-  countdown.start(props.seconds);
-  countdown.on('time-updated', (newValue) => {
+  countdown.start(props.seconds, props.showMinutes);
+  countdown.on('seconds-updated', (newValue) => {
     secondsLeft.value = newValue;
+  });
+  countdown.on('minutes-updated', (newValue) => {
+    minutesLeft.value = newValue;
   });
   countdown.on('time-expired', () => {
     /**

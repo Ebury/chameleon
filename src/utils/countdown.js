@@ -6,23 +6,35 @@ export default class Countdown {
     Object.assign(this, m);
   }
 
-  start(secondsToGo) {
+  decrement(totalSeconds) {
+    this.getminutes(totalSeconds);
+    this.getseconds(totalSeconds, this.minutesLeft);
+  }
+
+  start(secondsToGo, showMinutes) {
     this.seconds = secondsToGo;
     this.secondsLeft = secondsToGo;
     this.currentTime = Math.ceil(Date.now() / 1000);
     this.startTime = Math.ceil(Date.now() / 1000);
-    this.interval = setInterval(() => this.reduceSecondsLeft(), 1000);
+    this.interval = setInterval(() => this.reduceSecondsLeft(showMinutes), 1000);
   }
 
   get timeDifference() {
     return this.currentTime - this.startTime;
   }
 
-  reduceSecondsLeft() {
+  reduceSecondsLeft(showMinutes) {
     this.currentTime = Math.ceil(Date.now() / 1000);
-    this.secondsLeft = this.seconds - this.timeDifference;
-    this.emit('time-updated', this.secondsLeft);
-    if (this.secondsLeft <= 0) {
+    this.totalSeconds = this.seconds - this.timeDifference;
+    this.secondsLeft = this.totalSeconds;
+
+    if (showMinutes) {
+      this.decrement(this.totalSeconds);
+      this.emit('minutes-updated', this.minutesLeft);
+    }
+
+    this.emit('seconds-updated', this.secondsLeft);
+    if (this.totalSeconds <= 0) {
       this.stop();
       this.emit('time-expired');
     }
@@ -30,5 +42,14 @@ export default class Countdown {
 
   stop() {
     clearInterval(this.interval);
+  }
+
+  getminutes(totalSeconds) {
+    this.minutesLeft = Math.floor(totalSeconds / 60);
+  }
+
+  getseconds(totalSeconds, minutes) {
+    // take mins remaining (as seconds) away from total seconds remaining
+    this.secondsLeft = totalSeconds - Math.round(minutes * 60);
   }
 }
