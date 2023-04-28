@@ -37,7 +37,7 @@ export default class Countdown {
       });
     } else {
       this.emit('time-updated', {
-        seconds: this.seconds,
+        seconds: this.totalSeconds,
         totalSeconds: this.totalSeconds,
       });
     }
