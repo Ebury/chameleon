@@ -6,7 +6,7 @@ export default class Countdown {
     Object.assign(this, m);
   }
 
-  decrement(totalSeconds) {
+  reduceMinutesLeft(totalSeconds) {
     this.getminutes(totalSeconds);
     this.getseconds(totalSeconds, this.minutesLeft);
   }
@@ -29,11 +29,14 @@ export default class Countdown {
     this.secondsLeft = this.totalSeconds;
 
     if (showMinutes) {
-      this.decrement(this.totalSeconds);
-      this.emit('minutes-updated', this.minutesLeft);
+      this.reduceMinutesLeft(this.totalSeconds);
+      this.emit('time-updated', {
+        seconds: this.secondsLeft,
+        minutes: this.minutesLeft,
+      });
     }
+    this.emit('seconds-updated', { seconds: this.seconds });
 
-    this.emit('seconds-updated', this.secondsLeft);
     if (this.totalSeconds <= 0) {
       this.stop();
       this.emit('time-expired');

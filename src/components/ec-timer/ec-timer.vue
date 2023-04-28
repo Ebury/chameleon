@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="secondsLeft"
     class="ec-timer"
     data-test="ec-timer"
   >
@@ -98,18 +99,16 @@ const offset = computed(() => circumference.value + steps.value * secondsLeft.va
 
 const radius = ref(24);
 const strokeWidth = ref(4);
-const secondsLeft = ref(props.seconds);
+const secondsLeft = ref(null);
 const minutesLeft = ref(null);
 let countdown = null;
 
 function startCountdown() {
   countdown = new Countdown();
   countdown.start(props.seconds, props.showMinutes);
-  countdown.on('seconds-updated', (newValue) => {
-    secondsLeft.value = newValue;
-  });
-  countdown.on('minutes-updated', (newValue) => {
-    minutesLeft.value = newValue;
+  countdown.on('time-updated', (newValue) => {
+    secondsLeft.value = newValue.seconds;
+    minutesLeft.value = newValue.minutes;
   });
   countdown.on('time-expired', () => {
     /**
