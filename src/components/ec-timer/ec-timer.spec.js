@@ -90,6 +90,12 @@ describe('EcTimer', () => {
           expect(wrapper.element).toMatchSnapshot();
         });
       });
+
+      it('should render a timer with minutes', () => {
+        const wrapper = mountTimer({ seconds: 20, isRunning: true, showMinutes: true });
+
+        expect(wrapper.findByDataTest('ec-timer__text-with-minutes').text()).toBe('0:20');
+      });
     });
   });
 

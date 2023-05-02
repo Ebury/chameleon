@@ -31,7 +31,7 @@ exports[`EcTimer :props should render as expected 1`] = `
     />
     <text
       class="ec-timer__text"
-      data-test="ec-timer__text"
+      data-test="ec-timer__text-only-seconds"
       dominant-baseline="central"
       text-anchor="middle"
       x="50%"
@@ -77,7 +77,7 @@ exports[`EcTimer :props when "showMinutes" is true when "isRunning" is false sho
     />
     <text
       class="ec-timer__text"
-      data-test="ec-timer__text"
+      data-test="ec-timer__text-with-minutes"
       dominant-baseline="central"
       text-anchor="middle"
       x="50%"
@@ -120,7 +120,7 @@ exports[`EcTimer :props when "showMinutes" is true when "isRunning" is true shou
     />
     <text
       class="ec-timer__text"
-      data-test="ec-timer__text"
+      data-test="ec-timer__text-with-minutes"
       dominant-baseline="central"
       text-anchor="middle"
       x="50%"
@@ -163,7 +163,7 @@ exports[`EcTimer @events should emit an event called "time-expired" after the co
     />
     <text
       class="ec-timer__text"
-      data-test="ec-timer__text"
+      data-test="ec-timer__text-only-seconds"
       dominant-baseline="central"
       text-anchor="middle"
       x="50%"
@@ -209,7 +209,7 @@ exports[`EcTimer slots should render with the slot given 1`] = `
     />
     <text
       class="ec-timer__text"
-      data-test="ec-timer__text"
+      data-test="ec-timer__text-only-seconds"
       dominant-baseline="central"
       text-anchor="middle"
       x="50%"

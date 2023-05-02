@@ -32,7 +32,7 @@
         v-if="showMinutes"
         x="50%"
         y="50%"
-        data-test="ec-timer__text"
+        data-test="ec-timer__text-with-minutes"
         class="ec-timer__text"
         dominant-baseline="central"
         text-anchor="middle"
@@ -43,7 +43,7 @@
         v-else
         x="50%"
         y="50%"
-        data-test="ec-timer__text"
+        data-test="ec-timer__text-only-seconds"
         class="ec-timer__text"
         dominant-baseline="central"
         text-anchor="middle"
