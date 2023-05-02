@@ -32,6 +32,20 @@ describe('Countdown', () => {
     expect(clock.countTimers()).toBe(0);
   });
 
+  describe('when "showMinutes" is true', () => {
+    it('should update the "secondsLeft" and the "minutesLeft" when the time is running', () => {
+      const countdown = new Countdown();
+      countdown.start(80, true);
+      clock.tick(10000);
+      expect(countdown.secondsLeft).toBe(10);
+      expect(countdown.minutesLeft).toBe(1);
+      clock.tick(70000);
+      expect(countdown.secondsLeft).toBe(0);
+      expect(countdown.minutesLeft).toBe(0);
+      expect(clock.countTimers()).toBe(0);
+    });
+  });
+
   it('should emit the events', () => {
     const timeExpiredMock = jest.fn();
     const timeUpdatedMock = jest.fn();
