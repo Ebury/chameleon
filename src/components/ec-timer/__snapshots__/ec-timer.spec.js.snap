@@ -72,7 +72,7 @@ exports[`EcTimer :props when "showMinutes" is true when "isRunning" is false sho
       fill="transparent"
       r="24"
       stroke-dasharray="150.79644737231007"
-      stroke-dashoffset="301.59289474462014"
+      stroke-dashoffset="150.79644737231007"
       stroke-width="4"
     />
     <text
