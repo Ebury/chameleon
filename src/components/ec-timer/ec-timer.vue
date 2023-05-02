@@ -89,14 +89,14 @@ const props = defineProps({
 });
 const emit = defineEmits(['time-expired']);
 
-const diameter = computed(() => radius.value * 2 + strokeWidth.value);
+const radius = 24;
+const strokeWidth = 4;
+const diameter = computed(() => radius * 2 + strokeWidth);
 const viewbox = computed(() => `0 0 ${diameter.value} ${diameter.value}`);
-const circumference = computed(() => 2 * Math.PI * radius.value);
+const circumference = computed(() => 2 * Math.PI * radius);
 const steps = computed(() => circumference.value / props.seconds);
 const offset = computed(() => circumference.value + steps.value * totalSecondsLeft.value);
 
-const radius = ref(24);
-const strokeWidth = ref(4);
 const minutesLeft = computed(() => {
   if (props.showMinutes) {
     return Math.floor(totalSecondsLeft.value / 60);
