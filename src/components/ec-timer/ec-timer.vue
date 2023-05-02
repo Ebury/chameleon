@@ -97,8 +97,22 @@ const offset = computed(() => circumference.value + steps.value * totalSecondsLe
 
 const radius = ref(24);
 const strokeWidth = ref(4);
-const minutesLeft = ref(getMinutes(props.seconds));
-const secondsLeft = ref(getSeconds(props.seconds));
+const minutesLeft = computed(() => {
+  if (props.showMinutes) {
+    return Math.floor(totalSecondsLeft.value / 60);
+  }
+
+  return null;
+});
+const secondsLeft = computed(() => {
+  if (!props.isRunning) {
+    return props.seconds;
+  }
+  if (props.showMinutes) {
+    return totalSecondsLeft.value - Math.round(minutesLeft.value * 60);
+  }
+  return totalSecondsLeft.value;
+});
 const totalSecondsLeft = ref(getTotalSecondsLeft(props.seconds));
 let countdown = null;
 
@@ -106,28 +120,10 @@ function getTotalSecondsLeft(seconds) {
   return props.isRunning ? seconds : null;
 }
 
-function getMinutes(seconds) {
-  if (props.showMinutes) {
-    return Math.floor(seconds / 60);
-  }
-  return null;
-}
-
-function getSeconds(seconds) {
-  if (props.showMinutes) {
-    return seconds - Math.round(minutesLeft.value * 60);
-  }
-  return seconds;
-}
-
 function startCountdown() {
   countdown = new Countdown();
   countdown.start(props.seconds);
   countdown.on('time-updated', (newValue) => {
-    if (props.showMinutes) {
-      minutesLeft.value = getMinutes(newValue);
-    }
-    secondsLeft.value = getSeconds(newValue);
     totalSecondsLeft.value = getTotalSecondsLeft(newValue);
   });
   countdown.on('time-expired', () => {
@@ -152,7 +148,6 @@ watchEffect(() => {
     startCountdown();
   } else {
     stopCountdown();
-    secondsLeft.value = props.seconds;
   }
 });
 
