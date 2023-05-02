@@ -99,10 +99,24 @@ const offset = computed(() => circumference.value + steps.value * totalSecondsLe
 
 const radius = ref(24);
 const strokeWidth = ref(4);
-const secondsLeft = ref(null);
-const minutesLeft = ref(null);
-const totalSecondsLeft = ref(null);
+const minutesLeft = ref(getMinutes());
+const secondsLeft = ref(getSeconds());
+const totalSecondsLeft = ref(props.seconds);
 let countdown = null;
+
+function getMinutes() {
+  if (props.showMinutes) {
+    return Math.floor(props.seconds / 60);
+  }
+  return null;
+}
+
+function getSeconds() {
+  if (props.showMinutes) {
+    return props.seconds - Math.round(minutesLeft.value * 60);
+  }
+  return props.seconds;
+}
 
 function startCountdown() {
   countdown = new Countdown();
@@ -135,9 +149,6 @@ watchEffect(() => {
   } else {
     stopCountdown();
     secondsLeft.value = props.seconds;
-    if (props.showMinutes) {
-      minutesLeft.value = Math.floor(secondsLeft.value / 60);
-    }
   }
 });
 
