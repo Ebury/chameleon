@@ -22,38 +22,36 @@ const Template = ({ ...args }) => ({
   `,
 });
 
-export const basic = Template.bind({
-  args: {
-    seconds: 20,
-    isRunning: true,
-  },
-});
+export const basic = Template.bind({});
+basic.args = {
+  seconds: 20,
+  isRunning: true,
+};
 
-export const stopped = Template.bind({
-  args: {
-    seconds: 30,
-    isRunning: false,
-  },
-  parameters: {
-    visualRegressionTests: { disable: true },
-  },
-});
+export const stopped = Template.bind({});
+stopped.args = {
+  seconds: 30,
+  isRunning: false,
+};
 
-export const stoppedWithMinutes = Template.bind({
-  args: {
-    seconds: 30,
-    showMinutes: true,
-    isRunning: false,
-  },
-  parameters: {
-    visualRegressionTests: { disable: true },
-  },
-});
+stopped.parameters = {
+  visualRegressionTests: { disable: true },
+};
 
-export const ShowMinutes = Template.bind({
-  args: {
-    showMinutes: true,
-    seconds: 80,
-    isRunning: true,
-  },
-});
+export const stoppedWithMinutes = Template.bind({});
+stoppedWithMinutes.args = {
+  seconds: 30,
+  showMinutes: true,
+  isRunning: false,
+};
+
+stoppedWithMinutes.parameters = {
+  visualRegressionTests: { disable: true },
+};
+
+export const showMinutes = Template.bind({});
+showMinutes.args = {
+  showMinutes: true,
+  seconds: 80,
+  isRunning: true,
+};
