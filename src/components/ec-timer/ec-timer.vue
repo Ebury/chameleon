@@ -122,7 +122,7 @@ function getSeconds(seconds) {
 
 function startCountdown() {
   countdown = new Countdown();
-  countdown.start(props.seconds, props.showMinutes);
+  countdown.start(props.seconds);
   countdown.on('time-updated', (newValue) => {
     if (props.showMinutes) {
       minutesLeft.value = getMinutes(newValue);
