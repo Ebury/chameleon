@@ -95,7 +95,12 @@ const diameter = computed(() => radius * 2 + strokeWidth);
 const viewbox = computed(() => `0 0 ${diameter.value} ${diameter.value}`);
 const circumference = computed(() => 2 * Math.PI * radius);
 const steps = computed(() => circumference.value / props.seconds);
-const offset = computed(() => circumference.value + steps.value * totalSecondsLeft.value);
+const offset = computed(() => {
+  if (props.isRunning) {
+    return circumference.value + steps.value * totalSecondsLeft.value;
+  }
+  return circumference.value;
+});
 
 const minutesLeft = computed(() => {
   if (props.showMinutes) {
@@ -113,18 +118,14 @@ const secondsLeft = computed(() => {
   }
   return totalSecondsLeft.value;
 });
-const totalSecondsLeft = ref(getTotalSecondsLeft(props.seconds));
+const totalSecondsLeft = ref(props.seconds);
 let countdown = null;
-
-function getTotalSecondsLeft(seconds) {
-  return props.isRunning ? seconds : null;
-}
 
 function startCountdown() {
   countdown = new Countdown();
   countdown.start(props.seconds);
   countdown.on('time-updated', (newValue) => {
-    totalSecondsLeft.value = getTotalSecondsLeft(newValue);
+    totalSecondsLeft.value = newValue;
   });
   countdown.on('time-expired', () => {
     /**
