@@ -135,6 +135,10 @@ watchEffect(() => {
   } else {
     stopCountdown();
     secondsLeft.value = props.seconds;
+    if (props.showMinutes) {
+      countdown = new Countdown();
+      minutesLeft.value = Math.floor(secondsLeft.value / 60);
+    }
   }
 });
 
