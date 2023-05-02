@@ -59,8 +59,7 @@
 
 <script setup>
 import {
-  computed, onBeforeUnmount, ref,
-  watchEffect,
+  computed, onBeforeUnmount, ref, watchEffect,
 } from 'vue';
 
 import Countdown from '../../utils/countdown';
