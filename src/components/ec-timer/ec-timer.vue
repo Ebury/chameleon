@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="secondsLeft !== null"
     class="ec-timer"
     data-test="ec-timer"
   >
