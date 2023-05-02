@@ -26,21 +26,18 @@ export default class Countdown {
   reduceSecondsLeft(showMinutes) {
     this.currentTime = Math.ceil(Date.now() / 1000);
     this.totalSeconds = this.seconds - this.timeDifference;
+    this.minutesLeft = null;
     this.secondsLeft = this.totalSeconds;
 
     if (showMinutes) {
       this.reduceMinutesLeft(this.totalSeconds);
-      this.emit('time-updated', {
-        seconds: this.secondsLeft,
-        minutes: this.minutesLeft,
-        totalSeconds: this.totalSeconds,
-      });
-    } else {
-      this.emit('time-updated', {
-        seconds: this.totalSeconds,
-        totalSeconds: this.totalSeconds,
-      });
     }
+
+    this.emit('time-updated', {
+      seconds: this.secondsLeft,
+      minutes: this.minutesLeft,
+      totalSeconds: this.totalSeconds,
+    });
 
     if (this.totalSeconds <= 0) {
       this.stop();
