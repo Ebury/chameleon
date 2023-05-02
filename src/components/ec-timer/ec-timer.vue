@@ -99,8 +99,12 @@ const radius = ref(24);
 const strokeWidth = ref(4);
 const minutesLeft = ref(getMinutes());
 const secondsLeft = ref(getSeconds());
-const totalSecondsLeft = ref(props.isRunning ? props.seconds : null);
+const totalSecondsLeft = ref(getTotalSecondsLeft());
 let countdown = null;
+
+function getTotalSecondsLeft() {
+  return props.isRunning ? props.seconds : null;
+}
 
 function getMinutes() {
   if (props.showMinutes) {
