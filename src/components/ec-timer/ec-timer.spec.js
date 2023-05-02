@@ -75,10 +75,20 @@ describe('EcTimer', () => {
     });
 
     describe('when "showMinutes" is true', () => {
-      it('should render as expected', () => {
-        const wrapper = mountTimer({ seconds: 20, isRunning: true, showMinutes: true });
+      describe('when "isRunning" is false', () => {
+        it('should render as expected', () => {
+          const wrapper = mountTimer({ seconds: 20, isRunning: false, showMinutes: true });
 
-        expect(wrapper.element).toMatchSnapshot();
+          expect(wrapper.element).toMatchSnapshot();
+        });
+      });
+
+      describe('when "isRunning" is true', () => {
+        it('should render as expected', () => {
+          const wrapper = mountTimer({ seconds: 20, isRunning: true, showMinutes: true });
+
+          expect(wrapper.element).toMatchSnapshot();
+        });
       });
     });
   });
