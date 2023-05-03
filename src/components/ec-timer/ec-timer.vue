@@ -110,7 +110,7 @@ const secondsLeft = computed(() => {
     return props.seconds;
   }
   if (props.showMinutes) {
-    return totalSecondsLeft.value - Math.round(minutesLeft.value * 60);
+    return totalSecondsLeft.value % 60;
   }
   return totalSecondsLeft.value;
 });
