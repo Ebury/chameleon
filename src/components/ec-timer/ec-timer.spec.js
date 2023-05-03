@@ -31,6 +31,15 @@ describe('EcTimer', () => {
       });
     });
 
+    it('should throw an error if "showMinutes" prop is not a boolean', () => {
+      withMockedConsole((errorSpy, warnSpy) => {
+        mountTimer({ seconds: 20, isRunning: true, showMinutes: 'true' });
+
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: type check failed for prop "showMinutes"');
+      });
+    });
+
     it('should throw an error if "seconds" prop is negative', () => {
       withMockedConsole((errorSpy, warnSpy) => {
         mountTimer({ seconds: -20, isRunning: true });
@@ -63,6 +72,30 @@ describe('EcTimer', () => {
       const wrapper = mountTimer({ seconds: 20, isRunning: true });
 
       expect(wrapper.element).toMatchSnapshot();
+    });
+
+    describe('when "showMinutes" is true', () => {
+      describe('when "isRunning" is false', () => {
+        it('should render as expected', () => {
+          const wrapper = mountTimer({ seconds: 20, isRunning: false, showMinutes: true });
+
+          expect(wrapper.element).toMatchSnapshot();
+        });
+      });
+
+      describe('when "isRunning" is true', () => {
+        it('should render as expected', () => {
+          const wrapper = mountTimer({ seconds: 20, isRunning: true, showMinutes: true });
+
+          expect(wrapper.element).toMatchSnapshot();
+        });
+      });
+
+      it('should render a timer with minutes', () => {
+        const wrapper = mountTimer({ seconds: 20, isRunning: true, showMinutes: true });
+
+        expect(wrapper.findByDataTest('ec-timer__text-with-minutes').text()).toBe('0:20');
+      });
     });
   });
 

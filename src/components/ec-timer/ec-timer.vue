@@ -28,11 +28,22 @@
         :stroke-dasharray="circumference"
         :stroke-dashoffset="offset"
       />
-
       <text
+        v-if="showMinutes"
         x="50%"
         y="50%"
-        data-test="ec-timer__text"
+        data-test="ec-timer__text-with-minutes"
+        class="ec-timer__text"
+        dominant-baseline="central"
+        text-anchor="middle"
+      >
+        {{ minutesLeft }}:{{ minuteSecondsLeft }}
+      </text>
+      <text
+        v-else
+        x="50%"
+        y="50%"
+        data-test="ec-timer__text-only-seconds"
         class="ec-timer__text"
         dominant-baseline="central"
         text-anchor="middle"
@@ -40,7 +51,7 @@
         <!--
         @slot Additional text
       -->
-        {{ secondsLeft }}<slot>s</slot>
+        {{ totalSecondsLeft }}<slot>s</slot>
       </text>
     </svg>
   </div>
@@ -64,6 +75,10 @@ const props = defineProps({
       return Number.isInteger(value) && value > 0;
     },
   },
+  showMinutes: {
+    type: Boolean,
+    default: false,
+  },
   /**
    * Indicates if the countdown is running
    */
@@ -74,22 +89,34 @@ const props = defineProps({
 });
 const emit = defineEmits(['time-expired']);
 
-const diameter = computed(() => radius.value * 2 + strokeWidth.value);
-const viewbox = computed(() => `0 0 ${diameter.value} ${diameter.value}`);
-const circumference = computed(() => 2 * Math.PI * radius.value);
-const steps = computed(() => circumference.value / props.seconds);
-const offset = computed(() => circumference.value + steps.value * secondsLeft.value);
+const radius = 24;
+const strokeWidth = 4;
+const diameter = radius * 2 + strokeWidth;
+const viewbox = `0 0 ${diameter} ${diameter}`;
+const circumference = 2 * Math.PI * radius;
+const steps = circumference / props.seconds;
 
-const radius = ref(24);
-const strokeWidth = ref(4);
-const secondsLeft = ref(props.seconds);
+const offset = computed(() => {
+  if (totalSecondsLeft.value === 0) {
+    return circumference;
+  }
+
+  return circumference + steps * totalSecondsLeft.value;
+});
+
+const minutesLeft = computed(() => Math.floor(totalSecondsLeft.value / 60));
+
+const minuteSecondsLeft = computed(() => totalSecondsLeft.value % 60);
+
+const totalSecondsLeft = ref(props.seconds);
+
 let countdown = null;
 
 function startCountdown() {
   countdown = new Countdown();
   countdown.start(props.seconds);
   countdown.on('time-updated', (newValue) => {
-    secondsLeft.value = newValue;
+    totalSecondsLeft.value = newValue;
   });
   countdown.on('time-expired', () => {
     /**
@@ -113,7 +140,6 @@ watchEffect(() => {
     startCountdown();
   } else {
     stopCountdown();
-    secondsLeft.value = props.seconds;
   }
 });
 
