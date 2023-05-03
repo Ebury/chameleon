@@ -1,5 +1,6 @@
 import EcIcon from '../ec-icon';
 import EcMainContainer from './ec-main-container.vue';
+import type { MainContainerProps } from './types';
 
 const title = 'Trade Finance';
 const titleIntro = 'Here you will be able to keep track of all your requests to Ebury and your credit line.';
@@ -9,7 +10,7 @@ export default {
   component: EcMainContainer,
 };
 
-const Template = args => ({
+const Template = (args: MainContainerProps) => ({
   components: { EcMainContainer },
   setup() {
     return { args };
@@ -17,13 +18,14 @@ const Template = args => ({
   template: '<ec-main-container v-bind="args" />',
 });
 
-export const basic = Template.bind({});
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const basic = Template.bind({}) as any;
 basic.args = {
   title,
   titleIntro,
 };
 
-export const withSlots = args => ({
+export const withSlots = (args: MainContainerProps) => ({
   components: { EcMainContainer, EcIcon },
   setup() {
     return { args };

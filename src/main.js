@@ -31,7 +31,7 @@ export { default as EcInlineInputField } from './components/ec-inline-input-fiel
 export { default as EcInputField, types as EcInputFieldTypes } from './components/ec-input-field';
 export { default as EcLoading, types as EcLoadingTypes } from './components/ec-loading';
 export { default as EcLoadingIcon } from './components/ec-loading-icon';
-export { default as EcMainContainer } from './components/ec-main-container';
+export { default as EcMainContainer, types as EcMainContainerTypes } from './components/ec-main-container';
 export { default as EcMenu } from './components/ec-menu';
 export { default as EcMetroline } from './components/ec-metroline';
 export { default as EcMetrolineItem } from './components/ec-metroline/components/ec-metroline-item';
