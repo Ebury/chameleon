@@ -108,6 +108,7 @@ const minutesLeft = computed(() => Math.floor(totalSecondsLeft.value / 60));
 const minutesSecondsLeft = computed(() => totalSecondsLeft.value % 60);
 
 const totalSecondsLeft = ref(props.seconds);
+
 let countdown = null;
 
 function startCountdown() {
