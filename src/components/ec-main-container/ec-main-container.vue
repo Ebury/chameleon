@@ -47,14 +47,11 @@
 import { useSlots } from 'vue';
 
 interface MainContainerProps {
-    title?: string | null,
-    titleIntro?: string | null,
+    title?: string,
+    titleIntro?: string,
 }
 
-withDefaults(defineProps<MainContainerProps>(), {
-  title: null,
-  titleIntro: null,
-});
+defineProps<MainContainerProps>();
 
 const slots = useSlots();
 
