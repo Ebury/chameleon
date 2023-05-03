@@ -37,7 +37,7 @@
         dominant-baseline="central"
         text-anchor="middle"
       >
-        {{ minutesLeft }}:{{ minutesSecondsLeft }}
+        {{ minutesLeft }}:{{ minuteSecondsLeft }}
       </text>
       <text
         v-else
@@ -106,7 +106,7 @@ const offset = computed(() => {
 
 const minutesLeft = computed(() => Math.floor(totalSecondsLeft.value / 60));
 
-const minutesSecondsLeft = computed(() => totalSecondsLeft.value % 60);
+const minuteSecondsLeft = computed(() => totalSecondsLeft.value % 60);
 
 const totalSecondsLeft = ref(props.seconds);
 
