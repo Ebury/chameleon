@@ -97,10 +97,11 @@ const circumference = 2 * Math.PI * radius;
 const steps = circumference / props.seconds;
 
 const offset = computed(() => {
-  if (props.isRunning) {
-    return circumference + steps * totalSecondsLeft.value;
+  if (totalSecondsLeft.value === 0) {
+    return circumference;
   }
-  return circumference;
+
+  return circumference + steps * totalSecondsLeft.value;
 });
 
 const minutesLeft = computed(() => Math.floor(totalSecondsLeft.value / 60));
