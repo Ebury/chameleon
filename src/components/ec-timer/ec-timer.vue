@@ -91,8 +91,8 @@ const emit = defineEmits(['time-expired']);
 
 const radius = 24;
 const strokeWidth = 4;
-const diameter = computed(() => radius * 2 + strokeWidth);
-const viewbox = computed(() => `0 0 ${diameter.value} ${diameter.value}`);
+const diameter = radius * 2 + strokeWidth;
+const viewbox = `0 0 ${diameter.value} ${diameter.value}`;
 const circumference = computed(() => 2 * Math.PI * radius);
 const steps = computed(() => circumference.value / props.seconds);
 
