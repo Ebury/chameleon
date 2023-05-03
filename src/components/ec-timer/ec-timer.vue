@@ -37,7 +37,7 @@
         dominant-baseline="central"
         text-anchor="middle"
       >
-        {{ minutesLeft }}:{{ secondsLeft }}
+        {{ minutesLeft }}:{{ minutesSecondsLeft }}
       </text>
       <text
         v-else
@@ -51,7 +51,7 @@
         <!--
         @slot Additional text
       -->
-        {{ secondsLeft }}<slot>s</slot>
+        {{ totalSecondsLeft }}<slot>s</slot>
       </text>
     </svg>
   </div>
@@ -105,15 +105,7 @@ const offset = computed(() => {
 
 const minutesLeft = computed(() => Math.floor(totalSecondsLeft.value / 60));
 
-const secondsLeft = computed(() => {
-  if (!props.isRunning) {
-    return props.seconds;
-  }
-  if (props.showMinutes) {
-    return totalSecondsLeft.value % 60;
-  }
-  return totalSecondsLeft.value;
-});
+const minutesSecondsLeft = computed(() => totalSecondsLeft.value % 60);
 
 const totalSecondsLeft = ref(props.seconds);
 let countdown = null;
