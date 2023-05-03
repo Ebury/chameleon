@@ -92,15 +92,15 @@ const emit = defineEmits(['time-expired']);
 const radius = 24;
 const strokeWidth = 4;
 const diameter = radius * 2 + strokeWidth;
-const viewbox = `0 0 ${diameter.value} ${diameter.value}`;
-const circumference = computed(() => 2 * Math.PI * radius);
-const steps = computed(() => circumference.value / props.seconds);
+const viewbox = `0 0 ${diameter} ${diameter}`;
+const circumference = 2 * Math.PI * radius;
+const steps = circumference / props.seconds;
 
 const offset = computed(() => {
   if (props.isRunning) {
-    return circumference.value + steps.value * totalSecondsLeft.value;
+    return circumference + steps * totalSecondsLeft.value;
   }
-  return circumference.value;
+  return circumference;
 });
 
 const minutesLeft = computed(() => Math.floor(totalSecondsLeft.value / 60));
