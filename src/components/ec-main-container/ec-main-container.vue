@@ -43,23 +43,19 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useSlots } from 'vue';
 
-defineProps({
-  title: {
-    type: String,
-    default: null,
-  },
-  titleIntro: {
-    type: String,
-    default: null,
-  },
-});
+interface MainContainerProps {
+    title?: string,
+    titleIntro?: string,
+}
+
+defineProps<MainContainerProps>();
 
 const slots = useSlots();
 
-function hasSlot(slotName) {
+function hasSlot(slotName: string) {
   return slotName in slots;
 }
 </script>
