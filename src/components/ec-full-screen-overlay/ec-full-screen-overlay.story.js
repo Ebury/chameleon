@@ -88,7 +88,7 @@ export const withBackgroundType = Template.bind({});
 withBackgroundType.args = {
   title: 'Lorem title',
   show: true,
-  backgroundType: '7',
+  backgroundType: '0',
 };
 
 export const noCloseButton = args => ({
