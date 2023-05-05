@@ -1,0 +1,31 @@
+import type { RouteLocationRaw } from 'vue-router';
+
+import type { IconName } from '../ec-icon/iconNames';
+
+export enum ButtonSize {
+  Md = 'md',
+  Sm = 'sm'
+}
+
+export enum ButtonCategory {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Success = 'success',
+  Error = 'error',
+  Warning = 'warning'
+}
+
+export interface ButtonProps {
+  size?: ButtonSize;
+  href?: string;
+  to?: RouteLocationRaw;
+  isDisabled?: boolean;
+  icon?: IconName;
+  isRounded?: boolean;
+  isOutline?: boolean;
+  isFullWidth?: boolean;
+  category: ButtonCategory;
+  isReverse?: boolean;
+  isLoading?: boolean;
+  isSubmit?: boolean
+}

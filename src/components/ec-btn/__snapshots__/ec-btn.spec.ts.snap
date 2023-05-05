@@ -309,6 +309,7 @@ exports[`EcBtn :props should render a router link when we define the "to" prop 1
 <ec-stub
   class="ec-btn ec-btn--md"
   data-test="ec-btn ec-stub router-link-stub"
+  disabled="false"
   to="trade-finance"
 >
   
@@ -316,22 +317,11 @@ exports[`EcBtn :props should render a router link when we define the "to" prop 1
 </ec-stub>
 `;
 
-exports[`EcBtn :props should render a router link with a custom tag when we define the "tag option" 1`] = `
-<ebury-stub
-  class="ec-btn ec-btn--md"
-  data-test="ec-btn"
-  to="trade-finance"
->
-  <!--v-if-->
-  <!--v-if-->
-  <!--v-if-->
-</ebury-stub>
-`;
-
 exports[`EcBtn :props should render a router link with route object 1`] = `
 <ec-stub
   class="ec-btn ec-btn--md"
   data-test="ec-btn ec-stub router-link-stub"
+  disabled="false"
   to="Route with name 'trade-finance'"
 >
   

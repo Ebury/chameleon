@@ -50,131 +50,89 @@
   </component>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   inheritAttrs: false,
 };
 </script>
 
-<script setup>
+<script setup lang="ts">
 import {
   computed,
-  toRefs,
   useAttrs,
   useSlots,
 } from 'vue';
+import type { RouteLocationRaw, RouterLinkProps } from 'vue-router';
 
 import EcIcon from '../ec-icon';
+import type { IconName } from '../ec-icon/iconNames';
 import EcLoadingIcon from '../ec-loading-icon';
+import { ButtonCategory, ButtonSize } from './types';
 
 const slots = useSlots();
 const attrs = useAttrs();
-const props = defineProps({
-  size: {
-    type: String,
-    default: 'md',
-    validator(value) {
-      return ['sm', 'md'].includes(value);
-    },
-  },
-  href: {
-    type: String,
-  },
-  to: {
-    type: [String, Object],
-  },
-  tag: {
-    type: String,
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  icon: {
-    type: String,
-  },
-  isRounded: {
-    type: Boolean,
-    default: false,
-  },
-  isOutline: {
-    type: Boolean,
-    default: false,
-  },
-  isFullWidth: {
-    type: Boolean,
-    default: false,
-  },
-  category: {
-    type: String,
-    validator(value) {
-      return ['primary', 'secondary', 'success', 'error', 'warning'].includes(value);
-    },
-  },
-  isReverse: {
-    type: Boolean,
-    default: false,
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  isSubmit: {
-    type: Boolean,
-    default: true,
-  },
+
+interface ButtonProps {
+  size?: ButtonSize;
+  href?: string;
+  to?: RouteLocationRaw;
+  isDisabled?: boolean;
+  icon?: IconName;
+  isRounded?: boolean;
+  isOutline?: boolean;
+  isFullWidth?: boolean;
+  category: ButtonCategory;
+  isReverse?: boolean;
+  isLoading?: boolean;
+  isSubmit?: boolean
+}
+
+const props = withDefaults(defineProps<ButtonProps>(), {
+  size: ButtonSize.Md,
+  isDisabled: false,
+  isRounded: false,
+  isOutline: false,
+  isFullWidth: false,
+  isReverse: false,
+  isLoading: false,
+  isSubmit: true,
 });
 
-const {
-  size,
-  href,
-  to,
-  tag,
-  isDisabled,
-  icon,
-  isRounded,
-  isOutline,
-  isFullWidth,
-  category,
-  isReverse,
-  isLoading,
-  isSubmit,
-} = toRefs(props);
-
-const isRouterLink = computed(() => !!to.value);
-const isAnchorLink = computed(() => !!href.value);
+const isRouterLink = computed(() => !!props.to);
+const isAnchorLink = computed(() => !!props.href);
 
 const componentTag = computed(() => {
   if (isAnchorLink.value) {
-    return tag.value || 'a';
+    return 'a';
   } if (isRouterLink.value) {
-    return tag.value || 'router-link';
+    return 'router-link';
   }
-  return tag.value || 'button';
+  return 'button';
 });
 
 const componentProps = computed(() => {
-  const newProps = {};
-  if (!isAnchorLink.value && (isDisabled.value || isLoading.value)) {
-    newProps.disabled = true;
+  switch (componentTag.value) {
+    case 'button':
+      return {
+        disabled: props.isDisabled || props.isLoading,
+        type: props.isSubmit ? 'submit' : 'button',
+      } as HTMLButtonElement;
+    case 'router-link':
+      return {
+        disabled: props.isDisabled || props.isLoading,
+        to: props.to,
+      } as RouterLinkProps;
+    default: return {
+      href: props.href,
+    } as HTMLLinkElement;
   }
-  if (componentTag.value === 'button') {
-    newProps.type = isSubmit.value ? 'submit' : 'button';
-  }
-  if (to.value) {
-    newProps.to = to.value;
-  }
-  if (href.value) {
-    newProps.href = href.value;
-  }
-  return newProps;
 });
 
 function isSpinnerLoaderVisible() {
-  return isLoading.value && !slots['loading-text'];
+  return props.isLoading && !slots['loading-text'];
 }
 function isTextLoaderVisible() {
-  return isLoading.value && !!slots['loading-text'];
+  return props.isLoading && !!slots['loading-text'];
 }
 function hasDefaultSlot() {
   return !!slots.default;
@@ -182,18 +140,18 @@ function hasDefaultSlot() {
 
 function getButtonClasses() {
   return {
-    'ec-btn--sm': size.value === 'sm',
-    'ec-btn--md': size.value === 'md',
-    'ec-btn--rounded': isRounded.value,
-    'ec-btn--full-width': isFullWidth.value,
-    'ec-btn--icon-only': icon.value && !hasDefaultSlot(),
-    [`ec-btn--${category.value}`]: category.value,
-    'ec-btn--outline': isOutline.value,
-    'ec-btn--primary-reverse': isReverse.value && category.value === 'primary',
-    'ec-btn--secondary-reverse': isReverse.value && category.value === 'secondary',
-    'ec-btn--success-reverse': isReverse.value && category.value === 'success',
-    'ec-btn--error-reverse': isReverse.value && category.value === 'error',
-    'ec-btn--warning-reverse': isReverse.value && category.value === 'warning',
+    'ec-btn--sm': props.size === 'sm',
+    'ec-btn--md': props.size === 'md',
+    'ec-btn--rounded': props.isRounded,
+    'ec-btn--full-width': props.isFullWidth,
+    'ec-btn--icon-only': props.icon && !hasDefaultSlot(),
+    [`ec-btn--${props.category}`]: props.category,
+    'ec-btn--outline': props.isOutline,
+    'ec-btn--primary-reverse': props.isReverse && props.category === 'primary',
+    'ec-btn--secondary-reverse': props.isReverse && props.category === 'secondary',
+    'ec-btn--success-reverse': props.isReverse && props.category === 'success',
+    'ec-btn--error-reverse': props.isReverse && props.category === 'error',
+    'ec-btn--warning-reverse': props.isReverse && props.category === 'warning',
     'ec-btn--is-loading': isSpinnerLoaderVisible() || isTextLoaderVisible(),
   };
 }
