@@ -131,7 +131,7 @@ const componentProps = computed(() => {
     default: return {
       href: props.href,
       to: props.to,
-    } as unknown;
+    } as unknown as HTMLElement;
   }
 });
 
