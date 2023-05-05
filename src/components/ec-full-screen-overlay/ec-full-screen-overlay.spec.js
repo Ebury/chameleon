@@ -67,8 +67,8 @@ describe('EcFullScreenOverlay', () => {
       expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toMatchSnapshot();
     });
 
-    it(':backgroundType - should render with the background css class passed', () => {
-      const wrapper = mountFullScreenOverlay({ backgroundType: '5' });
+    it(':backgroundColorLevel - should render with the background css class passed', () => {
+      const wrapper = mountFullScreenOverlay({ backgroundColorLevel: '5' });
       expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toHaveClass('tw-bg-gray-5');
       expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toMatchSnapshot();
     });

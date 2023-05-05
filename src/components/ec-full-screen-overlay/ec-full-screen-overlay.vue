@@ -3,7 +3,7 @@
     <div
       v-if="show"
       class="ec-full-screen-overlay"
-      :class="`tw-bg-gray-${backgroundType}`"
+      :class="`tw-bg-gray-${backgroundColorLevel}`"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-full-screen-overlay` : 'ec-full-screen-overlay'"
     >
       <slot name="content">
@@ -74,7 +74,7 @@ defineProps({
     type: Boolean,
     default: true,
   },
-  backgroundType: {
+  backgroundColorLevel: {
     type: String,
     default: '8',
   },

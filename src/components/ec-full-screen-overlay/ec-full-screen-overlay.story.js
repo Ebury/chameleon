@@ -84,11 +84,11 @@ export const withMainSlot = args => ({
 });
 withMainSlot.args = { ...basic.args };
 
-export const withBackgroundType = Template.bind({});
-withBackgroundType.args = {
+export const withbackgroundColorLevel = Template.bind({});
+withbackgroundColorLevel.args = {
   title: 'Lorem title',
   show: true,
-  backgroundType: '0',
+  backgroundColorLevel: '0',
 };
 
 export const noCloseButton = args => ({
@@ -160,4 +160,4 @@ export const withContentSlot = args => ({
     </div>
   `,
 });
-withContentSlot.args = { ...basic.args, showCloseBtn: false, backgroundType: '7' };
+withContentSlot.args = { ...basic.args, showCloseBtn: false, backgroundColorLevel: '7' };

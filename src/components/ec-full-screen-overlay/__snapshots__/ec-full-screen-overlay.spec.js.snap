@@ -119,7 +119,7 @@ exports[`EcFullScreenOverlay #slots #main - should be rendered when passed 1`] =
 </transition-stub>
 `;
 
-exports[`EcFullScreenOverlay :props :backgroundType - should render with the background css class passed 1`] = `
+exports[`EcFullScreenOverlay :props :backgroundColorLevel - should render with the background css class passed 1`] = `
 <div
   class="ec-full-screen-overlay tw-bg-gray-5"
   data-test="ec-full-screen-overlay"
