@@ -75,8 +75,11 @@ defineProps({
     default: true,
   },
   backgroundColorLevel: {
-    type: String,
-    default: '8',
+    type: Number,
+    default: 8,
+    validator(value) {
+      return value >= 0 && value <= 8;
+    },
   },
 });
 
