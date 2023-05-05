@@ -60,6 +60,18 @@ describe('EcFullScreenOverlay', () => {
       expect(wrapper.findByDataTest('ec-full-screen-overlay__title').text()).toContain('Lorem title');
       expect(wrapper.findByDataTest('ec-full-screen-overlay__title').element).toMatchSnapshot();
     });
+
+    it(':showCloseBtn - should not render the close button when it is false', () => {
+      const wrapper = mountFullScreenOverlay({ showCloseBtn: false });
+      expect(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toMatchSnapshot();
+    });
+
+    it(':backgroundType - should render with the background css class passed', () => {
+      const wrapper = mountFullScreenOverlay({ backgroundType: '5' });
+      expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toHaveClass('tw-bg-gray-5');
+      expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toMatchSnapshot();
+    });
   });
 
   describe('@events', () => {
@@ -87,6 +99,16 @@ describe('EcFullScreenOverlay', () => {
       const wrapper = mountFullScreenOverlay({}, {
         slots: {
           main: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies.',
+        },
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('#content - should be rendered when passed', () => {
+      const wrapper = mountFullScreenOverlay({}, {
+        slots: {
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies.',
         },
       });
 
