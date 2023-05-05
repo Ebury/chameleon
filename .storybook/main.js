@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+const vueJsx = require('@vitejs/plugin-vue-jsx');
+
 module.exports = {
   framework: '@storybook/vue3',
   core: {
@@ -32,4 +35,18 @@ module.exports = {
       },
     },
   ],
+  viteFinal: (config) => {
+    const pluginsWithoutReact = config.plugins.filter(plugin => !Array.isArray(plugin));
+    const vueJsxPlugin = vueJsx();
+
+    const plugins = [
+      ...pluginsWithoutReact,
+      vueJsxPlugin,
+    ];
+
+    return {
+      ...config,
+      plugins,
+    };
+  },
 };
