@@ -1,6 +1,7 @@
 <template>
   <transition name="ec-full-screen-overlay__fade">
     <div
+      ref="overlayContent"
       v-if="show"
       class="ec-full-screen-overlay"
       :class="`tw-bg-gray-${backgroundColorLevel}`"
@@ -8,7 +9,6 @@
     >
       <slot name="content">
         <div
-          ref="overlayContent"
           class="ec-full-screen-overlay__content"
           data-test="ec-full-screen-overlay__content"
         >
@@ -92,6 +92,7 @@ const { deactivate } = useFocusTrap(overlayContent, {
   clickOutsideDeactivates: false,
   initialFocus: false,
   allowOutsideClick: true,
+  fallbackFocus: 'body',
 });
 
 function getFocusTrapContainer() {
