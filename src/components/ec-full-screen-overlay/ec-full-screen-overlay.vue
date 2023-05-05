@@ -3,6 +3,7 @@
     <div
       v-if="show"
       class="ec-full-screen-overlay"
+      :class="`tw-bg-gray-${backgroundType}`"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-full-screen-overlay` : 'ec-full-screen-overlay'"
     >
       <div
@@ -28,6 +29,7 @@
           </h1>
 
           <button
+            v-if="showCloseBtn"
             class="ec-full-screen-overlay__close-icon-btn"
             data-test="ec-full-screen-overlay__close-icon-btn"
             @click="emit('close')"
@@ -69,7 +71,7 @@ defineProps({
   },
   showCloseBtn: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   backgroundType: {
     type: String,
@@ -120,7 +122,6 @@ function hasHeaderSlot() {
     @apply tw-z-level-3;
     @apply tw-fixed;
     @apply tw-inset-0;
-    @apply tw-bg-gray-8;
     @apply tw-flex tw-justify-center;
     @apply tw-overflow-y-auto;
 
