@@ -94,7 +94,7 @@ withBackgroundType.args = {
 export const noClosingIcon = args => ({
   components: { EcFullScreenOverlay, EcBtn },
   setup() {
-    return { args, onClose: action('close') };
+    return { args };
   },
   template: `
     <div>
@@ -102,7 +102,6 @@ export const noClosingIcon = args => ({
 
       <ec-full-screen-overlay
         v-bind="args"
-        v-on="{ close: onClose }"
       >
         <template #header>
           <div>
@@ -143,7 +142,7 @@ noClosingIcon.args = {
 export const withContentSlot = args => ({
   components: { EcFullScreenOverlay },
   setup() {
-    return { args, onClose: action('close') };
+    return { args };
   },
   template: `
     <div>
@@ -151,7 +150,6 @@ export const withContentSlot = args => ({
 
       <ec-full-screen-overlay
         v-bind="args"
-        v-on="{ close: onClose }"
       >
         <template #content>
           <div class="tw-p-32 tw-bg-gray-8" style="width: 600px;">
