@@ -6,50 +6,51 @@
       :class="`tw-bg-gray-${backgroundType}`"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-full-screen-overlay` : 'ec-full-screen-overlay'"
     >
-      <div
-        ref="overlayContent"
-        class="ec-full-screen-overlay__content"
-        data-test="ec-full-screen-overlay__content"
-      >
-        <header
-          class="ec-full-screen-overlay__header"
-          data-test="ec-full-screen-overlay__header"
+      <slot name="content">
+        <div
+          ref="overlayContent"
+          class="ec-full-screen-overlay__content"
+          data-test="ec-full-screen-overlay__content"
         >
-          <slot
-            v-if="hasHeaderSlot()"
-            name="header"
-          />
-
-          <h1
-            v-else-if="title"
-            data-test="ec-full-screen-overlay__title"
-            class="ec-full-screen-overlay__title"
+          <header
+            class="ec-full-screen-overlay__header"
+            data-test="ec-full-screen-overlay__header"
           >
-            {{ title }}
-          </h1>
-
-          <button
-            v-if="showCloseBtn"
-            class="ec-full-screen-overlay__close-icon-btn"
-            data-test="ec-full-screen-overlay__close-icon-btn"
-            @click="emit('close')"
-          >
-            <span class="tw-sr-only">Close</span>
-            <ec-icon
-              class="ec-full-screen-overlay__close-icon"
-              data-test="ec-full-screen-overlay__close-icon"
-              name="simple-close"
-              type="interactive"
-              :size="24"
+            <slot
+              v-if="hasHeaderSlot()"
+              name="header"
             />
-          </button>
 
-        </header>
-        <main data-test="ec-full-screen-overlay__main">
-          <slot name="main" />
-        </main>
-      </div>
+            <h1
+              v-else-if="title"
+              data-test="ec-full-screen-overlay__title"
+              class="ec-full-screen-overlay__title"
+            >
+              {{ title }}
+            </h1>
 
+            <button
+              v-if="showCloseBtn"
+              class="ec-full-screen-overlay__close-icon-btn"
+              data-test="ec-full-screen-overlay__close-icon-btn"
+              @click="emit('close')"
+            >
+              <span class="tw-sr-only">Close</span>
+              <ec-icon
+                class="ec-full-screen-overlay__close-icon"
+                data-test="ec-full-screen-overlay__close-icon"
+                name="simple-close"
+                type="interactive"
+                :size="24"
+              />
+            </button>
+
+          </header>
+          <main data-test="ec-full-screen-overlay__main">
+            <slot name="main" />
+          </main>
+        </div>
+      </slot>
     </div>
   </transition>
 </template>
