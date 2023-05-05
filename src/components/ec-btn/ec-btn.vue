@@ -76,6 +76,7 @@ interface ButtonProps {
   size?: ButtonSize;
   href?: string;
   to?: RouteLocationRaw;
+  tag?: string;
   isDisabled?: boolean;
   icon?: IconName;
   isRounded?: boolean;
@@ -103,28 +104,34 @@ const isAnchorLink = computed(() => !!props.href);
 
 const componentTag = computed(() => {
   if (isAnchorLink.value) {
-    return 'a';
+    return props.tag || 'a';
   } if (isRouterLink.value) {
-    return 'router-link';
+    return props.tag || 'router-link';
   }
-  return 'button';
+  return props.tag || 'button';
 });
 
 const componentProps = computed(() => {
+  const isDisabled = props.isDisabled || props.isLoading;
+
   switch (componentTag.value) {
     case 'button':
       return {
-        disabled: props.isDisabled || props.isLoading,
+        disabled: isDisabled || undefined,
         type: props.isSubmit ? 'submit' : 'button',
       } as HTMLButtonElement;
     case 'router-link':
       return {
-        disabled: props.isDisabled || props.isLoading,
+        disabled: isDisabled || undefined,
         to: props.to,
       } as RouterLinkProps;
-    default: return {
+    case 'a': return {
       href: props.href,
     } as HTMLLinkElement;
+    default: return {
+      href: props.href,
+      to: props.to,
+    } as unknown;
   }
 });
 

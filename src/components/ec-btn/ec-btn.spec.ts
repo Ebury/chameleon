@@ -10,7 +10,7 @@ import type { ButtonProps } from './types';
 import { ButtonCategory, ButtonSize } from './types';
 
 describe('EcBtn', () => {
-  function mountBtn(props?: Partial<ButtonProps>, mountOpts?: MountingOptions<ButtonProps>) {
+  function mountBtn(props?: ButtonProps, mountOpts?: MountingOptions<ButtonProps>) {
     return mount(EcBtn as any,  // eslint-disable-line
       {
         props,
@@ -20,7 +20,9 @@ describe('EcBtn', () => {
   }
 
   it('should render a <button> element by default', () => {
-    const wrapper = mountBtn();
+    const wrapper = mountBtn({
+      category: ButtonCategory.Primary,
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -30,6 +32,7 @@ describe('EcBtn', () => {
       ['ec-btn--md', ButtonSize.Md],
     ])('should render a <button> element with class "%s" when size is set to %s', (expectedClass, size) => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         size,
       });
 
@@ -39,6 +42,7 @@ describe('EcBtn', () => {
 
     it('should render an <a> element when we define the "href" prop', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         href: 'https://ebury.com/',
       });
 
@@ -47,6 +51,7 @@ describe('EcBtn', () => {
 
     it('should render a router link when we define the "to" prop', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         to: 'trade-finance',
       });
 
@@ -56,6 +61,7 @@ describe('EcBtn', () => {
 
     it('should render a router link with route object', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         to: {
           name: 'trade-finance',
           toString() { return `Route with name '${this.name as string}'`; },
@@ -65,8 +71,22 @@ describe('EcBtn', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
+    it('should render a router link with a custom tag when we define the "tag option"', () => {
+      const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
+        to: 'trade-finance',
+        tag: 'ebury',
+      }, {
+        global: {
+          stubs: ['ebury'],
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it('should render a disabled button when "isDisabled" is set to true', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         isDisabled: true,
       });
 
@@ -76,6 +96,7 @@ describe('EcBtn', () => {
 
     it('should render a button with only an icon when the "icon" is defined but not the slots', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         icon: IconName.SimpleCheck,
       });
 
@@ -86,6 +107,7 @@ describe('EcBtn', () => {
 
     it('should render a button with only a loading spinner when loading is set to true and no slots are passed', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         isLoading: true,
       });
 
@@ -95,6 +117,7 @@ describe('EcBtn', () => {
 
     it('should render a rounded button when the "isRounded" is set to true', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         isRounded: true,
       });
 
@@ -104,6 +127,7 @@ describe('EcBtn', () => {
 
     it('should render a button with an outline when "isOutline" is set to true', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         isOutline: true,
       });
 
@@ -113,6 +137,7 @@ describe('EcBtn', () => {
 
     it('should render a full width button when "isFullWidth" prop is set to true', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         isFullWidth: true,
       });
 
@@ -153,6 +178,7 @@ describe('EcBtn', () => {
 
     it('should render a button with a spinner loader if loading is set to true', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         isLoading: true,
       });
 
@@ -163,6 +189,7 @@ describe('EcBtn', () => {
 
     it('should render a button with type submit if submit is set to true', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         isSubmit: true,
       });
 
@@ -172,6 +199,7 @@ describe('EcBtn', () => {
 
     it('should render a button with type button if submit is set to false', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         isSubmit: false,
       });
 
@@ -181,9 +209,10 @@ describe('EcBtn', () => {
 
     it('should render given HTML attributes', () => {
       const wrapper = mountBtn({
+        category: ButtonCategory.Primary,
         formtarget: 'my-form',
         name: 'test-name',
-      } as Partial<ButtonProps>);
+      } as ButtonProps);
 
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -192,7 +221,9 @@ describe('EcBtn', () => {
   describe(':slots', () => {
     it('should render a button with "Click me!" text', () => {
       const wrapper = mountBtn(
-        {},
+        {
+          category: ButtonCategory.Primary,
+        },
         {
           slots: {
             default: 'Click Me!',
@@ -208,6 +239,7 @@ describe('EcBtn', () => {
     it('should render a button with "Click me!" text and an icon', () => {
       const wrapper = mountBtn(
         {
+          category: ButtonCategory.Primary,
           icon: IconName.SimpleCheck,
         },
         {
@@ -226,6 +258,7 @@ describe('EcBtn', () => {
     it('should render a button with a loading-text and a loading spinner when "isLoading" is set to true and we set the default slot', () => {
       const wrapper = mountBtn(
         {
+          category: ButtonCategory.Primary,
           isLoading: true,
         },
         {
@@ -244,7 +277,10 @@ describe('EcBtn', () => {
 
     it('should render a custom loading text instead of a spinner when "text-loader" is set', () => {
       const wrapper = mountBtn(
-        { isLoading: true },
+        {
+          category: ButtonCategory.Primary,
+          isLoading: true,
+        },
         {
           slots: {
             'loading-text': 'Loading...',
@@ -262,9 +298,10 @@ describe('EcBtn', () => {
     it('should pass custom attributes', () => {
       const wrapper = mountBtn(
         {
+          category: ButtonCategory.Primary,
           id: 'my-button',
           'data-test': 'my-custom-button',
-        } as Partial<ButtonProps>,
+        } as ButtonProps,
       );
 
       expect(wrapper.attributes('id')).toBe('my-button');
@@ -276,8 +313,9 @@ describe('EcBtn', () => {
       const clickSpy = jest.fn();
       const wrapper = mountBtn(
         {
+          category: ButtonCategory.Primary,
           onClick: clickSpy,
-        } as Partial<ButtonProps>,
+        } as ButtonProps,
       );
 
       wrapper.findByDataTest('ec-btn').trigger('click');

@@ -19,6 +19,7 @@ export interface ButtonProps {
   size?: ButtonSize;
   href?: string;
   to?: RouteLocationRaw;
+  tag?: string;
   isDisabled?: boolean;
   icon?: IconName;
   isRounded?: boolean;
