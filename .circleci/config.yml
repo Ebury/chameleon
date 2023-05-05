@@ -3,18 +3,27 @@ jobs:
   build:
     working_directory: ~/chameleon
     docker:
-      - image: circleci/node:lts
+      - image: cypress/browsers:node16.16.0-chrome107-ff107
+        environment:
+          TERM: xterm
     steps:
       - checkout
       - run:
           name: install
-          command: CYPRESS_INSTALL_BINARY=0 npm ci
+          command: npm ci
       - run:
           name: lint
           command: npm run lint:no-fix
       - run:
+          name: test:cy
+          command: npm run test:cy -- --spec '**/ec-input-field.cy.ts'
+      - run:
           name: test
           command: npm run test -- --max-workers=2
+      - store_artifacts:
+          path: ~/chameleon/tests/integration/screenshots
+      - store_artifacts:
+          path: ~/chameleon/tests/integration/snapshots
 
 workflows:
   version: 2

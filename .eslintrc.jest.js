@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     'plugin:jest/recommended',
   ],
+  ignorePatterns: ['**/*.cy.ts'],
   rules: {
     'jest/expect-expect': ['error', { assertFunctionNames: ['expect', 'expect[A-Za-z]+'] }],
     'jest/no-conditional-expect': 'off',

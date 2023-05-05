@@ -1,6 +1,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { defineConfig } from 'cypress';
 
+const {
+  addMatchImageSnapshotPlugin,
+// eslint-disable-next-line import/no-extraneous-dependencies
+} = require('cypress-image-snapshot/plugin');
+
 export default defineConfig({
   screenshotsFolder: 'tests/integration/screenshots/',
   videosFolder: 'tests/integration/videos/',
@@ -19,6 +24,7 @@ export default defineConfig({
   modifyObstructiveCode: false,
   numTestsKeptInMemory: 1,
   reporter: 'junit',
+
   reporterOptions: {
     mochaFile: 'tests/integration/reports/junit.[hash].xml',
     includePending: true,
@@ -26,6 +32,7 @@ export default defineConfig({
     testsuitesTitle: 'Chameleon integration tests',
     jenkinsMode: false,
   },
+
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
@@ -41,5 +48,16 @@ export default defineConfig({
       'tests/integration/**/__image_snapshots__/**/*',
     ],
     supportFile: 'tests/integration/support/index.js',
+  },
+
+  component: {
+    setupNodeEvents(on, config) {
+      addMatchImageSnapshotPlugin(on, config);
+    },
+    viewportWidth: 500,
+    devServer: {
+      framework: 'vue',
+      bundler: 'vite',
+    },
   },
 });
