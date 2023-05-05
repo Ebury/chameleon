@@ -67,6 +67,14 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  showCloseBtn: {
+    type: Boolean,
+    default: false,
+  },
+  backgroundType: {
+    type: String,
+    default: '8',
+  },
 });
 
 const emit = defineEmits(['close']);
