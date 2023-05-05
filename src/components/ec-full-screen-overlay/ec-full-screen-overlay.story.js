@@ -91,7 +91,7 @@ withBackgroundType.args = {
   backgroundType: '7',
 };
 
-export const noClosingIcon = args => ({
+export const noCloseButton = args => ({
   components: { EcFullScreenOverlay, EcBtn },
   setup() {
     return { args };
@@ -134,7 +134,7 @@ export const noClosingIcon = args => ({
     </div>
   `,
 });
-noClosingIcon.args = {
+noCloseButton.args = {
   ...basic.args,
   showCloseBtn: false,
 };
