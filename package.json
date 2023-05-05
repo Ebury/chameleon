@@ -52,7 +52,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "4.0.3",
     "@sinonjs/fake-timers": "9.1.2",
-    "@storybook/addon-a11y": "6.5.12",
+    "@storybook/addon-a11y": "7.0.8",
     "@storybook/addon-actions": "6.5.12",
     "@storybook/addon-cssresources": "6.2.9",
     "@storybook/addon-essentials": "6.5.12",
