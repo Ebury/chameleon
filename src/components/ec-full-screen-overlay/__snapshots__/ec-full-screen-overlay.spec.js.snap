@@ -171,39 +171,6 @@ exports[`EcFullScreenOverlay :props :backgroundColorLevel should render with the
 </div>
 `;
 
-exports[`EcFullScreenOverlay :props :showCloseBtn - should not render the close button when it is false 1`] = `
-<div
-  class="ec-full-screen-overlay tw-bg-gray-8"
-  data-test="ec-full-screen-overlay"
->
-  
-  <div
-    class="ec-full-screen-overlay__content"
-    data-test="ec-full-screen-overlay__content"
-  >
-    <header
-      class="ec-full-screen-overlay__header"
-      data-test="ec-full-screen-overlay__header"
-    >
-      <h1
-        class="ec-full-screen-overlay__title"
-        data-test="ec-full-screen-overlay__title"
-      >
-        Full screen overlay title
-      </h1>
-      <!--v-if-->
-    </header>
-    <main
-      data-test="ec-full-screen-overlay__main"
-    >
-      
-      
-    </main>
-  </div>
-  
-</div>
-`;
-
 exports[`EcFullScreenOverlay :props :title - should render the title 1`] = `
 <h1
   class="ec-full-screen-overlay__title"

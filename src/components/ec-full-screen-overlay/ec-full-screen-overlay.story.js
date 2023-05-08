@@ -91,7 +91,7 @@ backgroundColorLevel.args = {
   backgroundColorLevel: 0,
 };
 
-export const noCloseButton = args => ({
+export const withContentSlot = args => ({
   components: { EcFullScreenOverlay, EcBtn },
   setup() {
     return { args };
@@ -103,16 +103,11 @@ export const noCloseButton = args => ({
       <ec-full-screen-overlay
         v-bind="args"
       >
-        <template #header>
-          <div>
-            <div>Lorem logo</div>
-            <h1 class="tw-mt-24">Lorem Title</h1>
-          </div>
-        </template>
-
-        <template #main>
-          <p v-for="i in 10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies. Curabitur dapibus, purus quis finibus rhoncus, purus augue blandit neque, quis fringilla urna justo consequat arcu. Nulla facilisi. Sed varius metus tempor, porta nunc in, pulvinar arcu. Duis quis lacus vehicula, lacinia arcu in, cursus tellus.</p>
-          <div class="tw-flex tw-justify-end">
+        <template #content>
+         <div style="width:600px" class="tw-bg-gray-8 tw-p-32">
+         <h1>Slot content</h1>
+         <p v-for="i in 3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies. Curabitur dapibus, purus quis finibus rhoncus, purus augue blandit neque, quis fringilla urna justo consequat arcu. Nulla facilisi. Sed varius metus tempor, porta nunc in, pulvinar arcu. Duis quis lacus vehicula, lacinia arcu in, cursus tellus.</p>
+         <div class="tw-flex tw-justify-end">
             <ec-btn
               class="tw-mr-16"
               is-rounded
@@ -129,35 +124,10 @@ export const noCloseButton = args => ({
               Submit
             </ec-btn>
           </div>
+         </div> 
         </template>
       </ec-full-screen-overlay>
     </div>
   `,
 });
-noCloseButton.args = {
-  ...basic.args,
-  showCloseBtn: false,
-};
-
-export const withContentSlot = args => ({
-  components: { EcFullScreenOverlay },
-  setup() {
-    return { args };
-  },
-  template: `
-    <div>
-      <div>Background Text</div>
-
-      <ec-full-screen-overlay
-        v-bind="args"
-      >
-        <template #content>
-          <div class="tw-p-32 tw-bg-gray-8" style="width: 600px;">
-            <h1>Content slot</h1>
-          </div>
-        </template>
-      </ec-full-screen-overlay>
-    </div>
-  `,
-});
-withContentSlot.args = { ...basic.args, showCloseBtn: false, backgroundColorLevel: 7 };
+withContentSlot.args = { ...basic.args, backgroundColorLevel: 7 };

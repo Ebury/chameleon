@@ -62,12 +62,6 @@ describe('EcFullScreenOverlay', () => {
       expect(wrapper.findByDataTest('ec-full-screen-overlay__title').element).toMatchSnapshot();
     });
 
-    it(':showCloseBtn - should not render the close button when it is false', () => {
-      const wrapper = mountFullScreenOverlay({ showCloseBtn: false });
-      expect(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').exists()).toBe(false);
-      expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toMatchSnapshot();
-    });
-
     describe(':backgroundColorLevel', () => {
       it('should render with the background css class passed', () => {
         const wrapper = mountFullScreenOverlay({ backgroundColorLevel: 5 });

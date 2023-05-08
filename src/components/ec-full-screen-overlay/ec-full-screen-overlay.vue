@@ -30,7 +30,6 @@
             </h1>
 
             <button
-              v-if="showCloseBtn"
               class="ec-full-screen-overlay__close-icon-btn"
               data-test="ec-full-screen-overlay__close-icon-btn"
               @click="emit('close')"
@@ -69,10 +68,6 @@ defineProps({
   show: {
     type: Boolean,
     default: false,
-  },
-  showCloseBtn: {
-    type: Boolean,
-    default: true,
   },
   backgroundColorLevel: {
     type: Number,
