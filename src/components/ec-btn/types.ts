@@ -25,7 +25,7 @@ export interface ButtonProps {
   isRounded?: boolean;
   isOutline?: boolean;
   isFullWidth?: boolean;
-  category: ButtonCategory;
+  category?: ButtonCategory;
   isReverse?: boolean;
   isLoading?: boolean;
   isSubmit?: boolean
