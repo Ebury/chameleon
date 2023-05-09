@@ -147,18 +147,18 @@ function hasDefaultSlot() {
 
 function getButtonClasses() {
   return {
-    'ec-btn--sm': props.size === 'sm',
-    'ec-btn--md': props.size === 'md',
+    'ec-btn--sm': props.size === ButtonSize.Sm,
+    'ec-btn--md': props.size === ButtonSize.Md,
     'ec-btn--rounded': props.isRounded,
     'ec-btn--full-width': props.isFullWidth,
     'ec-btn--icon-only': props.icon && !hasDefaultSlot(),
     [`ec-btn--${props.category}`]: props.category,
     'ec-btn--outline': props.isOutline,
-    'ec-btn--primary-reverse': props.isReverse && props.category === 'primary',
-    'ec-btn--secondary-reverse': props.isReverse && props.category === 'secondary',
-    'ec-btn--success-reverse': props.isReverse && props.category === 'success',
-    'ec-btn--error-reverse': props.isReverse && props.category === 'error',
-    'ec-btn--warning-reverse': props.isReverse && props.category === 'warning',
+    'ec-btn--primary-reverse': props.isReverse && props.category === ButtonCategory.Primary,
+    'ec-btn--secondary-reverse': props.isReverse && props.category === ButtonCategory.Secondary,
+    'ec-btn--success-reverse': props.isReverse && props.category === ButtonCategory.Success,
+    'ec-btn--error-reverse': props.isReverse && props.category === ButtonCategory.Error,
+    'ec-btn--warning-reverse': props.isReverse && props.category === ButtonCategory.Warning,
     'ec-btn--is-loading': isSpinnerLoaderVisible() || isTextLoaderVisible(),
   };
 }
