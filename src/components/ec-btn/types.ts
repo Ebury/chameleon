@@ -3,8 +3,8 @@ import type { RouteLocationRaw } from 'vue-router';
 import type { IconName } from '../ec-icon/iconNames';
 
 export enum ButtonSize {
-  Md = 'md',
-  Sm = 'sm'
+  Medium = 'md',
+  Small = 'sm'
 }
 
 export enum ButtonCategory {

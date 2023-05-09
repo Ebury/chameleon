@@ -89,7 +89,7 @@ interface ButtonProps {
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  size: ButtonSize.Md,
+  size: ButtonSize.Medium,
   isDisabled: false,
   isRounded: false,
   isOutline: false,
@@ -147,8 +147,8 @@ function hasDefaultSlot() {
 
 function getButtonClasses() {
   return {
-    'ec-btn--sm': props.size === ButtonSize.Sm,
-    'ec-btn--md': props.size === ButtonSize.Md,
+    'ec-btn--sm': props.size === ButtonSize.Small,
+    'ec-btn--md': props.size === ButtonSize.Medium,
     'ec-btn--rounded': props.isRounded,
     'ec-btn--full-width': props.isFullWidth,
     'ec-btn--icon-only': props.icon && !hasDefaultSlot(),

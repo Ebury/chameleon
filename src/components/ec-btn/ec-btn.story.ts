@@ -64,7 +64,7 @@ export const basic = Template.bind({});
 basic.args = {
   text: 'Click Me',
   category: ButtonCategory.Primary,
-  size: ButtonSize.Md,
+  size: ButtonSize.Medium,
   isSubmit: false,
 };
 

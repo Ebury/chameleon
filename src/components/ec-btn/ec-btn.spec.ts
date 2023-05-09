@@ -28,8 +28,8 @@ describe('EcBtn', () => {
 
   describe(':props', () => {
     it.each([
-      ['ec-btn--sm', ButtonSize.Sm],
-      ['ec-btn--md', ButtonSize.Md],
+      ['ec-btn--sm', ButtonSize.Small],
+      ['ec-btn--md', ButtonSize.Medium],
     ])('should render a <button> element with class "%s" when size is set to %s', (expectedClass, size) => {
       const wrapper = mountBtn({
         category: ButtonCategory.Primary,
