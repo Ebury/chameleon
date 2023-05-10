@@ -1,4 +1,4 @@
-name: Chameleon components CI
+name: Chameleon Components CI
 
 on:
   push:
