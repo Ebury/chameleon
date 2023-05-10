@@ -1,3 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
+const vueJsx = require('@vitejs/plugin-vue-jsx');
+const { mergeConfig } = require('vite');
+
 module.exports = {
   framework: '@storybook/vue3',
   core: {
@@ -26,10 +30,30 @@ module.exports = {
       name: '@storybook/addon-postcss',
       options: {
         postcssLoaderOptions: {
-          // eslint-disable-next-line global-require,import/no-extraneous-dependencies
+          // eslint-disable-next-line global-require
           implementation: require('postcss'),
         },
       },
     },
   ],
+  viteFinal: (config) => {
+    const reactPluginNameRegex = /^vite:react-/;
+    const reactPluginsArrayIndex = config.plugins.findIndex(plugin => Array.isArray(plugin) && plugin.every(p => p.name.match(reactPluginNameRegex)));
+
+    if (reactPluginsArrayIndex === -1) {
+      throw new Error('Unable to patch plugins - cannot find vite:react plugins. Is this fix still necessary?');
+    }
+
+    // remove react plugins and replace them with vue plugins
+    // see https://github.com/storybookjs/storybook/issues/21681
+    // remove after migrating to SB 7
+    const pluginsWithoutReact = config.plugins.filter((_, index) => index !== reactPluginsArrayIndex);
+    return mergeConfig({
+      ...config,
+      plugins: [
+        ...pluginsWithoutReact,
+        vueJsx(),
+      ],
+    });
+  },
 };
