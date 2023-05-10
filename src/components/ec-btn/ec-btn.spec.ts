@@ -1,13 +1,22 @@
+import type { MountingOptions } from '@vue/test-utils';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
+import type { RouteLocationNamedRaw } from 'vue-router';
 
+import type { CVueWrapper } from '../../../tests/utils/global';
+import { IconName } from '../ec-icon/iconNames';
 import EcBtn from './ec-btn.vue';
+import type { ButtonProps } from './types';
+import { ButtonCategory, ButtonSize } from './types';
 
 describe('EcBtn', () => {
-  function mountBtn(props, mountOpts) {
-    return mount(EcBtn, {
-      props,
-      ...mountOpts,
-    });
+  function mountBtn(props?: ButtonProps, mountOpts?: MountingOptions<ButtonProps>) {
+    return mount(EcBtn as any,  // eslint-disable-line
+      {
+        props,
+        ...mountOpts,
+      },
+    ) as CVueWrapper;
   }
 
   it('should render a <button> element by default', () => {
@@ -17,8 +26,8 @@ describe('EcBtn', () => {
 
   describe(':props', () => {
     it.each([
-      ['ec-btn--sm', 'sm'],
-      ['ec-btn--md', 'md'],
+      ['ec-btn--sm', ButtonSize.Small],
+      ['ec-btn--md', ButtonSize.Medium],
     ])('should render a <button> element with class "%s" when size is set to %s', (expectedClass, size) => {
       const wrapper = mountBtn({
         size,
@@ -49,8 +58,8 @@ describe('EcBtn', () => {
       const wrapper = mountBtn({
         to: {
           name: 'trade-finance',
-          toString() { return `Route with name '${this.name}'`; },
-        },
+          toString() { return `Route with name '${this.name as string}'`; },
+        } as RouteLocationNamedRaw,
       });
 
       expect(wrapper.element).toMatchSnapshot();
@@ -65,7 +74,6 @@ describe('EcBtn', () => {
           stubs: ['ebury'],
         },
       });
-
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -80,7 +88,7 @@ describe('EcBtn', () => {
 
     it('should render a button with only an icon when the "icon" is defined but not the slots', () => {
       const wrapper = mountBtn({
-        icon: 'simple-check',
+        icon: IconName.SimpleCheck,
       });
 
       expect(wrapper.classes('ec-btn--icon-only')).toBe(true);
@@ -124,7 +132,13 @@ describe('EcBtn', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it.each(['primary', 'secondary', 'success', 'error', 'warning'])('should render a button with category "%s" when category "prop" is set', (category) => {
+    it.each([
+      ButtonCategory.Primary,
+      ButtonCategory.Secondary,
+      ButtonCategory.Success,
+      ButtonCategory.Error,
+      ButtonCategory.Warning,
+    ])('should render a button with category "%s" when category "prop" is set', (category) => {
       const wrapper = mountBtn({
         category,
       });
@@ -133,7 +147,13 @@ describe('EcBtn', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it.each(['primary', 'secondary', 'success', 'error', 'warning'])('should render a reversed button for the "%s" category when "isReverse" prop is set to true', (category) => {
+    it.each([
+      ButtonCategory.Primary,
+      ButtonCategory.Secondary,
+      ButtonCategory.Success,
+      ButtonCategory.Error,
+      ButtonCategory.Warning,
+    ])('should render a reversed button for the "%s" category when "isReverse" prop is set to true', (category) => {
       const wrapper = mountBtn({
         isReverse: true,
         category,
@@ -175,7 +195,7 @@ describe('EcBtn', () => {
       const wrapper = mountBtn({
         formtarget: 'my-form',
         name: 'test-name',
-      });
+      } as ButtonProps);
 
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -184,7 +204,8 @@ describe('EcBtn', () => {
   describe(':slots', () => {
     it('should render a button with "Click me!" text', () => {
       const wrapper = mountBtn(
-        {},
+        {
+        },
         {
           slots: {
             default: 'Click Me!',
@@ -200,7 +221,7 @@ describe('EcBtn', () => {
     it('should render a button with "Click me!" text and an icon', () => {
       const wrapper = mountBtn(
         {
-          icon: 'simple-check',
+          icon: IconName.SimpleCheck,
         },
         {
           slots: {
@@ -236,7 +257,9 @@ describe('EcBtn', () => {
 
     it('should render a custom loading text instead of a spinner when "text-loader" is set', () => {
       const wrapper = mountBtn(
-        { isLoading: true },
+        {
+          isLoading: true,
+        },
         {
           slots: {
             'loading-text': 'Loading...',
@@ -256,7 +279,7 @@ describe('EcBtn', () => {
         {
           id: 'my-button',
           'data-test': 'my-custom-button',
-        },
+        } as ButtonProps,
       );
 
       expect(wrapper.attributes('id')).toBe('my-button');
@@ -269,12 +292,12 @@ describe('EcBtn', () => {
       const wrapper = mountBtn(
         {
           onClick: clickSpy,
-        },
+        } as ButtonProps,
       );
 
       wrapper.findByDataTest('ec-btn').trigger('click');
       expect(clickSpy).toHaveBeenCalledTimes(1);
-      expect(wrapper.emitted('click').length).toBe(1);
+      expect(wrapper?.emitted('click')?.length).toBe(1);
     });
   });
 });
