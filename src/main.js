@@ -8,7 +8,7 @@ export { default as EcAlert, types as EcAlertTypes } from './components/ec-alert
 export { default as EcAmountFilterInput } from './components/ec-amount-filter-input';
 export { default as EcAmountInput } from './components/ec-amount-input';
 export { default as EcBadge } from './components/ec-badge';
-export { default as EcBtn } from './components/ec-btn';
+export { default as EcBtn, types as EcBtnTypes } from './components/ec-btn';
 export { default as EcBtnDropdown } from './components/ec-btn-dropdown';
 export { default as EcButtonGroup } from './components/ec-button-group';
 export { default as EcCheckbox } from './components/ec-checkbox';

@@ -1,10 +1,20 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import storyRouter from 'storybook-vue3-router';
 
 import {
-  allAnchorsDark, allAnchorsLight, allButtonsDark, allButtonsLight, propsDark, propsLight,
+  allAnchorsDark,
+  allAnchorsLight,
+  allButtonsDark,
+  allButtonsLight,
+  propsDark,
+  propsLight,
 } from '../../styles/components/ec-btn/ec-btn.story';
+import { IconName } from '../ec-icon/iconNames';
 import EcBtn from './ec-btn.vue';
+import type { ButtonProps } from './types';
+import { ButtonCategory, ButtonSize } from './types';
 
 export default {
   title: 'Button',
@@ -12,15 +22,15 @@ export default {
   decorators: [storyRouter()],
   argTypes: {
     category: {
-      options: ['primary', 'secondary', 'success', 'error', 'warning'],
+      options: ButtonCategory,
       control: { type: 'select' },
     },
     size: {
-      options: ['sm', 'md'],
+      options: ButtonSize,
       control: { type: 'select' },
     },
     icon: {
-      options: ['simple-check', 'simple-download'],
+      options: IconName,
       control: { type: 'select' },
     },
     tag: {
@@ -30,7 +40,9 @@ export default {
   },
 };
 
-const Template = ({ text, ...args }) => ({
+type StoryArgs = ButtonProps & {text: string};
+
+const Template = ({ text, ...args }: StoryArgs) => ({
   components: { EcBtn },
   setup() {
     return {
@@ -47,13 +59,17 @@ const Template = ({ text, ...args }) => ({
 });
 
 export const basic = Template.bind({});
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.args = {
   text: 'Click Me',
-  category: 'primary',
-  size: 'md',
+  category: ButtonCategory.Primary,
+  size: ButtonSize.Medium,
   isSubmit: false,
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
@@ -62,7 +78,7 @@ export const all = ({
   text,
   loadingText,
   ...args
-}) => ({
+}: StoryArgs & {loadingText: string}) => ({
   components: { EcBtn },
   setup() {
     return {
@@ -148,6 +164,8 @@ all.argTypes = {
 };
 
 all.args = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   ...basic.args,
   icon: 'simple-check',
   loadingText: '',

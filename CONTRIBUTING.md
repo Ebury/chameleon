@@ -224,7 +224,7 @@ User acceptance testing **User Acceptance Testing** (UAT) is a process to verify
 Before merging a code in a **Pull Request** to the `master` branch, it is required to comply with **all** the next conditions:
 
 * The **Code Review** phase has **finished**.
-* The **Build from circleci** (CI) process marks the PR as **green**.
+* The **Build in GH Actions** (CI) process marks the PR as **green**.
 * There are no **merge conflicts**.
 * The branch must be **updated** with the latest commit of `master` branch.
 * The strategy that must follow the PR will be **squad**
