@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 
 import EcBtn from '../ec-btn/ec-btn.vue';
@@ -10,7 +11,8 @@ export default {
   component: EcMetroline,
 };
 
-export const basic = ({ badgeText, ...args }) => ({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const basic = ({ badgeText, ...args }: any) => ({
   components: {
     EcMetroline,
     EcMetrolineItem,
