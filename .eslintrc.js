@@ -77,7 +77,7 @@ module.exports = {
     ],
     'filenames/match-regex': [
       2,
-      '^[.a-z0-9][a-z0-9-]+(?:\\.[^.]+)?(?:\\.stub\\..*|\\.spec\\..*)?$',
+      '^[.a-z0-9-]+$',
     ],
   },
   overrides: [
