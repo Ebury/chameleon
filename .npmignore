@@ -1,5 +1,4 @@
 .browserslistrc
-.circleci
 .cypress-cache
 .dockerignore
 .editorconfig
