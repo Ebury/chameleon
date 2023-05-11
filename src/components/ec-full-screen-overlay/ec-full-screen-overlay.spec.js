@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 
+import { withMockedConsole } from '../../../tests/utils/console';
 import EcFullScreenOverlay from './ec-full-screen-overlay.vue';
 
 describe('EcFullScreenOverlay', () => {
@@ -60,6 +61,24 @@ describe('EcFullScreenOverlay', () => {
       expect(wrapper.findByDataTest('ec-full-screen-overlay__title').text()).toContain('Lorem title');
       expect(wrapper.findByDataTest('ec-full-screen-overlay__title').element).toMatchSnapshot();
     });
+
+    describe(':backgroundColorLevel', () => {
+      it('should render with the background css class passed', () => {
+        const wrapper = mountFullScreenOverlay({ backgroundColorLevel: 5 });
+        expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toHaveClass('tw-bg-gray-5');
+        expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toMatchSnapshot();
+      });
+
+      it('should throw an error when it is not between 0 and 8', () => {
+        withMockedConsole((_errorSpy, warnSpy) => {
+          mountFullScreenOverlay({ backgroundColorLevel: 9 });
+          expect(warnSpy).toHaveBeenCalledTimes(1);
+          expect(warnSpy.mock.calls[0][0]).toContain(
+            'Invalid prop: custom validator check failed for prop "backgroundColorLevel"',
+          );
+        });
+      });
+    });
   });
 
   describe('@events', () => {
@@ -87,6 +106,16 @@ describe('EcFullScreenOverlay', () => {
       const wrapper = mountFullScreenOverlay({}, {
         slots: {
           main: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies.',
+        },
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('#content - should be rendered when passed', () => {
+      const wrapper = mountFullScreenOverlay({}, {
+        slots: {
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies.',
         },
       });
 

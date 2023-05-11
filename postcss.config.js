@@ -50,10 +50,12 @@ module.exports = () => {
           /data-v-.*/,
           /^ec-/,
           /(:?|^)tw-/,
+          /^tw-bg-gray-\d+$/,
         ],
         deep: [
           /^ec-/,
           /(:?|^)tw-/,
+          /^tw-bg-gray-\d+$/,
         ],
         greedy: [],
         keyframes: [],
