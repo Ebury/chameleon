@@ -3,7 +3,7 @@ import type { MountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
-import { IconName } from '../ec-icon/iconNames';
+import { IconName } from '../ec-icon/icon-names';
 import EcOptionCard from './ec-option-card.vue';
 import type { OptionCardProps } from './types';
 import { OptionCardType } from './types';

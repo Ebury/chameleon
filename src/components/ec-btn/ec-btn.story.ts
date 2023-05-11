@@ -11,7 +11,7 @@ import {
   propsDark,
   propsLight,
 } from '../../styles/components/ec-btn/ec-btn.story';
-import { IconName } from '../ec-icon/iconNames';
+import { IconName } from '../ec-icon/icon-names';
 import EcBtn from './ec-btn.vue';
 import type { ButtonProps } from './types';
 import { ButtonCategory, ButtonSize } from './types';

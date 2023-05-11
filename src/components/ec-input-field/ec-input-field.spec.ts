@@ -5,7 +5,7 @@ import { defineComponent } from 'vue';
 
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
 import type { CVueWrapper } from '../../../tests/utils/global';
-import { IconName } from '../ec-icon/iconNames';
+import { IconName } from '../ec-icon/icon-names';
 import { IconType } from '../ec-icon/types';
 import EcInputField from './ec-input-field.vue';
 import type { InputFieldExpose, InputFieldProps } from './types';

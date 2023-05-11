@@ -2,7 +2,7 @@
 import { action } from '@storybook/addon-actions';
 import { ref, watchEffect } from 'vue';
 
-import { IconName } from '../ec-icon/iconNames';
+import { IconName } from '../ec-icon/icon-names';
 import { IconType } from '../ec-icon/types';
 import EcInputField from './ec-input-field.vue';
 import type { InputFieldProps } from './types';

@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 
-import { IconName } from '../ec-icon/iconNames';
+import { IconName } from '../ec-icon/icon-names';
 import EcOptionCard from './ec-option-card.vue';
 import type { OptionCardProps } from './types';
 import { OptionCardType } from './types';

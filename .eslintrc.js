@@ -11,7 +11,7 @@ module.exports = {
     '@vue/eslint-config-typescript/recommended',
   ],
   parser: 'vue-eslint-parser',
-  plugins: ['simple-import-sort', '@typescript-eslint', 'chameleon'],
+  plugins: ['simple-import-sort', '@typescript-eslint', 'chameleon', 'filenames'],
   rules: {
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'default-param-last': 'off',
@@ -74,6 +74,10 @@ module.exports = {
         ts: 'never',
         tsx: 'never',
       },
+    ],
+    'filenames/match-regex': [
+      2,
+      '^[.a-z][a-z0-9-]+(?:\\.[^.]+)?(?:\\.stub\\..*|\\.spec\\..*)?$',
     ],
   },
   overrides: [
