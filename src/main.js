@@ -35,7 +35,7 @@ export { default as EcMainContainer, types as EcMainContainerTypes } from './com
 export { default as EcMenu } from './components/ec-menu';
 export { default as EcMetroline } from './components/ec-metroline';
 export { default as EcMetrolineItem } from './components/ec-metroline/components/ec-metroline-item';
-export { METROLINE_PROVIDE_KEY } from './components/ec-metroline/ec-metroline-provide';
+export { METROLINE_PROVIDE_KEY } from './components/ec-metroline/provide';
 export { default as EcModal } from './components/ec-modal';
 export { default as EcMultipleValuesSelection } from './components/ec-multiple-values-selection';
 export { default as EcNavigation } from './components/ec-navigation';
