@@ -1,6 +1,6 @@
 import type { RouteLocationRaw } from 'vue-router';
 
-import type { IconName } from '../ec-icon/iconNames';
+import type { IconName } from '../ec-icon/icon-names';
 
 export enum ButtonSize {
   Medium = 'md',

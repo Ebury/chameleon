@@ -32,7 +32,7 @@
 import { computed, toRefs } from 'vue';
 
 import EcIcon from '../ec-icon';
-import type { IconName } from '../ec-icon/iconNames';
+import type { IconName } from '../ec-icon/icon-names';
 import { OptionCardType } from './types';
 
 interface OptionCardProps {
