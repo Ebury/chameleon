@@ -30,7 +30,7 @@ export default {
   },
 };
 
-const Template = ({ trigger, ...args }) => ({
+const Template = ({ trigger, ...args }: { trigger: string[]}) => ({
   directives: { EcTooltip },
   inheritAttrs: false,
   setup() {
@@ -47,6 +47,8 @@ const Template = ({ trigger, ...args }) => ({
 
 export const basic = Template.bind({});
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.args = {
   content: 'Test tooltip',
   shown: true,
@@ -59,6 +61,8 @@ basic.args = {
   autoHide: true,
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
