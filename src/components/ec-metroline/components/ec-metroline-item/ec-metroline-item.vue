@@ -25,7 +25,7 @@
         <ec-icon
           v-else
           data-test="ec-metroline-item__completed-icon"
-          name="simple-check"
+          :name="IconName.SimpleCheck"
           :size="14"
         />
       </div>
@@ -103,65 +103,62 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   computed, inject, onBeforeUnmount, onMounted,
 } from 'vue';
 
 import EcIcon from '../../../ec-icon';
+import { IconName } from '../../../ec-icon/icon-names';
+import type { MetrolineProviderContext } from '../../provide';
 import { METROLINE_PROVIDE_KEY } from '../../provide';
+import { METROLINE_ITEM_STATUS } from './types';
 
-const METROLINE_ITEM_STATUS = {
-  next: 'next',
-  active: 'active',
-  completed: 'completed',
-};
+const metroline = inject<MetrolineProviderContext>(METROLINE_PROVIDE_KEY);
 
-const metroline = inject(METROLINE_PROVIDE_KEY);
+interface MetrolineItemProps {
+  id: number,
+  badgeText?: string
+}
 
-const props = defineProps({
-  id: {
-    type: Number,
-    required: true,
-  },
-  badgeText: {
-    type: String,
-  },
-});
+const props = defineProps<MetrolineItemProps>();
 
-const isReadOnly = computed(() => metroline.isCompleted);
-const isLast = computed(() => props.id === metroline.lastItemId);
+const isReadOnly = computed(() => metroline?.isCompleted);
+const isLast = computed(() => props.id === metroline?.lastItemId);
 const status = computed(() => {
-  if (props.id < metroline.activeItemId || metroline.isCompleted) {
-    return METROLINE_ITEM_STATUS.completed;
+  if (!metroline?.activeItemId) return METROLINE_ITEM_STATUS.Completed;
+  if (metroline?.isCompleted) return METROLINE_ITEM_STATUS.Completed;
+
+  if (props.id < metroline.activeItemId) {
+    return METROLINE_ITEM_STATUS.Completed;
   }
 
-  if (props.id === metroline.activeItemId) {
-    return METROLINE_ITEM_STATUS.active;
+  if (props.id === metroline?.activeItemId) {
+    return METROLINE_ITEM_STATUS.Active;
   }
 
-  return METROLINE_ITEM_STATUS.next;
+  return METROLINE_ITEM_STATUS.Next;
 });
-const isNext = computed(() => status.value === METROLINE_ITEM_STATUS.next);
-const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.active);
-const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.completed);
+const isNext = computed(() => status.value === METROLINE_ITEM_STATUS.Next);
+const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.Active);
+const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.Completed);
 
 onMounted(() => {
-  metroline.register(props.id);
+  metroline?.register(props.id);
 });
 
 onBeforeUnmount(() => {
-  metroline.unregister(props.id);
+  metroline?.unregister(props.id);
 });
 
 function goToNext() {
-  metroline.goToNext(props.id);
+  metroline?.goToNext(props.id);
 }
 function activateItem() {
-  metroline.goTo(props.id);
+  metroline?.goTo(props.id);
 }
 function complete() {
-  metroline.complete();
+  metroline?.complete();
 }
 </script>
 

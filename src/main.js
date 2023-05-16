@@ -33,8 +33,8 @@ export { default as EcLoading, types as EcLoadingTypes } from './components/ec-l
 export { default as EcLoadingIcon } from './components/ec-loading-icon';
 export { default as EcMainContainer, types as EcMainContainerTypes } from './components/ec-main-container';
 export { default as EcMenu } from './components/ec-menu';
-export { default as EcMetroline } from './components/ec-metroline';
-export { default as EcMetrolineItem } from './components/ec-metroline/components/ec-metroline-item';
+export { default as EcMetroline, types as EcMetrolineTypes } from './components/ec-metroline';
+export { default as EcMetrolineItem, types as EcMetrolineItemTypes } from './components/ec-metroline/components/ec-metroline-item';
 export { METROLINE_PROVIDE_KEY } from './components/ec-metroline/provide';
 export { default as EcModal } from './components/ec-modal';
 export { default as EcMultipleValuesSelection } from './components/ec-multiple-values-selection';
