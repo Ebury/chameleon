@@ -3,7 +3,7 @@ import { reactive } from 'vue';
 import EcTooltip from './ec-tooltip';
 import { TooltipPlacement, TooltipPopperClass, TooltipTrigger } from './types';
 
-const defaultPlacements = [TooltipPlacement.BOTTOM, TooltipPlacement.LEFT, TooltipPlacement.RIGHT, TooltipPlacement.TOP]
+const defaultPlacements = [TooltipPlacement.BOTTOM, TooltipPlacement.LEFT, TooltipPlacement.RIGHT, TooltipPlacement.TOP];
 
 export default {
   title: 'Tooltip',
