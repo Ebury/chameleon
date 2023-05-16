@@ -1,4 +1,4 @@
-import FloatingVue, { Popper, VTooltip } from 'floating-vue';
+import FloatingVue, { VTooltip } from 'floating-vue';
 import type { ComponentPublicInstance } from 'vue';
 
 import { getUid } from '../../utils/uid';
@@ -16,7 +16,8 @@ function tryGetContainer(instance?: ComponentPublicInstance): HTMLElement | unde
   return instance?.$.appContext.app.config.globalProperties.$tooltipContainer;
 }
 
-function bind(el: HTMLElement, { value, instance, ...args }: { value?: string | TooltipOptions, instance?: ComponentPublicInstance, args?: Partial<typeof Popper> } = {}) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function bind(el: HTMLElement, { value, instance, ...args }: { value?: string | TooltipOptions, instance?: ComponentPublicInstance, [key: string]: any } = {}) {
   let options: TooltipOptions = {};
   const type = typeof value;
   if (type === 'string') {
@@ -42,6 +43,8 @@ function bind(el: HTMLElement, { value, instance, ...args }: { value?: string | 
     options.container = container;
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   origBeforeMount.call(this, el, { value: options, modifiers: {}, ...args });
 }
 
