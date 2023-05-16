@@ -116,6 +116,8 @@ import { METROLINE_ITEM_STATUS } from './types';
 
 const metroline = inject<MetrolineProviderContext>(METROLINE_PROVIDE_KEY);
 
+if (!metroline) throw new Error('Metroline context is not provided');
+
 interface MetrolineItemProps {
   id: number,
   badgeText?: string
@@ -123,17 +125,17 @@ interface MetrolineItemProps {
 
 const props = defineProps<MetrolineItemProps>();
 
-const isReadOnly = computed(() => metroline?.isCompleted);
-const isLast = computed(() => props.id === metroline?.lastItemId);
+const isReadOnly = computed(() => metroline.isCompleted);
+const isLast = computed(() => props.id === metroline.lastItemId);
 const status = computed(() => {
-  if (!metroline?.activeItemId) return METROLINE_ITEM_STATUS.Completed;
-  if (metroline?.isCompleted) return METROLINE_ITEM_STATUS.Completed;
+  if (!metroline.activeItemId) return METROLINE_ITEM_STATUS.Completed;
+  if (metroline.isCompleted) return METROLINE_ITEM_STATUS.Completed;
 
   if (props.id < metroline.activeItemId) {
     return METROLINE_ITEM_STATUS.Completed;
   }
 
-  if (props.id === metroline?.activeItemId) {
+  if (props.id === metroline.activeItemId) {
     return METROLINE_ITEM_STATUS.Active;
   }
 
@@ -144,21 +146,21 @@ const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.Active);
 const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.Completed);
 
 onMounted(() => {
-  metroline?.register(props.id);
+  metroline.register(props.id);
 });
 
 onBeforeUnmount(() => {
-  metroline?.unregister(props.id);
+  metroline.unregister(props.id);
 });
 
 function goToNext() {
-  metroline?.goToNext(props.id);
+  metroline.goToNext(props.id);
 }
 function activateItem() {
-  metroline?.goTo(props.id);
+  metroline.goTo(props.id);
 }
 function complete() {
-  metroline?.complete();
+  metroline.complete();
 }
 </script>
 

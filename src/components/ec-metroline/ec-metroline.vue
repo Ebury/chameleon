@@ -17,10 +17,6 @@ const emit = defineEmits<{(e: 'change', value: MetrolineEvents[MetrolineEvent.CH
   (e: 'complete'): void
 }>();
 
-// const emit = defineEmits<{(e: 'change', value: string): void,
-//   (e: 'complete'): void,
-// }>();
-
 const metroline = reactive<MetrolineProviderContext>({
   activeItemId: null,
   lastItemId: null,
@@ -38,7 +34,7 @@ const metroline = reactive<MetrolineProviderContext>({
     metrolineItemIds.value = metrolineItemIds.value.filter(item => item !== id);
   },
   goToNext: (id: number) => {
-    if (!metroline?.activeItemId || metroline.activeItemId > id) {
+    if (!metroline.activeItemId || metroline.activeItemId > id) {
       return;
     }
 
