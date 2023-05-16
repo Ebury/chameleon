@@ -127,6 +127,7 @@ const props = defineProps<MetrolineItemProps>();
 
 const isReadOnly = computed(() => metroline.isCompleted);
 const isLast = computed(() => props.id === metroline.lastItemId);
+
 const status = computed(() => {
   if (!metroline.activeItemId) return METROLINE_ITEM_STATUS.Completed;
   if (metroline.isCompleted) return METROLINE_ITEM_STATUS.Completed;
@@ -141,6 +142,7 @@ const status = computed(() => {
 
   return METROLINE_ITEM_STATUS.Next;
 });
+
 const isNext = computed(() => status.value === METROLINE_ITEM_STATUS.Next);
 const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.Active);
 const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.Completed);
@@ -154,13 +156,18 @@ onBeforeUnmount(() => {
 });
 
 function goToNext() {
-  metroline.goToNext(props.id);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  metroline!.goToNext(props.id);
 }
+
 function activateItem() {
-  metroline.goTo(props.id);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  metroline!.goTo(props.id);
 }
+
 function complete() {
-  metroline.complete();
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  metroline!.complete();
 }
 </script>
 
