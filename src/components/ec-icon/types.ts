@@ -1,6 +1,6 @@
-import type { IconName } from './iconNames';
+import type { IconName } from './icon-names';
 
-export * from './iconNames';
+export * from './icon-names';
 
 export enum IconType {
     ERROR = 'error',

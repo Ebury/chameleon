@@ -65,7 +65,7 @@ import {
 import type { RouteLocationRaw, RouterLinkProps } from 'vue-router';
 
 import EcIcon from '../ec-icon';
-import type { IconName } from '../ec-icon/iconNames';
+import type { IconName } from '../ec-icon/icon-names';
 import EcLoadingIcon from '../ec-loading-icon';
 import { ButtonCategory, ButtonSize } from './types';
 

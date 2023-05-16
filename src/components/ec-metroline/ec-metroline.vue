@@ -7,18 +7,20 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { provide, reactive, ref } from 'vue';
 
-import { METROLINE_PROVIDE_KEY } from './ec-metroline-provide';
+import { type MetrolineProviderContext, METROLINE_PROVIDE_KEY } from './provide';
 
-const emit = defineEmits(['change', 'complete']);
+const emit = defineEmits<{(e: 'change', value: string): void,
+  (e: 'complete'): void,
+}>();
 
-const metroline = reactive({
-  activeItemId: null,
-  lastItemId: null,
+const metroline = reactive<MetrolineProviderContext>({
+  activeItemId: '',
+  lastItemId: '',
   isCompleted: false,
-  register: (id) => {
+  register: (id: string) => {
     metrolineItemIds.value.push(id);
     metrolineItemIds.value.sort();
 
@@ -27,10 +29,10 @@ const metroline = reactive({
       metroline.activeItemId = id;
     }
   },
-  unregister: (id) => {
+  unregister: (id: string) => {
     metrolineItemIds.value = metrolineItemIds.value.filter(item => item !== id);
   },
-  goToNext: (id) => {
+  goToNext: (id: string) => {
     if (metroline.activeItemId > id) {
       return;
     }
@@ -44,7 +46,7 @@ const metroline = reactive({
       metroline.complete();
     }
   },
-  goTo: (id) => {
+  goTo: (id: string) => {
     metroline.activeItemId = id;
     metroline.isCompleted = false;
     emit('change', metroline.activeItemId);
@@ -55,9 +57,13 @@ const metroline = reactive({
   },
 });
 
-const metrolineItemIds = ref([]);
+const metrolineItemIds = ref<string[]>([]);
 
-provide(METROLINE_PROVIDE_KEY, metroline);
+function init() {
+  provide<MetrolineProviderContext>(METROLINE_PROVIDE_KEY, metroline);
+}
+
+init();
 </script>
 
 <style>

@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils';
 import type { RouteLocationNamedRaw } from 'vue-router';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
-import { IconName } from '../ec-icon/iconNames';
+import { IconName } from '../ec-icon/icon-names';
 import EcBtn from './ec-btn.vue';
 import type { ButtonProps } from './types';
 import { ButtonCategory, ButtonSize } from './types';

@@ -1,18 +1,20 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
+import type { CVueWrapper } from '../../../tests/utils/global';
 import EcMetrolineItem from './components/ec-metroline-item';
 import EcMetroline from './ec-metroline.vue';
 
-function mountMetrolineAsTemplate(template, wrapperComponentOpts) {
+function mountMetrolineAsTemplate(template: string, wrapperComponentOpts = {}) {
   const Component = defineComponent({
     components: { EcMetroline, EcMetrolineItem },
     template,
     ...wrapperComponentOpts,
   });
 
-  return mount(Component);
+  return mount(Component) as CVueWrapper;
 }
 
 const metrolineWithItemsTemplate = `
@@ -127,7 +129,7 @@ describe('EcMetroline', () => {
     });
 
     it('should throw an error if we don\'t pass an id', () => {
-      withMockedConsole((errorSpy, warnSpy) => {
+      withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
         mountMetrolineAsTemplate(
           `<ec-metroline>
             <ec-metroline-item>
