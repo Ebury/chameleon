@@ -146,6 +146,8 @@ describe('EcMetroline', () => {
     });
 
     it('should throw an error if we don\'t provide Metroline context', () => {
+      expect.assertions(1);
+
       try {
         mount(EcMetrolineItem, { props: { id: 1 } });
       } catch (e) {
