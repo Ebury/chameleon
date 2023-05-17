@@ -126,3 +126,18 @@ allColorsAndPositions.parameters = {
   controls: { disable: true },
   actions: { disable: true },
 };
+
+export const stringAsTooltipValue = () => ({
+  directives: { EcTooltip },
+  template: `
+    <div class="tw-m-80">
+      <div
+        class="tw-p-12 tw-rounded tw-text-gray-8 tw-my-auto tw-mx-20 tw-bg-additional-18"
+        v-ec-tooltip="'Test string tooltip value'">Hover over this element to see the tooltip.</div>
+    </div>`,
+});
+
+stringAsTooltipValue.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
+};
