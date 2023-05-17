@@ -129,9 +129,7 @@ const isReadOnly = computed(() => metroline.isCompleted);
 const isLast = computed(() => props.id === metroline.lastItemId);
 
 const status = computed(() => {
-  if (!metroline.activeItemId) return METROLINE_ITEM_STATUS.Next;
-
-  if (metroline.isCompleted || props.id < metroline.activeItemId) return METROLINE_ITEM_STATUS.Completed;
+  if (metroline.isCompleted || (metroline.activeItemId && props.id < metroline.activeItemId)) return METROLINE_ITEM_STATUS.Completed;
 
   if (props.id === metroline.activeItemId) {
     return METROLINE_ITEM_STATUS.Active;
