@@ -1,4 +1,5 @@
-:root {
+:root,
+:host {
   --ec-gray-color-level-0: var(--ec-theme-gray-color-level-0);
   --ec-gray-color-level-1: var(--ec-theme-gray-color-level-1);
   --ec-gray-color-level-2: var(--ec-theme-gray-color-level-2);

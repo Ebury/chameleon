@@ -265,7 +265,8 @@ const currenciesTooltipOptions = computed(() => {
 </script>
 
 <style>
-:root {
+:root,
+:host {
   --ec-currency-input-currencies-width: 104px;
 }
 

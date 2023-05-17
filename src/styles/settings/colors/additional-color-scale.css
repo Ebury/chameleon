@@ -1,4 +1,5 @@
-:root {
+:root,
+:host {
   --ec-additional-color-level-18: 18, 72%, 47%;
   --ec-additional-color-level-51: 51, 72%, 47%;
   --ec-additional-color-level-64: 64, 72%, 47%;

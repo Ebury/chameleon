@@ -122,7 +122,8 @@ export default {
 @import '../../styles/tools/scrollbars.css';
 @import '../../styles/tools/transitions.css';
 
-:root {
+:root,
+:host {
   --ec-side-panel-max-width: 352px;
 }
 

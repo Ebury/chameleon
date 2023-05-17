@@ -4,7 +4,8 @@
 
 @import '../../tools/z-index.css';
 
-:root {
+:root,
+:host {
   --ec-tooltip-max-width: 260px;
 }
 

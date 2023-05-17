@@ -48,7 +48,8 @@ const emit = defineEmits(['toggle']);
 <style>
 @import '../../styles/tools/transitions.css';
 
-:root {
+:root,
+:host {
   --ec-user-info-avatar-size: theme('spacing.48');
 }
 

@@ -75,7 +75,8 @@ defineProps({
 </script>
 
 <style>
-:root {
+:root,
+:host {
   --ec-navigation-width: 280px;
   --ec-navigation-collapsable-width: 256px;
   --ec-navigation-is-collapsed-width: 80px;

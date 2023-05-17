@@ -243,7 +243,8 @@ function hasFooter() {
 @import '../../styles/tools/scrollbars.css';
 @import '../../styles/tools/transitions.css';
 
-:root {
+:root,
+:host {
   --ec-modal-lg-max-width: 1100px;
   --ec-modal-sm-max-width: 680px;
 }

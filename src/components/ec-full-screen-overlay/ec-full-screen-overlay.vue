@@ -113,7 +113,8 @@ function hasHeaderSlot() {
   @import '../../styles/tools/scrollbars.css';
   @import '../../styles/tools/transitions.css';
 
-  :root {
+  :root,
+  :host {
     --ec-full-screen-overlay__content-width: 656px;
   }
 
