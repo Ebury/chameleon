@@ -1,12 +1,14 @@
+import type { Maybe } from '../../../global';
+
 export const METROLINE_PROVIDE_KEY = Symbol('metroline');
 
 export interface MetrolineProviderContext {
-    activeItemId: string,
-    lastItemId: string,
+    activeItemId: Maybe<number>,
+    lastItemId: Maybe<number>,
     isCompleted: boolean,
-    register: (id: string) => void,
-    unregister: (id: string) => void,
-    goToNext: (id: string) => void,
-    goTo: (id: string) => void,
+    register: (id: number) => void,
+    unregister: (id: number) => void,
+    goToNext: (id: number) => void,
+    goTo: (id: number) => void,
     complete: () => void,
 }

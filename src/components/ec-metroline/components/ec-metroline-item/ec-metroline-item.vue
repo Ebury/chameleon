@@ -25,7 +25,7 @@
         <ec-icon
           v-else
           data-test="ec-metroline-item__completed-icon"
-          name="simple-check"
+          :name="IconName.SimpleCheck"
           :size="14"
         />
       </div>
@@ -103,48 +103,44 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   computed, inject, onBeforeUnmount, onMounted,
 } from 'vue';
 
 import EcIcon from '../../../ec-icon';
+import { IconName } from '../../../ec-icon/icon-names';
+import type { MetrolineProviderContext } from '../../provide';
 import { METROLINE_PROVIDE_KEY } from '../../provide';
+import { METROLINE_ITEM_STATUS } from './types';
 
-const METROLINE_ITEM_STATUS = {
-  next: 'next',
-  active: 'active',
-  completed: 'completed',
-};
+const metroline = inject<MetrolineProviderContext>(METROLINE_PROVIDE_KEY);
 
-const metroline = inject(METROLINE_PROVIDE_KEY);
+if (!metroline) throw new Error('Metroline context is not provided');
 
-const props = defineProps({
-  id: {
-    type: Number,
-    required: true,
-  },
-  badgeText: {
-    type: String,
-  },
-});
+interface MetrolineItemProps {
+  id: number,
+  badgeText?: string
+}
+
+const props = defineProps<MetrolineItemProps>();
 
 const isReadOnly = computed(() => metroline.isCompleted);
 const isLast = computed(() => props.id === metroline.lastItemId);
+
 const status = computed(() => {
-  if (props.id < metroline.activeItemId || metroline.isCompleted) {
-    return METROLINE_ITEM_STATUS.completed;
-  }
+  if (metroline.isCompleted || (metroline.activeItemId && props.id < metroline.activeItemId)) return METROLINE_ITEM_STATUS.Completed;
 
   if (props.id === metroline.activeItemId) {
-    return METROLINE_ITEM_STATUS.active;
+    return METROLINE_ITEM_STATUS.Active;
   }
 
-  return METROLINE_ITEM_STATUS.next;
+  return METROLINE_ITEM_STATUS.Next;
 });
-const isNext = computed(() => status.value === METROLINE_ITEM_STATUS.next);
-const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.active);
-const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.completed);
+
+const isNext = computed(() => status.value === METROLINE_ITEM_STATUS.Next);
+const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.Active);
+const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.Completed);
 
 onMounted(() => {
   metroline.register(props.id);
@@ -155,13 +151,18 @@ onBeforeUnmount(() => {
 });
 
 function goToNext() {
-  metroline.goToNext(props.id);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  metroline!.goToNext(props.id);
 }
+
 function activateItem() {
-  metroline.goTo(props.id);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  metroline!.goTo(props.id);
 }
+
 function complete() {
-  metroline.complete();
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  metroline!.complete();
 }
 </script>
 
