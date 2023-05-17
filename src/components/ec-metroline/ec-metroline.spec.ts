@@ -144,6 +144,16 @@ describe('EcMetroline', () => {
         expect(warnSpy).toHaveBeenCalledTimes(1);
       });
     });
+
+    it('should throw an error if we don\'t provide Metroline context', () => {
+      expect.assertions(1);
+
+      try {
+        mount(EcMetrolineItem, { props: { id: 1 } });
+      } catch (e) {
+        expect((e as Error).message).toBe('Metroline context is not provided');
+      }
+    });
   });
 
   describe('@events', () => {

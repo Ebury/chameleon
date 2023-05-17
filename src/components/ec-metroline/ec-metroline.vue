@@ -11,16 +11,17 @@
 import { provide, reactive, ref } from 'vue';
 
 import { type MetrolineProviderContext, METROLINE_PROVIDE_KEY } from './provide';
+import type { MetrolineEvent, MetrolineEvents } from './types';
 
-const emit = defineEmits<{(e: 'change', value: string): void,
-  (e: 'complete'): void,
+const emit = defineEmits<{(e: 'change', value: MetrolineEvents[MetrolineEvent.CHANGE]): void
+  (e: 'complete'): void
 }>();
 
 const metroline = reactive<MetrolineProviderContext>({
-  activeItemId: '',
-  lastItemId: '',
+  activeItemId: null,
+  lastItemId: null,
   isCompleted: false,
-  register: (id: string) => {
+  register: (id: number) => {
     metrolineItemIds.value.push(id);
     metrolineItemIds.value.sort();
 
@@ -29,11 +30,11 @@ const metroline = reactive<MetrolineProviderContext>({
       metroline.activeItemId = id;
     }
   },
-  unregister: (id: string) => {
+  unregister: (id: number) => {
     metrolineItemIds.value = metrolineItemIds.value.filter(item => item !== id);
   },
-  goToNext: (id: string) => {
-    if (metroline.activeItemId > id) {
+  goToNext: (id: number) => {
+    if (!metroline.activeItemId || metroline.activeItemId > id) {
       return;
     }
 
@@ -46,7 +47,7 @@ const metroline = reactive<MetrolineProviderContext>({
       metroline.complete();
     }
   },
-  goTo: (id: string) => {
+  goTo: (id: number) => {
     metroline.activeItemId = id;
     metroline.isCompleted = false;
     emit('change', metroline.activeItemId);
@@ -57,7 +58,7 @@ const metroline = reactive<MetrolineProviderContext>({
   },
 });
 
-const metrolineItemIds = ref<string[]>([]);
+const metrolineItemIds = ref<number[]>([]);
 
 function init() {
   provide<MetrolineProviderContext>(METROLINE_PROVIDE_KEY, metroline);
