@@ -12,13 +12,13 @@ describe('useEcConfig', () => {
     (inject as jest.Mock).mockClear();
   });
 
-  test('should call inject with CHAMELEON_CONFIG_KEY', () => {
+  it('should call inject with CHAMELEON_CONFIG_KEY', () => {
     useEcConfig();
 
     expect(inject).toHaveBeenCalledWith(CHAMELEON_CONFIG_KEY, config);
   });
 
-  test('should return the value from inject', () => {
+  it('should return the value from inject', () => {
     (inject as jest.Mock).mockReturnValueOnce('mockedValue');
 
     const result = useEcConfig();
