@@ -57,7 +57,7 @@ import { inlineSvgSprites } from './icons/browser';
 
 inlineSvgSprites(['rounded-icons', 'simple-icons', 'currency-flags'], '/img');
 // loads /img/rounded-icons.svg, /img/simple-icons.svg and /img/currency-flags.svg in parallel
-// then attaches content to the body
+// then attaches content to the body or to a target element if this is provided as a third argument
 // automatically creates a <div> with unique ID for each sprite
 ```
 
