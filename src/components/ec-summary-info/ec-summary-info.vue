@@ -47,12 +47,14 @@
 </template>
 
 <script setup lang="ts">
-import config from '../../config';
+import useConfig from '../../composables/use-ec-config';
 import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
 import type { Item } from './types';
 import { StylePreset } from './types';
+
+const config = useConfig();
 
 interface SummaryProps {
   iconName?: IconName,

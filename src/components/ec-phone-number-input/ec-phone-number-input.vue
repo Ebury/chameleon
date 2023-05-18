@@ -156,7 +156,7 @@ import type { InputHTMLAttributes } from 'vue';
 import { computed, ref } from 'vue';
 
 import type { Maybe, ZIndexLevel } from '../../../global';
-import config from '../../config';
+import useConfig from '../../composables/use-ec-config';
 import vEcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';
@@ -174,6 +174,8 @@ import type {
 import { PhoneNumberEvent } from './types';
 
 const supportedCountries = new Set(Object.keys(countries));
+
+const config = useConfig();
 
 const emit = defineEmits<{(e: 'update:modelValue', value: PhoneNumberEvents[PhoneNumberEvent.UPDATE_MODEL_VALUE]): void
   (e: 'change', value: PhoneNumberEvents[PhoneNumberEvent.CHANGE]): void

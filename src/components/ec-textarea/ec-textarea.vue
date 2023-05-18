@@ -68,10 +68,12 @@
 <script setup>
 import { computed, ref } from 'vue';
 
-import config from '../../config';
+import useConfig from '../../composables/use-ec-config';
 import VEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
+
+const config = useConfig();
 
 const emit = defineEmits(['update:modelValue']);
 

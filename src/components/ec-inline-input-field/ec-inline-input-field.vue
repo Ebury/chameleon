@@ -58,13 +58,15 @@
 <script setup>
 import { ref } from 'vue';
 
-import config from '../../config';
+import useConfig from '../../composables/use-ec-config';
 import VEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import EcInlineInputFieldCopy from './components/copy';
 import EcInlineInputFieldEdit from './components/edit';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldValueText from './components/value-text';
+
+const config = useConfig();
 
 const props = defineProps({
   label: {
