@@ -1,8 +1,9 @@
+import type { IconName } from '../components/ec-icon/icon-names';
 import { loadSvgSprites } from './loader';
 
-export function inlineSvgSprites(spriteNames, publicPath, targetElement) {
+export function inlineSvgSprites(spriteNames: IconName[], publicPath: string, targetElement?: HTMLElement) {
   return loadSvgSprites(spriteNames, publicPath)
-    .map(spritePromise => spritePromise.then(({ spriteName, svg }) => {
+    .map((spritePromise: Promise<{ spriteName: IconName, svg: string }>) => spritePromise.then(({ spriteName, svg }) => {
       const uid = generateUid(spriteName);
       const svgSpriteWrapper = document.getElementById(uid)
       || createSvgSpriteWrapper(uid, targetElement || document.body);
@@ -11,11 +12,11 @@ export function inlineSvgSprites(spriteNames, publicPath, targetElement) {
     }));
 }
 
-export function generateUid(spriteName) {
+export function generateUid(spriteName: IconName) {
   return `svg-sprite-container-${spriteName}`;
 }
 
-function createSvgSpriteWrapper(id, targetElement) {
+function createSvgSpriteWrapper(id: string, targetElement: HTMLElement) {
   const spriteWrapper = document.createElement('div');
   spriteWrapper.id = id;
   spriteWrapper.style.display = 'none';
