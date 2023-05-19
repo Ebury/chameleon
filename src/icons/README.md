@@ -50,14 +50,14 @@ SVG sprite can be used two ways, as "external source" or "inline":
 
 First one doesn't work on IE, so we will use inline SVG sprite. To inline the sprite in the HTML,
 we can include the SVG file in our `index.html` directly, or we can download the file via ajax and attach it to
-the DOM when an app does bootstrap. For the 2nd option, we have provided a small helper located in `browser.js`. Usage:
+the DOM when an app does bootstrap. For the 2nd option, we have provided a small helper located in `browser.ts`. Usage:
 
 ```js
 import { inlineSvgSprites } from './icons/browser';
 
 inlineSvgSprites(['rounded-icons', 'simple-icons', 'currency-flags'], '/img');
 // loads /img/rounded-icons.svg, /img/simple-icons.svg and /img/currency-flags.svg in parallel
-// then attaches content to the body
+// then attaches content to the body or to a target element if this is provided as a third argument
 // automatically creates a <div> with unique ID for each sprite
 ```
 

@@ -327,7 +327,8 @@ function getItemProp(item: unknown, prop: keyof PhoneNumberCountryItem) {
 </script>
 
 <style>
-:root {
+:root,
+:host {
   --ec-phone-number-input-width: 124px;
 }
 

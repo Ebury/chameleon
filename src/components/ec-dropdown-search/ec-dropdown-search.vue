@@ -578,7 +578,8 @@ export default {
 <style>
 @import '../../styles/tools/ec-dropdown';
 
-:root {
+:root,
+:host {
   --ec-dropdown-search-icon-margin-right: theme('margin.8');
   --ec-dropdown-search-icon-size: theme('spacing.16');
   --ec-dropdown-search-item-height: theme('spacing.40');

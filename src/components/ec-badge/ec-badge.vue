@@ -28,7 +28,8 @@ defineProps({
 </script>
 
 <style>
-:root {
+:root,
+:host {
   --ec-filter-badge-width: 16px;
   --ec-filter-badge-height: 16px;
 }

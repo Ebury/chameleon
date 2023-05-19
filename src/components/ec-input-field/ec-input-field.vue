@@ -202,7 +202,8 @@ export default {
 </script>
 
 <style>
-:root {
+:root,
+:host {
   --ec-input-field-height: 42px;
   --ec-input-field-icon-area-size: var(--ec-input-field-height);
 }

@@ -2,7 +2,10 @@
 
 html {
   @apply tw-min-h-full;
+}
 
+html,
+:host {
   font-size: 62.5%;
   box-sizing: border-box;
 }
@@ -15,7 +18,8 @@ html {
 }
 /* stylelint-enable */
 
-body {
+body,
+:host {
   @apply tw-font-sans tw-body-text tw-text-gray-3 tw-normal-case;
 
   font-variant-ligatures: none;
