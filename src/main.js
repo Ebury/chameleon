@@ -58,6 +58,7 @@ export { default as EcTextarea } from './components/ec-textarea';
 export { default as EcTimer } from './components/ec-timer';
 export { default as EcToaster } from './components/ec-toaster';
 export { default as EcUserInfo } from './components/ec-user-info';
+export { CHAMELEON_CONFIG_KEY, default as useEcConfig } from './composables/use-ec-config';
 export { default as useEcPagination } from './composables/use-ec-pagination';
 export { default as useEcSorting } from './composables/use-ec-sorting';
 export { default as config } from './config';
