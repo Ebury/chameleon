@@ -87,7 +87,7 @@ import {
 } from 'vue';
 
 import type { Maybe } from '../../../global';
-import config from '../../config';
+import useConfig from '../../composables/use-ec-config';
 import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
@@ -96,6 +96,7 @@ import EcLoadingIcon from '../ec-loading-icon';
 import type { InputFieldEvents, InputFieldExpose } from './types';
 import { InputFieldEvent, InputFieldType } from './types';
 
+const config = useConfig();
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 

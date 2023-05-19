@@ -150,13 +150,15 @@ import {
   computed, nextTick, ref, toRaw, useSlots, watch,
 } from 'vue';
 
-import config from '../../config';
+import useConfig from '../../composables/use-ec-config';
 import VEcTooltip from '../../directives/ec-tooltip';
 import { ARROW_DOWN, ARROW_UP } from '../../enums/key-code';
 import { removeDiacritics } from '../../utils/diacritics';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
 import EcPopover from '../ec-popover';
+
+const config = useConfig();
 
 const emit = defineEmits(['update:modelValue', 'change', 'close', 'open', 'after-close', 'after-open']);
 const props = defineProps({
