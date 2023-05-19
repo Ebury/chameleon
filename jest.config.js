@@ -52,7 +52,7 @@ module.exports = {
     '!src/**/.eslintrc.js',
     '!src/icons/**',
     '!src/assets/**',
-    '!src/directives/ec-tooltip/ec-tooltip.js',
+    '!src/directives/ec-tooltip/ec-tooltip.ts',
     '!src/shims-vue.d.ts',
     '!src/enums/tooltip-placement.js',
   ],
