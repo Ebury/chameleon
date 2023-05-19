@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcTooltipDirective should bind the tooltip directive correctly when value is an object 1`] = `
+<div
+  class="v-popper--has-tooltip"
+  id="tooltipElement"
+>
+  Tooltip content
+</div>
+`;

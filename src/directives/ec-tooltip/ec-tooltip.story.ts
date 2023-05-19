@@ -1,8 +1,9 @@
 import { reactive } from 'vue';
 
 import EcTooltip from './ec-tooltip';
+import { TooltipPlacement, TooltipPopperClass, TooltipTrigger } from './types';
 
-const defaultPlacements = ['right', 'top', 'bottom', 'left'];
+const defaultPlacements = [TooltipPlacement.BOTTOM, TooltipPlacement.LEFT, TooltipPlacement.RIGHT, TooltipPlacement.TOP];
 
 export default {
   title: 'Tooltip',
@@ -11,56 +12,59 @@ export default {
       options: defaultPlacements,
       control: { type: 'select' },
     },
-    trigger: {
-      options: ['hover', 'click'],
+    triggers: {
+      options: [TooltipTrigger.HOVER, TooltipTrigger.CLICK],
       control: { type: 'select' },
     },
     popperClass: {
       options: [
-        '',
-        'ec-tooltip--level-1',
-        'ec-tooltip--level-2',
-        'ec-tooltip--level-3',
-        'ec-tooltip--bg-bright',
-        'ec-tooltip--bg-success',
-        'ec-tooltip--bg-error',
+        TooltipPopperClass.EC_TOOLTIP_BG_BRIGHT,
+        TooltipPopperClass.EC_TOOLTIP_BG_ERROR,
+        TooltipPopperClass.EC_TOOLTIP_BG_SUCCESS,
+        TooltipPopperClass.EC_TOOLTIP_LEVEL_1,
+        TooltipPopperClass.EC_TOOLTIP_LEVEL_2,
+        TooltipPopperClass.EC_TOOLTIP_LEVEL_3,
       ],
       control: { type: 'select' },
     },
   },
 };
 
-const Template = ({ trigger, ...args }) => ({
+const Template = ({ triggers, ...args }: { triggers: TooltipTrigger}) => ({
   directives: { EcTooltip },
   inheritAttrs: false,
   setup() {
-    return { args, trigger };
+    return { args, triggers };
   },
   template: `
     <div class="tw-m-80">
       <div
         class="tw-p-12 tw-rounded tw-text-gray-8 tw-my-auto tw-mx-20 tw-bg-additional-18"
-        v-ec-tooltip="{ ...args, triggers: [trigger] }">Hover over this element to see the tooltip.</div>
+        v-ec-tooltip="{ ...args, triggers: [triggers] }">Hover over this element to see the tooltip.</div>
     </div>
   `,
 });
 
 export const basic = Template.bind({});
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.args = {
   content: 'Test tooltip',
   shown: true,
-  placement: 'top',
+  placement: TooltipPlacement.TOP,
   delay: 100,
   popperClass: '',
-  trigger: 'hover',
+  triggers: TooltipTrigger.HOVER,
   distance: 8,
   skidding: 0,
   autoHide: true,
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.parameters = {
-  visualRegressionTests: { disable: true },
+  visualRegressionTests: { disable: false },
 };
 
 export const allColorsAndPositions = () => ({
@@ -69,13 +73,13 @@ export const allColorsAndPositions = () => ({
     const tooltipConfig = reactive({
       content: '<p>Normal tooltip. Lorem ipsum dolor sit amet</p>',
       shown: true,
-      triggers: ['click'],
+      triggers: [TooltipTrigger.CLICK],
     });
 
     const customBgTooltipConfig = reactive({
       content: '<p>Popover like tooltip. Lorem ipsum dolor sit amet</p>',
-      popperClass: ['ec-tooltip--bg-bright'],
-      triggers: ['click'],
+      popperClass: TooltipPopperClass.EC_TOOLTIP_BG_BRIGHT,
+      triggers: [TooltipTrigger.CLICK],
       shown: true,
     });
 
@@ -121,5 +125,19 @@ export const allColorsAndPositions = () => ({
 allColorsAndPositions.parameters = {
   controls: { disable: true },
   actions: { disable: true },
-  docs: { disable: true },
+};
+
+export const stringAsTooltipValue = () => ({
+  directives: { EcTooltip },
+  template: `
+    <div class="tw-m-80">
+      <div
+        class="tw-p-12 tw-rounded tw-text-gray-8 tw-my-auto tw-mx-20 tw-bg-additional-18"
+        v-ec-tooltip="'Test string tooltip value'">Hover over this element to see the tooltip.</div>
+    </div>`,
+});
+
+stringAsTooltipValue.parameters = {
+  controls: { disable: true },
+  actions: { disable: true },
 };
