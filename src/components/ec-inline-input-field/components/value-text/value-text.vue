@@ -22,8 +22,10 @@
 </template>
 
 <script setup>
-import config from '../../../../config';
+import useConfig from '../../../../composables/use-ec-config';
 import EcIcon from '../../../ec-icon';
+
+const config = useConfig();
 
 defineProps({
   value: {

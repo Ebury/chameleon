@@ -36,10 +36,11 @@
 import clipboardCopy from 'clipboard-copy';
 import { computed, ref } from 'vue';
 
-import config from '../../../../config';
+import useConfig from '../../../../composables/use-ec-config';
 import VEcTooltip from '../../../../directives/ec-tooltip';
 import EcIcon from '../../../ec-icon';
 
+const config = useConfig();
 const isCopied = ref(null);
 
 const props = defineProps({
