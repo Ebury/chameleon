@@ -64,6 +64,7 @@
               ref="negativeButton"
               :is-disabled="isNegativeButtonDisabled"
               is-rounded
+              is-outline
               :is-submit="false"
               :category="negativeButtonCategory"
               class="ec-modal__negative-btn"
@@ -109,6 +110,7 @@ import {
 
 import * as KeyCode from '../../enums/key-code';
 import EcBtn from '../ec-btn';
+import { ButtonCategory } from '../ec-btn/types';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
 
@@ -164,8 +166,8 @@ const positiveButton = ref(null);
 const negativeButton = ref(null);
 const isLoadingPositiveButton = computed(() => !!props.isLoading.positive);
 const isLoadingNegativeButton = computed(() => !!props.isLoading.negative);
-const positiveButtonCategory = computed(() => props.category.positive || 'primary');
-const negativeButtonCategory = computed(() => props.category.negative || 'secondary');
+const positiveButtonCategory = computed(() => props.category.positive || ButtonCategory.Primary);
+const negativeButtonCategory = computed(() => props.category.negative || ButtonCategory.Secondary);
 const isPositiveButtonDisabled = computed(() => props.positiveButtonProps.isDisabled || false);
 const isNegativeButtonDisabled = computed(() => props.negativeButtonProps.isDisabled || false);
 function hasPositiveButton() {

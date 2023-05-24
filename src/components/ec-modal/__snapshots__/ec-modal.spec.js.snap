@@ -4,7 +4,7 @@ exports[`EcModal should disable the negative button when the "isDisabled" given 
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <button
-    class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
+    class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary ec-btn--outline"
     data-test="ec-modal__negative-btn ec-btn"
     disabled=""
     type="button"
@@ -263,7 +263,7 @@ exports[`EcModal should render negative button if slot is passed 1`] = `
     >
       
       <button
-        class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
+        class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary ec-btn--outline"
         data-test="ec-modal__negative-btn ec-btn"
         type="button"
       >
@@ -304,7 +304,7 @@ exports[`EcModal should render negative button with given category 1`] = `
     >
       
       <button
-        class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--warning"
+        class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--warning ec-btn--outline"
         data-test="ec-modal__negative-btn ec-btn"
         type="button"
       >
@@ -359,7 +359,7 @@ exports[`EcModal should render negative button with the loading status if slot i
     >
       
       <button
-        class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
+        class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary ec-btn--outline"
         data-test="ec-modal__negative-btn ec-btn"
         type="button"
       >
@@ -524,7 +524,7 @@ exports[`EcModal should render with an enabled negative button by default 1`] = 
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <button
-    class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary"
+    class="ec-modal__negative-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--secondary ec-btn--outline"
     data-test="ec-modal__negative-btn ec-btn"
     type="button"
   >
