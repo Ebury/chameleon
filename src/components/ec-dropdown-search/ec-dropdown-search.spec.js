@@ -381,6 +381,129 @@ describe('EcDropdownSearch', () => {
     });
   });
 
+  describe('filtering complex items', () => {
+    const itemsToFilter = [
+      { text: 'Item ABC', category: 'One', language: 'English' },
+      { text: 'Item BCD', category: 'Two', language: 'French' },
+      { text: 'Item cdf', category: 'Three', language: 'English' },
+    ];
+
+    function getItemTexts(wrapper) {
+      return wrapper.findAllByDataTest('ec-dropdown-search__item').map(itemWrapper => itemWrapper.text());
+    }
+
+    it('should filter items with a search field', async () => {
+      const searchFields = ['category'];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('One');
+      expect(getItemTexts(wrapper)).toEqual(['Item ABC']);
+    });
+
+    it('should filter items with multiple search fields', async () => {
+      const searchFields = ['category', 'language'];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('English');
+      expect(getItemTexts(wrapper)).toEqual(['Item ABC', 'Item cdf']);
+    });
+
+    it('should filter by text if no search field found', async () => {
+      const searchFields = ['category'];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('f');
+      expect(getItemTexts(wrapper)).toEqual(['Item cdf']);
+    });
+
+    it('should filter by text with no existing search field', async () => {
+      const searchFields = ['country'];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('f');
+      expect(getItemTexts(wrapper)).toEqual(['Item cdf']);
+    });
+
+    it('should filter by text with empty search fields', async () => {
+      const searchFields = [];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('f');
+      expect(getItemTexts(wrapper)).toEqual(['Item cdf']);
+    });
+
+    it('should filter items using case insensitive', async () => {
+      const searchFields = ['category', 'language'];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('D');
+      expect(getItemTexts(wrapper)).toEqual(['Item BCD', 'Item cdf']);
+    });
+
+    it('should trim the search text', async () => {
+      const searchFields = ['category', 'language'];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('\t f\n');
+      expect(getItemTexts(wrapper)).toEqual(['Item BCD', 'Item cdf']);
+    });
+
+    it('should remove the diacritics', async () => {
+      const searchFields = ['category', 'language'];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter.map(item => ({ text: item.text, category: item.category.replace('E', 'È'), language: item.language })), searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('è');
+      expect(getItemTexts(wrapper)).toEqual(['Item ABC', 'Item BCD', 'Item cdf']);
+    });
+
+    it('should display no results message if no item matches', async () => {
+      const searchFields = ['category', 'language'];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('dkasldklsakdlsakdlas');
+      expect(getItemTexts(wrapper)).toEqual([]);
+      expect(wrapper.findByDataTest('ec-dropdown-search__no-items').element).toMatchSnapshot();
+    });
+
+    it('should display custom no results message if no item matches', () => {
+      const searchFields = ['category', 'language'];
+      const wrapper = mountDropdownSearch({ items: [], noResultsText: 'No custom items have been found', searchFields });
+      expect(wrapper.findByDataTest('ec-dropdown-search__no-items').element).toMatchSnapshot();
+    });
+
+    it('should display custom no results slot if no item matches', () => {
+      const searchFields = ['category', 'language'];
+      const wrapper = mountDropdownSearch({
+        items: [],
+        noResultsText: 'No custom items have been found',
+        searchFields,
+      }, {
+        slots: {
+          empty: ({ noResultsText }) => h('li', { 'data-test': 'my-slot' }, [h('div', `Random message - ${noResultsText}`)]),
+        },
+      });
+      expect(wrapper.findByDataTest('my-slot').element).toMatchSnapshot();
+    });
+
+    it('should not display the filter items if the isLoading prop is set to true', () => {
+      const searchFields = ['category', 'language'];
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, isLoading: true, searchFields });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(0);
+
+      wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('B');
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(0);
+    });
+  });
+
   describe('events', () => {
     // .findByDataTest('stub').trigger('event') does nothing, so we need to emit the event from inside of the stubbed
     // component using .vm.$emit('event');

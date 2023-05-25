@@ -19,6 +19,15 @@ const items = [
   { text: 'Item 7' },
 ];
 
+const complexItems = [
+  { text: 'My Item 1', country: 'Spain', language: 'Spanish' },
+  { text: 'My Item 2', country: 'England', language: 'English' },
+  { text: 'My Item 3', country: 'South Africa', language: 'Xhosa' },
+  { text: 'My Item 4', country: 'United States of America', language: 'English' },
+];
+
+const searchFields = ['country', 'language'];
+
 export const all = ({ paragraphText, ...args }) => ({
   components: { EcDropdownSearch, EcIcon },
   setup() {
@@ -51,10 +60,22 @@ export const all = ({ paragraphText, ...args }) => ({
       },
     ];
 
+    const argsComplex = {
+      noResultsText: 'No results found',
+      items: complexItems,
+      searchFields,
+      isSearchEnabled: true,
+      maxVisibleItems: 3,
+      disabled: false,
+      isLoading: false,
+      isSensitive: false,
+    };
+
     return {
       dropdowns,
       selectedItem,
       paragraphText,
+      argsComplex,
       args,
       onChange: action('change'),
     };
@@ -87,6 +108,24 @@ export const all = ({ paragraphText, ...args }) => ({
               <p v-if="dropdownSearch.hasParagraph" class="tw-mt-16">{{ paragraphText }}</p>
             </div>
           </div>
+
+          <div class="tw-my-20">
+            <h3>Search with multiple search categories</h3>
+            <ec-dropdown-search
+              v-bind="argsComplex"
+              v-model="selectedItem"
+              v-on="{ change: onChange }">
+              <a href="#" @click.prevent>
+                <span>Open</span>
+                <ec-icon name="simple-arrow-drop-down" :size="16" class="tw-fill-current" />
+              </a>
+              <template #item="{ item, index, isSelected }">
+                <div>{{ item.text }}</div>
+                <strong>{{ item.country }}</strong>
+                <div>{{ item.language }}</div>
+              </template>
+            </ec-dropdown-search>
+          </div>
         </div>
       </div>
     </div>
@@ -103,3 +142,4 @@ all.args = {
   isSensitive: false,
   paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Consequat interdum varius sit amet mattis vulputate enim nulla. Eget mi proin sed libero enim sed faucibus turpis.',
 };
+

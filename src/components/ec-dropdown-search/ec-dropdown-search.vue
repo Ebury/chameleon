@@ -184,6 +184,10 @@ const props = defineProps({
     type: Array,
     default: () => ([]),
   },
+  searchFields: {
+    type: Array,
+    default: null,
+  },
   modelValue: {
     type: [Object, Array],
     default: null,
@@ -343,6 +347,19 @@ const filteredItems = computed(() => {
   }
 
   return props.items.filter((item) => {
+    if (props.searchFields?.length) {
+      let hasSearchValue = false;
+      for (const searchField of props.searchFields) {
+        if (item[searchField]) {
+          const searchValue = removeDiacritics(item[searchField].trim().toLowerCase());
+          if (searchValue.includes(sanitisedText)) {
+            hasSearchValue = true;
+            break;
+          }
+        }
+      }
+      if (hasSearchValue) return hasSearchValue;
+    }
     const itemText = removeDiacritics(item.text.trim().toLowerCase());
     return itemText.includes(sanitisedText);
   });

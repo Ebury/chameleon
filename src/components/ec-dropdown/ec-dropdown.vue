@@ -7,6 +7,7 @@
     :placeholder="searchPlaceholder"
     :no-results-text="noResultsText"
     :is-search-enabled="isSearchEnabled"
+    :search-fields="searchFields"
     :disabled="disabled"
     :level="level"
     :is-loading="isLoading"
@@ -74,6 +75,10 @@ const props = defineProps({
   items: {
     type: Array,
     default: () => ([]),
+  },
+  searchFields: {
+    type: Array,
+    default: null,
   },
   modelValue: {
     type: [Object, Array],
