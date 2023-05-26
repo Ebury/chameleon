@@ -6,7 +6,7 @@ export enum SpriteName {
   CURRENCY_FLAGS = 'currency-flags'
 }
 
-export function inlineSvgSprites(spriteNames: SpriteName[], publicPath: string, targetElement?: HTMLElement) {
+export function inlineSvgSprites(spriteNames: SpriteName[], publicPath: string, targetElement?: ShadowRoot | HTMLElement) {
   return loadSvgSprites(spriteNames, publicPath)
     .map((spritePromise: Promise<{ spriteName: SpriteName, svg: string }>) => spritePromise.then(({ spriteName, svg }) => {
       const uid = generateUid(spriteName);
