@@ -410,26 +410,26 @@ describe('EcDropdownSearch', () => {
       expect(getItemTexts(wrapper)).toEqual(['Item ABC', 'Item cdf']);
     });
 
-    it('should filter by text if no search field found', async () => {
+    it('should not filter by text if no search field found', async () => {
       const searchFields = ['category'];
       const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('f');
-      expect(getItemTexts(wrapper)).toEqual(['Item cdf']);
+      expect(getItemTexts(wrapper)).toEqual([]);
     });
 
-    it('should filter by text with no existing search field', async () => {
+    it('should not filter by text with no existing search field', async () => {
       const searchFields = ['country'];
       const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('f');
-      expect(getItemTexts(wrapper)).toEqual(['Item cdf']);
+      expect(getItemTexts(wrapper)).toEqual([]);
     });
 
     it('should filter by text with empty search fields', async () => {
-      const searchFields = [];
+      const searchFields = null;
       const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
@@ -442,8 +442,8 @@ describe('EcDropdownSearch', () => {
       const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
-      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('D');
-      expect(getItemTexts(wrapper)).toEqual(['Item BCD', 'Item cdf']);
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('O');
+      expect(getItemTexts(wrapper)).toEqual(['Item ABC', 'Item BCD']);
     });
 
     it('should trim the search text', async () => {
@@ -452,7 +452,7 @@ describe('EcDropdownSearch', () => {
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('\t f\n');
-      expect(getItemTexts(wrapper)).toEqual(['Item BCD', 'Item cdf']);
+      expect(getItemTexts(wrapper)).toEqual(['Item BCD']);
     });
 
     it('should remove the diacritics', async () => {

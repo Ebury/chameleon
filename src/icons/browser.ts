@@ -21,7 +21,7 @@ export function generateUid(spriteName: SpriteName) {
   return `svg-sprite-container-${spriteName}`;
 }
 
-function createSvgSpriteWrapper(id: string, targetElement: HTMLElement) {
+function createSvgSpriteWrapper(id: string, targetElement: ShadowRoot | HTMLElement) {
   const spriteWrapper = document.createElement('div');
   spriteWrapper.id = id;
   spriteWrapper.style.display = 'none';
