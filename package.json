@@ -91,7 +91,7 @@
     "eslint-plugin-jest": "27.2.1",
     "eslint-plugin-simple-import-sort": "8.0.0",
     "eslint-plugin-vue": "9.13.0",
-    "eslint-plugin-vuejs-accessibility": "1.2.0",
+    "eslint-plugin-vuejs-accessibility": "2.1.0",
     "intl": "1.2.5",
     "jest": "29.3.1",
     "jest-environment-jsdom": "29.3.1",
