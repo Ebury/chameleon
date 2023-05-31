@@ -6,7 +6,7 @@ export enum SpriteName {
   CURRENCY_FLAGS = 'currency-flags'
 }
 
-export function inlineSvgSprites(spriteNames: SpriteName[], publicPath: string, targetElement?: HTMLElement) {
+export function inlineSvgSprites(spriteNames: SpriteName[], publicPath: string, targetElement?: ShadowRoot | HTMLElement) {
   return loadSvgSprites(spriteNames, publicPath)
     .map((spritePromise: Promise<{ spriteName: SpriteName, svg: string }>) => spritePromise.then(({ spriteName, svg }) => {
       const uid = generateUid(spriteName);
@@ -21,7 +21,7 @@ export function generateUid(spriteName: SpriteName) {
   return `svg-sprite-container-${spriteName}`;
 }
 
-function createSvgSpriteWrapper(id: string, targetElement: HTMLElement) {
+function createSvgSpriteWrapper(id: string, targetElement: ShadowRoot | HTMLElement) {
   const spriteWrapper = document.createElement('div');
   spriteWrapper.id = id;
   spriteWrapper.style.display = 'none';

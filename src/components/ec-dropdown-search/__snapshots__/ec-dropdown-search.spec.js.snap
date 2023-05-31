@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcDropdownSearch filtering complex items should display custom no results message if no item matches 1`] = `
+<li
+  class="ec-dropdown-search__no-items"
+  data-test="ec-dropdown-search__no-items"
+  title="No custom items have been found"
+>
+  No custom items have been found
+</li>
+`;
+
+exports[`EcDropdownSearch filtering complex items should display custom no results slot if no item matches 1`] = `
+<li
+  data-test="my-slot"
+>
+  <div>
+    Random message - No custom items have been found
+  </div>
+</li>
+`;
+
+exports[`EcDropdownSearch filtering complex items should display no results message if no item matches 1`] = `
+<li
+  class="ec-dropdown-search__no-items"
+  data-test="ec-dropdown-search__no-items"
+  title="No results found"
+>
+  No results found
+</li>
+`;
+
 exports[`EcDropdownSearch filtering should display custom no results message if no item matches 1`] = `
 <li
   class="ec-dropdown-search__no-items"

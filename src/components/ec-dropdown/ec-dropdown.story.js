@@ -28,6 +28,15 @@ const defaultItems = [
   { text: 'Item 7' },
 ];
 
+const complexItems = [
+  { text: 'My Item 1', country: 'Spain', language: 'Spanish' },
+  { text: 'My Item 2', country: 'England', language: 'English' },
+  { text: 'My Item 3', country: 'South Africa', language: 'Xhosa' },
+  { text: 'My Item 4', country: 'United States of America', language: 'English' },
+];
+
+const searchFields = ['country', 'language'];
+
 const Template = ({ modelValue, ...args }) => ({
   components: { EcDropdown },
   setup() {
@@ -95,6 +104,8 @@ export const all = args => ({
       itemsIncludingEmpty,
       selected,
       disabledModel,
+      searchFields,
+      complexItems,
       onCta: action('CTA'),
     };
   },
@@ -178,6 +189,20 @@ export const all = args => ({
               <div>00{{ index }}. {{ item.text }}</div>
               <div>{{ item.disabledReason }}</div>
               <div v-if="isSelected">This item is selected</div>
+            </template>
+          </ec-dropdown>
+        </div>
+        <div class="tw-col-4">
+          <ec-dropdown
+            :items="complexItems"
+            :search-fields="searchFields"
+            is-search-enabled
+            label="Single value - extended search options"
+            placeholder="Single value - extended search options"
+            v-model="selected">
+            <template #item="{ item, index, isSelected }">
+              <div>{{ index }}. {{ item.text }}</div>
+              <div>{{ item.country }} | {{ item.language }}</div>
             </template>
           </ec-dropdown>
         </div>

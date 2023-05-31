@@ -184,6 +184,9 @@ const props = defineProps({
     type: Array,
     default: () => ([]),
   },
+  searchFields: {
+    type: Array,
+  },
   modelValue: {
     type: [Object, Array],
     default: null,
@@ -336,6 +339,12 @@ const filterText = ref('');
 const isSearchInputFocused = ref(false);
 const searchInput = ref(null);
 
+const indexedItems = computed(() => new WeakMap(props.items.map(item => [item, makeIndexText(item, props.searchFields ?? ['text'])])));
+
+function makeIndexText(item, searchFields) {
+  return searchFields.map(searchField => removeDiacritics(item[searchField] ?? '').toLowerCase()).join('\u00A0');
+}
+
 const filteredItems = computed(() => {
   const sanitisedText = removeDiacritics(filterText.value.toLowerCase());
   if (!sanitisedText) {
@@ -343,8 +352,8 @@ const filteredItems = computed(() => {
   }
 
   return props.items.filter((item) => {
-    const itemText = removeDiacritics(item.text.trim().toLowerCase());
-    return itemText.includes(sanitisedText);
+    const indexedText = indexedItems.value.get(item);
+    return indexedText.includes(sanitisedText);
   });
 });
 
