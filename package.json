@@ -58,7 +58,7 @@
     "@storybook/addon-essentials": "6.5.12",
     "@storybook/addon-links": "6.5.12",
     "@storybook/addon-postcss": "2.0.0",
-    "@storybook/addon-viewport": "6.5.12",
+    "@storybook/addon-viewport": "7.0.18",
     "@storybook/addons": "6.5.12",
     "@storybook/builder-vite": "0.2.3",
     "@storybook/source-loader": "6.5.12",
