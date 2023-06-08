@@ -123,7 +123,7 @@ module.exports = {
         'chameleon/vue-props-interface': 'error',
 
         // to avoid "You have used a rule which requires parserServices to be generated." issues in vue files, we have to disable some
-        // typescript rules in vue files hoping that this bugs will be resolve one day:
+        // typescript rules in vue files hoping that these bugs will be resolved one day:
         // https://github.com/vuejs/vue-eslint-parser/issues/104
         // https://github.com/vuejs/create-vue/issues/123
         '@typescript-eslint/naming-convention': 'off',
