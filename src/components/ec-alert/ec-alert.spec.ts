@@ -1,5 +1,4 @@
 import type { MountingOptions } from '@vue/test-utils';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
@@ -11,7 +10,8 @@ import { AlertType } from './types';
 describe('EcAlert', () => {
   function mountAlert(props?: Partial<AlertProps>, mountOpts?: MountingOptions<AlertProps>): CVueWrapper {
     return mount(
-      EcAlert as any, // eslint-disable-line
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      EcAlert as any,
       {
         props: {
           title: 'Title example',

@@ -55,6 +55,7 @@
             />
 
             <button
+              type="button"
               data-test="ec-currency-filter__clear-amount"
               class="ec-currency-filter__clear-amount"
               :disabled="!hasAmount"

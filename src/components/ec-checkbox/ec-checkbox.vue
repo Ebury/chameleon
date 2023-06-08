@@ -14,7 +14,7 @@
         'aria-describedby': errorId,
         disabled: disabled,
         'data-test': 'ec-checkbox__input',
-        type: 'checkbox'
+        type: 'checkbox',
       }"
       ref="checkboxInput"
       v-model="inputModel"

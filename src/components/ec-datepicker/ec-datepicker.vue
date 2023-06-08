@@ -16,7 +16,7 @@
     autocomplete="off"
     icon="simple-calendar"
     :class="['ec-datepicker', attrs.class]"
-    :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-datepicker`: 'ec-datepicker'"
+    :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-datepicker` : 'ec-datepicker'"
     :disabled="isDisabled"
     :model-value="formattedValue"
     @icon-click="openCalendar()"

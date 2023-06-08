@@ -48,7 +48,7 @@
 
     <div
       v-else
-      :class="{ 'ec-inline-input-field__content': true, [config.sensitiveClass]: isSensitive}"
+      :class="{ 'ec-inline-input-field__content': true, [config.sensitiveClass]: isSensitive }"
     >
       <slot />
     </div>

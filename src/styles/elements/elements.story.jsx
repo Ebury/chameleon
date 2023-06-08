@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line, jsx-a11y/anchor-is-valid, jsx-a11y/control-has-associated-label, react/button-has-type */
 import './elements.story.css';
 
 export default {
@@ -56,7 +57,7 @@ export const all = () => ({
           <caption>Caption</caption>
           <thead>
             <tr>
-              <th scope="col"></th>
+              <th scope="col" />
               <th scope="col">Column 1</th>
               <th scope="col">Column 2</th>
               <th scope="col">Column 3</th>
@@ -129,7 +130,7 @@ export const all = () => ({
           </div>
           <div>
             <label for="textarea">Textarea:</label>
-            <textarea id="textarea"></textarea>
+            <textarea id="textarea" />
           </div>
           <div>
             <button type="button">Button</button>

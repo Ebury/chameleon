@@ -4,7 +4,7 @@ import type { IconName } from '../ec-icon/icon-names';
 
 export enum ButtonSize {
   Medium = 'md',
-  Small = 'sm'
+  Small = 'sm',
 }
 
 export enum ButtonCategory {
@@ -12,7 +12,7 @@ export enum ButtonCategory {
   Secondary = 'secondary',
   Success = 'success',
   Error = 'error',
-  Warning = 'warning'
+  Warning = 'warning',
 }
 
 export interface ButtonProps {

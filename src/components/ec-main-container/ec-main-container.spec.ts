@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { type MountingOptions, mount } from '@vue/test-utils';
+
+import { mount, type MountingOptions } from '@vue/test-utils';
 
 import EcMainContainer from './ec-main-container.vue';
 import type { MainContainerProps } from './types';

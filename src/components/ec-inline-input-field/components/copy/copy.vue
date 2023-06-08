@@ -3,7 +3,7 @@
     class="ec-inline-input-field-copy"
     data-test="ec-inline-input-field-copy"
   >
-    <span :class="{ 'ec-inline-input-field-copy__text': true, [config.sensitiveClass]: isSensitive}">
+    <span :class="{ 'ec-inline-input-field-copy__text': true, [config.sensitiveClass]: isSensitive }">
       {{ value }}
     </span>
 
@@ -19,7 +19,7 @@
           placement: 'left',
           shown: !!tooltipContent,
           triggers: ['manual'],
-          content: tooltipContent ,
+          content: tooltipContent,
           popperClass: tooltipClasses,
           ...tooltipOptions,
         }"

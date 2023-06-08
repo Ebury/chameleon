@@ -15,8 +15,8 @@
       data-test="ec-btn__icon"
       :class="{
         'ec-btn__icon--with-spacing': hasDefaultSlot() && icon,
-        'ec-btn__icon--no-loading-text' : isSpinnerLoaderVisible(),
-        'ec-btn__icon--with-loading-text' : isTextLoaderVisible(),
+        'ec-btn__icon--no-loading-text': isSpinnerLoaderVisible(),
+        'ec-btn__icon--with-loading-text': isTextLoaderVisible(),
       }"
       :name="icon"
       :size="22"
@@ -33,7 +33,7 @@
       v-else-if="hasDefaultSlot()"
       data-test="ec-btn__text"
       :class="{
-        'ec-btn__text--is-loading' : isLoading,
+        'ec-btn__text--is-loading': isLoading,
         'ec-btn__text': true,
       }"
     >
@@ -105,7 +105,8 @@ const isAnchorLink = computed(() => !!props.href);
 const componentTag = computed(() => {
   if (isAnchorLink.value) {
     return props.tag || 'a';
-  } if (isRouterLink.value) {
+  }
+  if (isRouterLink.value) {
     return props.tag || 'router-link';
   }
   return props.tag || 'button';

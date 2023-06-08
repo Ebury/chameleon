@@ -95,7 +95,9 @@ module.exports = {
       const propsInterfaceName = node?.typeParameters?.params[0]?.typeName?.name;
       const isScriptLangTS = context.getSourceCode().text.indexOf('lang="ts"') !== -1;
 
-      if (!propsInterfaceName && !isScriptLangTS) return;
+      if (!propsInterfaceName && !isScriptLangTS) {
+        return;
+      }
 
       if (!propsInterfaceName && isScriptLangTS) {
         context.report({

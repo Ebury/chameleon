@@ -14,7 +14,7 @@ export enum OptionCardType {
 }
 
 export enum OptionCardEvent {
-  CLICK = 'click'
+  CLICK = 'click',
 }
 
 export interface OptionCardEvents {

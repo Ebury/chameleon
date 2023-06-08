@@ -10,7 +10,7 @@
         value: value,
         id: id,
         disabled: isDisabled,
-        type: 'radio'
+        type: 'radio',
       }"
       ref="inputRadioRef"
       class="ec-radio-btn__input"
@@ -47,7 +47,7 @@
             class="ec-radio-btn__icon"
             :class="{
               'ec-radio-btn__icon--checked': isChecked && !isDisabled,
-              'ec-radio-btn__icon--checked-and-disabled': isDisabled && isChecked
+              'ec-radio-btn__icon--checked-and-disabled': isDisabled && isChecked,
             }"
             :name="IconName.RoundedNotification"
             :size="20"
@@ -138,7 +138,7 @@ const labelId = `${id}-label`;
 const descriptionId = `${id}-description`;
 const inputRadioRef = ref();
 
-const emit = defineEmits<{(e: 'update:modelValue', value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]): void,
+const emit = defineEmits<{ (e: 'update:modelValue', value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]): void,
 }>();
 
 const isChecked = computed(() => props.modelValue === props.value);

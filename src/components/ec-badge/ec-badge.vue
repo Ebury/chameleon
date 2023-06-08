@@ -3,7 +3,7 @@
     class="ec-badge"
     data-test="ec-badge"
     :class="{
-      [`ec-badge--${type}`]: type
+      [`ec-badge--${type}`]: type,
     }"
   >
     <slot v-bind="{ value }">{{ value }}</slot>

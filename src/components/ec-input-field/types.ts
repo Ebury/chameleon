@@ -12,12 +12,12 @@ export enum InputFieldType {
   TEXT = 'text',
   DATE = 'date',
   NUMBER = 'number',
-  TEL = 'tel'
+  TEL = 'tel',
 }
 
 export enum InputFieldEvent {
   UPDATE_MODEL_VALUE = 'update:modelValue',
-  ICON_CLICK = 'icon-click'
+  ICON_CLICK = 'icon-click',
 }
 
 export interface InputFieldEvents {

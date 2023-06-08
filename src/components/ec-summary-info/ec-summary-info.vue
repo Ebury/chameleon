@@ -32,7 +32,7 @@
           <ec-icon
             v-if="item.tooltipText"
             v-ec-tooltip="{
-              content: item.tooltipText
+              content: item.tooltipText,
             }"
             :class="getItemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset)"
             :data-test="getItemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset).join(' ')"
@@ -66,8 +66,12 @@ withDefaults(defineProps<SummaryProps>(), {
 });
 
 function getStylePresetByIndex(index: number) {
-  if (index === 1 || index > 2) { return StylePreset.TEXT; }
-  if (index === 2) { return StylePreset.DESCRIPTION; }
+  if (index === 1 || index > 2) {
+    return StylePreset.TEXT;
+  }
+  if (index === 2) {
+    return StylePreset.DESCRIPTION;
+  }
   return StylePreset.LABEL;
 }
 

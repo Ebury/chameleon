@@ -2,7 +2,7 @@
   <div
     data-test="ec-user-info"
     class="ec-user-info"
-    :class="{'ec-user-info--is-collapsable': isCollapsable}"
+    :class="{ 'ec-user-info--is-collapsable': isCollapsable }"
   >
     <img
       class="ec-user-info__avatar"

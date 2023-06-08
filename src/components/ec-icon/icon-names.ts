@@ -158,5 +158,5 @@ export enum IconName {
   SimpleTrade = 'simple-trade',
   SimpleWallet = 'simple-wallet',
   SimpleWand = 'simple-wand',
-  SimpleWithdraw = 'simple-withdraw'
+  SimpleWithdraw = 'simple-withdraw',
 }

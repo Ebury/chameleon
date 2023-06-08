@@ -54,7 +54,7 @@ export const withPanel = ({
   panelIsLoading,
   transparent,
   ...args
-}: LoadingProps & {siblingIsLoading: boolean, panelIsLoading: boolean}) => ({
+}: LoadingProps & { siblingIsLoading: boolean, panelIsLoading: boolean }) => ({
   components: { EcLoading, EcPanel },
   setup() {
     return {

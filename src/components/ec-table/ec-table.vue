@@ -115,7 +115,8 @@ function getColumnWidth(column) {
 function getStickyColumnClass(colIndex, columns) {
   if (props.stickyColumn === 'left' && colIndex === 0) {
     return 'ec-table__cell--sticky-left';
-  } if (props.stickyColumn === 'right' && colIndex === columns.length - 1) {
+  }
+  if (props.stickyColumn === 'right' && colIndex === columns.length - 1) {
     return 'ec-table__cell--sticky-right';
   }
   return null;

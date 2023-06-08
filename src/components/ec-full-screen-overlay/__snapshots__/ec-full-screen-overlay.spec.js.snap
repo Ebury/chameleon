@@ -34,6 +34,7 @@ exports[`EcFullScreenOverlay #slots #header - should be rendered when passed 1`]
         <button
           class="ec-full-screen-overlay__close-icon-btn"
           data-test="ec-full-screen-overlay__close-icon-btn"
+          type="button"
         >
           <span
             class="tw-sr-only"
@@ -88,6 +89,7 @@ exports[`EcFullScreenOverlay #slots #main - should be rendered when passed 1`] =
         <button
           class="ec-full-screen-overlay__close-icon-btn"
           data-test="ec-full-screen-overlay__close-icon-btn"
+          type="button"
         >
           <span
             class="tw-sr-only"
@@ -142,6 +144,7 @@ exports[`EcFullScreenOverlay :props :backgroundColorLevel should render with the
       <button
         class="ec-full-screen-overlay__close-icon-btn"
         data-test="ec-full-screen-overlay__close-icon-btn"
+        type="button"
       >
         <span
           class="tw-sr-only"
@@ -204,6 +207,7 @@ exports[`EcFullScreenOverlay should render as expected 1`] = `
         <button
           class="ec-full-screen-overlay__close-icon-btn"
           data-test="ec-full-screen-overlay__close-icon-btn"
+          type="button"
         >
           <span
             class="tw-sr-only"
