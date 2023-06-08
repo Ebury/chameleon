@@ -133,8 +133,8 @@
       "stylelint --fix",
       "git add"
     ],
-    "*.{vue,js,jsx}": [
-      "eslint --fix ./",
+    "*.{vue,js,jsx,ts,tsx}": [
+      "eslint --fix",
       "git add"
     ]
   }
