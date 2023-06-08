@@ -7,10 +7,10 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-recommended',
-    '@vue/airbnb',
     '@vue/eslint-config-typescript/recommended',
+    '@vue/eslint-config-airbnb-with-typescript',
+    '@vue/eslint-config-airbnb-with-typescript/allow-js-in-vue',
   ],
-  parser: 'vue-eslint-parser',
   plugins: ['simple-import-sort', '@typescript-eslint', 'chameleon', 'filenames'],
   rules: {
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
@@ -109,6 +109,16 @@ module.exports = {
       rules: {
         'import/first': 'off',
         'chameleon/vue-props-interface': 'error',
+
+        // to avoid "You have used a rule which requires parserServices to be generated." issues in vue files, we have to disable some
+        // typescript rules in vue files hoping that this bugs will be resolve one day:
+        // https://github.com/vuejs/vue-eslint-parser/issues/104
+        // https://github.com/vuejs/create-vue/issues/123
+        '@typescript-eslint/naming-convention': 'off',
+        '@typescript-eslint/dot-notation': 'off',
+        '@typescript-eslint/no-implied-eval': 'off',
+        '@typescript-eslint/no-throw-literal': 'off',
+        '@typescript-eslint/return-await': 'off',
       },
     },
     {
@@ -122,15 +132,17 @@ module.exports = {
     },
   ],
   parserOptions: {
-    parser: '@typescript-eslint/parser',
-    ecmaFeatures: {
-      jsx: true,
+    // there is a gigantic clash in all plugins and extended configs we use and at the end, the preferred parser chosen for everything is
+    // @typescript/parser and that is wrong. we don't want JS and JSX files to be parsed by the TS.
+    parser: {
+      js: 'espree',
+      jsx: 'espree',
     },
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.ts', '.tsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
   },
