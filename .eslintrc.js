@@ -1,3 +1,5 @@
+const braceStyle = ['error', '1tbs', { allowSingleLine: false }];
+
 module.exports = {
   root: true,
   reportUnusedDisableDirectives: true,
@@ -14,8 +16,12 @@ module.exports = {
   plugins: ['simple-import-sort', '@typescript-eslint', 'chameleon', 'filenames'],
   rules: {
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
+    'brace-style': braceStyle,
+    curly: ['error', 'all'],
     'default-param-last': 'off',
     'max-len': 'off',
+    'max-statements-per-line': ['error', { max: 1 }],
+    'multiline-ternary': ['error', 'always-multiline'],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-multiple-empty-lines': ['error', { max: 1 }],
@@ -51,20 +57,26 @@ module.exports = {
         'EVENTS',
       ],
     }],
+    'vue/brace-style': braceStyle,
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'vue/max-len': 'off',
     'vue/multi-word-component-names': 'off',
     'vue/multiline-html-element-content-newline': 'off',
+    'vue/no-restricted-syntax': 'off',
     'vue/one-component-per-file': 'off',
     'vue/require-default-prop': 'off',
     'vue/singleline-html-element-content-newline': 'off',
-    // TODO:
+    // TODO: enable a11y rules
     'vuejs-accessibility/anchor-has-content': 'off',
     'vuejs-accessibility/click-events-have-key-events': 'off',
     'vuejs-accessibility/form-control-has-label': 'off',
     'vuejs-accessibility/label-has-for': 'off',
     'vuejs-accessibility/mouse-events-have-key-events': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/brace-style': braceStyle,
+    '@typescript-eslint/no-duplicate-enum-values': 'error',
+    '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',

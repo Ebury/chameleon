@@ -7,5 +7,7 @@ module.exports = {
     'jest/no-conditional-expect': 'off',
     'jest/no-identical-title': 'off',
     'jest/no-standalone-expect': ['error', { additionalTestBlockFunctions: ['beforeEach', 'afterEach'] }],
+    'jest/no-commented-out-tests': 'error',
+    'jest/no-disabled-tests': 'error',
   },
 };
