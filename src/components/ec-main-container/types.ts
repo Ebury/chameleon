@@ -1,4 +1,4 @@
 export interface MainContainerProps {
-    title?: string,
-    titleIntro?: string,
+  title?: string,
+  titleIntro?: string,
 }

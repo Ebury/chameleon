@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
@@ -7,14 +7,16 @@ import type { CVueWrapper } from '../../../tests/utils/global';
 import EcMetrolineItem from './components/ec-metroline-item';
 import EcMetroline from './ec-metroline.vue';
 
-function mountMetrolineAsTemplate(template: string, wrapperComponentOpts = {}) {
+async function mountMetrolineAsTemplate(template: string, wrapperComponentOpts = {}) {
   const Component = defineComponent({
     components: { EcMetroline, EcMetrolineItem },
     template,
     ...wrapperComponentOpts,
   });
 
-  return mount(Component) as CVueWrapper;
+  const wrapper = mount(Component) as CVueWrapper;
+  await wrapper.vm.$nextTick();
+  return wrapper;
 }
 
 const metrolineWithItemsTemplate = `
@@ -146,13 +148,19 @@ describe('EcMetroline', () => {
     });
 
     it('should throw an error if we don\'t provide Metroline context', () => {
-      expect.assertions(1);
+      expect.assertions(4);
 
-      try {
-        mount(EcMetrolineItem, { props: { id: 1 } });
-      } catch (e) {
-        expect((e as Error).message).toBe('Metroline context is not provided');
-      }
+      withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
+        try {
+          mount(EcMetrolineItem, { props: { id: 1 } });
+        } catch (e) {
+          expect((e as Error).message).toBe('Metroline context is not provided');
+        }
+
+        expect(warnSpy.mock.calls[0][0]).toContain('injection "Symbol(metroline)" not found.');
+        expect(warnSpy.mock.calls[1][0]).toContain('Unhandled error during execution of setup function');
+        expect(warnSpy).toHaveBeenCalledTimes(2);
+      });
     });
   });
 
@@ -426,7 +434,8 @@ describe('EcMetroline', () => {
         .findByDataTest('footer-cta-complete-metroline')
         .trigger('click');
 
-      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-completed').exists()).toBe(true); expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-metroline-item--1').findByDataTest('header-cta-completed').exists()).toBe(true);
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });

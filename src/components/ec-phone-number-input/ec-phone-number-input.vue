@@ -33,7 +33,7 @@
         is-in-group="right"
         data-test="ec-phone-number-input__countries"
         class="ec-phone-number-input__countries"
-        :class="{'ec-phone-number-input__countries--is-focused': countriesHasFocus}"
+        :class="{ 'ec-phone-number-input__countries--is-focused': countriesHasFocus }"
         :disabled="isDisabled"
         :error-id="errorId"
         :error-message="errorMessage"
@@ -151,6 +151,7 @@
 </template>
 
 <script setup lang="ts">
+// eslint-disable-next-line vue/no-dupe-keys
 import * as countries from 'svg-country-flags/countries.json';
 import type { InputHTMLAttributes } from 'vue';
 import { computed, ref } from 'vue';
@@ -177,7 +178,7 @@ const supportedCountries = new Set(Object.keys(countries));
 
 const config = useConfig();
 
-const emit = defineEmits<{(e: 'update:modelValue', value: PhoneNumberEvents[PhoneNumberEvent.UPDATE_MODEL_VALUE]): void
+const emit = defineEmits<{ (e: 'update:modelValue', value: PhoneNumberEvents[PhoneNumberEvent.UPDATE_MODEL_VALUE]): void
   (e: 'change', value: PhoneNumberEvents[PhoneNumberEvent.CHANGE]): void
   (e: 'focus'): void
   (e: 'open'): void

@@ -1,20 +1,19 @@
 import type { MountingOptions } from '@vue/test-utils';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
 import EcIcon from './ec-icon.vue';
-import { type IconProps, IconName, IconType } from './types';
+import { IconName, type IconProps, IconType } from './types';
 
 describe('EcIcon', () => {
   function mountEcIcon(props?: IconProps, mountOpts?: MountingOptions<IconProps>): CVueWrapper {
     return mount(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        EcIcon as any,
-        {
-          props,
-          ...mountOpts,
-        },
+      EcIcon as any,
+      {
+        props,
+        ...mountOpts,
+      },
     ) as CVueWrapper;
   }
 

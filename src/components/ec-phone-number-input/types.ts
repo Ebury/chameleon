@@ -15,7 +15,7 @@ export type PhoneNumberCountryItem = Pick<PhoneNumberCountry, 'areaCode'> & {
   name: PhoneNumberCountry['text'],
   text: string,
   value: PhoneNumberCountry
-}
+};
 
 export interface PhoneNumberModel {
   country: PhoneNumberCountry,
@@ -29,7 +29,7 @@ export enum PhoneNumberEvent {
   OPEN = 'open',
   AFTER_OPEN = 'after-open',
   COUNTRY_CHANGE = 'country-change',
-  PHONE_NUMBER_CHANGE = 'phone-number-change'
+  PHONE_NUMBER_CHANGE = 'phone-number-change',
 }
 
 export interface PhoneNumberEvents {

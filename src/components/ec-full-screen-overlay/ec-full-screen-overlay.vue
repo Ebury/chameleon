@@ -30,6 +30,7 @@
             </h1>
 
             <button
+              type="button"
               class="ec-full-screen-overlay__close-icon-btn"
               data-test="ec-full-screen-overlay__close-icon-btn"
               @click="emit('close')"

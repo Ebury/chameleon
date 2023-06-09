@@ -12,7 +12,7 @@
       :class="{
         'ec-table-sort__icon': true,
         'ec-table-sort__icon--asc': isAsc,
-        'ec-table-sort__icon--desc': isDesc
+        'ec-table-sort__icon--desc': isDesc,
       }"
       data-test="ec-table-sort__icon"
     />

@@ -33,9 +33,9 @@ import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
 
 interface LoadingProps {
-    show: boolean,
-    size?: number,
-    transparent?: boolean,
+  show: boolean,
+  size?: number,
+  transparent?: boolean,
 }
 
 const props = withDefaults(defineProps<LoadingProps>(), {

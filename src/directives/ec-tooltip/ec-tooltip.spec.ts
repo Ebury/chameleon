@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+
 import { mount } from '@vue/test-utils';
 
 import EcTooltip from './ec-tooltip';

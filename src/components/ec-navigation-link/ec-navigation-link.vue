@@ -11,7 +11,7 @@
     :class="{
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
-      'ec-navigation-link--is-collapsed': isCollapsed
+      'ec-navigation-link--is-collapsed': isCollapsed,
     }"
     :to="url"
   >
@@ -42,7 +42,7 @@
     :class="{
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
-      'ec-navigation-link--is-collapsed': isCollapsed
+      'ec-navigation-link--is-collapsed': isCollapsed,
     }"
     :href="url"
     :target="target"

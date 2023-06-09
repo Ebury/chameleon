@@ -3,7 +3,7 @@
     class="ec-inline-input-field-value-text"
     data-test="ec-inline-input-field-value-text"
   >
-    <span :class="{'ec-inline-input-field-value-text__text': true, [config.sensitiveClass]: isSensitive}">
+    <span :class="{ 'ec-inline-input-field-value-text__text': true, [config.sensitiveClass]: isSensitive }">
       {{ value }}
     </span>
     <button

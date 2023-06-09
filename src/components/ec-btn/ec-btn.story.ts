@@ -40,7 +40,7 @@ export default {
   },
 };
 
-type StoryArgs = ButtonProps & {text: string};
+type StoryArgs = ButtonProps & { text: string };
 
 const Template = ({ text, ...args }: StoryArgs) => ({
   components: { EcBtn },
@@ -78,7 +78,7 @@ export const all = ({
   text,
   loadingText,
   ...args
-}: StoryArgs & {loadingText: string}) => ({
+}: StoryArgs & { loadingText: string }) => ({
   components: { EcBtn },
   setup() {
     return {

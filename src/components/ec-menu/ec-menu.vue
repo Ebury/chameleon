@@ -6,7 +6,7 @@
     :class="{
       'ec-menu--horizontal': horizontal && !isReversed,
       'ec-menu--is-reversed': !horizontal && isReversed,
-      'ec-menu--is-reversed-horizontal': horizontal && isReversed
+      'ec-menu--is-reversed-horizontal': horizontal && isReversed,
     }"
   >
     <li
@@ -16,7 +16,12 @@
       data-test="ec-menu__item"
     >
       <ec-navigation-link
-        v-bind="{ ...link, on: null, dataTest: null, 'data-test': getLinkDataTest(link) }"
+        v-bind="{
+          ...link,
+          on: null,
+          dataTest: null,
+          'data-test': getLinkDataTest(link),
+        }"
         class="ec-menu__link"
         :is-collapsed="isCollapsed"
         :is-compact="horizontal"

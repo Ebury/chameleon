@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "2.2.29",
+  "version": "2.2.30",
   "main": "src/main.js",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -69,12 +69,12 @@
     "@testing-library/jest-dom": "5.16.5",
     "@types/jest": "29.2.3",
     "@types/node": "18.11.9",
-    "@typescript-eslint/eslint-plugin": "5.59.6",
-    "@typescript-eslint/parser": "5.59.6",
+    "@typescript-eslint/eslint-plugin": "5.59.9",
+    "@typescript-eslint/parser": "5.59.9",
     "@vitejs/plugin-vue": "3.2.0",
     "@vitejs/plugin-vue-jsx": "3.0.1",
     "@vue/babel-preset-app": "5.0.8",
-    "@vue/eslint-config-airbnb": "6.0.0",
+    "@vue/eslint-config-airbnb-with-typescript": "7.0.0",
     "@vue/eslint-config-typescript": "11.0.3",
     "@vue/test-utils": "2.0.2",
     "@vue/tsconfig": "0.1.3",
@@ -84,14 +84,14 @@
     "css-tree": "2.3.1",
     "cypress": "10.11.0",
     "cypress-image-snapshot": "4.0.1",
-    "eslint": "8.24.0",
+    "eslint": "8.42.0",
     "eslint-plugin-chameleon": "file:eslint/lib",
     "eslint-plugin-cypress": "2.13.3",
     "eslint-plugin-filenames": "1.3.2",
     "eslint-plugin-jest": "27.2.1",
-    "eslint-plugin-simple-import-sort": "8.0.0",
-    "eslint-plugin-vue": "9.13.0",
-    "eslint-plugin-vuejs-accessibility": "1.2.0",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "eslint-plugin-vue": "9.14.1",
+    "eslint-plugin-vuejs-accessibility": "2.1.0",
     "intl": "1.2.5",
     "jest": "29.3.1",
     "jest-environment-jsdom": "29.3.1",
@@ -119,7 +119,6 @@
     "ts-morph": "17.0.1",
     "typescript": "4.8.4",
     "vite": "3.2.7",
-    "vue-eslint-parser": "9.3.0",
     "vue-router": "4.1.5",
     "vue-tsc": "0.40.13",
     "wait-on": "6.0.1",
@@ -134,8 +133,8 @@
       "stylelint --fix",
       "git add"
     ],
-    "*.{vue,js,jsx}": [
-      "eslint --fix ./",
+    "*.{vue,js,jsx,ts,tsx}": [
+      "eslint --fix",
       "git add"
     ]
   }

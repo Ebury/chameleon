@@ -1,9 +1,9 @@
 import { loadSvgSprites } from './loader';
 
 export enum SpriteName {
-  SIMPLE_ICONS ='simple-icons',
+  SIMPLE_ICONS = 'simple-icons',
   ROUNDED_ICONS = 'rounded-icons',
-  CURRENCY_FLAGS = 'currency-flags'
+  CURRENCY_FLAGS = 'currency-flags',
 }
 
 export function inlineSvgSprites(spriteNames: SpriteName[], publicPath: string, targetElement?: ShadowRoot | HTMLElement) {

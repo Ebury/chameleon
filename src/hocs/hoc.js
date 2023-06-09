@@ -53,7 +53,8 @@ function mergePropsWithRenderOptions(props, renderOptions, vm) {
   if (renderOptions && renderOptions.props) {
     if (typeof renderOptions.props === 'function') {
       return renderOptions.props.call(vm, props);
-    } if (typeof renderOptions.props === 'object') {
+    }
+    if (typeof renderOptions.props === 'object') {
       const newProps = { ...props };
       for (const [key, value] of Object.entries(renderOptions.props)) {
         newProps[key] = value.call(vm);

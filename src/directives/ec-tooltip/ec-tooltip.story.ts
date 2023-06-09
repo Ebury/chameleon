@@ -30,7 +30,7 @@ export default {
   },
 };
 
-const Template = ({ triggers, ...args }: { triggers: TooltipTrigger}) => ({
+const Template = ({ triggers, ...args }: { triggers: TooltipTrigger }) => ({
   directives: { EcTooltip },
   inheritAttrs: false,
   setup() {

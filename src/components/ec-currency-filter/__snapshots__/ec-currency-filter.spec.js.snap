@@ -82,6 +82,7 @@ exports[`EcCurrencyFilter should disable clear amount button if the amount is em
   class="ec-currency-filter__clear-amount"
   data-test="ec-currency-filter__clear-amount"
   disabled=""
+  type="button"
 >
   Clear amount
 </button>
@@ -91,6 +92,7 @@ exports[`EcCurrencyFilter should enable clear amount button if the amount is not
 <button
   class="ec-currency-filter__clear-amount"
   data-test="ec-currency-filter__clear-amount"
+  type="button"
 >
   Clear amount
 </button>
@@ -661,6 +663,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
   <button
     class="ec-currency-filter__clear-amount"
     data-test="ec-currency-filter__clear-amount"
+    type="button"
   >
     Clear amount
   </button>
@@ -693,6 +696,7 @@ exports[`EcCurrencyFilter should render all given custom texts for amount tab 3`
   class="ec-currency-filter__clear-amount"
   data-test="ec-currency-filter__clear-amount"
   disabled=""
+  type="button"
 >
   Custom clear amount text
 </button>
@@ -1261,6 +1265,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
               class="ec-currency-filter__clear-amount"
               data-test="ec-currency-filter__clear-amount"
               disabled=""
+              type="button"
             >
               Clear amount
             </button>
@@ -1500,6 +1505,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
     class="ec-currency-filter__clear-amount"
     data-test="ec-currency-filter__clear-amount"
     disabled=""
+    type="button"
   >
     Clear amount
   </button>

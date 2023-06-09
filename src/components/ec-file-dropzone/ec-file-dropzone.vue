@@ -4,7 +4,7 @@
     class="ec-file-dropzone"
     :class="{
       'ec-file-dropzone--dragging': isDragging && !isDisabled,
-      'ec-file-dropzone--is-disabled': isDisabled
+      'ec-file-dropzone--is-disabled': isDisabled,
     }"
     @drop.prevent.stop="onComponentDrop"
   >
@@ -20,7 +20,7 @@
 
     <ec-upload-cloud
       class="ec-file-dropzone__img"
-      :class="{'ec-file-dropzone__img--is-disabled': isDisabled}"
+      :class="{ 'ec-file-dropzone__img--is-disabled': isDisabled }"
     />
 
     <div
@@ -34,7 +34,7 @@
     <div
       data-test="ec-file-dropzone__subtitle"
       class="ec-file-dropzone__subtitle"
-      :class="{'ec-file-dropzone__subtitle--is-disabled': isDisabled}"
+      :class="{ 'ec-file-dropzone__subtitle--is-disabled': isDisabled }"
       @click="fileInput.click()"
     >
       <slot name="subtitle" />

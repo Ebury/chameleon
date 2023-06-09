@@ -47,8 +47,8 @@
 import { useSlots } from 'vue';
 
 interface MainContainerProps {
-    title?: string,
-    titleIntro?: string,
+  title?: string,
+  titleIntro?: string,
 }
 
 defineProps<MainContainerProps>();

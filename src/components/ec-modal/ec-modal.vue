@@ -87,7 +87,7 @@
               :is-disabled="isPositiveButtonDisabled"
               is-rounded
               :is-submit="false"
-              :class="{'ec-modal__positive-btn--right': !hasNegativeButton()}"
+              :class="{ 'ec-modal__positive-btn--right': !hasNegativeButton() }"
               class="ec-modal__positive-btn"
               data-test="ec-modal__positive-btn"
               @click="emit('positive')"

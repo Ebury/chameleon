@@ -1,5 +1,4 @@
 import type { MountingOptions } from '@vue/test-utils';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
@@ -9,7 +8,8 @@ import type { RadioButtonGroupProps } from './types';
 
 function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: MountingOptions<RadioButtonGroupProps>) {
   return mount(
-    EcRadioBtnGroup as any, // eslint-disable-line
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    EcRadioBtnGroup as any,
     {
       props: {
         options: [

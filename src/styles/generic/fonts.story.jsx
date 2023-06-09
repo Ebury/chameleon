@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 export const fonts = ({
   fontWeight, fontStyle, fontSize, fontFamily, lineHeight,
 }) => ({

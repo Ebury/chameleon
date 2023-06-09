@@ -4,7 +4,7 @@
     class="ec-metroline-item"
     :class="{
       'ec-metroline-item--is-active': isActive || (isCompleted && isLast),
-      'ec-metroline-item--is-last': isLast
+      'ec-metroline-item--is-last': isLast,
     }"
   >
     <div
@@ -51,7 +51,15 @@
         >
           <slot
             name="heading"
-            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
+            v-bind="{
+              activateItem,
+              goToNext,
+              isLast,
+              isReadOnly,
+              isNext,
+              isActive,
+              isCompleted,
+            }"
           />
         </div>
 
@@ -61,14 +69,30 @@
         >
           <slot
             name="sub-heading"
-            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
+            v-bind="{
+              activateItem,
+              goToNext,
+              isLast,
+              isReadOnly,
+              isNext,
+              isActive,
+              isCompleted,
+            }"
           />
         </div>
 
         <div data-test="ec-metroline-item__header-cta">
           <slot
             name="header-cta"
-            v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
+            v-bind="{
+              activateItem,
+              goToNext,
+              isLast,
+              isReadOnly,
+              isNext,
+              isActive,
+              isCompleted,
+            }"
           />
         </div>
       </div>
@@ -80,7 +104,15 @@
       >
         <slot
           name="main"
-          v-bind="{ activateItem, goToNext, isLast, isReadOnly, isNext, isActive, isCompleted }"
+          v-bind="{
+            activateItem,
+            goToNext,
+            isLast,
+            isReadOnly,
+            isNext,
+            isActive,
+            isCompleted,
+          }"
         />
       </div>
 
@@ -95,7 +127,16 @@
         >
           <slot
             name="footer-cta"
-            v-bind="{ activateItem, goToNext, complete, isLast, isReadOnly, isNext, isActive, isCompleted }"
+            v-bind="{
+              activateItem,
+              goToNext,
+              complete,
+              isLast,
+              isReadOnly,
+              isNext,
+              isActive,
+              isCompleted,
+            }"
           />
         </div>
       </div>
@@ -112,11 +153,13 @@ import EcIcon from '../../../ec-icon';
 import { IconName } from '../../../ec-icon/icon-names';
 import type { MetrolineProviderContext } from '../../provide';
 import { METROLINE_PROVIDE_KEY } from '../../provide';
-import { METROLINE_ITEM_STATUS } from './types';
+import { MetrolineItemStatus } from './types';
 
 const metroline = inject<MetrolineProviderContext>(METROLINE_PROVIDE_KEY);
 
-if (!metroline) throw new Error('Metroline context is not provided');
+if (!metroline) {
+  throw new Error('Metroline context is not provided');
+}
 
 interface MetrolineItemProps {
   id: number,
@@ -129,18 +172,20 @@ const isReadOnly = computed(() => metroline.isCompleted);
 const isLast = computed(() => props.id === metroline.lastItemId);
 
 const status = computed(() => {
-  if (metroline.isCompleted || (metroline.activeItemId && props.id < metroline.activeItemId)) return METROLINE_ITEM_STATUS.Completed;
-
-  if (props.id === metroline.activeItemId) {
-    return METROLINE_ITEM_STATUS.Active;
+  if (metroline.isCompleted || (metroline.activeItemId && props.id < metroline.activeItemId)) {
+    return MetrolineItemStatus.COMPLETED;
   }
 
-  return METROLINE_ITEM_STATUS.Next;
+  if (props.id === metroline.activeItemId) {
+    return MetrolineItemStatus.ACTIVE;
+  }
+
+  return MetrolineItemStatus.NEXT;
 });
 
-const isNext = computed(() => status.value === METROLINE_ITEM_STATUS.Next);
-const isActive = computed(() => status.value === METROLINE_ITEM_STATUS.Active);
-const isCompleted = computed(() => status.value === METROLINE_ITEM_STATUS.Completed);
+const isNext = computed(() => status.value === MetrolineItemStatus.NEXT);
+const isActive = computed(() => status.value === MetrolineItemStatus.ACTIVE);
+const isCompleted = computed(() => status.value === MetrolineItemStatus.COMPLETED);
 
 onMounted(() => {
   metroline.register(props.id);

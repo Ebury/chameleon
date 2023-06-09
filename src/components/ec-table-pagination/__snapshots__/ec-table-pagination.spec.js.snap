@@ -292,6 +292,7 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
       <button
         class="ec-table-pagination__action ec-table-pagination__action--page-size"
         data-test="ec-table-pagination__action--page-size"
+        type="button"
       >
         50 
         <svg
@@ -396,6 +397,7 @@ exports[`EcTablePagination should render as expected 1`] = `
         <button
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
+          type="button"
         >
           10 
           <svg

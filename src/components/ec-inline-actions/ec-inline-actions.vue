@@ -29,9 +29,7 @@
                 v-ec-close-popover="!item.disabled"
                 class="ec-inline-actions__button"
                 data-test="ec-inline-actions__button"
-                :class="{
-                  'ec-inline-actions__button--disabled' : item.disabled
-                }"
+                :class="{ 'ec-inline-actions__button--disabled': item.disabled }"
                 :disabled="getDisabledAttr(item)"
                 :href="getHrefAttr(item)"
                 :download="getDownloadAttr(item)"

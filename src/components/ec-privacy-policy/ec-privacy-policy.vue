@@ -7,6 +7,7 @@
       </div>
       <div class="ec-privacy-policy__item">
         <button
+          type="button"
           class="ec-privacy-policy__btn ec-btn ec-btn--rounded ec-btn--sm"
           data-test="ec-privacy-policy__btn"
           @click="emit('accept')"

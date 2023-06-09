@@ -5,7 +5,7 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-alert` : 'ec-alert'"
     :class="{
       [`ec-alert--${type}`]: type,
-      'ec-alert--is-responsive': responsive
+      'ec-alert--is-responsive': responsive,
     }"
   >
     <a
@@ -49,6 +49,7 @@
 
       <button
         v-else-if="buttonText"
+        type="button"
         class="ec-btn ec-btn--sm ec-btn--outline ec-btn--rounded ec-alert__button"
         :class="`ec-btn--${type === 'info' ? 'primary' : type}-reverse`"
         data-test="ec-alert__button"
@@ -66,7 +67,7 @@ import { IconName } from '../ec-icon/types';
 import type { AlertEvents } from './types';
 import { AlertEvent, AlertType } from './types';
 
-const emit = defineEmits<{(e: 'update:open', value: AlertEvents[AlertEvent.UPDATE_OPEN]): void
+const emit = defineEmits<{ (e: 'update:open', value: AlertEvents[AlertEvent.UPDATE_OPEN]): void
   (e: 'action'): void
   (e: 'change', value: AlertEvents[AlertEvent.CHANGE]): void
 }>();

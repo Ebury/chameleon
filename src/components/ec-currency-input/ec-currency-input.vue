@@ -37,7 +37,7 @@
         :class="{ 'ec-currency-input__currencies--is-focused': currenciesHasFocus }"
         :error-id="errorId"
         :items="currenciesItems"
-        :popover-options="{autoSize: 'min'}"
+        :popover-options="{ autoSize: 'min' }"
         :popover-style="getPopoverStyle"
         :search-placeholder="searchCurrencyPlaceholder"
         :no-results-text="noCurrenciesText"

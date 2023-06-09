@@ -2,7 +2,7 @@ export * from './provide';
 
 export enum MetrolineEvent {
   CHANGE = 'change',
-  COMPLETE = 'complete'
+  COMPLETE = 'complete',
 }
 
 export interface MetrolineEvents {
