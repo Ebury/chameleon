@@ -55,7 +55,7 @@
     "@storybook/addon-a11y": "6.5.12",
     "@storybook/addon-actions": "6.5.12",
     "@storybook/addon-cssresources": "6.2.9",
-    "@storybook/addon-essentials": "6.5.12",
+    "@storybook/addon-essentials": "6.5.16",
     "@storybook/addon-links": "6.5.12",
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/addon-viewport": "6.5.12",
