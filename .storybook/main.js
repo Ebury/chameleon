@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+
 module.exports = {
   framework: {
     name: '@storybook/vue3-vite',
@@ -13,15 +13,7 @@ module.exports = {
     to: '/icons/country-flags/100',
   }],
   stories: ['../src/**/*.story.mdx', '../src/**/*.story.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-a11y', '@storybook/addon-cssresources', '@storybook/addon-essentials', '@storybook/addon-links', {
-    name: '@storybook/addon-postcss',
-    options: {
-      postcssLoaderOptions: {
-        // eslint-disable-next-line global-require
-        implementation: require('postcss'),
-      },
-    },
-  }],
+  addons: ['@storybook/addon-a11y', '@storybook/addon-cssresources', '@storybook/addon-essentials', '@storybook/addon-links', '@storybook/addon-styling'],
   docs: {
     autodocs: true,
   },
