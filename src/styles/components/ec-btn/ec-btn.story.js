@@ -4,6 +4,10 @@ import { DARK_THEME, LIGHT_THEME } from '../../../../.storybook/backgrounds';
 import EcBtn from '../../../components/ec-btn';
 import EcIcon from '../../../components/ec-icon';
 
+export default {
+  title: 'btn',
+};
+
 export const propsDark = generatePropsStory('Props (dark)', DARK_THEME);
 export const propsLight = generatePropsStory('Props (light)', LIGHT_THEME);
 export const allButtonsDark = generateAllForElement('All Buttons (dark)', 'button', DARK_THEME);

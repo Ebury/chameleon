@@ -12,7 +12,7 @@ module.exports = {
     to: '/icons/country-flags/100',
   }],
   stories: ['../src/**/*.story.mdx', '../src/**/*.story.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-a11y', '@storybook/addon-cssresources', '@storybook/addon-essentials', '@storybook/addon-links', '@storybook/addon-styling'],
+  addons: ['@storybook/addon-a11y', '@storybook/addon-essentials', '@storybook/addon-links', '@storybook/addon-styling', '@etchteam/storybook-addon-css-variables-theme'],
   docs: {
     autodocs: true,
   },
