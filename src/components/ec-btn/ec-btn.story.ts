@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import storyRouter from 'storybook-vue3-router';
+import { vueRouter } from 'storybook-vue3-router';
 
 import {
   allAnchorsDark,
@@ -19,7 +19,7 @@ import { ButtonCategory, ButtonSize } from './types';
 export default {
   title: 'Button',
   component: EcBtn,
-  decorators: [storyRouter()],
+  decorators: [vueRouter()],
   argTypes: {
     category: {
       options: ButtonCategory,
