@@ -1,4 +1,3 @@
-
 module.exports = {
   framework: {
     name: '@storybook/vue3-vite',
