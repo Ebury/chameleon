@@ -45,7 +45,7 @@ export const parameters = {
   viewport: { viewports: INITIAL_VIEWPORTS },
   cssVariables: {
     files: makeCssFiles({
-      'Default': blueTheme,
+      Default: blueTheme,
       '#b&w': bwTheme,
       '#green': greenTheme,
       '#hotpink': hotpinkTheme,
