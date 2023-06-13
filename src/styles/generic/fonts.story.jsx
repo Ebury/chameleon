@@ -1,5 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
-export default { title: 'fonts' };
+export default {
+  title: 'fonts',
+  excludeStories: /.*$/,
+};
 export const fonts = ({
   fontWeight, fontStyle, fontSize, fontFamily, lineHeight,
 }) => ({
