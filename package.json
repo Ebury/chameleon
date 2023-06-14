@@ -50,7 +50,6 @@
     "vue": "3.2.39"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@fullhuman/postcss-purgecss": "4.0.3",
     "@sinonjs/fake-timers": "9.1.2",
     "@storybook/addon-a11y": "7.0.20",
