@@ -1,11 +1,49 @@
+import { createEventHook } from '@vueuse/core';
 import Color from 'color';
+import { getCurrentInstance, onBeforeUnmount, onMounted } from 'vue';
 
 export default {
   title: 'CSS/Colors',
 };
 
+function useCssResourceAddonSync({ window, document }) {
+  const onChanged = createEventHook();
+
+  let mutationObserver;
+
+  onMounted(() => {
+    if (window.MutationObserver) {
+      mutationObserver = new window.MutationObserver((ev) => {
+        onChanged.trigger(ev);
+      });
+      mutationObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['media'], // CSS resources addon switches properties using media attribute on styles
+        childList: true,
+        subtree: true,
+      });
+    }
+  });
+
+  onBeforeUnmount(() => {
+    if (mutationObserver) {
+      mutationObserver.disconnect();
+    }
+  });
+
+  return {
+    onChanged: onChanged.on,
+  };
+}
+
 export const all = () => ({
   setup() {
+    const vueInstance = getCurrentInstance();
+    const { onChanged } = useCssResourceAddonSync({ window, document });
+    onChanged(() => {
+      // we need to update Vue instance manually to trigger the render again and force getInfo() calls inside of the template to recalculate styles displayed in the texts
+      vueInstance.update();
+    });
     function getInfo(variable) {
       const hslValue = window.getComputedStyle(document.documentElement).getPropertyValue(variable);
       if (hslValue) {
