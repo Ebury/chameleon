@@ -175,6 +175,9 @@ all.parameters = {
   visualRegressionTests: { disable: true },
 };
 
+// There are some cases where storyName is ignored, to solve it we need to
+// export stories from other files as consts instead of exporting them directly
+// See this for more info: https://github.com/storybookjs/storybook/pull/22689
 export const propsDark = propsDarkStory;
 export const propsLight = propsLightStory;
 export const allAnchorsDark = allAnchorsDarkStory;
