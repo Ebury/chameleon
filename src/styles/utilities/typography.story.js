@@ -1,3 +1,5 @@
+import { fonts as fontsStory } from '../generic/fonts.story.jsx';
+
 export default {
   title: 'CSS/Typography',
 };
@@ -30,4 +32,4 @@ basic.parameters = {
   actions: { disable: true },
 };
 
-export { fonts } from '../generic/fonts.story.jsx';
+export const fonts = fontsStory;

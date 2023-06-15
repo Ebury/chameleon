@@ -4,12 +4,12 @@ import { action } from '@storybook/addon-actions';
 import { vueRouter } from 'storybook-vue3-router';
 
 import {
-  allAnchorsDark,
-  allAnchorsLight,
-  allButtonsDark,
-  allButtonsLight,
-  propsDark,
-  propsLight,
+  allAnchorsDark as allAnchorsDarkStory,
+  allAnchorsLight as allAnchorsLightStory,
+  allButtonsDark as allButtonsDarkStory,
+  allButtonsLight as allButtonsLightStory,
+  propsDark as propsDarkStory,
+  propsLight as propsLightStory,
 } from '../../styles/components/ec-btn/ec-btn.story';
 import { IconName } from '../ec-icon/icon-names';
 import EcBtn from './ec-btn.vue';
@@ -175,11 +175,9 @@ all.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export {
-  allAnchorsDark,
-  allAnchorsLight,
-  allButtonsDark,
-  allButtonsLight,
-  propsDark,
-  propsLight,
-};
+export const propsDark = propsDarkStory;
+export const propsLight = propsLightStory;
+export const allAnchorsDark = allAnchorsDarkStory;
+export const allAnchorsLight = allAnchorsLightStory;
+export const allButtonsDark = allButtonsDarkStory;
+export const allButtonsLight = allButtonsLightStory;
