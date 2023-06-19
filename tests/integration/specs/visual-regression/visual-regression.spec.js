@@ -76,9 +76,12 @@ function visitStory(uuid, story, controls) {
     cy.get(waitOn);
   }
 
+  // Wait for stories to be fully loaded
+  cy.wait(800);
+
   // give a DOM chance to load fonts too.
   cy.window().then({
-    timeout: 120000,
+    timeout: 200000,
   }, win => new Cypress.Promise(resolve => win.requestIdleCallback(resolve)));
 
   if (snapshotElement) {
