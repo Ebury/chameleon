@@ -25,7 +25,7 @@
     "test:watch": "jest --watch",
     "test:visual": "cypress open",
     "test:visual:ci": "npm run build-storybook-run & wait-on http://localhost:42475/ && npm run test:visual:all",
-    "test:visual:all": "cypress run --browser chrome --headless --config video=false,videosFolder=tests/integration/videos/chrome/,trashAssetsBeforeRuns=true --env failOnSnapshotDiff=false && cypress run --browser firefox --headless --config video=false,videosFolder=tests/integration/videos/firefox/,trashAssetsBeforeRuns=false --env failOnSnapshotDiff=false",
+    "test:visual:all": "cypress run --browser chrome --headless --config video=false,videosFolder=tests/integration/videos/chrome/,trashAssetsBeforeRuns=true && cypress run --browser firefox --headless --config video=false,videosFolder=tests/integration/videos/firefox/,trashAssetsBeforeRuns=false",
     "prebuild-storybook": "npm run icons",
     "build-storybook": "vue-tsc --noEmit && storybook build -o .out",
     "build-storybook-run": "npm run build-storybook && live-server --port=42475 .out",

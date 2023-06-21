@@ -21,7 +21,7 @@ describe('Visual regression tests', () => {
     cy.get('a.sidebar-item');
 
     cy.window()
-      .then(async (win) => {
+      .then({ timeout: 30000 }, async (win) => {
         const previewFrame = getPreviewFrame(win);
         // eslint-disable-next-line no-underscore-dangle
         const storybookStore = previewFrame.__STORYBOOK_STORY_STORE__;
@@ -74,10 +74,9 @@ function visitStory(uuid, story, controls) {
 
   if (waitOn) {
     cy.get(waitOn);
+  } else {
+    cy.get('body.sb-show-main');
   }
-
-  // Wait for stories to be fully loaded
-  // cy.wait(800);
 
   // give a DOM chance to load fonts too.
   cy.window().then({
