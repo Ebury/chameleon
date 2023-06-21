@@ -135,7 +135,7 @@ export const all = () => ({
         </tbody>
       </table>
 
-      <h2>Gradients (themable)</h2>
+      <h2 class="colors__gradients">Gradients (themable)</h2>
       <div class="tw-bg-gradient-1 tw-w-1/2 tw-flex tw-items-center tw-justify-center tw-resize tw-overflow-auto" style="min-height: 150px;">
         <span class="tw-text-gray-8">Gradient 1</span>
       </div>
@@ -144,6 +144,7 @@ export const all = () => ({
 });
 
 all.parameters = {
+  waitOn: '.colors__gradients',
   controls: { disable: true },
   actions: { disable: true },
 };

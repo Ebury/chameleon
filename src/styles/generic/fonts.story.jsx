@@ -79,7 +79,7 @@ export const fonts = ({
         <p style={style}>
           В едно село Ла Манча, чието име нямам никакво желание да си спомням, живя не след дълго един от онези господа, които държат копие в стойката за копие, стар щит, постен хак и хрътка за курсиране.
         </p>
-        <div class="tw-mini-header">Special characters</div>
+        <div class="tw-mini-header" data-test="fonts__special-characters">Special characters</div>
         <p style={style}>
           1234567890‘?’“!”(%)[#]@/&\-+÷×=®©$€£¥¢:;,.*
         </p>
@@ -117,5 +117,6 @@ fonts.args = {
 };
 
 fonts.parameters = {
+  waitOn: '[data-test="fonts__special-characters"]',
   actions: { disable: true },
 };

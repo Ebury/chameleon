@@ -77,7 +77,7 @@ function visitStory(uuid, story, controls) {
   }
 
   // Wait for stories to be fully loaded
-  cy.wait(800);
+  // cy.wait(800);
 
   // give a DOM chance to load fonts too.
   cy.window().then({

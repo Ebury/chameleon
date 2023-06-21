@@ -70,7 +70,7 @@ function generatePropsStory(storyName, theme) {
         <RenderButtonsComponent title="Loading" v-bind="{ ...args, isLoading: true }"/>
         <RenderButtonsComponent title="Reversed" v-bind="{ ...args, isReverse: true }"/>
         <RenderButtonsComponent title="Disabled" v-bind="{ ...args, isDisabled: true }"/>
-        <RenderButtonsComponent title="Disabled Outline" v-bind="{ ...args, isDisabled: true, isOutline: true }"/>
+        <RenderButtonsComponent title="Disabled Outline" v-bind="{ ...args, isDisabled: true, isOutline: true }" data-test="render-buttons__disabled-outline" />
       </div>
       </div>
     `,
@@ -97,6 +97,7 @@ function generatePropsStory(storyName, theme) {
     },
     actions: { disable: true },
     visualRegressionTests: {
+      waitOn: '[data-test="render-buttons__disabled-outline"]',
       controls: {
         anchors: { tag: 'a' },
         disabled: { isDisabled: true },
