@@ -40,7 +40,7 @@ describe('EcPopover component', () => {
     const wrapper = mountEcPopover({}, {
       attrs: { onShow: showSpy },
     });
-    await wrapper.findComponent({ name: 'FvDropdown' }).vm.$emit('show');
+    await wrapper.findComponent({ name: 'VDropdown' }).vm.$emit('show');
     expect(showSpy).toHaveBeenCalledTimes(1);
   });
 
