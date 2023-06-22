@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcFullScreenOverlay #slots #content - should be rendered when passed 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-full-screen-overlay__fade"
+  persisted="false"
+>
   <div
     class="ec-full-screen-overlay tw-bg-gray-8"
     data-test="ec-full-screen-overlay"
@@ -14,7 +19,12 @@ exports[`EcFullScreenOverlay #slots #content - should be rendered when passed 1`
 `;
 
 exports[`EcFullScreenOverlay #slots #header - should be rendered when passed 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-full-screen-overlay__fade"
+  persisted="false"
+>
   <div
     class="ec-full-screen-overlay tw-bg-gray-8"
     data-test="ec-full-screen-overlay"
@@ -66,7 +76,12 @@ exports[`EcFullScreenOverlay #slots #header - should be rendered when passed 1`]
 `;
 
 exports[`EcFullScreenOverlay #slots #main - should be rendered when passed 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-full-screen-overlay__fade"
+  persisted="false"
+>
   <div
     class="ec-full-screen-overlay tw-bg-gray-8"
     data-test="ec-full-screen-overlay"
@@ -184,7 +199,12 @@ exports[`EcFullScreenOverlay :props :title - should render the title 1`] = `
 `;
 
 exports[`EcFullScreenOverlay should render as expected 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-full-screen-overlay__fade"
+  persisted="false"
+>
   <div
     class="ec-full-screen-overlay tw-bg-gray-8"
     data-test="ec-full-screen-overlay"

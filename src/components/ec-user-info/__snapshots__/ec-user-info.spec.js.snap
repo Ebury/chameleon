@@ -11,7 +11,12 @@ exports[`EcUserInfo should not show text when collapsed 1`] = `
     data-test="ec-user-info__avatar"
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-user-info__client-fade"
+    persisted="false"
+  >
     <!--v-if-->
   </transition-stub>
 </div>
@@ -28,7 +33,12 @@ exports[`EcUserInfo should render as expected 1`] = `
     data-test="ec-user-info__avatar"
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-user-info__client-fade"
+    persisted="false"
+  >
     <div
       class="ec-user-info__client-wrapper"
     >
@@ -57,7 +67,12 @@ exports[`EcUserInfo should render slot for client selector 1`] = `
     data-test="ec-user-info__avatar"
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-user-info__client-fade"
+    persisted="false"
+  >
     <div
       class="ec-user-info__client-wrapper"
     >
@@ -98,7 +113,12 @@ exports[`EcUserInfo should show text when not collapsed 1`] = `
     data-test="ec-user-info__avatar"
     src="https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200"
   />
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-user-info__client-fade"
+    persisted="false"
+  >
     <div
       class="ec-user-info__client-wrapper"
     >
