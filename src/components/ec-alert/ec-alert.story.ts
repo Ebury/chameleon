@@ -185,9 +185,6 @@ export const all = () => ({
 });
 
 all.parameters = {
-  visualRegressionTests: {
-    waitOn: '.ec-alert--error',
-  },
   controls: { disable: true },
   actions: { disable: true },
 };
