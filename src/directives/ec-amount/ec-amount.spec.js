@@ -47,9 +47,13 @@ describe('EcAmount', () => {
     const { wrapper, input } = mountTemplate('<input v-ec-amount data-test="amount-input" />');
     const spy = jest.spyOn(input.element, 'removeEventListener');
 
+    const inputHandler = input.element.__inputHandler;
+    const keydownHandler = input.element.__keydownHandler;
+
     wrapper.unmount();
 
-    expect(spy).toHaveBeenCalledTimes(2);
+    expect(spy.mock.calls).toContainEqual(['input', inputHandler]);
+    expect(spy.mock.calls).toContainEqual(['keydown', keydownHandler]);
   });
 
   it('should throw an error if the directive is not attached to an input', () => {
