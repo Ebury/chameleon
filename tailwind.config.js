@@ -1266,12 +1266,11 @@ function flexboxGridPlugin({ addUtilities, theme }) {
     throw new Error('Number of columns must be a positive number');
   }
 
-  const colClasses = [];
-  for (let i = 1; i <= numberOfColumns; i++) {
-    colClasses.push(`.col-${i}`);
-  }
+  const config = {
+    variants: ['responsive'],
+  };
 
-  const grid = {
+  addUtilities({
     '.grid-container': {
       width: '100%',
       paddingRight: theme(`padding.${gutter / 2}`),
@@ -1283,37 +1282,53 @@ function flexboxGridPlugin({ addUtilities, theme }) {
       marginRight: theme(`margin.${gutter / -2}`),
       marginLeft: theme(`margin.${gutter / -2}`),
     },
-    [`.col-full, .col, .col-auto, ${colClasses.join(', ')}`]: {
-      width: '100%',
-      padding: theme(`padding.${gutter / 2}`),
-      minHeight: theme('minHeight.1'),
-    },
-    [`.col, ${colClasses.join(', ')}`]: {
-      maxWidth: '100%',
-      flexGrow: 1,
-      flexBasis: 0,
-    },
-  };
+  }, config);
+
+  const colClasses = [];
+  for (let i = 1; i <= numberOfColumns; i++) {
+    colClasses.push(`.col-${i}`);
+  }
+
+  for (const colClass of ['.col-full', '.col', '.col-auto', ...colClasses]) {
+    addUtilities({
+      [colClass]: {
+        width: '100%',
+        padding: theme(`padding.${gutter / 2}`),
+        minHeight: theme('minHeight.1'),
+      },
+    }, config);
+  }
+
+  for (const colClass of ['.col', ...colClasses]) {
+    addUtilities({
+      [colClass]: {
+        maxWidth: '100%',
+        flexGrow: 1,
+        flexBasis: 0,
+      },
+    }, config);
+  }
 
   for (let i = 1; i <= numberOfColumns; i++) {
     const percentage = theme(`width.${i}/${numberOfColumns}`);
-    grid[`.col-${i}`] = {
-      flex: `0 0 ${percentage}`,
-      maxWidth: `${percentage}`,
-    };
-
-    grid[`.offset-${i}`] = {
-      marginLeft: `${percentage}`,
-    };
+    addUtilities({
+      [`.col-${i}`]: {
+        flex: `0 0 ${percentage}`,
+        maxWidth: `${percentage}`,
+      },
+      [`.offset-${i}`]: {
+        marginLeft: `${percentage}`,
+      },
+    }, config);
   }
 
-  grid['.col-auto'] = {
-    flex: '0 0 auto',
-    maxWidth: 'none',
-    width: 'auto',
-  };
-
-  addUtilities(grid, ['responsive']);
+  addUtilities({
+    '.col-auto': {
+      flex: '0 0 auto',
+      maxWidth: 'none',
+      width: 'auto',
+    },
+  }, config);
 }
 
 function stopColorPlugin({ matchUtilities, theme }) {
