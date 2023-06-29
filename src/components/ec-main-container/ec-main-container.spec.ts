@@ -1,11 +1,11 @@
 
-import { mount, type MountingOptions } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
 import EcMainContainer from './ec-main-container.vue';
 import type { MainContainerProps } from './types';
 
 describe('EcMainContainer', () => {
-  function mountEcMainContainer(props?: Partial<MainContainerProps>, mountOpts: MountingOptions<MainContainerProps> = {}) {
+  function mountEcMainContainer(props?: Partial<MainContainerProps>, mountOpts: ComponentMountingOptions<MainContainerProps> = {}) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return mount(EcMainContainer as any, {
       props,

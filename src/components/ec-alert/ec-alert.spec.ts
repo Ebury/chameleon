@@ -1,4 +1,4 @@
-import type { MountingOptions } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
@@ -8,7 +8,7 @@ import type { AlertProps } from './types';
 import { AlertType } from './types';
 
 describe('EcAlert', () => {
-  function mountAlert(props?: Partial<AlertProps>, mountOpts?: MountingOptions<AlertProps>): CVueWrapper {
+  function mountAlert(props?: Partial<AlertProps>, mountOpts?: ComponentMountingOptions<AlertProps>): CVueWrapper {
     return mount(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       EcAlert as any,
@@ -26,7 +26,7 @@ describe('EcAlert', () => {
   function mountAlertAsTemplate(
     template: string,
     wrapperComponentOpts?: Record<string, unknown>,
-    mountOpts?: MountingOptions<AlertProps>,
+    mountOpts?: ComponentMountingOptions<AlertProps>,
   ) {
     const Component = defineComponent({
       components: { EcAlert },

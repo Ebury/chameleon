@@ -1,4 +1,4 @@
-import type { MountingOptions } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
@@ -11,7 +11,7 @@ import type { InputFieldExpose, InputFieldProps } from './types';
 import { InputFieldEvent, InputFieldType } from './types';
 
 describe('EcInputField', () => {
-  function mountInputField(props?: InputFieldProps, mountOpts?: MountingOptions<InputFieldProps>): CVueWrapper {
+  function mountInputField(props?: InputFieldProps, mountOpts?: ComponentMountingOptions<InputFieldProps>): CVueWrapper {
     return mount<InputFieldProps>(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       EcInputField as any,
@@ -27,14 +27,14 @@ describe('EcInputField', () => {
         },
         ...mountOpts,
       },
-    ) as CVueWrapper;
+    ) as unknown as CVueWrapper;
   }
 
   function mountInputFieldAsTemplate(
     template: string,
     props: InputFieldProps,
     wrapperComponentOpts: Record<string, unknown>,
-    mountOpts?: MountingOptions<InputFieldProps>,
+    mountOpts?: ComponentMountingOptions<InputFieldProps>,
   ) {
     const Component = defineComponent({
       components: { EcInputField },
@@ -42,10 +42,11 @@ describe('EcInputField', () => {
       ...wrapperComponentOpts,
     });
 
-    return mount<InputFieldProps, MountingOptions<InputFieldProps>>(Component, {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return mount<InputFieldProps, ComponentMountingOptions<InputFieldProps>>(Component as any, {
       props,
       ...mountOpts,
-    });
+    }) as unknown as CVueWrapper;
   }
 
   it('should display properly with the given props', () => {

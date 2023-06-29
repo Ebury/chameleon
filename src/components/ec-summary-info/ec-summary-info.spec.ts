@@ -1,4 +1,4 @@
-import type { MountingOptions } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
@@ -8,7 +8,7 @@ import type { SummaryProps } from './types';
 import { StylePreset } from './types';
 
 describe('EcSummaryInfo', () => {
-  function mountSummaryInfo(props?: Partial<SummaryProps>, mountOpts?: MountingOptions<SummaryProps>) {
+  function mountSummaryInfo(props?: Partial<SummaryProps>, mountOpts?: ComponentMountingOptions<SummaryProps>) {
     return mount(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       EcSummaryInfo as any,

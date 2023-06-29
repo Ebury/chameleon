@@ -1,11 +1,11 @@
-import type { MountingOptions } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
 import { EcRadioBtn } from '../../main';
 import type { RadioButtonProps } from './types';
 
-function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: MountingOptions<RadioButtonProps>): CVueWrapper {
+function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: ComponentMountingOptions<RadioButtonProps>): CVueWrapper {
   return mount(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     EcRadioBtn as any,
