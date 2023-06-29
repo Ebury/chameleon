@@ -1,12 +1,12 @@
 import { action } from '@storybook/addon-actions';
-import storyRouter from 'storybook-vue3-router';
+import { vueRouter } from 'storybook-vue3-router';
 
 import EcMenu from './ec-menu.vue';
 
 export default {
   title: 'Layout/Menu',
   component: EcMenu,
-  decorators: [storyRouter([
+  decorators: [vueRouter([
     {
       path: '/',
       name: 'root',

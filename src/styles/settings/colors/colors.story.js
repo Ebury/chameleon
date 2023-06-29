@@ -44,7 +44,6 @@ export const all = () => ({
       // we need to update Vue instance manually to trigger the render again and force getInfo() calls inside of the template to recalculate styles displayed in the texts
       vueInstance.update();
     });
-
     function getInfo(variable) {
       const hslValue = window.getComputedStyle(document.documentElement).getPropertyValue(variable);
       if (hslValue) {
