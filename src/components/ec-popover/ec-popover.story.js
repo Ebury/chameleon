@@ -33,7 +33,7 @@ const Template = ({ trigger, ...args }) => ({
           <button class="ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Activate popover</button>
           <template #popper="{ hide }">
             <div class="tw-bg-gray-8 tw-border tw-border-solid tw-border-gray-6 tw-p-8 tw-text-center">
-            <h1>Test popover</h1>
+            <h1 data-test="test-popover-header">Test popover</h1>
             <p>Lorem ipsum dolor sit amet, consectetur <strong>adipiscing elit</strong>. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.</p>
             <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded" @click="hide">Close (fn)</button>
             <button class="ec-btn ec-btn--primary ec-btn--sm ec-btn--rounded tw-ml-8" v-ec-close-popover>Close (directive)</button>
@@ -56,6 +56,12 @@ basic.args = {
   disabled: false,
   delay: 100,
   autoHide: true,
+};
+
+basic.parameters = {
+  visualRegressionTests: {
+    waitOn: '[data-test~=test-popover-header]',
+  },
 };
 
 export const zIndices = ({ trigger, ...args }) => ({

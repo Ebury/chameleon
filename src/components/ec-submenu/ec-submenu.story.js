@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import storyRouter from 'storybook-vue3-router';
+import { vueRouter } from 'storybook-vue3-router';
 import { ref } from 'vue';
 
 import EcSubmenu from './ec-submenu.vue';
@@ -8,7 +8,7 @@ export default {
   title: 'Submenu',
   component: EcSubmenu,
   decorators: [
-    storyRouter([{
+    vueRouter([{
       path: '/',
       component: {},
     }, {
