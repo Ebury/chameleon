@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "4.0.3",
-    "@sinonjs/fake-timers": "9.1.2",
+    "@sinonjs/fake-timers": "10.3.0",
     "@storybook/addon-a11y": "7.0.20",
     "@storybook/addon-actions": "7.0.20",
     "@storybook/addon-cssresources": "6.2.9",
@@ -118,7 +118,7 @@
     "svg-sprite-loader": "6.0.11",
     "svgo": "2.8.0",
     "svgo-loader": "3.0.1",
-    "ts-jest": "29.0.3",
+    "ts-jest": "29.1.0",
     "ts-morph": "17.0.1",
     "typescript": "4.8.4",
     "vite": "3.2.7",
