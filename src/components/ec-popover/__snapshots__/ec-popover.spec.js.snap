@@ -1,97 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcPopover component should add the z-index level class if the level was given 1`] = `
-<div
-  data-v-app=""
+<v-dropdown-stub
+  ariaid="ec-popover-1"
+  arrowoverflow="true"
+  container="body"
+  data-test="ec-popover"
+  popperclass="ec-popover ec-popover--level-30"
 >
   
-  <div
-    class="v-popper v-popper--theme-dropdown"
-    data-test="ec-popover"
-  >
-    
-    
-  </div>
   
-</div>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should attach to a different element when provided 1`] = `
-<div
-  data-v-app=""
+<v-dropdown-stub
+  ariaid="ec-popover-1"
+  arrowoverflow="true"
+  container="custom-element"
+  data-test="ec-popover"
+  popperclass="ec-popover"
 >
   
-  <div
-    class="v-popper v-popper--theme-dropdown"
-    data-test="ec-popover"
-  >
-    
-    
-  </div>
   
-</div>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should merge default options with given additional options 1`] = `
-<div
-  data-v-app=""
+<v-dropdown-stub
+  ariaid="ec-popover-1"
+  arrowoverflow="true"
+  container="body"
+  data-test="ec-popover"
+  popperclass="my-popover ec-popover"
 >
   
-  <div
-    class="v-popper v-popper--theme-dropdown"
-    data-test="ec-popover"
-  >
-    
-    
-  </div>
   
-</div>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should pass default options when no additional props are given 1`] = `
-<div
-  data-v-app=""
+<v-dropdown-stub
+  ariaid="ec-popover-1"
+  arrowoverflow="true"
+  container="body"
+  data-test="ec-popover"
+  popperclass="ec-popover"
 >
   
-  <div
-    class="v-popper v-popper--theme-dropdown"
-    data-test="ec-popover"
-  >
-    
-    
-  </div>
   
-</div>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should update options when additional options are also updated: after 1`] = `
-<div
-  data-v-app=""
+<v-dropdown-stub
+  ariaid="ec-popover-1"
+  arrowoverflow="true"
+  container="body"
+  data-test="ec-popover"
+  placement="bottom"
+  popperclass="ec-popover"
 >
   
-  <div
-    class="v-popper v-popper--theme-dropdown"
-    data-test="ec-popover"
-  >
-    
-    
-  </div>
   
-</div>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should update options when additional options are also updated: before 1`] = `
-<div
-  data-v-app=""
+<v-dropdown-stub
+  ariaid="ec-popover-1"
+  arrowoverflow="true"
+  container="body"
+  data-test="ec-popover"
+  placement="left"
+  popperclass="ec-popover"
 >
   
-  <div
-    class="v-popper v-popper--theme-dropdown"
-    data-test="ec-popover"
-  >
-    
-    
-  </div>
   
-</div>
+</v-dropdown-stub>
 `;
