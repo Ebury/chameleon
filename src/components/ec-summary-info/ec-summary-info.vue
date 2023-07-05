@@ -48,6 +48,8 @@
 
 <script setup lang="ts">
 import useConfig from '../../composables/use-ec-config';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';

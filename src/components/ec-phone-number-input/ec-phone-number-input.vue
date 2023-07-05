@@ -158,6 +158,8 @@ import { computed, ref } from 'vue';
 
 import type { Maybe, ZIndexLevel } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import vEcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';

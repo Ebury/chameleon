@@ -836,7 +836,13 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
             <main
               class="ec-submenu__main"
             >
-              <transition-group-stub>
+              <transition-group-stub
+                appear="false"
+                css="true"
+                name="ec-submenu__fade"
+                persisted="false"
+                tag="div"
+              >
                 
                 <div
                   data-test="ec-submenu__panel-0"

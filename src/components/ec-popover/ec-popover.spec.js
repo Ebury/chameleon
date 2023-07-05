@@ -9,7 +9,7 @@ describe('EcPopover component', () => {
     return mount(EcPopover, {
       props,
       global: {
-        stubs: { FvDropdown: true },
+        stubs: { VDropdown: true },
       },
       ...mountOpts,
     });
@@ -40,7 +40,7 @@ describe('EcPopover component', () => {
     const wrapper = mountEcPopover({}, {
       attrs: { onShow: showSpy },
     });
-    await wrapper.findComponent({ name: 'FvDropdown' }).vm.$emit('show');
+    await wrapper.findComponent({ name: 'VDropdown' }).vm.$emit('show');
     expect(showSpy).toHaveBeenCalledTimes(1);
   });
 
@@ -59,7 +59,7 @@ describe('EcPopover component', () => {
   it('should attach to a different element when provided', () => {
     const wrapper = mount(EcPopover, {
       global: {
-        stubs: { FvDropdown: true },
+        stubs: { VDropdown: true },
         provide: {
           [POPOVER_CONTAINER_KEY]: { container: ref('custom-element') },
         },

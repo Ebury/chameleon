@@ -1,4 +1,4 @@
-import type { MountingOptions } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import type { RouteLocationNamedRaw } from 'vue-router';
 
@@ -9,7 +9,7 @@ import type { ButtonProps } from './types';
 import { ButtonCategory, ButtonSize } from './types';
 
 describe('EcBtn', () => {
-  function mountBtn(props?: ButtonProps, mountOpts?: MountingOptions<ButtonProps>) {
+  function mountBtn(props?: ButtonProps, mountOpts?: ComponentMountingOptions<ButtonProps>) {
     return mount(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       EcBtn as any,

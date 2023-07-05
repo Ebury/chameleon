@@ -1,11 +1,11 @@
-import { mount, type MountingOptions } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcLoading from './ec-loading.vue';
 import type { LoadingProps } from './types';
 
 describe('EcLoading', () => {
-  function mountLoading(props?: Partial<LoadingProps>, mountOpts: MountingOptions<LoadingProps> = {}) {
+  function mountLoading(props?: Partial<LoadingProps>, mountOpts: ComponentMountingOptions<LoadingProps> = {}) {
     return mount<LoadingProps>(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       EcLoading as any,

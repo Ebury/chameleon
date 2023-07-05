@@ -1,4 +1,4 @@
-import type { MountingOptions } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
@@ -8,7 +8,7 @@ import type { OptionCardProps } from './types';
 import { OptionCardType } from './types';
 
 describe('EcOptionCard', () => {
-  function mountEcOptionCard(props?: OptionCardProps, mountOpts?: MountingOptions<OptionCardProps>): CVueWrapper {
+  function mountEcOptionCard(props?: OptionCardProps, mountOpts?: ComponentMountingOptions<OptionCardProps>): CVueWrapper {
     return mount(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       EcOptionCard as any,

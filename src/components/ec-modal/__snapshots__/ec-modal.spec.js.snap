@@ -146,13 +146,23 @@ exports[`EcModal should not render close button when isClosable is set to false 
 `;
 
 exports[`EcModal should not render the modal if "show" is not set to true 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-modal__fade"
+  persisted="false"
+>
   <!--v-if-->
 </transition-stub>
 `;
 
 exports[`EcModal should render basic modal 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-modal__fade"
+  persisted="false"
+>
   <div
     class="ec-modal"
     data-test="ec-modal"
@@ -569,13 +579,23 @@ DOMWrapper {
 `;
 
 exports[`EcModal v-model should not render the modal when we pass to model false 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-modal__fade"
+  persisted="false"
+>
   <!--v-if-->
 </transition-stub>
 `;
 
 exports[`EcModal v-model should render the modal when we pass to model true 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-modal__fade"
+  persisted="false"
+>
   <div
     class="ec-modal"
     data-test="ec-modal"
@@ -621,7 +641,12 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
 `;
 
 exports[`EcModal v-model should render the modal when we pass to model true 2`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-modal__fade"
+  persisted="false"
+>
   <!--v-if-->
 </transition-stub>
 `;

@@ -148,18 +148,18 @@ describe('EcMetroline', () => {
     });
 
     it('should throw an error if we don\'t provide Metroline context', () => {
-      expect.assertions(4);
+      expect.assertions(3);
 
       withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
         try {
-          mount(EcMetrolineItem, { props: { id: 1 } });
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          mount(EcMetrolineItem as any, { props: { id: 1 } });
         } catch (e) {
           expect((e as Error).message).toBe('Metroline context is not provided');
         }
 
         expect(warnSpy.mock.calls[0][0]).toContain('injection "Symbol(metroline)" not found.');
-        expect(warnSpy.mock.calls[1][0]).toContain('Unhandled error during execution of setup function');
-        expect(warnSpy).toHaveBeenCalledTimes(2);
+        expect(warnSpy).toHaveBeenCalledTimes(1);
       });
     });
   });

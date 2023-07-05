@@ -1,4 +1,4 @@
-import type { MountingOptions } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
@@ -6,7 +6,7 @@ import EcIcon from './ec-icon.vue';
 import { IconName, type IconProps, IconType } from './types';
 
 describe('EcIcon', () => {
-  function mountEcIcon(props?: IconProps, mountOpts?: MountingOptions<IconProps>): CVueWrapper {
+  function mountEcIcon(props?: IconProps, mountOpts?: ComponentMountingOptions<IconProps>): CVueWrapper {
     return mount(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       EcIcon as any,

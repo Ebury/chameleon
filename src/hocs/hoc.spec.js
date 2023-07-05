@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { h } from 'vue';
 
-import { withMockedConsole } from '../../tests/utils/console';
 import { createHOC, createHOCc } from './hoc';
 
 describe('HoC for Vue 3', () => {
@@ -256,23 +255,18 @@ describe('HoC for Vue 3', () => {
 
   describe('render props', () => {
     it('should throw an error if the props form is not supported', () => {
-      withMockedConsole((errorSpy, warnSpy) => {
-        const WrappedComponent = {
-          props: { myProp: String },
-          template: '<div>{{ myProp }}</div>',
-        };
+      const WrappedComponent = {
+        props: { myProp: String },
+        template: '<div>{{ myProp }}</div>',
+      };
 
-        const MyHoC = createHOC(WrappedComponent, {}, {
-          props: 123,
-        });
-
-        expect(() => {
-          mount(MyHoC);
-        }).toThrow('Unrecognised props form in HoC: number');
-
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
+      const MyHoC = createHOC(WrappedComponent, {}, {
+        props: 123,
       });
+
+      expect(() => {
+        mount(MyHoC);
+      }).toThrow('Unrecognised props form in HoC: number');
     });
 
     it('should pass props to the wrapped component', () => {
@@ -411,44 +405,34 @@ describe('HoC for Vue 3', () => {
 
   describe('render listeners', () => {
     it('should throw an error if the props form is not supported', () => {
-      withMockedConsole((errorSpy, warnSpy) => {
-        const WrappedComponent = {
-          template: '<div>Wrapped Component</div>',
-        };
+      const WrappedComponent = {
+        template: '<div>Wrapped Component</div>',
+      };
 
-        const MyHoC = createHOC(WrappedComponent, {}, {
-          listeners: 123,
-        });
-
-        expect(() => {
-          mount(MyHoC);
-        }).toThrow('Unrecognised listeners form in HoC: number');
-
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
+      const MyHoC = createHOC(WrappedComponent, {}, {
+        listeners: 123,
       });
+
+      expect(() => {
+        mount(MyHoC);
+      }).toThrow('Unrecognised listeners form in HoC: number');
     });
 
     it('should throw an error if the listener name is in kebab-case', () => {
-      withMockedConsole((errorSpy, warnSpy) => {
-        const WrappedComponent = {
-          template: '<div>Wrapped Component</div>',
-        };
+      const WrappedComponent = {
+        template: '<div>Wrapped Component</div>',
+      };
 
-        const myEventSpy = jest.fn();
-        const MyHoC = createHOC(WrappedComponent, {}, {
-          listeners: {
-            'my-event': myEventSpy,
-          },
-        });
-
-        expect(() => {
-          mount(MyHoC);
-        }).toThrow('Listener "my-event" should be in camelCase.');
-
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
+      const myEventSpy = jest.fn();
+      const MyHoC = createHOC(WrappedComponent, {}, {
+        listeners: {
+          'my-event': myEventSpy,
+        },
       });
+
+      expect(() => {
+        mount(MyHoC);
+      }).toThrow('Listener "my-event" should be in camelCase.');
     });
 
     it('should pass the listener to the wrapped component', () => {
@@ -562,42 +546,32 @@ describe('HoC for Vue 3', () => {
 
   describe('render slots', () => {
     it('should throw an error if the slots form is not supported', () => {
-      withMockedConsole((errorSpy, warnSpy) => {
-        const WrappedComponent = {
-          template: '<div>Wrapped Component</div>',
-        };
+      const WrappedComponent = {
+        template: '<div>Wrapped Component</div>',
+      };
 
-        const MyHoC = createHOC(WrappedComponent, {}, {
-          slots: {},
-        });
-
-        expect(() => {
-          mount(MyHoC);
-        }).toThrow('Unrecognised slots form in HoC: object');
-
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
+      const MyHoC = createHOC(WrappedComponent, {}, {
+        slots: {},
       });
+
+      expect(() => {
+        mount(MyHoC);
+      }).toThrow('Unrecognised slots form in HoC: object');
     });
 
     it('should throw an error if the slots are passed as scopedSlots', () => {
-      withMockedConsole((errorSpy, warnSpy) => {
-        const WrappedComponent = {
-          template: '<div>Wrapped Component</div>',
-        };
+      const WrappedComponent = {
+        template: '<div>Wrapped Component</div>',
+      };
 
-        const MyHoC = createHOC(WrappedComponent, {}, {
-          // eslint-disable-next-line @typescript-eslint/no-empty-function
-          scopedSlots: () => {},
-        });
-
-        expect(() => {
-          mount(MyHoC);
-        }).toThrow('Do not use scopedSlots in render options. Rename it to slots.');
-
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of render function');
+      const MyHoC = createHOC(WrappedComponent, {}, {
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        scopedSlots: () => {},
       });
+
+      expect(() => {
+        mount(MyHoC);
+      }).toThrow('Do not use scopedSlots in render options. Rename it to slots.');
     });
 
     it('should pass the slot to the wrapped component', () => {
