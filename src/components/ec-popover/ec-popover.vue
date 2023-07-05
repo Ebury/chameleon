@@ -14,13 +14,11 @@
   </fv-dropdown>
 </template>
 
-<script>
-export default {
-  inheritAttrs: false,
-};
-</script>
-
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { Dropdown as FvDropdown } from 'floating-vue';
 import {
   inject, ref, toRefs, useAttrs,

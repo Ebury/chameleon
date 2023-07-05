@@ -66,6 +66,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { computed, ref } from 'vue';
 
 import useConfig from '../../composables/use-ec-config';
@@ -151,12 +155,6 @@ function focus() {
     textareaRef.value.focus();
   }
 }
-</script>
-
-<script>
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

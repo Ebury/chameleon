@@ -81,6 +81,10 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  inheritAttrs: false,
+});
+
 import type { StyleValue } from 'vue';
 import {
   computed, ref, useAttrs, watchEffect,
@@ -195,12 +199,6 @@ watchEffect(() => {
 });
 
 defineExpose<InputFieldExpose>({ focus, inputRef });
-</script>
-
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

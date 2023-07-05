@@ -98,6 +98,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { computed } from 'vue';
 
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from '../../enums/pagination';
@@ -148,13 +152,6 @@ const pageSizeModel = computed({
 });
 const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
 
-</script>
-
-<script>
-
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

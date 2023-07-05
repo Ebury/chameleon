@@ -30,13 +30,11 @@
   </section>
 </template>
 
-<script>
-export default {
-  inheritAttrs: false,
-};
-</script>
-
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { computed } from 'vue';
 
 const props = defineProps({

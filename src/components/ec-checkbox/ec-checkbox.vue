@@ -81,6 +81,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import {
   computed,
   onMounted,
@@ -154,12 +158,6 @@ function updateIndeterminate(newValue) {
 onMounted(() => {
   updateIndeterminate(props.indeterminate);
 });
-</script>
-
-<script>
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>
