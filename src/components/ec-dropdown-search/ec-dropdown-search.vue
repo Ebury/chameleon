@@ -145,6 +145,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import {
   computed, nextTick, ref, toRaw, useSlots, watch,
@@ -579,12 +583,6 @@ function loseFocus() {
     ctaAreaElementFocusable.blur();
   }
 }
-</script>
-
-<script>
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

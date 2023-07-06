@@ -16,6 +16,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { computed, ref, watch } from 'vue';
 
 import VEcAmount from '../../directives/ec-amount/ec-amount';
@@ -141,8 +145,3 @@ watch(() => props.isMasked, (newValue) => {
 });
 </script>
 
-<script>
-export default {
-  inheritAttrs: false,
-};
-</script>

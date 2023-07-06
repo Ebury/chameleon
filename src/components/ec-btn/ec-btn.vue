@@ -50,13 +50,11 @@
   </component>
 </template>
 
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
-</script>
-
 <script setup lang="ts">
+defineOptions({
+  inheritAttrs: false,
+});
+
 import {
   computed,
   useAttrs,

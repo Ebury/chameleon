@@ -76,7 +76,8 @@ const isInvalid = computed(() => !!props.errorMessage);
 const hasErrorMessage = computed(() => (!!props.errorMessage || !!slots['error-message']));
 const hasLabel = computed(() => (!!props.label || !!slots.label));
 
-const emit = defineEmits<{ (e: 'update:modelValue', value: RadioButtonGroupEvents[RadioButtonGroupEvent.UPDATE_MODEL_VALUE]): void,
+const emit = defineEmits<{
+  'update:modelValue': [value: RadioButtonGroupEvents[RadioButtonGroupEvent.UPDATE_MODEL_VALUE]],
 }>();
 </script>
 

@@ -64,6 +64,7 @@ module.exports = {
     'vue/multiline-html-element-content-newline': 'off',
     'vue/no-restricted-syntax': 'off',
     'vue/one-component-per-file': 'off',
+    'vue/prefer-define-options': ['error'],
     'vue/require-default-prop': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     // TODO: enable a11y rules

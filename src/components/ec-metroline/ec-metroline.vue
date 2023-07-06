@@ -13,8 +13,9 @@ import { provide, reactive, ref } from 'vue';
 import { METROLINE_PROVIDE_KEY, type MetrolineProviderContext } from './provide';
 import type { MetrolineEvent, MetrolineEvents } from './types';
 
-const emit = defineEmits<{ (e: 'change', value: MetrolineEvents[MetrolineEvent.CHANGE]): void
-  (e: 'complete'): void
+const emit = defineEmits<{
+  'change': [value: MetrolineEvents[MetrolineEvent.CHANGE]],
+  'complete': [],
 }>();
 
 const metroline = reactive<MetrolineProviderContext>({
