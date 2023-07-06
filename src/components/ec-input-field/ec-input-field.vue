@@ -106,8 +106,9 @@ const config = useConfig();
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 
-const emit = defineEmits<{ (e: 'update:modelValue', value: InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]): void
-  (e: 'icon-click', value: InputFieldEvents[InputFieldEvent.ICON_CLICK]): void
+const emit = defineEmits<{
+  'update:modelValue': [value: InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]],
+  'icon-click': [value: InputFieldEvents[InputFieldEvent.ICON_CLICK]],
 }>();
 
 interface InputFieldProps {

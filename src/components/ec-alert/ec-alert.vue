@@ -67,9 +67,10 @@ import { IconName } from '../ec-icon/types';
 import type { AlertEvents } from './types';
 import { AlertEvent, AlertType } from './types';
 
-const emit = defineEmits<{ (e: 'update:open', value: AlertEvents[AlertEvent.UPDATE_OPEN]): void
-  (e: 'action'): void
-  (e: 'change', value: AlertEvents[AlertEvent.CHANGE]): void
+const emit = defineEmits<{
+  'update:open': [value: AlertEvents[AlertEvent.UPDATE_OPEN]],
+  'action': [],
+  'change': [value: AlertEvents[AlertEvent.CHANGE]],
 }>();
 
 interface AlertProps {

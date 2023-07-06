@@ -138,7 +138,8 @@ const labelId = `${id}-label`;
 const descriptionId = `${id}-description`;
 const inputRadioRef = ref();
 
-const emit = defineEmits<{ (e: 'update:modelValue', value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]): void,
+const emit = defineEmits<{
+  'update:modelValue': [value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]],
 }>();
 
 const isChecked = computed(() => props.modelValue === props.value);
