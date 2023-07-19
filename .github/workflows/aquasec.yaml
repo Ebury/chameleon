@@ -1,0 +1,14 @@
+---
+name: Aquasec
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, reopened, edited]
+jobs:
+  Aquasec:
+    uses: Ebury/seceng/.github/workflows/aquasec-reusable-workflow.yaml@master
+    secrets:
+      AQUA_KEY: ${{ secrets.AQUA_KEY }}
+      AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
