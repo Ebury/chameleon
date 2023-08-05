@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcTag :props should render as expected when passing the icon name 1`] = `
+<div
+  class="ec-tag"
+  data-ec-tooltip-mock-content="Trusted"
+  data-test="ec-tag ec-mock ec-tooltip-mock"
+>
+  <svg
+    class="ec-icon ec-tag__icon"
+    data-test="ec-tag__icon"
+    height="16"
+    width="16"
+  >
+    <use
+      xlink:href="#ec-rounded-check"
+    />
+  </svg>
+  <div
+    class="ec-tag__text"
+    data-test="ec-tag__text"
+  >
+    Trusted
+  </div>
+</div>
+`;
+
+exports[`EcTag :props should render as expected when passing the icon type 1`] = `
+<div
+  class="ec-tag"
+  data-ec-tooltip-mock-content="Trusted"
+  data-test="ec-tag ec-mock ec-tooltip-mock"
+>
+  <svg
+    class="ec-icon ec-icon--success ec-tag__icon"
+    data-test="ec-tag__icon"
+    height="16"
+    width="16"
+  >
+    <use
+      xlink:href="#ec-rounded-check"
+    />
+  </svg>
+  <div
+    class="ec-tag__text"
+    data-test="ec-tag__text"
+  >
+    Trusted
+  </div>
+</div>
+`;
+
+exports[`EcTag :props should render as expected when passing the text prop 1`] = `
+<div
+  class="ec-tag"
+  data-ec-tooltip-mock-content="Trusted"
+  data-test="ec-tag ec-mock ec-tooltip-mock"
+>
+  <!--v-if-->
+  <div
+    class="ec-tag__text"
+    data-test="ec-tag__text"
+  >
+    Trusted
+  </div>
+</div>
+`;
+
+exports[`EcTag should render with a tooltip 1`] = `
+<div
+  class="ec-tag"
+  data-ec-tooltip-mock-content="Trusted"
+  data-test="ec-tag ec-mock ec-tooltip-mock"
+>
+  <!--v-if-->
+  <div
+    class="ec-tag__text"
+    data-test="ec-tag__text"
+  >
+    Trusted
+  </div>
+</div>
+`;
