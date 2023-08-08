@@ -40,3 +40,26 @@ basic.args = {
   iconName: IconName.RoundedCheck,
   iconType: IconType.SUCCESS,
 };
+
+const TruncatedText = (args: Partial<TagProps>) => ({
+  components: { EcTag },
+  setup() {
+    return {
+      args,
+    };
+  },
+  template: `
+    <div class="tw-p-24">
+      <ec-tag v-bind="args" style="width:100px;"/>
+    </div>
+  `,
+});
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const truncatedText = TruncatedText.bind({}) as any;
+
+truncatedText.args = {
+  text: 'Trusted Beneficiary',
+  iconName: IconName.RoundedCheck,
+  iconType: IconType.SUCCESS,
+};

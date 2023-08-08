@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils';
 
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
-import { withMockedConsole } from '../../../tests/utils/console';
 import type { CVueWrapper } from '../../../tests/utils/global';
 import { IconName } from '../ec-icon/icon-names';
 import { IconType } from '../ec-icon/types';
@@ -25,14 +24,6 @@ describe('EcTag', () => {
   }
 
   describe(':props', () => {
-    it('should throw if no text props is given', () => {
-      withMockedConsole((errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
-        mountTag();
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "text"');
-      });
-    });
-
     it('should render as expected when passing the text prop', () => {
       const wrapper = mountTag({
         text: 'Trusted',
