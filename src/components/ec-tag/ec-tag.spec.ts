@@ -50,6 +50,16 @@ describe('EcTag', () => {
 
       expect(wrapper.element).toMatchSnapshot();
     });
+
+    it('should render as expected when we set "is-icon-rounded" to be true', () => {
+      const wrapper = mountTag({
+        text: 'Trusted',
+        iconName: IconName.CurrencyAed,
+        isIconRounded: true,
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   it('should render with a tooltip', () => {

@@ -37,6 +37,7 @@ export const basic = Template.bind({}) as any;
 
 basic.args = {
   text: 'Trusted',
+  isIconRounded: false,
   iconName: IconName.RoundedCheck,
   iconType: IconType.SUCCESS,
 };
@@ -60,6 +61,7 @@ export const truncatedText = TruncatedText.bind({}) as any;
 
 truncatedText.args = {
   text: 'Trusted Beneficiary',
+  isIconRounded: false,
   iconName: IconName.RoundedCheck,
   iconType: IconType.SUCCESS,
 };

@@ -7,6 +7,7 @@
     <ec-icon
       v-if="iconName"
       class="ec-tag__icon"
+      :class="{ 'tw-rounded-1/2': isIconRounded }"
       data-test="ec-tag__icon"
       :name="iconName"
       :type="iconType"
@@ -31,13 +32,18 @@ import type { IconName, IconType } from '../ec-icon/types';
 
 interface TagProps {
   text: string,
+  isIconRounded?: boolean,
   iconName?: IconName,
   iconType?: IconType,
 }
 
-const props = defineProps<TagProps>();
+const props = withDefaults(defineProps<TagProps>(), {
+  isIconRounded: false,
+});
 
-const { iconName, iconType, text } = toRefs(props);
+const {
+  iconName, iconType, isIconRounded, text,
+} = toRefs(props);
 </script>
 
 <style>
