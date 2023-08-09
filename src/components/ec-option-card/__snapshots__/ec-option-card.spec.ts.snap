@@ -125,6 +125,20 @@ exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is
 </div>
 `;
 
+exports[`EcOptionCard renders the Option Card with slot 1`] = `
+<div
+  class="ec-option-card"
+  data-test="ec-option-card"
+>
+  
+  Some slot 
+  <div>
+    some text
+  </div>
+  
+</div>
+`;
+
 exports[`EcOptionCard should render the Option card with the classes related to the type "accent" when type prop is set 1`] = `
 <div
   class="ec-option-card ec-option-card--accent"
