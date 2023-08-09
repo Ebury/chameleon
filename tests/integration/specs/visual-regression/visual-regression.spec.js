@@ -9,7 +9,7 @@ describe('Visual regression tests', () => {
       'Visual regression tests cannot run in All Specs mode because of bugs in Cypress.\nsee https://github.com/cypress-io/cypress/issues/3090.\n',
     ).not.to.equal('All Specs');
 
-    // expect(Cypress.browser.isHeadless, 'Visual regression tests cannot run in non headless mode because of Cypress.\nsee https://github.com/cypress-io/cypress/issues/3324#issuecomment-542414532').to.equal(true);
+    expect(Cypress.browser.isHeadless, 'Visual regression tests cannot run in non headless mode because of Cypress.\nsee https://github.com/cypress-io/cypress/issues/3324#issuecomment-542414532').to.equal(true);
 
     Cypress.log({
       displayName: 'INIT',
@@ -33,7 +33,7 @@ describe('Visual regression tests', () => {
         await storybookStore.cacheAllCSFFiles();
         let stories = Object.values(storybookStore.getStoriesJsonData().stories);
 
-        const storyIdFilter = 'option-card';
+        const storyIdFilter = Cypress.env('storyIdFilter');
         if (storyIdFilter) {
           stories = stories.filter(story => story.id.match(storyIdFilter));
         }
@@ -56,7 +56,6 @@ describe('Visual regression tests', () => {
           const controls = Object.entries(getStoryControls(story));
           for (let i = 0; i < controls.length; i++) {
             const [name, controlsOpts] = controls[i];
-            cy.log(name);
             visitStory(getStoryUuid(story, `${i}__${name}`), story, controlsOpts);
           }
         }

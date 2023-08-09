@@ -5,6 +5,7 @@ exports[`EcOptionCard renders properly with the required title prop 1`] = `
   class="ec-option-card"
   data-test="ec-option-card"
 >
+  
   <span
     data-test="ec-option-card__title-img"
   >
@@ -17,6 +18,7 @@ exports[`EcOptionCard renders properly with the required title prop 1`] = `
     </p>
   </span>
   <!--v-if-->
+  
 </div>
 `;
 
@@ -25,6 +27,7 @@ exports[`EcOptionCard renders the Option Card disabled and with the classes rela
   class="ec-option-card ec-option-card--disabled ec-option-card--accent"
   data-test="ec-option-card ec-option-card--disabled ec-option-card--accent"
 >
+  
   <span
     data-test="ec-option-card__title-img"
   >
@@ -52,6 +55,7 @@ exports[`EcOptionCard renders the Option Card disabled and with the classes rela
   >
     Test Caption
   </p>
+  
 </div>
 `;
 
@@ -60,6 +64,7 @@ exports[`EcOptionCard renders the Option Card disabled and with the classes rela
   class="ec-option-card ec-option-card--disabled ec-option-card--danger"
   data-test="ec-option-card ec-option-card--disabled ec-option-card--danger"
 >
+  
   <span
     data-test="ec-option-card__title-img"
   >
@@ -87,6 +92,7 @@ exports[`EcOptionCard renders the Option Card disabled and with the classes rela
   >
     Test Caption
   </p>
+  
 </div>
 `;
 
@@ -95,6 +101,7 @@ exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is
   class="ec-option-card ec-option-card--disabled"
   data-test="ec-option-card ec-option-card--disabled"
 >
+  
   <span
     data-test="ec-option-card__title-img"
   >
@@ -122,6 +129,7 @@ exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is
   >
     Test Caption
   </p>
+  
 </div>
 `;
 
@@ -144,6 +152,7 @@ exports[`EcOptionCard should render the Option card with the classes related to 
   class="ec-option-card ec-option-card--accent"
   data-test="ec-option-card ec-option-card--accent"
 >
+  
   <span
     data-test="ec-option-card__title-img"
   >
@@ -171,6 +180,7 @@ exports[`EcOptionCard should render the Option card with the classes related to 
   >
     Test Caption
   </p>
+  
 </div>
 `;
 
@@ -179,6 +189,7 @@ exports[`EcOptionCard should render the Option card with the classes related to 
   class="ec-option-card ec-option-card--danger"
   data-test="ec-option-card ec-option-card--danger"
 >
+  
   <span
     data-test="ec-option-card__title-img"
   >
@@ -206,5 +217,6 @@ exports[`EcOptionCard should render the Option card with the classes related to 
   >
     Test Caption
   </p>
+  
 </div>
 `;
