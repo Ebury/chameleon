@@ -62,6 +62,7 @@ const {
   &__text {
     @apply tw-text-gray-3;
     @apply tw-truncate;
+    @apply tw-help-text;
   }
 }
 </style>
