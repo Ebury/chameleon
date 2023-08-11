@@ -1,6 +1,7 @@
 <template>
   <div
     class="ec-inline-input-field-copy"
+    :class="{ 'tw-justify-start': !isBtnRightAligned }"
     data-test="ec-inline-input-field-copy"
   >
     <span :class="{ 'ec-inline-input-field-copy__text': true, [config.sensitiveClass]: isSensitive}">
@@ -12,58 +13,52 @@
       class="ec-inline-input-field-copy__action"
       data-test="ec-inline-input-field-copy__action"
       @click="copy"
-      @mouseleave="hideTooltip"
+      @mouseleave="showTooltip = false"
     >
       <ec-icon
         v-ec-tooltip="{
           placement: 'left',
-          shown: !!tooltipContent,
+          shown: showTooltip,
           triggers: ['manual'],
           content: tooltipContent ,
           popperClass: tooltipClasses,
-          ...tooltipOptions,
         }"
         class="ec-inline-input-field-copy__icon"
         data-test="ec-inline-input-field-copy__icon"
-        name="simple-copy"
+        :name="IconName.SimpleCopy"
         :size="16"
       />
     </button>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import clipboardCopy from 'clipboard-copy';
 import { computed, ref } from 'vue';
 
 import useConfig from '../../../../composables/use-ec-config';
-import VEcTooltip from '../../../../directives/ec-tooltip';
+import vEcTooltip from '../../../../directives/ec-tooltip';
 import EcIcon from '../../../ec-icon';
+import { IconName } from '../../../ec-icon/icon-names';
+import type { InlineInputProps } from '../../types';
 
 const config = useConfig();
-const isCopied = ref(null);
+const isCopied = ref(false);
+const showTooltip = ref(false);
 
-const props = defineProps({
-  value: {
-    default: '',
-    type: String,
-  },
-  tooltipOptions: {
-    type: Object,
-    default: null,
-  },
-  tooltipTextSuccess: {
-    type: String,
-    required: true,
-  },
-  tooltipTextError: {
-    type: String,
-    required: true,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
+interface InlineInputCopyProps {
+  value?: InlineInputProps['value'],
+  isSensitive?: InlineInputProps['isSensitive'],
+  tooltipTextSuccess: InlineInputProps['tooltipTextSuccess'],
+  tooltipTextError: InlineInputProps['tooltipTextError'],
+  isBtnRightAligned?: InlineInputProps['isBtnRightAligned'],
+}
+
+const props = withDefaults(defineProps<InlineInputCopyProps>(), {
+  value: '',
+  isSensitive: false,
+  errorMessage: '',
+  isBtnRightAligned: false,
 });
 
 const tooltipContent = computed(() => {
@@ -88,17 +83,15 @@ const tooltipClasses = computed(() => {
   }
 });
 
-function hideTooltip() {
-  isCopied.value = null;
-}
-
 function copy() {
   clipboardCopy(props.value)
     .then(() => {
       isCopied.value = true;
+      showTooltip.value = true;
     })
     .catch(() => {
       isCopied.value = false;
+      showTooltip.value = true;
     });
 }
 </script>

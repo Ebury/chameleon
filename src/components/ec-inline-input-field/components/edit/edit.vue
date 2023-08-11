@@ -8,8 +8,8 @@
       v-ec-tooltip="{ content: labelTooltip }"
       class="ec-inline-input-field-edit__label-tooltip"
       data-test="ec-inline-input-field-edit__label-tooltip"
-      type="interactive"
-      name="simple-info"
+      :type="IconType.INTERACTIVE"
+      :name="IconName.SimpleInfo"
       :size="14"
     />
     </label>
@@ -18,7 +18,7 @@
         :id="inputId"
         ref="input"
         v-model="inputModel"
-        type="text"
+        :type="InputFieldType.TEXT"
         :is-sensitive="isSensitive"
         data-test="ec-inline-input-field-edit__input"
         :error-message="errorMessage"
@@ -34,7 +34,7 @@
         >
           <ec-icon
             class="ec-inline-input-field-edit__action-icon"
-            name="simple-check"
+            :name="IconName.SimpleCheck"
             :size="16"
           />
         </button>
@@ -46,7 +46,7 @@
         >
           <ec-icon
             class="ec-inline-input-field-edit__action-icon"
-            name="simple-close"
+            :name="IconName.SimpleClose"
             :size="16"
           />
         </button>
@@ -55,51 +55,54 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { nextTick, onMounted, ref } from 'vue';
 
-import VEcTooltip from '../../../../directives/ec-tooltip';
+import type { Maybe } from '../../../../../global';
+import vEcTooltip from '../../../../directives/ec-tooltip';
 import { getUid } from '../../../../utils/uid';
 import EcIcon from '../../../ec-icon';
+import { IconName } from '../../../ec-icon/icon-names';
+import { IconType } from '../../../ec-icon/types';
 import EcInputField from '../../../ec-input-field';
+import { InputFieldType } from '../../../ec-input-field/types';
+import type { InlineInputProps } from '../../types';
+import { type InlineInputEditEvents, InlineInputEditEvent } from './types';
+
+interface InlineInputEditProps {
+  label?: InlineInputProps['label'],
+  value?: InlineInputProps['value'],
+  isSensitive?: InlineInputProps['isSensitive'],
+  labelTooltip?: InlineInputProps['labelTooltip'],
+  errorMessage?: InlineInputProps['errorMessage'],
+}
+
+const props = withDefaults(defineProps<InlineInputEditProps>(), {
+  label: '',
+  value: '',
+  isSensitive: false,
+  labelTooltip: '',
+  errorMessage: '',
+});
 
 const inputId = `ec-inline-input-field-edit__input-${getUid()}`;
 const inputModel = ref(props.value);
-const input = ref(null);
+const input = ref<Maybe<HTMLInputElement>>(null);
 
-const props = defineProps({
-  label: {
-    default: '',
-    type: String,
-  },
-  value: {
-    default: '',
-    type: String,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  errorMessage: {
-    default: '',
-    type: String,
-  },
-  labelTooltip: {
-    default: '',
-    type: String,
-  },
-});
-
-const emit = defineEmits(['cancel', 'submit']);
+const emit = defineEmits<{(e: 'cancel'): void,
+  (e: 'submit', value: InlineInputEditEvents[InlineInputEditEvent.SUBMIT]): void
+}>();
 
 onMounted(() => {
   nextTick(() => {
-    input.value.focus();
+    if (input.value) {
+      input.value.focus();
+    }
   });
 });
 
 function submit() {
-  emit('submit', { value: inputModel.value });
+  emit(InlineInputEditEvent.SUBMIT, { value: inputModel.value });
 }
 </script>
 
@@ -108,6 +111,7 @@ function submit() {
   &__label {
     @apply tw-mini-header;
     @apply tw-flex tw-flex-wrap;
+    @apply tw-normal-case;
   }
 
   &__label-tooltip {

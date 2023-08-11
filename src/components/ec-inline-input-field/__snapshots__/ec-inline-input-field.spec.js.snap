@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcInlineInputField :attributes should correctly display attributes passed 1`] = `
+<div
+  data-test="My-data-test"
+  id="My-id"
+>
+  <div
+    class="ec-inline-input-field__label"
+  >
+    Label
+    <!--v-if-->
+  </div>
+  
+  <div
+    class="ec-inline-input-field-value-text"
+    data-test="ec-inline-input-field-value-text"
+  >
+    <span
+      class="ec-inline-input-field-value-text__text my-sensitive-content-test-class"
+      title="Input field value"
+    >
+      Input field value
+    </span>
+    <button
+      class="ec-inline-input-field-value-text__action"
+      data-test="ec-inline-input-field-value-text__action"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-inline-input-field-value-text__edit-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-edit"
+        />
+      </svg>
+    </button>
+  </div>
+  
+</div>
+`;
+
 exports[`EcInlineInputField when component is copiable should render as expected 1`] = `
 <div
   data-test="ec-inline-input-field"
@@ -26,6 +68,9 @@ exports[`EcInlineInputField when component is copiable should render as expected
     >
       <svg
         class="ec-icon ec-inline-input-field-copy__icon"
+        data-ec-tooltip-mock-content="Unable to copy"
+        data-ec-tooltip-mock-placement="left"
+        data-ec-tooltip-mock-popper-class="ec-tooltip--bg-error"
         data-test="ec-inline-input-field-copy__icon ec-mock ec-tooltip-mock"
         height="16"
         width="16"
@@ -66,6 +111,7 @@ exports[`EcInlineInputField when component is copiable should render with a labe
   >
     <span
       class="ec-inline-input-field-value-text__text"
+      title="Input field value"
     >
       Input field value
     </span>
@@ -115,6 +161,9 @@ exports[`EcInlineInputField when component is copiable should render with a sens
     >
       <svg
         class="ec-icon ec-inline-input-field-copy__icon"
+        data-ec-tooltip-mock-content="Unable to copy"
+        data-ec-tooltip-mock-placement="left"
+        data-ec-tooltip-mock-popper-class="ec-tooltip--bg-error"
         data-test="ec-inline-input-field-copy__icon ec-mock ec-tooltip-mock"
         height="16"
         width="16"
@@ -371,6 +420,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
   >
     <span
       class="ec-inline-input-field-value-text__text"
+      title="Input field value"
     >
       Input field value
     </span>
@@ -421,6 +471,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
   >
     <span
       class="ec-inline-input-field-value-text__text"
+      title="Input field value"
     >
       Input field value
     </span>
@@ -461,6 +512,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
   >
     <span
       class="ec-inline-input-field-value-text__text my-sensitive-content-test-class"
+      title="Input field value"
     >
       Input field value
     </span>
