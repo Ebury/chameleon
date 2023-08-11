@@ -47,6 +47,8 @@ basic.args = {
   isCopiable: true,
   isSensitive: false,
   isBtnRightAligned: true,
+  tooltipTextSuccess: 'Copied!',
+  tooltipTextError: 'Unable to copy',
 };
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -110,13 +112,21 @@ export const all = (args: StoryArgs) => ({
         </div>
         
         <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field label="Inline Input Field - Basic Slot usage">
+          <ec-inline-input-field 
+            label="Inline Input Field - Basic Slot usage"
+            tooltipTextSuccess=""
+            tooltipTextError=""
+          >
             {{ args.value }}
           </ec-inline-input-field>
         </div>
         
         <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field label="Inline Input Field - HTML Slot usage">
+          <ec-inline-input-field 
+            label="Inline Input Field - HTML Slot usage"
+            tooltipTextSuccess=""
+            tooltipTextError=""
+          >
             <a href="#">{{ args.value }}</a>
           </ec-inline-input-field>
         </div>
@@ -139,6 +149,8 @@ export const all = (args: StoryArgs) => ({
             label="Inline Input Field - Left aligned button"
             :is-editable="true"
             :is-btn-right-aligned="false"
+               tooltipTextSuccess=""
+            tooltipTextError=""
           />
         </div>
         <div class="tw-col-full md:tw-col-4">
@@ -147,6 +159,8 @@ export const all = (args: StoryArgs) => ({
             :is-editing="true"
             label="Inline Input Field - With Error"
             errorMessage="This field has an error"
+            tooltipTextSuccess=""
+            tooltipTextError=""
           />
         </div>
       </div>
@@ -158,7 +172,5 @@ all.args = {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   ...basic.args,
-  tooltipTextSuccess: 'Copied!',
-  tooltipTextError: 'Unable to copy',
   labelTooltip: 'Label tooltip text',
 };

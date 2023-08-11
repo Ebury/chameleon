@@ -1,7 +1,7 @@
 <template>
   <div
     class="ec-inline-input-field-copy"
-    :class="{ 'tw-justify-start': !isBtnRightAligned }"
+    :class="(isBtnRightAligned ? 'tw-justify-between' : 'tw-justify-start')"
     data-test="ec-inline-input-field-copy"
   >
     <span :class="{ 'ec-inline-input-field-copy__text': true, [config.sensitiveClass]: isSensitive }">
@@ -37,6 +37,8 @@ import clipboardCopy from 'clipboard-copy';
 import { computed, ref } from 'vue';
 
 import useConfig from '../../../../composables/use-ec-config';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import vEcTooltip from '../../../../directives/ec-tooltip';
 import EcIcon from '../../../ec-icon';
 import { IconName } from '../../../ec-icon/icon-names';
@@ -61,27 +63,9 @@ const props = withDefaults(defineProps<InlineInputCopyProps>(), {
   isBtnRightAligned: false,
 });
 
-const tooltipContent = computed(() => {
-  switch (isCopied.value) {
-    case true:
-      return props.tooltipTextSuccess;
-    case false:
-      return props.tooltipTextError;
-    default:
-      return '';
-  }
-});
+const tooltipContent = computed(() => (isCopied.value ? props.tooltipTextSuccess : props.tooltipTextError));
 
-const tooltipClasses = computed(() => {
-  switch (isCopied.value) {
-    case true:
-      return 'ec-tooltip--bg-success';
-    case false:
-      return 'ec-tooltip--bg-error';
-    default:
-      return '';
-  }
-});
+const tooltipClasses = computed(() => (isCopied.value ? 'ec-tooltip--bg-success' : 'ec-tooltip--bg-error'));
 
 function copy() {
   clipboardCopy(props.value)
@@ -99,7 +83,7 @@ function copy() {
 <style>
 .ec-inline-input-field-copy {
   @apply tw-w-full;
-  @apply tw-flex tw-justify-between tw-items-center;
+  @apply tw-flex tw-items-center;
 
   &__text {
     @apply tw-truncate;

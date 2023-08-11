@@ -1,11 +1,11 @@
 <template>
   <div
     class="ec-inline-input-field-value-text"
-    :class="{ 'tw-justify-start': !isBtnRightAligned }"
+    :class="(isBtnRightAligned ? 'tw-justify-between' : 'tw-justify-start')"
     data-test="ec-inline-input-field-value-text"
   >
     <span
-      :class="{'ec-inline-input-field-value-text__text': true, [config.sensitiveClass]: isSensitive}"
+      :class="{ 'ec-inline-input-field-value-text__text': true, [config.sensitiveClass]: isSensitive }"
       :title="value"
     >
       {{ value }}
@@ -45,14 +45,14 @@ withDefaults(defineProps<InlineInputValueTextProps>(), {
   isBtnRightAligned: true,
 });
 
-const emit = defineEmits<{(e: 'edit'): void }>();
+const emit = defineEmits<{ (e: 'edit'): void }>();
 
 </script>
 
 <style>
 .ec-inline-input-field-value-text {
   @apply tw-w-full;
-  @apply tw-flex tw-justify-between tw-items-center;
+  @apply tw-flex tw-items-center;
 
   &__text {
     @apply tw-truncate;

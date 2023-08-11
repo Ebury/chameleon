@@ -2,7 +2,7 @@
 
 exports[`EcInlineInputField :attributes should correctly display attributes passed 1`] = `
 <div
-  data-test="My-data-test"
+  data-test="My-data-test ec-inline-input-field"
   id="My-id"
 >
   <div
@@ -39,6 +39,49 @@ exports[`EcInlineInputField :attributes should correctly display attributes pass
     </button>
   </div>
   
+</div>
+`;
+
+exports[`EcInlineInputField slots when non-editable should render as expected 1`] = `
+<div
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="ec-inline-input-field__label"
+  >
+    Label
+    <!--v-if-->
+  </div>
+  <div
+    class="ec-inline-input-field__content"
+  >
+    
+    <a
+      href="#"
+    >
+      Link
+    </a>
+    
+  </div>
+</div>
+`;
+
+exports[`EcInlineInputField slots when non-editable should render with a sensitive class when isSensitive prop is set to true 1`] = `
+<div
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="ec-inline-input-field__label"
+  >
+    Label
+    <!--v-if-->
+  </div>
+  <div
+    class="ec-inline-input-field__content my-sensitive-content-test-class"
+  >
+    
+    
+  </div>
 </div>
 `;
 
@@ -675,48 +718,5 @@ exports[`EcInlineInputField when component is editable when the component is loa
     </div>
   </div>
   
-</div>
-`;
-
-exports[`EcInlineInputField when component is non-editable should render as expected 1`] = `
-<div
-  data-test="ec-inline-input-field"
->
-  <div
-    class="ec-inline-input-field__label"
-  >
-    Label
-    <!--v-if-->
-  </div>
-  <div
-    class="ec-inline-input-field__content"
-  >
-    
-    <a
-      href="#"
-    >
-      Link
-    </a>
-    
-  </div>
-</div>
-`;
-
-exports[`EcInlineInputField when component is non-editable should render with a sensitive class when isSensitive prop is set to true 1`] = `
-<div
-  data-test="ec-inline-input-field"
->
-  <div
-    class="ec-inline-input-field__label"
-  >
-    Label
-    <!--v-if-->
-  </div>
-  <div
-    class="ec-inline-input-field__content my-sensitive-content-test-class"
-  >
-    
-    
-  </div>
 </div>
 `;

@@ -14,6 +14,6 @@ export enum InlineInputEditEvent {
 }
 
 export interface InlineInputEditEvents {
-    [InlineInputEditEvent.CANCEL]: undefined
-    [InlineInputEditEvent.SUBMIT]: { value: InlineInputEditProps['value'] }
+  [InlineInputEditEvent.CANCEL]: undefined
+  [InlineInputEditEvent.SUBMIT]: { value: InlineInputEditProps['value'] }
 }

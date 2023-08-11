@@ -5,3 +5,7 @@ export interface InlineInputValueTextProps {
   isSensitive?: InlineInputProps['isSensitive'],
   isBtnRightAligned?: InlineInputProps['isBtnRightAligned'],
 }
+
+export enum InlineInputValueTextEvent {
+  EDIT = 'edit',
+}

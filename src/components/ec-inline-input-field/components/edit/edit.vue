@@ -59,6 +59,8 @@
 import { nextTick, onMounted, ref } from 'vue';
 
 import type { Maybe } from '../../../../../global';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import vEcTooltip from '../../../../directives/ec-tooltip';
 import { getUid } from '../../../../utils/uid';
 import EcIcon from '../../../ec-icon';
@@ -67,7 +69,7 @@ import { IconType } from '../../../ec-icon/types';
 import EcInputField from '../../../ec-input-field';
 import { InputFieldType } from '../../../ec-input-field/types';
 import type { InlineInputProps } from '../../types';
-import { type InlineInputEditEvents, InlineInputEditEvent } from './types';
+import { InlineInputEditEvent, type InlineInputEditEvents } from './types';
 
 interface InlineInputEditProps {
   label?: InlineInputProps['label'],
@@ -89,7 +91,7 @@ const inputId = `ec-inline-input-field-edit__input-${getUid()}`;
 const inputModel = ref(props.value);
 const input = ref<Maybe<HTMLInputElement>>(null);
 
-const emit = defineEmits<{(e: 'cancel'): void,
+const emit = defineEmits<{ (e: 'cancel'): void,
   (e: 'submit', value: InlineInputEditEvents[InlineInputEditEvent.SUBMIT]): void
 }>();
 
