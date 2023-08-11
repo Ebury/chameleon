@@ -18,7 +18,7 @@
           :class="{
             'ec-submenu__header-item': true,
             'ec-submenu__header-item--is-full-width': isFullWidth,
-            'ec-submenu__header-item--is-active': index === activeIndex
+            'ec-submenu__header-item--is-active': index === activeIndex,
           }"
         >
           <a

@@ -76,6 +76,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { computed, useAttrs, useSlots } from 'vue';
 
 import EcIcon from '../ec-icon';
@@ -110,12 +114,6 @@ function closePanel() {
   emit('update:show', false);
   emit('close');
 }
-</script>
-
-<script>
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

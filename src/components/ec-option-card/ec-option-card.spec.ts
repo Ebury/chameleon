@@ -1,6 +1,6 @@
-import type { MountingOptions } from '@vue/test-utils';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
+import { defineComponent } from 'vue';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
 import { IconName } from '../ec-icon/icon-names';
@@ -9,9 +9,10 @@ import type { OptionCardProps } from './types';
 import { OptionCardType } from './types';
 
 describe('EcOptionCard', () => {
-  function mountEcOptionCard(props?: OptionCardProps, mountOpts?: MountingOptions<OptionCardProps>): CVueWrapper {
+  function mountEcOptionCard(props?: OptionCardProps, mountOpts?: ComponentMountingOptions<OptionCardProps>): CVueWrapper {
     return mount(
-      EcOptionCard as any, // eslint-disable-line
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      EcOptionCard as any,
       {
         props: {
           title: 'Test Option Card',
@@ -106,5 +107,16 @@ describe('EcOptionCard', () => {
     expect(wrapper.findByDataTest('ec-option-card').classes('ec-option-card--danger')).toBe(true);
     expect(wrapper.findByDataTest('ec-option-card__icon').classes('ec-option-card__icon--danger')).toBe(false);
     expect(wrapper.findByDataTest('ec-option-card__caption').classes('ec-option-card__caption--danger')).toBe(false);
+  });
+
+  it('renders the Option Card with slot', () => {
+    const component = defineComponent({
+      components: { EcOptionCard },
+      template: '<ec-option-card>Some slot <div>some text</div></ec-option-card>',
+    });
+
+    const wrapper = mount(component) as unknown as CVueWrapper;
+
+    expect(wrapper.element).toMatchSnapshot();
   });
 });

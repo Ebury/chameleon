@@ -22,7 +22,12 @@
       >
         <slot
           name="header-actions"
-          v-bind="{ loading: isFetching, error, total: totalRecords, items: data }"
+          v-bind="{
+            loading: isFetching,
+            error,
+            total: totalRecords,
+            items: data,
+          }"
         />
       </template>
     </ec-smart-table-heading>
@@ -58,8 +63,8 @@
             sorts,
           }"
           v-on="{
-            'sort': sortBy,
-            'rowClick': attrs.onRowClick,
+            sort: sortBy,
+            rowClick: attrs.onRowClick,
           }"
         >
           <template

@@ -81,6 +81,10 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  inheritAttrs: false,
+});
+
 import type { StyleValue } from 'vue';
 import {
   computed, ref, useAttrs, watchEffect,
@@ -88,6 +92,8 @@ import {
 
 import type { Maybe } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
@@ -100,8 +106,9 @@ const config = useConfig();
 const attrs = useAttrs();
 const style = attrs.style as unknown as StyleValue;
 
-const emit = defineEmits<{(e: 'update:modelValue', value: InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]): void
-  (e: 'icon-click', value: InputFieldEvents[InputFieldEvent.ICON_CLICK]): void
+const emit = defineEmits<{
+  'update:modelValue': [value: InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]],
+  'icon-click': [value: InputFieldEvents[InputFieldEvent.ICON_CLICK]],
 }>();
 
 interface InputFieldProps {
@@ -193,12 +200,6 @@ watchEffect(() => {
 });
 
 defineExpose<InputFieldExpose>({ focus, inputRef });
-</script>
-
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

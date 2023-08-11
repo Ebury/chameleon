@@ -33,7 +33,7 @@
         is-in-group="right"
         data-test="ec-phone-number-input__countries"
         class="ec-phone-number-input__countries"
-        :class="{'ec-phone-number-input__countries--is-focused': countriesHasFocus}"
+        :class="{ 'ec-phone-number-input__countries--is-focused': countriesHasFocus }"
         :disabled="isDisabled"
         :error-id="errorId"
         :error-message="errorMessage"
@@ -151,12 +151,15 @@
 </template>
 
 <script setup lang="ts">
+// eslint-disable-next-line vue/no-dupe-keys
 import * as countries from 'svg-country-flags/countries.json';
 import type { InputHTMLAttributes } from 'vue';
 import { computed, ref } from 'vue';
 
 import type { Maybe, ZIndexLevel } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import vEcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';
@@ -177,13 +180,14 @@ const supportedCountries = new Set(Object.keys(countries));
 
 const config = useConfig();
 
-const emit = defineEmits<{(e: 'update:modelValue', value: PhoneNumberEvents[PhoneNumberEvent.UPDATE_MODEL_VALUE]): void
-  (e: 'change', value: PhoneNumberEvents[PhoneNumberEvent.CHANGE]): void
-  (e: 'focus'): void
-  (e: 'open'): void
-  (e: 'after-open'): void
-  (e: 'country-change', value: PhoneNumberEvents[PhoneNumberEvent.COUNTRY_CHANGE]): void
-  (e: 'phone-number-change', value: PhoneNumberEvents[PhoneNumberEvent.PHONE_NUMBER_CHANGE]): void
+const emit = defineEmits<{
+  'update:modelValue': [value: PhoneNumberEvents[PhoneNumberEvent.UPDATE_MODEL_VALUE]],
+  'change': [value: PhoneNumberEvents[PhoneNumberEvent.CHANGE]],
+  'focus': [],
+  'open': [],
+  'after-open': [],
+  'country-change': [value: PhoneNumberEvents[PhoneNumberEvent.COUNTRY_CHANGE]],
+  'phone-number-change': [value: PhoneNumberEvents[PhoneNumberEvent.PHONE_NUMBER_CHANGE]],
 }>();
 
 interface PhoneNumberProps {

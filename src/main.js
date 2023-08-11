@@ -54,6 +54,7 @@ export { default as EcSummaryInfo } from './components/ec-summary-info';
 export { default as EcSyncMultipleValuesFilter } from './components/ec-sync-multiple-values-filter';
 export { default as EcTable } from './components/ec-table';
 export { default as EcTableFilter } from './components/ec-table-filter';
+export { default as EcTag, types as EcTagTypes } from './components/ec-tag';
 export { default as EcTextarea } from './components/ec-textarea';
 export { default as EcTimer } from './components/ec-timer';
 export { default as EcToaster } from './components/ec-toaster';

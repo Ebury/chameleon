@@ -1,3 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
+export default {
+  title: 'Fonts',
+  // The following line prevent stories from this file
+  // from being indexed in the sidebar
+  excludeStories: /.*$/,
+};
 export const fonts = ({
   fontWeight, fontStyle, fontSize, fontFamily, lineHeight,
 }) => ({

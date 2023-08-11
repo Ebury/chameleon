@@ -30,7 +30,7 @@ export default {
   },
 };
 
-const Template = ({ triggers, ...args }: { triggers: TooltipTrigger}) => ({
+const Template = ({ triggers, ...args }: { triggers: TooltipTrigger }) => ({
   directives: { EcTooltip },
   inheritAttrs: false,
   setup() {
@@ -64,7 +64,10 @@ basic.args = {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 basic.parameters = {
-  visualRegressionTests: { disable: false },
+  visualRegressionTests: {
+    disable: false,
+    waitOn: '.v-popper__popper--shown',
+  },
 };
 
 export const allColorsAndPositions = () => ({
@@ -78,7 +81,7 @@ export const allColorsAndPositions = () => ({
 
     const customBgTooltipConfig = reactive({
       content: '<p>Popover like tooltip. Lorem ipsum dolor sit amet</p>',
-      popperClass: TooltipPopperClass.EC_TOOLTIP_BG_BRIGHT,
+      popperClass: [TooltipPopperClass.EC_TOOLTIP_BG_BRIGHT],
       triggers: [TooltipTrigger.CLICK],
       shown: true,
     });
@@ -123,6 +126,9 @@ export const allColorsAndPositions = () => ({
 });
 
 allColorsAndPositions.parameters = {
+  visualRegressionTests: {
+    waitOn: '.v-popper__popper--shown',
+  },
   controls: { disable: true },
   actions: { disable: true },
 };

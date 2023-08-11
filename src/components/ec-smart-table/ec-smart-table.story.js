@@ -141,7 +141,8 @@ export const basic = args => ({
       args.sortCycle === 'lowest first'
         ? SortDirectionCycle.LOWEST_FIRST
         : args.sortCycle === 'highest first'
-          ? SortDirectionCycle.HIGHEST_FIRST : null
+          ? SortDirectionCycle.HIGHEST_FIRST
+          : null
     ));
 
     // filters

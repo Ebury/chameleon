@@ -64,6 +64,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { computed, ref, useSlots } from 'vue';
 
 import EcDropdownSearch from '../ec-dropdown-search';
@@ -206,12 +210,6 @@ const slots = useSlots();
 function hasSlot(name) {
   return name in slots;
 }
-</script>
-
-<script>
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

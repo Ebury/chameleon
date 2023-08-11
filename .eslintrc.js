@@ -1,3 +1,5 @@
+const braceStyle = ['error', '1tbs', { allowSingleLine: false }];
+
 module.exports = {
   root: true,
   reportUnusedDisableDirectives: true,
@@ -7,15 +9,19 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-recommended',
-    '@vue/airbnb',
     '@vue/eslint-config-typescript/recommended',
+    '@vue/eslint-config-airbnb-with-typescript',
+    '@vue/eslint-config-airbnb-with-typescript/allow-js-in-vue',
   ],
-  parser: 'vue-eslint-parser',
   plugins: ['simple-import-sort', '@typescript-eslint', 'chameleon', 'filenames'],
   rules: {
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
+    'brace-style': braceStyle,
+    curly: ['error', 'all'],
     'default-param-last': 'off',
     'max-len': 'off',
+    'max-statements-per-line': ['error', { max: 1 }],
+    'multiline-ternary': ['error', 'always-multiline'],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-multiple-empty-lines': ['error', { max: 1 }],
@@ -51,20 +57,27 @@ module.exports = {
         'EVENTS',
       ],
     }],
+    'vue/brace-style': braceStyle,
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'vue/max-len': 'off',
     'vue/multi-word-component-names': 'off',
     'vue/multiline-html-element-content-newline': 'off',
+    'vue/no-restricted-syntax': 'off',
     'vue/one-component-per-file': 'off',
+    'vue/prefer-define-options': ['error'],
     'vue/require-default-prop': 'off',
     'vue/singleline-html-element-content-newline': 'off',
-    // TODO:
+    // TODO: enable a11y rules
     'vuejs-accessibility/anchor-has-content': 'off',
     'vuejs-accessibility/click-events-have-key-events': 'off',
     'vuejs-accessibility/form-control-has-label': 'off',
     'vuejs-accessibility/label-has-for': 'off',
     'vuejs-accessibility/mouse-events-have-key-events': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/brace-style': braceStyle,
+    '@typescript-eslint/no-duplicate-enum-values': 'error',
+    '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-var-requires': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -109,6 +122,16 @@ module.exports = {
       rules: {
         'import/first': 'off',
         'chameleon/vue-props-interface': 'error',
+
+        // to avoid "You have used a rule which requires parserServices to be generated." issues in vue files, we have to disable some
+        // typescript rules in vue files hoping that these bugs will be resolved one day:
+        // https://github.com/vuejs/vue-eslint-parser/issues/104
+        // https://github.com/vuejs/create-vue/issues/123
+        '@typescript-eslint/naming-convention': 'off',
+        '@typescript-eslint/dot-notation': 'off',
+        '@typescript-eslint/no-implied-eval': 'off',
+        '@typescript-eslint/no-throw-literal': 'off',
+        '@typescript-eslint/return-await': 'off',
       },
     },
     {
@@ -122,15 +145,17 @@ module.exports = {
     },
   ],
   parserOptions: {
-    parser: '@typescript-eslint/parser',
-    ecmaFeatures: {
-      jsx: true,
+    // there is a gigantic clash in all plugins and extended configs we use and at the end, the preferred parser chosen for everything is
+    // @typescript/parser and that is wrong. we don't want JS and JSX files to be parsed by the TS.
+    parser: {
+      js: 'espree',
+      jsx: 'espree',
     },
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.ts', '.tsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
   },

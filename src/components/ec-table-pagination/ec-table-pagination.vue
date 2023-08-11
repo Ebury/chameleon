@@ -3,7 +3,7 @@
     class="ec-table-pagination"
     v-bind="{
       ...$attrs,
-      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-table-pagination` : 'ec-table-pagination'
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-table-pagination` : 'ec-table-pagination',
     }"
   >
 
@@ -18,6 +18,7 @@
         :is-search-enabled="false"
       >
         <button
+          type="button"
           class="ec-table-pagination__action ec-table-pagination__action--page-size"
           data-test="ec-table-pagination__action--page-size"
         >
@@ -37,7 +38,12 @@
     >
       <slot
         name="pages"
-        v-bind="{ page, numberOfItems, totalPages, total }"
+        v-bind="{
+          page,
+          numberOfItems,
+          totalPages,
+          total,
+        }"
       >
         <span>{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages</span>
         <span>({{ total }}&nbsp;items)</span>
@@ -50,7 +56,12 @@
     >
       <slot
         name="total"
-        v-bind="{ page, numberOfItems, totalPages, total }"
+        v-bind="{
+          page,
+          numberOfItems,
+          totalPages,
+          total,
+        }"
       />
     </div>
 
@@ -87,6 +98,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { computed } from 'vue';
 
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from '../../enums/pagination';
@@ -137,13 +152,6 @@ const pageSizeModel = computed({
 });
 const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
 
-</script>
-
-<script>
-
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

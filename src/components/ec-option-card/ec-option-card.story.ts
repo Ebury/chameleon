@@ -134,6 +134,16 @@ const Template = (args: OptionCardProps) => ({
           <ec-option-card class="tw-container" title="Borem ipsum dolor sit amet cons adipiscing elit" caption="Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton, Ipsum dolor sit amet, consectetur hieronr un euvps ecstnome to whuerton" v-bind="args" />
         </div>
       </div>
+
+      <h3 class="tw-my-8">With slot</h3>
+      <div class="tw-flex tw-flex-wrap">
+        <div class="tw-my-8 tw-mr-8" style="width: 304px;">
+          <ec-option-card class="tw-container" v-bind="args" >Some content here</ec-option-card>
+        </div>
+        <div class="tw-my-8 tw-mr-8" style="width: 304px;">
+          <ec-option-card class="tw-container" isDisabled="true" v-bind="args" >Some disabled content here</ec-option-card>
+        </div>
+      </div>
     </div>
 `,
 });

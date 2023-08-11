@@ -10,4 +10,4 @@ config.global.stubs.RouterLink = RouterLinkStub;
 config.global.stubs.RouterView = RouterViewStub;
 config.global.stubs.EcPopover = EcPopoverStub;
 
-config.renderStubDefaultSlot = true;
+config.global.renderStubDefaultSlot = true;

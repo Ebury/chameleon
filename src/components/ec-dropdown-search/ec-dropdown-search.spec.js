@@ -548,6 +548,21 @@ describe('EcDropdownSearch', () => {
       expect(wrapper.emitted('close').length).toBe(1);
     });
   });
+
+  it('should change max height after setting a new items prop', async () => {
+    const wrapper = mountDropdownSearch({
+      items: [],
+    });
+
+    wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('show');
+
+    expect(wrapper.findByDataTest('ec-dropdown-search__item-list').attributes('style')).toBe(undefined);
+
+    await wrapper.setProps({ items });
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.findByDataTest('ec-dropdown-search__item-list').attributes('style')).toBe('max-height: 0px;');
+  });
 });
 
 async function waitOnAfterOpenFocus() {

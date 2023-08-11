@@ -25,7 +25,12 @@ exports[`EcMenu should attach custom listeners passed in the link definition 1`]
           xlink:href="#ec-foo-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -65,7 +70,12 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
           xlink:href="#ec-foo-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -94,7 +104,12 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
           xlink:href="#ec-baz-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -139,7 +154,12 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
           xlink:href="#ec-foo-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -168,7 +188,12 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
           xlink:href="#ec-baz-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -207,7 +232,12 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
           xlink:href="#ec-foo-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -237,7 +267,12 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
           xlink:href="#ec-baz-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -277,7 +312,12 @@ exports[`EcMenu should render as expanded by default 1`] = `
           xlink:href="#ec-foo-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -306,7 +346,12 @@ exports[`EcMenu should render as expanded by default 1`] = `
           xlink:href="#ec-baz-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -345,7 +390,12 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
           xlink:href="#ec-foo-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -384,7 +434,12 @@ exports[`EcMenu should render as expected when set to isReverse 1`] = `
           xlink:href="#ec-foo-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -423,7 +478,12 @@ exports[`EcMenu should render as expected when set to isReverse and horizontal 1
           xlink:href="#ec-foo-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -462,7 +522,12 @@ exports[`EcMenu should render only links with a url property 1`] = `
           xlink:href="#ec-foo-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"
@@ -491,7 +556,12 @@ exports[`EcMenu should render only links with a url property 1`] = `
           xlink:href="#ec-baz-icon"
         />
       </svg>
-      <transition-stub>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
         <span
           class="ec-navigation-link__text"
           data-test="ec-navigation-link__text"

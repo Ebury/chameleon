@@ -1,5 +1,4 @@
-import type { MountingOptions } from '@vue/test-utils';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import type { RouteLocationNamedRaw } from 'vue-router';
 
@@ -10,8 +9,10 @@ import type { ButtonProps } from './types';
 import { ButtonCategory, ButtonSize } from './types';
 
 describe('EcBtn', () => {
-  function mountBtn(props?: ButtonProps, mountOpts?: MountingOptions<ButtonProps>) {
-    return mount(EcBtn as any,  // eslint-disable-line
+  function mountBtn(props?: ButtonProps, mountOpts?: ComponentMountingOptions<ButtonProps>) {
+    return mount(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      EcBtn as any,
       {
         props,
         ...mountOpts,
@@ -58,7 +59,9 @@ describe('EcBtn', () => {
       const wrapper = mountBtn({
         to: {
           name: 'trade-finance',
-          toString() { return `Route with name '${this.name as string}'`; },
+          toString() {
+            return `Route with name '${this.name as string}'`;
+          },
         } as RouteLocationNamedRaw,
       });
 

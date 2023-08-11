@@ -55,7 +55,7 @@
 
     <div
       v-else
-      :class="{ 'ec-inline-input-field__content': true, [config.sensitiveClass]: isSensitive}"
+      :class="{ 'ec-inline-input-field__content': true, [config.sensitiveClass]: isSensitive }"
     >
       <slot />
     </div>
@@ -111,7 +111,7 @@ const props = withDefaults(defineProps<InlineInputProps>(), {
   errorMessage: '',
 });
 
-const emit = defineEmits<{(e: 'cancel'): void,
+const emit = defineEmits<{ (e: 'cancel'): void,
   (e: 'edit'): void,
   (e: 'submit', value: InlineInputEvents[InlineInputEvent.SUBMIT]): void
 }>();

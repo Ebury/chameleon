@@ -16,7 +16,7 @@
     autocomplete="off"
     icon="simple-calendar"
     :class="['ec-datepicker', attrs.class]"
-    :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-datepicker`: 'ec-datepicker'"
+    :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-datepicker` : 'ec-datepicker'"
     :disabled="isDisabled"
     :model-value="formattedValue"
     @icon-click="openCalendar()"
@@ -26,6 +26,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import flatpickr from 'flatpickr';
 import {
   onBeforeUnmount, onMounted, ref, useAttrs, watch,
@@ -356,11 +360,6 @@ function datesAreEqual(date1, date2) {
 }
 </script>
 
-<script>
-export default {
-  inheritAttrs: false,
-};
-</script>
 <style>
 /* We purge the css as a result Flatpickr does not render correctly, because we cannot apply our own classes we need to whitelist the following file */
 

@@ -166,8 +166,12 @@ describe('EcWithAbortableFetch', () => {
   it('should abort previous fetch calls', async () => {
     const dataSource = {
       fetch: jest.fn()
-        .mockImplementationOnce(() => new Promise((resolve) => { setTimeout(() => resolve({ result: 1 }), 1); }))
-        .mockImplementationOnce(() => new Promise((resolve) => { setTimeout(() => resolve({ result: 2 }), 1); })),
+        .mockImplementationOnce(() => new Promise((resolve) => {
+          setTimeout(() => resolve({ result: 1 }), 1);
+        }))
+        .mockImplementationOnce(() => new Promise((resolve) => {
+          setTimeout(() => resolve({ result: 2 }), 1);
+        })),
     };
     const fetchArgs = { prop: 1 };
     const abortSpy = jest.fn();

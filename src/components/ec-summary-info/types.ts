@@ -1,9 +1,9 @@
 import type { IconName } from '../ec-icon/types';
 
 export enum StylePreset {
-    LABEL = 'label',
-    DESCRIPTION = 'description',
-    TEXT = 'text'
+  LABEL = 'label',
+  DESCRIPTION = 'description',
+  TEXT = 'text',
 }
 export interface Item {
   text?: string,
@@ -13,6 +13,6 @@ export interface Item {
 }
 
 export interface SummaryProps {
-    iconName?: IconName,
-    lineItems: Item[]
-  }
+  iconName?: IconName,
+  lineItems: Item[]
+}

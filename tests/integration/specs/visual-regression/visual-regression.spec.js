@@ -1,5 +1,9 @@
 describe('Visual regression tests', () => {
   it('should verify snapshot of every story', () => {
+    // The ResizeObserver exception doesn't affect the test
+    // results but can cause test to break
+    Cypress.on('uncaught:exception', err => !err.message.includes('ResizeObserver'));
+
     expect(
       Cypress.spec.name,
       'Visual regression tests cannot run in All Specs mode because of bugs in Cypress.\nsee https://github.com/cypress-io/cypress/issues/3090.\n',
@@ -17,10 +21,16 @@ describe('Visual regression tests', () => {
     cy.get('a.sidebar-item');
 
     cy.window()
-      .then((win) => {
+      .then({ timeout: 30000 }, async (win) => {
         const previewFrame = getPreviewFrame(win);
         // eslint-disable-next-line no-underscore-dangle
         const storybookStore = previewFrame.__STORYBOOK_STORY_STORE__;
+
+        // getStoriesJsonData() use extract() internally. In Story Store V7 the
+        // extract function needs the cacheAllCSFFiles function to be called
+        // before it asynchronously.
+        // More info here: https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#v7-store-api-changes-for-addon-authors
+        await storybookStore.cacheAllCSFFiles();
         let stories = Object.values(storybookStore.getStoriesJsonData().stories);
 
         const storyIdFilter = Cypress.env('storyIdFilter');
@@ -64,6 +74,8 @@ function visitStory(uuid, story, controls) {
 
   if (waitOn) {
     cy.get(waitOn);
+  } else {
+    cy.get('body.sb-show-main');
   }
 
   // give a DOM chance to load fonts too.

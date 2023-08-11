@@ -4,7 +4,7 @@
     :class="{ 'tw-justify-start': !isBtnRightAligned }"
     data-test="ec-inline-input-field-copy"
   >
-    <span :class="{ 'ec-inline-input-field-copy__text': true, [config.sensitiveClass]: isSensitive}">
+    <span :class="{ 'ec-inline-input-field-copy__text': true, [config.sensitiveClass]: isSensitive }">
       {{ value }}
     </span>
 
@@ -20,7 +20,7 @@
           placement: 'left',
           shown: showTooltip,
           triggers: ['manual'],
-          content: tooltipContent ,
+          content: tooltipContent,
           popperClass: tooltipClasses,
         }"
         class="ec-inline-input-field-copy__icon"

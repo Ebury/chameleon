@@ -1,7 +1,7 @@
-export enum METROLINE_ITEM_STATUS {
-  Next = 'next',
-  Active = 'active',
-  Completed = 'completed',
+export enum MetrolineItemStatus {
+  NEXT = 'next',
+  ACTIVE = 'active',
+  COMPLETED = 'completed',
 }
 
 export interface MetrolineItemProps {

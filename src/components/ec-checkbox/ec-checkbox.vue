@@ -14,7 +14,7 @@
         'aria-describedby': errorId,
         disabled: disabled,
         'data-test': 'ec-checkbox__input',
-        type: 'checkbox'
+        type: 'checkbox',
       }"
       ref="checkboxInput"
       v-model="inputModel"
@@ -81,6 +81,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import {
   computed,
   onMounted,
@@ -154,12 +158,6 @@ function updateIndeterminate(newValue) {
 onMounted(() => {
   updateIndeterminate(props.indeterminate);
 });
-</script>
-
-<script>
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

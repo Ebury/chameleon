@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EcPopover component should add the z-index level class if the level was given 1`] = `
-<fv-dropdown-stub
+<v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
   container="body"
@@ -10,11 +10,11 @@ exports[`EcPopover component should add the z-index level class if the level was
 >
   
   
-</fv-dropdown-stub>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should attach to a different element when provided 1`] = `
-<fv-dropdown-stub
+<v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
   container="custom-element"
@@ -23,11 +23,11 @@ exports[`EcPopover component should attach to a different element when provided 
 >
   
   
-</fv-dropdown-stub>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should merge default options with given additional options 1`] = `
-<fv-dropdown-stub
+<v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
   container="body"
@@ -36,11 +36,11 @@ exports[`EcPopover component should merge default options with given additional 
 >
   
   
-</fv-dropdown-stub>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should pass default options when no additional props are given 1`] = `
-<fv-dropdown-stub
+<v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
   container="body"
@@ -49,11 +49,11 @@ exports[`EcPopover component should pass default options when no additional prop
 >
   
   
-</fv-dropdown-stub>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should update options when additional options are also updated: after 1`] = `
-<fv-dropdown-stub
+<v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
   container="body"
@@ -63,11 +63,11 @@ exports[`EcPopover component should update options when additional options are a
 >
   
   
-</fv-dropdown-stub>
+</v-dropdown-stub>
 `;
 
 exports[`EcPopover component should update options when additional options are also updated: before 1`] = `
-<fv-dropdown-stub
+<v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
   container="body"
@@ -77,5 +77,5 @@ exports[`EcPopover component should update options when additional options are a
 >
   
   
-</fv-dropdown-stub>
+</v-dropdown-stub>
 `;

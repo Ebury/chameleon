@@ -18,7 +18,8 @@ export const basic = ({
     const remaining = computed(() => {
       if (used > amount) {
         return 0;
-      } if (used <= 0) {
+      }
+      if (used <= 0) {
         return amount;
       }
       return amount - used;

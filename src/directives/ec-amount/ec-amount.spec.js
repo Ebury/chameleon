@@ -1,7 +1,6 @@
 /* eslint no-underscore-dangle: "off" */
 import { mount } from '@vue/test-utils';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcAmount from './ec-amount';
 
 describe('EcAmount', () => {
@@ -48,17 +47,17 @@ describe('EcAmount', () => {
     const { wrapper, input } = mountTemplate('<input v-ec-amount data-test="amount-input" />');
     const spy = jest.spyOn(input.element, 'removeEventListener');
 
+    const inputHandler = input.element.__inputHandler;
+    const keydownHandler = input.element.__keydownHandler;
+
     wrapper.unmount();
 
-    expect(spy).toHaveBeenCalledTimes(2);
+    expect(spy.mock.calls).toContainEqual(['input', inputHandler]);
+    expect(spy.mock.calls).toContainEqual(['keydown', keydownHandler]);
   });
 
   it('should throw an error if the directive is not attached to an input', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      expect(() => mountTemplate('<div v-ec-amount="{}"></div>')).toThrow(new TypeError('v-ec-amount requires 1 input'));
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Unhandled error during execution of directive hook');
-    });
+    expect(() => mountTemplate('<div v-ec-amount="{}"></div>')).toThrow(new TypeError('v-ec-amount requires 1 input'));
   });
 
   it('should ignore letters and only keep the numbers and the cursor position does not change', () => {

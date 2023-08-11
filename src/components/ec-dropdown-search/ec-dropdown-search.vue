@@ -145,6 +145,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import {
   computed, nextTick, ref, toRaw, useSlots, watch,
@@ -458,8 +462,11 @@ function updateScroll() {
   }
 }
 
-watch(() => itemElements.value, () => {
-  if (isOpen.value) setOverflowHeight();
+watch(() => props.items, async () => {
+  if (isOpen.value) {
+    await nextTick();
+    setOverflowHeight();
+  }
 });
 
 function setOverflowHeight() {
@@ -576,12 +583,6 @@ function loseFocus() {
     ctaAreaElementFocusable.blur();
   }
 }
-</script>
-
-<script>
-export default {
-  inheritAttrs: false,
-};
 </script>
 
 <style>

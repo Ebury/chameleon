@@ -1,4 +1,4 @@
-import storyRouter from 'storybook-vue3-router';
+import { vueRouter } from 'storybook-vue3-router';
 
 import { DARK_THEME } from '../../../.storybook/backgrounds';
 import EcNavigationLink from './ec-navigation-link.vue';
@@ -7,7 +7,7 @@ export default {
   title: 'Layout/Navigation Link',
   component: EcNavigationLink,
   decorators: [
-    storyRouter(),
+    vueRouter(),
   ],
 };
 

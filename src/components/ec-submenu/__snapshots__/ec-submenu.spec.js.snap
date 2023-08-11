@@ -62,7 +62,13 @@ exports[`EcSubmenu should render properly if hasHeaderGap prop is set to false 1
   <main
     class="ec-submenu__main"
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      name="ec-submenu__fade"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         data-test="ec-submenu__panel-0"
@@ -148,7 +154,13 @@ exports[`EcSubmenu should render properly if isFullWidth prop is set 1`] = `
   <main
     class="ec-submenu__main"
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      name="ec-submenu__fade"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         data-test="ec-submenu__panel-0"
@@ -243,7 +255,13 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
   <main
     class="ec-submenu__main"
   >
-    <transition-group-stub>
+    <transition-group-stub
+      appear="false"
+      css="true"
+      name="ec-submenu__fade"
+      persisted="false"
+      tag="div"
+    >
       
       <div
         data-test="ec-submenu__panel-0"
@@ -254,6 +272,7 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
       </div>
       <div
         data-test="ec-submenu__panel-1"
+        style=""
       >
         
         
