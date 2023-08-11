@@ -2,7 +2,7 @@ import type { IconName } from '../ec-icon/types';
 
 export interface OptionCardProps {
   isDisabled?: boolean,
-  title: string,
+  title?: string,
   caption?: string,
   iconName?: IconName,
   type?: OptionCardType,

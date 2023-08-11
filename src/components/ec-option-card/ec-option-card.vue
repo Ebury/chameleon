@@ -4,27 +4,29 @@
     class="ec-option-card"
     :class="getOptionCardClasses"
   >
-    <span data-test="ec-option-card__title-img">
-      <ec-icon
-        v-if="iconName && title"
-        data-test="ec-option-card__icon"
-        class="ec-option-card__icon"
-        :class="getOptionIconClass"
-        :name="iconName"
-        :alt="title"
-        :size="24"
-      />
+    <slot>
+      <span data-test="ec-option-card__title-img">
+        <ec-icon
+          v-if="iconName && title"
+          data-test="ec-option-card__icon"
+          class="ec-option-card__icon"
+          :class="getOptionIconClass"
+          :name="iconName"
+          :alt="title"
+          :size="24"
+        />
+        <p
+          data-test="ec-option-card__title"
+          class="ec-option-card__title"
+        >{{ title }}</p>
+      </span>
       <p
-        data-test="ec-option-card__title"
-        class="ec-option-card__title"
-      >{{ title }}</p>
-    </span>
-    <p
-      v-if="caption"
-      class="ec-option-card__caption"
-      :class="getCaptionClass"
-      data-test="ec-option-card__caption"
-    >{{ caption }}</p>
+        v-if="caption"
+        class="ec-option-card__caption"
+        :class="getCaptionClass"
+        data-test="ec-option-card__caption"
+      >{{ caption }}</p>
+    </slot>
   </div>
 </template>
 
@@ -37,7 +39,7 @@ import { OptionCardType } from './types';
 
 interface OptionCardProps {
   isDisabled?: boolean,
-  title: string,
+  title?: string,
   caption?: string,
   iconName?: IconName,
   type?: OptionCardType,
