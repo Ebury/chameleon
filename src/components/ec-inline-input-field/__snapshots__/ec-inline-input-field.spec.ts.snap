@@ -13,7 +13,7 @@ exports[`EcInlineInputField :attributes should correctly display attributes pass
   </div>
   
   <div
-    class="ec-inline-input-field-value-text"
+    class="ec-inline-input-field-value-text tw-justify-between"
     data-test="ec-inline-input-field-value-text"
   >
     <span
@@ -96,7 +96,7 @@ exports[`EcInlineInputField when component is copiable should render as expected
     <!--v-if-->
   </div>
   <div
-    class="ec-inline-input-field-copy"
+    class="ec-inline-input-field-copy tw-justify-between"
     data-test="ec-inline-input-field-copy"
   >
     <span
@@ -149,7 +149,7 @@ exports[`EcInlineInputField when component is copiable should render with a labe
   </div>
   
   <div
-    class="ec-inline-input-field-value-text"
+    class="ec-inline-input-field-value-text tw-justify-between"
     data-test="ec-inline-input-field-value-text"
   >
     <span
@@ -189,7 +189,7 @@ exports[`EcInlineInputField when component is copiable should render with a sens
     <!--v-if-->
   </div>
   <div
-    class="ec-inline-input-field-copy"
+    class="ec-inline-input-field-copy tw-justify-between"
     data-test="ec-inline-input-field-copy"
   >
     <span
@@ -458,7 +458,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
   </div>
   
   <div
-    class="ec-inline-input-field-value-text"
+    class="ec-inline-input-field-value-text tw-justify-between"
     data-test="ec-inline-input-field-value-text"
   >
     <span
@@ -509,7 +509,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
   </div>
   
   <div
-    class="ec-inline-input-field-value-text"
+    class="ec-inline-input-field-value-text tw-justify-between"
     data-test="ec-inline-input-field-value-text"
   >
     <span
@@ -550,7 +550,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
   </div>
   
   <div
-    class="ec-inline-input-field-value-text"
+    class="ec-inline-input-field-value-text tw-justify-between"
     data-test="ec-inline-input-field-value-text"
   >
     <span
