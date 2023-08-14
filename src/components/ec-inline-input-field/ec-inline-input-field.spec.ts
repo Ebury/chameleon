@@ -5,7 +5,7 @@ import clipboardCopy from 'clipboard-copy';
 import { withMockedConsole } from '../../../tests/utils/console';
 import type { CVueWrapper } from '../../../tests/utils/global';
 import EcInlineInputField from './ec-inline-input-field.vue';
-import type { InlineInputProps } from './types';
+import { InlineInputEvent, type InlineInputProps } from './types';
 
 jest.mock('clipboard-copy');
 
@@ -94,10 +94,10 @@ describe('EcInlineInputField', () => {
         it('should emit `edit` event when the edit button is clicked', async () => {
           const wrapper = mountInlineInputField();
 
-          expect(wrapper.emitted('edit')).toBeUndefined();
+          expect(wrapper.emitted(InlineInputEvent.EDIT)).toBeUndefined();
           await wrapper.findByDataTest('ec-inline-input-field-value-text__action').trigger('click');
 
-          expect(wrapper.emitted('edit')?.length).toBe(1);
+          expect(wrapper.emitted(InlineInputEvent.EDIT)?.length).toBe(1);
         });
       });
     });
@@ -156,8 +156,8 @@ describe('EcInlineInputField', () => {
           });
           const editComponentWrapper = wrapper.findComponentByDataTest('ec-inline-input-field-edit');
 
-          expect(editComponentWrapper.emitted('cancel')).toBeUndefined();
-          expect(wrapper.emitted('cancel')).toBeUndefined();
+          expect(editComponentWrapper.emitted(InlineInputEvent.CANCEL)).toBeUndefined();
+          expect(wrapper.emitted(InlineInputEvent.CANCEL)).toBeUndefined();
           await wrapper.findByDataTest('ec-inline-input-field-edit__input').trigger('keydown.esc');
 
           expect(editComponentWrapper.emitted().cancel[0]).toEqual([]);
@@ -170,8 +170,8 @@ describe('EcInlineInputField', () => {
           });
           const editComponentWrapper = wrapper.findComponentByDataTest('ec-inline-input-field-edit');
 
-          expect(editComponentWrapper.emitted('cancel')).toBeUndefined();
-          expect(wrapper.emitted('cancel')).toBeUndefined();
+          expect(editComponentWrapper.emitted(InlineInputEvent.CANCEL)).toBeUndefined();
+          expect(wrapper.emitted(InlineInputEvent.CANCEL)).toBeUndefined();
           await wrapper.findByDataTest('ec-inline-input-field-edit__cancel-action').trigger('click');
 
           expect(editComponentWrapper.emitted().cancel[0]).toEqual([]);
@@ -184,8 +184,8 @@ describe('EcInlineInputField', () => {
           });
           const editComponentWrapper = wrapper.findComponentByDataTest('ec-inline-input-field-edit');
 
-          expect(editComponentWrapper.emitted('submit')).toBeUndefined();
-          expect(wrapper.emitted('submit')).toBeUndefined();
+          expect(editComponentWrapper.emitted(InlineInputEvent.SUBMIT)).toBeUndefined();
+          expect(wrapper.emitted(InlineInputEvent.SUBMIT)).toBeUndefined();
           await wrapper.findByDataTest('ec-inline-input-field-edit__input').trigger('keydown.enter');
 
           expect(editComponentWrapper.emitted().submit[0]).toEqual([{ value: inputFieldValue }]);
@@ -198,8 +198,8 @@ describe('EcInlineInputField', () => {
           });
           const editComponentWrapper = wrapper.findComponentByDataTest('ec-inline-input-field-edit');
 
-          expect(editComponentWrapper.emitted('submit')).toBeUndefined();
-          expect(wrapper.emitted('submit')).toBeUndefined();
+          expect(editComponentWrapper.emitted(InlineInputEvent.SUBMIT)).toBeUndefined();
+          expect(wrapper.emitted(InlineInputEvent.SUBMIT)).toBeUndefined();
           await wrapper.findByDataTest('ec-inline-input-field-edit__submit-action').trigger('click');
 
           expect(editComponentWrapper.emitted().submit[0]).toEqual([{ value: inputFieldValue }]);

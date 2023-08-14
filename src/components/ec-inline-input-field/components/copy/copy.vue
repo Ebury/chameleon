@@ -13,12 +13,12 @@
       class="ec-inline-input-field-copy__action"
       data-test="ec-inline-input-field-copy__action"
       @click="copy"
-      @mouseleave="showTooltip = false"
+      @mouseleave="isTooltipShown = false"
     >
       <ec-icon
         v-ec-tooltip="{
           placement: 'left',
-          shown: showTooltip,
+          shown: isTooltipShown,
           triggers: ['manual'],
           content: tooltipContent,
           popperClass: tooltipClasses,
@@ -46,7 +46,7 @@ import type { InlineInputProps } from '../../types';
 
 const config = useConfig();
 const isCopied = ref(false);
-const showTooltip = ref(false);
+const isTooltipShown = ref(false);
 
 interface InlineInputCopyProps {
   value?: InlineInputProps['value'],
@@ -71,11 +71,11 @@ function copy() {
   clipboardCopy(props.value)
     .then(() => {
       isCopied.value = true;
-      showTooltip.value = true;
+      isTooltipShown.value = true;
     })
     .catch(() => {
       isCopied.value = false;
-      showTooltip.value = true;
+      isTooltipShown.value = true;
     });
 }
 </script>
