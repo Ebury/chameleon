@@ -1,5 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcInlineInputField :attributes should correctly display attributes passed 1`] = `
+<div
+  data-test="My-data-test ec-inline-input-field"
+  id="My-id"
+>
+  <div
+    class="ec-inline-input-field__label"
+  >
+    Label
+    <!--v-if-->
+  </div>
+  
+  <div
+    class="ec-inline-input-field-value-text tw-justify-between"
+    data-test="ec-inline-input-field-value-text"
+  >
+    <span
+      class="ec-inline-input-field-value-text__text my-sensitive-content-test-class"
+      title="Input field value"
+    >
+      Input field value
+    </span>
+    <button
+      class="ec-inline-input-field-value-text__action"
+      data-test="ec-inline-input-field-value-text__action"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-inline-input-field-value-text__edit-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-edit"
+        />
+      </svg>
+    </button>
+  </div>
+  
+</div>
+`;
+
+exports[`EcInlineInputField slots when non-editable should render as expected 1`] = `
+<div
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="ec-inline-input-field__label"
+  >
+    Label
+    <!--v-if-->
+  </div>
+  <div
+    class="ec-inline-input-field__content"
+  >
+    
+    <a
+      href="#"
+    >
+      Link
+    </a>
+    
+  </div>
+</div>
+`;
+
+exports[`EcInlineInputField slots when non-editable should render with a sensitive class when isSensitive prop is set to true 1`] = `
+<div
+  data-test="ec-inline-input-field"
+>
+  <div
+    class="ec-inline-input-field__label"
+  >
+    Label
+    <!--v-if-->
+  </div>
+  <div
+    class="ec-inline-input-field__content my-sensitive-content-test-class"
+  >
+    
+    
+  </div>
+</div>
+`;
+
 exports[`EcInlineInputField when component is copiable should render as expected 1`] = `
 <div
   data-test="ec-inline-input-field"
@@ -11,7 +96,7 @@ exports[`EcInlineInputField when component is copiable should render as expected
     <!--v-if-->
   </div>
   <div
-    class="ec-inline-input-field-copy"
+    class="ec-inline-input-field-copy tw-justify-between"
     data-test="ec-inline-input-field-copy"
   >
     <span
@@ -26,6 +111,9 @@ exports[`EcInlineInputField when component is copiable should render as expected
     >
       <svg
         class="ec-icon ec-inline-input-field-copy__icon"
+        data-ec-tooltip-mock-content="Unable to copy"
+        data-ec-tooltip-mock-placement="left"
+        data-ec-tooltip-mock-popper-class="ec-tooltip--bg-error"
         data-test="ec-inline-input-field-copy__icon ec-mock ec-tooltip-mock"
         height="16"
         width="16"
@@ -61,11 +149,12 @@ exports[`EcInlineInputField when component is copiable should render with a labe
   </div>
   
   <div
-    class="ec-inline-input-field-value-text"
+    class="ec-inline-input-field-value-text tw-justify-between"
     data-test="ec-inline-input-field-value-text"
   >
     <span
       class="ec-inline-input-field-value-text__text"
+      title="Input field value"
     >
       Input field value
     </span>
@@ -100,7 +189,7 @@ exports[`EcInlineInputField when component is copiable should render with a sens
     <!--v-if-->
   </div>
   <div
-    class="ec-inline-input-field-copy"
+    class="ec-inline-input-field-copy tw-justify-between"
     data-test="ec-inline-input-field-copy"
   >
     <span
@@ -115,6 +204,9 @@ exports[`EcInlineInputField when component is copiable should render with a sens
     >
       <svg
         class="ec-icon ec-inline-input-field-copy__icon"
+        data-ec-tooltip-mock-content="Unable to copy"
+        data-ec-tooltip-mock-placement="left"
+        data-ec-tooltip-mock-popper-class="ec-tooltip--bg-error"
         data-test="ec-inline-input-field-copy__icon ec-mock ec-tooltip-mock"
         height="16"
         width="16"
@@ -366,11 +458,12 @@ exports[`EcInlineInputField when component is editable when the component is in 
   </div>
   
   <div
-    class="ec-inline-input-field-value-text"
+    class="ec-inline-input-field-value-text tw-justify-between"
     data-test="ec-inline-input-field-value-text"
   >
     <span
       class="ec-inline-input-field-value-text__text"
+      title="Input field value"
     >
       Input field value
     </span>
@@ -416,11 +509,12 @@ exports[`EcInlineInputField when component is editable when the component is in 
   </div>
   
   <div
-    class="ec-inline-input-field-value-text"
+    class="ec-inline-input-field-value-text tw-justify-between"
     data-test="ec-inline-input-field-value-text"
   >
     <span
       class="ec-inline-input-field-value-text__text"
+      title="Input field value"
     >
       Input field value
     </span>
@@ -456,11 +550,12 @@ exports[`EcInlineInputField when component is editable when the component is in 
   </div>
   
   <div
-    class="ec-inline-input-field-value-text"
+    class="ec-inline-input-field-value-text tw-justify-between"
     data-test="ec-inline-input-field-value-text"
   >
     <span
       class="ec-inline-input-field-value-text__text my-sensitive-content-test-class"
+      title="Input field value"
     >
       Input field value
     </span>
@@ -623,48 +718,5 @@ exports[`EcInlineInputField when component is editable when the component is loa
     </div>
   </div>
   
-</div>
-`;
-
-exports[`EcInlineInputField when component is non-editable should render as expected 1`] = `
-<div
-  data-test="ec-inline-input-field"
->
-  <div
-    class="ec-inline-input-field__label"
-  >
-    Label
-    <!--v-if-->
-  </div>
-  <div
-    class="ec-inline-input-field__content"
-  >
-    
-    <a
-      href="#"
-    >
-      Link
-    </a>
-    
-  </div>
-</div>
-`;
-
-exports[`EcInlineInputField when component is non-editable should render with a sensitive class when isSensitive prop is set to true 1`] = `
-<div
-  data-test="ec-inline-input-field"
->
-  <div
-    class="ec-inline-input-field__label"
-  >
-    Label
-    <!--v-if-->
-  </div>
-  <div
-    class="ec-inline-input-field__content my-sensitive-content-test-class"
-  >
-    
-    
-  </div>
 </div>
 `;

@@ -1,5 +1,10 @@
 <template>
-  <div :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-inline-input-field` : 'ec-inline-input-field'">
+  <div
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-inline-input-field` : 'ec-inline-input-field',
+    }"
+  >
     <div
       v-if="!isEditing"
       class="ec-inline-input-field__label"
@@ -8,8 +13,8 @@
       v-ec-tooltip="{ content: labelTooltip }"
       class="ec-inline-input-field__label-tooltip"
       data-test="ec-inline-input-field__label-tooltip"
-      type="interactive"
-      name="simple-info"
+      :type="IconType.INTERACTIVE"
+      :name="IconName.SimpleInfo"
       :size="14"
     />
     </div>
@@ -34,6 +39,7 @@
         v-else
         :value="value"
         :is-sensitive="isSensitive"
+        :is-btn-right-aligned="isBtnRightAligned"
         @edit="emit('edit');"
       />
     </template>
@@ -44,6 +50,7 @@
       :tooltip-text-error="tooltipTextError"
       :is-sensitive="isSensitive"
       :value="value"
+      :is-btn-right-aligned="isBtnRightAligned"
     />
 
     <div
@@ -55,71 +62,69 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 import useConfig from '../../composables/use-ec-config';
-import VEcTooltip from '../../directives/ec-tooltip';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/icon-names';
+import { IconType } from '../ec-icon/types';
 import EcInlineInputFieldCopy from './components/copy';
 import EcInlineInputFieldEdit from './components/edit';
+import type { InlineInputEditEvent, InlineInputEditEvents } from './components/edit/types';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldValueText from './components/value-text';
+import type { InlineInputEvent, InlineInputEvents } from './types';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const config = useConfig();
 
-const props = defineProps({
-  label: {
-    default: '',
-    type: String,
-  },
-  isEditable: {
-    type: Boolean,
-    default: false,
-  },
-  isCopiable: {
-    type: Boolean,
-    default: false,
-  },
-  isEditing: {
-    type: Boolean,
-    default: false,
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  value: {
-    default: '',
-    type: String,
-  },
-  tooltipTextSuccess: {
-    type: String,
-  },
-  tooltipTextError: {
-    type: String,
-  },
-  labelTooltip: {
-    default: '',
-    type: String,
-  },
-  errorMessage: {
-    default: '',
-    type: String,
-  },
+interface InlineInputProps {
+  label?: string,
+  value?: string,
+  isEditable?: boolean,
+  isCopiable?: boolean,
+  isEditing?: boolean,
+  isLoading?: boolean,
+  isSensitive?: boolean,
+  isBtnRightAligned?: boolean,
+  tooltipTextSuccess: string,
+  tooltipTextError: string,
+  labelTooltip?: string,
+  errorMessage?: string,
+}
+
+const props = withDefaults(defineProps<InlineInputProps>(), {
+  label: '',
+  value: '',
+  isEditable: false,
+  isCopiable: false,
+  isEditing: false,
+  isLoading: false,
+  isSensitive: false,
+  isBtnRightAligned: true,
+  labelTooltip: '',
+  errorMessage: '',
 });
 
-const emit = defineEmits(['cancel', 'edit', 'submit']);
+const emit = defineEmits<{ (e: 'cancel'): void,
+  (e: 'edit'): void,
+  (e: 'submit', value: InlineInputEvents[InlineInputEvent.SUBMIT]): void
+}>();
 
 const editedValue = ref(props.value);
 
-function submit(data) {
-  editedValue.value = data.value;
-  emit('submit', data.value);
+function submit(data: InlineInputEditEvents[InlineInputEditEvent.SUBMIT]) {
+  if (data.value) {
+    editedValue.value = data.value;
+    emit('submit', data.value);
+  }
 }
 </script>
 
@@ -128,6 +133,7 @@ function submit(data) {
   &__label {
     @apply tw-mini-header;
     @apply tw-flex tw-flex-wrap;
+    @apply tw-normal-case;
   }
 
   &__label-tooltip {
