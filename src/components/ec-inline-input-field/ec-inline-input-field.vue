@@ -94,8 +94,8 @@ interface InlineInputProps {
   isLoading?: boolean,
   isSensitive?: boolean,
   isBtnRightAligned?: boolean,
-  tooltipTextSuccess: string,
-  tooltipTextError: string,
+  tooltipTextSuccess?: string,
+  tooltipTextError?: string,
   labelTooltip?: string,
   errorMessage?: string,
 }
@@ -111,6 +111,8 @@ const props = withDefaults(defineProps<InlineInputProps>(), {
   isBtnRightAligned: true,
   labelTooltip: '',
   errorMessage: '',
+  tooltipTextSuccess: '',
+  tooltipTextError: '',
 });
 
 const emit = defineEmits<{ (e: 'cancel'): void,

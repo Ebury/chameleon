@@ -7,8 +7,8 @@ export interface InlineInputProps {
   isLoading?: boolean,
   isSensitive?: boolean,
   isBtnRightAligned?: boolean,
-  tooltipTextSuccess: string,
-  tooltipTextError: string,
+  tooltipTextSuccess?: string,
+  tooltipTextError?: string,
   labelTooltip?: string,
   errorMessage?: string,
 }
