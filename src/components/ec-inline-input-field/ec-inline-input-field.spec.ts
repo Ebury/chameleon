@@ -4,6 +4,7 @@ import clipboardCopy from 'clipboard-copy';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import type { CVueWrapper } from '../../../tests/utils/global';
+import EcInlineInputCopy from './components/copy';
 import EcInlineInputField from './ec-inline-input-field.vue';
 import { InlineInputEvent, type InlineInputProps } from './types';
 
@@ -232,7 +233,7 @@ describe('EcInlineInputField', () => {
       withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
         mount(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          EcInlineInputField as any,
+          EcInlineInputCopy as any,
           {
             props: {
               label: 'Label',
