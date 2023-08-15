@@ -111,6 +111,8 @@ const props = withDefaults(defineProps<InlineInputProps>(), {
   isBtnRightAligned: true,
   labelTooltip: '',
   errorMessage: '',
+  tooltipTextSuccess: '',
+  tooltipTextError: '',
 });
 
 const emit = defineEmits<{ (e: 'cancel'): void,
