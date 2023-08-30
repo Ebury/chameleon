@@ -39,6 +39,7 @@ export { METROLINE_PROVIDE_KEY } from './components/ec-metroline/provide';
 export { default as EcModal } from './components/ec-modal';
 export { default as EcMultipleValuesSelection } from './components/ec-multiple-values-selection';
 export { default as EcNavigation } from './components/ec-navigation';
+export { default as EcNavigationArrows, types as EcNavigationArrowsTypes } from './components/ec-navigation-arrows';
 export { default as EcNavigationLink } from './components/ec-navigation-link';
 export { default as EcOptionCard, types as EcOptionCardTypes } from './components/ec-option-card';
 export { default as EcPanel } from './components/ec-panel';
