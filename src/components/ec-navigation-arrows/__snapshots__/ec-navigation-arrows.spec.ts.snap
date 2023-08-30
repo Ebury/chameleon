@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EcNavigationArrows should render properly with both arrows disabled 1`] = `
+<div
+  class="ec-navigation-arrows"
+  data-test="ec-navigation-arrows"
+>
+  <button
+    class="ec-navigation-arrows__button ec-navigation-arrows__button--disabled tw-mr-12"
+    data-test="ec-navigation-arrows__left"
+    disabled=""
+    type="button"
+  >
+    <svg
+      class="ec-icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-chevron-left"
+      />
+    </svg>
+  </button>
+  <button
+    class="ec-navigation-arrows__button ec-navigation-arrows__button--disabled"
+    data-test="ec-navigation-arrows__right"
+    disabled=""
+    type="button"
+  >
+    <svg
+      class="ec-icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-chevron-right"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`EcNavigationArrows should render properly with both arrows enabled 1`] = `
+<div
+  class="ec-navigation-arrows"
+  data-test="ec-navigation-arrows"
+>
+  <button
+    class="ec-navigation-arrows__button tw-mr-12"
+    data-test="ec-navigation-arrows__left"
+    type="button"
+  >
+    <svg
+      class="ec-icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-chevron-left"
+      />
+    </svg>
+  </button>
+  <button
+    class="ec-navigation-arrows__button"
+    data-test="ec-navigation-arrows__right"
+    type="button"
+  >
+    <svg
+      class="ec-icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-chevron-right"
+      />
+    </svg>
+  </button>
+</div>
+`;

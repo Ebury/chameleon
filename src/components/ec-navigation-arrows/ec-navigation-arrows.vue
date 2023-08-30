@@ -3,10 +3,23 @@
     class="ec-navigation-arrows"
     data-test="ec-navigation-arrows"
   >
-    <button type="button" :class="leftButtonClasses" class="tw-mr-12" @click="handleLeftArrowEmit">
-      <ec-icon size="24" :name="IconName.SimpleChevronLeft" /></button>
-    <button type="button" :class="rightButtonClasses" @click="handleRightArrowEmit">
-      <ec-icon size="24" :name="IconName.SimpleChevronRight" /></button>
+    <button
+      type="button"
+      :class="leftButtonClasses"
+      :disabled="isLeftArrowDisabled"
+      class="tw-mr-12"
+      data-test="ec-navigation-arrows__left"
+      @click="emit(NavigationArrowsEvent.LEFT_ARROW_CLICK)"
+    >
+      <ec-icon :size="24" :name="IconName.SimpleChevronLeft" /></button>
+    <button
+      type="button"
+      :class="rightButtonClasses"
+      :disabled="isRightArrowDisabled"
+      data-test="ec-navigation-arrows__right"
+      @click="emit(NavigationArrowsEvent.RIGHT_ARROW_CLICK)"
+    >
+      <ec-icon :size="24" :name="IconName.SimpleChevronRight" /></button>
   </div>
 </template>
 
@@ -14,7 +27,7 @@
 
 import { computed } from 'vue';
 
-import EcIcon from '@/components/ec-icon/ec-icon.vue';
+import EcIcon from '../ec-icon/ec-icon.vue';
 import { IconName } from '../ec-icon/types';
 import { NavigationArrowsEvent } from './types';
 
@@ -39,18 +52,6 @@ function getButtonClasses(isDisabled: boolean) {
     'ec-navigation-arrows__button': true,
     'ec-navigation-arrows__button--disabled': isDisabled,
   };
-}
-
-function handleRightArrowEmit() {
-  if (!props.isRightArrowDisabled) {
-    emit(NavigationArrowsEvent.RIGHT_ARROW_CLICK);
-  }
-}
-
-function handleLeftArrowEmit() {
-  if (!props.isLeftArrowDisabled) {
-    emit(NavigationArrowsEvent.LEFT_ARROW_CLICK);
-  }
 }
 </script>
 

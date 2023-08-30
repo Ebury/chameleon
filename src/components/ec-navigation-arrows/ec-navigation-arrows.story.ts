@@ -6,6 +6,8 @@ const meta: Meta<typeof EcNavigationArrows> = {
   title: 'Navigation arrows',
   component: EcNavigationArrows,
   argTypes: {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     onLeftArrowClick: { action: 'left-arrow-click' },
     onRightArrowClick: { action: 'right-arrow-click' },
   },
