@@ -70,6 +70,7 @@ function getButtonClasses(isDisabled: boolean) {
 
     &:focus {
       @apply tw-text-key-4;
+      @apply tw-outline-none;
     }
 
     &--disabled {

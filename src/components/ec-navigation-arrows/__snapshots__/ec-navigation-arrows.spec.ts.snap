@@ -6,7 +6,7 @@ exports[`EcNavigationArrows should render properly with both arrows disabled 1`]
   data-test="ec-navigation-arrows"
 >
   <button
-    class="ec-navigation-arrows__button ec-navigation-arrows__button--disabled tw-mr-12"
+    class="ec-navigation-arrows__button ec-navigation-arrows__button--disabled tw-mr-12 tw-text-gray-4"
     data-test="ec-navigation-arrows__previous"
     disabled=""
     type="button"
@@ -22,7 +22,7 @@ exports[`EcNavigationArrows should render properly with both arrows disabled 1`]
     </svg>
   </button>
   <button
-    class="ec-navigation-arrows__button ec-navigation-arrows__button--disabled"
+    class="tw-text-gray-4 ec-navigation-arrows__button ec-navigation-arrows__button--disabled"
     data-test="ec-navigation-arrows__next"
     disabled=""
     type="button"
@@ -46,7 +46,7 @@ exports[`EcNavigationArrows should render properly with both arrows enabled 1`] 
   data-test="ec-navigation-arrows"
 >
   <button
-    class="ec-navigation-arrows__button tw-mr-12"
+    class="ec-navigation-arrows__button tw-mr-12 tw-text-gray-4"
     data-test="ec-navigation-arrows__previous"
     type="button"
   >
@@ -61,7 +61,7 @@ exports[`EcNavigationArrows should render properly with both arrows enabled 1`] 
     </svg>
   </button>
   <button
-    class="ec-navigation-arrows__button"
+    class="tw-text-gray-4 ec-navigation-arrows__button"
     data-test="ec-navigation-arrows__next"
     type="button"
   >
