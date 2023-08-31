@@ -8,8 +8,8 @@ const meta: Meta<typeof EcNavigationArrows> = {
   argTypes: {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    onLeftArrowClick: { action: 'previous-click' },
-    onRightArrowClick: { action: 'next-click' },
+    onPreviousClick: { action: 'previous-click' },
+    onNextClick: { action: 'next-click' },
   },
 };
 
