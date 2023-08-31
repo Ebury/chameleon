@@ -5,19 +5,19 @@
   >
     <button
       type="button"
-      :class="leftButtonClasses"
-      :disabled="isLeftArrowDisabled"
+      :class="previousButtonClasses"
+      :disabled="isPreviousDisabled"
       class="tw-mr-12"
-      data-test="ec-navigation-arrows__left"
-      @click="emit(NavigationArrowsEvent.LEFT_ARROW_CLICK)"
+      data-test="ec-navigation-arrows__previous"
+      @click="emit(NavigationArrowsEvent.PREVIOUS_CLICK)"
     >
       <ec-icon :size="24" :name="IconName.SimpleChevronLeft" /></button>
     <button
       type="button"
-      :class="rightButtonClasses"
-      :disabled="isRightArrowDisabled"
-      data-test="ec-navigation-arrows__right"
-      @click="emit(NavigationArrowsEvent.RIGHT_ARROW_CLICK)"
+      :class="nextButtonClasses"
+      :disabled="isNextDisabled"
+      data-test="ec-navigation-arrows__next"
+      @click="emit(NavigationArrowsEvent.NEXT_CLICK)"
     >
       <ec-icon :size="24" :name="IconName.SimpleChevronRight" /></button>
   </div>
@@ -32,20 +32,20 @@ import { IconName } from '../ec-icon/types';
 import { NavigationArrowsEvent } from './types';
 
 const emit = defineEmits<{
-  'right-arrow-click': []
-  'left-arrow-click': [],
+  'next-click': []
+  'previous-click': [],
 }>();
 
 interface NavigationArrowsProps {
-  isRightArrowDisabled?: boolean
-  isLeftArrowDisabled?: boolean
+  isNextDisabled?: boolean
+  isPreviousDisabled?: boolean
 }
 
 const props = defineProps<NavigationArrowsProps>();
 
-const leftButtonClasses = computed(() => getButtonClasses(props.isLeftArrowDisabled));
+const previousButtonClasses = computed(() => getButtonClasses(props.isPreviousDisabled));
 
-const rightButtonClasses = computed(() => getButtonClasses(props.isRightArrowDisabled));
+const nextButtonClasses = computed(() => getButtonClasses(props.isNextDisabled));
 
 function getButtonClasses(isDisabled: boolean) {
   return {
@@ -67,10 +67,18 @@ function getButtonClasses(isDisabled: boolean) {
       @apply tw-text-key-4;
     }
 
+    &:focus {
+      @apply tw-text-key-4;
+    }
+
     &--disabled {
       @apply tw-text-gray-6;
 
       &:hover {
+        @apply tw-text-gray-6;
+      }
+
+      &:focus {
         @apply tw-text-gray-6;
       }
     }

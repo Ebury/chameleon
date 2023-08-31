@@ -1,14 +1,14 @@
 export enum NavigationArrowsEvent {
-  RIGHT_ARROW_CLICK = 'right-arrow-click',
-  LEFT_ARROW_CLICK = 'left-arrow-click',
+  NEXT_CLICK = 'next-click',
+  PREVIOUS_CLICK = 'previous-click',
 }
 
 export interface NavigationArrowsEvents {
-  [NavigationArrowsEvent.RIGHT_ARROW_CLICK]: undefined
-  [NavigationArrowsEvent.LEFT_ARROW_CLICK]: undefined
+  [NavigationArrowsEvent.NEXT_CLICK]: undefined
+  [NavigationArrowsEvent.PREVIOUS_CLICK]: undefined
 }
 
 export interface NavigationArrowsProps {
-  isRightArrowDisabled?: boolean
-  isLeftArrowDisabled?: boolean
+  isNextDisabled?: boolean
+  isPreviousDisabled?: boolean
 }

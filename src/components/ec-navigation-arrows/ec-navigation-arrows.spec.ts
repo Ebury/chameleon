@@ -23,42 +23,42 @@ describe('EcNavigationArrows', () => {
 
   it('should render properly with both arrows disabled', () => {
     const wrapper = mountComponent({
-      isLeftArrowDisabled: true,
-      isRightArrowDisabled: true,
+      isPreviousDisabled: true,
+      isNextDisabled: true,
     });
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should emit an event when click right arrow', () => {
+  it('should emit an event when click next arrow', () => {
     const wrapper = mountComponent();
 
-    wrapper.findByDataTest('ec-navigation-arrows__right')
+    wrapper.findByDataTest('ec-navigation-arrows__next')
       .trigger('click');
 
-    expect(wrapper.emitted(NavigationArrowsEvent.RIGHT_ARROW_CLICK)?.length).toBe(1);
+    expect(wrapper.emitted(NavigationArrowsEvent.NEXT_CLICK)?.length).toBe(1);
   });
 
-  it('should emit an event when click left arrow', () => {
+  it('should emit an event when click previous arrow', () => {
     const wrapper = mountComponent();
 
-    wrapper.findByDataTest('ec-navigation-arrows__right')
+    wrapper.findByDataTest('ec-navigation-arrows__previous')
       .trigger('click');
 
-    expect(wrapper.emitted(NavigationArrowsEvent.RIGHT_ARROW_CLICK)?.length).toBe(1);
+    expect(wrapper.emitted(NavigationArrowsEvent.PREVIOUS_CLICK)?.length).toBe(1);
   });
 
   it('should not emit an event when click on disabled buttons', () => {
     const wrapper = mountComponent({
-      isLeftArrowDisabled: true,
-      isRightArrowDisabled: true,
+      isPreviousDisabled: true,
+      isNextDisabled: true,
     });
 
-    wrapper.findByDataTest('ec-navigation-arrows__right')
+    wrapper.findByDataTest('ec-navigation-arrows__next')
       .trigger('click');
-    wrapper.findByDataTest('ec-navigation-arrows__right')
+    wrapper.findByDataTest('ec-navigation-arrows__previous')
       .trigger('click');
 
-    expect(wrapper.emitted(NavigationArrowsEvent.LEFT_ARROW_CLICK)?.length).toBe(undefined);
-    expect(wrapper.emitted(NavigationArrowsEvent.RIGHT_ARROW_CLICK)?.length).toBe(undefined);
+    expect(wrapper.emitted(NavigationArrowsEvent.PREVIOUS_CLICK)?.length).toBe(undefined);
+    expect(wrapper.emitted(NavigationArrowsEvent.NEXT_CLICK)?.length).toBe(undefined);
   });
 });

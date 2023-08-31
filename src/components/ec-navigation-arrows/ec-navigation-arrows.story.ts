@@ -8,8 +8,8 @@ const meta: Meta<typeof EcNavigationArrows> = {
   argTypes: {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    onLeftArrowClick: { action: 'left-arrow-click' },
-    onRightArrowClick: { action: 'right-arrow-click' },
+    onLeftArrowClick: { action: 'previous-click' },
+    onRightArrowClick: { action: 'next-click' },
   },
 };
 
@@ -40,7 +40,7 @@ export const Disabled: Story = {
     template: '<EcNavigationArrows v-bind="args"/>',
   }),
   args: {
-    isLeftArrowDisabled: true,
-    isRightArrowDisabled: true,
+    isPreviousDisabled: true,
+    isNextDisabled: true,
   },
 };
