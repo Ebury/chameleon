@@ -166,13 +166,13 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue', 'search', 'change']);
 
 // search
-let searchQuery = '';
+const searchQuery = ref('');
 const searchModel = computed({
   get() {
-    return searchQuery;
+    return searchQuery.value;
   },
   set(value) {
-    searchQuery = value;
+    searchQuery.value = value;
     emit('search', value);
   },
 });
