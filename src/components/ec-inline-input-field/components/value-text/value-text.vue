@@ -1,9 +1,13 @@
 <template>
   <div
     class="ec-inline-input-field-value-text"
+    :class="(isBtnRightAligned ? 'tw-justify-between' : 'tw-justify-start')"
     data-test="ec-inline-input-field-value-text"
   >
-    <span :class="{ 'ec-inline-input-field-value-text__text': true, [config.sensitiveClass]: isSensitive }">
+    <span
+      :class="{ 'ec-inline-input-field-value-text__text': true, [config.sensitiveClass]: isSensitive }"
+      :title="value"
+    >
       {{ value }}
     </span>
     <button
@@ -14,37 +18,41 @@
     >
       <ec-icon
         class="ec-inline-input-field-value-text__edit-icon"
-        name="simple-edit"
+        :name="IconName.SimpleEdit"
         :size="16"
       />
     </button>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import useConfig from '../../../../composables/use-ec-config';
 import EcIcon from '../../../ec-icon';
+import { IconName } from '../../../ec-icon/icon-names';
+import type { InlineInputProps } from '../../types';
 
 const config = useConfig();
 
-defineProps({
-  value: {
-    default: '',
-    type: String,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
+interface InlineInputValueTextProps {
+  value?: InlineInputProps['value'],
+  isSensitive?: InlineInputProps['isSensitive'],
+  isBtnRightAligned?: InlineInputProps['isBtnRightAligned'],
+}
+
+withDefaults(defineProps<InlineInputValueTextProps>(), {
+  value: '',
+  isSensitive: false,
+  isBtnRightAligned: true,
 });
 
-const emit = defineEmits(['edit']);
+const emit = defineEmits<{ (e: 'edit'): void }>();
+
 </script>
 
 <style>
 .ec-inline-input-field-value-text {
   @apply tw-w-full;
-  @apply tw-flex tw-justify-between tw-items-center;
+  @apply tw-flex tw-items-center;
 
   &__text {
     @apply tw-truncate;

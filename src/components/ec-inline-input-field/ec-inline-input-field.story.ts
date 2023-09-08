@@ -1,14 +1,18 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 import { ref } from 'vue';
 
 import EcInlineInputField from './ec-inline-input-field.vue';
+import type { InlineInputProps } from './types';
 
 export default {
   title: 'Inline Input Field',
   component: EcInlineInputField,
 };
 
-const Template = args => ({
+type StoryArgs = InlineInputProps;
+
+const Template = (args: StoryArgs) => ({
   components: { EcInlineInputField },
   setup() {
     return {
@@ -33,6 +37,8 @@ const Template = args => ({
 
 export const basic = Template.bind({});
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.args = {
   label: 'Inline Input Field',
   value: 'Initial value',
@@ -40,13 +46,17 @@ basic.args = {
   isEditing: false,
   isCopiable: true,
   isSensitive: false,
+  isBtnRightAligned: true,
+  tooltipTextSuccess: 'Copied!',
+  tooltipTextError: 'Unable to copy',
 };
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = args => ({
+export const all = (args: StoryArgs) => ({
   components: { EcInlineInputField },
   setup() {
     const isEditing = ref(false);
@@ -60,7 +70,7 @@ export const all = args => ({
       action('cancel')();
       isEditing.value = false;
     }
-    function onSubmit(value) {
+    function onSubmit(value: string) {
       action('submit')();
       isEditing.value = false;
       isLoading.value = true;
@@ -100,16 +110,27 @@ export const all = args => ({
             {{ args.value }}
           </ec-inline-input-field>
         </div>
+        
         <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field label="Inline Input Field - Uneditable">
+          <ec-inline-input-field 
+            label="Inline Input Field - Basic Slot usage"
+            tooltipTextSuccess=""
+            tooltipTextError=""
+          >
             {{ args.value }}
           </ec-inline-input-field>
         </div>
+        
         <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field label="Inline Input Field - Uneditable / No Plain Text">
+          <ec-inline-input-field 
+            label="Inline Input Field - HTML Slot usage"
+            tooltipTextSuccess=""
+            tooltipTextError=""
+          >
             <a href="#">{{ args.value }}</a>
           </ec-inline-input-field>
         </div>
+        
         <div class="tw-col-full"></div>
         <div class="tw-col-full md:tw-col-4">
           Value: {{ args.value }}
@@ -119,6 +140,17 @@ export const all = args => ({
             v-bind="args"
             label="Inline Input Field - Copiable"
             :is-copiable="true"
+            :is-editable="false"
+          />
+        </div>
+        <div class="tw-col-full md:tw-col-4">
+          <ec-inline-input-field
+            v-bind="args"
+            label="Inline Input Field - Left aligned button"
+            :is-editable="true"
+            :is-btn-right-aligned="false"
+               tooltipTextSuccess=""
+            tooltipTextError=""
           />
         </div>
         <div class="tw-col-full md:tw-col-4">
@@ -127,6 +159,8 @@ export const all = args => ({
             :is-editing="true"
             label="Inline Input Field - With Error"
             errorMessage="This field has an error"
+            tooltipTextSuccess=""
+            tooltipTextError=""
           />
         </div>
       </div>
@@ -135,8 +169,8 @@ export const all = args => ({
 });
 
 all.args = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   ...basic.args,
-  tooltipTextSuccess: 'Copied!',
-  tooltipTextError: 'Unable to copy',
   labelTooltip: 'Label tooltip text',
 };

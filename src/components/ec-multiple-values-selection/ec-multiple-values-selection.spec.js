@@ -199,6 +199,18 @@ describe('EcMultipleValuesSelection', () => {
       expect(wrapper.emitted('search')).toEqual([
         ['ABCD efgh'],
       ]);
+      expect(wrapper.findByDataTest('ec-multiple-values-selection__search-input').element.value).toBe('ABCD efgh');
+    });
+
+    it('show set the search query model correctly', async () => {
+      const wrapper = mountEcMultipleValuesSelection({ items, isSearchable: true });
+
+      // In order to test the computed model that is a getter/setter, we directly pass a value to the model to ensure correct reactivity
+      wrapper.vm.searchModel = 'testing word';
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.findByDataTest('ec-multiple-values-selection__search-input').element.value).toBe('testing word');
     });
 
     it('should be focusable when is searchable', async () => {

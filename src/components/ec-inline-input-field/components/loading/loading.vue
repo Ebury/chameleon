@@ -11,32 +11,34 @@
     />
     <div class="ec-inline-input-field-loading__ghost-actions">
       <ec-icon
-        name="simple-check"
+        :name="IconName.SimpleCheck"
         :size="16"
       />
       <ec-icon
         class="ec-inline-input-field-loading__close-action"
-        name="simple-close"
+        :name="IconName.SimpleClose"
         :size="16"
       />
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import EcIcon from '../../../ec-icon';
+import { IconName } from '../../../ec-icon/icon-names';
 import EcInputField from '../../../ec-input-field';
+import type { InlineInputProps } from '../../types';
 
-defineProps({
-  value: {
-    default: '',
-    type: String,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
+interface InlineInputLoadingProps {
+  value?: InlineInputProps['value'],
+  isSensitive?: InlineInputProps['isSensitive'],
+}
+
+withDefaults(defineProps<InlineInputLoadingProps>(), {
+  value: '',
+  isSensitive: false,
 });
+
 </script>
 
 <style>
