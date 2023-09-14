@@ -611,7 +611,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -683,7 +683,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg

@@ -167,7 +167,7 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0 ec-input-field__icon-wrapper--is-disabled"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right ec-input-field__icon-wrapper--is-disabled"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -237,7 +237,7 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -363,7 +363,7 @@ exports[`EcDropdown :props should render given popover style 1`] = `
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -435,7 +435,7 @@ exports[`EcDropdown :props should render given popover style when it is a functi
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -507,7 +507,7 @@ exports[`EcDropdown :props should render properly when the labelTooltip prop is 
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -577,7 +577,7 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -679,7 +679,7 @@ exports[`EcDropdown should render as expected 1`] = `
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -760,7 +760,7 @@ exports[`EcDropdown should use custom attributes 1`] = `
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg

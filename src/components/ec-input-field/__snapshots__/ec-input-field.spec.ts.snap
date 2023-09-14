@@ -70,7 +70,7 @@ exports[`EcInputField renders properly the icon when disabled 1`] = `
   />
   <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper tw-right-0 ec-input-field__icon-wrapper--is-disabled"
+    class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right ec-input-field__icon-wrapper--is-disabled"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -157,7 +157,7 @@ exports[`EcInputField renders properly when is loading 1`] = `
   />
   <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper tw-right-0"
+    class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -709,7 +709,7 @@ exports[`EcInputField should render given icon 1`] = `
   />
   <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper tw-right-0"
+    class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -729,7 +729,7 @@ exports[`EcInputField should render given icon 1`] = `
 
 exports[`EcInputField should render given icon with given size 1`] = `
 <div
-  class="ec-input-field__icon-wrapper tw-right-0"
+  class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
   data-test="ec-input-field__icon-wrapper"
 >
   <svg
@@ -747,7 +747,7 @@ exports[`EcInputField should render given icon with given size 1`] = `
 
 exports[`EcInputField should render given icon with success colour 1`] = `
 <div
-  class="ec-input-field__icon-wrapper tw-right-0"
+  class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
   data-test="ec-input-field__icon-wrapper"
 >
   <svg
@@ -794,11 +794,11 @@ exports[`EcInputField should render given left-icon 1`] = `
     type="text"
   />
   <div
-    class="ec-input-field__icon-wrapper tw-left-0"
+    class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--left"
     data-test="ec-input-field__left-icon-wrapper"
   >
     <svg
-      class="ec-icon ec-input-field__icon tw-fill-gray-5"
+      class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__left-icon"
       height="20"
       width="20"
@@ -815,11 +815,11 @@ exports[`EcInputField should render given left-icon 1`] = `
 
 exports[`EcInputField should render given left-icon with given size 1`] = `
 <div
-  class="ec-input-field__icon-wrapper tw-left-0"
+  class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--left"
   data-test="ec-input-field__left-icon-wrapper"
 >
   <svg
-    class="ec-icon ec-input-field__icon tw-fill-gray-5"
+    class="ec-icon ec-input-field__icon"
     data-test="ec-input-field__left-icon"
     height="40"
     width="40"
@@ -833,11 +833,11 @@ exports[`EcInputField should render given left-icon with given size 1`] = `
 
 exports[`EcInputField should render given left-icon with success colour 1`] = `
 <div
-  class="ec-input-field__icon-wrapper tw-left-0"
+  class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--left"
   data-test="ec-input-field__left-icon-wrapper"
 >
   <svg
-    class="ec-icon ec-icon--success ec-input-field__icon tw-fill-gray-5"
+    class="ec-icon ec-icon--success ec-input-field__icon"
     data-test="ec-input-field__left-icon"
     height="20"
     width="20"

@@ -104,7 +104,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
           />
           <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper tw-right-0"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -254,7 +254,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
           />
           <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper tw-right-0"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -392,7 +392,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
     />
     <!--v-if-->
     <div
-      class="ec-input-field__icon-wrapper tw-right-0"
+      class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
       data-test="ec-input-field__icon-wrapper"
     >
       <svg
@@ -590,7 +590,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
       />
       <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper tw-right-0"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -689,7 +689,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
           />
           <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper tw-right-0"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -838,7 +838,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
           />
           <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper tw-right-0"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg

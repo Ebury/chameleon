@@ -130,7 +130,7 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
           />
           <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper tw-right-0"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -276,7 +276,7 @@ exports[`EcAmountFilterInput should render properly 1`] = `
           />
           <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper tw-right-0"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg

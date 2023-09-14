@@ -140,7 +140,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
           />
           <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper tw-right-0"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -582,7 +582,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
             />
             <!--v-if-->
             <div
-              class="ec-input-field__icon-wrapper tw-right-0"
+              class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
               data-test="ec-input-field__icon-wrapper"
             >
               <svg
@@ -1191,7 +1191,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                       />
                       <!--v-if-->
                       <div
-                        class="ec-input-field__icon-wrapper tw-right-0"
+                        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
                         data-test="ec-input-field__icon-wrapper"
                       >
                         <svg
@@ -1431,7 +1431,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
             />
             <!--v-if-->
             <div
-              class="ec-input-field__icon-wrapper tw-right-0"
+              class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
               data-test="ec-input-field__icon-wrapper"
             >
               <svg

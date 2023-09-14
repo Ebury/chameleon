@@ -46,12 +46,12 @@
     >
     <div
       v-if="leftIcon"
-      class="ec-input-field__icon-wrapper tw-left-0"
+      class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--left"
       :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
       data-test="ec-input-field__left-icon-wrapper"
     >
       <ec-icon
-        class="ec-input-field__icon tw-fill-gray-5"
+        class="ec-input-field__icon"
         data-test="ec-input-field__left-icon"
         :name="leftIcon"
         :size="leftIconSize"
@@ -60,7 +60,7 @@
     </div>
     <div
       v-if="isLoading || icon"
-      class="ec-input-field__icon-wrapper tw-right-0"
+      class="ec-input-field__icon-wrapper  ec-input-field__icon-wrapper--right"
       :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
       data-test="ec-input-field__icon-wrapper"
     >
@@ -106,8 +106,6 @@ import {
 
 import type { Maybe } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
@@ -332,6 +330,14 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
 
     &--is-disabled {
       @apply tw-text-gray-6;
+    }
+
+    &--left {
+      @apply tw-left-0 tw-fill-gray-5;
+    }
+
+    &--right {
+      @apply tw-right-0;
     }
   }
 
