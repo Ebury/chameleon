@@ -1117,8 +1117,9 @@ exports[`Datepicker :props should render as disabled 1`] = `
     id="ec-datepicker-1"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
+    class="ec-input-field__icon-wrapper tw-right-0 ec-input-field__icon-wrapper--is-disabled"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -1700,8 +1701,9 @@ exports[`Datepicker :props should render with a bottom note 1`] = `
     id="ec-datepicker-1"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper"
+    class="ec-input-field__icon-wrapper tw-right-0"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -1737,8 +1739,9 @@ exports[`Datepicker :props should render with a bottom note in a warning state 1
     id="ec-datepicker-1"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper"
+    class="ec-input-field__icon-wrapper tw-right-0"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -1787,8 +1790,9 @@ exports[`Datepicker :props should render with a label 1`] = `
     id="ec-datepicker-1"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper"
+    class="ec-input-field__icon-wrapper tw-right-0"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -1831,8 +1835,9 @@ exports[`Datepicker :props should render with a note 1`] = `
     id="ec-datepicker-1"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper"
+    class="ec-input-field__icon-wrapper tw-right-0"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -1864,8 +1869,9 @@ exports[`Datepicker :props should render with a placeholder 1`] = `
     placeholder="Datepicker placeholder"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper"
+    class="ec-input-field__icon-wrapper tw-right-0"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -1897,8 +1903,9 @@ exports[`Datepicker :props should render with an error message 1`] = `
     id="ec-datepicker-1"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper"
+    class="ec-input-field__icon-wrapper tw-right-0"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -5241,8 +5248,9 @@ exports[`Datepicker should not pass any additional attributes to the input 1`] =
     id="ec-datepicker-1"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper"
+    class="ec-input-field__icon-wrapper tw-right-0"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -5825,8 +5833,9 @@ exports[`Datepicker should pass the data-test, class and style down to the input
     id="ec-datepicker-1"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper"
+    class="ec-input-field__icon-wrapper tw-right-0"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg
@@ -5857,8 +5866,9 @@ exports[`Datepicker should render properly 1`] = `
     id="ec-datepicker-1"
     type="text"
   />
+  <!--v-if-->
   <div
-    class="ec-input-field__icon-wrapper"
+    class="ec-input-field__icon-wrapper tw-right-0"
     data-test="ec-input-field__icon-wrapper"
   >
     <svg

@@ -102,8 +102,9 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper tw-right-0"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -205,6 +206,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
       />
       <!--v-if-->
       <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
   <!--v-if-->
@@ -250,8 +252,9 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper tw-right-0"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -353,6 +356,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
       />
       <!--v-if-->
       <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
   <!--v-if-->
@@ -386,8 +390,9 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
       readonly=""
       type="text"
     />
+    <!--v-if-->
     <div
-      class="ec-input-field__icon-wrapper"
+      class="ec-input-field__icon-wrapper tw-right-0"
       data-test="ec-input-field__icon-wrapper"
     >
       <svg
@@ -583,8 +588,9 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
         readonly=""
         type="text"
       />
+      <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper"
+        class="ec-input-field__icon-wrapper tw-right-0"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -681,8 +687,9 @@ exports[`EcCurrencyInput should render properly 1`] = `
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper tw-right-0"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -784,6 +791,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
       />
       <!--v-if-->
       <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
   <!--v-if-->
@@ -828,8 +836,9 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper tw-right-0"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -929,6 +938,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
         id="ec-input-field-3"
         type="text"
       />
+      <!--v-if-->
       <!--v-if-->
       <!--v-if-->
     </div>
