@@ -3,6 +3,7 @@ import { ref, watchEffect } from 'vue';
 import EcCurrencyFilter from '../ec-currency-filter';
 import EcDateRangeFilter from '../ec-date-range-filter';
 import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
+import EcTextFilter from '../ec-text-filter';
 import EcTableFilter from './ec-table-filter.vue';
 
 export default {
@@ -85,5 +86,8 @@ basic.args = {
     component: EcCurrencyFilter,
     comparisonSymbolItems,
     currencyItems,
+  }, {
+    name: 'Text search',
+    component: EcTextFilter,
   }],
 };
