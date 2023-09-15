@@ -33,7 +33,7 @@ describe('Visual regression tests', () => {
         await storybookStore.cacheAllCSFFiles();
         let stories = Object.values(storybookStore.getStoriesJsonData().stories);
 
-        const storyIdFilter = 'input-field';
+        const storyIdFilter = Cypress.env('storyIdFilter');
         if (storyIdFilter) {
           stories = stories.filter(story => story.id.match(storyIdFilter));
         }
