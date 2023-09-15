@@ -28,6 +28,14 @@ export default {
       options: IconName,
       control: { type: 'select' },
     },
+    leftIconType: {
+      options: IconType,
+      control: { type: 'select' },
+    },
+    leftIcon: {
+      options: IconName,
+      control: { type: 'select' },
+    },
   },
 };
 
@@ -40,6 +48,7 @@ const Template = (args: InputFieldProps) => ({
       placeholder: 'My input',
       bottomNote: 'Your email',
       icon: IconName.SimpleCheck,
+      leftIcon: IconName.SimpleSearch,
       note: 'Max 80 chars.',
       ...args,
     } as InputFieldProps;
@@ -158,7 +167,7 @@ export const all = () => ({
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" icon="${IconName.SimpleInfo}" v-model="valueText" label="Input with icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" v-model="valueText" label="Input with icons" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
@@ -170,7 +179,7 @@ export const all = () => ({
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" icon="${IconName.SimpleInfo}" v-model="valueText" label="Short label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
+          <ec-input-field placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" v-model="valueText" label="Short label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
@@ -178,11 +187,11 @@ export const all = () => ({
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" icon="${IconName.SimpleCheck}" iconType="${IconType.SUCCESS}" v-model="valueText" label="Input with success green icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
+          <ec-input-field placeholder="My input" left-icon-type="${IconType.SUCCESS}" left-icon="${IconName.SimpleChevronRight}" icon="${IconName.SimpleCheck}" iconType="${IconType.SUCCESS}" v-model="valueText" label="Input with success green icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field readonly placeholder="My input" :model-value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
+          <ec-input-field readonly placeholder="My input" left-icon="${IconName.SimpleSearch}" :model-value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
         </div>
 
         <div class="tw-col-full"></div>

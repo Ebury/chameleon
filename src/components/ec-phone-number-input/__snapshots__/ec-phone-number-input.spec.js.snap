@@ -86,8 +86,9 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right ec-input-field__icon-wrapper--is-disabled"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -304,6 +305,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
       />
       <!--v-if-->
       <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
   <!--v-if-->
@@ -337,8 +339,9 @@ exports[`EcPhoneNumberInput :props should render in a loading state 1`] = `
       readonly=""
       type="text"
     />
+    <!--v-if-->
     <div
-      class="ec-input-field__icon-wrapper"
+      class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
       data-test="ec-input-field__icon-wrapper"
     >
       <svg
@@ -474,8 +477,9 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--is-disabled"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right ec-input-field__icon-wrapper--is-disabled"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -692,6 +696,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
       />
       <!--v-if-->
       <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
   <!--v-if-->
@@ -749,8 +754,9 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -964,6 +970,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
         id="ec-input-field-3"
         type="tel"
       />
+      <!--v-if-->
       <!--v-if-->
       <!--v-if-->
     </div>
@@ -1023,8 +1030,9 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -1240,6 +1248,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
       />
       <!--v-if-->
       <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
   <!--v-if-->
@@ -1295,8 +1304,9 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -1512,6 +1522,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
       />
       <!--v-if-->
       <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
   <!--v-if-->
@@ -1593,8 +1604,9 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -1811,6 +1823,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
       />
       <!--v-if-->
       <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
   <div
@@ -1866,8 +1879,9 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -2083,6 +2097,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
       />
       <!--v-if-->
       <!--v-if-->
+      <!--v-if-->
     </div>
   </div>
   <!--v-if-->
@@ -2129,8 +2144,9 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -2344,6 +2360,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
         id="ec-input-field-3"
         type="tel"
       />
+      <!--v-if-->
       <!--v-if-->
       <!--v-if-->
     </div>

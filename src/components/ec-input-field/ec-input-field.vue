@@ -45,8 +45,22 @@
       :autocomplete="autocomplete"
     >
     <div
+      v-if="leftIcon"
+      class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--left"
+      :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
+      data-test="ec-input-field__left-icon-wrapper"
+    >
+      <ec-icon
+        class="ec-input-field__icon"
+        data-test="ec-input-field__left-icon"
+        :name="leftIcon"
+        :size="leftIconSize"
+        :type="leftIconType"
+      />
+    </div>
+    <div
       v-if="isLoading || icon"
-      class="ec-input-field__icon-wrapper"
+      class="ec-input-field__icon-wrapper  ec-input-field__icon-wrapper--right"
       :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
       data-test="ec-input-field__icon-wrapper"
     >
@@ -122,6 +136,9 @@ interface InputFieldProps {
   icon?: IconName,
   iconSize?: number,
   iconType?: IconType,
+  leftIcon?: IconName,
+  leftIconSize?: number,
+  leftIconType?: IconType,
   isInGroup?: string,
   id?: string,
   errorId?: string,
@@ -139,6 +156,7 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   bottomNote: '',
   errorMessage: '',
   iconSize: 20,
+  leftIconSize: 20,
   isLoading: false,
   isSensitive: false,
   isWarning: false,
@@ -174,6 +192,9 @@ const inputClasses = computed(() => {
   }
   if (props.icon) {
     classes.push('ec-input-field__input--has-icon');
+  }
+  if (props.leftIcon) {
+    classes.push('ec-input-field__input--has-left-icon');
   }
   if (props.isSensitive) {
     classes.push(config.sensitiveClass);
@@ -247,6 +268,10 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
       padding-right: var(--ec-input-field-icon-area-size);
     }
 
+    &--has-left-icon {
+      padding-left: var(--ec-input-field-icon-area-size);
+    }
+
     &:focus {
       @apply tw-border tw-border-solid tw-border-key-4;
       @apply tw-outline-none;
@@ -297,7 +322,7 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
   }
 
   &__icon-wrapper {
-    @apply tw-absolute tw-right-0;
+    @apply tw-absolute;
     @apply tw-inline-block;
     @apply tw-text-gray-3 tw-fill-current tw-text-center;
 
@@ -307,6 +332,14 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
 
     &--is-disabled {
       @apply tw-text-gray-6;
+    }
+
+    &--left {
+      @apply tw-left-0 tw-fill-gray-5;
+    }
+
+    &--right {
+      @apply tw-right-0;
     }
   }
 

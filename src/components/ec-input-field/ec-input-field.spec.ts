@@ -202,6 +202,27 @@ describe('EcInputField', () => {
     expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').exists()).toBe(false);
   });
 
+  it('should render given left-icon', () => {
+    const wrapper = mountInputField({ leftIcon: IconName.SimpleCheck });
+    expect(wrapper.findByDataTest('ec-input-field__left-icon-wrapper').exists()).toBe(true);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render given left-icon with given size', () => {
+    const wrapper = mountInputField({ leftIcon: IconName.SimpleCheck, leftIconSize: 40 });
+    expect(wrapper.findByDataTest('ec-input-field__left-icon-wrapper').element).toMatchSnapshot();
+  });
+
+  it('should render given left-icon with success colour', () => {
+    const wrapper = mountInputField({ leftIcon: IconName.SimpleCheck, leftIconType: IconType.SUCCESS });
+    expect(wrapper.findByDataTest('ec-input-field__left-icon-wrapper').element).toMatchSnapshot();
+  });
+
+  it('should not render any left-icon if only the left-icon size is given', () => {
+    const wrapper = mountInputField({ leftIconSize: 40 });
+    expect(wrapper.findByDataTest('ec-input-field__left-icon-wrapper').exists()).toBe(false);
+  });
+
   it('renders properly when disabled', () => {
     const wrapper = mountInputField({}, { attrs: { disabled: true } });
     expect(wrapper.element).toMatchSnapshot();

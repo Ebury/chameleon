@@ -15,6 +15,7 @@ exports[`EcAmountInput should render properly 1`] = `
   />
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -33,6 +34,7 @@ exports[`EcAmountInput should render with a sensitive class when isSensitive pro
   />
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -49,6 +51,7 @@ exports[`EcAmountInput should render with custom attributes 1`] = `
     id="test-id"
     type="text"
   />
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
 </div>

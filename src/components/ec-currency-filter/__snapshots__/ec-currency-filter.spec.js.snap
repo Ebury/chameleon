@@ -138,8 +138,9 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
             readonly=""
             type="text"
           />
+          <!--v-if-->
           <div
-            class="ec-input-field__icon-wrapper"
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
             <svg
@@ -215,6 +216,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
         placeholder="Enter an amount..."
         type="text"
       />
+      <!--v-if-->
       <!--v-if-->
       <!--v-if-->
     </div>
@@ -578,8 +580,9 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
               readonly=""
               type="text"
             />
+            <!--v-if-->
             <div
-              class="ec-input-field__icon-wrapper"
+              class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
               data-test="ec-input-field__icon-wrapper"
             >
               <svg
@@ -654,6 +657,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
           placeholder="Enter an amount..."
           type="text"
         />
+        <!--v-if-->
         <!--v-if-->
         <!--v-if-->
       </div>
@@ -1185,8 +1189,9 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         readonly=""
                         type="text"
                       />
+                      <!--v-if-->
                       <div
-                        class="ec-input-field__icon-wrapper"
+                        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
                         data-test="ec-input-field__icon-wrapper"
                       >
                         <svg
@@ -1261,6 +1266,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                     placeholder="Enter an amount..."
                     type="text"
                   />
+                  <!--v-if-->
                   <!--v-if-->
                   <!--v-if-->
                 </div>
@@ -1423,8 +1429,9 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
               readonly=""
               type="text"
             />
+            <!--v-if-->
             <div
-              class="ec-input-field__icon-wrapper"
+              class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
               data-test="ec-input-field__icon-wrapper"
             >
               <svg
@@ -1501,6 +1508,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
           placeholder="Enter an amount..."
           type="text"
         />
+        <!--v-if-->
         <!--v-if-->
         <!--v-if-->
       </div>

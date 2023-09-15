@@ -252,6 +252,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
         />
         <!--v-if-->
         <!--v-if-->
+        <!--v-if-->
       </div>
       <div
         class="ec-inline-input-field-edit__actions"
@@ -324,6 +325,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
           id="ec-inline-input-field-edit__input-1"
           type="text"
         />
+        <!--v-if-->
         <!--v-if-->
         <div
           class="ec-input-field__error-text"
@@ -403,6 +405,7 @@ exports[`EcInlineInputField when component is editable when the component is in 
           id="ec-inline-input-field-edit__input-1"
           type="text"
         />
+        <!--v-if-->
         <!--v-if-->
         <!--v-if-->
       </div>
@@ -606,8 +609,9 @@ exports[`EcInlineInputField when component is editable when the component is loa
         readonly=""
         type="text"
       />
+      <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg
@@ -677,8 +681,9 @@ exports[`EcInlineInputField when component is editable when the component is loa
         readonly=""
         type="text"
       />
+      <!--v-if-->
       <div
-        class="ec-input-field__icon-wrapper"
+        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
         <svg

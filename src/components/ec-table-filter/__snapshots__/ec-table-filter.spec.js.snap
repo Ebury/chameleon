@@ -439,6 +439,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
               />
               <!--v-if-->
               <!--v-if-->
+              <!--v-if-->
             </div>
             <div
               class="ec-input-field ec-date-range-filter__to-input"
@@ -465,6 +466,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
+              <!--v-if-->
               <!--v-if-->
               <!--v-if-->
             </div>
@@ -929,6 +931,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
               />
               <!--v-if-->
               <!--v-if-->
+              <!--v-if-->
             </div>
             <div
               class="ec-input-field ec-date-range-filter__to-input"
@@ -955,6 +958,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
+              <!--v-if-->
               <!--v-if-->
               <!--v-if-->
             </div>
@@ -1418,6 +1422,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
               />
               <!--v-if-->
               <!--v-if-->
+              <!--v-if-->
             </div>
             <div
               class="ec-input-field ec-date-range-filter__to-input"
@@ -1444,6 +1449,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
+              <!--v-if-->
               <!--v-if-->
               <!--v-if-->
             </div>
@@ -1908,6 +1914,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
               />
               <!--v-if-->
               <!--v-if-->
+              <!--v-if-->
             </div>
             <div
               class="ec-input-field ec-date-range-filter__to-input"
@@ -1934,6 +1941,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
+              <!--v-if-->
               <!--v-if-->
               <!--v-if-->
             </div>
@@ -2412,6 +2420,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
               />
               <!--v-if-->
               <!--v-if-->
+              <!--v-if-->
             </div>
             <div
               class="ec-input-field ec-date-range-filter__to-input"
@@ -2438,6 +2447,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                 placeholder="dd/mm/yyyy"
                 type="date"
               />
+              <!--v-if-->
               <!--v-if-->
               <!--v-if-->
             </div>
