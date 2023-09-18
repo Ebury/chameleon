@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 
 import EcTextFilter from './ec-text-filter.vue';
+import type { TextFilterEvent, TextFilterEvents } from './types';
 
 const meta: Meta<typeof EcTextFilter> = {
   title: 'Filters/Text filter',
@@ -20,7 +21,7 @@ export const Basic: Story = {
     setup() {
       const modelValue = ref(args.modelValue);
 
-      function handleChange(event) {
+      function handleChange(event: TextFilterEvents[TextFilterEvent.CHANGE]) {
         modelValue.value = event;
       }
 

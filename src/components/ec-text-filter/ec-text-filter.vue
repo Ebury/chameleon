@@ -8,7 +8,7 @@
       v-bind="inputProps"
       :left-icon="IconName.SimpleSearch"
       :icon="rightIcon"
-      @iconClick="emit(TextFilterEvent.CHANGE, '')"
+      @icon-click="emit(TextFilterEvent.CHANGE, '')"
     />
   </div>
 </template>
