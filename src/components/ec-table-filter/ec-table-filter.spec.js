@@ -4,6 +4,7 @@ import { defineComponent, markRaw } from 'vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcDateRangeFilter from '../ec-date-range-filter';
 import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
+import EcTextFilter from '../ec-text-filter';
 import EcTableFilter from './ec-table-filter.vue';
 
 const filters = [{
@@ -29,9 +30,12 @@ const filters = [{
   fromLabelText: 'From',
   toLabelText: 'To',
   clearText: 'Clear dates',
+}, {
+  name: 'text',
+  component: EcTextFilter,
 }];
 
-const modelValue = { feeType: [{ text: 'Invoiced', value: 'invoiced' }] };
+const modelValue = { feeType: [{ text: 'Invoiced', value: 'invoiced' }], text: 'Some value' };
 
 function mountEcTableFilter(props, mountOpts) {
   return mount(EcTableFilter, {
@@ -106,7 +110,7 @@ describe('EcTableFilter', () => {
       {
         data() {
           return {
-            value: modelValue,
+            value: { feeType: modelValue.feeType },
             filters,
           };
         },

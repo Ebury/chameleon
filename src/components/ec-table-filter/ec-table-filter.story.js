@@ -3,7 +3,8 @@ import { ref, watchEffect } from 'vue';
 import EcCurrencyFilter from '../ec-currency-filter';
 import EcDateRangeFilter from '../ec-date-range-filter';
 import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
-import EcTableFilter from './ec-table-filter.vue';
+import EcTextFilter from '../ec-text-filter';
+import EcTableFilter from '.';
 
 export default {
   title: 'Filters/Table Filter',
@@ -62,6 +63,7 @@ basic.args = {
     supplier: [{ text: 'Supplier 1', value: 'supplier1' }],
     dueDate: { from: '2021-11-11' },
     price: { comparisonSymbol: comparisonSymbolItems[1], amount: 1234.56, currencies: [currencyItems[0]] },
+    text: 'Some text',
   },
   filters: [{
     label: 'Payment status',
@@ -85,5 +87,8 @@ basic.args = {
     component: EcCurrencyFilter,
     comparisonSymbolItems,
     currencyItems,
+  }, {
+    name: 'text',
+    component: EcTextFilter,
   }],
 };
