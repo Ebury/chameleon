@@ -7,6 +7,7 @@
       v-model="inputModel"
       v-bind="inputProps"
       :left-icon="IconName.SimpleSearch"
+      :type="InputFieldType.TEXT"
       :icon="rightIcon"
       @icon-click="emit(TextFilterEvent.CHANGE, '')"
     />
@@ -19,6 +20,7 @@ import { computed } from 'vue';
 import { IconName } from '../ec-icon/icon-names';
 import EcInputField from '../ec-input-field/ec-input-field.vue';
 import type { InputFieldProps } from '../ec-input-field/types';
+import { InputFieldType } from '../ec-input-field/types';
 import type { TextFilterEvents } from './types';
 import { TextFilterEvent } from './types';
 
