@@ -14,6 +14,7 @@
         class="ec-table"
       >
         <ec-table-head
+          v-if="!canShowCustomSlot"
           :columns="columns"
           :sorts="sorts"
           :sticky-column="stickyColumn"
@@ -27,22 +28,28 @@
             :class="{ 'ec-table__row--is-clickable': !!attrs.onRowClick }"
             @click="attrs.onRowClick && attrs.onRowClick({ data: row, rowIndex })"
           >
+            <slot
+              v-if="canShowCustomSlot"
+              class="ec-table__custom-slot"
+              :row="row"
+            />
             <td
-              v-for="(content, colIndex) in row"
-              :key="colIndex"
-              :style="getColumnWidth(columns[colIndex])"
-              :data-test="`ec-table__cell ec-table__cell--${colIndex}`"
+              v-for="(content, colIndexCell) in row"
+              :key="colIndexCell"
+              v-else
+              :style="getColumnWidth(columns[colIndexCell])"
+              :data-test="`ec-table__cell ec-table__cell--${colIndexCell}`"
               class="ec-table__cell"
               :class="[
-                getStickyColumnClass(colIndex, columns),
+                getStickyColumnClass(colIndexCell, columns),
                 {
-                  'ec-table__cell--is-type-icon': columns[colIndex]?.type === 'icon',
-                  'ec-table__cell--is-type-currency': columns[colIndex]?.type === 'currency',
-                  'ec-table__cell--has-max-width': !!columns[colIndex]?.maxWidth,
+                  'ec-table__cell--is-type-icon': columns[colIndexCell]?.type === 'icon',
+                  'ec-table__cell--is-type-currency': columns[colIndexCell]?.type === 'currency',
+                  'ec-table__cell--has-max-width': !!columns[colIndexCell]?.maxWidth,
                 }]"
             >
               <slot
-                :name="`col${colIndex + 1}`"
+                :name="`col${colIndexCell + 1}`"
                 :content="content"
                 :row="row"
               >{{ content }}</slot>
@@ -62,11 +69,15 @@
 </template>
 
 <script setup>
+import { useWindowSize } from '@vueuse/core';
 import { computed, useAttrs, useSlots } from 'vue';
 
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
 
+const customSlotThreshold = 768;
+
+const { width: windowWidth } = useWindowSize();
 const slots = useSlots();
 const attrs = useAttrs();
 // const emit = defineEmits(['sort', 'row-click']);
@@ -96,10 +107,15 @@ const props = defineProps({
     },
   },
   title: String,
+  isCustomSlotShown: {
+    type: Boolean,
+    default: () => false,
+  },
 });
 
 const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
 const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : null));
+const canShowCustomSlot = computed(() => (props.isCustomSlotShown || (hasSlot('default') && windowWidth.value < customSlotThreshold)));
 
 function onSort(columnName) {
   emit('sort', columnName);
@@ -200,6 +216,10 @@ function hasSlot(slotName) {
     &--has-max-width {
       @apply tw-truncate;
     }
+  }
+
+  &__custom-slot {
+    @apply tw-w-full;
   }
 }
 </style>

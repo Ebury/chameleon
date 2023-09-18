@@ -2,6 +2,7 @@ import { action } from '@storybook/addon-actions';
 
 import * as SortDirection from '../../enums/sort-direction';
 import EcIcon from '../ec-icon/ec-icon.vue';
+import EcOptionCard from '../ec-option-card';
 import EcTable from './ec-table.vue';
 
 const columns = [
@@ -106,7 +107,7 @@ basic.parameters = {
 };
 
 export const all = args => ({
-  components: { EcTable, EcIcon },
+  components: { EcTable, EcIcon, EcOptionCard },
   setup() {
     return {
       args,
@@ -123,7 +124,7 @@ export const all = args => ({
       </div>
       <h2 class="tw-m-24">With custom column templates</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }">
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }" >
           <template #col2="{ content, row }">
             <a href="#"><em><strong>{{ content }}</strong></em></a>
             <div>This<br/>is<br/>a<br/>very<br/>tall<br/>column</div>
@@ -138,7 +139,7 @@ export const all = args => ({
       </div>
       <h2 class="tw-m-24">With footer slot</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }">
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }" >
           <template #footer>
             <div class="tw-py-8">
               <a href="#">View all</a>
@@ -148,7 +149,54 @@ export const all = args => ({
       </div>
       <h2 class="tw-m-24">With a fixed height and sticky column</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }" sticky-column="left"/>
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }"  sticky-column="left"/>
+      </div>
+      <h2 class="tw-m-24">With custom slot from threshold</h2>
+      <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }">
+          <template #col2="{ content, row }">
+            <a href="#"><em><strong>{{ content }}</strong></em></a>
+          </template>
+          <template #col4="{ content, row }">
+            <div>
+              <ec-icon name="rounded-check" :size="24" />
+            </div>
+          </template>
+          <template v-slot="{ row }">
+            <ec-option-card>
+              <div class="tw-flex tw-justify-between tw-align-center">
+                <p>{{ row[0] }}</p>
+                <p>{{ row[1] }}</p>
+              </div>
+              <div class="tw-flex tw-justify-between tw-align-center">
+                <p>{{ row[2] }}</p>
+                <p>{{ row[3] }}</p>
+              </div>
+            </ec-option-card>
+          </template>
+        </ec-table>
+        <p class="tw-mt-40">
+          <em>NOTE:</em> Custom slots are visible when the window size is lower than 768px. Here in Storybook,
+          window width may not be as it should due to the sidebar menu, you can hide it by 
+          clicking "S" on your keyboard.
+        </p>
+      </div>
+      <h2 class="tw-m-24">With always shown custom slot</h2>
+      <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }" :is-custom-slot-shown="true">
+          <template v-slot="{ row }">
+            <ec-option-card>
+              <div class="tw-flex tw-justify-between tw-align-center">
+                <p>{{ row[0] }}</p>
+                <p>{{ row[1] }}</p>
+              </div>
+              <div class="tw-flex tw-justify-between tw-align-center">
+                <p>{{ row[2] }}</p>
+                <p>{{ row[3] }}</p>
+              </div>
+            </ec-option-card>
+          </template>
+        </ec-table>
       </div>
     </div>
   `,
