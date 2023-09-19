@@ -848,49 +848,6 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
 </div>
 `;
 
-exports[`EcTable should render only custom slot if "isCustomSlotShown" is true 1`] = `
-<div>
-  <!--v-if-->
-  <div
-    class="ec-table-scroll-container"
-    data-test="ec-table-scroll-container"
-  >
-    <table
-      class="ec-table"
-    >
-      <!--v-if-->
-      <tbody>
-        
-        <tr
-          class=""
-          data-test="ec-table__row ec-table__row--0"
-        >
-          
-          <p>
-            foo
-            bar
-          </p>
-          
-        </tr>
-        <tr
-          class=""
-          data-test="ec-table__row ec-table__row--1"
-        >
-          
-          <p>
-            widgets
-            doodads
-          </p>
-          
-        </tr>
-        
-      </tbody>
-      <!--v-if-->
-    </table>
-  </div>
-</div>
-`;
-
 exports[`EcTable should render slots as expected 1`] = `
 <div>
   <!--v-if-->
