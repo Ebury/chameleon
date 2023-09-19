@@ -259,6 +259,34 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render custom slot if window width is lower than 768px', () => {
+    global.innerWidth = 500;
+
+    const wrapper = mountEcTable({
+      columns: [
+        {
+          name: 'lorem',
+          title: 'Lorem',
+        },
+        {
+          name: 'ipsum',
+          title: 'Ipsum',
+        },
+      ],
+      data: [
+        ['foo', 'bar'],
+        ['widgets', 'doodads'],
+      ],
+    }, {
+      slots: {
+        default: '<p>Custom slot</p>',
+        col2: '<p>Column</p>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should only render custom slot if "isCustomSlotShown" is true', () => {
     const wrapper = mountEcTable({
       columns: [
