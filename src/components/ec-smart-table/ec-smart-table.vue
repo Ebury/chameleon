@@ -61,12 +61,16 @@
             maxHeight,
             stickyColumn,
             sorts,
+            isCustomSlotShown,
           }"
           v-on="{
             sort: sortBy,
             rowClick: attrs.onRowClick,
           }"
         >
+          <template #default="{ row }" v-if="canShowCustomSlot">
+            <slot :row="row" />
+          </template>
           <template
             #footer
             v-if="isPaginationEnabled"
@@ -160,6 +164,10 @@ const props = defineProps({
   additionalPayload: Object,
   isFetching: Boolean,
   error: [Error, Object, String],
+  isCustomSlotShown: {
+    type: Boolean,
+    default: () => false,
+  },
 });
 
 // sorting
@@ -199,6 +207,8 @@ const isEmpty = computed(() => (props.data ?? []).length === 0);
 
 // slots
 const slots = useSlots();
+
+const canShowCustomSlot = computed(() => (props.isCustomSlotShown || hasSlot('default')));
 
 function hasSlot(slotName) {
   return slotName in slots;

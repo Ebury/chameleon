@@ -30,26 +30,25 @@
           >
             <slot
               v-if="canShowCustomSlot"
-              class="ec-table__custom-slot"
               :row="row"
             />
             <td
-              v-for="(content, colIndexCell) in row"
-              :key="colIndexCell"
+              v-for="(content, colIndex) in row"
+              :key="colIndex"
               v-else
-              :style="getColumnWidth(columns[colIndexCell])"
-              :data-test="`ec-table__cell ec-table__cell--${colIndexCell}`"
+              :style="getColumnWidth(columns[colIndex])"
+              :data-test="`ec-table__cell ec-table__cell--${colIndex}`"
               class="ec-table__cell"
               :class="[
-                getStickyColumnClass(colIndexCell, columns),
+                getStickyColumnClass(colIndex, columns),
                 {
-                  'ec-table__cell--is-type-icon': columns[colIndexCell]?.type === 'icon',
-                  'ec-table__cell--is-type-currency': columns[colIndexCell]?.type === 'currency',
-                  'ec-table__cell--has-max-width': !!columns[colIndexCell]?.maxWidth,
+                  'ec-table__cell--is-type-icon': columns[colIndex]?.type === 'icon',
+                  'ec-table__cell--is-type-currency': columns[colIndex]?.type === 'currency',
+                  'ec-table__cell--has-max-width': !!columns[colIndex]?.maxWidth,
                 }]"
             >
               <slot
-                :name="`col${colIndexCell + 1}`"
+                :name="`col${colIndex + 1}`"
                 :content="content"
                 :row="row"
               >{{ content }}</slot>
@@ -216,10 +215,6 @@ function hasSlot(slotName) {
     &--has-max-width {
       @apply tw-truncate;
     }
-  }
-
-  &__custom-slot {
-    @apply tw-w-full;
   }
 }
 </style>

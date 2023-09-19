@@ -8,6 +8,7 @@ import * as SortDirection from '../../enums/sort-direction';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 import EcDateRangeFilter from '../ec-date-range-filter';
 import EcIcon from '../ec-icon';
+import EcOptionCard from '../ec-option-card';
 import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
 import EcSmartTable from './ec-smart-table.vue';
 
@@ -133,7 +134,7 @@ function useSmartTableFetch(reqInit, { urlBuilder, ...options } = {}) {
 }
 
 export const basic = args => ({
-  components: { EcSmartTable, EcIcon },
+  components: { EcSmartTable, EcIcon, EcOptionCard },
   setup() {
     // sorting
     const sortCycle = computed(() => (
@@ -268,6 +269,18 @@ export const basic = args => ({
               <div><ec-icon name="simple-info" :size="48" /></div>
               {{ emptyMessage }}
             </div>
+          </template>
+          <template v-slot="{ row }">
+            <ec-option-card>
+              <div class="tw-flex tw-justify-between tw-align-center">
+                <p>{{ row[0] }}</p>
+                <p>{{ row[1] }}</p>
+              </div>
+              <div class="tw-flex tw-justify-between tw-align-center">
+                <p>{{ row[2] }}</p>
+                <p>{{ row[3] }}</p>
+              </div>
+            </ec-option-card>
           </template>
           <template #footer><div class="tw-text-right">Custom footer info</div></template>
           <template #pages="{ page, totalPages, total }">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
