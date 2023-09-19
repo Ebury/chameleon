@@ -95,6 +95,7 @@ describe('EcTextFilter', () => {
     expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
     await wrapper.findByDataTest('ec-input-field__input').setValue('some text');
     expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.CHANGE]?.[0]).toEqual(['some text']);
+    expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.UPDATE_MODEL_VALUE]?.[0]).toEqual(['some text']);
   });
 
   it('should emit the empty value when you click on close icon', async () => {
@@ -110,6 +111,7 @@ describe('EcTextFilter', () => {
 
     await wrapper.findByDataTest('ec-input-field__icon').trigger('click');
     expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.CHANGE]?.[0]).toEqual(['']);
+    expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.UPDATE_MODEL_VALUE]?.[0]).toEqual(['']);
   });
 
   it('should render with a sensitive class when isSensitive prop is set to true', () => {

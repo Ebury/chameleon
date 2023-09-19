@@ -9,7 +9,7 @@
       :left-icon="IconName.SimpleSearch"
       :type="InputFieldType.TEXT"
       :icon="rightIcon"
-      @icon-click="emit(TextFilterEvent.CHANGE, '')"
+      @icon-click="emitModelValue('')"
     />
   </div>
 </template>
@@ -32,6 +32,7 @@ interface TextFilterProps {
 const props = defineProps<TextFilterProps>();
 
 const emit = defineEmits<{
+  'update:modelValue': [value: TextFilterEvents[TextFilterEvent.UPDATE_MODEL_VALUE]],
   'change': [value: TextFilterEvents[TextFilterEvent.CHANGE]],
 }>();
 
@@ -40,9 +41,14 @@ const inputModel = computed<TextFilterProps['modelValue']>({
     return props.modelValue;
   },
   set(value) {
-    emit(TextFilterEvent.CHANGE, value as unknown as TextFilterEvents[TextFilterEvent.CHANGE]);
+    emitModelValue(value);
   },
 });
+
+function emitModelValue(value: TextFilterProps['modelValue']) {
+  emit(TextFilterEvent.UPDATE_MODEL_VALUE, value);
+  emit(TextFilterEvent.CHANGE, value);
+}
 
 const rightIcon = computed(() => (props.modelValue ? IconName.SimpleClose : undefined));
 </script>
