@@ -167,7 +167,7 @@ const props = defineProps({
   error: [Error, Object, String],
   isCustomSlotShown: {
     type: Boolean,
-    default: () => false,
+    default: () => undefined,
   },
 });
 

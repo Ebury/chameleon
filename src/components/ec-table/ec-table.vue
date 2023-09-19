@@ -106,13 +106,13 @@ const props = defineProps({
   title: String,
   isCustomSlotShown: {
     type: Boolean,
-    default: () => false,
+    default: () => undefined,
   },
 });
 
 const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
 const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : null));
-const canShowCustomSlot = computed(() => (props.isCustomSlotShown || (hasSlot('default') && isInCustomSlotThreshold.value)));
+const canShowCustomSlot = computed(() => (props.isCustomSlotShown || (props.isCustomSlotShown === undefined && hasSlot('default') && isInCustomSlotThreshold.value)));
 
 function onSort(columnName) {
   emit('sort', columnName);

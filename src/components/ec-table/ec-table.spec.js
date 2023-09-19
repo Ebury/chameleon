@@ -260,7 +260,13 @@ describe('EcTable', () => {
   });
 
   it('should render custom slot if window width is lower than 768px', () => {
-    global.innerWidth = 500;
+    window.matchMedia = jest.fn().mockImplementation(query => ({
+      matches: query === '(max-width: 768px)',
+      media: '',
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    }));
 
     const wrapper = mountEcTable({
       columns: [
