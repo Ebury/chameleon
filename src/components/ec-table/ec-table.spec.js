@@ -278,8 +278,8 @@ describe('EcTable', () => {
       isCustomSlotShown: true,
     }, {
       slots: {
-        default: ({ row }) => h('p', row),
-        col2: ({ content }) => h('p', content),
+        default: '<p>Custom slot</p>',
+        col2: '<p>Column</p>',
       },
     });
 

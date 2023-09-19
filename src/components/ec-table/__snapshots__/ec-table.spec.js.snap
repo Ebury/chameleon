@@ -243,8 +243,7 @@ exports[`EcTable should only render custom slot if "isCustomSlotShown" is true 1
         >
           
           <p>
-            foo
-            bar
+            Custom slot
           </p>
           
         </tr>
@@ -254,8 +253,7 @@ exports[`EcTable should only render custom slot if "isCustomSlotShown" is true 1
         >
           
           <p>
-            widgets
-            doodads
+            Custom slot
           </p>
           
         </tr>
