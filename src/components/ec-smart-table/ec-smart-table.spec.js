@@ -222,6 +222,20 @@ describe('EcSmartTable', () => {
       });
       expect(wrapper.findByDataTest('ec-table__row--0').element).toMatchSnapshot();
     });
+
+    it('should only render custom slot if "isCustomSlotShown" is true', () => {
+      const wrapper = mountEcSmartTableWithData(data, {
+        columns,
+        isCustomSlotShown: true,
+      }, {
+        slots: {
+          default: props => h('div', `Custom slot data: ${JSON.stringify(props)}`),
+          col1: props => h('div', `Cell data: ${JSON.stringify(props)}`),
+        },
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('sorting', () => {

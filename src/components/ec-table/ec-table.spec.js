@@ -259,6 +259,33 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should only render custom slot if "isCustomSlotShown" is true', () => {
+    const wrapper = mountEcTable({
+      columns: [
+        {
+          name: 'lorem',
+          title: 'Lorem',
+        },
+        {
+          name: 'ipsum',
+          title: 'Ipsum',
+        },
+      ],
+      data: [
+        ['foo', 'bar'],
+        ['widgets', 'doodads'],
+      ],
+      isCustomSlotShown: true,
+    }, {
+      slots: {
+        default: ({ row }) => h('p', row),
+        col2: ({ content }) => h('p', content),
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render sorting as expected', () => {
     const wrapper = mountEcTable({
       sorts: [
