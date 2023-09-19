@@ -68,15 +68,13 @@
 </template>
 
 <script setup>
-import { useWindowSize } from '@vueuse/core';
+import { useMediaQuery } from '@vueuse/core';
 import { computed, useAttrs, useSlots } from 'vue';
 
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
 
-const customSlotThreshold = 768;
-
-const { width: windowWidth } = useWindowSize();
+const isInCustomSlotThreshold = useMediaQuery('(max-width: 768px)');
 const slots = useSlots();
 const attrs = useAttrs();
 // const emit = defineEmits(['sort', 'row-click']);
@@ -114,7 +112,7 @@ const props = defineProps({
 
 const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
 const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : null));
-const canShowCustomSlot = computed(() => (props.isCustomSlotShown || (hasSlot('default') && windowWidth.value < customSlotThreshold)));
+const canShowCustomSlot = computed(() => (props.isCustomSlotShown || (hasSlot('default') && isInCustomSlotThreshold.value)));
 
 function onSort(columnName) {
   emit('sort', columnName);

@@ -117,6 +117,7 @@
 </template>
 
 <script setup>
+import { useMediaQuery } from '@vueuse/core';
 import {
   computed, ref, unref, useAttrs, useSlots, watch,
 } from 'vue';
@@ -207,8 +208,9 @@ const isEmpty = computed(() => (props.data ?? []).length === 0);
 
 // slots
 const slots = useSlots();
+const isInCustomSlotThreshold = useMediaQuery('(max-width: 768px)');
 
-const canShowCustomSlot = computed(() => (props.isCustomSlotShown || hasSlot('default')));
+const canShowCustomSlot = computed(() => (props.isCustomSlotShown || (hasSlot('default') && isInCustomSlotThreshold.value)));
 
 function hasSlot(slotName) {
   return slotName in slots;
