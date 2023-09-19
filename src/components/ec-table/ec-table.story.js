@@ -124,7 +124,7 @@ export const all = args => ({
       </div>
       <h2 class="tw-m-24">With custom column templates</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }" >
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }">
           <template #col2="{ content, row }">
             <a href="#"><em><strong>{{ content }}</strong></em></a>
             <div>This<br/>is<br/>a<br/>very<br/>tall<br/>column</div>
@@ -139,7 +139,7 @@ export const all = args => ({
       </div>
       <h2 class="tw-m-24">With footer slot</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }" >
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }">
           <template #footer>
             <div class="tw-py-8">
               <a href="#">View all</a>
