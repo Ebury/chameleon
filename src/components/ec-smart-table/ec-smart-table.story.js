@@ -9,6 +9,7 @@ import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 import EcDateRangeFilter from '../ec-date-range-filter';
 import EcIcon from '../ec-icon';
 import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
+import EcTextFilter from '../ec-text-filter';
 import EcSmartTable from './ec-smart-table.vue';
 
 const defaultFilters = [{
@@ -35,6 +36,12 @@ const defaultFilters = [{
   toLabelText: 'To',
   clearText: 'Clear dates',
   errorMessage: '',
+}, {
+  name: 'text',
+  component: EcTextFilter,
+  inputProps: {
+    placeholder: 'Type here the text to search by',
+  },
 }];
 
 const columns = [
