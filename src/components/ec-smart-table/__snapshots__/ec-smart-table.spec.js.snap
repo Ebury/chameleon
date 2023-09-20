@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcSmartTable #slots should only render custom slot if "isCustomSlotShown" is true 1`] = `
+exports[`EcSmartTable #slots should only render custom row if "isCustomRowShown" is true 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -35,13 +35,17 @@ exports[`EcSmartTable #slots should only render custom slot if "isCustomSlotShow
                 class=""
                 data-test="ec-table__row ec-table__row--0"
               >
-                
-                
-                <div>
-                  Custom slot data: {"key":0,"row":[1,2,3]}
-                </div>
-                
-                
+                <td
+                  colspan="100%"
+                >
+                  
+                  
+                  <div>
+                    Custom row data: {"row":[1,2,3]}
+                  </div>
+                  
+                  
+                </td>
               </tr>
               
             </tbody>
@@ -93,7 +97,7 @@ exports[`EcSmartTable #slots should pass ec-table slots 1`] = `
 </tr>
 `;
 
-exports[`EcSmartTable #slots should render custom slot if window width is lower than 768px 1`] = `
+exports[`EcSmartTable #slots should render custom row if window width is lower than 768px 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -128,13 +132,17 @@ exports[`EcSmartTable #slots should render custom slot if window width is lower 
                 class=""
                 data-test="ec-table__row ec-table__row--0"
               >
-                
-                
-                <div>
-                  Custom slot data: {"key":0,"row":[1,2,3]}
-                </div>
-                
-                
+                <td
+                  colspan="100%"
+                >
+                  
+                  
+                  <div>
+                    Custom row data: {"row":[1,2,3]}
+                  </div>
+                  
+                  
+                </td>
               </tr>
               
             </tbody>

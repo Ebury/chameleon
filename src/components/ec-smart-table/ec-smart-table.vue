@@ -61,14 +61,14 @@
             maxHeight,
             stickyColumn,
             sorts,
-            isCustomSlotShown,
+            isCustomRowShown,
           }"
           v-on="{
             sort: sortBy,
             rowClick: attrs.onRowClick,
           }"
         >
-          <template #default="{ row }" v-if="canShowCustomSlot">
+          <template #default="{ row }" v-if="canShowCustomRow">
             <slot :row="row" />
           </template>
           <template
@@ -117,7 +117,6 @@
 </template>
 
 <script setup>
-import { useMediaQuery } from '@vueuse/core';
 import {
   computed, ref, unref, useAttrs, useSlots, watch,
 } from 'vue';
@@ -165,7 +164,7 @@ const props = defineProps({
   additionalPayload: Object,
   isFetching: Boolean,
   error: [Error, Object, String],
-  isCustomSlotShown: {
+  isCustomRowShown: {
     type: Boolean,
     default: () => undefined,
   },
@@ -208,9 +207,8 @@ const isEmpty = computed(() => (props.data ?? []).length === 0);
 
 // slots
 const slots = useSlots();
-const isInCustomSlotThreshold = useMediaQuery('(max-width: 768px)');
 
-const canShowCustomSlot = computed(() => (props.isCustomSlotShown || (hasSlot('default') && isInCustomSlotThreshold.value)));
+const canShowCustomRow = computed(() => (props.isCustomRowShown || hasSlot('default')));
 
 function hasSlot(slotName) {
   return slotName in slots;

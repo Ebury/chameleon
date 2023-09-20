@@ -259,7 +259,7 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render custom slot if window width is lower than 768px', () => {
+  it('should render custom row if window width is lower than 768px', () => {
     window.matchMedia = jest.fn().mockImplementation(query => ({
       matches: query === '(max-width: 768px)',
       media: '',
@@ -285,7 +285,7 @@ describe('EcTable', () => {
       ],
     }, {
       slots: {
-        default: '<p>Custom slot</p>',
+        default: '<p>Custom row</p>',
         col2: '<p>Column</p>',
       },
     });
@@ -293,7 +293,7 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should only render custom slot if "isCustomSlotShown" is true', () => {
+  it('should only render custom row if "isCustomRowShown" is true', () => {
     const wrapper = mountEcTable({
       columns: [
         {
@@ -309,10 +309,10 @@ describe('EcTable', () => {
         ['foo', 'bar'],
         ['widgets', 'doodads'],
       ],
-      isCustomSlotShown: true,
+      isCustomRowShown: true,
     }, {
       slots: {
-        default: '<p>Custom slot</p>',
+        default: '<p>Custom row</p>',
         col2: '<p>Column</p>',
       },
     });

@@ -29,7 +29,7 @@
             @click="attrs.onRowClick && attrs.onRowClick({ data: row, rowIndex })"
           >
             <td
-              v-if="canShowCustomSlot"
+              v-if="canShowCustomRow"
               colspan="100%"
             >
               <slot
@@ -78,7 +78,7 @@ import { computed, useAttrs, useSlots } from 'vue';
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
 
-const isInCustomSlotThreshold = useMediaQuery('(max-width: 768px)');
+const isInCustomRowThreshold = useMediaQuery('(max-width: 768px)');
 const slots = useSlots();
 const attrs = useAttrs();
 // const emit = defineEmits(['sort', 'row-click']);
@@ -108,7 +108,7 @@ const props = defineProps({
     },
   },
   title: String,
-  isCustomSlotShown: {
+  isCustomRowShown: {
     type: Boolean,
     default: () => undefined,
   },
@@ -120,8 +120,8 @@ const props = defineProps({
 
 const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
 const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : null));
-const canShowCustomSlot = computed(() => (props.isCustomSlotShown || (props.isCustomSlotShown === undefined && hasSlot('default') && isInCustomSlotThreshold.value)));
-const canShowTableHeader = computed(() => (props.isTableHeaderHidden === false || (props.isTableHeaderHidden === undefined && !canShowCustomSlot.value)));
+const canShowCustomRow = computed(() => (props.isCustomRowShown || (props.isCustomRowShown === undefined && hasSlot('default') && isInCustomRowThreshold.value)));
+const canShowTableHeader = computed(() => (props.isTableHeaderHidden === false || (props.isTableHeaderHidden === undefined && !canShowCustomRow.value)));
 
 function onSort(columnName) {
   emit('sort', columnName);

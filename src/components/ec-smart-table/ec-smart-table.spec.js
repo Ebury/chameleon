@@ -223,7 +223,7 @@ describe('EcSmartTable', () => {
       expect(wrapper.findByDataTest('ec-table__row--0').element).toMatchSnapshot();
     });
 
-    it('should render custom slot if window width is lower than 768px', () => {
+    it('should render custom row if window width is lower than 768px', () => {
       window.matchMedia = jest.fn().mockImplementation(query => ({
         matches: query === '(max-width: 768px)',
         media: '',
@@ -236,7 +236,7 @@ describe('EcSmartTable', () => {
         columns,
       }, {
         slots: {
-          default: props => h('div', `Custom slot data: ${JSON.stringify(props)}`),
+          default: props => h('div', `Custom row data: ${JSON.stringify(props)}`),
           col1: props => h('div', `Cell data: ${JSON.stringify(props)}`),
         },
       });
@@ -244,13 +244,13 @@ describe('EcSmartTable', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('should only render custom slot if "isCustomSlotShown" is true', () => {
+    it('should only render custom row if "isCustomRowShown" is true', () => {
       const wrapper = mountEcSmartTableWithData(data, {
         columns,
-        isCustomSlotShown: true,
+        isCustomRowShown: true,
       }, {
         slots: {
-          default: props => h('div', `Custom slot data: ${JSON.stringify(props)}`),
+          default: props => h('div', `Custom row data: ${JSON.stringify(props)}`),
           col1: props => h('div', `Cell data: ${JSON.stringify(props)}`),
         },
       });

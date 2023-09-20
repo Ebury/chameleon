@@ -224,7 +224,7 @@ exports[`EcTable should not render if not provided with an empty array of data 1
 
 exports[`EcTable should not render if not provided with any data 1`] = `<!--v-if-->`;
 
-exports[`EcTable should only render custom slot if "isCustomSlotShown" is true 1`] = `
+exports[`EcTable should only render custom row if "isCustomRowShown" is true 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -241,21 +241,29 @@ exports[`EcTable should only render custom slot if "isCustomSlotShown" is true 1
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
-          
-          <p>
-            Custom slot
-          </p>
-          
+          <td
+            colspan="100%"
+          >
+            
+            <p>
+              Custom row
+            </p>
+            
+          </td>
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
-          
-          <p>
-            Custom slot
-          </p>
-          
+          <td
+            colspan="100%"
+          >
+            
+            <p>
+              Custom row
+            </p>
+            
+          </td>
         </tr>
         
       </tbody>
@@ -846,7 +854,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
 </div>
 `;
 
-exports[`EcTable should render custom slot if window width is lower than 768px 1`] = `
+exports[`EcTable should render custom row if window width is lower than 768px 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -863,21 +871,29 @@ exports[`EcTable should render custom slot if window width is lower than 768px 1
           class=""
           data-test="ec-table__row ec-table__row--0"
         >
-          
-          <p>
-            Custom slot
-          </p>
-          
+          <td
+            colspan="100%"
+          >
+            
+            <p>
+              Custom row
+            </p>
+            
+          </td>
         </tr>
         <tr
           class=""
           data-test="ec-table__row ec-table__row--1"
         >
-          
-          <p>
-            Custom slot
-          </p>
-          
+          <td
+            colspan="100%"
+          >
+            
+            <p>
+              Custom row
+            </p>
+            
+          </td>
         </tr>
         
       </tbody>

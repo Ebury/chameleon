@@ -151,7 +151,7 @@ export const all = args => ({
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
         <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }"  sticky-column="left"/>
       </div>
-      <h2 class="tw-m-24">With custom slot from threshold</h2>
+      <h2 class="tw-m-24">With custom row from threshold</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
         <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }">
           <template #col2="{ content, row }">
@@ -176,12 +176,12 @@ export const all = args => ({
           </template>
         </ec-table>
         <p class="tw-mt-40">
-          <em>NOTE:</em> Custom slots are visible when the window size is lower than 768px. Here in Storybook,
+          <em>NOTE:</em> Custom rows are visible when the window size is lower than 768px. Here in Storybook,
           window width may not be as it should due to the sidebar menu, you can hide it by 
-          clicking "S" on your keyboard.
+          pressing "S" on your keyboard.
         </p>
       </div>
-      <h2 class="tw-m-24">With always shown custom slot</h2>
+      <h2 class="tw-m-24">With always shown custom row</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
         <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }" :is-custom-slot-shown="true">
           <template v-slot="{ row }">
