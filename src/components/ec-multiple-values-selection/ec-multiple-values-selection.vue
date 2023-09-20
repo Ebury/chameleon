@@ -258,8 +258,6 @@ function isItemChecked(item) {
   }
 
   &__values {
-    max-height: 368px;
-
     @apply tw-overflow-y-auto;
 
     @mixin small-scrollbar;
