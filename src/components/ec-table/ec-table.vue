@@ -14,7 +14,7 @@
         class="ec-table"
       >
         <ec-table-head
-          v-if="!canShowCustomSlot"
+          v-if="canShowTableHeader"
           :columns="columns"
           :sorts="sorts"
           :sticky-column="stickyColumn"
@@ -28,10 +28,14 @@
             :class="{ 'ec-table__row--is-clickable': !!attrs.onRowClick }"
             @click="attrs.onRowClick && attrs.onRowClick({ data: row, rowIndex })"
           >
-            <slot
+            <td
               v-if="canShowCustomSlot"
-              :row="row"
-            />
+              colspan="100%"
+            >
+              <slot
+                :row="row"
+              />
+            </td>
             <td
               v-for="(content, colIndex) in row"
               :key="colIndex"
@@ -108,11 +112,16 @@ const props = defineProps({
     type: Boolean,
     default: () => undefined,
   },
+  isTableHeaderHidden: {
+    type: Boolean,
+    default: () => undefined,
+  },
 });
 
 const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
 const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : null));
 const canShowCustomSlot = computed(() => (props.isCustomSlotShown || (props.isCustomSlotShown === undefined && hasSlot('default') && isInCustomSlotThreshold.value)));
+const canShowTableHeader = computed(() => (props.isTableHeaderHidden === false || (props.isTableHeaderHidden === undefined && !canShowCustomSlot.value)));
 
 function onSort(columnName) {
   emit('sort', columnName);
