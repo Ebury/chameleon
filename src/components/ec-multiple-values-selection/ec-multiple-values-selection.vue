@@ -225,11 +225,6 @@ function isItemChecked(item) {
 <style>
 @import '../../styles/tools/scrollbars';
 
-:root,
-:host {
-  --ec-multiple-values-popover-selector-height: 368px;
-}
-
 .ec-multiple-values-selection {
   @apply tw-flex tw-flex-col tw-min-h-full;
 
@@ -263,7 +258,7 @@ function isItemChecked(item) {
   }
 
   &__values {
-    max-height: var(--ec-multiple-values-popover-selector-height);
+    max-height: 368px;
 
     @apply tw-overflow-y-auto;
 
