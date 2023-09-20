@@ -1,5 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcSmartTable #slots should only render custom row if "isCustomRowShown" is true 1`] = `
+<div
+  class="ec-smart-table"
+  data-test="ec-smart-table"
+>
+  
+  <!--v-if-->
+  <!--v-if-->
+  
+  <div
+    class="ec-loading"
+    data-test="ec-loading"
+  >
+    <!--v-if-->
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div>
+        <!--v-if-->
+        <div
+          class="ec-table-scroll-container"
+          data-test="ec-table-scroll-container"
+        >
+          <table
+            class="ec-table"
+          >
+            <!--v-if-->
+            <tbody>
+              
+              <tr
+                class=""
+                data-test="ec-table__row ec-table__row--0"
+              >
+                <td
+                  colspan="3"
+                >
+                  
+                  
+                  <div>
+                    Custom row data: {"row":[1,2,3]}
+                  </div>
+                  
+                  
+                </td>
+              </tr>
+              
+            </tbody>
+            <!--v-if-->
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
 exports[`EcSmartTable #slots should pass ec-table slots 1`] = `
 <tr
   class=""
@@ -36,6 +95,65 @@ exports[`EcSmartTable #slots should pass ec-table slots 1`] = `
   </td>
   
 </tr>
+`;
+
+exports[`EcSmartTable #slots should render custom row if window width is lower than 768px 1`] = `
+<div
+  class="ec-smart-table"
+  data-test="ec-smart-table"
+>
+  
+  <!--v-if-->
+  <!--v-if-->
+  
+  <div
+    class="ec-loading"
+    data-test="ec-loading"
+  >
+    <!--v-if-->
+    <div
+      class="ec-loading__content ec-loading__content--is-transparent"
+      data-test="ec-loading__content"
+    >
+      
+      <div>
+        <!--v-if-->
+        <div
+          class="ec-table-scroll-container"
+          data-test="ec-table-scroll-container"
+        >
+          <table
+            class="ec-table"
+          >
+            <!--v-if-->
+            <tbody>
+              
+              <tr
+                class=""
+                data-test="ec-table__row ec-table__row--0"
+              >
+                <td
+                  colspan="3"
+                >
+                  
+                  
+                  <div>
+                    Custom row data: {"row":[1,2,3]}
+                  </div>
+                  
+                  
+                </td>
+              </tr>
+              
+            </tbody>
+            <!--v-if-->
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
 `;
 
 exports[`EcSmartTable #slots should render empty data with custom template 1`] = `

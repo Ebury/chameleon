@@ -259,6 +259,67 @@ describe('EcTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render custom row if window width is lower than 768px', () => {
+    window.matchMedia = jest.fn().mockImplementation(query => ({
+      matches: query === '(max-width: 768px)',
+      media: '',
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    }));
+
+    const wrapper = mountEcTable({
+      columns: [
+        {
+          name: 'lorem',
+          title: 'Lorem',
+        },
+        {
+          name: 'ipsum',
+          title: 'Ipsum',
+        },
+      ],
+      data: [
+        ['foo', 'bar'],
+        ['widgets', 'doodads'],
+      ],
+    }, {
+      slots: {
+        default: '<p>Custom row</p>',
+        col2: '<p>Column</p>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should only render custom row if "isCustomRowShown" is true', () => {
+    const wrapper = mountEcTable({
+      columns: [
+        {
+          name: 'lorem',
+          title: 'Lorem',
+        },
+        {
+          name: 'ipsum',
+          title: 'Ipsum',
+        },
+      ],
+      data: [
+        ['foo', 'bar'],
+        ['widgets', 'doodads'],
+      ],
+      isCustomRowShown: true,
+    }, {
+      slots: {
+        default: '<p>Custom row</p>',
+        col2: '<p>Column</p>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render sorting as expected', () => {
     const wrapper = mountEcTable({
       sorts: [

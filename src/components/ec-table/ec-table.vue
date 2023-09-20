@@ -14,6 +14,7 @@
         class="ec-table"
       >
         <ec-table-head
+          v-if="canShowTableHeader"
           :columns="columns"
           :sorts="sorts"
           :sticky-column="stickyColumn"
@@ -28,8 +29,17 @@
             @click="attrs.onRowClick && attrs.onRowClick({ data: row, rowIndex })"
           >
             <td
+              v-if="canShowCustomRow"
+              :colspan="numberOfColumns"
+            >
+              <slot
+                :row="row"
+              />
+            </td>
+            <td
               v-for="(content, colIndex) in row"
               :key="colIndex"
+              v-else
               :style="getColumnWidth(columns[colIndex])"
               :data-test="`ec-table__cell ec-table__cell--${colIndex}`"
               class="ec-table__cell"
@@ -62,11 +72,13 @@
 </template>
 
 <script setup>
+import { useMediaQuery } from '@vueuse/core';
 import { computed, useAttrs, useSlots } from 'vue';
 
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
 
+const isInCustomRowThreshold = useMediaQuery('(max-width: 768px)');
 const slots = useSlots();
 const attrs = useAttrs();
 // const emit = defineEmits(['sort', 'row-click']);
@@ -96,10 +108,20 @@ const props = defineProps({
     },
   },
   title: String,
+  isCustomRowShown: {
+    type: Boolean,
+    default: () => undefined,
+  },
+  isTableHeaderHidden: {
+    type: Boolean,
+    default: () => undefined,
+  },
 });
 
 const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
 const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : null));
+const canShowCustomRow = computed(() => (props.isCustomRowShown || (props.isCustomRowShown === undefined && hasSlot('default') && isInCustomRowThreshold.value)));
+const canShowTableHeader = computed(() => (props.isTableHeaderHidden === false || (props.isTableHeaderHidden === undefined && !canShowCustomRow.value)));
 
 function onSort(columnName) {
   emit('sort', columnName);
