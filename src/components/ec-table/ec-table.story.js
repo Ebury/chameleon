@@ -183,7 +183,7 @@ export const all = args => ({
       </div>
       <h2 class="tw-m-24">With always shown custom row</h2>
       <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
-        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }" :is-custom-slot-shown="true">
+        <ec-table v-bind="args" v-on="{ sort: onSort, 'rowClick': onRowClick }" :is-custom-row-shown="true">
           <template v-slot="{ row }">
             <ec-option-card>
               <div class="tw-flex tw-justify-between tw-align-center">
