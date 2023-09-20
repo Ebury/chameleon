@@ -30,7 +30,7 @@
           >
             <td
               v-if="canShowCustomRow"
-              colspan="100%"
+              :colspan="numberOfColumns"
             >
               <slot
                 :row="row"

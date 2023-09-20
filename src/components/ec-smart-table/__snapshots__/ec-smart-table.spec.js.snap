@@ -36,7 +36,7 @@ exports[`EcSmartTable #slots should only render custom row if "isCustomRowShown"
                 data-test="ec-table__row ec-table__row--0"
               >
                 <td
-                  colspan="100%"
+                  colspan="3"
                 >
                   
                   
@@ -133,7 +133,7 @@ exports[`EcSmartTable #slots should render custom row if window width is lower t
                 data-test="ec-table__row ec-table__row--0"
               >
                 <td
-                  colspan="100%"
+                  colspan="3"
                 >
                   
                   

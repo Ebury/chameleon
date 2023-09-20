@@ -242,7 +242,7 @@ exports[`EcTable should only render custom row if "isCustomRowShown" is true 1`]
           data-test="ec-table__row ec-table__row--0"
         >
           <td
-            colspan="100%"
+            colspan="2"
           >
             
             <p>
@@ -256,7 +256,7 @@ exports[`EcTable should only render custom row if "isCustomRowShown" is true 1`]
           data-test="ec-table__row ec-table__row--1"
         >
           <td
-            colspan="100%"
+            colspan="2"
           >
             
             <p>
@@ -872,7 +872,7 @@ exports[`EcTable should render custom row if window width is lower than 768px 1`
           data-test="ec-table__row ec-table__row--0"
         >
           <td
-            colspan="100%"
+            colspan="2"
           >
             
             <p>
@@ -886,7 +886,7 @@ exports[`EcTable should render custom row if window width is lower than 768px 1`
           data-test="ec-table__row ec-table__row--1"
         >
           <td
-            colspan="100%"
+            colspan="2"
           >
             
             <p>
