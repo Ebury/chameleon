@@ -16,7 +16,7 @@ module.exports = {
   errorOnDeprecated: true,
   maxWorkers: '100%',
   transform: {
-    '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\.vue$': './vue3-jest.js',
     '^.+\\.(j|t)sx?$': '@swc/jest',
   },
   transformIgnorePatterns: [
