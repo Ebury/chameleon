@@ -16,6 +16,7 @@ module.exports = {
   errorOnDeprecated: true,
   maxWorkers: '100%',
   transform: {
+    // Fix to use Vue 3.3 props from imported types
     '^.+\\.vue$': './vue3-jest.js',
     '^.+\\.(j|t)sx?$': '@swc/jest',
   },

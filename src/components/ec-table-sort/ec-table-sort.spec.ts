@@ -1,15 +1,16 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
-import { withMockedConsole } from '../../../tests/utils/console';
-import * as SortDirection from '../../enums/sort-direction';
+import type { CVueWrapper } from '../../../tests/utils/global';
+import { SortDirection } from '../../enums/sort-direction';
 import EcTableSort from './ec-table-sort.vue';
+import type { TableSortProps } from './types';
 
 describe('EcTableSort', () => {
-  function mountEcTableSort(props, mountOpts) {
+  function mountEcTableSort(props?: TableSortProps, mountOpts?: ComponentMountingOptions<TableSortProps>) {
     return mount(EcTableSort, {
       props,
       ...mountOpts,
-    });
+    }) as CVueWrapper;
   }
 
   it('should render as expected', () => {
@@ -36,14 +37,6 @@ describe('EcTableSort', () => {
     it('should render with direction set to DESC', () => {
       const wrapper = mountEcTableSort({ direction: SortDirection.DESC });
       expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it('should validate direction prop', () => {
-      withMockedConsole((errorSpy, warnSpy) => {
-        mountEcTableSort({ direction: 'invalid' });
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "direction"');
-      });
     });
   });
 

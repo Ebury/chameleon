@@ -23,32 +23,28 @@
   </a>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
-import * as SortDirection from '../../enums/sort-direction';
+import { SortDirection } from '../../enums/sort-direction';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
+import type { TableSortEvent, TableSortEvents, TableSortProps } from './types';
 
-const emit = defineEmits(['sort']);
+const emit = defineEmits<{
+  'sort': [value: TableSortEvents[TableSortEvent.SORT]],
+}>();
 
-const props = defineProps({
-  direction: {
-    type: String,
-    default: null,
-    validator(value) {
-      return value === null || value === '' || [SortDirection.ASC, SortDirection.DESC].includes(value);
-    },
-  },
-});
+const props = defineProps<TableSortProps>();
 
 const isAsc = computed(() => props.direction === SortDirection.ASC);
 const isDesc = computed(() => props.direction === SortDirection.DESC);
 
 const icon = computed(() => {
   if (isAsc.value || isDesc.value) {
-    return 'simple-arrow-drop-down';
+    return IconName.SimpleArrowDropDown;
   }
-  return 'simple-arrow-up-down';
+  return IconName.SimpleArrowUpDown;
 });
 
 const directionTitle = computed(() => {
@@ -61,8 +57,9 @@ const directionTitle = computed(() => {
   return 'Not sorted';
 });
 
-function onSort() {
-  emit('sort', props.direction);
+function onSort(): void {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  emit('sort', props.direction!);
 }
 </script>
 
