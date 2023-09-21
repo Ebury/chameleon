@@ -111,8 +111,8 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-partial"
@@ -254,8 +254,8 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-check"
@@ -411,8 +411,8 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-check"
@@ -646,8 +646,8 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-check"
@@ -1018,8 +1018,8 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-check"
@@ -1071,8 +1071,8 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-partial"
@@ -1124,8 +1124,8 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                       >
                         <svg
                           class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-cancelled"
@@ -1267,8 +1267,8 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-check"
@@ -1320,8 +1320,8 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-partial"
@@ -1373,8 +1373,8 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                       >
                         <svg
                           class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-cancelled"
@@ -1601,8 +1601,8 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-check"
@@ -1724,8 +1724,8 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-check"
@@ -1777,8 +1777,8 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-partial"
@@ -1830,8 +1830,8 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                       >
                         <svg
                           class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-cancelled"
@@ -1983,8 +1983,8 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-check"
@@ -2121,8 +2121,8 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-check"
@@ -2174,8 +2174,8 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                       >
                         <svg
                           class="ec-icon ec-icon--success ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-partial"
@@ -2227,8 +2227,8 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                       >
                         <svg
                           class="ec-icon ec-icon--error ec-multiple-values-selection__icon"
-                          height="24"
-                          width="24"
+                          height="20"
+                          width="20"
                         >
                           <use
                             xlink:href="#ec-rounded-cancelled"

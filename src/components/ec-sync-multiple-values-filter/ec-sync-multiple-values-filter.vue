@@ -23,6 +23,7 @@
           :is-select-all="isSelectAll"
           :select-all-filters-text="selectAllFiltersText"
           :search-filter-placeholder="searchFilterPlaceholder"
+          :has-rounded-icons="hasRoundedIcons"
           @search="onSearch"
         />
       </template>
@@ -84,6 +85,10 @@ const props = defineProps({
     default: 'Search...',
   },
   isFullHeight: {
+    type: Boolean,
+    default: false,
+  },
+  hasRoundedIcons: {
     type: Boolean,
     default: false,
   },
