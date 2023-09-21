@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { defineComponent, h } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
-import * as SortDirection from '../../enums/sort-direction';
+import { SortDirection } from '../../enums/sort-direction';
 import EcTable from './ec-table.vue';
 
 function mountEcTable(props, mountOpts) {

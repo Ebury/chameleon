@@ -123,7 +123,7 @@ import {
 
 import useEcPagination from '../../composables/use-ec-pagination';
 import useEcSorting from '../../composables/use-ec-sorting';
-import * as SortDirection from '../../enums/sort-direction';
+import { SortDirection } from '../../enums/sort-direction';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 import EcLoading from '../ec-loading';
 import EcSmartTableHeading from '../ec-smart-table-heading';
