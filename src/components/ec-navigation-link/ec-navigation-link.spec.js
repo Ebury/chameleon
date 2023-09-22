@@ -6,11 +6,7 @@ import EcNavigationLink from './ec-navigation-link.vue';
 describe('EcNavigationLink', () => {
   it('should throw an error if prop text was not given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
-      mount(EcNavigationLink, {
-        props: {
-          iconName: 'Random text',
-        },
-      });
+      mount(EcNavigationLink);
       expect(warnSpy).toHaveBeenCalledTimes(2);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "text"');
     });
@@ -20,7 +16,6 @@ describe('EcNavigationLink', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcNavigationLink, {
         props: {
-          iconName: 'Random text',
           text: 'Random text',
         },
       });

@@ -24,17 +24,20 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable chameleon/vue-props-interface */
 import { computed } from 'vue';
 
 import { SortDirection } from '../../enums/sort-direction';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
-import type { TableSortEvent, TableSortEvents, TableSortProps } from './types';
+import type { SortDirectionType, TableSortEvent, TableSortEvents } from './types';
 
 const emit = defineEmits<{
   'sort': [value: TableSortEvents[TableSortEvent.SORT]],
 }>();
+
+interface TableSortProps {
+  direction?: SortDirectionType,
+}
 
 const props = withDefaults(defineProps<TableSortProps>(), {
   direction: null,

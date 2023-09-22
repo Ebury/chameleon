@@ -1,6 +1,6 @@
 import type { SortDirection } from '../../enums/sort-direction';
 
-type SortDirectionType = SortDirection | '' | null;
+export type SortDirectionType = SortDirection | '' | null;
 
 export enum TableSortEvent {
   SORT = 'sort',
