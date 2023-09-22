@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 
-import { SortDirection } from '../../enums/sort-direction';
+import { SortDirection } from '../../enums';
 import EcIcon from '../ec-icon/ec-icon.vue';
 import EcOptionCard from '../ec-option-card';
 import EcTable from './ec-table.vue';

@@ -1,6 +1,6 @@
 import { ref, unref } from 'vue';
 
-import { SortDirection } from '../../enums/sort-direction';
+import { SortDirection } from '../../enums';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 
 export default function useEcSorting({

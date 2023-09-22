@@ -4,7 +4,7 @@ import {
   computed, markRaw, onBeforeUnmount, ref,
 } from 'vue';
 
-import { SortDirection } from '../../enums/sort-direction';
+import { SortDirection } from '../../enums';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 import EcDateRangeFilter from '../ec-date-range-filter';
 import EcIcon from '../ec-icon';

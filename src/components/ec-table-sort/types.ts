@@ -1,4 +1,4 @@
-import type { SortDirection } from '../../enums/sort-direction';
+import type { SortDirection } from '../../enums';
 
 export type SortDirectionType = SortDirection | '' | null;
 

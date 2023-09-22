@@ -1,7 +1,7 @@
 import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
-import { SortDirection } from '../../enums/sort-direction';
+import { SortDirection } from '../../enums';
 import EcTableSort from './ec-table-sort.vue';
 import type { TableSortProps } from './types';
 

@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { SortDirection } from '../../enums/sort-direction';
+import { SortDirection } from '../../enums';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
 import type { SortDirectionType, TableSortEvent, TableSortEvents } from './types';
@@ -96,3 +96,4 @@ function onSort(): void {
   }
 }
 </style>
+../../enums
