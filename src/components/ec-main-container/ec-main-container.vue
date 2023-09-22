@@ -21,7 +21,7 @@
         >{{ title }}</h1>
       </div>
 
-      <template v-if="hasSlot('cta') && !isBelowBreakPointSize">
+      <template v-if="hasSlot('cta') && !isMobileView">
         <div
           data-test="ec-main-container__cta"
         >
@@ -36,7 +36,7 @@
       class="ec-main-container__title-intro"
     >{{ titleIntro }}</p>
 
-    <template v-if="hasSlot('cta') && isBelowBreakPointSize">
+    <template v-if="hasSlot('cta') && isMobileView">
       <div
         data-test="ec-main-container__cta"
         class="tw-mt-8"
@@ -61,7 +61,7 @@ defineProps<MainContainerProps>();
 
 const slots = useSlots();
 
-const isBelowBreakPointSize = useMediaQuery('(max-width: 344px)');
+const isMobileView = useMediaQuery('(max-width: 344px)');
 
 function hasSlot(slotName: string) {
   return slotName in slots;
