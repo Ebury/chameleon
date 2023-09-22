@@ -24,6 +24,7 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable chameleon/vue-props-interface */
 import { computed } from 'vue';
 
 import { SortDirection } from '../../enums/sort-direction';

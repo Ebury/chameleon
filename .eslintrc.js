@@ -121,7 +121,7 @@ module.exports = {
       ],
       rules: {
         'import/first': 'off',
-        // 'chameleon/vue-props-interface': 'error',
+        'chameleon/vue-props-interface': 'error',
 
         // to avoid "You have used a rule which requires parserServices to be generated." issues in vue files, we have to disable some
         // typescript rules in vue files hoping that these bugs will be resolved one day:
