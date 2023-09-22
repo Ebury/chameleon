@@ -49,8 +49,8 @@
 </template>
 
 <script setup lang="ts">
-import { useWindowSize } from '@vueuse/core';
-import { computed, useSlots } from 'vue';
+import { useMediaQuery } from '@vueuse/core';
+import { useSlots } from 'vue';
 
 interface MainContainerProps {
   title?: string,
@@ -60,11 +60,8 @@ interface MainContainerProps {
 defineProps<MainContainerProps>();
 
 const slots = useSlots();
-const { width } = useWindowSize();
 
-const BREAKPOINT_SCREEN_SIZE = 344;
-
-const isBelowBreakPointSize = computed(() => width.value <= BREAKPOINT_SCREEN_SIZE);
+const isBelowBreakPointSize = useMediaQuery('(max-width: 344px)');
 
 function hasSlot(slotName: string) {
   return slotName in slots;
