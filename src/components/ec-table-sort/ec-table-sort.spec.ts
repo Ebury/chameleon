@@ -10,7 +10,7 @@ describe('EcTableSort', () => {
     return mount(EcTableSort, {
       props,
       ...mountOpts,
-    }) as CVueWrapper;
+    }) as unknown as CVueWrapper;
   }
 
   it('should render as expected', () => {
