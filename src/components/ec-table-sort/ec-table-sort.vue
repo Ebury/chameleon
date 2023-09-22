@@ -35,7 +35,9 @@ const emit = defineEmits<{
   'sort': [value: TableSortEvents[TableSortEvent.SORT]],
 }>();
 
-const props = defineProps<TableSortProps>();
+const props = withDefaults(defineProps<TableSortProps>(), {
+  direction: null,
+});
 
 const isAsc = computed(() => props.direction === SortDirection.ASC);
 const isDesc = computed(() => props.direction === SortDirection.DESC);
@@ -58,8 +60,7 @@ const directionTitle = computed(() => {
 });
 
 function onSort(): void {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  emit('sort', props.direction!);
+  emit('sort', props.direction);
 }
 </script>
 
