@@ -4,47 +4,53 @@
     data-test="ec-main-container"
   >
     <div
-      v-if="title || hasSlot('cta')"
-      class="tw-grid"
+      class="tw-flex tw-justify-between"
     >
-      <template v-if="title">
+      <div>
         <div
-          :class="{ 'tw-col-full': true, 'md:tw-col-9': hasSlot('cta') }"
+          v-if="hasSlot('breadcrumbs')"
+          data-test="ec-main-container__breadcrumbs"
+          class="ec-main-container__breadcrumbs"
         >
-          <div
-            v-if="hasSlot('breadcrumbs')"
-            data-test="ec-main-container__breadcrumbs"
-            class="ec-main-container__breadcrumbs"
-          >
-            <slot name="breadcrumbs" />
-          </div>
-
-          <h1
-            data-test="ec-main-container__title"
-            class="ec-main-container__title"
-          >{{ title }}</h1>
-          <p
-            v-if="titleIntro"
-            data-test="ec-main-container__title-intro"
-            class="ec-main-container__title-intro"
-          >{{ titleIntro }}</p>
+          <slot name="breadcrumbs" />
         </div>
-      </template>
-      <template v-if="hasSlot('cta')">
+        <h1
+          v-if="title"
+          data-test="ec-main-container__title"
+          class="ec-main-container__title"
+        >{{ title }}</h1>
+      </div>
+
+      <template v-if="hasSlot('cta') && !isBelowBreakPointSize">
         <div
-          class="tw-col-full md:tw-col-3"
           data-test="ec-main-container__cta"
         >
           <slot name="cta" />
         </div>
       </template>
     </div>
+
+    <p
+      v-if="titleIntro"
+      data-test="ec-main-container__title-intro"
+      class="ec-main-container__title-intro"
+    >{{ titleIntro }}</p>
+
+    <template v-if="hasSlot('cta') && isBelowBreakPointSize">
+      <div
+        data-test="ec-main-container__cta"
+        class="tw-mt-8"
+      >
+        <slot name="cta" />
+      </div>
+    </template>
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useSlots } from 'vue';
+import { useWindowSize } from '@vueuse/core';
+import { computed, useSlots } from 'vue';
 
 interface MainContainerProps {
   title?: string,
@@ -54,6 +60,11 @@ interface MainContainerProps {
 defineProps<MainContainerProps>();
 
 const slots = useSlots();
+const { width } = useWindowSize();
+
+const BREAKPOINT_SCREEN_SIZE = 344;
+
+const isBelowBreakPointSize = computed(() => width.value <= BREAKPOINT_SCREEN_SIZE);
 
 function hasSlot(slotName: string) {
   return slotName in slots;
@@ -66,8 +77,12 @@ function hasSlot(slotName: string) {
   @apply tw-min-h-full;
 
   &__title {
-    @apply tw-h1;
+    @apply tw-h2;
     @apply tw-m-0;
+
+    @screen sm {
+      @apply tw-h1;
+    }
   }
 
   &__title-intro {
