@@ -147,6 +147,7 @@ function onOpen(isOpen) {
   &__filter-content {
     @apply tw-bg-gray-8;
     @apply tw-border-gray-6 tw-border-solid tw-border tw-rounded;
+    @apply tw-flex tw-flex-col;
 
     width: var(--ec-filter-popover-width);
     max-height: var(--ec-filter-popover-height);

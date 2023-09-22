@@ -177,6 +177,23 @@ describe('EcMultipleValuesSelection', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render with rounded icons', () => {
+    const wrapper = mountEcMultipleValuesSelection({
+      items: [
+        {
+          value: 'Currency EUR',
+          icon: {
+            name: 'currency-eur',
+            type: 'interactive',
+          },
+          text: 'Currency EUR',
+        },
+      ],
+      hasRoundedIcons: true,
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   describe('search', () => {
     it('should not have the search visible if isSearchable is set to false', () => {
       const wrapper = mountEcMultipleValuesSelection({ items, isSearchable: false });

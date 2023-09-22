@@ -68,7 +68,43 @@ const items = [{
     type: 'interactive',
   },
   text: 'Not paid (Value date not reached)',
-}];
+}, {
+  value: 'Random status 1',
+  icon: {
+    name: 'currency-aed',
+    type: 'interactive',
+  },
+  text: 'Random status 1',
+}, {
+  value: 'Random status 2',
+  icon: {
+    name: 'currency-gbp',
+    type: 'interactive',
+  },
+  text: 'Random status 2',
+}, {
+  value: 'Random status 3',
+  icon: {
+    name: 'currency-eur',
+    type: 'interactive',
+  },
+  text: 'Random status 3',
+}, {
+  value: 'Random status 4',
+  icon: {
+    name: 'currency-usd',
+    type: 'interactive',
+  },
+  text: 'Random status 4',
+}, {
+  value: 'Random status 5',
+  icon: {
+    name: 'currency-rub',
+    type: 'interactive',
+  },
+  text: 'Random status 5',
+},
+];
 export const basic = Template.bind({});
 
 basic.args = {
@@ -76,4 +112,5 @@ basic.args = {
   items,
   isSelectAll: false,
   selectAllFiltersText: 'Select all',
+  hasRoundedIcons: true,
 };

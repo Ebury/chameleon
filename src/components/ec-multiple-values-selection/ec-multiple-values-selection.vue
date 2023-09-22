@@ -96,9 +96,10 @@
                   <ec-icon
                     v-if="item.icon"
                     class="ec-multiple-values-selection__icon"
+                    :class="{ 'ec-multiple-values-selection__icon--rounded': hasRoundedIcons }"
                     :name="item.icon.name"
                     :type="item.icon.type"
-                    :size="24"
+                    :size="20"
                   />
                   <span class="ec-multiple-values-selection__label-text">{{ item.text }}</span>
                 </div>
@@ -161,6 +162,10 @@ const props = defineProps({
   searchFilterPlaceholder: {
     type: String,
     default: 'Search...',
+  },
+  hasRoundedIcons: {
+    type: Boolean,
+    default: false,
   },
 });
 const emit = defineEmits(['update:modelValue', 'search', 'change']);
@@ -280,6 +285,10 @@ function isItemChecked(item) {
   &__icon {
     @apply tw-mr-8;
     @apply tw-flex-shrink-0;
+
+    &--rounded {
+      @apply tw-rounded-1/2;
+    }
   }
 
   &__label-text {
