@@ -301,7 +301,10 @@ describe('EcSmartTable', () => {
 
       expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot();
 
-      props.value.sorts[0] = { column: 'test1', direction: SortDirection.DESC };
+      props.value.sorts = [
+        { column: 'test1', direction: SortDirection.DESC },
+        { column: 'test3', direction: SortDirection.DESC },
+      ];
       await flushPromises();
 
       expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot();
