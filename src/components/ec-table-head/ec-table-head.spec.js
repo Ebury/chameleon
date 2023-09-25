@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 
 import { withMockedConsole } from '../../../tests/utils/console';
-import * as SortDirection from '../../enums/sort-direction';
+import { SortDirection } from '../../enums';
 import EcTableHead from './ec-table-head.vue';
 
 describe('EcTableHead', () => {

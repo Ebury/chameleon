@@ -1,4 +1,4 @@
-import * as SortDirection from '../../enums/sort-direction';
+import { SortDirection } from '../../enums';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
 import useEcSorting from './use-ec-sorting';
 

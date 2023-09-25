@@ -1,4 +1,4 @@
-import * as SortDirection from './enums/sort-direction';
+import { SortDirection } from './enums';
 import * as SortDirectionCycle from './enums/sort-direction-cycle';
 import * as TooltipPlacement from './enums/tooltip-placement';
 
