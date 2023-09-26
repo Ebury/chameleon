@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { h, markRaw } from 'vue';
 
-import * as SortDirection from '../../enums/sort-direction';
+import { SortDirection } from '../../enums';
 import EcSmartTable from './ec-smart-table.vue';
 
 describe('EcSmartTable', () => {

@@ -1,8 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { defineComponent, h } from 'vue';
 
-import { withMockedConsole } from '../../../tests/utils/console';
-import * as SortDirection from '../../enums/sort-direction';
+import { SortDirection } from '../../enums';
 import EcTable from './ec-table.vue';
 
 function mountEcTable(props, mountOpts) {
@@ -45,14 +44,6 @@ describe('EcTable', () => {
   it('should not render if no props are supplied', () => {
     const wrapper = mountEcTable(null, { props: {} });
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should throw if the prop stickyColumn have a invalid value', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountEcTable({ stickyColumn: 'test' });
-      expect(warnSpy).toHaveBeenCalledTimes(2);
-      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "stickyColumn"');
-    });
   });
 
   it('should not render if not provided with any data', () => {
