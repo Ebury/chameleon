@@ -1,11 +1,12 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
-import { withMockedConsole } from '../../../tests/utils/console';
+import type { CVueWrapper } from '../../../tests/utils/global';
 import { SortDirection } from '../../enums';
 import EcTableHead from './ec-table-head.vue';
+import { StickyColumnPosition, type TableHeadColumn, type TableHeadProps } from './types';
 
 describe('EcTableHead', () => {
-  const columns = [
+  const columns: TableHeadColumn[] = [
     {
       name: 'column-a',
       title: 'Column A',
@@ -21,11 +22,11 @@ describe('EcTableHead', () => {
     },
   ];
 
-  function mountEcTableHead(props, mountOpts) {
+  function mountEcTableHead(props?: Partial<TableHeadProps>, mountOpts?: ComponentMountingOptions<TableHeadProps>) {
     return mount(EcTableHead, {
       props,
       ...mountOpts,
-    });
+    }) as unknown as CVueWrapper;
   }
 
   it('should render as expected', () => {
@@ -33,19 +34,11 @@ describe('EcTableHead', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should throw if the prop stickyColumn have a invalid value', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountEcTableHead({ columns, stickyColumn: 'test' });
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "stickyColumn"');
-    });
-  });
-
   it('should have a column align to center if its type is icon', () => {
     const wrapper = mountEcTableHead({
-      columns: columns.map(column => ({
+      columns: columns.map((column): TableHeadColumn => ({
         ...column,
-        type: column.name === 'column-b' ? 'icon' : null,
+        type: column.name === 'column-b' ? 'icon' : '',
       })),
     });
 
@@ -54,9 +47,9 @@ describe('EcTableHead', () => {
 
   it('should have a column align to the right if its type is currency', () => {
     const wrapper = mountEcTableHead({
-      columns: columns.map(column => ({
+      columns: columns.map((column): TableHeadColumn => ({
         ...column,
-        type: column.name === 'column-b' ? 'currency' : null,
+        type: column.name === 'column-b' ? 'currency' : '',
       })),
     });
 
@@ -104,7 +97,7 @@ describe('EcTableHead', () => {
 
   it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left and the changes to right when the prop is get changed to right', async () => {
     const wrapper = mountEcTableHead({
-      columns, stickyColumn: 'left',
+      columns, stickyColumn: StickyColumnPosition.LEFT,
     });
 
     expect(wrapper.findByDataTest('ec-table-head__cell--0').classes('ec-table-head__cell--sticky-left')).toBe(true);
@@ -116,9 +109,9 @@ describe('EcTableHead', () => {
 
   it('should render the style with the min-width on the column that have the prop given', () => {
     const wrapper = mountEcTableHead({
-      columns: columns.map(column => ({
+      columns: columns.map((column): TableHeadColumn => ({
         ...column,
-        minWidth: column.name === 'column-b' ? '250px' : null,
+        minWidth: column.name === 'column-b' ? '250px' : '',
       })),
     });
 
@@ -128,9 +121,9 @@ describe('EcTableHead', () => {
 
   it('should render with max-width and ellipsis on the column that has the prop given', () => {
     const wrapper = mountEcTableHead({
-      columns: columns.map(column => ({
+      columns: columns.map((column): TableHeadColumn => ({
         ...column,
-        maxWidth: column.name === 'column-b' ? '250px' : null,
+        maxWidth: column.name === 'column-b' ? '250px' : '',
       })),
     });
 

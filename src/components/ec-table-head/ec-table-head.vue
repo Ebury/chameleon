@@ -33,8 +33,8 @@
             v-ec-tooltip="{ content: column.tooltip }"
             class="ec-table-head__icon"
             data-test="ec-table-head__tooltip-icon"
-            type="interactive"
-            name="simple-info"
+            :type="IconType.INTERACTIVE"
+            :name="IconName.SimpleInfo"
             :size="16"
           />
           <ec-table-sort
@@ -49,47 +49,52 @@
   </thead>
 </template>
 
-<script setup>
-import VEcTooltip from '../../directives/ec-tooltip';
+<script setup lang="ts">
+import type { StyleValue } from 'vue';
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import vEcTooltip from '../../directives/ec-tooltip';
+import type { SortDirection } from '../../enums';
 import EcIcon from '../ec-icon';
+import { IconName, IconType } from '../ec-icon/types';
 import EcTableSort from '../ec-table-sort';
+import type {
+  StickyColumnPosition, TableHeadColumn, TableHeadEvent, TableHeadEvents, TableHeadSort,
+} from './types';
 
-const emit = defineEmits(['sort']);
+const emit = defineEmits<{
+  'sort': [value: TableHeadEvents[TableHeadEvent.SORT]],
+}>();
 
-const props = defineProps({
-  columns: {
-    type: Array,
-    default: () => [],
-  },
-  sorts: {
-    type: Array,
-    default: () => [],
-  },
-  stickyColumn: {
-    type: String,
-    validator(value) {
-      return ['left', 'right'].includes(value);
-    },
-  },
+interface TableHeadProps {
+  columns?: TableHeadColumn[],
+  sorts?: TableHeadSort[],
+  stickyColumn?: StickyColumnPosition,
+}
+
+const props = withDefaults(defineProps<TableHeadProps>(), {
+  columns: () => [],
+  sorts: () => [],
 });
 
-function getSortDirection(column) {
+function getSortDirection(column: TableHeadColumn): SortDirection | undefined {
   const existingSort = props.sorts.find(sort => sort.column === column.name);
   return existingSort && existingSort.direction;
 }
 
-function onSort(column) {
+function onSort(column: TableHeadColumn): void {
   emit('sort', column);
 }
 
-function getWidthStyle(column) {
+function getWidthStyle(column: TableHeadColumn): StyleValue {
   if (column && (column.maxWidth || column.minWidth)) {
     return { maxWidth: column.maxWidth, minWidth: column.minWidth };
   }
-  return null;
+  return null as unknown as StyleValue;
 }
 
-function getStickyColumnClass(colIndex, columns) {
+function getStickyColumnClass(colIndex: number, columns: TableHeadColumn[]): string | null {
   if (props.stickyColumn === 'left' && colIndex === 0) {
     return 'ec-table-head__cell--sticky-left';
   }
