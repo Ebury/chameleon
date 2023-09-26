@@ -23,10 +23,10 @@
     </div>
 
     <div
+      v-if="title"
       class="tw-flex tw-justify-between tw-items-center tw-flex-wrap-reverse tw--mt-16"
     >
       <h1
-        v-if="title"
         data-test="ec-main-container__title"
         class="ec-main-container__title"
       >{{ title }}</h1>
