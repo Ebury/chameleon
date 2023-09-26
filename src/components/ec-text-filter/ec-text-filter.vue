@@ -15,6 +15,8 @@
 </template>
 
 <script setup lang="ts">
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { debounce } from 'lodash';
 import { computed } from 'vue';
 
 import { IconName } from '../ec-icon/icon-names';
@@ -27,21 +29,29 @@ import { TextFilterEvent } from './types';
 interface TextFilterProps {
   modelValue?: InputFieldProps['modelValue']
   inputProps?: InputFieldProps
+  debounceTime?: number
 }
 
-const props = defineProps<TextFilterProps>();
+const props = withDefaults(
+  defineProps<TextFilterProps>(),
+  {
+    debounceTime: 300,
+  },
+);
 
 const emit = defineEmits<{
   'update:modelValue': [value: TextFilterEvents[TextFilterEvent.UPDATE_MODEL_VALUE]],
   'change': [value: TextFilterEvents[TextFilterEvent.CHANGE]],
 }>();
 
+const debouncedEmitModelValue = debounce(emitModelValue, props.debounceTime);
+
 const inputModel = computed<TextFilterProps['modelValue']>({
   get() {
     return props.modelValue;
   },
   set(value) {
-    emitModelValue(value);
+    debouncedEmitModelValue(value);
   },
 });
 
