@@ -14,3 +14,11 @@ export interface TableProps {
   isCustomRowShown?: boolean,
   isTableHeaderHidden?: boolean
 }
+
+export enum TableEvent {
+  SORT = 'sort',
+}
+
+export interface TableEvents {
+  [TableEvent.SORT]: TableHeadColumn,
+}

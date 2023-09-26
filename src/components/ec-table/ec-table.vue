@@ -78,12 +78,15 @@ import { computed, useAttrs, useSlots } from 'vue';
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
 import type { StickyColumnPosition, TableHeadColumn, TableHeadSort } from '../ec-table-head/types';
+import type { TableEvent, TableEvents } from './types';
 
 const isInCustomRowThreshold = useMediaQuery('(max-width: 768px)');
 const slots = useSlots();
 const attrs = useAttrs();
 // const emit = defineEmits(['sort', 'row-click']);
-const emit = defineEmits(['sort']);
+const emit = defineEmits<{
+  'sort': [value: TableEvents[TableEvent.SORT]],
+}>();
 
 interface TableProps {
   columns?: TableHeadColumn[],
@@ -111,8 +114,8 @@ const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.m
 const canShowCustomRow = computed(() => (props.isCustomRowShown || (props.isCustomRowShown === undefined && hasSlot('default') && isInCustomRowThreshold.value)));
 const canShowTableHeader = computed(() => (props.isTableHeaderHidden === false || (props.isTableHeaderHidden === undefined && !canShowCustomRow.value)));
 
-function onSort(columnName: string) {
-  emit('sort', columnName);
+function onSort(column: TableHeadColumn) {
+  emit('sort', column);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
