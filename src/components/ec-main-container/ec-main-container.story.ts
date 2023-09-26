@@ -39,10 +39,8 @@ export const withSlots = (args: MainContainerProps) => ({
           <ec-icon
             name="simple-arrow-left"
             :size="24"
-            class="tw-fill-current tw-mr-12"
+            class="tw-fill-gray-4 tw-mr-12"
           />
-
-          <span>Back to Dashboard</span>
         </a>
       </template>
 
@@ -76,10 +74,8 @@ export const with2Buttons = (args: MainContainerProps) => ({
           <ec-icon
             name="simple-arrow-left"
             :size="24"
-            class="tw-fill-current tw-mr-12"
+            class="tw-fill-gray-4 tw-mr-12"
           />
-
-          <span>Back to Dashboard</span>
         </a>
       </template>
 
@@ -102,6 +98,29 @@ with2Buttons.args = {
   titleIntro,
 };
 
+export const withoutBreadcrumbs = (args: MainContainerProps) => ({
+  components: { EcMainContainer, EcIcon },
+  setup() {
+    return { args };
+  },
+  template: `
+    <ec-main-container v-bind="args">
+      <template #cta>
+        <div>
+          <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md">
+          Test longer CTA
+        </button>
+        </div>
+      </template>
+    </ec-main-container>
+  `,
+});
+
+withoutBreadcrumbs.args = {
+  title,
+  titleIntro,
+};
+
 export const breadcrumbsOnly = (args: MainContainerProps) => ({
   components: { EcMainContainer, EcIcon },
   setup() {
@@ -116,10 +135,8 @@ export const breadcrumbsOnly = (args: MainContainerProps) => ({
           <ec-icon
             name="simple-arrow-left"
             :size="24"
-            class="tw-fill-current tw-mr-12"
+            class="tw-fill-gray-4 tw-mr-12"
           />
-
-          <span>Back to Dashboard</span>
         </a>
       </template>
     </ec-main-container>

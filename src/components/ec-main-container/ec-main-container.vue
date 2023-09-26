@@ -3,27 +3,37 @@
     class="ec-main-container"
     data-test="ec-main-container"
   >
-    <div
-      class="tw-flex tw-justify-between"
-    >
-      <div>
-        <div
-          v-if="hasSlot('breadcrumbs')"
-          data-test="ec-main-container__breadcrumbs"
-          class="ec-main-container__breadcrumbs"
-        >
-          <slot name="breadcrumbs" />
-        </div>
-        <h1
-          v-if="title"
-          data-test="ec-main-container__title"
-          class="ec-main-container__title"
-        >{{ title }}</h1>
-      </div>
 
-      <template v-if="hasSlot('cta') && !isMobileView">
+    <div
+      v-if="hasSlot('breadcrumbs')"
+      class="tw-flex tw-justify-between tw-items-center tw-mb-16"
+    >
+      <div
+        data-test="ec-main-container__breadcrumbs"
+      >
+        <slot name="breadcrumbs" />
+      </div>
+      <template v-if="hasSlot('cta')">
         <div
           data-test="ec-main-container__cta"
+        >
+          <slot name="cta" />
+        </div>
+      </template>
+    </div>
+
+    <div
+      class="tw-flex tw-justify-between tw-items-center tw-flex-wrap-reverse tw--mt-16"
+    >
+      <h1
+        v-if="title"
+        data-test="ec-main-container__title"
+        class="ec-main-container__title"
+      >{{ title }}</h1>
+      <template v-if="hasSlot('cta') && !hasSlot('breadcrumbs')">
+        <div
+          data-test="ec-main-container__cta"
+          class="tw-ml-auto tw-mt-16"
         >
           <slot name="cta" />
         </div>
@@ -36,20 +46,11 @@
       class="ec-main-container__title-intro"
     >{{ titleIntro }}</p>
 
-    <template v-if="hasSlot('cta') && isMobileView">
-      <div
-        data-test="ec-main-container__cta"
-        class="tw-mt-8"
-      >
-        <slot name="cta" />
-      </div>
-    </template>
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useMediaQuery } from '@vueuse/core';
 import { useSlots } from 'vue';
 
 interface MainContainerProps {
@@ -60,8 +61,6 @@ interface MainContainerProps {
 defineProps<MainContainerProps>();
 
 const slots = useSlots();
-
-const isMobileView = useMediaQuery('(max-width: 344px)');
 
 function hasSlot(slotName: string) {
   return slotName in slots;
@@ -75,7 +74,9 @@ function hasSlot(slotName: string) {
 
   &__title {
     @apply tw-h2;
+    @apply tw-pr-12;
     @apply tw-m-0;
+    @apply tw-mt-16;
 
     @screen sm {
       @apply tw-h1;
@@ -86,10 +87,6 @@ function hasSlot(slotName: string) {
     @apply tw-body-text;
     @apply tw-text-gray-4;
     @apply tw-mt-8 tw-mb-0;
-  }
-
-  &__breadcrumbs {
-    @apply tw-mb-16;
   }
 }
 </style>
