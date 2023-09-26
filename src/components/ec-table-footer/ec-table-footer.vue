@@ -16,12 +16,12 @@
   </tfoot>
 </template>
 
-<script setup>
-defineProps({
-  colspan: {
-    type: Number,
-  },
-});
+<script setup lang="ts">
+interface TableFooterProps {
+  colspan?: number,
+}
+
+defineProps<TableFooterProps>();
 </script>
 
 <style>
