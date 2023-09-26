@@ -1,9 +1,10 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
 import EcTableFooter from './ec-table-footer.vue';
+import type { TableFooterProps } from './types';
 
 describe('EcTableFooter', () => {
-  function mountEcTableFooter(props, mountOpts) {
+  function mountEcTableFooter(props?: Partial<TableFooterProps>, mountOpts?: ComponentMountingOptions<TableFooterProps>) {
     return mount(EcTableFooter, {
       props,
       ...mountOpts,
