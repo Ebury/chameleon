@@ -32,7 +32,7 @@ const filters = [{
   clearText: 'Clear dates',
 }, {
   name: 'text',
-  component: EcTextFilter,
+  component: markRaw(EcTextFilter),
 }];
 
 const modelValue = { feeType: [{ text: 'Invoiced', value: 'invoiced' }], text: 'Some value' };
