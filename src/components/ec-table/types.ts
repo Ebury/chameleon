@@ -1,5 +1,7 @@
 import type { StickyColumnPosition, TableHeadColumn, TableHeadSort } from '../ec-table-head/types';
 
+export { StickyColumnPosition, TableHeadColumn, TableHeadSort };
+
 export interface TableProps {
   columns?: TableHeadColumn[],
   sorts?: TableHeadSort[],
