@@ -11,7 +11,7 @@
         :style="getWidthStyle(column)"
         :data-test="`ec-table-head__cell ec-table-head__cell--${colIndex}`"
         class="ec-table-head__cell"
-        :class="getStickyColumnClass(colIndex, columns)"
+        :class="getStickyColumnClass(colIndex)"
         :colspan="column.span"
         scope="col"
       >
@@ -33,8 +33,8 @@
             v-ec-tooltip="{ content: column.tooltip }"
             class="ec-table-head__icon"
             data-test="ec-table-head__tooltip-icon"
-            type="interactive"
-            name="simple-info"
+            :type="IconType.INTERACTIVE"
+            :name="IconName.SimpleInfo"
             :size="16"
           />
           <ec-table-sort
@@ -49,51 +49,52 @@
   </thead>
 </template>
 
-<script setup>
-import VEcTooltip from '../../directives/ec-tooltip';
+<script setup lang="ts">
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
+import { IconName, IconType } from '../ec-icon/types';
 import EcTableSort from '../ec-table-sort';
+import type {
+  StickyColumnPosition, TableHeadColumn, TableHeadEvent, TableHeadEvents, TableHeadSort,
+} from './types';
 
-const emit = defineEmits(['sort']);
+const emit = defineEmits<{
+  'sort': [value: TableHeadEvents[TableHeadEvent.SORT]],
+}>();
 
-const props = defineProps({
-  columns: {
-    type: Array,
-    default: () => [],
-  },
-  sorts: {
-    type: Array,
-    default: () => [],
-  },
-  stickyColumn: {
-    type: String,
-    validator(value) {
-      return ['left', 'right'].includes(value);
-    },
-  },
-});
-
-function getSortDirection(column) {
-  const existingSort = props.sorts.find(sort => sort.column === column.name);
-  return existingSort && existingSort.direction;
+interface TableHeadProps {
+  columns?: TableHeadColumn[],
+  sorts?: TableHeadSort[],
+  stickyColumn?: StickyColumnPosition,
 }
 
-function onSort(column) {
+const props = withDefaults(defineProps<TableHeadProps>(), {
+  columns: () => [],
+  sorts: () => [],
+});
+
+function getSortDirection(column: TableHeadColumn) {
+  return props.sorts.find(sort => sort.column === column.name)?.direction;
+}
+
+function onSort(column: TableHeadColumn) {
   emit('sort', column);
 }
 
-function getWidthStyle(column) {
+function getWidthStyle(column: TableHeadColumn) {
   if (column && (column.maxWidth || column.minWidth)) {
     return { maxWidth: column.maxWidth, minWidth: column.minWidth };
   }
-  return null;
+  return undefined;
 }
 
-function getStickyColumnClass(colIndex, columns) {
+function getStickyColumnClass(colIndex: number) {
   if (props.stickyColumn === 'left' && colIndex === 0) {
     return 'ec-table-head__cell--sticky-left';
   }
-  if (props.stickyColumn === 'right' && colIndex === columns.length - 1) {
+  if (props.stickyColumn === 'right' && colIndex === props.columns.length - 1) {
     return 'ec-table-head__cell--sticky-right';
   }
   return null;
