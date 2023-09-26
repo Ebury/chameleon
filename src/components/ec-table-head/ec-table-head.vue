@@ -11,7 +11,7 @@
         :style="getWidthStyle(column)"
         :data-test="`ec-table-head__cell ec-table-head__cell--${colIndex}`"
         class="ec-table-head__cell"
-        :class="getStickyColumnClass(colIndex, columns)"
+        :class="getStickyColumnClass(colIndex)"
         :colspan="column.span"
         scope="col"
       >
@@ -50,12 +50,9 @@
 </template>
 
 <script setup lang="ts">
-import type { StyleValue } from 'vue';
-
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import vEcTooltip from '../../directives/ec-tooltip';
-import type { SortDirection } from '../../enums';
 import EcIcon from '../ec-icon';
 import { IconName, IconType } from '../ec-icon/types';
 import EcTableSort from '../ec-table-sort';
@@ -78,27 +75,26 @@ const props = withDefaults(defineProps<TableHeadProps>(), {
   sorts: () => [],
 });
 
-function getSortDirection(column: TableHeadColumn): SortDirection | undefined {
-  const existingSort = props.sorts.find(sort => sort.column === column.name);
-  return existingSort && existingSort.direction;
+function getSortDirection(column: TableHeadColumn) {
+  return props.sorts.find(sort => sort.column === column.name)?.direction;
 }
 
-function onSort(column: TableHeadColumn): void {
+function onSort(column: TableHeadColumn) {
   emit('sort', column);
 }
 
-function getWidthStyle(column: TableHeadColumn): StyleValue {
+function getWidthStyle(column: TableHeadColumn) {
   if (column && (column.maxWidth || column.minWidth)) {
     return { maxWidth: column.maxWidth, minWidth: column.minWidth };
   }
-  return null as unknown as StyleValue;
+  return undefined;
 }
 
-function getStickyColumnClass(colIndex: number, columns: TableHeadColumn[]): string | null {
+function getStickyColumnClass(colIndex: number) {
   if (props.stickyColumn === 'left' && colIndex === 0) {
     return 'ec-table-head__cell--sticky-left';
   }
-  if (props.stickyColumn === 'right' && colIndex === columns.length - 1) {
+  if (props.stickyColumn === 'right' && colIndex === props.columns.length - 1) {
     return 'ec-table-head__cell--sticky-right';
   }
   return null;
