@@ -1836,6 +1836,328 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
 </div>
 `;
 
+exports[`EcSmartTable pagination should render pagination when it's enabled and changed 1`] = `
+<div
+  class="ec-table-pagination"
+  data-test="ec-smart-table-pagination ec-table-pagination"
+>
+  <div
+    class="ec-table-pagination__page-size"
+    data-test="ec-table-pagination__page-size"
+  >
+    <div
+      class="ec-table-pagination__page-size-text"
+    >
+      Items per page:
+    </div>
+    <div
+      class="ec-dropdown-search"
+      data-test="ec-dropdown-search"
+    >
+      <ec-stub
+        autosize="true"
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
+      >
+        
+        
+        <button
+          class="ec-table-pagination__action ec-table-pagination__action--page-size"
+          data-test="ec-table-pagination__action--page-size"
+          type="button"
+        >
+          10 
+          <svg
+            class="ec-icon ec-table-pagination__action-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </button>
+        
+        
+        
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="5"
+            >
+              
+              5
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="10"
+            >
+              
+              10
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="50"
+            >
+              
+              50
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="100"
+            >
+              
+              100
+              
+            </li>
+            
+            
+          </ul>
+        </div>
+        
+      </ec-stub>
+    </div>
+  </div>
+  <div
+    class="ec-table-pagination__current-page"
+    data-test="ec-table-pagination__current-page"
+  >
+    
+    <span>
+      3 of 5 pages
+    </span>
+    <span>
+      (50 items)
+    </span>
+    
+  </div>
+  <div
+    class="ec-table-pagination__total"
+    data-test="ec-table-pagination__total"
+  >
+    
+    
+  </div>
+  <div
+    class="ec-table-pagination__actions"
+    data-test="ec-table-pagination__actions"
+  >
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--prev"
+      data-test="ec-table-pagination__action--prev"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-table-pagination__action-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </button>
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--next"
+      data-test="ec-table-pagination__action--next"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-table-pagination__action-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable pagination should render pagination when it's enabled and changed 2`] = `
+<div
+  class="ec-table-pagination"
+  data-test="ec-smart-table-pagination ec-table-pagination"
+>
+  <div
+    class="ec-table-pagination__page-size"
+    data-test="ec-table-pagination__page-size"
+  >
+    <div
+      class="ec-table-pagination__page-size-text"
+    >
+      Items per page:
+    </div>
+    <div
+      class="ec-dropdown-search"
+      data-test="ec-dropdown-search"
+    >
+      <ec-stub
+        autosize="true"
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
+      >
+        
+        
+        <button
+          class="ec-table-pagination__action ec-table-pagination__action--page-size"
+          data-test="ec-table-pagination__action--page-size"
+          type="button"
+        >
+          5 
+          <svg
+            class="ec-icon ec-table-pagination__action-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </button>
+        
+        
+        
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <li
+              class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="5"
+            >
+              
+              5
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="10"
+            >
+              
+              10
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="50"
+            >
+              
+              50
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="100"
+            >
+              
+              100
+              
+            </li>
+            
+            
+          </ul>
+        </div>
+        
+      </ec-stub>
+    </div>
+  </div>
+  <div
+    class="ec-table-pagination__current-page"
+    data-test="ec-table-pagination__current-page"
+  >
+    
+    <span>
+      2 of 10 pages
+    </span>
+    <span>
+      (50 items)
+    </span>
+    
+  </div>
+  <div
+    class="ec-table-pagination__total"
+    data-test="ec-table-pagination__total"
+  >
+    
+    
+  </div>
+  <div
+    class="ec-table-pagination__actions"
+    data-test="ec-table-pagination__actions"
+  >
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--prev"
+      data-test="ec-table-pagination__action--prev"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-table-pagination__action-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </button>
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--next"
+      data-test="ec-table-pagination__action--next"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-table-pagination__action-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`EcSmartTable should not pass attrs to the ec-table 1`] = `
 <div
   class="ec-smart-table my-table"
@@ -3198,6 +3520,216 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
             class="ec-table-sort__text"
           >
             asc
+          </span>
+        </a>
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--1"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 2
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--2"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 3
+        </span>
+        <!--v-if-->
+        <a
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
+          href="#"
+          title="Sorted descending"
+        >
+          <svg
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
+            data-test="ec-table-sort__icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-arrow-drop-down"
+            />
+          </svg>
+          <span
+            class="ec-table-sort__text"
+          >
+            desc
+          </span>
+        </a>
+      </span>
+    </th>
+    
+  </tr>
+</thead>
+`;
+
+exports[`EcSmartTable sorting should render sorted columns if sorts prop is changed 1`] = `
+<thead
+  class="ec-table-head"
+  data-test="ec-table-head"
+>
+  <tr>
+    
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--0"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 1
+        </span>
+        <!--v-if-->
+        <a
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
+          href="#"
+          title="Sorted ascending"
+        >
+          <svg
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--asc"
+            data-test="ec-table-sort__icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-arrow-drop-down"
+            />
+          </svg>
+          <span
+            class="ec-table-sort__text"
+          >
+            asc
+          </span>
+        </a>
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--1"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 2
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+      </span>
+    </th>
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--2"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 3
+        </span>
+        <!--v-if-->
+        <a
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
+          href="#"
+          title="Sorted descending"
+        >
+          <svg
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
+            data-test="ec-table-sort__icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-arrow-drop-down"
+            />
+          </svg>
+          <span
+            class="ec-table-sort__text"
+          >
+            desc
+          </span>
+        </a>
+      </span>
+    </th>
+    
+  </tr>
+</thead>
+`;
+
+exports[`EcSmartTable sorting should render sorted columns if sorts prop is changed 2`] = `
+<thead
+  class="ec-table-head"
+  data-test="ec-table-head"
+>
+  <tr>
+    
+    <th
+      class="ec-table-head__cell"
+      data-test="ec-table-head__cell ec-table-head__cell--0"
+      scope="col"
+    >
+      <span
+        class="ec-table-head__cell-wrapper"
+      >
+        <span
+          class="ec-table-head__cell-text"
+        >
+          Test 1
+        </span>
+        <!--v-if-->
+        <a
+          class="ec-table-sort ec-table-head__icon"
+          data-test="ec-table-sort"
+          href="#"
+          title="Sorted descending"
+        >
+          <svg
+            class="ec-icon ec-table-sort__icon ec-table-sort__icon--desc"
+            data-test="ec-table-sort__icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-arrow-drop-down"
+            />
+          </svg>
+          <span
+            class="ec-table-sort__text"
+          >
+            desc
           </span>
         </a>
       </span>
