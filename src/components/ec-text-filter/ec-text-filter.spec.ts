@@ -1,3 +1,4 @@
+import fakeTimers from '@sinonjs/fake-timers';
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
@@ -8,6 +9,17 @@ import type { TextFilterProps } from './types';
 import { TextFilterEvent } from './types';
 
 describe('EcTextFilter', () => {
+  let clock: fakeTimers.InstalledClock;
+
+  beforeEach(() => {
+    clock = fakeTimers.install(window as unknown as fakeTimers.FakeTimerInstallOpts);
+  });
+  afterEach(() => {
+    if (clock) {
+      clock.uninstall();
+    }
+  });
+
   function mountComponent(props?: TextFilterProps, mountOpts?: ComponentMountingOptions<TextFilterProps>): CVueWrapper {
     return mount<TextFilterProps>(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -94,6 +106,25 @@ describe('EcTextFilter', () => {
 
     expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
     await wrapper.findByDataTest('ec-input-field__input').setValue('some text');
+    clock.tick(300);
+    expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.CHANGE]?.[0]).toEqual(['some text']);
+    expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.UPDATE_MODEL_VALUE]?.[0]).toEqual(['some text']);
+  });
+
+  it('should emit the value when you write on the input corresponding to debounceTime', async () => {
+    const wrapper = mountInputFieldAsTemplate(
+      '<ec-text-filter v-model="text" :debounceTime="20"/>',
+      {},
+      {
+        data() {
+          return { text: '' };
+        },
+      },
+    );
+
+    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    await wrapper.findByDataTest('ec-input-field__input').setValue('some text');
+    clock.tick(20);
     expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.CHANGE]?.[0]).toEqual(['some text']);
     expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.UPDATE_MODEL_VALUE]?.[0]).toEqual(['some text']);
   });
