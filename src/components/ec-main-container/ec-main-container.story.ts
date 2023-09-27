@@ -39,16 +39,14 @@ export const withSlots = (args: MainContainerProps) => ({
           <ec-icon
             name="simple-arrow-left"
             :size="24"
-            class="tw-fill-current tw-mr-12"
+            class="tw-fill-gray-4 tw-mr-12"
           />
-
-          <span>Back to Dashboard</span>
         </a>
       </template>
 
       <template #cta>
-        <div class="tw-text-center">
-          <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width">
+        <div>
+          <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md">
             Test CTA
           </button>
         </div>
@@ -61,3 +59,87 @@ withSlots.args = {
   title,
   titleIntro,
 };
+
+export const with2Buttons = (args: MainContainerProps) => ({
+  components: { EcMainContainer, EcIcon },
+  setup() {
+    return { args };
+  },
+  template: `
+    <ec-main-container v-bind="args">
+      <template #breadcrumbs>
+        <a href="#"
+          @click.stop.prevent
+          class="tw-flex tw-items-center">
+          <ec-icon
+            name="simple-arrow-left"
+            :size="24"
+            class="tw-fill-gray-4 tw-mr-12"
+          />
+        </a>
+      </template>
+
+      <template #cta>
+        <div>
+          <button class="ec-btn ec-btn--rounded ec-btn--secondary ec-btn--outline ec-btn--md tw-mr-24">
+            Test CTA
+          </button>
+          <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md">
+          Test longer CTA
+        </button>
+        </div>
+      </template>
+    </ec-main-container>
+  `,
+});
+
+with2Buttons.args = {
+  title,
+  titleIntro,
+};
+
+export const withoutBreadcrumbs = (args: MainContainerProps) => ({
+  components: { EcMainContainer, EcIcon },
+  setup() {
+    return { args };
+  },
+  template: `
+    <ec-main-container v-bind="args">
+      <template #cta>
+        <div>
+          <button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md">
+          Test longer CTA
+        </button>
+        </div>
+      </template>
+    </ec-main-container>
+  `,
+});
+
+withoutBreadcrumbs.args = {
+  title,
+  titleIntro,
+};
+
+export const breadcrumbsOnly = (args: MainContainerProps) => ({
+  components: { EcMainContainer, EcIcon },
+  setup() {
+    return { args };
+  },
+  template: `
+    <ec-main-container>
+      <template #breadcrumbs>
+        <a href="#"
+          @click.stop.prevent
+          class="tw-flex tw-items-center">
+          <ec-icon
+            name="simple-arrow-left"
+            :size="24"
+            class="tw-fill-gray-4 tw-mr-12"
+          />
+        </a>
+      </template>
+    </ec-main-container>
+  `,
+});
+
