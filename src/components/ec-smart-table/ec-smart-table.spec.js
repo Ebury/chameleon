@@ -1,5 +1,7 @@
-import { mount } from '@vue/test-utils';
-import { h, markRaw } from 'vue';
+import { flushPromises, mount } from '@vue/test-utils';
+import {
+  defineComponent, h, markRaw, ref,
+} from 'vue';
 
 import { SortDirection } from '../../enums';
 import EcSmartTable from './ec-smart-table.vue';
@@ -278,6 +280,36 @@ describe('EcSmartTable', () => {
       expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot();
     });
 
+    it('should render sorted columns if sorts prop is changed', async () => {
+      const props = ref({
+        data: data.items,
+        totalRecords: data.total,
+        columns,
+        sorts: [
+          { column: 'test1', direction: SortDirection.ASC },
+          { column: 'test3', direction: SortDirection.DESC },
+        ],
+      });
+
+      const wrapper = mount(defineComponent({
+        components: { EcSmartTable },
+        setup() {
+          return { props };
+        },
+        template: '<ec-smart-table v-bind="props"></ec-smart-table>',
+      }));
+
+      expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot();
+
+      props.value.sorts = [
+        { column: 'test1', direction: SortDirection.DESC },
+        { column: 'test3', direction: SortDirection.DESC },
+      ];
+      await flushPromises();
+
+      expect(wrapper.findByDataTest('ec-table-head').element).toMatchSnapshot();
+    });
+
     describe('single sort', () => {
       it('should sort column', async () => {
         const sorts = [
@@ -346,6 +378,35 @@ describe('EcSmartTable', () => {
   describe('pagination', () => {
     it('should render pagination when it\'s enabled', () => {
       const wrapper = mountEcSmartTableWithData(lotsOfData, { columns, isPaginationEnabled: true });
+      expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot();
+    });
+
+    it('should render pagination when it\'s enabled and changed', async () => {
+      const props = ref({
+        isPaginationEnabled: true,
+        data: lotsOfData.items,
+        pagination: { page: 3, numberOfItems: 10 },
+        totalRecords: lotsOfData.total,
+        columns,
+        sorts: [
+          { column: 'test1', direction: SortDirection.ASC },
+          { column: 'test3', direction: SortDirection.DESC },
+        ],
+      });
+
+      const wrapper = mount(defineComponent({
+        components: { EcSmartTable },
+        setup() {
+          return { props };
+        },
+        template: '<ec-smart-table v-bind="props"></ec-smart-table>',
+      }));
+
+      expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot();
+
+      props.value.pagination = { page: 2, numberOfItems: 5 };
+      await flushPromises();
+
       expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot();
     });
 

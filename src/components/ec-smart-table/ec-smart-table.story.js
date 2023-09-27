@@ -310,6 +310,10 @@ basic.args = {
   title: 'Title',
   columns,
   sorts: defaultSorts,
+  pagination: {
+    page: 2,
+    numberOfItems: 5,
+  },
   isMultiSort: false,
   additionalPayload: { customProp: 'customValue' },
   maxHeight: '',
@@ -449,7 +453,7 @@ export const all = args => ({
         </ec-smart-table>
         <p class="tw-mt-40">
         <em>NOTE:</em> Custom rows are visible when the window size is lower than 768px. Here in Storybook,
-        window width may not be as it should due to the sidebar menu, you can hide it by 
+        window width may not be as it should due to the sidebar menu, you can hide it by
         pressing "S" on your keyboard.
       </p>
       </div>

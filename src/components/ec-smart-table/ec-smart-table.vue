@@ -147,6 +147,7 @@ const props = defineProps({
   },
   clearFiltersButtonText: String,
   itemsPerPageText: String,
+  pagination: Object,
   isPaginationEnabled: Boolean,
   filters: {
     type: Array,
@@ -175,8 +176,16 @@ const { sorts, sortBy } = useEcSorting({
   initialSorts: props.sorts, isMultiSort: props.isMultiSort, sortCycle: props.sortCycle,
 });
 
+watch(() => props.sorts, () => {
+  sorts.value = props.sorts;
+});
+
 // pagination
-const { page, numberOfItems, paginate } = useEcPagination();
+const { page, numberOfItems, paginate } = useEcPagination({
+  initialPage: props.pagination?.page, initialNumberOfItems: props.pagination?.numberOfItems,
+});
+
+watch(() => props.pagination, () => paginate(props.pagination?.page, props.pagination?.numberOfItems));
 
 // filtering
 const isFilteringEnabled = computed(() => props.filters?.length > 0);
@@ -225,4 +234,3 @@ function getEcTableSlots() {
   return tableSlots;
 }
 </script>
-../../enums
