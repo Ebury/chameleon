@@ -1,10 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EcMainContainer should not display the titleIntro when title is not given 1`] = `
+exports[`EcMainContainer should display breadcrumbs even when there are no props 1`] = `
 <div
   class="ec-main-container"
   data-test="ec-main-container"
 >
+  <div
+    class="tw-flex tw-justify-between tw-items-center tw-mb-16"
+  >
+    <div
+      data-test="ec-main-container__breadcrumbs"
+    >
+      
+      <a
+        href="#"
+      >
+        Breadcrumbs
+      </a>
+      
+    </div>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
   <!--v-if-->
   
   
@@ -16,38 +33,36 @@ exports[`EcMainContainer should render both titles when they are given in props 
   class="ec-main-container"
   data-test="ec-main-container"
 >
+  <!--v-if-->
   <div
-    class="tw-grid"
+    class="tw-flex tw-justify-between tw-items-center tw-flex-wrap-reverse tw--mt-16"
   >
-    <div
-      class="tw-col-full"
+    <h1
+      class="ec-main-container__title"
+      data-test="ec-main-container__title"
     >
-      <!--v-if-->
-      <h1
-        class="ec-main-container__title"
-        data-test="ec-main-container__title"
-      >
-        Trade Finance
-      </h1>
-      <p
-        class="ec-main-container__title-intro"
-        data-test="ec-main-container__title-intro"
-      >
-        Here you will be able to keep track of all your requests to Ebury and your credit line.
-      </p>
-    </div>
+      Trade Finance
+    </h1>
     <!--v-if-->
   </div>
+  <p
+    class="ec-main-container__title-intro"
+    data-test="ec-main-container__title-intro"
+  >
+    Here you will be able to keep track of all your requests to Ebury and your credit line.
+  </p>
   
   
 </div>
 `;
 
-exports[`EcMainContainer should render empty if no props were given 1`] = `
+exports[`EcMainContainer should render empty if no props or slots were given 1`] = `
 <div
   class="ec-main-container"
   data-test="ec-main-container"
 >
+  <!--v-if-->
+  <!--v-if-->
   <!--v-if-->
   
   
@@ -59,23 +74,19 @@ exports[`EcMainContainer should render without title intro when the titleIntro p
   class="ec-main-container"
   data-test="ec-main-container"
 >
+  <!--v-if-->
   <div
-    class="tw-grid"
+    class="tw-flex tw-justify-between tw-items-center tw-flex-wrap-reverse tw--mt-16"
   >
-    <div
-      class="tw-col-full"
+    <h1
+      class="ec-main-container__title"
+      data-test="ec-main-container__title"
     >
-      <!--v-if-->
-      <h1
-        class="ec-main-container__title"
-        data-test="ec-main-container__title"
-      >
-        Trade Finance
-      </h1>
-      <!--v-if-->
-    </div>
+      Trade Finance
+    </h1>
     <!--v-if-->
   </div>
+  <!--v-if-->
   
   
 </div>
@@ -86,28 +97,24 @@ exports[`EcMainContainer should use given slot 1`] = `
   class="ec-main-container"
   data-test="ec-main-container"
 >
+  <!--v-if-->
   <div
-    class="tw-grid"
+    class="tw-flex tw-justify-between tw-items-center tw-flex-wrap-reverse tw--mt-16"
   >
-    <div
-      class="tw-col-full"
+    <h1
+      class="ec-main-container__title"
+      data-test="ec-main-container__title"
     >
-      <!--v-if-->
-      <h1
-        class="ec-main-container__title"
-        data-test="ec-main-container__title"
-      >
-        Trade Finance
-      </h1>
-      <p
-        class="ec-main-container__title-intro"
-        data-test="ec-main-container__title-intro"
-      >
-        Here you will be able to keep track of all your requests to Ebury and your credit line.
-      </p>
-    </div>
+      Trade Finance
+    </h1>
     <!--v-if-->
   </div>
+  <p
+    class="ec-main-container__title-intro"
+    data-test="ec-main-container__title-intro"
+  >
+    Here you will be able to keep track of all your requests to Ebury and your credit line.
+  </p>
   
   <p>
     Random text
@@ -122,38 +129,38 @@ exports[`EcMainContainer should use the given named breadcrumbs slot 1`] = `
   data-test="ec-main-container"
 >
   <div
-    class="tw-grid"
+    class="tw-flex tw-justify-between tw-items-center tw-mb-16"
   >
     <div
-      class="tw-col-full"
+      data-test="ec-main-container__breadcrumbs"
     >
-      <div
-        class="ec-main-container__breadcrumbs"
-        data-test="ec-main-container__breadcrumbs"
+      
+      <a
+        href="#"
       >
-        
-        <a
-          href="#"
-        >
-          Breadcrumbs
-        </a>
-        
-      </div>
-      <h1
-        class="ec-main-container__title"
-        data-test="ec-main-container__title"
-      >
-        Trade Finance
-      </h1>
-      <p
-        class="ec-main-container__title-intro"
-        data-test="ec-main-container__title-intro"
-      >
-        Here you will be able to keep track of all your requests to Ebury and your credit line.
-      </p>
+        Breadcrumbs
+      </a>
+      
     </div>
     <!--v-if-->
   </div>
+  <div
+    class="tw-flex tw-justify-between tw-items-center tw-flex-wrap-reverse tw--mt-16"
+  >
+    <h1
+      class="ec-main-container__title"
+      data-test="ec-main-container__title"
+    >
+      Trade Finance
+    </h1>
+    <!--v-if-->
+  </div>
+  <p
+    class="ec-main-container__title-intro"
+    data-test="ec-main-container__title-intro"
+  >
+    Here you will be able to keep track of all your requests to Ebury and your credit line.
+  </p>
   
   
 </div>
@@ -164,28 +171,18 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
   class="ec-main-container"
   data-test="ec-main-container"
 >
+  <!--v-if-->
   <div
-    class="tw-grid"
+    class="tw-flex tw-justify-between tw-items-center tw-flex-wrap-reverse tw--mt-16"
   >
-    <div
-      class="tw-col-full md:tw-col-9"
+    <h1
+      class="ec-main-container__title"
+      data-test="ec-main-container__title"
     >
-      <!--v-if-->
-      <h1
-        class="ec-main-container__title"
-        data-test="ec-main-container__title"
-      >
-        Trade Finance
-      </h1>
-      <p
-        class="ec-main-container__title-intro"
-        data-test="ec-main-container__title-intro"
-      >
-        Here you will be able to keep track of all your requests to Ebury and your credit line.
-      </p>
-    </div>
+      Trade Finance
+    </h1>
     <div
-      class="tw-col-full md:tw-col-3"
+      class="tw-ml-auto tw-mt-16"
       data-test="ec-main-container__cta"
     >
       
@@ -197,6 +194,12 @@ exports[`EcMainContainer should use the given named cta slot 1`] = `
       
     </div>
   </div>
+  <p
+    class="ec-main-container__title-intro"
+    data-test="ec-main-container__title-intro"
+  >
+    Here you will be able to keep track of all your requests to Ebury and your credit line.
+  </p>
   
   
 </div>

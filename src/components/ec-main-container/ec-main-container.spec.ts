@@ -13,7 +13,7 @@ describe('EcMainContainer', () => {
     });
   }
 
-  it('should render empty if no props were given', () => {
+  it('should render empty if no props or slots were given', () => {
     const wrapper = mountEcMainContainer();
 
     expect(wrapper.element).toMatchSnapshot();
@@ -22,15 +22,6 @@ describe('EcMainContainer', () => {
   it('should render both titles when they are given in props', () => {
     const props = {
       title: 'Trade Finance',
-      titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
-    };
-    const wrapper = mountEcMainContainer(props);
-
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should not display the titleIntro when title is not given', () => {
-    const props = {
       titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
     const wrapper = mountEcMainContainer(props);
@@ -81,6 +72,16 @@ describe('EcMainContainer', () => {
       titleIntro: 'Here you will be able to keep track of all your requests to Ebury and your credit line.',
     };
     const wrapper = mountEcMainContainer(props, {
+      slots: {
+        breadcrumbs: '<a href="#">Breadcrumbs</a>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should display breadcrumbs even when there are no props', () => {
+    const wrapper = mountEcMainContainer({}, {
       slots: {
         breadcrumbs: '<a href="#">Breadcrumbs</a>',
       },
