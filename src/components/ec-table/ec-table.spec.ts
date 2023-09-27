@@ -382,9 +382,9 @@ describe('EcTable', () => {
     });
 
     await wrapper.findByDataTest('ec-table__row--0').trigger('click');
-    expect(onRowClick.mock.calls[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
+    expect(onRowClick.mock.calls[0]).toEqual([{ data: ['foo', 'bar'] }]);
     await wrapper.findByDataTest('ec-table__row--1').trigger('click');
-    expect(onRowClick.mock.calls[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
+    expect(onRowClick.mock.calls[1]).toEqual([{ data: ['widgets', 'doodads'] }]);
   });
 
   it('should render the style with the min-width on each cell of the column that have the prop given', () => {

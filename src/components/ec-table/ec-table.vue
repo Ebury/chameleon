@@ -26,7 +26,7 @@
             :key="rowIndex"
             :data-test="`ec-table__row ec-table__row--${rowIndex}`"
             :class="{ 'ec-table__row--is-clickable': !!attrs.onRowClick }"
-            @click="onRowClick({ data: row, rowIndex })"
+            @click="onRowClick({ data: row })"
           >
             <td
               v-if="canShowCustomRow"
@@ -91,8 +91,7 @@ const emit = defineEmits<{
 interface TableProps {
   columns?: TableHeadColumn[],
   sorts?: TableHeadSort[],
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data?: any[],
+  data?: unknown[],
   totalRecords?: number,
   maxHeight?: string,
   stickyColumn?: StickyColumnPosition,
@@ -109,20 +108,19 @@ const props = withDefaults(defineProps<TableProps>(), {
   isTableHeaderHidden: undefined,
 });
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
 const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : undefined));
 const canShowCustomRow = computed(() => (props.isCustomRowShown || (props.isCustomRowShown === undefined && hasSlot('default') && isInCustomRowThreshold.value)));
 const canShowTableHeader = computed(() => (props.isTableHeaderHidden === false || (props.isTableHeaderHidden === undefined && !canShowCustomRow.value)));
 
-function onSort(column: TableHeadColumn) {
+function onSort(column: TableEvents[TableEvent.SORT]) {
   emit('sort', column);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function onRowClick(rowData: { data: any, rowIndex: number }) {
-  if (attrs.onRowClick) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+function onRowClick(rowData: { data: unknown }) {
+  if (attrs.onRowClick && typeof attrs.onRowClick === 'function') {
     attrs.onRowClick(rowData);
   }
 }

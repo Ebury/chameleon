@@ -5,8 +5,7 @@ export { StickyColumnPosition, TableHeadColumn, TableHeadSort };
 export interface TableProps {
   columns?: TableHeadColumn[],
   sorts?: TableHeadSort[],
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data?: any[],
+  data?: unknown[],
   totalRecords?: number,
   maxHeight?: string,
   stickyColumn?: StickyColumnPosition,
