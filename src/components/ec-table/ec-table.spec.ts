@@ -1,10 +1,13 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { defineComponent, h } from 'vue';
 
+import type { CVueWrapper } from '../../../tests/utils/global';
 import { SortDirection } from '../../enums';
+import { StickyColumnPosition } from '../ec-table-head/types';
 import EcTable from './ec-table.vue';
+import type { TableProps } from './types';
 
-function mountEcTable(props, mountOpts) {
+function mountEcTable(props?: Partial<TableProps>, mountOpts?: ComponentMountingOptions<TableProps>) {
   return mount(EcTable, {
     props: {
       columns: [
@@ -24,10 +27,10 @@ function mountEcTable(props, mountOpts) {
       ...props,
     },
     ...mountOpts,
-  });
+  }) as unknown as CVueWrapper;
 }
 
-function mountTableAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
+function mountTableAsTemplate(template: string, props?: Partial<TableProps>, wrapperComponentOpts?: Record<string, unknown>, mountOpts?: ComponentMountingOptions<TableProps>) {
   const Component = defineComponent({
     components: { EcTable },
     template,
@@ -37,12 +40,12 @@ function mountTableAsTemplate(template, props, wrapperComponentOpts, mountOpts) 
   return mount(Component, {
     props,
     ...mountOpts,
-  });
+  }) as unknown as CVueWrapper;
 }
 
 describe('EcTable', () => {
   it('should not render if no props are supplied', () => {
-    const wrapper = mountEcTable(null, { props: {} });
+    const wrapper = mountEcTable({}, { props: {} });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -242,7 +245,8 @@ describe('EcTable', () => {
       ],
     }, {
       slots: {
-        col2: ({ content }) => h('p', content),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        col2: ({ content }: any) => h('p', content),
         footer: '<p>Random text</p>',
       },
     });
@@ -354,7 +358,7 @@ describe('EcTable', () => {
   });
 
   it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left and the changes to right when the prop is get changed to right', async () => {
-    const wrapper = mountEcTable({ stickyColumn: 'left' });
+    const wrapper = mountEcTable({ stickyColumn: StickyColumnPosition.LEFT });
 
     expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(true);
     expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(false);
@@ -378,9 +382,9 @@ describe('EcTable', () => {
     });
 
     await wrapper.findByDataTest('ec-table__row--0').trigger('click');
-    expect(onRowClick.mock.calls[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
+    expect(onRowClick.mock.calls[0]).toEqual([{ data: ['foo', 'bar'] }]);
     await wrapper.findByDataTest('ec-table__row--1').trigger('click');
-    expect(onRowClick.mock.calls[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
+    expect(onRowClick.mock.calls[1]).toEqual([{ data: ['widgets', 'doodads'] }]);
   });
 
   it('should render the style with the min-width on each cell of the column that have the prop given', () => {

@@ -1,9 +1,11 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 
 import { SortDirection } from '../../enums';
 import EcIcon from '../ec-icon/ec-icon.vue';
 import EcOptionCard from '../ec-option-card';
 import EcTable from './ec-table.vue';
+import type { TableProps } from './types';
 
 const columns = [
   {
@@ -76,7 +78,9 @@ export default {
   },
 };
 
-const Template = args => ({
+type StoryArgs = TableProps;
+
+const Template = (args: StoryArgs) => ({
   components: { EcTable },
   setup() {
     return {
@@ -94,6 +98,8 @@ const Template = args => ({
 
 export const basic = Template.bind({});
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.args = {
   title: 'Title',
   columns,
@@ -102,11 +108,13 @@ basic.args = {
   maxHeight: '400px',
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = args => ({
+export const all = (args: StoryArgs) => ({
   components: { EcTable, EcIcon, EcOptionCard },
   setup() {
     return {
@@ -203,5 +211,7 @@ export const all = args => ({
 });
 
 all.args = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   ...basic.args,
 };

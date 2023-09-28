@@ -26,7 +26,7 @@
             :key="rowIndex"
             :data-test="`ec-table__row ec-table__row--${rowIndex}`"
             :class="{ 'ec-table__row--is-clickable': !!attrs.onRowClick }"
-            @click="attrs.onRowClick && attrs.onRowClick({ data: row, rowIndex })"
+            @click="onRowClick({ data: row })"
           >
             <td
               v-if="canShowCustomRow"
@@ -44,7 +44,7 @@
               :data-test="`ec-table__cell ec-table__cell--${colIndex}`"
               class="ec-table__cell"
               :class="[
-                getStickyColumnClass(colIndex, columns),
+                getStickyColumnClass(colIndex),
                 {
                   'ec-table__cell--is-type-icon': columns[colIndex]?.type === 'icon',
                   'ec-table__cell--is-type-currency': columns[colIndex]?.type === 'currency',
@@ -71,80 +71,78 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useMediaQuery } from '@vueuse/core';
 import { computed, useAttrs, useSlots } from 'vue';
 
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
+import type { StickyColumnPosition, TableHeadColumn, TableHeadSort } from '../ec-table-head/types';
+import type { TableEvent, TableEvents } from './types';
 
 const isInCustomRowThreshold = useMediaQuery('(max-width: 768px)');
 const slots = useSlots();
 const attrs = useAttrs();
 // const emit = defineEmits(['sort', 'row-click']);
-const emit = defineEmits(['sort']);
+const emit = defineEmits<{
+  'sort': [value: TableEvents[TableEvent.SORT]],
+}>();
 
-const props = defineProps({
-  columns: {
-    type: Array,
-    default: () => [],
-  },
-  sorts: {
-    type: Array,
-    default: () => [],
-  },
-  data: {
-    type: Array,
-    default: () => [],
-  },
-  totalRecords: {
-    type: Number,
-  },
-  maxHeight: String,
-  stickyColumn: {
-    type: String,
-    validator(value) {
-      return ['left', 'right'].includes(value);
-    },
-  },
-  title: String,
-  isCustomRowShown: {
-    type: Boolean,
-    default: () => undefined,
-  },
-  isTableHeaderHidden: {
-    type: Boolean,
-    default: () => undefined,
-  },
+interface TableProps {
+  columns?: TableHeadColumn[],
+  sorts?: TableHeadSort[],
+  data?: unknown[],
+  totalRecords?: number,
+  maxHeight?: string,
+  stickyColumn?: StickyColumnPosition,
+  title?: string,
+  isCustomRowShown?: boolean,
+  isTableHeaderHidden?: boolean
+}
+
+const props = withDefaults(defineProps<TableProps>(), {
+  columns: () => [],
+  sorts: () => [],
+  data: () => [],
+  isCustomRowShown: undefined,
+  isTableHeaderHidden: undefined,
 });
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
-const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : null));
+const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : undefined));
 const canShowCustomRow = computed(() => (props.isCustomRowShown || (props.isCustomRowShown === undefined && hasSlot('default') && isInCustomRowThreshold.value)));
 const canShowTableHeader = computed(() => (props.isTableHeaderHidden === false || (props.isTableHeaderHidden === undefined && !canShowCustomRow.value)));
 
-function onSort(columnName) {
-  emit('sort', columnName);
+function onSort(column: TableEvents[TableEvent.SORT]) {
+  emit('sort', column);
 }
 
-function getColumnWidth(column) {
+function onRowClick(rowData: { data: unknown }) {
+  if (attrs.onRowClick && typeof attrs.onRowClick === 'function') {
+    attrs.onRowClick(rowData);
+  }
+}
+
+function getColumnWidth(column: TableHeadColumn) {
   if (column && (column.maxWidth || column.minWidth)) {
     return { maxWidth: column.maxWidth, minWidth: column.minWidth };
   }
-  return null;
+  return undefined;
 }
 
-function getStickyColumnClass(colIndex, columns) {
+function getStickyColumnClass(colIndex: number) {
   if (props.stickyColumn === 'left' && colIndex === 0) {
     return 'ec-table__cell--sticky-left';
   }
-  if (props.stickyColumn === 'right' && colIndex === columns.length - 1) {
+  if (props.stickyColumn === 'right' && colIndex === props.columns.length - 1) {
     return 'ec-table__cell--sticky-right';
   }
   return null;
 }
 
-function hasSlot(slotName) {
+function hasSlot(slotName: string) {
   return slotName in slots;
 }
 </script>
