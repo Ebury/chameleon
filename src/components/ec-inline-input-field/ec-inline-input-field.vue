@@ -63,7 +63,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { type Ref, ref } from 'vue';
 
 import useConfig from '../../composables/use-ec-config';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -120,13 +120,11 @@ const emit = defineEmits<{ (e: 'cancel'): void,
   (e: 'submit', value: InlineInputEvents[InlineInputEvent.SUBMIT]): void
 }>();
 
-const editedValue = ref(props.value);
+const editedValue: Ref<string | undefined> = ref(props.value);
 
 function submit(data: InlineInputEditEvents[InlineInputEditEvent.SUBMIT]) {
-  if (data.value) {
-    editedValue.value = data.value;
-    emit('submit', data.value);
-  }
+  editedValue.value = data.value;
+  emit('submit', data.value);
 }
 </script>
 
