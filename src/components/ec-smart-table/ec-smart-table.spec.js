@@ -110,7 +110,7 @@ describe('EcSmartTable', () => {
     expect(wrapper.findByDataTest('ec-table__row--0').element).toMatchSnapshot();
     await wrapper.findByDataTest('ec-table__row--0').trigger('click');
     expect(onRowClick).toHaveBeenCalledTimes(1);
-    expect(onRowClick).toHaveBeenCalledWith({ data: data.items[0] });
+    expect(onRowClick).toHaveBeenCalledWith({ data: data.items[0], rowIndex: 0 });
   });
 
   describe('#slots', () => {

@@ -26,7 +26,7 @@
             :key="rowIndex"
             :data-test="`ec-table__row ec-table__row--${rowIndex}`"
             :class="{ 'ec-table__row--is-clickable': !!attrs.onRowClick }"
-            @click="onRowClick({ data: row })"
+            @click="onRowClick({ data: row, rowIndex })"
           >
             <td
               v-if="canShowCustomRow"
@@ -119,7 +119,7 @@ function onSort(column: TableEvents[TableEvent.SORT]) {
   emit('sort', column);
 }
 
-function onRowClick(rowData: { data: unknown }) {
+function onRowClick(rowData: { data: unknown, rowIndex: number }) {
   if (attrs.onRowClick && typeof attrs.onRowClick === 'function') {
     attrs.onRowClick(rowData);
   }
