@@ -77,7 +77,7 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue', 'change']);
 const areFiltersHiddenThreshold = useMediaQuery('(max-width: 768px)');
 
-const alwaysShownFilters = props.filters.filter(filter => (!props.hiddenFiltersNames.includes(filter.name)));
+const alwaysShownFilters = props.filters ? props.filters.filter(filter => (!props.hiddenFiltersNames.includes(filter.name))) : [];
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
 const canHideFilters = computed(() => (props.areFiltersHidden || (props.areFiltersHidden === undefined && areFiltersHiddenThreshold.value)));
 // eslint-disable-next-line no-underscore-dangle
