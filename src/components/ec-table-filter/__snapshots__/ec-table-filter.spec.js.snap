@@ -2102,6 +2102,130 @@ exports[`EcTableFilter should render custom attributes 1`] = `
 </section>
 `;
 
+exports[`EcTableFilter should render hidden filters with "tw-hidden" class 1`] = `
+<div
+  class="ec-filter-popover ec-table-filter__filter-item tw-hidden tw-mr-8"
+  data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
+>
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
+    distance="8"
+    placement="bottom-start"
+    prevent-overflow="false"
+  >
+    
+    <div
+      class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        title="Due date"
+        type="button"
+      >
+        Due date
+      </button>
+      <!--v-if-->
+      <svg
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+    
+    
+    <div
+      class="ec-filter-popover__filter-content"
+    >
+      
+      <div
+        class="ec-date-range-filter"
+        data-test="ec-date-range-filter"
+      >
+        <div
+          class="ec-date-range-filter__inputs-wrapper"
+        >
+          <div
+            class="ec-input-field ec-date-range-filter__from-input"
+            data-test="ec-input-field"
+          >
+            <label
+              class="ec-input-field__label"
+              data-test="ec-input-field__label"
+              for="ec-input-field-6"
+            >
+              <span
+                class="ec-input-field__label-text"
+                data-test="ec-input-field__label-text"
+              >
+                From
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </label>
+            <input
+              class="ec-input-field__input"
+              data-test="ec-date-range-filter__from-input ec-input-field__input"
+              id="ec-input-field-6"
+              placeholder="dd/mm/yyyy"
+              type="date"
+            />
+            <!--v-if-->
+            <!--v-if-->
+            <!--v-if-->
+          </div>
+          <div
+            class="ec-input-field ec-date-range-filter__to-input"
+            data-test="ec-input-field"
+          >
+            <label
+              class="ec-input-field__label"
+              data-test="ec-input-field__label"
+              for="ec-input-field-7"
+            >
+              <span
+                class="ec-input-field__label-text"
+                data-test="ec-input-field__label-text"
+              >
+                To
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </label>
+            <input
+              class="ec-input-field__input"
+              data-test="ec-date-range-filter__to-input ec-input-field__input"
+              id="ec-input-field-7"
+              placeholder="dd/mm/yyyy"
+              type="date"
+            />
+            <!--v-if-->
+            <!--v-if-->
+            <!--v-if-->
+          </div>
+        </div>
+        <!--v-if-->
+        <button
+          class="ec-date-range-filter__clear-button"
+          data-test="ec-date-range-filter__clear-button"
+          disabled=""
+          type="button"
+        >
+          Clear dates
+        </button>
+      </div>
+      
+    </div>
+    
+  </ec-stub>
+</div>
+`;
+
 exports[`EcTableFilter should render with pre-selected filters if the value prop is passed 1`] = `
 <section
   class="ec-table-filter"

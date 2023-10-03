@@ -87,6 +87,28 @@ describe('EcTableFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render hidden filters with "tw-hidden" class', () => {
+    const hiddenFiltersNames = ['dueDate'];
+    const wrapper = mountEcTableFilterAsTemplate(
+      '<ec-table-filter v-model="value" :filters="filters" />',
+      {
+        areFiltersHidden: true,
+        hiddenFiltersNames,
+      },
+      {
+        data() {
+          return {
+            value: {},
+            filters,
+          };
+        },
+      },
+    );
+    const dueDateFilter = wrapper.findByDataTest('ec-table-filter__filter-item-2');
+    expect(dueDateFilter.classes()).toContain('tw-hidden');
+    expect(dueDateFilter.element).toMatchSnapshot();
+  });
+
   it('should hide the clear filters button if there isn\'t any preselected filter', () => {
     const wrapper = mountEcTableFilterAsTemplate(
       '<ec-table-filter v-model="value" :filters="filters" />',
