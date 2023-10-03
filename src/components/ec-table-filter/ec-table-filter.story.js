@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ref, watchEffect } from 'vue';
 
 import EcCurrencyFilter from '../ec-currency-filter';
@@ -11,24 +12,37 @@ export default {
   component: EcTableFilter,
 };
 
-const Template = ({ modelValue, filters }) => ({
+const useTableFiltersSetup = (modelValue, filters) => {
+  const model = ref(null);
+
+  watchEffect(() => {
+    model.value = modelValue;
+  });
+
+  return {
+    model,
+    filters,
+    onUpdateModelValue: action('update:modelValue'),
+    onChange: action('change'),
+  };
+};
+
+const BasicTemplate = ({ modelValue, filters }) => ({
   components: {
     EcTableFilter, EcSyncMultipleValuesFilter, EcDateRangeFilter, EcCurrencyFilter,
   },
   setup() {
-    const model = ref(null);
-
-    watchEffect(() => {
-      model.value = modelValue;
-    });
-
-    return { model, filters };
+    return { ...useTableFiltersSetup(modelValue, filters) };
   },
   template: `
   <ec-table-filter
     class="tw-flex tw-items-center"
     :filters="filters"
     v-model="model"
+    v-on="{
+      change: onChange,
+      'update:modelValue': onUpdateModelValue,
+    }">
   />
   `,
 });
@@ -55,7 +69,7 @@ const currencyItems = [{
   text: 'JPY',
 }];
 
-export const basic = Template.bind({});
+export const basic = BasicTemplate.bind({});
 
 basic.args = {
   modelValue: {
@@ -91,4 +105,82 @@ basic.args = {
     name: 'text',
     component: EcTextFilter,
   }],
+};
+
+const AllTemplate = ({ modelValue, filters }) => ({
+  components: {
+    EcTableFilter, EcSyncMultipleValuesFilter, EcDateRangeFilter, EcCurrencyFilter,
+  },
+  setup() {
+    return { ...useTableFiltersSetup(modelValue, filters) };
+  },
+  template: `
+  <h2 class="tw-m-24">Basic</h2>
+    <div class="tw-flex tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+      <ec-table-filter
+        class="tw-flex tw-items-center"
+        :filters="filters"
+        v-model="model"
+        v-on="{
+          change: onChange,
+          'update:modelValue': onUpdateModelValue,
+        }">
+      />
+    </div>
+  </div>
+  <h2 class="tw-m-24">Hide some filters on threshold</h2>
+    <div class="tw-flex tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+      <ec-table-filter
+        class="tw-flex tw-items-center"
+        :filters="filters"
+        :hiddenFiltersNames="['paymentStatus', 'dueDate']"
+        v-model="model"
+        v-on="{
+          change: onChange,
+          'update:modelValue': onUpdateModelValue,
+        }">
+      />
+    </div>
+  </div>
+  <h2 class="tw-m-24">Always hidden filters</h2>
+  <div class="tw-flex tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+      <ec-table-filter
+        class="tw-flex tw-items-center"
+        :areFiltersHidden="true"
+        :filters="filters"
+        :hiddenFiltersNames="['paymentStatus', 'dueDate']"
+        v-model="model"
+        v-on="{
+          change: onChange,
+          'update:modelValue': onUpdateModelValue,
+        }">
+      />
+    </div>
+  </div>
+  <h2 class="tw-m-24">Hide all filters except search</h2>
+  <div class="tw-flex tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+      <ec-table-filter
+        class="tw-flex tw-items-center"
+        :areFiltersHidden="true"
+        :filters="filters"
+        :hiddenFiltersNames="['paymentStatus', 'supplier', 'dueDate', 'price']"
+        v-model="model"
+        v-on="{
+          change: onChange,
+          'update:modelValue': onUpdateModelValue,
+        }">
+      />
+    </div>
+  </div>
+  `,
+});
+
+export const all = AllTemplate.bind({});
+
+all.args = {
+  ...basic.args,
 };

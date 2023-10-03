@@ -16,6 +16,7 @@
       :key="filter.name"
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
+      :class="{ 'tw-hidden': isFilterHidden(filter.name) }"
       @change="onChange(filter.name, $event)"
     />
     <button
@@ -31,11 +32,12 @@
 </template>
 
 <script setup>
+import { useMediaQuery } from '@vueuse/core';
+import { computed, watch } from 'vue';
+
 defineOptions({
   inheritAttrs: false,
 });
-
-import { computed } from 'vue';
 
 const props = defineProps({
   modelValue: {
@@ -58,11 +60,25 @@ const props = defineProps({
     type: String,
     default: 'Clear filters',
   },
+  areFiltersHidden: {
+    type: Boolean,
+    default: () => undefined,
+  },
+  hiddenFiltersNames: {
+    type: Array,
+    default: () => [],
+  },
 });
 
 const emit = defineEmits(['update:modelValue', 'change']);
+const areFiltersHiddenThreshold = useMediaQuery('(max-width: 768px)');
 
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
+const canHideFilters = computed(() => (props.areFiltersHidden || (props.areFiltersHidden === undefined && areFiltersHiddenThreshold.value)));
+
+watch(() => canHideFilters.value, () => {
+  clearFilters();
+});
 
 function update(filters) {
   emit('update:modelValue', filters);
@@ -83,6 +99,9 @@ function clearFilters() {
   update({});
 }
 
+function isFilterHidden(filterName) {
+  return canHideFilters.value && props.hiddenFiltersNames.includes(filterName);
+}
 </script>
 
 <style>
