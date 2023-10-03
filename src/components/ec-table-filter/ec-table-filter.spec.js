@@ -87,12 +87,12 @@ describe('EcTableFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should render hidden filters with "tw-hidden" class', () => {
-    const hiddenFiltersNames = ['dueDate'];
+  it('should render hidden filters with "tw-hidden" class', async () => {
+    const hiddenFiltersNames = ['paymentStatus', 'feeType', 'dueDate'];
     const wrapper = mountEcTableFilterAsTemplate(
       '<ec-table-filter v-model="value" :filters="filters" />',
       {
-        areFiltersHidden: true,
+        areFiltersHidden: false,
         hiddenFiltersNames,
       },
       {
@@ -105,6 +105,13 @@ describe('EcTableFilter', () => {
       },
     );
     const dueDateFilter = wrapper.findByDataTest('ec-table-filter__filter-item-2');
+    expect(dueDateFilter.classes()).not.toContain('tw-hidden');
+    expect(dueDateFilter.element).toMatchSnapshot();
+
+    await wrapper.setProps({
+      areFiltersHidden: true,
+    });
+
     expect(dueDateFilter.classes()).toContain('tw-hidden');
     expect(dueDateFilter.element).toMatchSnapshot();
   });
