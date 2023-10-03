@@ -18,7 +18,8 @@
       class="ec-table-filter__filter-item"
       :class="{
         'tw-hidden': isFilterHidden(filter.name),
-        'tw-w-full': haveOnlyTextFilter,
+        'tw-mr-0': haveOnlyTextFilter,
+        'tw-mr-8': !haveOnlyTextFilter,
       }"
       @change="onChange(filter.name, $event)"
     />
@@ -123,7 +124,6 @@ function isFilterHidden(filterName) {
 
   &__filter-item {
     @apply tw-flex-nowrap;
-    @apply tw-mr-8;
   }
 
   &__less-filters-button {
