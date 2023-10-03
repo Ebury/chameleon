@@ -18,7 +18,7 @@
       class="ec-table-filter__filter-item"
       :class="{
         'tw-hidden': isFilterHidden(filter.name),
-        'tw-mr-0': haveOnlyTextFilter,
+        'tw-w-full tw-mr-0': haveOnlyTextFilter,
         'tw-mr-8': !haveOnlyTextFilter,
       }"
       @change="onChange(filter.name, $event)"
