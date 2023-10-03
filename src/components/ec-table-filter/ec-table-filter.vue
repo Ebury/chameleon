@@ -20,7 +20,7 @@
       @change="onChange(filter.name, $event)"
     />
     <button
-      v-if="hasFilters"
+      v-if="hasFilters && !canHideClearFiltersButton"
       type="button"
       data-test="ec-table-filter__clear-filters-button"
       class="ec-table-filter__clear-filters-button"
@@ -75,6 +75,9 @@ const areFiltersHiddenThreshold = useMediaQuery('(max-width: 768px)');
 
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
 const canHideFilters = computed(() => (props.areFiltersHidden || (props.areFiltersHidden === undefined && areFiltersHiddenThreshold.value)));
+const canHideClearFiltersButton = computed(() => (props.hiddenFiltersNames.length === props.filters.length - 1));
+
+console.log(props.hiddenFiltersNames.length === props.filters.length - 1);
 
 watch(() => canHideFilters.value, () => {
   clearFilters();
