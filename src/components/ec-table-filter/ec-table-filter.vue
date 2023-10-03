@@ -16,11 +16,14 @@
       :key="filter.name"
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
-      :class="{ 'tw-hidden': isFilterHidden(filter.name) }"
+      :class="{
+        'tw-hidden': isFilterHidden(filter.name),
+        'tw-w-full': haveOnlyTextFilter,
+      }"
       @change="onChange(filter.name, $event)"
     />
     <button
-      v-if="hasFilters && !canHideClearFiltersButton"
+      v-if="hasFilters && !haveOnlyTextFilter"
       type="button"
       data-test="ec-table-filter__clear-filters-button"
       class="ec-table-filter__clear-filters-button"
@@ -73,11 +76,11 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue', 'change']);
 const areFiltersHiddenThreshold = useMediaQuery('(max-width: 768px)');
 
+const alwaysShownFilters = props.filters.filter(filter => (!props.hiddenFiltersNames.includes(filter.name)));
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
 const canHideFilters = computed(() => (props.areFiltersHidden || (props.areFiltersHidden === undefined && areFiltersHiddenThreshold.value)));
-const canHideClearFiltersButton = computed(() => (props.hiddenFiltersNames.length === props.filters.length - 1));
-
-console.log(props.hiddenFiltersNames.length === props.filters.length - 1);
+// eslint-disable-next-line no-underscore-dangle
+const haveOnlyTextFilter = computed(() => (props.hiddenFiltersNames.length === props.filters.length - 1) && alwaysShownFilters[0].component.__name === 'ec-text-filter');
 
 watch(() => canHideFilters.value, () => {
   clearFilters();
