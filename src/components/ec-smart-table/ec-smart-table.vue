@@ -12,6 +12,8 @@
           v-model="filterModel"
           :filters="filters"
           :clear-filters-button-text="clearFiltersButtonText"
+          :are-filters-hidden="areFiltersHidden"
+          :hidden-filters-names="hiddenFiltersNames"
           data-test="ec-smart-table__filter"
           @change="onFilterChanged"
         />
@@ -168,6 +170,14 @@ const props = defineProps({
   isCustomRowShown: {
     type: Boolean,
     default: () => undefined,
+  },
+  areFiltersHidden: {
+    type: Boolean,
+    default: () => undefined,
+  },
+  hiddenFiltersNames: {
+    type: Array,
+    default: () => [],
   },
 });
 
