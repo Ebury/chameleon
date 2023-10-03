@@ -42,7 +42,7 @@ const BasicTemplate = ({ modelValue, filters }) => ({
     v-on="{
       change: onChange,
       'update:modelValue': onUpdateModelValue,
-    }">
+    }"
   />
   `,
 });
@@ -125,7 +125,7 @@ const AllTemplate = ({ modelValue, filters }) => ({
         v-on="{
           change: onChange,
           'update:modelValue': onUpdateModelValue,
-        }">
+        }"
       />
     </div>
   </div>
@@ -140,7 +140,7 @@ const AllTemplate = ({ modelValue, filters }) => ({
         v-on="{
           change: onChange,
           'update:modelValue': onUpdateModelValue,
-        }">
+        }"
       />
     </div>
   </div>
@@ -156,7 +156,7 @@ const AllTemplate = ({ modelValue, filters }) => ({
         v-on="{
           change: onChange,
           'update:modelValue': onUpdateModelValue,
-        }">
+        }"
       />
     </div>
   </div>
@@ -172,7 +172,7 @@ const AllTemplate = ({ modelValue, filters }) => ({
         v-on="{
           change: onChange,
           'update:modelValue': onUpdateModelValue,
-        }">
+        }"
       />
     </div>
   </div>
