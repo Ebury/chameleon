@@ -564,6 +564,7 @@ exports[`EcSmartTable filtering should handle changes in filters and reload the 
 <section
   class="ec-table-filter"
   data-test="ec-smart-table__filter ec-table-filter"
+  hidden-filters-names=""
 >
   
   <div
@@ -587,6 +588,7 @@ exports[`EcSmartTable filtering should pass given prefilter to table filter 1`] 
 <section
   class="ec-table-filter"
   data-test="ec-smart-table__filter ec-table-filter"
+  hidden-filters-names=""
 >
   
   <div
@@ -616,6 +618,7 @@ exports[`EcSmartTable filtering should render the given filters 1`] = `
 <section
   class="ec-table-filter"
   data-test="ec-smart-table__filter ec-table-filter"
+  hidden-filters-names=""
 >
   
   <div

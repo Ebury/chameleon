@@ -17,14 +17,14 @@
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
       :class="{
-        'tw-hidden': isFilterHidden(filter.name),
+        'tw-hidden': filter.isHidden,
         'tw-w-full tw-mr-0': haveOnlyTextFilter,
         'tw-mr-8': !haveOnlyTextFilter,
       }"
       @change="onChange(filter.name, $event)"
     />
     <button
-      v-if="hasFilters && !haveOnlyTextFilter"
+      v-if="hasFilters && !isClearButtonHidden"
       type="button"
       data-test="ec-table-filter__clear-filters-button"
       class="ec-table-filter__clear-filters-button"
@@ -36,7 +36,6 @@
 </template>
 
 <script setup>
-import { useMediaQuery } from '@vueuse/core';
 import { computed, watch } from 'vue';
 
 defineOptions({
@@ -64,26 +63,20 @@ const props = defineProps({
     type: String,
     default: 'Clear filters',
   },
-  areFiltersHidden: {
+  isClearButtonHidden: {
     type: Boolean,
-    default: () => undefined,
-  },
-  hiddenFiltersNames: {
-    type: Array,
-    default: () => [],
+    default: false,
   },
 });
 
 const emit = defineEmits(['update:modelValue', 'change']);
-const areFiltersHiddenThreshold = useMediaQuery('(max-width: 768px)');
 
-const alwaysShownFilters = props.filters ? props.filters.filter(filter => (!props.hiddenFiltersNames.includes(filter.name))) : [];
+const shownFilters = computed(() => (props.filters ? props.filters.filter(filter => !filter.isHidden) : []));
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
-const canHideFilters = computed(() => (props.areFiltersHidden || (props.areFiltersHidden === undefined && areFiltersHiddenThreshold.value)));
 // eslint-disable-next-line no-underscore-dangle
-const haveOnlyTextFilter = computed(() => (props.hiddenFiltersNames.length === props.filters.length - 1) && alwaysShownFilters[0].component.__name === 'ec-text-filter');
+const haveOnlyTextFilter = computed(() => (shownFilters.value[0].component.__name === 'ec-text-filter') && props.isClearButtonHidden);
 
-watch(() => canHideFilters.value, () => {
+watch(() => shownFilters.value, () => {
   clearFilters();
 });
 
@@ -104,10 +97,6 @@ function onChange(filterName, value) {
 
 function clearFilters() {
   update({});
-}
-
-function isFilterHidden(filterName) {
-  return canHideFilters.value && props.hiddenFiltersNames.includes(filterName);
 }
 </script>
 
