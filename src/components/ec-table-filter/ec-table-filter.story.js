@@ -204,7 +204,7 @@ const AllTemplate = ({ modelValue, filters }) => ({
     }, {
       name: 'text',
       component: EcTextFilter,
-      isFullWidth: areFiltersHidden,
+      isFullWidth: true,
     }];
     return {
       ...useTableFiltersSetup(modelValue),
