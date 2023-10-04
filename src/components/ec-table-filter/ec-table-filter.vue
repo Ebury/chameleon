@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 
 defineOptions({
   inheritAttrs: false,
@@ -71,12 +71,7 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'change']);
 
-const shownFilters = computed(() => (props.filters ? props.filters.filter(filter => !filter.isHidden) : []));
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
-
-watch(() => shownFilters.value, () => {
-  clearFilters();
-});
 
 function update(filters) {
   emit('update:modelValue', filters);
