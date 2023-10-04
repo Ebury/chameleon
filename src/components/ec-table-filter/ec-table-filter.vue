@@ -24,7 +24,7 @@
       @change="onChange(filter.name, $event)"
     />
     <button
-      v-if="hasFilters && !isClearButtonHidden"
+      v-if="hasFilters && !isClearFiltersButtonHidden"
       type="button"
       data-test="ec-table-filter__clear-filters-button"
       class="ec-table-filter__clear-filters-button"
@@ -63,7 +63,7 @@ const props = defineProps({
     type: String,
     default: 'Clear filters',
   },
-  isClearButtonHidden: {
+  isClearFiltersButtonHidden: {
     type: Boolean,
     default: false,
   },

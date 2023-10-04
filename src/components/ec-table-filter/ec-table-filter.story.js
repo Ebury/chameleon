@@ -249,7 +249,7 @@ const AllTemplate = ({ modelValue, filters }) => ({
       <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
       <ec-table-filter
         class="tw-flex tw-items-center"
-        :isClearButtonHidden="areFiltersHidden"
+        :isClearFiltersButtonHidden="areFiltersHidden"
         :filters="onlyTextFilterShownOnThreshold"
         v-model="model"
         v-on="{
@@ -264,7 +264,7 @@ const AllTemplate = ({ modelValue, filters }) => ({
       <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
       <ec-table-filter
         class="tw-flex tw-items-center"
-        :isClearButtonHidden="true"
+        :isClearFiltersButtonHidden="true"
         :filters="onlyTextFilterShown"
         v-model="model"
         v-on="{
