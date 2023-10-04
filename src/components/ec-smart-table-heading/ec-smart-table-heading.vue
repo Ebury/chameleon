@@ -46,7 +46,7 @@ function hasSlot(slotName) {
   @apply tw-flex;
 
   &__filter {
-    @apply tw-p-8;
+    @apply tw-p-8 tw-flex-grow;
   }
 
   &__actions {

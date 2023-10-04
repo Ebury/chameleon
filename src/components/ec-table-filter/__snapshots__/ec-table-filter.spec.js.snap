@@ -1,5 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EcTableFilter should hide filters with "tw-hidden" class when "isHidden" is set 1`] = `
+<div
+  class="ec-text-filter ec-table-filter__filter-item tw-hidden tw-mr-8"
+  data-test="ec-table-filter__filter-item ec-table-filter__filter-item-4"
+  ishidden="true"
+>
+  <div
+    class="ec-input-field"
+    data-test="ec-input-field"
+  >
+    <!--v-if-->
+    <input
+      class="ec-input-field__input ec-input-field__input--has-left-icon"
+      data-test="ec-input-field__input"
+      id="ec-input-field-9"
+      type="text"
+    />
+    <div
+      class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--left"
+      data-test="ec-input-field__left-icon-wrapper"
+    >
+      <svg
+        class="ec-icon ec-input-field__icon"
+        data-test="ec-input-field__left-icon"
+        height="20"
+        width="20"
+      >
+        <use
+          xlink:href="#ec-simple-search"
+        />
+      </svg>
+    </div>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`EcTableFilter should hide filters with "tw-hidden" class when "isHidden" is set 2`] = `
+<div
+  class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
+  data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
+  ishidden="false"
+>
+  <div
+    class="ec-input-field"
+    data-test="ec-input-field"
+  >
+    <!--v-if-->
+    <input
+      class="ec-input-field__input ec-input-field__input--has-left-icon"
+      data-test="ec-input-field__input"
+      id="ec-input-field-9"
+      type="text"
+    />
+    <div
+      class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--left"
+      data-test="ec-input-field__left-icon-wrapper"
+    >
+      <svg
+        class="ec-icon ec-input-field__icon"
+        data-test="ec-input-field__left-icon"
+        height="20"
+        width="20"
+      >
+        <use
+          xlink:href="#ec-simple-search"
+        />
+      </svg>
+    </div>
+    <!--v-if-->
+    <!--v-if-->
+  </div>
+</div>
+`;
+
 exports[`EcTableFilter should hide the clear filters button if there isn't any preselected filter 1`] = `
 <section
   class="ec-table-filter"
@@ -7,7 +83,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -209,7 +285,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -366,7 +442,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item"
+    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
   >
     <ec-stub
@@ -487,7 +563,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item"
+    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div
@@ -533,7 +609,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -735,7 +811,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -892,7 +968,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item"
+    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
   >
     <ec-stub
@@ -1013,7 +1089,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item"
+    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div
@@ -1058,7 +1134,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -1260,7 +1336,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -1417,7 +1493,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item"
+    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
   >
     <ec-stub
@@ -1538,7 +1614,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item"
+    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div
@@ -1584,7 +1660,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -1786,7 +1862,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -1943,7 +2019,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item"
+    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
   >
     <ec-stub
@@ -2064,7 +2140,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item"
+    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div
@@ -2109,7 +2185,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -2311,7 +2387,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -2483,7 +2559,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item"
+    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
   >
     <ec-stub
@@ -2604,7 +2680,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item"
+    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div

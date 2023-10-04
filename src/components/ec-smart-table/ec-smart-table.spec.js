@@ -585,6 +585,17 @@ describe('EcSmartTable', () => {
         sorts: [],
       }]);
     });
+
+    it('should hide the clear filters button when "isClearFiltersButtonHidden" is set', () => {
+      const wrapper = mountEcSmartTableWithData(data, {
+        columns,
+        filters,
+        filter: prefilter,
+        isClearFiltersButtonHidden: true,
+      });
+      const clearFiltersButton = wrapper.findByDataTest('ec-table-filter__clear-filters-button');
+      expect(clearFiltersButton.exists()).toBe(false);
+    });
   });
 
   describe('additionalPayload', () => {

@@ -16,10 +16,15 @@
       :key="filter.name"
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
+      :class="{
+        'tw-hidden': filter.isHidden,
+        'tw-w-full tw-mr-0': filter.isFullWidth,
+        'tw-mr-8': !filter.isFullWidth,
+      }"
       @change="onChange(filter.name, $event)"
     />
     <button
-      v-if="hasFilters"
+      v-if="hasFilters && !isClearFiltersButtonHidden"
       type="button"
       data-test="ec-table-filter__clear-filters-button"
       class="ec-table-filter__clear-filters-button"
@@ -31,11 +36,11 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
+
 defineOptions({
   inheritAttrs: false,
 });
-
-import { computed } from 'vue';
 
 const props = defineProps({
   modelValue: {
@@ -57,6 +62,10 @@ const props = defineProps({
   clearFiltersButtonText: {
     type: String,
     default: 'Clear filters',
+  },
+  isClearFiltersButtonHidden: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -82,7 +91,6 @@ function onChange(filterName, value) {
 function clearFilters() {
   update({});
 }
-
 </script>
 
 <style>
@@ -98,7 +106,6 @@ function clearFilters() {
 
   &__filter-item {
     @apply tw-flex-nowrap;
-    @apply tw-mr-8;
   }
 
   &__less-filters-button {

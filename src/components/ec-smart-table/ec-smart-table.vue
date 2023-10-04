@@ -12,6 +12,7 @@
           v-model="filterModel"
           :filters="filters"
           :clear-filters-button-text="clearFiltersButtonText"
+          :is-clear-filters-button-hidden="isClearFiltersButtonHidden"
           data-test="ec-smart-table__filter"
           @change="onFilterChanged"
         />
@@ -168,6 +169,10 @@ const props = defineProps({
   isCustomRowShown: {
     type: Boolean,
     default: () => undefined,
+  },
+  isClearFiltersButtonHidden: {
+    type: Boolean,
+    default: false,
   },
 });
 

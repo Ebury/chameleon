@@ -567,13 +567,13 @@ exports[`EcSmartTable filtering should handle changes in filters and reload the 
 >
   
   <div
-    class="ec-table-filter__filter-item"
+    class="ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     Test 1 (N/A)
   </div>
   <div
-    class="ec-table-filter__filter-item"
+    class="ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     Test 2 (N/A)
@@ -590,13 +590,13 @@ exports[`EcSmartTable filtering should pass given prefilter to table filter 1`] 
 >
   
   <div
-    class="ec-table-filter__filter-item"
+    class="ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     Test 1 (test-value-1)
   </div>
   <div
-    class="ec-table-filter__filter-item"
+    class="ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     Test 2 (N/A)
@@ -619,13 +619,13 @@ exports[`EcSmartTable filtering should render the given filters 1`] = `
 >
   
   <div
-    class="ec-table-filter__filter-item"
+    class="ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     Test 1 (N/A)
   </div>
   <div
-    class="ec-table-filter__filter-item"
+    class="ec-table-filter__filter-item tw-mr-8"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     Test 2 (N/A)

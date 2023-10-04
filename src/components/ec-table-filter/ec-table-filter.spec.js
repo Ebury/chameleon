@@ -87,6 +87,58 @@ describe('EcTableFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should hide filters with "tw-hidden" class when "isHidden" is set', async () => {
+    const hiddenFilters = [
+      {
+        name: 'text',
+        component: markRaw(EcTextFilter),
+        isHidden: true,
+      },
+    ];
+    const wrapper = mountEcTableFilterAsTemplate(
+      '<ec-table-filter v-model="value" :filters="filters" />',
+      {},
+      {
+        data() {
+          return {
+            value: {},
+            filters: [...filters, ...hiddenFilters],
+          };
+        },
+      },
+    );
+    const dueDateFilter = wrapper.findByDataTest('ec-table-filter__filter-item-4');
+    expect(dueDateFilter.classes()).toContain('tw-hidden');
+    expect(dueDateFilter.element).toMatchSnapshot();
+
+    hiddenFilters[0].isHidden = false;
+    await wrapper.setProps({
+      filters: hiddenFilters,
+    });
+
+    expect(dueDateFilter.classes()).not.toContain('tw-hidden');
+    expect(dueDateFilter.element).toMatchSnapshot();
+  });
+
+  it('should hide the clear filters button when "isClearFiltersButtonHidden" is set', () => {
+    const wrapper = mountEcTableFilterAsTemplate(
+      '<ec-table-filter v-model="value" :filters="filters" />',
+      {
+        isClearFiltersButtonHidden: true,
+      },
+      {
+        data() {
+          return {
+            value: { feeType: modelValue.feeType },
+            filters,
+          };
+        },
+      },
+    );
+    const clearFiltersButton = wrapper.findByDataTest('ec-table-filter__clear-filters-button');
+    expect(clearFiltersButton.exists()).toBe(false);
+  });
+
   it('should hide the clear filters button if there isn\'t any preselected filter', () => {
     const wrapper = mountEcTableFilterAsTemplate(
       '<ec-table-filter v-model="value" :filters="filters" />',
