@@ -593,7 +593,8 @@ describe('EcSmartTable', () => {
         filter: prefilter,
         isClearFiltersButtonHidden: true,
       });
-      expect(wrapper.element).toMatchSnapshot();
+      const clearFiltersButton = wrapper.findByDataTest('ec-table-filter__clear-filters-button');
+      expect(clearFiltersButton.exists()).toBe(false);
     });
   });
 

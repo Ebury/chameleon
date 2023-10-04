@@ -135,7 +135,8 @@ describe('EcTableFilter', () => {
         },
       },
     );
-    expect(wrapper.element).toMatchSnapshot();
+    const clearFiltersButton = wrapper.findByDataTest('ec-table-filter__clear-filters-button');
+    expect(clearFiltersButton.exists()).toBe(false);
   });
 
   it('should hide the clear filters button if there isn\'t any preselected filter', () => {
