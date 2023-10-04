@@ -12,8 +12,7 @@
           v-model="filterModel"
           :filters="filters"
           :clear-filters-button-text="clearFiltersButtonText"
-          :are-filters-hidden="areFiltersHidden"
-          :hidden-filters-names="hiddenFiltersNames"
+          :is-clear-button-hidden="isClearButtonHidden"
           data-test="ec-smart-table__filter"
           @change="onFilterChanged"
         />
@@ -171,13 +170,9 @@ const props = defineProps({
     type: Boolean,
     default: () => undefined,
   },
-  areFiltersHidden: {
+  isClearButtonHidden: {
     type: Boolean,
-    default: () => undefined,
-  },
-  hiddenFiltersNames: {
-    type: Array,
-    default: () => [],
+    default: false,
   },
 });
 
