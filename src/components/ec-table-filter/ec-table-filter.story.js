@@ -173,6 +173,7 @@ const AllTemplate = ({ modelValue, filters }) => ({
     }, {
       name: 'text',
       component: EcTextFilter,
+      isFullWidth: areFiltersHidden,
     }]);
     const onlyTextFilterShown = [{
       label: 'Payment status',
@@ -203,6 +204,7 @@ const AllTemplate = ({ modelValue, filters }) => ({
     }, {
       name: 'text',
       component: EcTextFilter,
+      isFullWidth: areFiltersHidden,
     }];
     return {
       ...useTableFiltersSetup(modelValue),

@@ -18,8 +18,8 @@
       class="ec-table-filter__filter-item"
       :class="{
         'tw-hidden': filter.isHidden,
-        'tw-w-full tw-mr-0': haveOnlyTextFilter,
-        'tw-mr-8': !haveOnlyTextFilter,
+        'tw-w-full tw-mr-0': filter.isFullWidth,
+        'tw-mr-8': !filter.isFullWidth,
       }"
       @change="onChange(filter.name, $event)"
     />
@@ -73,8 +73,6 @@ const emit = defineEmits(['update:modelValue', 'change']);
 
 const shownFilters = computed(() => (props.filters ? props.filters.filter(filter => !filter.isHidden) : []));
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
-// eslint-disable-next-line no-underscore-dangle
-const haveOnlyTextFilter = computed(() => (shownFilters.value[0].component.__name === 'ec-text-filter') && props.isClearButtonHidden);
 
 watch(() => shownFilters.value, () => {
   clearFilters();
