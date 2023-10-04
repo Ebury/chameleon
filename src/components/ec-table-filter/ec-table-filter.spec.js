@@ -120,6 +120,24 @@ describe('EcTableFilter', () => {
     expect(dueDateFilter.element).toMatchSnapshot();
   });
 
+  it('should hide the clear filters button when "isClearFiltersButtonHidden" is set', () => {
+    const wrapper = mountEcTableFilterAsTemplate(
+      '<ec-table-filter v-model="value" :filters="filters" />',
+      {
+        isClearFiltersButtonHidden: true,
+      },
+      {
+        data() {
+          return {
+            value: { feeType: modelValue.feeType },
+            filters,
+          };
+        },
+      },
+    );
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should hide the clear filters button if there isn\'t any preselected filter', () => {
     const wrapper = mountEcTableFilterAsTemplate(
       '<ec-table-filter v-model="value" :filters="filters" />',
