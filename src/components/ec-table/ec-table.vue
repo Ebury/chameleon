@@ -12,6 +12,7 @@
       <table
         :aria-label="title"
         class="ec-table"
+        :class="{ 'tw-table-fixed': canShowCustomRow }"
       >
         <ec-table-head
           v-if="canShowTableHeader"
