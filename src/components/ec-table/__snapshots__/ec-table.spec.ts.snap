@@ -232,7 +232,7 @@ exports[`EcTable should only render custom row if "isCustomRowShown" is true 1`]
     data-test="ec-table-scroll-container"
   >
     <table
-      class="ec-table"
+      class="ec-table tw-table-fixed"
     >
       <!--v-if-->
       <tbody>
@@ -862,7 +862,7 @@ exports[`EcTable should render custom row if window width is lower than 768px 1`
     data-test="ec-table-scroll-container"
   >
     <table
-      class="ec-table"
+      class="ec-table tw-table-fixed"
     >
       <!--v-if-->
       <tbody>

@@ -26,7 +26,7 @@ exports[`EcSmartTable #slots should only render custom row if "isCustomRowShown"
           data-test="ec-table-scroll-container"
         >
           <table
-            class="ec-table"
+            class="ec-table tw-table-fixed"
           >
             <!--v-if-->
             <tbody>
@@ -123,7 +123,7 @@ exports[`EcSmartTable #slots should render custom row if window width is lower t
           data-test="ec-table-scroll-container"
         >
           <table
-            class="ec-table"
+            class="ec-table tw-table-fixed"
           >
             <!--v-if-->
             <tbody>
