@@ -98,7 +98,7 @@
     "jest-serializer-vue": "2.0.2",
     "lint-staged": "13.1.2",
     "live-server": "1.2.2",
-    "patch-package": "7.0.0",
+    "patch-package": "8.0.0",
     "postcss": "8.4.31",
     "postcss-html": "1.5.0",
     "postcss-import": "15.1.0",
