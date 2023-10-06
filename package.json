@@ -112,7 +112,7 @@
     "storybook": "7.0.20",
     "storybook-vue3-router": "3.0.0",
     "stylelint": "14.12.1",
-    "stylelint-config-recommended-vue": "1.4.0",
+    "stylelint-config-recommended-vue": "1.5.0",
     "stylelint-config-standard": "28.0.0",
     "stylelint-config-standard-scss": "5.0.0",
     "svg-sprite-loader": "6.0.11",
