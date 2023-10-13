@@ -197,7 +197,7 @@ const isFilteringEnabled = computed(() => props.filters?.length > 0);
 const filterModel = ref(unref(props.filter) ?? {});
 
 watch(() => props.filter, () => {
-  filterModel.value = props.filter;
+  filterModel.value = unref(props.filter);
 });
 
 function onFilterChanged(filters) {
