@@ -196,6 +196,10 @@ watch(() => props.pagination, () => paginate(props.pagination?.page, props.pagin
 const isFilteringEnabled = computed(() => props.filters?.length > 0);
 const filterModel = ref(unref(props.filter) ?? {});
 
+watch(() => props.filter, () => {
+  filterModel.value = props.filter;
+});
+
 function onFilterChanged(filters) {
   paginate(1);
   emit('update:filter', filters);
