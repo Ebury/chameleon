@@ -582,6 +582,20 @@ describe('EcSmartTable', () => {
       }]);
     });
 
+    it('should change filters when filter prop is changed', async () => {
+      const wrapper = mountEcSmartTable({
+        columns,
+        filters,
+        filter: prefilter,
+      });
+      const tableFiltersElement = wrapper.findByDataTest('ec-smart-table__filter').element;
+      expect(tableFiltersElement).toMatchSnapshot();
+      await wrapper.setProps({
+        filter: {},
+      });
+      expect(tableFiltersElement).toMatchSnapshot();
+    });
+
     it('should reset the page after changes in filters and reload the table data', async () => {
       const wrapper = mountEcSmartTableWithData(lotsOfData, {
         columns,
