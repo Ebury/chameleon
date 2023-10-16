@@ -3,7 +3,7 @@ import type { SortDirection } from '../../enums';
 export interface TableHeadColumn {
   name?: string,
   title?: string,
-  sortable?: true,
+  sortable?: boolean,
   minWidth?: string,
   maxWidth?: string,
   tooltip?: string,
