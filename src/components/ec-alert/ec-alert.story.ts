@@ -1,9 +1,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { reactive } from 'vue';
 
 import EcAlert from './ec-alert.vue';
-import { type AlertProps, AlertType } from './types';
+import { AlertType } from './types';
 
 import './ec-alert.story.css';
 
@@ -12,13 +13,13 @@ export default {
   component: EcAlert,
   argTypes: {
     type: {
-      options: [AlertType.ERROR, AlertType.INFO, AlertType.SUCCESS, AlertType.WARNING],
+      options: Object.values(AlertType),
       control: { type: 'select' },
     },
   },
-};
+} as Meta<typeof EcAlert>;
 
-const args: AlertProps = {
+const defaultArgs = {
   title: 'Error',
   subtitle: 'Something went wrong with the update.',
   type: AlertType.ERROR,
@@ -28,7 +29,9 @@ const args: AlertProps = {
   open: true,
 };
 
-const Template = () => ({
+type EcAlertStory = StoryFn<typeof EcAlert>;
+
+const Template: EcAlertStory = args => ({
   components: { EcAlert },
   setup() {
     return {
@@ -48,8 +51,9 @@ const Template = () => ({
 });
 
 export const basic = Template.bind({});
+basic.args = { ...defaultArgs };
 
-export const responsive = () => ({
+export const responsive: EcAlertStory = args => ({
   components: { EcAlert },
   setup() {
     return { args };
@@ -67,12 +71,12 @@ export const responsive = () => ({
   `,
 });
 
-responsive.args = { ...args };
+responsive.args = { ...defaultArgs };
 responsive.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = () => ({
+export const all: EcAlertStory = args => ({
   components: { EcAlert },
   setup() {
     const alerts = reactive([

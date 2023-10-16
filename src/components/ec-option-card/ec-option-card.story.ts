@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 
 import { IconName } from '../ec-icon/icon-names';
 import EcOptionCard from './ec-option-card.vue';
-import type { OptionCardProps } from './types';
 import { OptionCardType } from './types';
 
 export default {
@@ -11,62 +11,48 @@ export default {
   component: EcOptionCard,
   argTypes: {
     iconName: {
-      options: IconName,
+      options: Object.values(IconName),
       control: { type: 'select' },
     },
-    isDisabled: {
-      control: { type: 'boolean' },
-    },
-    title: {
-      control: {
-        type: 'text',
-      },
-    },
-    caption: {
-      control: {
-        type: 'text',
-      },
-    },
     type: {
-      options: OptionCardType,
+      options: Object.values(OptionCardType),
+      control: { type: 'select' },
     },
   },
-};
+} as Meta<typeof EcOptionCard>;
 
-const Template = (args: OptionCardProps) => ({
+type EcOptionCardStory = StoryFn<typeof EcOptionCard>;
+
+const Template: EcOptionCardStory = args => ({
   components: { EcOptionCard },
   setup() {
-    const baseArgs = {
-      ...args,
-    } as OptionCardProps;
-
     return {
-      args: baseArgs,
+      args,
       onClick: action('click'),
     };
   },
   template: `
-  <div class="tw-p-24">
-    <h3 class="tw-my-8">Icon, title and caption</h3>
+    <div class="tw-p-24">
+      <h3 class="tw-my-8">Icon, title and caption</h3>
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
           <h5>Default</h5>
-          <ec-option-card class="tw-container" iconName="${IconName.SimpleWand}" title="Option Card default" caption="Caption text" v-bind="args" />
+          <ec-option-card class="tw-container" icon-name="${IconName.SimpleWand}" title="Option Card default" caption="Caption text" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
           <h5>Accent</h5>
-          <ec-option-card class="tw-container" iconName="${IconName.SimpleWand}" title="Option Card accent" caption="Caption text" type="accent" v-bind="args" />
+          <ec-option-card class="tw-container" icon-name="${IconName.SimpleWand}" title="Option Card accent" caption="Caption text" type="accent" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
           <h5>Danger</h5>
-          <ec-option-card class="tw-container" iconName="${IconName.SimpleWand}" title="Option Card danger" caption="Caption text" type="danger" v-bind="args" />
+          <ec-option-card class="tw-container" icon-name="${IconName.SimpleWand}" title="Option Card danger" caption="Caption text" type="danger" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
           <h5>Disabled</h5>
-          <ec-option-card class="tw-container" :isDisabled="true" iconName="${IconName.SimpleWand}" title="Option Card accent disabled" caption="Caption text" type="accent" v-bind="args" />
+          <ec-option-card class="tw-container" :is-disabled="true" icon-name="${IconName.SimpleWand}" title="Option Card accent disabled" caption="Caption text" type="accent" v-bind="args" />
         </div>
       </div>
 
@@ -85,7 +71,7 @@ const Template = (args: OptionCardProps) => ({
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" :isDisabled="true" title="Option Card - no icon disabled" caption="Caption text" type="danger" v-bind="args" />
+          <ec-option-card class="tw-container" :is-disabled="true" title="Option Card - no icon disabled" caption="Caption text" type="danger" v-bind="args" />
         </div>
 
       </div>
@@ -93,19 +79,19 @@ const Template = (args: OptionCardProps) => ({
       <h3 class="tw-my-8">Icon and Title</h3>
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" iconName="${IconName.SimpleInfo}" title="Title and icon only" v-bind="args" />
+          <ec-option-card class="tw-container" icon-name="${IconName.SimpleInfo}" title="Title and icon only" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" iconName="${IconName.SimpleInfo}" title="Title and icon only accent" type="accent" v-bind="args" />
+          <ec-option-card class="tw-container" icon-name="${IconName.SimpleInfo}" title="Title and icon only accent" type="accent" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" iconName="${IconName.SimpleInfo}" title="Title and icon only danger" type="danger" v-bind="args" />
+          <ec-option-card class="tw-container" icon-name="${IconName.SimpleInfo}" title="Title and icon only danger" type="danger" v-bind="args" />
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" :isDisabled="true" iconName="${IconName.SimpleInfo}" title="Title and icon disabled" v-bind="args" />
+          <ec-option-card class="tw-container" :is-disabled="true" icon-name="${IconName.SimpleInfo}" title="Title and icon disabled" v-bind="args" />
         </div>
       </div>
 
@@ -124,7 +110,7 @@ const Template = (args: OptionCardProps) => ({
         </div>
 
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" :isDisabled="true" title="Title only disabled" type="accent" v-bind="args" />
+          <ec-option-card class="tw-container" :is-disabled="true" title="Title only disabled" type="accent" v-bind="args" />
         </div>
       </div>
 
@@ -138,14 +124,14 @@ const Template = (args: OptionCardProps) => ({
       <h3 class="tw-my-8">With slot</h3>
       <div class="tw-flex tw-flex-wrap">
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" v-bind="args" >Some content here</ec-option-card>
+          <ec-option-card class="tw-container" v-bind="args">Some content here</ec-option-card>
         </div>
         <div class="tw-my-8 tw-mr-8" style="width: 304px;">
-          <ec-option-card class="tw-container" isDisabled="true" v-bind="args" >Some disabled content here</ec-option-card>
+          <ec-option-card class="tw-container" :is-disabled="true" v-bind="args">Some disabled content here</ec-option-card>
         </div>
       </div>
     </div>
-`,
+  `,
 });
 
 export const basic = Template.bind({});

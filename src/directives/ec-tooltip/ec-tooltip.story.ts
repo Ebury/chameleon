@@ -1,9 +1,13 @@
-import { reactive } from 'vue';
+import type { Meta, StoryFn } from '@storybook/vue3';
+import { reactive, toRefs } from 'vue';
 
+import type { Maybe } from '../../../global';
 import EcTooltip from './ec-tooltip';
-import { TooltipPlacement, TooltipPopperClass, TooltipTrigger } from './types';
+import {
+  type TooltipOptions, TooltipPlacement, TooltipPopperClass, TooltipTrigger,
+} from './types';
 
-const defaultPlacements = [TooltipPlacement.BOTTOM, TooltipPlacement.LEFT, TooltipPlacement.RIGHT, TooltipPlacement.TOP];
+const defaultPlacements = Object.values(TooltipPlacement);
 
 export default {
   title: 'Tooltip',
@@ -13,7 +17,7 @@ export default {
       control: { type: 'select' },
     },
     triggers: {
-      options: [TooltipTrigger.HOVER, TooltipTrigger.CLICK],
+      options: Object.values(TooltipTrigger),
       control: { type: 'select' },
     },
     popperClass: {
@@ -28,41 +32,46 @@ export default {
       control: { type: 'select' },
     },
   },
-};
+} as Meta<typeof EcTooltip>;
 
-const Template = ({ triggers, ...args }: { triggers: TooltipTrigger }) => ({
+type EcTooltipStory = StoryFn<Omit<TooltipOptions, 'triggers' | 'popperClass'> & {
+  triggers: TooltipTrigger,
+  popperClass: Maybe<TooltipPopperClass>,
+}>;
+
+const Template: EcTooltipStory = storyArgs => ({
   directives: { EcTooltip },
   inheritAttrs: false,
   setup() {
-    return { args, triggers };
+    const { triggers, popperClass, ...rest } = toRefs(storyArgs);
+    const args = reactive(rest);
+
+    return { args, triggers, popperClass };
   },
   template: `
     <div class="tw-m-80">
       <div
+        v-ec-tooltip="{ ...args, triggers: [triggers], popperClass: [popperClass] }"
         class="tw-p-12 tw-rounded tw-text-gray-8 tw-my-auto tw-mx-20 tw-bg-additional-18"
-        v-ec-tooltip="{ ...args, triggers: [triggers] }">Hover over this element to see the tooltip.</div>
+      >Hover over this element to see the tooltip.</div>
     </div>
   `,
 });
 
 export const basic = Template.bind({});
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 basic.args = {
   content: 'Test tooltip',
   shown: true,
   placement: TooltipPlacement.TOP,
   delay: 100,
-  popperClass: '',
+  popperClass: null,
   triggers: TooltipTrigger.HOVER,
   distance: 8,
   skidding: 0,
   autoHide: true,
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 basic.parameters = {
   visualRegressionTests: {
     disable: false,
@@ -98,10 +107,12 @@ export const allColorsAndPositions = () => ({
         <div class="tw-flex tw-flex-row tw-justify-between">
           <div
             v-for="placement in placements"
-            class="tw-col-2">
+            class="tw-col-2"
+          >
             <div
               v-ec-tooltip="{ ...tooltipConfig, placement: placement }"
-              class="tw-min-h-64 tw-min-w-full tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
+              class="tw-min-h-64 tw-min-w-full tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center"
+            >
               Default tooltip
             </div>
           </div>
@@ -112,10 +123,12 @@ export const allColorsAndPositions = () => ({
         <div class="tw-flex tw-flex-row tw-justify-between">
           <div
             v-for="placement in placements"
-            class="tw-col-2">
+            class="tw-col-2"
+          >
             <div
               v-ec-tooltip="{ ...customBgTooltipConfig, placement: placement }"
-              class="tw-min-h-64 tw-min-w-full tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center">
+              class="tw-min-h-64 tw-min-w-full tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center"
+            >
               Custom bg tooltip
             </div>
           </div>
@@ -138,9 +151,11 @@ export const stringAsTooltipValue = () => ({
   template: `
     <div class="tw-m-80">
       <div
+        v-ec-tooltip="'Test string tooltip value'"
         class="tw-p-12 tw-rounded tw-text-gray-8 tw-my-auto tw-mx-20 tw-bg-additional-18"
-        v-ec-tooltip="'Test string tooltip value'">Hover over this element to see the tooltip.</div>
-    </div>`,
+      >Hover over this element to see the tooltip.</div>
+    </div>
+  `,
 });
 
 stringAsTooltipValue.parameters = {

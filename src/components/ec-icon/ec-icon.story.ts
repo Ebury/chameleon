@@ -1,15 +1,16 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import copyToClipboard from 'clipboard-copy';
 import { computed, defineComponent, ref } from 'vue';
 
 import EcIcon from './ec-icon.vue';
-import { IconName, IconType } from './types';
+import { IconName, type IconProps, IconType } from './types';
 
 export default {
   title: 'Icon',
   component: EcIcon,
   argTypes: {
     type: {
-      options: [IconType.ERROR, IconType.SUCCESS, IconType.WARNING, IconType.INFO],
+      options: Object.values(IconType),
       control: { type: 'select' },
     },
     name: {
@@ -17,7 +18,7 @@ export default {
       control: { type: 'select' },
     },
   },
-};
+} as Meta<typeof EcIcon>;
 
 const EcIconsGrid = defineComponent({
   components: { EcIcon },
@@ -37,7 +38,9 @@ const EcIconsGrid = defineComponent({
   `,
 });
 
-const Template = (args: unknown) => ({
+type EcIconStory = StoryFn<typeof EcIcon>;
+
+const Template: EcIconStory = args => ({
   components: { EcIcon },
   setup() {
     return {
@@ -53,20 +56,18 @@ const Template = (args: unknown) => ({
 
 export const basic = Template.bind({});
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 basic.args = {
   name: IconName.SimpleCheck,
   size: 48,
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const allIcons = (args: unknown) => ({
+type EcAllIconsStory = StoryFn<IconProps & { color: string }>;
+
+export const allIcons: EcAllIconsStory = args => ({
   components: { EcIcon, EcIconsGrid },
   setup() {
     const iconFilter = ref('');
@@ -152,7 +153,9 @@ allIcons.parameters = {
   },
 };
 
-export const allFlags = (args: unknown) => ({
+type EcAllFlagsStory = StoryFn<IconProps & { borderRadius: string }>;
+
+export const allFlags: EcAllFlagsStory = args => ({
   components: { EcIcon, EcIconsGrid },
   setup() {
     const isLoading = ref(true);

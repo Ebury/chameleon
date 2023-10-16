@@ -4,19 +4,17 @@ import { ref } from 'vue';
 import EcTextFilter from './ec-text-filter.vue';
 import type { TextFilterEvent, TextFilterEvents } from './types';
 
-const meta: Meta<typeof EcTextFilter> = {
+export default {
   title: 'Filters/Text filter',
   component: EcTextFilter,
   argTypes: {
     onChange: { action: 'change' },
   },
-};
+} as Meta<typeof EcTextFilter>;
 
-export default meta;
+type EcTextFilterStory = StoryObj<typeof EcTextFilter>;
 
-type Story = StoryObj<typeof EcTextFilter>;
-
-export const Basic: Story = {
+export const Basic: EcTextFilterStory = {
   render: args => ({
     setup() {
       const modelValue = ref(args.modelValue);
@@ -35,11 +33,12 @@ export const Basic: Story = {
     template: `
       <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
         <ec-text-filter
-            v-bind="args"
-            v-bind:model-value="modelValue"
-            @change="handleChange"
+          v-bind="args"
+          :model-value="modelValue"
+          @change="handleChange"
         />
-      </div>`,
+      </div>
+    `,
   }),
   args: {
     modelValue: 'Some text',

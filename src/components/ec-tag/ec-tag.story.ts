@@ -1,24 +1,27 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
+
 import { IconName } from '../ec-icon/icon-names';
 import { IconType } from '../ec-icon/types';
 import EcTag from './ec-tag.vue';
-import type { TagProps } from './types';
 
 export default {
   title: 'Tag',
   component: EcTag,
   argTypes: {
     iconName: {
-      options: IconName,
+      options: Object.values(IconName),
       control: { type: 'select' },
     },
     iconType: {
-      options: IconType,
+      options: Object.values(IconType),
       control: { type: 'select' },
     },
   },
-};
+} as Meta<typeof EcTag>;
 
-const Template = (args: Partial<TagProps>) => ({
+type EcTagStory = StoryFn<typeof EcTag>;
+
+const Template: EcTagStory = args => ({
   components: { EcTag },
   setup() {
     return {
@@ -27,13 +30,12 @@ const Template = (args: Partial<TagProps>) => ({
   },
   template: `
     <div class="tw-p-24">
-      <ec-tag v-bind="args"/>
+      <ec-tag v-bind="args" />
     </div>
   `,
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const basic = Template.bind({}) as any;
+export const basic = Template.bind({});
 
 basic.args = {
   text: 'Trusted',
@@ -42,7 +44,7 @@ basic.args = {
   iconType: IconType.SUCCESS,
 };
 
-const TruncatedText = (args: Partial<TagProps>) => ({
+const TruncatedTextTemplate: EcTagStory = args => ({
   components: { EcTag },
   setup() {
     return {
@@ -51,13 +53,12 @@ const TruncatedText = (args: Partial<TagProps>) => ({
   },
   template: `
     <div class="tw-p-24">
-      <ec-tag v-bind="args" style="width:100px;"/>
+      <ec-tag v-bind="args" style="width: 100px;" />
     </div>
   `,
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const truncatedText = TruncatedText.bind({}) as any;
+export const truncatedText: EcTagStory = TruncatedTextTemplate.bind({});
 
 truncatedText.args = {
   text: 'Trusted Beneficiary',
