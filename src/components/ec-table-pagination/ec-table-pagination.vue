@@ -151,7 +151,6 @@ const pageSizeModel = computed({
   },
 });
 const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
-
 </script>
 
 <style>

@@ -76,7 +76,6 @@ const getCaptionClass = computed(() => ({
   'ec-option-card__caption--accent': props.type === OptionCardType.ACCENT,
   'ec-option-card__caption--danger': !props.isDisabled && (props.type === OptionCardType.DANGER),
 }));
-
 </script>
 
 <style>
@@ -144,5 +143,4 @@ const getCaptionClass = computed(() => ({
     }
   }
 }
-
 </style>

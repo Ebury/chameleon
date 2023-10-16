@@ -145,7 +145,6 @@ function clear() {
 function onBlur() {
   emit('blur', { from: fromValueDate.value, to: toValueDate.value });
 }
-
 </script>
 
 <style>

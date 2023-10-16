@@ -101,7 +101,6 @@
       <slot name="error-message">{{ errorMessage }}</slot>
     </div>
   </div>
-
 </template>
 
 <script setup lang="ts">
@@ -136,7 +135,7 @@ const id = `ec-radio-btn-${uid}`;
 const errorId = `${id}-error`;
 const labelId = `${id}-label`;
 const descriptionId = `${id}-description`;
-const inputRadioRef = ref();
+const inputRadioRef = ref<HTMLElement | null>();
 
 const emit = defineEmits<{
   'update:modelValue': [value: RadioButtonEvents[RadioButtonEvent.UPDATE_MODEL_VALUE]],
@@ -154,7 +153,7 @@ function setFocusState(state: boolean) {
 }
 
 function onClick() {
-  if (!props.isDisabled) {
+  if (!props.isDisabled && inputRadioRef.value) {
     inputRadioRef.value.focus();
     emit(RadioButtonEvent.UPDATE_MODEL_VALUE, props.value);
   }
