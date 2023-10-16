@@ -5,10 +5,7 @@ import EcBtn from '../../../components/ec-btn';
 import EcIcon from '../../../components/ec-icon';
 
 export default {
-  title: 'Button Styles',
-  // The following line prevent stories from this file
-  // from being indexed in the sidebar
-  excludeStories: /.*$/,
+  title: 'Button',
 };
 
 export const propsDark = generatePropsStory('Props (dark)', DARK_THEME);
