@@ -1,5 +1,7 @@
 import { action } from '@storybook/addon-actions';
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import {
+  onBeforeUnmount, onMounted, reactive, ref, toRefs,
+} from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcToaster from './ec-toaster.vue';
@@ -12,11 +14,18 @@ export default {
   ],
 };
 
-export const basic = ({
-  messages, type, title, subtitle, ...args
-}) => ({
+export const basic = storyArgs => ({
   components: { EcToaster },
   setup() {
+    const {
+      messages,
+      type,
+      title,
+      subtitle,
+      ...rest
+    } = toRefs(storyArgs);
+    const args = reactive(rest);
+
     function useBodyHandler({ actionName }) {
       const bodyHandler = action(actionName);
 
@@ -66,11 +75,12 @@ export const basic = ({
   template: `
     <div class="tw-flex tw-items-center tw-justify-center tw-h-screen">
       <div class="tw-fixed tw-right-0 tw-top-0 tw-w-full" style="max-width: 400px;">
-        <ec-toaster :messages="model" @remove="removeMessage"></ec-toaster>
+        <ec-toaster :messages="model" @remove="removeMessage" />
       </div>
       <button
-          class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary"
-          @click="addMessage">Add another message</button>
+        class="ec-btn ec-btn--md ec-btn--rounded ec-btn--primary"
+        @click="addMessage"
+      >Add another message</button>
     </div>
   `,
 });

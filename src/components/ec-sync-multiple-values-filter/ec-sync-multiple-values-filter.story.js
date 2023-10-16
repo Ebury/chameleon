@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { reactive, toRefs } from 'vue';
 
 import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
 
@@ -7,13 +7,16 @@ export default {
   component: EcSyncMultipleValuesFilter,
 };
 
-const Template = ({ modelValue, popoverOptions, ...args }) => ({
+const Template = storyArgs => ({
   components: { EcSyncMultipleValuesFilter },
   setup() {
+    const { modelValue: model, popoverOptions, ...rest } = toRefs(storyArgs);
+    const args = reactive(rest);
+
     return {
       args,
       popoverOptions,
-      model: ref(modelValue),
+      model,
     };
   },
   template: `

@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { vueRouter } from 'storybook-vue3-router';
+import { reactive, toRefs } from 'vue';
 
 import EcMenu from './ec-menu.vue';
 
@@ -29,9 +30,12 @@ export default {
   })],
 };
 
-export const basic = ({ width, ...args }) => ({
+export const basic = storyArgs => ({
   components: { EcMenu },
   setup() {
+    const { width, ...rest } = toRefs(storyArgs);
+    const args = reactive(rest);
+
     return { args, width };
   },
   template: `

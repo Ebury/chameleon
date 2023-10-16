@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { reactive, ref, toRefs } from 'vue';
 
 import EcCheckbox from '../ec-checkbox';
 import EcFilterPopover from './ec-filter-popover.vue';
@@ -8,18 +8,21 @@ export default {
   component: EcFilterPopover,
 };
 
-export const all = ({
-  popoverOptions,
-  labelOne,
-  itemListOne,
-  labelTwo,
-  itemListTwo,
-  labelThree,
-  itemListThree,
-  ...args
-}) => ({
+export const all = storyArgs => ({
   components: { EcFilterPopover, EcCheckbox },
   setup() {
+    const {
+      popoverOptions,
+      labelOne,
+      itemListOne,
+      labelTwo,
+      itemListTwo,
+      labelThree,
+      itemListThree,
+      ...rest
+    } = toRefs(storyArgs);
+    const args = reactive(rest);
+
     return {
       args,
       labelOne,
@@ -37,14 +40,14 @@ export const all = ({
         class="tw-mr-16"
         v-bind="args"
         :label="labelOne"
-        :numberOfSelectedFilters="0"
+        :number-of-selected-filters="0"
         :popover-options="{ ...popoverOptions, shown: true }"
       >
         <template #filter>
           <ec-checkbox
-            v-model="item.selected"
             v-for="(item, index) in itemListOne"
             :key="index"
+            v-model="item.selected"
             class="tw-p-12"
           >
             <template #label>
@@ -58,13 +61,13 @@ export const all = ({
         class="tw-mr-16"
         v-bind="args"
         :label="labelTwo"
-        :numberOfSelectedFilters="3"
+        :number-of-selected-filters="3"
       >
         <template #filter>
           <ec-checkbox
-            v-model="item.selected"
             v-for="(item, index) in itemListTwo"
             :key="index"
+            v-model="item.selected"
             class="tw-p-12"
           >
             <template #label>
@@ -78,13 +81,13 @@ export const all = ({
         class="tw-mr-16"
         v-bind="args"
         :label="labelThree"
-        :numberOfSelectedFilters="0"
+        :number-of-selected-filters="0"
       >
         <template #filter>
           <ec-checkbox
-            v-model="item.selected"
             v-for="(item, index) in itemListThree"
             :key="index"
+            v-model="item.selected"
             class="tw-p-12"
           >
             <template #label>

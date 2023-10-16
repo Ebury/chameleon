@@ -11,7 +11,7 @@ export default {
   ],
 };
 
-const Template = ({ ...args }) => ({
+const Template = args => ({
   components: { EcNavigationLink },
   setup() {
     return { args };

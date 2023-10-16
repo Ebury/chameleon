@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { ref } from 'vue';
+import { reactive, ref, toRefs } from 'vue';
 
 import EcIcon from '../ec-icon';
 import EcDropdownSearch from './ec-dropdown-search.vue';
@@ -28,9 +28,12 @@ const complexItems = [
 
 const searchFields = ['country', 'language'];
 
-export const all = ({ paragraphText, ...args }) => ({
+export const all = storyArgs => ({
   components: { EcDropdownSearch, EcIcon },
   setup() {
+    const { paragraphText, ...rest } = toRefs(storyArgs);
+    const args = reactive(rest);
+
     const selectedItem = ref(null);
 
     const dropdowns = [
@@ -83,7 +86,7 @@ export const all = ({ paragraphText, ...args }) => ({
   template: `
     <div class="tw-grid-container">
       <div class="tw-grid">
-        <div class="tw-col-12" >
+        <div class="tw-col-12">
           <p v-if="selectedItem">Selected item: {{ selectedItem.text }}</p>
           <p v-else>Selected item: None</p>
           <div v-for="(dropdownSearch, index) in dropdowns" :key="index" class="tw-my-20">
@@ -92,9 +95,10 @@ export const all = ({ paragraphText, ...args }) => ({
               <p class="tw-mb-8"><strong>{{ dropdownSearch.instructions }}</strong></p>
               <ec-dropdown-search
                 v-bind="args"
-                :popover-options="dropdownSearch.popoverOptions"
                 v-model="selectedItem"
-                v-on="{ change: onChange }">
+                :popover-options="dropdownSearch.popoverOptions"
+                v-on="{ change: onChange }"
+              >
                 <a href="#" @click.prevent>
                   <span>Open</span>
                   <ec-icon name="simple-arrow-drop-down" :size="16" class="tw-fill-current" />
@@ -114,7 +118,8 @@ export const all = ({ paragraphText, ...args }) => ({
             <ec-dropdown-search
               v-bind="argsComplex"
               v-model="selectedItem"
-              v-on="{ change: onChange }">
+              v-on="{ change: onChange }"
+            >
               <a href="#" @click.prevent>
                 <span>Open</span>
                 <ec-icon name="simple-arrow-drop-down" :size="16" class="tw-fill-current" />
