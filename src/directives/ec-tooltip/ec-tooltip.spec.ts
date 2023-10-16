@@ -29,8 +29,6 @@ describe('EcTooltipDirective', () => {
 
       {
         global: {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           directives: { EcTooltip },
         },
       },
@@ -69,8 +67,6 @@ describe('EcTooltipDirective', () => {
 
       {
         global: {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           directives: { EcTooltip },
         },
       },

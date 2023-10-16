@@ -106,8 +106,6 @@ import {
 
 import type { Maybe } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';

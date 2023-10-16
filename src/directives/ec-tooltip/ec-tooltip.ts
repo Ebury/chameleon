@@ -1,5 +1,5 @@
 import FloatingVue, { VTooltip } from 'floating-vue';
-import type { ComponentPublicInstance } from 'vue';
+import type { DirectiveBinding, ObjectDirective } from 'vue';
 
 import { getUid } from '../../utils/uid';
 import { type TooltipOptions, TooltipPopperClass } from './types';
@@ -12,12 +12,14 @@ FloatingVue.options.themes.tooltip = {
 
 const origBeforeMount = VTooltip.beforeMount;
 
-function tryGetContainer(instance?: ComponentPublicInstance): HTMLElement | undefined {
+function tryGetContainer(instance?: DirectiveBinding['instance']): HTMLElement | undefined {
   return instance?.$.appContext.app.config.globalProperties.$tooltipContainer;
 }
 
+function bind(el: HTMLElement, {
+  value, instance, modifiers, ...args
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function bind(el: HTMLElement, { value, instance, ...args }: { value?: string | TooltipOptions, instance?: ComponentPublicInstance, [key: string]: any } = {}) {
+}: Partial<DirectiveBinding<string | TooltipOptions>> & { [key: string]: any } = {}) {
   let options: TooltipOptions = {};
   const type = typeof value;
   if (type === 'string') {
@@ -45,14 +47,14 @@ function bind(el: HTMLElement, { value, instance, ...args }: { value?: string | 
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  origBeforeMount.call(this, el, { value: options, modifiers: {}, ...args });
+  origBeforeMount.call(this, el, { value: options, modifiers, ...args });
 }
 
 // each tooltip get a randomly generated ID. we'd rather give it our own using our uid service as
 // we can assign a custom ID via ariaId. in order to set it every time a tooltip is created, we need to patch the
 // mount function and assign ariaId to options passed into v-ec-tooltip="{}" directive.
 // https://github.com/Akryum/floating-vue/blob/main/packages/floating-vue/src/directives/v-tooltip.ts#L151
-const EcTooltipDirective = {
+const EcTooltipDirective: ObjectDirective<HTMLElement, string | TooltipOptions> = {
   ...VTooltip,
   beforeMount: bind,
   updated: bind,
