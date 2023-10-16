@@ -560,6 +560,58 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
 </div>
 `;
 
+exports[`EcSmartTable filtering should change filters when filter prop is changed 1`] = `
+<section
+  class="ec-table-filter"
+  data-test="ec-smart-table__filter ec-table-filter"
+>
+  
+  <div
+    class="ec-table-filter__filter-item tw-mr-8"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
+  >
+    Test 1 (test-value-1)
+  </div>
+  <div
+    class="ec-table-filter__filter-item tw-mr-8"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
+  >
+    Test 2 (N/A)
+  </div>
+  
+  <button
+    class="ec-table-filter__clear-filters-button"
+    data-test="ec-table-filter__clear-filters-button"
+    type="button"
+  >
+    Clear filters
+  </button>
+</section>
+`;
+
+exports[`EcSmartTable filtering should change filters when filter prop is changed 2`] = `
+<section
+  class="ec-table-filter"
+  data-test="ec-smart-table__filter ec-table-filter"
+>
+  
+  <div
+    class="ec-table-filter__filter-item tw-mr-8"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
+  >
+    Test 1 (N/A)
+  </div>
+  <div
+    class="ec-table-filter__filter-item tw-mr-8"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
+  >
+    Test 2 (N/A)
+  </div>
+  
+  <!--v-if-->
+</section>
+`;
+
 exports[`EcSmartTable filtering should handle changes in filters and reload the table data 1`] = `
 <section
   class="ec-table-filter"

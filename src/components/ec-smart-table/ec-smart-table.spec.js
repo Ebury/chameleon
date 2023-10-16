@@ -547,6 +547,29 @@ describe('EcSmartTable', () => {
       }]);
     });
 
+    it('should trigger fetch when filter prop is changed', async () => {
+      const wrapper = mountEcSmartTable({
+        columns,
+        filters,
+        filter: prefilter,
+      });
+      expect(wrapper.emitted('fetch')[0]).toEqual([{
+        filter: prefilter,
+        numberOfItems: 10,
+        page: 1,
+        sorts: [],
+      }]);
+      await wrapper.setProps({
+        filter: {},
+      });
+      expect(wrapper.emitted('fetch')[1]).toEqual([{
+        filter: {},
+        numberOfItems: 10,
+        page: 1,
+        sorts: [],
+      }]);
+    });
+
     it('should handle changes in filters and reload the table data', async () => {
       const wrapper = mountEcSmartTableWithData(data, { columns, filters, filter: prefilter });
       await wrapper.findByDataTest('ec-table-filter__clear-filters-button').trigger('click');
@@ -557,6 +580,20 @@ describe('EcSmartTable', () => {
         page: 1,
         sorts: [],
       }]);
+    });
+
+    it('should change filters when filter prop is changed', async () => {
+      const wrapper = mountEcSmartTable({
+        columns,
+        filters,
+        filter: prefilter,
+      });
+      const tableFiltersElement = wrapper.findByDataTest('ec-smart-table__filter').element;
+      expect(tableFiltersElement).toMatchSnapshot();
+      await wrapper.setProps({
+        filter: {},
+      });
+      expect(tableFiltersElement).toMatchSnapshot();
     });
 
     it('should reset the page after changes in filters and reload the table data', async () => {
