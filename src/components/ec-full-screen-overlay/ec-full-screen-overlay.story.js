@@ -10,6 +10,11 @@ export default {
   decorators: [
     fixedContainerDecorator(),
   ],
+  argTypes: {
+    backgroundColorLevel: {
+      control: { type: 'range', min: 0, max: 8 },
+    },
+  },
 };
 
 const Template = args => ({
@@ -88,7 +93,7 @@ export const backgroundColorLevel = Template.bind({});
 backgroundColorLevel.args = {
   title: 'Lorem title',
   show: true,
-  backgroundColorLevel: 0,
+  backgroundColorLevel: 6,
 };
 
 export const withContentSlot = args => ({
