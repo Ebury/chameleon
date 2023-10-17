@@ -52,6 +52,7 @@
     </div>
 
     <div
+      v-if="!isCustomInfoHidden"
       class="ec-table-pagination__total"
       data-test="ec-table-pagination__total"
     >
@@ -130,6 +131,10 @@ const props = defineProps({
     default: 'Items per page',
   },
   isPageSizeHidden: {
+    type: Boolean,
+    default: false,
+  },
+  isCustomInfoHidden: {
     type: Boolean,
     default: false,
   },
