@@ -791,7 +791,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
     </div>
   </div>
   <div
-    class="ec-table-pagination__current-page"
+    class="ec-table-pagination__current-page tw-px-16"
     data-test="ec-table-pagination__current-page"
   >
     
@@ -953,7 +953,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
     </div>
   </div>
   <div
-    class="ec-table-pagination__current-page"
+    class="ec-table-pagination__current-page tw-px-16"
     data-test="ec-table-pagination__current-page"
   >
     
@@ -1012,7 +1012,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
 
 exports[`EcSmartTable pagination should pass pages slot into the pagination 1`] = `
 <div
-  class="ec-table-pagination__current-page"
+  class="ec-table-pagination__current-page tw-px-16"
   data-test="ec-table-pagination__current-page"
 >
   
@@ -1129,7 +1129,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
     </div>
   </div>
   <div
-    class="ec-table-pagination__current-page"
+    class="ec-table-pagination__current-page tw-px-16"
     data-test="ec-table-pagination__current-page"
   >
     
@@ -1292,7 +1292,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
     </div>
   </div>
   <div
-    class="ec-table-pagination__current-page"
+    class="ec-table-pagination__current-page tw-px-16"
     data-test="ec-table-pagination__current-page"
   >
     
@@ -1453,7 +1453,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
     </div>
   </div>
   <div
-    class="ec-table-pagination__current-page"
+    class="ec-table-pagination__current-page tw-px-16"
     data-test="ec-table-pagination__current-page"
   >
     
@@ -1629,7 +1629,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
             </div>
           </div>
           <div
-            class="ec-table-pagination__current-page"
+            class="ec-table-pagination__current-page tw-px-16"
             data-test="ec-table-pagination__current-page"
           >
             
@@ -1830,7 +1830,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
     </div>
   </div>
   <div
-    class="ec-table-pagination__current-page"
+    class="ec-table-pagination__current-page tw-px-16"
     data-test="ec-table-pagination__current-page"
   >
     
@@ -1992,7 +1992,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled and 
     </div>
   </div>
   <div
-    class="ec-table-pagination__current-page"
+    class="ec-table-pagination__current-page tw-px-16"
     data-test="ec-table-pagination__current-page"
   >
     
@@ -2153,7 +2153,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled and 
     </div>
   </div>
   <div
-    class="ec-table-pagination__current-page"
+    class="ec-table-pagination__current-page tw-px-16"
     data-test="ec-table-pagination__current-page"
   >
     
