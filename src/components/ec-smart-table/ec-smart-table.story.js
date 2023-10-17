@@ -527,3 +527,8 @@ export const all = args => ({
 all.args = {
   ...basic.args,
 };
+all.parameters = {
+  visualRegressionTests: {
+    waitOn: '.ec-table',
+  },
+};
