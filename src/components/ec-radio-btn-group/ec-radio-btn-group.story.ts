@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/vue3';
-import { reactive, ref, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcRadioBtnGroup from './ec-radio-btn-group.vue';
 import type { RadioButtonGroupProps } from './types';
@@ -16,12 +16,18 @@ type EcRadioBtnGroupStory = StoryFn<typeof EcRadioBtnGroup>;
 export const basic: EcRadioBtnGroupStory = storyArgs => ({
   components: { EcRadioBtnGroup },
   setup() {
-    const { modelValue, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue ?? '';
+      args.value = rest;
+    });
 
     return {
       args,
-      modelValue,
+      model,
       onChange: action('update:modelValue'),
     };
   },
@@ -30,7 +36,7 @@ export const basic: EcRadioBtnGroupStory = storyArgs => ({
       <ec-radio-btn-group
         @update:model-value="onChange"
         v-bind="args"
-        v-model="modelValue"
+        v-model="model"
       />
     </div>
   `,
@@ -62,8 +68,16 @@ export const all: EcRadioBtnGroupStory = storyArgs => ({
     const modelError = ref<RadioButtonGroupProps['modelValue']>('');
     const modelSlotError = ref<RadioButtonGroupProps['modelValue']>('');
 
-    const { errorMessage, label, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const errorMessage = ref('');
+    const label = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { errorMessage: errorMessageFromArgs, label: labelFromArgs, ...rest } = storyArgs;
+      errorMessage.value = errorMessageFromArgs ?? '';
+      label.value = labelFromArgs ?? '';
+      args.value = rest;
+    });
 
     return {
       args,
