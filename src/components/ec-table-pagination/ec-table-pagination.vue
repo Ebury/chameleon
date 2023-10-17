@@ -1,6 +1,7 @@
 <template>
   <div
     class="ec-table-pagination"
+    :class="{ 'tw-justify-between': isPageSizeHidden && isCustomInfoHidden }"
     v-bind="{
       ...$attrs,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-table-pagination` : 'ec-table-pagination',
