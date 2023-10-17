@@ -82,6 +82,7 @@
                 total: totalRecords,
                 numberOfItems,
                 itemsPerPageText,
+                isPageSizeHidden,
               }"
               data-test="ec-smart-table-pagination"
               @change="paginate"
@@ -171,6 +172,10 @@ const props = defineProps({
     default: () => undefined,
   },
   isClearFiltersButtonHidden: {
+    type: Boolean,
+    default: false,
+  },
+  isPageSizeHidden: {
     type: Boolean,
     default: false,
   },

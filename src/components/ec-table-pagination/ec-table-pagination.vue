@@ -8,6 +8,7 @@
   >
 
     <div
+      v-if="!isPageSizeHidden"
       class="ec-table-pagination__page-size"
       data-test="ec-table-pagination__page-size"
     >
@@ -127,6 +128,10 @@ const props = defineProps({
   itemsPerPageText: {
     type: String,
     default: 'Items per page',
+  },
+  isPageSizeHidden: {
+    type: Boolean,
+    default: false,
   },
 });
 
