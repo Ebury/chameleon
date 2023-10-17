@@ -178,11 +178,11 @@ const props = defineProps({
   },
   isPageSizeHidden: {
     type: Boolean,
-    default: false,
+    default: () => undefined,
   },
   isPaginationCustomInfoHidden: {
     type: Boolean,
-    default: false,
+    default: () => undefined,
   },
 });
 

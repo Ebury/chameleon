@@ -360,6 +360,8 @@ export const all = args => ({
             fetchEmptyList: null,
             isFilteringEnabled: null,
             prefilter: null,
+            isPageSizeHidden: false,
+            isPaginationCustomInfoHidden: false,
           }"
           v-on="{
             fetch: onFetch,

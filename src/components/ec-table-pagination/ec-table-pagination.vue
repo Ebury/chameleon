@@ -8,7 +8,7 @@
   >
 
     <div
-      v-if="!isPageSizeHidden"
+      v-if="canShowPageSize"
       class="ec-table-pagination__page-size"
       data-test="ec-table-pagination__page-size"
     >
@@ -35,6 +35,7 @@
 
     <div
       class="ec-table-pagination__current-page"
+      :class="{ 'ec-table-pagination__current-page--ellipsis': !isDesktop }"
       data-test="ec-table-pagination__current-page"
     >
       <slot
@@ -52,7 +53,7 @@
     </div>
 
     <div
-      v-if="!isCustomInfoHidden"
+      v-if="canShowCustomInfo"
       class="ec-table-pagination__total"
       data-test="ec-table-pagination__total"
     >
@@ -69,7 +70,7 @@
 
     <div
       class="ec-table-pagination__actions"
-      :class="{ 'tw-mr-0 tw-ml-auto': isPageSizeHidden || isCustomInfoHidden }"
+      :class="{ 'tw-mr-0 tw-ml-auto': !canShowPageSize || !canShowCustomInfo }"
       data-test="ec-table-pagination__actions"
     >
       <button
@@ -105,6 +106,7 @@ defineOptions({
   inheritAttrs: false,
 });
 
+import { useMediaQuery } from '@vueuse/core';
 import { computed } from 'vue';
 
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from '../../enums/pagination';
@@ -133,15 +135,20 @@ const props = defineProps({
   },
   isPageSizeHidden: {
     type: Boolean,
-    default: false,
+    default: () => undefined,
   },
   isCustomInfoHidden: {
     type: Boolean,
-    default: false,
+    default: () => undefined,
   },
 });
 
 const emit = defineEmits(['change']);
+
+const isDesktop = useMediaQuery('(min-width: 768px)');
+
+const canShowPageSize = computed(() => (props.isPageSizeHidden === false || (props.isPageSizeHidden === undefined && isDesktop.value)));
+const canShowCustomInfo = computed(() => (props.isCustomInfoHidden === false || (props.isCustomInfoHidden === undefined && isDesktop.value)));
 
 const hasPrev = computed(() => props.page > 1);
 
@@ -179,7 +186,9 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
   }
 
   &__current-page {
-    @apply tw-truncate;
+    &--ellipsis {
+      @apply tw-truncate;
+    }
   }
 
   &__page-size {
