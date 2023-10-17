@@ -1,4 +1,4 @@
-import { reactive, ref, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcCheckbox from '../ec-checkbox';
 import EcFilterPopover from './ec-filter-popover.vue';
@@ -11,26 +11,44 @@ export default {
 export const all = storyArgs => ({
   components: { EcFilterPopover, EcCheckbox },
   setup() {
-    const {
-      popoverOptions,
+    const popoverOptions = ref({});
+    const labelOne = ref('');
+    const itemListOne = ref([]);
+    const labelTwo = ref('');
+    const itemListTwo = ref([]);
+    const labelThree = ref('');
+    const itemListThree = ref([]);
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        popoverOptions: popoverOptionsFromArgs,
+        labelOne: labelOneFromArgs,
+        itemListOne: itemListOneFromArgs,
+        labelTwo: labelTwoFromArgs,
+        itemListTwo: itemListTwoFromArgs,
+        labelThree: labelThreeFromArgs,
+        itemListThree: itemListThreeFromArgs,
+        ...rest
+      } = storyArgs;
+      popoverOptions.value = popoverOptionsFromArgs;
+      labelOne.value = labelOneFromArgs;
+      itemListOne.value = itemListOneFromArgs;
+      labelTwo.value = labelTwoFromArgs;
+      itemListTwo.value = itemListTwoFromArgs;
+      labelThree.value = labelThreeFromArgs;
+      itemListThree.value = itemListThreeFromArgs;
+      args.value = rest;
+    });
+
+    return {
+      args,
       labelOne,
       itemListOne,
       labelTwo,
       itemListTwo,
       labelThree,
       itemListThree,
-      ...rest
-    } = toRefs(storyArgs);
-    const args = reactive(rest);
-
-    return {
-      args,
-      labelOne,
-      itemListOne: ref(itemListOne),
-      labelTwo,
-      itemListTwo: ref(itemListTwo),
-      labelThree,
-      itemListThree: ref(itemListThree),
       popoverOptions,
     };
   },

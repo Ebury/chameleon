@@ -1,9 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/vue3';
-import {
-  reactive, ref, toRefs, watchEffect,
-} from 'vue';
+import { toRefs } from 'vue';
 
 import type { Maybe } from '../../../global';
 import { IconName } from '../ec-icon/icon-names';
@@ -81,18 +79,18 @@ basic.parameters = {
 };
 
 type AllInputFieldStory = StoryFn<InputFieldProps & {
-  valueFromPropsNumber: number,
+  valueNumber: number,
   labelNumber: string,
   noteNumber: string,
   errorMessageNumber: string,
   iconNumber: Maybe<IconName>,
-  valueFromPropsText: string,
+  valueText: string,
   labelText: string,
   noteText: string,
   bottomNoteText: string,
   errorMessageText: string,
   iconText: Maybe<IconName>,
-  valueFromPropsDate: string,
+  valueDate: string,
   labelDate: string,
   noteDate: string,
   errorMessageDate: string,
@@ -108,45 +106,34 @@ export const all: AllInputFieldStory = storyArgs => ({
       labelTooltip,
       isInGroup,
 
-      valueFromPropsNumber,
+      valueNumber,
+      valueText,
+      valueDate,
+
       labelNumber,
-      noteNumber,
-      errorMessageNumber,
-      iconNumber,
-
-      valueFromPropsText,
       labelText,
-      noteText,
-      bottomNoteText,
-      errorMessageText,
-      iconText,
-
-      valueFromPropsDate,
       labelDate,
+
+      noteNumber,
+      noteText,
       noteDate,
+
+      errorMessageNumber,
+      errorMessageText,
       errorMessageDate,
+
+      iconNumber,
+      iconText,
       iconDate,
 
-      ...rest
+      bottomNoteText,
     } = toRefs(storyArgs);
-    const args = reactive(rest);
-
-    const valueNumber = ref(0);
-    const valueText = ref('');
-    const valueDate = ref('');
-
-    watchEffect(() => {
-      valueNumber.value = valueFromPropsNumber.value;
-      valueText.value = valueFromPropsText.value;
-      valueDate.value = valueFromPropsDate.value;
-    });
 
     return {
       isSensitive,
       isWarning,
       labelTooltip,
       isInGroup,
-      args,
       valueNumber,
       labelNumber,
       noteNumber,
@@ -242,14 +229,14 @@ all.args = {
   labelTooltip: 'Tooltip text',
 
   // number input
-  valueFromPropsNumber: 0,
+  valueNumber: 0,
   labelNumber: 'Number input',
   noteNumber: 'Max 80 chars',
   errorMessageNumber: 'error message',
   iconNumber: null,
 
   // text input
-  valueFromPropsText: '',
+  valueText: '',
   labelText: 'Text input',
   noteText: 'Max 80 chars',
   bottomNoteText: 'Random bottom note text',
@@ -257,7 +244,7 @@ all.args = {
   iconText: null,
 
   // date input
-  valueFromPropsDate: '',
+  valueDate: '',
   labelDate: 'Date input',
   noteDate: 'Max 80 chars',
   errorMessageDate: 'error message',

@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/vue3';
-import { reactive, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import { DARK_THEME } from '../../../.storybook/backgrounds';
 import { fixedContainerDecorator } from '../../../.storybook/utils';
@@ -62,24 +62,30 @@ type EcLoadingWithPanelStory = StoryFn<LoadingProps & {
 export const withPanel: EcLoadingWithPanelStory = storyArgs => ({
   components: { EcLoading, EcPanel },
   setup() {
-    const {
-      siblingIsLoading,
-      panelIsLoading,
-      transparent,
-      ...rest
-    } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const siblingIsLoading = ref(false);
+    const panelIsLoading = ref(false);
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        siblingIsLoading: siblingIsLoadingFromArgs,
+        panelIsLoading: panelIsLoadingFromArgs,
+        ...rest
+      } = storyArgs;
+      siblingIsLoading.value = siblingIsLoadingFromArgs;
+      panelIsLoading.value = panelIsLoadingFromArgs;
+      args.value = rest;
+    });
 
     return {
       args,
       siblingIsLoading,
-      transparent,
       panelIsLoading,
     };
   },
   template: `
     <div class="tw-h-screen">
-      <ec-loading :show="siblingIsLoading" :transparent="transparent">
+      <ec-loading v-bind="args" :show="siblingIsLoading">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ullam architecto obcaecati, facere corrupti,
           repellat veniam quam odit esse eum soluta sequi ea minus itaque exercitationem dignissimos rerum dicta earum iste,
@@ -108,7 +114,7 @@ export const withPanel: EcLoadingWithPanelStory = storyArgs => ({
         <template #main>
           <h3>Main</h3>
 
-          <ec-loading :show="panelIsLoading" :transparent="transparent">
+          <ec-loading v-bind="args" :show="panelIsLoading">
             <div>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ullam architecto obcaecati, facere corrupti,
               repellat veniam quam odit esse eum soluta sequi ea minus itaque exercitationem dignissimos rerum dicta earum iste,

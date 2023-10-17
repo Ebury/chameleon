@@ -1,4 +1,4 @@
-import { reactive, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcTextarea from './ec-textarea.vue';
 
@@ -10,8 +10,14 @@ export default {
 const Template = storyArgs => ({
   components: { EcTextarea },
   setup() {
-    const { modelValue: model, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
 
     return {
       args,
@@ -44,28 +50,40 @@ basic.parameters = {
 export const all = storyArgs => ({
   components: { EcTextarea },
   setup() {
-    const {
-      label, disabledLabel, errorLabel, warningLabel, errorMessage, ...rest
-    } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const disabledLabel = ref('');
+    const errorLabel = ref('');
+    const warningLabel = ref('');
+    const errorMessage = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        disabledLabel: disabledLabelFromArgs,
+        errorLabel: errorLabelFromArgs,
+        warningLabel: warningLabelFromArgs,
+        errorMessage: errorMessageFromArgs,
+        ...rest
+      } = storyArgs;
+      disabledLabel.value = disabledLabelFromArgs;
+      errorLabel.value = errorLabelFromArgs;
+      warningLabel.value = warningLabelFromArgs;
+      errorMessage.value = errorMessageFromArgs;
+      args.value = rest;
+    });
 
     return {
-      label,
+      args,
       disabledLabel,
       errorLabel,
       warningLabel,
       errorMessage,
-      args,
     };
   },
   template: `
     <div class="tw-grid-container">
       <div class="tw-grid">
         <div class="tw-col-full md:tw-col-4">
-          <ec-textarea
-            v-bind="args"
-            :label="label"
-          />
+          <ec-textarea v-bind="args" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">

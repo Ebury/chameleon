@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { reactive, ref, toRefs } from 'vue';
+import { ref, toRefs } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
@@ -44,7 +44,7 @@ export const basic = storyArgs => ({
   setup() {
     const {
       large,
-      show,
+      show: model,
       isClosable,
       isLoading,
       category,
@@ -54,11 +54,8 @@ export const basic = storyArgs => ({
       zIndex,
       positiveButtonProps,
       negativeButtonProps,
-      ...rest
     } = toRefs(storyArgs);
-    const args = reactive(rest);
 
-    const model = ref(show);
     const tooltipConfig = ref({
       content: "<p>If you are experiencing issues, please send an email to: <a href='mailto:operationsteam@ebury.com'>operationsteam@ebury.com</a></p>",
       popperClass: ['ec-tooltip--bg-bright ec-tooltip--modal'],
@@ -70,7 +67,6 @@ export const basic = storyArgs => ({
       model,
       tooltipConfig,
       large,
-      args,
       isClosable,
       isLoading,
       category,
@@ -277,9 +273,7 @@ export const buttonsDisabled = storyArgs => ({
       zIndex,
       positiveButtonProps,
       negativeButtonProps,
-      ...rest
     } = toRefs(storyArgs);
-    const args = reactive(rest);
 
     const model = ref(show);
     const tooltipConfig = ref({
@@ -293,7 +287,6 @@ export const buttonsDisabled = storyArgs => ({
       model,
       tooltipConfig,
       large,
-      args,
       isClosable,
       isLoading,
       category,

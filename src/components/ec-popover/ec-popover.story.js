@@ -1,4 +1,4 @@
-import { reactive, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcClosePopover from '../../directives/ec-close-popover';
 import EcTooltip from '../../directives/ec-tooltip';
@@ -23,8 +23,14 @@ const Template = storyArgs => ({
   components: { EcPopover },
   directives: { EcClosePopover },
   setup() {
-    const { trigger, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const trigger = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { trigger: triggerFromArgs, ...rest } = storyArgs;
+      trigger.value = triggerFromArgs;
+      args.value = rest;
+    });
 
     return {
       args,
@@ -73,8 +79,14 @@ export const zIndices = storyArgs => ({
   components: { EcPopover },
   directives: { EcTooltip },
   setup() {
-    const { trigger, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const trigger = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { trigger: triggerFromArgs, ...rest } = storyArgs;
+      trigger.value = triggerFromArgs;
+      args.value = rest;
+    });
 
     return { args, trigger };
   },

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { reactive, ref, toRefs } from 'vue';
+import { toRefs } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcPanel from './ec-panel.vue';
@@ -16,18 +16,14 @@ export const basic = storyArgs => ({
   components: { EcPanel },
   setup() {
     const {
-      show,
+      show: model,
       numberOfBodyParagraphs,
       numberOfPanelParagraphs,
       showHeader,
       showFooter,
-      ...rest
     } = toRefs(storyArgs);
-    const args = reactive(rest);
 
-    const model = ref(show);
     return {
-      args,
       model,
       numberOfBodyParagraphs,
       numberOfPanelParagraphs,

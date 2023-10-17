@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import {
-  onBeforeUnmount, onMounted, reactive, ref, toRefs,
+  onBeforeUnmount, onMounted, ref, toRefs,
 } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
@@ -22,9 +22,7 @@ export const basic = storyArgs => ({
       type,
       title,
       subtitle,
-      ...rest
     } = toRefs(storyArgs);
-    const args = reactive(rest);
 
     function useBodyHandler({ actionName }) {
       const bodyHandler = action(actionName);
@@ -67,7 +65,6 @@ export const basic = storyArgs => ({
 
     return {
       model,
-      args,
       removeMessage,
       addMessage,
     };

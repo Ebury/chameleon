@@ -1,4 +1,4 @@
-import { reactive, ref, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcNavigation from './ec-navigation.vue';
@@ -14,13 +14,23 @@ export default {
 export const basic = storyArgs => ({
   components: { EcNavigation },
   setup() {
-    const {
-      showCopyright,
-      isCollapsable,
-      isCollapsed,
-      ...rest
-    } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const showCopyright = ref(false);
+    const isCollapsable = ref(false);
+    const isCollapsed = ref(false);
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        showCopyright: showCopyrightFromArgs,
+        isCollapsable: isCollapsableFromArgs,
+        isCollapsed: isCollapsedFromArgs,
+        ...rest
+      } = storyArgs;
+      showCopyright.value = showCopyrightFromArgs;
+      isCollapsable.value = isCollapsableFromArgs;
+      isCollapsed.value = isCollapsedFromArgs;
+      args.value = rest;
+    });
 
     return {
       showCopyright,

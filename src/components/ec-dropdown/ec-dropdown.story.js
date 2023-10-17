@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { reactive, ref, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcDropdown from './ec-dropdown.vue';
 
@@ -40,8 +40,14 @@ const searchFields = ['country', 'language'];
 const Template = storyArgs => ({
   components: { EcDropdown },
   setup() {
-    const { modelValue: model, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
 
     return {
       args,

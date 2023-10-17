@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { reactive, toRefs } from 'vue';
+import { ref, toRefs, watchEffect } from 'vue';
 
 import EcCheckbox from './ec-checkbox.vue';
 
@@ -11,8 +11,15 @@ export default {
 const Template = storyArgs => ({
   components: { EcCheckbox },
   setup() {
-    const { modelValue: model, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
+
     return { args, model };
   },
   template: `
@@ -36,27 +43,23 @@ basic.parameters = {
 export const all = storyArgs => ({
   components: { EcCheckbox },
   setup() {
+    const checkbox1 = ref(false);
+    const checkbox2 = ref(false);
+
     const {
-      valueFromPropsChecked1: checkbox1,
-      valueFromPropsChecked2: checkbox2,
-      valueFromPropsHasError,
-      valueFromPropsLabel,
-      valueFromPropsErrorMessage,
-      valueFromPropsDisabled1,
-      valueFromPropsDisabled2,
-      ...rest
+      hasError,
+      label,
+      errorMessage,
+      disabled,
     } = toRefs(storyArgs);
-    const args = reactive(rest);
 
     return {
-      args,
       checkbox1,
       checkbox2,
-      valueFromPropsHasError,
-      valueFromPropsLabel,
-      valueFromPropsErrorMessage,
-      valueFromPropsDisabled1,
-      valueFromPropsDisabled2,
+      hasError,
+      label,
+      errorMessage,
+      disabled,
       onAction: action('open-terms'),
     };
   },
@@ -148,28 +151,28 @@ export const all = storyArgs => ({
         </template>
       </ec-checkbox>
 
-      <h3>Label and Error messages coming from props</h3>
+      <h3>Label and Error messages coming from controls</h3>
       <ec-checkbox
-        v-if="!valueFromPropsHasError"
+        v-if="!hasError"
         v-model="checkbox1"
         class="tw-mb-24"
-        :disabled="valueFromPropsDisabled1"
-        :label="valueFromPropsLabel"
+        :disabled="disabled"
+        :label="label"
       />
       <ec-checkbox
-        v-else="valueFromPropsHasError"
+        v-else="hasError"
         v-model="checkbox1"
         class="tw-mb-24"
-        :disabled="valueFromPropsDisabled1"
-        :label="valueFromPropsLabel"
-        :error-message="valueFromPropsErrorMessage"
+        :disabled="disabled"
+        :label="label"
+        :error-message="errorMessage"
       />
 
       <h3>Label and Error messages coming from template</h3>
       <ec-checkbox
-        v-if="!valueFromPropsHasError"
+        v-if="!hasError"
         v-model="checkbox2"
-        :disabled="valueFromPropsDisabled2"
+        :disabled="disabled"
       >
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
@@ -178,7 +181,7 @@ export const all = storyArgs => ({
       <ec-checkbox
         v-else
         v-model="checkbox2"
-        :disabled="valueFromPropsDisabled2"
+        :disabled="disabled"
       >
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
@@ -192,11 +195,8 @@ export const all = storyArgs => ({
 });
 
 all.args = {
-  valueFromPropsChecked1: false,
-  valueFromPropsChecked2: false,
-  valueFromPropsHasError: false,
-  valueFromPropsLabel: 'I accept the terms and conditions',
-  valueFromPropsErrorMessage: 'An error has occurred',
-  valueFromPropsDisabled1: false,
-  valueFromPropsDisabled2: false,
+  label: 'I accept the terms and conditions',
+  hasError: false,
+  errorMessage: 'An error has occurred',
+  disabled: false,
 };

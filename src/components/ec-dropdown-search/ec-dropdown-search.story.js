@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { reactive, ref, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcIcon from '../ec-icon';
 import EcDropdownSearch from './ec-dropdown-search.vue';
@@ -31,8 +31,17 @@ const searchFields = ['country', 'language'];
 export const all = storyArgs => ({
   components: { EcDropdownSearch, EcIcon },
   setup() {
-    const { paragraphText, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const paragraphText = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        paragraphText: paragraphTextFromArgs,
+        ...rest
+      } = storyArgs;
+      paragraphText.value = paragraphTextFromArgs;
+      args.value = rest;
+    });
 
     const selectedItem = ref(null);
 

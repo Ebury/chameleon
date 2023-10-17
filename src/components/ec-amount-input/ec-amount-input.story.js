@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { reactive, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcAmountInput from './ec-amount-input.vue';
 
@@ -21,8 +21,14 @@ export default {
 const Template = storyArgs => ({
   components: { EcAmountInput },
   setup() {
-    const { modelValue: model, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
 
     function getModelType() {
       return typeof model.value;

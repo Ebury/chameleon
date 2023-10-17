@@ -1,4 +1,4 @@
-import { reactive, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
 
@@ -10,12 +10,17 @@ export default {
 const Template = storyArgs => ({
   components: { EcSyncMultipleValuesFilter },
   setup() {
-    const { modelValue: model, popoverOptions, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
 
     return {
       args,
-      popoverOptions,
       model,
     };
   },
@@ -24,7 +29,7 @@ const Template = storyArgs => ({
       class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
       v-bind="args"
       v-model="model"
-      :popover-options="{ shown: true, ...popoverOptions }"
+      :popover-options="{ shown: true, ...args.popoverOptions }"
     />
   `,
 });

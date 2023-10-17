@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/vue3';
-import { reactive, toRefs } from 'vue';
+import { reactive, ref, watchEffect } from 'vue';
 
 import type { Maybe } from '../../../global';
 import EcTooltip from './ec-tooltip';
@@ -43,8 +43,20 @@ const Template: EcTooltipStory = storyArgs => ({
   directives: { EcTooltip },
   inheritAttrs: false,
   setup() {
-    const { triggers, popperClass, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const triggers = ref<TooltipTrigger>();
+    const popperClass = ref<Maybe<TooltipPopperClass>>();
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        triggers: triggersFromArgs,
+        popperClass: popperClassFromArgs,
+        ...rest
+      } = storyArgs;
+      triggers.value = triggersFromArgs;
+      popperClass.value = popperClassFromArgs;
+      args.value = rest;
+    });
 
     return { args, triggers, popperClass };
   },

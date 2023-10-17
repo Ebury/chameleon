@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { vueRouter } from 'storybook-vue3-router';
-import { reactive, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcSubmenu from './ec-submenu.vue';
 
@@ -21,8 +21,14 @@ export default {
 export const basic = storyArgs => ({
   components: { EcSubmenu },
   setup() {
-    const { activeIndex: model, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const model = ref(0);
+    const args = ref({});
+
+    watchEffect(() => {
+      const { activeIndex, ...rest } = storyArgs;
+      model.value = activeIndex;
+      args.value = rest;
+    });
 
     return {
       model,

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { reactive, ref, toRefs } from 'vue';
+import { ref } from 'vue';
 
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
@@ -8,17 +8,13 @@ export default {
   component: EcPhoneNumberInput,
 };
 
-export const basic = storyArgs => ({
+export const basic = args => ({
   components: { EcPhoneNumberInput },
   setup() {
-    const { countries, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
-
     return {
       args,
-      countries,
       model: ref({
-        country: countries[0],
+        country: args.countries[0],
         phoneNumber: '1234567890',
       }),
       onChange: action('change'),
@@ -31,7 +27,7 @@ export const basic = storyArgs => ({
   template: `
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
       <ec-phone-number-input
-        v-bind="{ ...args, countries }"
+        v-bind="args"
         v-model="model"
         v-on="{
           change: onChange,

@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { vueRouter } from 'storybook-vue3-router';
-import { reactive, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcMenu from './ec-menu.vue';
 
@@ -33,8 +33,14 @@ export default {
 export const basic = storyArgs => ({
   components: { EcMenu },
   setup() {
-    const { width, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const width = ref(0);
+    const args = ref({});
+
+    watchEffect(() => {
+      const { width: widthFromArgs, ...rest } = storyArgs;
+      width.value = widthFromArgs;
+      args.value = rest;
+    });
 
     return { args, width };
   },

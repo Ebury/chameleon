@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/vue3';
-import { reactive, ref, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcRadioBtn from './ec-radio-btn.vue';
 import type { RadioButtonProps } from './types';
@@ -16,18 +16,24 @@ type EcRadioBtnStory = StoryFn<typeof EcRadioBtn>;
 export const basic: EcRadioBtnStory = storyArgs => ({
   components: { EcRadioBtn },
   setup() {
-    const { modelValue, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue ?? '';
+      args.value = rest;
+    });
 
     return {
       args,
-      modelValue,
+      model,
       onChange: action('update:modelValue'),
     };
   },
   template: `
     <div class="tw-p-24">
-      <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="modelValue"/>
+      <ec-radio-btn @update:modelValue="onChange" v-bind="args" v-model="model" />
     </div>
   `,
 });
@@ -53,12 +59,20 @@ export const all: EcRadioBtnStory = storyArgs => ({
     const modelErrorMessage = ref<RadioButtonProps['modelValue']>('');
     const modelSlotErrorMessage = ref<RadioButtonProps['modelValue']>('');
 
-    const {
-      description,
-      errorMessage,
-      ...rest
-    } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const description = ref('');
+    const errorMessage = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        description: descriptionFromArgs,
+        errorMessage: errorMessageFromArgs,
+        ...rest
+      } = storyArgs;
+      description.value = descriptionFromArgs ?? '';
+      errorMessage.value = errorMessageFromArgs ?? '';
+      args.value = rest;
+    });
 
     return {
       args,

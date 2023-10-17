@@ -2,7 +2,7 @@
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/vue3';
 import { vueRouter } from 'storybook-vue3-router';
-import { reactive, toRefs } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import { IconName } from '../ec-icon/icon-names';
 import EcBtn from './ec-btn.vue';
@@ -37,8 +37,14 @@ type StoryArgs = ButtonProps & { text: string };
 const Template: StoryFn<StoryArgs> = storyArgs => ({
   components: { EcBtn },
   setup() {
-    const { text, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const text = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { text: textFromArgs, ...rest } = storyArgs;
+      text.value = textFromArgs;
+      args.value = rest;
+    });
 
     return {
       onClick: action('click'),
@@ -68,8 +74,20 @@ basic.parameters = {
 export const all: StoryFn<StoryArgs & { loadingText: string }> = storyArgs => ({
   components: { EcBtn },
   setup() {
-    const { text, loadingText, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const text = ref('');
+    const loadingText = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        text: textFromArgs,
+        loadingText: loadingTextFromArgs,
+        ...rest
+      } = storyArgs;
+      text.value = textFromArgs;
+      loadingText.value = loadingTextFromArgs;
+      args.value = rest;
+    });
 
     return {
       args,

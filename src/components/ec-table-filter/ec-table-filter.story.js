@@ -1,6 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import { useMediaQuery } from '@vueuse/core';
-import { markRaw, reactive, toRefs } from 'vue';
+import {
+  markRaw, reactive, ref, toRefs, watchEffect,
+} from 'vue';
 
 import EcCurrencyFilter from '../ec-currency-filter';
 import EcDateRangeFilter from '../ec-date-range-filter';
@@ -23,14 +25,19 @@ const BasicTemplate = storyArgs => ({
     EcTableFilter, EcSyncMultipleValuesFilter, EcDateRangeFilter, EcCurrencyFilter,
   },
   setup() {
-    const { modelValue: model, filters, ...rest } = toRefs(storyArgs);
-    const args = reactive(rest);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
 
     return {
       ...useTableFiltersSetup(),
       model,
       args,
-      filters,
     };
   },
   template: `
@@ -38,7 +45,6 @@ const BasicTemplate = storyArgs => ({
       v-bind="args"
       v-model="model"
       class="tw-flex tw-items-center"
-      :filters="filters"
       v-on="{
         change: onChange,
         'update:modelValue': onUpdateModelValue,
