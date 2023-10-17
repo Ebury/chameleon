@@ -458,7 +458,7 @@ export const all = args => ({
       </p>
       </div>
     </div>
-    <h2 class="tw-m-24">With always shown custom row</h2>
+    <h2 class="tw-m-24">With always shown custom row and hidden pagination size</h2>
     <div class="tw-flex tw-px-20">
       <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
         <ec-smart-table
@@ -478,6 +478,7 @@ export const all = args => ({
             isFilteringEnabled: null,
             prefilter: null,
             isCustomRowShown: true,
+            isPageSizeHidden: true,
           }"
           v-on="{
             fetch: onFetch,
