@@ -172,6 +172,15 @@ To configure visual regression tests for the story, you can use storybook parame
 }
 ```
 
+To update screenshots, you can run `cypress run` command with flags `--env updateSnapshots=true --env failOnSnapshotDiff=false` (do not commit these flags).
+
+```json
+// update in package.json
+{
+  "test:visual:all": "cypress run --env updateSnapshots=true --env failOnSnapshotDiff=false ..."
+}
+```
+
 ## Linting
 
 To lint and fix errors in files:
@@ -214,7 +223,6 @@ A **Pull Request** (PR) is the method of submitting contributions to the project
 * The code owners review the manual checks for **Style guide** of the project.
 * If the change is rejected by the code owners and there is not possibility of modifications, the PR will be marked as **declined**, and the process do not continue. If it can be modified, the Pull Request should not be declined, only commented with mandatory changes.
 * The code review phase is considered **finished** when all the mandatory changes are done and it is approved.
-
 
 ### User Acceptance Testing
 
