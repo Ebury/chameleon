@@ -35,10 +35,6 @@
 
     <div
       class="ec-table-pagination__current-page"
-      :class="{
-        'tw-pl-16 tw-pr-0': isPageSizeHidden && isCustomInfoHidden,
-        'tw-px-16': !(isPageSizeHidden && isCustomInfoHidden),
-      }"
       data-test="ec-table-pagination__current-page"
     >
       <slot
@@ -177,12 +173,13 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
   width: calc(100% + theme('spacing.32'));
 
   &__page-size,
+  &__current-page,
   &__total {
     @apply tw-py-8 tw-px-16;
   }
 
   &__current-page {
-    @apply tw-py-8;
+    @apply tw-truncate;
   }
 
   &__page-size {
