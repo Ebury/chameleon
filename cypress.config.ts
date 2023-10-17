@@ -33,7 +33,7 @@ export default defineConfig({
       return require('./tests/integration/plugins')(on, config);
     },
     baseUrl: 'http://localhost:42475',
-    specPattern: 'tests/integration/specs//**/*.spec.js',
+    specPattern: 'tests/integration/specs/**/*.spec.js',
     excludeSpecPattern: [
       'tests/integration/snapshots/**/*',
       'tests/integration/**/__snapshots__/**/*',

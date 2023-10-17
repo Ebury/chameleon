@@ -1,24 +1,25 @@
-# Contributing guidelines
+# Contributing guidelines <!-- omit in toc -->
 
-1. [CSS](#markdown-header-css)
-    1. [Vue](#markdown-header-vue)
-    1. [BEM](#markdown-header-bem)
-    1. [ITCSS](#markdown-header-itcss)
-    1. [PurgeCSS](#markdown-header-purgecss)
-1. [Vue app](#markdown-header-css)
-1. [Testing](#markdown-header-testing)
-    1. [Unit tests](#markdown-header-unit-tests)
-    1. [Visual regression tests](#markdown-header-visual-regression-tests)
-1. [Linting](#markdown-header-linting)
-1. [Build](#markdown-header-build)
-1. [Submitting changes](#markdown-header-submitting-changes)
-    1. [Creating a PR](#markdown-header-creating-a-pr)
-    1. [Code Review](#markdown-header-code-review)
-    1. [Merge conditions](#markdown-header-merge-conditions)
-1. [Release](#markdown-header-release)
-1. [Reporting a problem or requesting a change](#markdown-header-reporting-a-problem-or-requesting-a-change)
-1. [How to report a bug](#markdown-header-how-to-report-a-bug)
-1. [Thanks](#markdown-header-thanks)
+1. [CSS](#css)
+   1. [Vue](#vue)
+   2. [BEM](#bem)
+   3. [ITCSS](#itcss)
+   4. [PurgeCSS](#purgecss)
+2. [Vue app](#vue-app)
+3. [Testing](#testing)
+   1. [Unit tests](#unit-tests)
+   2. [Visual regression tests](#visual-regression-tests)
+4. [Linting](#linting)
+5. [Build](#build)
+6. [Submitting changes](#submitting-changes)
+   1. [Creating a PR](#creating-a-pr)
+   2. [Code Review](#code-review)
+   3. [User Acceptance Testing](#user-acceptance-testing)
+   4. [Merge conditions](#merge-conditions)
+7. [Release](#release)
+8. [Reporting a problem or requesting a change](#reporting-a-problem-or-requesting-a-change)
+   1. [How to report a bug](#how-to-report-a-bug)
+9. [Thanks!](#thanks)
 
 Hi there! We’d love your help if you're interested in contributing to Chameleon. Chameleon is the design system developed by the [Online team](https://fxsolutions.atlassian.net/wiki/spaces/TEAM/pages/119543461/ONL) members for Eburyonline. Check the [VISION](VISION.md) for the project as well as the guidelines below to contribute.
 
@@ -27,10 +28,10 @@ These are the steps to contribute with a new change to this repository:
 1. Create an **issue** in JIRA in your project board, complete the required information, add the issue to your current sprint and set the status to the equivalent to "in progress".
 2. Create a **branch** in the repository from `master` branch. The name of the branch starts with the JIRA issue identifier and some optional suffix. For example, for issue `ONL-123`, the branch can be named `ONL-123-task`.
 3. In every **commit** messages, include a prefix `[ONL-123]` and then a descriptive message. Try to commit frequently and doing commits by atomic changes.
-4. When your change is ready to be reviewed, create a [Pull Request](#markdown-header-creating-a-pr) (PR) from the JIRA issue and move your issue to the correct status.
-5. Manage the [User Acceptance Testing](#markdown-header-user-acceptance-testing) (UAT) according to the guidelines and update the JIRA issue status.
-6. During the [Code Review](#markdown-header-code-review) phase the reviewers could propose changes; and it means possible changes and new commits.
-7. When the [Merge conditions](#markdown-header-Merge-conditions) are fulfilled, you can **merge** the code from the PR following the **squash** strategy and **close the issue** in JIRA.
+4. When your change is ready to be reviewed, create a [Pull Request](#creating-a-pr) (PR) from the JIRA issue and move your issue to the correct status.
+5. Manage the [User Acceptance Testing](#user-acceptance-testing) (UAT) according to the guidelines and update the JIRA issue status.
+6. During the [Code Review](#code-review) phase the reviewers could propose changes; and it means possible changes and new commits.
+7. When the [Merge conditions](#merge-conditions) are fulfilled, you can **merge** the code from the PR following the **squash** strategy and **close the issue** in JIRA.
 
 For the development of @ebury/chameleon-components, we use storybook [Storybook](https://storybook.js.org/).
 
@@ -93,7 +94,7 @@ All utility classes are automatically purged if they are not used in any `*.vue`
 
 ## Vue app
 
-If you would like to consume and test the behavior of your newly developed components in your local Vue app:
+If you would like to consume and test the behaviour of your newly developed components in your local Vue app:
 
 1\. You must create a symlink that will connect the two repos via the npm global folder. On chameleon-components folder run:
 
