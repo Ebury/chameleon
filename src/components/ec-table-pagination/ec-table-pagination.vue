@@ -1,7 +1,6 @@
 <template>
   <div
     class="ec-table-pagination"
-    :class="{ 'tw-justify-between': isPageSizeHidden && isCustomInfoHidden }"
     v-bind="{
       ...$attrs,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-table-pagination` : 'ec-table-pagination',
@@ -74,6 +73,7 @@
 
     <div
       class="ec-table-pagination__actions"
+      :class="{ 'tw-mr-0 tw-ml-auto': isPageSizeHidden || isCustomInfoHidden }"
       data-test="ec-table-pagination__actions"
     >
       <button
