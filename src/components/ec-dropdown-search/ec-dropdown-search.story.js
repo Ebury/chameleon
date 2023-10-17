@@ -114,7 +114,8 @@ export const all = storyArgs => ({
                 </a>
                 <template v-if="dropdownSearch.hasCustomTemplate" #item="{ item, index, isSelected }">
                   <div>{{ index + 1 }}. {{ item.text }}</div>
-                  <strong>{{ item.disabledReason }}</strong>
+                  <!-- using item.disabledReason in the next line breaks the example code in docs mode -->
+                  <strong>{{ item['disabledReason'] }}</strong>
                   <div v-if="isSelected">This item is selected</div>
                 </template>
               </ec-dropdown-search>
