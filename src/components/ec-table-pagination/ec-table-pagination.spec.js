@@ -91,6 +91,54 @@ describe('EcTablePagination', () => {
     expect(wrapper.findByDataTest('ec-table-pagination__actions').element).toMatchSnapshot();
   });
 
+  it('should not render page size when "isPageSizeHidden" prop is true', () => {
+    const wrapper = mountEcTablePagination({
+      isPageSizeHidden: true,
+    });
+    expect(wrapper.findByDataTest('ec-table-pagination__page-size').exists()).toBe(false);
+  });
+
+  it('should not render custom info when "isCustomInfoHidden" prop is true', () => {
+    const wrapper = mountEcTablePagination({
+      isCustomInfoHidden: true,
+    });
+    expect(wrapper.findByDataTest('ec-table-pagination__total').exists()).toBe(false);
+  });
+
+  it('should add ellipsis to current page text when a hidable section is hidden', () => {
+    window.matchMedia = jest.fn().mockImplementation(query => ({
+      matches: query !== '(min-width: 768px)',
+      media: '',
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    }));
+
+    const wrapper = mountEcTablePagination({
+      isPageSizeHidden: true,
+      isCustomInfoHidden: false,
+    });
+    expect(wrapper.findByDataTest('ec-table-pagination__current-page').classes()).toContain('ec-table-pagination__current-page--ellipsis');
+    expect(wrapper.findByDataTest('ec-table-pagination__current-page').element).toMatchSnapshot();
+  });
+
+  it('should add ellipsis to current page text when all hidable sections are hidden', () => {
+    window.matchMedia = jest.fn().mockImplementation(query => ({
+      matches: query !== '(min-width: 768px)',
+      media: '',
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    }));
+
+    const wrapper = mountEcTablePagination({
+      isPageSizeHidden: true,
+      isCustomInfoHidden: true,
+    });
+    expect(wrapper.findByDataTest('ec-table-pagination__current-page').classes()).toContain('ec-table-pagination__current-page--ellipsis');
+    expect(wrapper.findByDataTest('ec-table-pagination__current-page').element).toMatchSnapshot();
+  });
+
   describe('#slots', () => {
     it('should use given pages slot', () => {
       const wrapper = mountEcTablePagination({ total: 20, numberOfItems: 5, page: 1 }, {
