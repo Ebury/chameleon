@@ -7,7 +7,7 @@ export default {
   component: EcTimer,
 };
 
-const Template = ({ ...args }) => ({
+const Template = args => ({
   components: { EcTimer },
   setup() {
     return {

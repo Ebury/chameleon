@@ -225,7 +225,6 @@ function getPopoverStyle() {
   }
   return null;
 }
-
 </script>
 
 <style>

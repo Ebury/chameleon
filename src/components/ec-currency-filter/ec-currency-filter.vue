@@ -247,7 +247,6 @@ watchEffect(() => {
   };
 });
 const emit = defineEmits(['update:modelValue', 'change']);
-
 </script>
 
 <style>

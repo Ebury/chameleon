@@ -219,7 +219,6 @@ function onDeselect(item) {
 function isItemChecked(item) {
   return selectedValues.value.has(item.value);
 }
-
 </script>
 
 <style>

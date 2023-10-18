@@ -23,7 +23,8 @@ const Template = args => ({
       class="tw-m-16"
       v-bind="args"
       v-on="{ change: onChange }"
-      v-model="model" />
+      v-model="model"
+    />
   `,
 });
 
@@ -103,13 +104,14 @@ export const all = args => ({
   template: `
     <div class="tw-grid-container">
       <div class="tw-grid">
-        <div class="tw-col-6" v-for="(btnGroup, index) in list" :key="index">
+        <div v-for="(btnGroup, index) in list" :key="index" class="tw-col-6">
           <h3>{{ btnGroup.title }}</h3>
           <ec-button-group v-model="btnGroup.value" :items="btnGroup.items" />
           Value: {{ btnGroup.value }}
         </div>
       </div>
-    </div>`,
+    </div>
+  `,
 });
 
 all.parameters = {

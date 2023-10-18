@@ -116,7 +116,6 @@
       </ec-loading>
     </template>
   </div>
-
 </template>
 
 <script setup>

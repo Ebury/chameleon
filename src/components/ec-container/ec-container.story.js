@@ -96,7 +96,8 @@ export const withNavigation = ({
           :is-collapsed="isCollapsable && isCollapsedFromProps"
           :is-collapsable="isCollapsable"
           :branding="branding"
-          :show-branding-logo="!isCollapsable">
+          :show-branding-logo="!isCollapsable"
+        >
 
           <template #user-info>
             <ec-user-info
@@ -108,6 +109,7 @@ export const withNavigation = ({
             >
               <template #client-selector>
                 <ec-dropdown-search
+                  v-model="selectedClient"
                   :items="clientItems"
                   :popover-options="{
                     placement: 'bottom',
@@ -116,7 +118,7 @@ export const withNavigation = ({
                     overflowPadding: popoverBoundaryPadding,
                   }"
                   :popover-style="popoverStyle"
-                  v-model="selectedClient">
+                >
                   <a href="#" class="dropdown-search-link" @click.prevent>
                     <span>{{ selectedClient.text || client.name }}</span>
                     <ec-icon name="simple-arrow-drop-down" :size="20" fill="currentColor" />
@@ -138,7 +140,7 @@ export const withNavigation = ({
             <div>{{ copyrightText }}</div>
           </template>
 
-          </ec-navigation>
+        </ec-navigation>
       </template>
       <template #content>
         <ec-main-container>
@@ -147,7 +149,7 @@ export const withNavigation = ({
         </ec-main-container>
       </template>
     </ec-container>
-    `,
+  `,
 });
 
 withNavigation.argTypes = {

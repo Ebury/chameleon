@@ -1,20 +1,12 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
 import { action } from '@storybook/addon-actions';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { vueRouter } from 'storybook-vue3-router';
+import { ref, watchEffect } from 'vue';
 
-import {
-  allAnchorsDark as allAnchorsDarkStory,
-  allAnchorsLight as allAnchorsLightStory,
-  allButtonsDark as allButtonsDarkStory,
-  allButtonsLight as allButtonsLightStory,
-  propsDark as propsDarkStory,
-  propsLight as propsLightStory,
-} from '../../styles/components/ec-btn/ec-btn.story';
 import { IconName } from '../ec-icon/icon-names';
 import EcBtn from './ec-btn.vue';
-import type { ButtonProps } from './types';
-import { ButtonCategory, ButtonSize } from './types';
+import { ButtonCategory, type ButtonProps, ButtonSize } from './types';
 
 export default {
   title: 'Button',
@@ -22,15 +14,15 @@ export default {
   decorators: [vueRouter()],
   argTypes: {
     category: {
-      options: ButtonCategory,
+      options: Object.values(ButtonCategory),
       control: { type: 'select' },
     },
     size: {
-      options: ButtonSize,
+      options: Object.values(ButtonSize),
       control: { type: 'select' },
     },
     icon: {
-      options: IconName,
+      options: Object.values(IconName),
       control: { type: 'select' },
     },
     tag: {
@@ -38,13 +30,22 @@ export default {
       control: { type: 'select' },
     },
   },
-};
+} as Meta<typeof EcBtn>;
 
 type StoryArgs = ButtonProps & { text: string };
 
-const Template = ({ text, ...args }: StoryArgs) => ({
+const Template: StoryFn<StoryArgs> = storyArgs => ({
   components: { EcBtn },
   setup() {
+    const text = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { text: textFromArgs, ...rest } = storyArgs;
+      text.value = textFromArgs;
+      args.value = rest;
+    });
+
     return {
       onClick: action('click'),
       text,
@@ -59,8 +60,6 @@ const Template = ({ text, ...args }: StoryArgs) => ({
 });
 
 export const basic = Template.bind({});
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 basic.args = {
   text: 'Click Me',
   category: ButtonCategory.Primary,
@@ -68,19 +67,28 @@ basic.args = {
   isSubmit: false,
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = ({
-  text,
-  loadingText,
-  ...args
-}: StoryArgs & { loadingText: string }) => ({
+export const all: StoryFn<StoryArgs & { loadingText: string }> = storyArgs => ({
   components: { EcBtn },
   setup() {
+    const text = ref('');
+    const loadingText = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        text: textFromArgs,
+        loadingText: loadingTextFromArgs,
+        ...rest
+      } = storyArgs;
+      text.value = textFromArgs;
+      loadingText.value = loadingTextFromArgs;
+      args.value = rest;
+    });
+
     return {
       args,
       text,
@@ -96,11 +104,11 @@ export const all = ({
         v-bind="args"
         class="tw-mt-20"
         @click="onClick"
-        >
-          <template v-if="loadingText" #loading-text>
-            {{loadingText}}
-          </template>
-          {{text}}
+      >
+        <template v-if="loadingText" #loading-text>
+          {{ loadingText }}
+        </template>
+        {{ text }}
       </ec-btn>
 
       <ec-btn
@@ -115,8 +123,8 @@ export const all = ({
         v-bind="{ ...args, to: '/my/url/' }"
         class="tw-mt-20"
         @click="onClick"
-        >
-          {{text}}
+      >
+        {{ text }}
       </ec-btn>
 
       <ec-btn
@@ -132,7 +140,7 @@ export const all = ({
         v-bind="{ ...args, href: 'https://ebury.com' }"
         class="tw-mt-20"
         @click.prevent.stop="onClick"
-        >{{text}}</ec-btn>
+      >{{ text }}</ec-btn>
 
       <ec-btn
         v-if="args.icon"
@@ -164,23 +172,11 @@ all.argTypes = {
 };
 
 all.args = {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   ...basic.args,
-  icon: 'simple-check',
+  icon: IconName.SimpleCheck,
   loadingText: '',
 };
 
 all.parameters = {
   visualRegressionTests: { disable: true },
 };
-
-// There are some cases where storyName is ignored, to solve it we need to
-// export stories from other files as consts instead of exporting them directly
-// See this for more info: https://github.com/storybookjs/storybook/pull/22689
-export const propsDark = propsDarkStory;
-export const propsLight = propsLightStory;
-export const allAnchorsDark = allAnchorsDarkStory;
-export const allAnchorsLight = allAnchorsLightStory;
-export const allButtonsDark = allButtonsDarkStory;
-export const allButtonsLight = allButtonsLightStory;

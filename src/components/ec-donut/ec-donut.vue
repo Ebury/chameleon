@@ -190,5 +190,4 @@ const usedArcLength = computed(() => circumference.value * (1 - percentageUsed.v
     stroke-dashoffset: 301.59289474462014;
   }
 }
-
 </style>

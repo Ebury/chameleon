@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcCheckbox from '../ec-checkbox';
 import EcFilterPopover from './ec-filter-popover.vue';
@@ -8,26 +8,47 @@ export default {
   component: EcFilterPopover,
 };
 
-export const all = ({
-  popoverOptions,
-  labelOne,
-  itemListOne,
-  labelTwo,
-  itemListTwo,
-  labelThree,
-  itemListThree,
-  ...args
-}) => ({
+export const all = storyArgs => ({
   components: { EcFilterPopover, EcCheckbox },
   setup() {
+    const popoverOptions = ref({});
+    const labelOne = ref('');
+    const itemListOne = ref([]);
+    const labelTwo = ref('');
+    const itemListTwo = ref([]);
+    const labelThree = ref('');
+    const itemListThree = ref([]);
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        popoverOptions: popoverOptionsFromArgs,
+        labelOne: labelOneFromArgs,
+        itemListOne: itemListOneFromArgs,
+        labelTwo: labelTwoFromArgs,
+        itemListTwo: itemListTwoFromArgs,
+        labelThree: labelThreeFromArgs,
+        itemListThree: itemListThreeFromArgs,
+        ...rest
+      } = storyArgs;
+      popoverOptions.value = popoverOptionsFromArgs;
+      labelOne.value = labelOneFromArgs;
+      itemListOne.value = itemListOneFromArgs;
+      labelTwo.value = labelTwoFromArgs;
+      itemListTwo.value = itemListTwoFromArgs;
+      labelThree.value = labelThreeFromArgs;
+      itemListThree.value = itemListThreeFromArgs;
+      args.value = rest;
+    });
+
     return {
       args,
       labelOne,
-      itemListOne: ref(itemListOne),
+      itemListOne,
       labelTwo,
-      itemListTwo: ref(itemListTwo),
+      itemListTwo,
       labelThree,
-      itemListThree: ref(itemListThree),
+      itemListThree,
       popoverOptions,
     };
   },
@@ -37,14 +58,14 @@ export const all = ({
         class="tw-mr-16"
         v-bind="args"
         :label="labelOne"
-        :numberOfSelectedFilters="0"
+        :number-of-selected-filters="0"
         :popover-options="{ ...popoverOptions, shown: true }"
       >
         <template #filter>
           <ec-checkbox
-            v-model="item.selected"
             v-for="(item, index) in itemListOne"
             :key="index"
+            v-model="item.selected"
             class="tw-p-12"
           >
             <template #label>
@@ -58,13 +79,13 @@ export const all = ({
         class="tw-mr-16"
         v-bind="args"
         :label="labelTwo"
-        :numberOfSelectedFilters="3"
+        :number-of-selected-filters="3"
       >
         <template #filter>
           <ec-checkbox
-            v-model="item.selected"
             v-for="(item, index) in itemListTwo"
             :key="index"
+            v-model="item.selected"
             class="tw-p-12"
           >
             <template #label>
@@ -78,13 +99,13 @@ export const all = ({
         class="tw-mr-16"
         v-bind="args"
         :label="labelThree"
-        :numberOfSelectedFilters="0"
+        :number-of-selected-filters="0"
       >
         <template #filter>
           <ec-checkbox
-            v-model="item.selected"
             v-for="(item, index) in itemListThree"
             :key="index"
+            v-model="item.selected"
             class="tw-p-12"
           >
             <template #label>

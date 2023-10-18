@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { ref } from 'vue';
+import { toRefs } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcPanel from './ec-panel.vue';
@@ -12,14 +12,18 @@ export default {
   ],
 };
 
-export const basic = ({
-  show, numberOfBodyParagraphs, numberOfPanelParagraphs, showHeader, showFooter, ...args
-}) => ({
+export const basic = storyArgs => ({
   components: { EcPanel },
   setup() {
-    const model = ref(show);
+    const {
+      show: model,
+      numberOfBodyParagraphs,
+      numberOfPanelParagraphs,
+      showHeader,
+      showFooter,
+    } = toRefs(storyArgs);
+
     return {
-      args,
       model,
       numberOfBodyParagraphs,
       numberOfPanelParagraphs,
@@ -37,11 +41,12 @@ export const basic = ({
         <div v-for="i in numberOfBodyParagraphs" class="tw-m-24">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum nobis obcaecati optio magnam, porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore porro inventore? Suscipit sit atque a! Ullam provident quidem recusandae, itaque error labore</div>
 
         <ec-panel
+          v-model:show="model"
           v-on="{
             back: onBack,
             close: onClose,
           }"
-          v-model:show="model">
+        >
           <template v-if="showHeader" #header>
             <h3 class="tw-mb-24">Header</h3>
 

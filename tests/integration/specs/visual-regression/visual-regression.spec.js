@@ -18,7 +18,7 @@ describe('Visual regression tests', () => {
     cy.visit('/');
     // wait for storybook to initialize. initialization is done when left menu is loaded
     // we can check it by waiting on menu items.
-    cy.get('a.sidebar-item');
+    cy.get('.sidebar-item', { timeout: 10000 });
 
     cy.window()
       .then({ timeout: 30000 }, async (win) => {

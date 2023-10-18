@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcTextarea from './ec-textarea.vue';
 
@@ -7,12 +7,21 @@ export default {
   component: EcTextarea,
 };
 
-const Template = ({ modelValue, ...args }) => ({
+const Template = storyArgs => ({
   components: { EcTextarea },
   setup() {
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
+
     return {
       args,
-      model: ref(modelValue),
+      model,
     };
   },
   template: `
@@ -38,55 +47,70 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = ({
-  label, disabledLabel, errorLabel, warningLabel, errorMessage, ...args
-}) => ({
+export const all = storyArgs => ({
   components: { EcTextarea },
   setup() {
+    const disabledLabel = ref('');
+    const errorLabel = ref('');
+    const warningLabel = ref('');
+    const errorMessage = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        disabledLabel: disabledLabelFromArgs,
+        errorLabel: errorLabelFromArgs,
+        warningLabel: warningLabelFromArgs,
+        errorMessage: errorMessageFromArgs,
+        ...rest
+      } = storyArgs;
+      disabledLabel.value = disabledLabelFromArgs;
+      errorLabel.value = errorLabelFromArgs;
+      warningLabel.value = warningLabelFromArgs;
+      errorMessage.value = errorMessageFromArgs;
+      args.value = rest;
+    });
+
     return {
-      label,
+      args,
       disabledLabel,
       errorLabel,
       warningLabel,
       errorMessage,
-      args,
     };
   },
   template: `
-  <div class="tw-grid-container">
-    <div class="tw-grid">
-      <div class="tw-col-full md:tw-col-4">
-        <ec-textarea
-          v-bind="args"
-          :label="label"
-        />
-      </div>
+    <div class="tw-grid-container">
+      <div class="tw-grid">
+        <div class="tw-col-full md:tw-col-4">
+          <ec-textarea v-bind="args" />
+        </div>
 
-      <div class="tw-col-full md:tw-col-4">
-        <ec-textarea
-          v-bind="args"
-          :label="disabledLabel"
-          disabled
-        />
-      </div>
+        <div class="tw-col-full md:tw-col-4">
+          <ec-textarea
+            v-bind="args"
+            :label="disabledLabel"
+            disabled
+          />
+        </div>
 
-      <div class="tw-col-full md:tw-col-4">
-        <ec-textarea
-          v-bind="args"
-          :label="warningLabel"
-          is-warning
-        />
-      </div>
+        <div class="tw-col-full md:tw-col-4">
+          <ec-textarea
+            v-bind="args"
+            :label="warningLabel"
+            is-warning
+          />
+        </div>
 
-      <div class="tw-col-full md:tw-col-4">
-        <ec-textarea
-          v-bind="args"
-          :label="errorLabel"
-          :error-message="errorMessage"
-        />
+        <div class="tw-col-full md:tw-col-4">
+          <ec-textarea
+            v-bind="args"
+            :label="errorLabel"
+            :error-message="errorMessage"
+          />
+        </div>
       </div>
     </div>
-  </div>
   `,
 });
 

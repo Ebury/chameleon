@@ -25,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-
 import { computed } from 'vue';
 
 import EcIcon from '../ec-icon/ec-icon.vue';
