@@ -35,7 +35,6 @@
 
     <div
       class="ec-table-pagination__current-page"
-      :class="{ 'ec-table-pagination__current-page--ellipsis': canShowTextEllipsis }"
       data-test="ec-table-pagination__current-page"
     >
       <slot
@@ -149,7 +148,6 @@ const isDesktop = useMediaQuery('(min-width: 768px)');
 
 const canShowPageSize = computed(() => (props.isPageSizeHidden === false || (props.isPageSizeHidden === undefined && isDesktop.value)));
 const canShowCustomInfo = computed(() => (props.isCustomInfoHidden === false || (props.isCustomInfoHidden === undefined && isDesktop.value)));
-const canShowTextEllipsis = computed(() => (!isDesktop.value && (!canShowCustomInfo.value || !canShowPageSize.value)));
 
 const hasPrev = computed(() => props.page > 1);
 
@@ -186,9 +184,7 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
   }
 
   &__current-page {
-    &--ellipsis {
-      @apply tw-truncate;
-    }
+    @apply tw-truncate;
   }
 
   &__page-size {

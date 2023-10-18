@@ -26,38 +26,6 @@ exports[`EcTablePagination #slots should use given total slot 1`] = `
 </div>
 `;
 
-exports[`EcTablePagination should add ellipsis to current page text when a hidable section is hidden 1`] = `
-<div
-  class="ec-table-pagination__current-page ec-table-pagination__current-page--ellipsis"
-  data-test="ec-table-pagination__current-page"
->
-  
-  <span>
-    1 of 1 pages
-  </span>
-  <span>
-    (0 items)
-  </span>
-  
-</div>
-`;
-
-exports[`EcTablePagination should add ellipsis to current page text when all hidable sections are hidden 1`] = `
-<div
-  class="ec-table-pagination__current-page ec-table-pagination__current-page--ellipsis"
-  data-test="ec-table-pagination__current-page"
->
-  
-  <span>
-    1 of 1 pages
-  </span>
-  <span>
-    (0 items)
-  </span>
-  
-</div>
-`;
-
 exports[`EcTablePagination should display first page information by calculating total number of pages 1`] = `
 <div
   class="ec-table-pagination__current-page"
