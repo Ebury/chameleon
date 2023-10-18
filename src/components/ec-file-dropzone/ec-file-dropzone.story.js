@@ -8,7 +8,7 @@ export default {
   component: EcFileDropzone,
 };
 
-export const basic = () => ({
+export const basic = args => ({
   components: { EcFileDropzone },
   setup() {
     const fileList = ref([]);
@@ -19,6 +19,7 @@ export const basic = () => ({
     }
 
     return {
+      args,
       fileList,
       onChange,
     };
@@ -26,6 +27,7 @@ export const basic = () => ({
   template: `
     <div class="tw-p-24">
       <ec-file-dropzone
+        v-bind="args"
         v-on="{
           change: onChange,
         }"

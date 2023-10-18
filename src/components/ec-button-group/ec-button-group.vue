@@ -2,6 +2,7 @@
   <div
     class="ec-btn-group"
     v-bind="{
+      // eslint-disable-next-line vue/no-duplicate-attr-inheritance
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-btn-group` : 'ec-btn-group',
     }"
   >
@@ -20,7 +21,6 @@
 </template>
 
 <script setup>
-
 import { arrayOfObjectsContainsKey } from '../../utils/validators';
 import EcBtn from '../ec-btn';
 

@@ -42,7 +42,6 @@
       <slot name="error-message">{{ errorMessage }}</slot>
     </div>
   </div>
-
 </template>
 
 <script setup lang="ts">

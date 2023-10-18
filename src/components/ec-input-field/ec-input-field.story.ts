@@ -1,19 +1,20 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
-import { ref, watchEffect } from 'vue';
+import type { Meta, StoryFn } from '@storybook/vue3';
+import { toRefs } from 'vue';
 
+import type { Maybe } from '../../../global';
 import { IconName } from '../ec-icon/icon-names';
 import { IconType } from '../ec-icon/types';
 import EcInputField from './ec-input-field.vue';
-import type { InputFieldProps } from './types';
-import { InputFieldType } from './types';
+import { type InputFieldProps, InputFieldType } from './types';
 
 export default {
   title: 'Input Field',
   component: EcInputField,
   argTypes: {
     type: {
-      options: InputFieldType,
+      options: Object.values(InputFieldType),
       control: { type: 'select' },
     },
     isInGroup: {
@@ -21,40 +22,31 @@ export default {
       control: { type: 'select' },
     },
     iconType: {
-      options: IconType,
+      options: Object.values(IconType),
       control: { type: 'select' },
     },
     icon: {
-      options: IconName,
+      options: Object.values(IconName),
       control: { type: 'select' },
     },
     leftIconType: {
-      options: IconType,
+      options: Object.values(IconType),
       control: { type: 'select' },
     },
     leftIcon: {
-      options: IconName,
+      options: Object.values(IconName),
       control: { type: 'select' },
     },
   },
-};
+} as Meta<typeof EcInputField>;
 
-const Template = (args: InputFieldProps) => ({
+type EcInputFieldStory = StoryFn<InputFieldProps & { placeholder:string }>;
+
+const Template: EcInputFieldStory = args => ({
   components: { EcInputField },
   setup() {
-    const baseArgs = {
-      label: 'Username',
-      modelValue: '',
-      placeholder: 'My input',
-      bottomNote: 'Your email',
-      icon: IconName.SimpleCheck,
-      leftIcon: IconName.SimpleSearch,
-      note: 'Max 80 chars.',
-      ...args,
-    } as InputFieldProps;
-
     return {
-      args: baseArgs,
+      args,
       onInput: action('input'),
       onChange: action('change'),
     };
@@ -73,56 +65,75 @@ const Template = (args: InputFieldProps) => ({
 });
 
 export const basic = Template.bind({});
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+basic.args = {
+  label: 'Username',
+  modelValue: '',
+  placeholder: 'My input',
+  bottomNote: 'Your email',
+  icon: IconName.SimpleCheck,
+  leftIcon: IconName.SimpleSearch,
+  note: 'Max 80 chars.',
+};
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = () => ({
+type AllInputFieldStory = StoryFn<InputFieldProps & {
+  valueNumber: number,
+  labelNumber: string,
+  noteNumber: string,
+  errorMessageNumber: string,
+  iconNumber: Maybe<IconName>,
+  valueText: string,
+  labelText: string,
+  noteText: string,
+  bottomNoteText: string,
+  errorMessageText: string,
+  iconText: Maybe<IconName>,
+  valueDate: string,
+  labelDate: string,
+  noteDate: string,
+  errorMessageDate: string,
+  iconDate: Maybe<IconName>,
+}>;
+
+export const all: AllInputFieldStory = storyArgs => ({
   components: { EcInputField },
   setup() {
-    const valueNumber = ref(0);
-    const valueText = ref('');
-    const valueDate = ref('');
+    const {
+      isSensitive,
+      isWarning,
+      labelTooltip,
+      isInGroup,
 
-    const isSensitive = false;
-    const isWarning = false;
-    const labelTooltip = 'Tooltip text';
+      valueNumber,
+      valueText,
+      valueDate,
 
-    // number input
-    const valueFromPropsNumber = 0;
-    const labelNumber = 'Number input';
-    const noteNumber = 'Max 80 chars';
-    const errorMessageNumber = 'error message';
-    const iconNumber = '';
+      labelNumber,
+      labelText,
+      labelDate,
 
-    // text input
-    const valueFromPropsText = '';
-    const labelText = 'Text input';
-    const noteText = 'Max 80 chars';
-    const bottomNoteText = 'Random bottom note text';
-    const errorMessageText = 'error message';
-    const iconText = '';
+      noteNumber,
+      noteText,
+      noteDate,
 
-    // date input
-    const valueFromPropsDate = '';
-    const labelDate = 'Date input';
-    const noteDate = 'Max 80 chars';
-    const errorMessageDate = 'error message';
-    const iconDate = '';
+      errorMessageNumber,
+      errorMessageText,
+      errorMessageDate,
 
-    watchEffect(() => {
-      valueNumber.value = valueFromPropsNumber;
-      valueText.value = valueFromPropsText;
-      valueDate.value = valueFromPropsDate;
-    });
+      iconNumber,
+      iconText,
+      iconDate,
+
+      bottomNoteText,
+    } = toRefs(storyArgs);
 
     return {
       isSensitive,
       isWarning,
       labelTooltip,
+      isInGroup,
       valueNumber,
       labelNumber,
       noteNumber,
@@ -147,27 +158,27 @@ export const all = () => ({
     <div class="tw-grid-container">
       <div class="tw-grid">
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field type="number" min="5" max="10" v-model.number="valueNumber" :note="noteNumber" :label="labelNumber" :error-message="errorMessageNumber" :icon="iconNumber" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field v-model.number="valueNumber" type="number" min="5" max="10" :note="noteNumber" :label="labelNumber" :error-message="errorMessageNumber" :icon="iconNumber" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field type="text" placeholder="My input" v-model="valueText" :note="noteText" :label="labelText" :error-message="errorMessageText" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" type="text" placeholder="My input" :note="noteText" :label="labelText" :error-message="errorMessageText" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field type="date" placeholder="My input" v-model="valueDate" :note="noteDate" :label="labelDate" :error-message="errorMessageDate" :icon="iconDate" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueDate" type="date" placeholder="My input" :note="noteDate" :label="labelDate" :error-message="errorMessageDate" :icon="iconDate" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field disabled placeholder="My disabled input" v-model="valueText" label="Disabled input" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" disabled placeholder="My disabled input" label="Disabled input" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field disabled placeholder="My disabled input" v-model="valueText" label="Disabled input" error-message="Disabled with error" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" disabled placeholder="My disabled input" label="Disabled input" error-message="Disabled with error" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" v-model="valueText" label="Input with icons" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" label="Input with icons" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
@@ -175,26 +186,26 @@ export const all = () => ({
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="An other input" v-model="valueText" label="Input tooltip on the label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" placeholder="Another input" label="Input tooltip on the label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" v-model="valueText" label="Short label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" label="Short label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" icon="${IconName.SimpleInfo}" v-model="valueText" label="Input with bottom note" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" placeholder="My input" icon="${IconName.SimpleInfo}" label="Input with bottom note" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
-          <ec-input-field placeholder="My input" left-icon-type="${IconType.SUCCESS}" left-icon="${IconName.SimpleChevronRight}" icon="${IconName.SimpleCheck}" iconType="${IconType.SUCCESS}" v-model="valueText" label="Input with success green icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" placeholder="My input" left-icon-type="${IconType.SUCCESS}" left-icon="${IconName.SimpleChevronRight}" icon="${IconName.SimpleCheck}" icon-type="${IconType.SUCCESS}" label="Input with success green icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-col-full md:tw-col-4">
           <ec-input-field readonly placeholder="My input" left-icon="${IconName.SimpleSearch}" :model-value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
         </div>
 
-        <div class="tw-col-full"></div>
+        <div class="tw-col-full" />
 
         <div class="tw-col-full md:tw-col-4">
           Model value number: {{ valueNumber }}
@@ -211,3 +222,45 @@ export const all = () => ({
     </div>
   `,
 });
+
+all.args = {
+  isSensitive: false,
+  isWarning: false,
+  labelTooltip: 'Tooltip text',
+
+  // number input
+  valueNumber: 0,
+  labelNumber: 'Number input',
+  noteNumber: 'Max 80 chars',
+  errorMessageNumber: 'error message',
+  iconNumber: null,
+
+  // text input
+  valueText: '',
+  labelText: 'Text input',
+  noteText: 'Max 80 chars',
+  bottomNoteText: 'Random bottom note text',
+  errorMessageText: 'error message',
+  iconText: null,
+
+  // date input
+  valueDate: '',
+  labelDate: 'Date input',
+  noteDate: 'Max 80 chars',
+  errorMessageDate: 'error message',
+  iconDate: null,
+};
+all.argTypes = {
+  iconNumber: {
+    options: Object.values(IconName),
+    control: { type: 'select' },
+  },
+  iconText: {
+    options: Object.values(IconName),
+    control: { type: 'select' },
+  },
+  iconDate: {
+    options: Object.values(IconName),
+    control: { type: 'select' },
+  },
+};

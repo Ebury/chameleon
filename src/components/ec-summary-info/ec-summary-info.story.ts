@@ -1,8 +1,8 @@
 
-import EcIcon from '../ec-icon';
+import type { Meta, StoryFn } from '@storybook/vue3';
+
 import { IconName } from '../ec-icon/types';
 import EcSummaryInfo from './ec-summary-info.vue';
-import type { SummaryProps } from './types';
 import { StylePreset } from './types';
 
 export default {
@@ -10,41 +10,38 @@ export default {
   component: EcSummaryInfo,
   argTypes: {
     iconName: {
-      control: {
-        type: 'select',
-        options: IconName,
-      },
+      control: { type: 'select' },
+      options: Object.values(IconName),
     },
     lineItems: {
-      control: {
-        type: 'object',
-      },
+      control: { type: 'object' },
     },
   },
-};
+} as Meta<typeof EcSummaryInfo>;
 
 const basicArgs = {
   iconName: IconName.SimplePayment,
+  lineItems: [],
 };
 
-const Template = (args: Partial<SummaryProps>) => ({
+type EcSummaryInfoStory = StoryFn<typeof EcSummaryInfo>;
+
+const Template: EcSummaryInfoStory = args => ({
   components: { EcSummaryInfo },
   setup() {
     return { args };
   },
   template: `
-    <div 
-    style="margin: -100px 0 0 -150px;" 
-    class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2">
-      <ec-summary-info
-        v-bind="args"
-      />
+    <div
+      style="margin: -100px 0 0 -150px;"
+      class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2"
+    >
+      <ec-summary-info v-bind="args" />
     </div>
   `,
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const basic = Template.bind({}) as any;
+export const basic = Template.bind({});
 basic.args = {
   ...basicArgs,
   lineItems: [
@@ -66,16 +63,17 @@ basic.args = {
   ],
 };
 
-export const withSlots = () => ({
-  components: { EcSummaryInfo, EcIcon },
+export const withSlots: EcSummaryInfoStory = args => ({
+  components: { EcSummaryInfo },
   setup() {
-    return { args: basicArgs };
+    return { args };
   },
   template: `
-  <div 
-    style="margin: -100px 0 0 -150px;" 
-    class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2">
-    <ec-summary-info v-bind="args">
+    <div
+      style="margin: -100px 0 0 -150px;"
+      class="tw-p-8 tw-absolute tw-top-1/2 tw-left-1/2"
+    >
+      <ec-summary-info v-bind="args">
         <div class="tw-small-text">
           <div>
             <span class="tw-text-gray-5 tw-small-text">
@@ -88,48 +86,48 @@ export const withSlots = () => ({
             </span>
           </div>
         </div>
-    </ec-summary-info>
-  </div>
+      </ec-summary-info>
+    </div>
   `,
 });
+withSlots.args = basicArgs;
 
-export const truncatedText = () => ({
-  components: { EcSummaryInfo, EcIcon },
+export const truncatedText: EcSummaryInfoStory = args => ({
+  components: { EcSummaryInfo },
   setup() {
-    return {
-      args: {
-        ...basicArgs,
-        lineItems: [
-          {
-            stylePreset: StylePreset.LABEL,
-            text: 'A very very very long label',
-          },
-          {
-            stylePreset: StylePreset.TEXT,
-            text: 'A very very very long text',
-            tooltipText: 'Some tooltip text',
-          },
-          {
-            stylePreset: StylePreset.DESCRIPTION,
-            text: 'A very very very long description',
-          },
-        ],
-      },
-    };
+    return { args };
   },
   template: `
-  <div class="tw-mx-0 tw-my-auto tw-flex tw-justify-center tw-items-center tw-h-screen tw-w-screen">
-    <div
-      class="tw-grid tw-bg-gray-7 tw-flex-1"
-      style="max-width: 616px;">
-      <ec-summary-info
-        class="tw-col-4"
-        v-for="(item, index) in 3"
-        v-bind="args"
-        :key="index"
-      />
+    <div class="tw-mx-0 tw-my-auto tw-flex tw-justify-center tw-items-center tw-h-screen tw-w-screen">
+      <div
+        class="tw-grid tw-bg-gray-7 tw-flex-1"
+        style="max-width: 616px;"
+      >
+        <ec-summary-info
+          v-for="(item, index) in 3"
+          v-bind="args"
+          :key="index"
+          class="tw-col-4"
+        />
+      </div>
     </div>
-  </div>
   `,
 });
-
+truncatedText.args = {
+  ...basicArgs,
+  lineItems: [
+    {
+      stylePreset: StylePreset.LABEL,
+      text: 'A very very very long label',
+    },
+    {
+      stylePreset: StylePreset.TEXT,
+      text: 'A very very very long text',
+      tooltipText: 'Some tooltip text',
+    },
+    {
+      stylePreset: StylePreset.DESCRIPTION,
+      text: 'A very very very long description',
+    },
+  ],
+};

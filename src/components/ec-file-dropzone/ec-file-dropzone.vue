@@ -121,7 +121,6 @@ function onDragleave() {
 function disableDragging() {
   dragEnterLeaveEventCounter.value = 0;
 }
-
 </script>
 
 <style>

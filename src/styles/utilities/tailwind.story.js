@@ -1,6 +1,6 @@
 import { generate, parse, walk } from 'css-tree';
 
-import tailwindCSS from './tailwind.story.css';
+import tailwindCSS from './tailwind.story.css?inline';
 
 const parsedCSS = parse(tailwindCSS);
 const rules = [];

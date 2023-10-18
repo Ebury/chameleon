@@ -23,7 +23,7 @@
 
     <div
       ref="popoverRef"
-      v-ec-tooltip="{ content: isDisabled ? disabledTooltipMessage : null }"
+      v-ec-tooltip="{ content: isDisabled ? disabledTooltipMessage : false }"
       data-test="ec-phone-number-input__input-group"
       class="ec-phone-number-input__input-group"
     >
@@ -158,8 +158,6 @@ import { computed, ref } from 'vue';
 
 import type { Maybe, ZIndexLevel } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import vEcTooltip from '../../directives/ec-tooltip';
 import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';
@@ -284,7 +282,7 @@ const selectedCountryName = computed(() => props.modelValue?.country?.text);
 /* c8 ignore stop */
 
 const isInvalid = computed(() => !!props.errorMessage);
-const popoverRef = ref();
+const popoverRef = ref<HTMLElement | null>();
 
 function getPopoverStyle() {
   if (popoverRef.value) {

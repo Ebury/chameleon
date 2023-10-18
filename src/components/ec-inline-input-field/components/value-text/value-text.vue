@@ -46,7 +46,6 @@ withDefaults(defineProps<InlineInputValueTextProps>(), {
 });
 
 const emit = defineEmits<{ (e: 'edit'): void }>();
-
 </script>
 
 <style>

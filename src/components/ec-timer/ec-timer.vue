@@ -49,8 +49,8 @@
         text-anchor="middle"
       >
         <!--
-        @slot Additional text
-      -->
+          @slot Additional text
+        -->
         {{ totalSecondsLeft }}<slot>s</slot>
       </text>
     </svg>

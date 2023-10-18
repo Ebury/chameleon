@@ -1,18 +1,18 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
 
 import EcInlineInputField from './ec-inline-input-field.vue';
-import type { InlineInputProps } from './types';
 
 export default {
   title: 'Inline Input Field',
   component: EcInlineInputField,
-};
+} as Meta<typeof EcInlineInputField>;
 
-type StoryArgs = InlineInputProps;
+type EcInlineInputFieldStory = StoryFn<typeof EcInlineInputField>;
 
-const Template = (args: StoryArgs) => ({
+const Template: EcInlineInputFieldStory = args => ({
   components: { EcInlineInputField },
   setup() {
     return {
@@ -37,8 +37,6 @@ const Template = (args: StoryArgs) => ({
 
 export const basic = Template.bind({});
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 basic.args = {
   label: 'Inline Input Field',
   value: 'Initial value',
@@ -50,13 +48,11 @@ basic.args = {
   tooltipTextSuccess: 'Copied!',
   tooltipTextError: 'Unable to copy',
 };
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = (args: StoryArgs) => ({
+export const all: EcInlineInputFieldStory = args => ({
   components: { EcInlineInputField },
   setup() {
     const isEditing = ref(false);
@@ -110,28 +106,28 @@ export const all = (args: StoryArgs) => ({
             {{ args.value }}
           </ec-inline-input-field>
         </div>
-        
+
         <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field 
+          <ec-inline-input-field
             label="Inline Input Field - Basic Slot usage"
-            tooltipTextSuccess=""
-            tooltipTextError=""
+            tooltip-text-success=""
+            tooltip-text-error=""
           >
             {{ args.value }}
           </ec-inline-input-field>
         </div>
-        
+
         <div class="tw-col-full md:tw-col-4">
-          <ec-inline-input-field 
+          <ec-inline-input-field
             label="Inline Input Field - HTML Slot usage"
-            tooltipTextSuccess=""
-            tooltipTextError=""
+            tooltip-text-success=""
+            tooltip-text-error=""
           >
             <a href="#">{{ args.value }}</a>
           </ec-inline-input-field>
         </div>
-        
-        <div class="tw-col-full"></div>
+
+        <div class="tw-col-full" />
         <div class="tw-col-full md:tw-col-4">
           Value: {{ args.value }}
         </div>
@@ -149,8 +145,8 @@ export const all = (args: StoryArgs) => ({
             label="Inline Input Field - Left aligned button"
             :is-editable="true"
             :is-btn-right-aligned="false"
-               tooltipTextSuccess=""
-            tooltipTextError=""
+            tooltip-text-success=""
+            tooltip-text-error=""
           />
         </div>
         <div class="tw-col-full md:tw-col-4">
@@ -158,9 +154,9 @@ export const all = (args: StoryArgs) => ({
             :is-editable="true"
             :is-editing="true"
             label="Inline Input Field - With Error"
-            errorMessage="This field has an error"
-            tooltipTextSuccess=""
-            tooltipTextError=""
+            error-message="This field has an error"
+            tooltip-text-success=""
+            tooltip-text-error=""
           />
         </div>
       </div>
@@ -169,8 +165,6 @@ export const all = (args: StoryArgs) => ({
 });
 
 all.args = {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   ...basic.args,
   labelTooltip: 'Label tooltip text',
 };

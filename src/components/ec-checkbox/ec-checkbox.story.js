@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { ref } from 'vue';
+import { ref, toRefs, watchEffect } from 'vue';
 
 import EcCheckbox from './ec-checkbox.vue';
 
@@ -8,10 +8,18 @@ export default {
   component: EcCheckbox,
 };
 
-const Template = ({ modelValue, ...args }) => ({
+const Template = storyArgs => ({
   components: { EcCheckbox },
   setup() {
-    const model = ref(modelValue);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
+
     return { args, model };
   },
   template: `
@@ -32,30 +40,26 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = ({
-  valueFromPropsChecked1,
-  valueFromPropsChecked2,
-  valueFromPropsHasError,
-  valueFromPropsLabel,
-  valueFromPropsErrorMessage,
-  valueFromPropsDisabled1,
-  valueFromPropsDisabled2,
-  ...args
-}) => ({
+export const all = storyArgs => ({
   components: { EcCheckbox },
   setup() {
-    const checkbox1 = ref(valueFromPropsChecked1);
-    const checkbox2 = ref(valueFromPropsChecked2);
+    const checkbox1 = ref(false);
+    const checkbox2 = ref(false);
+
+    const {
+      hasError,
+      label,
+      errorMessage,
+      disabled,
+    } = toRefs(storyArgs);
 
     return {
-      args,
       checkbox1,
       checkbox2,
-      valueFromPropsHasError,
-      valueFromPropsLabel,
-      valueFromPropsErrorMessage,
-      valueFromPropsDisabled1,
-      valueFromPropsDisabled2,
+      hasError,
+      label,
+      errorMessage,
+      disabled,
       onAction: action('open-terms'),
     };
   },
@@ -71,14 +75,15 @@ export const all = ({
       <h3>Not checked - with multiline label text</h3>
       <ec-checkbox class="tw-mb-24 tw-col-12">
         <template #label>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
         </template>
       </ec-checkbox>
 
       <h3>Checked</h3>
       <ec-checkbox
         :model-value="true"
-        class="tw-mb-24 tw-col-12">
+        class="tw-mb-24 tw-col-12"
+      >
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
@@ -87,15 +92,18 @@ export const all = ({
       <h3>Indeterminate</h3>
       <ec-checkbox
         indeterminate
-        class="tw-mb-24 tw-col-12">
+        class="tw-mb-24 tw-col-12"
+      >
         <template #label>
           Select all
         </template>
       </ec-checkbox>
 
       <h3>Error</h3>
-      <ec-checkbox class="tw-mb-24 tw-col-12"
-        error-message="An error has occurred">
+      <ec-checkbox
+        class="tw-mb-24 tw-col-12"
+        error-message="An error has occurred"
+      >
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
@@ -104,60 +112,68 @@ export const all = ({
       <h3>Error - with multiline label text</h3>
       <ec-checkbox
         error-message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores."
-        class="tw-mb-24 tw-col-12">
+        class="tw-mb-24 tw-col-12"
+      >
         <template #label>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
         </template>
       </ec-checkbox>
 
       <h3>Disabled</h3>
-      <ec-checkbox class="tw-mb-24 tw-col-12"
-        disabled>
+      <ec-checkbox
+        class="tw-mb-24 tw-col-12"
+        disabled
+      >
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
       <h3>Disabled - checked</h3>
-      <ec-checkbox class="tw-mb-24 tw-col-12"
+      <ec-checkbox
+        class="tw-mb-24 tw-col-12"
         :model-value="true"
-        disabled>
+        disabled
+      >
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
       <h3>Disabled - indeterminate</h3>
-      <ec-checkbox class="tw-mb-24 tw-col-12"
+      <ec-checkbox
+        class="tw-mb-24 tw-col-12"
         indeterminate
-        disabled>
+        disabled
+      >
         <template #label>
           Select all
         </template>
       </ec-checkbox>
 
-      <h3>Label and Error messages coming from props</h3>
+      <h3>Label and Error messages coming from controls</h3>
       <ec-checkbox
-        v-if="!valueFromPropsHasError"
-        class="tw-mb-24"
+        v-if="!hasError"
         v-model="checkbox1"
-        :disabled="valueFromPropsDisabled1"
-        :label="valueFromPropsLabel">
-      </ec-checkbox>
+        class="tw-mb-24"
+        :disabled="disabled"
+        :label="label"
+      />
       <ec-checkbox
-        v-else="valueFromPropsHasError"
-        class="tw-mb-24"
+        v-else="hasError"
         v-model="checkbox1"
-        :disabled="valueFromPropsDisabled1"
-        :label="valueFromPropsLabel"
-        :error-message="valueFromPropsErrorMessage">
-      </ec-checkbox>
+        class="tw-mb-24"
+        :disabled="disabled"
+        :label="label"
+        :error-message="errorMessage"
+      />
 
       <h3>Label and Error messages coming from template</h3>
       <ec-checkbox
-        v-if="!valueFromPropsHasError"
+        v-if="!hasError"
         v-model="checkbox2"
-        :disabled="valueFromPropsDisabled2">
+        :disabled="disabled"
+      >
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
@@ -165,7 +181,8 @@ export const all = ({
       <ec-checkbox
         v-else
         v-model="checkbox2"
-        :disabled="valueFromPropsDisabled2">
+        :disabled="disabled"
+      >
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
@@ -178,11 +195,8 @@ export const all = ({
 });
 
 all.args = {
-  valueFromPropsChecked1: false,
-  valueFromPropsChecked2: false,
-  valueFromPropsHasError: false,
-  valueFromPropsLabel: 'I accept the terms and conditions',
-  valueFromPropsErrorMessage: 'An error has occurred',
-  valueFromPropsDisabled1: false,
-  valueFromPropsDisabled2: false,
+  label: 'I accept the terms and conditions',
+  hasError: false,
+  errorMessage: 'An error has occurred',
+  disabled: false,
 };

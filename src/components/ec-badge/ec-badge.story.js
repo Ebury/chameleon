@@ -23,7 +23,7 @@ const Template = args => ({
   template: `
     <ec-badge
       v-bind="args"
-      class="tw-m-8" 
+      class="tw-m-8"
     />
   `,
 });
@@ -76,15 +76,20 @@ export const all = args => ({
     <div class="tw-m-16">
       <template v-for="(block, blockIndex) in badges" :key="blockIndex">
         <h3 class="tw-m-8">{{ block.title }}</h3>
-        <ec-badge 
-          v-for="(badge, badgeIndex) in block.data" 
-          v-bind="badge" 
-          :key="blockIndex + '-' + badgeIndex" 
-          class="tw-m-8">
-          <template v-if="badge.custom" #default="{ value }">   
+        <ec-badge
+          v-for="(badge, badgeIndex) in block.data"
+          v-bind="badge"
+          :key="blockIndex + '-' + badgeIndex"
+          class="tw-m-8"
+        >
+          <template v-if="badge.custom" #default="{ value }">
             Custom: {{ value }}
           </template>
         </ec-badge>
       </template>
     </div>`,
 });
+
+all.parameters = {
+  controls: { disable: true },
+};

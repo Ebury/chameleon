@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { vueRouter } from 'storybook-vue3-router';
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcSubmenu from './ec-submenu.vue';
 
@@ -18,10 +18,18 @@ export default {
   ],
 };
 
-export const basic = ({ activeIndex, ...args }) => ({
+export const basic = storyArgs => ({
   components: { EcSubmenu },
   setup() {
-    const model = ref(activeIndex);
+    const model = ref(0);
+    const args = ref({});
+
+    watchEffect(() => {
+      const { activeIndex, ...rest } = storyArgs;
+      model.value = activeIndex;
+      args.value = rest;
+    });
+
     return {
       model,
       args,
@@ -34,8 +42,9 @@ export const basic = ({ activeIndex, ...args }) => ({
         v-bind="args"
         v-model:active-index="model"
         v-on="{
-          change: onChange
-        }">
+          change: onChange,
+        }"
+      >
         <template #menu-item-1-content>
           <h1> One - 1 </h1>
           <p>lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus, tempora esse? Fugit minus consequatur harum culpa sed laborum nulla expedita molestias, quia cupiditate commodi repudiandae labore dolore dolor. Eum sapiente repellendus tempora tenetur accusantium, molestias hic adipisci aspernatur, sed possimus explicabo culpa quas laudantium? Quidem sunt totam maxime magni minus dignissimos eos libero nobis accusantium aspernatur qui inventore odio adipisci at dolorum consectetur velit ipsa quia assumenda porro, consequatur nisi mollitia deserunt. Iusto possimus debitis assumenda harum atque libero voluptates fugit quibusdam ipsa voluptatibus eligendi ex doloremque ducimus molestias natus adipisci, earum facere repudiandae sint nobis error maiores iste. Quam.</p>

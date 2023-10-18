@@ -10,6 +10,11 @@ export default {
   decorators: [
     fixedContainerDecorator(),
   ],
+  argTypes: {
+    backgroundColorLevel: {
+      control: { type: 'range', min: 0, max: 8 },
+    },
+  },
 };
 
 const Template = args => ({
@@ -88,7 +93,7 @@ export const backgroundColorLevel = Template.bind({});
 backgroundColorLevel.args = {
   title: 'Lorem title',
   show: true,
-  backgroundColorLevel: 0,
+  backgroundColorLevel: 6,
 };
 
 export const withContentSlot = args => ({
@@ -104,27 +109,27 @@ export const withContentSlot = args => ({
         v-bind="args"
       >
         <template #content>
-         <div style="width:600px" class="tw-bg-gray-8 tw-p-32">
-         <h1>Slot content</h1>
-         <p v-for="i in 3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies. Curabitur dapibus, purus quis finibus rhoncus, purus augue blandit neque, quis fringilla urna justo consequat arcu. Nulla facilisi. Sed varius metus tempor, porta nunc in, pulvinar arcu. Duis quis lacus vehicula, lacinia arcu in, cursus tellus.</p>
-         <div class="tw-flex tw-justify-end">
-            <ec-btn
-              class="tw-mr-16"
-              is-rounded
-              :is-submit="false"
-              category="secondary"
-            >
-              Cancel
-            </ec-btn>
-            <ec-btn
-              category="primary"
-              is-rounded
-              :is-submit="false"
-            >
-              Submit
-            </ec-btn>
+          <div style="width:600px" class="tw-bg-gray-8 tw-p-32">
+            <h1>Slot content</h1>
+            <p v-for="i in 3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a tristique enim. Nulla consequat vitae metus in ultricies. Curabitur dapibus, purus quis finibus rhoncus, purus augue blandit neque, quis fringilla urna justo consequat arcu. Nulla facilisi. Sed varius metus tempor, porta nunc in, pulvinar arcu. Duis quis lacus vehicula, lacinia arcu in, cursus tellus.</p>
+            <div class="tw-flex tw-justify-end">
+              <ec-btn
+                class="tw-mr-16"
+                is-rounded
+                :is-submit="false"
+                category="secondary"
+              >
+                Cancel
+              </ec-btn>
+              <ec-btn
+                category="primary"
+                is-rounded
+                :is-submit="false"
+              >
+                Submit
+              </ec-btn>
+            </div>
           </div>
-         </div> 
         </template>
       </ec-full-screen-overlay>
     </div>
