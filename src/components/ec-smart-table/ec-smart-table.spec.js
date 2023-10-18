@@ -54,6 +54,16 @@ describe('EcSmartTable', () => {
     }, mountOpts);
   }
 
+  beforeEach(() => {
+    window.matchMedia = jest.fn().mockImplementation(query => ({
+      matches: query === '(min-width: 768px)',
+      media: '',
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    }));
+  });
+
   it('should render in empty state by default', () => {
     const wrapper = mountEcSmartTable({ columns });
     expect(wrapper.element).toMatchSnapshot();

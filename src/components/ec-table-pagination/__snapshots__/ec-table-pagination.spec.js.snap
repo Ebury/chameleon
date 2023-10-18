@@ -2,7 +2,7 @@
 
 exports[`EcTablePagination #slots should use given pages slot 1`] = `
 <div
-  class="ec-table-pagination__current-page tw-px-16"
+  class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
   
@@ -28,7 +28,7 @@ exports[`EcTablePagination #slots should use given total slot 1`] = `
 
 exports[`EcTablePagination should display first page information by calculating total number of pages 1`] = `
 <div
-  class="ec-table-pagination__current-page tw-px-16"
+  class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
   
@@ -44,7 +44,7 @@ exports[`EcTablePagination should display first page information by calculating 
 
 exports[`EcTablePagination should display last page information by calculating total number of pages 1`] = `
 <div
-  class="ec-table-pagination__current-page tw-px-16"
+  class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
   
@@ -216,7 +216,7 @@ exports[`EcTablePagination should display only prev button disabled if paginatio
 
 exports[`EcTablePagination should display page information by calculating total number of pages 1`] = `
 <div
-  class="ec-table-pagination__current-page tw-px-16"
+  class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
   
@@ -232,7 +232,7 @@ exports[`EcTablePagination should display page information by calculating total 
 
 exports[`EcTablePagination should display page information even if the total is 0 1`] = `
 <div
-  class="ec-table-pagination__current-page tw-px-16"
+  class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
   
@@ -248,7 +248,7 @@ exports[`EcTablePagination should display page information even if the total is 
 
 exports[`EcTablePagination should display page information when last page is incomplete 1`] = `
 <div
-  class="ec-table-pagination__current-page tw-px-16"
+  class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
 >
   
@@ -467,7 +467,7 @@ exports[`EcTablePagination should render as expected 1`] = `
     </div>
   </div>
   <div
-    class="ec-table-pagination__current-page tw-px-16"
+    class="ec-table-pagination__current-page"
     data-test="ec-table-pagination__current-page"
   >
     
