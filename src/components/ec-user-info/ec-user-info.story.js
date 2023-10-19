@@ -28,7 +28,7 @@ export const basic = args => ({
     <div class="tw-bg-key-2 tw-w-1/4 tw-h-screen">
       <ec-user-info
         v-bind="args"
-        :is-collapsed="isCollapsable && isCollapsedFromProps"
+        :is-collapsed="args.isCollapsable && isCollapsedFromProps"
         @toggle="isCollapsedFromProps = !isCollapsedFromProps; onToggle()"
       >
         <template #client-selector>

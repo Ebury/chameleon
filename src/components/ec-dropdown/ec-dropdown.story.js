@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcDropdown from './ec-dropdown.vue';
 
@@ -37,10 +37,17 @@ const complexItems = [
 
 const searchFields = ['country', 'language'];
 
-const Template = ({ modelValue, ...args }) => ({
+const Template = storyArgs => ({
   components: { EcDropdown },
   setup() {
-    const model = ref(modelValue);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
 
     return {
       args,
@@ -65,9 +72,10 @@ const Template = ({ modelValue, ...args }) => ({
             focus: onFocus,
             open: onOpen,
             close: onClose,
-          }">
+          }"
+        >
           <template #cta>
-            <a href="#" @click.prevent="onCta" class="tw-block tw-py-8 tw-px-16">Do something</a>
+            <a href="#" class="tw-block tw-py-8 tw-px-16" @click.prevent="onCta">Do something</a>
           </template>
         </ec-dropdown>
       </div>

@@ -65,7 +65,6 @@ defineProps({
 function onDelete(item) {
   emit('delete', item);
 }
-
 </script>
 
 <style>

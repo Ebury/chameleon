@@ -17,9 +17,9 @@
     >
       <ec-icon
         v-ec-tooltip="{
-          placement: 'left',
+          placement: TooltipPlacement.LEFT,
           shown: isTooltipShown,
-          triggers: ['manual'],
+          triggers: [TooltipTrigger.MANUAL],
           content: tooltipContent,
           popperClass: tooltipClasses,
         }"
@@ -37,9 +37,8 @@ import clipboardCopy from 'clipboard-copy';
 import { computed, ref } from 'vue';
 
 import useConfig from '../../../../composables/use-ec-config';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import vEcTooltip from '../../../../directives/ec-tooltip';
+import { TooltipPlacement, TooltipPopperClass, TooltipTrigger } from '../../../../directives/ec-tooltip/types';
 import EcIcon from '../../../ec-icon';
 import { IconName } from '../../../ec-icon/icon-names';
 import type { InlineInputProps } from '../../types';
@@ -65,7 +64,7 @@ const props = withDefaults(defineProps<InlineInputCopyProps>(), {
 
 const tooltipContent = computed(() => (isCopied.value ? props.tooltipTextSuccess : props.tooltipTextError));
 
-const tooltipClasses = computed(() => (isCopied.value ? 'ec-tooltip--bg-success' : 'ec-tooltip--bg-error'));
+const tooltipClasses = computed(() => (isCopied.value ? [TooltipPopperClass.EC_TOOLTIP_BG_SUCCESS] : [TooltipPopperClass.EC_TOOLTIP_BG_ERROR]));
 
 function copy() {
   clipboardCopy(props.value)

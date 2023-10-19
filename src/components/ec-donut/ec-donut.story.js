@@ -1,4 +1,4 @@
-import { computed } from 'vue';
+import { computed, toRefs } from 'vue';
 
 import EcDonut from './ec-donut.vue';
 
@@ -7,26 +7,27 @@ export default {
   component: EcDonut,
 };
 
-export const basic = ({
-  used,
-  amount,
-  currency,
-  ...args
-}) => ({
+export const basic = args => ({
   components: { EcDonut },
   setup() {
+    const {
+      used,
+      amount,
+      currency,
+    } = toRefs(args);
+
     const remaining = computed(() => {
-      if (used > amount) {
+      if (used.value > amount.value) {
         return 0;
       }
-      if (used <= 0) {
-        return amount;
+      if (used.value <= 0) {
+        return amount.value;
       }
-      return amount - used;
+      return amount.value - used.value;
     });
 
     function currencyFormat(value) {
-      return new Intl.NumberFormat('en-GB', { style: 'currency', currency, currencyDisplay: 'code' }).format(value);
+      return new Intl.NumberFormat('en-GB', { style: 'currency', currency: currency.value, currencyDisplay: 'code' }).format(value);
     }
 
     return {
@@ -39,19 +40,20 @@ export const basic = ({
     };
   },
   template: `
-  <div class="tw-flex tw-h-screen">
-    <div class="tw-m-auto ec-card">
-      <div class="tw-text-center tw-mb-24">Credit line: <strong>{{ currencyFormat(amount) }}</strong></div>
-      <ec-donut class="tw-p-8" :used="used" :amount="amount">
-        <template #remaining-legend>
-          <span><strong>Remaining: </strong>{{ currencyFormat(remaining) }}</span>
-        </template>
-        <template #used-legend>
-          <span><strong>Used: </strong>{{ currencyFormat(used) }}</span>
-        </template>
-      </ec-donut>
+    <div class="tw-flex tw-h-screen">
+      <div class="tw-m-auto ec-card">
+        <div class="tw-text-center tw-mb-24">Credit line: <strong>{{ currencyFormat(amount) }}</strong></div>
+        <ec-donut class="tw-p-8" :used="used" :amount="amount">
+          <template #remaining-legend>
+            <span><strong>Remaining: </strong>{{ currencyFormat(remaining) }}</span>
+          </template>
+          <template #used-legend>
+            <span><strong>Used: </strong>{{ currencyFormat(used) }}</span>
+          </template>
+        </ec-donut>
+      </div>
     </div>
-  </div>`,
+  `,
 });
 
 basic.argTypes = {

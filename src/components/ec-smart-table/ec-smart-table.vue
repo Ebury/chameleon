@@ -114,7 +114,6 @@
       </ec-loading>
     </template>
   </div>
-
 </template>
 
 <script setup>
@@ -195,6 +194,10 @@ watch(() => props.pagination, () => paginate(props.pagination?.page, props.pagin
 // filtering
 const isFilteringEnabled = computed(() => props.filters?.length > 0);
 const filterModel = ref(unref(props.filter) ?? {});
+
+watch(() => props.filter, () => {
+  filterModel.value = unref(props.filter);
+});
 
 function onFilterChanged(filters) {
   paginate(1);

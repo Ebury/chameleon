@@ -11,7 +11,7 @@ export default {
   ],
 };
 
-const Template = ({ ...args }) => ({
+const Template = args => ({
   components: { EcPrivacyPolicy },
   setup() {
     return {

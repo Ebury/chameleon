@@ -1,24 +1,22 @@
-/* eslint-disable react/no-unescaped-entities */
 export default {
-  title: 'Fonts',
-  // The following line prevent stories from this file
-  // from being indexed in the sidebar
-  excludeStories: /.*$/,
+  title: 'CSS/Typography',
 };
-export const fonts = ({
-  fontWeight, fontStyle, fontSize, fontFamily, lineHeight,
-}) => ({
-  render() {
+
+export const fonts = storyArgs => ({
+  setup() {
+    return { args: storyArgs };
+  },
+  render({ args }) {
     const style = {
-      fontWeight,
-      fontStyle,
-      lineHeight: `${lineHeight}px`,
-      fontSize: `${fontSize}px`,
+      fontWeight: `${args.fontWeight}`,
+      fontStyle: `${args.fontStyle}`,
+      lineHeight: `${args.lineHeight}px`,
+      fontSize: `${args.fontSize}px`,
       wordBreak: 'break-word',
     };
 
     return (
-      <div class={`tw-p-24 ${fontFamily}`}>
+      <div class={`tw-p-24 ${args.fontFamily}`}>
         <div class="tw-mini-header">English</div>
         <p style={style}>
           In a village of La Mancha, the name of which I have no desire to call to mind, there lived not long since one of those gentlemen that keep a lance in the lance-rack, an old buckler, a lean hack, and a greyhound for coursing.

@@ -66,5 +66,4 @@ function update() {
 defineExpose({
   update,
 });
-
 </script>

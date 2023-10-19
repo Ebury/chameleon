@@ -38,7 +38,6 @@ withDefaults(defineProps<InlineInputLoadingProps>(), {
   value: '',
   isSensitive: false,
 });
-
 </script>
 
 <style>

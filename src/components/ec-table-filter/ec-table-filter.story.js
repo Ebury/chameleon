@@ -1,6 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import { useMediaQuery } from '@vueuse/core';
-import { reactive, ref, watchEffect } from 'vue';
+import {
+  markRaw, reactive, ref, toRefs, watchEffect,
+} from 'vue';
 
 import EcCurrencyFilter from '../ec-currency-filter';
 import EcDateRangeFilter from '../ec-date-range-filter';
@@ -13,40 +15,41 @@ export default {
   component: EcTableFilter,
 };
 
-const useTableFiltersSetup = (modelValue) => {
-  const model = ref(null);
+const useTableFiltersSetup = () => ({
+  onUpdateModelValue: action('update:modelValue'),
+  onChange: action('change'),
+});
 
-  watchEffect(() => {
-    model.value = modelValue;
-  });
-
-  return {
-    model,
-    onUpdateModelValue: action('update:modelValue'),
-    onChange: action('change'),
-  };
-};
-
-const BasicTemplate = ({ modelValue, filters }) => ({
+const BasicTemplate = storyArgs => ({
   components: {
     EcTableFilter, EcSyncMultipleValuesFilter, EcDateRangeFilter, EcCurrencyFilter,
   },
   setup() {
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
+
     return {
-      ...useTableFiltersSetup(modelValue),
-      filters,
+      ...useTableFiltersSetup(),
+      model,
+      args,
     };
   },
   template: `
-  <ec-table-filter
-    class="tw-flex tw-items-center"
-    :filters="filters"
-    v-model="model"
-    v-on="{
-      change: onChange,
-      'update:modelValue': onUpdateModelValue,
-    }"
-  />
+    <ec-table-filter
+      v-bind="args"
+      v-model="model"
+      class="tw-flex tw-items-center"
+      v-on="{
+        change: onChange,
+        'update:modelValue': onUpdateModelValue,
+      }"
+    />
   `,
 });
 
@@ -85,75 +88,77 @@ basic.args = {
   filters: [{
     label: 'Payment status',
     name: 'paymentStatus',
-    component: EcSyncMultipleValuesFilter,
+    component: markRaw(EcSyncMultipleValuesFilter),
     items: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }, { text: 'Overdue', value: 'overdue' }],
   }, {
     label: 'Supplier',
     name: 'supplier',
-    component: EcSyncMultipleValuesFilter,
+    component: markRaw(EcSyncMultipleValuesFilter),
     items: [{ text: 'Supplier 1', value: 'supplier1' }, { text: 'Supplier 2', value: 'supplier2' }],
     isSearchable: true,
     isSelectAll: true,
   }, {
     label: 'Due date',
     name: 'dueDate',
-    component: EcDateRangeFilter,
+    component: markRaw(EcDateRangeFilter),
   }, {
     label: 'Price',
     name: 'price',
-    component: EcCurrencyFilter,
+    component: markRaw(EcCurrencyFilter),
     comparisonSymbolItems,
     currencyItems,
   }, {
     name: 'text',
-    component: EcTextFilter,
+    component: markRaw(EcTextFilter),
   }],
 };
 
-const AllTemplate = ({ modelValue, filters }) => ({
+const AllTemplate = storyArgs => ({
   components: {
     EcTableFilter, EcSyncMultipleValuesFilter, EcDateRangeFilter, EcCurrencyFilter,
   },
   setup() {
+    const { modelValue: model, filters } = toRefs(storyArgs);
+
     const areFiltersHidden = useMediaQuery('(max-width: 768px)');
     const someFiltersHidden = reactive([{
       label: 'Payment status',
       name: 'paymentStatus',
-      component: EcSyncMultipleValuesFilter,
+      component: markRaw(EcSyncMultipleValuesFilter),
       isHidden: areFiltersHidden,
       items: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }, { text: 'Overdue', value: 'overdue' }],
     }, {
       label: 'Supplier',
       name: 'supplier',
-      component: EcSyncMultipleValuesFilter,
+      component: markRaw(EcSyncMultipleValuesFilter),
       items: [{ text: 'Supplier 1', value: 'supplier1' }, { text: 'Supplier 2', value: 'supplier2' }],
       isSearchable: true,
       isSelectAll: true,
     }, {
       label: 'Due date',
       name: 'dueDate',
-      component: EcDateRangeFilter,
+      component: markRaw(EcDateRangeFilter),
       isHidden: areFiltersHidden,
     }, {
       label: 'Price',
       name: 'price',
-      component: EcCurrencyFilter,
+      component: markRaw(EcCurrencyFilter),
       comparisonSymbolItems,
       currencyItems,
     }, {
       name: 'text',
-      component: EcTextFilter,
+      component: markRaw(EcTextFilter),
     }]);
     const onlyTextFilterShownOnThreshold = reactive([{
       label: 'Payment status',
       name: 'paymentStatus',
-      component: EcSyncMultipleValuesFilter,
+      component: markRaw(EcSyncMultipleValuesFilter),
       isHidden: areFiltersHidden,
       items: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }, { text: 'Overdue', value: 'overdue' }],
     }, {
       label: 'Supplier',
       name: 'supplier',
-      component: EcSyncMultipleValuesFilter,
+      component: markRaw(EcSyncMultipleValuesFilter),
       isHidden: areFiltersHidden,
       items: [{ text: 'Supplier 1', value: 'supplier1' }, { text: 'Supplier 2', value: 'supplier2' }],
       isSearchable: true,
@@ -161,30 +166,30 @@ const AllTemplate = ({ modelValue, filters }) => ({
     }, {
       label: 'Due date',
       name: 'dueDate',
-      component: EcDateRangeFilter,
+      component: markRaw(EcDateRangeFilter),
       isHidden: areFiltersHidden,
     }, {
       label: 'Price',
       name: 'price',
-      component: EcCurrencyFilter,
+      component: markRaw(EcCurrencyFilter),
       isHidden: areFiltersHidden,
       comparisonSymbolItems,
       currencyItems,
     }, {
       name: 'text',
-      component: EcTextFilter,
+      component: markRaw(EcTextFilter),
       isFullWidth: areFiltersHidden,
     }]);
     const onlyTextFilterShown = [{
       label: 'Payment status',
       name: 'paymentStatus',
-      component: EcSyncMultipleValuesFilter,
+      component: markRaw(EcSyncMultipleValuesFilter),
       isHidden: true,
       items: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }, { text: 'Overdue', value: 'overdue' }],
     }, {
       label: 'Supplier',
       name: 'supplier',
-      component: EcSyncMultipleValuesFilter,
+      component: markRaw(EcSyncMultipleValuesFilter),
       isHidden: true,
       items: [{ text: 'Supplier 1', value: 'supplier1' }, { text: 'Supplier 2', value: 'supplier2' }],
       isSearchable: true,
@@ -192,12 +197,12 @@ const AllTemplate = ({ modelValue, filters }) => ({
     }, {
       label: 'Due date',
       name: 'dueDate',
-      component: EcDateRangeFilter,
+      component: markRaw(EcDateRangeFilter),
       isHidden: true,
     }, {
       label: 'Price',
       name: 'price',
-      component: EcCurrencyFilter,
+      component: markRaw(EcCurrencyFilter),
       isHidden: true,
       comparisonSymbolItems,
       currencyItems,
@@ -207,8 +212,9 @@ const AllTemplate = ({ modelValue, filters }) => ({
       isFullWidth: true,
     }];
     return {
-      ...useTableFiltersSetup(modelValue),
+      ...useTableFiltersSetup(),
       filters,
+      model,
       areFiltersHidden,
       someFiltersHidden,
       onlyTextFilterShownOnThreshold,
@@ -216,64 +222,64 @@ const AllTemplate = ({ modelValue, filters }) => ({
     };
   },
   template: `
-  <h2 class="tw-m-24">Basic</h2>
-  <div class="tw-flex tw-px-20">
-  <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
-  <ec-table-filter
-  class="tw-flex tw-items-center"
-  :filters="filters"
-        v-model="model"
-        v-on="{
-          change: onChange,
-          'update:modelValue': onUpdateModelValue,
-        }"
-      />
-    </div>
-  </div>
-  <h2 class="tw-m-24">Hide some filters on threshold</h2>
+    <h2 class="tw-m-24">Basic</h2>
     <div class="tw-flex tw-px-20">
       <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
-      <ec-table-filter
-        class="tw-flex tw-items-center"
-        :filters="someFiltersHidden"
-        v-model="model"
-        v-on="{
-          change: onChange,
-          'update:modelValue': onUpdateModelValue,
-        }"
-      />
+        <ec-table-filter
+          v-model="model"
+          class="tw-flex tw-items-center"
+          :filters="filters"
+          v-on="{
+            change: onChange,
+            'update:modelValue': onUpdateModelValue,
+          }"
+        />
+      </div>
     </div>
-  </div>
-  <h2 class="tw-m-24">Hide all filters except search on threshold</h2>
-  <div class="tw-flex tw-px-20">
+    <h2 class="tw-m-24">Hide some filters on threshold</h2>
+    <div class="tw-flex tw-px-20">
       <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
-      <ec-table-filter
-        class="tw-flex tw-items-center"
-        :isClearFiltersButtonHidden="areFiltersHidden"
-        :filters="onlyTextFilterShownOnThreshold"
-        v-model="model"
-        v-on="{
-          change: onChange,
-          'update:modelValue': onUpdateModelValue,
-        }"
-      />
+        <ec-table-filter
+          v-model="model"
+          class="tw-flex tw-items-center"
+          :filters="someFiltersHidden"
+          v-on="{
+            change: onChange,
+            'update:modelValue': onUpdateModelValue,
+          }"
+        />
+      </div>
     </div>
-  </div>
-  <h2 class="tw-m-24">Hide all filters except search</h2>
-  <div class="tw-flex tw-px-20">
+    <h2 class="tw-m-24">Hide all filters except search on threshold</h2>
+    <div class="tw-flex tw-px-20">
       <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
-      <ec-table-filter
-        class="tw-flex tw-items-center"
-        :isClearFiltersButtonHidden="true"
-        :filters="onlyTextFilterShown"
-        v-model="model"
-        v-on="{
-          change: onChange,
-          'update:modelValue': onUpdateModelValue,
-        }"
-      />
+        <ec-table-filter
+          v-model="model"
+          class="tw-flex tw-items-center"
+          :is-clear-filters-button-hidden="areFiltersHidden"
+          :filters="onlyTextFilterShownOnThreshold"
+          v-on="{
+            change: onChange,
+            'update:modelValue': onUpdateModelValue,
+          }"
+        />
+      </div>
     </div>
-  </div>
+    <h2 class="tw-m-24">Hide all filters except search</h2>
+    <div class="tw-flex tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+        <ec-table-filter
+          v-model="model"
+          class="tw-flex tw-items-center"
+          :is-clear-filters-button-hidden="true"
+          :filters="onlyTextFilterShown"
+          v-on="{
+            change: onChange,
+            'update:modelValue': onUpdateModelValue,
+          }"
+        />
+      </div>
+    </div>
   `,
 });
 

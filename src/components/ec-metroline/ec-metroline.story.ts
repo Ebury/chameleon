@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
+import { toRefs } from 'vue';
 
 import EcBtn from '../ec-btn/ec-btn.vue';
 import EcIcon from '../ec-icon/ec-icon.vue';
@@ -9,10 +11,13 @@ import EcMetroline from './ec-metroline.vue';
 export default {
   title: 'Metroline',
   component: EcMetroline,
-};
+} as Meta<typeof EcMetroline>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const basic = ({ badgeText, ...args }: any) => ({
+type EcMetrolineStory = StoryFn<{
+  badgeText: string,
+}>;
+
+export const basic: EcMetrolineStory = storyArgs => ({
   components: {
     EcMetroline,
     EcMetrolineItem,
@@ -20,9 +25,10 @@ export const basic = ({ badgeText, ...args }: any) => ({
     EcBtn,
   },
   setup() {
+    const { badgeText } = toRefs(storyArgs);
+
     return {
       badgeText,
-      args,
       onChange: action('change'),
       onComplete: action('complete'),
       onAddDescription: action('add description'),
@@ -39,7 +45,7 @@ export const basic = ({ badgeText, ...args }: any) => ({
       >
         <ec-metroline-item
           :id="1"
-          :badgeText="badgeText"
+          :badge-text="badgeText"
         >
           <template #heading>
             <span class="tw-mr-16">
@@ -50,7 +56,8 @@ export const basic = ({ badgeText, ...args }: any) => ({
           <template #sub-heading="{ isCompleted }">
             <span
               v-if="isCompleted"
-              class="tw-flex tw-items-center tw-mr-16">
+              class="tw-flex tw-items-center tw-mr-16"
+            >
               <ec-icon name="simple-check" class="tw-fill-current tw-mr-8" :size="16" />
               Amount fully allocated
             </span>
@@ -70,8 +77,8 @@ export const basic = ({ badgeText, ...args }: any) => ({
             <a
               v-else-if="isCompleted"
               href="#"
-              @click.prevent.stop="onAddDescription"
               class="tw-flex tw-items-center"
+              @click.prevent.stop="onAddDescription"
             >
               Add Description
             </a>
@@ -89,8 +96,9 @@ export const basic = ({ badgeText, ...args }: any) => ({
             <ec-btn
               v-if="isActive"
               category="primary"
+              is-rounded
               @click="goToNext"
-              is-rounded>
+            >
               Continue
             </ec-btn>
           </template>
@@ -98,7 +106,7 @@ export const basic = ({ badgeText, ...args }: any) => ({
 
         <ec-metroline-item
           :id="2"
-          :badgeText="badgeText"
+          :badge-text="badgeText"
         >
           <template #heading>
             <span class="tw-mr-16">
@@ -108,12 +116,12 @@ export const basic = ({ badgeText, ...args }: any) => ({
 
           <template #sub-heading="{ isCompleted }">
             <span
-              class="tw-flex tw-items-center tw-mr-16">
+              class="tw-flex tw-items-center tw-mr-16"
+            >
               <ec-icon name="simple-check" class="tw-fill-current tw-mr-8" :size="16" />
               Amount fully allocated
             </span>
           </template>
-
 
           <template #header-cta="{ activateItem, isCompleted, isReadOnly }">
             <a
@@ -130,7 +138,8 @@ export const basic = ({ badgeText, ...args }: any) => ({
           <template #main="{ isCompleted }">
             <div
               v-if="isCompleted"
-              class="tw-bg-gray-7 tw-min-h-104 tw-p-24">
+              class="tw-bg-gray-7 tw-min-h-104 tw-p-24"
+            >
               <h4>Summary</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
             </div>
@@ -141,8 +150,9 @@ export const basic = ({ badgeText, ...args }: any) => ({
             <ec-btn
               v-if="isActive"
               category="primary"
+              is-rounded
               @click="goToNext"
-              is-rounded>
+            >
               Continue
             </ec-btn>
           </template>
@@ -150,7 +160,7 @@ export const basic = ({ badgeText, ...args }: any) => ({
 
         <ec-metroline-item
           :id="3"
-          :badgeText="badgeText"
+          :badge-text="badgeText"
         >
           <template #heading>
             <span class="tw-mr-16">
@@ -160,7 +170,8 @@ export const basic = ({ badgeText, ...args }: any) => ({
 
           <template #sub-heading="{ isCompleted }">
             <span
-              class="tw-flex tw-items-center tw-mr-16">
+              class="tw-flex tw-items-center tw-mr-16"
+            >
               <ec-icon name="simple-check" class="tw-fill-current tw-mr-8" :size="16" />
               Amount fully allocated
             </span>
@@ -181,7 +192,8 @@ export const basic = ({ badgeText, ...args }: any) => ({
           <template #main="{ isCompleted }">
             <div
               v-if="isCompleted"
-              class="tw-bg-gray-7 tw-min-h-104 tw-p-24">
+              class="tw-bg-gray-7 tw-min-h-104 tw-p-24"
+            >
               <h4>Summary</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
             </div>
@@ -192,8 +204,9 @@ export const basic = ({ badgeText, ...args }: any) => ({
             <ec-btn
               v-if="isActive"
               category="primary"
+              is-rounded
               @click="goToNext"
-              is-rounded>Continue</ec-btn>
+            >Continue</ec-btn>
           </template>
         </ec-metroline-item>
       </ec-metroline>

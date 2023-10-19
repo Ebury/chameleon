@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcNavigation from './ec-navigation.vue';
@@ -11,14 +11,27 @@ export default {
   ],
 };
 
-export const basic = ({
-  showCopyright,
-  isCollapsable,
-  isCollapsed,
-  ...args
-}) => ({
+export const basic = storyArgs => ({
   components: { EcNavigation },
   setup() {
+    const showCopyright = ref(false);
+    const isCollapsable = ref(false);
+    const isCollapsed = ref(false);
+    const args = ref({});
+
+    watchEffect(() => {
+      const {
+        showCopyright: showCopyrightFromArgs,
+        isCollapsable: isCollapsableFromArgs,
+        isCollapsed: isCollapsedFromArgs,
+        ...rest
+      } = storyArgs;
+      showCopyright.value = showCopyrightFromArgs;
+      isCollapsable.value = isCollapsableFromArgs;
+      isCollapsed.value = isCollapsedFromArgs;
+      args.value = rest;
+    });
+
     return {
       showCopyright,
       isCollapsable,
@@ -34,6 +47,7 @@ export const basic = ({
   template: `
     <ec-navigation
       v-bind="args"
+      :is-collapsable="isCollapsable"
       :is-collapsed="isCollapsable && isCollapsed"
     >
       <template #user-info>

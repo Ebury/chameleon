@@ -8,14 +8,13 @@ export default {
   component: EcPhoneNumberInput,
 };
 
-export const basic = ({ countries, ...args }) => ({
+export const basic = args => ({
   components: { EcPhoneNumberInput },
   setup() {
     return {
       args,
-      countries,
       model: ref({
-        country: countries[0],
+        country: args.countries[0],
         phoneNumber: '1234567890',
       }),
       onChange: action('change'),
@@ -28,15 +27,15 @@ export const basic = ({ countries, ...args }) => ({
   template: `
     <div class="tw-my-64 tw-mx-auto tw-max-w-screen-sm">
       <ec-phone-number-input
-        v-bind="{ ...args, countries }"
+        v-bind="args"
+        v-model="model"
         v-on="{
           change: onChange,
           focus: onFocus,
           open: onOpen,
           'phone-number-change': onPhoneNumberChange,
-          'country-change': onCountryChange
+          'country-change': onCountryChange,
         }"
-        v-model="model"
       />
 
       <p class="tw-mt-48">Value: <pre>{{ model }}</pre></p>

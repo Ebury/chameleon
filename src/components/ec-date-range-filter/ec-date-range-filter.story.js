@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 import EcDateRangeFilter from './ec-date-range-filter.vue';
 
@@ -8,13 +8,20 @@ export default {
   component: EcDateRangeFilter,
 };
 
-const Template = ({ modelValue, popoverOptions, ...args }) => ({
+const Template = storyArgs => ({
   components: { EcDateRangeFilter },
   setup() {
-    const model = ref(modelValue);
+    const model = ref('');
+    const args = ref({});
+
+    watchEffect(() => {
+      const { modelValue, ...rest } = storyArgs;
+      model.value = modelValue;
+      args.value = rest;
+    });
+
     return {
       args,
-      popoverOptions,
       model,
       onChange: action('change'),
     };
@@ -22,11 +29,11 @@ const Template = ({ modelValue, popoverOptions, ...args }) => ({
   template: `
     <div style="min-height: 350px;">
       <ec-date-range-filter
-        class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
         v-bind="args"
-        v-on="{ change: onChange }"
         v-model="model"
-        :popover-options="{ ...popoverOptions, shown: true }"
+        class="tw-flex tw-justify-center tw-items-center tw-p-20 tw-m-auto"
+        :popover-options="{ ...args.popoverOptions, shown: true }"
+        v-on="{ change: onChange }"
       />
     </div>
   `,
