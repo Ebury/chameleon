@@ -41,7 +41,7 @@ describe('EcTablePagination', () => {
       numberOfItems: 5,
       page: 2,
       isPageSizeHidden: false,
-      isCustomInfoHidden: false,
+      isTotalHidden: false,
     });
     expect(wrapper.findByDataTest('ec-table-pagination__current-page').element).toMatchSnapshot();
   });
@@ -98,9 +98,9 @@ describe('EcTablePagination', () => {
     expect(wrapper.findByDataTest('ec-table-pagination__page-size').exists()).toBe(false);
   });
 
-  it('should not render custom info when "isCustomInfoHidden" prop is true', () => {
+  it('should not render custom info when "isTotalHidden" prop is true', () => {
     const wrapper = mountEcTablePagination({
-      isCustomInfoHidden: true,
+      isTotalHidden: true,
     });
     expect(wrapper.findByDataTest('ec-table-pagination__total').exists()).toBe(false);
   });
@@ -123,7 +123,7 @@ describe('EcTablePagination', () => {
         total: 20,
         numberOfItems: 5,
         page: 1,
-        isCustomInfoHidden: false,
+        isTotalHidden: false,
       }, {
         slots: {
           total(slotProps) {

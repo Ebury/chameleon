@@ -83,7 +83,7 @@
                 numberOfItems,
                 itemsPerPageText,
                 isPageSizeHidden,
-                isCustomInfoHidden: isPaginationCustomInfoHidden,
+                isTotalHidden,
               }"
               data-test="ec-smart-table-pagination"
               @change="paginate"
@@ -179,7 +179,7 @@ const props = defineProps({
     type: Boolean,
     default: () => undefined,
   },
-  isPaginationCustomInfoHidden: {
+  isTotalHidden: {
     type: Boolean,
     default: () => undefined,
   },

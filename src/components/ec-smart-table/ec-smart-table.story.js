@@ -361,7 +361,7 @@ export const all = args => ({
             isFilteringEnabled: null,
             prefilter: null,
             isPageSizeHidden: false,
-            isPaginationCustomInfoHidden: false,
+            isTotalHidden: false,
           }"
           v-on="{
             fetch: onFetch,
@@ -481,7 +481,7 @@ export const all = args => ({
             prefilter: null,
             isCustomRowShown: true,
             isPageSizeHidden: true,
-            isPaginationCustomInfoHidden: true,
+            isTotalHidden: true,
           }"
           v-on="{
             fetch: onFetch,

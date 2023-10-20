@@ -8,7 +8,7 @@
   >
 
     <div
-      v-if="canShowPageSize"
+      v-if="isPageSizeVisible"
       class="ec-table-pagination__page-size"
       data-test="ec-table-pagination__page-size"
     >
@@ -52,7 +52,7 @@
     </div>
 
     <div
-      v-if="canShowCustomInfo"
+      v-if="isTotalVisible"
       class="ec-table-pagination__total"
       data-test="ec-table-pagination__total"
     >
@@ -69,7 +69,7 @@
 
     <div
       class="ec-table-pagination__actions"
-      :class="{ 'tw-mr-0 tw-ml-auto': !canShowPageSize || !canShowCustomInfo }"
+      :class="{ 'tw-mr-0 tw-ml-auto': !isPageSizeVisible || !isTotalVisible }"
       data-test="ec-table-pagination__actions"
     >
       <button
@@ -136,7 +136,7 @@ const props = defineProps({
     type: Boolean,
     default: () => undefined,
   },
-  isCustomInfoHidden: {
+  isTotalHidden: {
     type: Boolean,
     default: () => undefined,
   },
@@ -146,8 +146,8 @@ const emit = defineEmits(['change']);
 
 const isDesktop = useMediaQuery('(min-width: 768px)');
 
-const canShowPageSize = computed(() => (props.isPageSizeHidden === false || (props.isPageSizeHidden === undefined && isDesktop.value)));
-const canShowCustomInfo = computed(() => (props.isCustomInfoHidden === false || (props.isCustomInfoHidden === undefined && isDesktop.value)));
+const isPageSizeVisible = computed(() => (props.isPageSizeHidden === false || (props.isPageSizeHidden === undefined && isDesktop.value)));
+const isTotalVisible = computed(() => (props.isTotalHidden === false || (props.isTotalHidden === undefined && isDesktop.value)));
 
 const hasPrev = computed(() => props.page > 1);
 
