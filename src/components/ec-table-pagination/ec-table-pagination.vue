@@ -8,8 +8,9 @@
   >
 
     <div
-      v-if="isPageSizeVisible"
+      v-if="!isPageSizeHidden"
       class="ec-table-pagination__page-size"
+      :class="{ 'ec-table-pagination__page-size--is-responsive': isResponsive }"
       data-test="ec-table-pagination__page-size"
     >
       <div class="ec-table-pagination__page-size-text">{{ itemsPerPageText }}:</div>
@@ -52,8 +53,9 @@
     </div>
 
     <div
-      v-if="isTotalVisible"
+      v-if="!isTotalHidden"
       class="ec-table-pagination__total"
+      :class="{ 'ec-table-pagination__total--is-responsive': isResponsive }"
       data-test="ec-table-pagination__total"
     >
       <slot
@@ -69,7 +71,7 @@
 
     <div
       class="ec-table-pagination__actions"
-      :class="{ 'tw-mr-0 tw-ml-auto': !isPageSizeVisible || !isTotalVisible }"
+      :class="{ 'ec-table-pagination__actions--is-responsive': isResponsive }"
       data-test="ec-table-pagination__actions"
     >
       <button
@@ -105,7 +107,6 @@ defineOptions({
   inheritAttrs: false,
 });
 
-import { useMediaQuery } from '@vueuse/core';
 import { computed } from 'vue';
 
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from '../../enums/pagination';
@@ -134,20 +135,19 @@ const props = defineProps({
   },
   isPageSizeHidden: {
     type: Boolean,
-    default: () => undefined,
+    default: false,
   },
   isTotalHidden: {
     type: Boolean,
-    default: () => undefined,
+    default: false,
+  },
+  isResponsive: {
+    type: Boolean,
+    default: true,
   },
 });
 
 const emit = defineEmits(['change']);
-
-const isDesktop = useMediaQuery('(min-width: 768px)');
-
-const isPageSizeVisible = computed(() => (props.isPageSizeHidden === false || (props.isPageSizeHidden === undefined && isDesktop.value)));
-const isTotalVisible = computed(() => (props.isTotalHidden === false || (props.isTotalHidden === undefined && isDesktop.value)));
 
 const hasPrev = computed(() => props.page > 1);
 
@@ -191,6 +191,16 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
     @apply tw-py-0;
     @apply tw-border-r tw-border-solid tw-border-gray-6;
     @apply tw-flex;
+
+    &--is-responsive {
+      @apply tw-hidden;
+
+      @screen md {
+        @apply tw-py-0;
+        @apply tw-border-r tw-border-solid tw-border-gray-6;
+        @apply tw-flex;
+      }
+    }
   }
 
   &__page-size-text {
@@ -200,10 +210,22 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
 
   &__total {
     @apply tw-flex-grow;
+
+    &--is-responsive {
+      @apply tw-hidden;
+
+      @screen md {
+        @apply tw-block tw-flex-grow;
+      }
+    }
   }
 
   &__actions {
     @apply tw-flex;
+
+    &--is-responsive {
+      @apply tw-mr-0 tw-ml-auto;
+    }
   }
 
   &__action {

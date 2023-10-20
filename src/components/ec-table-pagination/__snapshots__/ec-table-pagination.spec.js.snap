@@ -15,7 +15,7 @@ exports[`EcTablePagination #slots should use given pages slot 1`] = `
 
 exports[`EcTablePagination #slots should use given total slot 1`] = `
 <div
-  class="ec-table-pagination__total"
+  class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
   data-test="ec-table-pagination__total"
 >
   
@@ -60,7 +60,7 @@ exports[`EcTablePagination should display last page information by calculating t
 
 exports[`EcTablePagination should display next and prev buttons disabled if pagination has only one page 1`] = `
 <div
-  class="ec-table-pagination__actions"
+  class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
   data-test="ec-table-pagination__actions"
 >
   <button
@@ -100,7 +100,7 @@ exports[`EcTablePagination should display next and prev buttons disabled if pagi
 
 exports[`EcTablePagination should display next and prev buttons enabled if pagination is in the middle 1`] = `
 <div
-  class="ec-table-pagination__actions"
+  class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
   data-test="ec-table-pagination__actions"
 >
   <button
@@ -138,7 +138,7 @@ exports[`EcTablePagination should display next and prev buttons enabled if pagin
 
 exports[`EcTablePagination should display only next button disabled if pagination is on the last page 1`] = `
 <div
-  class="ec-table-pagination__actions"
+  class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
   data-test="ec-table-pagination__actions"
 >
   <button
@@ -177,7 +177,7 @@ exports[`EcTablePagination should display only next button disabled if paginatio
 
 exports[`EcTablePagination should display only prev button disabled if pagination is on the first page 1`] = `
 <div
-  class="ec-table-pagination__actions"
+  class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
   data-test="ec-table-pagination__actions"
 >
   <button
@@ -264,7 +264,7 @@ exports[`EcTablePagination should display page information when last page is inc
 
 exports[`EcTablePagination should display the page size dropdown with preselected value 1`] = `
 <div
-  class="ec-table-pagination__page-size"
+  class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
   data-test="ec-table-pagination__page-size"
 >
   <div
@@ -369,7 +369,7 @@ exports[`EcTablePagination should render as expected 1`] = `
   data-test="ec-table-pagination"
 >
   <div
-    class="ec-table-pagination__page-size"
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
     data-test="ec-table-pagination__page-size"
   >
     <div
@@ -480,14 +480,14 @@ exports[`EcTablePagination should render as expected 1`] = `
     
   </div>
   <div
-    class="ec-table-pagination__total"
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
     data-test="ec-table-pagination__total"
   >
     
     
   </div>
   <div
-    class="ec-table-pagination__actions"
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
     data-test="ec-table-pagination__actions"
   >
     <button

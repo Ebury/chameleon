@@ -84,6 +84,7 @@
                 itemsPerPageText,
                 isPageSizeHidden,
                 isTotalHidden,
+                isResponsive: isPaginationResponsive,
               }"
               data-test="ec-smart-table-pagination"
               @change="paginate"
@@ -177,11 +178,15 @@ const props = defineProps({
   },
   isPageSizeHidden: {
     type: Boolean,
-    default: () => undefined,
+    default: false,
   },
   isTotalHidden: {
     type: Boolean,
-    default: () => undefined,
+    default: false,
+  },
+  isPaginationResponsive: {
+    type: Boolean,
+    default: true,
   },
 });
 
