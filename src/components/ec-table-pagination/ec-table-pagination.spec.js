@@ -12,16 +12,6 @@ describe('EcTablePagination', () => {
     });
   }
 
-  beforeEach(() => {
-    window.matchMedia = jest.fn().mockImplementation(query => ({
-      matches: query === '(min-width: 768px)',
-      media: '',
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-    }));
-  });
-
   it('should render as expected', () => {
     const wrapper = mountEcTablePagination();
     expect(wrapper.element).toMatchSnapshot();
