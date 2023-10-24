@@ -170,15 +170,16 @@ const usedArcLength = computed(() => circumference.value * (1 - percentageUsed.v
   }
 
   &__background {
-    stroke: hsl(var(--ec-gray-color-level-7));
+    @apply tw-stroke-gray-7;
   }
 
   &__remaining {
-    stroke: hsl(var(--ec-reserved-color-info));
+    @apply tw-stroke-info;
   }
 
   &__used {
-    stroke: hsl(var(--ec-gray-color-level-8));
+    @apply tw-stroke-gray-8;
+
     stroke-opacity: 0.5;
     animation: progress 1s ease-out;
   }

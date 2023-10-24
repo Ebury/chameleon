@@ -136,8 +136,7 @@ function submit() {
     @apply tw-p-0;
     @apply tw-bg-transparent tw-fill-key-4;
     @apply tw-outline-none;
-
-    line-height: 0;
+    @apply tw-leading-reset;
 
     &:focus {
       @apply tw-fill-key-3;

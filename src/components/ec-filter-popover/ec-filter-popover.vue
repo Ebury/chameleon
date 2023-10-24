@@ -25,7 +25,7 @@
         >{{ label }}</button>
         <ec-badge
           v-if="numberOfSelectedFilters > 0"
-          class="tw-ml-4"
+          class="ec-filter-popover__badge"
           :value="numberOfSelectedFilters"
         />
         <ec-icon
@@ -136,6 +136,10 @@ function onOpen(isOpen) {
     &:focus {
       @apply tw-outline-none;
     }
+  }
+
+  &__badge {
+    @apply tw-ml-4;
   }
 
   &__icon {

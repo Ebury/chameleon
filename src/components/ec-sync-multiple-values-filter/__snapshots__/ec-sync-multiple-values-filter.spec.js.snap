@@ -1434,7 +1434,7 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
           Status
         </button>
         <span
-          class="ec-badge ec-badge--info tw-ml-4"
+          class="ec-badge ec-badge--info ec-filter-popover__badge"
           data-test="ec-badge"
         >
           
@@ -2044,7 +2044,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
           Status
         </button>
         <span
-          class="ec-badge ec-badge--info tw-ml-4"
+          class="ec-badge ec-badge--info ec-filter-popover__badge"
           data-test="ec-badge"
         >
           

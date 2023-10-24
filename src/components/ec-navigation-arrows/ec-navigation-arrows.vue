@@ -7,14 +7,12 @@
       type="button"
       :class="previousButtonClasses"
       :disabled="isPreviousDisabled"
-      class="tw-mr-12 tw-text-gray-4"
       data-test="ec-navigation-arrows__previous"
       @click="emit(NavigationArrowsEvent.PREVIOUS_CLICK)"
     >
       <ec-icon :size="24" :name="IconName.SimpleChevronLeft" /></button>
     <button
       type="button"
-      class="tw-text-gray-4"
       :class="nextButtonClasses"
       :disabled="isNextDisabled"
       data-test="ec-navigation-arrows__next"
@@ -62,6 +60,11 @@ function getButtonClasses(isDisabled: boolean) {
   &__button {
     @apply tw-h-24 tw-cursor-pointer;
     @apply tw-border-0 tw-p-0 tw-bg-transparent tw-fill-current;
+    @apply tw-text-gray-4;
+
+    & + & {
+      @apply tw-ml-12;
+    }
 
     &:hover {
       @apply tw-text-key-4;

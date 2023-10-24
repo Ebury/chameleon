@@ -168,7 +168,7 @@
 }
 
 .flatpickr-months {
-  @apply tw-pb-12 /* EC: added 8 */;
+  @apply tw-pb-12 /* EC: added */;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -231,7 +231,7 @@
   /*
       */
 
-  @apply tw-left-24; /* left: 0;; EC: replace */
+  @apply tw-left-24; /* left: 0; EC: replace */
 
   /*
       /*rtl:end:ignore */
@@ -720,7 +720,7 @@ span.flatpickr-weekday {
   box-shadow: -5px 0 0 #ebfbff, 5px 0 0 #ebfbff; /* box-shadow: -5px 0 0 #e6e6e6, 5px 0 0 #e6e6e6; EC: replace */
 }
 
-.flatpickr-day.prevMonthDay, 
+.flatpickr-day.prevMonthDay,
 .flatpickr-day.nextMonthDay {
   @apply tw-text-gray-5;
 }

@@ -53,9 +53,7 @@ function onSelected(value) {
   }
 
   &__btn:not(:disabled) + &__btn:disabled:not(:first-child) {
-    @apply tw-border-l tw-border-solid;
-
-    border-left-color: theme('colors.key.4');
+    @apply tw-border-l tw-border-solid tw-border-l-key-4;
   }
 
   &__btn:last-child {

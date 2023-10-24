@@ -142,7 +142,7 @@ function hasHeaderSlot() {
     }
 
     &__close-icon-btn {
-      line-height: 0;
+      @apply tw-leading-reset;
       @apply tw-self-baseline;
       @apply tw-bg-transparent;
       @apply tw-border-none;

@@ -55,7 +55,7 @@
         @after-open="emit(PhoneNumberEvent.AFTER_OPEN)"
       >
         <template #item="{ item }">
-          <div class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center">
+          <div class="ec-phone-number-input__countries-item-wrapper">
             <img
               v-if="getItemProp(item, 'iconPath')"
               :src="getItemProp(item, 'iconPath')"

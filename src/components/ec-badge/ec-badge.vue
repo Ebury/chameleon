@@ -29,8 +29,7 @@ defineProps({
 <style>
 :root,
 :host {
-  --ec-filter-badge-width: 16px;
-  --ec-filter-badge-height: 16px;
+  --ec-badge-width: theme('spacing.16');
 }
 
 .ec-badge {
@@ -38,9 +37,8 @@ defineProps({
   @apply tw-text-center tw-help-text;
   @apply tw-py-0 tw-px-4;
 
-  min-width: var(--ec-filter-badge-width);
-  height: var(--ec-filter-badge-height);
-  border-radius: calc(var(--ec-filter-badge-width) / 2);
+  min-width: var(--ec-badge-width);
+  border-radius: calc(var(--ec-badge-width) / 2);
 
   &--info {
     @apply tw-bg-key-5;

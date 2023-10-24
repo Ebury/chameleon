@@ -266,8 +266,7 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
 
   &__action-icon {
     @apply tw-inline-block tw-align-top;
-
-    line-height: 0;
+    @apply tw-leading-reset;
   }
 }
 </style>
