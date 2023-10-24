@@ -693,7 +693,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
-    class="ec-table-pagination__page-size"
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
     data-test="ec-table-pagination__page-size"
   >
     <div
@@ -804,14 +804,14 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
     
   </div>
   <div
-    class="ec-table-pagination__total"
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
     data-test="ec-table-pagination__total"
   >
     
     
   </div>
   <div
-    class="ec-table-pagination__actions"
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
     data-test="ec-table-pagination__actions"
   >
     <button
@@ -855,7 +855,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
-    class="ec-table-pagination__page-size"
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
     data-test="ec-table-pagination__page-size"
   >
     <div
@@ -966,14 +966,14 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
     
   </div>
   <div
-    class="ec-table-pagination__total"
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
     data-test="ec-table-pagination__total"
   >
     
     
   </div>
   <div
-    class="ec-table-pagination__actions"
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
     data-test="ec-table-pagination__actions"
   >
     <button
@@ -1031,7 +1031,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
-    class="ec-table-pagination__page-size"
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
     data-test="ec-table-pagination__page-size"
   >
     <div
@@ -1142,14 +1142,14 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
     
   </div>
   <div
-    class="ec-table-pagination__total"
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
     data-test="ec-table-pagination__total"
   >
     
     
   </div>
   <div
-    class="ec-table-pagination__actions"
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
     data-test="ec-table-pagination__actions"
   >
     <button
@@ -1194,7 +1194,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
-    class="ec-table-pagination__page-size"
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
     data-test="ec-table-pagination__page-size"
   >
     <div
@@ -1305,14 +1305,14 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
     
   </div>
   <div
-    class="ec-table-pagination__total"
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
     data-test="ec-table-pagination__total"
   >
     
     
   </div>
   <div
-    class="ec-table-pagination__actions"
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
     data-test="ec-table-pagination__actions"
   >
     <button
@@ -1355,7 +1355,7 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
-    class="ec-table-pagination__page-size"
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
     data-test="ec-table-pagination__page-size"
   >
     <div
@@ -1466,14 +1466,14 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
     
   </div>
   <div
-    class="ec-table-pagination__total"
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
     data-test="ec-table-pagination__total"
   >
     
     
   </div>
   <div
-    class="ec-table-pagination__actions"
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
     data-test="ec-table-pagination__actions"
   >
     <button
@@ -1531,7 +1531,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
           data-test="ec-smart-table-pagination ec-table-pagination"
         >
           <div
-            class="ec-table-pagination__page-size"
+            class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
             data-test="ec-table-pagination__page-size"
           >
             <div
@@ -1642,7 +1642,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
             
           </div>
           <div
-            class="ec-table-pagination__total"
+            class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
             data-test="ec-table-pagination__total"
           >
             
@@ -1654,7 +1654,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
             
           </div>
           <div
-            class="ec-table-pagination__actions"
+            class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
             data-test="ec-table-pagination__actions"
           >
             <button
@@ -1732,7 +1732,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
-    class="ec-table-pagination__page-size"
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
     data-test="ec-table-pagination__page-size"
   >
     <div
@@ -1843,14 +1843,14 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
     
   </div>
   <div
-    class="ec-table-pagination__total"
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
     data-test="ec-table-pagination__total"
   >
     
     
   </div>
   <div
-    class="ec-table-pagination__actions"
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
     data-test="ec-table-pagination__actions"
   >
     <button
@@ -1894,7 +1894,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled and 
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
-    class="ec-table-pagination__page-size"
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
     data-test="ec-table-pagination__page-size"
   >
     <div
@@ -2005,14 +2005,14 @@ exports[`EcSmartTable pagination should render pagination when it's enabled and 
     
   </div>
   <div
-    class="ec-table-pagination__total"
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
     data-test="ec-table-pagination__total"
   >
     
     
   </div>
   <div
-    class="ec-table-pagination__actions"
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
     data-test="ec-table-pagination__actions"
   >
     <button
@@ -2055,7 +2055,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled and 
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
-    class="ec-table-pagination__page-size"
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
     data-test="ec-table-pagination__page-size"
   >
     <div
@@ -2166,14 +2166,14 @@ exports[`EcSmartTable pagination should render pagination when it's enabled and 
     
   </div>
   <div
-    class="ec-table-pagination__total"
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
     data-test="ec-table-pagination__total"
   >
     
     
   </div>
   <div
-    class="ec-table-pagination__actions"
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
     data-test="ec-table-pagination__actions"
   >
     <button

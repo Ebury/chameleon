@@ -8,7 +8,9 @@
   >
 
     <div
+      v-if="!isPageSizeHidden"
       class="ec-table-pagination__page-size"
+      :class="{ 'ec-table-pagination__page-size--is-responsive': isResponsive }"
       data-test="ec-table-pagination__page-size"
     >
       <div class="ec-table-pagination__page-size-text">{{ itemsPerPageText }}:</div>
@@ -51,7 +53,9 @@
     </div>
 
     <div
+      v-if="!isTotalHidden"
       class="ec-table-pagination__total"
+      :class="{ 'ec-table-pagination__total--is-responsive': isResponsive }"
       data-test="ec-table-pagination__total"
     >
       <slot
@@ -67,6 +71,7 @@
 
     <div
       class="ec-table-pagination__actions"
+      :class="{ 'ec-table-pagination__actions--is-responsive': isResponsive }"
       data-test="ec-table-pagination__actions"
     >
       <button
@@ -128,6 +133,18 @@ const props = defineProps({
     type: String,
     default: 'Items per page',
   },
+  isPageSizeHidden: {
+    type: Boolean,
+    default: false,
+  },
+  isTotalHidden: {
+    type: Boolean,
+    default: false,
+  },
+  isResponsive: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const emit = defineEmits(['change']);
@@ -166,10 +183,24 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
     @apply tw-py-8 tw-px-16;
   }
 
+  &__current-page {
+    @apply tw-truncate;
+  }
+
   &__page-size {
     @apply tw-py-0;
     @apply tw-border-r tw-border-solid tw-border-gray-6;
     @apply tw-flex;
+
+    &--is-responsive {
+      @apply tw-hidden;
+
+      @screen md {
+        @apply tw-py-0;
+        @apply tw-border-r tw-border-solid tw-border-gray-6;
+        @apply tw-flex;
+      }
+    }
   }
 
   &__page-size-text {
@@ -179,10 +210,22 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
 
   &__total {
     @apply tw-flex-grow;
+
+    &--is-responsive {
+      @apply tw-hidden;
+
+      @screen md {
+        @apply tw-block tw-flex-grow;
+      }
+    }
   }
 
   &__actions {
     @apply tw-flex;
+
+    &--is-responsive {
+      @apply tw-mr-0 tw-ml-auto;
+    }
   }
 
   &__action {

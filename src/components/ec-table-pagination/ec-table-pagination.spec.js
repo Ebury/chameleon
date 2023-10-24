@@ -26,7 +26,13 @@ describe('EcTablePagination', () => {
   });
 
   it('should display page information by calculating total number of pages', () => {
-    const wrapper = mountEcTablePagination({ total: 20, numberOfItems: 5, page: 2 });
+    const wrapper = mountEcTablePagination({
+      total: 20,
+      numberOfItems: 5,
+      page: 2,
+      isPageSizeHidden: false,
+      isTotalHidden: false,
+    });
     expect(wrapper.findByDataTest('ec-table-pagination__current-page').element).toMatchSnapshot();
   });
 
@@ -75,6 +81,20 @@ describe('EcTablePagination', () => {
     expect(wrapper.findByDataTest('ec-table-pagination__actions').element).toMatchSnapshot();
   });
 
+  it('should not render page size when "isPageSizeHidden" prop is true', () => {
+    const wrapper = mountEcTablePagination({
+      isPageSizeHidden: true,
+    });
+    expect(wrapper.findByDataTest('ec-table-pagination__page-size').exists()).toBe(false);
+  });
+
+  it('should not render custom info when "isTotalHidden" prop is true', () => {
+    const wrapper = mountEcTablePagination({
+      isTotalHidden: true,
+    });
+    expect(wrapper.findByDataTest('ec-table-pagination__total').exists()).toBe(false);
+  });
+
   describe('#slots', () => {
     it('should use given pages slot', () => {
       const wrapper = mountEcTablePagination({ total: 20, numberOfItems: 5, page: 1 }, {
@@ -89,7 +109,12 @@ describe('EcTablePagination', () => {
     });
 
     it('should use given total slot', () => {
-      const wrapper = mountEcTablePagination({ total: 20, numberOfItems: 5, page: 1 }, {
+      const wrapper = mountEcTablePagination({
+        total: 20,
+        numberOfItems: 5,
+        page: 1,
+        isTotalHidden: false,
+      }, {
         slots: {
           total(slotProps) {
             return h('div', `Total slot: ${JSON.stringify(slotProps)}`);
@@ -110,7 +135,12 @@ describe('EcTablePagination', () => {
     });
 
     it('should change the selected page size and reset current page when pagination is not showing the first page', async () => {
-      const wrapper = mountEcTablePagination({ total: 100, page: 2, numberOfItems: 10 });
+      const wrapper = mountEcTablePagination({
+        total: 100,
+        page: 2,
+        numberOfItems: 10,
+        isPageSizeHidden: false,
+      });
       await wrapper.findByDataTest('ec-table-pagination__action--page-size').trigger('click');
       await wrapper.findByDataTest('ec-dropdown-search__item--2').trigger('click');
       expect(wrapper.emitted('change')).toStrictEqual([[1, 50]]);
