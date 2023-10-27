@@ -2,20 +2,20 @@
   <div
     class="ec-checkbox"
     :class="$attrs.class"
-    :style="$attrs.style"
+    :style="($attrs.style as StyleValue)"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-checkbox` : 'ec-checkbox'"
   >
     <input
-      v-bind="{
+      v-bind="({
         ...$attrs,
-        style: null,
+        style: undefined,
         class: 'ec-checkbox__input',
         id: id,
         'aria-describedby': errorId,
         disabled: disabled,
         'data-test': 'ec-checkbox__input',
         type: 'checkbox',
-      }"
+      } as InputHTMLAttributes)"
       ref="checkboxInput"
       v-model="inputModel"
       @focus="inputIsFocused = true"
@@ -41,7 +41,7 @@
           'ec-checkbox__check-icon-wrapper--checked-and-disabled': disabled && inputModel,
           'ec-checkbox__check-icon-wrapper--indeterminate-and-disabled': disabled && indeterminate,
         }"
-        @click="checkboxInput.click()"
+        @click="checkboxInput?.click()"
       >
         <span
           v-if="indeterminate"
@@ -50,7 +50,7 @@
         <ec-icon
           v-else-if="inputModel"
           class="ec-checkbox__check-icon"
-          name="simple-check"
+          :name="IconName.SimpleCheck"
           :size="16"
         />
       </span>
@@ -61,7 +61,7 @@
           'ec-checkbox__label': true,
           'ec-checkbox__label--is-single-line': isSingleLine,
         }"
-        :title="isSingleLine ? label : null"
+        :title="isSingleLine ? label : undefined"
         data-test="ec-checkbox__label"
       >
         <slot name="label">{{ label }}</slot>
@@ -69,7 +69,7 @@
     </div>
 
     <div
-      :id="errorId"
+      :id="errorId ?? undefined"
       v-if="isInvalid"
       class="ec-checkbox__error-text"
       data-test="ec-checkbox__error-text"
@@ -80,49 +80,46 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 defineOptions({
   inheritAttrs: false,
 });
 
 import {
   computed,
+  type InputHTMLAttributes,
   onMounted,
   ref,
+  type StyleValue,
   useSlots,
   watch,
 } from 'vue';
 
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
+import { CheckboxEvent, type CheckboxEvents } from './types';
 
-const props = defineProps(
-  {
-    modelValue: {
-      type: Boolean,
-    },
-    indeterminate: {
-      default: false,
-      type: Boolean,
-    },
-    label: {
-      default: '',
-      type: String,
-    },
-    errorMessage: {
-      default: '',
-      type: String,
-    },
-    disabled: {
-      default: false,
-      type: Boolean,
-    },
-    isSingleLine: {
-      default: false,
-      type: Boolean,
-    },
-  },
-);
+interface CheckboxProps {
+  modelValue?: boolean,
+  indeterminate?: boolean,
+  label?: string,
+  errorMessage?: string,
+  disabled?: boolean,
+  isSingleLine?: boolean,
+}
+
+const props = withDefaults(defineProps<CheckboxProps>(), {
+  indeterminate: false,
+  label: '',
+  errorMessage: '',
+  disabled: false,
+  isSingleLine: false,
+});
+
+const emit = defineEmits<{
+  'update:modelValue': [value: CheckboxEvents[CheckboxEvent.UPDATE_MODEL_VALUE]],
+}>();
 
 const uid = getUid();
 const slots = useSlots();
@@ -132,16 +129,14 @@ const isInvalid = computed(() => (!!props.errorMessage || !!slots['error-message
 const errorId = computed(() => (isInvalid.value ? `ec-checkbox-error-${uid}` : null));
 
 const inputIsFocused = ref(false);
-const checkboxInput = ref(null);
-
-const emit = defineEmits(['update:modelValue']);
+const checkboxInput = ref<HTMLInputElement>();
 
 const inputModel = computed({
   get() {
     return props.modelValue;
   },
   set(checked) {
-    emit('update:modelValue', checked);
+    emit(CheckboxEvent.UPDATE_MODEL_VALUE, checked);
   },
 });
 
@@ -149,7 +144,7 @@ watch(() => props.indeterminate, (newValue) => {
   updateIndeterminate(newValue);
 });
 
-function updateIndeterminate(newValue) {
+function updateIndeterminate(newValue: CheckboxProps['modelValue']) {
   if (checkboxInput.value) {
     checkboxInput.value.indeterminate = !!newValue;
   }
