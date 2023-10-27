@@ -1,16 +1,24 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { defineComponent, ref } from 'vue';
 
+import type { CVueWrapper } from '../../../tests/utils/global';
 import EcCheckbox from './ec-checkbox.vue';
+import type { CheckboxProps } from './types';
 
-function mountCheckbox(props, mountOpts) {
-  return mount(EcCheckbox, {
+function mountCheckbox(props?: CheckboxProps, mountOpts?: ComponentMountingOptions<CheckboxProps>) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return mount(EcCheckbox as any, {
     props,
     ...mountOpts,
-  });
+  }) as CVueWrapper;
 }
 
-function mountCheckboxAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
+function mountCheckboxAsTemplate(
+  template: string,
+  props: CheckboxProps,
+  wrapperComponentOpts?: Record<string, unknown>,
+  mountOpts?: ComponentMountingOptions<CheckboxProps>,
+) {
   const Component = defineComponent({
     components: { EcCheckbox },
     template,
@@ -20,7 +28,7 @@ function mountCheckboxAsTemplate(template, props, wrapperComponentOpts, mountOpt
   return mount(Component, {
     props,
     ...mountOpts,
-  });
+  }) as CVueWrapper;
 }
 
 describe('EcCheckbox', () => {
@@ -45,7 +53,7 @@ describe('EcCheckbox', () => {
 
     it(':error-message - should render the checkbox with an error message', () => {
       const wrapper = mountCheckbox({
-        'error-message': 'Test error message prop',
+        errorMessage: 'Test error message prop',
       });
 
       expect(wrapper.findByDataTest('ec-checkbox__error-text').exists()).toBe(true);
@@ -130,7 +138,7 @@ describe('EcCheckbox', () => {
     it('#error-message - should render error-message slot instead of error-message prop when both are passed', () => {
       const wrapper = mountCheckbox(
         {
-          'error-message': 'Error message coming from props',
+          errorMessage: 'Error message coming from props',
         },
         {
           slots: {
@@ -179,7 +187,7 @@ describe('EcCheckbox', () => {
       const wrapper = mountCheckbox();
 
       wrapper.findByDataTest('ec-checkbox__input').setValue(true);
-      expect(wrapper.emitted('update:modelValue').length).toBe(1);
+      expect(wrapper.emitted('update:modelValue')?.length).toBe(1);
     });
 
     it('@change - should be emitted when input is clicked', () => {
@@ -198,8 +206,11 @@ describe('EcCheckbox', () => {
   describe('attrs', () => {
     it('should pass all non-prop attributes to the hidden checkbox input', () => {
       const wrapper = mountCheckbox(
+        {},
         {
-          'aria-label': 'Random label',
+          attrs: {
+            'aria-label': 'Random label',
+          },
         },
       );
       expect(wrapper.element).toMatchSnapshot();
@@ -243,8 +254,12 @@ describe('EcCheckbox', () => {
       );
 
       expect(wrapper.findByDataTest('ec-checkbox').exists()).toBe(true);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       expect(wrapper.vm.checked).toBe(true);
       await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       expect(wrapper.vm.checked).toBe(false);
     });
 
@@ -259,9 +274,12 @@ describe('EcCheckbox', () => {
           },
         },
       );
-
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       expect(wrapper.vm.checked).toBe(true);
       await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       expect(wrapper.vm.checked).toBe(true);
     });
   });
