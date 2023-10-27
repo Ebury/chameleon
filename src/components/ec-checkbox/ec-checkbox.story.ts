@@ -1,17 +1,23 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, toRefs, watchEffect } from 'vue';
 
 import EcCheckbox from './ec-checkbox.vue';
+import type { CheckboxProps } from './types';
 
 export default {
   title: 'Checkbox',
   component: EcCheckbox,
-};
+} as Meta<typeof EcCheckbox>;
 
-const Template = storyArgs => ({
+type EcCheckboxStory = StoryFn<typeof EcCheckbox>;
+type StoryArgs = CheckboxProps & { hasError: boolean };
+
+const Template: EcCheckboxStory = storyArgs => ({
   components: { EcCheckbox },
   setup() {
-    const model = ref('');
+    const model = ref();
     const args = ref({});
 
     watchEffect(() => {
@@ -40,16 +46,16 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = storyArgs => ({
+export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
   components: { EcCheckbox },
   setup() {
     const checkbox1 = ref(false);
     const checkbox2 = ref(false);
 
     const {
-      hasError,
       label,
       errorMessage,
+      hasError,
       disabled,
     } = toRefs(storyArgs);
 
