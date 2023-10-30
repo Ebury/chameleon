@@ -148,6 +148,7 @@ export enum IconName {
   SimpleRefresh = 'simple-refresh',
   SimpleRelationship = 'simple-relationship',
   SimpleRequest = 'simple-request',
+  SimpleReuse = 'simple-reuse',
   SimpleSearch = 'simple-search',
   SimpleSell = 'simple-sell',
   SimpleSignOut = 'simple-sign-out',
