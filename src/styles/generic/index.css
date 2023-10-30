@@ -1,8 +1,4 @@
-/* purgecss start ignore */
-
 @import 'tailwindcss/base';
 @import 'css-reset';
 @import 'fonts';
 @import 'normalize';
-
-/* purgecss end ignore */

@@ -72,9 +72,8 @@ function onSort(): void {
 .ec-table-sort {
   @apply tw-select-none;
   @apply tw-cursor-pointer;
-
-  line-height: 0;
-  color: inherit;
+  @apply tw-leading-reset;
+  @apply tw-text-inherit;
 
   &:hover,
   &:focus,
@@ -96,4 +95,3 @@ function onSort(): void {
   }
 }
 </style>
-../../enums

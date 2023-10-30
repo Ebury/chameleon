@@ -274,8 +274,6 @@ function onClick() {
   }
 
   &__icon {
-    padding: 2px;
-    @apply tw-translate-x-1/2 tw--translate-y-1/2;
     @apply tw-p-1;
     @apply tw-fill-gray-8;
     @apply tw-absolute;

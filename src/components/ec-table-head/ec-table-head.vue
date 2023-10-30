@@ -50,8 +50,6 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import { IconName, IconType } from '../ec-icon/types';

@@ -38,7 +38,7 @@ export const basic = args => ({
         }"
       />
 
-      <p class="tw-mt-48">Value: <pre>{{ model }}</pre></p>
+      <p class="tw-mt-48">Value: <pre><code>{{ model }}</code></pre></p>
     </div>
   `,
 });

@@ -281,7 +281,6 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
 
     &:read-only,
     &[readonly] {
-      /* :read-only is not supported by IE https://developer.mozilla.org/en-US/docs/Web/CSS/:read-only */
       @apply tw-truncate;
     }
   }

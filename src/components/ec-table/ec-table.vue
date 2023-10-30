@@ -84,7 +84,7 @@ import type { TableEvent, TableEvents } from './types';
 const isInCustomRowThreshold = useMediaQuery('(max-width: 768px)');
 const slots = useSlots();
 const attrs = useAttrs();
-// const emit = defineEmits(['sort', 'row-click']);
+
 const emit = defineEmits<{
   'sort': [value: TableEvents[TableEvent.SORT]],
 }>();

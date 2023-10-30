@@ -141,7 +141,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="United Kingdom"
@@ -173,7 +173,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Jamaica"
@@ -205,7 +205,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Spain"
@@ -237,7 +237,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -264,7 +264,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -532,7 +532,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="United Kingdom"
@@ -564,7 +564,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Jamaica"
@@ -596,7 +596,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Spain"
@@ -628,7 +628,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -655,7 +655,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -809,7 +809,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="United Kingdom"
@@ -841,7 +841,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Jamaica"
@@ -873,7 +873,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Spain"
@@ -905,7 +905,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -932,7 +932,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -1085,7 +1085,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="United Kingdom"
@@ -1117,7 +1117,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Jamaica"
@@ -1149,7 +1149,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Spain"
@@ -1181,7 +1181,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -1208,7 +1208,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -1359,7 +1359,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="United Kingdom"
@@ -1391,7 +1391,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Jamaica"
@@ -1423,7 +1423,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Spain"
@@ -1455,7 +1455,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -1482,7 +1482,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -1659,7 +1659,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="United Kingdom"
@@ -1691,7 +1691,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Jamaica"
@@ -1723,7 +1723,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Spain"
@@ -1755,7 +1755,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -1782,7 +1782,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -1934,7 +1934,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="United Kingdom"
@@ -1966,7 +1966,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Jamaica"
@@ -1998,7 +1998,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Spain"
@@ -2030,7 +2030,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -2057,7 +2057,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -2199,7 +2199,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="United Kingdom"
@@ -2231,7 +2231,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Jamaica"
@@ -2263,7 +2263,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <img
                   alt="Spain"
@@ -2295,7 +2295,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span
@@ -2322,7 +2322,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
               
               
               <div
-                class="ec-phone-number-input__countries-item-wrapper tw-flex tw-items-center"
+                class="ec-phone-number-input__countries-item-wrapper"
               >
                 <!--v-if-->
                 <span

@@ -85,7 +85,7 @@ If you need to support every single locale on the planet, we recommend to polyfi
 
 [Vue](https://vuejs.org/)
 
-[Vue CLI](https://cli.vuejs.org/)
+[Vite](https://vitejs.dev/)
 
 ### Storybook
 
@@ -110,8 +110,6 @@ If you need to support every single locale on the planet, we recommend to polyfi
 [PostCSS](https://postcss.org/)
 
 [TailwindCSS](https://tailwindcss.com/)
-
-[PurgeCSS](https://purgecss.com/plugins/postcss.html)
 
 [Bootstrap Grid](https://getbootstrap.com/docs/4.0/layout/grid/)
 

@@ -151,14 +151,12 @@ onBeforeUnmount(() => {
 <style>
 .ec-timer {
   &__elapsed {
-    stroke: hsl(var(--ec-gray-color-level-7));
+    @apply tw-stroke-gray-7;
   }
 
   &__remaining {
-    transform-origin: 50%;
-
     @apply tw-stroke-key-4;
-    @apply tw--rotate-90;
+    @apply tw--rotate-90 tw-origin-center;
   }
 
   &__text {

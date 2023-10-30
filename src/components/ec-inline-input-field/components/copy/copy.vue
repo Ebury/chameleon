@@ -92,8 +92,7 @@ function copy() {
     @apply tw-border-0;
     @apply tw-bg-transparent tw-fill-gray-4;
     @apply tw-outline-none;
-
-    line-height: 0;
+    @apply tw-leading-reset;
 
     &:hover,
     &:focus {

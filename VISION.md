@@ -4,6 +4,6 @@ Ebury Chameleon is developed thanks to the frontend expertise of the [Online tea
 
 The components from Chameleon are accessible through [https://chameleon.ebury.now.sh](https://chameleon.ebury.now.sh) and it's a live page where you can see all the components that the Online team has developed.
 
-This library is written in [Vue.js](https://vuejs.org/) and the UI components explorer is [Storybook](https://storybook.js.org), we follow the design guidelines from the UX/Design team with the help of utility-first styles library [Tailwind CSS](http://tailwindcss.com).
+This library is written in [Vue.js](https://vuejs.org/) and the UI components explorer is [Storybook](https://storybook.js.org), we follow the design guidelines from the UX/Design team with the help of utility-first styles library [TailwindCSS](http://tailwindcss.com).
 
 Ebury Chameleon is now accessible from [npm](https://www.npmjs.com/package/@ebury/chameleon-components).

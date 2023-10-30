@@ -2,7 +2,7 @@
 
 exports[`EcCurrencyFilter should count every selected currency and the amount together in numberOfSelectedFilters 1`] = `
 <span
-  class="ec-badge ec-badge--info tw-ml-4"
+  class="ec-badge ec-badge--info ec-filter-popover__badge"
   data-test="ec-badge"
 >
   
@@ -25,7 +25,7 @@ exports[`EcCurrencyFilter should count every selected currency in numberOfSelect
     Price
   </button>
   <span
-    class="ec-badge ec-badge--info tw-ml-4"
+    class="ec-badge ec-badge--info ec-filter-popover__badge"
     data-test="ec-badge"
   >
     
@@ -58,7 +58,7 @@ exports[`EcCurrencyFilter should count the amount as 1 in numberOfSelectedFilter
     Price
   </button>
   <span
-    class="ec-badge ec-badge--info tw-ml-4"
+    class="ec-badge ec-badge--info ec-filter-popover__badge"
     data-test="ec-badge"
   >
     

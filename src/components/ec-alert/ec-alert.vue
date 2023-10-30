@@ -176,8 +176,7 @@ function onDismiss() {
     @apply tw-rounded;
     @apply tw-absolute tw-top-8 tw-right-8;
     @apply tw-cursor-pointer;
-
-    line-height: 0;
+    @apply tw-leading-reset;
 
     &:focus {
       @apply tw-outline-none;

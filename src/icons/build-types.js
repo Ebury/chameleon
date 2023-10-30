@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-// eslint-disable-next-line import/no-extraneous-dependencies
+
 const _ = require('lodash');
 
 function getIconNames() {

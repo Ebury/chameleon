@@ -149,7 +149,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
         Due date
       </button>
       <span
-        class="ec-badge ec-badge--info tw-ml-4"
+        class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
       >
         
@@ -281,7 +281,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         Due date
       </button>
       <span
-        class="ec-badge ec-badge--info tw-ml-4"
+        class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
       >
         
@@ -418,7 +418,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         Due date
       </button>
       <span
-        class="ec-badge ec-badge--info tw-ml-4"
+        class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
       >
         
@@ -557,7 +557,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
         Due date
       </button>
       <span
-        class="ec-badge ec-badge--info tw-ml-4"
+        class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
       >
         

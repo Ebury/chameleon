@@ -15,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { debounce } from 'lodash';
 import { computed } from 'vue';
 
