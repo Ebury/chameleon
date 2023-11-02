@@ -256,7 +256,7 @@ describe('EcTable', () => {
 
   it('should render custom row if window width is lower than 768px', () => {
     window.matchMedia = jest.fn().mockImplementation(query => ({
-      matches: query === '(max-width: 768px)',
+      matches: query === '(max-width: 767px)',
       media: '',
       onchange: null,
       addListener: jest.fn(),
