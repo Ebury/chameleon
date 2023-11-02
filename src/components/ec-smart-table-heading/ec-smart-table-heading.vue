@@ -6,6 +6,7 @@
   <div
     v-if="hasSlot('filter') || hasSlot('actions')"
     class="ec-smart-table-heading"
+    :class="{ 'ec-smart-table-heading--is-responsive': isResponsive }"
   >
     <div
       v-if="hasSlot('filter')"
@@ -29,6 +30,10 @@ const slots = useSlots();
 
 defineProps({
   title: String,
+  isResponsive: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 function hasSlot(slotName) {
@@ -44,10 +49,13 @@ function hasSlot(slotName) {
 
 .ec-smart-table-heading {
   @apply tw-flex;
-  @apply tw-px-12 tw-pb-12;
 
-  @screen md {
-    @apply tw-px-0 tw-pb-0;
+  &--is-responsive {
+    @apply tw-px-12 tw-pb-12;
+
+    @screen md {
+      @apply tw-px-0 tw-pb-0;
+    }
   }
 
   &__filter {
