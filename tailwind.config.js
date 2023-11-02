@@ -1355,14 +1355,14 @@ function flexboxGridPlugin({ addUtilities, theme }) {
   addUtilities({
     '.grid-container': {
       width: '100%',
-      paddingRight: theme(`padding.${gutter / 2}`),
-      paddingLeft: theme(`padding.${gutter / 2}`),
+      paddingRight: theme(`spacing.${gutter / 2}`),
+      paddingLeft: theme(`spacing.${gutter / 2}`),
     },
     '.grid': {
       display: 'flex',
       flexWrap: 'wrap',
-      marginRight: theme(`margin.${gutter / -2}`),
-      marginLeft: theme(`margin.${gutter / -2}`),
+      marginRight: `-${theme(`spacing.${gutter / 2}`)}`,
+      marginLeft: `-${theme(`spacing.${gutter / 2}`)}`,
     },
   }, config);
 
@@ -1375,7 +1375,7 @@ function flexboxGridPlugin({ addUtilities, theme }) {
     addUtilities({
       [colClass]: {
         width: '100%',
-        padding: theme(`padding.${gutter / 2}`),
+        padding: theme(`spacing.${gutter / 2}`),
         minHeight: theme('minHeight.1'),
       },
     }, config);
