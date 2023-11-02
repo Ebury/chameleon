@@ -1,3 +1,9 @@
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $tooltipContainer?: HTMLElement | string;
+  }
+}
+
 export type Maybe<T> = T | null;
 
 export enum ZIndexLevel {
