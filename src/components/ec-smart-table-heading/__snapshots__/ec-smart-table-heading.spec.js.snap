@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcSmartTableHeading should not render the title if title prop was not given 1`] = `
+exports[`EcSmartTableHeading > should not render the title if title prop was not given 1`] = `
 <div
   data-v-app=""
 >
@@ -11,7 +11,7 @@ exports[`EcSmartTableHeading should not render the title if title prop was not g
 </div>
 `;
 
-exports[`EcSmartTableHeading should render given filter and header-actions slots 1`] = `
+exports[`EcSmartTableHeading > should render given filter and header-actions slots 1`] = `
 <div
   data-v-app=""
 >
@@ -47,7 +47,7 @@ exports[`EcSmartTableHeading should render given filter and header-actions slots
 </div>
 `;
 
-exports[`EcSmartTableHeading should render given filter slot 1`] = `
+exports[`EcSmartTableHeading > should render given filter slot 1`] = `
 <div
   data-v-app=""
 >
@@ -75,7 +75,7 @@ exports[`EcSmartTableHeading should render given filter slot 1`] = `
 </div>
 `;
 
-exports[`EcSmartTableHeading should render given header-actions slot 1`] = `
+exports[`EcSmartTableHeading > should render given header-actions slot 1`] = `
 <div
   data-v-app=""
 >
@@ -103,7 +103,7 @@ exports[`EcSmartTableHeading should render given header-actions slot 1`] = `
 </div>
 `;
 
-exports[`EcSmartTableHeading should render properly 1`] = `
+exports[`EcSmartTableHeading > should render properly 1`] = `
 <div
   data-v-app=""
 >

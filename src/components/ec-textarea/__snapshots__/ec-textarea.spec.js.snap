@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTextarea :props should render as sensitive 1`] = `
+exports[`EcTextarea > :props > should render as sensitive 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -16,7 +16,7 @@ exports[`EcTextarea :props should render as sensitive 1`] = `
 </div>
 `;
 
-exports[`EcTextarea :props should render the textarea with a specific number of rows 1`] = `
+exports[`EcTextarea > :props > should render the textarea with a specific number of rows 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -32,7 +32,7 @@ exports[`EcTextarea :props should render the textarea with a specific number of 
 </div>
 `;
 
-exports[`EcTextarea :props should render with a bottom note 1`] = `
+exports[`EcTextarea > :props > should render with a bottom note 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -53,7 +53,7 @@ exports[`EcTextarea :props should render with a bottom note 1`] = `
 </div>
 `;
 
-exports[`EcTextarea :props should render with a bottom note in a warning color theme 1`] = `
+exports[`EcTextarea > :props > should render with a bottom note in a warning color theme 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -74,7 +74,7 @@ exports[`EcTextarea :props should render with a bottom note in a warning color t
 </div>
 `;
 
-exports[`EcTextarea :props should render with a label 1`] = `
+exports[`EcTextarea > :props > should render with a label 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -103,7 +103,7 @@ exports[`EcTextarea :props should render with a label 1`] = `
 </div>
 `;
 
-exports[`EcTextarea :props should render with a labelTooltip 1`] = `
+exports[`EcTextarea > :props > should render with a labelTooltip 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -142,7 +142,7 @@ exports[`EcTextarea :props should render with a labelTooltip 1`] = `
 </div>
 `;
 
-exports[`EcTextarea :props should render with a note 1`] = `
+exports[`EcTextarea > :props > should render with a note 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -170,7 +170,7 @@ exports[`EcTextarea :props should render with a note 1`] = `
 </div>
 `;
 
-exports[`EcTextarea :props should render with an error message 1`] = `
+exports[`EcTextarea > :props > should render with an error message 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -193,7 +193,7 @@ exports[`EcTextarea :props should render with an error message 1`] = `
 </div>
 `;
 
-exports[`EcTextarea renders as disabled 1`] = `
+exports[`EcTextarea > renders as disabled 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -210,7 +210,7 @@ exports[`EcTextarea renders as disabled 1`] = `
 </div>
 `;
 
-exports[`EcTextarea renders with a placeholder 1`] = `
+exports[`EcTextarea > renders with a placeholder 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -227,7 +227,7 @@ exports[`EcTextarea renders with a placeholder 1`] = `
 </div>
 `;
 
-exports[`EcTextarea should render as expected 1`] = `
+exports[`EcTextarea > should render as expected 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"
@@ -243,7 +243,7 @@ exports[`EcTextarea should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcTextarea should render given custom attributes 1`] = `
+exports[`EcTextarea > should render given custom attributes 1`] = `
 <div
   class="ec-textarea my-custom-class"
   data-test="ec-textarea"
@@ -261,7 +261,7 @@ exports[`EcTextarea should render given custom attributes 1`] = `
 </div>
 `;
 
-exports[`EcTextarea should render with a custom data test 1`] = `
+exports[`EcTextarea > should render with a custom data test 1`] = `
 <div
   class="ec-textarea"
   data-test="ec-textarea"

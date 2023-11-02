@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcPrivacyPolicy should display only with a title and the buttonText given 1`] = `
+exports[`EcPrivacyPolicy > should display only with a title and the buttonText given 1`] = `
 <div
   class="ec-privacy-policy"
 >
@@ -33,7 +33,7 @@ exports[`EcPrivacyPolicy should display only with a title and the buttonText giv
 </div>
 `;
 
-exports[`EcPrivacyPolicy should render with the slot given 1`] = `
+exports[`EcPrivacyPolicy > should render with the slot given 1`] = `
 <div
   class="ec-privacy-policy"
 >

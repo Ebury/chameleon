@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTag :props should render as expected when passing the icon name 1`] = `
+exports[`EcTag > :props > should render as expected when passing the icon name 1`] = `
 <div
   class="ec-tag"
   data-ec-tooltip-mock-content="Trusted"
@@ -25,7 +25,7 @@ exports[`EcTag :props should render as expected when passing the icon name 1`] =
 </div>
 `;
 
-exports[`EcTag :props should render as expected when passing the icon type 1`] = `
+exports[`EcTag > :props > should render as expected when passing the icon type 1`] = `
 <div
   class="ec-tag"
   data-ec-tooltip-mock-content="Trusted"
@@ -50,7 +50,7 @@ exports[`EcTag :props should render as expected when passing the icon type 1`] =
 </div>
 `;
 
-exports[`EcTag :props should render as expected when passing the text prop 1`] = `
+exports[`EcTag > :props > should render as expected when passing the text prop 1`] = `
 <div
   class="ec-tag"
   data-ec-tooltip-mock-content="Trusted"
@@ -66,7 +66,7 @@ exports[`EcTag :props should render as expected when passing the text prop 1`] =
 </div>
 `;
 
-exports[`EcTag :props should render as expected when we set "is-icon-rounded" to be true 1`] = `
+exports[`EcTag > :props > should render as expected when we set "is-icon-rounded" to be true 1`] = `
 <div
   class="ec-tag"
   data-ec-tooltip-mock-content="Trusted"
@@ -91,7 +91,7 @@ exports[`EcTag :props should render as expected when we set "is-icon-rounded" to
 </div>
 `;
 
-exports[`EcTag should render with a tooltip 1`] = `
+exports[`EcTag > should render with a tooltip 1`] = `
 <div
   class="ec-tag"
   data-ec-tooltip-mock-content="Trusted"
