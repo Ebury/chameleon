@@ -1,4 +1,5 @@
 import fakeTimers from '@sinonjs/fake-timers';
+import { vi } from 'vitest';
 
 import Countdown from './countdown';
 
@@ -8,11 +9,13 @@ describe('Countdown', () => {
   beforeEach(() => {
     clock = fakeTimers.install(window);
   });
+
   afterEach(() => {
     if (clock) {
       clock.uninstall();
     }
   });
+
   it('should finish the countdown', () => {
     const countdown = new Countdown();
     countdown.start(20);
@@ -33,8 +36,8 @@ describe('Countdown', () => {
   });
 
   it('should emit the events', () => {
-    const timeExpiredMock = jest.fn();
-    const timeUpdatedMock = jest.fn();
+    const timeExpiredMock = vi.fn();
+    const timeUpdatedMock = vi.fn();
     const countdown = new Countdown();
     countdown.on('time-expired', timeExpiredMock);
     countdown.on('time-updated', timeUpdatedMock);

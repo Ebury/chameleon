@@ -1,6 +1,8 @@
+import { vi } from 'vitest';
+
 import { getUid } from './uid';
 
-jest.unmock('./uid');
+vi.unmock('./uid');
 
 describe('Utils', () => {
   describe('getUid', () => {

@@ -37,32 +37,25 @@ describe('Utils', () => {
 
     it('should throw if no mask symbol is provided', () => {
       const textToBeMasked = 'lorem';
-      const maskSybol = null;
+      const maskSymbol = null;
 
-      expect(() => mask(textToBeMasked, maskSybol)).toThrow(new Error('Mask symbol cannot be empty'));
-    });
-
-    it('should throw if no mask symbol is provided', () => {
-      const textToBeMasked = 'lorem';
-      const maskSybol = null;
-
-      expect(() => mask(textToBeMasked, maskSybol)).toThrow(new Error('Mask symbol cannot be empty'));
+      expect(() => mask(textToBeMasked, maskSymbol)).toThrow(new Error('Mask symbol cannot be empty'));
     });
 
     it('should throw if visibleChars is not provided', () => {
       const textToBeMasked = 'lorem';
-      const maskSybol = '#';
+      const maskSymbol = '#';
       const visibleChars = null;
 
-      expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrow(new Error('Visible characters must be a number greater than zero'));
+      expect(() => mask(textToBeMasked, maskSymbol, visibleChars)).toThrow(new Error('Visible characters must be a number greater than zero'));
     });
 
     it('should throw if visibleChars is negative', () => {
       const textToBeMasked = 'lorem';
-      const maskSybol = '#';
+      const maskSymbol = '#';
       const visibleChars = -1;
 
-      expect(() => mask(textToBeMasked, maskSybol, visibleChars)).toThrow(new Error('Visible characters must be a number greater than zero'));
+      expect(() => mask(textToBeMasked, maskSymbol, visibleChars)).toThrow(new Error('Visible characters must be a number greater than zero'));
     });
   });
 });
