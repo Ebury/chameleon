@@ -5,10 +5,9 @@ import EcLoading from './ec-loading.vue';
 import type { LoadingProps } from './types';
 
 describe('EcLoading', () => {
-  function mountLoading(props?: Partial<LoadingProps>, mountOpts: ComponentMountingOptions<LoadingProps> = {}) {
-    return mount<LoadingProps>(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcLoading as any,
+  function mountLoading(props?: Partial<LoadingProps>, mountOpts?: ComponentMountingOptions<typeof EcLoading>) {
+    return mount(
+      EcLoading,
       {
         props: {
           show: true,

@@ -1,32 +1,30 @@
-import type { ComponentMountingOptions } from '@vue/test-utils';
+import type { ComponentMountingOptions, VueWrapper } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
-import { defineComponent } from 'vue';
+import { type ComponentPublicInstance, defineComponent } from 'vue';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import EcAlert from './ec-alert.vue';
 import type { AlertProps } from './types';
 import { AlertType } from './types';
 
 describe('EcAlert', () => {
-  function mountAlert(props?: Partial<AlertProps>, mountOpts?: ComponentMountingOptions<AlertProps>): CVueWrapper {
+  function mountAlert(props?: Partial<AlertProps>, mountOpts?: ComponentMountingOptions<typeof EcAlert>) {
     return mount(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcAlert as any,
+      EcAlert,
       {
         props: {
           title: 'Title example',
-          type: 'info',
+          type: AlertType.INFO,
           ...props,
         },
         ...mountOpts,
       },
-    ) as CVueWrapper;
+    );
   }
 
   function mountAlertAsTemplate(
     template: string,
     wrapperComponentOpts?: Record<string, unknown>,
-    mountOpts?: ComponentMountingOptions<AlertProps>,
+    mountOpts?: ComponentMountingOptions<typeof EcAlert>,
   ) {
     const element = document.createElement('div');
     document.body.appendChild(element);
@@ -89,13 +87,13 @@ describe('EcAlert', () => {
 
   it('should dismiss the alert when user clicks on the dismiss icon', async () => {
     const wrapper = mountAlertAsTemplate(
-      '<ec-alert v-model:open="isOpen" type="info" title="Custom random" dismissable />',
+      `<ec-alert v-model:open="isOpen" type="${AlertType.INFO}" title="Custom random" dismissable />`,
       {
         data() {
           return { isOpen: true };
         },
       },
-    ) as CVueWrapper;
+    );
 
     expect(wrapper.findByDataTest('ec-alert__dismiss-icon').exists()).toBe(true);
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
@@ -122,7 +120,7 @@ describe('EcAlert', () => {
           return { isOpen: true };
         },
       },
-    ) as CVueWrapper;
+    ) as VueWrapper<ComponentPublicInstance<unknown, { isOpen: boolean }>>;
 
     expect(wrapper.vm.isOpen).toBe(true);
     expect(wrapper.isVisible()).toBe(true);

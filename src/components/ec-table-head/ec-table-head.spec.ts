@@ -1,6 +1,5 @@
 import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { SortDirection } from '../../enums';
 import EcTableHead from './ec-table-head.vue';
 import { StickyColumnPosition, type TableHeadColumn, type TableHeadProps } from './types';
@@ -22,11 +21,11 @@ describe('EcTableHead', () => {
     },
   ];
 
-  function mountEcTableHead(props?: Partial<TableHeadProps>, mountOpts?: ComponentMountingOptions<TableHeadProps>) {
+  function mountEcTableHead(props?: Partial<TableHeadProps>, mountOpts?: ComponentMountingOptions<typeof EcTableHead>) {
     return mount(EcTableHead, {
       props,
       ...mountOpts,
-    }) as unknown as CVueWrapper;
+    });
   }
 
   it('should render as expected', () => {

@@ -1,7 +1,5 @@
 import { mount } from '@vue/test-utils';
 
-import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { IconName } from '../ec-icon/icon-names';
 import { IconType } from '../ec-icon/types';
 import EcTag from './ec-tag.vue';
@@ -10,17 +8,11 @@ import type { TagProps } from './types';
 describe('EcTag', () => {
   function mountTag(props?: TagProps) {
     return mount(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcTag as any,
+      EcTag,
       {
         props,
-        global: {
-          mocks: {
-            vEcTooltip: EcTooltipDirectiveMock,
-          },
-        },
       },
-    ) as CVueWrapper;
+    );
   }
 
   describe(':props', () => {

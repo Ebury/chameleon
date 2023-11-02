@@ -3,22 +3,20 @@ import { mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import type { RouteLocationNamedRaw } from 'vue-router';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { IconName } from '../ec-icon/icon-names';
 import EcBtn from './ec-btn.vue';
 import type { ButtonProps } from './types';
 import { ButtonCategory, ButtonSize } from './types';
 
 describe('EcBtn', () => {
-  function mountBtn(props?: ButtonProps, mountOpts?: ComponentMountingOptions<ButtonProps>) {
+  function mountBtn(props?: ButtonProps, mountOpts?: ComponentMountingOptions<typeof EcBtn>) {
     return mount(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcBtn as any,
+      EcBtn,
       {
         props,
         ...mountOpts,
       },
-    ) as CVueWrapper;
+    );
   }
 
   it('should render a <button> element by default', () => {

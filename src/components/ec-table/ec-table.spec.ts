@@ -2,13 +2,12 @@ import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { defineComponent, h } from 'vue';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { SortDirection } from '../../enums';
 import { StickyColumnPosition } from '../ec-table-head/types';
 import EcTable from './ec-table.vue';
 import type { TableProps } from './types';
 
-function mountEcTable(props?: Partial<TableProps>, mountOpts?: ComponentMountingOptions<TableProps>) {
+function mountEcTable(props?: Partial<TableProps>, mountOpts?: ComponentMountingOptions<typeof EcTable>) {
   return mount(EcTable, {
     props: {
       columns: [
@@ -28,7 +27,7 @@ function mountEcTable(props?: Partial<TableProps>, mountOpts?: ComponentMounting
       ...props,
     },
     ...mountOpts,
-  }) as unknown as CVueWrapper;
+  });
 }
 
 function mountTableAsTemplate(template: string, props?: Partial<TableProps>, wrapperComponentOpts?: Record<string, unknown>, mountOpts?: ComponentMountingOptions<TableProps>) {
@@ -41,7 +40,7 @@ function mountTableAsTemplate(template: string, props?: Partial<TableProps>, wra
   return mount(Component, {
     props,
     ...mountOpts,
-  }) as unknown as CVueWrapper;
+  });
 }
 
 describe('EcTable', () => {
@@ -246,8 +245,7 @@ describe('EcTable', () => {
       ],
     }, {
       slots: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        col2: ({ content }: any) => h('p', content),
+        col2: ({ content }: { content: string }) => h('p', content),
         footer: '<p>Random text</p>',
       },
     });

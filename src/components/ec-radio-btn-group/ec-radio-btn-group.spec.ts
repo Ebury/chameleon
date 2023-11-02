@@ -1,15 +1,13 @@
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { EcRadioBtn, EcRadioBtnGroup } from '../../main';
 import type { RadioButtonProps } from '../ec-radio-btn/types';
 import type { RadioButtonGroupProps } from './types';
 
-function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: ComponentMountingOptions<RadioButtonGroupProps>) {
+function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: ComponentMountingOptions<typeof EcRadioBtnGroup>) {
   return mount(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    EcRadioBtnGroup as any,
+    EcRadioBtnGroup,
     {
       props: {
         options: [
@@ -20,7 +18,7 @@ function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: 
       },
       ...mountOpts,
     },
-  ) as CVueWrapper;
+  );
 }
 
 describe('EcRadioBtn', () => {

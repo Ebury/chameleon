@@ -5,9 +5,8 @@ import EcMainContainer from './ec-main-container.vue';
 import type { MainContainerProps } from './types';
 
 describe('EcMainContainer', () => {
-  function mountEcMainContainer(props?: Partial<MainContainerProps>, mountOpts: ComponentMountingOptions<MainContainerProps> = {}) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return mount(EcMainContainer as any, {
+  function mountEcMainContainer(props?: Partial<MainContainerProps>, mountOpts?: ComponentMountingOptions<typeof EcMainContainer>) {
+    return mount(EcMainContainer, {
       props,
       ...mountOpts,
     });

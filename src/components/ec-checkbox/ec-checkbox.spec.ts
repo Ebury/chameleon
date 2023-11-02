@@ -1,18 +1,16 @@
-import { type ComponentMountingOptions, mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount, VueWrapper } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { defineComponent, ref } from 'vue';
+import { type ComponentPublicInstance, defineComponent, ref } from 'vue';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import EcCheckbox from './ec-checkbox.vue';
 import type { CheckboxProps } from './types';
 
 describe('EcCheckbox', () => {
-  function mountCheckbox(props?: CheckboxProps, mountOpts?: ComponentMountingOptions<CheckboxProps>) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return mount(EcCheckbox as any, {
+  function mountCheckbox(props?: CheckboxProps, mountOpts?: ComponentMountingOptions<typeof EcCheckbox>) {
+    return mount(EcCheckbox, {
       props,
       ...mountOpts,
-    }) as CVueWrapper;
+    });
   }
 
   function mountCheckboxAsTemplate(
@@ -30,7 +28,7 @@ describe('EcCheckbox', () => {
     return mount(Component, {
       props,
       ...mountOpts,
-    }) as CVueWrapper;
+    });
   }
 
   describe(':props', () => {
@@ -252,15 +250,11 @@ describe('EcCheckbox', () => {
             return { checked };
           },
         },
-      );
+      ) as VueWrapper<ComponentPublicInstance<unknown, { checked: boolean }>>;
 
       expect(wrapper.findByDataTest('ec-checkbox').exists()).toBe(true);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       expect(wrapper.vm.checked).toBe(true);
       await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       expect(wrapper.vm.checked).toBe(false);
     });
 
@@ -274,13 +268,9 @@ describe('EcCheckbox', () => {
             return { checked };
           },
         },
-      );
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+      ) as VueWrapper<ComponentPublicInstance<unknown, { checked: boolean }>>;
       expect(wrapper.vm.checked).toBe(true);
       await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       expect(wrapper.vm.checked).toBe(true);
     });
 
@@ -298,7 +288,7 @@ describe('EcCheckbox', () => {
         {
           attachTo: element,
         },
-      );
+      ) as VueWrapper<ComponentPublicInstance<unknown, { model: boolean }>>;
 
       await wrapper.findByDataTest('ec-checkbox__check-icon-wrapper').trigger('click');
       expect(wrapper.vm.model).toBe(true);

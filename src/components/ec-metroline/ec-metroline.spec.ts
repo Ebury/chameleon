@@ -4,7 +4,6 @@ import { vi } from 'vitest';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
-import type { CVueWrapper } from '../../../tests/utils/global';
 import EcMetrolineItem from './components/ec-metroline-item';
 import EcMetroline from './ec-metroline.vue';
 
@@ -15,7 +14,7 @@ async function mountMetrolineAsTemplate(template: string, wrapperComponentOpts =
     ...wrapperComponentOpts,
   });
 
-  const wrapper = mount(Component) as CVueWrapper;
+  const wrapper = mount(Component);
   await wrapper.vm.$nextTick();
   return wrapper;
 }
@@ -153,8 +152,7 @@ describe('EcMetroline', () => {
 
       withMockedConsole((_errorSpy, warnSpy) => {
         try {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          mount(EcMetrolineItem as any, { props: { id: 1 } });
+          mount(EcMetrolineItem, { props: { id: 1 } });
         } catch (e) {
           expect((e as Error).message).toBe('Metroline context is not provided');
         }

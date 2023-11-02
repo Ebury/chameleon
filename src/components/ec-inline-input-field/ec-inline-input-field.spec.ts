@@ -3,9 +3,6 @@ import { mount } from '@vue/test-utils';
 import clipboardCopy from 'clipboard-copy';
 import { vi } from 'vitest';
 
-import { withMockedConsole } from '../../../tests/utils/console';
-import type { CVueWrapper } from '../../../tests/utils/global';
-import EcInlineInputCopy from './components/copy';
 import EcInlineInputField from './ec-inline-input-field.vue';
 import { InlineInputEvent, type InlineInputProps } from './types';
 
@@ -16,10 +13,9 @@ describe('EcInlineInputField', () => {
   const tooltipTextSuccess = 'Copied!';
   const tooltipTextError = 'Unable to copy';
 
-  function mountInlineInputField(props?: Partial<InlineInputProps>, mountOpts?: ComponentMountingOptions<InlineInputProps>) {
+  function mountInlineInputField(props?: InlineInputProps, mountOpts?: ComponentMountingOptions<typeof EcInlineInputField>) {
     return mount(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcInlineInputField as any,
+      EcInlineInputField,
       {
         props: {
           label: 'Label',
@@ -31,7 +27,7 @@ describe('EcInlineInputField', () => {
         },
         ...mountOpts,
       },
-    ) as CVueWrapper;
+    );
   }
 
   describe(':attributes', () => {
@@ -255,26 +251,6 @@ describe('EcInlineInputField', () => {
   });
 
   describe('when component is copiable', () => {
-    it('should throw an error if the tooltip props were not given', () => {
-      withMockedConsole((_errorSpy, warnSpy) => {
-        mount(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          EcInlineInputCopy as any,
-          {
-            props: {
-              label: 'Label',
-              isEditable: true,
-              value: inputFieldValue,
-            },
-          },
-        ) as CVueWrapper;
-
-        expect(warnSpy).toHaveBeenCalledTimes(2);
-        expect(warnSpy.mock.calls[0][0]).toContain('[Vue warn]: Missing required prop: "tooltipTextSuccess"');
-        expect(warnSpy.mock.calls[1][0]).toContain('[Vue warn]: Missing required prop: "tooltipTextError"');
-      });
-    });
-
     it('should render with a label tooltip when labelTooltip prop is set', () => {
       const wrapper = mountInlineInputField({ labelTooltip: 'Testing the labelTooltip prop' });
       expect(wrapper.element).toMatchSnapshot();

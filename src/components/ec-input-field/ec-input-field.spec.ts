@@ -4,7 +4,6 @@ import { vi } from 'vitest';
 import { defineComponent } from 'vue';
 
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { IconName } from '../ec-icon/icon-names';
 import { IconType } from '../ec-icon/types';
 import EcInputField from './ec-input-field.vue';
@@ -12,10 +11,9 @@ import type { InputFieldExpose, InputFieldProps } from './types';
 import { InputFieldEvent, InputFieldType } from './types';
 
 describe('EcInputField', () => {
-  function mountInputField(props?: InputFieldProps, mountOpts?: ComponentMountingOptions<InputFieldProps>): CVueWrapper {
-    return mount<InputFieldProps>(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcInputField as any,
+  function mountInputField(props?: InputFieldProps, mountOpts?: ComponentMountingOptions<typeof EcInputField>) {
+    return mount(
+      EcInputField,
       {
         props: {
           modelValue: 'Text test',
@@ -28,7 +26,7 @@ describe('EcInputField', () => {
         },
         ...mountOpts,
       },
-    ) as unknown as CVueWrapper;
+    );
   }
 
   function mountInputFieldAsTemplate(
@@ -47,7 +45,7 @@ describe('EcInputField', () => {
     return mount<InputFieldProps, ComponentMountingOptions<InputFieldProps>>(Component as any, {
       props,
       ...mountOpts,
-    }) as unknown as CVueWrapper;
+    });
   }
 
   it('should display properly with the given props', () => {
@@ -305,15 +303,15 @@ describe('EcInputField', () => {
   });
 
   it('should be focusable from outside', async () => {
-    const elem = document.createElement('div');
-    document.body.appendChild(elem);
+    const element = document.createElement('div');
+    document.body.appendChild(element);
 
     const wrapper = mount(
       EcInputField,
       {
-        attachTo: elem,
+        attachTo: element,
       },
-    ) as unknown as CVueWrapper;
+    );
 
     (document.activeElement as HTMLElement)?.blur();
     expect(document.activeElement).not.toBe(wrapper.findByDataTest('ec-input-field__input').element);
