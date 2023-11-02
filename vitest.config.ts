@@ -14,7 +14,7 @@ export default defineConfig({
       './src/**/*.{test,spec}.?(c|m)[jt]s?(x)',
     ],
     setupFiles: [
-      './tests/setup/intl.js',
+      './tests/setup/intl.ts',
       './tests/setup/after-env.js',
       './tests/setup/chameleon-config.ts',
       './tests/setup/auto-unmount.ts',
