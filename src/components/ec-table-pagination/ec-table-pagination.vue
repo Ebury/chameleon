@@ -174,8 +174,13 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
 .ec-table-pagination {
   @apply tw-flex;
   @apply tw--mx-16;
+  @apply tw-pl-12;
 
   width: calc(100% + theme('spacing.32'));
+
+  @screen md {
+    @apply tw-pl-0;
+  }
 
   &__page-size,
   &__current-page,

@@ -44,6 +44,11 @@ function hasSlot(slotName) {
 
 .ec-smart-table-heading {
   @apply tw-flex;
+  @apply tw-px-12 tw-pb-12;
+
+  @screen md {
+    @apply tw-px-0 tw-pb-0;
+  }
 
   &__filter {
     @apply tw-p-8 tw-flex-grow;
