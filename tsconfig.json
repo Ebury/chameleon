@@ -3,11 +3,11 @@
   "exclude": [
     "./cypress.config.ts"
   ],
+  "types": ["vitest/globals"],
   "compilerOptions": {
     "allowJs": true,
     "sourceMap": true,
     "types": [
-      "jest",
       "node"
     ]
   }
