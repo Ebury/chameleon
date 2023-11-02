@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Datepicker :props should have disabled a specific date: calendar 1`] = `
+exports[`Datepicker > :props > should have disabled a specific date > calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
   data-rel-data-test="ec-datepicker"
@@ -552,7 +552,7 @@ exports[`Datepicker :props should have disabled a specific date: calendar 1`] = 
 </div>
 `;
 
-exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
+exports[`Datepicker > :props > should have disabled weekends > calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
   data-rel-data-test="ec-datepicker"
@@ -1103,7 +1103,7 @@ exports[`Datepicker :props should have disabled weekends: calendar 1`] = `
 </div>
 `;
 
-exports[`Datepicker :props should render as disabled 1`] = `
+exports[`Datepicker > :props > should render as disabled 1`] = `
 <div
   class="ec-input-field ec-datepicker"
   data-test="ec-input-field"
@@ -1122,6 +1122,7 @@ exports[`Datepicker :props should render as disabled 1`] = `
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right ec-input-field__icon-wrapper--is-disabled"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -1137,7 +1138,7 @@ exports[`Datepicker :props should render as disabled 1`] = `
 </div>
 `;
 
-exports[`Datepicker :props should render with Spanish locale: calendar 1`] = `
+exports[`Datepicker > :props > should render with Spanish locale > calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
   data-rel-data-test="ec-datepicker"
@@ -1688,7 +1689,7 @@ exports[`Datepicker :props should render with Spanish locale: calendar 1`] = `
 </div>
 `;
 
-exports[`Datepicker :props should render with a bottom note 1`] = `
+exports[`Datepicker > :props > should render with a bottom note 1`] = `
 <div
   class="ec-input-field ec-datepicker"
   data-test="ec-input-field"
@@ -1706,6 +1707,7 @@ exports[`Datepicker :props should render with a bottom note 1`] = `
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -1726,7 +1728,7 @@ exports[`Datepicker :props should render with a bottom note 1`] = `
 </div>
 `;
 
-exports[`Datepicker :props should render with a bottom note in a warning state 1`] = `
+exports[`Datepicker > :props > should render with a bottom note in a warning state 1`] = `
 <div
   class="ec-input-field ec-datepicker"
   data-test="ec-input-field"
@@ -1744,6 +1746,7 @@ exports[`Datepicker :props should render with a bottom note in a warning state 1
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -1764,7 +1767,7 @@ exports[`Datepicker :props should render with a bottom note in a warning state 1
 </div>
 `;
 
-exports[`Datepicker :props should render with a label 1`] = `
+exports[`Datepicker > :props > should render with a label 1`] = `
 <div
   class="ec-input-field ec-datepicker"
   data-test="ec-input-field"
@@ -1795,6 +1798,7 @@ exports[`Datepicker :props should render with a label 1`] = `
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -1810,7 +1814,7 @@ exports[`Datepicker :props should render with a label 1`] = `
 </div>
 `;
 
-exports[`Datepicker :props should render with a note 1`] = `
+exports[`Datepicker > :props > should render with a note 1`] = `
 <div
   class="ec-input-field ec-datepicker"
   data-test="ec-input-field"
@@ -1840,6 +1844,7 @@ exports[`Datepicker :props should render with a note 1`] = `
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -1855,7 +1860,7 @@ exports[`Datepicker :props should render with a note 1`] = `
 </div>
 `;
 
-exports[`Datepicker :props should render with a placeholder 1`] = `
+exports[`Datepicker > :props > should render with a placeholder 1`] = `
 <div
   class="ec-input-field ec-datepicker"
   data-test="ec-input-field"
@@ -1874,6 +1879,7 @@ exports[`Datepicker :props should render with a placeholder 1`] = `
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -1889,7 +1895,7 @@ exports[`Datepicker :props should render with a placeholder 1`] = `
 </div>
 `;
 
-exports[`Datepicker :props should render with an error message 1`] = `
+exports[`Datepicker > :props > should render with an error message 1`] = `
 <div
   class="ec-input-field ec-datepicker"
   data-test="ec-input-field"
@@ -1908,6 +1914,7 @@ exports[`Datepicker :props should render with an error message 1`] = `
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -1929,7 +1936,7 @@ exports[`Datepicker :props should render with an error message 1`] = `
 </div>
 `;
 
-exports[`Datepicker :props should validate if the level prop("level-1") is on the allowed array of strings 1`] = `
+exports[`Datepicker > :props > should validate if the level prop("level-1") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--level-1"
   data-rel-data-test="ec-datepicker"
@@ -2480,7 +2487,7 @@ exports[`Datepicker :props should validate if the level prop("level-1") is on th
 </div>
 `;
 
-exports[`Datepicker :props should validate if the level prop("level-2") is on the allowed array of strings 1`] = `
+exports[`Datepicker > :props > should validate if the level prop("level-2") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--level-2"
   data-rel-data-test="ec-datepicker"
@@ -3031,7 +3038,7 @@ exports[`Datepicker :props should validate if the level prop("level-2") is on th
 </div>
 `;
 
-exports[`Datepicker :props should validate if the level prop("level-3") is on the allowed array of strings 1`] = `
+exports[`Datepicker > :props > should validate if the level prop("level-3") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--level-3"
   data-rel-data-test="ec-datepicker"
@@ -3582,7 +3589,7 @@ exports[`Datepicker :props should validate if the level prop("level-3") is on th
 </div>
 `;
 
-exports[`Datepicker :props should validate if the level prop("modal") is on the allowed array of strings 1`] = `
+exports[`Datepicker > :props > should validate if the level prop("modal") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--modal"
   data-rel-data-test="ec-datepicker"
@@ -4133,7 +4140,7 @@ exports[`Datepicker :props should validate if the level prop("modal") is on the 
 </div>
 `;
 
-exports[`Datepicker :props should validate if the level prop("notification") is on the allowed array of strings 1`] = `
+exports[`Datepicker > :props > should validate if the level prop("notification") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--notification"
   data-rel-data-test="ec-datepicker"
@@ -4684,7 +4691,7 @@ exports[`Datepicker :props should validate if the level prop("notification") is 
 </div>
 `;
 
-exports[`Datepicker :props should validate if the level prop("tooltip") is on the allowed array of strings 1`] = `
+exports[`Datepicker > :props > should validate if the level prop("tooltip") is on the allowed array of strings 1`] = `
 <div
   class="flatpickr-calendar animate flatpickr-calendar--tooltip"
   data-rel-data-test="ec-datepicker"
@@ -5235,7 +5242,7 @@ exports[`Datepicker :props should validate if the level prop("tooltip") is on th
 </div>
 `;
 
-exports[`Datepicker should not pass any additional attributes to the input 1`] = `
+exports[`Datepicker > should not pass any additional attributes to the input 1`] = `
 <div
   class="ec-input-field ec-datepicker"
   data-test="ec-input-field"
@@ -5253,6 +5260,7 @@ exports[`Datepicker should not pass any additional attributes to the input 1`] =
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -5268,7 +5276,7 @@ exports[`Datepicker should not pass any additional attributes to the input 1`] =
 </div>
 `;
 
-exports[`Datepicker should open the calendar when we click on the input icon 1`] = `
+exports[`Datepicker > should open the calendar when we click on the input icon 1`] = `
 <div
   class="flatpickr-calendar animate open"
   data-rel-data-test="ec-datepicker"
@@ -5819,7 +5827,7 @@ exports[`Datepicker should open the calendar when we click on the input icon 1`]
 </div>
 `;
 
-exports[`Datepicker should pass the data-test, class and style down to the input 1`] = `
+exports[`Datepicker > should pass the data-test, class and style down to the input 1`] = `
 <div
   class="ec-input-field ec-datepicker my-class"
   data-test="ec-input-field"
@@ -5838,6 +5846,7 @@ exports[`Datepicker should pass the data-test, class and style down to the input
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -5853,7 +5862,7 @@ exports[`Datepicker should pass the data-test, class and style down to the input
 </div>
 `;
 
-exports[`Datepicker should render properly 1`] = `
+exports[`Datepicker > should render properly 1`] = `
 <div
   class="ec-input-field ec-datepicker"
   data-test="ec-input-field"
@@ -5871,6 +5880,7 @@ exports[`Datepicker should render properly 1`] = `
     class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
     data-test="ec-input-field__icon-wrapper"
   >
+    <!--v-if-->
     <svg
       class="ec-icon ec-input-field__icon"
       data-test="ec-input-field__icon"
@@ -5886,7 +5896,7 @@ exports[`Datepicker should render properly 1`] = `
 </div>
 `;
 
-exports[`Datepicker watchers should update the locale: calendar 1`] = `
+exports[`Datepicker > watchers > should update the locale > calendar 1`] = `
 <div
   class="flatpickr-calendar animate"
   data-rel-data-test="ec-datepicker"
@@ -6437,7 +6447,7 @@ exports[`Datepicker watchers should update the locale: calendar 1`] = `
 </div>
 `;
 
-exports[`Datepicker watchers should update the locale: calendar 2`] = `
+exports[`Datepicker > watchers > should update the locale > calendar 2`] = `
 <div
   class="flatpickr-calendar animate"
   data-rel-data-test="ec-datepicker"

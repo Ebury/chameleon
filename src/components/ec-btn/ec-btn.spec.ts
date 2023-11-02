@@ -1,5 +1,6 @@
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import type { RouteLocationNamedRaw } from 'vue-router';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
@@ -291,7 +292,7 @@ describe('EcBtn', () => {
     });
 
     it('should pass a custom event handler', () => {
-      const clickSpy = jest.fn();
+      const clickSpy = vi.fn();
       const wrapper = mountBtn(
         {
           onClick: clickSpy,

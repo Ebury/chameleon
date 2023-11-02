@@ -1,6 +1,44 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcMainContainer should display breadcrumbs even when there are no props 1`] = `
+exports[`EcMainContainer > should display breadcrumbs and CTA slot when given 1`] = `
+<div
+  class="ec-main-container"
+  data-test="ec-main-container"
+>
+  <div
+    class="tw-flex tw-justify-between tw-items-center tw-mb-16"
+  >
+    <div
+      data-test="ec-main-container__breadcrumbs"
+    >
+      
+      <a
+        href="#"
+      >
+        Breadcrumbs
+      </a>
+      
+    </div>
+    <div
+      data-test="ec-main-container__cta"
+    >
+      
+      <button
+        class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width"
+      >
+        Test cta
+      </button>
+      
+    </div>
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+  
+  
+</div>
+`;
+
+exports[`EcMainContainer > should display breadcrumbs even when there are no props 1`] = `
 <div
   class="ec-main-container"
   data-test="ec-main-container"
@@ -28,7 +66,7 @@ exports[`EcMainContainer should display breadcrumbs even when there are no props
 </div>
 `;
 
-exports[`EcMainContainer should render both titles when they are given in props 1`] = `
+exports[`EcMainContainer > should render both titles when they are given in props 1`] = `
 <div
   class="ec-main-container"
   data-test="ec-main-container"
@@ -56,7 +94,7 @@ exports[`EcMainContainer should render both titles when they are given in props 
 </div>
 `;
 
-exports[`EcMainContainer should render empty if no props or slots were given 1`] = `
+exports[`EcMainContainer > should render empty if no props or slots were given 1`] = `
 <div
   class="ec-main-container"
   data-test="ec-main-container"
@@ -69,7 +107,7 @@ exports[`EcMainContainer should render empty if no props or slots were given 1`]
 </div>
 `;
 
-exports[`EcMainContainer should render without title intro when the titleIntro prop is not given 1`] = `
+exports[`EcMainContainer > should render without title intro when the titleIntro prop is not given 1`] = `
 <div
   class="ec-main-container"
   data-test="ec-main-container"
@@ -92,7 +130,7 @@ exports[`EcMainContainer should render without title intro when the titleIntro p
 </div>
 `;
 
-exports[`EcMainContainer should use given slot 1`] = `
+exports[`EcMainContainer > should use given slot 1`] = `
 <div
   class="ec-main-container"
   data-test="ec-main-container"
@@ -123,7 +161,7 @@ exports[`EcMainContainer should use given slot 1`] = `
 </div>
 `;
 
-exports[`EcMainContainer should use the given named breadcrumbs slot 1`] = `
+exports[`EcMainContainer > should use the given named breadcrumbs slot 1`] = `
 <div
   class="ec-main-container"
   data-test="ec-main-container"
@@ -166,7 +204,7 @@ exports[`EcMainContainer should use the given named breadcrumbs slot 1`] = `
 </div>
 `;
 
-exports[`EcMainContainer should use the given named cta slot 1`] = `
+exports[`EcMainContainer > should use the given named cta slot 1`] = `
 <div
   class="ec-main-container"
   data-test="ec-main-container"

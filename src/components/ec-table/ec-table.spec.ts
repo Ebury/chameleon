@@ -1,4 +1,5 @@
 import { type ComponentMountingOptions, mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { defineComponent, h } from 'vue';
 
 import type { CVueWrapper } from '../../../tests/utils/global';
@@ -162,7 +163,7 @@ describe('EcTable', () => {
   });
 
   it('the tr should have class ec-table-row--is-clickable if we set the listener on row-click', () => {
-    const onRowClick = jest.fn();
+    const onRowClick = vi.fn();
     const wrapper = mountEcTable(
       {
         columns: [
@@ -255,12 +256,12 @@ describe('EcTable', () => {
   });
 
   it('should render custom row if window width is lower than 768px', () => {
-    window.matchMedia = jest.fn().mockImplementation(query => ({
+    window.matchMedia = vi.fn().mockImplementation(query => ({
       matches: query === '(max-width: 768px)',
       media: '',
       onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
     }));
 
     const wrapper = mountEcTable({
@@ -374,7 +375,7 @@ describe('EcTable', () => {
   });
 
   it('should emit the row-click event when you click on some row', async () => {
-    const onRowClick = jest.fn();
+    const onRowClick = vi.fn();
     const wrapper = mountEcTable({}, {
       attrs: {
         onRowClick,

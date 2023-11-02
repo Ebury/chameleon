@@ -2,6 +2,7 @@ import fakeTimers from '@sinonjs/fake-timers';
 import { DOMWrapper, mount } from '@vue/test-utils';
 import flatpickr from 'flatpickr';
 import { Spanish } from 'flatpickr/dist/l10n/es';
+import { vi } from 'vitest';
 import { defineComponent, ref } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -278,7 +279,7 @@ describe('Datepicker', () => {
     });
 
     it('should pass custom events to the input', async () => {
-      const customEventSpy = jest.fn();
+      const customEventSpy = vi.fn();
 
       const { inputWrapper } = mountDatepicker({}, {
         attrs: {
@@ -316,7 +317,7 @@ describe('Datepicker', () => {
         options: {},
       });
 
-      const onChangeSpy = jest.fn();
+      const onChangeSpy = vi.fn();
 
       await inputWrapper.setProps({
         options: {

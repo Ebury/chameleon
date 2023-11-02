@@ -89,4 +89,15 @@ describe('EcMainContainer', () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('should display breadcrumbs and CTA slot when given', () => {
+    const wrapper = mountEcMainContainer({}, {
+      slots: {
+        breadcrumbs: '<a href="#">Breadcrumbs</a>',
+        cta: '<button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width">Test cta</button>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

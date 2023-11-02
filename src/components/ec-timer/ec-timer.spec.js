@@ -1,5 +1,6 @@
 import fakeTimers from '@sinonjs/fake-timers';
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcTimer from './ec-timer.vue';
@@ -59,7 +60,7 @@ describe('EcTimer', () => {
     });
 
     it('should clear the interval if we set "isRunning" to false', async () => {
-      const clearTimeoutSpy = jest.spyOn(window, 'clearInterval');
+      const clearTimeoutSpy = vi.spyOn(window, 'clearInterval');
       const wrapper = mountTimer({ seconds: 20, isRunning: true });
 
       expect(clearTimeoutSpy).toHaveBeenCalledTimes(0);
@@ -165,7 +166,7 @@ describe('EcTimer', () => {
   });
 
   it('should clear the interval before we destroy the components', () => {
-    const clearTimeoutSpy = jest.spyOn(window, 'clearInterval');
+    const clearTimeoutSpy = vi.spyOn(window, 'clearInterval');
     const wrapper = mountTimer({ seconds: 20, isRunning: true });
 
     expect(clearTimeoutSpy).toHaveBeenCalledTimes(0);

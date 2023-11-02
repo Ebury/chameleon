@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcPanel #slots #footer - should render footer slot section if slot is passed 1`] = `
+exports[`EcPanel > #slots > #footer - should render footer slot section if slot is passed 1`] = `
 <aside
   class="ec-panel"
   data-test="ec-panel"
@@ -57,7 +57,7 @@ exports[`EcPanel #slots #footer - should render footer slot section if slot is p
 </aside>
 `;
 
-exports[`EcPanel #slots #header - should render header slot section if slot is passed 1`] = `
+exports[`EcPanel > #slots > #header - should render header slot section if slot is passed 1`] = `
 <aside
   class="ec-panel"
   data-test="ec-panel"
@@ -114,7 +114,7 @@ exports[`EcPanel #slots #header - should render header slot section if slot is p
 </aside>
 `;
 
-exports[`EcPanel #slots #main - should render main slot section if slot is passed 1`] = `
+exports[`EcPanel > #slots > #main - should render main slot section if slot is passed 1`] = `
 <aside
   class="ec-panel"
   data-test="ec-panel"
@@ -165,9 +165,9 @@ exports[`EcPanel #slots #main - should render main slot section if slot is passe
 </aside>
 `;
 
-exports[`EcPanel :props :show - should not render the panel when is false 1`] = `<!--v-if-->`;
+exports[`EcPanel > :props > :show - should not render the panel when is false 1`] = `<!--v-if-->`;
 
-exports[`EcPanel :props :show - should render the panel when is true 1`] = `
+exports[`EcPanel > :props > :show - should render the panel when is true 1`] = `
 <aside
   class="ec-panel"
   data-test="ec-panel"
@@ -215,7 +215,7 @@ exports[`EcPanel :props :show - should render the panel when is true 1`] = `
 </aside>
 `;
 
-exports[`EcPanel @events @back should not render back button when event handler attribute is not present 1`] = `
+exports[`EcPanel > @events > @back > should not render back button when event handler attribute is not present 1`] = `
 <aside
   class="ec-panel"
   data-test="ec-panel"
@@ -263,7 +263,7 @@ exports[`EcPanel @events @back should not render back button when event handler 
 </aside>
 `;
 
-exports[`EcPanel @events @back should render back button when event handler attribute is present 1`] = `
+exports[`EcPanel > @events > @back > should render back button when event handler attribute is present 1`] = `
 <aside
   class="ec-panel"
   data-test="ec-panel"
@@ -326,7 +326,7 @@ exports[`EcPanel @events @back should render back button when event handler attr
 </aside>
 `;
 
-exports[`EcPanel should use given attributes 1`] = `
+exports[`EcPanel > should use given attributes 1`] = `
 <aside
   class="ec-panel my-class"
   data-test="my-data-test ec-panel"
@@ -375,9 +375,9 @@ exports[`EcPanel should use given attributes 1`] = `
 </aside>
 `;
 
-exports[`EcPanel v-model should not render the panel when we pass to model false 1`] = `<!--v-if-->`;
+exports[`EcPanel > v-model > should not render the panel when we pass to model false 1`] = `<!--v-if-->`;
 
-exports[`EcPanel v-model should render the panel when we pass to model true 1`] = `
+exports[`EcPanel > v-model > should render the panel when we pass to model true 1`] = `
 <aside
   class="ec-panel"
   data-test="ec-panel"
@@ -425,4 +425,4 @@ exports[`EcPanel v-model should render the panel when we pass to model true 1`] 
 </aside>
 `;
 
-exports[`EcPanel v-model should render the panel when we pass to model true 2`] = `<!--v-if-->`;
+exports[`EcPanel > v-model > should render the panel when we pass to model true 2`] = `<!--v-if-->`;

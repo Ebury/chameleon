@@ -1,5 +1,6 @@
 
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -131,7 +132,7 @@ describe('EcMetroline', () => {
     });
 
     it('should throw an error if we don\'t pass an id', () => {
-      withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
+      withMockedConsole((_errorSpy, warnSpy) => {
         mountMetrolineAsTemplate(
           `<ec-metroline>
             <ec-metroline-item>
@@ -150,7 +151,7 @@ describe('EcMetroline', () => {
     it('should throw an error if we don\'t provide Metroline context', () => {
       expect.assertions(3);
 
-      withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
+      withMockedConsole((_errorSpy, warnSpy) => {
         try {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           mount(EcMetrolineItem as any, { props: { id: 1 } });
@@ -166,7 +167,7 @@ describe('EcMetroline', () => {
 
   describe('@events', () => {
     it('should emit a "change" event when we go to next item', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const wrapper = await mountMetrolineAsTemplate(`
       <ec-metroline @change="onChange">
         <ec-metroline-item
@@ -201,7 +202,7 @@ describe('EcMetroline', () => {
     });
 
     it('should emit a "change" event when we activate a previous item', async () => {
-      const onChange = jest.fn();
+      const onChange = vi.fn();
       const wrapper = await mountMetrolineAsTemplate(`
       <ec-metroline @change="onChange">
         <ec-metroline-item
@@ -251,7 +252,7 @@ describe('EcMetroline', () => {
     });
 
     it('should emit a "complete" event when  the metroline is complete', async () => {
-      const onComplete = jest.fn();
+      const onComplete = vi.fn();
       const wrapper = await mountMetrolineAsTemplate(`
       <ec-metroline @complete="onComplete">
         <ec-metroline-item :id="1">
