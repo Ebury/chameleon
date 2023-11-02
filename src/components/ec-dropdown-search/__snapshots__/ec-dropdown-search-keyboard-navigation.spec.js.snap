@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcDropdownSearch - Keyboard navigation when dropdown is open and TAB key is pressed should focus the cta if cta is enabled and an item is selected 1`] = `
+exports[`EcDropdownSearch - Keyboard navigation > when dropdown is open and TAB key is pressed > should focus the cta if cta is enabled and an item is selected 1`] = `
 <a
   data-test="cta-data-test"
   href="#"
