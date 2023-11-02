@@ -1,4 +1,4 @@
-import fakeTimers from '@sinonjs/fake-timers';
+import fakeTimers, { type InstalledClock } from '@sinonjs/fake-timers';
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
@@ -8,10 +8,10 @@ import type { TextFilterProps } from './types';
 import { TextFilterEvent } from './types';
 
 describe('EcTextFilter', () => {
-  let clock: fakeTimers.InstalledClock;
+  let clock: InstalledClock;
 
   beforeEach(() => {
-    clock = fakeTimers.install(window as unknown as fakeTimers.FakeTimerInstallOpts);
+    clock = fakeTimers.install();
   });
 
   afterEach(() => {

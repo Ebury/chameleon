@@ -7,7 +7,7 @@ describe('Countdown', () => {
   let clock;
 
   beforeEach(() => {
-    clock = fakeTimers.install(window);
+    clock = fakeTimers.install();
   });
 
   afterEach(() => {
