@@ -1,4 +1,9 @@
-function updateTooltipMock(el, value) {
+import { vi } from 'vitest';
+import type { ObjectDirective } from 'vue';
+
+import type { TooltipOptions } from '../../src/directives/ec-tooltip/types';
+
+function updateTooltipMock(el: HTMLElement, value: string | TooltipOptions) {
   const dataTest = el.getAttribute('data-test') || '';
   if (!dataTest.includes('ec-tooltip-mock')) {
     el.setAttribute('data-test', `${dataTest} ec-mock ec-tooltip-mock`.trim());
@@ -17,14 +22,14 @@ function updateTooltipMock(el, value) {
   }
 
   if (content) {
-    el.setAttribute('data-ec-tooltip-mock-content', content);
+    el.setAttribute('data-ec-tooltip-mock-content', `${content}`);
     if (placement) {
       el.setAttribute('data-ec-tooltip-mock-placement', placement);
     } else {
       el.removeAttribute('data-ec-tooltip-mock-placement');
     }
     if (popperClass) {
-      el.setAttribute('data-ec-tooltip-mock-popper-class', popperClass);
+      el.setAttribute('data-ec-tooltip-mock-popper-class', popperClass.join(', '));
     } else {
       el.removeAttribute('data-ec-tooltip-mock-popper-class');
     }
@@ -35,7 +40,7 @@ function updateTooltipMock(el, value) {
   }
 }
 
-export const EcTooltipDirectiveMock = {
+export const EcTooltipDirectiveMock: ObjectDirective<HTMLElement, string | TooltipOptions> = {
   beforeMount(el, { value }) {
     updateTooltipMock(el, value);
   },
@@ -51,4 +56,4 @@ export const EcTooltipDirectiveMock = {
   },
 };
 
-jest.mock('../../src/directives/ec-tooltip', () => EcTooltipDirectiveMock);
+vi.mock('../../src/directives/ec-tooltip', () => ({ default: EcTooltipDirectiveMock }));

@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { defineComponent } from 'vue';
 
 const EcPopoverStub = defineComponent({
@@ -7,7 +8,7 @@ const EcPopoverStub = defineComponent({
   },
   inheritAttrs: false,
   methods: {
-    update: jest.fn(),
+    update: vi.fn(),
   },
   template: `
   <ec-stub

@@ -2,8 +2,6 @@ import { config, DOMWrapper, VueWrapper } from '@vue/test-utils';
 
 import '@testing-library/jest-dom';
 
-require('snapshot-diff/extend-expect');
-
 // [data-test]
 function findByDataTest(dataTest) {
   return this.find(`[data-test~=${dataTest}]`);

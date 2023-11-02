@@ -16,10 +16,10 @@ export default defineConfig({
     setupFiles: [
       './tests/setup/intl.js',
       './tests/setup/after-env.js',
-      './tests/setup/chameleon-config.js',
-      './tests/setup/auto-unmount.js',
-      './tests/stubs/index.js',
-      './tests/mocks/index.js',
+      './tests/setup/chameleon-config.ts',
+      './tests/setup/auto-unmount.ts',
+      './tests/stubs/index.ts',
+      './tests/mocks/index.ts',
     ],
     coverage: {
       100: true,
