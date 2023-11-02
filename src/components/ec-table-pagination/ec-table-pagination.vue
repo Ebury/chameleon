@@ -1,6 +1,7 @@
 <template>
   <div
     class="ec-table-pagination"
+    :class="{ 'ec-table-pagination--is-responsive': isResponsive }"
     v-bind="{
       ...$attrs,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-table-pagination` : 'ec-table-pagination',
@@ -174,12 +175,15 @@ const selectedPageSizeText = computed(() => pageSizeModel.value?.text);
 .ec-table-pagination {
   @apply tw-flex;
   @apply tw--mx-16;
-  @apply tw-pl-12;
 
   width: calc(100% + theme('spacing.32'));
 
-  @screen md {
-    @apply tw-pl-0;
+  &--is-responsive {
+    @apply tw-pl-12;
+
+    @screen md {
+      @apply tw-pl-0;
+    }
   }
 
   &__page-size,
