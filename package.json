@@ -64,7 +64,6 @@
     "@storybook/theming": "7.4.6",
     "@storybook/vue3": "7.4.6",
     "@storybook/vue3-vite": "7.4.6",
-    "@testing-library/jest-dom": "6.1.4",
     "@types/intl": "1.2.1",
     "@types/node": "20.8.10",
     "@typescript-eslint/eslint-plugin": "5.59.9",

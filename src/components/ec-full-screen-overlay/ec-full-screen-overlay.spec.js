@@ -76,7 +76,7 @@ describe('EcFullScreenOverlay', () => {
     describe(':backgroundColorLevel', () => {
       it('should render with the background css class passed', () => {
         const wrapper = mountFullScreenOverlay({ backgroundColorLevel: 5 });
-        expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toHaveClass('tw-bg-gray-5');
+        expect(wrapper.findByDataTest('ec-full-screen-overlay').classes('tw-bg-gray-5')).toBe(true);
         expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toMatchSnapshot();
       });
 

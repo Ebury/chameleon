@@ -1,7 +1,5 @@
 import { BaseWrapper, config, VueWrapper } from '@vue/test-utils';
 
-import '@testing-library/jest-dom';
-
 // [data-test]
 function findByDataTest<T extends Element | Node>(this: BaseWrapper<Node>, dataTest: string) {
   return this.find<T>(`[data-test~=${dataTest}]`);
