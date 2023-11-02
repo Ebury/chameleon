@@ -12,7 +12,7 @@ FloatingVue.options.themes.tooltip = {
 
 const origBeforeMount = VTooltip.beforeMount;
 
-function tryGetContainer(instance?: DirectiveBinding['instance']): HTMLElement | undefined {
+function tryGetContainer(instance?: DirectiveBinding['instance']): HTMLElement | string | undefined {
   return instance?.$.appContext.app.config.globalProperties.$tooltipContainer;
 }
 
@@ -25,7 +25,7 @@ function bind(el: HTMLElement, {
   if (type === 'string') {
     options = { content: value as string };
   } else if (value && type === 'object') {
-    options = value as TooltipOptions;
+    options = { ...value as TooltipOptions };
   } else {
     options = { content: false };
   }

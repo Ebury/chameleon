@@ -1,13 +1,10 @@
-/* eslint no-underscore-dangle: "off" */
+/* eslint-disable no-underscore-dangle */
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 import EcAmount from './ec-amount';
 
 describe('EcAmount', () => {
-  beforeEach(() => {
-    jest.useFakeTimers(); // setCursor uses setTimeout but it is just a fix for android, we don't need that during tests so just fake the timers
-  });
-
   function mountTemplate(template, opts, mountOpts) {
     const Wrapper = {
       directives: { EcAmount },
@@ -45,7 +42,7 @@ describe('EcAmount', () => {
 
   it('should destroy the directive and unbind the methods', () => {
     const { wrapper, input } = mountTemplate('<input v-ec-amount data-test="amount-input" />');
-    const spy = jest.spyOn(input.element, 'removeEventListener');
+    const spy = vi.spyOn(input.element, 'removeEventListener');
 
     const inputHandler = input.element.__inputHandler;
     const keydownHandler = input.element.__keydownHandler;
