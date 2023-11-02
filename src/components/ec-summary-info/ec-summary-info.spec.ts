@@ -22,6 +22,17 @@ describe('EcSummaryInfo', () => {
     ) as CVueWrapper;
   }
 
+  it('should render with custom attributes', () => {
+    const wrapper = mountSummaryInfo({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   describe('icon', () => {
     it('should render with the given "icon" prop', () => {
       const wrapper = mountSummaryInfo({ iconName: IconName.SimpleSell });

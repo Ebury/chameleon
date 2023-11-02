@@ -60,7 +60,7 @@
     </div>
     <div
       v-if="isLoading || icon"
-      class="ec-input-field__icon-wrapper  ec-input-field__icon-wrapper--right"
+      class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
       :class="{ 'ec-input-field__icon-wrapper--is-disabled': isDisabled }"
       data-test="ec-input-field__icon-wrapper"
     >
@@ -70,13 +70,13 @@
         :size="24"
       />
       <ec-icon
-        v-else-if="icon"
+        v-if="icon"
         class="ec-input-field__icon"
         data-test="ec-input-field__icon"
         :name="icon"
         :size="iconSize"
         :type="iconType"
-        @click="emit(InputFieldEvent.ICON_CLICK, modelValue);"
+        @click="emit(InputFieldEvent.ICON_CLICK, modelValue)"
       />
     </div>
     <div

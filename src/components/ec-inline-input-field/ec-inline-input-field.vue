@@ -1,5 +1,6 @@
 <template>
   <div
+    class="ec-inline-input-field"
     v-bind="{
       ...$attrs,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-inline-input-field` : 'ec-inline-input-field',

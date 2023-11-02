@@ -1,5 +1,10 @@
 <template>
-  <div :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-file-upload` : 'ec-file-upload'">
+  <div
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-file-upload` : 'ec-file-upload',
+    }"
+  >
     <label
       v-if="label || note"
       class="ec-file-upload__label"
@@ -45,6 +50,10 @@
 <script setup>
 import EcFileDropzone from '../ec-file-dropzone';
 import EcFileList from '../ec-file-list';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const emit = defineEmits(['update:modelValue', 'change']);
 

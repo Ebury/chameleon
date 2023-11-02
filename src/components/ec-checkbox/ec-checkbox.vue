@@ -41,15 +41,18 @@
           'ec-checkbox__check-icon-wrapper--checked-and-disabled': disabled && inputModel,
           'ec-checkbox__check-icon-wrapper--indeterminate-and-disabled': disabled && indeterminate,
         }"
+        data-test="ec-checkbox__check-icon-wrapper"
         @click="checkboxInput?.click()"
       >
         <span
           v-if="indeterminate"
           class="ec-checkbox__indeterminate-icon"
+          data-test="ec-checkbox__indeterminate-icon"
         />
         <ec-icon
           v-else-if="inputModel"
           class="ec-checkbox__check-icon"
+          data-test="ec-checkbox__check-icon"
           :name="IconName.SimpleCheck"
           :size="16"
         />
@@ -69,7 +72,7 @@
     </div>
 
     <div
-      :id="errorId ?? undefined"
+      :id="errorId"
       v-if="isInvalid"
       class="ec-checkbox__error-text"
       data-test="ec-checkbox__error-text"
@@ -81,10 +84,6 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({
-  inheritAttrs: false,
-});
-
 import {
   computed,
   type InputHTMLAttributes,
@@ -109,6 +108,10 @@ interface CheckboxProps {
   isSingleLine?: boolean,
 }
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = withDefaults(defineProps<CheckboxProps>(), {
   indeterminate: false,
   label: '',
@@ -126,7 +129,7 @@ const slots = useSlots();
 
 const id = `ec-checkbox-${uid}`;
 const isInvalid = computed(() => (!!props.errorMessage || !!slots['error-message']));
-const errorId = computed(() => (isInvalid.value ? `ec-checkbox-error-${uid}` : null));
+const errorId = computed(() => (isInvalid.value ? `ec-checkbox-error-${uid}` : undefined));
 
 const inputIsFocused = ref(false);
 const checkboxInput = ref<HTMLInputElement>();

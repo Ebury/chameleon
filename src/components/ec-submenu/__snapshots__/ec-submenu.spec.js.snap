@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcSubmenu should not render when passing an empty array to submenu 1`] = `<!--v-if-->`;
+exports[`EcSubmenu > should not render when passing an empty array to submenu 1`] = `<!--v-if-->`;
 
-exports[`EcSubmenu should not render when passing null to submenu 1`] = `<!--v-if-->`;
+exports[`EcSubmenu > should not render when passing null to submenu 1`] = `<!--v-if-->`;
 
-exports[`EcSubmenu should render properly if hasHeaderGap prop is set to false 1`] = `
+exports[`EcSubmenu > should render properly if hasHeaderGap prop is set to false 1`] = `
 <div
   class="ec-submenu"
   data-test="ec-submenu"
@@ -96,7 +96,7 @@ exports[`EcSubmenu should render properly if hasHeaderGap prop is set to false 1
 </div>
 `;
 
-exports[`EcSubmenu should render properly if isFullWidth prop is set 1`] = `
+exports[`EcSubmenu > should render properly if isFullWidth prop is set 1`] = `
 <div
   class="ec-submenu"
   data-test="ec-submenu"
@@ -197,7 +197,7 @@ exports[`EcSubmenu should render properly if isFullWidth prop is set 1`] = `
 </div>
 `;
 
-exports[`EcSubmenu should render the second panel if the second tab is clicked 1`] = `
+exports[`EcSubmenu > should render the second panel if the second tab is clicked 1`] = `
 <div
   class="ec-submenu"
   data-test="ec-submenu"
@@ -273,6 +273,99 @@ exports[`EcSubmenu should render the second panel if the second tab is clicked 1
       <div
         data-test="ec-submenu__panel-1"
         style=""
+      >
+        
+        
+      </div>
+      <div
+        data-test="ec-submenu__panel-2"
+        style="display: none;"
+      >
+        
+        
+      </div>
+      
+    </transition-group-stub>
+  </main>
+</div>
+`;
+
+exports[`EcSubmenu > should render with custom attributes 1`] = `
+<div
+  class="ec-submenu my-class"
+  data-test="my-data-test ec-submenu"
+  id="test-id"
+>
+  <div
+    class="ec-submenu__header-container"
+  >
+    <ul
+      class="ec-submenu__header"
+    >
+      
+      <li
+        class="ec-submenu__header-item ec-submenu__header-item--is-active"
+        data-test="ec-submenu__header-item"
+      >
+        <a
+          class="ec-submenu__header-title"
+          data-test="ec-submenu__header-title-0"
+          href="#"
+        >
+          Submitted Requests (30)
+        </a>
+      </li>
+      <li
+        class="ec-submenu__header-item"
+        data-test="ec-submenu__header-item"
+      >
+        <ec-stub
+          class="ec-submenu__header-title"
+          data-test="ec-submenu__header-title-1 ec-stub router-link-stub"
+          to="/submitted"
+        >
+          
+          Repayments (30)
+          
+        </ec-stub>
+      </li>
+      <li
+        class="ec-submenu__header-item"
+        data-test="ec-submenu__header-item"
+      >
+        <ec-stub
+          class="ec-submenu__header-title"
+          data-test="ec-submenu__header-title-2 ec-stub router-link-stub"
+          to="/submitted"
+        >
+          
+          Another Request (30)
+          
+        </ec-stub>
+      </li>
+      
+    </ul>
+  </div>
+  <main
+    class="ec-submenu__main"
+  >
+    <transition-group-stub
+      appear="false"
+      css="true"
+      name="ec-submenu__fade"
+      persisted="false"
+      tag="div"
+    >
+      
+      <div
+        data-test="ec-submenu__panel-0"
+      >
+        
+        
+      </div>
+      <div
+        data-test="ec-submenu__panel-1"
+        style="display: none;"
       >
         
         

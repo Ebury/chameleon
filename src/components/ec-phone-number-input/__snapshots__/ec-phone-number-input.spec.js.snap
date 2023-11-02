@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcPhoneNumberInput :props should accept a custom "no countries" search result text 1`] = `
+exports[`EcPhoneNumberInput > :props > should accept a custom "no countries" search result text 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
   data-test="ec-dropdown-search__item-list"
@@ -36,7 +36,7 @@ exports[`EcPhoneNumberInput :props should accept a custom "no countries" search 
 </ul>
 `;
 
-exports[`EcPhoneNumberInput :props should accept a custom search field text 1`] = `
+exports[`EcPhoneNumberInput > :props > should accept a custom search field text 1`] = `
 <input
   autocomplete="off"
   class="ec-dropdown-search__search-input"
@@ -45,7 +45,7 @@ exports[`EcPhoneNumberInput :props should accept a custom search field text 1`] 
 />
 `;
 
-exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
+exports[`EcPhoneNumberInput > :props > should render in a disabled state 1`] = `
 <div
   class="ec-phone-number-input"
   data-test="ec-phone-number-input"
@@ -91,6 +91,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right ec-input-field__icon-wrapper--is-disabled"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -312,7 +313,7 @@ exports[`EcPhoneNumberInput :props should render in a disabled state 1`] = `
 </div>
 `;
 
-exports[`EcPhoneNumberInput :props should render in a loading state 1`] = `
+exports[`EcPhoneNumberInput > :props > should render in a loading state 1`] = `
 <ec-stub
   autosize="min"
   class="ec-dropdown-search__trigger"
@@ -344,6 +345,7 @@ exports[`EcPhoneNumberInput :props should render in a loading state 1`] = `
       class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
       data-test="ec-input-field__icon-wrapper"
     >
+      <!--v-if-->
       <svg
         class="ec-icon ec-input-field__icon"
         data-test="ec-input-field__icon"
@@ -423,7 +425,7 @@ exports[`EcPhoneNumberInput :props should render in a loading state 1`] = `
 </ec-stub>
 `;
 
-exports[`EcPhoneNumberInput :props should render with a bottom note 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with a bottom note 1`] = `
 <div
   class="ec-phone-number-input__bottom-note"
   data-test="ec-phone-number-input__bottom-note"
@@ -435,7 +437,7 @@ exports[`EcPhoneNumberInput :props should render with a bottom note 1`] = `
 </div>
 `;
 
-exports[`EcPhoneNumberInput :props should render with a disabled tooltip message 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with a disabled tooltip message 1`] = `
 <div
   class="ec-phone-number-input"
   data-test="ec-phone-number-input"
@@ -482,6 +484,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right ec-input-field__icon-wrapper--is-disabled"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -703,7 +706,7 @@ exports[`EcPhoneNumberInput :props should render with a disabled tooltip message
 </div>
 `;
 
-exports[`EcPhoneNumberInput :props should render with a label 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with a label 1`] = `
 <div
   class="ec-phone-number-input"
   data-test="ec-phone-number-input"
@@ -759,6 +762,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -979,7 +983,7 @@ exports[`EcPhoneNumberInput :props should render with a label 1`] = `
 </div>
 `;
 
-exports[`EcPhoneNumberInput :props should render with a note 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with a note 1`] = `
 <div
   class="ec-phone-number-input"
   data-test="ec-phone-number-input"
@@ -1035,6 +1039,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -1255,7 +1260,7 @@ exports[`EcPhoneNumberInput :props should render with a note 1`] = `
 </div>
 `;
 
-exports[`EcPhoneNumberInput :props should render with a search field 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with a search field 1`] = `
 <input
   autocomplete="off"
   class="ec-dropdown-search__search-input"
@@ -1264,7 +1269,7 @@ exports[`EcPhoneNumberInput :props should render with a search field 1`] = `
 />
 `;
 
-exports[`EcPhoneNumberInput :props should render with a sensitive class when isSensitive prop is set to true 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
   class="ec-phone-number-input"
   data-test="ec-phone-number-input"
@@ -1309,6 +1314,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -1529,7 +1535,7 @@ exports[`EcPhoneNumberInput :props should render with a sensitive class when isS
 </div>
 `;
 
-exports[`EcPhoneNumberInput :props should render with a warning 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with a warning 1`] = `
 <div
   class="ec-phone-number-input__bottom-note ec-phone-number-input__bottom-note--is-warning"
   data-test="ec-phone-number-input__bottom-note"
@@ -1541,7 +1547,7 @@ exports[`EcPhoneNumberInput :props should render with a warning 1`] = `
 </div>
 `;
 
-exports[`EcPhoneNumberInput :props should render with a warning tooltip 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with a warning tooltip 1`] = `
 <div
   class="ec-phone-number-input__bottom-note ec-phone-number-input__bottom-note--is-warning"
   data-test="ec-phone-number-input__bottom-note"
@@ -1563,7 +1569,7 @@ exports[`EcPhoneNumberInput :props should render with a warning tooltip 1`] = `
 </div>
 `;
 
-exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with an error message 1`] = `
 <div
   class="ec-phone-number-input"
   data-test="ec-phone-number-input"
@@ -1609,6 +1615,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -1839,7 +1846,7 @@ exports[`EcPhoneNumberInput :props should render with an error message 1`] = `
 </div>
 `;
 
-exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
+exports[`EcPhoneNumberInput > :props > should render with icon static prefix 1`] = `
 <div
   class="ec-phone-number-input"
   data-test="ec-phone-number-input"
@@ -1884,6 +1891,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -2104,7 +2112,7 @@ exports[`EcPhoneNumberInput :props should render with icon static prefix 1`] = `
 </div>
 `;
 
-exports[`EcPhoneNumberInput should render properly 1`] = `
+exports[`EcPhoneNumberInput > should render properly 1`] = `
 <div
   class="ec-phone-number-input"
   data-test="ec-phone-number-input"
@@ -2149,6 +2157,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -2369,7 +2378,7 @@ exports[`EcPhoneNumberInput should render properly 1`] = `
 </div>
 `;
 
-exports[`EcPhoneNumberInput v-model should preselect a country item from the v-model and do not show the image if country code is not set 1`] = `
+exports[`EcPhoneNumberInput > v-model > should preselect a country item from the v-model and do not show the image if country code is not set 1`] = `
 <div
   class="ec-phone-number-input__countries-selected"
   data-test="ec-phone-number-input__countries-selected"
@@ -2384,7 +2393,7 @@ exports[`EcPhoneNumberInput v-model should preselect a country item from the v-m
 </div>
 `;
 
-exports[`EcPhoneNumberInput v-model should preselect a country item from the v-model and do not show the image if does not exist 1`] = `
+exports[`EcPhoneNumberInput > v-model > should preselect a country item from the v-model and do not show the image if does not exist 1`] = `
 <div
   class="ec-phone-number-input__countries-selected"
   data-test="ec-phone-number-input__countries-selected"
@@ -2399,7 +2408,7 @@ exports[`EcPhoneNumberInput v-model should preselect a country item from the v-m
 </div>
 `;
 
-exports[`EcPhoneNumberInput v-model should preselect the country item in the dropdown and the number in the input from the v-model 1`] = `
+exports[`EcPhoneNumberInput > v-model > should preselect the country item in the dropdown and the number in the input from the v-model 1`] = `
 <div
   class="ec-phone-number-input__countries-selected"
   data-test="ec-phone-number-input__countries-selected"

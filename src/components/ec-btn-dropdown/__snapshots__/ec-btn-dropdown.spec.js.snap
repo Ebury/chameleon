@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcBtnDropdown should attach 'attrs' to the rendered anchor 1`] = `
+exports[`EcBtnDropdown > should attach 'attrs' to the rendered anchor 1`] = `
 <li
   class="ec-dropdown-search__item"
   data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
@@ -10,7 +10,7 @@ exports[`EcBtnDropdown should attach 'attrs' to the rendered anchor 1`] = `
   <a
     class="ec-btn-dropdown__item-link"
     data-test="ec-btn-dropdown__item-link ec-btn-dropdown__item-link--0"
-    href="/convert-and-pay/"
+    href="#/convert-and-pay/"
     id="item-link-id"
   >
     Convert & Pay
@@ -19,7 +19,7 @@ exports[`EcBtnDropdown should attach 'attrs' to the rendered anchor 1`] = `
 </li>
 `;
 
-exports[`EcBtnDropdown should render as expected 1`] = `
+exports[`EcBtnDropdown > should render as expected 1`] = `
 <div
   class="ec-btn-dropdown"
   data-test="ec-btn-dropdown"
@@ -98,7 +98,169 @@ exports[`EcBtnDropdown should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcBtnDropdown should render with a list of options on the dropdown search 1`] = `
+exports[`EcBtnDropdown > should render as opened while the dropdown is opened > closed 1`] = `
+<div
+  class="ec-btn-dropdown"
+  data-test="ec-btn-dropdown"
+>
+  <button
+    class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
+    data-test="ec-btn-dropdown__btn ec-btn"
+    type="button"
+  >
+    <!--v-if-->
+    <span
+      class="ec-btn__text"
+      data-test="ec-btn__text"
+    >
+      
+      Convert & Pay
+      
+    </span>
+    <!--v-if-->
+  </button>
+  <div
+    class="ec-dropdown-search"
+    data-test="ec-dropdown-search"
+  >
+    <ec-stub
+      autosize="min"
+      class="ec-dropdown-search__trigger"
+      data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+      disabled="true"
+      distance="8"
+      placement="bottom-end"
+      popperclass="ec-dropdown-search__popover"
+      shift="false"
+      shown="false"
+    >
+      
+      
+      <button
+        class="ec-btn-dropdown__dropdown-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse"
+        data-test="ec-btn-dropdown__dropdown-btn ec-btn"
+        disabled=""
+        type="submit"
+      >
+        <svg
+          class="ec-icon ec-btn__icon"
+          data-test="ec-btn__icon"
+          height="22"
+          width="22"
+        >
+          <use
+            xlink:href="#ec-simple-arrow-drop-down"
+          />
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </button>
+      
+      
+      
+      <div
+        style="width: 0px;"
+      >
+        <ul
+          class="ec-dropdown-search__item-list"
+          data-test="ec-dropdown-search__item-list"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          
+          
+          
+          
+        </ul>
+      </div>
+      
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcBtnDropdown > should render as opened while the dropdown is opened > opened 1`] = `
+<div
+  class="ec-btn-dropdown"
+  data-test="ec-btn-dropdown"
+>
+  <button
+    class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
+    data-test="ec-btn-dropdown__btn ec-btn"
+    type="button"
+  >
+    <!--v-if-->
+    <span
+      class="ec-btn__text"
+      data-test="ec-btn__text"
+    >
+      
+      Convert & Pay
+      
+    </span>
+    <!--v-if-->
+  </button>
+  <div
+    class="ec-dropdown-search"
+    data-test="ec-dropdown-search"
+  >
+    <ec-stub
+      autosize="min"
+      class="ec-dropdown-search__trigger"
+      data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+      disabled="true"
+      distance="8"
+      placement="bottom-end"
+      popperclass="ec-dropdown-search__popover"
+      shift="false"
+      shown="true"
+    >
+      
+      
+      <button
+        class="ec-btn-dropdown__dropdown-btn ec-btn-dropdown__dropdown-btn--is-open ec-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse"
+        data-test="ec-btn-dropdown__dropdown-btn ec-btn"
+        disabled=""
+        type="submit"
+      >
+        <svg
+          class="ec-icon ec-btn__icon"
+          data-test="ec-btn__icon"
+          height="22"
+          width="22"
+        >
+          <use
+            xlink:href="#ec-simple-arrow-drop-down"
+          />
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </button>
+      
+      
+      
+      <div
+        style="width: 0px;"
+      >
+        <ul
+          class="ec-dropdown-search__item-list"
+          data-test="ec-dropdown-search__item-list"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          
+          
+          
+          
+        </ul>
+      </div>
+      
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcBtnDropdown > should render with a list of options on the dropdown search 1`] = `
 <div
   class="ec-btn-dropdown"
   data-test="ec-btn-dropdown"
@@ -194,7 +356,87 @@ exports[`EcBtnDropdown should render with a list of options on the dropdown sear
 </div>
 `;
 
-exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
+exports[`EcBtnDropdown > should render with custom attributes 1`] = `
+<div
+  class="ec-btn-dropdown my-class"
+  data-test="my-data-test ec-btn-dropdown"
+  id="test-id"
+>
+  <button
+    class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
+    data-test="ec-btn-dropdown__btn ec-btn"
+    type="button"
+  >
+    <!--v-if-->
+    <span
+      class="ec-btn__text"
+      data-test="ec-btn__text"
+    >
+      
+      Convert & Pay
+      
+    </span>
+    <!--v-if-->
+  </button>
+  <div
+    class="ec-dropdown-search"
+    data-test="ec-dropdown-search"
+  >
+    <ec-stub
+      autosize="min"
+      class="ec-dropdown-search__trigger"
+      data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+      disabled="true"
+      distance="8"
+      placement="bottom-end"
+      popperclass="ec-dropdown-search__popover"
+      shift="false"
+      shown="false"
+    >
+      
+      
+      <button
+        class="ec-btn-dropdown__dropdown-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse"
+        data-test="ec-btn-dropdown__dropdown-btn ec-btn"
+        disabled=""
+        type="submit"
+      >
+        <svg
+          class="ec-icon ec-btn__icon"
+          data-test="ec-btn__icon"
+          height="22"
+          width="22"
+        >
+          <use
+            xlink:href="#ec-simple-arrow-drop-down"
+          />
+        </svg>
+        <!--v-if-->
+        <!--v-if-->
+      </button>
+      
+      
+      
+      <div>
+        <ul
+          class="ec-dropdown-search__item-list"
+          data-test="ec-dropdown-search__item-list"
+        >
+          <!--v-if-->
+          <!--v-if-->
+          
+          
+          
+          
+        </ul>
+      </div>
+      
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcBtnDropdown > should use given list-data-test prop 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
   data-test="ec-dropdown-search__item-list my-test-list"
@@ -226,7 +468,7 @@ exports[`EcBtnDropdown should use given list-data-test prop 1`] = `
 </ul>
 `;
 
-exports[`EcBtnDropdown when a menu item is disabled should be a non clickable DOM element 1`] = `
+exports[`EcBtnDropdown > when a menu item is disabled > should be a non clickable DOM element 1`] = `
 <li
   class="ec-dropdown-search__item ec-dropdown-search__item--is-disabled"
   data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
@@ -242,7 +484,7 @@ exports[`EcBtnDropdown when a menu item is disabled should be a non clickable DO
 </li>
 `;
 
-exports[`EcBtnDropdown when all menu items are disabled should render a disabled popover button 1`] = `
+exports[`EcBtnDropdown > when all menu items are disabled > should render a disabled popover button 1`] = `
 <button
   class="ec-btn-dropdown__dropdown-btn ec-btn ec-btn--md ec-btn--rounded ec-btn--icon-only ec-btn--primary ec-btn--primary-reverse"
   data-test="ec-btn-dropdown__dropdown-btn ec-btn"
@@ -264,7 +506,7 @@ exports[`EcBtnDropdown when all menu items are disabled should render a disabled
 </button>
 `;
 
-exports[`EcBtnDropdown when isBtnDropdownDisabled prop is true should render with dropdown-btn disabled 1`] = `
+exports[`EcBtnDropdown > when isBtnDropdownDisabled prop is true > should render with dropdown-btn disabled 1`] = `
 <button
   class="ec-btn-dropdown__btn ec-btn ec-btn--md ec-btn--rounded ec-btn--primary ec-btn--primary-reverse"
   data-test="ec-btn-dropdown__btn ec-btn"

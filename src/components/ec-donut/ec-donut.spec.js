@@ -24,6 +24,17 @@ describe('EcDonut', () => {
     });
   });
 
+  it('should render with custom attributes', () => {
+    const wrapper = mountDonut({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should display only with a the used and amount are given', () => {
     const wrapper = mountDonut();
     expect(wrapper.element).toMatchSnapshot();

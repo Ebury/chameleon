@@ -26,6 +26,19 @@ describe('EcRadioBtn', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  describe('attrs', () => {
+    it('should render with custom attributes', () => {
+      const wrapper = mountRadioBtn({}, {
+        attrs: {
+          'data-test': 'my-data-test',
+          class: 'my-class',
+          id: 'test-id',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
   describe('props', () => {
     describe('name', () => {
       it('should have a "id" attribute on the input equal to the "for" attribute on the label', () => {
@@ -55,6 +68,15 @@ describe('EcRadioBtn', () => {
 
     describe('isTextInline', () => {
       it('should render the radio buttons text (label and description) on a single line', () => {
+        const wrapper = mountRadioBtn({
+          isTextInline: true,
+          description: 'My description',
+        });
+
+        expect(wrapper.findByDataTest('ec-radio-btn__text-wrapper').element).toMatchSnapshot();
+      });
+
+      it('should render the radio buttons text on a single line', () => {
         const wrapper = mountRadioBtn({
           isTextInline: true,
         });

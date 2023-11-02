@@ -28,6 +28,9 @@ describe('EcAlert', () => {
     wrapperComponentOpts?: Record<string, unknown>,
     mountOpts?: ComponentMountingOptions<AlertProps>,
   ) {
+    const element = document.createElement('div');
+    document.body.appendChild(element);
+
     const Component = defineComponent({
       components: { EcAlert },
       template,
@@ -36,9 +39,23 @@ describe('EcAlert', () => {
 
     return mount(
       Component,
-      mountOpts,
+      {
+        attachTo: element,
+        ...mountOpts,
+      },
     );
   }
+
+  it('should render with custom attributes', () => {
+    const wrapper = mountAlert({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
 
   it('should display only with a title and the type given', () => {
     const wrapper = mountAlert({ title: 'Random Title', type: AlertType.INFO });
@@ -99,7 +116,7 @@ describe('EcAlert', () => {
 
   it('should dismiss or show the alert when we change the v-model', async () => {
     const wrapper = mountAlertAsTemplate(
-      '<ec-alert v-model:open="isOpen" type="AlertType.INFO" title="Custom random" dismissable />',
+      `<ec-alert v-model:open="isOpen" type="${AlertType.INFO}" title="Custom random" dismissable />`,
       {
         data() {
           return { isOpen: true };
@@ -107,14 +124,10 @@ describe('EcAlert', () => {
       },
     ) as CVueWrapper;
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(wrapper.vm.isOpen).toBe(true);
     expect(wrapper.isVisible()).toBe(true);
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
     expect(wrapper.isVisible()).toBe(false);
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     expect(wrapper.vm.isOpen).toBe(false);
   });
 

@@ -1,6 +1,9 @@
 <template>
   <div
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-amount-filter-input` : 'ec-amount-filter-input'"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-amount-filter-input` : 'ec-amount-filter-input',
+    }"
     class="ec-amount-filter-input"
   >
     <label
@@ -111,6 +114,10 @@ import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps({
   modelValue: {

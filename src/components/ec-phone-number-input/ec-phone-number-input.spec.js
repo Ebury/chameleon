@@ -207,11 +207,15 @@ describe('EcPhoneNumberInput', () => {
       const wrapper = mountPhoneNumberInput();
 
       await selectItem(wrapper, 1);
+      expect(wrapper.emitted('open').length).toEqual(1);
+      expect(wrapper.emitted('after-open').length).toEqual(1);
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('update:modelValue').length).toEqual(1);
       expect(wrapper.emitted('country-change').length).toEqual(1);
       await selectItem(wrapper, 2);
+      expect(wrapper.emitted('open').length).toEqual(2);
+      expect(wrapper.emitted('after-open').length).toEqual(2);
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('update:modelValue').length).toEqual(2);
@@ -221,12 +225,16 @@ describe('EcPhoneNumberInput', () => {
     it('should emit update:modelValue event when number is set', async () => {
       const wrapper = mountPhoneNumberInput();
 
+      await wrapper.findByDataTest('ec-phone-number-input__number').trigger('focus');
       await wrapper.findByDataTest('ec-phone-number-input__number').setValue('11');
+      expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('phone-number-change').length).toEqual(1);
       expect(wrapper.emitted('update:modelValue').length).toEqual(1);
 
+      await wrapper.findByDataTest('ec-phone-number-input__number').trigger('focus');
       await wrapper.findByDataTest('ec-phone-number-input__number').setValue('111');
+      expect(wrapper.emitted('focus').length).toEqual(2);
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('phone-number-change').length).toEqual(2);
       expect(wrapper.emitted('update:modelValue').length).toEqual(2);
@@ -361,7 +369,10 @@ describe('EcPhoneNumberInput', () => {
 });
 
 async function selectItem(wrapper, index) {
+  await wrapper.findByDataTest('ec-popover-stub').trigger('show');
   await wrapper.findByDataTest('ec-phone-number-input__countries').trigger('mousedown');
   await wrapper.findByDataTest('ec-phone-number-input__countries').trigger('focus');
+  await wrapper.findByDataTest('ec-popover-stub').trigger('apply-show');
   await wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
+  await wrapper.findByDataTest('ec-phone-number-input__countries').trigger('blur');
 }

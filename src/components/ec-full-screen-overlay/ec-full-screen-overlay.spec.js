@@ -22,6 +22,17 @@ describe('EcFullScreenOverlay', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render with custom attributes', () => {
+    const wrapper = mountFullScreenOverlay({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should initialize the "useFocusTrap composable" with mandatory options', () => {
     mountFullScreenOverlay();
     const options = useFocusTrap.mock.calls[0][1];

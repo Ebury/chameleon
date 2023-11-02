@@ -2,7 +2,10 @@
   <div
     v-if="submenu && submenu.length > 0"
     class="ec-submenu"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-submenu` : 'ec-submenu'"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-submenu` : 'ec-submenu',
+    }"
   >
     <div class="ec-submenu__header-container">
       <ul
@@ -59,6 +62,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 defineProps({
   submenu: {
     type: Array,

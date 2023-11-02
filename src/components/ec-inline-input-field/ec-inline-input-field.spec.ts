@@ -1,6 +1,7 @@
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import clipboardCopy from 'clipboard-copy';
+import { vi } from 'vitest';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import type { CVueWrapper } from '../../../tests/utils/global';
@@ -8,7 +9,7 @@ import EcInlineInputCopy from './components/copy';
 import EcInlineInputField from './ec-inline-input-field.vue';
 import { InlineInputEvent, type InlineInputProps } from './types';
 
-jest.mock('clipboard-copy');
+vi.mock('clipboard-copy');
 
 describe('EcInlineInputField', () => {
   const inputFieldValue = 'Input field value';
@@ -37,9 +38,13 @@ describe('EcInlineInputField', () => {
     it('should correctly display attributes passed', () => {
       const wrapper = mountInlineInputField({
         isSensitive: true,
-        id: 'My-id',
-        'data-test': 'My-data-test',
-      } as unknown as InlineInputProps);
+      }, {
+        attrs: {
+          id: 'my-id',
+          'data-test': 'my-data-test',
+          class: 'my-class',
+        },
+      });
 
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -128,6 +133,11 @@ describe('EcInlineInputField', () => {
         wrapper.unmount();
       });
 
+      it('should render with a label tooltip when labelTooltip prop is set', () => {
+        const wrapper = mountInlineInputField({ isEditing: true, labelTooltip: 'Testing the labelTooltip prop' });
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
       it('should render with a sensitive class when isSensitive prop is set to true', () => {
         const wrapper = mountInlineInputField(
           {
@@ -151,6 +161,22 @@ describe('EcInlineInputField', () => {
       });
 
       describe('@events', () => {
+        it('should emit `submit` event with new value', async () => {
+          const wrapper = mountInlineInputField({
+            isEditing: true,
+          });
+          const editComponentWrapper = wrapper.findComponentByDataTest('ec-inline-input-field-edit');
+
+          expect(editComponentWrapper.emitted(InlineInputEvent.SUBMIT)).toBeUndefined();
+          expect(wrapper.emitted(InlineInputEvent.SUBMIT)).toBeUndefined();
+
+          await wrapper.findByDataTest('ec-inline-input-field-edit__input').setValue('New value');
+          await wrapper.findByDataTest('ec-inline-input-field-edit__submit-action').trigger('click');
+
+          expect(editComponentWrapper.emitted().submit[0]).toEqual([{ value: 'New value' }]);
+          expect(wrapper.emitted().submit[0]).toEqual(['New value']);
+        });
+
         it('should emit `cancel` event when esc key is pressed in the input field', async () => {
           const wrapper = mountInlineInputField({
             isEditing: true,
@@ -230,7 +256,7 @@ describe('EcInlineInputField', () => {
 
   describe('when component is copiable', () => {
     it('should throw an error if the tooltip props were not given', () => {
-      withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
+      withMockedConsole((_errorSpy, warnSpy) => {
         mount(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           EcInlineInputCopy as any,
@@ -295,6 +321,7 @@ describe('EcInlineInputField', () => {
       );
 
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
+      await wrapper.vm.$nextTick();
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-content')).toBe(tooltipTextSuccess);
@@ -313,6 +340,7 @@ describe('EcInlineInputField', () => {
       );
 
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
+      await wrapper.vm.$nextTick();
 
       expect(clipboardCopy).toHaveBeenCalledTimes(1);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-content')).toBe(tooltipTextError);
@@ -338,9 +366,9 @@ describe('EcInlineInputField', () => {
 });
 
 function mockClipboardCopySuccess() {
-  (clipboardCopy as jest.MockedFunction<typeof clipboardCopy>).mockResolvedValue();
+  vi.mocked(clipboardCopy).mockClear().mockResolvedValue();
 }
 
 function mockClipboardCopyError() {
-  (clipboardCopy as jest.MockedFunction<typeof clipboardCopy>).mockRejectedValue(false);
+  vi.mocked(clipboardCopy).mockClear().mockRejectedValue(false);
 }

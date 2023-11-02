@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { ref } from 'vue';
 
 import EcPopover from './ec-popover.vue';
@@ -20,6 +21,17 @@ describe('EcPopover component', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render with custom attributes', () => {
+    const wrapper = mountEcPopover({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should merge default options with given additional options', () => {
     const wrapper = mountEcPopover({
       popperClass: 'my-popover',
@@ -36,7 +48,7 @@ describe('EcPopover component', () => {
   });
 
   it('should pass all events to the 3rd party tooltip component', async () => {
-    const showSpy = jest.fn();
+    const showSpy = vi.fn();
     const wrapper = mountEcPopover({}, {
       attrs: { onShow: showSpy },
     });

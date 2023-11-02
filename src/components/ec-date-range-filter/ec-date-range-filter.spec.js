@@ -8,35 +8,46 @@ const label = 'Due date';
 const modelValue = { from: '2020-03-14', to: '2020-04-10' };
 const modelValueEmpty = { from: null, to: null };
 
-function mountEcDateRangeFilter(props, mountOpts) {
-  return mount(EcDateRangeFilter, {
-    props: {
-      fromLabelText: 'From',
-      toLabelText: 'To',
-      clearText: 'Clear dates',
-      modelValue,
-      ...props,
-    },
-    ...mountOpts,
-  });
-}
-
-function mountEcDateRangeFilterAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const Component = defineComponent({
-    components: { EcDateRangeFilter },
-    template,
-    ...wrapperComponentOpts,
-  });
-
-  return mount(Component, {
-    props,
-    ...mountOpts,
-  });
-}
-
 describe('EcDateRangeFilter', () => {
+  function mountEcDateRangeFilter(props, mountOpts) {
+    return mount(EcDateRangeFilter, {
+      props: {
+        fromLabelText: 'From',
+        toLabelText: 'To',
+        clearText: 'Clear dates',
+        modelValue,
+        ...props,
+      },
+      ...mountOpts,
+    });
+  }
+
+  function mountEcDateRangeFilterAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
+    const Component = defineComponent({
+      components: { EcDateRangeFilter },
+      template,
+      ...wrapperComponentOpts,
+    });
+
+    return mount(Component, {
+      props,
+      ...mountOpts,
+    });
+  }
+
   it('should render properly when all the props are given', () => {
     const wrapper = mountEcDateRangeFilter({ label });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render with custom attributes', () => {
+    const wrapper = mountEcDateRangeFilter({ label }, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 

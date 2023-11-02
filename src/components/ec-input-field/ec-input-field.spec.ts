@@ -1,5 +1,6 @@
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { defineComponent } from 'vue';
 
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
@@ -109,7 +110,7 @@ describe('EcInputField', () => {
   });
 
   it('works with the same listeners as the input', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     const wrapper = mountInputField(
       {},
       {

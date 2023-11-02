@@ -5,7 +5,10 @@
       v-if="show"
       class="ec-full-screen-overlay"
       :class="`tw-bg-gray-${backgroundColorLevel}`"
-      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-full-screen-overlay` : 'ec-full-screen-overlay'"
+      v-bind="{
+        ...$attrs,
+        'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-full-screen-overlay` : 'ec-full-screen-overlay',
+      }"
     >
       <slot name="content">
         <div
@@ -60,6 +63,10 @@ import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import { onUnmounted, ref, useSlots } from 'vue';
 
 import EcIcon from '../ec-icon';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 defineProps({
   title: {
