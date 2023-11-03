@@ -22,7 +22,7 @@ module.exports = {
         'vitest/no-disabled-tests': 'error',
         'vitest/no-duplicate-hooks': 'error',
         'vitest/no-focused-tests': 'error',
-        'vitest/no-standalone-expect': 'error',
+        'vitest/no-standalone-expect': ['error', { additionalTestBlockFunctions: ['beforeEach', 'afterEach'] }],
         'vitest/prefer-hooks-in-order': 'error',
         'vitest/prefer-hooks-on-top': 'error',
         'vitest/prefer-lowercase-title': ['error', { ignoreTopLevelDescribe: true }],
