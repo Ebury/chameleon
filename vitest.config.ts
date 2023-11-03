@@ -1,8 +1,18 @@
 import vue from '@vitejs/plugin-vue';
 import { defineConfig } from 'vitest/config';
 
+const customElements = new Set(['ec-stub']);
+
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue({
+    template: {
+      compilerOptions: {
+        whitespace: 'condense',
+        isCustomElement: tag => customElements.has(tag),
+        comments: false,
+      },
+    },
+  })],
   test: {
     clearMocks: true,
     restoreMocks: true,

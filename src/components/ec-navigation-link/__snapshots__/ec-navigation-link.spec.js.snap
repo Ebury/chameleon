@@ -1,593 +1,474 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`EcNavigationLink > as regular anchor > should be active when isActive is passed into 1`] = `
-<div
-  data-v-app=""
+<a
+  class="ec-navigation-link ec-navigation-link--is-active"
+  data-test="ec-navigation-link"
+  href="#/balances"
 >
-  
-  <!-- If it is a router link -->
-  
-  <!-- If is a normal link that directs you outside the SPA -->
-  <a
-    class="ec-navigation-link ec-navigation-link--is-active"
-    data-test="ec-navigation-link"
-    href="#/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-  </a>
-  
-  
-</div>
+      Link
+    </span>
+  </transition-stub>
+</a>
 `;
 
 exports[`EcNavigationLink > as regular anchor > should be compact when isCompact is passed into 1`] = `
-<div
-  data-v-app=""
+<a
+  class="ec-navigation-link ec-navigation-link--is-compact"
+  data-test="ec-navigation-link"
+  href="#/balances"
 >
-  
-  <!-- If it is a router link -->
-  
-  <!-- If is a normal link that directs you outside the SPA -->
-  <a
-    class="ec-navigation-link ec-navigation-link--is-compact"
-    data-test="ec-navigation-link"
-    href="#/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-  </a>
-  
-  
-</div>
+      Link
+    </span>
+  </transition-stub>
+</a>
 `;
 
 exports[`EcNavigationLink > as regular anchor > should be expanded by default 1`] = `
-<div
-  data-v-app=""
+<a
+  class="ec-navigation-link"
+  data-test="ec-navigation-link"
+  href="#/balances"
 >
-  
-  <!-- If it is a router link -->
-  
-  <!-- If is a normal link that directs you outside the SPA -->
-  <a
-    class="ec-navigation-link"
-    data-test="ec-navigation-link"
-    href="#/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-  </a>
-  
-  
-</div>
+      Link
+    </span>
+  </transition-stub>
+</a>
 `;
 
 exports[`EcNavigationLink > as regular anchor > should hide the text when is collapsed 1`] = `
-<div
-  data-v-app=""
+<a
+  class="ec-navigation-link ec-navigation-link--is-collapsed"
+  data-test="ec-navigation-link"
+  href="#/balances"
 >
-  
-  <!-- If it is a router link -->
-  
-  <!-- If is a normal link that directs you outside the SPA -->
-  <a
-    class="ec-navigation-link ec-navigation-link--is-collapsed"
-    data-test="ec-navigation-link"
-    href="#/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+      style="display: none;"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-        style="display: none;"
-      >
-        Link
-      </span>
-    </transition-stub>
-  </a>
-  
-  
-</div>
+      Link
+    </span>
+  </transition-stub>
+</a>
 `;
 
 exports[`EcNavigationLink > as regular anchor > should pass custom attributes 1`] = `
-<div
-  data-v-app=""
+<a
+  class="my-custom-class ec-navigation-link"
+  data-test="my-custom-link ec-navigation-link"
+  href="#/balances"
+  id="my-link"
 >
-  
-  <!-- If it is a router link -->
-  
-  <!-- If is a normal link that directs you outside the SPA -->
-  <a
-    class="my-custom-class ec-navigation-link"
-    data-test="my-custom-link ec-navigation-link"
-    href="#/balances"
-    id="my-link"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-  </a>
-  
-  
-</div>
+      Link
+    </span>
+  </transition-stub>
+</a>
 `;
 
 exports[`EcNavigationLink > as regular anchor > should render as a normal <a> tag if isRouterLink is set to false 1`] = `
-<div
-  data-v-app=""
+<a
+  class="ec-navigation-link"
+  data-test="ec-navigation-link"
+  href="#/balances"
 >
-  
-  <!-- If it is a router link -->
-  
-  <!-- If is a normal link that directs you outside the SPA -->
-  <a
-    class="ec-navigation-link"
-    data-test="ec-navigation-link"
-    href="#/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-  </a>
-  
-  
-</div>
+      Link
+    </span>
+  </transition-stub>
+</a>
 `;
 
 exports[`EcNavigationLink > as regular anchor > should show the text when is expanded 1`] = `
-<div
-  data-v-app=""
+<a
+  class="ec-navigation-link"
+  data-test="ec-navigation-link"
+  href="#/balances"
 >
-  
-  <!-- If it is a router link -->
-  
-  <!-- If is a normal link that directs you outside the SPA -->
-  <a
-    class="ec-navigation-link"
-    data-test="ec-navigation-link"
-    href="#/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-  </a>
-  
-  
-</div>
+      Link
+    </span>
+  </transition-stub>
+</a>
 `;
 
 exports[`EcNavigationLink > as router-link > should be active when isActive is passed into 1`] = `
-<div
-  data-v-app=""
+<ec-stub
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link ec-navigation-link--is-active"
+  data-test="ec-navigation-link ec-stub router-link-stub"
+  to="/balances"
 >
   
-  <!-- If it is a router link -->
-  <ec-stub
-    active-class="ec-navigation-link--is-active"
-    class="ec-navigation-link ec-navigation-link--is-active"
-    data-test="ec-navigation-link ec-stub router-link-stub"
-    to="/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-    
-  </ec-stub>
+      Link
+    </span>
+  </transition-stub>
   
-</div>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink > as router-link > should be compact when isCompact is passed into 1`] = `
-<div
-  data-v-app=""
+<ec-stub
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link ec-navigation-link--is-compact"
+  data-test="ec-navigation-link ec-stub router-link-stub"
+  to="/balances"
 >
   
-  <!-- If it is a router link -->
-  <ec-stub
-    active-class="ec-navigation-link--is-active"
-    class="ec-navigation-link ec-navigation-link--is-compact"
-    data-test="ec-navigation-link ec-stub router-link-stub"
-    to="/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-    
-  </ec-stub>
+      Link
+    </span>
+  </transition-stub>
   
-</div>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink > as router-link > should be expanded by default 1`] = `
-<div
-  data-v-app=""
+<ec-stub
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link"
+  data-test="ec-navigation-link ec-stub router-link-stub"
+  to="/balances"
 >
   
-  <!-- If it is a router link -->
-  <ec-stub
-    active-class="ec-navigation-link--is-active"
-    class="ec-navigation-link"
-    data-test="ec-navigation-link ec-stub router-link-stub"
-    to="/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-    
-  </ec-stub>
+      Link
+    </span>
+  </transition-stub>
   
-</div>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink > as router-link > should hide the text when is collapsed 1`] = `
-<div
-  data-v-app=""
+<ec-stub
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link ec-navigation-link--is-collapsed"
+  data-test="ec-navigation-link ec-stub router-link-stub"
+  to="/balances"
 >
   
-  <!-- If it is a router link -->
-  <ec-stub
-    active-class="ec-navigation-link--is-active"
-    class="ec-navigation-link ec-navigation-link--is-collapsed"
-    data-test="ec-navigation-link ec-stub router-link-stub"
-    to="/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
+      style="display: none;"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-        style="display: none;"
-      >
-        Link
-      </span>
-    </transition-stub>
-    
-  </ec-stub>
+      Link
+    </span>
+  </transition-stub>
   
-</div>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink > as router-link > should pass custom attributes 1`] = `
-<div
-  data-v-app=""
+<ec-stub
+  active-class="ec-navigation-link--is-active"
+  class="my-custom-class ec-navigation-link"
+  data-test="my-custom-link ec-navigation-link ec-stub router-link-stub"
+  id="my-link"
+  to="/balances"
 >
   
-  <!-- If it is a router link -->
-  <ec-stub
-    active-class="ec-navigation-link--is-active"
-    class="my-custom-class ec-navigation-link"
-    data-test="my-custom-link ec-navigation-link ec-stub router-link-stub"
-    id="my-link"
-    to="/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-    
-  </ec-stub>
+      Link
+    </span>
+  </transition-stub>
   
-</div>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink > as router-link > should render as a router link if isRouterLink prop set to true 1`] = `
-<div
-  data-v-app=""
+<ec-stub
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link"
+  data-test="ec-navigation-link ec-stub router-link-stub"
+  to="/balances"
 >
   
-  <!-- If it is a router link -->
-  <ec-stub
-    active-class="ec-navigation-link--is-active"
-    class="ec-navigation-link"
-    data-test="ec-navigation-link ec-stub router-link-stub"
-    to="/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-    
-  </ec-stub>
+      Link
+    </span>
+  </transition-stub>
   
-</div>
+</ec-stub>
 `;
 
 exports[`EcNavigationLink > as router-link > should show the text when is expanded 1`] = `
-<div
-  data-v-app=""
+<ec-stub
+  active-class="ec-navigation-link--is-active"
+  class="ec-navigation-link"
+  data-test="ec-navigation-link ec-stub router-link-stub"
+  to="/balances"
 >
   
-  <!-- If it is a router link -->
-  <ec-stub
-    active-class="ec-navigation-link--is-active"
-    class="ec-navigation-link"
-    data-test="ec-navigation-link ec-stub router-link-stub"
-    to="/balances"
+  <svg
+    class="ec-icon ec-navigation-link__icon"
+    data-test="ec-navigation-link__icon"
+    height="24"
+    width="24"
   >
-    
-    <svg
-      class="ec-icon ec-navigation-link__icon"
-      data-test="ec-navigation-link__icon"
-      height="24"
-      width="24"
+    <use
+      xlink:href="#ec-single-check"
+    />
+  </svg>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="ec-navigation-link__text-fade"
+    persisted="true"
+  >
+    <span
+      class="ec-navigation-link__text"
+      data-test="ec-navigation-link__text"
     >
-      <use
-        xlink:href="#ec-single-check"
-      />
-    </svg>
-    <transition-stub
-      appear="false"
-      css="true"
-      name="ec-navigation-link__text-fade"
-      persisted="true"
-    >
-      <span
-        class="ec-navigation-link__text"
-        data-test="ec-navigation-link__text"
-      >
-        Link
-      </span>
-    </transition-stub>
-    
-  </ec-stub>
+      Link
+    </span>
+  </transition-stub>
   
-</div>
+</ec-stub>
 `;

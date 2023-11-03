@@ -10,10 +10,6 @@ exports[`EcMenu > should attach custom listeners passed in the link definition 1
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
       data-test="ec-menu__link foo ec-navigation-link"
@@ -44,8 +40,6 @@ exports[`EcMenu > should attach custom listeners passed in the link definition 1
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   
 </ul>
@@ -61,10 +55,6 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link"
       data-test="ec-menu__link foo ec-navigation-link"
@@ -94,17 +84,11 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link"
       data-test="ec-menu__link ec-navigation-link"
@@ -134,8 +118,6 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   
 </ul>
@@ -157,10 +139,6 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link foo ec-navigation-link"
@@ -190,17 +168,11 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link ec-navigation-link"
@@ -230,8 +202,6 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   
 </ul>
@@ -247,10 +217,6 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
       data-test="ec-menu__link foo ec-navigation-link"
@@ -281,17 +247,11 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
       data-test="ec-menu__link ec-navigation-link"
@@ -322,8 +282,6 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   
 </ul>
@@ -339,10 +297,6 @@ exports[`EcMenu > should render as expanded by default 1`] = `
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link"
       data-test="ec-menu__link foo ec-navigation-link"
@@ -372,17 +326,11 @@ exports[`EcMenu > should render as expanded by default 1`] = `
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link"
       data-test="ec-menu__link ec-navigation-link"
@@ -412,8 +360,6 @@ exports[`EcMenu > should render as expanded by default 1`] = `
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   
 </ul>
@@ -429,10 +375,6 @@ exports[`EcMenu > should render as expected when set to horizontal 1`] = `
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link foo ec-navigation-link"
@@ -462,8 +404,6 @@ exports[`EcMenu > should render as expected when set to horizontal 1`] = `
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   
 </ul>
@@ -479,10 +419,6 @@ exports[`EcMenu > should render as expected when set to isReverse 1`] = `
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link"
       data-test="ec-menu__link foo ec-navigation-link"
@@ -512,8 +448,6 @@ exports[`EcMenu > should render as expected when set to isReverse 1`] = `
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   
 </ul>
@@ -529,10 +463,6 @@ exports[`EcMenu > should render as expected when set to isReverse and horizontal
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link foo ec-navigation-link"
@@ -562,8 +492,6 @@ exports[`EcMenu > should render as expected when set to isReverse and horizontal
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   
 </ul>
@@ -579,10 +507,6 @@ exports[`EcMenu > should render only links with a url property 1`] = `
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link"
       data-test="ec-menu__link foo ec-navigation-link"
@@ -612,17 +536,11 @@ exports[`EcMenu > should render only links with a url property 1`] = `
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   <li
     class="ec-menu__item"
     data-test="ec-menu__item"
   >
-    
-    <!-- If it is a router link -->
-    
-    <!-- If is a normal link that directs you outside the SPA -->
     <a
       class="ec-menu__link ec-navigation-link"
       data-test="ec-menu__link ec-navigation-link"
@@ -652,8 +570,6 @@ exports[`EcMenu > should render only links with a url property 1`] = `
         </span>
       </transition-stub>
     </a>
-    
-    
   </li>
   
 </ul>
