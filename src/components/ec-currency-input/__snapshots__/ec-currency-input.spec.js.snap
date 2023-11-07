@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all data-test attributes in bottom note 1`] = `
+exports[`EcCurrencyInput > $attrs > should use data-test attribute to prefix all data-test attributes in bottom note 1`] = `
 <div
   class="ec-currency-input__bottom-note ec-currency-input__bottom-note--is-warning"
   data-test="my-component__bottom-note ec-currency-input__bottom-note"
@@ -22,7 +22,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
 </div>
 `;
 
-exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all data-test attributes in error message 1`] = `
+exports[`EcCurrencyInput > $attrs > should use data-test attribute to prefix all data-test attributes in error message 1`] = `
 <div
   class="ec-currency-input__error-text"
   data-test="my-component__error-text ec-currency-input__error-text"
@@ -45,7 +45,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
 </div>
 `;
 
-exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all data-test attributes in label: label 1`] = `
+exports[`EcCurrencyInput > $attrs > should use data-test attribute to prefix all data-test attributes in label > label 1`] = `
 <span
   class="ec-currency-input__label-text"
   data-test="my-component__label-text ec-currency-input__label-text"
@@ -54,7 +54,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
 </span>
 `;
 
-exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all data-test attributes in label: note 1`] = `
+exports[`EcCurrencyInput > $attrs > should use data-test attribute to prefix all data-test attributes in label > note 1`] = `
 <span
   class="ec-currency-input__note"
   data-test="my-component__note ec-currency-input__note"
@@ -63,7 +63,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
 </span>
 `;
 
-exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all data-test attributes in nested components 1`] = `
+exports[`EcCurrencyInput > $attrs > should use data-test attribute to prefix all data-test attributes in nested components 1`] = `
 <div
   class="ec-currency-input"
   data-test="my-component"
@@ -107,6 +107,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -213,7 +214,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute to prefix all dat
 </div>
 `;
 
-exports[`EcCurrencyInput $attrs should use data-test attribute with multiple values to prefix all data-test attributes in nested components 1`] = `
+exports[`EcCurrencyInput > $attrs > should use data-test attribute with multiple values to prefix all data-test attributes in nested components 1`] = `
 <div
   class="ec-currency-input"
   data-test="my-component my-other-component"
@@ -257,6 +258,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -363,7 +365,7 @@ exports[`EcCurrencyInput $attrs should use data-test attribute with multiple val
 </div>
 `;
 
-exports[`EcCurrencyInput :props should render a loading state when currenciesLoading is set true 1`] = `
+exports[`EcCurrencyInput > :props > should render a loading state when currenciesLoading is set true 1`] = `
 <ec-stub
   autosize="min"
   class="ec-dropdown-search__trigger"
@@ -395,6 +397,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
       class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
       data-test="ec-input-field__icon-wrapper"
     >
+      <!--v-if-->
       <svg
         class="ec-icon ec-input-field__icon"
         data-test="ec-input-field__icon"
@@ -474,7 +477,7 @@ exports[`EcCurrencyInput :props should render a loading state when currenciesLoa
 </ec-stub>
 `;
 
-exports[`EcCurrencyInput :props should render the component with the dropdown part disabled when isCurrenciesDisabled is set true 1`] = `
+exports[`EcCurrencyInput > :props > should render the component with the dropdown part disabled when isCurrenciesDisabled is set true 1`] = `
 <div
   class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
   data-test="ec-currency-input__currencies ec-mock ec-tooltip-mock"
@@ -483,7 +486,7 @@ exports[`EcCurrencyInput :props should render the component with the dropdown pa
 </div>
 `;
 
-exports[`EcCurrencyInput :props should render the component with the input disabled when isAmountDisabled is set true 1`] = `
+exports[`EcCurrencyInput > :props > should render the component with the input disabled when isAmountDisabled is set true 1`] = `
 <input
   autocomplete="off"
   class="ec-input-field__input ec-input-field__input--is-in-group-left"
@@ -494,7 +497,7 @@ exports[`EcCurrencyInput :props should render the component with the input disab
 />
 `;
 
-exports[`EcCurrencyInput :props should render the label when the label is given 1`] = `
+exports[`EcCurrencyInput > :props > should render the label when the label is given 1`] = `
 <span
   class="ec-currency-input__label-text"
   data-test="ec-currency-input__label-text"
@@ -503,7 +506,7 @@ exports[`EcCurrencyInput :props should render the label when the label is given 
 </span>
 `;
 
-exports[`EcCurrencyInput :props should render the non-results message passed as prop if no currency matches the typed one 1`] = `
+exports[`EcCurrencyInput > :props > should render the non-results message passed as prop if no currency matches the typed one 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
   data-test="ec-dropdown-search__item-list ec-currency-input__currencies-list"
@@ -539,7 +542,7 @@ exports[`EcCurrencyInput :props should render the non-results message passed as 
 </ul>
 `;
 
-exports[`EcCurrencyInput :props should render the note when the note is given 1`] = `
+exports[`EcCurrencyInput > :props > should render the note when the note is given 1`] = `
 <span
   class="ec-currency-input__note"
   data-test="ec-currency-input__note"
@@ -548,7 +551,7 @@ exports[`EcCurrencyInput :props should render the note when the note is given 1`
 </span>
 `;
 
-exports[`EcCurrencyInput :props should render the searching field with the placeholder message passed as prop 1`] = `
+exports[`EcCurrencyInput > :props > should render the searching field with the placeholder message passed as prop 1`] = `
 <input
   autocomplete="off"
   class="ec-dropdown-search__search-input"
@@ -557,7 +560,7 @@ exports[`EcCurrencyInput :props should render the searching field with the place
 />
 `;
 
-exports[`EcCurrencyInput :props should render without any currencies if the currencies prop is empty 1`] = `
+exports[`EcCurrencyInput > :props > should render without any currencies if the currencies prop is empty 1`] = `
 <div
   class="ec-currency-input__currencies ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
@@ -593,6 +596,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"
@@ -649,7 +653,7 @@ exports[`EcCurrencyInput :props should render without any currencies if the curr
 </div>
 `;
 
-exports[`EcCurrencyInput should render properly 1`] = `
+exports[`EcCurrencyInput > should render properly 1`] = `
 <div
   class="ec-currency-input"
 >
@@ -692,6 +696,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -798,7 +803,7 @@ exports[`EcCurrencyInput should render properly 1`] = `
 </div>
 `;
 
-exports[`EcCurrencyInput should render with a sensitive class when isSensitive prop is set to true 1`] = `
+exports[`EcCurrencyInput > should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
   class="ec-currency-input"
 >
@@ -841,6 +846,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -947,7 +953,7 @@ exports[`EcCurrencyInput should render with a sensitive class when isSensitive p
 </div>
 `;
 
-exports[`EcCurrencyInput when the bottom note is defined and it is a warning note and there is a warning message defined should render properly 1`] = `
+exports[`EcCurrencyInput > when the bottom note is defined > and it is a warning note > and there is a warning message defined > should render properly 1`] = `
 <div
   class="ec-currency-input__bottom-note ec-currency-input__bottom-note--is-warning"
   data-test="ec-currency-input__bottom-note"
@@ -969,7 +975,7 @@ exports[`EcCurrencyInput when the bottom note is defined and it is a warning not
 </div>
 `;
 
-exports[`EcCurrencyInput when the bottom note is defined and it is a warning note should render properly 1`] = `
+exports[`EcCurrencyInput > when the bottom note is defined > and it is a warning note > should render properly 1`] = `
 <div
   class="ec-currency-input__bottom-note ec-currency-input__bottom-note--is-warning"
   data-test="ec-currency-input__bottom-note"
@@ -981,7 +987,7 @@ exports[`EcCurrencyInput when the bottom note is defined and it is a warning not
 </div>
 `;
 
-exports[`EcCurrencyInput when the bottom note is defined should render properly 1`] = `
+exports[`EcCurrencyInput > when the bottom note is defined > should render properly 1`] = `
 <div
   class="ec-currency-input__bottom-note"
   data-test="ec-currency-input__bottom-note"
@@ -993,7 +999,7 @@ exports[`EcCurrencyInput when the bottom note is defined should render properly 
 </div>
 `;
 
-exports[`EcCurrencyInput when the disabled currency selector has a tooltip associated and the currency dropdown is not disabled should render properly not including the tooltip 1`] = `
+exports[`EcCurrencyInput > when the disabled currency selector has a tooltip associated > and the currency dropdown is not disabled > should render properly not including the tooltip 1`] = `
 <input
   class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
   data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
@@ -1004,7 +1010,7 @@ exports[`EcCurrencyInput when the disabled currency selector has a tooltip assoc
 />
 `;
 
-exports[`EcCurrencyInput when the disabled currency selector has a tooltip associated should render properly 1`] = `
+exports[`EcCurrencyInput > when the disabled currency selector has a tooltip associated > should render properly 1`] = `
 <div
   class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
   data-ec-tooltip-mock-content="Tooltip message"
@@ -1015,7 +1021,7 @@ exports[`EcCurrencyInput when the disabled currency selector has a tooltip assoc
 </div>
 `;
 
-exports[`EcCurrencyInput when the disabled currency selector has a tooltip associated should render properly using the defined placement 1`] = `
+exports[`EcCurrencyInput > when the disabled currency selector has a tooltip associated > should render properly using the defined placement 1`] = `
 <div
   class="ec-currency-input__currencies ec-currency-input__currencies--is-disabled"
   data-ec-tooltip-mock-content="Tooltip message"
@@ -1026,7 +1032,7 @@ exports[`EcCurrencyInput when the disabled currency selector has a tooltip assoc
 </div>
 `;
 
-exports[`EcCurrencyInput when the error message is defined and there is a tooltip message relative to the error defined should render properly 1`] = `
+exports[`EcCurrencyInput > when the error message is defined > and there is a tooltip message relative to the error defined > should render properly 1`] = `
 <div
   class="ec-currency-input__error-text"
   data-test="ec-currency-input__error-text"
@@ -1049,7 +1055,7 @@ exports[`EcCurrencyInput when the error message is defined and there is a toolti
 </div>
 `;
 
-exports[`EcCurrencyInput when the error message is defined should render properly 1`] = `
+exports[`EcCurrencyInput > when the error message is defined > should render properly 1`] = `
 <div
   class="ec-currency-input__error-text"
   data-test="ec-currency-input__error-text"
@@ -1062,7 +1068,7 @@ exports[`EcCurrencyInput when the error message is defined should render properl
 </div>
 `;
 
-exports[`EcCurrencyInput when the placeholder message for the amount input is defined should render properly 1`] = `
+exports[`EcCurrencyInput > when the placeholder message for the amount input is defined > should render properly 1`] = `
 <input
   autocomplete="off"
   class="ec-input-field__input ec-input-field__input--is-in-group-left"

@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcNavigationLink as regular anchor should be active when isActive is passed into 1`] = `
+exports[`EcNavigationLink > as regular anchor > should be active when isActive is passed into 1`] = `
 <a
   class="ec-navigation-link ec-navigation-link--is-active"
   data-test="ec-navigation-link"
-  href="/balances"
+  href="#/balances"
 >
   <svg
     class="ec-icon ec-navigation-link__icon"
@@ -32,11 +32,11 @@ exports[`EcNavigationLink as regular anchor should be active when isActive is pa
 </a>
 `;
 
-exports[`EcNavigationLink as regular anchor should be compact when isCompact is passed into 1`] = `
+exports[`EcNavigationLink > as regular anchor > should be compact when isCompact is passed into 1`] = `
 <a
   class="ec-navigation-link ec-navigation-link--is-compact"
   data-test="ec-navigation-link"
-  href="/balances"
+  href="#/balances"
 >
   <svg
     class="ec-icon ec-navigation-link__icon"
@@ -64,11 +64,11 @@ exports[`EcNavigationLink as regular anchor should be compact when isCompact is 
 </a>
 `;
 
-exports[`EcNavigationLink as regular anchor should be expanded by default 1`] = `
+exports[`EcNavigationLink > as regular anchor > should be expanded by default 1`] = `
 <a
   class="ec-navigation-link"
   data-test="ec-navigation-link"
-  href="/balances"
+  href="#/balances"
 >
   <svg
     class="ec-icon ec-navigation-link__icon"
@@ -96,11 +96,11 @@ exports[`EcNavigationLink as regular anchor should be expanded by default 1`] = 
 </a>
 `;
 
-exports[`EcNavigationLink as regular anchor should hide the text when is collapsed 1`] = `
+exports[`EcNavigationLink > as regular anchor > should hide the text when is collapsed 1`] = `
 <a
   class="ec-navigation-link ec-navigation-link--is-collapsed"
   data-test="ec-navigation-link"
-  href="/balances"
+  href="#/balances"
 >
   <svg
     class="ec-icon ec-navigation-link__icon"
@@ -129,11 +129,11 @@ exports[`EcNavigationLink as regular anchor should hide the text when is collaps
 </a>
 `;
 
-exports[`EcNavigationLink as regular anchor should pass custom attributes 1`] = `
+exports[`EcNavigationLink > as regular anchor > should pass custom attributes 1`] = `
 <a
   class="my-custom-class ec-navigation-link"
   data-test="my-custom-link ec-navigation-link"
-  href="/balances"
+  href="#/balances"
   id="my-link"
 >
   <svg
@@ -162,11 +162,11 @@ exports[`EcNavigationLink as regular anchor should pass custom attributes 1`] = 
 </a>
 `;
 
-exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if isRouterLink is set to false 1`] = `
+exports[`EcNavigationLink > as regular anchor > should render as a normal <a> tag if isRouterLink is set to false 1`] = `
 <a
   class="ec-navigation-link"
   data-test="ec-navigation-link"
-  href="/balances"
+  href="#/balances"
 >
   <svg
     class="ec-icon ec-navigation-link__icon"
@@ -194,11 +194,11 @@ exports[`EcNavigationLink as regular anchor should render as a normal <a> tag if
 </a>
 `;
 
-exports[`EcNavigationLink as regular anchor should show the text when is expanded 1`] = `
+exports[`EcNavigationLink > as regular anchor > should show the text when is expanded 1`] = `
 <a
   class="ec-navigation-link"
   data-test="ec-navigation-link"
-  href="/balances"
+  href="#/balances"
 >
   <svg
     class="ec-icon ec-navigation-link__icon"
@@ -226,7 +226,7 @@ exports[`EcNavigationLink as regular anchor should show the text when is expande
 </a>
 `;
 
-exports[`EcNavigationLink as router-link should be active when isActive is passed into 1`] = `
+exports[`EcNavigationLink > as router-link > should be active when isActive is passed into 1`] = `
 <ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link ec-navigation-link--is-active"
@@ -261,7 +261,7 @@ exports[`EcNavigationLink as router-link should be active when isActive is passe
 </ec-stub>
 `;
 
-exports[`EcNavigationLink as router-link should be compact when isCompact is passed into 1`] = `
+exports[`EcNavigationLink > as router-link > should be compact when isCompact is passed into 1`] = `
 <ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link ec-navigation-link--is-compact"
@@ -296,7 +296,7 @@ exports[`EcNavigationLink as router-link should be compact when isCompact is pas
 </ec-stub>
 `;
 
-exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
+exports[`EcNavigationLink > as router-link > should be expanded by default 1`] = `
 <ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link"
@@ -331,7 +331,7 @@ exports[`EcNavigationLink as router-link should be expanded by default 1`] = `
 </ec-stub>
 `;
 
-exports[`EcNavigationLink as router-link should hide the text when is collapsed 1`] = `
+exports[`EcNavigationLink > as router-link > should hide the text when is collapsed 1`] = `
 <ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link ec-navigation-link--is-collapsed"
@@ -367,7 +367,7 @@ exports[`EcNavigationLink as router-link should hide the text when is collapsed 
 </ec-stub>
 `;
 
-exports[`EcNavigationLink as router-link should pass custom attributes 1`] = `
+exports[`EcNavigationLink > as router-link > should pass custom attributes 1`] = `
 <ec-stub
   active-class="ec-navigation-link--is-active"
   class="my-custom-class ec-navigation-link"
@@ -403,7 +403,7 @@ exports[`EcNavigationLink as router-link should pass custom attributes 1`] = `
 </ec-stub>
 `;
 
-exports[`EcNavigationLink as router-link should render as a router link if isRouterLink prop set to true 1`] = `
+exports[`EcNavigationLink > as router-link > should render as a router link if isRouterLink prop set to true 1`] = `
 <ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link"
@@ -438,7 +438,7 @@ exports[`EcNavigationLink as router-link should render as a router link if isRou
 </ec-stub>
 `;
 
-exports[`EcNavigationLink as router-link should show the text when is expanded 1`] = `
+exports[`EcNavigationLink > as router-link > should show the text when is expanded 1`] = `
 <ec-stub
   active-class="ec-navigation-link--is-active"
   class="ec-navigation-link"

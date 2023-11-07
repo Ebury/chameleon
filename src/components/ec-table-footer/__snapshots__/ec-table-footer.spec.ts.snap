@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTableFooter should render with footer slot 1`] = `
+exports[`EcTableFooter > should render with footer slot 1`] = `
 <tfoot
   class="ec-table-footer"
   data-test="ec-table-footer"
@@ -23,7 +23,7 @@ exports[`EcTableFooter should render with footer slot 1`] = `
 </tfoot>
 `;
 
-exports[`EcTableFooter should render with the given colspan 1`] = `
+exports[`EcTableFooter > should render with the given colspan 1`] = `
 <tfoot
   class="ec-table-footer"
   data-test="ec-table-footer"
@@ -44,7 +44,7 @@ exports[`EcTableFooter should render with the given colspan 1`] = `
 </tfoot>
 `;
 
-exports[`EcTableFooter should render without footer slot 1`] = `
+exports[`EcTableFooter > should render without footer slot 1`] = `
 <tfoot
   class="ec-table-footer"
   data-test="ec-table-footer"

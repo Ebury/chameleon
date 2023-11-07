@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcButtonGroup :props :items - should render the button group with two items all on outline 1`] = `
+exports[`EcButtonGroup > :props > :items - should render the button group with two items all on outline 1`] = `
 <div
   class="ec-btn-group"
   data-test="ec-btn-group"
@@ -42,7 +42,7 @@ exports[`EcButtonGroup :props :items - should render the button group with two i
 </div>
 `;
 
-exports[`EcButtonGroup :props :items - should render the button group with two items with one disabled 1`] = `
+exports[`EcButtonGroup > :props > :items - should render the button group with two items with one disabled 1`] = `
 <div
   class="ec-btn-group"
   data-test="ec-btn-group"

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcMenu should attach custom listeners passed in the link definition 1`] = `
+exports[`EcMenu > should attach custom listeners passed in the link definition 1`] = `
 <ul
   class="ec-menu"
   data-test="ec-menu"
@@ -45,7 +45,7 @@ exports[`EcMenu should attach custom listeners passed in the link definition 1`]
 </ul>
 `;
 
-exports[`EcMenu should not render all items as compact when horizontal is not set 1`] = `
+exports[`EcMenu > should not render all items as compact when horizontal is not set 1`] = `
 <ul
   class="ec-menu"
   data-test="ec-menu"
@@ -123,13 +123,13 @@ exports[`EcMenu should not render all items as compact when horizontal is not se
 </ul>
 `;
 
-exports[`EcMenu should not render if links are not supplied 1`] = `<!--v-if-->`;
+exports[`EcMenu > should not render if links are not supplied 1`] = `<!--v-if-->`;
 
-exports[`EcMenu should not render if links are null 1`] = `<!--v-if-->`;
+exports[`EcMenu > should not render if links are null 1`] = `<!--v-if-->`;
 
-exports[`EcMenu should not render if links is an empty array 1`] = `<!--v-if-->`;
+exports[`EcMenu > should not render if links is an empty array 1`] = `<!--v-if-->`;
 
-exports[`EcMenu should render all items as compact when is horizontal 1`] = `
+exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
 <ul
   class="ec-menu ec-menu--horizontal"
   data-test="ec-menu"
@@ -207,7 +207,7 @@ exports[`EcMenu should render all items as compact when is horizontal 1`] = `
 </ul>
 `;
 
-exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] = `
+exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`] = `
 <ul
   class="ec-menu"
   data-test="ec-menu"
@@ -287,7 +287,7 @@ exports[`EcMenu should render as collapsed when isCollapsed is passed into 1`] =
 </ul>
 `;
 
-exports[`EcMenu should render as expanded by default 1`] = `
+exports[`EcMenu > should render as expanded by default 1`] = `
 <ul
   class="ec-menu"
   data-test="ec-menu"
@@ -365,7 +365,7 @@ exports[`EcMenu should render as expanded by default 1`] = `
 </ul>
 `;
 
-exports[`EcMenu should render as expected when set to horizontal 1`] = `
+exports[`EcMenu > should render as expected when set to horizontal 1`] = `
 <ul
   class="ec-menu ec-menu--horizontal"
   data-test="ec-menu"
@@ -409,7 +409,7 @@ exports[`EcMenu should render as expected when set to horizontal 1`] = `
 </ul>
 `;
 
-exports[`EcMenu should render as expected when set to isReverse 1`] = `
+exports[`EcMenu > should render as expected when set to isReverse 1`] = `
 <ul
   class="ec-menu ec-menu--is-reversed"
   data-test="ec-menu"
@@ -453,7 +453,7 @@ exports[`EcMenu should render as expected when set to isReverse 1`] = `
 </ul>
 `;
 
-exports[`EcMenu should render as expected when set to isReverse and horizontal 1`] = `
+exports[`EcMenu > should render as expected when set to isReverse and horizontal 1`] = `
 <ul
   class="ec-menu ec-menu--is-reversed-horizontal"
   data-test="ec-menu"
@@ -497,7 +497,7 @@ exports[`EcMenu should render as expected when set to isReverse and horizontal 1
 </ul>
 `;
 
-exports[`EcMenu should render only links with a url property 1`] = `
+exports[`EcMenu > should render only links with a url property 1`] = `
 <ul
   class="ec-menu"
   data-test="ec-menu"

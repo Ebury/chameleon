@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { h } from 'vue';
 
 import EcDropdownSearch from './ec-dropdown-search.vue';
@@ -500,8 +501,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
           isSearchEnabled: true,
         });
 
-        const focus = jest.fn();
-        const popoverMock = jest.spyOn(HTMLElement.prototype, 'querySelector').mockImplementation(() => ({ focus }));
+        const focus = vi.fn();
+        const popoverMock = vi.spyOn(HTMLElement.prototype, 'querySelector').mockImplementation(() => ({ focus }));
         await openDropdown(wrapper);
 
         await wrapper.findByDataTest('ec-dropdown-search__search-input').trigger('keydown.enter');
@@ -564,8 +565,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     ])('should not scroll up if the selected item is visible (Item position: %d)', async (itemPosition, offsetTop) => {
       const itemIndex = itemPosition - 1;
       const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex] });
-      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
-      jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
+      const setScrollTopSpy = vi.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+      vi.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
@@ -582,8 +583,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     ])('should scroll up if the selected item is above the visible ones (Item position: %d)', async (itemPosition, offsetTop, expectedScrollTop) => {
       const itemIndex = itemPosition - 1;
       const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex] });
-      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
-      jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
+      const setScrollTopSpy = vi.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+      vi.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
       mockElementOffsetTop(wrapper, itemIndex, offsetTop);
       await openDropdown(wrapper);
@@ -596,8 +597,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     it('should scroll fully up if the selected item is the first one and there is some non-selectable item above it', async () => {
       const itemIndex = 0;
       const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex], isSearchEnabled: true });
-      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
-      jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
+      const setScrollTopSpy = vi.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+      vi.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
       mockElementOffsetTop(wrapper, itemIndex, 100);
       await openDropdown(wrapper);
@@ -610,8 +611,8 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
     it('should scroll fully up if the selected item is the first one', async () => {
       const itemIndex = 0;
       const wrapper = mountDropdownSearch({ items, modelValue: items[itemIndex], isSearchEnabled: false });
-      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
-      jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
+      const setScrollTopSpy = vi.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+      vi.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'get').mockReturnValueOnce(200);
 
       await openDropdown(wrapper);
 
@@ -629,7 +630,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
         clientHeight,
       });
       const wrapper = mountDropdownSearch({ items });
-      const setScrollTopSpy = jest.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
+      const setScrollTopSpy = vi.spyOn(wrapper.findByDataTest('ec-dropdown-search__item-list').element, 'scrollTop', 'set');
 
       await openDropdown(wrapper);
 
@@ -647,22 +648,22 @@ function mountDropdownSearch(props, mountOpts) {
 }
 
 function mockElementOffsetTop(wrapper, index, value) {
-  jest.spyOn(wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).element, 'offsetTop', 'get').mockReturnValueOnce(value);
+  vi.spyOn(wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).element, 'offsetTop', 'get').mockReturnValueOnce(value);
 }
 
 function mockHtmlElementPosition(options) {
-  jest.spyOn(global.HTMLElement.prototype, 'clientHeight', 'get').mockImplementation(function mockClientHeight() {
+  vi.spyOn(global.HTMLElement.prototype, 'clientHeight', 'get').mockImplementation(function mockClientHeight() {
     if (this.className.includes('ec-dropdown-search__item-list')) {
       return (options && options.containerClientHeight) || 200;
     }
     return (options && options.clientHeight) || 50;
   });
 
-  jest.spyOn(global.HTMLElement.prototype, 'offsetHeight', 'get').mockImplementation(() => (options && options.offsetHeight) || 50);
+  vi.spyOn(global.HTMLElement.prototype, 'offsetHeight', 'get').mockImplementation(() => (options && options.offsetHeight) || 50);
 
-  jest.spyOn(global.HTMLElement.prototype, 'offsetTop', 'get').mockImplementation(() => (options && options.offsetTop) || 0);
+  vi.spyOn(global.HTMLElement.prototype, 'offsetTop', 'get').mockImplementation(() => (options && options.offsetTop) || 0);
 
-  jest.spyOn(global.HTMLElement.prototype, 'scrollHeight', 'get').mockImplementation(() => (options && options.scrollHeight) || 400);
+  vi.spyOn(global.HTMLElement.prototype, 'scrollHeight', 'get').mockImplementation(() => (options && options.scrollHeight) || 400);
 }
 
 async function openDropdown(wrapper) {

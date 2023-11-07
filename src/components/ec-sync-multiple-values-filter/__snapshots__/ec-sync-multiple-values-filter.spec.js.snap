@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcSyncMultipleValuesFilter should be able to search in items by their text 1`] = `
+exports[`EcSyncMultipleValuesFilter > should be able to search in items by their text 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -96,6 +96,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -143,7 +144,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should be able to search in items by their text even if diacritics does not match 1`] = `
+exports[`EcSyncMultipleValuesFilter > should be able to search in items by their text even if diacritics does not match 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -239,6 +240,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -286,7 +288,7 @@ exports[`EcSyncMultipleValuesFilter should be able to search in items by their t
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSelectAll is set 1`] = `
+exports[`EcSyncMultipleValuesFilter > should display Select all checkbox if isSelectAll is set 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -355,6 +357,7 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
               >
                 <span
                   class="ec-checkbox__check-icon-wrapper"
+                  data-test="ec-checkbox__check-icon-wrapper"
                 >
                   <!--v-if-->
                 </span>
@@ -396,6 +399,7 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -443,7 +447,7 @@ exports[`EcSyncMultipleValuesFilter should display Select all checkbox if isSele
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should display an empty message when items are empty 1`] = `
+exports[`EcSyncMultipleValuesFilter > should display an empty message when items are empty 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -521,7 +525,7 @@ exports[`EcSyncMultipleValuesFilter should display an empty message when items a
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should display custom label for Select all checkbox 1`] = `
+exports[`EcSyncMultipleValuesFilter > should display custom label for Select all checkbox 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -590,6 +594,7 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
               >
                 <span
                   class="ec-checkbox__check-icon-wrapper"
+                  data-test="ec-checkbox__check-icon-wrapper"
                 >
                   <!--v-if-->
                 </span>
@@ -631,6 +636,7 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -678,7 +684,7 @@ exports[`EcSyncMultipleValuesFilter should display custom label for Select all c
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should display empty state if searched value does not match any item 1`] = `
+exports[`EcSyncMultipleValuesFilter > should display empty state if searched value does not match any item 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -776,7 +782,7 @@ exports[`EcSyncMultipleValuesFilter should display empty state if searched value
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
+exports[`EcSyncMultipleValuesFilter > should display error state properly 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -854,7 +860,7 @@ exports[`EcSyncMultipleValuesFilter should display error state properly 1`] = `
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = `
+exports[`EcSyncMultipleValuesFilter > should display loading state properly 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -927,7 +933,7 @@ exports[`EcSyncMultipleValuesFilter should display loading state properly 1`] = 
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should ignore empty message when items are given 1`] = `
+exports[`EcSyncMultipleValuesFilter > should ignore empty message when items are given 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -1003,6 +1009,7 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1056,6 +1063,7 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1109,6 +1117,7 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1156,7 +1165,7 @@ exports[`EcSyncMultipleValuesFilter should ignore empty message when items are g
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search query 1`] = `
+exports[`EcSyncMultipleValuesFilter > should ignore only whitespace in the search query 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -1252,6 +1261,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1305,6 +1315,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1358,6 +1369,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1405,7 +1417,7 @@ exports[`EcSyncMultipleValuesFilter should ignore only whitespace in the search 
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should not display selected values in the empty state if searched value does not match any item 1`] = `
+exports[`EcSyncMultipleValuesFilter > should not display selected values in the empty state if searched value does not match any item 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -1510,7 +1522,7 @@ exports[`EcSyncMultipleValuesFilter should not display selected values in the em
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight is set 1`] = `
+exports[`EcSyncMultipleValuesFilter > should render as full height if isFullHeight is set 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -1586,6 +1598,7 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1633,7 +1646,7 @@ exports[`EcSyncMultipleValuesFilter should render as full height if isFullHeight
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should render correctly if all the required props are passed 1`] = `
+exports[`EcSyncMultipleValuesFilter > should render correctly if all the required props are passed 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -1709,6 +1722,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1762,6 +1776,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1815,6 +1830,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -1862,7 +1878,7 @@ exports[`EcSyncMultipleValuesFilter should render correctly if all the required 
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should render custom search placeholder if is given 1`] = `
+exports[`EcSyncMultipleValuesFilter > should render custom search placeholder if is given 1`] = `
 <input
   autocomplete="off"
   class="ec-multiple-values-selection__search-input"
@@ -1872,7 +1888,7 @@ exports[`EcSyncMultipleValuesFilter should render custom search placeholder if i
 />
 `;
 
-exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 1`] = `
+exports[`EcSyncMultipleValuesFilter > should render search if isSearchable is set 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -1968,6 +1984,7 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -2015,7 +2032,7 @@ exports[`EcSyncMultipleValuesFilter should render search if isSearchable is set 
 </div>
 `;
 
-exports[`EcSyncMultipleValuesFilter should update the number of items selected in numberOfSelectedFilters 1`] = `
+exports[`EcSyncMultipleValuesFilter > should update the number of items selected in numberOfSelectedFilters 1`] = `
 <div
   class="ec-sync-multiple-values-filter"
   data-test="ec-sync-multiple-values-filter"
@@ -2098,9 +2115,11 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <svg
                         class="ec-icon ec-checkbox__check-icon"
+                        data-test="ec-checkbox__check-icon"
                         height="16"
                         width="16"
                       >
@@ -2159,6 +2178,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -2212,6 +2232,7 @@ exports[`EcSyncMultipleValuesFilter should update the number of items selected i
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>

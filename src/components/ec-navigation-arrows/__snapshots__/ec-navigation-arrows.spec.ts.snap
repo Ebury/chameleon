@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcNavigationArrows should render properly with both arrows disabled 1`] = `
+exports[`EcNavigationArrows > should render properly with both arrows disabled 1`] = `
 <div
   class="ec-navigation-arrows"
   data-test="ec-navigation-arrows"
@@ -40,7 +40,7 @@ exports[`EcNavigationArrows should render properly with both arrows disabled 1`]
 </div>
 `;
 
-exports[`EcNavigationArrows should render properly with both arrows enabled 1`] = `
+exports[`EcNavigationArrows > should render properly with both arrows enabled 1`] = `
 <div
   class="ec-navigation-arrows"
   data-test="ec-navigation-arrows"

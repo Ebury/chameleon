@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcFileList :props should not render any items if nothing is passed 1`] = `
+exports[`EcFileList > :props > should not render any items if nothing is passed 1`] = `
 <div
   class="ec-file-list"
   data-test="ec-file-list"
@@ -10,7 +10,7 @@ exports[`EcFileList :props should not render any items if nothing is passed 1`] 
 </div>
 `;
 
-exports[`EcFileList :props should render correctly if items are passed 1`] = `
+exports[`EcFileList > :props > should render correctly if items are passed 1`] = `
 <div
   class="ec-file-list"
   data-test="ec-file-list"
@@ -235,7 +235,7 @@ exports[`EcFileList :props should render correctly if items are passed 1`] = `
 </div>
 `;
 
-exports[`EcFileList :props should render the delete button as disabled if delete disabled is true 1`] = `
+exports[`EcFileList > :props > should render the delete button as disabled if delete disabled is true 1`] = `
 <div
   class="ec-file-list"
   data-test="ec-file-list"

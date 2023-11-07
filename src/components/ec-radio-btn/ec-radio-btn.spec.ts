@@ -1,14 +1,12 @@
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { EcRadioBtn } from '../../main';
 import type { RadioButtonProps } from './types';
 
-function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: ComponentMountingOptions<RadioButtonProps>): CVueWrapper {
+function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: ComponentMountingOptions<typeof EcRadioBtn>) {
   return mount(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    EcRadioBtn as any,
+    EcRadioBtn,
     {
       props: {
         value: 'y',
@@ -17,13 +15,26 @@ function mountRadioBtn(props?: Partial<RadioButtonProps>, mountOpts?: ComponentM
       },
       ...mountOpts,
     },
-  ) as CVueWrapper;
+  );
 }
 
 describe('EcRadioBtn', () => {
   it('should render properly', () => {
     const wrapper = mountRadioBtn();
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  describe('attrs', () => {
+    it('should render with custom attributes', () => {
+      const wrapper = mountRadioBtn({}, {
+        attrs: {
+          'data-test': 'my-data-test',
+          class: 'my-class',
+          id: 'test-id',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe('props', () => {
@@ -55,6 +66,15 @@ describe('EcRadioBtn', () => {
 
     describe('isTextInline', () => {
       it('should render the radio buttons text (label and description) on a single line', () => {
+        const wrapper = mountRadioBtn({
+          isTextInline: true,
+          description: 'My description',
+        });
+
+        expect(wrapper.findByDataTest('ec-radio-btn__text-wrapper').element).toMatchSnapshot();
+      });
+
+      it('should render the radio buttons text on a single line', () => {
         const wrapper = mountRadioBtn({
           isTextInline: true,
         });

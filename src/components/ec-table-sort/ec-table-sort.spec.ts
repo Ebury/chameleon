@@ -1,16 +1,15 @@
 import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { SortDirection } from '../../enums';
 import EcTableSort from './ec-table-sort.vue';
 import type { TableSortProps } from './types';
 
 describe('EcTableSort', () => {
-  function mountEcTableSort(props?: TableSortProps, mountOpts?: ComponentMountingOptions<TableSortProps>) {
+  function mountEcTableSort(props?: TableSortProps, mountOpts?: ComponentMountingOptions<typeof EcTableSort>) {
     return mount(EcTableSort, {
       props,
       ...mountOpts,
-    }) as unknown as CVueWrapper;
+    });
   }
 
   it('should render as expected', () => {

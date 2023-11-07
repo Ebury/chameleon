@@ -111,7 +111,7 @@ describe('EcMultipleValuesSelection', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  describe('Select all', () => {
+  describe('select all', () => {
     it('should be indeterminate when at least one option is selected', () => {
       const wrapper = mountEcMultipleValuesSelection({
         items,

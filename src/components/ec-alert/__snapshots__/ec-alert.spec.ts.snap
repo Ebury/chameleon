@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcAlert should display only with a title and the type given 1`] = `
+exports[`EcAlert > should display only with a title and the type given 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
   data-test="ec-alert"
@@ -34,7 +34,7 @@ exports[`EcAlert should display only with a title and the type given 1`] = `
 </div>
 `;
 
-exports[`EcAlert should display with a button with the text given in the buttonText 1`] = `
+exports[`EcAlert > should display with a button with the text given in the buttonText 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
   data-test="ec-alert"
@@ -74,7 +74,7 @@ exports[`EcAlert should display with a button with the text given in the buttonT
 </div>
 `;
 
-exports[`EcAlert should display with a subtitle given 1`] = `
+exports[`EcAlert > should display with a subtitle given 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
   data-test="ec-alert"
@@ -113,7 +113,7 @@ exports[`EcAlert should display with a subtitle given 1`] = `
 </div>
 `;
 
-exports[`EcAlert should render the dismiss icon when is given the prop dismissable 1`] = `
+exports[`EcAlert > should render the dismiss icon when is given the prop dismissable 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
   data-test="ec-alert"
@@ -161,7 +161,42 @@ exports[`EcAlert should render the dismiss icon when is given the prop dismissab
 </div>
 `;
 
-exports[`EcAlert should render with the cta slot given 1`] = `
+exports[`EcAlert > should render with custom attributes 1`] = `
+<div
+  class="ec-alert my-class ec-alert--info ec-alert--is-responsive"
+  data-test="my-data-test ec-alert"
+  id="test-id"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-alert__icon"
+  >
+    <use
+      xlink:href="#ec-simple-info"
+    />
+  </svg>
+  <div
+    class="ec-alert__body"
+  >
+    <div
+      class="ec-alert__content"
+    >
+      
+      <div
+        class="ec-alert__title ec-alert__title--info"
+        data-test="ec-alert__title"
+      >
+        Title example
+      </div>
+      <!--v-if-->
+      
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;
+
+exports[`EcAlert > should render with the cta slot given 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
   data-test="ec-alert"
@@ -206,7 +241,7 @@ exports[`EcAlert should render with the cta slot given 1`] = `
 </div>
 `;
 
-exports[`EcAlert should render with the default slot given 1`] = `
+exports[`EcAlert > should render with the default slot given 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
   data-test="ec-alert"
@@ -236,7 +271,7 @@ exports[`EcAlert should render with the default slot given 1`] = `
 </div>
 `;
 
-exports[`EcAlert should use the given type for the alert type and for the button too 1`] = `
+exports[`EcAlert > should use the given type for the alert type and for the button too 1`] = `
 <div
   class="ec-alert ec-alert--error ec-alert--is-responsive"
   data-test="ec-alert"
@@ -276,7 +311,7 @@ exports[`EcAlert should use the given type for the alert type and for the button
 </div>
 `;
 
-exports[`EcAlert should use the type "error" 1`] = `
+exports[`EcAlert > should use the type "error" 1`] = `
 <div
   class="ec-alert ec-alert--error ec-alert--is-responsive"
   data-test="ec-alert"
@@ -310,7 +345,7 @@ exports[`EcAlert should use the type "error" 1`] = `
 </div>
 `;
 
-exports[`EcAlert should use the type "info" 1`] = `
+exports[`EcAlert > should use the type "info" 1`] = `
 <div
   class="ec-alert ec-alert--info ec-alert--is-responsive"
   data-test="ec-alert"
@@ -344,7 +379,7 @@ exports[`EcAlert should use the type "info" 1`] = `
 </div>
 `;
 
-exports[`EcAlert should use the type "success" 1`] = `
+exports[`EcAlert > should use the type "success" 1`] = `
 <div
   class="ec-alert ec-alert--success ec-alert--is-responsive"
   data-test="ec-alert"
@@ -378,7 +413,7 @@ exports[`EcAlert should use the type "success" 1`] = `
 </div>
 `;
 
-exports[`EcAlert should use the type "warning" 1`] = `
+exports[`EcAlert > should use the type "warning" 1`] = `
 <div
   class="ec-alert ec-alert--warning ec-alert--is-responsive"
   data-test="ec-alert"

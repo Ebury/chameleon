@@ -1,7 +1,10 @@
 <template>
   <div
     class="ec-currency-filter"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-currency-filter` : 'ec-currency-filter'"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-currency-filter` : 'ec-currency-filter',
+    }"
   >
     <ec-filter-popover
       :popover-options="allPopoverOptions"
@@ -48,8 +51,8 @@
               :is-sensitive="isSensitive"
               :amount-placeholder="amountPlaceholder"
               :error-message="errorMessage"
-              @open="disableAutoHide = true"
-              @after-close="disableAutoHide = false"
+              @open="/* c8 ignore next */ disableAutoHide = true"
+              @after-close="/* c8 ignore next */ disableAutoHide = false"
               @amount-change="onAmountChanged"
               @comparison-symbol-change="onComparisonSymbolChanged"
             />
@@ -78,6 +81,10 @@ import EcAmountFilterInput from '../ec-amount-filter-input';
 import EcFilterPopover from '../ec-filter-popover';
 import EcMultipleValuesSelection from '../ec-multiple-values-selection';
 import EcSubmenu from '../ec-submenu';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps({
   label: {

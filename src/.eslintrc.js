@@ -1,5 +1,5 @@
 module.exports = {
   extends: [
-    '../.eslintrc.jest.js',
+    '../.eslintrc.tests.js',
   ],
 };

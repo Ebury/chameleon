@@ -57,7 +57,7 @@
       <ec-loading
         :show="isFetching"
         :transparent="!isEmpty"
-        :class="{ 'tw-my-48 tw-min-h-48': isEmpty && isFetching }"
+        :class="{ 'tw-my-48 tw-min-h-48': /* c8 ignore next */ isEmpty && isFetching }"
       >
         <ec-table
           v-bind="{
@@ -239,7 +239,6 @@ watch(payload, () => {
   immediate: true,
 });
 
-/* c8 ignore next */
 const isEmpty = computed(() => (props.data ?? []).length === 0);
 
 // slots

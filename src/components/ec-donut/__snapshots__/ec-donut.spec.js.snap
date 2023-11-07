@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcDonut should display empty with minus number in the used prop 1`] = `
+exports[`EcDonut > should display empty with minus number in the used prop 1`] = `
 <div
   class="ec-donut"
   data-test="ec-donut"
@@ -85,7 +85,7 @@ exports[`EcDonut should display empty with minus number in the used prop 1`] = `
 </div>
 `;
 
-exports[`EcDonut should display only with a the used and amount are given 1`] = `
+exports[`EcDonut > should display only with a the used and amount are given 1`] = `
 <div
   class="ec-donut"
   data-test="ec-donut"
@@ -170,7 +170,7 @@ exports[`EcDonut should display only with a the used and amount are given 1`] = 
 </div>
 `;
 
-exports[`EcDonut should display with the empty used 1`] = `
+exports[`EcDonut > should display with the empty used 1`] = `
 <div
   class="ec-donut"
   data-test="ec-donut"
@@ -255,7 +255,7 @@ exports[`EcDonut should display with the empty used 1`] = `
 </div>
 `;
 
-exports[`EcDonut should display with the full used 1`] = `
+exports[`EcDonut > should display with the full used 1`] = `
 <div
   class="ec-donut"
   data-test="ec-donut"
@@ -340,7 +340,7 @@ exports[`EcDonut should display with the full used 1`] = `
 </div>
 `;
 
-exports[`EcDonut should display with the full used when is more used than amount 1`] = `
+exports[`EcDonut > should display with the full used when is more used than amount 1`] = `
 <div
   class="ec-donut"
   data-test="ec-donut"
@@ -425,7 +425,7 @@ exports[`EcDonut should display with the full used when is more used than amount
 </div>
 `;
 
-exports[`EcDonut should display with the half used 1`] = `
+exports[`EcDonut > should display with the half used 1`] = `
 <div
   class="ec-donut"
   data-test="ec-donut"
@@ -510,7 +510,7 @@ exports[`EcDonut should display with the half used 1`] = `
 </div>
 `;
 
-exports[`EcDonut should render slots as expected 1`] = `
+exports[`EcDonut > should render slots as expected 1`] = `
 <div
   class="ec-donut"
   data-test="ec-donut"
@@ -576,6 +576,92 @@ exports[`EcDonut should render slots as expected 1`] = `
       <p>
         Used legend
       </p>
+      
+    </div>
+    <div
+      class="ec-donut__legend-remaining"
+      data-test="ec-donut__legend-remaining"
+    >
+      <svg
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--remaining"
+        height="14"
+        width="14"
+      >
+        <use
+          xlink:href="#ec-rounded-notification"
+        />
+      </svg>
+      
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EcDonut > should render with custom attributes 1`] = `
+<div
+  class="ec-donut my-class"
+  data-test="my-data-test ec-donut"
+  id="test-id"
+>
+  <div
+    class="ec-donut__container"
+    data-test="ec-donut__container"
+  >
+    <svg
+      class="ec-donut__svg"
+      height="108"
+      viewBox="0 0 108 108"
+      width="108"
+    >
+      <circle
+        class="ec-donut__background"
+        cx="54"
+        cy="54"
+        fill="transparent"
+        r="48"
+        stroke-width="11"
+      />
+      <circle
+        class="ec-donut__remaining"
+        cx="54"
+        cy="54"
+        fill="transparent"
+        r="48"
+        stroke-dasharray="301.59289474462014"
+        stroke-dashoffset="0"
+        stroke-width="11"
+      />
+      <circle
+        class="ec-donut__used"
+        cx="54"
+        cy="54"
+        fill="transparent"
+        r="48"
+        stroke-dasharray="301.59289474462014"
+        stroke-dashoffset="241.2743157956961"
+        stroke-width="11"
+      />
+    </svg>
+  </div>
+  <div
+    class="ec-donut__legend"
+    data-test="ec-donut__legend"
+  >
+    <div
+      class="ec-donut__legend-used"
+      data-test="ec-donut__legend-used"
+    >
+      <svg
+        class="ec-icon ec-donut__legend-icon ec-donut__legend-icon--used"
+        height="14"
+        width="14"
+      >
+        <use
+          xlink:href="#ec-rounded-notification"
+        />
+      </svg>
+      
       
     </div>
     <div

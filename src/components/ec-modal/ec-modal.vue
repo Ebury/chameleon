@@ -3,8 +3,11 @@
     <div
       v-if="show"
       class="ec-modal"
-      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-modal` : 'ec-modal'"
       :style="zIndexStyle"
+      v-bind="{
+        ...$attrs,
+        'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-modal` : 'ec-modal',
+      }"
       @click.self="closeModal()"
     >
       <div
@@ -113,6 +116,10 @@ import EcBtn from '../ec-btn';
 import { ButtonCategory } from '../ec-btn/types';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const slots = useSlots();
 

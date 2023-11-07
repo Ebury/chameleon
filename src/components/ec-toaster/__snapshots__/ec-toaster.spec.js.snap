@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcToaster messages prop should not render the toaster if no props are passed 1`] = `
+exports[`EcToaster > messages prop > should not render the toaster if no props are passed 1`] = `
 <div
   class="ec-toaster"
 >
@@ -19,7 +19,7 @@ exports[`EcToaster messages prop should not render the toaster if no props are p
 </div>
 `;
 
-exports[`EcToaster messages prop should render a toaster if the messages prop is passed 1`] = `
+exports[`EcToaster > messages prop > should render a toaster if the messages prop is passed 1`] = `
 <div
   class="ec-toaster"
 >
@@ -39,7 +39,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       style="top: 0px;"
     >
       <div
-        class="ec-alert ec-alert--error ec-alert--is-responsive ec-toaster__item-content"
+        class="ec-alert ec-toaster__item-content ec-alert--error ec-alert--is-responsive"
         data-test="ec-alert"
       >
         <a
@@ -95,7 +95,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       style="top: 0px;"
     >
       <div
-        class="ec-alert ec-alert--success ec-alert--is-responsive ec-toaster__item-content"
+        class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
         data-test="ec-alert"
       >
         <a
@@ -151,7 +151,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       style="top: 0px;"
     >
       <div
-        class="ec-alert ec-alert--info ec-alert--is-responsive ec-toaster__item-content"
+        class="ec-alert ec-toaster__item-content ec-alert--info ec-alert--is-responsive"
         data-test="ec-alert"
       >
         <a
@@ -207,7 +207,7 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
       style="top: 0px;"
     >
       <div
-        class="ec-alert ec-alert--warning ec-alert--is-responsive ec-toaster__item-content"
+        class="ec-alert ec-toaster__item-content ec-alert--warning ec-alert--is-responsive"
         data-test="ec-alert"
       >
         <a
@@ -262,14 +262,14 @@ exports[`EcToaster messages prop should render a toaster if the messages prop is
 </div>
 `;
 
-exports[`EcToaster should not contain initially a class of "ec-toaster__item--swipe-active" 1`] = `
+exports[`EcToaster > should not contain initially a class of "ec-toaster__item--swipe-active" 1`] = `
 <li
   class="ec-toaster__item"
   data-test="ec-toaster__item"
   style="top: 0px;"
 >
   <div
-    class="ec-alert ec-alert--success ec-alert--is-responsive ec-toaster__item-content"
+    class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
     data-test="ec-alert"
   >
     <a

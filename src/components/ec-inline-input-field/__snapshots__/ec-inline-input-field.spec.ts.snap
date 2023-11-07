@@ -1,9 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcInlineInputField :attributes should correctly display attributes passed 1`] = `
+exports[`EcInlineInputField > :attributes > should correctly display attributes passed 1`] = `
 <div
-  data-test="My-data-test ec-inline-input-field"
-  id="My-id"
+  class="ec-inline-input-field my-class"
+  data-test="my-data-test ec-inline-input-field"
+  id="my-id"
 >
   <div
     class="ec-inline-input-field__label"
@@ -42,8 +43,9 @@ exports[`EcInlineInputField :attributes should correctly display attributes pass
 </div>
 `;
 
-exports[`EcInlineInputField slots when non-editable should render as expected 1`] = `
+exports[`EcInlineInputField > slots when non-editable > should render as expected 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -66,8 +68,9 @@ exports[`EcInlineInputField slots when non-editable should render as expected 1`
 </div>
 `;
 
-exports[`EcInlineInputField slots when non-editable should render with a sensitive class when isSensitive prop is set to true 1`] = `
+exports[`EcInlineInputField > slots when non-editable > should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -85,8 +88,9 @@ exports[`EcInlineInputField slots when non-editable should render with a sensiti
 </div>
 `;
 
-exports[`EcInlineInputField when component is copiable should render as expected 1`] = `
+exports[`EcInlineInputField > when component is copiable > should render as expected 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -127,8 +131,9 @@ exports[`EcInlineInputField when component is copiable should render as expected
 </div>
 `;
 
-exports[`EcInlineInputField when component is copiable should render with a label tooltip when labelTooltip prop is set 1`] = `
+exports[`EcInlineInputField > when component is copiable > should render with a label tooltip when labelTooltip prop is set 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -178,8 +183,9 @@ exports[`EcInlineInputField when component is copiable should render with a labe
 </div>
 `;
 
-exports[`EcInlineInputField when component is copiable should render with a sensitive class when isSensitive prop is set to true 1`] = `
+exports[`EcInlineInputField > when component is copiable > should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -220,8 +226,9 @@ exports[`EcInlineInputField when component is copiable should render with a sens
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component is in editing mode should render as expected 1`] = `
+exports[`EcInlineInputField > when component is editable > when the component is in editing mode > should render as expected 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <!--v-if-->
@@ -294,8 +301,9 @@ exports[`EcInlineInputField when component is editable when the component is in 
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component is in editing mode should render properly when the errorMessage prop is given 1`] = `
+exports[`EcInlineInputField > when component is editable > when the component is in editing mode > should render properly when the errorMessage prop is given 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <!--v-if-->
@@ -375,8 +383,94 @@ exports[`EcInlineInputField when component is editable when the component is in 
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component is in editing mode should render with a sensitive class when isSensitive prop is set to true 1`] = `
+exports[`EcInlineInputField > when component is editable > when the component is in editing mode > should render with a label tooltip when labelTooltip prop is set 1`] = `
 <div
+  class="ec-inline-input-field"
+  data-test="ec-inline-input-field"
+>
+  <!--v-if-->
+  
+  <div
+    data-test="ec-inline-input-field-edit"
+  >
+    <label
+      class="ec-inline-input-field-edit__label"
+      for="ec-inline-input-field-edit__input-1"
+    >
+      Label
+      <svg
+        class="ec-icon ec-icon--interactive ec-inline-input-field-edit__label-tooltip"
+        data-ec-tooltip-mock-content="Testing the labelTooltip prop"
+        data-test="ec-inline-input-field-edit__label-tooltip ec-mock ec-tooltip-mock"
+        height="14"
+        width="14"
+      >
+        <use
+          xlink:href="#ec-simple-info"
+        />
+      </svg>
+    </label>
+    <div
+      class="ec-inline-input-field-edit__edit-panel"
+    >
+      <div
+        class="ec-input-field"
+        data-test="ec-input-field"
+      >
+        <!--v-if-->
+        <input
+          class="ec-input-field__input"
+          data-test="ec-inline-input-field-edit__input ec-input-field__input"
+          id="ec-inline-input-field-edit__input-1"
+          type="text"
+        />
+        <!--v-if-->
+        <!--v-if-->
+        <!--v-if-->
+      </div>
+      <div
+        class="ec-inline-input-field-edit__actions"
+      >
+        <button
+          class="ec-inline-input-field-edit__action"
+          data-test="ec-inline-input-field-edit__submit-action"
+          type="button"
+        >
+          <svg
+            class="ec-icon ec-inline-input-field-edit__action-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-check"
+            />
+          </svg>
+        </button>
+        <button
+          class="ec-inline-input-field-edit__action"
+          data-test="ec-inline-input-field-edit__cancel-action"
+          type="button"
+        >
+          <svg
+            class="ec-icon ec-inline-input-field-edit__action-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`EcInlineInputField > when component is editable > when the component is in editing mode > should render with a sensitive class when isSensitive prop is set to true 1`] = `
+<div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <!--v-if-->
@@ -449,8 +543,9 @@ exports[`EcInlineInputField when component is editable when the component is in 
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component is in its initial state should render as expected 1`] = `
+exports[`EcInlineInputField > when component is editable > when the component is in its initial state > should render as expected 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -490,8 +585,9 @@ exports[`EcInlineInputField when component is editable when the component is in 
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component is in its initial state should render with a label tooltip when labelTooltip prop is set 1`] = `
+exports[`EcInlineInputField > when component is editable > when the component is in its initial state > should render with a label tooltip when labelTooltip prop is set 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -541,8 +637,9 @@ exports[`EcInlineInputField when component is editable when the component is in 
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component is in its initial state should render with a sensitive class when isSensitive prop is set to true when isSensitive prop is set to true 1`] = `
+exports[`EcInlineInputField > when component is editable > when the component is in its initial state > should render with a sensitive class when isSensitive prop is set to true when isSensitive prop is set to true 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -582,8 +679,9 @@ exports[`EcInlineInputField when component is editable when the component is in 
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component is loading should render as expected 1`] = `
+exports[`EcInlineInputField > when component is editable > when the component is loading > should render as expected 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -624,6 +722,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
             xlink:href="#ec-simple-loading"
           />
         </svg>
+        <!--v-if-->
       </div>
       <!--v-if-->
     </div>
@@ -654,8 +753,9 @@ exports[`EcInlineInputField when component is editable when the component is loa
 </div>
 `;
 
-exports[`EcInlineInputField when component is editable when the component is loading should render with a sensitive class when isSensitive prop is set to true 1`] = `
+exports[`EcInlineInputField > when component is editable > when the component is loading > should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
+  class="ec-inline-input-field"
   data-test="ec-inline-input-field"
 >
   <div
@@ -696,6 +796,7 @@ exports[`EcInlineInputField when component is editable when the component is loa
             xlink:href="#ec-simple-loading"
           />
         </svg>
+        <!--v-if-->
       </div>
       <!--v-if-->
     </div>

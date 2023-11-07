@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcContainer should make the navigation collapsable when isCollapsable is given 1`] = `
+exports[`EcContainer > should make the navigation collapsable when isCollapsable is given 1`] = `
 <div
   class="ec-container"
   data-test="ec-container"
@@ -22,7 +22,7 @@ exports[`EcContainer should make the navigation collapsable when isCollapsable i
 </div>
 `;
 
-exports[`EcContainer should not have a collapsable navigation by default 1`] = `
+exports[`EcContainer > should not have a collapsable navigation by default 1`] = `
 <div
   class="ec-container"
   data-test="ec-container"
@@ -44,7 +44,7 @@ exports[`EcContainer should not have a collapsable navigation by default 1`] = `
 </div>
 `;
 
-exports[`EcContainer should render empty if no slots were given 1`] = `
+exports[`EcContainer > should render empty if no slots were given 1`] = `
 <div
   class="ec-container"
   data-test="ec-container"
@@ -66,7 +66,7 @@ exports[`EcContainer should render empty if no slots were given 1`] = `
 </div>
 `;
 
-exports[`EcContainer should render slot for content 1`] = `
+exports[`EcContainer > should render slot for content 1`] = `
 <div
   class="ec-container"
   data-test="ec-container"
@@ -91,7 +91,7 @@ exports[`EcContainer should render slot for content 1`] = `
 </div>
 `;
 
-exports[`EcContainer should render slot for navigation 1`] = `
+exports[`EcContainer > should render slot for navigation 1`] = `
 <div
   class="ec-container"
   data-test="ec-container"

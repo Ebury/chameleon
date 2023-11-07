@@ -1,126 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcMultipleValuesSelection Select all should be indeterminate when at least one option is selected 1`] = `
-<div
-  class="ec-checkbox"
-  data-test="ec-multiple-values-selection__select-all ec-checkbox"
->
-  <input
-    class="ec-checkbox__input"
-    data-test="ec-checkbox__input"
-    id="ec-checkbox-1"
-    type="checkbox"
-  />
-  <div
-    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
-  >
-    <span
-      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
-    >
-      <span
-        class="ec-checkbox__indeterminate-icon"
-      />
-    </span>
-    <label
-      class="ec-checkbox__label ec-checkbox__label--is-single-line"
-      data-test="ec-checkbox__label"
-      for="ec-checkbox-1"
-      title="Select all"
-    >
-      
-      Select all
-      
-    </label>
-  </div>
-  <!--v-if-->
-</div>
-`;
-
-exports[`EcMultipleValuesSelection Select all should not be indeterminate when Select all gets click 1`] = `
-<div
-  class="ec-checkbox"
-  data-test="ec-multiple-values-selection__select-all ec-checkbox"
->
-  <input
-    class="ec-checkbox__input"
-    data-test="ec-checkbox__input"
-    id="ec-checkbox-1"
-    type="checkbox"
-  />
-  <div
-    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
-  >
-    <span
-      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
-    >
-      <svg
-        class="ec-icon ec-checkbox__check-icon"
-        height="16"
-        width="16"
-      >
-        <use
-          xlink:href="#ec-simple-check"
-        />
-      </svg>
-    </span>
-    <label
-      class="ec-checkbox__label ec-checkbox__label--is-single-line"
-      data-test="ec-checkbox__label"
-      for="ec-checkbox-1"
-      title="Select all"
-    >
-      
-      Select all
-      
-    </label>
-  </div>
-  <!--v-if-->
-</div>
-`;
-
-exports[`EcMultipleValuesSelection Select all should not be indeterminate when all options are selected 1`] = `
-<div
-  class="ec-checkbox"
-  data-test="ec-multiple-values-selection__select-all ec-checkbox"
->
-  <input
-    class="ec-checkbox__input"
-    data-test="ec-checkbox__input"
-    id="ec-checkbox-1"
-    type="checkbox"
-  />
-  <div
-    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
-  >
-    <span
-      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
-    >
-      <svg
-        class="ec-icon ec-checkbox__check-icon"
-        height="16"
-        width="16"
-      >
-        <use
-          xlink:href="#ec-simple-check"
-        />
-      </svg>
-    </span>
-    <label
-      class="ec-checkbox__label ec-checkbox__label--is-single-line"
-      data-test="ec-checkbox__label"
-      for="ec-checkbox-1"
-      title="Select all"
-    >
-      
-      Select all
-      
-    </label>
-  </div>
-  <!--v-if-->
-</div>
-`;
-
-exports[`EcMultipleValuesSelection search should not have the search visible if isSearchable is set to false 1`] = `
+exports[`EcMultipleValuesSelection > search > should not have the search visible if isSearchable is set to false 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -152,6 +32,7 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -205,6 +86,7 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -258,6 +140,7 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -299,7 +182,7 @@ exports[`EcMultipleValuesSelection search should not have the search visible if 
 </div>
 `;
 
-exports[`EcMultipleValuesSelection search should render properly when isSearchable is true 1`] = `
+exports[`EcMultipleValuesSelection > search > should render properly when isSearchable is true 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -351,6 +234,7 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -404,6 +288,7 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -457,6 +342,7 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -498,7 +384,7 @@ exports[`EcMultipleValuesSelection search should render properly when isSearchab
 </div>
 `;
 
-exports[`EcMultipleValuesSelection search should render properly when searchFilterPlaceholder is set 1`] = `
+exports[`EcMultipleValuesSelection > search > should render properly when searchFilterPlaceholder is set 1`] = `
 <input
   autocomplete="off"
   class="ec-multiple-values-selection__search-input"
@@ -508,7 +394,133 @@ exports[`EcMultipleValuesSelection search should render properly when searchFilt
 />
 `;
 
-exports[`EcMultipleValuesSelection should render correctly if all the required props are passed 1`] = `
+exports[`EcMultipleValuesSelection > select all > should be indeterminate when at least one option is selected 1`] = `
+<div
+  class="ec-checkbox"
+  data-test="ec-multiple-values-selection__select-all ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
+      data-test="ec-checkbox__check-icon-wrapper"
+    >
+      <span
+        class="ec-checkbox__indeterminate-icon"
+        data-test="ec-checkbox__indeterminate-icon"
+      />
+    </span>
+    <label
+      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+      title="Select all"
+    >
+      
+      Select all
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcMultipleValuesSelection > select all > should not be indeterminate when Select all gets click 1`] = `
+<div
+  class="ec-checkbox"
+  data-test="ec-multiple-values-selection__select-all ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+      data-test="ec-checkbox__check-icon-wrapper"
+    >
+      <svg
+        class="ec-icon ec-checkbox__check-icon"
+        data-test="ec-checkbox__check-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-check"
+        />
+      </svg>
+    </span>
+    <label
+      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+      title="Select all"
+    >
+      
+      Select all
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcMultipleValuesSelection > select all > should not be indeterminate when all options are selected 1`] = `
+<div
+  class="ec-checkbox"
+  data-test="ec-multiple-values-selection__select-all ec-checkbox"
+>
+  <input
+    class="ec-checkbox__input"
+    data-test="ec-checkbox__input"
+    id="ec-checkbox-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+  >
+    <span
+      class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+      data-test="ec-checkbox__check-icon-wrapper"
+    >
+      <svg
+        class="ec-icon ec-checkbox__check-icon"
+        data-test="ec-checkbox__check-icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-check"
+        />
+      </svg>
+    </span>
+    <label
+      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+      data-test="ec-checkbox__label"
+      for="ec-checkbox-1"
+      title="Select all"
+    >
+      
+      Select all
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcMultipleValuesSelection > should render correctly if all the required props are passed 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -540,6 +552,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -593,6 +606,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -646,6 +660,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -687,7 +702,7 @@ exports[`EcMultipleValuesSelection should render correctly if all the required p
 </div>
 `;
 
-exports[`EcMultipleValuesSelection should render loading state 1`] = `
+exports[`EcMultipleValuesSelection > should render loading state 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -710,7 +725,7 @@ exports[`EcMultipleValuesSelection should render loading state 1`] = `
 </div>
 `;
 
-exports[`EcMultipleValuesSelection should render with rounded icons 1`] = `
+exports[`EcMultipleValuesSelection > should render with rounded icons 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -742,6 +757,7 @@ exports[`EcMultipleValuesSelection should render with rounded icons 1`] = `
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -783,7 +799,7 @@ exports[`EcMultipleValuesSelection should render with rounded icons 1`] = `
 </div>
 `;
 
-exports[`EcMultipleValuesSelection should set the empty state icon 1`] = `
+exports[`EcMultipleValuesSelection > should set the empty state icon 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -811,7 +827,7 @@ exports[`EcMultipleValuesSelection should set the empty state icon 1`] = `
 </div>
 `;
 
-exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
+exports[`EcMultipleValuesSelection > should set the empty state message 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -839,7 +855,7 @@ exports[`EcMultipleValuesSelection should set the empty state message 1`] = `
 </div>
 `;
 
-exports[`EcMultipleValuesSelection should set the error icon 1`] = `
+exports[`EcMultipleValuesSelection > should set the error icon 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -867,7 +883,7 @@ exports[`EcMultipleValuesSelection should set the error icon 1`] = `
 </div>
 `;
 
-exports[`EcMultipleValuesSelection should set the error message 1`] = `
+exports[`EcMultipleValuesSelection > should set the error message 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -895,7 +911,7 @@ exports[`EcMultipleValuesSelection should set the error message 1`] = `
 </div>
 `;
 
-exports[`EcMultipleValuesSelection should toggle (select/unselect) all options clicked 1`] = `
+exports[`EcMultipleValuesSelection > should toggle (select/unselect) all options clicked 1`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -920,9 +936,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
       >
         <span
           class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+          data-test="ec-checkbox__check-icon-wrapper"
         >
           <svg
             class="ec-icon ec-checkbox__check-icon"
+            data-test="ec-checkbox__check-icon"
             height="16"
             width="16"
           >
@@ -969,9 +987,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           >
             <span
               class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <svg
                 class="ec-icon ec-checkbox__check-icon"
+                data-test="ec-checkbox__check-icon"
                 height="16"
                 width="16"
               >
@@ -1030,9 +1050,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           >
             <span
               class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <svg
                 class="ec-icon ec-checkbox__check-icon"
+                data-test="ec-checkbox__check-icon"
                 height="16"
                 width="16"
               >
@@ -1091,9 +1113,11 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           >
             <span
               class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <svg
                 class="ec-icon ec-checkbox__check-icon"
+                data-test="ec-checkbox__check-icon"
                 height="16"
                 width="16"
               >
@@ -1140,7 +1164,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
 </div>
 `;
 
-exports[`EcMultipleValuesSelection should toggle (select/unselect) all options clicked 2`] = `
+exports[`EcMultipleValuesSelection > should toggle (select/unselect) all options clicked 2`] = `
 <div
   class="ec-multiple-values-selection"
   data-test="ec-multiple-values-selection"
@@ -1165,6 +1189,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
       >
         <span
           class="ec-checkbox__check-icon-wrapper"
+          data-test="ec-checkbox__check-icon-wrapper"
         >
           <!--v-if-->
         </span>
@@ -1206,6 +1231,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -1259,6 +1285,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>
@@ -1312,6 +1339,7 @@ exports[`EcMultipleValuesSelection should toggle (select/unselect) all options c
           >
             <span
               class="ec-checkbox__check-icon-wrapper"
+              data-test="ec-checkbox__check-icon-wrapper"
             >
               <!--v-if-->
             </span>

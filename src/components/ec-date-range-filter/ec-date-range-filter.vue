@@ -1,9 +1,12 @@
 <template>
   <ec-filter-popover
-    :label="label"
-    :number-of-selected-filters="numberOfSelectedFilters"
-    :popover-options="popoverOptions"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-date-range-filter__trigger` : 'ec-date-range-filter__trigger'"
+    v-bind="{
+      ...$attrs,
+      label,
+      numberOfSelectedFilters,
+      popoverOptions,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-date-range-filter__trigger` : 'ec-date-range-filter__trigger',
+    }"
   >
     <template #filter>
       <div
@@ -31,7 +34,7 @@
             :label="toLabelText"
             :error-message="toErrorMessage"
             :min="fromValueDate"
-            @blur="onBlur()"
+            @blur="/* c8 ignore next */ onBlur()"
           />
         </div>
         <p
@@ -56,6 +59,10 @@ import { computed } from 'vue';
 
 import EcFilterPopover from '../ec-filter-popover';
 import EcInputField from '../ec-input-field';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps({
   label: {

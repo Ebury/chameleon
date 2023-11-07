@@ -1,7 +1,10 @@
 <template>
   <div
     class="ec-radio-btn"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn ec-radio-btn` : `ec-radio-btn ec-radio-btn`"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn` : 'ec-radio-btn',
+    }"
     @click="onClick();"
   >
     <input
@@ -104,9 +107,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  computed, ref, useSlots,
-} from 'vue';
+import { computed, ref, useSlots } from 'vue';
 
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
@@ -125,6 +126,10 @@ interface RadioButtonProps {
   errorMessage?: string,
   hasError?: boolean
 }
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps<RadioButtonProps>();
 

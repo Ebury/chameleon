@@ -1,12 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`HoC for Vue 3 curried should create a curried version of createHOC 1`] = `
+exports[`HoC for Vue 3 > curried > should create a curried version of createHOC 1`] = `
 <div>
   Wrapped component, 123
 </div>
 `;
 
-exports[`HoC for Vue 3 preserve existing functionality of wrapped component should pass attrs to the wrapped component 1`] = `
+exports[`HoC for Vue 3 > preserve existing functionality of wrapped component > should pass attrs to the wrapped component 1`] = `
 <div
   data-test="my-component"
 >
@@ -14,13 +14,13 @@ exports[`HoC for Vue 3 preserve existing functionality of wrapped component shou
 </div>
 `;
 
-exports[`HoC for Vue 3 preserve existing functionality of wrapped component should pass props to the wrapped component 1`] = `
+exports[`HoC for Vue 3 > preserve existing functionality of wrapped component > should pass props to the wrapped component 1`] = `
 <div>
   Random value
 </div>
 `;
 
-exports[`HoC for Vue 3 preserve existing functionality of wrapped component should pass slots to the wrapped component 1`] = `
+exports[`HoC for Vue 3 > preserve existing functionality of wrapped component > should pass slots to the wrapped component 1`] = `
 <div>
   
   <div>
@@ -38,7 +38,7 @@ exports[`HoC for Vue 3 preserve existing functionality of wrapped component shou
 </div>
 `;
 
-exports[`HoC for Vue 3 preserve existing functionality of wrapped component should pass slots to the wrapped component via template 1`] = `
+exports[`HoC for Vue 3 > preserve existing functionality of wrapped component > should pass slots to the wrapped component via template 1`] = `
 <div>
   
   Slot prop value: 123
@@ -54,49 +54,49 @@ exports[`HoC for Vue 3 preserve existing functionality of wrapped component shou
 </div>
 `;
 
-exports[`HoC for Vue 3 preserve existing functionality of wrapped component should render the wrapped component 1`] = `
+exports[`HoC for Vue 3 > preserve existing functionality of wrapped component > should render the wrapped component 1`] = `
 <div>
   Wrapped component
 </div>
 `;
 
-exports[`HoC for Vue 3 render props should be able to access "this" in individual props function 1`] = `
+exports[`HoC for Vue 3 > render props > should be able to access "this" in individual props function 1`] = `
 <div>
   Mounting value:Mounting value:Random Value
 </div>
 `;
 
-exports[`HoC for Vue 3 render props should be able to access "this" in props function 1`] = `
+exports[`HoC for Vue 3 > render props > should be able to access "this" in props function 1`] = `
 <div>
   Mounting value:Mounting value:Random Value
 </div>
 `;
 
-exports[`HoC for Vue 3 render props should override props when passing custom value to the wrapped component 1`] = `
+exports[`HoC for Vue 3 > render props > should override props when passing custom value to the wrapped component 1`] = `
 <div>
   Random Value
 </div>
 `;
 
-exports[`HoC for Vue 3 render props should override props when passing custom value to the wrapped component via props function 1`] = `
+exports[`HoC for Vue 3 > render props > should override props when passing custom value to the wrapped component via props function 1`] = `
 <div>
   Random Value
 </div>
 `;
 
-exports[`HoC for Vue 3 render props should pass props to the wrapped component 1`] = `
+exports[`HoC for Vue 3 > render props > should pass props to the wrapped component 1`] = `
 <div>
   Random Value
 </div>
 `;
 
-exports[`HoC for Vue 3 render props should pass props to the wrapped component via props function 1`] = `
+exports[`HoC for Vue 3 > render props > should pass props to the wrapped component via props function 1`] = `
 <div>
   Random Value
 </div>
 `;
 
-exports[`HoC for Vue 3 render slots should be able to access "this" in slots function 1`] = `
+exports[`HoC for Vue 3 > render slots > should be able to access "this" in slots function 1`] = `
 <div
   myprop="Mounting value"
 >
@@ -108,7 +108,7 @@ exports[`HoC for Vue 3 render slots should be able to access "this" in slots fun
 </div>
 `;
 
-exports[`HoC for Vue 3 render slots should override slot passed to the wrapped component 1`] = `
+exports[`HoC for Vue 3 > render slots > should override slot passed to the wrapped component 1`] = `
 <div>
   
   Default slot from HoC
@@ -116,7 +116,7 @@ exports[`HoC for Vue 3 render slots should override slot passed to the wrapped c
 </div>
 `;
 
-exports[`HoC for Vue 3 render slots should pass a named scoped slot to the wrapped component 1`] = `
+exports[`HoC for Vue 3 > render slots > should pass a named scoped slot to the wrapped component 1`] = `
 <div>
   
   Custom slot from HoC with customProp set to 123
@@ -124,7 +124,7 @@ exports[`HoC for Vue 3 render slots should pass a named scoped slot to the wrapp
 </div>
 `;
 
-exports[`HoC for Vue 3 render slots should pass the slot to the wrapped component 1`] = `
+exports[`HoC for Vue 3 > render slots > should pass the slot to the wrapped component 1`] = `
 <div>
   
   Default slot from HoC

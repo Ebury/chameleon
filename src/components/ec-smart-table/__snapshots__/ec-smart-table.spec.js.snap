@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcSmartTable #slots should only render custom row if "isCustomRowShown" is true 1`] = `
+exports[`EcSmartTable > #slots > should only render custom row if "isCustomRowShown" is true 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -59,7 +59,7 @@ exports[`EcSmartTable #slots should only render custom row if "isCustomRowShown"
 </div>
 `;
 
-exports[`EcSmartTable #slots should pass ec-table slots 1`] = `
+exports[`EcSmartTable > #slots > should pass ec-table slots 1`] = `
 <tr
   class=""
   data-test="ec-table__row ec-table__row--0"
@@ -97,7 +97,7 @@ exports[`EcSmartTable #slots should pass ec-table slots 1`] = `
 </tr>
 `;
 
-exports[`EcSmartTable #slots should render custom row if window width is lower than 768px 1`] = `
+exports[`EcSmartTable > #slots > should render custom row if window width is lower than 768px 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -156,7 +156,7 @@ exports[`EcSmartTable #slots should render custom row if window width is lower t
 </div>
 `;
 
-exports[`EcSmartTable #slots should render empty data with custom template 1`] = `
+exports[`EcSmartTable > #slots > should render empty data with custom template 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -173,7 +173,7 @@ exports[`EcSmartTable #slots should render empty data with custom template 1`] =
 </div>
 `;
 
-exports[`EcSmartTable #slots should render empty data with custom template and custom emptyMessage prop 1`] = `
+exports[`EcSmartTable > #slots > should render empty data with custom template and custom emptyMessage prop 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -190,7 +190,7 @@ exports[`EcSmartTable #slots should render empty data with custom template and c
 </div>
 `;
 
-exports[`EcSmartTable #slots should render empty data with custom template, custom emptyMessage prop and header-actions slot with props 1`] = `
+exports[`EcSmartTable > #slots > should render empty data with custom template, custom emptyMessage prop and header-actions slot with props 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -222,7 +222,7 @@ exports[`EcSmartTable #slots should render empty data with custom template, cust
 </div>
 `;
 
-exports[`EcSmartTable #slots should render empty data with header-actions slot 1`] = `
+exports[`EcSmartTable > #slots > should render empty data with header-actions slot 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -252,7 +252,7 @@ exports[`EcSmartTable #slots should render empty data with header-actions slot 1
 </div>
 `;
 
-exports[`EcSmartTable #slots should render empty data with header-actions slot with props 1`] = `
+exports[`EcSmartTable > #slots > should render empty data with header-actions slot with props 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -282,7 +282,7 @@ exports[`EcSmartTable #slots should render empty data with header-actions slot w
 </div>
 `;
 
-exports[`EcSmartTable #slots should render error with custom template 1`] = `
+exports[`EcSmartTable > #slots > should render error with custom template 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -299,7 +299,7 @@ exports[`EcSmartTable #slots should render error with custom template 1`] = `
 </div>
 `;
 
-exports[`EcSmartTable #slots should render error with custom template and custom errorMessage prop 1`] = `
+exports[`EcSmartTable > #slots > should render error with custom template and custom errorMessage prop 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -316,7 +316,7 @@ exports[`EcSmartTable #slots should render error with custom template and custom
 </div>
 `;
 
-exports[`EcSmartTable #slots should render error with custom template, custom errorMessage prop and header-actions slot with props 1`] = `
+exports[`EcSmartTable > #slots > should render error with custom template, custom errorMessage prop and header-actions slot with props 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -348,7 +348,7 @@ exports[`EcSmartTable #slots should render error with custom template, custom er
 </div>
 `;
 
-exports[`EcSmartTable #slots should render in empty state by default with the header-actions slot with props 1`] = `
+exports[`EcSmartTable > #slots > should render in empty state by default with the header-actions slot with props 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -378,7 +378,7 @@ exports[`EcSmartTable #slots should render in empty state by default with the he
 </div>
 `;
 
-exports[`EcSmartTable #slots should render resolved data properly with the header-actions slot with props 1`] = `
+exports[`EcSmartTable > #slots > should render resolved data properly with the header-actions slot with props 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -560,7 +560,7 @@ exports[`EcSmartTable #slots should render resolved data properly with the heade
 </div>
 `;
 
-exports[`EcSmartTable filtering should change filters when filter prop is changed 1`] = `
+exports[`EcSmartTable > filtering > should change filters when filter prop is changed 1`] = `
 <section
   class="ec-table-filter"
   data-test="ec-smart-table__filter ec-table-filter"
@@ -589,7 +589,7 @@ exports[`EcSmartTable filtering should change filters when filter prop is change
 </section>
 `;
 
-exports[`EcSmartTable filtering should change filters when filter prop is changed 2`] = `
+exports[`EcSmartTable > filtering > should change filters when filter prop is changed 2`] = `
 <section
   class="ec-table-filter"
   data-test="ec-smart-table__filter ec-table-filter"
@@ -612,7 +612,7 @@ exports[`EcSmartTable filtering should change filters when filter prop is change
 </section>
 `;
 
-exports[`EcSmartTable filtering should handle changes in filters and reload the table data 1`] = `
+exports[`EcSmartTable > filtering > should handle changes in filters and reload the table data 1`] = `
 <section
   class="ec-table-filter"
   data-test="ec-smart-table__filter ec-table-filter"
@@ -635,7 +635,7 @@ exports[`EcSmartTable filtering should handle changes in filters and reload the 
 </section>
 `;
 
-exports[`EcSmartTable filtering should pass given prefilter to table filter 1`] = `
+exports[`EcSmartTable > filtering > should pass given prefilter to table filter 1`] = `
 <section
   class="ec-table-filter"
   data-test="ec-smart-table__filter ec-table-filter"
@@ -664,7 +664,7 @@ exports[`EcSmartTable filtering should pass given prefilter to table filter 1`] 
 </section>
 `;
 
-exports[`EcSmartTable filtering should render the given filters 1`] = `
+exports[`EcSmartTable > filtering > should render the given filters 1`] = `
 <section
   class="ec-table-filter"
   data-test="ec-smart-table__filter ec-table-filter"
@@ -687,7 +687,7 @@ exports[`EcSmartTable filtering should render the given filters 1`] = `
 </section>
 `;
 
-exports[`EcSmartTable filtering should reset the page after changes in filters and reload the table data: pagination after changing the filters 1`] = `
+exports[`EcSmartTable > filtering > should reset the page after changes in filters and reload the table data > pagination after changing the filters 1`] = `
 <div
   class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
@@ -849,7 +849,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
 </div>
 `;
 
-exports[`EcSmartTable filtering should reset the page after changes in filters and reload the table data: pagination after loading new page 1`] = `
+exports[`EcSmartTable > filtering > should reset the page after changes in filters and reload the table data > pagination after loading new page 1`] = `
 <div
   class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
@@ -1010,7 +1010,7 @@ exports[`EcSmartTable filtering should reset the page after changes in filters a
 </div>
 `;
 
-exports[`EcSmartTable pagination should pass pages slot into the pagination 1`] = `
+exports[`EcSmartTable > pagination > should pass pages slot into the pagination 1`] = `
 <div
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
@@ -1025,7 +1025,7 @@ exports[`EcSmartTable pagination should pass pages slot into the pagination 1`] 
 </div>
 `;
 
-exports[`EcSmartTable pagination should re-fetch the data when page size is changed: pagination after loading new page 1`] = `
+exports[`EcSmartTable > pagination > should re-fetch the data when page size is changed > pagination after loading new page 1`] = `
 <div
   class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
@@ -1188,168 +1188,7 @@ exports[`EcSmartTable pagination should re-fetch the data when page size is chan
 </div>
 `;
 
-exports[`EcSmartTable pagination should re-fetch the data when prev page is selected 1`] = `
-<div
-  class="ec-table-pagination ec-table-pagination--is-responsive"
-  data-test="ec-smart-table-pagination ec-table-pagination"
->
-  <div
-    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
-    data-test="ec-table-pagination__page-size"
-  >
-    <div
-      class="ec-table-pagination__page-size-text"
-    >
-      Items per page:
-    </div>
-    <div
-      class="ec-dropdown-search"
-      data-test="ec-dropdown-search"
-    >
-      <ec-stub
-        autosize="true"
-        class="ec-dropdown-search__trigger"
-        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
-        disabled="false"
-        distance="8"
-        placement="bottom-start"
-        popperclass="ec-dropdown-search__popover"
-        shift="false"
-        shown="false"
-      >
-        
-        
-        <button
-          class="ec-table-pagination__action ec-table-pagination__action--page-size"
-          data-test="ec-table-pagination__action--page-size"
-          type="button"
-        >
-          10 
-          <svg
-            class="ec-icon ec-table-pagination__action-icon"
-            height="24"
-            width="24"
-          >
-            <use
-              xlink:href="#ec-simple-chevron-down"
-            />
-          </svg>
-        </button>
-        
-        
-        
-        <div>
-          <ul
-            class="ec-dropdown-search__item-list"
-            data-test="ec-dropdown-search__item-list"
-          >
-            <!--v-if-->
-            <!--v-if-->
-            
-            
-            <li
-              class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
-              title="5"
-            >
-              
-              5
-              
-            </li>
-            <li
-              class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
-              title="10"
-            >
-              
-              10
-              
-            </li>
-            <li
-              class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
-              title="50"
-            >
-              
-              50
-              
-            </li>
-            <li
-              class="ec-dropdown-search__item"
-              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
-              title="100"
-            >
-              
-              100
-              
-            </li>
-            
-            
-          </ul>
-        </div>
-        
-      </ec-stub>
-    </div>
-  </div>
-  <div
-    class="ec-table-pagination__current-page"
-    data-test="ec-table-pagination__current-page"
-  >
-    
-    <span>
-      2 of 5 pages
-    </span>
-    <span>
-      (50 items)
-    </span>
-    
-  </div>
-  <div
-    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
-    data-test="ec-table-pagination__total"
-  >
-    
-    
-  </div>
-  <div
-    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
-    data-test="ec-table-pagination__actions"
-  >
-    <button
-      class="ec-table-pagination__action ec-table-pagination__action--prev"
-      data-test="ec-table-pagination__action--prev"
-      type="button"
-    >
-      <svg
-        class="ec-icon ec-table-pagination__action-icon"
-        height="24"
-        width="24"
-      >
-        <use
-          xlink:href="#ec-simple-chevron-left"
-        />
-      </svg>
-    </button>
-    <button
-      class="ec-table-pagination__action ec-table-pagination__action--next"
-      data-test="ec-table-pagination__action--next"
-      type="button"
-    >
-      <svg
-        class="ec-icon ec-table-pagination__action-icon"
-        height="24"
-        width="24"
-      >
-        <use
-          xlink:href="#ec-simple-chevron-right"
-        />
-      </svg>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`EcSmartTable pagination should re-fetch the data when prev page is selected: pagination after loading new page 1`] = `
+exports[`EcSmartTable > pagination > should re-fetch the data when prev page is selected > pagination after loading new page 1`] = `
 <div
   class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
@@ -1511,7 +1350,168 @@ exports[`EcSmartTable pagination should re-fetch the data when prev page is sele
 </div>
 `;
 
-exports[`EcSmartTable pagination should render footer slot inside of the pagination when pagination is enabled 1`] = `
+exports[`EcSmartTable > pagination > should re-fetch the data when prev page is selected 1`] = `
+<div
+  class="ec-table-pagination ec-table-pagination--is-responsive"
+  data-test="ec-smart-table-pagination ec-table-pagination"
+>
+  <div
+    class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
+    data-test="ec-table-pagination__page-size"
+  >
+    <div
+      class="ec-table-pagination__page-size-text"
+    >
+      Items per page:
+    </div>
+    <div
+      class="ec-dropdown-search"
+      data-test="ec-dropdown-search"
+    >
+      <ec-stub
+        autosize="true"
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
+      >
+        
+        
+        <button
+          class="ec-table-pagination__action ec-table-pagination__action--page-size"
+          data-test="ec-table-pagination__action--page-size"
+          type="button"
+        >
+          10 
+          <svg
+            class="ec-icon ec-table-pagination__action-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-chevron-down"
+            />
+          </svg>
+        </button>
+        
+        
+        
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="5"
+            >
+              
+              5
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item ec-dropdown-search__item--is-selected"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="10"
+            >
+              
+              10
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="50"
+            >
+              
+              50
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--3 ec-mock ec-tooltip-mock"
+              title="100"
+            >
+              
+              100
+              
+            </li>
+            
+            
+          </ul>
+        </div>
+        
+      </ec-stub>
+    </div>
+  </div>
+  <div
+    class="ec-table-pagination__current-page"
+    data-test="ec-table-pagination__current-page"
+  >
+    
+    <span>
+      2 of 5 pages
+    </span>
+    <span>
+      (50 items)
+    </span>
+    
+  </div>
+  <div
+    class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
+    data-test="ec-table-pagination__total"
+  >
+    
+    
+  </div>
+  <div
+    class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
+    data-test="ec-table-pagination__actions"
+  >
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--prev"
+      data-test="ec-table-pagination__action--prev"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-table-pagination__action-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-left"
+        />
+      </svg>
+    </button>
+    <button
+      class="ec-table-pagination__action ec-table-pagination__action--next"
+      data-test="ec-table-pagination__action--next"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-table-pagination__action-icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-right"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`EcSmartTable > pagination > should render footer slot inside of the pagination when pagination is enabled 1`] = `
 <tfoot
   class="ec-table-footer"
   data-test="ec-table-footer"
@@ -1698,7 +1698,7 @@ exports[`EcSmartTable pagination should render footer slot inside of the paginat
 </tfoot>
 `;
 
-exports[`EcSmartTable pagination should render footer slot when pagination is not enabled 1`] = `
+exports[`EcSmartTable > pagination > should render footer slot when pagination is not enabled 1`] = `
 <tfoot
   class="ec-table-footer"
   data-test="ec-table-footer"
@@ -1726,7 +1726,7 @@ exports[`EcSmartTable pagination should render footer slot when pagination is no
 </tfoot>
 `;
 
-exports[`EcSmartTable pagination should render pagination when it's enabled 1`] = `
+exports[`EcSmartTable > pagination > should render pagination when it's enabled 1`] = `
 <div
   class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
@@ -1888,7 +1888,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled 1`] 
 </div>
 `;
 
-exports[`EcSmartTable pagination should render pagination when it's enabled and changed 1`] = `
+exports[`EcSmartTable > pagination > should render pagination when it's enabled and changed 1`] = `
 <div
   class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
@@ -2049,7 +2049,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled and 
 </div>
 `;
 
-exports[`EcSmartTable pagination should render pagination when it's enabled and changed 2`] = `
+exports[`EcSmartTable > pagination > should render pagination when it's enabled and changed 2`] = `
 <div
   class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
@@ -2210,7 +2210,7 @@ exports[`EcSmartTable pagination should render pagination when it's enabled and 
 </div>
 `;
 
-exports[`EcSmartTable should not pass attrs to the ec-table 1`] = `
+exports[`EcSmartTable > should not pass attrs to the ec-table 1`] = `
 <div
   class="ec-smart-table my-table"
   data-test="my-data-test"
@@ -2378,7 +2378,7 @@ exports[`EcSmartTable should not pass attrs to the ec-table 1`] = `
 </div>
 `;
 
-exports[`EcSmartTable should pass props to the ec-table 1`] = `
+exports[`EcSmartTable > should pass props to the ec-table 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -2546,7 +2546,7 @@ exports[`EcSmartTable should pass props to the ec-table 1`] = `
 </div>
 `;
 
-exports[`EcSmartTable should pass row-click event to the ec-table 1`] = `
+exports[`EcSmartTable > should pass row-click event to the ec-table 1`] = `
 <tr
   class="ec-table__row--is-clickable"
   data-test="ec-table__row ec-table__row--0"
@@ -2580,7 +2580,7 @@ exports[`EcSmartTable should pass row-click event to the ec-table 1`] = `
 </tr>
 `;
 
-exports[`EcSmartTable should render empty data properly 1`] = `
+exports[`EcSmartTable > should render empty data properly 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -2595,7 +2595,7 @@ exports[`EcSmartTable should render empty data properly 1`] = `
 </div>
 `;
 
-exports[`EcSmartTable should render error properly 1`] = `
+exports[`EcSmartTable > should render error properly 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -2610,7 +2610,7 @@ exports[`EcSmartTable should render error properly 1`] = `
 </div>
 `;
 
-exports[`EcSmartTable should render in empty state by default 1`] = `
+exports[`EcSmartTable > should render in empty state by default 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -2625,7 +2625,22 @@ exports[`EcSmartTable should render in empty state by default 1`] = `
 </div>
 `;
 
-exports[`EcSmartTable should render its own title instead of using the one inside of ec-table 1`] = `
+exports[`EcSmartTable > should render in empty state when data are null 1`] = `
+<div
+  class="ec-smart-table"
+  data-test="ec-smart-table"
+>
+  
+  <!--v-if-->
+  <!--v-if-->
+  
+  
+  No items found
+  
+</div>
+`;
+
+exports[`EcSmartTable > should render its own title instead of using the one inside of ec-table 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -2796,7 +2811,7 @@ exports[`EcSmartTable should render its own title instead of using the one insid
 </div>
 `;
 
-exports[`EcSmartTable should render resolved data properly 1`] = `
+exports[`EcSmartTable > should render resolved data properly 1`] = `
 <div
   class="ec-smart-table"
   data-test="ec-smart-table"
@@ -2963,7 +2978,7 @@ exports[`EcSmartTable should render resolved data properly 1`] = `
 </div>
 `;
 
-exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: After sorting different column #2 ([DESC, null, ASC]) 1`] = `
+exports[`EcSmartTable > sorting > multi sort > should allow sorting multiple columns > After sorting different column #2 ([DESC, null, ASC]) 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -3068,7 +3083,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
 </thead>
 `;
 
-exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: After sorting different column ([ASC, null, ASC]) 1`] = `
+exports[`EcSmartTable > sorting > multi sort > should allow sorting multiple columns > After sorting different column ([ASC, null, ASC]) 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -3173,7 +3188,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
 </thead>
 `;
 
-exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: Initial state ([ASC, null, null]) 1`] = `
+exports[`EcSmartTable > sorting > multi sort > should allow sorting multiple columns > Initial state ([ASC, null, null]) 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -3274,7 +3289,7 @@ exports[`EcSmartTable sorting multi sort should allow sorting multiple columns: 
 </thead>
 `;
 
-exports[`EcSmartTable sorting multi sort should sort column: ASC -> DESC 1`] = `
+exports[`EcSmartTable > sorting > multi sort > should sort column > ASC -> DESC 1`] = `
 <th
   class="ec-table-head__cell"
   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -3315,7 +3330,7 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC -> DESC 1`] = `
 </th>
 `;
 
-exports[`EcSmartTable sorting multi sort should sort column: ASC 1`] = `
+exports[`EcSmartTable > sorting > multi sort > should sort column > ASC 1`] = `
 <th
   class="ec-table-head__cell"
   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -3356,7 +3371,7 @@ exports[`EcSmartTable sorting multi sort should sort column: ASC 1`] = `
 </th>
 `;
 
-exports[`EcSmartTable sorting multi sort should sort column: DESC -> not sorted 1`] = `
+exports[`EcSmartTable > sorting > multi sort > should sort column > DESC -> not sorted 1`] = `
 <th
   class="ec-table-head__cell"
   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -3393,7 +3408,7 @@ exports[`EcSmartTable sorting multi sort should sort column: DESC -> not sorted 
 </th>
 `;
 
-exports[`EcSmartTable sorting multi sort should sort column: not sorted -> ASC 1`] = `
+exports[`EcSmartTable > sorting > multi sort > should sort column > not sorted -> ASC 1`] = `
 <th
   class="ec-table-head__cell"
   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -3434,7 +3449,7 @@ exports[`EcSmartTable sorting multi sort should sort column: not sorted -> ASC 1
 </th>
 `;
 
-exports[`EcSmartTable sorting should render sortable columns 1`] = `
+exports[`EcSmartTable > sorting > should render sortable columns 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -3531,7 +3546,7 @@ exports[`EcSmartTable sorting should render sortable columns 1`] = `
 </thead>
 `;
 
-exports[`EcSmartTable sorting should render sorted columns 1`] = `
+exports[`EcSmartTable > sorting > should render sorted columns 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -3636,7 +3651,7 @@ exports[`EcSmartTable sorting should render sorted columns 1`] = `
 </thead>
 `;
 
-exports[`EcSmartTable sorting should render sorted columns if sorts prop is changed 1`] = `
+exports[`EcSmartTable > sorting > should render sorted columns if sorts prop is changed 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -3741,7 +3756,7 @@ exports[`EcSmartTable sorting should render sorted columns if sorts prop is chan
 </thead>
 `;
 
-exports[`EcSmartTable sorting should render sorted columns if sorts prop is changed 2`] = `
+exports[`EcSmartTable > sorting > should render sorted columns if sorts prop is changed 2`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -3846,7 +3861,7 @@ exports[`EcSmartTable sorting should render sorted columns if sorts prop is chan
 </thead>
 `;
 
-exports[`EcSmartTable sorting single sort should allow sorting only one column: After sorting different column #2 ([ASC, null, null]) 1`] = `
+exports[`EcSmartTable > sorting > single sort > should allow sorting only one column > After sorting different column #2 ([ASC, null, null]) 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -3947,7 +3962,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
 </thead>
 `;
 
-exports[`EcSmartTable sorting single sort should allow sorting only one column: After sorting different column ([null, null, ASC]) 1`] = `
+exports[`EcSmartTable > sorting > single sort > should allow sorting only one column > After sorting different column ([null, null, ASC]) 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -4048,7 +4063,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
 </thead>
 `;
 
-exports[`EcSmartTable sorting single sort should allow sorting only one column: Initial state ([ASC, null, null]) 1`] = `
+exports[`EcSmartTable > sorting > single sort > should allow sorting only one column > Initial state ([ASC, null, null]) 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -4149,7 +4164,7 @@ exports[`EcSmartTable sorting single sort should allow sorting only one column: 
 </thead>
 `;
 
-exports[`EcSmartTable sorting single sort should sort column: ASC -> DESC 1`] = `
+exports[`EcSmartTable > sorting > single sort > should sort column > ASC -> DESC 1`] = `
 <th
   class="ec-table-head__cell"
   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -4190,7 +4205,7 @@ exports[`EcSmartTable sorting single sort should sort column: ASC -> DESC 1`] = 
 </th>
 `;
 
-exports[`EcSmartTable sorting single sort should sort column: ASC 1`] = `
+exports[`EcSmartTable > sorting > single sort > should sort column > ASC 1`] = `
 <th
   class="ec-table-head__cell"
   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -4231,7 +4246,7 @@ exports[`EcSmartTable sorting single sort should sort column: ASC 1`] = `
 </th>
 `;
 
-exports[`EcSmartTable sorting single sort should sort column: DESC -> not sorted 1`] = `
+exports[`EcSmartTable > sorting > single sort > should sort column > DESC -> not sorted 1`] = `
 <th
   class="ec-table-head__cell"
   data-test="ec-table-head__cell ec-table-head__cell--0"
@@ -4268,7 +4283,7 @@ exports[`EcSmartTable sorting single sort should sort column: DESC -> not sorted
 </th>
 `;
 
-exports[`EcSmartTable sorting single sort should sort column: not sorted -> ASC 1`] = `
+exports[`EcSmartTable > sorting > single sort > should sort column > not sorted -> ASC 1`] = `
 <th
   class="ec-table-head__cell"
   data-test="ec-table-head__cell ec-table-head__cell--0"

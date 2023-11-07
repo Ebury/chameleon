@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTableSort #slots should render default slot 1`] = `
+exports[`EcTableSort > #slots > should render default slot 1`] = `
 <a
   class="ec-table-sort"
   data-test="ec-table-sort"
@@ -21,7 +21,7 @@ exports[`EcTableSort #slots should render default slot 1`] = `
 </a>
 `;
 
-exports[`EcTableSort :props should render with direction set to ASC 1`] = `
+exports[`EcTableSort > :props > should render with direction set to ASC 1`] = `
 <a
   class="ec-table-sort"
   data-test="ec-table-sort"
@@ -46,7 +46,7 @@ exports[`EcTableSort :props should render with direction set to ASC 1`] = `
 </a>
 `;
 
-exports[`EcTableSort :props should render with direction set to DESC 1`] = `
+exports[`EcTableSort > :props > should render with direction set to DESC 1`] = `
 <a
   class="ec-table-sort"
   data-test="ec-table-sort"
@@ -71,7 +71,7 @@ exports[`EcTableSort :props should render with direction set to DESC 1`] = `
 </a>
 `;
 
-exports[`EcTableSort :props should render with direction set to empty string 1`] = `
+exports[`EcTableSort > :props > should render with direction set to empty string 1`] = `
 <a
   class="ec-table-sort"
   data-test="ec-table-sort"
@@ -92,7 +92,7 @@ exports[`EcTableSort :props should render with direction set to empty string 1`]
 </a>
 `;
 
-exports[`EcTableSort :props should render with no direction 1`] = `
+exports[`EcTableSort > :props > should render with no direction 1`] = `
 <a
   class="ec-table-sort"
   data-test="ec-table-sort"
@@ -113,7 +113,7 @@ exports[`EcTableSort :props should render with no direction 1`] = `
 </a>
 `;
 
-exports[`EcTableSort should render as expected 1`] = `
+exports[`EcTableSort > should render as expected 1`] = `
 <a
   class="ec-table-sort"
   data-test="ec-table-sort"

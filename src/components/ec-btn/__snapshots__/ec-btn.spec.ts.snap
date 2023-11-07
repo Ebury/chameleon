@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcBtn :attrs should pass custom attributes 1`] = `
+exports[`EcBtn > :attrs > should pass custom attributes 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="my-custom-button ec-btn"
@@ -13,7 +13,7 @@ exports[`EcBtn :attrs should pass custom attributes 1`] = `
 </button>
 `;
 
-exports[`EcBtn :props should render a <button> element with class "ec-btn--md" when size is set to md 1`] = `
+exports[`EcBtn > :props > should render a <button> element with class "ec-btn--md" when size is set to md 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
@@ -25,7 +25,7 @@ exports[`EcBtn :props should render a <button> element with class "ec-btn--md" w
 </button>
 `;
 
-exports[`EcBtn :props should render a <button> element with class "ec-btn--sm" when size is set to sm 1`] = `
+exports[`EcBtn > :props > should render a <button> element with class "ec-btn--sm" when size is set to sm 1`] = `
 <button
   class="ec-btn ec-btn--sm"
   data-test="ec-btn"
@@ -37,7 +37,7 @@ exports[`EcBtn :props should render a <button> element with class "ec-btn--sm" w
 </button>
 `;
 
-exports[`EcBtn :props should render a button with a spinner loader if loading is set to true 1`] = `
+exports[`EcBtn > :props > should render a button with a spinner loader if loading is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
@@ -64,7 +64,7 @@ exports[`EcBtn :props should render a button with a spinner loader if loading is
 </button>
 `;
 
-exports[`EcBtn :props should render a button with an outline when "isOutline" is set to true 1`] = `
+exports[`EcBtn > :props > should render a button with an outline when "isOutline" is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--outline"
   data-test="ec-btn"
@@ -76,7 +76,7 @@ exports[`EcBtn :props should render a button with an outline when "isOutline" is
 </button>
 `;
 
-exports[`EcBtn :props should render a button with category "error" when category "prop" is set 1`] = `
+exports[`EcBtn > :props > should render a button with category "error" when category "prop" is set 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--error"
   data-test="ec-btn"
@@ -88,7 +88,7 @@ exports[`EcBtn :props should render a button with category "error" when category
 </button>
 `;
 
-exports[`EcBtn :props should render a button with category "primary" when category "prop" is set 1`] = `
+exports[`EcBtn > :props > should render a button with category "primary" when category "prop" is set 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--primary"
   data-test="ec-btn"
@@ -100,7 +100,7 @@ exports[`EcBtn :props should render a button with category "primary" when catego
 </button>
 `;
 
-exports[`EcBtn :props should render a button with category "secondary" when category "prop" is set 1`] = `
+exports[`EcBtn > :props > should render a button with category "secondary" when category "prop" is set 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--secondary"
   data-test="ec-btn"
@@ -112,7 +112,7 @@ exports[`EcBtn :props should render a button with category "secondary" when cate
 </button>
 `;
 
-exports[`EcBtn :props should render a button with category "success" when category "prop" is set 1`] = `
+exports[`EcBtn > :props > should render a button with category "success" when category "prop" is set 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--success"
   data-test="ec-btn"
@@ -124,7 +124,7 @@ exports[`EcBtn :props should render a button with category "success" when catego
 </button>
 `;
 
-exports[`EcBtn :props should render a button with category "warning" when category "prop" is set 1`] = `
+exports[`EcBtn > :props > should render a button with category "warning" when category "prop" is set 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--warning"
   data-test="ec-btn"
@@ -136,7 +136,7 @@ exports[`EcBtn :props should render a button with category "warning" when catego
 </button>
 `;
 
-exports[`EcBtn :props should render a button with only a loading spinner when loading is set to true and no slots are passed 1`] = `
+exports[`EcBtn > :props > should render a button with only a loading spinner when loading is set to true and no slots are passed 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
@@ -163,7 +163,7 @@ exports[`EcBtn :props should render a button with only a loading spinner when lo
 </button>
 `;
 
-exports[`EcBtn :props should render a button with only an icon when the "icon" is defined but not the slots 1`] = `
+exports[`EcBtn > :props > should render a button with only an icon when the "icon" is defined but not the slots 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--icon-only"
   data-test="ec-btn"
@@ -184,7 +184,7 @@ exports[`EcBtn :props should render a button with only an icon when the "icon" i
 </button>
 `;
 
-exports[`EcBtn :props should render a button with type button if submit is set to false 1`] = `
+exports[`EcBtn > :props > should render a button with type button if submit is set to false 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
@@ -196,7 +196,7 @@ exports[`EcBtn :props should render a button with type button if submit is set t
 </button>
 `;
 
-exports[`EcBtn :props should render a button with type submit if submit is set to true 1`] = `
+exports[`EcBtn > :props > should render a button with type submit if submit is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
@@ -208,7 +208,7 @@ exports[`EcBtn :props should render a button with type submit if submit is set t
 </button>
 `;
 
-exports[`EcBtn :props should render a disabled button when "isDisabled" is set to true 1`] = `
+exports[`EcBtn > :props > should render a disabled button when "isDisabled" is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
@@ -221,7 +221,7 @@ exports[`EcBtn :props should render a disabled button when "isDisabled" is set t
 </button>
 `;
 
-exports[`EcBtn :props should render a full width button when "isFullWidth" prop is set to true 1`] = `
+exports[`EcBtn > :props > should render a full width button when "isFullWidth" prop is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--full-width"
   data-test="ec-btn"
@@ -233,7 +233,7 @@ exports[`EcBtn :props should render a full width button when "isFullWidth" prop 
 </button>
 `;
 
-exports[`EcBtn :props should render a reversed button for the "error" category when "isReverse" prop is set to true 1`] = `
+exports[`EcBtn > :props > should render a reversed button for the "error" category when "isReverse" prop is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--error ec-btn--error-reverse"
   data-test="ec-btn"
@@ -245,7 +245,7 @@ exports[`EcBtn :props should render a reversed button for the "error" category w
 </button>
 `;
 
-exports[`EcBtn :props should render a reversed button for the "primary" category when "isReverse" prop is set to true 1`] = `
+exports[`EcBtn > :props > should render a reversed button for the "primary" category when "isReverse" prop is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--primary ec-btn--primary-reverse"
   data-test="ec-btn"
@@ -257,7 +257,7 @@ exports[`EcBtn :props should render a reversed button for the "primary" category
 </button>
 `;
 
-exports[`EcBtn :props should render a reversed button for the "secondary" category when "isReverse" prop is set to true 1`] = `
+exports[`EcBtn > :props > should render a reversed button for the "secondary" category when "isReverse" prop is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--secondary ec-btn--secondary-reverse"
   data-test="ec-btn"
@@ -269,7 +269,7 @@ exports[`EcBtn :props should render a reversed button for the "secondary" catego
 </button>
 `;
 
-exports[`EcBtn :props should render a reversed button for the "success" category when "isReverse" prop is set to true 1`] = `
+exports[`EcBtn > :props > should render a reversed button for the "success" category when "isReverse" prop is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--success ec-btn--success-reverse"
   data-test="ec-btn"
@@ -281,7 +281,7 @@ exports[`EcBtn :props should render a reversed button for the "success" category
 </button>
 `;
 
-exports[`EcBtn :props should render a reversed button for the "warning" category when "isReverse" prop is set to true 1`] = `
+exports[`EcBtn > :props > should render a reversed button for the "warning" category when "isReverse" prop is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--warning ec-btn--warning-reverse"
   data-test="ec-btn"
@@ -293,7 +293,7 @@ exports[`EcBtn :props should render a reversed button for the "warning" category
 </button>
 `;
 
-exports[`EcBtn :props should render a rounded button when the "isRounded" is set to true 1`] = `
+exports[`EcBtn > :props > should render a rounded button when the "isRounded" is set to true 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--rounded"
   data-test="ec-btn"
@@ -305,7 +305,7 @@ exports[`EcBtn :props should render a rounded button when the "isRounded" is set
 </button>
 `;
 
-exports[`EcBtn :props should render a router link when we define the "to" prop 1`] = `
+exports[`EcBtn > :props > should render a router link when we define the "to" prop 1`] = `
 <ec-stub
   class="ec-btn ec-btn--md"
   data-test="ec-btn ec-stub router-link-stub"
@@ -316,7 +316,7 @@ exports[`EcBtn :props should render a router link when we define the "to" prop 1
 </ec-stub>
 `;
 
-exports[`EcBtn :props should render a router link with a custom tag when we define the "tag option" 1`] = `
+exports[`EcBtn > :props > should render a router link with a custom tag when we define the "tag option" 1`] = `
 <ebury-stub
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
@@ -328,7 +328,7 @@ exports[`EcBtn :props should render a router link with a custom tag when we defi
 </ebury-stub>
 `;
 
-exports[`EcBtn :props should render a router link with route object 1`] = `
+exports[`EcBtn > :props > should render a router link with route object 1`] = `
 <ec-stub
   class="ec-btn ec-btn--md"
   data-test="ec-btn ec-stub router-link-stub"
@@ -339,7 +339,7 @@ exports[`EcBtn :props should render a router link with route object 1`] = `
 </ec-stub>
 `;
 
-exports[`EcBtn :props should render an <a> element when we define the "href" prop 1`] = `
+exports[`EcBtn > :props > should render an <a> element when we define the "href" prop 1`] = `
 <a
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
@@ -351,7 +351,7 @@ exports[`EcBtn :props should render an <a> element when we define the "href" pro
 </a>
 `;
 
-exports[`EcBtn :props should render given HTML attributes 1`] = `
+exports[`EcBtn > :props > should render given HTML attributes 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
@@ -365,7 +365,7 @@ exports[`EcBtn :props should render given HTML attributes 1`] = `
 </button>
 `;
 
-exports[`EcBtn :slots should render a button with "Click me!" text 1`] = `
+exports[`EcBtn > :slots > should render a button with "Click me!" text 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
@@ -384,7 +384,7 @@ exports[`EcBtn :slots should render a button with "Click me!" text 1`] = `
 </button>
 `;
 
-exports[`EcBtn :slots should render a button with "Click me!" text and an icon 1`] = `
+exports[`EcBtn > :slots > should render a button with "Click me!" text and an icon 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"
@@ -412,7 +412,7 @@ exports[`EcBtn :slots should render a button with "Click me!" text and an icon 1
 </button>
 `;
 
-exports[`EcBtn :slots should render a button with a loading-text and a loading spinner when "isLoading" is set to true and we set the default slot 1`] = `
+exports[`EcBtn > :slots > should render a button with a loading-text and a loading spinner when "isLoading" is set to true and we set the default slot 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
@@ -446,7 +446,7 @@ exports[`EcBtn :slots should render a button with a loading-text and a loading s
 </button>
 `;
 
-exports[`EcBtn :slots should render a custom loading text instead of a spinner when "text-loader" is set 1`] = `
+exports[`EcBtn > :slots > should render a custom loading text instead of a spinner when "text-loader" is set 1`] = `
 <button
   class="ec-btn ec-btn--md ec-btn--is-loading"
   data-test="ec-btn"
@@ -465,7 +465,7 @@ exports[`EcBtn :slots should render a custom loading text instead of a spinner w
 </button>
 `;
 
-exports[`EcBtn should render a <button> element by default 1`] = `
+exports[`EcBtn > should render a <button> element by default 1`] = `
 <button
   class="ec-btn ec-btn--md"
   data-test="ec-btn"

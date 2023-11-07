@@ -63,6 +63,17 @@ describe('EcCurrencyFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render with custom attributes', () => {
+    const wrapper = mountEcCurrencyFilter({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should throw an error if required props are not given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mountEcCurrencyFilter({}, {

@@ -27,7 +27,7 @@ export enum TooltipPlacement {
 
 export interface TooltipOptions {
   popperClass?: TooltipPopperClass[];
-  container?: HTMLElement;
+  container?: HTMLElement | string;
   placement?: TooltipPlacement,
   triggers?: TooltipTrigger[],
   shown?: boolean,

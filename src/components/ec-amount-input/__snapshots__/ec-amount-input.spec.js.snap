@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcAmountInput should render properly 1`] = `
+exports[`EcAmountInput > should render properly 1`] = `
 <div
   class="ec-input-field"
   data-test="ec-input-field"
@@ -19,7 +19,7 @@ exports[`EcAmountInput should render properly 1`] = `
 </div>
 `;
 
-exports[`EcAmountInput should render with a sensitive class when isSensitive prop is set to true 1`] = `
+exports[`EcAmountInput > should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
   class="ec-input-field"
   data-test="ec-input-field"
@@ -38,7 +38,7 @@ exports[`EcAmountInput should render with a sensitive class when isSensitive pro
 </div>
 `;
 
-exports[`EcAmountInput should render with custom attributes 1`] = `
+exports[`EcAmountInput > should render with custom attributes 1`] = `
 <div
   class="ec-input-field my-class"
   data-test="ec-input-field"

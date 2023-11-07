@@ -93,7 +93,7 @@ If you need to support every single locale on the planet, we recommend to polyfi
 
 ### Testing
 
-[Jest](https://jestjs.io/)
+[Vitest](https://vitest.dev/)
 
 [Vue Test Utils](https://test-utils.vuejs.org/)
 

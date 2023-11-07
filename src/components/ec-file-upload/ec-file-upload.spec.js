@@ -29,6 +29,19 @@ describe('EcFileUpload', () => {
     });
   }
 
+  describe('$attrs', () => {
+    it('should render with custom attributes', () => {
+      const wrapper = mountFileUpload({}, {
+        attrs: {
+          'data-test': 'my-data-test',
+          class: 'my-class',
+          id: 'test-id',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
   describe(':props', () => {
     it(':label - should render with a label', () => {
       const wrapper = mountFileUpload({

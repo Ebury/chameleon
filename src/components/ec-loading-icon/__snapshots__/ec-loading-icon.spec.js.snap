@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcLoadingIcon should render properly using the given size prop 1`] = `
+exports[`EcLoadingIcon > should render properly using the given size prop 1`] = `
 <svg
   class="ec-icon ec-loading-icon"
   data-test="ec-loading-icon"

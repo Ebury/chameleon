@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTimer :props should render as expected 1`] = `
+exports[`EcTimer > :props > should render as expected 1`] = `
 <div
   class="ec-timer"
   data-test="ec-timer"
@@ -46,7 +46,7 @@ exports[`EcTimer :props should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcTimer :props when "showMinutes" is true when "isRunning" is false should render as expected 1`] = `
+exports[`EcTimer > :props > when "showMinutes" is true > when "isRunning" is false > should render as expected 1`] = `
 <div
   class="ec-timer"
   data-test="ec-timer"
@@ -89,7 +89,7 @@ exports[`EcTimer :props when "showMinutes" is true when "isRunning" is false sho
 </div>
 `;
 
-exports[`EcTimer :props when "showMinutes" is true when "isRunning" is true should render as expected 1`] = `
+exports[`EcTimer > :props > when "showMinutes" is true > when "isRunning" is true > should render as expected 1`] = `
 <div
   class="ec-timer"
   data-test="ec-timer"
@@ -132,7 +132,7 @@ exports[`EcTimer :props when "showMinutes" is true when "isRunning" is true shou
 </div>
 `;
 
-exports[`EcTimer @events should emit an event called "time-expired" after the countdown completes 1`] = `
+exports[`EcTimer > @events > should emit an event called "time-expired" after the countdown completes 1`] = `
 <div
   class="ec-timer"
   data-test="ec-timer"
@@ -178,7 +178,7 @@ exports[`EcTimer @events should emit an event called "time-expired" after the co
 </div>
 `;
 
-exports[`EcTimer slots should render with the slot given 1`] = `
+exports[`EcTimer > slots > should render with the slot given 1`] = `
 <div
   class="ec-timer"
   data-test="ec-timer"

@@ -1,4 +1,5 @@
 import { DOMWrapper, mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 import EcFileDropzone from './ec-file-dropzone.vue';
 
@@ -15,6 +16,17 @@ describe('EcFileDropzone', () => {
       slots: {
         title: 'Drag and drop',
         subtitle: 'files here or <span class="tw-text-key-4">browse</span>.',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render with custom attributes', () => {
+    const wrapper = mountFileDropzone({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
       },
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -88,14 +100,14 @@ describe('EcFileDropzone', () => {
   });
 
   it('should start listening to drag and drop events at document level after being mounted', () => {
-    const spy = jest.spyOn(document, 'addEventListener');
+    const spy = vi.spyOn(document, 'addEventListener');
     mountFileDropzone();
     expect(spy).toHaveBeenCalledTimes(4);
   });
 
   it('should stop listening to drag and drop events at document level after being destroyed', () => {
     const wrapper = mountFileDropzone();
-    const spy = jest.spyOn(document, 'removeEventListener');
+    const spy = vi.spyOn(document, 'removeEventListener');
     wrapper.unmount();
     expect(spy).toHaveBeenCalledTimes(4);
   });
@@ -137,7 +149,7 @@ describe('EcFileDropzone', () => {
 
     it('@change - should be emitted when a change event is emitted by its file input field', async () => {
       const wrapper = mountFileDropzone();
-      const filesSpy = jest.spyOn(wrapper.vm.$refs.fileInput, 'files', 'get').mockImplementation(() => filesAndFolders);
+      const filesSpy = vi.spyOn(wrapper.vm.$refs.fileInput, 'files', 'get').mockImplementation(() => filesAndFolders);
 
       await wrapper.findByDataTest('ec-file-dropzone__input').trigger('change');
       expect(wrapper.emitted('change').length).toBe(1);
@@ -148,7 +160,7 @@ describe('EcFileDropzone', () => {
 
     it('@change - should not be emitted when only folders are selected via its file input field', async () => {
       const wrapper = mountFileDropzone();
-      const filesSpy = jest.spyOn(wrapper.vm.$refs.fileInput, 'files', 'get').mockImplementation(() => folders);
+      const filesSpy = vi.spyOn(wrapper.vm.$refs.fileInput, 'files', 'get').mockImplementation(() => folders);
 
       await wrapper.findByDataTest('ec-file-dropzone__input').trigger('change');
       expect(wrapper.emitted('change')).toBeUndefined();
