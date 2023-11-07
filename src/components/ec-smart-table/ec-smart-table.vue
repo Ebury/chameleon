@@ -1,6 +1,7 @@
 <template>
   <div
-    class="ec-smart-table"
+    ref="scrollContainer"
+    class="ec-smart-table infinite-scroll"
     :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-smart-table` : 'ec-smart-table'"
   >
     <ec-smart-table-heading
@@ -55,7 +56,7 @@
     </template>
     <template v-else>
       <ec-loading
-        :show="isFetching"
+        :show="!isInfiniteScrollEnabled && isFetching"
         :transparent="!isEmpty"
         :class="{ 'tw-my-48 tw-min-h-48': /* c8 ignore next */ isEmpty && isFetching }"
       >
@@ -119,12 +120,26 @@
             v-bind="slotData"
           /></template>
         </ec-table>
+        <div
+          ref="intersectionTarget"
+          v-if="isInfiniteScrollEnabled && canLoadMore"
+          class="ec-smart-table__intersection-target"
+        >
+          <ec-icon
+            :name="IconName.SimpleLoading"
+            :size="32"
+            class="ec-loading__icon"
+            data-test="ec-loading__icon"
+          />
+        </div>
       </ec-loading>
     </template>
   </div>
 </template>
 
 <script setup>
+// import { useInfiniteScroll } from '@vueuse/core';
+import { useIntersectionObserver } from '@vueuse/core';
 import {
   computed, ref, unref, useAttrs, useSlots, watch,
 } from 'vue';
@@ -133,6 +148,8 @@ import useEcPagination from '../../composables/use-ec-pagination';
 import useEcSorting from '../../composables/use-ec-sorting';
 import { SortDirection } from '../../enums';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
+import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
 import EcLoading from '../ec-loading';
 import EcSmartTableHeading from '../ec-smart-table-heading';
 import EcTable from '../ec-table';
@@ -193,6 +210,65 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  isInfiniteScrollEnabled: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const scrollContainer = ref(null);
+const intersectionTarget = ref(null);
+const fakePaginationValues = {
+  numberOfItems: 10,
+  page: 1,
+  sorts: {},
+};
+
+const canLoadMore = computed(() => props.data.length < props.totalRecords);
+
+// useInfiniteScroll(
+//   scrollContainer,
+//   onLoadMore,
+//   {
+//     distance: 10,
+//     interval: 1000,
+//   },
+// );
+
+const { stop: stopIntersectionObserver } = useIntersectionObserver(
+  intersectionTarget,
+  ([{ isIntersecting }]) => {
+    if (isIntersecting) {
+      onLoadMore();
+    }
+  },
+);
+
+function onLoadMore() {
+  console.log('fetch', props.totalRecords, props.data.length);
+  /*
+    By increasing numberOfItems we can reuse our current fetching methods
+    but we need to re-fetch data that were fetched before
+  */
+  // fakePaginationValues.numberOfItems += 100;
+
+  /*
+    By increasing page we need to modify or add a new fetching methods to not override
+    the data we had, instead we should add they new fetched data to the old one
+  */
+  fakePaginationValues.page += 1;
+  emit('fetch', {
+    page: fakePaginationValues.page,
+    numberOfItems: fakePaginationValues.numberOfItems,
+    sorts: fakePaginationValues.sorts,
+  });
+}
+
+watch(() => canLoadMore.value, () => {
+  if (!canLoadMore.value) {
+    stopIntersectionObserver();
+    console.log('IntersectionObserver stopped');
+  }
 });
 
 // sorting
@@ -261,3 +337,16 @@ function getEcTableSlots() {
   return tableSlots;
 }
 </script>
+
+<style>
+.infinite-scroll {
+  /* @apply tw-h-screen tw-overflow-y-scroll; */
+}
+
+.ec-smart-table {
+  &__intersection-target {
+    @apply tw-flex tw-justify-center;
+    @apply tw-mt-40;
+  }
+}
+</style>
