@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcDropdown #slots should forward CTA slot 1`] = `
+exports[`EcDropdown > #slots > should forward CTA slot 1`] = `
 <li
   class="ec-dropdown-search__cta-area"
   data-test="ec-dropdown-search__cta-area ec-mock ec-tooltip-mock"
@@ -15,7 +15,7 @@ exports[`EcDropdown #slots should forward CTA slot 1`] = `
 </li>
 `;
 
-exports[`EcDropdown #slots should forward CTA slot with tooltip 1`] = `
+exports[`EcDropdown > #slots > should forward CTA slot with tooltip 1`] = `
 <li
   class="ec-dropdown-search__cta-area"
   data-ec-tooltip-mock-content="Random tooltip"
@@ -31,7 +31,7 @@ exports[`EcDropdown #slots should forward CTA slot with tooltip 1`] = `
 </li>
 `;
 
-exports[`EcDropdown #slots should forward item slot 1`] = `
+exports[`EcDropdown > #slots > should forward item slot 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
   data-test="ec-dropdown-search__item-list"
@@ -112,7 +112,7 @@ exports[`EcDropdown #slots should forward item slot 1`] = `
 </ul>
 `;
 
-exports[`EcDropdown :props should enable search when isSearchEnabled is set to true 1`] = `
+exports[`EcDropdown > :props > should enable search when isSearchEnabled is set to true 1`] = `
 <li
   class="ec-dropdown-search__search-area"
   data-test="ec-dropdown-search__search-area"
@@ -133,7 +133,7 @@ exports[`EcDropdown :props should enable search when isSearchEnabled is set to t
 </li>
 `;
 
-exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
+exports[`EcDropdown > :props > should get disabled when disabled prop is set 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
@@ -170,6 +170,7 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right ec-input-field__icon-wrapper--is-disabled"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"
@@ -204,7 +205,7 @@ exports[`EcDropdown :props should get disabled when disabled prop is set 1`] = `
 </div>
 `;
 
-exports[`EcDropdown :props should not show the items when the loading is set to true 1`] = `
+exports[`EcDropdown > :props > should not show the items when the loading is set to true 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
@@ -240,6 +241,7 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"
@@ -303,7 +305,7 @@ exports[`EcDropdown :props should not show the items when the loading is set to 
 </div>
 `;
 
-exports[`EcDropdown :props should pass errorMessage prop to the triggering input 1`] = `
+exports[`EcDropdown > :props > should pass errorMessage prop to the triggering input 1`] = `
 <div
   class="ec-input-field__error-text"
   data-test="ec-input-field__error-text"
@@ -313,7 +315,7 @@ exports[`EcDropdown :props should pass errorMessage prop to the triggering input
 </div>
 `;
 
-exports[`EcDropdown :props should pass label prop to the triggering input 1`] = `
+exports[`EcDropdown > :props > should pass label prop to the triggering input 1`] = `
 <label
   class="ec-input-field__label"
   data-test="ec-input-field__label"
@@ -330,7 +332,7 @@ exports[`EcDropdown :props should pass label prop to the triggering input 1`] = 
 </label>
 `;
 
-exports[`EcDropdown :props should render given popover style 1`] = `
+exports[`EcDropdown > :props > should render given popover style 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
@@ -366,6 +368,7 @@ exports[`EcDropdown :props should render given popover style 1`] = `
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"
@@ -402,7 +405,7 @@ exports[`EcDropdown :props should render given popover style 1`] = `
 </div>
 `;
 
-exports[`EcDropdown :props should render given popover style when it is a function 1`] = `
+exports[`EcDropdown > :props > should render given popover style when it is a function 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
@@ -438,6 +441,7 @@ exports[`EcDropdown :props should render given popover style when it is a functi
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"
@@ -474,7 +478,7 @@ exports[`EcDropdown :props should render given popover style when it is a functi
 </div>
 `;
 
-exports[`EcDropdown :props should render properly when the labelTooltip prop is set 1`] = `
+exports[`EcDropdown > :props > should render properly when the labelTooltip prop is set 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
@@ -510,6 +514,7 @@ exports[`EcDropdown :props should render properly when the labelTooltip prop is 
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"
@@ -544,7 +549,7 @@ exports[`EcDropdown :props should render properly when the labelTooltip prop is 
 </div>
 `;
 
-exports[`EcDropdown :props should render with a sensitive class when isSensitive prop is set to true 1`] = `
+exports[`EcDropdown > :props > should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
@@ -580,6 +585,7 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"
@@ -614,7 +620,7 @@ exports[`EcDropdown :props should render with a sensitive class when isSensitive
 </div>
 `;
 
-exports[`EcDropdown :props should use placeholder prop 1`] = `
+exports[`EcDropdown > :props > should use placeholder prop 1`] = `
 <input
   class="ec-input-field__input ec-input-field__input--has-icon"
   data-test="ec-dropdown__input ec-input-field__input"
@@ -625,7 +631,7 @@ exports[`EcDropdown :props should use placeholder prop 1`] = `
 />
 `;
 
-exports[`EcDropdown :props should use searchPlaceholder prop if search is enabled 1`] = `
+exports[`EcDropdown > :props > should use searchPlaceholder prop if search is enabled 1`] = `
 <li
   class="ec-dropdown-search__search-area"
   data-test="ec-dropdown-search__search-area"
@@ -646,7 +652,7 @@ exports[`EcDropdown :props should use searchPlaceholder prop if search is enable
 </li>
 `;
 
-exports[`EcDropdown should render as expected 1`] = `
+exports[`EcDropdown > should render as expected 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
@@ -682,6 +688,7 @@ exports[`EcDropdown should render as expected 1`] = `
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"
@@ -716,7 +723,7 @@ exports[`EcDropdown should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcDropdown should render readonly input as a trigger 1`] = `
+exports[`EcDropdown > should render readonly input as a trigger 1`] = `
 <input
   class="ec-input-field__input ec-input-field__input--has-icon"
   data-test="ec-dropdown__input ec-input-field__input"
@@ -727,7 +734,7 @@ exports[`EcDropdown should render readonly input as a trigger 1`] = `
 />
 `;
 
-exports[`EcDropdown should use custom attributes 1`] = `
+exports[`EcDropdown > should use custom attributes 1`] = `
 <div
   class="my-class ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
@@ -763,6 +770,7 @@ exports[`EcDropdown should use custom attributes 1`] = `
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"
@@ -797,7 +805,7 @@ exports[`EcDropdown should use custom attributes 1`] = `
 </div>
 `;
 
-exports[`EcDropdown should use given list-data-test attribute 1`] = `
+exports[`EcDropdown > should use given list-data-test attribute 1`] = `
 <ul
   class="ec-dropdown-search__item-list"
   data-test="ec-dropdown-search__item-list my-test-list"

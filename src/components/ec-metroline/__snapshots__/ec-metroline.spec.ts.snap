@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcMetroline :props should render the metroline badgeText 1`] = `
+exports[`EcMetroline > :props > should render the metroline badgeText 1`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -86,7 +86,7 @@ exports[`EcMetroline :props should render the metroline badgeText 1`] = `
 </div>
 `;
 
-exports[`EcMetroline order should have the correct next item order if we show, hide and show again a metro item 1`] = `
+exports[`EcMetroline > order > should have the correct next item order if we show, hide and show again a metro item 1`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -292,7 +292,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
 </div>
 `;
 
-exports[`EcMetroline order should have the correct next item order if we show, hide and show again a metro item 2`] = `
+exports[`EcMetroline > order > should have the correct next item order if we show, hide and show again a metro item 2`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -525,7 +525,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
 </div>
 `;
 
-exports[`EcMetroline order should have the correct next item order if we show, hide and show again a metro item 3`] = `
+exports[`EcMetroline > order > should have the correct next item order if we show, hide and show again a metro item 3`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -785,7 +785,7 @@ exports[`EcMetroline order should have the correct next item order if we show, h
 </div>
 `;
 
-exports[`EcMetroline permissions should be able to go back to a previous item if metroline is not complete 1`] = `
+exports[`EcMetroline > permissions > should be able to go back to a previous item if metroline is not complete 1`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -945,7 +945,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
 </div>
 `;
 
-exports[`EcMetroline permissions should be able to go back to a previous item if metroline is not complete 2`] = `
+exports[`EcMetroline > permissions > should be able to go back to a previous item if metroline is not complete 2`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -1143,7 +1143,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
 </div>
 `;
 
-exports[`EcMetroline permissions should be able to go back to a previous item if metroline is not complete 3`] = `
+exports[`EcMetroline > permissions > should be able to go back to a previous item if metroline is not complete 3`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -1303,7 +1303,7 @@ exports[`EcMetroline permissions should be able to go back to a previous item if
 </div>
 `;
 
-exports[`EcMetroline permissions should complete the metroline if we click on complete metroline 1`] = `
+exports[`EcMetroline > permissions > should complete the metroline if we click on complete metroline 1`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -1509,7 +1509,7 @@ exports[`EcMetroline permissions should complete the metroline if we click on co
 </div>
 `;
 
-exports[`EcMetroline permissions should not be able to go back to a previous item if metroline is complete and should show the header-cta-completed instead 1`] = `
+exports[`EcMetroline > permissions > should not be able to go back to a previous item if metroline is complete and should show the header-cta-completed instead 1`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -1715,7 +1715,7 @@ exports[`EcMetroline permissions should not be able to go back to a previous ite
 </div>
 `;
 
-exports[`EcMetroline permissions should not go to next if we click continue on a completed item 1`] = `
+exports[`EcMetroline > permissions > should not go to next if we click continue on a completed item 1`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -1913,7 +1913,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
 </div>
 `;
 
-exports[`EcMetroline permissions should not go to next if we click continue on a completed item 2`] = `
+exports[`EcMetroline > permissions > should not go to next if we click continue on a completed item 2`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"
@@ -2111,7 +2111,7 @@ exports[`EcMetroline permissions should not go to next if we click continue on a
 </div>
 `;
 
-exports[`EcMetroline should render a metroline with items 1`] = `
+exports[`EcMetroline > should render a metroline with items 1`] = `
 <div
   class="ec-metroline"
   data-test="ec-metroline"

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcInlineActions should render properly the item with the download attr 1`] = `
+exports[`EcInlineActions > should render properly the item with the download attr 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"
@@ -47,7 +47,7 @@ exports[`EcInlineActions should render properly the item with the download attr 
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render properly the item with the download attr empty 1`] = `
+exports[`EcInlineActions > should render properly the item with the download attr empty 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"
@@ -94,7 +94,7 @@ exports[`EcInlineActions should render properly the item with the download attr 
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render properly when an item was given 1`] = `
+exports[`EcInlineActions > should render properly when an item was given 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"
@@ -139,7 +139,7 @@ exports[`EcInlineActions should render properly when an item was given 1`] = `
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render properly with out the disabled href and download attrs 1`] = `
+exports[`EcInlineActions > should render properly with out the disabled href and download attrs 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"
@@ -184,7 +184,7 @@ exports[`EcInlineActions should render properly with out the disabled href and d
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render properly with the anchor when the item have a href 1`] = `
+exports[`EcInlineActions > should render properly with the anchor when the item have a href 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"
@@ -230,7 +230,7 @@ exports[`EcInlineActions should render properly with the anchor when the item ha
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render the item disabled when an item was given disabled 1`] = `
+exports[`EcInlineActions > should render the item disabled when an item was given disabled 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"
@@ -276,7 +276,7 @@ exports[`EcInlineActions should render the item disabled when an item was given 
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render the item with an icon when a item was given with an icon 1`] = `
+exports[`EcInlineActions > should render the item with an icon when a item was given with an icon 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"
@@ -330,7 +330,7 @@ exports[`EcInlineActions should render the item with an icon when a item was giv
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render the item with default popover options 1`] = `
+exports[`EcInlineActions > should render the item with default popover options 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"
@@ -384,7 +384,7 @@ exports[`EcInlineActions should render the item with default popover options 1`]
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render the item with given popover options 1`] = `
+exports[`EcInlineActions > should render the item with given popover options 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="20"
@@ -438,7 +438,7 @@ exports[`EcInlineActions should render the item with given popover options 1`] =
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render with one line break when a different arrays was given 1`] = `
+exports[`EcInlineActions > should render with one line break when a different arrays was given 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"
@@ -511,7 +511,7 @@ exports[`EcInlineActions should render with one line break when a different arra
 </ec-stub>
 `;
 
-exports[`EcInlineActions should render with tooltip 1`] = `
+exports[`EcInlineActions > should render with tooltip 1`] = `
 <ec-stub
   data-test="ec-stub ec-popover-stub"
   distance="10"

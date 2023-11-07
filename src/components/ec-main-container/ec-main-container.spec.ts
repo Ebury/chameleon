@@ -5,9 +5,8 @@ import EcMainContainer from './ec-main-container.vue';
 import type { MainContainerProps } from './types';
 
 describe('EcMainContainer', () => {
-  function mountEcMainContainer(props?: Partial<MainContainerProps>, mountOpts: ComponentMountingOptions<MainContainerProps> = {}) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return mount(EcMainContainer as any, {
+  function mountEcMainContainer(props?: Partial<MainContainerProps>, mountOpts?: ComponentMountingOptions<typeof EcMainContainer>) {
+    return mount(EcMainContainer, {
       props,
       ...mountOpts,
     });
@@ -84,6 +83,17 @@ describe('EcMainContainer', () => {
     const wrapper = mountEcMainContainer({}, {
       slots: {
         breadcrumbs: '<a href="#">Breadcrumbs</a>',
+      },
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should display breadcrumbs and CTA slot when given', () => {
+    const wrapper = mountEcMainContainer({}, {
+      slots: {
+        breadcrumbs: '<a href="#">Breadcrumbs</a>',
+        cta: '<button class="ec-btn ec-btn--rounded ec-btn--primary ec-btn--md ec-btn--full-width">Test cta</button>',
       },
     });
 

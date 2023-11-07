@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcFilterPopover should display number of selected filters if the value of numberOfSelectedFilters is greater than 0 1`] = `
+exports[`EcFilterPopover > should display number of selected filters if the value of numberOfSelectedFilters is greater than 0 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -55,7 +55,7 @@ exports[`EcFilterPopover should display number of selected filters if the value 
 </div>
 `;
 
-exports[`EcFilterPopover should not display number of selected filters if the value of numberOfSelectedFilters is 0 1`] = `
+exports[`EcFilterPopover > should not display number of selected filters if the value of numberOfSelectedFilters is 0 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -103,7 +103,7 @@ exports[`EcFilterPopover should not display number of selected filters if the va
 </div>
 `;
 
-exports[`EcFilterPopover should render correctly the named slot 1`] = `
+exports[`EcFilterPopover > should render correctly the named slot 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -154,7 +154,7 @@ exports[`EcFilterPopover should render correctly the named slot 1`] = `
 </div>
 `;
 
-exports[`EcFilterPopover should render properly when isFullHeight is set 1`] = `
+exports[`EcFilterPopover > should render properly when isFullHeight is set 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -202,7 +202,7 @@ exports[`EcFilterPopover should render properly when isFullHeight is set 1`] = `
 </div>
 `;
 
-exports[`EcFilterPopover should render properly when label prop was given 1`] = `
+exports[`EcFilterPopover > should render properly when label prop was given 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -250,7 +250,7 @@ exports[`EcFilterPopover should render properly when label prop was given 1`] = 
 </div>
 `;
 
-exports[`EcFilterPopover should reset the open status of the popover 1`] = `
+exports[`EcFilterPopover > should reset the open status of the popover 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"
@@ -298,7 +298,7 @@ exports[`EcFilterPopover should reset the open status of the popover 1`] = `
 </div>
 `;
 
-exports[`EcFilterPopover should set the open status of the popover 1`] = `
+exports[`EcFilterPopover > should set the open status of the popover 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-filter-popover"

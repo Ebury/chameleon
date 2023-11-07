@@ -1,4 +1,5 @@
 import { flushPromises, mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { defineComponent, h } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -50,7 +51,7 @@ describe('EcWithAbortableFetch', () => {
 
   it('should start fetching when created', () => {
     const dataSource = {
-      fetch: jest.fn(),
+      fetch: vi.fn(),
     };
 
     const { componentWrapper } = mountEcWithAbortableFetch({ dataSource });
@@ -61,7 +62,7 @@ describe('EcWithAbortableFetch', () => {
   it('should stop fetching and pass the data to the component after dataSource gets resolved', async () => {
     const data = { prop: 1 };
     const dataSource = {
-      fetch: jest.fn().mockResolvedValueOnce(data),
+      fetch: vi.fn().mockResolvedValueOnce(data),
     };
 
     const { componentWrapper } = mountEcWithAbortableFetch({ dataSource });
@@ -74,10 +75,10 @@ describe('EcWithAbortableFetch', () => {
   it('should stop fetching and pass the error to the component after dataSource gets rejected', async () => {
     const error = new Error('Random error');
     const dataSource = {
-      fetch: jest.fn().mockRejectedValueOnce(error),
+      fetch: vi.fn().mockRejectedValueOnce(error),
     };
 
-    const errorSpy = jest.fn();
+    const errorSpy = vi.fn();
 
     const { componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
       attrs: {
@@ -94,10 +95,10 @@ describe('EcWithAbortableFetch', () => {
   it('should not propagate the error when re-fetching after an error occurred', async () => {
     const error = new Error('Random error');
     const dataSource = {
-      fetch: jest.fn().mockRejectedValueOnce(error).mockResolvedValueOnce({ result: 1 }),
+      fetch: vi.fn().mockRejectedValueOnce(error).mockResolvedValueOnce({ result: 1 }),
     };
 
-    const errorSpy = jest.fn();
+    const errorSpy = vi.fn();
 
     const { componentWrapper, hocWrapper } = mountEcWithAbortableFetch({ dataSource }, {
       attrs: {
@@ -128,7 +129,7 @@ describe('EcWithAbortableFetch', () => {
 
   it('should send the given fetch arguments', () => {
     const dataSource = {
-      fetch: jest.fn(),
+      fetch: vi.fn(),
     };
     const fetchArgs = { prop: 1 };
 
@@ -139,7 +140,7 @@ describe('EcWithAbortableFetch', () => {
 
   it('should re-fetch the data if arguments change', async () => {
     const dataSource = {
-      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }).mockResolvedValueOnce({ result: 2 }),
+      fetch: vi.fn().mockResolvedValueOnce({ result: 1 }).mockResolvedValueOnce({ result: 2 }),
     };
     const fetchArgs = { prop: 1 };
 
@@ -165,16 +166,16 @@ describe('EcWithAbortableFetch', () => {
 
   it('should abort previous fetch calls', async () => {
     const dataSource = {
-      fetch: jest.fn()
+      fetch: vi.fn()
         .mockImplementationOnce(() => new Promise((resolve) => {
-          setTimeout(() => resolve({ result: 1 }), 1);
+          setImmediate(() => resolve({ result: 1 }));
         }))
         .mockImplementationOnce(() => new Promise((resolve) => {
-          setTimeout(() => resolve({ result: 2 }), 1);
+          setImmediate(() => resolve({ result: 2 }));
         })),
     };
     const fetchArgs = { prop: 1 };
-    const abortSpy = jest.fn();
+    const abortSpy = vi.fn();
 
     const { componentWrapper, hocWrapper } = mountEcWithAbortableFetch({ dataSource, fetchArgs }, {
       attrs: {
@@ -200,9 +201,9 @@ describe('EcWithAbortableFetch', () => {
 
   it('should abort fetch call when destroyed', () => {
     const dataSource = {
-      fetch: jest.fn(),
+      fetch: vi.fn(),
     };
-    const abortSpy = jest.fn();
+    const abortSpy = vi.fn();
 
     const { componentWrapper, hocWrapper } = mountEcWithAbortableFetch({ dataSource }, {
       attrs: {
@@ -229,10 +230,10 @@ describe('EcWithAbortableFetch', () => {
     }
     const error = new AbortError();
     const dataSource = {
-      fetch: jest.fn().mockRejectedValueOnce(error),
+      fetch: vi.fn().mockRejectedValueOnce(error),
     };
 
-    const errorSpy = jest.fn();
+    const errorSpy = vi.fn();
 
     const { componentWrapper } = mountEcWithAbortableFetch({ dataSource }, {
       attrs: {
@@ -247,7 +248,7 @@ describe('EcWithAbortableFetch', () => {
 
   it('should map the given custom props', async () => {
     const dataSource = {
-      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }),
+      fetch: vi.fn().mockResolvedValueOnce({ result: 1 }),
     };
     const fetchArgs = { prop: 1 };
     const customProps = {
@@ -263,10 +264,10 @@ describe('EcWithAbortableFetch', () => {
 
   it('should transform props using given data transform function', async () => {
     const dataSource = {
-      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }),
+      fetch: vi.fn().mockResolvedValueOnce({ result: 1 }),
     };
 
-    const dataTransform = jest.fn().mockImplementation(data => data ?? { result: 0 });
+    const dataTransform = vi.fn().mockImplementation(data => data ?? { result: 0 });
 
     const customProps = {
       dataTransform,
@@ -282,10 +283,10 @@ describe('EcWithAbortableFetch', () => {
 
   it('should transform props using given data transform function and pass them to given custom data prop', async () => {
     const dataSource = {
-      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }),
+      fetch: vi.fn().mockResolvedValueOnce({ result: 1 }),
     };
 
-    const dataTransform = jest.fn().mockImplementation(data => data ?? { result: 0 });
+    const dataTransform = vi.fn().mockImplementation(data => data ?? { result: 0 });
 
     const customProps = {
       dataTransform,
@@ -303,10 +304,10 @@ describe('EcWithAbortableFetch', () => {
   it('should transform props using given error transform function', async () => {
     const error = new Error('Random error');
     const dataSource = {
-      fetch: jest.fn().mockRejectedValueOnce(error),
+      fetch: vi.fn().mockRejectedValueOnce(error),
     };
 
-    const errorTransform = jest.fn().mockImplementation((err) => {
+    const errorTransform = vi.fn().mockImplementation((err) => {
       if (err) {
         return `Custom error message (${err.message})`;
       }
@@ -328,10 +329,10 @@ describe('EcWithAbortableFetch', () => {
   it('should transform props using given error transform function and pass them to given custom error prop', async () => {
     const error = new Error('Random error');
     const dataSource = {
-      fetch: jest.fn().mockRejectedValueOnce(error),
+      fetch: vi.fn().mockRejectedValueOnce(error),
     };
 
-    const errorTransform = jest.fn().mockImplementation((err) => {
+    const errorTransform = vi.fn().mockImplementation((err) => {
       if (err) {
         return `Custom error message (${err.message})`;
       }
@@ -353,10 +354,10 @@ describe('EcWithAbortableFetch', () => {
 
   it('should transform props using given loading transform function', async () => {
     const dataSource = {
-      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }),
+      fetch: vi.fn().mockResolvedValueOnce({ result: 1 }),
     };
 
-    const loadingTransform = jest.fn().mockImplementation(isLoading => !isLoading);
+    const loadingTransform = vi.fn().mockImplementation(isLoading => !isLoading);
 
     const customProps = {
       loadingTransform,
@@ -372,10 +373,10 @@ describe('EcWithAbortableFetch', () => {
 
   it('should transform props using given loading transform function and pass them to given custom loading prop and custom data prop', async () => {
     const dataSource = {
-      fetch: jest.fn().mockResolvedValueOnce({ result: 1 }),
+      fetch: vi.fn().mockResolvedValueOnce({ result: 1 }),
     };
 
-    const loadingTransform = jest.fn().mockImplementation(isLoading => !isLoading);
+    const loadingTransform = vi.fn().mockImplementation(isLoading => !isLoading);
 
     const customProps = {
       loadingTransform,
@@ -394,10 +395,10 @@ describe('EcWithAbortableFetch', () => {
   it('should stop fetching and map the custom error prop to the component after dataSource gets rejected', async () => {
     const error = new Error('Random error');
     const dataSource = {
-      fetch: jest.fn().mockRejectedValueOnce(error),
+      fetch: vi.fn().mockRejectedValueOnce(error),
     };
 
-    const errorSpy = jest.fn();
+    const errorSpy = vi.fn();
 
     const customProps = {
       dataProp: 'dataCustom',

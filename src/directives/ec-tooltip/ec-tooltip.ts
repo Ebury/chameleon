@@ -12,11 +12,11 @@ FloatingVue.options.themes.tooltip = {
 
 const origBeforeMount = VTooltip.beforeMount;
 
-function tryGetContainer(instance?: DirectiveBinding['instance']): HTMLElement | undefined {
+function tryGetContainer(instance?: DirectiveBinding['instance']): HTMLElement | string | undefined {
   return instance?.$.appContext.app.config.globalProperties.$tooltipContainer;
 }
 
-function bind(el: HTMLElement, {
+function bind(this: ObjectDirective<HTMLElement, string | TooltipOptions>, el: HTMLElement, {
   value, instance, modifiers, ...args
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: Partial<DirectiveBinding<string | TooltipOptions>> & { [key: string]: any } = {}) {
@@ -25,7 +25,7 @@ function bind(el: HTMLElement, {
   if (type === 'string') {
     options = { content: value as string };
   } else if (value && type === 'object') {
-    options = value as TooltipOptions;
+    options = { ...value as TooltipOptions };
   } else {
     options = { content: false };
   }
@@ -45,8 +45,6 @@ function bind(el: HTMLElement, {
     options.container = container;
   }
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   origBeforeMount.call(this, el, { value: options, modifiers, ...args });
 }
 

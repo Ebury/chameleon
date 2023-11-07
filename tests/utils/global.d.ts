@@ -1,8 +1,12 @@
-import { VueWrapper } from '@vue/test-utils';
+import { DOMWrapper, VueWrapper } from '@vue/test-utils';
 
-export interface CVueWrapper extends VueWrapper {
-  findByDataTest: (string) => CVueWrapper
-  findAllByDataTest: (string) => CVueWrapper[]
-  findComponentByDataTest: (string) => CVueWrapper
-  findAllComponentsByDataTest: (string) => CVueWrapper[]
+declare module '@vue/test-utils' {
+  interface BaseWrapper {
+    findByDataTest<T extends Element = Element>(selector: string): DOMWrapper<T>;
+    findByDataTest<T extends Node = Node>(selector: string | RefSelector): DOMWrapper<T>;
+    findAllByDataTest<T extends Element>(selector: string): DOMWrapper<T>[];
+    findComponentByDataTest<T extends Element>(selector: string): VueWrapper<T>;
+    findComponentByDataTest(selector: string): WrapperLike;
+    findAllComponentsByDataTest<T extends Element>(selector: string): VueWrapper<T>[];
+  }
 }

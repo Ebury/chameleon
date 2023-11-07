@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcCurrencyFilter should count every selected currency and the amount together in numberOfSelectedFilters 1`] = `
+exports[`EcCurrencyFilter > should count every selected currency and the amount together in numberOfSelectedFilters 1`] = `
 <span
   class="ec-badge ec-badge--info ec-filter-popover__badge"
   data-test="ec-badge"
@@ -11,7 +11,7 @@ exports[`EcCurrencyFilter should count every selected currency and the amount to
 </span>
 `;
 
-exports[`EcCurrencyFilter should count every selected currency in numberOfSelectedFilters 1`] = `
+exports[`EcCurrencyFilter > should count every selected currency in numberOfSelectedFilters 1`] = `
 <div
   class="ec-filter-popover__trigger"
   data-test="ec-filter-popover__trigger"
@@ -44,7 +44,7 @@ exports[`EcCurrencyFilter should count every selected currency in numberOfSelect
 </div>
 `;
 
-exports[`EcCurrencyFilter should count the amount as 1 in numberOfSelectedFilters 1`] = `
+exports[`EcCurrencyFilter > should count the amount as 1 in numberOfSelectedFilters 1`] = `
 <div
   class="ec-filter-popover__trigger"
   data-test="ec-filter-popover__trigger"
@@ -77,7 +77,7 @@ exports[`EcCurrencyFilter should count the amount as 1 in numberOfSelectedFilter
 </div>
 `;
 
-exports[`EcCurrencyFilter should disable clear amount button if the amount is empty 1`] = `
+exports[`EcCurrencyFilter > should disable clear amount button if the amount is empty 1`] = `
 <button
   class="ec-currency-filter__clear-amount"
   data-test="ec-currency-filter__clear-amount"
@@ -88,7 +88,7 @@ exports[`EcCurrencyFilter should disable clear amount button if the amount is em
 </button>
 `;
 
-exports[`EcCurrencyFilter should enable clear amount button if the amount is not empty 1`] = `
+exports[`EcCurrencyFilter > should enable clear amount button if the amount is not empty 1`] = `
 <button
   class="ec-currency-filter__clear-amount"
   data-test="ec-currency-filter__clear-amount"
@@ -98,7 +98,7 @@ exports[`EcCurrencyFilter should enable clear amount button if the amount is not
 </button>
 `;
 
-exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-input 1`] = `
+exports[`EcCurrencyFilter > should pass down props required by ec-amount-filter-input 1`] = `
 <div
   class="ec-amount-filter-input"
   data-test="ec-amount-filter-input"
@@ -143,6 +143,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -234,7 +235,7 @@ exports[`EcCurrencyFilter should pass down props required by ec-amount-filter-in
 </div>
 `;
 
-exports[`EcCurrencyFilter should preselect given filters from the value prop 1`] = `
+exports[`EcCurrencyFilter > should preselect given filters from the value prop 1`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -263,9 +264,11 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
         >
           <span
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
+            data-test="ec-checkbox__check-icon-wrapper"
           >
             <span
               class="ec-checkbox__indeterminate-icon"
+              data-test="ec-checkbox__indeterminate-icon"
             />
           </span>
           <label
@@ -306,6 +309,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -351,9 +355,11 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -404,6 +410,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -449,9 +456,11 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -502,6 +511,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -536,7 +546,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 1`]
 </div>
 `;
 
-exports[`EcCurrencyFilter should preselect given filters from the value prop 2`] = `
+exports[`EcCurrencyFilter > should preselect given filters from the value prop 2`] = `
 <div
   class="tw-p-16 ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--1"
@@ -585,6 +595,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
               class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
               data-test="ec-input-field__icon-wrapper"
             >
+              <!--v-if-->
               <svg
                 class="ec-icon ec-input-field__icon"
                 data-test="ec-input-field__icon"
@@ -674,7 +685,7 @@ exports[`EcCurrencyFilter should preselect given filters from the value prop 2`]
 </div>
 `;
 
-exports[`EcCurrencyFilter should render all given custom texts for amount tab 1`] = `
+exports[`EcCurrencyFilter > should render all given custom texts for amount tab 1`] = `
 <a
   class="ec-submenu__header-title"
   data-test="ec-submenu__header-title-1"
@@ -684,7 +695,7 @@ exports[`EcCurrencyFilter should render all given custom texts for amount tab 1`
 </a>
 `;
 
-exports[`EcCurrencyFilter should render all given custom texts for amount tab 2`] = `
+exports[`EcCurrencyFilter > should render all given custom texts for amount tab 2`] = `
 <input
   autocomplete="off"
   class="ec-input-field__input ec-input-field__input--is-in-group-left"
@@ -695,7 +706,7 @@ exports[`EcCurrencyFilter should render all given custom texts for amount tab 2`
 />
 `;
 
-exports[`EcCurrencyFilter should render all given custom texts for amount tab 3`] = `
+exports[`EcCurrencyFilter > should render all given custom texts for amount tab 3`] = `
 <button
   class="ec-currency-filter__clear-amount"
   data-test="ec-currency-filter__clear-amount"
@@ -706,7 +717,7 @@ exports[`EcCurrencyFilter should render all given custom texts for amount tab 3`
 </button>
 `;
 
-exports[`EcCurrencyFilter should render all given custom texts for currency tab 1`] = `
+exports[`EcCurrencyFilter > should render all given custom texts for currency tab 1`] = `
 <a
   class="ec-submenu__header-title"
   data-test="ec-submenu__header-title-0"
@@ -716,7 +727,7 @@ exports[`EcCurrencyFilter should render all given custom texts for currency tab 
 </a>
 `;
 
-exports[`EcCurrencyFilter should render all given custom texts for currency tab 2`] = `
+exports[`EcCurrencyFilter > should render all given custom texts for currency tab 2`] = `
 <div
   class="ec-checkbox"
   data-test="ec-multiple-values-selection__select-all ec-checkbox"
@@ -732,6 +743,7 @@ exports[`EcCurrencyFilter should render all given custom texts for currency tab 
   >
     <span
       class="ec-checkbox__check-icon-wrapper"
+      data-test="ec-checkbox__check-icon-wrapper"
     >
       <!--v-if-->
     </span>
@@ -750,7 +762,7 @@ exports[`EcCurrencyFilter should render all given custom texts for currency tab 
 </div>
 `;
 
-exports[`EcCurrencyFilter should render correctly 1`] = `
+exports[`EcCurrencyFilter > should render correctly 1`] = `
 <div
   class="ec-currency-filter"
   data-test="ec-currency-filter"
@@ -893,6 +905,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                   >
                     <span
                       class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
                     >
                       <!--v-if-->
                     </span>
@@ -934,6 +947,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
                         >
                           <!--v-if-->
                         </span>
@@ -979,6 +993,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
                         >
                           <!--v-if-->
                         </span>
@@ -1024,6 +1039,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
                         >
                           <!--v-if-->
                         </span>
@@ -1069,6 +1085,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
                         >
                           <!--v-if-->
                         </span>
@@ -1114,6 +1131,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                       >
                         <span
                           class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
                         >
                           <!--v-if-->
                         </span>
@@ -1194,6 +1212,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
                         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
                         data-test="ec-input-field__icon-wrapper"
                       >
+                        <!--v-if-->
                         <svg
                           class="ec-icon ec-input-field__icon"
                           data-test="ec-input-field__icon"
@@ -1291,7 +1310,7 @@ exports[`EcCurrencyFilter should render correctly 1`] = `
 </div>
 `;
 
-exports[`EcCurrencyFilter should render currencies tab in empty state when currenciesEmptyMessage is set 1`] = `
+exports[`EcCurrencyFilter > should render currencies tab in empty state when currenciesEmptyMessage is set 1`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -1324,7 +1343,7 @@ exports[`EcCurrencyFilter should render currencies tab in empty state when curre
 </div>
 `;
 
-exports[`EcCurrencyFilter should render currencies tab in error state when currenciesErrorMessage is set 1`] = `
+exports[`EcCurrencyFilter > should render currencies tab in error state when currenciesErrorMessage is set 1`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -1357,7 +1376,7 @@ exports[`EcCurrencyFilter should render currencies tab in error state when curre
 </div>
 `;
 
-exports[`EcCurrencyFilter should render currencies tab in loading state when isLoadingCurrencies is set 1`] = `
+exports[`EcCurrencyFilter > should render currencies tab in loading state when isLoadingCurrencies is set 1`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -1385,7 +1404,556 @@ exports[`EcCurrencyFilter should render currencies tab in loading state when isL
 </div>
 `;
 
-exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol when the clear amount button is clicked 1`] = `
+exports[`EcCurrencyFilter > should render with custom attributes 1`] = `
+<div
+  class="ec-currency-filter my-class"
+  data-test="my-data-test ec-currency-filter"
+  id="test-id"
+>
+  <div
+    class="ec-filter-popover"
+    data-test="ec-currency-filter__trigger"
+  >
+    <ec-stub
+      autohide="true"
+      data-test="ec-stub ec-popover-stub"
+      distance="8"
+      placement="bottom-start"
+      prevent-overflow="false"
+    >
+      
+      <div
+        class="ec-filter-popover__trigger"
+        data-test="ec-filter-popover__trigger"
+      >
+        <button
+          class="ec-filter-popover__label"
+          data-test="ec-filter-popover__label"
+          title="Price"
+          type="button"
+        >
+          Price
+        </button>
+        <!--v-if-->
+        <svg
+          class="ec-icon ec-icon--interactive ec-filter-popover__icon"
+          height="16"
+          width="16"
+        >
+          <use
+            xlink:href="#ec-simple-chevron-down"
+          />
+        </svg>
+      </div>
+      
+      
+      <div
+        class="ec-filter-popover__filter-content ec-filter-popover__filter-content--is-full-height"
+      >
+        
+        <div
+          class="ec-currency-filter__content-wrapper"
+        >
+          <div
+            class="ec-submenu ec-currency-filter__submenu"
+            data-test="ec-submenu"
+          >
+            <div
+              class="ec-submenu__header-container"
+            >
+              <ul
+                class="ec-submenu__header ec-submenu__header--no-gap"
+              >
+                
+                <li
+                  class="ec-submenu__header-item ec-submenu__header-item--is-full-width ec-submenu__header-item--is-active"
+                  data-test="ec-submenu__header-item"
+                >
+                  <a
+                    class="ec-submenu__header-title"
+                    data-test="ec-submenu__header-title-0"
+                    href="#"
+                  >
+                    Currency
+                  </a>
+                </li>
+                <li
+                  class="ec-submenu__header-item ec-submenu__header-item--is-full-width"
+                  data-test="ec-submenu__header-item"
+                >
+                  <a
+                    class="ec-submenu__header-title"
+                    data-test="ec-submenu__header-title-1"
+                    href="#"
+                  >
+                    Amount
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+            <main
+              class="ec-submenu__main"
+            >
+              <transition-group-stub
+                appear="false"
+                css="true"
+                name="ec-submenu__fade"
+                persisted="false"
+                tag="div"
+              >
+                
+                <div
+                  data-test="ec-submenu__panel-0"
+                >
+                  
+                  
+                </div>
+                <div
+                  data-test="ec-submenu__panel-1"
+                  style="display: none;"
+                >
+                  
+                  
+                </div>
+                
+              </transition-group-stub>
+            </main>
+          </div>
+          <div
+            class="ec-currency-filter__tab"
+            data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
+          >
+            <div
+              class="ec-multiple-values-selection"
+              data-test="ec-multiple-values-selection"
+            >
+              <!--v-if-->
+              
+              <div
+                class="ec-multiple-values-selection__select-all"
+              >
+                <div
+                  class="ec-checkbox"
+                  data-test="ec-multiple-values-selection__select-all ec-checkbox"
+                >
+                  <input
+                    class="ec-checkbox__input"
+                    data-test="ec-checkbox__input"
+                    id="ec-checkbox-1"
+                    type="checkbox"
+                  />
+                  <div
+                    class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                  >
+                    <span
+                      class="ec-checkbox__check-icon-wrapper"
+                      data-test="ec-checkbox__check-icon-wrapper"
+                    >
+                      <!--v-if-->
+                    </span>
+                    <label
+                      class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                      data-test="ec-checkbox__label"
+                      for="ec-checkbox-1"
+                      title="Select all"
+                    >
+                      
+                      Select all
+                      
+                    </label>
+                  </div>
+                  <!--v-if-->
+                </div>
+              </div>
+              <div
+                class="ec-multiple-values-selection__values"
+              >
+                <ul>
+                  
+                  <li
+                    class="ec-multiple-values-selection__value-wrapper"
+                    data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+                  >
+                    <div
+                      class="ec-checkbox ec-multiple-values-selection__checkbox"
+                      data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-0 ec-checkbox"
+                    >
+                      <input
+                        class="ec-checkbox__input"
+                        data-test="ec-checkbox__input"
+                        id="ec-checkbox-2"
+                        type="checkbox"
+                      />
+                      <div
+                        class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                      >
+                        <span
+                          class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
+                        >
+                          <!--v-if-->
+                        </span>
+                        <label
+                          class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                          data-test="ec-checkbox__label"
+                          for="ec-checkbox-2"
+                          title="GBP"
+                        >
+                          
+                          <div
+                            class="ec-multiple-values-selection__label-wrapper"
+                          >
+                            <!--v-if-->
+                            <span
+                              class="ec-multiple-values-selection__label-text"
+                            >
+                              GBP
+                            </span>
+                          </div>
+                          
+                        </label>
+                      </div>
+                      <!--v-if-->
+                    </div>
+                  </li>
+                  <li
+                    class="ec-multiple-values-selection__value-wrapper"
+                    data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+                  >
+                    <div
+                      class="ec-checkbox ec-multiple-values-selection__checkbox"
+                      data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-1 ec-checkbox"
+                    >
+                      <input
+                        class="ec-checkbox__input"
+                        data-test="ec-checkbox__input"
+                        id="ec-checkbox-3"
+                        type="checkbox"
+                      />
+                      <div
+                        class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                      >
+                        <span
+                          class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
+                        >
+                          <!--v-if-->
+                        </span>
+                        <label
+                          class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                          data-test="ec-checkbox__label"
+                          for="ec-checkbox-3"
+                          title="EUR"
+                        >
+                          
+                          <div
+                            class="ec-multiple-values-selection__label-wrapper"
+                          >
+                            <!--v-if-->
+                            <span
+                              class="ec-multiple-values-selection__label-text"
+                            >
+                              EUR
+                            </span>
+                          </div>
+                          
+                        </label>
+                      </div>
+                      <!--v-if-->
+                    </div>
+                  </li>
+                  <li
+                    class="ec-multiple-values-selection__value-wrapper"
+                    data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+                  >
+                    <div
+                      class="ec-checkbox ec-multiple-values-selection__checkbox"
+                      data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-2 ec-checkbox"
+                    >
+                      <input
+                        class="ec-checkbox__input"
+                        data-test="ec-checkbox__input"
+                        id="ec-checkbox-4"
+                        type="checkbox"
+                      />
+                      <div
+                        class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                      >
+                        <span
+                          class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
+                        >
+                          <!--v-if-->
+                        </span>
+                        <label
+                          class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                          data-test="ec-checkbox__label"
+                          for="ec-checkbox-4"
+                          title="JPY"
+                        >
+                          
+                          <div
+                            class="ec-multiple-values-selection__label-wrapper"
+                          >
+                            <!--v-if-->
+                            <span
+                              class="ec-multiple-values-selection__label-text"
+                            >
+                              JPY
+                            </span>
+                          </div>
+                          
+                        </label>
+                      </div>
+                      <!--v-if-->
+                    </div>
+                  </li>
+                  <li
+                    class="ec-multiple-values-selection__value-wrapper"
+                    data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+                  >
+                    <div
+                      class="ec-checkbox ec-multiple-values-selection__checkbox"
+                      data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-3 ec-checkbox"
+                    >
+                      <input
+                        class="ec-checkbox__input"
+                        data-test="ec-checkbox__input"
+                        id="ec-checkbox-5"
+                        type="checkbox"
+                      />
+                      <div
+                        class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                      >
+                        <span
+                          class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
+                        >
+                          <!--v-if-->
+                        </span>
+                        <label
+                          class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                          data-test="ec-checkbox__label"
+                          for="ec-checkbox-5"
+                          title="CAD"
+                        >
+                          
+                          <div
+                            class="ec-multiple-values-selection__label-wrapper"
+                          >
+                            <!--v-if-->
+                            <span
+                              class="ec-multiple-values-selection__label-text"
+                            >
+                              CAD
+                            </span>
+                          </div>
+                          
+                        </label>
+                      </div>
+                      <!--v-if-->
+                    </div>
+                  </li>
+                  <li
+                    class="ec-multiple-values-selection__value-wrapper"
+                    data-test="ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--not-selected"
+                  >
+                    <div
+                      class="ec-checkbox ec-multiple-values-selection__checkbox"
+                      data-test="ec-multiple-values-selection__checkbox-select ec-multiple-values-selection__checkbox-select-4 ec-checkbox"
+                    >
+                      <input
+                        class="ec-checkbox__input"
+                        data-test="ec-checkbox__input"
+                        id="ec-checkbox-6"
+                        type="checkbox"
+                      />
+                      <div
+                        class="ec-checkbox__label-checkbox-wrapper ec-checkbox__label-checkbox-wrapper--is-single-line"
+                      >
+                        <span
+                          class="ec-checkbox__check-icon-wrapper"
+                          data-test="ec-checkbox__check-icon-wrapper"
+                        >
+                          <!--v-if-->
+                        </span>
+                        <label
+                          class="ec-checkbox__label ec-checkbox__label--is-single-line"
+                          data-test="ec-checkbox__label"
+                          for="ec-checkbox-6"
+                          title="USD"
+                        >
+                          
+                          <div
+                            class="ec-multiple-values-selection__label-wrapper"
+                          >
+                            <!--v-if-->
+                            <span
+                              class="ec-multiple-values-selection__label-text"
+                            >
+                              USD
+                            </span>
+                          </div>
+                          
+                        </label>
+                      </div>
+                      <!--v-if-->
+                    </div>
+                  </li>
+                  
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+          <div
+            class="tw-p-16 ec-currency-filter__tab"
+            data-test="ec-currency-filter__tab ec-currency-filter__tab--1"
+            style="display: none;"
+          >
+            <div
+              class="ec-amount-filter-input"
+              data-test="ec-amount-filter-input"
+            >
+              <!--v-if-->
+              <div
+                class="ec-amount-filter-input__inputs-group"
+              >
+                <div
+                  class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
+                  data-test="ec-dropdown ec-dropdown-search"
+                >
+                  <ec-stub
+                    autosize="min"
+                    class="ec-dropdown-search__trigger"
+                    data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+                    disabled="false"
+                    distance="8"
+                    placement="bottom-start"
+                    popperclass="ec-dropdown-search__popover"
+                    shift="false"
+                    shown="false"
+                  >
+                    
+                    
+                    <div
+                      class="ec-input-field"
+                      data-test="ec-input-field"
+                    >
+                      <!--v-if-->
+                      <input
+                        class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+                        data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
+                        id="ec-amount-filter-input-7"
+                        placeholder=""
+                        readonly=""
+                        type="text"
+                      />
+                      <!--v-if-->
+                      <div
+                        class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
+                        data-test="ec-input-field__icon-wrapper"
+                      >
+                        <!--v-if-->
+                        <svg
+                          class="ec-icon ec-input-field__icon"
+                          data-test="ec-input-field__icon"
+                          height="24"
+                          width="24"
+                        >
+                          <use
+                            xlink:href="#ec-simple-arrow-drop-down"
+                          />
+                        </svg>
+                      </div>
+                      <!--v-if-->
+                    </div>
+                    
+                    
+                    
+                    <div>
+                      <ul
+                        class="ec-dropdown-search__item-list"
+                        data-test="ec-dropdown-search__item-list"
+                      >
+                        <!--v-if-->
+                        <!--v-if-->
+                        
+                        
+                        <li
+                          class="ec-dropdown-search__item"
+                          data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+                          title="More than"
+                        >
+                          
+                          More than
+                          
+                        </li>
+                        <li
+                          class="ec-dropdown-search__item"
+                          data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+                          title="Equal to"
+                        >
+                          
+                          Equal to
+                          
+                        </li>
+                        <li
+                          class="ec-dropdown-search__item"
+                          data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+                          title="Less than"
+                        >
+                          
+                          Less than
+                          
+                        </li>
+                        
+                        
+                      </ul>
+                    </div>
+                    
+                  </ec-stub>
+                </div>
+                <div
+                  class="ec-input-field ec-amount-filter-input__amount"
+                  data-test="ec-input-field"
+                >
+                  <!--v-if-->
+                  <input
+                    autocomplete="off"
+                    class="ec-input-field__input ec-input-field__input--is-in-group-left"
+                    data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
+                    id="ec-input-field-9"
+                    placeholder="Enter an amount..."
+                    type="text"
+                  />
+                  <!--v-if-->
+                  <!--v-if-->
+                  <!--v-if-->
+                </div>
+              </div>
+              <!--v-if-->
+            </div>
+            <button
+              class="ec-currency-filter__clear-amount"
+              data-test="ec-currency-filter__clear-amount"
+              disabled=""
+              type="button"
+            >
+              Clear amount
+            </button>
+          </div>
+        </div>
+        
+      </div>
+      
+    </ec-stub>
+  </div>
+</div>
+`;
+
+exports[`EcCurrencyFilter > v-model > should clear the amount and comparison symbol when the clear amount button is clicked 1`] = `
 <div
   class="tw-p-16 ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--1"
@@ -1434,6 +2002,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
               class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
               data-test="ec-input-field__icon-wrapper"
             >
+              <!--v-if-->
               <svg
                 class="ec-icon ec-input-field__icon"
                 data-test="ec-input-field__icon"
@@ -1526,7 +2095,7 @@ exports[`EcCurrencyFilter v-model should clear the amount and comparison symbol 
 </div>
 `;
 
-exports[`EcCurrencyFilter v-model should update v-model every time a currency is deselected 1`] = `
+exports[`EcCurrencyFilter > v-model > should update v-model every time a currency is deselected 1`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -1555,9 +2124,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
         >
           <span
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
+            data-test="ec-checkbox__check-icon-wrapper"
           >
             <span
               class="ec-checkbox__indeterminate-icon"
+              data-test="ec-checkbox__indeterminate-icon"
             />
           </span>
           <label
@@ -1598,6 +2169,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -1643,9 +2215,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -1696,6 +2270,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -1741,6 +2316,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -1786,6 +2362,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -1820,7 +2397,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
 </div>
 `;
 
-exports[`EcCurrencyFilter v-model should update v-model every time a currency is deselected 2`] = `
+exports[`EcCurrencyFilter > v-model > should update v-model every time a currency is deselected 2`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -1849,6 +2426,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
+            data-test="ec-checkbox__check-icon-wrapper"
           >
             <!--v-if-->
           </span>
@@ -1890,6 +2468,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -1935,6 +2514,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -1980,6 +2560,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2025,6 +2606,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2070,6 +2652,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2104,7 +2687,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
 </div>
 `;
 
-exports[`EcCurrencyFilter v-model should update v-model every time a currency is selected 1`] = `
+exports[`EcCurrencyFilter > v-model > should update v-model every time a currency is selected 1`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -2133,9 +2716,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
         >
           <span
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
+            data-test="ec-checkbox__check-icon-wrapper"
           >
             <span
               class="ec-checkbox__indeterminate-icon"
+              data-test="ec-checkbox__indeterminate-icon"
             />
           </span>
           <label
@@ -2176,9 +2761,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -2229,6 +2816,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2274,6 +2862,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2319,6 +2908,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2364,6 +2954,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2398,7 +2989,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
 </div>
 `;
 
-exports[`EcCurrencyFilter v-model should update v-model every time a currency is selected 2`] = `
+exports[`EcCurrencyFilter > v-model > should update v-model every time a currency is selected 2`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -2427,9 +3018,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
         >
           <span
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--indeterminate"
+            data-test="ec-checkbox__check-icon-wrapper"
           >
             <span
               class="ec-checkbox__indeterminate-icon"
+              data-test="ec-checkbox__indeterminate-icon"
             />
           </span>
           <label
@@ -2470,9 +3063,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -2523,9 +3118,11 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -2576,6 +3173,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2621,6 +3219,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2666,6 +3265,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2700,7 +3300,7 @@ exports[`EcCurrencyFilter v-model should update v-model every time a currency is
 </div>
 `;
 
-exports[`EcCurrencyFilter v-model should update v-model if select all checkbox is clicked: after deselect all 1`] = `
+exports[`EcCurrencyFilter > v-model > should update v-model if select all checkbox is clicked > after deselect all 1`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -2729,6 +3329,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
         >
           <span
             class="ec-checkbox__check-icon-wrapper"
+            data-test="ec-checkbox__check-icon-wrapper"
           >
             <!--v-if-->
           </span>
@@ -2770,6 +3371,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2815,6 +3417,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2860,6 +3463,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2905,6 +3509,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2950,6 +3555,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <!--v-if-->
               </span>
@@ -2984,7 +3590,7 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
 </div>
 `;
 
-exports[`EcCurrencyFilter v-model should update v-model if select all checkbox is clicked: after select all 1`] = `
+exports[`EcCurrencyFilter > v-model > should update v-model if select all checkbox is clicked > after select all 1`] = `
 <div
   class="ec-currency-filter__tab"
   data-test="ec-currency-filter__tab ec-currency-filter__tab--0"
@@ -3013,9 +3619,11 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
         >
           <span
             class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+            data-test="ec-checkbox__check-icon-wrapper"
           >
             <svg
               class="ec-icon ec-checkbox__check-icon"
+              data-test="ec-checkbox__check-icon"
               height="16"
               width="16"
             >
@@ -3062,9 +3670,11 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -3115,9 +3725,11 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -3168,9 +3780,11 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -3221,9 +3835,11 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >
@@ -3274,9 +3890,11 @@ exports[`EcCurrencyFilter v-model should update v-model if select all checkbox i
             >
               <span
                 class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                data-test="ec-checkbox__check-icon-wrapper"
               >
                 <svg
                   class="ec-icon ec-checkbox__check-icon"
+                  data-test="ec-checkbox__check-icon"
                   height="16"
                   width="16"
                 >

@@ -5,10 +5,9 @@ import EcLoading from './ec-loading.vue';
 import type { LoadingProps } from './types';
 
 describe('EcLoading', () => {
-  function mountLoading(props?: Partial<LoadingProps>, mountOpts: ComponentMountingOptions<LoadingProps> = {}) {
-    return mount<LoadingProps>(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcLoading as any,
+  function mountLoading(props?: Partial<LoadingProps>, mountOpts?: ComponentMountingOptions<typeof EcLoading>) {
+    return mount(
+      EcLoading,
       {
         props: {
           show: true,
@@ -20,9 +19,8 @@ describe('EcLoading', () => {
   }
 
   it('should throw if no props were given', () => {
-    withMockedConsole((_errorSpy: jest.SpyInstance, warnSpy: jest.SpyInstance) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      mount(EcLoading as any);
+    withMockedConsole((_errorSpy, warnSpy) => {
+      mount(EcLoading);
       expect(warnSpy).toHaveBeenCalledTimes(1);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "show"');
     });

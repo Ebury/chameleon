@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
+import { vi } from 'vitest';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -53,6 +54,19 @@ describe('EcModal', () => {
       },
     );
 
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render with custom attributes', () => {
+    const wrapper = mountModal({
+      show: true,
+    }, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -364,8 +378,8 @@ describe('EcModal', () => {
   });
 
   it('should stop listening to keyup events when closed', async () => {
-    const addEventListenerSpy = jest.spyOn(document, 'addEventListener');
-    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener');
+    const addEventListenerSpy = vi.spyOn(document, 'addEventListener');
+    const removeEventListenerSpy = vi.spyOn(document, 'removeEventListener');
 
     expect(addEventListenerSpy).not.toHaveBeenCalled();
 
@@ -388,8 +402,8 @@ describe('EcModal', () => {
   });
 
   it('should stop listening to keyup events when destroyed', async () => {
-    const addEventListenerSpy = jest.spyOn(document, 'addEventListener');
-    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener');
+    const addEventListenerSpy = vi.spyOn(document, 'addEventListener');
+    const removeEventListenerSpy = vi.spyOn(document, 'removeEventListener');
 
     expect(addEventListenerSpy).not.toHaveBeenCalled();
 
@@ -461,11 +475,11 @@ describe('EcModal', () => {
           is-closable
           large
           v-model:show="showFirstModal">
-  
+
           <template #header>
             <h2>First Modal</h2>
           </template>
-  
+
           <template #main>
             <div>
               <button data-test="first-modal-action__btn">Action first modal</button>
@@ -473,16 +487,16 @@ describe('EcModal', () => {
             </div>
           </template>
         </ec-modal>
-  
+
         <ec-modal
           is-closable
           :z-index="zIndex"
           v-model:show="showSecondModal">
-  
+
           <template #header>
             <h2>Second Modal</h2>
           </template>
-  
+
           <template #main>
             <div>
               <button data-test="second-modal-action__btn">Action second modal</button>
@@ -515,11 +529,11 @@ describe('EcModal', () => {
           is-closable
           large
           v-model:show="showFirstModal">
-  
+
           <template #header>
             <h2>First Modal</h2>
           </template>
-  
+
           <template #main>
             <div>
               <button @click.prevent.stop="firstModalAction" data-test="first-modal-action__btn">Action first modal</button>
@@ -527,16 +541,16 @@ describe('EcModal', () => {
             </div>
           </template>
         </ec-modal>
-  
+
         <ec-modal
           is-closable
           :z-index="zIndex"
           v-model:show="showSecondModal">
-  
+
           <template #header>
             <h2>Second Modal</h2>
           </template>
-  
+
           <template #main>
             <div>
               <button @click.prevent.stop="secondModalAction" data-test="second-modal-action__btn">Action second modal</button>
@@ -555,8 +569,8 @@ describe('EcModal', () => {
               showFirstModal: true,
               showSecondModal: true,
               zIndex: 201,
-              firstModalAction: jest.fn(),
-              secondModalAction: jest.fn(),
+              firstModalAction: vi.fn(),
+              secondModalAction: vi.fn(),
             };
           },
         },

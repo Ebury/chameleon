@@ -1,4 +1,4 @@
 import { enableAutoUnmount } from '@vue/test-utils';
+import { afterEach } from 'vitest';
 
-// eslint-disable-next-line no-undef
 enableAutoUnmount(afterEach);

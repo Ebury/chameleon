@@ -1,13 +1,13 @@
 import { type ComponentMountingOptions, mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { defineComponent, h } from 'vue';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { SortDirection } from '../../enums';
 import { StickyColumnPosition } from '../ec-table-head/types';
 import EcTable from './ec-table.vue';
 import type { TableProps } from './types';
 
-function mountEcTable(props?: Partial<TableProps>, mountOpts?: ComponentMountingOptions<TableProps>) {
+function mountEcTable(props?: Partial<TableProps>, mountOpts?: ComponentMountingOptions<typeof EcTable>) {
   return mount(EcTable, {
     props: {
       columns: [
@@ -27,7 +27,7 @@ function mountEcTable(props?: Partial<TableProps>, mountOpts?: ComponentMounting
       ...props,
     },
     ...mountOpts,
-  }) as unknown as CVueWrapper;
+  });
 }
 
 function mountTableAsTemplate(template: string, props?: Partial<TableProps>, wrapperComponentOpts?: Record<string, unknown>, mountOpts?: ComponentMountingOptions<TableProps>) {
@@ -40,7 +40,7 @@ function mountTableAsTemplate(template: string, props?: Partial<TableProps>, wra
   return mount(Component, {
     props,
     ...mountOpts,
-  }) as unknown as CVueWrapper;
+  });
 }
 
 describe('EcTable', () => {
@@ -162,7 +162,7 @@ describe('EcTable', () => {
   });
 
   it('the tr should have class ec-table-row--is-clickable if we set the listener on row-click', () => {
-    const onRowClick = jest.fn();
+    const onRowClick = vi.fn();
     const wrapper = mountEcTable(
       {
         columns: [
@@ -245,8 +245,7 @@ describe('EcTable', () => {
       ],
     }, {
       slots: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        col2: ({ content }: any) => h('p', content),
+        col2: ({ content }: { content: string }) => h('p', content),
         footer: '<p>Random text</p>',
       },
     });
@@ -255,12 +254,12 @@ describe('EcTable', () => {
   });
 
   it('should render custom row if window width is lower than 768px', () => {
-    window.matchMedia = jest.fn().mockImplementation(query => ({
+    window.matchMedia = vi.fn().mockImplementation(query => ({
       matches: query === '(max-width: 768px)',
       media: '',
       onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
     }));
 
     const wrapper = mountEcTable({
@@ -374,7 +373,7 @@ describe('EcTable', () => {
   });
 
   it('should emit the row-click event when you click on some row', async () => {
-    const onRowClick = jest.fn();
+    const onRowClick = vi.fn();
     const wrapper = mountEcTable({}, {
       attrs: {
         onRowClick,

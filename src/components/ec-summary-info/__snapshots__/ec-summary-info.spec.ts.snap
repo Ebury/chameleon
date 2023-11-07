@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
+exports[`EcSummaryInfo > icon > should render with the given "icon" prop 1`] = `
 <div
   class="ec-summary-info"
   data-test="ec-summary-info"
@@ -27,7 +27,7 @@ exports[`EcSummaryInfo icon should render with the given "icon" prop 1`] = `
 </div>
 `;
 
-exports[`EcSummaryInfo lineItems description when the description has a tooltip should render with a tooltip 1`] = `
+exports[`EcSummaryInfo > lineItems > description > when the description has a tooltip > should render with a tooltip 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <svg
@@ -44,7 +44,7 @@ DOMWrapper {
 }
 `;
 
-exports[`EcSummaryInfo lineItems description when the description isSensitive should render description and tooltip with a sensitive class 1`] = `
+exports[`EcSummaryInfo > lineItems > description > when the description isSensitive > should render description and tooltip with a sensitive class 1`] = `
 <div
   class="ec-summary-info"
   data-test="ec-summary-info"
@@ -75,7 +75,7 @@ exports[`EcSummaryInfo lineItems description when the description isSensitive sh
 </div>
 `;
 
-exports[`EcSummaryInfo lineItems should render with default stylePresets 1`] = `
+exports[`EcSummaryInfo > lineItems > should render with default stylePresets 1`] = `
 <span
   class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
   data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-label"
@@ -85,7 +85,7 @@ exports[`EcSummaryInfo lineItems should render with default stylePresets 1`] = `
 </span>
 `;
 
-exports[`EcSummaryInfo lineItems should render with default stylePresets 2`] = `
+exports[`EcSummaryInfo > lineItems > should render with default stylePresets 2`] = `
 <span
   class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
   data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
@@ -95,7 +95,7 @@ exports[`EcSummaryInfo lineItems should render with default stylePresets 2`] = `
 </span>
 `;
 
-exports[`EcSummaryInfo lineItems should render with default stylePresets 3`] = `
+exports[`EcSummaryInfo > lineItems > should render with default stylePresets 3`] = `
 <span
   class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
   data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-description"
@@ -105,7 +105,7 @@ exports[`EcSummaryInfo lineItems should render with default stylePresets 3`] = `
 </span>
 `;
 
-exports[`EcSummaryInfo lineItems should render with default stylePresets 4`] = `
+exports[`EcSummaryInfo > lineItems > should render with default stylePresets 4`] = `
 <span
   class="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
   data-test="ec-summary-info__content-line-item-content ec-summary-info__content-line-item-content-text"
@@ -115,7 +115,7 @@ exports[`EcSummaryInfo lineItems should render with default stylePresets 4`] = `
 </span>
 `;
 
-exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1`] = `
+exports[`EcSummaryInfo > lineItems > should render with the given "lineItems" prop 1`] = `
 <div
   class="ec-summary-info"
   data-test="ec-summary-info"
@@ -182,7 +182,7 @@ exports[`EcSummaryInfo lineItems should render with the given "lineItems" prop 1
 </div>
 `;
 
-exports[`EcSummaryInfo lineItems should render with the not given "lineItems" prop 1`] = `
+exports[`EcSummaryInfo > lineItems > should render with the not given "lineItems" prop 1`] = `
 <div
   class="ec-summary-info"
   data-test="ec-summary-info"
@@ -200,7 +200,7 @@ exports[`EcSummaryInfo lineItems should render with the not given "lineItems" pr
 </div>
 `;
 
-exports[`EcSummaryInfo lineItems text when the text has a tooltip should render with a tooltip 1`] = `
+exports[`EcSummaryInfo > lineItems > text > when the text has a tooltip > should render with a tooltip 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <svg
@@ -217,7 +217,26 @@ DOMWrapper {
 }
 `;
 
-exports[`EcSummaryInfo slots should render with the default slot given 1`] = `
+exports[`EcSummaryInfo > should render with custom attributes 1`] = `
+<div
+  class="ec-summary-info my-class"
+  data-test="my-data-test ec-summary-info"
+  id="test-id"
+>
+  <!--v-if-->
+  
+  <div
+    class="ec-summary-info__content"
+    data-test="ec-summary-info__content"
+  >
+    
+    
+  </div>
+  
+</div>
+`;
+
+exports[`EcSummaryInfo > slots > should render with the default slot given 1`] = `
 <div
   class="ec-summary-info"
   data-test="ec-summary-info"

@@ -299,11 +299,17 @@ function waitForPopoverFocus() {
   });
 }
 
+/* c8 ignore start */
 function findTabbableElement(element) {
-  return element.querySelector(
-    'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-  );
+  if (element) {
+    return element.querySelector(
+      'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+    );
+  }
+
+  return null;
 }
+/* c8 ignore stop */
 
 async function focusAfterShow() {
   await waitForPopoverFocus();

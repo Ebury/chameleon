@@ -1,37 +1,36 @@
-import { type ComponentMountingOptions, mount } from '@vue/test-utils';
-import { defineComponent, ref } from 'vue';
+import { type ComponentMountingOptions, mount, VueWrapper } from '@vue/test-utils';
+import { vi } from 'vitest';
+import { type ComponentPublicInstance, defineComponent, ref } from 'vue';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import EcCheckbox from './ec-checkbox.vue';
 import type { CheckboxProps } from './types';
 
-function mountCheckbox(props?: CheckboxProps, mountOpts?: ComponentMountingOptions<CheckboxProps>) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return mount(EcCheckbox as any, {
-    props,
-    ...mountOpts,
-  }) as CVueWrapper;
-}
-
-function mountCheckboxAsTemplate(
-  template: string,
-  props: CheckboxProps,
-  wrapperComponentOpts?: Record<string, unknown>,
-  mountOpts?: ComponentMountingOptions<CheckboxProps>,
-) {
-  const Component = defineComponent({
-    components: { EcCheckbox },
-    template,
-    ...wrapperComponentOpts,
-  });
-
-  return mount(Component, {
-    props,
-    ...mountOpts,
-  }) as CVueWrapper;
-}
-
 describe('EcCheckbox', () => {
+  function mountCheckbox(props?: CheckboxProps, mountOpts?: ComponentMountingOptions<typeof EcCheckbox>) {
+    return mount(EcCheckbox, {
+      props,
+      ...mountOpts,
+    });
+  }
+
+  function mountCheckboxAsTemplate(
+    template: string,
+    props: CheckboxProps,
+    wrapperComponentOpts?: Record<string, unknown>,
+    mountOpts?: ComponentMountingOptions<CheckboxProps>,
+  ) {
+    const Component = defineComponent({
+      components: { EcCheckbox },
+      template,
+      ...wrapperComponentOpts,
+    });
+
+    return mount(Component, {
+      props,
+      ...mountOpts,
+    });
+  }
+
   describe(':props', () => {
     it(':label - should render the checkbox with a label', () => {
       const wrapper = mountCheckbox({
@@ -191,7 +190,7 @@ describe('EcCheckbox', () => {
     });
 
     it('@change - should be emitted when input is clicked', () => {
-      const changeSpy = jest.fn();
+      const changeSpy = vi.fn();
       const wrapper = mountCheckbox({}, {
         attrs: {
           onChange: changeSpy,
@@ -230,7 +229,7 @@ describe('EcCheckbox', () => {
     });
 
     it('should pass listeners to checkbox input', async () => {
-      const clickSpy = jest.fn();
+      const clickSpy = vi.fn();
       const wrapper = mountCheckbox({}, {
         attrs: { onClick: clickSpy },
       });
@@ -251,15 +250,11 @@ describe('EcCheckbox', () => {
             return { checked };
           },
         },
-      );
+      ) as VueWrapper<ComponentPublicInstance<unknown, { checked: boolean }>>;
 
       expect(wrapper.findByDataTest('ec-checkbox').exists()).toBe(true);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       expect(wrapper.vm.checked).toBe(true);
       await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       expect(wrapper.vm.checked).toBe(false);
     });
 
@@ -273,14 +268,47 @@ describe('EcCheckbox', () => {
             return { checked };
           },
         },
-      );
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+      ) as VueWrapper<ComponentPublicInstance<unknown, { checked: boolean }>>;
       expect(wrapper.vm.checked).toBe(true);
       await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       expect(wrapper.vm.checked).toBe(true);
+    });
+
+    it('should have the icon clickable', async () => {
+      const element = document.createElement('div');
+      document.body.appendChild(element);
+      const wrapper = mountCheckboxAsTemplate(
+        '<ec-checkbox v-model="model" />',
+        {},
+        {
+          data() {
+            return { model: false };
+          },
+        },
+        {
+          attachTo: element,
+        },
+      ) as VueWrapper<ComponentPublicInstance<unknown, { model: boolean }>>;
+
+      await wrapper.findByDataTest('ec-checkbox__check-icon-wrapper').trigger('click');
+      expect(wrapper.vm.model).toBe(true);
+
+      await wrapper.findByDataTest('ec-checkbox__check-icon').trigger('click');
+      expect(wrapper.vm.model).toBe(false);
+
+      wrapper.unmount();
+    });
+
+    it('should render the input focused when focused', async () => {
+      'ec-checkbox__input';
+
+      const wrapper = mountCheckbox();
+
+      await wrapper.findByDataTest('ec-checkbox__input').trigger('focus');
+      expect(wrapper.element).toMatchSnapshot('focused');
+
+      await wrapper.findByDataTest('ec-checkbox__input').trigger('blur');
+      expect(wrapper.element).toMatchSnapshot('blurred');
     });
   });
 });

@@ -23,7 +23,6 @@ const props = defineProps<IconProps>();
 
 const { name, size, type } = toRefs(props);
 
-/* c8 ignore next */
 const typeClass = computed(() => (type?.value ? `ec-icon--${type.value}` : null));
 </script>
 

@@ -1,20 +1,19 @@
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import EcIcon from './ec-icon.vue';
 import { IconName, type IconProps, IconType } from './types';
 
 describe('EcIcon', () => {
-  function mountEcIcon(props?: IconProps, mountOpts?: ComponentMountingOptions<IconProps>): CVueWrapper {
+  function mountEcIcon(props?: IconProps, mountOpts?: ComponentMountingOptions<typeof EcIcon>) {
     return mount(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcIcon as any,
+      EcIcon,
       {
         props,
         ...mountOpts,
       },
-    ) as CVueWrapper;
+    );
   }
 
   it('should render properly when a name was given', () => {
@@ -42,6 +41,7 @@ describe('EcIcon', () => {
         attrs: {
           id: 'my-icon',
           'data-test': 'my-custom-icon',
+          class: 'my-class',
         },
       },
     );
@@ -52,7 +52,7 @@ describe('EcIcon', () => {
   });
 
   it('should pass a custom event handler', () => {
-    const clickSpy = jest.fn();
+    const clickSpy = vi.fn();
     const wrapper = mountEcIcon(
       {
         name: IconName.SimpleAdd,

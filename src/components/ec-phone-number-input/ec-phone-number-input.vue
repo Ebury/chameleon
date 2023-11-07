@@ -275,11 +275,9 @@ const phoneNumberModel = computed({
   },
 });
 
-/* c8 ignore start */
 const selectedCountryAreaCode = computed(() => props.modelValue?.country?.areaCode || null);
 const selectedCountryImage = computed(() => getCountryFlagPath(props.modelValue?.country?.countryCode));
 const selectedCountryName = computed(() => props.modelValue?.country?.text);
-/* c8 ignore stop */
 
 const isInvalid = computed(() => !!props.errorMessage);
 const popoverRef = ref<HTMLElement | null>();

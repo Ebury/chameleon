@@ -1,7 +1,10 @@
 <template>
   <div
     class="ec-donut"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-donut` : 'ec-donut'"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-donut` : 'ec-donut',
+    }"
   >
     <div
       class="ec-donut__container"
@@ -77,6 +80,10 @@
 import { computed } from 'vue';
 
 import EcIcon from '../ec-icon';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps({
   amount: {

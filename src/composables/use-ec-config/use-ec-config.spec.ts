@@ -1,15 +1,16 @@
+import { vi } from 'vitest';
 import { inject } from 'vue';
 
 import config from '../../config';
 import useEcConfig, { CHAMELEON_CONFIG_KEY } from './use-ec-config';
 
-jest.mock('vue', () => ({
-  inject: jest.fn(),
+vi.mock('vue', () => ({
+  inject: vi.fn(),
 }));
 
 describe('useEcConfig', () => {
   beforeEach(() => {
-    (inject as jest.Mock).mockClear();
+    vi.mocked(inject).mockClear();
   });
 
   it('should call inject with CHAMELEON_CONFIG_KEY', () => {
@@ -19,7 +20,7 @@ describe('useEcConfig', () => {
   });
 
   it('should return the value from inject', () => {
-    (inject as jest.Mock).mockReturnValueOnce('mockedValue');
+    vi.mocked(inject).mockReturnValueOnce('mockedValue');
 
     const result = useEcConfig();
 

@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 import EcMenu from './ec-menu.vue';
 
@@ -104,7 +105,7 @@ describe('EcMenu', () => {
   });
 
   it('should attach custom listeners passed in the link definition', async () => {
-    const testSpy = jest.fn();
+    const testSpy = vi.fn();
     const link = {
       ...links[0],
       on: {

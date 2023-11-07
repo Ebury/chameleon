@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcAmountFilterInput :props should render the error message when "errorMessage" is set 1`] = `
+exports[`EcAmountFilterInput > :props > should render the error message when "errorMessage" is set 1`] = `
 <div
   class="ec-amount-filter-input__error-text"
   data-test="ec-amount-filter-input__error-text"
@@ -13,7 +13,7 @@ exports[`EcAmountFilterInput :props should render the error message when "errorM
 </div>
 `;
 
-exports[`EcAmountFilterInput :props should render the error tooltip when "errorTooltipMessage" is set 1`] = `
+exports[`EcAmountFilterInput > :props > should render the error tooltip when "errorTooltipMessage" is set 1`] = `
 <div
   class="ec-amount-filter-input__error-text"
   data-test="ec-amount-filter-input__error-text"
@@ -36,7 +36,7 @@ exports[`EcAmountFilterInput :props should render the error tooltip when "errorT
 </div>
 `;
 
-exports[`EcAmountFilterInput :props should render with a bottom note in a warning state when "isWarning" is set to true 1`] = `
+exports[`EcAmountFilterInput > :props > should render with a bottom note in a warning state when "isWarning" is set to true 1`] = `
 <div
   class="ec-amount-filter-input__bottom-note ec-amount-filter-input__bottom-note--is-warning"
   data-test="ec-amount-filter-input__bottom-note"
@@ -48,7 +48,7 @@ exports[`EcAmountFilterInput :props should render with a bottom note in a warnin
 </div>
 `;
 
-exports[`EcAmountFilterInput :props should render with a bottom note when is "bottomNote" set 1`] = `
+exports[`EcAmountFilterInput > :props > should render with a bottom note when is "bottomNote" set 1`] = `
 <div
   class="ec-amount-filter-input__bottom-note"
   data-test="ec-amount-filter-input__bottom-note"
@@ -60,7 +60,7 @@ exports[`EcAmountFilterInput :props should render with a bottom note when is "bo
 </div>
 `;
 
-exports[`EcAmountFilterInput :props should render with a label when the "label" is set 1`] = `
+exports[`EcAmountFilterInput > :props > should render with a label when the "label" is set 1`] = `
 <span
   class="ec-amount-filter-input__label-text"
   data-test="ec-amount-filter-input__label-text"
@@ -69,7 +69,7 @@ exports[`EcAmountFilterInput :props should render with a label when the "label" 
 </span>
 `;
 
-exports[`EcAmountFilterInput :props should render with a note when the "note" is set 1`] = `
+exports[`EcAmountFilterInput > :props > should render with a note when the "note" is set 1`] = `
 <span
   class="ec-amount-filter-input__note"
   data-test="ec-amount-filter-input__note"
@@ -78,7 +78,7 @@ exports[`EcAmountFilterInput :props should render with a note when the "note" is
 </span>
 `;
 
-exports[`EcAmountFilterInput :props should render with a placeholder when "amountPlaceholder" is set 1`] = `
+exports[`EcAmountFilterInput > :props > should render with a placeholder when "amountPlaceholder" is set 1`] = `
 <input
   autocomplete="off"
   class="ec-input-field__input ec-input-field__input--is-in-group-left"
@@ -89,7 +89,7 @@ exports[`EcAmountFilterInput :props should render with a placeholder when "amoun
 />
 `;
 
-exports[`EcAmountFilterInput :props should render with a sensitive class when isSensitive prop is set to true 1`] = `
+exports[`EcAmountFilterInput > :props > should render with a sensitive class when isSensitive prop is set to true 1`] = `
 <div
   class="ec-amount-filter-input"
   data-test="ec-amount-filter-input"
@@ -133,6 +133,7 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"
@@ -213,7 +214,7 @@ exports[`EcAmountFilterInput :props should render with a sensitive class when is
 </div>
 `;
 
-exports[`EcAmountFilterInput :props should render with a warning tooltip when the "warningTooltipMessage" is set 1`] = `
+exports[`EcAmountFilterInput > :props > should render with a warning tooltip when the "warningTooltipMessage" is set 1`] = `
 <div
   class="ec-amount-filter-input__bottom-note ec-amount-filter-input__bottom-note--is-warning"
   data-test="ec-amount-filter-input__bottom-note"
@@ -235,7 +236,133 @@ exports[`EcAmountFilterInput :props should render with a warning tooltip when th
 </div>
 `;
 
-exports[`EcAmountFilterInput should render properly 1`] = `
+exports[`EcAmountFilterInput > attrs > should render with custom attributes 1`] = `
+<div
+  class="my-class ec-amount-filter-input"
+  data-test="my-data-test ec-amount-filter-input"
+  id="test-id"
+>
+  <!--v-if-->
+  <div
+    class="ec-amount-filter-input__inputs-group"
+  >
+    <div
+      class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
+      data-test="ec-dropdown ec-dropdown-search"
+    >
+      <ec-stub
+        autosize="min"
+        class="ec-dropdown-search__trigger"
+        data-test="ec-popover-dropdown-search ec-stub ec-popover-stub"
+        disabled="false"
+        distance="8"
+        placement="bottom-start"
+        popperclass="ec-dropdown-search__popover"
+        shift="false"
+        shown="false"
+      >
+        
+        
+        <div
+          class="ec-input-field"
+          data-test="ec-input-field"
+        >
+          <!--v-if-->
+          <input
+            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+            data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
+            id="ec-amount-filter-input-1"
+            placeholder=""
+            readonly=""
+            type="text"
+          />
+          <!--v-if-->
+          <div
+            class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
+            data-test="ec-input-field__icon-wrapper"
+          >
+            <!--v-if-->
+            <svg
+              class="ec-icon ec-input-field__icon"
+              data-test="ec-input-field__icon"
+              height="24"
+              width="24"
+            >
+              <use
+                xlink:href="#ec-simple-arrow-drop-down"
+              />
+            </svg>
+          </div>
+          <!--v-if-->
+        </div>
+        
+        
+        
+        <div>
+          <ul
+            class="ec-dropdown-search__item-list"
+            data-test="ec-dropdown-search__item-list"
+          >
+            <!--v-if-->
+            <!--v-if-->
+            
+            
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--0 ec-mock ec-tooltip-mock"
+              title="More than"
+            >
+              
+              More than
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--1 ec-mock ec-tooltip-mock"
+              title="Equal to"
+            >
+              
+              Equal to
+              
+            </li>
+            <li
+              class="ec-dropdown-search__item"
+              data-test="ec-dropdown-search__item ec-dropdown-search__item--2 ec-mock ec-tooltip-mock"
+              title="Less than"
+            >
+              
+              Less than
+              
+            </li>
+            
+            
+          </ul>
+        </div>
+        
+      </ec-stub>
+    </div>
+    <div
+      class="ec-input-field ec-amount-filter-input__amount"
+      data-test="ec-input-field"
+    >
+      <!--v-if-->
+      <input
+        autocomplete="off"
+        class="ec-input-field__input ec-input-field__input--is-in-group-left"
+        data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
+        id="ec-input-field-3"
+        type="text"
+      />
+      <!--v-if-->
+      <!--v-if-->
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcAmountFilterInput > should render properly 1`] = `
 <div
   class="ec-amount-filter-input"
   data-test="ec-amount-filter-input"
@@ -279,6 +406,7 @@ exports[`EcAmountFilterInput should render properly 1`] = `
             class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
             data-test="ec-input-field__icon-wrapper"
           >
+            <!--v-if-->
             <svg
               class="ec-icon ec-input-field__icon"
               data-test="ec-input-field__icon"

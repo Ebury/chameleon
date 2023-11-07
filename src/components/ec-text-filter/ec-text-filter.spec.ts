@@ -1,29 +1,28 @@
-import fakeTimers from '@sinonjs/fake-timers';
+import fakeTimers, { type InstalledClock } from '@sinonjs/fake-timers';
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import EcTextFilter from './ec-text-filter.vue';
 import type { TextFilterProps } from './types';
 import { TextFilterEvent } from './types';
 
 describe('EcTextFilter', () => {
-  let clock: fakeTimers.InstalledClock;
+  let clock: InstalledClock;
 
   beforeEach(() => {
-    clock = fakeTimers.install(window as unknown as fakeTimers.FakeTimerInstallOpts);
+    clock = fakeTimers.install();
   });
+
   afterEach(() => {
     if (clock) {
       clock.uninstall();
     }
   });
 
-  function mountComponent(props?: TextFilterProps, mountOpts?: ComponentMountingOptions<TextFilterProps>): CVueWrapper {
-    return mount<TextFilterProps>(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcTextFilter as any,
+  function mountComponent(props?: TextFilterProps, mountOpts?: ComponentMountingOptions<typeof EcTextFilter>) {
+    return mount(
+      EcTextFilter,
       {
         props: {
           modelValue: 'Text test',
@@ -31,7 +30,7 @@ describe('EcTextFilter', () => {
         },
         ...mountOpts,
       },
-    ) as unknown as CVueWrapper;
+    );
   }
 
   function mountInputFieldAsTemplate(
@@ -46,11 +45,10 @@ describe('EcTextFilter', () => {
       ...wrapperComponentOpts,
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return mount<TextFilterProps, ComponentMountingOptions<TextFilterProps>>(Component as any, {
+    return mount<typeof Component, ComponentMountingOptions<typeof Component>>(Component, {
       props,
       ...mountOpts,
-    }) as unknown as CVueWrapper;
+    });
   }
 
   it('should display properly with the given props', () => {

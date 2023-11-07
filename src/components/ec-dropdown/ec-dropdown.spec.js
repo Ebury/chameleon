@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { defineComponent, h } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -284,7 +285,7 @@ describe('EcDropdown', () => {
     });
 
     it('should not return focus back to readonly input if it already has it', async () => {
-      const focusSpy = jest.fn();
+      const focusSpy = vi.fn();
 
       const wrapper = mountDropdown({ items }, {
         attrs: {

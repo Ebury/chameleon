@@ -1,19 +1,17 @@
 import { mount } from '@vue/test-utils';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import EcNavigationArrows from './ec-navigation-arrows.vue';
 import type { NavigationArrowsProps } from './types';
 import { NavigationArrowsEvent } from './types';
 
 describe('EcNavigationArrows', () => {
-  function mountComponent(props?: NavigationArrowsProps): CVueWrapper {
+  function mountComponent(props?: NavigationArrowsProps) {
     return mount(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcNavigationArrows as any,
+      EcNavigationArrows,
       {
         props,
       },
-    ) as unknown as CVueWrapper;
+    );
   }
 
   it('should render properly with both arrows enabled', () => {

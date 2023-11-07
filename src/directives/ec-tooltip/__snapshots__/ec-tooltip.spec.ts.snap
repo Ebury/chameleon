@@ -1,10 +1,41 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTooltipDirective should bind the tooltip directive correctly when value is an object 1`] = `
+exports[`EcTooltipDirective > should bind the tooltip directive correctly when value is a string 1`] = `
 <div
-  class="v-popper--has-tooltip"
-  id="tooltipElement"
+  id="tooltip-element-3"
 >
-  Tooltip content
+  Lorem ipsum
+</div>
+`;
+
+exports[`EcTooltipDirective > should bind the tooltip directive correctly when value is an object 1`] = `
+<div
+  id="tooltip-element-1"
+>
+  Lorem ipsum
+</div>
+`;
+
+exports[`EcTooltipDirective > should bind the tooltip directive correctly when value is false 1`] = `
+<div
+  id="tooltip-element-4"
+>
+  Lorem ipsum
+</div>
+`;
+
+exports[`EcTooltipDirective > should bind the tooltip directive correctly when value only has content 1`] = `
+<div
+  id="tooltip-element-2"
+>
+  Lorem ipsum
+</div>
+`;
+
+exports[`EcTooltipDirective > should bind the tooltip directive correctly with a custom container 1`] = `
+<div
+  id="tooltip-element-5"
+>
+  Lorem ipsum
 </div>
 `;

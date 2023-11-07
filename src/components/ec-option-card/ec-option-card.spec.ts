@@ -2,17 +2,15 @@ import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
-import type { CVueWrapper } from '../../../tests/utils/global';
 import { IconName } from '../ec-icon/icon-names';
 import EcOptionCard from './ec-option-card.vue';
 import type { OptionCardProps } from './types';
 import { OptionCardType } from './types';
 
 describe('EcOptionCard', () => {
-  function mountEcOptionCard(props?: OptionCardProps, mountOpts?: ComponentMountingOptions<OptionCardProps>): CVueWrapper {
+  function mountEcOptionCard(props?: OptionCardProps, mountOpts?: ComponentMountingOptions<typeof EcOptionCard>) {
     return mount(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      EcOptionCard as any,
+      EcOptionCard,
       {
         props: {
           title: 'Test Option Card',
@@ -20,7 +18,7 @@ describe('EcOptionCard', () => {
         },
         ...mountOpts,
       },
-    ) as CVueWrapper;
+    );
   }
 
   it('renders properly with the required title prop', () => {
@@ -115,7 +113,7 @@ describe('EcOptionCard', () => {
       template: '<ec-option-card>Some slot <div>some text</div></ec-option-card>',
     });
 
-    const wrapper = mount(component) as unknown as CVueWrapper;
+    const wrapper = mount(component);
 
     expect(wrapper.element).toMatchSnapshot();
   });

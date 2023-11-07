@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcDateRangeFilter should render if no dates are passed in value prop 1`] = `
+exports[`EcDateRangeFilter > should render if no dates are passed in value prop 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-date-range-filter__trigger"
@@ -124,7 +124,7 @@ exports[`EcDateRangeFilter should render if no dates are passed in value prop 1`
 </div>
 `;
 
-exports[`EcDateRangeFilter should render properly when all the props are given 1`] = `
+exports[`EcDateRangeFilter > should render properly when all the props are given 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-date-range-filter__trigger"
@@ -256,7 +256,7 @@ exports[`EcDateRangeFilter should render properly when all the props are given 1
 </div>
 `;
 
-exports[`EcDateRangeFilter should render properly with an error message when the dateRangeErrorMessage is given 1`] = `
+exports[`EcDateRangeFilter > should render properly with an error message when the dateRangeErrorMessage is given 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-date-range-filter__trigger"
@@ -393,7 +393,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
 </div>
 `;
 
-exports[`EcDateRangeFilter should render properly with an error message when the fromErrorMessage is given 1`] = `
+exports[`EcDateRangeFilter > should render properly with an error message when the fromErrorMessage is given 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-date-range-filter__trigger"
@@ -532,7 +532,7 @@ exports[`EcDateRangeFilter should render properly with an error message when the
 </div>
 `;
 
-exports[`EcDateRangeFilter should render properly with an error message when the toErrorMessage is given 1`] = `
+exports[`EcDateRangeFilter > should render properly with an error message when the toErrorMessage is given 1`] = `
 <div
   class="ec-filter-popover"
   data-test="ec-date-range-filter__trigger"
@@ -653,6 +653,139 @@ exports[`EcDateRangeFilter should render properly with an error message when the
             >
               This is the to field error message
             </div>
+          </div>
+        </div>
+        <!--v-if-->
+        <button
+          class="ec-date-range-filter__clear-button"
+          data-test="ec-date-range-filter__clear-button"
+          type="button"
+        >
+          Clear dates
+        </button>
+      </div>
+      
+    </div>
+    
+  </ec-stub>
+</div>
+`;
+
+exports[`EcDateRangeFilter > should render with custom attributes 1`] = `
+<div
+  class="ec-filter-popover my-class"
+  data-test="my-data-test ec-date-range-filter__trigger"
+  id="test-id"
+>
+  <ec-stub
+    data-test="ec-stub ec-popover-stub"
+    distance="8"
+    placement="bottom-start"
+    prevent-overflow="false"
+  >
+    
+    <div
+      class="ec-filter-popover__trigger"
+      data-test="ec-filter-popover__trigger"
+    >
+      <button
+        class="ec-filter-popover__label"
+        data-test="ec-filter-popover__label"
+        title="Due date"
+        type="button"
+      >
+        Due date
+      </button>
+      <span
+        class="ec-badge ec-badge--info ec-filter-popover__badge"
+        data-test="ec-badge"
+      >
+        
+        2
+        
+      </span>
+      <svg
+        class="ec-icon ec-icon--interactive ec-filter-popover__icon"
+        height="16"
+        width="16"
+      >
+        <use
+          xlink:href="#ec-simple-chevron-down"
+        />
+      </svg>
+    </div>
+    
+    
+    <div
+      class="ec-filter-popover__filter-content"
+    >
+      
+      <div
+        class="ec-date-range-filter"
+        data-test="ec-date-range-filter"
+      >
+        <div
+          class="ec-date-range-filter__inputs-wrapper"
+        >
+          <div
+            class="ec-input-field ec-date-range-filter__from-input"
+            data-test="ec-input-field"
+          >
+            <label
+              class="ec-input-field__label"
+              data-test="ec-input-field__label"
+              for="ec-input-field-1"
+            >
+              <span
+                class="ec-input-field__label-text"
+                data-test="ec-input-field__label-text"
+              >
+                From
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </label>
+            <input
+              class="ec-input-field__input"
+              data-test="ec-date-range-filter__from-input ec-input-field__input"
+              id="ec-input-field-1"
+              max="2020-04-10"
+              placeholder="dd/mm/yyyy"
+              type="date"
+            />
+            <!--v-if-->
+            <!--v-if-->
+            <!--v-if-->
+          </div>
+          <div
+            class="ec-input-field ec-date-range-filter__to-input"
+            data-test="ec-input-field"
+          >
+            <label
+              class="ec-input-field__label"
+              data-test="ec-input-field__label"
+              for="ec-input-field-2"
+            >
+              <span
+                class="ec-input-field__label-text"
+                data-test="ec-input-field__label-text"
+              >
+                To
+                <!--v-if-->
+              </span>
+              <!--v-if-->
+            </label>
+            <input
+              class="ec-input-field__input"
+              data-test="ec-date-range-filter__to-input ec-input-field__input"
+              id="ec-input-field-2"
+              min="2020-03-14"
+              placeholder="dd/mm/yyyy"
+              type="date"
+            />
+            <!--v-if-->
+            <!--v-if-->
+            <!--v-if-->
           </div>
         </div>
         <!--v-if-->

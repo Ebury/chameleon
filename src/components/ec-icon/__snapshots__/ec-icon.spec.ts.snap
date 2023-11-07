@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcIcon should pass custom attributes 1`] = `
+exports[`EcIcon > should pass custom attributes 1`] = `
 <svg
-  class="ec-icon"
+  class="ec-icon my-class"
   data-test="my-custom-icon"
   id="my-icon"
 >
@@ -12,7 +12,7 @@ exports[`EcIcon should pass custom attributes 1`] = `
 </svg>
 `;
 
-exports[`EcIcon should render properly when a name was given 1`] = `
+exports[`EcIcon > should render properly when a name was given 1`] = `
 <svg
   class="ec-icon"
 >
@@ -22,7 +22,7 @@ exports[`EcIcon should render properly when a name was given 1`] = `
 </svg>
 `;
 
-exports[`EcIcon should use the given size prop 1`] = `
+exports[`EcIcon > should use the given size prop 1`] = `
 <svg
   class="ec-icon"
   height="16"
@@ -34,7 +34,7 @@ exports[`EcIcon should use the given size prop 1`] = `
 </svg>
 `;
 
-exports[`EcIcon should use the type "error" 1`] = `
+exports[`EcIcon > should use the type "error" 1`] = `
 <svg
   class="ec-icon ec-icon--error"
 >
@@ -44,7 +44,7 @@ exports[`EcIcon should use the type "error" 1`] = `
 </svg>
 `;
 
-exports[`EcIcon should use the type "info" 1`] = `
+exports[`EcIcon > should use the type "info" 1`] = `
 <svg
   class="ec-icon ec-icon--info"
 >
@@ -54,7 +54,7 @@ exports[`EcIcon should use the type "info" 1`] = `
 </svg>
 `;
 
-exports[`EcIcon should use the type "success" 1`] = `
+exports[`EcIcon > should use the type "success" 1`] = `
 <svg
   class="ec-icon ec-icon--success"
 >
@@ -64,7 +64,7 @@ exports[`EcIcon should use the type "success" 1`] = `
 </svg>
 `;
 
-exports[`EcIcon should use the type "undefined" 1`] = `
+exports[`EcIcon > should use the type "undefined" 1`] = `
 <svg
   class="ec-icon"
 >
@@ -74,7 +74,7 @@ exports[`EcIcon should use the type "undefined" 1`] = `
 </svg>
 `;
 
-exports[`EcIcon should use the type "warning" 1`] = `
+exports[`EcIcon > should use the type "warning" 1`] = `
 <svg
   class="ec-icon ec-icon--warning"
 >

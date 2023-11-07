@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 import EcBtnDropdown from './ec-btn-dropdown.vue';
 
@@ -23,9 +24,29 @@ describe('EcBtnDropdown', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render with custom attributes', () => {
+    const wrapper = mountBtnDropdown({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render with a list of options on the dropdown search', () => {
     const wrapper = mountBtnDropdown({ items });
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render as opened while the dropdown is opened', async () => {
+    const wrapper = mountBtnDropdown();
+    await wrapper.findByDataTest('ec-popover-stub').trigger('show');
+    expect(wrapper.element).toMatchSnapshot('opened');
+
+    await wrapper.findByDataTest('ec-popover-stub').trigger('hide');
+    expect(wrapper.element).toMatchSnapshot('closed');
   });
 
   it('should use given list-data-test prop', () => {
@@ -55,10 +76,10 @@ describe('EcBtnDropdown', () => {
   });
 
   it("should attach 'attrs' to the rendered anchor", async () => {
-    const clickSpy = jest.fn();
+    const clickSpy = vi.fn();
     const wrapper = mountBtnDropdown({
       items: [{
-        href: '/convert-and-pay/',
+        href: '#/convert-and-pay/',
         attrs: {
           id: 'item-link-id',
           onClick: clickSpy,
@@ -73,7 +94,7 @@ describe('EcBtnDropdown', () => {
   });
 
   it('should emit a click event when the CTA button is clicked', async () => {
-    const clickSpy = jest.fn();
+    const clickSpy = vi.fn();
     const wrapper = mountBtnDropdown({}, { attrs: { onClick: clickSpy } });
     await wrapper.findByDataTest('ec-btn-dropdown__btn').trigger('click');
     expect(clickSpy).toHaveBeenCalledTimes(1);
@@ -81,10 +102,10 @@ describe('EcBtnDropdown', () => {
 
   describe('when a menu item is disabled', () => {
     it('should be a non clickable DOM element', async () => {
-      const clickSpy = jest.fn();
+      const clickSpy = vi.fn();
       const wrapper = mountBtnDropdown({
         items: [{
-          href: 'convert-and-pay',
+          href: '#/convert-and-pay',
           attrs: {
             onClick: clickSpy,
           },
@@ -115,7 +136,7 @@ describe('EcBtnDropdown', () => {
         },
         {
           attrs: {},
-          href: '/payments/?add-new-payment',
+          href: '#/payments/',
           value: 'pay',
           text: 'Pay',
           disabled: true,
