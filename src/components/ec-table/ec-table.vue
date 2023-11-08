@@ -81,7 +81,7 @@ import EcTableHead from '../ec-table-head';
 import type { StickyColumnPosition, TableHeadColumn, TableHeadSort } from '../ec-table-head/types';
 import type { TableEvent, TableEvents } from './types';
 
-const isInCustomRowThreshold = useMediaQuery('(max-width: 768px)');
+const isInCustomRowThreshold = useMediaQuery('(max-width: 767px)');
 const slots = useSlots();
 const attrs = useAttrs();
 

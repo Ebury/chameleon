@@ -233,7 +233,7 @@ describe('EcSmartTable', () => {
 
     it('should render custom row if window width is lower than 768px', () => {
       window.matchMedia = vi.fn().mockImplementation(query => ({
-        matches: query === '(max-width: 768px)',
+        matches: query === '(max-width: 767px)',
         media: '',
         onchange: null,
         addListener: vi.fn(),

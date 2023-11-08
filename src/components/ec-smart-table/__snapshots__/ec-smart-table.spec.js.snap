@@ -198,7 +198,7 @@ exports[`EcSmartTable > #slots > should render empty data with custom template, 
   
   <!--v-if-->
   <div
-    class="ec-smart-table-heading"
+    class="ec-smart-table-heading ec-smart-table-heading--is-responsive"
   >
     <!--v-if-->
     <div
@@ -230,7 +230,7 @@ exports[`EcSmartTable > #slots > should render empty data with header-actions sl
   
   <!--v-if-->
   <div
-    class="ec-smart-table-heading"
+    class="ec-smart-table-heading ec-smart-table-heading--is-responsive"
   >
     <!--v-if-->
     <div
@@ -260,7 +260,7 @@ exports[`EcSmartTable > #slots > should render empty data with header-actions sl
   
   <!--v-if-->
   <div
-    class="ec-smart-table-heading"
+    class="ec-smart-table-heading ec-smart-table-heading--is-responsive"
   >
     <!--v-if-->
     <div
@@ -324,7 +324,7 @@ exports[`EcSmartTable > #slots > should render error with custom template, custo
   
   <!--v-if-->
   <div
-    class="ec-smart-table-heading"
+    class="ec-smart-table-heading ec-smart-table-heading--is-responsive"
   >
     <!--v-if-->
     <div
@@ -356,7 +356,7 @@ exports[`EcSmartTable > #slots > should render in empty state by default with th
   
   <!--v-if-->
   <div
-    class="ec-smart-table-heading"
+    class="ec-smart-table-heading ec-smart-table-heading--is-responsive"
   >
     <!--v-if-->
     <div
@@ -386,7 +386,7 @@ exports[`EcSmartTable > #slots > should render resolved data properly with the h
   
   <!--v-if-->
   <div
-    class="ec-smart-table-heading"
+    class="ec-smart-table-heading ec-smart-table-heading--is-responsive"
   >
     <!--v-if-->
     <div
@@ -689,7 +689,7 @@ exports[`EcSmartTable > filtering > should render the given filters 1`] = `
 
 exports[`EcSmartTable > filtering > should reset the page after changes in filters and reload the table data > pagination after changing the filters 1`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
@@ -851,7 +851,7 @@ exports[`EcSmartTable > filtering > should reset the page after changes in filte
 
 exports[`EcSmartTable > filtering > should reset the page after changes in filters and reload the table data > pagination after loading new page 1`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
@@ -1027,7 +1027,7 @@ exports[`EcSmartTable > pagination > should pass pages slot into the pagination 
 
 exports[`EcSmartTable > pagination > should re-fetch the data when page size is changed > pagination after loading new page 1`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
@@ -1190,7 +1190,7 @@ exports[`EcSmartTable > pagination > should re-fetch the data when page size is 
 
 exports[`EcSmartTable > pagination > should re-fetch the data when prev page is selected > pagination after loading new page 1`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
@@ -1352,7 +1352,7 @@ exports[`EcSmartTable > pagination > should re-fetch the data when prev page is 
 
 exports[`EcSmartTable > pagination > should re-fetch the data when prev page is selected 1`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
@@ -1527,7 +1527,7 @@ exports[`EcSmartTable > pagination > should render footer slot inside of the pag
         
         
         <div
-          class="ec-table-pagination"
+          class="ec-table-pagination ec-table-pagination--is-responsive"
           data-test="ec-smart-table-pagination ec-table-pagination"
         >
           <div
@@ -1728,7 +1728,7 @@ exports[`EcSmartTable > pagination > should render footer slot when pagination i
 
 exports[`EcSmartTable > pagination > should render pagination when it's enabled 1`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
@@ -1890,7 +1890,7 @@ exports[`EcSmartTable > pagination > should render pagination when it's enabled 
 
 exports[`EcSmartTable > pagination > should render pagination when it's enabled and changed 1`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div
@@ -2051,7 +2051,7 @@ exports[`EcSmartTable > pagination > should render pagination when it's enabled 
 
 exports[`EcSmartTable > pagination > should render pagination when it's enabled and changed 2`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-smart-table-pagination ec-table-pagination"
 >
   <div

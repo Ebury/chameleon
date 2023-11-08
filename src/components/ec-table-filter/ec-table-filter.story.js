@@ -120,7 +120,7 @@ const AllTemplate = storyArgs => ({
   setup() {
     const { modelValue: model, filters } = toRefs(storyArgs);
 
-    const areFiltersHidden = useMediaQuery('(max-width: 768px)');
+    const areFiltersHidden = useMediaQuery('(max-width: 767px)');
     const someFiltersHidden = reactive([{
       label: 'Payment status',
       name: 'paymentStatus',

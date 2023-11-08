@@ -365,7 +365,7 @@ exports[`EcTablePagination > should display the page size dropdown with preselec
 
 exports[`EcTablePagination > should render as expected 1`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-table-pagination"
 >
   <div
