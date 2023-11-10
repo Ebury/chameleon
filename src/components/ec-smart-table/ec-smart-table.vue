@@ -266,11 +266,11 @@ watch(() => canLoadMore.value, () => {
 });
 
 function onLoadMore() {
-  console.log('fetch', props.totalRecords, props.data.length);
+  console.log('fetch', props.totalRecords, props.data.length, page.value);
   emit('fetch', {
-    page: page.value + 1,
-    numberOfItems: numberOfItems.value,
-    sorts: sorts.value,
+    page: props.pagination.page + 1,
+    numberOfItems: props.pagination.numberOfItems,
+    sorts: props.pagination.sorts,
   });
 }
 
@@ -284,9 +284,7 @@ const payload = computed(() => ({
 }));
 
 watch(payload, () => {
-  if (!props.isInfiniteScrollEnabled) {
-    emit('fetch', payload.value);
-  }
+  emit('fetch', payload.value);
 }, {
   immediate: true,
 });
