@@ -1,7 +1,7 @@
 <template>
   <div
     ref="scrollContainer"
-    class="ec-smart-table infinite-scroll"
+    class="ec-smart-table"
     :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-smart-table` : 'ec-smart-table'"
   >
     <ec-smart-table-heading
@@ -138,7 +138,6 @@
 </template>
 
 <script setup>
-// import { useInfiniteScroll } from '@vueuse/core';
 import { useIntersectionObserver } from '@vueuse/core';
 import {
   computed, ref, unref, useAttrs, useSlots, watch,
@@ -218,22 +217,8 @@ const props = defineProps({
 
 const scrollContainer = ref(null);
 const intersectionTarget = ref(null);
-const fakePaginationValues = {
-  numberOfItems: 10,
-  page: 1,
-  sorts: {},
-};
 
 const canLoadMore = computed(() => props.data.length < props.totalRecords);
-
-// useInfiniteScroll(
-//   scrollContainer,
-//   onLoadMore,
-//   {
-//     distance: 10,
-//     interval: 1000,
-//   },
-// );
 
 const { stop: stopIntersectionObserver } = useIntersectionObserver(
   intersectionTarget,
@@ -246,21 +231,10 @@ const { stop: stopIntersectionObserver } = useIntersectionObserver(
 
 function onLoadMore() {
   console.log('fetch', props.totalRecords, props.data.length);
-  /*
-    By increasing numberOfItems we can reuse our current fetching methods
-    but we need to re-fetch data that were fetched before
-  */
-  // fakePaginationValues.numberOfItems += 100;
-
-  /*
-    By increasing page we need to modify or add a new fetching methods to not override
-    the data we had, instead we should add they new fetched data to the old one
-  */
-  fakePaginationValues.page += 1;
   emit('fetch', {
-    page: fakePaginationValues.page,
-    numberOfItems: fakePaginationValues.numberOfItems,
-    sorts: fakePaginationValues.sorts,
+    page: props.pagination.page + 1,
+    numberOfItems: props.pagination.numberOfItems,
+    sorts: props.pagination.sorts,
   });
 }
 
@@ -339,10 +313,6 @@ function getEcTableSlots() {
 </script>
 
 <style>
-.infinite-scroll {
-  /* @apply tw-h-screen tw-overflow-y-scroll; */
-}
-
 .ec-smart-table {
   &__intersection-target {
     @apply tw-flex tw-justify-center;
