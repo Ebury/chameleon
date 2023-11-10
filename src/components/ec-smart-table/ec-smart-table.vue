@@ -215,36 +215,6 @@ const props = defineProps({
   },
 });
 
-const scrollContainer = ref(null);
-const intersectionTarget = ref(null);
-
-const canLoadMore = computed(() => props.data.length < props.totalRecords);
-
-const { stop: stopIntersectionObserver } = useIntersectionObserver(
-  intersectionTarget,
-  ([{ isIntersecting }]) => {
-    if (isIntersecting) {
-      onLoadMore();
-    }
-  },
-);
-
-function onLoadMore() {
-  console.log('fetch', props.totalRecords, props.data.length);
-  emit('fetch', {
-    page: props.pagination.page + 1,
-    numberOfItems: props.pagination.numberOfItems,
-    sorts: props.pagination.sorts,
-  });
-}
-
-watch(() => canLoadMore.value, () => {
-  if (!canLoadMore.value) {
-    stopIntersectionObserver();
-    console.log('IntersectionObserver stopped');
-  }
-});
-
 // sorting
 const { sorts, sortBy } = useEcSorting({
   initialSorts: props.sorts, isMultiSort: props.isMultiSort, sortCycle: props.sortCycle,
@@ -274,6 +244,36 @@ function onFilterChanged(filters) {
   emit('update:filter', filters);
 }
 
+// infinite scroll
+const intersectionTarget = ref(null);
+
+const canLoadMore = computed(() => props.data.length < props.totalRecords);
+
+const { stop: stopIntersectionObserver } = useIntersectionObserver(
+  intersectionTarget,
+  ([{ isIntersecting }]) => {
+    if (isIntersecting) {
+      onLoadMore();
+    }
+  },
+);
+
+watch(() => canLoadMore.value, () => {
+  if (!canLoadMore.value) {
+    stopIntersectionObserver();
+    console.log('IntersectionObserver stopped');
+  }
+});
+
+function onLoadMore() {
+  console.log('fetch', props.totalRecords, props.data.length);
+  emit('fetch', {
+    page: page.value + 1,
+    numberOfItems: numberOfItems.value,
+    sorts: sorts.value,
+  });
+}
+
 // fetching
 const payload = computed(() => ({
   page: unref(page),
@@ -284,7 +284,9 @@ const payload = computed(() => ({
 }));
 
 watch(payload, () => {
-  emit('fetch', payload.value);
+  if (!props.isInfiniteScrollEnabled) {
+    emit('fetch', payload.value);
+  }
 }, {
   immediate: true,
 });
