@@ -261,12 +261,11 @@ const { stop: stopIntersectionObserver } = useIntersectionObserver(
 watch(() => canLoadMore.value, () => {
   if (!canLoadMore.value) {
     stopIntersectionObserver();
-    console.log('IntersectionObserver stopped');
   }
 });
 
 function onLoadMore() {
-  console.log('fetch', props.totalRecords, props.data.length, page.value);
+  console.log('fetch');
   emit('fetch', {
     page: props.pagination.page + 1,
     numberOfItems: props.pagination.numberOfItems,

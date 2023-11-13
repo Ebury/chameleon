@@ -214,6 +214,32 @@ function useSmartTableSetup(args) {
     isFetching, error, data, onFetch, execute,
   } = useSmartTableFetch({}, { fetch: fakeFetch, urlBuilder });
 
+  // infinite scroll
+  const {
+    data: infiniteScrollData, onFetch: infiniteScrollFetch,
+  } = useSmartTableFetch({}, { fetch: fakeFetch, urlBuilder });
+  const infiniteScrollMappedData = ref([...args.fakeData]);
+
+  function getInfiniteScrollMappedData(payload) {
+    infiniteScrollFetch(payload);
+
+    if (args.pagination.sorts[0] && payload.sorts.length > 0) {
+      if (args.pagination.sorts[0].column !== payload.sorts[0].column || args.pagination.sorts[0].direction !== payload.sorts[0].direction) {
+        infiniteScrollMappedData.value = [...infiniteScrollData.value ? infiniteScrollData.value.items : []];
+      }
+    } else if (payload.sorts.length === 0) {
+      infiniteScrollMappedData.value = [...infiniteScrollData.value ? infiniteScrollData.value.items : []];
+    }
+
+    // 1 second delay to show the loading icon
+    setTimeout(() => {
+      infiniteScrollMappedData.value = [
+        ...infiniteScrollMappedData.value,
+        ...infiniteScrollData.value ? infiniteScrollData.value.items : [],
+      ];
+    }, 1000);
+  }
+
   return {
     data,
     isFetching,
@@ -223,6 +249,8 @@ function useSmartTableSetup(args) {
     sortCycle,
     filters,
     selectedFilter,
+    infiniteScrollMappedData,
+    getInfiniteScrollMappedData,
     onSort: action('sort'),
     onAbort: action('abort'),
     onError: action('error'),
@@ -313,6 +341,7 @@ basic.args = {
   pagination: {
     page: 2,
     numberOfItems: 5,
+    sorts: defaultSorts,
   },
   isMultiSort: false,
   additionalPayload: { customProp: 'customValue' },
@@ -530,7 +559,7 @@ export const all = args => ({
         <ec-smart-table
           v-bind="{
             ...args,
-            data: data?.items,
+            data: infiniteScrollMappedData,
             totalRecords: data?.total ?? 0,
             isFetching,
             error,
@@ -545,10 +574,10 @@ export const all = args => ({
             prefilter: null,
             isCustomRowShown: false,
             isPaginationEnabled: false,
-            isInfiniteScrollEnabled:true,
+            isInfiniteScrollEnabled: true,
           }"
           v-on="{
-            fetch: onFetch,
+            fetch: getInfiniteScrollMappedData,
             sort: onSort,
             abort: onAbort,
             error: onError,
