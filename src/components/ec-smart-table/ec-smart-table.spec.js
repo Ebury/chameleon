@@ -16,7 +16,7 @@ describe('EcSmartTable', () => {
 
   const data = {
     count: 1,
-    total: 1,
+    total: 5,
     items: [[1, 2, 3]],
   };
 
@@ -675,6 +675,24 @@ describe('EcSmartTable', () => {
         ...additionalPayload,
         prop1: 'value3',
       }]);
+    });
+  });
+
+  describe('infiniteScroll', () => {
+    it('should render the element "intersectionTarget" if "isInfiniteScrollEnabled" prop is true', () => {
+      const wrapper = mountEcSmartTableWithData(data, {
+        isInfiniteScrollEnabled: true,
+      });
+      const intersectionTarget = wrapper.findByDataTest('ec-smart-table__intersection-target');
+      expect(intersectionTarget.element).toMatchSnapshot();
+    });
+
+    it('should not render EcLoading loading SVG if "isInfiniteScrollEnabled" prop is true', () => {
+      const wrapper = mountEcSmartTableWithData(data, {
+        isInfiniteScrollEnabled: true,
+      });
+      const ecLoadingBackdrop = wrapper.findByDataTest('ec-loading__backdrop');
+      expect(ecLoadingBackdrop.exists()).toBe(false);
     });
   });
 });

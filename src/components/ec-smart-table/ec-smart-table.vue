@@ -275,9 +275,7 @@ const payload = computed(() => ({
 }));
 
 watch(payload, () => {
-  if (!props.isInfiniteScrollEnabled) {
-    emit('fetch', payload.value);
-  }
+  emit('fetch', payload.value);
 }, {
   immediate: !props.isInfiniteScrollEnabled,
 });
