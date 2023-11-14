@@ -1,6 +1,5 @@
 <template>
   <div
-    ref="scrollContainer"
     class="ec-smart-table"
     :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-smart-table` : 'ec-smart-table'"
   >
@@ -124,6 +123,7 @@
           ref="intersectionTarget"
           v-if="isInfiniteScrollEnabled && canLoadMore"
           class="ec-smart-table__intersection-target"
+          data-test="ec-smart-table__intersection-target"
         >
           <ec-icon
             :name="IconName.SimpleLoading"
@@ -247,13 +247,14 @@ function onFilterChanged(filters) {
 // infinite scroll
 const intersectionTarget = ref(null);
 
-const canLoadMore = computed(() => props.data.length < props.totalRecords);
+const canLoadMore = computed(() => props.data && props.data.length < props.totalRecords);
 
 const { stop: stopIntersectionObserver } = useIntersectionObserver(
   intersectionTarget,
   ([{ isIntersecting }]) => {
-    if (isIntersecting) {
-      onLoadMore();
+    if (isIntersecting && !props.isFetching) {
+      page.value += 1;
+      emit('fetch', payload.value);
     }
   },
 );
@@ -263,15 +264,6 @@ watch(() => canLoadMore.value, () => {
     stopIntersectionObserver();
   }
 });
-
-function onLoadMore() {
-  console.log('fetch');
-  emit('fetch', {
-    page: props.pagination.page + 1,
-    numberOfItems: props.pagination.numberOfItems,
-    sorts: props.pagination.sorts,
-  });
-}
 
 // fetching
 const payload = computed(() => ({
@@ -283,9 +275,11 @@ const payload = computed(() => ({
 }));
 
 watch(payload, () => {
-  emit('fetch', payload.value);
+  if (!props.isInfiniteScrollEnabled) {
+    emit('fetch', payload.value);
+  }
 }, {
-  immediate: true,
+  immediate: !props.isInfiniteScrollEnabled,
 });
 
 const isEmpty = computed(() => (props.data ?? []).length === 0);
