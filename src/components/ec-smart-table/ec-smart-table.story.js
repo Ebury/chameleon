@@ -215,29 +215,34 @@ function useSmartTableSetup(args) {
   } = useSmartTableFetch({}, { fetch: fakeFetch, urlBuilder });
 
   // infinite scroll
-  const {
-    data: infiniteScrollData, onFetch: infiniteScrollFetch,
-  } = useSmartTableFetch({}, { fetch: fakeFetch, urlBuilder });
   const infiniteScrollMappedData = ref([...args.fakeData]);
 
   function getInfiniteScrollMappedData(payload) {
-    infiniteScrollFetch(payload);
-
-    if (args.pagination.sorts[0] && payload.sorts.length > 0) {
-      if (args.pagination.sorts[0].column !== payload.sorts[0].column || args.pagination.sorts[0].direction !== payload.sorts[0].direction) {
-        infiniteScrollMappedData.value = [...infiniteScrollData.value ? infiniteScrollData.value.items : []];
-      }
-    } else if (payload.sorts.length === 0) {
-      infiniteScrollMappedData.value = [...infiniteScrollData.value ? infiniteScrollData.value.items : []];
-    }
-
-    // 1 second delay to show the loading icon
+    // 500ms delay to show the loading icon
     setTimeout(() => {
+      if (!payload.sorts.length) {
+        payload.sorts = defaultSorts;
+      }
+
+      const areSortsDifferent = payload.sorts[0].column !== args.pagination.sorts[0].column
+      || payload.sorts[0].direction !== args.pagination.sorts[0].direction;
+
+      if (areSortsDifferent) {
+        infiniteScrollMappedData.value = [];
+
+        args.pagination.sorts = payload.sorts.length
+          ? [{
+            column: payload.sorts[0].column,
+            direction: payload.sorts[0].direction,
+          }]
+          : defaultSorts;
+      }
+
       infiniteScrollMappedData.value = [
         ...infiniteScrollMappedData.value,
-        ...infiniteScrollData.value ? infiniteScrollData.value.items : [],
+        ...args.fakeData,
       ];
-    }, 1000);
+    }, 500);
   }
 
   return {
