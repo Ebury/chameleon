@@ -140,7 +140,7 @@
 <script setup>
 import { useIntersectionObserver } from '@vueuse/core';
 import {
-  computed, ref, unref, useAttrs, useSlots, watch,
+  computed, onMounted, ref, unref, useAttrs, useSlots, watch,
 } from 'vue';
 
 import useEcPagination from '../../composables/use-ec-pagination';
@@ -244,27 +244,6 @@ function onFilterChanged(filters) {
   emit('update:filter', filters);
 }
 
-// infinite scroll
-const intersectionTarget = ref(null);
-
-const canLoadMore = computed(() => props.data && props.data.length < props.totalRecords);
-
-const { stop: stopIntersectionObserver } = useIntersectionObserver(
-  intersectionTarget,
-  ([{ isIntersecting }]) => {
-    if (isIntersecting && !props.isFetching) {
-      page.value += 1;
-      emit('fetch', payload.value);
-    }
-  },
-);
-
-watch(() => canLoadMore.value, () => {
-  if (!canLoadMore.value) {
-    stopIntersectionObserver();
-  }
-});
-
 // fetching
 const payload = computed(() => ({
   page: unref(page),
@@ -301,6 +280,31 @@ function getEcTableSlots() {
   delete tableSlots.pages;
   return tableSlots;
 }
+
+// infinite scroll
+
+const intersectionTarget = ref(null);
+
+const canLoadMore = computed(() => props.data && props.data.length < props.totalRecords);
+
+onMounted(() => {
+  const { stop: stopIntersectionObserver } = useIntersectionObserver(
+    intersectionTarget,
+    /* c8 ignore start */
+    ([{ isIntersecting }]) => {
+      if (isIntersecting && !props.isFetching) {
+        page.value += 1;
+      }
+    },
+    /* c8 ignore stop */
+  );
+
+  watch(() => canLoadMore.value, () => {
+    if (!canLoadMore.value) {
+      stopIntersectionObserver();
+    }
+  });
+});
 </script>
 
 <style>
