@@ -694,5 +694,44 @@ describe('EcSmartTable', () => {
       const ecLoadingBackdrop = wrapper.findByDataTest('ec-loading__backdrop');
       expect(ecLoadingBackdrop.exists()).toBe(false);
     });
+
+    describe('intersectionObserver', () => {
+      const IntersectionObserverMock = {
+        disconnect: vi.fn(),
+        observe: vi.fn(),
+        takeRecords: vi.fn(() => [{
+          isIntersecting: true,
+        }]),
+        unobserve: vi.fn(),
+      };
+
+      beforeAll(() => {
+        window.IntersectionObserver = vi.fn(() => IntersectionObserverMock);
+      });
+
+      afterAll(() => {
+        window.IntersectionObserver.mockRestore();
+      });
+
+      it('should start observing when the component is mounted', () => {
+        mountEcSmartTableWithData(data, {
+          isInfiniteScrollEnabled: true,
+        });
+
+        expect(IntersectionObserverMock.observe).toHaveBeenCalled();
+      });
+
+      it('should disconnect the observer when there are no more data to load', async () => {
+        const wrapper = mountEcSmartTableWithData(data, {
+          isInfiniteScrollEnabled: true,
+        });
+
+        await wrapper.setProps({
+          data: emptyData,
+        });
+
+        expect(IntersectionObserverMock.disconnect).toHaveBeenCalled();
+      });
+    });
   });
 });
