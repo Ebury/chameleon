@@ -120,7 +120,7 @@
           /></template>
         </ec-table>
         <div
-          ref="intersectionTarget"
+          ref="tableEndDetector"
           v-if="isInfiniteScrollEnabled && canLoadMore"
           class="ec-smart-table__intersection-target"
           data-test="ec-smart-table__intersection-target"
@@ -283,13 +283,13 @@ function getEcTableSlots() {
 
 // infinite scroll
 
-const intersectionTarget = ref(null);
+const tableEndDetector = ref(null);
 
 const canLoadMore = computed(() => props.data && props.data.length < props.totalRecords);
 
 onMounted(() => {
   const { stop: stopIntersectionObserver } = useIntersectionObserver(
-    intersectionTarget,
+    tableEndDetector,
     /* c8 ignore start */
     ([{ isIntersecting }]) => {
       if (isIntersecting && !props.isFetching) {
