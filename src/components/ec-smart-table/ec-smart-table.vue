@@ -122,8 +122,8 @@
         <div
           ref="tableEndDetector"
           v-if="isInfiniteScrollEnabled && canLoadMore"
-          class="ec-smart-table__intersection-target"
-          data-test="ec-smart-table__intersection-target"
+          class="ec-smart-table__table-end-detector"
+          data-test="ec-smart-table__table-end-detector"
         >
           <ec-icon
             :name="IconName.SimpleLoading"
@@ -309,7 +309,7 @@ onMounted(() => {
 
 <style>
 .ec-smart-table {
-  &__intersection-target {
+  &__table-end-detector {
     @apply tw-flex tw-justify-center;
     @apply tw-mt-40;
   }

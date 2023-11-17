@@ -1013,10 +1013,10 @@ exports[`EcSmartTable > filtering > should reset the page after changes in filte
 </div>
 `;
 
-exports[`EcSmartTable > infiniteScroll > should render the element "intersectionTarget" if "isInfiniteScrollEnabled" prop is true 1`] = `
+exports[`EcSmartTable > infiniteScroll > should render the element "tableEndDetector" if "isInfiniteScrollEnabled" prop is true 1`] = `
 <div
-  class="ec-smart-table__intersection-target"
-  data-test="ec-smart-table__intersection-target"
+  class="ec-smart-table__table-end-detector"
+  data-test="ec-smart-table__table-end-detector"
 >
   <svg
     class="ec-icon ec-loading__icon"

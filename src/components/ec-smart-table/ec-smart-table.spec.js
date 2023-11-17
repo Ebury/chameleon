@@ -679,12 +679,12 @@ describe('EcSmartTable', () => {
   });
 
   describe('infiniteScroll', () => {
-    it('should render the element "intersectionTarget" if "isInfiniteScrollEnabled" prop is true', () => {
+    it('should render the element "tableEndDetector" if "isInfiniteScrollEnabled" prop is true', () => {
       const wrapper = mountEcSmartTableWithData(data, {
         isInfiniteScrollEnabled: true,
       });
-      const intersectionTarget = wrapper.findByDataTest('ec-smart-table__intersection-target');
-      expect(intersectionTarget.element).toMatchSnapshot();
+      const tableEndDetector = wrapper.findByDataTest('ec-smart-table__table-end-detector');
+      expect(tableEndDetector.element).toMatchSnapshot();
     });
 
     it('should not render EcLoading loading SVG if "isInfiniteScrollEnabled" prop is true', () => {
