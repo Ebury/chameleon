@@ -1348,69 +1348,65 @@ function flexboxGridPlugin({ addUtilities, theme }) {
     throw new Error('Number of columns must be a positive number');
   }
 
-  const config = {
-    variants: ['responsive'],
-  };
-
   addUtilities({
-    '.grid-container': {
+    '.flex-grid-container': {
       width: '100%',
       paddingRight: theme(`spacing.${gutter / 2}`),
       paddingLeft: theme(`spacing.${gutter / 2}`),
     },
-    '.grid': {
+    '.flex-grid': {
       display: 'flex',
       flexWrap: 'wrap',
       marginRight: `-${theme(`spacing.${gutter / 2}`)}`,
       marginLeft: `-${theme(`spacing.${gutter / 2}`)}`,
     },
-  }, config);
+  });
 
   const colClasses = [];
   for (let i = 1; i <= numberOfColumns; i++) {
-    colClasses.push(`.col-${i}`);
+    colClasses.push(`.flex-col-${i}`);
   }
 
-  for (const colClass of ['.col-full', '.col', '.col-auto', ...colClasses]) {
+  for (const colClass of ['.flex-col-full', '.flex-col-spread', '.flex-col-auto', ...colClasses]) {
     addUtilities({
       [colClass]: {
         width: '100%',
         padding: theme(`spacing.${gutter / 2}`),
         minHeight: theme('minHeight.1'),
       },
-    }, config);
+    });
   }
 
-  for (const colClass of ['.col', ...colClasses]) {
+  for (const colClass of ['.flex-col-spread', ...colClasses]) {
     addUtilities({
       [colClass]: {
         maxWidth: '100%',
         flexGrow: 1,
         flexBasis: 0,
       },
-    }, config);
+    });
   }
 
   for (let i = 1; i <= numberOfColumns; i++) {
     const percentage = theme(`width.${i}/${numberOfColumns}`);
     addUtilities({
-      [`.col-${i}`]: {
+      [`.flex-col-${i}`]: {
         flex: `0 0 ${percentage}`,
         maxWidth: `${percentage}`,
       },
-      [`.offset-${i}`]: {
+      [`.flex-col-offset-${i}`]: {
         marginLeft: `${percentage}`,
       },
-    }, config);
+    });
   }
 
   addUtilities({
-    '.col-auto': {
+    '.flex-col-auto': {
       flex: '0 0 auto',
       maxWidth: 'none',
       width: 'auto',
     },
-  }, config);
+  });
 }
 
 function stopColorPlugin({ matchUtilities, theme }) {
