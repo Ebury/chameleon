@@ -155,67 +155,67 @@ export const all: AllInputFieldStory = storyArgs => ({
     };
   },
   template: `
-    <div class="tw-grid-container">
-      <div class="tw-grid">
-        <div class="tw-col-full md:tw-col-4">
+    <div class="tw-flex-grid-container">
+      <div class="tw-flex-grid">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model.number="valueNumber" type="number" min="5" max="10" :note="noteNumber" :label="labelNumber" :error-message="errorMessageNumber" :icon="iconNumber" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model="valueText" type="text" placeholder="My input" :note="noteText" :label="labelText" :error-message="errorMessageText" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model="valueDate" type="date" placeholder="My input" :note="noteDate" :label="labelDate" :error-message="errorMessageDate" :icon="iconDate" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model="valueText" disabled placeholder="My disabled input" label="Disabled input" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model="valueText" disabled placeholder="My disabled input" label="Disabled input" error-message="Disabled with error" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model="valueText" placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" label="Input with icons" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field readonly placeholder="My input" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores." label="Read only input with long text" :icon="iconText" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model="valueText" placeholder="Another input" label="Input tooltip on the label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model="valueText" placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" label="Short label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model="valueText" placeholder="My input" icon="${IconName.SimpleInfo}" label="Input with bottom note" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field v-model="valueText" placeholder="My input" left-icon-type="${IconType.SUCCESS}" left-icon="${IconName.SimpleChevronRight}" icon="${IconName.SimpleCheck}" icon-type="${IconType.SUCCESS}" label="Input with success green icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-input-field readonly placeholder="My input" left-icon="${IconName.SimpleSearch}" :model-value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
         </div>
 
-        <div class="tw-col-full" />
+        <div class="tw-flex-col-full" />
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           Model value number: {{ valueNumber }}
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           Model value text: {{ valueText }}
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           Model value date: {{ valueDate }}
         </div>
       </div>
