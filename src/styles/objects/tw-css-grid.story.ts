@@ -44,7 +44,12 @@ export const Basic: StoryObj<BasicCssGridStoryProps> = {
       control: { type: 'select' },
     },
     gap: {
-      options: ['', 'tw-gap', 'tw-gap-4', 'tw-gap-8', 'tw-gap-12', 'tw-gap-16', 'tw-gap-20', 'tw-gap-24'],
+      options: [
+        '',
+        'tw-gap', 'tw-gap-4', 'tw-gap-8', 'tw-gap-12', 'tw-gap-16', 'tw-gap-20', 'tw-gap-24',
+        'tw-gap-x', 'tw-gap-x-4', 'tw-gap-x-8', 'tw-gap-x-12', 'tw-gap-x-16', 'tw-gap-x-20', 'tw-gap-x-24',
+        'tw-gap-y', 'tw-gap-y-4', 'tw-gap-y-8', 'tw-gap-y-12', 'tw-gap-y-16', 'tw-gap-y-20', 'tw-gap-y-24',
+      ],
       control: { type: 'select' },
     },
     autoColumns: {
