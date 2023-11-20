@@ -12,7 +12,9 @@ module.exports = {
     './.storybook/*.{js,ts}',
   ],
   safelist: [
-    { pattern: /^tw-bg-gray-\d+$/ },
+    { pattern: /^tw-bg-gray-\d+$/ }, // for ec-full-screen-overlay.vue
+    { pattern: /^tw-grid-(cols|rows)-\d+$/ }, // for tw-css-grid.story.ts
+    { pattern: /^tw-(col|row)-span-\d+$/ }, // for tw-css-grid.story.ts
   ],
   prefix: 'tw-',
   important: false,
@@ -460,6 +462,15 @@ module.exports = {
     //   black: '900',
     // },
     // gap: ({ theme }) => theme('spacing'),
+    gap: ({ theme }) => ({
+      4: theme('spacing.4'),
+      8: theme('spacing.8'),
+      12: theme('spacing.12'),
+      16: theme('spacing.16'),
+      20: theme('spacing.20'),
+      24: theme('spacing.24'),
+      DEFAULT: theme('spacing.24'),
+    }),
     // gradientColorStops: ({ theme }) => theme('colors'),
     // gradientColorStopPositions: {
     //   '0%': '0%',
@@ -1189,11 +1200,11 @@ module.exports = {
     breakInside: true,
     breakAfter: true,
 
-    gridAutoColumns: false, // we don't use CSS grid
-    gridAutoFlow: false, // we don't use CSS grid
-    gridAutoRows: false, // we don't use CSS grid
-    gridTemplateColumns: false, // we don't use CSS grid
-    gridTemplateRows: false, // we don't use CSS grid
+    gridAutoColumns: true,
+    gridAutoFlow: true,
+    gridAutoRows: true,
+    gridTemplateColumns: true,
+    gridTemplateRows: true,
 
     flexDirection: true,
     flexWrap: true,
@@ -1204,7 +1215,7 @@ module.exports = {
     justifyContent: true,
     justifyItems: true,
 
-    gap: false, // we don't use CSS grid
+    gap: true,
 
     space: false, // it's going against BEM
     divideWidth: false, // it's going against BEM
