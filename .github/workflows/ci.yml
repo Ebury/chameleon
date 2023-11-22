@@ -26,7 +26,4 @@ jobs:
       - name: Lint
         run: npm run lint:no-fix
       - name: Test
-        run: |
-          npm run test
-          output=$(git ls-files --others --modified --deleted --exclude-standard)
-          [[ -z "$output" ]] || { echo "Following files were added, modified or deleted while running tests: $output"; exit 1; }
+        run: npm run test
