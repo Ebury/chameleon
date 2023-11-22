@@ -1,0 +1,15 @@
+.ec-css-grid-story {
+  @apply tw-bg-key-6;
+
+  &__item {
+    @apply tw-bg-key-4;
+    @apply tw-text-gray-8;
+    @apply tw-py-8;
+    @apply tw-border-key-3 tw-border tw-border-solid;
+    @apply tw-flex tw-items-center tw-justify-center tw-flex-col;
+
+    &--customised {
+      @apply tw-bg-key-3;
+    }
+  }
+}
