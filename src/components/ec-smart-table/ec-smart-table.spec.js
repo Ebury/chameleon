@@ -119,6 +119,15 @@ describe('EcSmartTable', () => {
     expect(onRowClick).toHaveBeenCalledWith({ data: data.items[0], rowIndex: 0 });
   });
 
+  it('should render EcLoading loading SVG if "isInfiniteScrollEnabled" prop is false', () => {
+    const wrapper = mountEcSmartTableWithData(data, {
+      isInfiniteScrollEnabled: false,
+      isFetching: true,
+    });
+    const ecLoadingBackdrop = wrapper.findByDataTest('ec-loading__backdrop');
+    expect(ecLoadingBackdrop.exists()).toBe(true);
+  });
+
   describe('#slots', () => {
     it('should render in empty state by default with the header-actions slot with props', () => {
       const wrapper = mountEcSmartTable({ columns }, {
@@ -690,6 +699,7 @@ describe('EcSmartTable', () => {
     it('should not render EcLoading loading SVG if "isInfiniteScrollEnabled" prop is true', () => {
       const wrapper = mountEcSmartTableWithData(data, {
         isInfiniteScrollEnabled: true,
+        isFetching: true,
       });
       const ecLoadingBackdrop = wrapper.findByDataTest('ec-loading__backdrop');
       expect(ecLoadingBackdrop.exists()).toBe(false);
