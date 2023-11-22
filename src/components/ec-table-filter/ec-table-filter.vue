@@ -7,6 +7,7 @@
     <component
       :is="filter.component"
       v-for="(filter, index) in filters"
+      :ref="filter.isFillingRemainingSpace ? 'fullWidthFilter' : ''"
       v-bind="{
         ...filter,
         modelValue: modelValue[filter.name],
@@ -20,11 +21,15 @@
         'tw-hidden': filter.isHidden,
         'tw-w-full tw-mr-0': filter.isFullWidth,
         'tw-mr-8': !filter.isFullWidth,
+        'tw-grow': filter.isFillingRemainingSpace,
+        'tw-min-w-full': filter.isFillingRemainingSpace && isSearchBelowFilters,
       }"
       @change="onChange(filter.name, $event)"
+      @change:width="onWidthChange"
     />
     <button
-      v-if="hasFilters && !isClearFiltersButtonHidden"
+      ref="clearFiltersButton"
+      v-if="!isComponentMounted || (hasFilters && !isClearFiltersButtonHidden)"
       type="button"
       data-test="ec-table-filter__clear-filters-button"
       class="ec-table-filter__clear-filters-button"
@@ -36,7 +41,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
 defineOptions({
   inheritAttrs: false,
@@ -71,6 +76,17 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'change']);
 
+// In order to get the button width we need to render the button, so we are
+// going to use this flag to render it while the component is not mounted.
+// By doing that users won't be able to notice it
+const isComponentMounted = ref(false);
+
+const clearFiltersButton = ref(null);
+const clearFiltersButtonWidth = ref(0);
+const searchAndClearFiltersButtonMinWidth = computed(() => 200 + clearFiltersButtonWidth.value);
+const isSearchBelowFilters = ref(false);
+const searchMaxSizeWhenBelowFilters = ref(0);
+
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
 
 function update(filters) {
@@ -88,18 +104,36 @@ function onChange(filterName, value) {
   }
 }
 
+function onWidthChange(width) {
+
+  if (!searchMaxSizeWhenBelowFilters.value) {
+    if (width < searchAndClearFiltersButtonMinWidth.value) {
+      isSearchBelowFilters.value = true;
+      searchMaxSizeWhenBelowFilters.value = width;
+    } else {
+      isSearchBelowFilters.value = false;
+    }
+  }
+}
+
 function clearFilters() {
   update({});
 }
+
+onMounted(() => {
+  clearFiltersButtonWidth.value = clearFiltersButton.value.clientWidth;
+  isComponentMounted.value = true;
+});
 </script>
 
 <style>
 .ec-table-filter {
-  @apply tw-block;
+  @apply tw-flex;
   @apply tw-bg-gray-7;
+  @apply tw-w-full;
 
   @screen sm {
-    @apply tw-flex tw-flex-row tw-justify-start tw-flex-wrap tw-items-center;
+    @apply tw-flex tw-flex-row tw-justify-start tw-flex-nowrap tw-items-center;
     @apply tw-bg-gray-8;
     @apply tw-max-w-full;
   }
@@ -117,6 +151,7 @@ function clearFilters() {
 
   &__clear-filters-button {
     @apply tw-self-start;
+    @apply tw-whitespace-nowrap;
   }
 
   &__clear-filters-button,
