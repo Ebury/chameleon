@@ -288,7 +288,10 @@ const tableEndDetector = ref(null);
 const canLoadMore = computed(() => props.data && props.data.length < props.totalRecords);
 
 onMounted(() => {
-  const { stop: stopIntersectionObserver } = useIntersectionObserver(
+  const {
+    pause: pauseIntersectionObserver,
+    resume: resumeIntersectionObserver,
+  } = useIntersectionObserver(
     tableEndDetector,
     /* c8 ignore start */
     ([{ isIntersecting }]) => {
@@ -301,8 +304,10 @@ onMounted(() => {
 
   watch(() => canLoadMore.value, () => {
     if (!canLoadMore.value) {
-      stopIntersectionObserver();
-    }
+      pauseIntersectionObserver();
+    } /* c8 ignore start */ else {
+      resumeIntersectionObserver();
+    } /* c8 ignore stop */
   });
 });
 </script>

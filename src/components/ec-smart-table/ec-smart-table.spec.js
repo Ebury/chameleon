@@ -731,7 +731,7 @@ describe('EcSmartTable', () => {
         expect(IntersectionObserverMock.observe).toHaveBeenCalled();
       });
 
-      it('should disconnect the observer when there are no more data to load', async () => {
+      it('should pause the observer when there are no more data to load', async () => {
         const wrapper = mountEcSmartTableWithData(data, {
           isInfiniteScrollEnabled: true,
         });
