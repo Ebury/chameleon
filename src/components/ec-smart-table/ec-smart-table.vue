@@ -303,11 +303,13 @@ onMounted(() => {
   );
 
   watch(() => canLoadMore.value, () => {
-    if (!canLoadMore.value) {
-      pauseIntersectionObserver();
-    } /* c8 ignore start */ else {
+    /* c8 ignore start */
+    if (canLoadMore.value) {
       resumeIntersectionObserver();
-    } /* c8 ignore stop */
+    /* c8 ignore stop */
+    } else {
+      pauseIntersectionObserver();
+    }
   });
 });
 </script>
