@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 import EcToaster from './ec-toaster.vue';
 
@@ -76,7 +77,7 @@ describe('EcToaster', () => {
       const wrapper = mountToaster({ messages });
       const item = wrapper.findByDataTest('ec-toaster__item').element;
 
-      const spy = jest.spyOn(item, 'removeEventListener');
+      const spy = vi.spyOn(item, 'removeEventListener');
       await wrapper.setProps({ messages: [] });
       expect(spy).toHaveBeenCalledTimes(4);
     });

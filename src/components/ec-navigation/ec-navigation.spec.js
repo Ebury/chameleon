@@ -16,6 +16,17 @@ describe('EcNavigation', () => {
     });
   }
 
+  it('should render with custom attributes', () => {
+    const wrapper = mountNavigation({}, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should throw an error if required props are missing', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcNavigation);

@@ -1,6 +1,9 @@
 <template>
   <div
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-file-dropzone` : 'ec-file-dropzone'"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-file-dropzone` : 'ec-file-dropzone',
+    }"
     class="ec-file-dropzone"
     :class="{
       'ec-file-dropzone--dragging': isDragging && !isDisabled,
@@ -35,7 +38,7 @@
       data-test="ec-file-dropzone__subtitle"
       class="ec-file-dropzone__subtitle"
       :class="{ 'ec-file-dropzone__subtitle--is-disabled': isDisabled }"
-      @click="fileInput.click()"
+      @click="/* c8 ignore next */ fileInput.click()"
     >
       <slot name="subtitle" />
     </div>
@@ -51,6 +54,10 @@ import {
 } from 'vue';
 
 import EcUploadCloud from '../../images/ec-upload-cloud.vue';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const emit = defineEmits(['change']);
 

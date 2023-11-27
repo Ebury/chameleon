@@ -272,11 +272,15 @@ describe('EcCurrencyInput', () => {
       const wrapper = mountCurrencyInput();
 
       await selectItem(wrapper, 1);
+      expect(wrapper.emitted('open').length).toEqual(1);
+      expect(wrapper.emitted('after-open').length).toEqual(1);
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('update:modelValue').length).toEqual(1);
       expect(wrapper.emitted('currency-change').length).toEqual(1);
       await selectItem(wrapper, 2);
+      expect(wrapper.emitted('open').length).toEqual(2);
+      expect(wrapper.emitted('after-open').length).toEqual(2);
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('update:modelValue').length).toEqual(2);
@@ -286,12 +290,16 @@ describe('EcCurrencyInput', () => {
     it('should emit update:modelValue event when amount is set', async () => {
       const wrapper = mountCurrencyInput();
 
+      await wrapper.findByDataTest('ec-currency-input__amount').trigger('focus');
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
+      expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('amount-change').length).toEqual(1);
       expect(wrapper.emitted('update:modelValue').length).toEqual(1);
 
+      await wrapper.findByDataTest('ec-currency-input__amount').trigger('focus');
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('111');
+      expect(wrapper.emitted('focus').length).toEqual(2);
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('amount-change').length).toEqual(2);
       expect(wrapper.emitted('update:modelValue').length).toEqual(2);
@@ -448,7 +456,10 @@ describe('EcCurrencyInput', () => {
 });
 
 async function selectItem(wrapper, index) {
+  await wrapper.findByDataTest('ec-popover-stub').trigger('show');
   await wrapper.findByDataTest('ec-currency-input__currencies').trigger('mousedown');
   await wrapper.findByDataTest('ec-currency-input__currencies').trigger('focus');
+  await wrapper.findByDataTest('ec-popover-stub').trigger('apply-show');
   await wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
+  await wrapper.findByDataTest('ec-currency-input__currencies').trigger('blur');
 }

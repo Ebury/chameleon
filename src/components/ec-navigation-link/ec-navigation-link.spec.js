@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcNavigationLink from './ec-navigation-link.vue';
@@ -7,7 +8,7 @@ describe('EcNavigationLink', () => {
   it('should throw an error if prop text was not given', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcNavigationLink);
-      expect(warnSpy).toHaveBeenCalledTimes(2);
+      expect(warnSpy).toHaveBeenCalledTimes(3);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "text"');
     });
   });
@@ -19,7 +20,7 @@ describe('EcNavigationLink', () => {
           text: 'Random text',
         },
       });
-      expect(warnSpy).toHaveBeenCalledTimes(1);
+      expect(warnSpy).toHaveBeenCalledTimes(2);
       expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "url"');
     });
   });
@@ -48,7 +49,7 @@ describe('EcNavigationLink', () => {
     it('should be expanded by default', () => {
       const wrapper = mountAsRouterLink();
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--is-collapsed')).toBe(false);
+      expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--is-collapsed')).toBe(false);
     });
 
     it('should hide the text when is collapsed', () => {
@@ -66,22 +67,22 @@ describe('EcNavigationLink', () => {
     it('should be active when isActive is passed into', () => {
       const wrapper = mountAsRouterLink({ isActive: true });
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--is-active')).toBe(true);
+      expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--is-active')).toBe(true);
     });
 
     it('should be compact when isCompact is passed into', () => {
       const wrapper = mountAsRouterLink({ isCompact: true });
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--is-compact')).toBe(true);
+      expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--is-compact')).toBe(true);
     });
 
     it('should pass listeners from parent to the root', () => {
-      const clickSpy = jest.fn();
+      const clickSpy = vi.fn();
       const wrapper = mountAsRouterLink({}, {
         attrs: { onClick: clickSpy },
       });
 
-      wrapper.trigger('click');
+      wrapper.findByDataTest('ec-navigation-link').trigger('click');
       expect(clickSpy).toHaveBeenCalledTimes(1);
     });
 
@@ -103,7 +104,7 @@ describe('EcNavigationLink', () => {
       const props = {
         text: 'Link',
         iconName: 'single-check',
-        url: '/balances',
+        url: '#/balances',
         isRouterLink: false,
         ...opts,
       };
@@ -122,7 +123,7 @@ describe('EcNavigationLink', () => {
     it('should be expanded by default', () => {
       const wrapper = mountAsAnchor();
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--is-collapsed')).toBe(false);
+      expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--is-collapsed')).toBe(false);
     });
 
     it('should hide the text when is collapsed', () => {
@@ -140,22 +141,22 @@ describe('EcNavigationLink', () => {
     it('should be active when isActive is passed into', () => {
       const wrapper = mountAsAnchor({ isActive: true });
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--is-active')).toBe(true);
+      expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--is-active')).toBe(true);
     });
 
     it('should be compact when isCompact is passed into', () => {
       const wrapper = mountAsAnchor({ isCompact: true });
       expect(wrapper.element).toMatchSnapshot();
-      expect(wrapper.classes('ec-navigation-link--is-compact')).toBe(true);
+      expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--is-compact')).toBe(true);
     });
 
     it('should pass listeners from parent to the root', () => {
-      const clickSpy = jest.fn();
+      const clickSpy = vi.fn();
       const wrapper = mountAsAnchor({}, {
         attrs: { onClick: clickSpy },
       });
 
-      wrapper.trigger('click');
+      wrapper.findByDataTest('ec-navigation-link').trigger('click');
       expect(clickSpy).toHaveBeenCalledTimes(1);
     });
 

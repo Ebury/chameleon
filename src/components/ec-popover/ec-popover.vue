@@ -15,10 +15,6 @@
 </template>
 
 <script setup>
-defineOptions({
-  inheritAttrs: false,
-});
-
 import { Dropdown as FvDropdown } from 'floating-vue';
 import {
   inject, ref, toRefs, useAttrs,
@@ -26,6 +22,10 @@ import {
 
 import { getUid } from '../../utils/uid';
 import { POPOVER_CONTAINER_KEY } from './ec-popover-provide';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const attrs = useAttrs();
 const props = defineProps({

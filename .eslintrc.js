@@ -108,7 +108,7 @@ module.exports = {
       },
     ],
     'filenames/match-regex': [
-      2,
+      'error',
       '^[.a-z0-9-]+$',
     ],
   },
@@ -117,11 +117,7 @@ module.exports = {
       files: [
         '**/src/**/*.spec.js',
       ],
-      env: {
-        jest: true,
-      },
       rules: {
-        'global-require': 'off',
         'vue/require-prop-types': 'off',
       },
     },

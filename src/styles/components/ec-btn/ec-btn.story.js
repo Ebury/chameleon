@@ -29,7 +29,7 @@ function generatePropsStory(storyName, theme) {
     },
     template: `
 
-      <div class="tw-col-full">
+      <div class="tw-flex-col-full">
       <h3 class="tw-text-additional-18">{{$attrs.title}}</h3>
       <EcBtn
         v-for="type in types"
@@ -56,8 +56,8 @@ function generatePropsStory(storyName, theme) {
       };
     },
     template: `
-      <div class="tw-grid-container">
-      <div class="tw-grid">
+      <div class="tw-flex-grid-container">
+      <div class="tw-flex-grid">
         <RenderButtonsComponent title="Default" v-bind="{ ...args }"/>
         <RenderButtonsComponent title="Small" v-bind="{ ...args, size: 'sm' }"/>
         <RenderButtonsComponent title="With icon" v-bind="{ ...args, icon: 'simple-check' }"/>

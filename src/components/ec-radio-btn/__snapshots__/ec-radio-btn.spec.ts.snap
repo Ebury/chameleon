@@ -1,6 +1,61 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcRadioBtn focus should be checked and focused 1`] = `
+exports[`EcRadioBtn > attrs > should render with custom attributes 1`] = `
+<div
+  class="ec-radio-btn my-class"
+  data-test="my-data-test ec-radio-btn"
+  id="test-id"
+>
+  <input
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
+    class="ec-radio-btn__input"
+    data-test="ec-radio-btn__input"
+    id="ec-radio-btn-1"
+    type="radio"
+  />
+  <div
+    class="ec-radio-btn__wrapper"
+  >
+    <div
+      class="ec-radio-btn__icon-wrapper"
+      data-test="ec-radio-btn__icon-wrapper"
+    >
+      <div
+        class="ec-radio-btn__icon-wrapper-inner"
+      >
+        <svg
+          class="ec-icon ec-radio-btn__icon"
+          height="20"
+          width="20"
+        >
+          <use
+            xlink:href="#ec-rounded-notification"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="ec-radio-btn__text-wrapper"
+      data-test="ec-radio-btn__text-wrapper"
+    >
+      <label
+        class="ec-radio-btn__label"
+        data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
+      >
+        
+        Yes
+        
+      </label>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcRadioBtn > focus > should be checked and focused 1`] = `
 <body>
   <div>
     <div
@@ -13,7 +68,7 @@ exports[`EcRadioBtn focus should be checked and focused 1`] = `
     >
       <div
         class="ec-radio-btn"
-        data-test="ec-radio-btn ec-radio-btn"
+        data-test="ec-radio-btn"
       >
         <input
           aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -68,7 +123,7 @@ exports[`EcRadioBtn focus should be checked and focused 1`] = `
 </body>
 `;
 
-exports[`EcRadioBtn focus should be checked and focused 2`] = `
+exports[`EcRadioBtn > focus > should be checked and focused 2`] = `
 <div
   class="ec-radio-btn__icon-wrapper ec-radio-btn__icon-wrapper--checked-and-focused"
   data-test="ec-radio-btn__icon-wrapper"
@@ -89,7 +144,7 @@ exports[`EcRadioBtn focus should be checked and focused 2`] = `
 </div>
 `;
 
-exports[`EcRadioBtn focus should be focused 1`] = `
+exports[`EcRadioBtn > focus > should be focused 1`] = `
 <body>
   <div>
     <div
@@ -97,7 +152,7 @@ exports[`EcRadioBtn focus should be focused 1`] = `
     >
       <div
         class="ec-radio-btn"
-        data-test="ec-radio-btn ec-radio-btn"
+        data-test="ec-radio-btn"
       >
         <input
           aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -151,7 +206,7 @@ exports[`EcRadioBtn focus should be focused 1`] = `
 </body>
 `;
 
-exports[`EcRadioBtn focus should be focused 2`] = `
+exports[`EcRadioBtn > focus > should be focused 2`] = `
 <div
   class="ec-radio-btn__icon-wrapper ec-radio-btn__icon-wrapper--focused"
   data-test="ec-radio-btn__icon-wrapper"
@@ -172,7 +227,7 @@ exports[`EcRadioBtn focus should be focused 2`] = `
 </div>
 `;
 
-exports[`EcRadioBtn focus should be not focused 1`] = `
+exports[`EcRadioBtn > focus > should be not focused 1`] = `
 <body>
   <div>
     <div
@@ -190,7 +245,7 @@ exports[`EcRadioBtn focus should be not focused 1`] = `
     >
       <div
         class="ec-radio-btn"
-        data-test="ec-radio-btn ec-radio-btn"
+        data-test="ec-radio-btn"
       >
         <input
           aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -244,7 +299,7 @@ exports[`EcRadioBtn focus should be not focused 1`] = `
 </body>
 `;
 
-exports[`EcRadioBtn focus should be not focused 2`] = `
+exports[`EcRadioBtn > focus > should be not focused 2`] = `
 <div
   class="ec-radio-btn__icon-wrapper"
   data-test="ec-radio-btn__icon-wrapper"
@@ -265,7 +320,7 @@ exports[`EcRadioBtn focus should be not focused 2`] = `
 </div>
 `;
 
-exports[`EcRadioBtn focus when clicking on radio option should be checked and focused 1`] = `
+exports[`EcRadioBtn > focus > when clicking on radio option > should be checked and focused 1`] = `
 <div
   class="ec-radio-btn__icon-wrapper ec-radio-btn__icon-wrapper--focused"
   data-test="ec-radio-btn__icon-wrapper"
@@ -286,7 +341,7 @@ exports[`EcRadioBtn focus when clicking on radio option should be checked and fo
 </div>
 `;
 
-exports[`EcRadioBtn props error should render the radio button with a error style on icon 1`] = `
+exports[`EcRadioBtn > props > error > should render the radio button with a error style on icon 1`] = `
 <div
   class="ec-radio-btn__icon-wrapper ec-radio-btn__icon-wrapper--error"
   data-test="ec-radio-btn__icon-wrapper"
@@ -307,7 +362,7 @@ exports[`EcRadioBtn props error should render the radio button with a error styl
 </div>
 `;
 
-exports[`EcRadioBtn props error should render the radio button with a given error message 1`] = `
+exports[`EcRadioBtn > props > error > should render the radio button with a given error message 1`] = `
 <div
   class="ec-radio-btn__error-text"
   data-test="ec-radio-btn__error-text"
@@ -319,7 +374,7 @@ exports[`EcRadioBtn props error should render the radio button with a given erro
 </div>
 `;
 
-exports[`EcRadioBtn props isDisabled should render the checked radio button with a disabled attribute 1`] = `
+exports[`EcRadioBtn > props > isDisabled > should render the checked radio button with a disabled attribute 1`] = `
 <input
   aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
   class="ec-radio-btn__input"
@@ -331,7 +386,7 @@ exports[`EcRadioBtn props isDisabled should render the checked radio button with
 />
 `;
 
-exports[`EcRadioBtn props isDisabled should render the checked radio button with a disabled icon 1`] = `
+exports[`EcRadioBtn > props > isDisabled > should render the checked radio button with a disabled icon 1`] = `
 <div
   class="ec-radio-btn__icon-wrapper ec-radio-btn__icon-wrapper--checked-and-disabled"
   data-test="ec-radio-btn__icon-wrapper"
@@ -352,7 +407,7 @@ exports[`EcRadioBtn props isDisabled should render the checked radio button with
 </div>
 `;
 
-exports[`EcRadioBtn props isDisabled should render the unchecked radio button with a disabled attribute 1`] = `
+exports[`EcRadioBtn > props > isDisabled > should render the unchecked radio button with a disabled attribute 1`] = `
 <input
   aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
   class="ec-radio-btn__input"
@@ -363,7 +418,7 @@ exports[`EcRadioBtn props isDisabled should render the unchecked radio button wi
 />
 `;
 
-exports[`EcRadioBtn props isDisabled should render the unchecked radio button with a disabled icon 1`] = `
+exports[`EcRadioBtn > props > isDisabled > should render the unchecked radio button with a disabled icon 1`] = `
 <div
   class="ec-radio-btn__icon-wrapper ec-radio-btn__icon-wrapper--disabled"
   data-test="ec-radio-btn__icon-wrapper"
@@ -384,7 +439,36 @@ exports[`EcRadioBtn props isDisabled should render the unchecked radio button wi
 </div>
 `;
 
-exports[`EcRadioBtn props isTextInline should render the radio buttons text (label and description) on a single line 1`] = `
+exports[`EcRadioBtn > props > isTextInline > should render the radio buttons text (label and description) on a single line 1`] = `
+<div
+  class="ec-radio-btn__text-wrapper ec-radio-btn__text-wrapper--is-single-line"
+  data-test="ec-radio-btn__text-wrapper"
+>
+  <label
+    class="ec-radio-btn__label"
+    data-test="ec-radio-btn__label"
+    for="ec-radio-btn-1"
+    id="ec-radio-btn-1-label"
+    title="Yes"
+  >
+    
+    Yes
+    
+  </label>
+  <p
+    class="ec-radio-btn__description ec-radio-btn__description--is-single-line"
+    data-test="ec-radio-btn__description"
+    id="ec-radio-btn-1-description"
+    title="My description"
+  >
+    
+    My description
+    
+  </p>
+</div>
+`;
+
+exports[`EcRadioBtn > props > isTextInline > should render the radio buttons text on a single line 1`] = `
 <div
   class="ec-radio-btn__text-wrapper ec-radio-btn__text-wrapper--is-single-line"
   data-test="ec-radio-btn__text-wrapper"
@@ -404,10 +488,10 @@ exports[`EcRadioBtn props isTextInline should render the radio buttons text (lab
 </div>
 `;
 
-exports[`EcRadioBtn props label should render the radio button with the given label 1`] = `
+exports[`EcRadioBtn > props > label > should render the radio button with the given label 1`] = `
 <div
   class="ec-radio-btn"
-  data-test="ec-radio-btn ec-radio-btn"
+  data-test="ec-radio-btn"
 >
   <input
     aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -458,10 +542,10 @@ exports[`EcRadioBtn props label should render the radio button with the given la
 </div>
 `;
 
-exports[`EcRadioBtn props label should render the radio button without label when not present 1`] = `
+exports[`EcRadioBtn > props > label > should render the radio button without label when not present 1`] = `
 <div
   class="ec-radio-btn"
-  data-test="ec-radio-btn ec-radio-btn"
+  data-test="ec-radio-btn"
 >
   <input
     aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -497,12 +581,12 @@ exports[`EcRadioBtn props label should render the radio button without label whe
 </div>
 `;
 
-exports[`EcRadioBtn props name should have a "id" attribute on the input equal to the "for" attribute on the label 1`] = `
+exports[`EcRadioBtn > props > name > should have a "id" attribute on the input equal to the "for" attribute on the label 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <div
     class="ec-radio-btn"
-    data-test="ec-radio-btn ec-radio-btn"
+    data-test="ec-radio-btn"
   >
     <input
       aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -554,10 +638,10 @@ DOMWrapper {
 }
 `;
 
-exports[`EcRadioBtn should render properly 1`] = `
+exports[`EcRadioBtn > should render properly 1`] = `
 <div
   class="ec-radio-btn"
-  data-test="ec-radio-btn ec-radio-btn"
+  data-test="ec-radio-btn"
 >
   <input
     aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -608,10 +692,10 @@ exports[`EcRadioBtn should render properly 1`] = `
 </div>
 `;
 
-exports[`EcRadioBtn slots description should render description slot instead of description prop when both are passed 1`] = `
+exports[`EcRadioBtn > slots > description > should render description slot instead of description prop when both are passed 1`] = `
 <div
   class="ec-radio-btn"
-  data-test="ec-radio-btn ec-radio-btn"
+  data-test="ec-radio-btn"
 >
   <input
     aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -670,10 +754,10 @@ exports[`EcRadioBtn slots description should render description slot instead of 
 </div>
 `;
 
-exports[`EcRadioBtn slots description should render the description slot if passed 1`] = `
+exports[`EcRadioBtn > slots > description > should render the description slot if passed 1`] = `
 <div
   class="ec-radio-btn"
-  data-test="ec-radio-btn ec-radio-btn"
+  data-test="ec-radio-btn"
 >
   <input
     aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -732,10 +816,10 @@ exports[`EcRadioBtn slots description should render the description slot if pass
 </div>
 `;
 
-exports[`EcRadioBtn slots errorMessage should render error-message slot instead of error-message prop when both are passed 1`] = `
+exports[`EcRadioBtn > slots > errorMessage > should render error-message slot instead of error-message prop when both are passed 1`] = `
 <div
   class="ec-radio-btn"
-  data-test="ec-radio-btn ec-radio-btn"
+  data-test="ec-radio-btn"
 >
   <input
     aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -794,10 +878,10 @@ exports[`EcRadioBtn slots errorMessage should render error-message slot instead 
 </div>
 `;
 
-exports[`EcRadioBtn slots errorMessage should render the error message slot if passed 1`] = `
+exports[`EcRadioBtn > slots > errorMessage > should render the error message slot if passed 1`] = `
 <div
   class="ec-radio-btn"
-  data-test="ec-radio-btn ec-radio-btn"
+  data-test="ec-radio-btn"
 >
   <input
     aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -856,10 +940,10 @@ exports[`EcRadioBtn slots errorMessage should render the error message slot if p
 </div>
 `;
 
-exports[`EcRadioBtn slots label should render label slot instead of label prop when both are passed 1`] = `
+exports[`EcRadioBtn > slots > label > should render label slot instead of label prop when both are passed 1`] = `
 <div
   class="ec-radio-btn"
-  data-test="ec-radio-btn ec-radio-btn"
+  data-test="ec-radio-btn"
 >
   <input
     aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
@@ -910,10 +994,10 @@ exports[`EcRadioBtn slots label should render label slot instead of label prop w
 </div>
 `;
 
-exports[`EcRadioBtn slots label should render the label slot if passed 1`] = `
+exports[`EcRadioBtn > slots > label > should render the label slot if passed 1`] = `
 <div
   class="ec-radio-btn"
-  data-test="ec-radio-btn ec-radio-btn"
+  data-test="ec-radio-btn"
 >
   <input
     aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"

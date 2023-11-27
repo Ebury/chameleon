@@ -4,26 +4,6 @@ import { defineComponent } from 'vue';
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcSubmenu from './ec-submenu.vue';
 
-function mountSubmenu(props, mountOpts) {
-  return mount(EcSubmenu, {
-    props: { ...props },
-    ...mountOpts,
-  });
-}
-
-function mountSubmenuAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const Component = defineComponent({
-    components: { EcSubmenu },
-    template,
-    ...wrapperComponentOpts,
-  });
-
-  return mount(Component, {
-    props,
-    ...mountOpts,
-  });
-}
-
 const submenu = [
   {
     headerTitle: 'Submitted Requests (30)',
@@ -50,6 +30,30 @@ const slots = {
 };
 
 describe('EcSubmenu', () => {
+  function mountSubmenu(props, mountOpts) {
+    return mount(EcSubmenu, {
+      props: { ...props },
+      ...mountOpts,
+    });
+  }
+
+  function mountSubmenuAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
+    const element = document.createElement('div');
+    document.body.appendChild(element);
+
+    const Component = defineComponent({
+      components: { EcSubmenu },
+      template,
+      ...wrapperComponentOpts,
+    });
+
+    return mount(Component, {
+      props,
+      attachTo: element,
+      ...mountOpts,
+    });
+  }
+
   it('should throw an error if we don\'t pass any content', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       mount(EcSubmenu);
@@ -82,6 +86,19 @@ describe('EcSubmenu', () => {
     );
 
     expect(wrapper.findByDataTest('ec-submenu').exists()).toBe(false);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render with custom attributes', () => {
+    const wrapper = mountSubmenu({
+      submenu,
+    }, {
+      attrs: {
+        'data-test': 'my-data-test',
+        class: 'my-class',
+        id: 'test-id',
+      },
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 

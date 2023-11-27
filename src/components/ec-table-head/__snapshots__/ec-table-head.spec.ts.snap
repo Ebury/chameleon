@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTableHead should have a column align to center if its type is icon 1`] = `
+exports[`EcTableHead > should have a column align to center if its type is icon 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -64,7 +64,7 @@ exports[`EcTableHead should have a column align to center if its type is icon 1`
 </thead>
 `;
 
-exports[`EcTableHead should have a column align to the right if its type is currency 1`] = `
+exports[`EcTableHead > should have a column align to the right if its type is currency 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -128,9 +128,9 @@ exports[`EcTableHead should have a column align to the right if its type is curr
 </thead>
 `;
 
-exports[`EcTableHead should not render if no columns are supplied 1`] = `<!--v-if-->`;
+exports[`EcTableHead > should not render if no columns are supplied 1`] = `<!--v-if-->`;
 
-exports[`EcTableHead should render as expected 1`] = `
+exports[`EcTableHead > should render as expected 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -194,7 +194,7 @@ exports[`EcTableHead should render as expected 1`] = `
 </thead>
 `;
 
-exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
+exports[`EcTableHead > should render info icon with a tooltip as expected 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -288,7 +288,7 @@ exports[`EcTableHead should render info icon with a tooltip as expected 1`] = `
 </thead>
 `;
 
-exports[`EcTableHead should render sorting as expected 1`] = `
+exports[`EcTableHead > should render sorting as expected 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -411,7 +411,7 @@ exports[`EcTableHead should render sorting as expected 1`] = `
 </thead>
 `;
 
-exports[`EcTableHead should render with max-width and ellipsis on the column that has the prop given 1`] = `
+exports[`EcTableHead > should render with max-width and ellipsis on the column that has the prop given 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"

@@ -45,8 +45,20 @@ describe('EcAmountFilterInput', () => {
 
   it('should render properly', () => {
     const wrapper = mountAmountFilterInput();
-
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  describe('attrs', () => {
+    it('should render with custom attributes', () => {
+      const wrapper = mountAmountFilterInput({}, {
+        attrs: {
+          'data-test': 'my-data-test',
+          class: 'my-class',
+          id: 'test-id',
+        },
+      });
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 
   describe(':props', () => {
@@ -140,20 +152,30 @@ describe('EcAmountFilterInput', () => {
       await selectComparisonSymbol(wrapper, 1);
       expect(wrapper.emitted('change').length).toEqual(1);
       expect(wrapper.emitted('focus').length).toEqual(1);
+      expect(wrapper.emitted('open').length).toEqual(1);
+      expect(wrapper.emitted('after-open').length).toEqual(1);
       expect(wrapper.emitted('update:modelValue').length).toEqual(1);
       expect(wrapper.emitted('comparison-symbol-change').length).toEqual(1);
+      expect(wrapper.emitted('close').length).toEqual(1);
+      expect(wrapper.emitted('after-close').length).toEqual(1);
       await selectComparisonSymbol(wrapper, 2);
       expect(wrapper.emitted('change').length).toEqual(2);
       expect(wrapper.emitted('focus').length).toEqual(1);
+      expect(wrapper.emitted('open').length).toEqual(2);
+      expect(wrapper.emitted('after-open').length).toEqual(2);
       expect(wrapper.emitted('update:modelValue').length).toEqual(2);
       expect(wrapper.emitted('comparison-symbol-change').length).toEqual(2);
+      expect(wrapper.emitted('close').length).toEqual(2);
+      expect(wrapper.emitted('after-close').length).toEqual(2);
     });
 
     it('should emit the correct events when amount is set', async () => {
       const wrapper = mountAmountFilterInput();
 
+      await wrapper.findByDataTest('ec-amount-filter-input__amount').trigger('focus');
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('11');
       expect(wrapper.emitted('change').length).toEqual(1);
+      expect(wrapper.emitted('focus').length).toEqual(1);
       expect(wrapper.emitted('amount-change').length).toEqual(1);
       expect(wrapper.emitted('update:modelValue').length).toEqual(1);
 
@@ -285,6 +307,11 @@ describe('EcAmountFilterInput', () => {
 
 async function selectComparisonSymbol(wrapper, index) {
   await wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').trigger('mousedown');
+  await wrapper.findByDataTest('ec-popover-stub').trigger('show');
   await wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').trigger('focus');
+  await wrapper.findByDataTest('ec-popover-stub').trigger('apply-show');
   await wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
+  await wrapper.findByDataTest('ec-popover-stub').trigger('hide');
+  await wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').trigger('blur');
+  await wrapper.findByDataTest('ec-popover-stub').trigger('apply-hide');
 }

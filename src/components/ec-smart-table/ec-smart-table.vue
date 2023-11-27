@@ -3,7 +3,12 @@
     class="ec-smart-table"
     :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-smart-table` : 'ec-smart-table'"
   >
-    <ec-smart-table-heading :title="title">
+    <ec-smart-table-heading
+      v-bind="{
+        title,
+        isResponsive,
+      }"
+    >
       <template
         #filter
         v-if="isFilteringEnabled"
@@ -52,7 +57,7 @@
       <ec-loading
         :show="isFetching"
         :transparent="!isEmpty"
-        :class="{ 'tw-my-48 tw-min-h-48': isEmpty && isFetching }"
+        :class="{ 'tw-my-48 tw-min-h-48': /* c8 ignore next */ isEmpty && isFetching }"
       >
         <ec-table
           v-bind="{
@@ -84,7 +89,7 @@
                 itemsPerPageText,
                 isPageSizeHidden,
                 isTotalHidden,
-                isResponsive: isPaginationResponsive,
+                isResponsive,
               }"
               data-test="ec-smart-table-pagination"
               @change="paginate"
@@ -184,7 +189,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  isPaginationResponsive: {
+  isResponsive: {
     type: Boolean,
     default: true,
   },
@@ -234,7 +239,6 @@ watch(payload, () => {
   immediate: true,
 });
 
-/* c8 ignore next */
 const isEmpty = computed(() => (props.data ?? []).length === 0);
 
 // slots

@@ -1,7 +1,10 @@
 <template>
   <div
     class="ec-radio-btn-group"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn-group` : `ec-radio-btn-group`"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-radio-btn-group` : 'ec-radio-btn-group',
+    }"
   >
     <div
       v-if="hasLabel"
@@ -63,6 +66,10 @@ interface RadioButtonGroupProps {
   isTextInline?: boolean,
   isGroupInline?: boolean,
 }
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps<RadioButtonGroupProps>();
 

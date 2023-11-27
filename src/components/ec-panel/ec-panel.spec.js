@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { defineComponent } from 'vue';
 
 import EcPanel from './ec-panel.vue';
@@ -54,7 +55,7 @@ describe('EcPanel', () => {
 
   describe('@events', () => {
     it('should pass custom events to the panel', () => {
-      const customEventSpy = jest.fn();
+      const customEventSpy = vi.fn();
 
       const wrapper = mountPanel({ show: true }, {
         attrs: {
@@ -86,7 +87,7 @@ describe('EcPanel', () => {
               };
             },
             methods: {
-              anyGivenCallback: jest.fn(),
+              anyGivenCallback: vi.fn(),
             },
           },
         );
@@ -113,7 +114,7 @@ describe('EcPanel', () => {
       });
 
       it('should emit a "back" event when the simple-chevron-left icon is clicked', async () => {
-        const anyGivenCallback = jest.fn();
+        const anyGivenCallback = vi.fn();
         const wrapper = mountPanelAsTemplate(
           '<ec-panel v-model:show="show" @back="anyGivenCallback"></ec-panel>',
           {},

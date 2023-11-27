@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcOptionCard renders properly with the required title prop 1`] = `
+exports[`EcOptionCard > renders properly with the required title prop 1`] = `
 <div
   class="ec-option-card"
   data-test="ec-option-card"
@@ -22,7 +22,7 @@ exports[`EcOptionCard renders properly with the required title prop 1`] = `
 </div>
 `;
 
-exports[`EcOptionCard renders the Option Card disabled and with the classes related to the type "accent" when type prop is set to accent and isDisabled prop is set to true 1`] = `
+exports[`EcOptionCard > renders the Option Card disabled and with the classes related to the type "accent" when type prop is set to accent and isDisabled prop is set to true 1`] = `
 <div
   class="ec-option-card ec-option-card--disabled ec-option-card--accent"
   data-test="ec-option-card ec-option-card--disabled ec-option-card--accent"
@@ -59,7 +59,7 @@ exports[`EcOptionCard renders the Option Card disabled and with the classes rela
 </div>
 `;
 
-exports[`EcOptionCard renders the Option Card disabled and with the classes related to the type "danger" when type prop is set to accent and isDisabled prop is set to true 1`] = `
+exports[`EcOptionCard > renders the Option Card disabled and with the classes related to the type "danger" when type prop is set to accent and isDisabled prop is set to true 1`] = `
 <div
   class="ec-option-card ec-option-card--disabled ec-option-card--danger"
   data-test="ec-option-card ec-option-card--disabled ec-option-card--danger"
@@ -96,7 +96,7 @@ exports[`EcOptionCard renders the Option Card disabled and with the classes rela
 </div>
 `;
 
-exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is set to true 1`] = `
+exports[`EcOptionCard > renders the Option Card disabled if the isDisabled prop is set to true 1`] = `
 <div
   class="ec-option-card ec-option-card--disabled"
   data-test="ec-option-card ec-option-card--disabled"
@@ -133,7 +133,7 @@ exports[`EcOptionCard renders the Option Card disabled if the isDisabled prop is
 </div>
 `;
 
-exports[`EcOptionCard renders the Option Card with slot 1`] = `
+exports[`EcOptionCard > renders the Option Card with slot 1`] = `
 <div
   class="ec-option-card"
   data-test="ec-option-card"
@@ -147,7 +147,7 @@ exports[`EcOptionCard renders the Option Card with slot 1`] = `
 </div>
 `;
 
-exports[`EcOptionCard should render the Option card with the classes related to the type "accent" when type prop is set 1`] = `
+exports[`EcOptionCard > should render the Option card with the classes related to the type "accent" when type prop is set 1`] = `
 <div
   class="ec-option-card ec-option-card--accent"
   data-test="ec-option-card ec-option-card--accent"
@@ -184,7 +184,7 @@ exports[`EcOptionCard should render the Option card with the classes related to 
 </div>
 `;
 
-exports[`EcOptionCard should render the Option card with the classes related to the type "danger" when type prop is set 1`] = `
+exports[`EcOptionCard > should render the Option card with the classes related to the type "danger" when type prop is set 1`] = `
 <div
   class="ec-option-card ec-option-card--danger"
   data-test="ec-option-card ec-option-card--danger"

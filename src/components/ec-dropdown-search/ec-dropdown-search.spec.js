@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
+import { vi } from 'vitest';
 import { defineComponent, h } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -192,7 +193,7 @@ describe('EcDropdownSearch', () => {
 
   it('should use and update the v-model', async () => {
     const selectedItem = items[0];
-    const changeSpy = jest.fn();
+    const changeSpy = vi.fn();
 
     const wrapper = mountAsTemplate(
       '<ec-dropdown-search v-model="selectedItem" :items="items" @change="changeSpy" />',
@@ -259,26 +260,28 @@ describe('EcDropdownSearch', () => {
     };
 
     const defaultWrapper = mountDropdownSearch({ items: [disabledItem] });
-    const customizedWrapper = mountDropdownSearch({
+    const customisedWrapper = mountDropdownSearch({
       items: [overriddenItem],
       tooltipOptions: {
         placement: 'top',
       },
     });
 
-    expect(defaultWrapper.element).toMatchDiffSnapshot(customizedWrapper.element);
+    expect(defaultWrapper.element).toMatchSnapshot('default');
+    expect(customisedWrapper.element).toMatchSnapshot('customised');
   });
 
   it('should merge given popoverOptions', () => {
     const defaultWrapper = mountDropdownSearch({});
-    const customizedWrapper = mountDropdownSearch({
+    const customisedWrapper = mountDropdownSearch({
       popoverOptions: {
         placement: 'top',
         offset: 16,
       },
     });
 
-    expect(defaultWrapper.element).toMatchDiffSnapshot(customizedWrapper.element);
+    expect(defaultWrapper.element).toMatchSnapshot('default');
+    expect(customisedWrapper.element).toMatchSnapshot('customised');
   });
 
   it('should use given list-data-test attribute', () => {

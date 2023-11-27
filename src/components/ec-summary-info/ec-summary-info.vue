@@ -1,7 +1,10 @@
 <template>
   <div
     class="ec-summary-info"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-summary-info` : `ec-summary-info`"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-summary-info` : 'ec-summary-info',
+    }"
   >
     <ec-icon
       v-if="iconName"
@@ -53,6 +56,10 @@ import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
 import type { Item } from './types';
 import { StylePreset } from './types';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const config = useConfig();
 

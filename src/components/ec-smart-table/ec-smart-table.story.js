@@ -360,7 +360,7 @@ export const all = args => ({
             fetchEmptyList: null,
             isFilteringEnabled: null,
             prefilter: null,
-            isPaginationResponsive: false,
+            isResponsive: false,
           }"
           v-on="{
             fetch: onFetch,

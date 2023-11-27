@@ -2,7 +2,10 @@
   <div
     class="ec-navigation"
     :class="{ 'ec-navigation--is-collapsable': isCollapsable, 'ec-navigation--is-collapsed': isCollapsed }"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-navigation` : 'ec-navigation'"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-navigation` : 'ec-navigation',
+    }"
   >
     <div
       v-if="showBrandingLogo && branding.logo"
@@ -54,6 +57,10 @@
 </template>
 
 <script setup>
+defineOptions({
+  inheritAttrs: false,
+});
+
 defineProps({
   isCollapsed: {
     type: Boolean,

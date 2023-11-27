@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcWithAbortableFetch should abort fetch call when destroyed 1`] = `
+exports[`EcWithAbortableFetch > should abort fetch call when destroyed 1`] = `
 {
   "data": null,
   "error": null,
@@ -8,7 +8,7 @@ exports[`EcWithAbortableFetch should abort fetch call when destroyed 1`] = `
 }
 `;
 
-exports[`EcWithAbortableFetch should abort previous fetch calls 1`] = `
+exports[`EcWithAbortableFetch > should abort previous fetch calls 1`] = `
 {
   "data": null,
   "error": null,
@@ -16,7 +16,7 @@ exports[`EcWithAbortableFetch should abort previous fetch calls 1`] = `
 }
 `;
 
-exports[`EcWithAbortableFetch should abort previous fetch calls 2`] = `
+exports[`EcWithAbortableFetch > should abort previous fetch calls 2`] = `
 {
   "data": null,
   "error": null,
@@ -24,7 +24,7 @@ exports[`EcWithAbortableFetch should abort previous fetch calls 2`] = `
 }
 `;
 
-exports[`EcWithAbortableFetch should abort previous fetch calls 3`] = `
+exports[`EcWithAbortableFetch > should abort previous fetch calls 3`] = `
 {
   "data": {
     "result": 2,
@@ -34,7 +34,7 @@ exports[`EcWithAbortableFetch should abort previous fetch calls 3`] = `
 }
 `;
 
-exports[`EcWithAbortableFetch should map the given custom props: after fetch 1`] = `
+exports[`EcWithAbortableFetch > should map the given custom props > after fetch 1`] = `
 {
   "dataCustom": {
     "result": 1,
@@ -44,7 +44,7 @@ exports[`EcWithAbortableFetch should map the given custom props: after fetch 1`]
 }
 `;
 
-exports[`EcWithAbortableFetch should map the given custom props: while loading 1`] = `
+exports[`EcWithAbortableFetch > should map the given custom props > while loading 1`] = `
 {
   "dataCustom": null,
   "errorCustom": null,
@@ -52,7 +52,7 @@ exports[`EcWithAbortableFetch should map the given custom props: while loading 1
 }
 `;
 
-exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 1`] = `
+exports[`EcWithAbortableFetch > should not propagate the error when re-fetching after an error occurred 1`] = `
 {
   "data": null,
   "error": [Error: Random error],
@@ -60,8 +60,8 @@ exports[`EcWithAbortableFetch should not propagate the error when re-fetching af
 }
 `;
 
-exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 2`] = `
-[MockFunction] {
+exports[`EcWithAbortableFetch > should not propagate the error when re-fetching after an error occurred 2`] = `
+[MockFunction spy] {
   "calls": [
     [
       undefined,
@@ -70,14 +70,14 @@ exports[`EcWithAbortableFetch should not propagate the error when re-fetching af
   ],
   "results": [
     {
-      "type": "return",
-      "value": Promise {},
+      "type": "throw",
+      "value": [Error: Random error],
     },
   ],
 }
 `;
 
-exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 3`] = `
+exports[`EcWithAbortableFetch > should not propagate the error when re-fetching after an error occurred 3`] = `
 [
   [
     [Error: Random error],
@@ -85,7 +85,7 @@ exports[`EcWithAbortableFetch should not propagate the error when re-fetching af
 ]
 `;
 
-exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 4`] = `
+exports[`EcWithAbortableFetch > should not propagate the error when re-fetching after an error occurred 4`] = `
 {
   "data": null,
   "error": null,
@@ -93,8 +93,8 @@ exports[`EcWithAbortableFetch should not propagate the error when re-fetching af
 }
 `;
 
-exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 5`] = `
-[MockFunction] {
+exports[`EcWithAbortableFetch > should not propagate the error when re-fetching after an error occurred 5`] = `
+[MockFunction spy] {
   "calls": [
     [
       {
@@ -106,13 +106,15 @@ exports[`EcWithAbortableFetch should not propagate the error when re-fetching af
   "results": [
     {
       "type": "return",
-      "value": Promise {},
+      "value": {
+        "result": 1,
+      },
     },
   ],
 }
 `;
 
-exports[`EcWithAbortableFetch should not propagate the error when re-fetching after an error occurred 6`] = `
+exports[`EcWithAbortableFetch > should not propagate the error when re-fetching after an error occurred 6`] = `
 {
   "data": {
     "result": 1,
@@ -122,7 +124,7 @@ exports[`EcWithAbortableFetch should not propagate the error when re-fetching af
 }
 `;
 
-exports[`EcWithAbortableFetch should re-fetch the data if arguments change 1`] = `
+exports[`EcWithAbortableFetch > should re-fetch the data if arguments change 1`] = `
 {
   "data": null,
   "error": null,
@@ -130,8 +132,8 @@ exports[`EcWithAbortableFetch should re-fetch the data if arguments change 1`] =
 }
 `;
 
-exports[`EcWithAbortableFetch should re-fetch the data if arguments change 2`] = `
-[MockFunction] {
+exports[`EcWithAbortableFetch > should re-fetch the data if arguments change 2`] = `
+[MockFunction spy] {
   "calls": [
     [
       {
@@ -149,7 +151,7 @@ exports[`EcWithAbortableFetch should re-fetch the data if arguments change 2`] =
 }
 `;
 
-exports[`EcWithAbortableFetch should re-fetch the data if arguments change 3`] = `
+exports[`EcWithAbortableFetch > should re-fetch the data if arguments change 3`] = `
 {
   "data": {
     "result": 1,
@@ -159,7 +161,7 @@ exports[`EcWithAbortableFetch should re-fetch the data if arguments change 3`] =
 }
 `;
 
-exports[`EcWithAbortableFetch should re-fetch the data if arguments change 4`] = `
+exports[`EcWithAbortableFetch > should re-fetch the data if arguments change 4`] = `
 {
   "data": {
     "result": 1,
@@ -169,8 +171,8 @@ exports[`EcWithAbortableFetch should re-fetch the data if arguments change 4`] =
 }
 `;
 
-exports[`EcWithAbortableFetch should re-fetch the data if arguments change 5`] = `
-[MockFunction] {
+exports[`EcWithAbortableFetch > should re-fetch the data if arguments change 5`] = `
+[MockFunction spy] {
   "calls": [
     [
       {
@@ -182,13 +184,15 @@ exports[`EcWithAbortableFetch should re-fetch the data if arguments change 5`] =
   "results": [
     {
       "type": "return",
-      "value": Promise {},
+      "value": {
+        "result": 2,
+      },
     },
   ],
 }
 `;
 
-exports[`EcWithAbortableFetch should re-fetch the data if arguments change 6`] = `
+exports[`EcWithAbortableFetch > should re-fetch the data if arguments change 6`] = `
 {
   "data": {
     "result": 2,
@@ -198,7 +202,7 @@ exports[`EcWithAbortableFetch should re-fetch the data if arguments change 6`] =
 }
 `;
 
-exports[`EcWithAbortableFetch should send the given fetch arguments 1`] = `
+exports[`EcWithAbortableFetch > should send the given fetch arguments 1`] = `
 {
   "data": null,
   "error": null,
@@ -206,8 +210,8 @@ exports[`EcWithAbortableFetch should send the given fetch arguments 1`] = `
 }
 `;
 
-exports[`EcWithAbortableFetch should send the given fetch arguments 2`] = `
-[MockFunction] {
+exports[`EcWithAbortableFetch > should send the given fetch arguments 2`] = `
+[MockFunction spy] {
   "calls": [
     [
       {
@@ -225,7 +229,7 @@ exports[`EcWithAbortableFetch should send the given fetch arguments 2`] = `
 }
 `;
 
-exports[`EcWithAbortableFetch should start fetching when created 1`] = `
+exports[`EcWithAbortableFetch > should start fetching when created 1`] = `
 {
   "data": null,
   "error": null,
@@ -233,8 +237,8 @@ exports[`EcWithAbortableFetch should start fetching when created 1`] = `
 }
 `;
 
-exports[`EcWithAbortableFetch should start fetching when created 2`] = `
-[MockFunction] {
+exports[`EcWithAbortableFetch > should start fetching when created 2`] = `
+[MockFunction spy] {
   "calls": [
     [
       undefined,
@@ -250,7 +254,7 @@ exports[`EcWithAbortableFetch should start fetching when created 2`] = `
 }
 `;
 
-exports[`EcWithAbortableFetch should stop fetching and keep the state intact if fetch for rejected because of AbortError 1`] = `
+exports[`EcWithAbortableFetch > should stop fetching and keep the state intact if fetch for rejected because of AbortError 1`] = `
 {
   "data": null,
   "error": null,
@@ -258,7 +262,7 @@ exports[`EcWithAbortableFetch should stop fetching and keep the state intact if 
 }
 `;
 
-exports[`EcWithAbortableFetch should stop fetching and map the custom error prop to the component after dataSource gets rejected 1`] = `
+exports[`EcWithAbortableFetch > should stop fetching and map the custom error prop to the component after dataSource gets rejected 1`] = `
 {
   "dataCustom": null,
   "errorCustom": [Error: Random error],
@@ -266,8 +270,8 @@ exports[`EcWithAbortableFetch should stop fetching and map the custom error prop
 }
 `;
 
-exports[`EcWithAbortableFetch should stop fetching and map the custom error prop to the component after dataSource gets rejected 2`] = `
-[MockFunction] {
+exports[`EcWithAbortableFetch > should stop fetching and map the custom error prop to the component after dataSource gets rejected 2`] = `
+[MockFunction spy] {
   "calls": [
     [
       undefined,
@@ -276,14 +280,14 @@ exports[`EcWithAbortableFetch should stop fetching and map the custom error prop
   ],
   "results": [
     {
-      "type": "return",
-      "value": Promise {},
+      "type": "throw",
+      "value": [Error: Random error],
     },
   ],
 }
 `;
 
-exports[`EcWithAbortableFetch should stop fetching and map the custom error prop to the component after dataSource gets rejected 3`] = `
+exports[`EcWithAbortableFetch > should stop fetching and map the custom error prop to the component after dataSource gets rejected 3`] = `
 [
   [
     [Error: Random error],
@@ -291,7 +295,7 @@ exports[`EcWithAbortableFetch should stop fetching and map the custom error prop
 ]
 `;
 
-exports[`EcWithAbortableFetch should stop fetching and pass the data to the component after dataSource gets resolved 1`] = `
+exports[`EcWithAbortableFetch > should stop fetching and pass the data to the component after dataSource gets resolved 1`] = `
 {
   "data": {
     "prop": 1,
@@ -301,8 +305,8 @@ exports[`EcWithAbortableFetch should stop fetching and pass the data to the comp
 }
 `;
 
-exports[`EcWithAbortableFetch should stop fetching and pass the data to the component after dataSource gets resolved 2`] = `
-[MockFunction] {
+exports[`EcWithAbortableFetch > should stop fetching and pass the data to the component after dataSource gets resolved 2`] = `
+[MockFunction spy] {
   "calls": [
     [
       undefined,
@@ -312,13 +316,15 @@ exports[`EcWithAbortableFetch should stop fetching and pass the data to the comp
   "results": [
     {
       "type": "return",
-      "value": Promise {},
+      "value": {
+        "prop": 1,
+      },
     },
   ],
 }
 `;
 
-exports[`EcWithAbortableFetch should stop fetching and pass the error to the component after dataSource gets rejected 1`] = `
+exports[`EcWithAbortableFetch > should stop fetching and pass the error to the component after dataSource gets rejected 1`] = `
 {
   "data": null,
   "error": [Error: Random error],
@@ -326,8 +332,8 @@ exports[`EcWithAbortableFetch should stop fetching and pass the error to the com
 }
 `;
 
-exports[`EcWithAbortableFetch should stop fetching and pass the error to the component after dataSource gets rejected 2`] = `
-[MockFunction] {
+exports[`EcWithAbortableFetch > should stop fetching and pass the error to the component after dataSource gets rejected 2`] = `
+[MockFunction spy] {
   "calls": [
     [
       undefined,
@@ -336,14 +342,14 @@ exports[`EcWithAbortableFetch should stop fetching and pass the error to the com
   ],
   "results": [
     {
-      "type": "return",
-      "value": Promise {},
+      "type": "throw",
+      "value": [Error: Random error],
     },
   ],
 }
 `;
 
-exports[`EcWithAbortableFetch should stop fetching and pass the error to the component after dataSource gets rejected 3`] = `
+exports[`EcWithAbortableFetch > should stop fetching and pass the error to the component after dataSource gets rejected 3`] = `
 [
   [
     [Error: Random error],
@@ -351,27 +357,7 @@ exports[`EcWithAbortableFetch should stop fetching and pass the error to the com
 ]
 `;
 
-exports[`EcWithAbortableFetch should transform props using given data transform function and pass them to given custom data prop: after fetch 1`] = `
-{
-  "dataCustom": {
-    "result": 1,
-  },
-  "error": null,
-  "loading": false,
-}
-`;
-
-exports[`EcWithAbortableFetch should transform props using given data transform function and pass them to given custom data prop: while loading 1`] = `
-{
-  "dataCustom": {
-    "result": 0,
-  },
-  "error": null,
-  "loading": true,
-}
-`;
-
-exports[`EcWithAbortableFetch should transform props using given data transform function: after fetch 1`] = `
+exports[`EcWithAbortableFetch > should transform props using given data transform function > after fetch 1`] = `
 {
   "data": {
     "result": 1,
@@ -381,7 +367,7 @@ exports[`EcWithAbortableFetch should transform props using given data transform 
 }
 `;
 
-exports[`EcWithAbortableFetch should transform props using given data transform function: while loading 1`] = `
+exports[`EcWithAbortableFetch > should transform props using given data transform function > while loading 1`] = `
 {
   "data": {
     "result": 0,
@@ -391,23 +377,27 @@ exports[`EcWithAbortableFetch should transform props using given data transform 
 }
 `;
 
-exports[`EcWithAbortableFetch should transform props using given error transform function and pass them to given custom error prop: after fetch 1`] = `
+exports[`EcWithAbortableFetch > should transform props using given data transform function and pass them to given custom data prop > after fetch 1`] = `
 {
-  "data": null,
-  "errorCustom": "Custom error message (Random error)",
+  "dataCustom": {
+    "result": 1,
+  },
+  "error": null,
   "loading": false,
 }
 `;
 
-exports[`EcWithAbortableFetch should transform props using given error transform function and pass them to given custom error prop: while loading 1`] = `
+exports[`EcWithAbortableFetch > should transform props using given data transform function and pass them to given custom data prop > while loading 1`] = `
 {
-  "data": null,
-  "errorCustom": null,
+  "dataCustom": {
+    "result": 0,
+  },
+  "error": null,
   "loading": true,
 }
 `;
 
-exports[`EcWithAbortableFetch should transform props using given error transform function: after fetch 1`] = `
+exports[`EcWithAbortableFetch > should transform props using given error transform function > after fetch 1`] = `
 {
   "data": null,
   "error": "Custom error message (Random error)",
@@ -415,7 +405,7 @@ exports[`EcWithAbortableFetch should transform props using given error transform
 }
 `;
 
-exports[`EcWithAbortableFetch should transform props using given error transform function: while loading 1`] = `
+exports[`EcWithAbortableFetch > should transform props using given error transform function > while loading 1`] = `
 {
   "data": null,
   "error": null,
@@ -423,7 +413,41 @@ exports[`EcWithAbortableFetch should transform props using given error transform
 }
 `;
 
-exports[`EcWithAbortableFetch should transform props using given loading transform function and pass them to given custom loading prop and custom data prop: after fetch 1`] = `
+exports[`EcWithAbortableFetch > should transform props using given error transform function and pass them to given custom error prop > after fetch 1`] = `
+{
+  "data": null,
+  "errorCustom": "Custom error message (Random error)",
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch > should transform props using given error transform function and pass them to given custom error prop > while loading 1`] = `
+{
+  "data": null,
+  "errorCustom": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch > should transform props using given loading transform function > after fetch 1`] = `
+{
+  "data": {
+    "result": 1,
+  },
+  "error": null,
+  "loading": true,
+}
+`;
+
+exports[`EcWithAbortableFetch > should transform props using given loading transform function > while loading 1`] = `
+{
+  "data": null,
+  "error": null,
+  "loading": false,
+}
+`;
+
+exports[`EcWithAbortableFetch > should transform props using given loading transform function and pass them to given custom loading prop and custom data prop > after fetch 1`] = `
 {
   "dataCustom": {
     "result": 1,
@@ -433,28 +457,10 @@ exports[`EcWithAbortableFetch should transform props using given loading transfo
 }
 `;
 
-exports[`EcWithAbortableFetch should transform props using given loading transform function and pass them to given custom loading prop and custom data prop: while loading 1`] = `
+exports[`EcWithAbortableFetch > should transform props using given loading transform function and pass them to given custom loading prop and custom data prop > while loading 1`] = `
 {
   "dataCustom": null,
   "error": null,
   "loadingCustom": false,
-}
-`;
-
-exports[`EcWithAbortableFetch should transform props using given loading transform function: after fetch 1`] = `
-{
-  "data": {
-    "result": 1,
-  },
-  "error": null,
-  "loading": true,
-}
-`;
-
-exports[`EcWithAbortableFetch should transform props using given loading transform function: while loading 1`] = `
-{
-  "data": null,
-  "error": null,
-  "loading": false,
 }
 `;

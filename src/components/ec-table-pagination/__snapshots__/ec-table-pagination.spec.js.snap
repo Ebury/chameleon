@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTablePagination #slots should use given pages slot 1`] = `
+exports[`EcTablePagination > #slots > should use given pages slot 1`] = `
 <div
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
@@ -13,7 +13,7 @@ exports[`EcTablePagination #slots should use given pages slot 1`] = `
 </div>
 `;
 
-exports[`EcTablePagination #slots should use given total slot 1`] = `
+exports[`EcTablePagination > #slots > should use given total slot 1`] = `
 <div
   class="ec-table-pagination__total ec-table-pagination__total--is-responsive"
   data-test="ec-table-pagination__total"
@@ -26,7 +26,7 @@ exports[`EcTablePagination #slots should use given total slot 1`] = `
 </div>
 `;
 
-exports[`EcTablePagination should display first page information by calculating total number of pages 1`] = `
+exports[`EcTablePagination > should display first page information by calculating total number of pages 1`] = `
 <div
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
@@ -42,7 +42,7 @@ exports[`EcTablePagination should display first page information by calculating 
 </div>
 `;
 
-exports[`EcTablePagination should display last page information by calculating total number of pages 1`] = `
+exports[`EcTablePagination > should display last page information by calculating total number of pages 1`] = `
 <div
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
@@ -58,7 +58,7 @@ exports[`EcTablePagination should display last page information by calculating t
 </div>
 `;
 
-exports[`EcTablePagination should display next and prev buttons disabled if pagination has only one page 1`] = `
+exports[`EcTablePagination > should display next and prev buttons disabled if pagination has only one page 1`] = `
 <div
   class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
   data-test="ec-table-pagination__actions"
@@ -98,7 +98,7 @@ exports[`EcTablePagination should display next and prev buttons disabled if pagi
 </div>
 `;
 
-exports[`EcTablePagination should display next and prev buttons enabled if pagination is in the middle 1`] = `
+exports[`EcTablePagination > should display next and prev buttons enabled if pagination is in the middle 1`] = `
 <div
   class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
   data-test="ec-table-pagination__actions"
@@ -136,7 +136,7 @@ exports[`EcTablePagination should display next and prev buttons enabled if pagin
 </div>
 `;
 
-exports[`EcTablePagination should display only next button disabled if pagination is on the last page 1`] = `
+exports[`EcTablePagination > should display only next button disabled if pagination is on the last page 1`] = `
 <div
   class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
   data-test="ec-table-pagination__actions"
@@ -175,7 +175,7 @@ exports[`EcTablePagination should display only next button disabled if paginatio
 </div>
 `;
 
-exports[`EcTablePagination should display only prev button disabled if pagination is on the first page 1`] = `
+exports[`EcTablePagination > should display only prev button disabled if pagination is on the first page 1`] = `
 <div
   class="ec-table-pagination__actions ec-table-pagination__actions--is-responsive"
   data-test="ec-table-pagination__actions"
@@ -214,7 +214,7 @@ exports[`EcTablePagination should display only prev button disabled if paginatio
 </div>
 `;
 
-exports[`EcTablePagination should display page information by calculating total number of pages 1`] = `
+exports[`EcTablePagination > should display page information by calculating total number of pages 1`] = `
 <div
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
@@ -230,7 +230,7 @@ exports[`EcTablePagination should display page information by calculating total 
 </div>
 `;
 
-exports[`EcTablePagination should display page information even if the total is 0 1`] = `
+exports[`EcTablePagination > should display page information even if the total is 0 1`] = `
 <div
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
@@ -246,7 +246,7 @@ exports[`EcTablePagination should display page information even if the total is 
 </div>
 `;
 
-exports[`EcTablePagination should display page information when last page is incomplete 1`] = `
+exports[`EcTablePagination > should display page information when last page is incomplete 1`] = `
 <div
   class="ec-table-pagination__current-page"
   data-test="ec-table-pagination__current-page"
@@ -262,7 +262,7 @@ exports[`EcTablePagination should display page information when last page is inc
 </div>
 `;
 
-exports[`EcTablePagination should display the page size dropdown with preselected value 1`] = `
+exports[`EcTablePagination > should display the page size dropdown with preselected value 1`] = `
 <div
   class="ec-table-pagination__page-size ec-table-pagination__page-size--is-responsive"
   data-test="ec-table-pagination__page-size"
@@ -363,9 +363,9 @@ exports[`EcTablePagination should display the page size dropdown with preselecte
 </div>
 `;
 
-exports[`EcTablePagination should render as expected 1`] = `
+exports[`EcTablePagination > should render as expected 1`] = `
 <div
-  class="ec-table-pagination"
+  class="ec-table-pagination ec-table-pagination--is-responsive"
   data-test="ec-table-pagination"
 >
   <div

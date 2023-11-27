@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTable should have a column align to center if its type is icon 1`] = `
+exports[`EcTable > should have a column align to center if its type is icon 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -109,7 +109,7 @@ exports[`EcTable should have a column align to center if its type is icon 1`] = 
 </div>
 `;
 
-exports[`EcTable should have a column align to the right if its type is currency 1`] = `
+exports[`EcTable > should have a column align to the right if its type is currency 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -218,13 +218,13 @@ exports[`EcTable should have a column align to the right if its type is currency
 </div>
 `;
 
-exports[`EcTable should not render if no props are supplied 1`] = `<!--v-if-->`;
+exports[`EcTable > should not render if no props are supplied 1`] = `<!--v-if-->`;
 
-exports[`EcTable should not render if not provided with an empty array of data 1`] = `<!--v-if-->`;
+exports[`EcTable > should not render if not provided with an empty array of data 1`] = `<!--v-if-->`;
 
-exports[`EcTable should not render if not provided with any data 1`] = `<!--v-if-->`;
+exports[`EcTable > should not render if not provided with any data 1`] = `<!--v-if-->`;
 
-exports[`EcTable should only render custom row if "isCustomRowShown" is true 1`] = `
+exports[`EcTable > should only render custom row if "isCustomRowShown" is true 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -273,7 +273,7 @@ exports[`EcTable should only render custom row if "isCustomRowShown" is true 1`]
 </div>
 `;
 
-exports[`EcTable should render as expected if provided with data and columns 1`] = `
+exports[`EcTable > should render as expected if provided with data and columns 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -382,7 +382,7 @@ exports[`EcTable should render as expected if provided with data and columns 1`]
 </div>
 `;
 
-exports[`EcTable should render as expected if provided with data and columns, with footer switched on 1`] = `
+exports[`EcTable > should render as expected if provided with data and columns, with footer switched on 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -513,7 +513,7 @@ exports[`EcTable should render as expected if provided with data and columns, wi
 </div>
 `;
 
-exports[`EcTable should render as expected if provided with data but no columns 1`] = `
+exports[`EcTable > should render as expected if provided with data but no columns 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -580,7 +580,7 @@ exports[`EcTable should render as expected if provided with data but no columns 
 </div>
 `;
 
-exports[`EcTable should render as expected if provided with data but no columns, and footer switched on 1`] = `
+exports[`EcTable > should render as expected if provided with data but no columns, and footer switched on 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -669,7 +669,7 @@ exports[`EcTable should render as expected if provided with data but no columns,
 </div>
 `;
 
-exports[`EcTable should render as expected if provided with empty row and no columns, with footer switched on 1`] = `
+exports[`EcTable > should render as expected if provided with empty row and no columns, with footer switched on 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -718,7 +718,7 @@ exports[`EcTable should render as expected if provided with empty row and no col
 </div>
 `;
 
-exports[`EcTable should render as expected if provided with rows and columns, with footer switched on and the title given 1`] = `
+exports[`EcTable > should render as expected if provided with rows and columns, with footer switched on and the title given 1`] = `
 <div>
   <div
     class="ec-table__title"
@@ -854,7 +854,7 @@ exports[`EcTable should render as expected if provided with rows and columns, wi
 </div>
 `;
 
-exports[`EcTable should render custom row if window width is lower than 768px 1`] = `
+exports[`EcTable > should render custom row if window width is lower than 768px 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -903,7 +903,7 @@ exports[`EcTable should render custom row if window width is lower than 768px 1`
 </div>
 `;
 
-exports[`EcTable should render slots as expected 1`] = `
+exports[`EcTable > should render slots as expected 1`] = `
 <div>
   <!--v-if-->
   <div
@@ -1038,7 +1038,7 @@ exports[`EcTable should render slots as expected 1`] = `
 </div>
 `;
 
-exports[`EcTable should render sorting as expected 1`] = `
+exports[`EcTable > should render sorting as expected 1`] = `
 <thead
   class="ec-table-head"
   data-test="ec-table-head"
@@ -1126,7 +1126,7 @@ exports[`EcTable should render sorting as expected 1`] = `
 </thead>
 `;
 
-exports[`EcTable should render the style with the max-width on each cell of the column that have the prop given 1`] = `
+exports[`EcTable > should render the style with the max-width on each cell of the column that have the prop given 1`] = `
 <div>
   <!--v-if-->
   <div

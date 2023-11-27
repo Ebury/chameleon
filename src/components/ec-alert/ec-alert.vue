@@ -2,7 +2,10 @@
   <div
     v-show="open"
     class="ec-alert"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-alert` : 'ec-alert'"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-alert` : 'ec-alert',
+    }"
     :class="{
       [`ec-alert--${type}`]: type,
       'ec-alert--is-responsive': responsive,
@@ -66,6 +69,10 @@ import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
 import type { AlertEvents } from './types';
 import { AlertEvent, AlertType } from './types';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const emit = defineEmits<{
   'update:open': [value: AlertEvents[AlertEvent.UPDATE_OPEN]],

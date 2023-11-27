@@ -1,4 +1,5 @@
 import { flushPromises, mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import {
   defineComponent, h, markRaw, ref,
 } from 'vue';
@@ -59,6 +60,11 @@ describe('EcSmartTable', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should render in empty state when data are null', () => {
+    const wrapper = mountEcSmartTable({ columns, data: null });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('should render resolved data properly', () => {
     const wrapper = mountEcSmartTableWithData(data, { columns });
     expect(wrapper.element).toMatchSnapshot();
@@ -100,7 +106,7 @@ describe('EcSmartTable', () => {
   });
 
   it('should pass row-click event to the ec-table', async () => {
-    const onRowClick = jest.fn();
+    const onRowClick = vi.fn();
 
     const wrapper = mountEcSmartTableWithData(data, { columns }, {
       attrs: {
@@ -226,12 +232,12 @@ describe('EcSmartTable', () => {
     });
 
     it('should render custom row if window width is lower than 768px', () => {
-      window.matchMedia = jest.fn().mockImplementation(query => ({
-        matches: query === '(max-width: 768px)',
+      window.matchMedia = vi.fn().mockImplementation(query => ({
+        matches: query === '(max-width: 767px)',
         media: '',
         onchange: null,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
       }));
 
       const wrapper = mountEcSmartTableWithData(data, {

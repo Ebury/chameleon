@@ -2,7 +2,10 @@
   <div
     ref="popperReference"
     class="ec-btn-dropdown"
-    :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-btn-dropdown` : 'ec-btn-dropdown'"
+    v-bind="{
+      ...$attrs,
+      'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-btn-dropdown` : 'ec-btn-dropdown',
+    }"
   >
     <ec-btn
       :href="href"
@@ -76,6 +79,10 @@ import { computed, ref } from 'vue';
 
 import EcBtn from '../ec-btn';
 import EcDropdownSearch from '../ec-dropdown-search';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps({
   items: {

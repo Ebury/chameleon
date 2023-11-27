@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcBadge should render as expected with a number value 1`] = `
+exports[`EcBadge > should render as expected with a number value 1`] = `
 <span
   class="ec-badge ec-badge--info"
   data-test="ec-badge"
@@ -11,7 +11,7 @@ exports[`EcBadge should render as expected with a number value 1`] = `
 </span>
 `;
 
-exports[`EcBadge should render as expected with a string value 1`] = `
+exports[`EcBadge > should render as expected with a string value 1`] = `
 <span
   class="ec-badge ec-badge--info"
   data-test="ec-badge"
@@ -22,7 +22,7 @@ exports[`EcBadge should render as expected with a string value 1`] = `
 </span>
 `;
 
-exports[`EcBadge should render with the default slot given 1`] = `
+exports[`EcBadge > should render with the default slot given 1`] = `
 <span
   class="ec-badge ec-badge--info"
   data-test="ec-badge"
@@ -33,7 +33,7 @@ exports[`EcBadge should render with the default slot given 1`] = `
 </span>
 `;
 
-exports[`EcBadge should use the type "error" 1`] = `
+exports[`EcBadge > should use the type "error" 1`] = `
 <span
   class="ec-badge ec-badge--error"
   data-test="ec-badge"
@@ -44,7 +44,7 @@ exports[`EcBadge should use the type "error" 1`] = `
 </span>
 `;
 
-exports[`EcBadge should use the type "info" 1`] = `
+exports[`EcBadge > should use the type "info" 1`] = `
 <span
   class="ec-badge ec-badge--info"
   data-test="ec-badge"
@@ -55,7 +55,7 @@ exports[`EcBadge should use the type "info" 1`] = `
 </span>
 `;
 
-exports[`EcBadge should use the type "success" 1`] = `
+exports[`EcBadge > should use the type "success" 1`] = `
 <span
   class="ec-badge ec-badge--success"
   data-test="ec-badge"
@@ -66,7 +66,7 @@ exports[`EcBadge should use the type "success" 1`] = `
 </span>
 `;
 
-exports[`EcBadge should use the type "warning" 1`] = `
+exports[`EcBadge > should use the type "warning" 1`] = `
 <span
   class="ec-badge ec-badge--warning"
   data-test="ec-badge"

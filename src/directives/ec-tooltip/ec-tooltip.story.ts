@@ -114,13 +114,10 @@ export const allColorsAndPositions = () => ({
     };
   },
   template: `
-    <div class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-min-h-screen tw-bg-gray-5">
+    <div class="tw-flex tw-flex-col tw-w-full tw-max-w-full tw-justify-center tw-items-center tw-min-h-screen tw-bg-gray-5">
       <div class="tw-w-full tw-p-64 tw-my-40">
         <div class="tw-flex tw-flex-row tw-justify-between">
-          <div
-            v-for="placement in placements"
-            class="tw-col-2"
-          >
+          <div v-for="placement in placements">
             <div
               v-ec-tooltip="{ ...tooltipConfig, placement: placement }"
               class="tw-min-h-64 tw-min-w-full tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center"
@@ -133,10 +130,7 @@ export const allColorsAndPositions = () => ({
 
       <div class="tw-w-full tw-p-64 tw-my-40">
         <div class="tw-flex tw-flex-row tw-justify-between">
-          <div
-            v-for="placement in placements"
-            class="tw-col-2"
-          >
+          <div v-for="placement in placements">
             <div
               v-ec-tooltip="{ ...customBgTooltipConfig, placement: placement }"
               class="tw-min-h-64 tw-min-w-full tw-w-1/2 tw-my-0 tw-mx-auto tw-text-gray-8 tw-p-20 tw-bg-success tw-text-center"

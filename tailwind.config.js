@@ -12,7 +12,9 @@ module.exports = {
     './.storybook/*.{js,ts}',
   ],
   safelist: [
-    { pattern: /^tw-bg-gray-\d+$/ },
+    { pattern: /^tw-bg-gray-\d+$/ }, // for ec-full-screen-overlay.vue
+    { pattern: /^tw-grid-(cols|rows)-\d+$/ }, // for tw-css-grid.story.ts
+    { pattern: /^tw-(col|row)-span-\d+$/ }, // for tw-css-grid.story.ts
   ],
   prefix: 'tw-',
   important: false,
@@ -460,6 +462,15 @@ module.exports = {
     //   black: '900',
     // },
     // gap: ({ theme }) => theme('spacing'),
+    gap: ({ theme }) => ({
+      4: theme('spacing.4'),
+      8: theme('spacing.8'),
+      12: theme('spacing.12'),
+      16: theme('spacing.16'),
+      20: theme('spacing.20'),
+      24: theme('spacing.24'),
+      DEFAULT: theme('spacing.24'),
+    }),
     // gradientColorStops: ({ theme }) => theme('colors'),
     // gradientColorStopPositions: {
     //   '0%': '0%',
@@ -1189,11 +1200,11 @@ module.exports = {
     breakInside: true,
     breakAfter: true,
 
-    gridAutoColumns: false, // we don't use CSS grid
-    gridAutoFlow: false, // we don't use CSS grid
-    gridAutoRows: false, // we don't use CSS grid
-    gridTemplateColumns: false, // we don't use CSS grid
-    gridTemplateRows: false, // we don't use CSS grid
+    gridAutoColumns: true,
+    gridAutoFlow: true,
+    gridAutoRows: true,
+    gridTemplateColumns: true,
+    gridTemplateRows: true,
 
     flexDirection: true,
     flexWrap: true,
@@ -1204,7 +1215,7 @@ module.exports = {
     justifyContent: true,
     justifyItems: true,
 
-    gap: false, // we don't use CSS grid
+    gap: true,
 
     space: false, // it's going against BEM
     divideWidth: false, // it's going against BEM
@@ -1348,69 +1359,65 @@ function flexboxGridPlugin({ addUtilities, theme }) {
     throw new Error('Number of columns must be a positive number');
   }
 
-  const config = {
-    variants: ['responsive'],
-  };
-
   addUtilities({
-    '.grid-container': {
+    '.flex-grid-container': {
       width: '100%',
-      paddingRight: theme(`padding.${gutter / 2}`),
-      paddingLeft: theme(`padding.${gutter / 2}`),
+      paddingRight: theme(`spacing.${gutter / 2}`),
+      paddingLeft: theme(`spacing.${gutter / 2}`),
     },
-    '.grid': {
+    '.flex-grid': {
       display: 'flex',
       flexWrap: 'wrap',
-      marginRight: theme(`margin.${gutter / -2}`),
-      marginLeft: theme(`margin.${gutter / -2}`),
+      marginRight: `-${theme(`spacing.${gutter / 2}`)}`,
+      marginLeft: `-${theme(`spacing.${gutter / 2}`)}`,
     },
-  }, config);
+  });
 
   const colClasses = [];
   for (let i = 1; i <= numberOfColumns; i++) {
-    colClasses.push(`.col-${i}`);
+    colClasses.push(`.flex-col-${i}`);
   }
 
-  for (const colClass of ['.col-full', '.col', '.col-auto', ...colClasses]) {
+  for (const colClass of ['.flex-col-full', '.flex-col-spread', '.flex-col-auto', ...colClasses]) {
     addUtilities({
       [colClass]: {
         width: '100%',
-        padding: theme(`padding.${gutter / 2}`),
+        padding: theme(`spacing.${gutter / 2}`),
         minHeight: theme('minHeight.1'),
       },
-    }, config);
+    });
   }
 
-  for (const colClass of ['.col', ...colClasses]) {
+  for (const colClass of ['.flex-col-spread', ...colClasses]) {
     addUtilities({
       [colClass]: {
         maxWidth: '100%',
         flexGrow: 1,
         flexBasis: 0,
       },
-    }, config);
+    });
   }
 
   for (let i = 1; i <= numberOfColumns; i++) {
     const percentage = theme(`width.${i}/${numberOfColumns}`);
     addUtilities({
-      [`.col-${i}`]: {
+      [`.flex-col-${i}`]: {
         flex: `0 0 ${percentage}`,
         maxWidth: `${percentage}`,
       },
-      [`.offset-${i}`]: {
+      [`.flex-col-offset-${i}`]: {
         marginLeft: `${percentage}`,
       },
-    }, config);
+    });
   }
 
   addUtilities({
-    '.col-auto': {
+    '.flex-col-auto': {
       flex: '0 0 auto',
       maxWidth: 'none',
       width: 'auto',
     },
-  }, config);
+  });
 }
 
 function stopColorPlugin({ matchUtilities, theme }) {

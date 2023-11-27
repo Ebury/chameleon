@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { h } from 'vue';
 
 import { createHOC, createHOCc } from './hoc';
@@ -103,12 +104,12 @@ describe('HoC for Vue 3', () => {
 
   describe('render function', () => {
     it('should use given custom render function', () => {
-      const wrappedRender = jest.fn();
+      const wrappedRender = vi.fn();
       const WrappedComponent = {
         render: wrappedRender,
       };
 
-      const hocRender = jest.fn();
+      const hocRender = vi.fn();
       const MyHoC = createHOC(WrappedComponent, {
         render: hocRender,
       });
@@ -120,7 +121,7 @@ describe('HoC for Vue 3', () => {
     });
 
     it('should generate a render function', () => {
-      const wrappedRender = jest.fn();
+      const wrappedRender = vi.fn();
       const WrappedComponent = {
         render: wrappedRender,
       };
@@ -239,7 +240,7 @@ describe('HoC for Vue 3', () => {
 
       const MyHoC = createHOC(WrappedComponent);
 
-      const customSpy = jest.fn();
+      const customSpy = vi.fn();
       const wrapper = mount(MyHoC, {
         attrs: {
           onCustom: customSpy,
@@ -423,7 +424,7 @@ describe('HoC for Vue 3', () => {
         template: '<div>Wrapped Component</div>',
       };
 
-      const myEventSpy = jest.fn();
+      const myEventSpy = vi.fn();
       const MyHoC = createHOC(WrappedComponent, {}, {
         listeners: {
           'my-event': myEventSpy,
@@ -443,7 +444,7 @@ describe('HoC for Vue 3', () => {
         },
       };
 
-      const myMountedSpy = jest.fn();
+      const myMountedSpy = vi.fn();
       const MyHoC = createHOC(WrappedComponent, {}, {
         listeners: {
           myMounted: myMountedSpy,
@@ -464,7 +465,7 @@ describe('HoC for Vue 3', () => {
         },
       };
 
-      const myMountedSpy = jest.fn();
+      const myMountedSpy = vi.fn();
       const MyHoC = createHOC(WrappedComponent, {
         inheritAttrs: false,
       }, {
@@ -473,7 +474,7 @@ describe('HoC for Vue 3', () => {
         },
       });
 
-      const parentSpy = jest.fn();
+      const parentSpy = vi.fn();
       mount(MyHoC, {
         attrs: {
           onMyMounted: parentSpy,
@@ -492,7 +493,7 @@ describe('HoC for Vue 3', () => {
         },
       };
 
-      const myMountedSpy = jest.fn().mockImplementationOnce(function hocListener(n) {
+      const myMountedSpy = vi.fn().mockImplementationOnce(function hocListener(n) {
         this.$emit('my-mounted', n ** 2);
       });
 
@@ -505,7 +506,7 @@ describe('HoC for Vue 3', () => {
         },
       });
 
-      const parentSpy = jest.fn();
+      const parentSpy = vi.fn();
       mount(MyHoC, {
         attrs: {
           onMyMounted: parentSpy,
@@ -525,7 +526,7 @@ describe('HoC for Vue 3', () => {
         },
       };
 
-      const myMountedSpy = jest.fn();
+      const myMountedSpy = vi.fn();
       const MyHoC = createHOC(WrappedComponent, {
         data() {
           return { customData: 456 };

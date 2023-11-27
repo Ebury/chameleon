@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTableFilter should hide filters with "tw-hidden" class when "isHidden" is set 1`] = `
+exports[`EcTableFilter > should hide filters with "tw-hidden" class when "isHidden" is set 1`] = `
 <div
   class="ec-text-filter ec-table-filter__filter-item tw-hidden tw-mr-8"
   data-test="ec-table-filter__filter-item ec-table-filter__filter-item-4"
@@ -38,7 +38,7 @@ exports[`EcTableFilter should hide filters with "tw-hidden" class when "isHidden
 </div>
 `;
 
-exports[`EcTableFilter should hide filters with "tw-hidden" class when "isHidden" is set 2`] = `
+exports[`EcTableFilter > should hide filters with "tw-hidden" class when "isHidden" is set 2`] = `
 <div
   class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
   data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
@@ -76,7 +76,7 @@ exports[`EcTableFilter should hide filters with "tw-hidden" class when "isHidden
 </div>
 `;
 
-exports[`EcTableFilter should hide the clear filters button if there isn't any preselected filter 1`] = `
+exports[`EcTableFilter > should hide the clear filters button if there isn't any preselected filter 1`] = `
 <section
   class="ec-table-filter"
   data-test="ec-table-filter"
@@ -157,6 +157,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -202,6 +203,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -247,6 +249,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -359,6 +362,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -404,6 +408,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -443,7 +448,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
-    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
@@ -601,7 +606,7 @@ exports[`EcTableFilter should hide the clear filters button if there isn't any p
 </section>
 `;
 
-exports[`EcTableFilter should hide the clear filters button when the user deselect the all the filters manually 1`] = `
+exports[`EcTableFilter > should hide the clear filters button when the user deselect the all the filters manually 1`] = `
 <section
   class="ec-table-filter"
   data-test="ec-table-filter"
@@ -683,6 +688,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -728,6 +734,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -773,6 +780,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -885,6 +893,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -930,6 +939,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -969,7 +979,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
-    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
@@ -1127,7 +1137,7 @@ exports[`EcTableFilter should hide the clear filters button when the user desele
 </section>
 `;
 
-exports[`EcTableFilter should render correctly if all the required props are passed 1`] = `
+exports[`EcTableFilter > should render correctly if all the required props are passed 1`] = `
 <section
   class="ec-table-filter"
   data-test="ec-table-filter"
@@ -1208,6 +1218,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -1253,6 +1264,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -1298,6 +1310,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -1410,6 +1423,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -1455,6 +1469,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -1494,7 +1509,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
-    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
@@ -1652,7 +1667,7 @@ exports[`EcTableFilter should render correctly if all the required props are pas
 </section>
 `;
 
-exports[`EcTableFilter should render custom attributes 1`] = `
+exports[`EcTableFilter > should render custom attributes 1`] = `
 <section
   class="my-class ec-table-filter"
   data-test="my-data-test ec-table-filter"
@@ -1734,6 +1749,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -1779,6 +1795,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -1824,6 +1841,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -1936,6 +1954,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -1981,6 +2000,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -2020,7 +2040,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
-    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
@@ -2178,7 +2198,7 @@ exports[`EcTableFilter should render custom attributes 1`] = `
 </section>
 `;
 
-exports[`EcTableFilter should render with pre-selected filters if the value prop is passed 1`] = `
+exports[`EcTableFilter > should render with pre-selected filters if the value prop is passed 1`] = `
 <section
   class="ec-table-filter"
   data-test="ec-table-filter"
@@ -2259,6 +2279,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -2304,6 +2325,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -2349,6 +2371,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -2468,9 +2491,11 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper ec-checkbox__check-icon-wrapper--checked"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <svg
                           class="ec-icon ec-checkbox__check-icon"
+                          data-test="ec-checkbox__check-icon"
                           height="16"
                           width="16"
                         >
@@ -2521,6 +2546,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
                     >
                       <span
                         class="ec-checkbox__check-icon-wrapper"
+                        data-test="ec-checkbox__check-icon-wrapper"
                       >
                         <!--v-if-->
                       </span>
@@ -2560,7 +2586,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
   </div>
   <div
     class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
-    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2"
+    data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
       data-test="ec-stub ec-popover-stub"
@@ -2713,6 +2739,7 @@ exports[`EcTableFilter should render with pre-selected filters if the value prop
         class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
         data-test="ec-input-field__icon-wrapper"
       >
+        <!--v-if-->
         <svg
           class="ec-icon ec-input-field__icon"
           data-test="ec-input-field__icon"

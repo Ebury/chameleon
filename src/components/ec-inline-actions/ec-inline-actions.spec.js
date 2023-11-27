@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcInlineActions from './ec-inline-actions.vue';
@@ -139,7 +140,7 @@ describe('EcInlineActions', () => {
   });
 
   it('should trigger the given action', () => {
-    const mockCallBack = jest.fn();
+    const mockCallBack = vi.fn();
     const wrapper = mountEcInlineActions({
       items: [
         [
@@ -156,7 +157,7 @@ describe('EcInlineActions', () => {
   });
 
   it('should not trigger given action if href is passed and item is disabled', () => {
-    const mockCallBack = jest.fn();
+    const mockCallBack = vi.fn();
     const wrapper = mountEcInlineActions({
       items: [
         [

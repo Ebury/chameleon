@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcModal should disable the negative button when the "isDisabled" given prop is true 1`] = `
+exports[`EcModal > should disable the negative button when the "isDisabled" given prop is true 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <button
@@ -25,7 +25,7 @@ DOMWrapper {
 }
 `;
 
-exports[`EcModal should disable the positive button when the "isDisabled" given prop is true 1`] = `
+exports[`EcModal > should disable the positive button when the "isDisabled" given prop is true 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <button
@@ -50,7 +50,7 @@ DOMWrapper {
 }
 `;
 
-exports[`EcModal should have the ec-modal--lg class 1`] = `
+exports[`EcModal > should have the ec-modal--lg class 1`] = `
 <div
   class="ec-modal__content ec-modal--lg"
   data-test="ec-modal__content"
@@ -89,7 +89,7 @@ exports[`EcModal should have the ec-modal--lg class 1`] = `
 </div>
 `;
 
-exports[`EcModal should have the style attribute z-index when the z-index props is given 1`] = `
+exports[`EcModal > should have the style attribute z-index when the z-index props is given 1`] = `
 <div
   class="ec-modal"
   data-test="ec-modal"
@@ -134,7 +134,7 @@ exports[`EcModal should have the style attribute z-index when the z-index props 
 </div>
 `;
 
-exports[`EcModal should not render close button when isClosable is set to false 1`] = `
+exports[`EcModal > should not render close button when isClosable is set to false 1`] = `
 <header
   class="ec-modal__header"
   data-test="ec-modal__header"
@@ -145,7 +145,7 @@ exports[`EcModal should not render close button when isClosable is set to false 
 </header>
 `;
 
-exports[`EcModal should not render the modal if "show" is not set to true 1`] = `
+exports[`EcModal > should not render the modal if "show" is not set to true 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -156,7 +156,7 @@ exports[`EcModal should not render the modal if "show" is not set to true 1`] = 
 </transition-stub>
 `;
 
-exports[`EcModal should render basic modal 1`] = `
+exports[`EcModal > should render basic modal 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -210,7 +210,7 @@ exports[`EcModal should render basic modal 1`] = `
 </transition-stub>
 `;
 
-exports[`EcModal should render close button 1`] = `
+exports[`EcModal > should render close button 1`] = `
 <header
   class="ec-modal__header"
   data-test="ec-modal__header"
@@ -236,7 +236,7 @@ exports[`EcModal should render close button 1`] = `
 </header>
 `;
 
-exports[`EcModal should render footer left section when slot is passed 1`] = `
+exports[`EcModal > should render footer left section when slot is passed 1`] = `
 <footer
   class="ec-modal__footer"
   data-test="ec-modal__footer"
@@ -256,7 +256,7 @@ exports[`EcModal should render footer left section when slot is passed 1`] = `
 </footer>
 `;
 
-exports[`EcModal should render negative button if slot is passed 1`] = `
+exports[`EcModal > should render negative button if slot is passed 1`] = `
 <footer
   class="ec-modal__footer"
   data-test="ec-modal__footer"
@@ -297,7 +297,7 @@ exports[`EcModal should render negative button if slot is passed 1`] = `
 </footer>
 `;
 
-exports[`EcModal should render negative button with given category 1`] = `
+exports[`EcModal > should render negative button with given category 1`] = `
 <footer
   class="ec-modal__footer"
   data-test="ec-modal__footer"
@@ -338,7 +338,7 @@ exports[`EcModal should render negative button with given category 1`] = `
 </footer>
 `;
 
-exports[`EcModal should render negative button with the loading status if slot is passed 1`] = `
+exports[`EcModal > should render negative button with the loading status if slot is passed 1`] = `
 <footer
   class="ec-modal__footer"
   data-test="ec-modal__footer"
@@ -393,7 +393,7 @@ exports[`EcModal should render negative button with the loading status if slot i
 </footer>
 `;
 
-exports[`EcModal should render positive button if slot is passed 1`] = `
+exports[`EcModal > should render positive button if slot is passed 1`] = `
 <footer
   class="ec-modal__footer"
   data-test="ec-modal__footer"
@@ -434,7 +434,7 @@ exports[`EcModal should render positive button if slot is passed 1`] = `
 </footer>
 `;
 
-exports[`EcModal should render positive button with given category 1`] = `
+exports[`EcModal > should render positive button with given category 1`] = `
 <footer
   class="ec-modal__footer"
   data-test="ec-modal__footer"
@@ -475,7 +475,7 @@ exports[`EcModal should render positive button with given category 1`] = `
 </footer>
 `;
 
-exports[`EcModal should render positive button with the loading status if slot is passed 1`] = `
+exports[`EcModal > should render positive button with the loading status if slot is passed 1`] = `
 <footer
   class="ec-modal__footer"
   data-test="ec-modal__footer"
@@ -530,7 +530,7 @@ exports[`EcModal should render positive button with the loading status if slot i
 </footer>
 `;
 
-exports[`EcModal should render with an enabled negative button by default 1`] = `
+exports[`EcModal > should render with an enabled negative button by default 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <button
@@ -554,7 +554,7 @@ DOMWrapper {
 }
 `;
 
-exports[`EcModal should render with an enabled positive button by default 1`] = `
+exports[`EcModal > should render with an enabled positive button by default 1`] = `
 DOMWrapper {
   "isDisabled": [Function],
   "wrapperElement": <button
@@ -578,7 +578,59 @@ DOMWrapper {
 }
 `;
 
-exports[`EcModal v-model should not render the modal when we pass to model false 1`] = `
+exports[`EcModal > should render with custom attributes 1`] = `
+<transition-stub
+  appear="false"
+  css="true"
+  name="ec-modal__fade"
+  persisted="false"
+>
+  <div
+    class="ec-modal my-class"
+    data-test="my-data-test ec-modal"
+    id="test-id"
+  >
+    <div
+      class="ec-modal__content"
+      data-test="ec-modal__content"
+    >
+      <header
+        class="ec-modal__header"
+        data-test="ec-modal__header"
+      >
+        
+        
+        <a
+          class="ec-modal__close"
+          data-test="ec-modal__close"
+          href="#"
+        >
+          <svg
+            class="ec-icon ec-modal__close-icon"
+            data-test="ec-modal__close-icon"
+            height="24"
+            width="24"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+      </header>
+      <main
+        class="ec-modal__main"
+        data-test="ec-modal__main"
+      >
+        
+        
+      </main>
+      <!--v-if-->
+    </div>
+  </div>
+</transition-stub>
+`;
+
+exports[`EcModal > v-model > should not render the modal when we pass to model false 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -589,7 +641,7 @@ exports[`EcModal v-model should not render the modal when we pass to model false
 </transition-stub>
 `;
 
-exports[`EcModal v-model should render the modal when we pass to model true 1`] = `
+exports[`EcModal > v-model > should render the modal when we pass to model true 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -640,7 +692,7 @@ exports[`EcModal v-model should render the modal when we pass to model true 1`] 
 </transition-stub>
 `;
 
-exports[`EcModal v-model should render the modal when we pass to model true 2`] = `
+exports[`EcModal > v-model > should render the modal when we pass to model true 2`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -651,7 +703,7 @@ exports[`EcModal v-model should render the modal when we pass to model true 2`] 
 </transition-stub>
 `;
 
-exports[`EcModal when second modal is present should be rendered with a second modal 1`] = `
+exports[`EcModal > when second modal is present > should be rendered with a second modal 1`] = `
 <div
   class="ec-modal"
   data-test="ec-modal"

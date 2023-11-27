@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcLoading should not render the loading if the show prop is set to false 1`] = `
+exports[`EcLoading > should not render the loading if the show prop is set to false 1`] = `
 <div
   class="ec-loading"
   data-test="ec-loading"
@@ -16,7 +16,7 @@ exports[`EcLoading should not render the loading if the show prop is set to fals
 </div>
 `;
 
-exports[`EcLoading should render as expected 1`] = `
+exports[`EcLoading > should render as expected 1`] = `
 <div
   class="ec-loading"
   data-test="ec-loading"
@@ -46,7 +46,7 @@ exports[`EcLoading should render as expected 1`] = `
 </div>
 `;
 
-exports[`EcLoading should render the given slot 1`] = `
+exports[`EcLoading > should render the given slot 1`] = `
 <div
   class="ec-loading"
   data-test="ec-loading"
@@ -79,7 +79,7 @@ exports[`EcLoading should render the given slot 1`] = `
 </div>
 `;
 
-exports[`EcLoading should render the loading with a given icon size when the prop size is set to not 48 1`] = `
+exports[`EcLoading > should render the loading with a given icon size when the prop size is set to not 48 1`] = `
 <div
   class="ec-loading"
   data-test="ec-loading"
@@ -109,7 +109,7 @@ exports[`EcLoading should render the loading with a given icon size when the pro
 </div>
 `;
 
-exports[`EcLoading should render the loading with visible content if the transparent prop is set to false and the show is set to false 1`] = `
+exports[`EcLoading > should render the loading with visible content if the transparent prop is set to false and the show is set to false 1`] = `
 <div
   class="ec-loading"
   data-test="ec-loading"
@@ -125,7 +125,7 @@ exports[`EcLoading should render the loading with visible content if the transpa
 </div>
 `;
 
-exports[`EcLoading should render the loading without the content visible if the transparent prop is set to false 1`] = `
+exports[`EcLoading > should render the loading without the content visible if the transparent prop is set to false 1`] = `
 <div
   class="ec-loading"
   data-test="ec-loading"
