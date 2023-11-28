@@ -562,7 +562,6 @@ describe('EcDropdownSearch', () => {
     expect(wrapper.findByDataTest('ec-dropdown-search__item-list').attributes('style')).toBe(undefined);
 
     await wrapper.setProps({ items });
-    await wrapper.vm.$nextTick();
 
     expect(wrapper.findByDataTest('ec-dropdown-search__item-list').attributes('style')).toBe('max-height: 0px;');
   });
