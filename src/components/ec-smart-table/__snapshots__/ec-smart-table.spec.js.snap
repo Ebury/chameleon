@@ -53,6 +53,7 @@ exports[`EcSmartTable > #slots > should only render custom row if "isCustomRowSh
           </table>
         </div>
       </div>
+      <!--v-if-->
       
     </div>
   </div>
@@ -150,6 +151,7 @@ exports[`EcSmartTable > #slots > should render custom row if window width is low
           </table>
         </div>
       </div>
+      <!--v-if-->
       
     </div>
   </div>
@@ -395,7 +397,7 @@ exports[`EcSmartTable > #slots > should render resolved data properly with the h
       
       
       <div>
-        Header Actions total: 1, items: [[1,2,3]], error: undefined, loading: false
+        Header Actions total: 5, items: [[1,2,3]], error: undefined, loading: false
       </div>
       
       
@@ -554,6 +556,7 @@ exports[`EcSmartTable > #slots > should render resolved data properly with the h
           </table>
         </div>
       </div>
+      <!--v-if-->
       
     </div>
   </div>
@@ -1007,6 +1010,24 @@ exports[`EcSmartTable > filtering > should reset the page after changes in filte
       </svg>
     </button>
   </div>
+</div>
+`;
+
+exports[`EcSmartTable > infiniteScroll > should render the element "tableEndDetector" if "isInfiniteScrollEnabled" prop is true 1`] = `
+<div
+  class="ec-smart-table__table-end-detector"
+  data-test="ec-smart-table__table-end-detector"
+>
+  <svg
+    class="ec-icon ec-loading__icon"
+    data-test="ec-loading__icon"
+    height="32"
+    width="32"
+  >
+    <use
+      xlink:href="#ec-simple-loading"
+    />
+  </svg>
 </div>
 `;
 
@@ -2372,6 +2393,7 @@ exports[`EcSmartTable > should not pass attrs to the ec-table 1`] = `
           </table>
         </div>
       </div>
+      <!--v-if-->
       
     </div>
   </div>
@@ -2540,6 +2562,7 @@ exports[`EcSmartTable > should pass props to the ec-table 1`] = `
           </table>
         </div>
       </div>
+      <!--v-if-->
       
     </div>
   </div>
@@ -2805,6 +2828,7 @@ exports[`EcSmartTable > should render its own title instead of using the one ins
           </table>
         </div>
       </div>
+      <!--v-if-->
       
     </div>
   </div>
@@ -2972,6 +2996,7 @@ exports[`EcSmartTable > should render resolved data properly 1`] = `
           </table>
         </div>
       </div>
+      <!--v-if-->
       
     </div>
   </div>

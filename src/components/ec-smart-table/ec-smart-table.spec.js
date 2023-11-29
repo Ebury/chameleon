@@ -16,7 +16,7 @@ describe('EcSmartTable', () => {
 
   const data = {
     count: 1,
-    total: 1,
+    total: 5,
     items: [[1, 2, 3]],
   };
 
@@ -117,6 +117,15 @@ describe('EcSmartTable', () => {
     await wrapper.findByDataTest('ec-table__row--0').trigger('click');
     expect(onRowClick).toHaveBeenCalledTimes(1);
     expect(onRowClick).toHaveBeenCalledWith({ data: data.items[0], rowIndex: 0 });
+  });
+
+  it('should render EcLoading loading SVG if "isInfiniteScrollEnabled" prop is false', () => {
+    const wrapper = mountEcSmartTableWithData(data, {
+      isInfiniteScrollEnabled: false,
+      isFetching: true,
+    });
+    const ecLoadingBackdrop = wrapper.findByDataTest('ec-loading__backdrop');
+    expect(ecLoadingBackdrop.exists()).toBe(true);
   });
 
   describe('#slots', () => {
@@ -675,6 +684,64 @@ describe('EcSmartTable', () => {
         ...additionalPayload,
         prop1: 'value3',
       }]);
+    });
+  });
+
+  describe('infiniteScroll', () => {
+    it('should render the element "tableEndDetector" if "isInfiniteScrollEnabled" prop is true', () => {
+      const wrapper = mountEcSmartTableWithData(data, {
+        isInfiniteScrollEnabled: true,
+      });
+      const tableEndDetector = wrapper.findByDataTest('ec-smart-table__table-end-detector');
+      expect(tableEndDetector.element).toMatchSnapshot();
+    });
+
+    it('should not render EcLoading loading SVG if "isInfiniteScrollEnabled" prop is true', () => {
+      const wrapper = mountEcSmartTableWithData(data, {
+        isInfiniteScrollEnabled: true,
+        isFetching: true,
+      });
+      const ecLoadingBackdrop = wrapper.findByDataTest('ec-loading__backdrop');
+      expect(ecLoadingBackdrop.exists()).toBe(false);
+    });
+
+    describe('intersectionObserver', () => {
+      const IntersectionObserverMock = {
+        disconnect: vi.fn(),
+        observe: vi.fn(),
+        takeRecords: vi.fn(() => [{
+          isIntersecting: true,
+        }]),
+        unobserve: vi.fn(),
+      };
+
+      beforeAll(() => {
+        window.IntersectionObserver = vi.fn(() => IntersectionObserverMock);
+      });
+
+      afterAll(() => {
+        window.IntersectionObserver.mockRestore();
+      });
+
+      it('should start observing when the component is mounted', () => {
+        mountEcSmartTableWithData(data, {
+          isInfiniteScrollEnabled: true,
+        });
+
+        expect(IntersectionObserverMock.observe).toHaveBeenCalled();
+      });
+
+      it('should pause the observer when there are no more data to load', async () => {
+        const wrapper = mountEcSmartTableWithData(data, {
+          isInfiniteScrollEnabled: true,
+        });
+
+        await wrapper.setProps({
+          data: emptyData,
+        });
+
+        expect(IntersectionObserverMock.disconnect).toHaveBeenCalled();
+      });
     });
   });
 });
