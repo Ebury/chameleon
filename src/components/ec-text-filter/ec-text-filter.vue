@@ -4,7 +4,6 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-text-filter` : 'ec-text-filter'"
   >
     <ec-input-field
-      ref="inputField"
       v-model="inputModel"
       v-bind="inputProps"
       :left-icon="IconName.SimpleSearch"
