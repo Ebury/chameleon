@@ -123,7 +123,7 @@ function clearFilters() {
 
     &--is-filling-remaining-space {
       @apply tw-grow tw-basis-1/2 tw-min-w-[200px];
-      @media (min-width: 800px) {
+      @media (min-width: 850px) {
         @apply tw-basis-0;
       }
     }
