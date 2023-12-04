@@ -16,11 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import { useElementSize } from '@vueuse/core';
 import { debounce } from 'lodash';
-import { computed, ref, watch } from 'vue';
-
-import type { Maybe } from '@ebury/chameleon-components/global';
+import { computed } from 'vue';
 
 import { IconName } from '../ec-icon/icon-names';
 import EcInputField from '../ec-input-field';
@@ -45,7 +42,6 @@ const props = withDefaults(
 const emit = defineEmits<{
   'update:modelValue': [value: TextFilterEvents[TextFilterEvent.UPDATE_MODEL_VALUE]],
   'change': [value: TextFilterEvents[TextFilterEvent.CHANGE]],
-  'change:width': [value: number]
 }>();
 
 const debouncedEmitModelValue = debounce(emitModelValue, props.debounceTime);
@@ -65,11 +61,4 @@ function emitModelValue(value: TextFilterProps['modelValue']) {
 }
 
 const rightIcon = computed(() => (props.modelValue ? IconName.SimpleClose : undefined));
-
-const inputField = ref<Maybe<HTMLInputElement>>(null);
-const { width: inputWidth } = useElementSize(inputField);
-
-watch(() => inputWidth.value, () => {
-  emit('change:width', inputWidth.value);
-});
 </script>
