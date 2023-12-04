@@ -211,6 +211,33 @@ const AllTemplate = storyArgs => ({
       component: EcTextFilter,
       isFullWidth: true,
     }];
+    const searchFilterFillingRemainingSpace = reactive([{
+      label: 'Payment status',
+      name: 'paymentStatus',
+      component: markRaw(EcSyncMultipleValuesFilter),
+      items: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }, { text: 'Overdue', value: 'overdue' }],
+    }, {
+      label: 'Supplier',
+      name: 'supplier',
+      component: markRaw(EcSyncMultipleValuesFilter),
+      items: [{ text: 'Supplier 1', value: 'supplier1' }, { text: 'Supplier 2', value: 'supplier2' }],
+      isSearchable: true,
+      isSelectAll: true,
+    }, {
+      label: 'Due date',
+      name: 'dueDate',
+      component: markRaw(EcDateRangeFilter),
+    }, {
+      label: 'Price',
+      name: 'price',
+      component: markRaw(EcCurrencyFilter),
+      comparisonSymbolItems,
+      currencyItems,
+    }, {
+      name: 'text',
+      isFillingRemainingSpace: true,
+      component: markRaw(EcTextFilter),
+    }]);
     return {
       ...useTableFiltersSetup(),
       filters,
@@ -219,6 +246,7 @@ const AllTemplate = storyArgs => ({
       someFiltersHidden,
       onlyTextFilterShownOnThreshold,
       onlyTextFilterShown,
+      searchFilterFillingRemainingSpace,
     };
   },
   template: `
@@ -273,6 +301,20 @@ const AllTemplate = storyArgs => ({
           class="tw-flex tw-items-center"
           :is-clear-filters-button-hidden="true"
           :filters="onlyTextFilterShown"
+          v-on="{
+            change: onChange,
+            'update:modelValue': onUpdateModelValue,
+          }"
+        />
+      </div>
+    </div>
+    <h2 class="tw-m-24">Search filter filling remaining space</h2>
+    <div class="tw-flex tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+        <ec-table-filter
+          v-model="model"
+          class="tw-flex tw-items-center"
+          :filters="searchFilterFillingRemainingSpace"
           v-on="{
             change: onChange,
             'update:modelValue': onUpdateModelValue,
