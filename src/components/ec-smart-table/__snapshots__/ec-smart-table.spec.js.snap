@@ -570,13 +570,13 @@ exports[`EcSmartTable > filtering > should change filters when filter prop is ch
 >
   
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     Test 1 (test-value-1)
   </div>
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     Test 2 (N/A)
@@ -599,13 +599,13 @@ exports[`EcSmartTable > filtering > should change filters when filter prop is ch
 >
   
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     Test 1 (N/A)
   </div>
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     Test 2 (N/A)
@@ -622,13 +622,13 @@ exports[`EcSmartTable > filtering > should handle changes in filters and reload 
 >
   
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     Test 1 (N/A)
   </div>
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     Test 2 (N/A)
@@ -645,13 +645,13 @@ exports[`EcSmartTable > filtering > should pass given prefilter to table filter 
 >
   
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     Test 1 (test-value-1)
   </div>
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     Test 2 (N/A)
@@ -674,13 +674,13 @@ exports[`EcSmartTable > filtering > should render the given filters 1`] = `
 >
   
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     Test 1 (N/A)
   </div>
   <div
-    class="ec-table-filter__filter-item tw-mr-8"
+    class="ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     Test 2 (N/A)
