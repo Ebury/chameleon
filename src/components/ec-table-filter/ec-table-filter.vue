@@ -25,7 +25,6 @@
       @change="onChange(filter.name, $event)"
     />
     <button
-      ref="clearFiltersButton"
       v-if="hasFilters && !isClearFiltersButtonHidden"
       type="button"
       data-test="ec-table-filter__clear-filters-button"
