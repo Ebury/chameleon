@@ -122,9 +122,13 @@ function clearFilters() {
     }
 
     &--is-filling-remaining-space {
-      @apply tw-grow tw-basis-1/2 tw-min-w-[200px];
+      @apply tw-grow tw-basis-2/3;
+      @apply tw-min-w-[200px];
+      @apply tw-my-16;
+
       @media (min-width: 850px) {
         @apply tw-basis-0;
+        @apply tw-my-0;
       }
     }
   }
