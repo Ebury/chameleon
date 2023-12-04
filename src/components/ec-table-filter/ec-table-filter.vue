@@ -17,9 +17,9 @@
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
       :class="{
-        'tw-hidden': filter.isHidden,
-        'tw-w-full tw-mr-0': filter.isFullWidth,
-        'tw-mr-8': !filter.isFullWidth,
+        'ec-table-filter__filter-item--is-hidden': filter.isHidden,
+        'ec-table-filter__filter-item--is-full-width': filter.isFullWidth,
+        'ec-table-filter__filter-item--is-not-full-width': !filter.isFullWidth,
         'ec-table-filter__filter-item--is-filling-remaining-space': filter.isFillingRemainingSpace,
       }"
       @change="onChange(filter.name, $event)"
@@ -109,6 +109,18 @@ function clearFilters() {
 
   &__filter-item {
     @apply tw-flex-nowrap;
+
+    &--is-hidden {
+      @apply tw-hidden;
+    }
+
+    &--is-full-width {
+      @apply tw-w-full tw-mr-0;
+    }
+
+    &--is-not-full-width {
+      @apply tw-mr-8;
+    }
 
     &--is-filling-remaining-space {
       @apply tw-grow tw-basis-1/2;
