@@ -235,7 +235,7 @@ const AllTemplate = storyArgs => ({
       currencyItems,
     }, {
       name: 'text',
-      isFillingRemainingSpace: true,
+      class: 'lg:tw-col-auto tw-col-start-1 tw-col-end-[-2]',
       component: markRaw(EcTextFilter),
     }]);
     return {
@@ -308,13 +308,13 @@ const AllTemplate = storyArgs => ({
         />
       </div>
     </div>
-    <h2 class="tw-m-24">Search filter filling remaining space</h2>
+    <h2 class="tw-m-24">Use custom CSS Grid layout</h2>
     <div class="tw-flex tw-px-20">
       <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
         <ec-table-filter
           v-model="model"
-          class="tw-flex tw-items-center"
           :filters="searchFilterFillingRemainingSpace"
+          layout-class="!tw-grid tw-grid-rows-2 tw-grid-cols-[repeat(4,_auto)_1fr_auto] lg:tw-grid-rows-1"
           v-on="{
             change: onChange,
             'update:modelValue': onUpdateModelValue,

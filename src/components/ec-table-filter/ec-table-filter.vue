@@ -2,6 +2,7 @@
   <section
     v-bind="$attrs"
     class="ec-table-filter"
+    :class="layoutClass"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-table-filter` : 'ec-table-filter'"
   >
     <component
@@ -20,7 +21,7 @@
         'ec-table-filter__filter-item--is-hidden': filter.isHidden,
         'ec-table-filter__filter-item--is-full-width': filter.isFullWidth,
         'ec-table-filter__filter-item--is-not-full-width': !filter.isFullWidth,
-        'ec-table-filter__filter-item--is-filling-remaining-space': filter.isFillingRemainingSpace,
+        [filter.class]: filter.class,
       }"
       @change="onChange(filter.name, $event)"
     />
@@ -67,6 +68,10 @@ const props = defineProps({
   isClearFiltersButtonHidden: {
     type: Boolean,
     default: false,
+  },
+  layoutClass: {
+    type: String,
+    default: '',
   },
 });
 
@@ -119,17 +124,6 @@ function clearFilters() {
 
     &--is-not-full-width {
       @apply tw-mr-8;
-    }
-
-    &--is-filling-remaining-space {
-      @apply tw-grow tw-basis-2/3;
-      @apply tw-min-w-[200px];
-      @apply tw-my-16;
-
-      @media (min-width: 850px) {
-        @apply tw-basis-0;
-        @apply tw-my-0;
-      }
     }
   }
 

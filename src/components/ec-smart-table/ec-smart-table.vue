@@ -18,6 +18,7 @@
           :filters="filters"
           :clear-filters-button-text="clearFiltersButtonText"
           :is-clear-filters-button-hidden="isClearFiltersButtonHidden"
+          :layout-class="filtersLayoutClass"
           data-test="ec-smart-table__filter"
           @change="onFilterChanged"
         />
@@ -213,6 +214,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  filtersLayoutClass: String,
 });
 
 // sorting
