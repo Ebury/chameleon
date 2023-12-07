@@ -468,7 +468,7 @@ function updateScroll() {
   }
 }
 
-watch(() => props.items, async () => {
+watch(() => itemElements.value.length, async () => {
   if (isOpen.value) {
     await nextTick();
     setOverflowHeight();

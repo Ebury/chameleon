@@ -89,9 +89,9 @@ export const all: EcInlineInputFieldStory = args => ({
     };
   },
   template: `
-    <div class="tw-grid-container">
-      <div class="tw-grid">
-        <div class="tw-col-full md:tw-col-4">
+    <div class="tw-flex-grid-container">
+      <div class="tw-flex-grid">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-inline-input-field
             v-bind="args"
             label="Inline Input Field"
@@ -107,7 +107,7 @@ export const all: EcInlineInputFieldStory = args => ({
           </ec-inline-input-field>
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-inline-input-field
             label="Inline Input Field - Basic Slot usage"
             tooltip-text-success=""
@@ -117,7 +117,7 @@ export const all: EcInlineInputFieldStory = args => ({
           </ec-inline-input-field>
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-inline-input-field
             label="Inline Input Field - HTML Slot usage"
             tooltip-text-success=""
@@ -127,11 +127,11 @@ export const all: EcInlineInputFieldStory = args => ({
           </ec-inline-input-field>
         </div>
 
-        <div class="tw-col-full" />
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full" />
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           Value: {{ args.value }}
         </div>
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-inline-input-field
             v-bind="args"
             label="Inline Input Field - Copiable"
@@ -139,7 +139,7 @@ export const all: EcInlineInputFieldStory = args => ({
             :is-editable="false"
           />
         </div>
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-inline-input-field
             v-bind="args"
             label="Inline Input Field - Left aligned button"
@@ -149,7 +149,7 @@ export const all: EcInlineInputFieldStory = args => ({
             tooltip-text-error=""
           />
         </div>
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-inline-input-field
             :is-editable="true"
             :is-editing="true"

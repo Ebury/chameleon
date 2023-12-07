@@ -55,7 +55,7 @@
     </template>
     <template v-else>
       <ec-loading
-        :show="isFetching"
+        :show="!isInfiniteScrollEnabled && isFetching"
         :transparent="!isEmpty"
         :class="{ 'tw-my-48 tw-min-h-48': /* c8 ignore next */ isEmpty && isFetching }"
       >
@@ -119,20 +119,36 @@
             v-bind="slotData"
           /></template>
         </ec-table>
+        <div
+          ref="tableEndDetector"
+          v-if="isInfiniteScrollEnabled && canLoadMore"
+          class="ec-smart-table__table-end-detector"
+          data-test="ec-smart-table__table-end-detector"
+        >
+          <ec-icon
+            :name="IconName.SimpleLoading"
+            :size="32"
+            class="ec-loading__icon"
+            data-test="ec-loading__icon"
+          />
+        </div>
       </ec-loading>
     </template>
   </div>
 </template>
 
 <script setup>
+import { useIntersectionObserver } from '@vueuse/core';
 import {
-  computed, ref, unref, useAttrs, useSlots, watch,
+  computed, onMounted, ref, unref, useAttrs, useSlots, watch,
 } from 'vue';
 
 import useEcPagination from '../../composables/use-ec-pagination';
 import useEcSorting from '../../composables/use-ec-sorting';
 import { SortDirection } from '../../enums';
 import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
+import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
 import EcLoading from '../ec-loading';
 import EcSmartTableHeading from '../ec-smart-table-heading';
 import EcTable from '../ec-table';
@@ -193,6 +209,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  isInfiniteScrollEnabled: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // sorting
@@ -236,7 +256,7 @@ const payload = computed(() => ({
 watch(payload, () => {
   emit('fetch', payload.value);
 }, {
-  immediate: true,
+  immediate: !props.isInfiniteScrollEnabled,
 });
 
 const isEmpty = computed(() => (props.data ?? []).length === 0);
@@ -260,4 +280,45 @@ function getEcTableSlots() {
   delete tableSlots.pages;
   return tableSlots;
 }
+
+// infinite scroll
+
+const tableEndDetector = ref(null);
+
+const canLoadMore = computed(() => props.data && props.data.length < props.totalRecords);
+
+onMounted(() => {
+  const {
+    pause: pauseIntersectionObserver,
+    resume: resumeIntersectionObserver,
+  } = useIntersectionObserver(
+    tableEndDetector,
+    /* c8 ignore start */
+    ([{ isIntersecting }]) => {
+      if (isIntersecting && !props.isFetching) {
+        page.value += 1;
+      }
+    },
+    /* c8 ignore stop */
+  );
+
+  watch(() => canLoadMore.value, () => {
+    /* c8 ignore start */
+    if (canLoadMore.value) {
+      resumeIntersectionObserver();
+    /* c8 ignore stop */
+    } else {
+      pauseIntersectionObserver();
+    }
+  });
+});
 </script>
+
+<style>
+.ec-smart-table {
+  &__table-end-detector {
+    @apply tw-flex tw-justify-center;
+    @apply tw-mt-40;
+  }
+}
+</style>
