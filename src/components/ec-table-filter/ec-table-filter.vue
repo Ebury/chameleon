@@ -2,7 +2,10 @@
   <section
     v-bind="$attrs"
     class="ec-table-filter"
-    :class="layoutClass"
+    :class="{
+      'ec-table-filter__has-full-width-filter': hasFullWidthFilter,
+      [layoutClass]: layoutClass,
+    }"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-table-filter` : 'ec-table-filter'"
   >
     <component
@@ -79,6 +82,10 @@ const emit = defineEmits(['update:modelValue', 'change']);
 
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
 
+const hasFullWidthFilter = computed(() => (props.filters ? Object.values(props.filters).some(filter => filter.isFullWidth) : false));
+
+console.log(hasFullWidthFilter.value);
+
 function update(filters) {
   emit('update:modelValue', filters);
   emit('change', filters);
@@ -101,19 +108,21 @@ function clearFilters() {
 
 <style>
 .ec-table-filter {
-  @apply tw-flex;
+  @apply tw-grid;
   @apply tw-bg-gray-7;
   @apply tw-w-full;
 
   @screen sm {
-    @apply tw-flex tw-flex-row tw-justify-start tw-flex-wrap tw-items-center;
+    @apply tw-grid tw-grid-rows-1 tw-grid-flow-col tw-auto-cols-max tw-items-center;
     @apply tw-bg-gray-8;
     @apply tw-max-w-full;
   }
 
-  &__filter-item {
-    @apply tw-flex-nowrap;
+  &__has-full-width-filter {
+    @apply tw-auto-cols-auto;
+  }
 
+  &__filter-item {
     &--is-hidden {
       @apply tw-hidden;
     }

@@ -314,7 +314,7 @@ const AllTemplate = storyArgs => ({
         <ec-table-filter
           v-model="model"
           :filters="searchFilterFillingRemainingSpace"
-          layout-class="!tw-grid tw-grid-rows-2 tw-grid-cols-[repeat(4,_auto)_1fr_auto] lg:tw-grid-rows-1"
+          layout-class="!tw-grid tw-grid-rows-2 !tw-grid-flow-row tw-grid-cols-[repeat(4,_auto)_1fr_auto] lg:tw-grid-rows-1"
           v-on="{
             change: onChange,
             'update:modelValue': onUpdateModelValue,
