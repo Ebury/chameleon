@@ -84,8 +84,6 @@ const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
 
 const hasFullWidthFilter = computed(() => (props.filters ? Object.values(props.filters).some(filter => filter.isFullWidth) : false));
 
-console.log(hasFullWidthFilter.value);
-
 function update(filters) {
   emit('update:modelValue', filters);
   emit('change', filters);
