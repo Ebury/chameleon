@@ -63,7 +63,7 @@
     "@storybook/source-loader": "7.4.6",
     "@storybook/theming": "7.4.6",
     "@storybook/vue3": "7.4.6",
-    "@storybook/vue3-vite": "7.4.6",
+    "@storybook/vue3-vite": "7.6.4",
     "@types/intl": "1.2.1",
     "@types/node": "20.8.10",
     "@types/sinonjs__fake-timers": "8.1.4",
