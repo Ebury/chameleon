@@ -80,13 +80,13 @@ export const all = storyArgs => ({
     };
   },
   template: `
-    <div class="tw-grid-container">
-      <div class="tw-grid">
-        <div class="tw-col-full md:tw-col-4">
+    <div class="tw-flex-grid-container">
+      <div class="tw-flex-grid">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-textarea v-bind="args" />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-textarea
             v-bind="args"
             :label="disabledLabel"
@@ -94,7 +94,7 @@ export const all = storyArgs => ({
           />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-textarea
             v-bind="args"
             :label="warningLabel"
@@ -102,7 +102,7 @@ export const all = storyArgs => ({
           />
         </div>
 
-        <div class="tw-col-full md:tw-col-4">
+        <div class="tw-flex-col-full md:tw-flex-col-4">
           <ec-textarea
             v-bind="args"
             :label="errorLabel"

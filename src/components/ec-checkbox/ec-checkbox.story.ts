@@ -72,14 +72,14 @@ export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
   template: `
     <div class="tw-max-w-screen-sm tw-m-24">
       <h3>Not checked</h3>
-      <ec-checkbox class="tw-mb-24 tw-col-12">
+      <ec-checkbox class="tw-mb-24 tw-mt-12">
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
         </template>
       </ec-checkbox>
 
       <h3>Not checked - with multiline label text</h3>
-      <ec-checkbox class="tw-mb-24 tw-col-12">
+      <ec-checkbox class="tw-mb-24 tw-mt-12">
         <template #label>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
         </template>
@@ -88,7 +88,7 @@ export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
       <h3>Checked</h3>
       <ec-checkbox
         :model-value="true"
-        class="tw-mb-24 tw-col-12"
+        class="tw-mb-24 tw-mt-12"
       >
         <template #label>
           I accept the <a href="#" @click.stop.prevent="onAction"> terms and conditions </a>
@@ -98,7 +98,7 @@ export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
       <h3>Indeterminate</h3>
       <ec-checkbox
         indeterminate
-        class="tw-mb-24 tw-col-12"
+        class="tw-mb-24 tw-mt-12"
       >
         <template #label>
           Select all
@@ -107,7 +107,7 @@ export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
 
       <h3>Error</h3>
       <ec-checkbox
-        class="tw-mb-24 tw-col-12"
+        class="tw-mb-24 tw-mt-12"
         error-message="An error has occurred"
       >
         <template #label>
@@ -118,7 +118,7 @@ export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
       <h3>Error - with multiline label text</h3>
       <ec-checkbox
         error-message="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eos consequatur quas reiciendis aliquid ipsam ea pariatur dolorem, molestias maiores."
-        class="tw-mb-24 tw-col-12"
+        class="tw-mb-24 tw-mt-12"
       >
         <template #label>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper, tortor vitae elementum fringilla, risus leo hendrerit libero, vitae luctus nibh ex non neque. Duis id ligula eros.
@@ -127,7 +127,7 @@ export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
 
       <h3>Disabled</h3>
       <ec-checkbox
-        class="tw-mb-24 tw-col-12"
+        class="tw-mb-24 tw-mt-12"
         disabled
       >
         <template #label>
@@ -137,7 +137,7 @@ export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
 
       <h3>Disabled - checked</h3>
       <ec-checkbox
-        class="tw-mb-24 tw-col-12"
+        class="tw-mb-24 tw-mt-12"
         :model-value="true"
         disabled
       >
@@ -148,7 +148,7 @@ export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
 
       <h3>Disabled - indeterminate</h3>
       <ec-checkbox
-        class="tw-mb-24 tw-col-12"
+        class="tw-mb-24 tw-mt-12"
         indeterminate
         disabled
       >
@@ -161,14 +161,14 @@ export const all: StoryFn<StoryArgs & { hasError: boolean }> = storyArgs => ({
       <ec-checkbox
         v-if="!hasError"
         v-model="checkbox1"
-        class="tw-mb-24"
+        class="tw-mb-24 tw-mt-12"
         :disabled="disabled"
         :label="label"
       />
       <ec-checkbox
         v-else="hasError"
         v-model="checkbox1"
-        class="tw-mb-24"
+        class="tw-mb-24 tw-mt-12"
         :disabled="disabled"
         :label="label"
         :error-message="errorMessage"

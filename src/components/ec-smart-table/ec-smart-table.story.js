@@ -214,6 +214,37 @@ function useSmartTableSetup(args) {
     isFetching, error, data, onFetch, execute,
   } = useSmartTableFetch({}, { fetch: fakeFetch, urlBuilder });
 
+  // infinite scroll
+  const infiniteScrollMappedData = ref([...args.fakeData]);
+
+  function getInfiniteScrollMappedData(payload) {
+    // 500ms delay to show the loading icon
+    setTimeout(() => {
+      if (!payload.sorts.length) {
+        payload.sorts = defaultSorts;
+      }
+
+      const areSortsDifferent = payload.sorts[0].column !== args.pagination.sorts[0].column
+      || payload.sorts[0].direction !== args.pagination.sorts[0].direction;
+
+      if (areSortsDifferent) {
+        infiniteScrollMappedData.value = [];
+
+        args.pagination.sorts = payload.sorts.length
+          ? [{
+            column: payload.sorts[0].column,
+            direction: payload.sorts[0].direction,
+          }]
+          : defaultSorts;
+      }
+
+      infiniteScrollMappedData.value = [
+        ...infiniteScrollMappedData.value,
+        ...args.fakeData,
+      ];
+    }, 500);
+  }
+
   return {
     data,
     isFetching,
@@ -223,6 +254,8 @@ function useSmartTableSetup(args) {
     sortCycle,
     filters,
     selectedFilter,
+    infiniteScrollMappedData,
+    getInfiniteScrollMappedData,
     onSort: action('sort'),
     onAbort: action('abort'),
     onError: action('error'),
@@ -313,6 +346,7 @@ basic.args = {
   pagination: {
     page: 2,
     numberOfItems: 5,
+    sorts: defaultSorts,
   },
   isMultiSort: false,
   additionalPayload: { customProp: 'customValue' },
@@ -521,6 +555,69 @@ export const all = args => ({
           </template>
           <template #footer><div class="tw-text-right">Custom footer info</div></template>
           <template #pages="{ page, totalPages, total }">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
+        </ec-smart-table>
+      </div>
+    </div>
+    <h2 class="tw-m-24">With infinite scrolling</h2>
+    <div class="tw-flex tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+        <ec-smart-table
+          v-bind="{
+            ...args,
+            data: infiniteScrollMappedData,
+            totalRecords: data?.total ?? 0,
+            isFetching,
+            error,
+            sortCycle,
+            filters,
+            filter: selectedFilter,
+            loadingDelay: null,
+            failOnFetch: null,
+            fakeData: null,
+            fetchEmptyList: null,
+            isFilteringEnabled: null,
+            prefilter: null,
+            isCustomRowShown: false,
+            isPaginationEnabled: false,
+            isInfiniteScrollEnabled: true,
+          }"
+          v-on="{
+            fetch: getInfiniteScrollMappedData,
+            sort: onSort,
+            abort: onAbort,
+            error: onError,
+          }">
+          <template #header-actions="{ total, items, error, loading }">
+            <a
+              href="#"
+              v-if="!error && !loading"
+              @click.prevent.stop="onDownload">Download all {{ total }} item(s)</a>
+            <a @click.prevent.stop="execute()" href="#">Reload</a>
+          </template>
+          <template #error="{ errorMessage }">
+            <div class="tw-text-center tw-text-error tw-py-48">
+              <div><ec-icon name="simple-error" :size="48" class="tw-fill-error" /></div>
+              {{ errorMessage }}
+            </div>
+          </template>
+          <template #empty="{ emptyMessage }">
+            <div class="tw-text-center tw-py-48">
+              <div><ec-icon name="simple-info" :size="48" /></div>
+              {{ emptyMessage }}
+            </div>
+          </template>
+          <template v-slot="{ row }">
+            <ec-option-card>
+              <div class="tw-flex tw-justify-between tw-align-center">
+                <p>{{ row[0] }}</p>
+                <p>{{ row[1] }}</p>
+              </div>
+              <div class="tw-flex tw-justify-between tw-align-center">
+                <p>{{ row[2] }}</p>
+                <p>{{ row[3] }}</p>
+              </div>
+            </ec-option-card>
+          </template>
         </ec-smart-table>
       </div>
     </div>

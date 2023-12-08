@@ -120,8 +120,8 @@ export const all = args => ({
   template: `
     <div class="tw-p-20">
       <h2>Single</h2>
-      <div class="tw-grid">
-        <div class="tw-col-4">
+      <div class="tw-flex-grid">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="false"
@@ -130,7 +130,7 @@ export const all = args => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="true"
@@ -139,7 +139,7 @@ export const all = args => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="false"
@@ -149,7 +149,7 @@ export const all = args => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="false"
@@ -159,7 +159,7 @@ export const all = args => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="items"
             disabled
@@ -168,7 +168,7 @@ export const all = args => ({
             v-model="disabledModel">
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="itemsIncludingEmpty"
             label="Single value - with empty item"
@@ -176,7 +176,7 @@ export const all = args => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="items"
             label="Single value - with CTA"
@@ -187,7 +187,7 @@ export const all = args => ({
             </template>
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="items"
             label="Single value - custom template"
@@ -200,7 +200,7 @@ export const all = args => ({
             </template>
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="complexItems"
             :search-fields="searchFields"
@@ -214,7 +214,7 @@ export const all = args => ({
             </template>
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="true"
@@ -228,7 +228,7 @@ export const all = args => ({
             </template>
           </ec-dropdown>
         </div>
-        <div class="tw-col-4">
+        <div class="tw-flex-col-4">
           <ec-dropdown
             :items="items"
             :is-search-enabled="false"
@@ -238,7 +238,7 @@ export const all = args => ({
             v-model="selected">
           </ec-dropdown>
         </div>
-        <div class="tw-col-12 tw-p-12">
+        <div class="tw-flex-col-12 tw-p-12">
           Selected value: {{ selected }}
         </div>
       </div>
