@@ -115,7 +115,7 @@
     "vite": "4.5.1",
     "vitest": "0.34.6",
     "vue-router": "4.2.5",
-    "vue-tsc": "1.8.22",
+    "vue-tsc": "1.8.25",
     "wait-on": "6.0.1",
     "webpack": "5.89.0",
     "webpack-cli": "5.1.4",
