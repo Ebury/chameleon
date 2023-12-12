@@ -3,8 +3,8 @@
     v-bind="$attrs"
     class="ec-table-filter"
     :class="{
-      'ec-table-filter__has-full-width-filter': hasFullWidthFilter,
-      'ec-table-filter__has-stretch-filter': hasStretchFilter,
+      'ec-table-filter--has-full-width-filter': hasFullWidthFilter,
+      'ec-table-filter--has-stretch-filter': hasStretchFilter,
     }"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-table-filter` : 'ec-table-filter'"
   >
@@ -72,6 +72,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  hasStretchFilter: Boolean,
 });
 
 const emit = defineEmits(['update:modelValue', 'change']);
@@ -79,7 +80,6 @@ const emit = defineEmits(['update:modelValue', 'change']);
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
 
 const hasFullWidthFilter = computed(() => (props.filters ? Object.values(props.filters).some(filter => filter.isFullWidth) : false));
-const hasStretchFilter = computed(() => (props.filters ? Object.values(props.filters).some(filter => filter.stretch) : false));
 const stretchLayoutColumns = computed(() => (props.filters ? `repeat(${Object.values(props.filters).length - 1}, auto) 1fr auto` : ''));
 
 function update(filters) {
@@ -114,11 +114,11 @@ function clearFilters() {
     @apply tw-max-w-full;
   }
 
-  &__has-full-width-filter {
+  &--has-full-width-filter {
     @apply tw-auto-cols-auto;
   }
 
-  &__has-stretch-filter {
+  &--has-stretch-filter {
     @apply tw-grid-flow-row;
 
     /* Since the number of filter can vary we need to set the columns layout according to the filters we have
@@ -132,7 +132,7 @@ function clearFilters() {
 
     @screen md {
       @apply tw-grid-rows-2;
-      @apply tw-gap-y-16 tw-mb-16;
+      @apply tw-gap-y-16;
     }
 
     @media (min-width: 850px) {
