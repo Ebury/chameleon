@@ -219,7 +219,7 @@ const props = defineProps({
   },
 });
 
-const hasStretchFilter = computed(() => (props.filters ? Object.values(props.filters).some(filter => filter.stretch) : false));
+const hasStretchFilter = computed(() => (Object.values(props.filters).some(filter => filter.stretch)));
 
 // sorting
 const { sorts, sortBy } = useEcSorting({
