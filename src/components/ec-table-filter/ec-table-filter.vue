@@ -121,11 +121,6 @@ function clearFilters() {
   &--has-stretch-filter {
     @apply tw-grid-flow-row;
 
-    /* Since the number of filter can vary we need to set the columns layout according to the filters we have
-    We can't use Tailwind for this because the generated class (i.e. tw-grid-cols-[repeat(4,_auto)_1fr_auto] if we have 4 filters)
-    won't be generated because TW can't react to those changes. However we can use Vue v-bind function to achieve that.
-    See https://vuejs.org/api/sfc-css-features.html#v-bind-in-css */
-
     /* stylelint-disable */
     grid-template-columns: v-bind(stretchLayoutColumns);
     /* stylelint-enable */
