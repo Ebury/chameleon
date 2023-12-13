@@ -315,6 +315,7 @@ const AllTemplate = storyArgs => ({
         <ec-table-filter
           v-model="model"
           :filters="searchFilterFillingRemainingSpace"
+          :has-stretch-filter="true"
           v-on="{
             change: onChange,
             'update:modelValue': onUpdateModelValue,
