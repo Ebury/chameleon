@@ -1,8 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcTableFilter > should hide filters with "tw-hidden" class when "isHidden" is set 1`] = `
+exports[`EcTableFilter > should hide filters with "ec-table-filter__filter-item--is-hidden" class when "isHidden" is set 1`] = `
 <div
-  class="ec-text-filter ec-table-filter__filter-item tw-hidden tw-mr-8"
+  class="ec-text-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-hidden ec-table-filter__filter-item--is-not-full-width"
   data-test="ec-table-filter__filter-item ec-table-filter__filter-item-4"
   ishidden="true"
 >
@@ -38,9 +38,9 @@ exports[`EcTableFilter > should hide filters with "tw-hidden" class when "isHidd
 </div>
 `;
 
-exports[`EcTableFilter > should hide filters with "tw-hidden" class when "isHidden" is set 2`] = `
+exports[`EcTableFilter > should hide filters with "ec-table-filter__filter-item--is-hidden" class when "isHidden" is set 2`] = `
 <div
-  class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
+  class="ec-text-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
   data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   ishidden="false"
 >
@@ -83,7 +83,7 @@ exports[`EcTableFilter > should hide the clear filters button if there isn't any
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -288,7 +288,7 @@ exports[`EcTableFilter > should hide the clear filters button if there isn't any
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -447,7 +447,7 @@ exports[`EcTableFilter > should hide the clear filters button if there isn't any
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
+    class="ec-filter-popover ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
@@ -568,7 +568,7 @@ exports[`EcTableFilter > should hide the clear filters button if there isn't any
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-text-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div
@@ -614,7 +614,7 @@ exports[`EcTableFilter > should hide the clear filters button when the user dese
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -819,7 +819,7 @@ exports[`EcTableFilter > should hide the clear filters button when the user dese
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -978,7 +978,7 @@ exports[`EcTableFilter > should hide the clear filters button when the user dese
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
+    class="ec-filter-popover ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
@@ -1099,7 +1099,7 @@ exports[`EcTableFilter > should hide the clear filters button when the user dese
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-text-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div
@@ -1144,7 +1144,7 @@ exports[`EcTableFilter > should render correctly if all the required props are p
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -1349,7 +1349,7 @@ exports[`EcTableFilter > should render correctly if all the required props are p
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -1508,7 +1508,7 @@ exports[`EcTableFilter > should render correctly if all the required props are p
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
+    class="ec-filter-popover ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
@@ -1629,7 +1629,7 @@ exports[`EcTableFilter > should render correctly if all the required props are p
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-text-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div
@@ -1675,7 +1675,7 @@ exports[`EcTableFilter > should render custom attributes 1`] = `
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -1880,7 +1880,7 @@ exports[`EcTableFilter > should render custom attributes 1`] = `
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -2039,7 +2039,7 @@ exports[`EcTableFilter > should render custom attributes 1`] = `
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
+    class="ec-filter-popover ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
@@ -2160,7 +2160,7 @@ exports[`EcTableFilter > should render custom attributes 1`] = `
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-text-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div
@@ -2205,7 +2205,7 @@ exports[`EcTableFilter > should render with pre-selected filters if the value pr
 >
   
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-0"
   >
     <div
@@ -2410,7 +2410,7 @@ exports[`EcTableFilter > should render with pre-selected filters if the value pr
     </div>
   </div>
   <div
-    class="ec-sync-multiple-values-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-sync-multiple-values-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-1"
   >
     <div
@@ -2585,7 +2585,7 @@ exports[`EcTableFilter > should render with pre-selected filters if the value pr
     </div>
   </div>
   <div
-    class="ec-filter-popover ec-table-filter__filter-item tw-mr-8"
+    class="ec-filter-popover ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-2 ec-date-range-filter__trigger"
   >
     <ec-stub
@@ -2706,7 +2706,7 @@ exports[`EcTableFilter > should render with pre-selected filters if the value pr
     </ec-stub>
   </div>
   <div
-    class="ec-text-filter ec-table-filter__filter-item tw-mr-8"
+    class="ec-text-filter ec-table-filter__filter-item ec-table-filter__filter-item--is-not-full-width"
     data-test="ec-table-filter__filter-item ec-table-filter__filter-item-3"
   >
     <div

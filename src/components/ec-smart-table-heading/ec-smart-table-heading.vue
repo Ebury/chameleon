@@ -6,7 +6,10 @@
   <div
     v-if="hasSlot('filter') || hasSlot('actions')"
     class="ec-smart-table-heading"
-    :class="{ 'ec-smart-table-heading--is-responsive': isResponsive }"
+    :class="{
+      'ec-smart-table-heading--is-responsive': isResponsive,
+      'ec-smart-table-heading--has-stretch-filter': hasStretchFilter,
+    }"
   >
     <div
       v-if="hasSlot('filter')"
@@ -34,6 +37,7 @@ defineProps({
     type: Boolean,
     default: true,
   },
+  hasStretchFilter: Boolean,
 });
 
 function hasSlot(slotName) {
@@ -55,6 +59,12 @@ function hasSlot(slotName) {
 
     @screen md {
       @apply tw-px-0 tw-pb-0;
+    }
+  }
+
+  &--has-stretch-filter {
+    @screen md {
+      @apply tw-mb-16;
     }
   }
 

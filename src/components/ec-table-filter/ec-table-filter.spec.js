@@ -87,7 +87,7 @@ describe('EcTableFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should hide filters with "tw-hidden" class when "isHidden" is set', async () => {
+  it('should hide filters with "ec-table-filter__filter-item--is-hidden" class when "isHidden" is set', async () => {
     const hiddenFilters = [
       {
         name: 'text',
@@ -108,7 +108,7 @@ describe('EcTableFilter', () => {
       },
     );
     const dueDateFilter = wrapper.findByDataTest('ec-table-filter__filter-item-4');
-    expect(dueDateFilter.classes()).toContain('tw-hidden');
+    expect(dueDateFilter.classes()).toContain('ec-table-filter__filter-item--is-hidden');
     expect(dueDateFilter.element).toMatchSnapshot();
 
     hiddenFilters[0].isHidden = false;
@@ -116,7 +116,7 @@ describe('EcTableFilter', () => {
       filters: hiddenFilters,
     });
 
-    expect(dueDateFilter.classes()).not.toContain('tw-hidden');
+    expect(dueDateFilter.classes()).not.toContain('ec-table-filter__filter-item--is-hidden');
     expect(dueDateFilter.element).toMatchSnapshot();
   });
 

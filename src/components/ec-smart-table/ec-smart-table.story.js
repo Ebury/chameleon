@@ -45,6 +45,40 @@ const defaultFilters = [{
   },
 }];
 
+const defaultStretchedFilters = [{
+  label: 'Payment status',
+  name: 'paymentStatus',
+  component: markRaw(EcSyncMultipleValuesFilter),
+  items: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }, { text: 'Overdue', value: 'overdue' }],
+  isSearchable: false,
+  isSelectAll: false,
+  selectAllFiltersText: '',
+}, {
+  label: 'Fee type',
+  name: 'feeType',
+  component: markRaw(EcSyncMultipleValuesFilter),
+  items: [{ text: 'Invoiced', value: 'invoiced' }, { text: 'Payment', value: 'payment' }],
+  isSearchable: false,
+  isSelectAll: false,
+  selectAllFiltersText: '',
+}, {
+  label: 'Due date',
+  name: 'dueDate',
+  component: markRaw(EcDateRangeFilter),
+  fromLabelText: 'From',
+  toLabelText: 'To',
+  clearText: 'Clear dates',
+  errorMessage: '',
+}, {
+  name: 'text',
+  component: EcTextFilter,
+  isFullWidth: true,
+  stretch: true,
+  inputProps: {
+    placeholder: 'Type here the text to search by',
+  },
+}];
+
 const columns = [
   {
     name: 'request-details',
@@ -153,6 +187,7 @@ function useSmartTableSetup(args) {
 
   // filters
   const filters = computed(() => (args.isFilteringEnabled ? defaultFilters : null));
+  const stretchedFilters = computed(() => (args.isFilteringEnabled ? defaultStretchedFilters : null));
   const selectedFilter = computed(() => prefilters[args.prefilter]);
 
   // fake fetch API
@@ -253,6 +288,7 @@ function useSmartTableSetup(args) {
     execute,
     sortCycle,
     filters,
+    stretchedFilters,
     selectedFilter,
     infiniteScrollMappedData,
     getInfiniteScrollMappedData,
@@ -552,6 +588,57 @@ export const all = args => ({
                 <p>{{ row[3] }}</p>
               </div>
             </ec-option-card>
+          </template>
+          <template #footer><div class="tw-text-right">Custom footer info</div></template>
+          <template #pages="{ page, totalPages, total }">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
+        </ec-smart-table>
+      </div>
+    </div>
+    <h2 class="tw-m-24">With stretched filters</h2>
+    <div class="tw-flex tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+        <ec-smart-table
+          v-bind="{
+            ...args,
+            data: data?.items,
+            totalRecords: data?.total ?? 0,
+            isFetching,
+            error,
+            sortCycle,
+            filters: stretchedFilters,
+            filter: selectedFilter,
+            loadingDelay: null,
+            failOnFetch: null,
+            fakeData: null,
+            fetchEmptyList: null,
+            isFilteringEnabled: null,
+            prefilter: null,
+            isResponsive: false,
+          }"
+          v-on="{
+            fetch: onFetch,
+            sort: onSort,
+            abort: onAbort,
+            error: onError,
+          }">
+          <template #header-actions="{ total, items, error, loading }">
+            <a
+              href="#"
+              v-if="!error && !loading"
+              @click.prevent.stop="onDownload">Download all {{ total }} item(s)</a>
+            <a @click.prevent.stop="execute()" href="#">Reload</a>
+          </template>
+          <template #error="{ errorMessage }">
+            <div class="tw-text-center tw-text-error tw-py-48">
+              <div><ec-icon name="simple-error" :size="48" class="tw-fill-error" /></div>
+              {{ errorMessage }}
+            </div>
+          </template>
+          <template #empty="{ emptyMessage }">
+            <div class="tw-text-center tw-py-48">
+              <div><ec-icon name="simple-info" :size="48" /></div>
+              {{ emptyMessage }}
+            </div>
           </template>
           <template #footer><div class="tw-text-right">Custom footer info</div></template>
           <template #pages="{ page, totalPages, total }">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>

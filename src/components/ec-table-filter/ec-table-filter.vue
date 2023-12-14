@@ -2,6 +2,10 @@
   <section
     v-bind="$attrs"
     class="ec-table-filter"
+    :class="{
+      'ec-table-filter--has-full-width-filter': hasFullWidthFilter,
+      'ec-table-filter--has-stretch-filter': hasStretchFilter,
+    }"
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-table-filter` : 'ec-table-filter'"
   >
     <component
@@ -17,9 +21,10 @@
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
       class="ec-table-filter__filter-item"
       :class="{
-        'tw-hidden': filter.isHidden,
-        'tw-w-full tw-mr-0': filter.isFullWidth,
-        'tw-mr-8': !filter.isFullWidth,
+        'ec-table-filter__filter-item--is-hidden': filter.isHidden,
+        'ec-table-filter__filter-item--is-full-width': filter.isFullWidth,
+        'ec-table-filter__filter-item--is-not-full-width': !filter.isFullWidth,
+        'ec-table-filter__filter-item--is-stretched': filter.stretch,
       }"
       @change="onChange(filter.name, $event)"
     />
@@ -67,11 +72,15 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  hasStretchFilter: Boolean,
 });
 
 const emit = defineEmits(['update:modelValue', 'change']);
 
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
+
+const hasFullWidthFilter = computed(() => (props.filters ? Object.values(props.filters).some(filter => filter.isFullWidth) : false));
+const stretchLayoutColumns = computed(() => (props.filters ? `repeat(${Object.values(props.filters).length - 1}, auto) 1fr auto` : ''));
 
 function update(filters) {
   emit('update:modelValue', filters);
@@ -95,17 +104,57 @@ function clearFilters() {
 
 <style>
 .ec-table-filter {
-  @apply tw-block;
+  @apply tw-grid;
   @apply tw-bg-gray-7;
+  @apply tw-w-full;
 
   @screen sm {
-    @apply tw-flex tw-flex-row tw-justify-start tw-flex-wrap tw-items-center;
+    @apply tw-grid-rows-1 tw-grid-flow-col tw-auto-cols-max tw-items-center;
     @apply tw-bg-gray-8;
     @apply tw-max-w-full;
   }
 
+  &--has-full-width-filter {
+    @apply tw-auto-cols-auto;
+  }
+
+  &--has-stretch-filter {
+    @apply tw-grid-flow-row;
+
+    /* stylelint-disable */
+    grid-template-columns: v-bind(stretchLayoutColumns);
+    /* stylelint-enable */
+
+    @screen md {
+      @apply tw-grid-rows-2;
+      @apply tw-gap-y-16;
+    }
+
+    @media (min-width: 850px) {
+      @apply tw-grid-rows-1;
+    }
+  }
+
   &__filter-item {
-    @apply tw-flex-nowrap;
+    &--is-hidden {
+      @apply tw-hidden;
+    }
+
+    &--is-full-width {
+      @apply tw-w-full tw-mr-0;
+    }
+
+    &--is-not-full-width {
+      @apply tw-mr-8;
+    }
+
+    &--is-stretched {
+      @apply tw-col-start-1 tw-col-end-[-2];
+
+      @media (min-width: 850px) {
+        @apply tw-col-auto;
+      }
+    }
   }
 
   &__less-filters-button {
@@ -117,6 +166,7 @@ function clearFilters() {
 
   &__clear-filters-button {
     @apply tw-self-start;
+    @apply tw-whitespace-nowrap;
   }
 
   &__clear-filters-button,

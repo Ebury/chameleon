@@ -7,6 +7,7 @@
       v-bind="{
         title,
         isResponsive,
+        hasStretchFilter,
       }"
     >
       <template
@@ -15,9 +16,12 @@
       >
         <ec-table-filter
           v-model="filterModel"
-          :filters="filters"
-          :clear-filters-button-text="clearFiltersButtonText"
-          :is-clear-filters-button-hidden="isClearFiltersButtonHidden"
+          v-bind="{
+            filters,
+            clearFiltersButtonText,
+            isClearFiltersButtonHidden,
+            hasStretchFilter,
+          }"
           data-test="ec-smart-table__filter"
           @change="onFilterChanged"
         />
@@ -214,6 +218,8 @@ const props = defineProps({
     default: false,
   },
 });
+
+const hasStretchFilter = computed(() => (Object.values(props.filters).some(filter => filter.stretch)));
 
 // sorting
 const { sorts, sortBy } = useEcSorting({
