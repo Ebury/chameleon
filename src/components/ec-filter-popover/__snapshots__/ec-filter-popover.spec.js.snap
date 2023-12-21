@@ -12,18 +12,18 @@ exports[`EcFilterPopover > should display number of selected filters if the valu
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Test label"
-        type="button"
       >
         Test label
-      </button>
+      </span>
       <span
         class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
@@ -41,7 +41,7 @@ exports[`EcFilterPopover > should display number of selected filters if the valu
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -67,18 +67,18 @@ exports[`EcFilterPopover > should not display number of selected filters if the 
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Test label"
-        type="button"
       >
         Test label
-      </button>
+      </span>
       <!--v-if-->
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -89,7 +89,7 @@ exports[`EcFilterPopover > should not display number of selected filters if the 
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -115,18 +115,18 @@ exports[`EcFilterPopover > should render correctly the named slot 1`] = `
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Test label"
-        type="button"
       >
         Test label
-      </button>
+      </span>
       <!--v-if-->
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -137,7 +137,7 @@ exports[`EcFilterPopover > should render correctly the named slot 1`] = `
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -166,18 +166,18 @@ exports[`EcFilterPopover > should render properly when isFullHeight is set 1`] =
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Test label"
-        type="button"
       >
         Test label
-      </button>
+      </span>
       <!--v-if-->
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -188,7 +188,7 @@ exports[`EcFilterPopover > should render properly when isFullHeight is set 1`] =
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -214,18 +214,18 @@ exports[`EcFilterPopover > should render properly when label prop was given 1`] 
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Test label"
-        type="button"
       >
         Test label
-      </button>
+      </span>
       <!--v-if-->
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -236,7 +236,7 @@ exports[`EcFilterPopover > should render properly when label prop was given 1`] 
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -262,18 +262,18 @@ exports[`EcFilterPopover > should reset the open status of the popover 1`] = `
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Test label"
-        type="button"
       >
         Test label
-      </button>
+      </span>
       <!--v-if-->
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -284,7 +284,7 @@ exports[`EcFilterPopover > should reset the open status of the popover 1`] = `
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -310,18 +310,18 @@ exports[`EcFilterPopover > should set the open status of the popover 1`] = `
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger ec-filter-popover__trigger--focused"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Test label"
-        type="button"
       >
         Test label
-      </button>
+      </span>
       <!--v-if-->
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -332,7 +332,7 @@ exports[`EcFilterPopover > should set the open status of the popover 1`] = `
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div

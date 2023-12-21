@@ -12,18 +12,18 @@ exports[`EcCurrencyFilter > should count every selected currency and the amount 
 `;
 
 exports[`EcCurrencyFilter > should count every selected currency in numberOfSelectedFilters 1`] = `
-<div
+<button
   class="ec-filter-popover__trigger"
   data-test="ec-filter-popover__trigger"
+  type="button"
 >
-  <button
+  <span
     class="ec-filter-popover__label"
     data-test="ec-filter-popover__label"
     title="Price"
-    type="button"
   >
     Price
-  </button>
+  </span>
   <span
     class="ec-badge ec-badge--info ec-filter-popover__badge"
     data-test="ec-badge"
@@ -41,22 +41,22 @@ exports[`EcCurrencyFilter > should count every selected currency in numberOfSele
       xlink:href="#ec-simple-chevron-down"
     />
   </svg>
-</div>
+</button>
 `;
 
 exports[`EcCurrencyFilter > should count the amount as 1 in numberOfSelectedFilters 1`] = `
-<div
+<button
   class="ec-filter-popover__trigger"
   data-test="ec-filter-popover__trigger"
+  type="button"
 >
-  <button
+  <span
     class="ec-filter-popover__label"
     data-test="ec-filter-popover__label"
     title="Price"
-    type="button"
   >
     Price
-  </button>
+  </span>
   <span
     class="ec-badge ec-badge--info ec-filter-popover__badge"
     data-test="ec-badge"
@@ -74,7 +74,7 @@ exports[`EcCurrencyFilter > should count the amount as 1 in numberOfSelectedFilt
       xlink:href="#ec-simple-chevron-down"
     />
   </svg>
-</div>
+</button>
 `;
 
 exports[`EcCurrencyFilter > should disable clear amount button if the amount is empty 1`] = `
@@ -779,18 +779,18 @@ exports[`EcCurrencyFilter > should render correctly 1`] = `
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Price"
-          type="button"
         >
           Price
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -801,7 +801,7 @@ exports[`EcCurrencyFilter > should render correctly 1`] = `
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -1422,18 +1422,18 @@ exports[`EcCurrencyFilter > should render with custom attributes 1`] = `
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Price"
-          type="button"
         >
           Price
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -1444,7 +1444,7 @@ exports[`EcCurrencyFilter > should render with custom attributes 1`] = `
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
