@@ -120,9 +120,7 @@ function onOpen(isOpen) {
 
   &__label {
     @apply tw-text-gray-3;
-    @apply tw-inline-block;
     @apply tw-truncate;
-    @apply tw-text-left;
 
     max-width: var(--ec-filter-label-width);
   }
