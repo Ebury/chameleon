@@ -14,7 +14,7 @@
     >
       <div
         class="ec-filter-popover__trigger"
-        :class="{ 'ec-filter-popover__trigger--focused': triggerIsFocused }"
+        :class="{ 'ec-filter-popover__trigger--focused': isFilterOpen || isFilterFocused }"
         data-test="ec-filter-popover__trigger"
       >
         <button
@@ -22,6 +22,8 @@
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           :title="label"
+          @focusin="isFilterFocused = true"
+          @focusout="isFilterFocused = false"
         >{{ label }}</button>
         <ec-badge
           v-if="numberOfSelectedFilters > 0"
@@ -79,10 +81,11 @@ defineProps({
 
 const emit = defineEmits(['after-open']);
 
-const triggerIsFocused = ref(false);
+const isFilterOpen = ref(false);
+const isFilterFocused = ref(false);
 
 function onOpen(isOpen) {
-  triggerIsFocused.value = isOpen;
+  isFilterOpen.value = isOpen;
 }
 </script>
 
