@@ -12,19 +12,17 @@
       @update:shown="onOpen"
       @apply-show="emit('after-open')"
     >
-      <div
+      <button
+        type="button"
         class="ec-filter-popover__trigger"
-        :class="{ 'ec-filter-popover__trigger--focused': isFilterOpen || isFilterFocused }"
+        :class="{ 'ec-filter-popover__trigger--focused': isFilterOpen }"
         data-test="ec-filter-popover__trigger"
       >
-        <button
-          type="button"
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           :title="label"
-          @focusin="isFilterFocused = true"
-          @focusout="isFilterFocused = false"
-        >{{ label }}</button>
+        >{{ label }}</span>
         <ec-badge
           v-if="numberOfSelectedFilters > 0"
           class="ec-filter-popover__badge"
@@ -36,7 +34,7 @@
           name="simple-chevron-down"
           type="interactive"
         />
-      </div>
+      </button>
 
       <template #popper>
         <div
@@ -82,7 +80,6 @@ defineProps({
 const emit = defineEmits(['after-open']);
 
 const isFilterOpen = ref(false);
-const isFilterFocused = ref(false);
 
 function onOpen(isOpen) {
   isFilterOpen.value = isOpen;
@@ -103,42 +100,31 @@ function onOpen(isOpen) {
     @apply tw-p-8;
     @apply tw-transition-all tw-duration-200 tw-ease-in-out;
 
-    &:focus {
+    @apply tw-border-none;
+    @apply tw-bg-transparent;
+    @apply tw-outline-none;
+
+    &:focus,
+    &--focused {
       @apply tw-bg-key-7;
       @apply tw-rounded;
       @apply tw-outline-none;
     }
 
-    &--focused {
-      @apply tw-bg-key-7;
-      @apply tw-rounded;
-    }
-
     &:hover {
       @apply tw-bg-key-6;
+      @apply tw-cursor-pointer;
       @apply tw-rounded;
     }
   }
 
   &__label {
-    @apply tw-p-0 tw-m-0;
-    @apply tw-border-none;
     @apply tw-text-gray-3;
-    @apply tw-bg-transparent;
     @apply tw-inline-block;
     @apply tw-truncate;
     @apply tw-text-left;
 
     max-width: var(--ec-filter-label-width);
-
-    &:hover {
-      @apply tw-no-underline;
-      @apply tw-cursor-pointer;
-    }
-
-    &:focus {
-      @apply tw-outline-none;
-    }
   }
 
   &__badge {
