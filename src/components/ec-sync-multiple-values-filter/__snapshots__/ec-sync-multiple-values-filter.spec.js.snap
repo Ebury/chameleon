@@ -16,18 +16,18 @@ exports[`EcSyncMultipleValuesFilter > should be able to search in items by their
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -38,7 +38,7 @@ exports[`EcSyncMultipleValuesFilter > should be able to search in items by their
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -160,18 +160,18 @@ exports[`EcSyncMultipleValuesFilter > should be able to search in items by their
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -182,7 +182,7 @@ exports[`EcSyncMultipleValuesFilter > should be able to search in items by their
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -304,18 +304,18 @@ exports[`EcSyncMultipleValuesFilter > should display Select all checkbox if isSe
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -326,7 +326,7 @@ exports[`EcSyncMultipleValuesFilter > should display Select all checkbox if isSe
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -463,18 +463,18 @@ exports[`EcSyncMultipleValuesFilter > should display an empty message when items
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -485,7 +485,7 @@ exports[`EcSyncMultipleValuesFilter > should display an empty message when items
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -541,18 +541,18 @@ exports[`EcSyncMultipleValuesFilter > should display custom label for Select all
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -563,7 +563,7 @@ exports[`EcSyncMultipleValuesFilter > should display custom label for Select all
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -700,18 +700,18 @@ exports[`EcSyncMultipleValuesFilter > should display empty state if searched val
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -722,7 +722,7 @@ exports[`EcSyncMultipleValuesFilter > should display empty state if searched val
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -798,18 +798,18 @@ exports[`EcSyncMultipleValuesFilter > should display error state properly 1`] = 
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -820,7 +820,7 @@ exports[`EcSyncMultipleValuesFilter > should display error state properly 1`] = 
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -876,18 +876,18 @@ exports[`EcSyncMultipleValuesFilter > should display loading state properly 1`] 
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -898,7 +898,7 @@ exports[`EcSyncMultipleValuesFilter > should display loading state properly 1`] 
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -949,18 +949,18 @@ exports[`EcSyncMultipleValuesFilter > should ignore empty message when items are
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -971,7 +971,7 @@ exports[`EcSyncMultipleValuesFilter > should ignore empty message when items are
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -1181,18 +1181,18 @@ exports[`EcSyncMultipleValuesFilter > should ignore only whitespace in the searc
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -1203,7 +1203,7 @@ exports[`EcSyncMultipleValuesFilter > should ignore only whitespace in the searc
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -1433,18 +1433,18 @@ exports[`EcSyncMultipleValuesFilter > should not display selected values in the 
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <span
           class="ec-badge ec-badge--info ec-filter-popover__badge"
           data-test="ec-badge"
@@ -1462,7 +1462,7 @@ exports[`EcSyncMultipleValuesFilter > should not display selected values in the 
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -1538,18 +1538,18 @@ exports[`EcSyncMultipleValuesFilter > should render as full height if isFullHeig
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -1560,7 +1560,7 @@ exports[`EcSyncMultipleValuesFilter > should render as full height if isFullHeig
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -1662,18 +1662,18 @@ exports[`EcSyncMultipleValuesFilter > should render correctly if all the require
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -1684,7 +1684,7 @@ exports[`EcSyncMultipleValuesFilter > should render correctly if all the require
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -1904,18 +1904,18 @@ exports[`EcSyncMultipleValuesFilter > should render search if isSearchable is se
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <!--v-if-->
         <svg
           class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -1926,7 +1926,7 @@ exports[`EcSyncMultipleValuesFilter > should render search if isSearchable is se
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div
@@ -2048,18 +2048,18 @@ exports[`EcSyncMultipleValuesFilter > should update the number of items selected
       prevent-overflow="false"
     >
       
-      <div
+      <button
         class="ec-filter-popover__trigger"
         data-test="ec-filter-popover__trigger"
+        type="button"
       >
-        <button
+        <span
           class="ec-filter-popover__label"
           data-test="ec-filter-popover__label"
           title="Status"
-          type="button"
         >
           Status
-        </button>
+        </span>
         <span
           class="ec-badge ec-badge--info ec-filter-popover__badge"
           data-test="ec-badge"
@@ -2077,7 +2077,7 @@ exports[`EcSyncMultipleValuesFilter > should update the number of items selected
             xlink:href="#ec-simple-chevron-down"
           />
         </svg>
-      </div>
+      </button>
       
       
       <div

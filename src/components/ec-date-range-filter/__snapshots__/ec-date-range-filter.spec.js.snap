@@ -12,18 +12,18 @@ exports[`EcDateRangeFilter > should render if no dates are passed in value prop 
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Due date"
-        type="button"
       >
         Due date
-      </button>
+      </span>
       <!--v-if-->
       <svg
         class="ec-icon ec-icon--interactive ec-filter-popover__icon"
@@ -34,7 +34,7 @@ exports[`EcDateRangeFilter > should render if no dates are passed in value prop 
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -136,18 +136,18 @@ exports[`EcDateRangeFilter > should render properly when all the props are given
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Due date"
-        type="button"
       >
         Due date
-      </button>
+      </span>
       <span
         class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
@@ -165,7 +165,7 @@ exports[`EcDateRangeFilter > should render properly when all the props are given
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -268,18 +268,18 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Due date"
-        type="button"
       >
         Due date
-      </button>
+      </span>
       <span
         class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
@@ -297,7 +297,7 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -405,18 +405,18 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Due date"
-        type="button"
       >
         Due date
-      </button>
+      </span>
       <span
         class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
@@ -434,7 +434,7 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -544,18 +544,18 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Due date"
-        type="button"
       >
         Due date
-      </button>
+      </span>
       <span
         class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
@@ -573,7 +573,7 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div
@@ -684,18 +684,18 @@ exports[`EcDateRangeFilter > should render with custom attributes 1`] = `
     prevent-overflow="false"
   >
     
-    <div
+    <button
       class="ec-filter-popover__trigger"
       data-test="ec-filter-popover__trigger"
+      type="button"
     >
-      <button
+      <span
         class="ec-filter-popover__label"
         data-test="ec-filter-popover__label"
         title="Due date"
-        type="button"
       >
         Due date
-      </button>
+      </span>
       <span
         class="ec-badge ec-badge--info ec-filter-popover__badge"
         data-test="ec-badge"
@@ -713,7 +713,7 @@ exports[`EcDateRangeFilter > should render with custom attributes 1`] = `
           xlink:href="#ec-simple-chevron-down"
         />
       </svg>
-    </div>
+    </button>
     
     
     <div

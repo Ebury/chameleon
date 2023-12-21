@@ -183,6 +183,7 @@ function clearFilters() {
 
     &:focus {
       @apply tw-outline-none;
+      @apply tw-text-key-3;
     }
   }
 }
