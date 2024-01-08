@@ -77,6 +77,9 @@ function hasSlot(slotName: string) {
     @apply tw-pr-12;
     @apply tw-m-0;
     @apply tw-mt-16;
+    @apply tw-w-full;
+
+    overflow-wrap: anywhere;
 
     @screen sm {
       @apply tw-h1;
