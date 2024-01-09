@@ -90,7 +90,7 @@
     "eslint-plugin-vuejs-accessibility": "2.2.0",
     "intl": "1.2.5",
     "jsdom": "22.1.0",
-    "lint-staged": "13.1.2",
+    "lint-staged": "14.0.1",
     "live-server": "1.2.2",
     "patch-package": "7.0.0",
     "postcss": "8.4.32",
