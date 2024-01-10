@@ -9,7 +9,7 @@ ENV TERM=xterm \
     LC_ALL=C.UTF-8 \
     TIMEZONE=Europe/London
 
-RUN npm install npm@8 -g
+RUN npm install npm@10 -g
 
 # Change node's user UID/GUI to actual host user's UID/GID
 RUN if [ "$UID" -ne "1000" ]; then \

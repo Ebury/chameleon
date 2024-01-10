@@ -11,7 +11,7 @@
     "url": "https://github.com/ebury/chameleon.git"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "scripts": {
     "icons": "webpack --config ./src/icons/webpack.config.js --mode=production && node ./src/icons/build-types.js > ./src/components/ec-icon/icon-names.ts",
