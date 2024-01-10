@@ -4,9 +4,9 @@ module.exports = {
   root: true,
   reportNeedlessDisables: true,
   extends: [
+    'stylelint-stylistic/config',
     'stylelint-config-standard-scss',
     'stylelint-config-recommended-vue',
-    '@stylistic/stylelint-config',
   ],
   rules: {
     'alpha-value-notation': 'number',
@@ -28,9 +28,9 @@ module.exports = {
     'selector-max-universal': 0,
     'selector-pseudo-element-colon-notation': 'single',
     'value-keyword-case': ['lower', { camelCaseSvgKeywords: true }],
-    '@stylistic/indentation': 2,
-    '@stylistic/max-line-length': null,
-    '@stylistic/string-quotes': 'single',
+    'stylistic/indentation': 2,
+    'stylistic/max-line-length': null,
+    'stylistic/string-quotes': 'single',
     'scss/at-each-key-value-single-line': true,
     'scss/at-else-closing-brace-newline-after': 'always-last-in-chain',
     'scss/at-else-closing-brace-space-after': 'always-intermediate',
