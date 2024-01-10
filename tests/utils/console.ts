@@ -1,6 +1,6 @@
-import { type SpyInstance, vi } from 'vitest';
+import { type MockInstance, vi } from 'vitest';
 
-export function withMockedConsole(methodUnderTest: (errorSpy: SpyInstance, warnSpy: SpyInstance) => void) {
+export function withMockedConsole(methodUnderTest: (errorSpy: MockInstance, warnSpy: MockInstance) => void) {
   const errorSpy = vi.spyOn(console, 'error');
 
   errorSpy.mockImplementation(() => { });

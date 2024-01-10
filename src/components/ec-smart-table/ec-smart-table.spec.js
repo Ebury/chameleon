@@ -737,7 +737,8 @@ describe('EcSmartTable', () => {
         });
 
         await wrapper.setProps({
-          data: emptyData,
+          data: emptyData.items,
+          totalRecords: emptyData.total,
         });
 
         expect(IntersectionObserverMock.disconnect).toHaveBeenCalled();
