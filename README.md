@@ -121,6 +121,4 @@ If you need to support every single locale on the planet, we recommend to polyfi
 
 [floating-vue](https://floating-vue.starpad.dev/)
 
-[mitt](https://www.npmjs.com/package/mitt)
-
 [svg-country-flags](https://www.npmjs.com/package/svg-country-flags)

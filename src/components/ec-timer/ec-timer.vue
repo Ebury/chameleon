@@ -58,11 +58,9 @@
 </template>
 
 <script setup>
-import {
-  computed, onBeforeUnmount, ref, watchEffect,
-} from 'vue';
+import { computed, onBeforeUnmount, watchEffect } from 'vue';
 
-import Countdown from '../../utils/countdown';
+import useEcCountdown from '../../composables/use-ec-countdown/use-ec-countdown';
 
 const props = defineProps({
   /**
@@ -94,46 +92,32 @@ const strokeWidth = 4;
 const diameter = radius * 2 + strokeWidth;
 const viewbox = `0 0 ${diameter} ${diameter}`;
 const circumference = 2 * Math.PI * radius;
-const steps = circumference / props.seconds;
+const steps = computed(() => circumference / props.seconds);
 
 const offset = computed(() => {
   if (totalSecondsLeft.value === 0) {
     return circumference;
   }
 
-  return circumference + steps * totalSecondsLeft.value;
+  return circumference + steps.value * totalSecondsLeft.value;
 });
 
 const minutesLeft = computed(() => Math.floor(totalSecondsLeft.value / 60));
 
 const minuteSecondsLeft = computed(() => totalSecondsLeft.value % 60);
 
-const totalSecondsLeft = ref(props.seconds);
+const seconds = computed(() => props.seconds);
 
-let countdown = null;
+const {
+  start: startCountdown,
+  stop: stopCountdown,
+  secondsLeft: totalSecondsLeft,
+  onTimeExpired,
+} = useEcCountdown(seconds);
 
-function startCountdown() {
-  countdown = new Countdown();
-  countdown.start(props.seconds);
-  countdown.on('time-updated', (newValue) => {
-    totalSecondsLeft.value = newValue;
-  });
-  countdown.on('time-expired', () => {
-    /**
-     * Emitted after the countdown is finish
-     * @event time-expired
-     * @type {void}
-     */
-    emit('time-expired');
-  });
-}
-
-function stopCountdown() {
-  if (countdown) {
-    countdown.stop();
-    countdown = null;
-  }
-}
+onTimeExpired(() => {
+  emit('time-expired');
+});
 
 watchEffect(() => {
   if (props.isRunning) {

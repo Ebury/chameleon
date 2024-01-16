@@ -92,10 +92,16 @@ describe('EcTimer', () => {
         });
       });
 
-      it('should render a timer with minutes', () => {
+      it('should render a timer with leading zero in minutes', () => {
         const wrapper = mountTimer({ seconds: 20, isRunning: true, showMinutes: true });
 
         expect(wrapper.findByDataTest('ec-timer__text-with-minutes').text()).toBe('0:20');
+      });
+
+      it('should render a timer with minutes', () => {
+        const wrapper = mountTimer({ seconds: 80, isRunning: true, showMinutes: true });
+
+        expect(wrapper.findByDataTest('ec-timer__text-with-minutes').text()).toBe('1:20');
       });
     });
   });
