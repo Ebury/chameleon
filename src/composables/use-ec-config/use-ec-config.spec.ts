@@ -1,29 +1,36 @@
-import { vi } from 'vitest';
-import { inject } from 'vue';
+import { mount } from '@vue/test-utils';
 
-import config from '../../config';
 import useEcConfig, { CHAMELEON_CONFIG_KEY } from './use-ec-config';
 
-vi.mock('vue', () => ({
-  inject: vi.fn(),
-}));
-
 describe('useEcConfig', () => {
-  beforeEach(() => {
-    vi.mocked(inject).mockClear();
+  function mountUseEcConfig(mountOpts = {}) {
+    const Component = {
+      setup() {
+        const config = useEcConfig();
+        return { config };
+      },
+      template: '<div>{{ config }}</div>',
+    };
+
+    return mount(Component, {
+      global: {
+        provide: {
+          [CHAMELEON_CONFIG_KEY]: 'mockedValue',
+        },
+      },
+      ...mountOpts,
+    });
+  }
+
+  it('should retrieve the config', () => {
+    const wrapper = mountUseEcConfig();
+    expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should call inject with CHAMELEON_CONFIG_KEY', () => {
-    useEcConfig();
-
-    expect(inject).toHaveBeenCalledWith(CHAMELEON_CONFIG_KEY, config);
-  });
-
-  it('should return the value from inject', () => {
-    vi.mocked(inject).mockReturnValueOnce('mockedValue');
-
-    const result = useEcConfig();
-
-    expect(result).toBe('mockedValue');
+  it('should retrieve default config if not provided', () => {
+    const wrapper = mountUseEcConfig({
+      global: {},
+    });
+    expect(wrapper.element).toMatchSnapshot();
   });
 });

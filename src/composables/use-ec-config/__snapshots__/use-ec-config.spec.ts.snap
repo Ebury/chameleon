@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`useEcConfig > should retrieve default config if not provided 1`] = `
+<div>
+  {
+  "sensitiveClass": "my-sensitive-content-test-class",
+  "iconsStaticPrefix": ""
+}
+</div>
+`;
+
+exports[`useEcConfig > should retrieve the config 1`] = `
+<div>
+  mockedValue
+</div>
+`;
