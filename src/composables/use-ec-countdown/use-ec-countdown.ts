@@ -50,7 +50,7 @@ export default function useEcCountdown(secondsToGo: MaybeRef<number>) {
     isRunning.value = false;
   }
 
-  function restart(seconds: number) {
+  function restart(seconds: number = unref(secondsToGo)) {
     const wasRunning = isRunning.value;
     stop();
     updateSecondsLeft(seconds);
@@ -62,6 +62,7 @@ export default function useEcCountdown(secondsToGo: MaybeRef<number>) {
   return {
     secondsLeft,
     start,
+    restart,
     stop,
     isRunning,
     onTimeUpdated: timeUpdatedEvent.on,

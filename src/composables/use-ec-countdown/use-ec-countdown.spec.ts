@@ -54,6 +54,32 @@ describe('useEcCountdown', () => {
   });
 
   it('should be able to restart', () => {
+    const { secondsLeft, start, restart } = useEcCountdown(20);
+    start();
+    clock.tick(1000);
+    expect(secondsLeft.value).toBe(19);
+    expect(clock.countTimers()).toBe(1);
+    restart();
+    expect(secondsLeft.value).toBe(20);
+    expect(clock.countTimers()).toBe(1);
+    clock.tick(1000);
+    expect(secondsLeft.value).toBe(19);
+    expect(clock.countTimers()).toBe(1);
+  });
+
+  it('should be able to restart with different amount of seconds', () => {
+    const { secondsLeft, start, restart } = useEcCountdown(20);
+    start();
+    clock.tick(10000);
+    expect(secondsLeft.value).toBe(10);
+    expect(clock.countTimers()).toBe(1);
+
+    restart(60);
+    expect(secondsLeft.value).toBe(60);
+    expect(clock.countTimers()).toBe(1);
+  });
+
+  it('should be able to restart using stop/start', () => {
     const { secondsLeft, start, stop } = useEcCountdown(20);
     start();
     clock.tick(1000);
@@ -67,7 +93,7 @@ describe('useEcCountdown', () => {
     expect(clock.countTimers()).toBe(1);
   });
 
-  it('should be able to restart with different amount of seconds', async () => {
+  it('should be able to restart using stop/start with different amount of seconds', async () => {
     const seconds = ref(20);
     const { secondsLeft, start } = useEcCountdown(seconds);
     start();
