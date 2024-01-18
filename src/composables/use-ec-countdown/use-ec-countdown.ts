@@ -4,13 +4,13 @@ import {
 } from 'vue';
 
 export default function useEcCountdown(secondsToGo: MaybeRef<number>) {
-  const secondsLeft = ref<number>(unref(secondsToGo));
+  const secondsLeft = ref(unref(secondsToGo));
 
   watch(() => unref(secondsToGo), () => {
     restart(unref(secondsToGo));
   });
 
-  const isRunning = ref<boolean>(false);
+  const isRunning = ref(false);
   let startTime: number;
   let intervalId: NodeJS.Timeout;
 

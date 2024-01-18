@@ -1,11 +1,22 @@
 import fakeTimers from '@sinonjs/fake-timers';
 import { mount } from '@vue/test-utils';
-import { vi } from 'vitest';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcTimer from './ec-timer.vue';
 
 describe('EcTimer', () => {
+  let clock;
+
+  beforeEach(() => {
+    clock = fakeTimers.install();
+  });
+
+  afterEach(() => {
+    if (clock) {
+      clock.uninstall();
+    }
+  });
+
   function mountTimer(props, mountOpts) {
     return mount(EcTimer, {
       props,
@@ -60,19 +71,27 @@ describe('EcTimer', () => {
     });
 
     it('should clear the interval if we set "isRunning" to false', async () => {
-      const clearTimeoutSpy = vi.spyOn(window, 'clearInterval');
       const wrapper = mountTimer({ seconds: 20, isRunning: true });
-
-      expect(clearTimeoutSpy).toHaveBeenCalledTimes(0);
+      expect(clock.countTimers()).toBe(1);
 
       await wrapper.setProps({ isRunning: false });
-      expect(clearTimeoutSpy).toHaveBeenCalledTimes(1);
+      expect(clock.countTimers()).toBe(0);
     });
 
     it('should render as expected', () => {
       const wrapper = mountTimer({ seconds: 20, isRunning: true });
 
       expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should restart when seconds prop is updated', async () => {
+      const wrapper = mountTimer({ seconds: 20, isRunning: true });
+      clock.tick(10000);
+      expect(wrapper.element).toMatchSnapshot('before restart');
+
+      await wrapper.setProps({ seconds: 30 });
+
+      expect(wrapper.element).toMatchSnapshot('after restart');
     });
 
     describe('when "showMinutes" is true', () => {
@@ -125,18 +144,6 @@ describe('EcTimer', () => {
   });
 
   describe('@events', () => {
-    let clock;
-
-    beforeEach(() => {
-      clock = fakeTimers.install();
-    });
-
-    afterEach(() => {
-      if (clock) {
-        clock.uninstall();
-      }
-    });
-
     it('should emit an event called "time-expired" after the countdown completes', async () => {
       const wrapper = mountTimer({ seconds: 20, isRunning: true });
 
@@ -171,12 +178,11 @@ describe('EcTimer', () => {
     });
   });
 
-  it('should clear the interval before we destroy the components', () => {
-    const clearTimeoutSpy = vi.spyOn(window, 'clearInterval');
+  it('should clear the interval before destroying the component', () => {
     const wrapper = mountTimer({ seconds: 20, isRunning: true });
+    expect(clock.countTimers()).toBe(1);
 
-    expect(clearTimeoutSpy).toHaveBeenCalledTimes(0);
     wrapper.unmount();
-    expect(clearTimeoutSpy).toHaveBeenCalledTimes(1);
+    expect(clock.countTimers()).toBe(0);
   });
 });
