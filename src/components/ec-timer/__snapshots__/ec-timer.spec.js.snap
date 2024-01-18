@@ -118,7 +118,7 @@ exports[`EcTimer > :props > should restart when seconds prop is updated > before
       fill="transparent"
       r="24"
       stroke-dasharray="150.79644737231007"
-      stroke-dashoffset="301.59289474462014"
+      stroke-dashoffset="226.1946710584651"
       stroke-width="4"
     />
     <text
@@ -129,7 +129,7 @@ exports[`EcTimer > :props > should restart when seconds prop is updated > before
       x="50%"
       y="50%"
     >
-      20
+      10
       
       s
       

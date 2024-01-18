@@ -87,6 +87,7 @@ describe('EcTimer', () => {
     it('should restart when seconds prop is updated', async () => {
       const wrapper = mountTimer({ seconds: 20, isRunning: true });
       clock.tick(10000);
+      await wrapper.vm.$nextTick();
       expect(wrapper.element).toMatchSnapshot('before restart');
 
       await wrapper.setProps({ seconds: 30 });
