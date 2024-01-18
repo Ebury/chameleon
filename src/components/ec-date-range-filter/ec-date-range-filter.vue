@@ -4,7 +4,7 @@
       ...$attrs,
       label,
       numberOfSelectedFilters,
-      popoverOptions,
+      popoverOptions: allPopoverOptions,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-date-range-filter__trigger` : 'ec-date-range-filter__trigger',
     }"
   >
@@ -14,27 +14,32 @@
         data-test="ec-date-range-filter"
       >
         <div class="ec-date-range-filter__inputs-wrapper">
-          <ec-input-field
+          <ec-datepicker
+            v-bind="{
+              ...$props,
+              ...fromDatepickerOptions,
+              level: 'modal',
+            }"
             v-model="fromValueDate"
-            class="ec-date-range-filter__from-input"
             data-test="ec-date-range-filter__from-input"
-            type="date"
-            placeholder="dd/mm/yyyy"
-            :label="fromLabelText"
-            :error-message="fromErrorMessage"
-            :max="toValueDate"
+            class="ec-date-range-filter__from-input"
             @blur="onBlur()"
+            @open="/* c8 ignore next */ disableAutoHide = true"
+            @after-close="/* c8 ignore next */ disableAutoHide = false"
           />
-          <ec-input-field
+
+          <ec-datepicker
+            v-bind="{
+              ...$props,
+              ...toDatepickerOptions,
+              level: 'modal',
+            }"
             v-model="toValueDate"
             class="ec-date-range-filter__to-input"
             data-test="ec-date-range-filter__to-input"
-            type="date"
-            placeholder="dd/mm/yyyy"
-            :label="toLabelText"
-            :error-message="toErrorMessage"
-            :min="fromValueDate"
-            @blur="/* c8 ignore next */ onBlur()"
+            @blur="onBlur()"
+            @open="/* c8 ignore next */ disableAutoHide = true"
+            @after-close="/* c8 ignore next */ disableAutoHide = false"
           />
         </div>
         <p
@@ -55,10 +60,10 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
+import EcDatepicker from '../ec-datepicker';
 import EcFilterPopover from '../ec-filter-popover';
-import EcInputField from '../ec-input-field';
 
 defineOptions({
   inheritAttrs: false,
@@ -70,30 +75,10 @@ const props = defineProps({
     required: true,
     default: '',
   },
-  fromLabelText: {
-    type: String,
-    required: false,
-    default: 'From',
-  },
-  toLabelText: {
-    type: String,
-    required: false,
-    default: 'To',
-  },
   clearText: {
     type: String,
     required: false,
     default: 'Clear dates',
-  },
-  fromErrorMessage: {
-    type: String,
-    required: false,
-    default: '',
-  },
-  toErrorMessage: {
-    type: String,
-    required: false,
-    default: '',
   },
   dateRangeErrorMessage: {
     type: String,
@@ -106,7 +91,22 @@ const props = defineProps({
   modelValue: {
     type: Object,
   },
+  fromDatepickerOptions: {
+    type: Object,
+    default: () => ({}),
+  },
+  toDatepickerOptions: {
+    type: Object,
+    default: () => ({}),
+  },
 });
+
+const disableAutoHide = ref(false);
+const allPopoverOptions = computed(() => ({
+  autoHide: !disableAutoHide.value, // autoHide of the ec-filter-popover should be disabled while flatpickr is open, otherwise selecting value in the flatpickr will close this popover too.
+  ...props.popoverOptions,
+  hideTriggers: ['close'],
+}));
 
 const emit = defineEmits(['update:modelValue', 'change', 'blur']);
 

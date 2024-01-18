@@ -81,7 +81,7 @@ basic.args = {
   modelValue: {
     paymentStatus: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }],
     supplier: [{ text: 'Supplier 1', value: 'supplier1' }],
-    dueDate: { from: '2021-11-11' },
+    dueDate: { from: new Date(2021, 11, 11) },
     price: { comparisonSymbol: comparisonSymbolItems[1], amount: 1234.56, currencies: [currencyItems[0]] },
     text: 'Some text',
   },

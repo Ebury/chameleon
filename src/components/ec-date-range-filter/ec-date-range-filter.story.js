@@ -43,11 +43,22 @@ export const basic = Template.bind({});
 
 basic.args = {
   label: 'Due date',
-  fromLabelText: 'From',
-  toLabelText: 'To',
   clearText: 'Clear dates',
-  fromErrorMessage: '',
-  toErrorMessage: '',
   dateRangeErrorMessage: '',
-  modelValue: { from: '2020-03-14', to: null },
+  modelValue: {
+    from: new Date(2023, 11, 1),
+    to: null,
+  },
+  fromDatepickerOptions: {
+    label: 'From',
+    placeholder: 'Choose a date',
+    areWeekendsDisabled: true,
+    errorMessage: '',
+  },
+  toDatepickerOptions: {
+    label: 'To',
+    placeholder: 'Choose a date',
+    areWeekendsDisabled: true,
+    errorMessage: '',
+  },
 };
