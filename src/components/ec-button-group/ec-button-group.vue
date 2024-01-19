@@ -10,7 +10,7 @@
       v-for="(item, index) in items"
       :key="item.id || index"
       :data-test="`ec-button-group__btn ec-button-group__btn-${index}`"
-      category="primary"
+      :category="ButtonCategory.Primary"
       class="ec-btn-group__btn"
       :is-submit="false"
       :is-outline="modelValue !== item.value"
@@ -20,23 +20,30 @@
   </div>
 </template>
 
-<script setup>
-import { arrayOfObjectsContainsKey } from '../../utils/validators';
+<script setup lang="ts" generic="TValue">
 import EcBtn from '../ec-btn';
+import { ButtonCategory } from '../ec-btn/types';
 
-const emit = defineEmits(['update:modelValue', 'change']);
+const emit = defineEmits<{
+  'update:modelValue': [value: TValue],
+  'change': [value: TValue],
+}>();
 
-defineProps({
-  // eslint-disable-next-line vue/require-prop-types
-  modelValue: {},
-  items: {
-    type: Array,
-    required: true,
-    validator: array => arrayOfObjectsContainsKey(array, ['value', 'text']),
-  },
-});
+interface ButtonGroupItem<TValue> {
+  id?: string | number,
+  value: TValue,
+  text: string,
+  disabled?: boolean,
+}
 
-function onSelected(value) {
+interface ButtonGroupProps<TValue> {
+  modelValue?: TValue,
+  items: ButtonGroupItem<TValue>[],
+}
+
+defineProps<ButtonGroupProps<TValue>>();
+
+function onSelected(value: TValue) {
   emit('update:modelValue', value);
   emit('change', value);
 }

@@ -30,14 +30,14 @@ describe('Utils', () => {
     });
 
     it('should throw if no text is provided', () => {
-      const textToBeMasked = null;
+      const textToBeMasked = '';
 
       expect(() => mask(textToBeMasked)).toThrow(new Error('Text is required'));
     });
 
     it('should throw if no mask symbol is provided', () => {
       const textToBeMasked = 'lorem';
-      const maskSymbol = null;
+      const maskSymbol = '';
 
       expect(() => mask(textToBeMasked, maskSymbol)).toThrow(new Error('Mask symbol cannot be empty'));
     });
@@ -45,7 +45,7 @@ describe('Utils', () => {
     it('should throw if visibleChars is not provided', () => {
       const textToBeMasked = 'lorem';
       const maskSymbol = '#';
-      const visibleChars = null;
+      const visibleChars = 0;
 
       expect(() => mask(textToBeMasked, maskSymbol, visibleChars)).toThrow(new Error('Visible characters must be a number greater than zero'));
     });

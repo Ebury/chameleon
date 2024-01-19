@@ -18,7 +18,7 @@ describe('Datepicker', () => {
     });
 
     flatpickr.setDefaults({
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
+
       position: () => {}, // We need to fix the position. On the CI/JSDOM is flaky if we do not and will produce snapshots with random positions.
     });
   });
