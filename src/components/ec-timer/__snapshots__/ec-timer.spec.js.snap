@@ -46,6 +46,98 @@ exports[`EcTimer > :props > should render as expected 1`] = `
 </div>
 `;
 
+exports[`EcTimer > :props > should restart when seconds prop is updated > after restart 1`] = `
+<div
+  class="ec-timer"
+  data-test="ec-timer"
+>
+  <svg
+    class="ec-timer__svg"
+    height="52"
+    viewBox="0 0 52 52"
+    width="52"
+  >
+    <circle
+      class="ec-timer__elapsed"
+      cx="50%"
+      cy="50%"
+      fill="transparent"
+      r="24"
+      stroke-width="4"
+    />
+    <circle
+      class="ec-timer__remaining"
+      cx="50%"
+      cy="50%"
+      fill="transparent"
+      r="24"
+      stroke-dasharray="150.79644737231007"
+      stroke-dashoffset="301.59289474462014"
+      stroke-width="4"
+    />
+    <text
+      class="ec-timer__text"
+      data-test="ec-timer__text-only-seconds"
+      dominant-baseline="central"
+      text-anchor="middle"
+      x="50%"
+      y="50%"
+    >
+      30
+      
+      s
+      
+    </text>
+  </svg>
+</div>
+`;
+
+exports[`EcTimer > :props > should restart when seconds prop is updated > before restart 1`] = `
+<div
+  class="ec-timer"
+  data-test="ec-timer"
+>
+  <svg
+    class="ec-timer__svg"
+    height="52"
+    viewBox="0 0 52 52"
+    width="52"
+  >
+    <circle
+      class="ec-timer__elapsed"
+      cx="50%"
+      cy="50%"
+      fill="transparent"
+      r="24"
+      stroke-width="4"
+    />
+    <circle
+      class="ec-timer__remaining"
+      cx="50%"
+      cy="50%"
+      fill="transparent"
+      r="24"
+      stroke-dasharray="150.79644737231007"
+      stroke-dashoffset="226.1946710584651"
+      stroke-width="4"
+    />
+    <text
+      class="ec-timer__text"
+      data-test="ec-timer__text-only-seconds"
+      dominant-baseline="central"
+      text-anchor="middle"
+      x="50%"
+      y="50%"
+    >
+      10
+      
+      s
+      
+    </text>
+  </svg>
+</div>
+`;
+
 exports[`EcTimer > :props > when "showMinutes" is true > when "isRunning" is false > should render as expected 1`] = `
 <div
   class="ec-timer"
