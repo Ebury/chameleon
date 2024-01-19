@@ -159,11 +159,13 @@ const allPopoverOptions = computed(() => ({
   hideTriggers: ['close'],
 }));
 
+/* c8 ignore start */
 function onClose() {
   requestAnimationFrame(() => { // Floating vue requests next animation frame to set values and decide where to autohide or not. We need to do the same and wait for the next animation frame before re-enabling autohide.
     isAutoHideEnabled.value = true;
   });
 }
+/* c8 ignore stop */
 </script>
 
 <style>
