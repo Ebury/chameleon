@@ -115,6 +115,7 @@ function update(newValue) {
   emit('update:modelValue', newValue);
   emit('change', newValue);
 }
+
 const fromValueDate = computed({
   get() {
     return props.modelValue?.from;
@@ -123,6 +124,7 @@ const fromValueDate = computed({
     update({ from: value, to: toValueDate.value });
   },
 });
+
 const toValueDate = computed({
   get() {
     return props.modelValue?.to;
@@ -147,8 +149,12 @@ const numberOfSelectedFilters = computed(() => {
 const isButtonDisabled = computed(() => numberOfSelectedFilters.value <= 0);
 
 function clear() {
-  update(null);
+  update({
+    from: null,
+    to: null,
+  });
 }
+
 function onBlur() {
   emit('blur', { from: fromValueDate.value, to: toValueDate.value });
 }
