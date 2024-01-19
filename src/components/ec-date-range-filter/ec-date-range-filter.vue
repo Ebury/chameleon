@@ -24,8 +24,8 @@
             data-test="ec-date-range-filter__from-input"
             class="ec-date-range-filter__from-input"
             @blur="onBlur()"
-            @open="/* c8 ignore next */ disableAutoHide = true"
-            @after-close="/* c8 ignore next */ disableAutoHide = false"
+            @open="/* c8 ignore next */ isAutoHideEnabled = false"
+            @close="/* c8 ignore next */ onClose()"
           />
 
           <ec-datepicker
@@ -38,8 +38,8 @@
             class="ec-date-range-filter__to-input"
             data-test="ec-date-range-filter__to-input"
             @blur="onBlur()"
-            @open="/* c8 ignore next */ disableAutoHide = true"
-            @after-close="/* c8 ignore next */ disableAutoHide = false"
+            @open="/* c8 ignore next */ isAutoHideEnabled = false"
+            @close="/* c8 ignore next */ onClose()"
           />
         </div>
         <p
@@ -101,13 +101,6 @@ const props = defineProps({
   },
 });
 
-const disableAutoHide = ref(false);
-const allPopoverOptions = computed(() => ({
-  autoHide: !disableAutoHide.value, // autoHide of the ec-filter-popover should be disabled while flatpickr is open, otherwise selecting value in the flatpickr will close this popover too.
-  ...props.popoverOptions,
-  hideTriggers: ['close'],
-}));
-
 const emit = defineEmits(['update:modelValue', 'change', 'blur']);
 
 // update selected dates
@@ -157,6 +150,19 @@ function clear() {
 
 function onBlur() {
   emit('blur', { from: fromValueDate.value, to: toValueDate.value });
+}
+
+const isAutoHideEnabled = ref(true);
+const allPopoverOptions = computed(() => ({
+  autoHide: isAutoHideEnabled.value, // autoHide of the ec-filter-popover should be disabled while flatpickr is open, otherwise selecting value in the flatpickr will close this popover too.
+  ...props.popoverOptions,
+  hideTriggers: ['close'],
+}));
+
+function onClose() {
+  requestAnimationFrame(() => { // Floating vue requests next animation frame to set values and decide where to autohide or not. We need to do the same and wait for the next animation frame before re-enabling autohide.
+    isAutoHideEnabled.value = true;
+  });
 }
 </script>
 

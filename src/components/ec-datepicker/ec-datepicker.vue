@@ -232,9 +232,6 @@ function mergeWithDefaultOptions(options) {
     onClose: [...(props.options.onClose ?? []), () => {
       document.removeEventListener('scroll', debouncedFlatpickrReposition, { capture: true, passive: true });
       emit('close');
-      setTimeout(() => {
-        emit('after-close');
-      }, 100); // We need an event with a small delay for when datepicker is nested inside a popover. Otherwise the flatpicker on close will close the outer popover as well. We have similar event for ec-popover.
     }],
     prevArrow: '<svg><use xlink:href="#ec-simple-chevron-left"/></svg>',
     nextArrow: '<svg><use xlink:href="#ec-simple-chevron-right"/></svg>',
