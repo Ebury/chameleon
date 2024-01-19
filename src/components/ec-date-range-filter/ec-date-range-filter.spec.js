@@ -100,7 +100,10 @@ describe('EcDateRangeFilter', () => {
     const wrapper = mountEcDateRangeFilter({ label });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     wrapper.findByDataTest('ec-date-range-filter__clear-button').trigger('click');
-    expect(wrapper.emitted('change')).toEqual([[null]]);
+    expect(wrapper.emitted('change')).toEqual([[{
+      from: null,
+      to: null,
+    }]]);
   });
 
   it('should not emit a change event when there are no value for dates', async () => {
