@@ -33,8 +33,16 @@ const defaultFilters = [{
   label: 'Due date',
   name: 'dueDate',
   component: markRaw(EcDateRangeFilter),
-  fromLabelText: 'From',
-  toLabelText: 'To',
+  fromDatepickerOptions: {
+    label: 'From',
+    placeholder: 'Choose a date',
+    areWeekendsDisabled: true,
+  },
+  toDatepickerOptions: {
+    label: 'To',
+    placeholder: 'Choose a date',
+    areWeekendsDisabled: true,
+  },
   clearText: 'Clear dates',
   errorMessage: '',
 }, {
@@ -65,8 +73,16 @@ const defaultStretchedFilters = [{
   label: 'Due date',
   name: 'dueDate',
   component: markRaw(EcDateRangeFilter),
-  fromLabelText: 'From',
-  toLabelText: 'To',
+  fromDatepickerOptions: {
+    label: 'From',
+    placeholder: 'Choose a date',
+    areWeekendsDisabled: true,
+  },
+  toDatepickerOptions: {
+    label: 'To',
+    placeholder: 'Choose a date',
+    areWeekendsDisabled: true,
+  },
   clearText: 'Clear dates',
   errorMessage: '',
 }, {
@@ -128,7 +144,6 @@ const prefilters = {
   all: {},
   onlyOverdue: { paymentStatus: [{ text: 'Overdue', value: 'overdue' }], feeType: [{ text: 'Payment', value: 'payment' }] },
   onlyInvoiced: { feeType: [{ text: 'Invoiced', value: 'invoiced' }] },
-  inThePast: { dueDate: { to: '2020-11-23' } },
 };
 
 export default {
@@ -188,7 +203,13 @@ function useSmartTableSetup(args) {
   // filters
   const filters = computed(() => (args.isFilteringEnabled ? defaultFilters : null));
   const stretchedFilters = computed(() => (args.isFilteringEnabled ? defaultStretchedFilters : null));
-  const selectedFilter = computed(() => prefilters[args.prefilter]);
+  const selectedFilter = computed(() => ({
+    ...prefilters[args.prefilter],
+    dueDate: {
+      from: null,
+      to: null,
+    },
+  }));
 
   // fake fetch API
   function fakeFetch(url, ctx) {
