@@ -92,7 +92,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['update:modelValue', 'ready', 'open', 'close', 'blur', 'change', 'after-close']);
+const emit = defineEmits(['update:modelValue', 'ready', 'open', 'close', 'blur', 'change']);
 
 const uid = getUid();
 const id = `ec-datepicker-${uid}`;
