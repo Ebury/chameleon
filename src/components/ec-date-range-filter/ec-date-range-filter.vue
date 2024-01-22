@@ -154,8 +154,8 @@ function onBlur() {
 
 const isAutoHideEnabled = ref(true);
 const allPopoverOptions = computed(() => ({
-  autoHide: isAutoHideEnabled.value, // autoHide of the ec-filter-popover should be disabled while flatpickr is open, otherwise selecting value in the flatpickr will close this popover too.
   ...props.popoverOptions,
+  autoHide: isAutoHideEnabled.value, // autoHide of the ec-filter-popover should be disabled while flatpickr is open, otherwise selecting value in the flatpickr will close this popover too.
   hideTriggers: ['close'],
 }));
 
