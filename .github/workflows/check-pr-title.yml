@@ -5,5 +5,14 @@ on:
 jobs:
   Jira-PR-Title:
     if: ${{ (github.actor != 'dependabot[bot]') && (github.actor != 'EburyCrowdin') }}
-    uses: Ebury/github-tools/.github/workflows/check-pr-title-reusable-workflow.yml@master
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Regex - Check PR Title follows the pattern "[XXXX-0000] (optional text)"
+        run: |
+          if [[ "${{ github.event.pull_request.title }}" =~ ^\[[A-Z]+-[0-9]+\] ]]; then
+            echo "OK"
+          else
+            echo "FAIL - PR title does not follow the pattern [XXXX-0000] (optional text)"
+            exit 1
+          fi
 
