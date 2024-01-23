@@ -10,7 +10,7 @@ export { default as EcAmountInput } from './components/ec-amount-input';
 export { default as EcBadge } from './components/ec-badge';
 export { default as EcBtn, types as EcBtnTypes } from './components/ec-btn';
 export { default as EcBtnDropdown } from './components/ec-btn-dropdown';
-export { default as EcButtonGroup } from './components/ec-button-group';
+export { default as EcButtonGroup, types as EcButtonGroupTypes } from './components/ec-button-group';
 export { default as EcCheckbox } from './components/ec-checkbox';
 export { default as EcContainer } from './components/ec-container';
 export { default as EcCurrencyFilter } from './components/ec-currency-filter';
@@ -65,7 +65,7 @@ export { CHAMELEON_CONFIG_KEY, default as useEcConfig } from './composables/use-
 export { default as useEcCountdown } from './composables/use-ec-countdown';
 export { default as useEcPagination } from './composables/use-ec-pagination';
 export { default as useEcSorting } from './composables/use-ec-sorting';
-export { default as config } from './config';
+export { default as config, EcConfig } from './config';
 export { default as EcAmount, default as VEcAmount } from './directives/ec-amount';
 export { default as EcClosePopover, default as VEcClosePopover } from './directives/ec-close-popover';
 export { default as EcTooltip, default as VEcTooltip, default as vEcTooltip } from './directives/ec-tooltip';

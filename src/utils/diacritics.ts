@@ -1,5 +1,5 @@
-export function removeDiacritics(str) {
-  if (typeof str === 'string' && str.normalize) {
+export function removeDiacritics(str: string): string {
+  if (str && str.normalize) {
     // https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }

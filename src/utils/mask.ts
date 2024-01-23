@@ -1,4 +1,4 @@
-export function mask(text, maskSymbol = '*', visibleChars = 2) {
+export function mask(text: string, maskSymbol: string = '*', visibleChars: number = 2): string {
   if (!text) {
     throw new Error('Text is required');
   }
@@ -10,5 +10,5 @@ export function mask(text, maskSymbol = '*', visibleChars = 2) {
   }
 
   const digitsToBeMasked = text.length - visibleChars;
-  return maskSymbol.repeat(digitsToBeMasked) + text.substr(digitsToBeMasked);
+  return maskSymbol.repeat(digitsToBeMasked) + text.substring(digitsToBeMasked);
 }

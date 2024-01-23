@@ -566,7 +566,7 @@ describe('HoC for Vue 3', () => {
       };
 
       const MyHoC = createHOC(WrappedComponent, {}, {
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
+
         scopedSlots: () => {},
       });
 

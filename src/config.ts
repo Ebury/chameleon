@@ -1,7 +1,14 @@
 let sensitiveClass = '';
 let iconsStaticPrefix = '';
 
-export default {
+export interface EcConfig {
+  get sensitiveClass(): string,
+  set sensitiveClass(value: string),
+  get iconsStaticPrefix(): string,
+  set iconsStaticPrefix(value: string),
+}
+
+const config: EcConfig = {
   get sensitiveClass() {
     if (!sensitiveClass) {
       throw new Error('sensitiveClass is required');
@@ -18,3 +25,5 @@ export default {
     iconsStaticPrefix = value;
   },
 };
+
+export default config;

@@ -1,6 +1,6 @@
 declare module 'vue' {
   interface ComponentCustomProperties {
-    $tooltipContainer?: HTMLElement | string;
+    $tooltipContainer?: HTMLElement | DocumentFragment | string;
   }
 }
 
