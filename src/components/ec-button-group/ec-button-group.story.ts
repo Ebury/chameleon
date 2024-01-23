@@ -1,14 +1,19 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
 
 import EcButtonGroup from './ec-button-group.vue';
+import type { ButtonGroupProps } from './types';
 
 export default {
   title: 'Button Group',
   component: EcButtonGroup,
-};
+} as Meta<typeof EcButtonGroup>;
 
-const Template = args => ({
+type EcButtonGroupStory<T = string> = StoryFn<ButtonGroupProps<T>>;
+
+const Template: EcButtonGroupStory = args => ({
   components: { EcButtonGroup },
   setup() {
     const model = ref('yes');
@@ -28,7 +33,7 @@ const Template = args => ({
   `,
 });
 
-export const basic = Template.bind({});
+export const basic: EcButtonGroupStory = Template.bind({});
 
 basic.args = {
   items: [
@@ -41,7 +46,12 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = args => ({
+type AllEcButtonGroupStoryCase<TValue> = ButtonGroupProps<TValue> & {
+  title: string,
+  value: TValue,
+};
+
+export const all: EcButtonGroupStory = args => ({
   components: { EcButtonGroup },
   setup() {
     const list = ref([
@@ -52,7 +62,7 @@ export const all = args => ({
           { text: 'Yes', value: 'yes' },
           { text: 'No', value: 'no' },
         ],
-      },
+      } satisfies AllEcButtonGroupStoryCase<string>,
       {
         value: true,
         title: 'Two options with boolean',
@@ -60,7 +70,7 @@ export const all = args => ({
           { text: 'Yes', value: true },
           { text: 'No', value: false },
         ],
-      },
+      } satisfies AllEcButtonGroupStoryCase<boolean>,
       {
         value: 2,
         title: 'Two options with numbers',
@@ -68,7 +78,7 @@ export const all = args => ({
           { text: 'Yes', value: 1 },
           { text: 'No', value: 2 },
         ],
-      },
+      } satisfies AllEcButtonGroupStoryCase<number>,
       {
         value: 'yes',
         title: 'One option disabled',
@@ -76,7 +86,7 @@ export const all = args => ({
           { text: 'Yes', value: 'yes' },
           { text: 'No', value: 'no', disabled: true },
         ],
-      },
+      } satisfies AllEcButtonGroupStoryCase<string>,
       {
         value: 'no',
         title: 'More than 2 options',
@@ -85,7 +95,7 @@ export const all = args => ({
           { text: 'No', value: 'no' },
           { text: 'Maybe', value: 'maybe' },
         ],
-      },
+      } satisfies AllEcButtonGroupStoryCase<string>,
       {
         value: '2nd',
         title: 'More than 2 options with disabled options',
@@ -96,7 +106,7 @@ export const all = args => ({
           { text: 'Fourth', value: '4th', disabled: true },
           { text: 'Fifth', value: '5th', disabled: true },
         ],
-      },
+      } satisfies AllEcButtonGroupStoryCase<string>,
     ]);
 
     return { args, list };

@@ -1,4 +1,4 @@
-export function getDecimalSeparator(locale) {
+export function getDecimalSeparator(locale: string | string[]): string {
   // we could just use formatToParts function but it's not supported on Safari 11 and 12
   // and there's no polyfill for NumberFormat, only for DateTimeFormat
   //
@@ -21,7 +21,7 @@ export function getDecimalSeparator(locale) {
   return formatted[1];
 }
 
-export function getGroupingSeparator(locale) {
+export function getGroupingSeparator(locale: string | string[]): string {
   // we could just use formatToParts function but it's not supported on Safari 11 and 12
   // and there's no polyfill for NumberFormat, only for DateTimeFormat
   //

@@ -6,11 +6,7 @@ describe('Utils', () => {
       ['ąśćńżóźćę', 'ascnzozce'],
       ['lłľĺ', 'lłll'],
       ['', ''],
-      [null, null],
-      [undefined, undefined],
-      [{}, {}],
-      [[], []],
-    ])('should normalize "%s"', (str, expected) => {
+    ])('should normalize "%s"', (str: string, expected: string) => {
       expect(removeDiacritics(str)).toEqual(expected);
     });
   });

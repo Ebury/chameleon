@@ -5,7 +5,8 @@ describe('config', () => {
     config.sensitiveClass = '';
 
     expect(() => {
-      config.sensitiveClass();
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      config.sensitiveClass;
     }).toThrow('sensitiveClass is required');
   });
 });

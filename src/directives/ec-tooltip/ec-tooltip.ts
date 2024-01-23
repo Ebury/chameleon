@@ -12,7 +12,7 @@ FloatingVue.options.themes.tooltip = {
 
 const origBeforeMount = VTooltip.beforeMount;
 
-function tryGetContainer(instance?: DirectiveBinding['instance']): HTMLElement | string | undefined {
+function tryGetContainer(instance?: DirectiveBinding['instance']): HTMLElement | DocumentFragment | string | undefined {
   return instance?.$.appContext.app.config.globalProperties.$tooltipContainer;
 }
 
