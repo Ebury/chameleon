@@ -161,7 +161,7 @@ const allPopoverOptions = computed(() => ({
 
 /* c8 ignore start */
 function onClose() {
-  requestAnimationFrame(() => { // Floating vue requests next animation frame to set values and decide where to autohide or not. We need to do the same and wait for the next animation frame before re-enabling autohide.
+  requestAnimationFrame(() => { // Floating vue requests next animation frame to set values and decide whether to autohide or not. We need to do the same and wait for the next animation frame before re-enabling autohide.
     isAutoHideEnabled.value = true;
   });
 }
