@@ -1,14 +1,37 @@
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
-import clipboardCopy from 'clipboard-copy';
+import { useClipboard } from '@vueuse/core';
 import { vi } from 'vitest';
+import { type ComputedRef, ref } from 'vue';
 
 import EcInlineInputField from './ec-inline-input-field.vue';
 import { InlineInputEvent, type InlineInputProps } from './types';
 
-vi.mock('clipboard-copy');
+vi.mock('@vueuse/core');
 
 describe('EcInlineInputField', () => {
+  let clipboardCopySpy: ReturnType<typeof useClipboard>['copy'];
+
+  beforeEach(() => {
+    clipboardCopySpy = vi.fn();
+
+    vi.mocked(useClipboard).mockImplementation(() => ({
+      copy: clipboardCopySpy,
+      isSupported: ref(true),
+      // Why casting? see https://github.com/vueuse/vueuse/blob/v10.2.1/packages/core/useClipboard/index.ts#L118-L119
+      text: ref('') as ComputedRef<string>,
+      copied: ref(false) as ComputedRef<boolean>,
+    }));
+  });
+
+  function mockClipboardCopySuccess() {
+    vi.mocked(clipboardCopySpy).mockClear().mockResolvedValue();
+  }
+
+  function mockClipboardCopyError() {
+    vi.mocked(clipboardCopySpy).mockClear().mockRejectedValue(false);
+  }
+
   const inputFieldValue = 'Input field value';
   const tooltipTextSuccess = 'Copied!';
   const tooltipTextError = 'Unable to copy';
@@ -299,7 +322,7 @@ describe('EcInlineInputField', () => {
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
       await wrapper.vm.$nextTick();
 
-      expect(clipboardCopy).toHaveBeenCalledTimes(1);
+      expect(clipboardCopySpy).toHaveBeenCalledTimes(1);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-content')).toBe(tooltipTextSuccess);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-popper-class')).toBe('ec-tooltip--bg-success');
     });
@@ -318,7 +341,7 @@ describe('EcInlineInputField', () => {
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
       await wrapper.vm.$nextTick();
 
-      expect(clipboardCopy).toHaveBeenCalledTimes(1);
+      expect(clipboardCopySpy).toHaveBeenCalledTimes(1);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-content')).toBe(tooltipTextError);
       expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-popper-class')).toBe('ec-tooltip--bg-error');
     });
@@ -335,16 +358,11 @@ describe('EcInlineInputField', () => {
       );
 
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('click');
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-popper-shown')).toBe('');
       await wrapper.findByDataTest('ec-inline-input-field-copy__action').trigger('mouseleave');
-      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-popover-shown')).toBeUndefined();
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findByDataTest('ec-inline-input-field-copy__icon').attributes('data-ec-tooltip-mock-popper-shown')).toBeUndefined();
     });
   });
 });
-
-function mockClipboardCopySuccess() {
-  vi.mocked(clipboardCopy).mockClear().mockResolvedValue();
-}
-
-function mockClipboardCopyError() {
-  vi.mocked(clipboardCopy).mockClear().mockRejectedValue(false);
-}

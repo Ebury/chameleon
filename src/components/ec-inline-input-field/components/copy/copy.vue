@@ -17,6 +17,7 @@
     >
       <ec-icon
         v-ec-tooltip="{
+          delay: 0,
           placement: TooltipPlacement.LEFT,
           shown: isTooltipShown,
           triggers: [TooltipTrigger.MANUAL],
@@ -33,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import clipboardCopy from 'clipboard-copy';
+import { useClipboard } from '@vueuse/core';
 import { computed, ref } from 'vue';
 
 import useConfig from '../../../../composables/use-ec-config';
@@ -61,6 +62,8 @@ const props = withDefaults(defineProps<InlineInputCopyProps>(), {
   errorMessage: '',
   isBtnRightAligned: false,
 });
+
+const { copy: clipboardCopy } = useClipboard({ legacy: true });
 
 const tooltipContent = computed(() => (isCopied.value ? props.tooltipTextSuccess : props.tooltipTextError));
 

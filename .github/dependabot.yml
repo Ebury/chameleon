@@ -14,9 +14,6 @@ updates:
   - "stavros-tomas"
   - "wolandec"
   ignore:
-  - dependency-name: clipboard-copy
-    versions:
-    - ">= 4"
   - dependency-name: cypress
     versions:
     - ">= 10"
