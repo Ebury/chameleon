@@ -196,17 +196,14 @@ onBeforeUnmount(() => {
 });
 
 function goToNext() {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   metroline!.goToNext(props.id);
 }
 
 function activateItem() {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   metroline!.goTo(props.id);
 }
 
 function complete() {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   metroline!.complete();
 }
 </script>

@@ -32,7 +32,16 @@ export default defineConfig({
       './tests/mocks/index.ts',
     ],
     coverage: {
-      100: true,
+      include: [
+        'src/**',
+        '!src/**/*.story.?(c|m)[jt]s?(x)',
+        '!src/{icons,assets,eslint}/**',
+        '!**/index.{js,ts}',
+        '!**/types.ts',
+      ],
+      thresholds: {
+        100: true,
+      },
     },
   },
 });

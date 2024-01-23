@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'node:fs';
 
 import { getDecimalSeparator, getGroupingSeparator } from './number-format';
 
@@ -8,11 +8,11 @@ describe('Utils', () => {
     .filter(fileName => fileName.match(/\.js$/))
     .map(fileName => fileName.replace(/\.js$/, ''));
 
-  function getExpectedSeparator(locale, type) {
+  function getExpectedSeparator(locale: string, type: Intl.NumberFormatPartTypes) {
     return new Intl.NumberFormat(locale)
       .formatToParts(1111.1)
       .find(part => part.type === type)
-      .value;
+      ?.value;
   }
 
   describe('getDecimalSeparator', () => {

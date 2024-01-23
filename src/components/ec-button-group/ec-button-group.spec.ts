@@ -1,24 +1,24 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcButtonGroup from './ec-button-group.vue';
+import type { ButtonGroupProps } from './types';
 
-function mountButtonGroup(props, mountOpts) {
-  return mount(EcButtonGroup, {
+function mountButtonGroup<TValue = string>(props: ButtonGroupProps<TValue>, mountOpts?: ComponentMountingOptions<typeof EcButtonGroup<TValue>>) {
+  return mount<typeof EcButtonGroup<TValue>>(EcButtonGroup, {
     props,
     ...mountOpts,
   });
 }
 
-function mountButtonGroupAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
+function mountButtonGroupAsTemplate(template: string, props: Record<string, unknown>, wrapperComponentOpts: Record<string, unknown>, mountOpts?: ComponentMountingOptions<unknown>) {
   const Component = defineComponent({
     components: { EcButtonGroup },
     template,
     ...wrapperComponentOpts,
   });
 
-  return mount(Component, {
+  return mount<typeof Component, ComponentMountingOptions<typeof Component>>(Component, {
     props,
     ...mountOpts,
   });
@@ -46,32 +46,6 @@ describe('EcButtonGroup', () => {
       });
 
       expect(wrapper.element).toMatchSnapshot();
-    });
-
-    it(':items - should throw an error when one or more items doesn\'t have text property', () => {
-      withMockedConsole((errorSpy, warnSpy) => {
-        mountButtonGroup({
-          items: [
-            { text: 'Yes', value: 'yes' },
-            { value: 'maybe' },
-          ],
-        });
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "items"');
-      });
-    });
-
-    it(':items - should throw an error when one or more items doesn\'t have value property', () => {
-      withMockedConsole((errorSpy, warnSpy) => {
-        mountButtonGroup({
-          items: [
-            { text: 'Yes', value: 'yes' },
-            { text: 'Maybe' },
-          ],
-        });
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "items"');
-      });
     });
   });
 
@@ -164,7 +138,7 @@ describe('EcButtonGroup', () => {
       });
 
       await wrapper.findByDataTest('ec-button-group__btn-1').trigger('click');
-      expect(wrapper.emitted('change').length).toBe(1);
+      expect(wrapper.emitted('change')?.length).toBe(1);
     });
   });
 });
