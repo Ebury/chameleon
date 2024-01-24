@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/vue3';
-import copyToClipboard from 'clipboard-copy';
+import { useClipboard } from '@vueuse/core';
 import { computed, defineComponent, ref } from 'vue';
 
 import EcIcon from './ec-icon.vue';
@@ -25,9 +25,8 @@ const EcIconsGrid = defineComponent({
   // eslint-disable-next-line vue/require-prop-types
   props: ['icons', 'size', 'type', 'color', 'borderRadius'],
   setup() {
-    return {
-      copy: copyToClipboard,
-    };
+    const { copy } = useClipboard();
+    return { copy };
   },
   template: `
     <div class="tw-flex tw-flex-wrap" :style="{ fill: color }">
