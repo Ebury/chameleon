@@ -39,7 +39,6 @@
   "dependencies": {
     "@vueuse/core": "10.2.1",
     "@vueuse/integrations": "10.2.1",
-    "clipboard-copy": "3.2.0",
     "flatpickr": "4.6.13",
     "floating-vue": "2.0.0-beta.16",
     "focus-trap": "6.9.4",
