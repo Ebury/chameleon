@@ -156,7 +156,7 @@ import {
 
 import useConfig from '../../composables/use-ec-config';
 import VEcTooltip from '../../directives/ec-tooltip';
-import { ARROW_DOWN, ARROW_UP } from '../../enums/key-code';
+import { KeyCode } from '../../enums';
 import { removeDiacritics } from '../../utils/diacritics';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
@@ -503,18 +503,18 @@ function setOverflowHeight() {
 
 // keyboard navigation (UP, DOWN arrows)
 function onArrowUpKeyDown() {
-  onArrowKey(ARROW_UP);
+  onArrowKey(KeyCode.ARROW_UP);
 }
 
 function onArrowDownKeyDown() {
-  onArrowKey(ARROW_DOWN);
+  onArrowKey(KeyCode.ARROW_DOWN);
 }
 
 function onArrowKey(key) {
   let nextItem;
 
   if (selectedItemIndex.value >= 0) {
-    if (key === ARROW_DOWN) {
+    if (key === KeyCode.ARROW_DOWN) {
       nextItem = filteredItems.value.find((item, i) => !item.disabled && i > selectedItemIndex.value);
     } else {
       const reversedItems = filteredItems.value.slice(0, selectedItemIndex.value).reverse();

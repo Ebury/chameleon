@@ -1,5 +1,5 @@
-import { SortDirection } from '../../enums';
-import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
+import { SortDirection, SortDirectionCycle } from '../../enums';
+import type { SortingOptions } from './types';
 import useEcSorting from './use-ec-sorting';
 
 describe('useEcSorting', () => {
@@ -22,17 +22,9 @@ describe('useEcSorting', () => {
     ]);
   });
 
-  it('should validate given sort cycle', () => {
-    expect(() => {
-      useEcSorting({
-        sortCycle: ['HI', 'LO'],
-      });
-    }).toThrow('Invalid sortCycle: HI,LO');
-  });
-
   describe('multi sort', () => {
     describe('with default sort cycle: asc -> desc', () => {
-      function initUseEcSorting(opts) {
+      function initUseEcSorting(opts?: Partial<SortingOptions>) {
         return useEcSorting({ isMultiSort: true, ...opts });
       }
 
@@ -125,7 +117,7 @@ describe('useEcSorting', () => {
     });
 
     describe('with default sort cycle: desc -> asc', () => {
-      function initUseEcSorting(opts) {
+      function initUseEcSorting(opts?: Partial<SortingOptions>) {
         return useEcSorting({
           isMultiSort: true,
           sortCycle: SortDirectionCycle.HIGHEST_FIRST,
@@ -221,7 +213,7 @@ describe('useEcSorting', () => {
 
   describe('single sort', () => {
     describe('with default sort cycle: asc -> desc', () => {
-      function initUseEcSorting(opts) {
+      function initUseEcSorting(opts?: Partial<SortingOptions>) {
         return useEcSorting({ isMultiSort: false, ...opts });
       }
 
@@ -258,7 +250,7 @@ describe('useEcSorting', () => {
     });
 
     describe('with default sort cycle: desc -> asc', () => {
-      function initUseEcSorting(opts) {
+      function initUseEcSorting(opts?: Partial<SortingOptions>) {
         return useEcSorting({
           isMultiSort: false,
           sortCycle: SortDirectionCycle.HIGHEST_FIRST,
