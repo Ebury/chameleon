@@ -59,6 +59,7 @@ export { CHAMELEON_CONFIG_KEY, default as useEcConfig } from './composables/use-
 export { default as useEcCountdown } from './composables/use-ec-countdown';
 export { DEFAULT_PAGE_SIZE, PAGE_SIZES, default as useEcPagination } from './composables/use-ec-pagination';
 export { default as useEcSorting } from './composables/use-ec-sorting';
+export { Sorting as EcSorting } from './composables/use-ec-sorting/types';
 export { default as config, EcConfig } from './config';
 export { default as EcAmount, default as VEcAmount } from './directives/ec-amount';
 export { default as EcClosePopover, default as VEcClosePopover } from './directives/ec-close-popover';
