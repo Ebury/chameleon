@@ -104,15 +104,15 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
+
+import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from '../../composables/use-ec-pagination';
+import EcDropdownSearch from '../ec-dropdown-search';
+import EcIcon from '../ec-icon';
+
 defineOptions({
   inheritAttrs: false,
 });
-
-import { computed } from 'vue';
-
-import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from '../../enums/pagination';
-import EcDropdownSearch from '../ec-dropdown-search';
-import EcIcon from '../ec-icon';
 
 const props = defineProps({
   page: {
