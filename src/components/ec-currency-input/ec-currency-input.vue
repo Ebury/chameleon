@@ -114,7 +114,7 @@
 import { computed, ref, useAttrs } from 'vue';
 
 import VEcTooltip from '../../directives/ec-tooltip';
-import * as TooltipPlacement from '../../enums/tooltip-placement';
+import { TooltipPlacement } from '../../directives/ec-tooltip/types';
 import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';

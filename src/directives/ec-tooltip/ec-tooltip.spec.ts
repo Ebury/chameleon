@@ -21,6 +21,8 @@ vi.mock('floating-vue', () => ({
   },
 }));
 
+vi.unmock('./ec-tooltip');
+
 describe('EcTooltipDirective', () => {
   it('should bind the tooltip directive correctly when value is an object', () => {
     const value = {

@@ -1,9 +1,3 @@
-import { SortDirection } from './enums';
-import * as SortDirectionCycle from './enums/sort-direction-cycle';
-import * as TooltipPlacement from './enums/tooltip-placement';
-
-export { SortDirection, SortDirectionCycle, TooltipPlacement };
-
 export { default as EcAlert, types as EcAlertTypes } from './components/ec-alert';
 export { default as EcAmountFilterInput } from './components/ec-amount-filter-input';
 export { default as EcAmountInput } from './components/ec-amount-input';
@@ -63,13 +57,16 @@ export { default as EcToaster } from './components/ec-toaster';
 export { default as EcUserInfo } from './components/ec-user-info';
 export { CHAMELEON_CONFIG_KEY, default as useEcConfig } from './composables/use-ec-config';
 export { default as useEcCountdown } from './composables/use-ec-countdown';
-export { default as useEcPagination } from './composables/use-ec-pagination';
+export { DEFAULT_PAGE_SIZE, PAGE_SIZES, default as useEcPagination } from './composables/use-ec-pagination';
 export { default as useEcSorting } from './composables/use-ec-sorting';
+export { Sorting as EcSorting } from './composables/use-ec-sorting/types';
 export { default as config, EcConfig } from './config';
 export { default as EcAmount, default as VEcAmount } from './directives/ec-amount';
 export { default as EcClosePopover, default as VEcClosePopover } from './directives/ec-close-popover';
-export { default as EcTooltip, default as VEcTooltip, default as vEcTooltip } from './directives/ec-tooltip';
-export { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './enums/pagination';
+export {
+  default as EcTooltip, default as VEcTooltip, default as vEcTooltip, types as VEcTooltipTypes,
+} from './directives/ec-tooltip';
+export { SortDirection, SortDirectionCycle } from './enums';
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
 export { createHOC, createHOCc } from './hocs/hoc';
 export { availableCurrencyFlagsSet, types as AvailableCurrencyFlagsTypes, flags } from './icons/currency-flags';
