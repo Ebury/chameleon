@@ -5,6 +5,7 @@ import { type ChameleonThemeConfig, DARK_THEME, LIGHT_THEME } from '../../../../
 import EcBtn from '../../../components/ec-btn';
 import { ButtonCategory, type ButtonProps, ButtonSize } from '../../../components/ec-btn/types';
 import EcIcon from '../../../components/ec-icon';
+import { IconName } from '../../../components/ec-icon/icon-names';
 
 const meta: Meta = {
   title: 'Button',
@@ -64,8 +65,8 @@ function generatePropsStory(storyName: string, theme: ChameleonThemeConfig): But
       <div class="tw-flex-grid-container">
         <div class="tw-flex-grid">
           <RenderButtonsComponent title="Default" v-bind="{ ...args }"/>
-          <RenderButtonsComponent title="Small" v-bind="{ ...args, size: 'sm' }"/>
-          <RenderButtonsComponent title="With icon" v-bind="{ ...args, icon: 'simple-check' }"/>
+          <RenderButtonsComponent title="Small" v-bind="{ ...args, size: '${ButtonSize.Small}' }"/>
+          <RenderButtonsComponent title="With icon" v-bind="{ ...args, icon: '${IconName.SimpleCheck}' }"/>
           <RenderButtonsComponent title="Rounded" v-bind="{ ...args, isRounded: true }"/>
           <RenderButtonsComponent title="Full width" v-bind="{ ...args, isFullWidth: true }"/>
           <RenderButtonsComponent title="Outline" v-bind="{ ...args, isOutline: true }"/>
