@@ -1,4 +1,4 @@
-import { ref, unref } from 'vue';
+import { ref } from 'vue';
 
 import { SortDirection, SortDirectionCycle } from '../../enums';
 import type { SortingOptions } from './types';
@@ -6,13 +6,9 @@ import type { SortingOptions } from './types';
 export default function useEcSorting({
   initialSorts = [],
   isMultiSort = false,
-  sortCycle: sortCycleInOptions,
-}: Partial<SortingOptions> = {}) {
-  const defaultSortCycle = unref(sortCycleInOptions) ?? SortDirectionCycle.LOWEST_FIRST;
-  // eslint-disable-next-line no-param-reassign
-  isMultiSort = unref(isMultiSort);
-
-  const sorts = ref(unref(initialSorts));
+  sortCycle: defaultSortCycle = SortDirectionCycle.LOWEST_FIRST,
+}: SortingOptions) {
+  const sorts = ref(initialSorts);
 
   function sortBy({ name: columnName, sortCycle = defaultSortCycle }: { name: string, sortCycle?: SortDirectionCycle }) {
     const existingSort = sorts.value.find(sort => sort.column === columnName);

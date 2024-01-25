@@ -6,7 +6,7 @@ export interface Sorting {
 }
 
 export interface SortingOptions {
-  initialSorts: Sorting[],
-  isMultiSort: boolean,
-  sortCycle: SortDirectionCycle,
+  initialSorts?: Sorting[],
+  isMultiSort?: boolean,
+  sortCycle?: SortDirectionCycle,
 }

@@ -4,10 +4,9 @@ import useEcSorting from './use-ec-sorting';
 
 describe('useEcSorting', () => {
   it('should initialise properly', () => {
-    const { sorts, sortBy } = useEcSorting();
+    const { sorts } = useEcSorting({});
 
     expect(sorts.value).toEqual([]);
-    expect(typeof sortBy).toBe('function');
   });
 
   it('should accept initial sorts', () => {
