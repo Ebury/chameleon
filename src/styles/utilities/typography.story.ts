@@ -1,8 +1,12 @@
-export default {
+import type { Meta, StoryFn } from '@storybook/vue3';
+
+const meta: Meta = {
   title: 'CSS/Typography',
 };
 
-export const basic = () => ({
+export default meta;
+
+export const basic: StoryFn = () => ({
   data() {
     return {
       types: [

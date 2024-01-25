@@ -61,6 +61,7 @@
     "@storybook/theming": "7.6.4",
     "@storybook/vue3": "7.6.4",
     "@storybook/vue3-vite": "7.6.4",
+    "@types/color": "3.0.6",
     "@types/intl": "1.2.2",
     "@types/node": "20.10.8",
     "@types/sinonjs__fake-timers": "8.1.5",

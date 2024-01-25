@@ -1,19 +1,22 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { createEventHook } from '@vueuse/core';
 import Color from 'color';
 import { getCurrentInstance, onBeforeUnmount, onMounted } from 'vue';
 
-export default {
+const meta: Meta = {
   title: 'CSS/Colors',
 };
 
-function useCssResourceAddonSync({ window, document }) {
-  const onChanged = createEventHook();
+export default meta;
 
-  let mutationObserver;
+function useCssResourceAddonSync({ window, document }: { window: Window, document: Document }) {
+  const onChanged = createEventHook<MutationRecord[]>();
+
+  let mutationObserver: MutationObserver;
 
   onMounted(() => {
-    if (window.MutationObserver) {
-      mutationObserver = new window.MutationObserver((ev) => {
+    if ('MutationObserver' in window) {
+      mutationObserver = new MutationObserver((ev) => {
         onChanged.trigger(ev);
       });
       mutationObserver.observe(document.body, {
@@ -26,9 +29,7 @@ function useCssResourceAddonSync({ window, document }) {
   });
 
   onBeforeUnmount(() => {
-    if (mutationObserver) {
-      mutationObserver.disconnect();
-    }
+    mutationObserver?.disconnect();
   });
 
   return {
@@ -36,15 +37,15 @@ function useCssResourceAddonSync({ window, document }) {
   };
 }
 
-export const all = () => ({
+export const all: StoryFn = () => ({
   setup() {
     const vueInstance = getCurrentInstance();
     const { onChanged } = useCssResourceAddonSync({ window, document });
     onChanged(() => {
       // we need to update Vue instance manually to trigger the render again and force getInfo() calls inside of the template to recalculate styles displayed in the texts
-      vueInstance.update();
+      vueInstance?.update();
     });
-    function getInfo(variable) {
+    function getInfo(variable: string): string | null {
       const hslValue = window.getComputedStyle(document.documentElement).getPropertyValue(variable);
       if (hslValue) {
         const color = new Color(`hsl(${hslValue})`);

@@ -1,13 +1,27 @@
-export default {
+/* eslint-disable react/no-unescaped-entities */
+import type { Meta, StoryFn } from '@storybook/vue3';
+import type { StyleValue } from 'vue';
+
+const meta: Meta = {
   title: 'CSS/Typography',
 };
 
-export const fonts = storyArgs => ({
+export default meta;
+
+type FontStoryArgs = {
+  fontFamily?: 'tw-font-sans' | 'tw-font-sans-condensed' | 'tw-font-mono',
+  fontWeight?: 300 | 400 | 500 | 700,
+  fontSize?: number,
+  lineHeight?: number,
+  fontStyle?: 'italic',
+};
+
+export const fonts: StoryFn<FontStoryArgs> = storyArgs => ({
   setup() {
     return { args: storyArgs };
   },
-  render({ args }) {
-    const style = {
+  render({ args }: { args: FontStoryArgs }) {
+    const style: StyleValue = {
       fontWeight: `${args.fontWeight}`,
       fontStyle: `${args.fontStyle}`,
       lineHeight: `${args.lineHeight}px`,

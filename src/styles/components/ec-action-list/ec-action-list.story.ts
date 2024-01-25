@@ -1,8 +1,12 @@
-export default {
+import type { Meta, StoryFn } from '@storybook/vue3';
+
+const meta: Meta = {
   title: 'Action List',
 };
 
-export const all = () => ({
+export default meta;
+
+export const all: StoryFn = () => ({
   template: `
     <div class="tw-m-20">
       <h3 class="tw-ml-4">Horizontal</h3>
