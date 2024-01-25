@@ -18,6 +18,7 @@
             v-bind="{
               ...$props,
               ...fromDatepickerOptions,
+              options: { ...fromDatepickerOptions.options, maxDate: toValueDate },
               level: 'modal',
             }"
             v-model="fromValueDate"
@@ -32,6 +33,7 @@
             v-bind="{
               ...$props,
               ...toDatepickerOptions,
+              options: { ...toDatepickerOptions.options, minDate: fromValueDate },
               level: 'modal',
             }"
             v-model="toValueDate"
