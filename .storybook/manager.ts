@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { addons } from '@storybook/addons';
 import { create } from '@storybook/theming/create';
 
