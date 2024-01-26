@@ -144,10 +144,7 @@ const numberOfSelectedFilters = computed(() => {
 const isButtonDisabled = computed(() => numberOfSelectedFilters.value <= 0);
 
 function clear() {
-  update({
-    from: null,
-    to: null,
-  });
+  update(null);
 }
 
 function onBlur() {
