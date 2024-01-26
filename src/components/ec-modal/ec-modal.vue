@@ -111,7 +111,7 @@ import {
   computed, onBeforeUnmount, ref, useSlots, watch, watchEffect,
 } from 'vue';
 
-import * as KeyCode from '../../enums/key-code';
+import { KeyCode } from '../../enums';
 import EcBtn from '../ec-btn';
 import { ButtonCategory } from '../ec-btn/types';
 import EcIcon from '../ec-icon';

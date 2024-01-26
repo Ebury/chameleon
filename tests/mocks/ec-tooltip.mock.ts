@@ -66,4 +66,4 @@ export const EcTooltipDirectiveMock: ObjectDirective<HTMLElement, string | Toolt
   },
 };
 
-vi.mock('../../src/directives/ec-tooltip', () => ({ default: EcTooltipDirectiveMock }));
+vi.mock('../../src/directives/ec-tooltip/ec-tooltip', () => ({ default: EcTooltipDirectiveMock }));

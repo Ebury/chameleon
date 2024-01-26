@@ -149,8 +149,7 @@ import {
 
 import useEcPagination from '../../composables/use-ec-pagination';
 import useEcSorting from '../../composables/use-ec-sorting';
-import { SortDirection } from '../../enums';
-import * as SortDirectionCycle from '../../enums/sort-direction-cycle';
+import { SortDirectionCycle } from '../../enums';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
 import EcLoading from '../ec-loading';
@@ -184,11 +183,8 @@ const props = defineProps({
   filter: Object,
   isMultiSort: Boolean,
   sortCycle: {
-    type: Array,
+    type: Number,
     default: () => SortDirectionCycle.LOWEST_FIRST,
-    validator(directions) {
-      return directions.every(direction => direction === SortDirection.ASC || direction === SortDirection.DESC);
-    },
   },
   additionalPayload: Object,
   isFetching: Boolean,
