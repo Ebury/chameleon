@@ -1,8 +1,12 @@
-export default {
+import type { Meta, StoryFn } from '@storybook/vue3';
+
+const meta: Meta = {
   title: 'Card',
 };
 
-export const all = () => ({
+export default meta;
+
+export const all: StoryFn = () => ({
   data() {
     return {
       list: [

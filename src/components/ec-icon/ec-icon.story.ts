@@ -22,7 +22,7 @@ export default {
 
 const EcIconsGrid = defineComponent({
   components: { EcIcon },
-  // eslint-disable-next-line vue/require-prop-types
+
   props: ['icons', 'size', 'type', 'color', 'borderRadius'],
   setup() {
     const { copy } = useClipboard();
