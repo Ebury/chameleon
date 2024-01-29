@@ -1,4 +1,6 @@
-export function fixedContainerDecorator(height = '100vh') {
+import type { StoryFn } from '@storybook/vue3';
+
+export function fixedContainerDecorator(height: string = '100vh'): StoryFn {
   // what is this for? an element with position: fixed always escapes the boundaries of the Docs page. See e.g.
   // ec-navigation.story.js.
   //

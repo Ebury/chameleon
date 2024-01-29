@@ -1,11 +1,15 @@
 /* eslint-disable react/jsx-one-expression-per-line, jsx-a11y/anchor-is-valid, jsx-a11y/control-has-associated-label, react/button-has-type */
+import type { Meta, StoryFn } from '@storybook/vue3';
+
 import './elements.story.css';
 
-export default {
+const meta: Meta = {
   title: 'CSS/Elements',
 };
 
-export const all = () => ({
+export default meta;
+
+export const all: StoryFn = () => ({
   render() {
     const contentSectioning = ['address', 'article', 'aside', 'footer', 'header', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup', 'main', 'nav', 'section'];
     const textContent = ['blockquote', 'dl', 'dt', 'dd', 'dir', 'div', 'figcaption', 'figure', <hr />, 'main', 'p', 'pre'];
@@ -42,7 +46,7 @@ export const all = () => ({
       </div>
     );
 
-    function renderElement(element) {
+    function renderElement(element: string | JSX.Element): JSX.Element {
       if (typeof element === 'string') {
         return (
           <element>{ element }</element>
@@ -51,7 +55,7 @@ export const all = () => ({
       return (element);
     }
 
-    function renderTable() {
+    function renderTable(): JSX.Element {
       return (
         <table>
           <caption>Caption</caption>
@@ -74,7 +78,7 @@ export const all = () => ({
       );
     }
 
-    function renderForm() {
+    function renderForm(): JSX.Element {
       return (
         <form>
           <div>
@@ -141,7 +145,7 @@ export const all = () => ({
       );
     }
 
-    function renderInteractiveElements() {
+    function renderInteractiveElements(): JSX.Element {
       return (
         <details>
           <summary>Details</summary>

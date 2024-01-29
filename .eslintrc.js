@@ -123,7 +123,8 @@ module.exports = {
     },
     {
       files: [
-        '**/*.story.js',
+        '.storybook/**/*.{js,ts}',
+        '**/*.story.{js,jsx,ts,tsx}',
       ],
       rules: {
         'import/no-extraneous-dependencies': 'off',
