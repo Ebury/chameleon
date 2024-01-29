@@ -1,4 +1,6 @@
-export function loadSvgSprites(svgSpriteNames, publicPath = '') {
+import type { SpriteName, SvgSprite } from './types';
+
+export function loadSvgSprites(svgSpriteNames: SpriteName[], publicPath: string = ''): Promise<SvgSprite>[] {
   return svgSpriteNames.map(async (spriteName) => {
     const url = `${publicPath}/${spriteName}.svg`;
     const svg = await getSprite(url);
@@ -6,14 +8,13 @@ export function loadSvgSprites(svgSpriteNames, publicPath = '') {
   });
 }
 
-function getSprite(url) {
+function getSprite(url: string): Promise<string> {
   return new Promise(((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.onload = function onSpriteLoaded() {
       if (xhr.status >= 400) {
         const error = new Error(xhr.statusText);
-        error.response = xhr.response;
         reject(error);
       } else {
         resolve(xhr.responseText);

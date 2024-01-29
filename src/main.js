@@ -69,5 +69,7 @@ export {
 export { SortDirection, SortDirectionCycle } from './enums';
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
 export { createHOC, createHOCc } from './hocs/hoc';
+export { inlineSvgSprites } from './icons/browser';
 export { availableCurrencyFlagsSet, types as AvailableCurrencyFlagsTypes, flags } from './icons/currency-flags';
+export { SpriteName, SvgSprite } from './icons/types';
 export { default as flatpickr } from 'flatpickr';
