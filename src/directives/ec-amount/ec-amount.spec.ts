@@ -1,11 +1,11 @@
 /* eslint-disable no-underscore-dangle */
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, DOMWrapper, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 
-import EcAmount from './ec-amount';
+import EcAmount, { type EcAmountInputElement } from './ec-amount';
 
 describe('EcAmount', () => {
-  function mountTemplate(template, opts, mountOpts) {
+  function mountTemplate(template: string, opts?: Record<string, unknown>, mountOpts?: ComponentMountingOptions<unknown>) {
     const Wrapper = {
       directives: { EcAmount },
       template,
@@ -13,7 +13,7 @@ describe('EcAmount', () => {
     };
 
     const wrapper = mount(Wrapper, { ...mountOpts });
-    return { input: wrapper.findByDataTest('amount-input'), wrapper };
+    return { input: wrapper.findByDataTest<EcAmountInputElement>('amount-input'), wrapper };
   }
 
   it('should format the given number using default locale', () => {
@@ -91,7 +91,7 @@ describe('EcAmount', () => {
   });
 });
 
-function setValue(input, value) {
+function setValue(input: DOMWrapper<EcAmountInputElement>, value: string) {
   input.element.focus();
   input.element.value = value;
   moveCursorToPosition(input, input.element.value.length); // move the cursor to the end (simulate the behaviour from the browser. JSDOM puts it at the start of the input)
@@ -99,7 +99,7 @@ function setValue(input, value) {
   input.trigger('input');
 }
 
-function moveCursorToPosition(input, position) {
+function moveCursorToPosition(input: DOMWrapper<EcAmountInputElement>, position: number) {
   input.element.setSelectionRange(position, position);
   input.trigger('keydown'); // remember the position of the cursor
 }
