@@ -3,7 +3,8 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import type { Preview } from '@storybook/vue3';
 
 import config from '../src/config';
-import { inlineSvgSprites, SpriteName } from '../src/icons/browser';
+import { inlineSvgSprites } from '../src/icons/browser';
+import { SpriteName } from '../src/icons/types';
 // @ts-expect-error TS don't know how to handle vite's raw CSS import
 import bwTheme from '../src/styles/themes/b-w.css?inline';
 // @ts-expect-error TS don't know how to handle vite's raw CSS import

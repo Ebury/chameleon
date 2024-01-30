@@ -1,16 +1,28 @@
 /* eslint no-underscore-dangle: "off" */
+import type { DirectiveBinding, ObjectDirective } from 'vue';
+
 import defaultOptions from './options';
+import type { AmountDirectiveOptions } from './types';
 import { format, setCursor } from './utils';
 
-function getNumberOfSeparators(value, endIndex, separator) {
-  const matches = value.substr(0, endIndex).match(new RegExp(`\\${separator}`, 'g'));
+export interface EcAmountInputElement extends HTMLInputElement {
+  __amountOptions?: AmountDirectiveOptions,
+  __preventHandlingNextInputEvent?: boolean,
+  __inputHandler?: () => void,
+  __keydownHandler?: () => void,
+  __previousFormattedValue?: string,
+  __previousCursorPosition?: number,
+}
+
+function getNumberOfSeparators(value: string, endIndex: number, separator: string): number {
+  const matches = value.substring(0, endIndex).match(new RegExp(`\\${separator}`, 'g'));
   return matches ? matches.length : 0;
 }
 
-function updateOptions(el, binding) {
+function updateOptions(el: EcAmountInputElement, binding: DirectiveBinding<AmountDirectiveOptions>) {
   const options = (binding && binding.value) ? binding.value : {};
 
-  const opts = {
+  const opts: AmountDirectiveOptions = {
     ...defaultOptions,
     ...options,
   };
@@ -18,16 +30,16 @@ function updateOptions(el, binding) {
   el.__amountOptions = opts;
 }
 
-function getOptions(el) {
-  return /* c8 ignore next */ el.__amountOptions || {};
+function getOptions(el: EcAmountInputElement): AmountDirectiveOptions {
+  return /* c8 ignore next */ el.__amountOptions || defaultOptions;
 }
 
-export default {
-  updated(el, binding, vnode) {
-    updateOptions(vnode.el, binding);
+const EcAmountDirective: ObjectDirective<EcAmountInputElement, AmountDirectiveOptions> = {
+  updated(el: EcAmountInputElement, binding: DirectiveBinding<AmountDirectiveOptions>) {
+    updateOptions(el, binding);
   },
 
-  beforeMount(el, binding, vnode) {
+  beforeMount(el: EcAmountInputElement, binding: DirectiveBinding<AmountDirectiveOptions>) {
     /* eslint no-param-reassign: "off" */
     // v-ec-amount used on a component that's not an input
     if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
@@ -37,7 +49,7 @@ export default {
       throw new TypeError('v-ec-amount requires 1 input');
     }
 
-    updateOptions(vnode.el, binding);
+    updateOptions(el, binding);
 
     el.__inputHandler = function inputHandler() {
       if (el.__preventHandlingNextInputEvent) {
@@ -45,9 +57,10 @@ export default {
         return;
       }
 
-      const options = getOptions(vnode.el);
+      const options = getOptions(el);
 
-      let positionFromStart = el.selectionStart;
+      /* c8 ignore next */
+      let positionFromStart = el.selectionStart ?? 0;
       const numberOfSeparatorsBefore = getNumberOfSeparators(el.value, positionFromStart, options.groupingSeparator);
       const prevValue = el.__previousFormattedValue;
       const newValue = format(el.value, options);
@@ -56,7 +69,7 @@ export default {
         const numberOfSeparatorsAfter = getNumberOfSeparators(newValue, positionFromStart, options.groupingSeparator);
         positionFromStart += numberOfSeparatorsAfter - numberOfSeparatorsBefore;
       } else {
-        positionFromStart = el.__previousCursorPosition;
+        positionFromStart = el.__previousCursorPosition ?? 0;
       }
 
       el.value = newValue;
@@ -76,14 +89,19 @@ export default {
     el.addEventListener('input', el.__inputHandler);
 
     el.__keydownHandler = function keydownHandler() {
-      el.__previousCursorPosition = el.selectionStart;
+      /* c8 ignore next */
+      el.__previousCursorPosition = el.selectionStart ?? 0;
     };
     el.addEventListener('keydown', el.__keydownHandler);
   },
 
   beforeUnmount(el) {
-    el.removeEventListener('input', el.__inputHandler);
-    el.removeEventListener('keydown', el.__keydownHandler);
+    if (el.__inputHandler) {
+      el.removeEventListener('input', el.__inputHandler);
+    }
+    if (el.__keydownHandler) {
+      el.removeEventListener('keydown', el.__keydownHandler);
+    }
 
     delete el.__inputHandler;
     delete el.__keydownHandler;
@@ -93,3 +111,5 @@ export default {
     delete el.__preventHandlingNextInputEvent;
   },
 };
+
+export default EcAmountDirective;
