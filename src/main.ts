@@ -59,17 +59,18 @@ export { CHAMELEON_CONFIG_KEY, default as useEcConfig } from './composables/use-
 export { default as useEcCountdown } from './composables/use-ec-countdown';
 export { DEFAULT_PAGE_SIZE, PAGE_SIZES, default as useEcPagination } from './composables/use-ec-pagination';
 export { default as useEcSorting } from './composables/use-ec-sorting';
-export { Sorting as EcSorting } from './composables/use-ec-sorting/types';
-export { default as config, EcConfig } from './config';
+export type * from './composables/use-ec-sorting/types';
+export type { EcConfig } from './config';
+export { default as config } from './config';
 export { default as EcAmount, default as VEcAmount } from './directives/ec-amount';
 export { default as EcClosePopover, default as VEcClosePopover } from './directives/ec-close-popover';
 export {
   default as EcTooltip, default as VEcTooltip, default as vEcTooltip, types as VEcTooltipTypes,
 } from './directives/ec-tooltip';
-export { SortDirection, SortDirectionCycle } from './enums';
+export type * from './enums';
 export { default as ecWithAbortableFetch } from './hocs/ec-with-abortable-fetch';
 export { createHOC, createHOCc } from './hocs/hoc';
 export { inlineSvgSprites } from './icons/browser';
 export { availableCurrencyFlagsSet, types as AvailableCurrencyFlagsTypes, flags } from './icons/currency-flags';
-export { SpriteName, SvgSprite } from './icons/types';
+export type * from './icons/types';
 export { default as flatpickr } from 'flatpickr';
