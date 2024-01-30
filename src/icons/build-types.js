@@ -10,8 +10,8 @@ function getIconNames() {
     fs.readdirSync(path.resolve(__dirname, `../assets/icons/${dir}`), { withFileTypes: false }).forEach((file) => {
       const enumValue = `${dir}-${file.replace('.svg', '')}`;
       icons.push([enumValue.split('-')
-        .map(part => _.capitalize(part))
-        .join(''), enumValue]);
+        .map(part => _.upperCase(part))
+        .join('_'), enumValue]);
     });
   });
   return icons;
