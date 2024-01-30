@@ -18,7 +18,10 @@
             v-bind="{
               ...$props,
               ...fromDatepickerOptions,
-              options: { ...fromDatepickerOptions.options, maxDate: toValueDate },
+              options: {
+                ...fromDatepickerOptions.options,
+                maxDate: fromDatepickerOptions.options?.maxDate || toValueDate,
+              },
               level: 'modal',
             }"
             v-model="fromValueDate"
@@ -33,7 +36,10 @@
             v-bind="{
               ...$props,
               ...toDatepickerOptions,
-              options: { ...toDatepickerOptions.options, minDate: fromValueDate },
+              options: {
+                ...toDatepickerOptions.options,
+                minDate: toDatepickerOptions.options?.minDate || fromValueDate,
+              },
               level: 'modal',
             }"
             v-model="toValueDate"
@@ -148,14 +154,13 @@ function clear() {
 }
 
 function onBlur() {
-  emit('blur', { from: fromValueDate.value, to: toValueDate.value });
+  emit('blur');
 }
 
 const isAutoHideEnabled = ref(true);
 const allPopoverOptions = computed(() => ({
   ...props.popoverOptions,
   autoHide: isAutoHideEnabled.value, // autoHide of the ec-filter-popover should be disabled while flatpickr is open, otherwise selecting value in the flatpickr will close this popover too.
-  hideTriggers: ['close'],
 }));
 
 /* c8 ignore start */

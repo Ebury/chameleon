@@ -202,13 +202,7 @@ function useSmartTableSetup(args) {
   // filters
   const filters = computed(() => (args.isFilteringEnabled ? defaultFilters : null));
   const stretchedFilters = computed(() => (args.isFilteringEnabled ? defaultStretchedFilters : null));
-  const selectedFilter = computed(() => ({
-    ...prefilters[args.prefilter],
-    dueDate: {
-      from: null,
-      to: null,
-    },
-  }));
+  const selectedFilter = computed(() => prefilters[args.prefilter]);
 
   // fake fetch API
   function fakeFetch(url, ctx) {

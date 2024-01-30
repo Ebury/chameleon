@@ -454,7 +454,6 @@ exports[`EcTableFilter > should hide the clear filters button if there isn't any
       autohide="true"
       data-test="ec-stub ec-popover-stub"
       distance="8"
-      hidetriggers="close"
       placement="bottom-start"
       prevent-overflow="false"
     >
@@ -1019,7 +1018,6 @@ exports[`EcTableFilter > should hide the clear filters button when the user dese
       autohide="true"
       data-test="ec-stub ec-popover-stub"
       distance="8"
-      hidetriggers="close"
       placement="bottom-start"
       prevent-overflow="false"
     >
@@ -1583,7 +1581,6 @@ exports[`EcTableFilter > should render correctly if all the required props are p
       autohide="true"
       data-test="ec-stub ec-popover-stub"
       distance="8"
-      hidetriggers="close"
       placement="bottom-start"
       prevent-overflow="false"
     >
@@ -2148,7 +2145,6 @@ exports[`EcTableFilter > should render custom attributes 1`] = `
       autohide="true"
       data-test="ec-stub ec-popover-stub"
       distance="8"
-      hidetriggers="close"
       placement="bottom-start"
       prevent-overflow="false"
     >
@@ -2728,7 +2724,6 @@ exports[`EcTableFilter > should render with pre-selected filters if the value pr
       autohide="true"
       data-test="ec-stub ec-popover-stub"
       distance="8"
-      hidetriggers="close"
       placement="bottom-start"
       prevent-overflow="false"
     >

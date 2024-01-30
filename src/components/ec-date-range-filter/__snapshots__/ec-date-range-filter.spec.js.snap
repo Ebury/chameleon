@@ -9,7 +9,6 @@ exports[`EcDateRangeFilter > should render if no dates are passed in value prop 
     autohide="true"
     data-test="ec-stub ec-popover-stub"
     distance="8"
-    hidetriggers="close"
     placement="bottom-start"
     prevent-overflow="false"
   >
@@ -165,7 +164,6 @@ exports[`EcDateRangeFilter > should render properly when all the props are given
     autohide="true"
     data-test="ec-stub ec-popover-stub"
     distance="8"
-    hidetriggers="close"
     placement="bottom-start"
     prevent-overflow="false"
   >
@@ -327,7 +325,6 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
     autohide="true"
     data-test="ec-stub ec-popover-stub"
     distance="8"
-    hidetriggers="close"
     placement="bottom-start"
     prevent-overflow="false"
   >
@@ -494,7 +491,6 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
     autohide="true"
     data-test="ec-stub ec-popover-stub"
     distance="8"
-    hidetriggers="close"
     placement="bottom-start"
     prevent-overflow="false"
   >
@@ -663,7 +659,6 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
     autohide="true"
     data-test="ec-stub ec-popover-stub"
     distance="8"
-    hidetriggers="close"
     placement="bottom-start"
     prevent-overflow="false"
   >
@@ -833,7 +828,6 @@ exports[`EcDateRangeFilter > should render with custom attributes 1`] = `
     autohide="true"
     data-test="ec-stub ec-popover-stub"
     distance="8"
-    hidetriggers="close"
     placement="bottom-start"
     prevent-overflow="false"
   >
