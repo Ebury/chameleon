@@ -27,7 +27,7 @@ describe('EcTag', () => {
     it('should render as expected when passing the icon name', () => {
       const wrapper = mountTag({
         text: 'Trusted',
-        iconName: IconName.RoundedCheck,
+        iconName: IconName.ROUNDED_CHECK,
       });
 
       expect(wrapper.element).toMatchSnapshot();
@@ -36,7 +36,7 @@ describe('EcTag', () => {
     it('should render as expected when passing the icon type', () => {
       const wrapper = mountTag({
         text: 'Trusted',
-        iconName: IconName.RoundedCheck,
+        iconName: IconName.ROUNDED_CHECK,
         iconType: IconType.SUCCESS,
       });
 
@@ -46,7 +46,7 @@ describe('EcTag', () => {
     it('should render as expected when we set "is-icon-rounded" to be true', () => {
       const wrapper = mountTag({
         text: 'Trusted',
-        iconName: IconName.CurrencyAed,
+        iconName: IconName.CURRENCY_AED,
         isIconRounded: true,
       });
 

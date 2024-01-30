@@ -20,7 +20,7 @@
       @click.stop.prevent="onDismiss"
     >
       <ec-icon
-        :name="IconName.SimpleClose"
+        :name="IconName.SIMPLE_CLOSE"
         :size="16"
       />
     </a>
@@ -101,12 +101,12 @@ const icon = computed(() => {
   switch (props.type) {
     case AlertType.ERROR:
     case AlertType.WARNING:
-      return IconName.SimpleError;
+      return IconName.SIMPLE_ERROR;
     case AlertType.SUCCESS:
-      return IconName.SimpleCheck;
+      return IconName.SIMPLE_CHECK;
     case AlertType.INFO:
     default:
-      return IconName.SimpleInfo;
+      return IconName.SIMPLE_INFO;
   }
 });
 

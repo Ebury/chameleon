@@ -62,8 +62,8 @@ const Template: StoryFn<StoryArgs> = storyArgs => ({
 export const basic = Template.bind({});
 basic.args = {
   text: 'Click Me',
-  category: ButtonCategory.Primary,
-  size: ButtonSize.Medium,
+  category: ButtonCategory.PRIMARY,
+  size: ButtonSize.MEDIUM,
   isSubmit: false,
 };
 
@@ -173,7 +173,7 @@ all.argTypes = {
 
 all.args = {
   ...basic.args,
-  icon: IconName.SimpleCheck,
+  icon: IconName.SIMPLE_CHECK,
   loadingText: '',
 };
 

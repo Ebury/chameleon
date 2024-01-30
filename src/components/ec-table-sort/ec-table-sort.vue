@@ -48,9 +48,9 @@ const isDesc = computed(() => props.direction === SortDirection.DESC);
 
 const icon = computed(() => {
   if (isAsc.value || isDesc.value) {
-    return IconName.SimpleArrowDropDown;
+    return IconName.SIMPLE_ARROW_DROP_DOWN;
   }
-  return IconName.SimpleArrowUpDown;
+  return IconName.SIMPLE_ARROW_UP_DOWN;
 });
 
 const directionTitle = computed(() => {

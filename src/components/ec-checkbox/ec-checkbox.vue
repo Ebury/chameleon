@@ -53,7 +53,7 @@
           v-else-if="inputModel"
           class="ec-checkbox__check-icon"
           data-test="ec-checkbox__check-icon"
-          :name="IconName.SimpleCheck"
+          :name="IconName.SIMPLE_CHECK"
           :size="16"
         />
       </span>

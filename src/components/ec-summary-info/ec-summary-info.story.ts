@@ -20,7 +20,7 @@ export default {
 } as Meta<typeof EcSummaryInfo>;
 
 const basicArgs = {
-  iconName: IconName.SimplePayment,
+  iconName: IconName.SIMPLE_PAYMENT,
   lineItems: [],
 };
 

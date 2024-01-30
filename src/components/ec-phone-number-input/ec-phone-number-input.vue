@@ -125,7 +125,7 @@
         class="ec-phone-number-input__error-tooltip"
         data-test="ec-phone-number-input__error-tooltip"
         :type="IconType.ERROR"
-        :name="IconName.SimpleError"
+        :name="IconName.SIMPLE_ERROR"
         :size="14"
       />
     </div>
@@ -143,7 +143,7 @@
         class="ec-phone-number-input__warning-tooltip"
         data-test="ec-phone-number-input__warning-tooltip"
         :type="IconType.WARNING"
-        :name="IconName.SimpleError"
+        :name="IconName.SIMPLE_ERROR"
         :size="14"
       />
     </div>

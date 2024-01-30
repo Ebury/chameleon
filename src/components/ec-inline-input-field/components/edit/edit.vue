@@ -9,7 +9,7 @@
       class="ec-inline-input-field-edit__label-tooltip"
       data-test="ec-inline-input-field-edit__label-tooltip"
       :type="IconType.INTERACTIVE"
-      :name="IconName.SimpleInfo"
+      :name="IconName.SIMPLE_INFO"
       :size="14"
     />
     </label>
@@ -34,7 +34,7 @@
         >
           <ec-icon
             class="ec-inline-input-field-edit__action-icon"
-            :name="IconName.SimpleCheck"
+            :name="IconName.SIMPLE_CHECK"
             :size="16"
           />
         </button>
@@ -46,7 +46,7 @@
         >
           <ec-icon
             class="ec-inline-input-field-edit__action-icon"
-            :name="IconName.SimpleClose"
+            :name="IconName.SIMPLE_CLOSE"
             :size="16"
           />
         </button>

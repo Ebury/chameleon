@@ -20,7 +20,7 @@
         class="ec-input-field__tooltip"
         data-test="ec-input-field__tooltip"
         :type="IconType.INTERACTIVE"
-        :name="IconName.SimpleInfo"
+        :name="IconName.SIMPLE_INFO"
         :size="14"
       />
       </span>

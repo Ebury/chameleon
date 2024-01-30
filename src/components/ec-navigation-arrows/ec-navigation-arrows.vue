@@ -10,7 +10,7 @@
       data-test="ec-navigation-arrows__previous"
       @click="emit(NavigationArrowsEvent.PREVIOUS_CLICK)"
     >
-      <ec-icon :size="24" :name="IconName.SimpleChevronLeft" /></button>
+      <ec-icon :size="24" :name="IconName.SIMPLE_CHEVRON_LEFT" /></button>
     <button
       type="button"
       :class="nextButtonClasses"
@@ -18,7 +18,7 @@
       data-test="ec-navigation-arrows__next"
       @click="emit(NavigationArrowsEvent.NEXT_CLICK)"
     >
-      <ec-icon :size="24" :name="IconName.SimpleChevronRight" /></button>
+      <ec-icon :size="24" :name="IconName.SIMPLE_CHEVRON_RIGHT" /></button>
   </div>
 </template>
 

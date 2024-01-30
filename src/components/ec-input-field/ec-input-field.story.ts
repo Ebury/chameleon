@@ -70,8 +70,8 @@ basic.args = {
   modelValue: '',
   placeholder: 'My input',
   bottomNote: 'Your email',
-  icon: IconName.SimpleCheck,
-  leftIcon: IconName.SimpleSearch,
+  icon: IconName.SIMPLE_CHECK,
+  leftIcon: IconName.SIMPLE_SEARCH,
   note: 'Max 80 chars.',
 };
 basic.parameters = {
@@ -178,7 +178,7 @@ export const all: AllInputFieldStory = storyArgs => ({
         </div>
 
         <div class="tw-flex-col-full md:tw-flex-col-4">
-          <ec-input-field v-model="valueText" placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" label="Input with icons" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" placeholder="My input" left-icon="${IconName.SIMPLE_SEARCH}" icon="${IconName.SIMPLE_INFO}" label="Input with icons" :is-in-group="isInGroup" :is-sensitive="isSensitive" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-flex-col-full md:tw-flex-col-4">
@@ -190,19 +190,19 @@ export const all: AllInputFieldStory = storyArgs => ({
         </div>
 
         <div class="tw-flex-col-full md:tw-flex-col-4">
-          <ec-input-field v-model="valueText" placeholder="My input" left-icon="${IconName.SimpleSearch}" icon="${IconName.SimpleInfo}" label="Short label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" placeholder="My input" left-icon="${IconName.SIMPLE_SEARCH}" icon="${IconName.SIMPLE_INFO}" label="Short label" :is-in-group="isInGroup" :is-sensitive="isSensitive" :label-tooltip="labelTooltip" :note="noteText" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-flex-col-full md:tw-flex-col-4">
-          <ec-input-field v-model="valueText" placeholder="My input" icon="${IconName.SimpleInfo}" label="Input with bottom note" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" placeholder="My input" icon="${IconName.SIMPLE_INFO}" label="Input with bottom note" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-flex-col-full md:tw-flex-col-4">
-          <ec-input-field v-model="valueText" placeholder="My input" left-icon-type="${IconType.SUCCESS}" left-icon="${IconName.SimpleChevronRight}" icon="${IconName.SimpleCheck}" icon-type="${IconType.SUCCESS}" label="Input with success green icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
+          <ec-input-field v-model="valueText" placeholder="My input" left-icon-type="${IconType.SUCCESS}" left-icon="${IconName.SIMPLE_CHEVRON_RIGHT}" icon="${IconName.SIMPLE_CHECK}" icon-type="${IconType.SUCCESS}" label="Input with success green icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :bottom-note="bottomNoteText" :is-warning="isWarning" @change="onChange" @input="onInput" />
         </div>
 
         <div class="tw-flex-col-full md:tw-flex-col-4">
-          <ec-input-field readonly placeholder="My input" left-icon="${IconName.SimpleSearch}" :model-value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
+          <ec-input-field readonly placeholder="My input" left-icon="${IconName.SIMPLE_SEARCH}" :model-value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
         </div>
 
         <div class="tw-flex-col-full" />

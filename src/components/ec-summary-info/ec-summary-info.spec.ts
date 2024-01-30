@@ -33,7 +33,7 @@ describe('EcSummaryInfo', () => {
 
   describe('icon', () => {
     it('should render with the given "icon" prop', () => {
-      const wrapper = mountSummaryInfo({ iconName: IconName.SimpleSell });
+      const wrapper = mountSummaryInfo({ iconName: IconName.SIMPLE_SELL });
       expect(wrapper.findByDataTest('ec-summary-info__main-icon').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -227,7 +227,7 @@ describe('EcSummaryInfo', () => {
 
   describe('slots', () => {
     it('should render with the default slot given', () => {
-      const wrapper = mountSummaryInfo({ iconName: IconName.SimpleSell }, {
+      const wrapper = mountSummaryInfo({ iconName: IconName.SIMPLE_SELL }, {
         slots: {
           default: `<div data-test="default-slot">
             <span>

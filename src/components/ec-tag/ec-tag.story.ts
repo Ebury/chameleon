@@ -40,7 +40,7 @@ export const basic = Template.bind({});
 basic.args = {
   text: 'Trusted',
   isIconRounded: false,
-  iconName: IconName.RoundedCheck,
+  iconName: IconName.ROUNDED_CHECK,
   iconType: IconType.SUCCESS,
 };
 
@@ -63,6 +63,6 @@ export const truncatedText: EcTagStory = TruncatedTextTemplate.bind({});
 truncatedText.args = {
   text: 'Trusted Beneficiary',
   isIconRounded: false,
-  iconName: IconName.RoundedCheck,
+  iconName: IconName.ROUNDED_CHECK,
   iconType: IconType.SUCCESS,
 };

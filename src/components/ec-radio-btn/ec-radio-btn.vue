@@ -52,7 +52,7 @@
               'ec-radio-btn__icon--checked': isChecked && !isDisabled,
               'ec-radio-btn__icon--checked-and-disabled': isDisabled && isChecked,
             }"
-            :name="IconName.RoundedNotification"
+            :name="IconName.ROUNDED_NOTIFICATION"
             :size="20"
           />
         </div>
