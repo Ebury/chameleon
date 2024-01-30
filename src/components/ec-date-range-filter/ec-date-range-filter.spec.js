@@ -5,15 +5,19 @@ import { withMockedConsole } from '../../../tests/utils/console';
 import EcDateRangeFilter from './ec-date-range-filter.vue';
 
 const label = 'Due date';
-const modelValue = { from: '2020-03-14', to: '2020-04-10' };
+const modelValue = { from: new Date(2020, 3, 14), to: new Date(2020, 4, 10) };
 const modelValueEmpty = { from: null, to: null };
 
 describe('EcDateRangeFilter', () => {
   function mountEcDateRangeFilter(props, mountOpts) {
     return mount(EcDateRangeFilter, {
       props: {
-        fromLabelText: 'From',
-        toLabelText: 'To',
+        fromDatepickerOptions: {
+          label: 'From',
+        },
+        toDatepickerOptions: {
+          label: 'To',
+        },
         clearText: 'Clear dates',
         modelValue,
         ...props,
@@ -57,12 +61,22 @@ describe('EcDateRangeFilter', () => {
   });
 
   it('should render properly with an error message when the fromErrorMessage is given', () => {
-    const wrapper = mountEcDateRangeFilter({ label, fromErrorMessage: 'This is the from field error message' });
+    const wrapper = mountEcDateRangeFilter({
+      label,
+      fromDatepickerOptions: {
+        errorMessage: 'This is the from field error message',
+      },
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render properly with an error message when the toErrorMessage is given', () => {
-    const wrapper = mountEcDateRangeFilter({ label, toErrorMessage: 'This is the to field error message' });
+    const wrapper = mountEcDateRangeFilter({
+      label,
+      toDatepickerOptions: {
+        errorMessage: 'This is the to field error message',
+      },
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -78,6 +92,7 @@ describe('EcDateRangeFilter', () => {
     const wrapper = mountEcDateRangeFilter({ label });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     await wrapper.findByDataTest('ec-date-range-filter__from-input').setValue('2020-11-06');
+    await wrapper.findByDataTest('ec-date-range-filter__from-input').trigger('blur');
     expect(wrapper.emitted('change').length).toBe(1);
   });
 
@@ -119,10 +134,12 @@ describe('EcDateRangeFilter', () => {
     expect(wrapper.findByDataTest('ec-badge').exists()).toBe(false);
 
     await wrapper.findByDataTest('ec-date-range-filter__from-input').setValue('2020-11-06');
+    await wrapper.findByDataTest('ec-date-range-filter__from-input').trigger('blur');
     expect(wrapper.findByDataTest('ec-date-range-filter__from-input').element.value).toBe('2020-11-06');
     expect(wrapper.findByDataTest('ec-badge').text()).toBe('1');
 
     await wrapper.findByDataTest('ec-date-range-filter__to-input').setValue('2020-12-06');
+    await wrapper.findByDataTest('ec-date-range-filter__to-input').trigger('blur');
     expect(wrapper.findByDataTest('ec-date-range-filter__to-input').element.value).toBe('2020-12-06');
     expect(wrapper.findByDataTest('ec-badge').text()).toBe('2');
   });

@@ -27,8 +27,14 @@ const filters = [{
   label: 'Due date',
   name: 'dueDate',
   component: markRaw(EcDateRangeFilter),
-  fromLabelText: 'From',
-  toLabelText: 'To',
+  fromDatepickerOptions: {
+    label: 'From',
+    placeholder: 'dd/mm/yyyy',
+  },
+  toDatepickerOptions: {
+    label: 'To',
+    placeholder: 'dd/mm/yyyy',
+  },
   clearText: 'Clear dates',
 }, {
   name: 'text',

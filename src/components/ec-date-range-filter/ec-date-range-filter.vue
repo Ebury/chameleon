@@ -4,7 +4,7 @@
       ...$attrs,
       label,
       numberOfSelectedFilters,
-      popoverOptions,
+      popoverOptions: allPopoverOptions,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-date-range-filter__trigger` : 'ec-date-range-filter__trigger',
     }"
   >
@@ -14,27 +14,40 @@
         data-test="ec-date-range-filter"
       >
         <div class="ec-date-range-filter__inputs-wrapper">
-          <ec-input-field
+          <ec-datepicker
+            v-bind="{
+              ...$props,
+              ...fromDatepickerOptions,
+              options: {
+                ...fromDatepickerOptions.options,
+                maxDate: fromDatepickerOptions.options?.maxDate || toValueDate,
+              },
+              level: 'modal',
+            }"
             v-model="fromValueDate"
-            class="ec-date-range-filter__from-input"
             data-test="ec-date-range-filter__from-input"
-            type="date"
-            placeholder="dd/mm/yyyy"
-            :label="fromLabelText"
-            :error-message="fromErrorMessage"
-            :max="toValueDate"
+            class="ec-date-range-filter__from-input"
             @blur="onBlur()"
+            @open="/* c8 ignore next */ isAutoHideEnabled = false"
+            @close="/* c8 ignore next */ onClose()"
           />
-          <ec-input-field
+
+          <ec-datepicker
+            v-bind="{
+              ...$props,
+              ...toDatepickerOptions,
+              options: {
+                ...toDatepickerOptions.options,
+                minDate: toDatepickerOptions.options?.minDate || fromValueDate,
+              },
+              level: 'modal',
+            }"
             v-model="toValueDate"
             class="ec-date-range-filter__to-input"
             data-test="ec-date-range-filter__to-input"
-            type="date"
-            placeholder="dd/mm/yyyy"
-            :label="toLabelText"
-            :error-message="toErrorMessage"
-            :min="fromValueDate"
-            @blur="/* c8 ignore next */ onBlur()"
+            @blur="onBlur()"
+            @open="/* c8 ignore next */ isAutoHideEnabled = false"
+            @close="/* c8 ignore next */ onClose()"
           />
         </div>
         <p
@@ -55,10 +68,10 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
+import EcDatepicker from '../ec-datepicker';
 import EcFilterPopover from '../ec-filter-popover';
-import EcInputField from '../ec-input-field';
 
 defineOptions({
   inheritAttrs: false,
@@ -70,30 +83,10 @@ const props = defineProps({
     required: true,
     default: '',
   },
-  fromLabelText: {
-    type: String,
-    required: false,
-    default: 'From',
-  },
-  toLabelText: {
-    type: String,
-    required: false,
-    default: 'To',
-  },
   clearText: {
     type: String,
     required: false,
     default: 'Clear dates',
-  },
-  fromErrorMessage: {
-    type: String,
-    required: false,
-    default: '',
-  },
-  toErrorMessage: {
-    type: String,
-    required: false,
-    default: '',
   },
   dateRangeErrorMessage: {
     type: String,
@@ -106,6 +99,14 @@ const props = defineProps({
   modelValue: {
     type: Object,
   },
+  fromDatepickerOptions: {
+    type: Object,
+    default: () => ({}),
+  },
+  toDatepickerOptions: {
+    type: Object,
+    default: () => ({}),
+  },
 });
 
 const emit = defineEmits(['update:modelValue', 'change', 'blur']);
@@ -115,6 +116,7 @@ function update(newValue) {
   emit('update:modelValue', newValue);
   emit('change', newValue);
 }
+
 const fromValueDate = computed({
   get() {
     return props.modelValue?.from;
@@ -123,6 +125,7 @@ const fromValueDate = computed({
     update({ from: value, to: toValueDate.value });
   },
 });
+
 const toValueDate = computed({
   get() {
     return props.modelValue?.to;
@@ -149,9 +152,24 @@ const isButtonDisabled = computed(() => numberOfSelectedFilters.value <= 0);
 function clear() {
   update(null);
 }
+
 function onBlur() {
-  emit('blur', { from: fromValueDate.value, to: toValueDate.value });
+  emit('blur');
 }
+
+const isAutoHideEnabled = ref(true);
+const allPopoverOptions = computed(() => ({
+  ...props.popoverOptions,
+  autoHide: isAutoHideEnabled.value, // autoHide of the ec-filter-popover should be disabled while flatpickr is open, otherwise selecting value in the flatpickr will close this popover too.
+}));
+
+/* c8 ignore start */
+function onClose() {
+  requestAnimationFrame(() => { // Floating vue requests next animation frame to set values and decide whether to autohide or not. We need to do the same and wait for the next animation frame before re-enabling autohide.
+    isAutoHideEnabled.value = true;
+  });
+}
+/* c8 ignore stop */
 </script>
 
 <style>
