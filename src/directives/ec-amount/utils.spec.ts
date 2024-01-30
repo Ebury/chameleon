@@ -1,6 +1,7 @@
+import type { AmountDirectiveOptions } from './types';
 import { format, sanitizeInput, unFormat } from './utils';
 
-const defaultOptions = {
+const defaultOptions: AmountDirectiveOptions = {
   groupingSeparator: ',',
   decimalSeparator: '.',
   precision: 2,
@@ -38,7 +39,7 @@ describe('EcAmount - utils', () => {
       [1111111, '1,111,111', defaultOptions],
       [1111111, '1`111`111', { ...defaultOptions, groupingSeparator: '`' }],
       ['1111111`11', '1,111,111`11', { ...defaultOptions, decimalSeparator: '`' }],
-    ])('should format the value %s into a %s', (value, valueFormatted, options) => {
+    ])('should format the value %s into a %s', (value: string | number, valueFormatted: string, options?: AmountDirectiveOptions) => {
       if (options !== undefined) {
         expect(format(value, options)).toBe(valueFormatted);
       } else {
@@ -56,7 +57,7 @@ describe('EcAmount - utils', () => {
       [1.11, '1', optionsWithoutDecimals],
       [0.11, '0', optionsWithoutDecimals],
       [-1.11, '-1', optionsWithoutDecimals],
-    ])('should format the value %s into a %s without decimal', (value, valueFormatted, options) => {
+    ])('should format the value %s into a %s without decimal', (value: string | number, valueFormatted: string, options?: AmountDirectiveOptions) => {
       expect(format(value, options)).toBe(valueFormatted);
     });
 
@@ -72,7 +73,7 @@ describe('EcAmount - utils', () => {
       [-1111.11, '-1,111.11', defaultOptions],
       ['1-', '1', defaultOptions],
       ['1-1', '11', defaultOptions],
-    ])('should format negative sign in the value %s into a %s', (value, valueFormatted, options) => {
+    ])('should format negative sign in the value %s into a %s', (value: string | number, valueFormatted: string, options?: AmountDirectiveOptions) => {
       expect(format(value, options)).toBe(valueFormatted);
     });
   });
@@ -88,7 +89,7 @@ describe('EcAmount - utils', () => {
       ['1`111`111.00', '1111111.00', '`', '.'],
       ['1,111,111`00', '1111111.00', ',', '`'],
       ['1,111,111.001', '1111111.001', ',', '.'],
-    ])('should unFormat the %s into a %s', (value, valueUnFormatted, groupSeparator, decimalSeparator) => {
+    ])('should unFormat the %s into a %s', (value: string, valueUnFormatted: string, groupSeparator: string, decimalSeparator: string) => {
       expect(unFormat(value, groupSeparator, decimalSeparator)).toBe(valueUnFormatted);
     });
   });
@@ -105,7 +106,7 @@ describe('EcAmount - utils', () => {
       ['£1,111,111.00', '111111100'],
       ['1,111,111.00£', '111111100'],
       ['1,111,111.001', '1111111001'],
-    ])('should sanitize the %s into a %s if decimal separator is not defined', (value, valueExpected) => {
+    ])('should sanitize the %s into a %s if decimal separator is not defined', (value: string, valueExpected: string) => {
       expect(sanitizeInput(value, '')).toBe(valueExpected);
     });
 
@@ -120,7 +121,7 @@ describe('EcAmount - utils', () => {
       ['£1,111,111.00', '1111111.00'],
       ['1,111,111.00£', '1111111.00'],
       ['1,111,111.001', '1111111.001'],
-    ])('should sanitize the %s into a %s but preserve the given decimal separator', (value, valueExpected) => {
+    ])('should sanitize the %s into a %s but preserve the given decimal separator', (value: string, valueExpected: string) => {
       expect(sanitizeInput(value, '.')).toBe(valueExpected);
     });
   });

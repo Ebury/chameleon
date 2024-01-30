@@ -1,27 +1,21 @@
 import { loadSvgSprites } from './loader';
-
-export enum SpriteName {
-  SIMPLE_ICONS = 'simple-icons',
-  ROUNDED_ICONS = 'rounded-icons',
-  CURRENCY_FLAGS = 'currency-flags',
-}
+import type { SpriteName, SvgSprite } from './types';
 
 export function inlineSvgSprites(spriteNames: SpriteName[], publicPath: string, targetElement?: ShadowRoot | HTMLElement) {
   return loadSvgSprites(spriteNames, publicPath)
-    .map((spritePromise: Promise<{ spriteName: SpriteName, svg: string }>) => spritePromise.then(({ spriteName, svg }) => {
+    .map((spritePromise: Promise<SvgSprite>) => spritePromise.then(({ spriteName, svg }) => {
       const uid = generateUid(spriteName);
-      const svgSpriteWrapper = document.getElementById(uid)
-      || createSvgSpriteWrapper(uid, targetElement || document.body);
+      const svgSpriteWrapper = document.getElementById(uid) || createSvgSpriteWrapper(uid, targetElement || document.body);
       svgSpriteWrapper.innerHTML = svg;
       return { spriteName, svg };
     }));
 }
 
-export function generateUid(spriteName: SpriteName) {
+export function generateUid(spriteName: SpriteName): string {
   return `svg-sprite-container-${spriteName}`;
 }
 
-function createSvgSpriteWrapper(id: string, targetElement: ShadowRoot | HTMLElement) {
+function createSvgSpriteWrapper(id: string, targetElement: ShadowRoot | HTMLElement): HTMLElement {
   const spriteWrapper = document.createElement('div');
   spriteWrapper.id = id;
   spriteWrapper.style.display = 'none';
