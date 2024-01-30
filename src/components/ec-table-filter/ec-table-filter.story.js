@@ -81,7 +81,10 @@ basic.args = {
   modelValue: {
     paymentStatus: [{ text: 'Paid', value: 'paid' }, { text: 'Cancelled', value: 'canceled' }],
     supplier: [{ text: 'Supplier 1', value: 'supplier1' }],
-    dueDate: { from: '2021-11-11' },
+    dueDate: {
+      from: new Date(2021, 11, 11),
+      to: null,
+    },
     price: { comparisonSymbol: comparisonSymbolItems[1], amount: 1234.56, currencies: [currencyItems[0]] },
     text: 'Some text',
   },
@@ -100,6 +103,18 @@ basic.args = {
   }, {
     label: 'Due date',
     name: 'dueDate',
+    fromDatepickerOptions: {
+      label: 'From',
+      placeholder: 'Choose a date',
+      areWeekendsDisabled: true,
+      errorMessage: '',
+    },
+    toDatepickerOptions: {
+      label: 'To',
+      placeholder: 'Choose a date',
+      areWeekendsDisabled: true,
+      errorMessage: '',
+    },
     component: markRaw(EcDateRangeFilter),
   }, {
     label: 'Price',

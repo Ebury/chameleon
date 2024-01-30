@@ -192,7 +192,7 @@ function onChange() {
 
 function onBlur(evt) {
   emit('blur', evt);
-  if (flatpickrInstance && !flatpickrInstance.input.value) {
+  if (flatpickrInstance && !flatpickrInstance.input.value && props.modelValue) {
     emit('update:modelValue', null);
     emit('change');
   }
