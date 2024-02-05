@@ -156,9 +156,10 @@ import * as countries from 'svg-country-flags/countries.json';
 import type { InputHTMLAttributes } from 'vue';
 import { computed, ref } from 'vue';
 
-import type { Maybe, ZIndexLevel } from '../../../global';
+import type { Maybe } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
 import vEcTooltip from '../../directives/ec-tooltip';
+import type { ZIndexLevel } from '../../enums';
 import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';
 import EcDropdown from '../ec-dropdown';

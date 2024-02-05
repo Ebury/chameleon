@@ -1,6 +1,7 @@
 import type { InputHTMLAttributes } from 'vue';
 
-import type { Maybe, ZIndexLevel } from '../../../global';
+import type { Maybe } from '../../../global';
+import type { ZIndexLevel } from '../../enums';
 import type { InputFieldEvents } from '../ec-input-field/types';
 
 export interface PhoneNumberCountry {

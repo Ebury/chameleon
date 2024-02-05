@@ -1,8 +1,9 @@
 import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
 
-import { EcRadioBtn, EcRadioBtnGroup } from '../../main';
+import EcRadioBtn from '../ec-radio-btn';
 import type { RadioButtonProps } from '../ec-radio-btn/types';
+import EcRadioBtnGroup from './ec-radio-btn-group.vue';
 import type { RadioButtonGroupProps } from './types';
 
 function mountRadioBtnGroup(props?: Partial<RadioButtonGroupProps>, mountOpts?: ComponentMountingOptions<typeof EcRadioBtnGroup>) {
