@@ -26,8 +26,8 @@ describe('EcBtn', () => {
 
   describe(':props', () => {
     it.each([
-      ['ec-btn--sm', ButtonSize.Small],
-      ['ec-btn--md', ButtonSize.Medium],
+      ['ec-btn--sm', ButtonSize.SMALL],
+      ['ec-btn--md', ButtonSize.MEDIUM],
     ])('should render a <button> element with class "%s" when size is set to %s', (expectedClass, size) => {
       const wrapper = mountBtn({
         size,
@@ -90,7 +90,7 @@ describe('EcBtn', () => {
 
     it('should render a button with only an icon when the "icon" is defined but not the slots', () => {
       const wrapper = mountBtn({
-        icon: IconName.SimpleCheck,
+        icon: IconName.SIMPLE_CHECK,
       });
 
       expect(wrapper.classes('ec-btn--icon-only')).toBe(true);
@@ -134,13 +134,7 @@ describe('EcBtn', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it.each([
-      ButtonCategory.Primary,
-      ButtonCategory.Secondary,
-      ButtonCategory.Success,
-      ButtonCategory.Error,
-      ButtonCategory.Warning,
-    ])('should render a button with category "%s" when category "prop" is set', (category) => {
+    it.each(Object.values(ButtonCategory))('should render a button with category "%s" when category "prop" is set', (category) => {
       const wrapper = mountBtn({
         category,
       });
@@ -149,13 +143,7 @@ describe('EcBtn', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it.each([
-      ButtonCategory.Primary,
-      ButtonCategory.Secondary,
-      ButtonCategory.Success,
-      ButtonCategory.Error,
-      ButtonCategory.Warning,
-    ])('should render a reversed button for the "%s" category when "isReverse" prop is set to true', (category) => {
+    it.each(Object.values(ButtonCategory))('should render a reversed button for the "%s" category when "isReverse" prop is set to true', (category) => {
       const wrapper = mountBtn({
         isReverse: true,
         category,
@@ -223,7 +211,7 @@ describe('EcBtn', () => {
     it('should render a button with "Click me!" text and an icon', () => {
       const wrapper = mountBtn(
         {
-          icon: IconName.SimpleCheck,
+          icon: IconName.SIMPLE_CHECK,
         },
         {
           slots: {

@@ -10,7 +10,7 @@
       data-test="ec-loading__backdrop"
     >
       <ec-icon
-        :name="IconName.SimpleLoading"
+        :name="IconName.SIMPLE_LOADING"
         :size="size"
         class="ec-loading__icon"
         data-test="ec-loading__icon"

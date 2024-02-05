@@ -6,7 +6,7 @@
     <ec-input-field
       v-model="inputModel"
       v-bind="inputProps"
-      :left-icon="IconName.SimpleSearch"
+      :left-icon="IconName.SIMPLE_SEARCH"
       :type="InputFieldType.TEXT"
       :icon="rightIcon"
       @icon-click="emitModelValue('')"
@@ -59,5 +59,5 @@ function emitModelValue(value: TextFilterProps['modelValue']) {
   emit(TextFilterEvent.CHANGE, value);
 }
 
-const rightIcon = computed(() => (props.modelValue ? IconName.SimpleClose : undefined));
+const rightIcon = computed(() => (props.modelValue ? IconName.SIMPLE_CLOSE : undefined));
 </script>

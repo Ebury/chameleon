@@ -25,7 +25,7 @@
         <ec-icon
           v-else
           data-test="ec-metroline-item__completed-icon"
-          :name="IconName.SimpleCheck"
+          :name="IconName.SIMPLE_CHECK"
           :size="14"
         />
       </div>

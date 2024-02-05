@@ -28,7 +28,7 @@ describe('EcOptionCard', () => {
 
   it('renders properly when an Icon is passed', () => {
     const wrapper = mountEcOptionCard({
-      iconName: IconName.SimpleEye,
+      iconName: IconName.SIMPLE_EYE,
       title: 'Test option card with Icon',
     });
     expect(wrapper.findByDataTest('ec-option-card__icon').exists()).toBe(true);
@@ -36,7 +36,7 @@ describe('EcOptionCard', () => {
 
   it('renders properly when an Icon and Title and Caption is passed', () => {
     const wrapper = mountEcOptionCard({
-      iconName: IconName.SimpleEye,
+      iconName: IconName.SIMPLE_EYE,
       title: 'Test option card with Icon and caption',
       caption: 'Test Caption',
     });
@@ -45,7 +45,7 @@ describe('EcOptionCard', () => {
 
   it.each([OptionCardType.ACCENT, OptionCardType.DANGER])('should render the Option card with the classes related to the type "%s" when type prop is set', (cardType) => {
     const wrapper = mountEcOptionCard({
-      iconName: IconName.SimpleInfo,
+      iconName: IconName.SIMPLE_INFO,
       type: cardType,
       title: 'Test title',
       caption: 'Test Caption',
@@ -60,7 +60,7 @@ describe('EcOptionCard', () => {
   it('renders the Option Card disabled if the isDisabled prop is set to true', () => {
     const wrapper = mountEcOptionCard({
       isDisabled: true,
-      iconName: IconName.SimpleEye,
+      iconName: IconName.SIMPLE_EYE,
       title: 'Test option card with Icon and caption',
       caption: 'Test Caption',
     });
@@ -75,7 +75,7 @@ describe('EcOptionCard', () => {
     const wrapper = mountEcOptionCard({
       isDisabled: true,
       type: OptionCardType.ACCENT,
-      iconName: IconName.SimpleEye,
+      iconName: IconName.SIMPLE_EYE,
       title: 'Test option card with Icon and caption',
       caption: 'Test Caption',
     });
@@ -93,7 +93,7 @@ describe('EcOptionCard', () => {
     const wrapper = mountEcOptionCard({
       isDisabled: true,
       type: OptionCardType.DANGER,
-      iconName: IconName.SimpleEye,
+      iconName: IconName.SIMPLE_EYE,
       title: 'Test option card with Icon and caption',
       caption: 'Test Caption',
     });

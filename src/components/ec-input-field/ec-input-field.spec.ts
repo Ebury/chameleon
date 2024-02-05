@@ -172,7 +172,7 @@ describe('EcInputField', () => {
   });
 
   it('should emit an event when we click on the icon', () => {
-    const wrapper = mountInputField({ icon: IconName.SimpleCheck });
+    const wrapper = mountInputField({ icon: IconName.SIMPLE_CHECK });
 
     wrapper.findByDataTest('ec-input-field__icon')
       .trigger('click');
@@ -181,18 +181,18 @@ describe('EcInputField', () => {
   });
 
   it('should render given icon', () => {
-    const wrapper = mountInputField({ icon: IconName.SimpleCheck });
+    const wrapper = mountInputField({ icon: IconName.SIMPLE_CHECK });
     expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render given icon with given size', () => {
-    const wrapper = mountInputField({ icon: IconName.SimpleCheck, iconSize: 40 });
+    const wrapper = mountInputField({ icon: IconName.SIMPLE_CHECK, iconSize: 40 });
     expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').element).toMatchSnapshot();
   });
 
   it('should render given icon with success colour', () => {
-    const wrapper = mountInputField({ icon: IconName.SimpleCheck, iconType: IconType.SUCCESS });
+    const wrapper = mountInputField({ icon: IconName.SIMPLE_CHECK, iconType: IconType.SUCCESS });
     expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').element).toMatchSnapshot();
   });
 
@@ -202,18 +202,18 @@ describe('EcInputField', () => {
   });
 
   it('should render given left-icon', () => {
-    const wrapper = mountInputField({ leftIcon: IconName.SimpleCheck });
+    const wrapper = mountInputField({ leftIcon: IconName.SIMPLE_CHECK });
     expect(wrapper.findByDataTest('ec-input-field__left-icon-wrapper').exists()).toBe(true);
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should render given left-icon with given size', () => {
-    const wrapper = mountInputField({ leftIcon: IconName.SimpleCheck, leftIconSize: 40 });
+    const wrapper = mountInputField({ leftIcon: IconName.SIMPLE_CHECK, leftIconSize: 40 });
     expect(wrapper.findByDataTest('ec-input-field__left-icon-wrapper').element).toMatchSnapshot();
   });
 
   it('should render given left-icon with success colour', () => {
-    const wrapper = mountInputField({ leftIcon: IconName.SimpleCheck, leftIconType: IconType.SUCCESS });
+    const wrapper = mountInputField({ leftIcon: IconName.SIMPLE_CHECK, leftIconType: IconType.SUCCESS });
     expect(wrapper.findByDataTest('ec-input-field__left-icon-wrapper').element).toMatchSnapshot();
   });
 
@@ -233,7 +233,7 @@ describe('EcInputField', () => {
   });
 
   it('renders properly the icon when disabled', () => {
-    const wrapper = mountInputField({ icon: IconName.SimpleCheck }, { attrs: { disabled: true } });
+    const wrapper = mountInputField({ icon: IconName.SIMPLE_CHECK }, { attrs: { disabled: true } });
     expect(wrapper.element).toMatchSnapshot();
   });
 

@@ -56,7 +56,7 @@ const Template: EcIconStory = args => ({
 export const basic = Template.bind({});
 
 basic.args = {
-  name: IconName.SimpleCheck,
+  name: IconName.SIMPLE_CHECK,
   size: 48,
 };
 
@@ -244,7 +244,7 @@ export const withinAText = () => ({
         duis labore proident reprehenderit pariatur ex quis incididunt ut ipsum.
       </p>
       <button class="ec-btn ec-btn--rounded ec-btn--md ec-btn--primary ec-btn--outline tw-mt-16">
-        <ec-icon name="${IconName.SimpleSignOut}" class="tw-fill-current tw-mr-8" :size="24" /><span>Icon inside of a button</span>
+        <ec-icon name="${IconName.SIMPLE_SIGN_OUT}" class="tw-fill-current tw-mr-8" :size="24" /><span>Icon inside of a button</span>
       </button>
     </div>
   `,

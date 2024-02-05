@@ -87,7 +87,7 @@ interface ButtonProps {
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  size: ButtonSize.Medium,
+  size: ButtonSize.MEDIUM,
   isDisabled: false,
   isRounded: false,
   isOutline: false,
@@ -146,18 +146,18 @@ function hasDefaultSlot() {
 
 function getButtonClasses() {
   return {
-    'ec-btn--sm': props.size === ButtonSize.Small,
-    'ec-btn--md': props.size === ButtonSize.Medium,
+    'ec-btn--sm': props.size === ButtonSize.SMALL,
+    'ec-btn--md': props.size === ButtonSize.MEDIUM,
     'ec-btn--rounded': props.isRounded,
     'ec-btn--full-width': props.isFullWidth,
     'ec-btn--icon-only': props.icon && !hasDefaultSlot(),
     [`ec-btn--${props.category}`]: props.category,
     'ec-btn--outline': props.isOutline,
-    'ec-btn--primary-reverse': props.isReverse && props.category === ButtonCategory.Primary,
-    'ec-btn--secondary-reverse': props.isReverse && props.category === ButtonCategory.Secondary,
-    'ec-btn--success-reverse': props.isReverse && props.category === ButtonCategory.Success,
-    'ec-btn--error-reverse': props.isReverse && props.category === ButtonCategory.Error,
-    'ec-btn--warning-reverse': props.isReverse && props.category === ButtonCategory.Warning,
+    'ec-btn--primary-reverse': props.isReverse && props.category === ButtonCategory.PRIMARY,
+    'ec-btn--secondary-reverse': props.isReverse && props.category === ButtonCategory.SECONDARY,
+    'ec-btn--success-reverse': props.isReverse && props.category === ButtonCategory.SUCCESS,
+    'ec-btn--error-reverse': props.isReverse && props.category === ButtonCategory.ERROR,
+    'ec-btn--warning-reverse': props.isReverse && props.category === ButtonCategory.WARNING,
     'ec-btn--is-loading': isSpinnerLoaderVisible() || isTextLoaderVisible(),
   };
 }

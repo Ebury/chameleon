@@ -10,7 +10,7 @@
       v-for="(item, index) in items"
       :key="item.id || index"
       :data-test="`ec-button-group__btn ec-button-group__btn-${index}`"
-      :category="ButtonCategory.Primary"
+      :category="ButtonCategory.PRIMARY"
       class="ec-btn-group__btn"
       :is-submit="false"
       :is-outline="modelValue !== item.value"

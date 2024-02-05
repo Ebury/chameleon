@@ -39,7 +39,7 @@
             }"
             :class="getItemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset)"
             :data-test="getItemClasses('ec-summary-info__content-line-item-icon', index, item.stylePreset).join(' ')"
-            :name="IconName.SimpleInfo"
+            :name="IconName.SIMPLE_INFO"
             :size="14"
           />
         </div>

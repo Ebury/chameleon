@@ -15,7 +15,7 @@
       class="ec-inline-input-field__label-tooltip"
       data-test="ec-inline-input-field__label-tooltip"
       :type="IconType.INTERACTIVE"
-      :name="IconName.SimpleInfo"
+      :name="IconName.SIMPLE_INFO"
       :size="14"
     />
     </div>

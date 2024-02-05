@@ -3,16 +3,16 @@ import type { RouteLocationRaw } from 'vue-router';
 import type { IconName } from '../ec-icon/icon-names';
 
 export enum ButtonSize {
-  Medium = 'md',
-  Small = 'sm',
+  MEDIUM = 'md',
+  SMALL = 'sm',
 }
 
 export enum ButtonCategory {
-  Primary = 'primary',
-  Secondary = 'secondary',
-  Success = 'success',
-  Error = 'error',
-  Warning = 'warning',
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  SUCCESS = 'success',
+  ERROR = 'error',
+  WARNING = 'warning',
 }
 
 export interface ButtonProps {

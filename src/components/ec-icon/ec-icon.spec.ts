@@ -17,26 +17,26 @@ describe('EcIcon', () => {
   }
 
   it('should render properly when a name was given', () => {
-    const wrapper = mount(EcIcon, { props: { name: IconName.SimpleAdd } });
+    const wrapper = mount(EcIcon, { props: { name: IconName.SIMPLE_ADD } });
 
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.classes('ec-icon')).toBe(true);
   });
 
   it('should use the given size prop', () => {
-    const wrapper = mountEcIcon({ name: IconName.SimpleAdd, size: 16 });
+    const wrapper = mountEcIcon({ name: IconName.SIMPLE_ADD, size: 16 });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it.each([undefined, IconType.ERROR, IconType.INFO, IconType.SUCCESS, IconType.WARNING])('should use the type "%s"', (type) => {
-    const wrapper = mountEcIcon({ name: IconName.SimpleAdd, type });
+    const wrapper = mountEcIcon({ name: IconName.SIMPLE_ADD, type });
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.classes(`ec-icon--${type}`)).toBe(!!type);
   });
 
   it('should pass custom attributes', () => {
     const wrapper = mountEcIcon(
-      { name: IconName.SimpleAdd },
+      { name: IconName.SIMPLE_ADD },
       {
         attrs: {
           id: 'my-icon',
@@ -55,7 +55,7 @@ describe('EcIcon', () => {
     const clickSpy = vi.fn();
     const wrapper = mountEcIcon(
       {
-        name: IconName.SimpleAdd,
+        name: IconName.SIMPLE_ADD,
       },
       {
         attrs: {

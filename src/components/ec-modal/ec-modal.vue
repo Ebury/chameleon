@@ -173,8 +173,8 @@ const positiveButton = ref(null);
 const negativeButton = ref(null);
 const isLoadingPositiveButton = computed(() => !!props.isLoading.positive);
 const isLoadingNegativeButton = computed(() => !!props.isLoading.negative);
-const positiveButtonCategory = computed(() => props.category.positive || ButtonCategory.Primary);
-const negativeButtonCategory = computed(() => props.category.negative || ButtonCategory.Secondary);
+const positiveButtonCategory = computed(() => props.category.positive || ButtonCategory.PRIMARY);
+const negativeButtonCategory = computed(() => props.category.negative || ButtonCategory.SECONDARY);
 const isPositiveButtonDisabled = computed(() => props.positiveButtonProps.isDisabled || false);
 const isNegativeButtonDisabled = computed(() => props.negativeButtonProps.isDisabled || false);
 function hasPositiveButton() {

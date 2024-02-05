@@ -130,7 +130,7 @@
           data-test="ec-smart-table__table-end-detector"
         >
           <ec-icon
-            :name="IconName.SimpleLoading"
+            :name="IconName.SIMPLE_LOADING"
             :size="32"
             class="ec-loading__icon"
             data-test="ec-loading__icon"

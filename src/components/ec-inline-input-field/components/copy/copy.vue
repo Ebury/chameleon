@@ -26,7 +26,7 @@
         }"
         class="ec-inline-input-field-copy__icon"
         data-test="ec-inline-input-field-copy__icon"
-        :name="IconName.SimpleCopy"
+        :name="IconName.SIMPLE_COPY"
         :size="16"
       />
     </button>

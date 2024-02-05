@@ -11,12 +11,12 @@
     />
     <div class="ec-inline-input-field-loading__ghost-actions">
       <ec-icon
-        :name="IconName.SimpleCheck"
+        :name="IconName.SIMPLE_CHECK"
         :size="16"
       />
       <ec-icon
         class="ec-inline-input-field-loading__close-action"
-        :name="IconName.SimpleClose"
+        :name="IconName.SIMPLE_CLOSE"
         :size="16"
       />
     </div>

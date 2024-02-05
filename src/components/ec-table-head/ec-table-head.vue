@@ -34,7 +34,7 @@
             class="ec-table-head__icon"
             data-test="ec-table-head__tooltip-icon"
             :type="IconType.INTERACTIVE"
-            :name="IconName.SimpleInfo"
+            :name="IconName.SIMPLE_INFO"
             :size="16"
           />
           <ec-table-sort

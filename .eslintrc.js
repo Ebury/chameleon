@@ -159,6 +159,17 @@ module.exports = {
       rules: {
         'no-shadow': 'off',
         '@typescript-eslint/no-shadow': 'error',
+        '@typescript-eslint/naming-convention': ['error', {
+          selector: 'typeLike',
+          format: ['PascalCase'],
+        }, {
+          selector: 'enumMember',
+          format: ['UPPER_CASE'],
+        }, {
+          selector: 'typeParameter',
+          format: ['PascalCase'],
+          prefix: ['T'],
+        }],
       },
     },
   ],

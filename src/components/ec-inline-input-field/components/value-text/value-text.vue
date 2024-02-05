@@ -18,7 +18,7 @@
     >
       <ec-icon
         class="ec-inline-input-field-value-text__edit-icon"
-        :name="IconName.SimpleEdit"
+        :name="IconName.SIMPLE_EDIT"
         :size="16"
       />
     </button>
