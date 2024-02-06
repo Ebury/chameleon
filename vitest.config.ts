@@ -38,6 +38,7 @@ export default defineConfig({
         '!src/{icons,assets,eslint}/**',
         '!**/index.{js,ts}',
         '!**/types.ts',
+        '!src/main.ts',
       ],
       thresholds: {
         100: true,

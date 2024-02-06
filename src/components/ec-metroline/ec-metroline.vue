@@ -10,8 +10,8 @@
 <script setup lang="ts">
 import { provide, reactive, ref } from 'vue';
 
-import { METROLINE_PROVIDE_KEY, type MetrolineProviderContext } from './provide';
-import type { MetrolineEvent, MetrolineEvents } from './types';
+import { METROLINE_PROVIDE_KEY } from './provide';
+import type { MetrolineEvent, MetrolineEvents, MetrolineProviderContext } from './types';
 
 const emit = defineEmits<{
   'change': [value: MetrolineEvents[MetrolineEvent.CHANGE]],

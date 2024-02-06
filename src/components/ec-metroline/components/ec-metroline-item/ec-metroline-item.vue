@@ -151,8 +151,8 @@ import {
 
 import EcIcon from '../../../ec-icon';
 import { IconName } from '../../../ec-icon/icon-names';
-import type { MetrolineProviderContext } from '../../provide';
 import { METROLINE_PROVIDE_KEY } from '../../provide';
+import { type MetrolineProviderContext } from '../../types';
 import { MetrolineItemStatus } from './types';
 
 const metroline = inject<MetrolineProviderContext>(METROLINE_PROVIDE_KEY);
