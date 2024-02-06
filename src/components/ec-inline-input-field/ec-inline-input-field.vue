@@ -76,28 +76,13 @@ import EcInlineInputFieldEdit from './components/edit';
 import type { InlineInputEditEvent, InlineInputEditEvents } from './components/edit/types';
 import EcInlineInputFieldLoading from './components/loading';
 import EcInlineInputFieldValueText from './components/value-text';
-import type { InlineInputEvent, InlineInputEvents } from './types';
+import type { InlineInputEvent, InlineInputEvents, InlineInputProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
 const config = useConfig();
-
-interface InlineInputProps {
-  label?: string,
-  value?: string,
-  isEditable?: boolean,
-  isCopiable?: boolean,
-  isEditing?: boolean,
-  isLoading?: boolean,
-  isSensitive?: boolean,
-  isBtnRightAligned?: boolean,
-  tooltipTextSuccess?: string,
-  tooltipTextError?: string,
-  labelTooltip?: string,
-  errorMessage?: string,
-}
 
 const props = withDefaults(defineProps<InlineInputProps>(), {
   label: '',

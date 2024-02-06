@@ -97,16 +97,7 @@ import {
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
-import { CheckboxEvent, type CheckboxEvents } from './types';
-
-interface CheckboxProps {
-  modelValue?: boolean,
-  indeterminate?: boolean,
-  label?: string,
-  errorMessage?: string,
-  disabled?: boolean,
-  isSingleLine?: boolean,
-}
+import { CheckboxEvent, type CheckboxEvents, type CheckboxProps } from './types';
 
 defineOptions({
   inheritAttrs: false,

@@ -66,16 +66,16 @@
 </template>
 
 <script setup>
-defineOptions({
-  inheritAttrs: false,
-});
-
 import { computed, ref } from 'vue';
 
 import useConfig from '../../composables/use-ec-config';
 import VEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const config = useConfig();
 

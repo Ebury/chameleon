@@ -27,12 +27,7 @@
 import EcIcon from '../../../ec-icon';
 import { IconName } from '../../../ec-icon/icon-names';
 import EcInputField from '../../../ec-input-field';
-import type { InlineInputProps } from '../../types';
-
-interface InlineInputLoadingProps {
-  value?: InlineInputProps['value'],
-  isSensitive?: InlineInputProps['isSensitive'],
-}
+import type { InlineInputLoadingProps } from './types';
 
 withDefaults(defineProps<InlineInputLoadingProps>(), {
   value: '',

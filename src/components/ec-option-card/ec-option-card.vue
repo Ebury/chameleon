@@ -34,16 +34,7 @@
 import { computed, toRefs } from 'vue';
 
 import EcIcon from '../ec-icon';
-import type { IconName } from '../ec-icon/icon-names';
-import { OptionCardType } from './types';
-
-interface OptionCardProps {
-  isDisabled?: boolean,
-  title?: string,
-  caption?: string,
-  iconName?: IconName,
-  type?: OptionCardType,
-}
+import { type OptionCardProps, OptionCardType } from './types';
 
 const props = defineProps<OptionCardProps>();
 

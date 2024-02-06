@@ -26,14 +26,7 @@ import { toRefs } from 'vue';
 
 import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
-import type { IconName, IconType } from '../ec-icon/types';
-
-interface TagProps {
-  text: string,
-  isIconRounded?: boolean,
-  iconName?: IconName,
-  iconType?: IconType,
-}
+import type { TagProps } from './types';
 
 const props = withDefaults(defineProps<TagProps>(), {
   isIconRounded: false,

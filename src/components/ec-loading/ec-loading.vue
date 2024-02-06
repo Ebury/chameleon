@@ -31,12 +31,7 @@ import { computed } from 'vue';
 
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
-
-interface LoadingProps {
-  show: boolean,
-  size?: number,
-  transparent?: boolean,
-}
+import type { LoadingProps } from './types';
 
 const props = withDefaults(defineProps<LoadingProps>(), {
   size: 48,

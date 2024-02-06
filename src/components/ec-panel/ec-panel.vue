@@ -76,13 +76,13 @@
 </template>
 
 <script setup>
-defineOptions({
-  inheritAttrs: false,
-});
-
 import { computed, useAttrs, useSlots } from 'vue';
 
 import EcIcon from '../ec-icon';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 defineProps({
   show: {

@@ -13,7 +13,7 @@ module.exports = {
     '@vue/eslint-config-airbnb-with-typescript',
     '@vue/eslint-config-airbnb-with-typescript/allow-js-in-vue',
   ],
-  plugins: ['simple-import-sort', '@typescript-eslint', 'chameleon', 'filenames'],
+  plugins: ['simple-import-sort', '@typescript-eslint', 'filenames'],
   rules: {
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'brace-style': braceStyle,
@@ -137,7 +137,6 @@ module.exports = {
       ],
       rules: {
         'import/first': 'off',
-        'chameleon/vue-props-interface': 'error',
         'vue/no-restricted-component-names': ['error', '/^(?!Ec)/'],
         'vue/require-typed-ref': 'error',
 

@@ -42,19 +42,11 @@ import vEcTooltip from '../../../../directives/ec-tooltip';
 import { TooltipPlacement, TooltipPopperClass, TooltipTrigger } from '../../../../directives/ec-tooltip/types';
 import EcIcon from '../../../ec-icon';
 import { IconName } from '../../../ec-icon/icon-names';
-import type { InlineInputProps } from '../../types';
+import type { InlineInputCopyProps } from './types';
 
 const config = useConfig();
 const isCopied = ref(false);
 const isTooltipShown = ref(false);
-
-interface InlineInputCopyProps {
-  value?: InlineInputProps['value'],
-  isSensitive?: InlineInputProps['isSensitive'],
-  tooltipTextSuccess: InlineInputProps['tooltipTextSuccess'],
-  tooltipTextError: InlineInputProps['tooltipTextError'],
-  isBtnRightAligned?: InlineInputProps['isBtnRightAligned'],
-}
 
 const props = withDefaults(defineProps<InlineInputCopyProps>(), {
   value: '',

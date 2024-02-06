@@ -153,17 +153,12 @@ import EcIcon from '../../../ec-icon';
 import { IconName } from '../../../ec-icon/icon-names';
 import { METROLINE_PROVIDE_KEY } from '../../provide';
 import { type MetrolineProviderContext } from '../../types';
-import { MetrolineItemStatus } from './types';
+import { type MetrolineItemProps, MetrolineItemStatus } from './types';
 
 const metroline = inject<MetrolineProviderContext>(METROLINE_PROVIDE_KEY);
 
 if (!metroline) {
   throw new Error('Metroline context is not provided');
-}
-
-interface MetrolineItemProps {
-  id: number,
-  badgeText?: string
 }
 
 const props = defineProps<MetrolineItemProps>();

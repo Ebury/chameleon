@@ -67,7 +67,7 @@ import { computed, useSlots } from 'vue';
 
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
-import type { AlertEvents } from './types';
+import type { AlertEvents, AlertProps } from './types';
 import { AlertEvent, AlertType } from './types';
 
 defineOptions({
@@ -79,16 +79,6 @@ const emit = defineEmits<{
   'action': [],
   'change': [value: AlertEvents[AlertEvent.CHANGE]],
 }>();
-
-interface AlertProps {
-  type: AlertType,
-  title: string,
-  subtitle?: string,
-  dismissable?: boolean,
-  buttonText?: string,
-  open?: boolean,
-  responsive?: boolean
-}
 
 const props = withDefaults(defineProps<AlertProps>(), {
   open: true,

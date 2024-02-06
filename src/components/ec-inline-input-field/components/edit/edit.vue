@@ -66,16 +66,7 @@ import { IconName } from '../../../ec-icon/icon-names';
 import { IconType } from '../../../ec-icon/types';
 import EcInputField from '../../../ec-input-field';
 import { InputFieldType } from '../../../ec-input-field/types';
-import type { InlineInputProps } from '../../types';
-import { InlineInputEditEvent, type InlineInputEditEvents } from './types';
-
-interface InlineInputEditProps {
-  label?: InlineInputProps['label'],
-  value?: InlineInputProps['value'],
-  isSensitive?: InlineInputProps['isSensitive'],
-  labelTooltip?: InlineInputProps['labelTooltip'],
-  errorMessage?: InlineInputProps['errorMessage'],
-}
+import { InlineInputEditEvent, type InlineInputEditEvents, type InlineInputEditProps } from './types';
 
 const props = withDefaults(defineProps<InlineInputEditProps>(), {
   label: '',

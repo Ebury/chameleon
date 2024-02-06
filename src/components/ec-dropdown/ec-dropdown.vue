@@ -64,14 +64,14 @@
 </template>
 
 <script setup>
-defineOptions({
-  inheritAttrs: false,
-});
-
 import { computed, ref, useSlots } from 'vue';
 
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcInputField from '../ec-input-field';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const emit = defineEmits(['update:modelValue', 'change', 'blur', 'focus', 'open', 'close', 'after-open', 'after-close']);
 

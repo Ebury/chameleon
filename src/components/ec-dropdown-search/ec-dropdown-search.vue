@@ -145,10 +145,6 @@
 </template>
 
 <script setup>
-defineOptions({
-  inheritAttrs: false,
-});
-
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import {
   computed, nextTick, ref, toRaw, useSlots, watch,
@@ -161,6 +157,10 @@ import { removeDiacritics } from '../../utils/diacritics';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
 import EcPopover from '../ec-popover';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const config = useConfig();
 

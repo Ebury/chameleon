@@ -64,11 +64,11 @@
 </template>
 
 <script setup>
+import EcIcon from '../ec-icon/ec-icon.vue';
+
 defineOptions({
   inheritAttrs: false,
 });
-
-import EcIcon from '../ec-icon/ec-icon.vue';
 
 defineProps({
   text: {

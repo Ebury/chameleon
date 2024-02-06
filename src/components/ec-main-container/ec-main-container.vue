@@ -53,10 +53,7 @@
 <script setup lang="ts">
 import { useSlots } from 'vue';
 
-interface MainContainerProps {
-  title?: string,
-  titleIntro?: string,
-}
+import type { MainContainerProps } from './types';
 
 defineProps<MainContainerProps>();
 
