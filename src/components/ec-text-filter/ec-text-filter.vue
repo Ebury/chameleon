@@ -20,16 +20,9 @@ import { computed } from 'vue';
 
 import { IconName } from '../ec-icon/icon-names';
 import EcInputField from '../ec-input-field';
-import type { InputFieldProps } from '../ec-input-field/types';
 import { InputFieldType } from '../ec-input-field/types';
-import type { TextFilterEvents } from './types';
+import type { TextFilterEvents, TextFilterProps } from './types';
 import { TextFilterEvent } from './types';
-
-interface TextFilterProps {
-  modelValue?: InputFieldProps['modelValue']
-  inputProps?: InputFieldProps
-  debounceTime?: number
-}
 
 const props = withDefaults(
   defineProps<TextFilterProps>(),

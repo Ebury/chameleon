@@ -95,10 +95,6 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({
-  inheritAttrs: false,
-});
-
 import type { StyleValue } from 'vue';
 import {
   computed, ref, useAttrs, watchEffect,
@@ -111,8 +107,12 @@ import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import { IconName, IconType } from '../ec-icon/types';
 import EcLoadingIcon from '../ec-loading-icon';
-import type { InputFieldEvents, InputFieldExpose } from './types';
+import type { InputFieldEvents, InputFieldExpose, InputFieldProps } from './types';
 import { InputFieldEvent, InputFieldType } from './types';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const config = useConfig();
 const attrs = useAttrs();
@@ -122,29 +122,6 @@ const emit = defineEmits<{
   'update:modelValue': [value: InputFieldEvents[InputFieldEvent.UPDATE_MODEL_VALUE]],
   'icon-click': [value: InputFieldEvents[InputFieldEvent.ICON_CLICK]],
 }>();
-
-interface InputFieldProps {
-  type?: InputFieldType,
-  modelValue?: number | string | Date,
-  label?: string,
-  labelTooltip?: string,
-  note?: string,
-  bottomNote?: string,
-  errorMessage?: string,
-  icon?: IconName,
-  iconSize?: number,
-  iconType?: IconType,
-  leftIcon?: IconName,
-  leftIconSize?: number,
-  leftIconType?: IconType,
-  isInGroup?: string,
-  id?: string,
-  errorId?: string,
-  isLoading?: boolean,
-  isSensitive?: boolean,
-  isWarning?: boolean,
-  autocomplete?: string,
-}
 
 const props = withDefaults(defineProps<InputFieldProps>(), {
   type: InputFieldType.TEXT,

@@ -51,40 +51,19 @@
 </template>
 
 <script setup lang="ts">
+import { computed, useAttrs, useSlots } from 'vue';
+import type { RouterLinkProps } from 'vue-router';
+
+import EcIcon from '../ec-icon';
+import EcLoadingIcon from '../ec-loading-icon';
+import { ButtonCategory, type ButtonProps, ButtonSize } from './types';
+
 defineOptions({
   inheritAttrs: false,
 });
 
-import {
-  computed,
-  useAttrs,
-  useSlots,
-} from 'vue';
-import type { RouteLocationRaw, RouterLinkProps } from 'vue-router';
-
-import EcIcon from '../ec-icon';
-import type { IconName } from '../ec-icon/icon-names';
-import EcLoadingIcon from '../ec-loading-icon';
-import { ButtonCategory, ButtonSize } from './types';
-
 const slots = useSlots();
 const attrs = useAttrs();
-
-interface ButtonProps {
-  size?: ButtonSize;
-  href?: string;
-  to?: RouteLocationRaw;
-  tag?: string;
-  isDisabled?: boolean;
-  icon?: IconName;
-  isRounded?: boolean;
-  isOutline?: boolean;
-  isFullWidth?: boolean;
-  category?: ButtonCategory;
-  isReverse?: boolean;
-  isLoading?: boolean;
-  isSubmit?: boolean
-}
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   size: ButtonSize.MEDIUM,

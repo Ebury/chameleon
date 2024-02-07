@@ -55,17 +55,7 @@ import {
 
 import { getUid } from '../../utils/uid';
 import EcRadioBtn from '../ec-radio-btn';
-import type { RadioButtonGroupEvent, RadioButtonGroupEvents, RadioButtonOption } from './types';
-
-interface RadioButtonGroupProps {
-  options: RadioButtonOption[],
-  modelValue?: string,
-  label?: string,
-  errorMessage?: string,
-  isDisabled?: boolean,
-  isTextInline?: boolean,
-  isGroupInline?: boolean,
-}
+import type { RadioButtonGroupEvent, RadioButtonGroupEvents, RadioButtonGroupProps } from './types';
 
 defineOptions({
   inheritAttrs: false,

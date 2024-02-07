@@ -112,20 +112,8 @@ import { computed, ref, useSlots } from 'vue';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
-import type { RadioButtonEvents } from './types';
+import type { RadioButtonEvents, RadioButtonProps } from './types';
 import { RadioButtonEvent } from './types';
-
-interface RadioButtonProps {
-  value: string,
-  modelValue?: string,
-  label?: string,
-  description?: string,
-  isDisabled?: boolean,
-  isTextInline?: boolean,
-  name?: string,
-  errorMessage?: string,
-  hasError?: boolean
-}
 
 defineOptions({
   inheritAttrs: false,

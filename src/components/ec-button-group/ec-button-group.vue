@@ -23,23 +23,12 @@
 <script setup lang="ts" generic="TValue">
 import EcBtn from '../ec-btn';
 import { ButtonCategory } from '../ec-btn/types';
+import type { ButtonGroupProps } from './types';
 
 const emit = defineEmits<{
   'update:modelValue': [value: TValue],
   'change': [value: TValue],
 }>();
-
-interface ButtonGroupItem<TValue> {
-  id?: string | number,
-  value: TValue,
-  text: string,
-  disabled?: boolean,
-}
-
-interface ButtonGroupProps<TValue> {
-  modelValue?: TValue,
-  items: ButtonGroupItem<TValue>[],
-}
 
 defineProps<ButtonGroupProps<TValue>>();
 

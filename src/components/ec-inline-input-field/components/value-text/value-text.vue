@@ -29,15 +29,9 @@
 import useConfig from '../../../../composables/use-ec-config';
 import EcIcon from '../../../ec-icon';
 import { IconName } from '../../../ec-icon/icon-names';
-import type { InlineInputProps } from '../../types';
+import type { InlineInputValueTextProps } from './types';
 
 const config = useConfig();
-
-interface InlineInputValueTextProps {
-  value?: InlineInputProps['value'],
-  isSensitive?: InlineInputProps['isSensitive'],
-  isBtnRightAligned?: InlineInputProps['isBtnRightAligned'],
-}
 
 withDefaults(defineProps<InlineInputValueTextProps>(), {
   value: '',

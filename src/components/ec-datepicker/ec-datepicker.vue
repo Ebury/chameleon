@@ -26,10 +26,6 @@
 </template>
 
 <script setup>
-defineOptions({
-  inheritAttrs: false,
-});
-
 import flatpickr from 'flatpickr';
 import {
   onBeforeUnmount, onMounted, ref, useAttrs, watch,
@@ -37,6 +33,10 @@ import {
 
 import { getUid } from '../../utils/uid';
 import EcInputField from '../ec-input-field';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps({
   modelValue: {

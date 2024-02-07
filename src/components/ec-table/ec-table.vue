@@ -78,8 +78,8 @@ import { computed, useAttrs, useSlots } from 'vue';
 
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
-import type { StickyColumnPosition, TableHeadColumn, TableHeadSort } from '../ec-table-head/types';
-import type { TableEvent, TableEvents } from './types';
+import type { TableHeadColumn } from '../ec-table-head/types';
+import type { TableEvent, TableEvents, TableProps } from './types';
 
 const isInCustomRowThreshold = useMediaQuery('(max-width: 767px)');
 const slots = useSlots();
@@ -88,18 +88,6 @@ const attrs = useAttrs();
 const emit = defineEmits<{
   'sort': [value: TableEvents[TableEvent.SORT]],
 }>();
-
-interface TableProps {
-  columns?: TableHeadColumn[],
-  sorts?: TableHeadSort[],
-  data?: unknown[],
-  totalRecords?: number,
-  maxHeight?: string,
-  stickyColumn?: StickyColumnPosition,
-  title?: string,
-  isCustomRowShown?: boolean,
-  isTableHeaderHidden?: boolean
-}
 
 const props = withDefaults(defineProps<TableProps>(), {
   columns: () => [],

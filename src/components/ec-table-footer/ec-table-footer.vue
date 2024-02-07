@@ -17,9 +17,7 @@
 </template>
 
 <script setup lang="ts">
-interface TableFooterProps {
-  colspan?: number,
-}
+import type { TableFooterProps } from './types';
 
 defineProps<TableFooterProps>();
 </script>

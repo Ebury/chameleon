@@ -16,16 +16,16 @@
 </template>
 
 <script setup>
-defineOptions({
-  inheritAttrs: false,
-});
-
 import { computed, ref, watch } from 'vue';
 
 import VEcAmount from '../../directives/ec-amount/ec-amount';
 import { format, unFormat } from '../../directives/ec-amount/utils';
 import { getDecimalSeparator, getGroupingSeparator } from '../../utils/number-format';
 import EcInputField from '../ec-input-field';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const emit = defineEmits(['update:modelValue']);
 

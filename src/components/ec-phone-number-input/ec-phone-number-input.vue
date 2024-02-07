@@ -153,13 +153,10 @@
 <script setup lang="ts">
 // eslint-disable-next-line vue/no-dupe-keys
 import * as countries from 'svg-country-flags/countries.json';
-import type { InputHTMLAttributes } from 'vue';
 import { computed, ref } from 'vue';
 
-import type { Maybe } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
 import vEcTooltip from '../../directives/ec-tooltip';
-import type { ZIndexLevel } from '../../enums';
 import { mask } from '../../utils/mask';
 import { getUid } from '../../utils/uid';
 import EcDropdown from '../ec-dropdown';
@@ -168,10 +165,10 @@ import { IconName, IconType } from '../ec-icon/types';
 import EcInputField from '../ec-input-field';
 import { InputFieldType } from '../ec-input-field/types';
 import type {
-  PhoneNumberCountry,
   PhoneNumberCountryItem,
   PhoneNumberEvents,
   PhoneNumberModel,
+  PhoneNumberProps,
 } from './types';
 import { PhoneNumberEvent } from './types';
 
@@ -188,30 +185,6 @@ const emit = defineEmits<{
   'country-change': [value: PhoneNumberEvents[PhoneNumberEvent.COUNTRY_CHANGE]],
   'phone-number-change': [value: PhoneNumberEvents[PhoneNumberEvent.PHONE_NUMBER_CHANGE]],
 }>();
-
-interface PhoneNumberProps {
-  modelValue: PhoneNumberModel,
-  label?: string,
-  note?: string,
-  bottomNote?: string,
-  isWarning?: boolean,
-  isMasked?: boolean,
-  warningTooltipMessage?: string,
-  errorMessage?: string,
-  errorTooltipMessage?: string,
-  countries: PhoneNumberCountry[],
-  areCountriesLoading?: boolean,
-  isDisabled?: boolean,
-  disabledTooltipMessage?: string,
-  isSensitive?: boolean,
-  countryPlaceholder?: string,
-  phoneNumberPlaceholder?: string,
-  isSearchEnabled?: boolean,
-  searchCountryPlaceholder?: string,
-  noCountriesText?: string,
-  level?: ZIndexLevel,
-  autocomplete?: Maybe<InputHTMLAttributes['autocomplete']>
-}
 
 const props = withDefaults(defineProps<PhoneNumberProps>(), {
   searchCountryPlaceholder: 'Search...',

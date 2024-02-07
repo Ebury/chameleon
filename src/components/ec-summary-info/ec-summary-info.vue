@@ -54,7 +54,7 @@ import useConfig from '../../composables/use-ec-config';
 import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
-import type { Item } from './types';
+import type { SummaryProps } from './types';
 import { StylePreset } from './types';
 
 defineOptions({
@@ -62,11 +62,6 @@ defineOptions({
 });
 
 const config = useConfig();
-
-interface SummaryProps {
-  iconName?: IconName,
-  lineItems: Item[]
-}
 
 withDefaults(defineProps<SummaryProps>(), {
   lineItems: () => [],

@@ -55,18 +55,12 @@ import EcIcon from '../ec-icon';
 import { IconName, IconType } from '../ec-icon/types';
 import EcTableSort from '../ec-table-sort';
 import type {
-  StickyColumnPosition, TableHeadColumn, TableHeadEvent, TableHeadEvents, TableHeadSort,
+  TableHeadColumn, TableHeadEvent, TableHeadEvents, TableHeadProps,
 } from './types';
 
 const emit = defineEmits<{
   'sort': [value: TableHeadEvents[TableHeadEvent.SORT]],
 }>();
-
-interface TableHeadProps {
-  columns?: TableHeadColumn[],
-  sorts?: TableHeadSort[],
-  stickyColumn?: StickyColumnPosition,
-}
 
 const props = withDefaults(defineProps<TableHeadProps>(), {
   columns: () => [],

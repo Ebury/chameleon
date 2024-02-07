@@ -27,17 +27,12 @@ import { computed } from 'vue';
 
 import EcIcon from '../ec-icon/ec-icon.vue';
 import { IconName } from '../ec-icon/types';
-import { NavigationArrowsEvent } from './types';
+import { NavigationArrowsEvent, type NavigationArrowsProps } from './types';
 
 const emit = defineEmits<{
   'next-click': []
   'previous-click': [],
 }>();
-
-interface NavigationArrowsProps {
-  isNextDisabled?: boolean
-  isPreviousDisabled?: boolean
-}
 
 const props = defineProps<NavigationArrowsProps>();
 

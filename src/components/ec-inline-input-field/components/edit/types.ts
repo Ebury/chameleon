@@ -1,6 +1,6 @@
 import type { InlineInputProps } from '../../types';
 
-interface InlineInputEditProps {
+export interface InlineInputEditProps {
   label?: InlineInputProps['label'],
   value?: InlineInputProps['value'],
   isSensitive?: InlineInputProps['isSensitive'],
