@@ -1,8 +1,11 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { vueRouter } from 'storybook-vue3-router';
 import { ref, watchEffect } from 'vue';
 
+import { IconName } from '../ec-icon/icon-names';
 import EcMenu from './ec-menu.vue';
+import type { MenuProps } from './types';
 
 export default {
   title: 'Layout/Menu',
@@ -28,13 +31,15 @@ export default {
   ], {
     initialRoute: '/',
   })],
-};
+} as Meta<typeof EcMenu>;
 
-export const basic = storyArgs => ({
+export const basic: StoryFn<MenuProps & {
+  width: number
+}> = storyArgs => ({
   components: { EcMenu },
   setup() {
     const width = ref(0);
-    const args = ref({});
+    const args = ref<MenuProps>({});
 
     watchEffect(() => {
       const { width: widthFromArgs, ...rest } = storyArgs;
@@ -68,13 +73,13 @@ basic.args = {
     {
       text: 'Foo',
       url: '/foo',
-      iconName: 'simple-trade-finance',
+      iconName: IconName.SIMPLE_TRADE_FINANCE,
       isRouterLink: true,
     },
     {
       text: 'Bar',
       url: '/bar',
-      iconName: 'simple-dashboard',
+      iconName: IconName.SIMPLE_DASHBOARD,
       isRouterLink: true,
     },
   ],

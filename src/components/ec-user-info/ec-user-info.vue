@@ -29,20 +29,14 @@
   </div>
 </template>
 
-<script setup>
-defineProps({
-  user: {
-    type: Object,
-    default: () => ({}),
-  },
-  isCollapsed: {
-    type: Boolean,
-  },
-  isCollapsable: {
-    type: Boolean,
-  },
-});
-const emit = defineEmits(['toggle']);
+<script setup lang="ts">
+import type { UserInfoProps } from './types';
+
+defineProps<UserInfoProps>();
+
+const emit = defineEmits<{
+  'toggle': []
+}>();
 </script>
 
 <style>

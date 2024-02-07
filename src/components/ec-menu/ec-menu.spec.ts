@@ -1,34 +1,37 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 
+import { IconName } from '../ec-icon/icon-names';
 import EcMenu from './ec-menu.vue';
+import type { MenuLink, MenuProps } from './types';
 
-const links = [
+const links: MenuLink[] = [
   {
     url: '/foo',
-    iconName: 'foo-icon',
+    iconName: IconName.SIMPLE_ADDRESS,
     text: 'Foo',
     dataTest: 'foo',
   },
   {
-    link: '/bar',
-    iconName: 'bar-icon',
+    url: '/bar',
+    iconName: IconName.SIMPLE_CITY,
     text: 'Bar',
   },
   {
-    iconName: 'baz-icon',
+    url: '/baz',
+    iconName: IconName.SIMPLE_EYE,
     text: 'Baz',
     dataTest: 'baz',
   },
   {
     url: '/bat',
-    iconName: 'baz-icon',
+    iconName: IconName.SIMPLE_TRADE,
     text: 'Bat',
   },
 ];
 
 describe('EcMenu', () => {
-  function mountEcMenu(props, mountOpts) {
+  function mountEcMenu(props?: Partial<MenuProps>, mountOpts?: ComponentMountingOptions<typeof EcMenu>) {
     return mount(EcMenu, {
       props,
       ...mountOpts,
@@ -40,18 +43,8 @@ describe('EcMenu', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should not render if links are null', () => {
-    const wrapper = mountEcMenu({ links: null });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
   it('should not render if links is an empty array', () => {
     const wrapper = mountEcMenu({ links: [] });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should render only links with a url property', () => {
-    const wrapper = mountEcMenu({ links });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -106,7 +99,7 @@ describe('EcMenu', () => {
 
   it('should attach custom listeners passed in the link definition', async () => {
     const testSpy = vi.fn();
-    const link = {
+    const link: MenuLink = {
       ...links[0],
       on: {
         test: testSpy,

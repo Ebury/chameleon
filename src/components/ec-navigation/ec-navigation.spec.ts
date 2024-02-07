@@ -1,16 +1,19 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcNavigation from './ec-navigation.vue';
+import type { NavigationProps } from './types';
 
 describe('EcNavigation', () => {
-  function mountNavigation(opts, mountOpts) {
+  function mountNavigation(props?: Partial<NavigationProps>, mountOpts?: ComponentMountingOptions<typeof EcNavigation>) {
     return mount(EcNavigation, {
       props: {
         isCollapsed: false,
         isCollapsable: false,
-        branding: {},
-        ...opts,
+        branding: {
+          logo: '/img/my-brand.png',
+          name: 'Test Brand',
+        },
+        ...props,
       },
       ...mountOpts,
     });
@@ -25,15 +28,6 @@ describe('EcNavigation', () => {
       },
     });
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should throw an error if required props are missing', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mount(EcNavigation);
-
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "isCollapsable"');
-    });
   });
 
   it('should be expanded when isCollapsed is set to false', () => {
@@ -55,14 +49,14 @@ describe('EcNavigation', () => {
   });
 
   it('should not render branding if no logo is given in branding object', () => {
-    const wrapper = mountNavigation({ branding: { logo: null } });
+    const wrapper = mountNavigation({ branding: { logo: '', name: 'Test Brand' } });
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.findByDataTest('ec-navigation__branding').exists()).toBe(false);
   });
 
   it('should not render branding if logo is given in branding object but showBrandingLogo is set to false', () => {
     const wrapper = mountNavigation({
-      branding: { logo: '/img/my.png' },
+      branding: { logo: '/img/my.png', name: 'Test Brand' },
       showBrandingLogo: false,
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -85,7 +79,7 @@ describe('EcNavigation', () => {
   });
 
   it('should render all given slots', () => {
-    const wrapper = mountNavigation(null, {
+    const wrapper = mountNavigation({}, {
       slots: {
         'user-info': '<div>User Info</div>',
         'call-to-action': '<div>CTA</div>',

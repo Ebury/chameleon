@@ -1,9 +1,11 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
 
 import EcUserInfo from './ec-user-info.vue';
+import type { UserInfo } from './types';
 
-const client = {
+const client: UserInfo = {
   name: 'Ebury Demo 2',
   profileUrl: '/profile',
   gravatar: '/empty-gravatar.png',
@@ -12,9 +14,9 @@ const client = {
 export default {
   title: 'Layout/User Info',
   component: EcUserInfo,
-};
+} as Meta<typeof EcUserInfo>;
 
-export const basic = args => ({
+export const basic: StoryFn<typeof EcUserInfo> = args => ({
   components: { EcUserInfo },
   setup() {
     const isCollapsedFromProps = ref(args.isCollapsed);

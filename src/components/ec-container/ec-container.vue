@@ -19,13 +19,10 @@
   </div>
 </template>
 
-<script setup>
-defineProps({
-  isCollapsable: {
-    type: Boolean,
-    default: false,
-  },
-});
+<script setup lang="ts">
+import type { ContainerProps } from './types';
+
+defineProps<ContainerProps>();
 </script>
 
 <style>

@@ -1,7 +1,9 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcNavigation from './ec-navigation.vue';
+import type { NavigationProps } from './types';
 
 export default {
   title: 'Layout/Navigation',
@@ -9,9 +11,11 @@ export default {
   decorators: [
     fixedContainerDecorator(),
   ],
-};
+} as Meta<typeof EcNavigation>;
 
-export const basic = storyArgs => ({
+export const basic: StoryFn<NavigationProps & {
+  showCopyright: boolean,
+}> = storyArgs => ({
   components: { EcNavigation },
   setup() {
     const showCopyright = ref(false);

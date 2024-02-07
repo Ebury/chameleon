@@ -1,6 +1,8 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { vueRouter } from 'storybook-vue3-router';
 
 import { DARK_THEME } from '../../../.storybook/backgrounds';
+import { IconName } from '../ec-icon/icon-names';
 import EcNavigationLink from './ec-navigation-link.vue';
 
 export default {
@@ -9,9 +11,9 @@ export default {
   decorators: [
     vueRouter(),
   ],
-};
+} as Meta<typeof EcNavigationLink>;
 
-const Template = args => ({
+const Template: StoryFn<typeof EcNavigationLink> = args => ({
   components: { EcNavigationLink },
   setup() {
     return { args };
@@ -25,7 +27,7 @@ export const basic = Template.bind({});
 
 basic.args = {
   text: 'Trade Finance',
-  iconName: 'simple-trade-finance',
+  iconName: IconName.SIMPLE_TRADE_FINANCE,
   iconSize: 30,
   url: '/trade-finance',
 };

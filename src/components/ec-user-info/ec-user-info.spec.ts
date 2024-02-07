@@ -1,8 +1,9 @@
 import { mount } from '@vue/test-utils';
 
 import EcUserInfo from './ec-user-info.vue';
+import type { UserInfo } from './types';
 
-const user = {
+const user: UserInfo = {
   name: 'Ebury Demo 2',
   profileUrl: '/profile',
   gravatar: 'https://www.gravatar.com/avatar/e07fd6efc70ccc63bbc3a3e27b81b29e?d=mm&s=200',
@@ -42,7 +43,7 @@ describe('EcUserInfo', () => {
       },
     });
     await wrapper.findByDataTest('ec-user-info__avatar').trigger('click');
-    expect(wrapper.emitted('toggle').length).toBe(1);
+    expect(wrapper.emitted('toggle')?.length).toBe(1);
   });
 
   it('should not show text when collapsed', () => {

@@ -56,28 +56,15 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { NavigationProps } from './types';
+
 defineOptions({
   inheritAttrs: false,
 });
 
-defineProps({
-  isCollapsed: {
-    type: Boolean,
-    default: false,
-  },
-  isCollapsable: {
-    type: Boolean,
-    required: true,
-  },
-  branding: {
-    type: Object,
-    default: () => ({}),
-  },
-  showBrandingLogo: {
-    type: Boolean,
-    default: true,
-  },
+withDefaults(defineProps<NavigationProps>(), {
+  showBrandingLogo: true,
 });
 </script>
 

@@ -63,46 +63,16 @@
   </a>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import EcIcon from '../ec-icon/ec-icon.vue';
+import type { NavigationLinkProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-defineProps({
-  text: {
-    type: String,
-    required: true,
-  },
-  iconName: String,
-  iconSize: {
-    default: 24,
-    type: Number,
-  },
-  url: {
-    type: String,
-    required: true,
-  },
-  isRouterLink: {
-    type: Boolean,
-    default: false,
-  },
-  isActive: {
-    type: Boolean,
-    default: false,
-  },
-  isCollapsed: {
-    type: Boolean,
-    default: false,
-  },
-  isCompact: {
-    type: Boolean,
-    default: false,
-  },
-  target: {
-    type: String,
-  },
+withDefaults(defineProps<NavigationLinkProps>(), {
+  iconSize: 24,
 });
 </script>
 
