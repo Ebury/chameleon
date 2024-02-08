@@ -39,7 +39,7 @@ export const basic: StoryFn<MenuProps & {
   components: { EcMenu },
   setup() {
     const width = ref(0);
-    const args = ref<MenuProps>({});
+    const args = ref<MenuProps>();
 
     watchEffect(() => {
       const { width: widthFromArgs, ...rest } = storyArgs;
