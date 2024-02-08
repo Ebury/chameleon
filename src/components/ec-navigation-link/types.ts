@@ -1,4 +1,4 @@
-import type { Ref } from 'vue';
+import type { MaybeRefOrGetter } from 'vue';
 
 import type { IconName } from '../ec-icon/icon-names';
 
@@ -8,7 +8,7 @@ export interface NavigationLinkProps {
   iconSize?: number,
   url: string,
   isRouterLink?: boolean,
-  isActive?: boolean | Ref<boolean>,
+  isActive?: MaybeRefOrGetter<boolean>,
   isCollapsed?: boolean,
   isCompact?: boolean,
   target?: string,
