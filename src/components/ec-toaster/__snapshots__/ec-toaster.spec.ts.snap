@@ -95,62 +95,6 @@ exports[`EcToaster > messages prop > should render a toaster if the messages pro
       style="top: 0px;"
     >
       <div
-        class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
-        data-test="ec-alert"
-      >
-        <a
-          class="ec-alert__dismiss-icon ec-alert__dismiss-icon--success"
-          data-test="ec-alert__dismiss-icon"
-          href="#"
-        >
-          <svg
-            class="ec-icon"
-            height="16"
-            width="16"
-          >
-            <use
-              xlink:href="#ec-simple-close"
-            />
-          </svg>
-        </a>
-        <svg
-          class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
-        >
-          <use
-            xlink:href="#ec-simple-check"
-          />
-        </svg>
-        <div
-          class="ec-alert__body"
-        >
-          <div
-            class="ec-alert__content"
-          >
-            
-            <div
-              class="ec-alert__title ec-alert__title--success"
-              data-test="ec-alert__title"
-            >
-              random
-            </div>
-            <div
-              class="ec-alert__subtitle ec-alert__subtitle--success"
-              data-test="ec-alert__subtitle"
-            >
-              random
-            </div>
-            
-          </div>
-          <!--v-if-->
-        </div>
-      </div>
-    </li>
-    <li
-      class="ec-toaster__item"
-      data-test="ec-toaster__item"
-      style="top: 0px;"
-    >
-      <div
         class="ec-alert ec-toaster__item-content ec-alert--info ec-alert--is-responsive"
         data-test="ec-alert"
       >
@@ -191,6 +135,62 @@ exports[`EcToaster > messages prop > should render a toaster if the messages pro
             </div>
             <div
               class="ec-alert__subtitle ec-alert__subtitle--info"
+              data-test="ec-alert__subtitle"
+            >
+              random
+            </div>
+            
+          </div>
+          <!--v-if-->
+        </div>
+      </div>
+    </li>
+    <li
+      class="ec-toaster__item"
+      data-test="ec-toaster__item"
+      style="top: 0px;"
+    >
+      <div
+        class="ec-alert ec-toaster__item-content ec-alert--success ec-alert--is-responsive"
+        data-test="ec-alert"
+      >
+        <a
+          class="ec-alert__dismiss-icon ec-alert__dismiss-icon--success"
+          data-test="ec-alert__dismiss-icon"
+          href="#"
+        >
+          <svg
+            class="ec-icon"
+            height="16"
+            width="16"
+          >
+            <use
+              xlink:href="#ec-simple-close"
+            />
+          </svg>
+        </a>
+        <svg
+          class="ec-icon ec-alert__icon ec-alert__icon--alert-has-subtitle"
+        >
+          <use
+            xlink:href="#ec-simple-check"
+          />
+        </svg>
+        <div
+          class="ec-alert__body"
+        >
+          <div
+            class="ec-alert__content"
+          >
+            
+            <div
+              class="ec-alert__title ec-alert__title--success"
+              data-test="ec-alert__title"
+            >
+              random
+            </div>
+            <div
+              class="ec-alert__subtitle ec-alert__subtitle--success"
               data-test="ec-alert__subtitle"
             >
               random

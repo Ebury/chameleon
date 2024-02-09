@@ -136,7 +136,7 @@ exports[`EcFullScreenOverlay > #slots > #main - should be rendered when passed 1
 </transition-stub>
 `;
 
-exports[`EcFullScreenOverlay > :props > :backgroundColorLevel > should render with the background css class passed 1`] = `
+exports[`EcFullScreenOverlay > :props > :backgroundColorLevel - should render with the background css class passed 1`] = `
 <div
   class="ec-full-screen-overlay tw-bg-gray-5"
   data-test="ec-full-screen-overlay"
@@ -196,6 +196,36 @@ exports[`EcFullScreenOverlay > :props > :title - should render the title 1`] = `
 >
   Lorem title
 </h1>
+`;
+
+exports[`EcFullScreenOverlay > :props > :title - should render without the title 1`] = `
+<header
+  class="ec-full-screen-overlay__header"
+  data-test="ec-full-screen-overlay__header"
+>
+  <!--v-if-->
+  <button
+    class="ec-full-screen-overlay__close-icon-btn"
+    data-test="ec-full-screen-overlay__close-icon-btn"
+    type="button"
+  >
+    <span
+      class="tw-sr-only"
+    >
+      Close
+    </span>
+    <svg
+      class="ec-icon ec-icon--interactive ec-full-screen-overlay__close-icon"
+      data-test="ec-full-screen-overlay__close-icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-close"
+      />
+    </svg>
+  </button>
+</header>
 `;
 
 exports[`EcFullScreenOverlay > should render as expected 1`] = `

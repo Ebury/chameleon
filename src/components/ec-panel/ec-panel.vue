@@ -26,7 +26,7 @@
         >
           <ec-icon
             class="ec-panel__header-icon"
-            name="simple-arrow-left"
+            :name="IconName.SIMPLE_ARROW_LEFT"
             :size="24"
           />
         </button>
@@ -40,7 +40,7 @@
         >
           <ec-icon
             class="ec-panel__header-icon"
-            name="simple-close"
+            :name="IconName.SIMPLE_CLOSE"
             :size="24"
           />
         </button>
@@ -75,27 +75,29 @@
   </aside>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, useAttrs, useSlots } from 'vue';
 
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/icon-names';
+import type { PanelProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-defineProps({
-  show: {
-    type: Boolean,
-    default: false,
-  },
+withDefaults(defineProps<PanelProps>(), {
+  show: false,
 });
 
-const emit = defineEmits(['update:show', 'close']);
+const emit = defineEmits<{
+  'update:show': [value: boolean],
+  'close': []
+}>();
 
 const slots = useSlots();
 
-function hasSlot(slotName) {
+function hasSlot(slotName: 'header' | 'main' | 'footer') {
   return slotName in slots;
 }
 
@@ -105,7 +107,7 @@ const isBackEnabled = computed(() => !!attrs.onBack);
 
 function goBack() {
   emit('update:show', false);
-  if (attrs.onBack) {
+  if (typeof attrs.onBack === 'function') {
     attrs.onBack();
   }
 }

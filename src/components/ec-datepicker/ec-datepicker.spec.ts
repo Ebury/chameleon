@@ -1,15 +1,19 @@
-import fakeTimers from '@sinonjs/fake-timers';
-import { DOMWrapper, mount } from '@vue/test-utils';
+import fakeTimers, { type InstalledClock } from '@sinonjs/fake-timers';
+import {
+  type ComponentMountingOptions, DOMWrapper, mount, VueWrapper,
+} from '@vue/test-utils';
 import flatpickr from 'flatpickr';
 import { Spanish } from 'flatpickr/dist/l10n/es';
 import { vi } from 'vitest';
 import { defineComponent, ref } from 'vue';
 
-import { withMockedConsole } from '../../../tests/utils/console';
+import type { Maybe } from '../../../global';
+import { ZIndexLevel } from '../../enums';
 import EcDatepicker from './ec-datepicker.vue';
+import type { DatepickerProps } from './types';
 
 describe('Datepicker', () => {
-  let clock;
+  let clock: InstalledClock;
 
   beforeEach(() => {
     clock = fakeTimers.install({
@@ -18,7 +22,6 @@ describe('Datepicker', () => {
     });
 
     flatpickr.setDefaults({
-
       position: () => {}, // We need to fix the position. On the CI/JSDOM is flaky if we do not and will produce snapshots with random positions.
     });
   });
@@ -33,25 +36,8 @@ describe('Datepicker', () => {
     });
   });
 
-  function mountDatepicker(props, mountOpts) {
+  function mountDatepicker(props?: DatepickerProps, mountOpts?: ComponentMountingOptions<typeof EcDatepicker>) {
     const inputWrapper = mount(EcDatepicker, {
-      props,
-      ...mountOpts,
-    });
-
-    const calendarWrapper = new DOMWrapper(document.body).findByDataTest('ec-datepicker__calendar');
-
-    return { inputWrapper, calendarWrapper };
-  }
-
-  function mountDatepickerAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const Component = defineComponent({
-      components: { EcDatepicker },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    const inputWrapper = mount(Component, {
       props,
       ...mountOpts,
     });
@@ -175,25 +161,9 @@ describe('Datepicker', () => {
       expect(calendarWrapper.element).toMatchSnapshot('calendar');
     });
 
-    it.each([
-      ['modal', false],
-      ['tooltip', false],
-      ['notification', false],
-      ['level-1', false],
-      ['level-2', false],
-      ['level-3', false],
-      ['random', true],
-    ])('should validate if the level prop("%s") is on the allowed array of strings', (str, error) => {
-      if (error) {
-        withMockedConsole((errorSpy, warnSpy) => {
-          mountDatepicker({ level: str });
-          expect(warnSpy).toHaveBeenCalledTimes(1);
-          expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
-        });
-      } else {
-        const { calendarWrapper } = mountDatepicker({ level: str });
-        expect(calendarWrapper.element).toMatchSnapshot();
-      }
+    it('should render with given level', () => {
+      const { calendarWrapper } = mountDatepicker({ level: ZIndexLevel.LEVEL3 });
+      expect(calendarWrapper.element).toMatchSnapshot();
     });
 
     it('should render with Spanish locale', () => {
@@ -205,19 +175,12 @@ describe('Datepicker', () => {
     });
 
     it('should render with the dateFormat given', () => {
-      const { inputWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" date-format="d/m/Y" />',
-        {},
-        {
-          data() {
-            return {
-              model: new Date('2022-02-22'),
-            };
-          },
-        },
-      );
+      const { inputWrapper } = mountDatepicker({
+        dateFormat: 'd/m/Y',
+        modelValue: new Date('2022-02-22'),
+      });
 
-      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('22/02/2022');
+      expect(inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').element.value).toBe('22/02/2022');
     });
   });
 
@@ -235,39 +198,39 @@ describe('Datepicker', () => {
     it('@ready - should be emitted when the calendar is in a ready state', () => {
       const { inputWrapper } = mountDatepicker();
 
-      expect(inputWrapper.emitted('ready').length).toBe(1);
+      expect(inputWrapper.emitted('ready')?.length).toBe(1);
     });
 
     it('@open - should be emitted when the calendar opens', () => {
       const { inputWrapper } = mountDatepicker();
 
       inputWrapper
-        .findByDataTest('ec-datepicker')
+        .findByDataTest<HTMLInputElement>('ec-datepicker')
         .trigger('click');
 
-      expect(inputWrapper.emitted('open').length).toBe(1);
+      expect(inputWrapper.emitted('open')?.length).toBe(1);
     });
 
     it('@close - should be emitted when the calendar closes', () => {
       const { inputWrapper, calendarWrapper } = mountDatepicker({ modelValue: new Date('2022-02-20') });
 
       inputWrapper
-        .findByDataTest('ec-datepicker')
+        .findByDataTest<HTMLInputElement>('ec-datepicker')
         .trigger('click');
 
       calendarWrapper
         .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
         .trigger('click');
 
-      expect(inputWrapper.emitted('close').length).toBe(1);
+      expect(inputWrapper.emitted('close')?.length).toBe(1);
     });
 
     it('@blur - should be emitted when the input blurs', async () => {
       const { inputWrapper } = mountDatepicker();
 
-      await inputWrapper.findByDataTest('ec-datepicker').trigger('blur');
+      await inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').trigger('blur');
 
-      expect(inputWrapper.emitted('blur').length).toBe(1);
+      expect(inputWrapper.emitted('blur')?.length).toBe(1);
     });
 
     it('@change - should be emitted when the value changes', async () => {
@@ -275,7 +238,7 @@ describe('Datepicker', () => {
 
       await setDatepickerInputValue(inputWrapper, '2022-01-21');
 
-      expect(inputWrapper.emitted('change').length).toBe(1);
+      expect(inputWrapper.emitted('change')?.length).toBe(1);
     });
 
     it('should pass custom events to the input', async () => {
@@ -287,10 +250,38 @@ describe('Datepicker', () => {
         },
       });
 
-      await inputWrapper.findByDataTest('ec-datepicker').trigger('custom-event');
+      await inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').trigger('custom-event');
 
       expect(customEventSpy).toHaveBeenCalledTimes(1);
       expect(inputWrapper.emitted('custom-event')).toBeUndefined();
+    });
+
+    it('should merge a datepicker event given via props', () => {
+      const onReadySpy = vi.fn();
+
+      const { inputWrapper } = mountDatepicker({
+        options: {
+          onReady: onReadySpy,
+        },
+      });
+
+      expect(inputWrapper.emitted('ready')?.length).toBe(1);
+      expect(onReadySpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should merge an array of datepicker events given via props', () => {
+      const onReadySpy1 = vi.fn();
+      const onReadySpy2 = vi.fn();
+
+      const { inputWrapper } = mountDatepicker({
+        options: {
+          onReady: [onReadySpy1, onReadySpy2],
+        },
+      });
+
+      expect(inputWrapper.emitted('ready')?.length).toBe(1);
+      expect(onReadySpy1).toHaveBeenCalledTimes(1);
+      expect(onReadySpy2).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -377,13 +368,13 @@ describe('Datepicker', () => {
         .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
         .trigger('click');
 
-      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('2022-02-24');
+      expect(inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').element.value).toBe('2022-02-24');
 
       await inputWrapper.setProps({
         dateFormat: 'd/m/Y',
       });
 
-      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('24/02/2022');
+      expect(inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').element.value).toBe('24/02/2022');
     });
 
     it('should update the locale', async () => {
@@ -400,115 +391,120 @@ describe('Datepicker', () => {
   });
 
   describe('v-model', () => {
+    type DatepickerWrapperData = Record<string, unknown> & {
+      model: Maybe<Date>
+    };
+
     it('should have preselected default date', () => {
-      const { inputWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" />',
-        {},
-        {
-          data() {
-            return {
-              model: new Date('2022-02-22'),
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data() {
+          return {
+            model: new Date('2022-02-22'),
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" />',
+      });
+
+      const inputWrapper = mount(Component);
 
       expect(inputWrapper.vm.model.getTime()).toBe(new Date('2022-02-22').getTime());
-      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('2022-02-22');
+      expect(inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').element.value).toBe('2022-02-22');
     });
 
     it('should update the value of the calendar when I type a value', async () => {
-      const { inputWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" />',
-        {},
-        {
-          setup() {
-            const model = ref(null);
-            return { model };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        setup() {
+          const model = ref<Maybe<Date>>(null);
+          return { model };
         },
-      );
+        template: '<ec-datepicker v-model="model" />',
+      });
 
+      const inputWrapper = mount(Component);
       await setDatepickerInputValue(inputWrapper, '2022-02-23');
 
-      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('2022-02-23');
-      expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 23).getTime());
+      expect(inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').element.value).toBe('2022-02-23');
+      expect(inputWrapper.vm.model?.getTime()).toBe(new Date(2022, 1, 23).getTime());
     });
 
     it('should clear the value in the input when a null gets passed to the model', async () => {
-      const { inputWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" />',
-        {},
-        {
-          data() {
-            return {
-              model: new Date('2022-02-23'),
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: new Date('2022-02-23'),
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" />',
+      });
+
+      const inputWrapper = mount(Component);
 
       await inputWrapper.setData({
         model: null,
       });
 
-      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('');
+      expect(inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').element.value).toBe('');
     });
 
     it('should clear the model value when the input value gets deleted', async () => {
-      const { inputWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" />',
-        {},
-        {
-          data() {
-            return {
-              model: new Date('2022-02-23'),
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: new Date('2022-02-23'),
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" />',
+      });
+
+      const inputWrapper = mount(Component);
 
       await setDatepickerInputValue(inputWrapper, '');
 
-      expect(inputWrapper.findByDataTest('ec-datepicker').element.value).toBe('');
+      expect(inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').element.value).toBe('');
       expect(inputWrapper.vm.model).toBe(null);
     });
 
     it('should update the value of the calendar when I select a value from the datepicker', async () => {
-      const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" />',
-        {},
-        {
-          data() {
-            return {
-              model: null,
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: null,
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" />',
+      });
+
+      const inputWrapper = mount(Component);
+      const calendarWrapper = getCalendarWrapper();
 
       await calendarWrapper
         .findByDataTest('ec-datepicker__calendar-day--2022-02-24')
         .trigger('click');
 
-      expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 24).getTime());
+      expect(inputWrapper.vm.model?.getTime()).toBe(new Date(2022, 1, 24).getTime());
     });
 
     it('should not allow to select a date smaller than the minDate', () => {
-      const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" :options="options" />',
-        {},
-        {
-          data() {
-            return {
-              model: null,
-              options: {
-                minDate: '2022-02-22',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: null,
+            options: {
+              minDate: '2022-02-22',
+            },
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" :options="options" />',
+      });
+
+      const inputWrapper = mount(Component);
+      const calendarWrapper = getCalendarWrapper();
 
       calendarWrapper
         .findByDataTest('ec-datepicker__calendar-day--2022-02-21')
@@ -520,24 +516,24 @@ describe('Datepicker', () => {
         .findByDataTest('ec-datepicker__calendar-day--2022-02-22')
         .trigger('click');
 
-      expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 22).getTime());
+      expect(inputWrapper.vm.model?.getTime()).toBe(new Date(2022, 1, 22).getTime());
     });
 
     it('should not allow to type a date smaller than the minDate', async () => {
-      const { inputWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" :options="options"/>',
-        {},
-        {
-          data() {
-            return {
-              model: null,
-              options: {
-                minDate: '2022-02-22',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: null,
+            options: {
+              minDate: '2022-02-22',
+            },
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" :options="options"/>',
+      });
+
+      const inputWrapper = mount(Component);
 
       await setDatepickerInputValue(inputWrapper, '2022-02-18');
 
@@ -545,20 +541,21 @@ describe('Datepicker', () => {
     });
 
     it('should not allow to select a date bigger than the maxDate', () => {
-      const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" :options="options" />',
-        {},
-        {
-          data() {
-            return {
-              model: null,
-              options: {
-                maxDate: '2022-02-22',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: null,
+            options: {
+              maxDate: '2022-02-22',
+            },
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" :options="options" />',
+      });
+
+      const inputWrapper = mount(Component);
+      const calendarWrapper = getCalendarWrapper();
 
       calendarWrapper
         .findByDataTest('ec-datepicker__calendar-day--2022-02-23')
@@ -570,45 +567,45 @@ describe('Datepicker', () => {
         .findByDataTest('ec-datepicker__calendar-day--2022-02-22')
         .trigger('click');
 
-      expect(inputWrapper.vm.model.getTime()).toBe(new Date(2022, 1, 22).getTime());
+      expect(inputWrapper.vm.model?.getTime()).toBe(new Date(2022, 1, 22).getTime());
     });
 
     it('should not allow to type a date bigger than the maxDate', async () => {
-      const { inputWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" :options="options"/>',
-        {},
-        {
-          data() {
-            return {
-              model: null,
-              options: {
-                maxDate: '2022-02-22',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: null,
+            options: {
+              maxDate: '2022-02-22',
+            },
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" :options="options"/>',
+      });
 
+      const inputWrapper = mount(Component);
       await setDatepickerInputValue(inputWrapper, '2022-02-23');
 
       expect(inputWrapper.vm.model).toBe(null);
     });
 
     it('should not allow to select a bank holiday', () => {
-      const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" :disabled-dates="disabledDates"/>',
-        {},
-        {
-          data() {
-            return {
-              model: null,
-              disabledDates: {
-                '2022-02-22': 'Bank holiday',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: null,
+            disabledDates: {
+              '2022-02-22': 'Bank holiday',
+            },
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" :disabled-dates="disabledDates"/>',
+      });
+
+      const inputWrapper = mount(Component);
+      const calendarWrapper = getCalendarWrapper();
 
       calendarWrapper
         .findByDataTest('ec-datepicker__calendar-day--2022-02-22')
@@ -618,38 +615,39 @@ describe('Datepicker', () => {
     });
 
     it('should not allow to type a bank holiday', async () => {
-      const { inputWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" :disabled-dates="disabledDates"/>',
-        {},
-        {
-          data() {
-            return {
-              model: null,
-              disabledDates: {
-                '2022-02-22': 'Bank holiday',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: null,
+            disabledDates: {
+              '2022-02-22': 'Bank holiday',
+            },
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" :disabled-dates="disabledDates"/>',
+      });
+
+      const inputWrapper = mount(Component);
 
       await setDatepickerInputValue(inputWrapper, '2022-02-22');
       expect(inputWrapper.vm.model).toBe(null);
     });
 
     it('should not allow to select a weekend', () => {
-      const { inputWrapper, calendarWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" :are-weekends-disabled="areWeekendsDisabled"/>',
-        {},
-        {
-          data() {
-            return {
-              model: null,
-              areWeekendsDisabled: true,
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: null,
+            areWeekendsDisabled: true,
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" :are-weekends-disabled="areWeekendsDisabled"/>',
+      });
+
+      const inputWrapper = mount(Component);
+      const calendarWrapper = getCalendarWrapper();
 
       const saturday = 'ec-datepicker__calendar-day--2022-02-19';
       const sunday = 'ec-datepicker__calendar-day--2022-02-20';
@@ -668,18 +666,17 @@ describe('Datepicker', () => {
     });
 
     it('should not allow to type a weekend', async () => {
-      const { inputWrapper } = mountDatepickerAsTemplate(
-        '<ec-datepicker v-model="model" :are-weekends-disabled="areWeekendsDisabled"/>',
-        {},
-        {
-          data() {
-            return {
-              model: null,
-              areWeekendsDisabled: true,
-            };
-          },
+      const Component = defineComponent({
+        components: { EcDatepicker },
+        data(): DatepickerWrapperData {
+          return {
+            model: null,
+            areWeekendsDisabled: true,
+          };
         },
-      );
+        template: '<ec-datepicker v-model="model" :are-weekends-disabled="areWeekendsDisabled"/>',
+      });
+      const inputWrapper = mount(Component);
 
       const saturday = '2022-02-19';
       const sunday = '2022-02-20';
@@ -693,9 +690,13 @@ describe('Datepicker', () => {
   });
 });
 
-async function setDatepickerInputValue(inputWrapper, value) {
-  inputWrapper.findByDataTest('ec-datepicker').setValue(value);
+function getCalendarWrapper(): DOMWrapper<HTMLDivElement> {
+  return new DOMWrapper(document.body).findByDataTest('ec-datepicker__calendar');
+}
+
+async function setDatepickerInputValue(inputWrapper: VueWrapper, value: string) {
+  inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').setValue(value);
   // When allowInput is true, flatpickr is listening to blur event
   // https://github.com/flatpickr/flatpickr/blob/master/src/index.ts#L493
-  await inputWrapper.findByDataTest('ec-datepicker').trigger('blur');
+  await inputWrapper.findByDataTest<HTMLInputElement>('ec-datepicker').trigger('blur');
 }

@@ -1,26 +1,14 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import { vi } from 'vitest';
 import { defineComponent } from 'vue';
 
-import { withMockedConsole } from '../../../tests/utils/console';
+import { ButtonCategory } from '../ec-btn/types';
 import EcModal from './ec-modal.vue';
+import type { ModalProps } from './types';
 
-function mountModal(props, mountOpts) {
+function mountModal(props?: Partial<ModalProps>, mountOpts?: ComponentMountingOptions<typeof EcModal>) {
   return mount(EcModal, {
-    props,
-    ...mountOpts,
-  });
-}
-
-function mountModalAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const Component = defineComponent({
-    components: { EcModal },
-    template,
-    ...wrapperComponentOpts,
-  });
-
-  return mount(Component, {
     props,
     ...mountOpts,
   });
@@ -35,7 +23,7 @@ describe('EcModal', () => {
 
   it('should be called with the "useFocusTrap composable" mandatory options', () => {
     mountModal({ show: true });
-    const options = useFocusTrap.mock.calls[0][1];
+    const options = vi.mocked(useFocusTrap).mock.calls[0][1];
     expect(options)
       .toEqual({
         clickOutsideDeactivates: true,
@@ -109,18 +97,6 @@ describe('EcModal', () => {
     expect(wrapper.findByDataTest('ec-modal').element).toMatchSnapshot();
   });
 
-  it('should throw an error when we try to pass a number not allowed on the z-index prop', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      // The error can be throw when we don't pass a number between 200 and 250
-      mountModal({
-        show: true,
-        zIndex: 200,
-      });
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "zIndex"');
-    });
-  });
-
   it('should not render the footer if slots for left content, positive, nor negative were not passed', () => {
     const wrapper = mountModal({
       show: true,
@@ -166,7 +142,7 @@ describe('EcModal', () => {
         negative: 'Negative Button',
       },
     });
-    expect(wrapper.findByDataTest('ec-modal__negative-btn').isDisabled()).toBe(false);
+    expect(wrapper.findByDataTest<HTMLButtonElement>('ec-modal__negative-btn').attributes('disabled')).toBeUndefined();
     expect(wrapper.findByDataTest('ec-modal__negative-btn')).toMatchSnapshot();
   });
 
@@ -181,7 +157,7 @@ describe('EcModal', () => {
         negative: 'negative Button',
       },
     });
-    expect(wrapper.findByDataTest('ec-modal__negative-btn').isDisabled()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__negative-btn').attributes('disabled')).toBe('');
     expect(wrapper.findByDataTest('ec-modal__negative-btn')).toMatchSnapshot();
   });
 
@@ -205,7 +181,7 @@ describe('EcModal', () => {
   it('should render negative button with given category', () => {
     const wrapper = mountModal({
       category: {
-        negative: 'warning',
+        negative: ButtonCategory.WARNING,
       },
       show: true,
     }, {
@@ -253,7 +229,7 @@ describe('EcModal', () => {
   it('should render positive button with given category', () => {
     const wrapper = mountModal({
       category: {
-        positive: 'error',
+        positive: ButtonCategory.ERROR,
       },
       show: true,
     }, {
@@ -276,7 +252,7 @@ describe('EcModal', () => {
       },
     });
     wrapper.findByDataTest('ec-modal__positive-btn').trigger('click');
-    expect(wrapper.emitted('positive').length).toBe(1);
+    expect(wrapper.emitted('positive')?.length).toBe(1);
   });
 
   it('should render with an enabled positive button by default', () => {
@@ -287,7 +263,7 @@ describe('EcModal', () => {
         positive: 'Positive Button',
       },
     });
-    expect(wrapper.findByDataTest('ec-modal__positive-btn').isDisabled()).toBe(false);
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').attributes('disabled')).toBeUndefined();
     expect(wrapper.findByDataTest('ec-modal__positive-btn')).toMatchSnapshot();
   });
 
@@ -302,7 +278,7 @@ describe('EcModal', () => {
         positive: 'Positive Button',
       },
     });
-    expect(wrapper.findByDataTest('ec-modal__positive-btn').isDisabled()).toBe(true);
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').attributes('disabled')).toBe('');
     expect(wrapper.findByDataTest('ec-modal__positive-btn')).toMatchSnapshot();
   });
 
@@ -316,7 +292,7 @@ describe('EcModal', () => {
     });
 
     wrapper.findByDataTest('ec-modal__negative-btn').trigger('click');
-    expect(wrapper.emitted('negative').length).toBe(1);
+    expect(wrapper.emitted('negative')?.length).toBe(1);
   });
 
   it('should emit a "close" event when clicking on the close button', () => {
@@ -326,8 +302,8 @@ describe('EcModal', () => {
     });
 
     wrapper.findByDataTest('ec-modal__close').trigger('click');
-    expect(wrapper.emitted('close').length).toBe(1);
-    expect(wrapper.emitted('update:show').length).toBe(1);
+    expect(wrapper.emitted('close')?.length).toBe(1);
+    expect(wrapper.emitted('update:show')?.length).toBe(1);
   });
 
   it('should close the modal if ESC key is pressed and is closable', async () => {
@@ -341,9 +317,9 @@ describe('EcModal', () => {
       attachTo: elem,
     });
 
-    await wrapper.trigger('keyup.esc');
-    expect(wrapper.emitted('close').length).toBe(1);
-    expect(wrapper.emitted('update:show').length).toBe(1);
+    await wrapper.trigger('keyup.Escape');
+    expect(wrapper.emitted('close')?.length).toBe(1);
+    expect(wrapper.emitted('update:show')?.length).toBe(1);
   });
 
   it('should not close the modal if ESC key is pressed and is not closable', async () => {
@@ -357,7 +333,7 @@ describe('EcModal', () => {
       attachTo: elem,
     });
 
-    await wrapper.trigger('keyup.esc');
+    await wrapper.trigger('keyup.Escape');
     expect(wrapper.emitted('close')).toBeUndefined();
     expect(wrapper.emitted('update:show')).toBeUndefined();
   });
@@ -401,7 +377,7 @@ describe('EcModal', () => {
     expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);
   });
 
-  it('should stop listening to keyup events when destroyed', async () => {
+  it('should stop listening to keyup events when destroyed', () => {
     const addEventListenerSpy = vi.spyOn(document, 'addEventListener');
     const removeEventListenerSpy = vi.spyOn(document, 'removeEventListener');
 
@@ -419,7 +395,7 @@ describe('EcModal', () => {
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(addEventListenerSpy).toHaveBeenCalledWith('keyup', expect.any(Function));
 
-    await wrapper.unmount();
+    wrapper.unmount();
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
     expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);
@@ -427,18 +403,15 @@ describe('EcModal', () => {
 
   describe('v-model', () => {
     it('should render the modal when we pass to model true', async () => {
-      const wrapper = mountModalAsTemplate(
-        ' <ec-modal is-closable v-model:show="show"></ec-modal>',
-        {},
-        {
-          data() {
-            return {
-              show: true,
-            };
-          },
+      const Component = defineComponent({
+        components: { EcModal },
+        data() {
+          return { show: true };
         },
-      );
+        template: '<ec-modal is-closable v-model:show="show"></ec-modal>',
+      });
 
+      const wrapper = mount(Component);
       expect(wrapper.findByDataTest('ec-modal').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
 
@@ -450,18 +423,15 @@ describe('EcModal', () => {
     });
 
     it('should not render the modal when we pass to model false', () => {
-      const wrapper = mountModalAsTemplate(
-        ' <ec-modal is-closable v-model:show="show"></ec-modal>',
-        {},
-        {
-          data() {
-            return {
-              show: false,
-            };
-          },
+      const Component = defineComponent({
+        components: { EcModal },
+        data() {
+          return { show: false };
         },
-      );
+        template: '<ec-modal is-closable v-model:show="show"></ec-modal>',
+      });
 
+      const wrapper = mount(Component);
       expect(wrapper.findByDataTest('ec-modal').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -506,22 +476,23 @@ describe('EcModal', () => {
         </ec-modal>
       </div>
     `;
-      const wrapper = mountModalAsTemplate(
-        template,
-        {},
-        {
-          data() {
-            return {
-              showFirstModal: true,
-              showSecondModal: true,
-              zIndex: 201,
-            };
-          },
+      const Component = defineComponent({
+        components: { EcModal },
+        data() {
+          return {
+            showFirstModal: true,
+            showSecondModal: true,
+            zIndex: 201,
+          };
         },
-      );
+        template,
+      });
+
+      const wrapper = mount(Component);
       expect(wrapper.findByDataTest('ec-modal').element).toMatchSnapshot();
       expect(wrapper.findByDataTest('second-modal-action__btn').exists()).toBe(true);
     });
+
     it('should be rendered with a second modal button clickable', () => {
       const template = `
       <div>
@@ -560,21 +531,21 @@ describe('EcModal', () => {
         </ec-modal>
       </div>
     `;
-      const wrapper = mountModalAsTemplate(
-        template,
-        {},
-        {
-          data() {
-            return {
-              showFirstModal: true,
-              showSecondModal: true,
-              zIndex: 201,
-              firstModalAction: vi.fn(),
-              secondModalAction: vi.fn(),
-            };
-          },
+      const Component = defineComponent({
+        components: { EcModal },
+        data() {
+          return {
+            showFirstModal: true,
+            showSecondModal: true,
+            zIndex: 201,
+            firstModalAction: vi.fn(),
+            secondModalAction: vi.fn(),
+          };
         },
-      );
+        template,
+      });
+
+      const wrapper = mount(Component);
       wrapper.findByDataTest('second-modal-action__btn').trigger('click');
       expect(wrapper.vm.secondModalAction).toHaveBeenCalled();
     });

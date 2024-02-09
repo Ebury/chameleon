@@ -31,7 +31,7 @@
             <ec-icon
               class="ec-modal__close-icon"
               data-test="ec-modal__close-icon"
-              name="simple-close"
+              :name="IconName.SIMPLE_CLOSE"
               :size="24"
             />
           </a>
@@ -105,17 +105,20 @@
   </transition>
 </template>
 
-<script setup>
-import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
+<script setup lang="ts">
+import { useFocusTrap, type UseFocusTrapOptions } from '@vueuse/integrations/useFocusTrap';
 import {
   computed, onBeforeUnmount, ref, useSlots, watch, watchEffect,
 } from 'vue';
 
-import { KeyCode } from '../../enums';
+import { KeyboardKey } from '../../enums';
+import type { Maybe } from '../../main';
 import EcBtn from '../ec-btn';
 import { ButtonCategory } from '../ec-btn/types';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
 import EcLoading from '../ec-loading';
+import type { ModalProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
@@ -123,64 +126,38 @@ defineOptions({
 
 const slots = useSlots();
 
-const props = defineProps({
-  show: {
-    type: Boolean,
-    default: false,
-  },
-  isClosable: {
-    type: Boolean,
-    default: true,
-  },
-  large: {
-    type: Boolean,
-    default: false,
-  },
-  // isLoading - DEPRECATED
-  // TODO: remove the prop below and use it as part
-  // of the positiveButtonProps/negativeButtonProps
-  isLoading: {
-    type: Object,
-    default: () => ({}),
-  },
-  zIndex: {
-    type: Number,
-    validator(value) {
-      return value > 200 && value < 250;
-    },
-  },
-  // category - DEPRECATED
-  // TODO: remove the prop below and use it as part
-  // of the positiveButtonProps/negativeButtonProps
-  category: {
-    type: Object,
-    default: () => ({}),
-  },
-  positiveButtonProps: {
-    type: Object,
-    default: () => ({}),
-  },
-  negativeButtonProps: {
-    type: Object,
-    default: () => ({}),
-  },
+const props = withDefaults(defineProps<ModalProps>(), {
+  show: false,
+  isClosable: true,
+  large: false,
+  isLoading: () => ({}),
+  category: () => ({}),
+  positiveButtonProps: () => ({}),
+  negativeButtonProps: () => ({}),
 });
 
-const emit = defineEmits(['update:show', 'negative', 'positive', 'close']);
+const emit = defineEmits<{
+  'update:show': [value: boolean],
+  'negative': [],
+  'positive': [],
+  'close': [value: boolean],
+}>();
 
 // buttons
-const positiveButton = ref(null);
-const negativeButton = ref(null);
+const positiveButton = ref<InstanceType<typeof EcBtn>>();
+const negativeButton = ref<InstanceType<typeof EcBtn>>();
 const isLoadingPositiveButton = computed(() => !!props.isLoading.positive);
 const isLoadingNegativeButton = computed(() => !!props.isLoading.negative);
 const positiveButtonCategory = computed(() => props.category.positive || ButtonCategory.PRIMARY);
 const negativeButtonCategory = computed(() => props.category.negative || ButtonCategory.SECONDARY);
 const isPositiveButtonDisabled = computed(() => props.positiveButtonProps.isDisabled || false);
 const isNegativeButtonDisabled = computed(() => props.negativeButtonProps.isDisabled || false);
-function hasPositiveButton() {
+
+function hasPositiveButton(): boolean {
   return !!slots.positive;
 }
-function hasNegativeButton() {
+
+function hasNegativeButton(): boolean {
   return !!slots.negative;
 }
 
@@ -188,19 +165,24 @@ function hasNegativeButton() {
 const zIndexStyle = computed(() => (props.zIndex ? { zIndex: props.zIndex } : null));
 
 // focus trap
-const focusTrapTarget = ref(null);
+const focusTrapTarget = ref<Maybe<HTMLDivElement>>(null);
 
-function getFocusTrapOptions() {
-  const options = {
+function getFocusTrapOptions(): UseFocusTrapOptions {
+  const options: {
+    immediate: boolean,
+    escapeDeactivates: boolean,
+    clickOutsideDeactivates: boolean,
+    initialFocus?: () => HTMLElement
+  } = {
     immediate: true,
     escapeDeactivates: props.isClosable,
     clickOutsideDeactivates: props.isClosable,
   };
 
   if (hasPositiveButton()) {
-    options.initialFocus = /* c8 ignore next */ () => positiveButton.value.$el;
+    options.initialFocus = /* c8 ignore next */ () => positiveButton.value?.$el;
   } else if (hasNegativeButton()) {
-    options.initialFocus = /* c8 ignore next */ () => negativeButton.value.$el;
+    options.initialFocus = /* c8 ignore next */ () => negativeButton.value?.$el;
   }
 
   return options;
@@ -230,8 +212,8 @@ watchEffect(() => {
     document.removeEventListener('keyup', onKeyUp);
   }
 });
-function onKeyUp(e) {
-  if (e.keyCode === KeyCode.ESC) {
+function onKeyUp(e: KeyboardEvent) {
+  if (e.key === KeyboardKey.ESCAPE) {
     closeModal();
   }
 }
@@ -240,10 +222,10 @@ onBeforeUnmount(() => {
 });
 
 // modal footer
-function hasFooterLeftContent() {
+function hasFooterLeftContent(): boolean {
   return !!slots.footerLeftContent;
 }
-function hasFooter() {
+function hasFooter(): boolean {
   return hasFooterLeftContent() || hasPositiveButton() || hasNegativeButton();
 }
 </script>

@@ -1,12 +1,15 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, toRefs } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcTooltip from '../../directives/ec-tooltip/ec-tooltip';
+import { ButtonCategory } from '../ec-btn/types';
 import EcIcon from '../ec-icon';
 import EcModal from './ec-modal.vue';
+import type { ModalProps } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Modal',
   component: EcModal,
   decorators: [
@@ -14,7 +17,15 @@ export default {
   ],
 };
 
-const basicProps = {
+export default meta;
+
+type EcModalStoryProps = ModalProps & {
+  showFooterLeftContent: boolean,
+  negativeHasText: boolean,
+  positiveHasText: boolean,
+};
+
+const basicProps: EcModalStoryProps = {
   show: true,
   showFooterLeftContent: true,
   isClosable: true,
@@ -24,10 +35,7 @@ const basicProps = {
     positive: false,
     negative: false,
   },
-  category: {
-    positive: null,
-    negative: null,
-  },
+  category: {},
   positiveButtonProps: {
     isDisabled: false,
   },
@@ -38,7 +46,9 @@ const basicProps = {
   positiveHasText: true,
 };
 
-export const basic = storyArgs => ({
+type EcModalStoryFn = StoryFn<EcModalStoryProps>;
+
+export const basic: EcModalStoryFn = storyArgs => ({
   components: { EcModal, EcIcon },
   directives: { EcTooltip },
   setup() {
@@ -185,7 +195,7 @@ export const basic = storyArgs => ({
   `,
 });
 
-const buttonCategories = ['', 'primary', 'secondary', 'success', 'error', 'warning'];
+const buttonCategories = Object.values(ButtonCategory);
 
 basic.args = { ...basicProps };
 
@@ -199,7 +209,7 @@ basic.parameters = {
   },
 };
 
-export const stackable = () => ({
+export const stackable: StoryFn = () => ({
   components: { EcModal },
   setup() {
     return {
@@ -257,7 +267,7 @@ stackable.parameters = {
   docs: { disable: true },
 };
 
-export const buttonsDisabled = storyArgs => ({
+export const buttonsDisabled: StoryFn<EcModalStoryProps> = storyArgs => ({
   components: { EcModal, EcIcon },
   directives: { EcTooltip },
   setup() {

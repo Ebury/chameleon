@@ -1,10 +1,11 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { toRefs } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcPanel from './ec-panel.vue';
 
-export default {
+const meta: Meta = {
   title: 'Panel',
   component: EcPanel,
   decorators: [
@@ -12,7 +13,17 @@ export default {
   ],
 };
 
-export const basic = storyArgs => ({
+export default meta;
+
+type EcPanelStory = StoryFn<{
+  show: boolean,
+  showHeader: boolean,
+  showFooter: boolean,
+  numberOfBodyParagraphs: number,
+  numberOfPanelParagraphs: number,
+}>;
+
+export const basic: EcPanelStory = storyArgs => ({
   components: { EcPanel },
   setup() {
     const {

@@ -1,11 +1,14 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
+import type flatpickr from 'flatpickr';
 import { Spanish } from 'flatpickr/dist/l10n/es';
 import { French } from 'flatpickr/dist/l10n/fr';
 import { ref } from 'vue';
 
 import EcDatepicker from './ec-datepicker.vue';
+import type { DatepickerProps } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Datepicker',
   component: EcDatepicker,
   argTypes: {
@@ -20,7 +23,11 @@ export default {
   },
 };
 
-export const basic = args => ({
+export default meta;
+
+type EcDatepickerStory = StoryFn<DatepickerProps>;
+
+export const basic: EcDatepickerStory = args => ({
   components: { EcDatepicker },
   setup() {
     const model = ref(new Date('2022-02-24'));
@@ -33,18 +40,18 @@ export const basic = args => ({
     }
 
     // disabled dates
-    const notAvailableDates = ref({
+    const notAvailableDates = ref<DatepickerProps['disabledDates']>({
       '2022-02-21': 'Bank holiday',
     });
 
-    function changeDisabledDates(date) {
+    function changeDisabledDates(date: string) {
       notAvailableDates.value = {
         [date]: 'Bank holiday',
       };
     }
 
     // options
-    function getLocale(locale) {
+    function getLocale(locale: string): flatpickr.CustomLocale | null {
       switch (locale) {
         case 'FR':
           return French;
@@ -55,7 +62,7 @@ export const basic = args => ({
       }
     }
 
-    function getDateFormat(dateFormat) {
+    function getDateFormat(dateFormat: string): string | undefined {
       if (dateFormat === 'none') {
         return undefined;
       }

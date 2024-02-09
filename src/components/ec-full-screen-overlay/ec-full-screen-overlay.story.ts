@@ -1,10 +1,11 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcBtn from '../ec-btn';
 import EcFullScreenOverlay from './ec-full-screen-overlay.vue';
 
-export default {
+const meta: Meta = {
   title: 'Full Screen Overlay',
   component: EcFullScreenOverlay,
   decorators: [
@@ -17,7 +18,11 @@ export default {
   },
 };
 
-const Template = args => ({
+export default meta;
+
+type EcFullScreenOverlayStory = StoryFn<typeof EcFullScreenOverlay>;
+
+const Template: EcFullScreenOverlayStory = args => ({
   components: { EcFullScreenOverlay },
   setup() {
     return {
@@ -42,7 +47,7 @@ basic.args = {
   show: true,
 };
 
-export const withHeaderSlot = args => ({
+export const withHeaderSlot: EcFullScreenOverlayStory = args => ({
   components: { EcFullScreenOverlay },
   setup() {
     return { args, onClose: action('close') };
@@ -67,7 +72,7 @@ export const withHeaderSlot = args => ({
 });
 withHeaderSlot.args = { ...basic.args };
 
-export const withMainSlot = args => ({
+export const withMainSlot: EcFullScreenOverlayStory = args => ({
   components: { EcFullScreenOverlay },
   setup() {
     return { args, onClose: action('close') };
@@ -89,14 +94,14 @@ export const withMainSlot = args => ({
 });
 withMainSlot.args = { ...basic.args };
 
-export const backgroundColorLevel = Template.bind({});
+export const backgroundColorLevel: EcFullScreenOverlayStory = Template.bind({});
 backgroundColorLevel.args = {
   title: 'Lorem title',
   show: true,
   backgroundColorLevel: 6,
 };
 
-export const withContentSlot = args => ({
+export const withContentSlot: EcFullScreenOverlayStory = args => ({
   components: { EcFullScreenOverlay, EcBtn },
   setup() {
     return { args };

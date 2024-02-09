@@ -1,24 +1,12 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { defineComponent } from 'vue';
 
 import EcPanel from './ec-panel.vue';
+import type { PanelProps } from './types';
 
-function mountPanel(props, mountOpts) {
+function mountPanel(props?: Partial<PanelProps>, mountOpts?: ComponentMountingOptions<typeof EcPanel>) {
   return mount(EcPanel, {
-    props,
-    ...mountOpts,
-  });
-}
-
-function mountPanelAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const Component = defineComponent({
-    components: { EcPanel },
-    template,
-    ...wrapperComponentOpts,
-  });
-
-  return mount(Component, {
     props,
     ...mountOpts,
   });
@@ -71,65 +59,63 @@ describe('EcPanel', () => {
       const wrapper = mountPanel({ show: true });
       wrapper.findByDataTest('ec-panel__header-action--close').trigger('click');
 
-      expect(wrapper.emitted('update:show').length).toBe(1);
-      expect(wrapper.emitted('close').length).toBe(1);
+      expect(wrapper.emitted('update:show')?.length).toBe(1);
+      expect(wrapper.emitted('close')?.length).toBe(1);
     });
 
     describe('@back', () => {
       it('should render back button when event handler attribute is present', () => {
-        const wrapper = mountPanelAsTemplate(
-          '<ec-panel v-model:show="show" @back="anyGivenCallback"></ec-panel>',
-          {},
-          {
-            data() {
-              return {
-                show: true,
-              };
-            },
-            methods: {
-              anyGivenCallback: vi.fn(),
-            },
+        const Component = defineComponent({
+          components: { EcPanel },
+          data() {
+            return {
+              show: true,
+            };
           },
-        );
+          methods: {
+            anyGivenCallback: vi.fn(),
+          },
+          template: '<ec-panel v-model:show="show" @back="anyGivenCallback"></ec-panel>',
+        });
 
+        const wrapper = mount(Component);
         expect(wrapper.findByDataTest('ec-panel__header-action--back').exists()).toBe(true);
         expect(wrapper.element).toMatchSnapshot();
       });
 
       it('should not render back button when event handler attribute is not present', () => {
-        const wrapper = mountPanelAsTemplate(
-          '<ec-panel v-model:show="show"></ec-panel>',
-          {},
-          {
-            data() {
-              return {
-                show: true,
-              };
-            },
+        const Component = defineComponent({
+          components: { EcPanel },
+          data() {
+            return {
+              show: true,
+            };
           },
-        );
+          template: '<ec-panel v-model:show="show"></ec-panel>',
+        });
 
+        const wrapper = mount(Component);
         expect(wrapper.findByDataTest('ec-panel__header-action--back').exists()).toBe(false);
         expect(wrapper.element).toMatchSnapshot();
       });
 
       it('should emit a "back" event when the simple-chevron-left icon is clicked', async () => {
         const anyGivenCallback = vi.fn();
-        const wrapper = mountPanelAsTemplate(
-          '<ec-panel v-model:show="show" @back="anyGivenCallback"></ec-panel>',
-          {},
-          {
-            data() {
-              return {
-                show: true,
-              };
-            },
-            methods: {
-              anyGivenCallback,
-            },
-          },
-        );
 
+        const Component = defineComponent({
+          components: { EcPanel },
+          data() {
+            return {
+              show: true,
+            };
+          },
+          methods: {
+            anyGivenCallback,
+          },
+          template: '<ec-panel v-model:show="show" @back="anyGivenCallback"></ec-panel>',
+        });
+
+        const wrapper = mount(Component);
         await wrapper.findByDataTest('ec-panel__header-action--back').trigger('click');
 
         expect(anyGivenCallback).toHaveBeenCalledTimes(1);
@@ -178,18 +164,17 @@ describe('EcPanel', () => {
 
   describe('v-model', () => {
     it('should render the panel when we pass to model true', async () => {
-      const wrapper = mountPanelAsTemplate(
-        '<ec-panel v-model:show="show"></ec-panel>',
-        {},
-        {
-          data() {
-            return {
-              show: true,
-            };
-          },
+      const Component = defineComponent({
+        components: { EcPanel },
+        data() {
+          return {
+            show: true,
+          };
         },
-      );
+        template: '<ec-panel v-model:show="show"></ec-panel>',
+      });
 
+      const wrapper = mount(Component);
       expect(wrapper.findByDataTest('ec-panel').exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
 
@@ -199,18 +184,17 @@ describe('EcPanel', () => {
     });
 
     it('should not render the panel when we pass to model false', () => {
-      const wrapper = mountPanelAsTemplate(
-        '<ec-panel v-model:show="show"></ec-panel>',
-        {},
-        {
-          data() {
-            return {
-              show: false,
-            };
-          },
+      const Component = defineComponent({
+        components: { EcPanel },
+        data() {
+          return {
+            show: false,
+          };
         },
-      );
+        template: '<ec-panel v-model:show="show"></ec-panel>',
+      });
 
+      const wrapper = mount(Component);
       expect(wrapper.findByDataTest('ec-panel').exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });

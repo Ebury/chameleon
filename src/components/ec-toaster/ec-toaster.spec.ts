@@ -1,22 +1,23 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount, VueWrapper } from '@vue/test-utils';
 import { vi } from 'vitest';
 
 import EcToaster from './ec-toaster.vue';
+import { type ToasterMessage, ToasterMessageType, type ToasterProps } from './types';
 
-const messages = [
+const messages: ToasterMessage[] = [
   {
     id: 1,
-    type: 'success',
+    type: ToasterMessageType.SUCCESS,
     title: 'This is the title',
     subtitle: 'This is the subtitle',
   },
 ];
 
-const allTypeMessages = ['error', 'success', 'info', 'warning'].map((type, id) => ({
+const allTypeMessages: ToasterMessage[] = Object.values(ToasterMessageType).map((type, id) => ({
   id, type, title: 'random', subtitle: 'random',
 }));
 
-function mountToaster(props, mountOpts) {
+function mountToaster(props?: ToasterProps, mountOpts?: ComponentMountingOptions<typeof EcToaster>) {
   return mount(EcToaster, {
     props,
     ...mountOpts,
@@ -42,8 +43,8 @@ describe('EcToaster', () => {
       const wrapper = mountToaster({ messages });
       swipe(wrapper, 200, 251);
 
-      expect(wrapper.emitted('remove').length).toBe(1);
-      expect(wrapper.emitted('remove')[0]).toEqual([messages[0]]);
+      expect(wrapper.emitted('remove')?.length).toBe(1);
+      expect(wrapper.emitted('remove')?.[0]).toEqual([messages[0]]);
     });
     it('should not emit a "remove" event when toaster is swiped for less than 50px to the right', () => {
       const wrapper = mountToaster({ messages });
@@ -84,7 +85,7 @@ describe('EcToaster', () => {
 
     it('should follow the pointer touching the item when swiping to the right', () => {
       const wrapper = mountToaster({ messages });
-      const item = wrapper.findByDataTest('ec-toaster__item');
+      const item = wrapper.findByDataTest<HTMLElement>('ec-toaster__item');
 
       item.trigger('touchstart', { changedTouches: [{ pageX: 0 }] });
       item.trigger('touchmove', { changedTouches: [{ pageX: 20 }] });
@@ -99,7 +100,7 @@ describe('EcToaster', () => {
 
     it('should not follow the pointer touching the item when swiping to the left', () => {
       const wrapper = mountToaster({ messages });
-      const item = wrapper.findByDataTest('ec-toaster__item');
+      const item = wrapper.findByDataTest<HTMLElement>('ec-toaster__item');
 
       item.trigger('touchstart', { changedTouches: [{ pageX: 20 }] });
       item.trigger('touchmove', { changedTouches: [{ pageX: 0 }] });
@@ -108,7 +109,7 @@ describe('EcToaster', () => {
 
     it('should restore the original transform style prop when swipe gets cancelled', () => {
       const wrapper = mountToaster({ messages });
-      const item = wrapper.findByDataTest('ec-toaster__item');
+      const item = wrapper.findByDataTest<HTMLElement>('ec-toaster__item');
       item.element.style.transform = 'scale(1.5)';
 
       item.trigger('touchstart', { changedTouches: [{ pageX: 0 }] });
@@ -118,7 +119,7 @@ describe('EcToaster', () => {
       expect(item.element.style.transform).toBe('scale(1.5)');
     });
 
-    function swipe(wrapper, startX, endX) {
+    function swipe(wrapper: VueWrapper, startX: number, endX: number) {
       wrapper.findByDataTest('ec-toaster__item').trigger('touchstart', { changedTouches: [{ pageX: startX }] });
       wrapper.findByDataTest('ec-toaster__item').trigger('touchend', { changedTouches: [{ pageX: endX }] });
     }
@@ -128,8 +129,8 @@ describe('EcToaster', () => {
     const wrapper = mountToaster({ messages });
     wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
 
-    expect(wrapper.emitted('remove').length).toBe(1);
-    expect(wrapper.emitted('remove')[0]).toEqual([messages[0]]);
+    expect(wrapper.emitted('remove')?.length).toBe(1);
+    expect(wrapper.emitted('remove')?.[0]).toEqual([messages[0]]);
   });
 
   it('should not contain initially a class of "ec-toaster__item--swipe-active"', () => {

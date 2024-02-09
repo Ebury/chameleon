@@ -1,12 +1,14 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { ref } from 'vue';
+import { defineComponent, ref } from 'vue';
 
+import { ZIndexLevel } from '../../enums';
 import EcPopover from './ec-popover.vue';
 import { POPOVER_CONTAINER_KEY } from './ec-popover-provide';
+import { PopoverPlacement, type PopoverProps, PopoverTrigger } from './types';
 
 describe('EcPopover component', () => {
-  function mountEcPopover(props, mountOpts) {
+  function mountEcPopover(props?: PopoverProps, mountOpts?: ComponentMountingOptions<typeof EcPopover>) {
     return mount(EcPopover, {
       props,
       global: {
@@ -40,10 +42,16 @@ describe('EcPopover component', () => {
   });
 
   it('should update options when additional options are also updated', async () => {
-    const wrapper = mountEcPopover({ placement: 'left' });
+    const wrapper = mountEcPopover({
+      placement: PopoverPlacement.LEFT,
+      triggers: [PopoverTrigger.CLICK],
+    });
     expect(wrapper.element).toMatchSnapshot('before');
 
-    await wrapper.setProps({ placement: 'bottom' });
+    await wrapper.setProps({
+      placement: PopoverPlacement.BOTTOM,
+      triggers: [PopoverTrigger.HOVER],
+    });
     expect(wrapper.element).toMatchSnapshot('after');
   });
 
@@ -58,7 +66,7 @@ describe('EcPopover component', () => {
 
   it('should add the z-index level class if the level was given', () => {
     const wrapper = mountEcPopover({
-      level: 'level-30',
+      level: ZIndexLevel.LEVEL3,
     });
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -77,6 +85,23 @@ describe('EcPopover component', () => {
         },
       },
     });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render given slot', () => {
+    const FakeVDropdown = defineComponent({
+      template: '<ec-stub><slot name="popper"></slot></ec-stub>',
+    });
+
+    const wrapper = mount(EcPopover, {
+      global: {
+        stubs: { VDropdown: FakeVDropdown },
+      },
+      slots: {
+        popper: '<div>Random text</div>',
+      },
+    });
+
     expect(wrapper.element).toMatchSnapshot();
   });
 });
