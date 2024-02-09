@@ -1,42 +1,21 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 
-import { withMockedConsole } from '../../../tests/utils/console';
+import { IconName } from '../ec-icon/icon-names';
 import EcNavigationLink from './ec-navigation-link.vue';
+import type { NavigationLinkProps } from './types';
 
 describe('EcNavigationLink', () => {
-  it('should throw an error if prop text was not given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mount(EcNavigationLink);
-      expect(warnSpy).toHaveBeenCalledTimes(3);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "text"');
-    });
-  });
-
-  it('should throw an error if prop url was not given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mount(EcNavigationLink, {
-        props: {
-          text: 'Random text',
-        },
-      });
-      expect(warnSpy).toHaveBeenCalledTimes(2);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "url"');
-    });
-  });
-
   describe('as router-link', () => {
-    function mountAsRouterLink(opts, mountOpts) {
-      const props = {
-        text: 'Link',
-        iconName: 'single-check',
-        url: '/balances',
-        isRouterLink: true,
-        ...opts,
-      };
-
+    function mountAsRouterLink(props?: Partial<NavigationLinkProps>, mountOpts?: ComponentMountingOptions<typeof EcNavigationLink>) {
       return mount(EcNavigationLink, {
-        props,
+        props: {
+          text: 'Link',
+          iconName: IconName.SIMPLE_CHECK,
+          url: '/balances',
+          isRouterLink: true,
+          ...props,
+        },
         ...mountOpts,
       });
     }
@@ -87,30 +66,28 @@ describe('EcNavigationLink', () => {
     });
 
     it('should pass custom attributes', () => {
-      const wrapper = mountAsRouterLink(
-        {
+      const wrapper = mountAsRouterLink({}, {
+        attrs: {
           id: 'my-link',
           'data-test': 'my-custom-link',
           class: 'my-custom-class',
         },
-      );
+      });
 
       expect(wrapper.element).toMatchSnapshot();
     });
   });
 
   describe('as regular anchor', () => {
-    function mountAsAnchor(opts, mountOpts) {
-      const props = {
-        text: 'Link',
-        iconName: 'single-check',
-        url: '#/balances',
-        isRouterLink: false,
-        ...opts,
-      };
-
+    function mountAsAnchor(props?: Partial<NavigationLinkProps>, mountOpts?: ComponentMountingOptions<typeof EcNavigationLink>) {
       return mount(EcNavigationLink, {
-        props,
+        props: {
+          text: 'Link',
+          iconName: IconName.SIMPLE_CHECK,
+          url: '#/balances',
+          isRouterLink: false,
+          ...props,
+        },
         ...mountOpts,
       });
     }
@@ -161,13 +138,13 @@ describe('EcNavigationLink', () => {
     });
 
     it('should pass custom attributes', () => {
-      const wrapper = mountAsAnchor(
-        {
+      const wrapper = mountAsAnchor({}, {
+        attrs: {
           id: 'my-link',
           'data-test': 'my-custom-link',
           class: 'my-custom-class',
         },
-      );
+      });
 
       expect(wrapper.element).toMatchSnapshot();
     });

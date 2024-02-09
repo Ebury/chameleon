@@ -22,7 +22,7 @@ exports[`EcMenu > should attach custom listeners passed in the link definition 1
         width="24"
       >
         <use
-          xlink:href="#ec-foo-icon"
+          xlink:href="#ec-simple-address"
         />
       </svg>
       <transition-stub
@@ -67,7 +67,7 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
         width="24"
       >
         <use
-          xlink:href="#ec-foo-icon"
+          xlink:href="#ec-simple-address"
         />
       </svg>
       <transition-stub
@@ -92,6 +92,74 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
     <a
       class="ec-menu__link ec-navigation-link"
       data-test="ec-menu__link ec-navigation-link"
+      href="/bar"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-city"
+        />
+      </svg>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Bar
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link baz ec-navigation-link"
+      href="/baz"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-eye"
+        />
+      </svg>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Baz
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
       <svg
@@ -101,7 +169,7 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
         width="24"
       >
         <use
-          xlink:href="#ec-baz-icon"
+          xlink:href="#ec-simple-trade"
         />
       </svg>
       <transition-stub
@@ -124,8 +192,6 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
 `;
 
 exports[`EcMenu > should not render if links are not supplied 1`] = `<!--v-if-->`;
-
-exports[`EcMenu > should not render if links are null 1`] = `<!--v-if-->`;
 
 exports[`EcMenu > should not render if links is an empty array 1`] = `<!--v-if-->`;
 
@@ -151,7 +217,7 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
         width="24"
       >
         <use
-          xlink:href="#ec-foo-icon"
+          xlink:href="#ec-simple-address"
         />
       </svg>
       <transition-stub
@@ -176,6 +242,74 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
     <a
       class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link ec-navigation-link"
+      href="/bar"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-city"
+        />
+      </svg>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Bar
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      data-test="ec-menu__link baz ec-navigation-link"
+      href="/baz"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-eye"
+        />
+      </svg>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Baz
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
       <svg
@@ -185,7 +319,7 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
         width="24"
       >
         <use
-          xlink:href="#ec-baz-icon"
+          xlink:href="#ec-simple-trade"
         />
       </svg>
       <transition-stub
@@ -229,7 +363,7 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
         width="24"
       >
         <use
-          xlink:href="#ec-foo-icon"
+          xlink:href="#ec-simple-address"
         />
       </svg>
       <transition-stub
@@ -255,6 +389,76 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
     <a
       class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
       data-test="ec-menu__link ec-navigation-link"
+      href="/bar"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-city"
+        />
+      </svg>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+          style="display: none;"
+        >
+          Bar
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      data-test="ec-menu__link baz ec-navigation-link"
+      href="/baz"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-eye"
+        />
+      </svg>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+          style="display: none;"
+        >
+          Baz
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
       <svg
@@ -264,7 +468,7 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
         width="24"
       >
         <use
-          xlink:href="#ec-baz-icon"
+          xlink:href="#ec-simple-trade"
         />
       </svg>
       <transition-stub
@@ -309,7 +513,7 @@ exports[`EcMenu > should render as expanded by default 1`] = `
         width="24"
       >
         <use
-          xlink:href="#ec-foo-icon"
+          xlink:href="#ec-simple-address"
         />
       </svg>
       <transition-stub
@@ -334,6 +538,74 @@ exports[`EcMenu > should render as expanded by default 1`] = `
     <a
       class="ec-menu__link ec-navigation-link"
       data-test="ec-menu__link ec-navigation-link"
+      href="/bar"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-city"
+        />
+      </svg>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Bar
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link baz ec-navigation-link"
+      href="/baz"
+    >
+      <svg
+        class="ec-icon ec-navigation-link__icon"
+        data-test="ec-navigation-link__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-eye"
+        />
+      </svg>
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ec-navigation-link__text-fade"
+        persisted="true"
+      >
+        <span
+          class="ec-navigation-link__text"
+          data-test="ec-navigation-link__text"
+        >
+          Baz
+        </span>
+      </transition-stub>
+    </a>
+  </li>
+  <li
+    class="ec-menu__item"
+    data-test="ec-menu__item"
+  >
+    <a
+      class="ec-menu__link ec-navigation-link"
+      data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
       <svg
@@ -343,7 +615,7 @@ exports[`EcMenu > should render as expanded by default 1`] = `
         width="24"
       >
         <use
-          xlink:href="#ec-baz-icon"
+          xlink:href="#ec-simple-trade"
         />
       </svg>
       <transition-stub
@@ -387,7 +659,7 @@ exports[`EcMenu > should render as expected when set to horizontal 1`] = `
         width="24"
       >
         <use
-          xlink:href="#ec-foo-icon"
+          xlink:href="#ec-simple-address"
         />
       </svg>
       <transition-stub
@@ -431,7 +703,7 @@ exports[`EcMenu > should render as expected when set to isReverse 1`] = `
         width="24"
       >
         <use
-          xlink:href="#ec-foo-icon"
+          xlink:href="#ec-simple-address"
         />
       </svg>
       <transition-stub
@@ -475,7 +747,7 @@ exports[`EcMenu > should render as expected when set to isReverse and horizontal
         width="24"
       >
         <use
-          xlink:href="#ec-foo-icon"
+          xlink:href="#ec-simple-address"
         />
       </svg>
       <transition-stub
@@ -489,84 +761,6 @@ exports[`EcMenu > should render as expected when set to isReverse and horizontal
           data-test="ec-navigation-link__text"
         >
           Foo
-        </span>
-      </transition-stub>
-    </a>
-  </li>
-  
-</ul>
-`;
-
-exports[`EcMenu > should render only links with a url property 1`] = `
-<ul
-  class="ec-menu"
-  data-test="ec-menu"
->
-  
-  <li
-    class="ec-menu__item"
-    data-test="ec-menu__item"
-  >
-    <a
-      class="ec-menu__link ec-navigation-link"
-      data-test="ec-menu__link foo ec-navigation-link"
-      href="/foo"
-    >
-      <svg
-        class="ec-icon ec-navigation-link__icon"
-        data-test="ec-navigation-link__icon"
-        height="24"
-        width="24"
-      >
-        <use
-          xlink:href="#ec-foo-icon"
-        />
-      </svg>
-      <transition-stub
-        appear="false"
-        css="true"
-        name="ec-navigation-link__text-fade"
-        persisted="true"
-      >
-        <span
-          class="ec-navigation-link__text"
-          data-test="ec-navigation-link__text"
-        >
-          Foo
-        </span>
-      </transition-stub>
-    </a>
-  </li>
-  <li
-    class="ec-menu__item"
-    data-test="ec-menu__item"
-  >
-    <a
-      class="ec-menu__link ec-navigation-link"
-      data-test="ec-menu__link ec-navigation-link"
-      href="/bat"
-    >
-      <svg
-        class="ec-icon ec-navigation-link__icon"
-        data-test="ec-navigation-link__icon"
-        height="24"
-        width="24"
-      >
-        <use
-          xlink:href="#ec-baz-icon"
-        />
-      </svg>
-      <transition-stub
-        appear="false"
-        css="true"
-        name="ec-navigation-link__text-fade"
-        persisted="true"
-      >
-        <span
-          class="ec-navigation-link__text"
-          data-test="ec-navigation-link__text"
-        >
-          Bat
         </span>
       </transition-stub>
     </a>

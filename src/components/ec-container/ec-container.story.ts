@@ -1,13 +1,19 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { onMounted, ref } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/icon-names';
 import EcMainContainer from '../ec-main-container';
 import EcMenu from '../ec-menu';
 import EcNavigation from '../ec-navigation';
+import type { NavigationBranding } from '../ec-navigation/types';
+import type { NavigationLinkProps } from '../ec-navigation-link/types';
 import EcUserInfo from '../ec-user-info';
+import type { UserInfo } from '../ec-user-info/types';
 import EcContainer from './ec-container.vue';
+import type { ContainerProps } from './types';
 
 import './ec-container.story.css';
 
@@ -17,9 +23,9 @@ export default {
   decorators: [
     fixedContainerDecorator(),
   ],
-};
+} as Meta<typeof EcContainer>;
 
-const Template = args => ({
+const Template: StoryFn<typeof EcContainer> = args => ({
   components: { EcContainer },
   setup() {
     return { args };
@@ -41,7 +47,23 @@ basic.args = {
   isCollapsable: false,
 };
 
-export const withNavigation = ({
+// TODO: use ec-dropdown types after migrating
+type DropdownItem = {
+  text: string,
+  value: string,
+};
+
+type ContainerWithNavigationStory = StoryFn<ContainerProps & {
+  isCollapsed: boolean,
+  copyrightText: string,
+  client: UserInfo,
+  branding: NavigationBranding,
+  footerLinks: NavigationLinkProps[],
+  menuLinks: NavigationLinkProps[],
+  clientItems: DropdownItem[],
+}>;
+
+export const withNavigation: ContainerWithNavigationStory = ({
   isCollapsable,
   client,
   clientItems,
@@ -50,10 +72,9 @@ export const withNavigation = ({
   footerLinks,
   copyrightText,
   isCollapsed,
-  ...args
 }) => ({
   setup() {
-    const userInfoRef = ref(null);
+    const userInfoRef = ref<InstanceType<typeof EcUserInfo>>();
     const popoverBoundaryPadding = ref(24);
     const selectedClient = ref({});
     const isCollapsedFromProps = ref(isCollapsed);
@@ -64,9 +85,11 @@ export const withNavigation = ({
     }
 
     onMounted(() => {
-      popoverStyle.value = {
-        width: `${Math.max(userInfoRef.value.$el.offsetWidth - (2 * popoverBoundaryPadding.value), 120)}px`,
-      };
+      if (userInfoRef.value) {
+        popoverStyle.value = {
+          width: `${Math.max(userInfoRef.value.$el.offsetWidth - (2 * popoverBoundaryPadding.value), 120)}px`,
+        };
+      }
     });
 
     return {
@@ -83,7 +106,6 @@ export const withNavigation = ({
       userInfoRef,
       popoverStyle,
       popoverBoundaryPadding,
-      args,
     };
   },
   components: {
@@ -169,25 +191,25 @@ withNavigation.args = {
     gravatar: '/empty-gravatar.png',
   },
   clientItems: [
-    { text: 'Ebury Demo' },
-    { text: 'Ebury Demo 2' },
+    { text: 'Ebury Demo', value: 'EBPCLI000001' },
+    { text: 'Ebury Demo 2', value: 'EBPCLI000002' },
   ],
   branding: {
     name: 'My Branding',
     logo: '/ebury-logo-sm-inverse.png',
   },
   menuLinks: [
-    { text: 'Link 1', iconName: 'simple-trade', url: '/my-url' },
-    { text: 'Link 2', iconName: 'simple-trade-finance', url: '/my-url' },
+    { text: 'Link 1', iconName: IconName.SIMPLE_TRADE, url: '/my-url' },
+    { text: 'Link 2', iconName: IconName.SIMPLE_TRADE_FINANCE, url: '/my-url' },
     {
-      text: 'Link 3', iconName: 'simple-dashboard', url: '/my-url', isActive: true,
+      text: 'Link 3', iconName: IconName.SIMPLE_DASHBOARD, url: '/my-url', isActive: true,
     },
-    { text: 'Link 4', iconName: 'simple-help', url: '/my-url' },
-    { text: 'Link 5', iconName: 'simple-calendar', url: '/my-url' },
+    { text: 'Link 4', iconName: IconName.SIMPLE_HELP, url: '/my-url' },
+    { text: 'Link 5', iconName: IconName.SIMPLE_CALENDAR, url: '/my-url' },
   ],
   footerLinks: [
-    { text: 'Link 6', iconName: 'simple-help', url: '/my-url' },
-    { text: 'Link 7', iconName: 'simple-sign-out', url: '/my-url' },
+    { text: 'Link 6', iconName: IconName.SIMPLE_HELP, url: '/my-url' },
+    { text: 'Link 7', iconName: IconName.SIMPLE_SIGN_OUT, url: '/my-url' },
   ],
   isCollapsable: false,
   copyrightText: 'Copyright text 2019',

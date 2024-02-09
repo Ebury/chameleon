@@ -13,7 +13,7 @@ exports[`EcNavigationLink > as regular anchor > should be active when isActive i
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -45,7 +45,7 @@ exports[`EcNavigationLink > as regular anchor > should be compact when isCompact
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -77,7 +77,7 @@ exports[`EcNavigationLink > as regular anchor > should be expanded by default 1`
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -109,7 +109,7 @@ exports[`EcNavigationLink > as regular anchor > should hide the text when is col
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -143,7 +143,7 @@ exports[`EcNavigationLink > as regular anchor > should pass custom attributes 1`
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -175,7 +175,7 @@ exports[`EcNavigationLink > as regular anchor > should render as a normal <a> ta
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -207,7 +207,7 @@ exports[`EcNavigationLink > as regular anchor > should show the text when is exp
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -241,7 +241,7 @@ exports[`EcNavigationLink > as router-link > should be active when isActive is p
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -276,7 +276,7 @@ exports[`EcNavigationLink > as router-link > should be compact when isCompact is
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -311,7 +311,7 @@ exports[`EcNavigationLink > as router-link > should be expanded by default 1`] =
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -346,7 +346,7 @@ exports[`EcNavigationLink > as router-link > should hide the text when is collap
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -383,7 +383,7 @@ exports[`EcNavigationLink > as router-link > should pass custom attributes 1`] =
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -418,7 +418,7 @@ exports[`EcNavigationLink > as router-link > should render as a router link if i
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub
@@ -453,7 +453,7 @@ exports[`EcNavigationLink > as router-link > should show the text when is expand
     width="24"
   >
     <use
-      xlink:href="#ec-single-check"
+      xlink:href="#ec-simple-check"
     />
   </svg>
   <transition-stub

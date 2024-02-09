@@ -1,9 +1,10 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
 import EcContainer from './ec-container.vue';
+import type { ContainerProps } from './types';
 
 describe('EcContainer', () => {
-  function mountEcContainer(props, mountOpts) {
+  function mountEcContainer(props?: Partial<ContainerProps>, mountOpts?: ComponentMountingOptions<typeof EcContainer>) {
     return mount(EcContainer, {
       props,
       ...mountOpts,

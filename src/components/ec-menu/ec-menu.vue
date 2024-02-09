@@ -31,32 +31,20 @@
   </ul>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
 import EcNavigationLink from '../ec-navigation-link';
+import type { MenuLink, MenuProps } from './types';
 
-const props = defineProps({
-  horizontal: {
-    type: Boolean,
-  },
-  isCollapsed: {
-    type: Boolean,
-    default: false,
-  },
-  links: {
-    type: Array,
-    default: () => [],
-  },
-  isReversed: {
-    type: Boolean,
-  },
+const props = withDefaults(defineProps<MenuProps>(), {
+  links: () => [],
 });
 
 const hasLinks = computed(() => Boolean(props.links && props.links.length));
 const validLinks = computed(() => props.links.filter(link => Boolean(link && link.url)));
 
-function getLinkDataTest(link) {
+function getLinkDataTest(link: MenuLink): string {
   return `ec-menu__link ${link.dataTest || ''}`.trim();
 }
 </script>
