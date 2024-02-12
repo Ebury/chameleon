@@ -1,7 +1,7 @@
-import type { NumericRange } from '../../main';
+import { type IntRange } from 'type-fest';
 
 export interface FullScreenOverlayProps {
   title?: string,
   show?: boolean,
-  backgroundColorLevel?: NumericRange<0, 8>,
+  backgroundColorLevel?: IntRange<0, 9>,
 }

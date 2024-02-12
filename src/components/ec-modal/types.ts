@@ -1,4 +1,5 @@
-import type { NumericRange } from '../../../global';
+import type { IntRange } from 'type-fest';
+
 import type { ButtonCategory } from '../ec-btn/types';
 
 export interface ModalButtonsLegacyProps<TValue> {
@@ -17,7 +18,7 @@ export interface ModalProps {
   // TODO: remove the prop below and use it as part
   // of the positiveButtonProps/negativeButtonProps
   isLoading?: ModalButtonsLegacyProps<boolean>,
-  zIndex?: NumericRange<201, 249>,
+  zIndex?: IntRange<201, 250>,
   // TODO: remove the prop below and use it as part
   // of the positiveButtonProps/negativeButtonProps
   category?: ModalButtonsLegacyProps<ButtonCategory>,
