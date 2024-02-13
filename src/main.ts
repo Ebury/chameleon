@@ -83,6 +83,7 @@ export { default as EcTextFilter } from './components/ec-text-filter';
 export * from './components/ec-text-filter/types';
 export { default as EcTextarea } from './components/ec-textarea';
 export { default as EcTimer } from './components/ec-timer';
+export * from './components/ec-timer/types';
 export { default as EcToaster } from './components/ec-toaster';
 export * from './components/ec-toaster/types';
 export { default as EcUserInfo } from './components/ec-user-info';

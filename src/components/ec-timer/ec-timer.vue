@@ -57,35 +57,16 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, onBeforeUnmount, watchEffect } from 'vue';
 
 import useEcCountdown from '../../composables/use-ec-countdown/use-ec-countdown';
+import type { TimerProps } from './types';
 
-const props = defineProps({
-  /**
-   * Seconds to finish the countdown
-   */
-  seconds: {
-    type: Number,
-    required: true,
-    validator(value) {
-      return Number.isInteger(value) && value > 0;
-    },
-  },
-  showMinutes: {
-    type: Boolean,
-    default: false,
-  },
-  /**
-   * Indicates if the countdown is running
-   */
-  isRunning: {
-    type: Boolean,
-    required: true,
-  },
-});
-const emit = defineEmits(['time-expired']);
+const props = defineProps<TimerProps>();
+const emit = defineEmits<{
+  'time-expired': [],
+}>();
 
 const radius = 24;
 const strokeWidth = 4;

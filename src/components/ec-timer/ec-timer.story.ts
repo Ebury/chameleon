@@ -1,13 +1,18 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 
 import EcTimer from './ec-timer.vue';
 
-export default {
+const meta: Meta = {
   title: 'Timer',
   component: EcTimer,
 };
 
-const Template = args => ({
+export default meta;
+
+type EcTimerStory = StoryFn<typeof EcTimer>;
+
+const Template: EcTimerStory = args => ({
   components: { EcTimer },
   setup() {
     return {
