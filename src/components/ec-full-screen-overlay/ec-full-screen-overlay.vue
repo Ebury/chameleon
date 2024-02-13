@@ -42,8 +42,8 @@
               <ec-icon
                 class="ec-full-screen-overlay__close-icon"
                 data-test="ec-full-screen-overlay__close-icon"
-                name="simple-close"
-                type="interactive"
+                :name="IconName.SIMPLE_CLOSE"
+                :type="IconType.INTERACTIVE"
                 :size="24"
               />
             </button>
@@ -58,37 +58,28 @@
   </transition>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import { onUnmounted, ref, useSlots } from 'vue';
 
+import type { Maybe } from '../../../global';
 import EcIcon from '../ec-icon';
+import { IconName, IconType } from '../ec-icon/types';
+import type { FullScreenOverlayProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-defineProps({
-  title: {
-    type: String,
-    required: false,
-  },
-  show: {
-    type: Boolean,
-    default: false,
-  },
-  backgroundColorLevel: {
-    type: Number,
-    default: 8,
-    validator(value) {
-      return value >= 0 && value <= 8;
-    },
-  },
+withDefaults(defineProps<FullScreenOverlayProps>(), {
+  backgroundColorLevel: 8,
 });
 
-const emit = defineEmits(['close']);
+const emit = defineEmits<{
+  'close': [],
+}>();
 
-const overlayContent = ref(null);
+const overlayContent = ref<Maybe<HTMLDivElement>>(null);
 const { deactivate } = useFocusTrap(overlayContent, {
   immediate: true,
   escapeDeactivates: false,
@@ -98,7 +89,7 @@ const { deactivate } = useFocusTrap(overlayContent, {
   fallbackFocus: 'body',
 });
 
-function getFocusTrapContainer() {
+function getFocusTrapContainer(): Maybe<HTMLElement> {
   return overlayContent.value;
 }
 
@@ -112,7 +103,7 @@ onUnmounted(() => {
 
 const slots = useSlots();
 
-function hasHeaderSlot() {
+function hasHeaderSlot(): boolean {
   return !!slots.header;
 }
 </script>

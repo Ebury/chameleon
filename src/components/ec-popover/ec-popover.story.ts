@@ -1,10 +1,12 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
 import EcClosePopover from '../../directives/ec-close-popover';
 import EcTooltip from '../../directives/ec-tooltip';
 import EcPopover from './ec-popover.vue';
+import { PopoverPlacement, type PopoverProps, PopoverTrigger } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Popover',
   component: EcPopover,
   argTypes: {
@@ -19,7 +21,13 @@ export default {
   },
 };
 
-const Template = storyArgs => ({
+export default meta;
+
+type EcPopoverStory = StoryFn<PopoverProps & {
+  trigger: PopoverTrigger,
+}>;
+
+const Template: EcPopoverStory = storyArgs => ({
   components: { EcPopover },
   directives: { EcClosePopover },
   setup() {
@@ -59,8 +67,8 @@ const Template = storyArgs => ({
 export const basic = Template.bind({});
 
 basic.args = {
-  placement: 'top',
-  trigger: 'click',
+  placement: PopoverPlacement.TOP,
+  trigger: PopoverTrigger.CLICK,
   shown: true,
   distance: 4,
   skidding: 0,
@@ -75,7 +83,7 @@ basic.parameters = {
   },
 };
 
-export const zIndices = storyArgs => ({
+export const zIndices: EcPopoverStory = storyArgs => ({
   components: { EcPopover },
   directives: { EcTooltip },
   setup() {
@@ -165,8 +173,8 @@ export const zIndices = storyArgs => ({
 });
 
 zIndices.args = {
-  placement: 'top',
-  trigger: 'click',
+  placement: PopoverPlacement.TOP,
+  trigger: PopoverTrigger.CLICK,
   shown: false,
   distance: 8,
   skidding: 0,

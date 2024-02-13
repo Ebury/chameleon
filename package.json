@@ -1,6 +1,6 @@
 {
   "name": "@ebury/chameleon-components",
-  "version": "2.7.4",
+  "version": "2.7.5",
   "main": "src/main.ts",
   "sideEffects": false,
   "author": "Ebury Team (http://labs.ebury.rocks/)",
@@ -46,6 +46,7 @@
     "lodash": "4.17.21",
     "svg-country-flags": "1.2.10",
     "tailwindcss": "3.3.5",
+    "type-fest": "4.10.2",
     "vue": "3.3.4"
   },
   "devDependencies": {

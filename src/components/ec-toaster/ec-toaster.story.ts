@@ -1,12 +1,14 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import {
   onBeforeUnmount, onMounted, ref, toRefs,
 } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcToaster from './ec-toaster.vue';
+import { type ToasterMessage, ToasterMessageType, type ToasterProps } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Toaster',
   component: EcToaster,
   decorators: [
@@ -14,7 +16,15 @@ export default {
   ],
 };
 
-export const basic = storyArgs => ({
+export default meta;
+
+type EcToasterStory = StoryFn<ToasterProps & {
+  type: ToasterMessageType,
+  title: ToasterMessage['title'],
+  subtitle: ToasterMessage['subtitle'],
+}>;
+
+export const basic: EcToasterStory = storyArgs => ({
   components: { EcToaster },
   setup() {
     const {
@@ -24,7 +34,7 @@ export const basic = storyArgs => ({
       subtitle,
     } = toRefs(storyArgs);
 
-    function useBodyHandler({ actionName }) {
+    function useBodyHandler({ actionName }: { actionName: string }) {
       const bodyHandler = action(actionName);
 
       onMounted(() => {
@@ -36,10 +46,10 @@ export const basic = storyArgs => ({
       });
     }
 
-    function useMessageStorage(initialMessages, newMessageDefaults) {
+    function useMessageStorage(initialMessages: ToasterMessage[]) {
       const model = ref(initialMessages);
 
-      function removeMessage(message) {
+      function removeMessage(message: ToasterMessage) {
         action('remove')(message);
         model.value = model.value.filter(m => m !== message);
       }
@@ -47,10 +57,9 @@ export const basic = storyArgs => ({
       function addMessage() {
         model.value.push({
           id: +new Date(),
-          ...newMessageDefaults,
-          type,
-          title,
-          subtitle,
+          type: type.value,
+          title: title.value,
+          subtitle: subtitle.value,
         });
       }
       return {
@@ -61,7 +70,7 @@ export const basic = storyArgs => ({
     }
 
     useBodyHandler({ actionName: 'bodyClick' });
-    const { removeMessage, addMessage, model } = useMessageStorage(messages, { type, title, subtitle });
+    const { removeMessage, addMessage, model } = useMessageStorage(messages?.value ?? []);
 
     return {
       model,
@@ -84,43 +93,43 @@ export const basic = storyArgs => ({
 
 basic.argTypes = {
   type: {
-    options: ['error', 'success', 'warning', 'info'],
+    options: Object.values(ToasterMessageType),
     control: { type: 'select' },
   },
 };
 
 basic.args = {
-  type: 'error',
+  type: ToasterMessageType.ERROR,
   title: 'A new title',
   subtitle: 'A new subtitle',
   messages: [
     {
       id: 1,
-      type: 'success',
+      type: ToasterMessageType.SUCCESS,
       title: 'This is the title',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     },
     {
       id: 2,
-      type: 'error',
+      type: ToasterMessageType.ERROR,
       title: 'This is the title',
       subtitle: 'This is the subtitle',
     },
     {
       id: 3,
-      type: 'warning',
+      type: ToasterMessageType.WARNING,
       title: 'This is the title',
       subtitle: 'This is the subtitle',
     },
     {
       id: 4,
-      type: 'info',
+      type: ToasterMessageType.INFO,
       title: 'This is the title',
       subtitle: 'This is the subtitle',
     },
     {
       id: 5,
-      type: 'error',
+      type: ToasterMessageType.ERROR,
       title: 'This is the title',
       subtitle: 'This is the subtitle',
     },

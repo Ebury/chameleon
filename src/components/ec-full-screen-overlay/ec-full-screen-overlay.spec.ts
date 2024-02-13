@@ -1,11 +1,11 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcFullScreenOverlay from './ec-full-screen-overlay.vue';
+import type { FullScreenOverlayProps } from './types';
 
 describe('EcFullScreenOverlay', () => {
-  function mountFullScreenOverlay(props, mountOpts) {
+  function mountFullScreenOverlay(props?: Partial<FullScreenOverlayProps>, mountOpts?: ComponentMountingOptions<typeof EcFullScreenOverlay>) {
     return mount(EcFullScreenOverlay, {
       props: {
         title: 'Full screen overlay title',
@@ -35,7 +35,7 @@ describe('EcFullScreenOverlay', () => {
 
   it('should initialize the "useFocusTrap composable" with mandatory options', () => {
     mountFullScreenOverlay();
-    const options = useFocusTrap.mock.calls[0][1];
+    const options = vi.mocked(useFocusTrap).mock.calls[0][1] ?? {};
     expect(options.clickOutsideDeactivates).toBe(false);
     expect(options.escapeDeactivates).toBe(false);
     expect(options.immediate).toBe(true);
@@ -46,7 +46,7 @@ describe('EcFullScreenOverlay', () => {
     const elem = document.createElement('div');
     document.body.appendChild(elem);
     const wrapper = mountFullScreenOverlay({}, { attachTo: elem });
-    await wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').element.focus();
+    wrapper.findByDataTest<HTMLButtonElement>('ec-full-screen-overlay__close-icon-btn').element.focus();
     await wrapper.findByDataTest('ec-full-screen-overlay').trigger('keydown.esc');
     expect(document.activeElement).toEqual(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').element);
   });
@@ -55,8 +55,7 @@ describe('EcFullScreenOverlay', () => {
     it('should return the container that was exposed', () => {
       const wrapper = mountFullScreenOverlay();
       const container = wrapper.vm.getFocusTrapContainer();
-      const { overlayContent } = wrapper.vm;
-      expect(container).toEqual(overlayContent);
+      expect(container).toBe(wrapper.findByDataTest<HTMLElement>('ec-full-screen-overlay').element);
     });
   });
 
@@ -73,22 +72,16 @@ describe('EcFullScreenOverlay', () => {
       expect(wrapper.findByDataTest('ec-full-screen-overlay__title').element).toMatchSnapshot();
     });
 
-    describe(':backgroundColorLevel', () => {
-      it('should render with the background css class passed', () => {
-        const wrapper = mountFullScreenOverlay({ backgroundColorLevel: 5 });
-        expect(wrapper.findByDataTest('ec-full-screen-overlay').classes('tw-bg-gray-5')).toBe(true);
-        expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toMatchSnapshot();
-      });
+    it(':title - should render without the title', () => {
+      const wrapper = mountFullScreenOverlay({ title: undefined });
+      expect(wrapper.findByDataTest('ec-full-screen-overlay__title').exists()).toBe(false);
+      expect(wrapper.findByDataTest('ec-full-screen-overlay__header').element).toMatchSnapshot();
+    });
 
-      it('should throw an error when it is not between 0 and 8', () => {
-        withMockedConsole((_errorSpy, warnSpy) => {
-          mountFullScreenOverlay({ backgroundColorLevel: 9 });
-          expect(warnSpy).toHaveBeenCalledTimes(1);
-          expect(warnSpy.mock.calls[0][0]).toContain(
-            'Invalid prop: custom validator check failed for prop "backgroundColorLevel"',
-          );
-        });
-      });
+    it(':backgroundColorLevel - should render with the background css class passed', () => {
+      const wrapper = mountFullScreenOverlay({ backgroundColorLevel: 5 });
+      expect(wrapper.findByDataTest('ec-full-screen-overlay').classes('tw-bg-gray-5')).toBe(true);
+      expect(wrapper.findByDataTest('ec-full-screen-overlay').element).toMatchSnapshot();
     });
   });
 
@@ -97,7 +90,7 @@ describe('EcFullScreenOverlay', () => {
       const wrapper = mountFullScreenOverlay();
       expect(wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').exists()).toBe(true);
       await wrapper.findByDataTest('ec-full-screen-overlay__close-icon-btn').trigger('click');
-      expect(wrapper.emitted('close').length).toBe(1);
+      expect(wrapper.emitted('close')?.length).toBe(1);
     });
   });
 

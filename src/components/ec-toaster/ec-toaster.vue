@@ -32,19 +32,22 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
 import EcAlert from '../ec-alert';
-import VEcToasterTouch from './ec-toaster-touch';
+import vEcToasterTouch from './ec-toaster-touch';
+import { type ToasterMessage, type ToasterProps } from './types';
 
-defineEmits(['remove']);
-
-defineProps({
-  messages: { type: Array, default: () => [] },
+withDefaults(defineProps<ToasterProps>(), {
+  messages: () => [],
 });
 
-const items = ref([]);
+defineEmits<{
+  'remove': [message: ToasterMessage],
+}>();
+
+const items = ref<HTMLElement[]>([]);
 
 function rememberTopItemPositions() {
   if (items.value) {
@@ -105,7 +108,7 @@ onMounted(rememberTopItemPositions);
   @apply tw-transform-gpu tw-translate-x-full;
 }
 
-.ec-toaster-items-transition-leave-active {
+.ec-toaster-items-transition-leave {
   @apply tw-absolute;
 }
 </style>

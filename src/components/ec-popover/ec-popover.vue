@@ -6,15 +6,17 @@
   >
     <slot />
     <template #popper="{ hide, shown }">
+      <!-- c8 ignore start -->
       <slot
         name="popper"
         v-bind="{ hide, shown }"
       />
+      <!-- c8 ignore end -->
     </template>
   </fv-dropdown>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Dropdown as FvDropdown } from 'floating-vue';
 import {
   inject, ref, toRefs, useAttrs,
@@ -22,32 +24,44 @@ import {
 
 import { getUid } from '../../utils/uid';
 import { POPOVER_CONTAINER_KEY } from './ec-popover-provide';
+import type { PopoverProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
 const attrs = useAttrs();
-const props = defineProps({
-  level: {
-    type: String,
-    default: '',
-  },
-  popperClass: {
-    type: String,
-    default: '',
-  },
+
+const props = withDefaults(defineProps<PopoverProps>(), {
+  popperClass: '',
 });
 
 const id = getUid();
-const popover = ref(null);
+const popover = ref<InstanceType<typeof FvDropdown>>();
 
-const { level, popperClass } = toRefs(props);
+const {
+  shown,
+  level,
+  popperClass,
+  placement,
+  triggers,
+  distance,
+  skidding,
+  disabled,
+  autoHide,
+} = toRefs(props);
 const { container: containerInject } = inject(POPOVER_CONTAINER_KEY, { container: ref('body') });
 
 function getOptions() {
   return {
-    popperClass: `${popperClass.value} ec-popover${level.value && ` ec-popover--${level.value}`}`.trim(),
+    shown: shown?.value,
+    placement: placement?.value,
+    triggers: triggers?.value,
+    distance: distance?.value,
+    skidding: skidding?.value,
+    disabled: disabled?.value,
+    autoHide: autoHide?.value,
+    popperClass: `${popperClass.value} ec-popover${level?.value ? ` ec-popover--${level.value}` : ''}`.trim(),
     container: containerInject.value,
     ariaId: `ec-popover-${id}`,
     arrowOverflow: true, // to hide the arrow for popover

@@ -1,3 +1,7 @@
+import { type PopoverDelay as TooltipDelay, PopoverPlacement as TooltipPlacement, PopoverTrigger as TooltipTrigger } from '../../components/ec-popover/types';
+
+export { type TooltipDelay, TooltipPlacement, TooltipTrigger };
+
 export enum TooltipPopperClass {
   EC_TOOLTIP = 'ec-tooltip',
   EC_TOOLTIP_TOOLTIP = 'ec-tooltip--tooltip',
@@ -12,19 +16,6 @@ export enum TooltipPopperClass {
   EC_TOOLTIP_INVALID = 'ec-tooltip--invalid',
 }
 
-export enum TooltipTrigger {
-  HOVER = 'hover',
-  CLICK = 'click',
-  MANUAL = 'manual',
-}
-
-export enum TooltipPlacement {
-  RIGHT = 'right',
-  TOP = 'top',
-  BOTTOM = 'bottom',
-  LEFT = 'left',
-}
-
 export interface TooltipOptions {
   popperClass?: TooltipPopperClass[];
   container?: HTMLElement | DocumentFragment | string;
@@ -33,7 +24,7 @@ export interface TooltipOptions {
   shown?: boolean,
   content?: string | boolean,
   ariaId?: string,
-  delay?: number,
+  delay?: TooltipDelay,
   distance?: number,
   skidding?: number,
   autoHide?: boolean,
