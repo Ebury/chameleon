@@ -34,6 +34,7 @@ const attrs = useAttrs();
 
 const props = withDefaults(defineProps<PopoverProps>(), {
   popperClass: '',
+  autoHide: true,
 });
 
 const id = getUid();
