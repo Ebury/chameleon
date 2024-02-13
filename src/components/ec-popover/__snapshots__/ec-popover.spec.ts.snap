@@ -4,7 +4,7 @@ exports[`EcPopover component > should add the z-index level class if the level w
 <v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
-  autohide="false"
+  autohide="true"
   container="body"
   data-test="ec-popover"
   disabled="false"
@@ -20,7 +20,7 @@ exports[`EcPopover component > should attach to a different element when provide
 <v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
-  autohide="false"
+  autohide="true"
   container="custom-element"
   data-test="ec-popover"
   disabled="false"
@@ -36,7 +36,7 @@ exports[`EcPopover component > should merge default options with given additiona
 <v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
-  autohide="false"
+  autohide="true"
   container="body"
   data-test="ec-popover"
   disabled="false"
@@ -52,7 +52,7 @@ exports[`EcPopover component > should pass default options when no additional pr
 <v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
-  autohide="false"
+  autohide="true"
   container="body"
   data-test="ec-popover"
   disabled="false"
@@ -68,7 +68,7 @@ exports[`EcPopover component > should render given slot 1`] = `
 <ec-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
-  autohide="false"
+  autohide="true"
   container="body"
   data-test="ec-popover"
   disabled="false"
@@ -89,7 +89,7 @@ exports[`EcPopover component > should render with custom attributes 1`] = `
 <v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
-  autohide="false"
+  autohide="true"
   class="my-class"
   container="body"
   data-test="my-data-test ec-popover"
@@ -107,7 +107,7 @@ exports[`EcPopover component > should update options when additional options are
 <v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
-  autohide="false"
+  autohide="true"
   container="body"
   data-test="ec-popover"
   disabled="false"
@@ -125,7 +125,7 @@ exports[`EcPopover component > should update options when additional options are
 <v-dropdown-stub
   ariaid="ec-popover-1"
   arrowoverflow="true"
-  autohide="false"
+  autohide="true"
   container="body"
   data-test="ec-popover"
   disabled="false"

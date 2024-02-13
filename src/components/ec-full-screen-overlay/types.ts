@@ -1,4 +1,4 @@
-import { type IntRange } from 'type-fest';
+import type { IntRange } from 'type-fest';
 
 export interface FullScreenOverlayProps {
   title?: string,
