@@ -1,6 +1,7 @@
 /* eslint no-underscore-dangle: "off" */
-import type { DirectiveBinding, ObjectDirective } from 'vue';
+import type { DirectiveBinding, ObjectDirective, VNode } from 'vue';
 
+import type { Maybe } from '../../../global';
 import defaultOptions from './options';
 import type { AmountDirectiveOptions } from './types';
 import { format, setCursor } from './utils';
@@ -19,7 +20,13 @@ function getNumberOfSeparators(value: string, endIndex: number, separator: strin
   return matches ? matches.length : 0;
 }
 
-function updateOptions(el: EcAmountInputElement, binding: DirectiveBinding<AmountDirectiveOptions>) {
+function updateOptions(el: Maybe<EcAmountInputElement>, binding: DirectiveBinding<AmountDirectiveOptions>) {
+  /* c8 ignore start */
+  if (!el) {
+    return;
+  }
+  /* c8 ignore stop */
+
   const options = (binding && binding.value) ? binding.value : {};
 
   const opts: AmountDirectiveOptions = {
@@ -30,16 +37,16 @@ function updateOptions(el: EcAmountInputElement, binding: DirectiveBinding<Amoun
   el.__amountOptions = opts;
 }
 
-function getOptions(el: EcAmountInputElement): AmountDirectiveOptions {
-  return /* c8 ignore next */ el.__amountOptions || defaultOptions;
+function getOptions(el: Maybe<EcAmountInputElement>): AmountDirectiveOptions {
+  return /* c8 ignore next */ (el && el.__amountOptions) || defaultOptions;
 }
 
 const EcAmountDirective: ObjectDirective<EcAmountInputElement, AmountDirectiveOptions> = {
-  updated(el: EcAmountInputElement, binding: DirectiveBinding<AmountDirectiveOptions>) {
-    updateOptions(el, binding);
+  updated(el: EcAmountInputElement, binding: DirectiveBinding<AmountDirectiveOptions>, vnode: VNode<EcAmountInputElement>) {
+    updateOptions(vnode.el, binding);
   },
 
-  beforeMount(el: EcAmountInputElement, binding: DirectiveBinding<AmountDirectiveOptions>) {
+  beforeMount(el: EcAmountInputElement, binding: DirectiveBinding<AmountDirectiveOptions>, vnode: VNode<EcAmountInputElement>) {
     /* eslint no-param-reassign: "off" */
     // v-ec-amount used on a component that's not an input
     if (el.tagName.toLocaleUpperCase() !== 'INPUT') {
@@ -49,7 +56,7 @@ const EcAmountDirective: ObjectDirective<EcAmountInputElement, AmountDirectiveOp
       throw new TypeError('v-ec-amount requires 1 input');
     }
 
-    updateOptions(el, binding);
+    updateOptions(vnode.el, binding);
 
     el.__inputHandler = function inputHandler() {
       if (el.__preventHandlingNextInputEvent) {
@@ -57,7 +64,7 @@ const EcAmountDirective: ObjectDirective<EcAmountInputElement, AmountDirectiveOp
         return;
       }
 
-      const options = getOptions(el);
+      const options = getOptions(vnode.el);
 
       /* c8 ignore next */
       let positionFromStart = el.selectionStart ?? 0;

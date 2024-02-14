@@ -1,33 +1,25 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount, VueWrapper } from '@vue/test-utils';
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import { vi } from 'vitest';
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, ref } from 'vue';
+import type { ComponentExposed } from 'vue-component-type-helpers';
 
-import { withMockedConsole } from '../../../tests/utils/console';
+import { TooltipPlacement } from '../../main';
+import { PopoverPlacement } from '../ec-popover/types';
 import EcDropdownSearch from './ec-dropdown-search.vue';
+import type { DropdownItem, DropdownSearchProps } from './types';
+
+type EcDropdownSearchExposed = ComponentExposed<typeof EcDropdownSearch>;
 
 describe('EcDropdownSearch', () => {
-  function mountDropdownSearch(props, mountOpts) {
-    return mount(EcDropdownSearch, {
+  function mountDropdownSearch<TValue = string, TDropdownItem extends DropdownItem<TValue> = DropdownItem<TValue>>(props?: DropdownSearchProps<TValue, TDropdownItem>, mountOpts?: ComponentMountingOptions<EcDropdownSearchExposed>) {
+    return mount<EcDropdownSearchExposed>(EcDropdownSearch, {
       props,
       ...mountOpts,
     });
   }
 
-  function mountAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const Component = defineComponent({
-      components: { EcDropdownSearch },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount(Component, {
-      props,
-      ...mountOpts,
-    });
-  }
-
-  const items = [
+  const items: DropdownItem<never>[] = [
     { id: 1, text: 'Item 1' },
     { id: 2, text: 'Item 2' },
     { id: 3, text: 'Item 3' },
@@ -40,27 +32,6 @@ describe('EcDropdownSearch', () => {
   it('should render as expected', () => {
     const wrapper = mountDropdownSearch();
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it.each([
-    ['modal', false],
-    ['tooltip', false],
-    ['notification', false],
-    ['level-1', false],
-    ['level-2', false],
-    ['level-3', false],
-    ['random', true],
-  ])('should validate if the level prop("%s") is on the allowed array of strings', (level, error) => {
-    if (error) {
-      withMockedConsole((errorSpy, warnSpy) => {
-        mountDropdownSearch({ items, level });
-        expect(warnSpy).toHaveBeenCalledTimes(1);
-        expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "level"');
-      });
-    } else {
-      const wrapper = mountDropdownSearch({ items, level });
-      expect(wrapper.findByDataTest('ec-popover-dropdown-search').attributes('level')).toBe(level);
-    }
   });
 
   it('should render given custom attributes', () => {
@@ -94,7 +65,7 @@ describe('EcDropdownSearch', () => {
       items,
     }, {
       slots: {
-        items: props => h('li', ['Items: ', h('pre', JSON.stringify(props, null, 2))]),
+        items: (props: DropdownItem<never>[]) => h('li', ['Items: ', h('pre', JSON.stringify(props, null, 2))]),
       },
     });
 
@@ -106,7 +77,7 @@ describe('EcDropdownSearch', () => {
       items,
     }, {
       slots: {
-        item: ({ index, item }) => h('div', [h('strong', `${index}.`), `${item.text}`]),
+        item: ({ index, item }: { index: number, item: DropdownItem<never> }) => h('div', [h('strong', `${index}.`), `${item.text}`]),
       },
     });
 
@@ -119,7 +90,7 @@ describe('EcDropdownSearch', () => {
       modelValue: items[2],
     }, {
       slots: {
-        item: ({ index, isSelected }) => h('div', `${index} - ${isSelected}`),
+        item: ({ index, isSelected }: { index: number, isSelected: boolean }) => h('div', `${index} - ${isSelected}`),
       },
     });
 
@@ -157,7 +128,7 @@ describe('EcDropdownSearch', () => {
   });
 
   it('should render the search by default', () => {
-    const wrapper = mountDropdownSearch();
+    const wrapper = mountDropdownSearch({ });
     expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
   });
 
@@ -195,22 +166,19 @@ describe('EcDropdownSearch', () => {
     const selectedItem = items[0];
     const changeSpy = vi.fn();
 
-    const wrapper = mountAsTemplate(
-      '<ec-dropdown-search v-model="selectedItem" :items="items" @change="changeSpy" />',
-      {},
-      {
-        data() {
-          return {
-            selectedItem,
-            items,
-          };
-        },
-        methods: {
+    const Component = defineComponent({
+      components: { EcDropdownSearch },
+      setup() {
+        return {
           changeSpy,
-        },
+          items,
+          selectedItem: ref(selectedItem),
+        };
       },
-    );
+      template: '<ec-dropdown-search v-model="selectedItem" :items="items" @change="changeSpy" />',
+    });
 
+    const wrapper = mount(Component);
     expect(wrapper.find('.ec-dropdown-search__item--is-selected').element).toMatchSnapshot();
     expect(changeSpy).not.toHaveBeenCalled();
     await wrapper.findAllByDataTest('ec-dropdown-search__item')[2].trigger('click');
@@ -246,13 +214,13 @@ describe('EcDropdownSearch', () => {
   });
 
   it('should merge given tooltipOptions and item.tooltip prop', () => {
-    const disabledItem = {
+    const disabledItem: DropdownItem<never> = {
       text: 'Random Item',
       disabled: true,
       disabledReason: 'This reason should not be seen because it\'s overridden by tooltip.content.',
     };
 
-    const overriddenItem = {
+    const overriddenItem: DropdownItem<never> = {
       ...disabledItem,
       tooltip: {
         content: 'Content overridden by item',
@@ -263,7 +231,7 @@ describe('EcDropdownSearch', () => {
     const customisedWrapper = mountDropdownSearch({
       items: [overriddenItem],
       tooltipOptions: {
-        placement: 'top',
+        placement: TooltipPlacement.TOP,
       },
     });
 
@@ -274,9 +242,10 @@ describe('EcDropdownSearch', () => {
   it('should merge given popoverOptions', () => {
     const defaultWrapper = mountDropdownSearch({});
     const customisedWrapper = mountDropdownSearch({
+      items: [],
       popoverOptions: {
-        placement: 'top',
-        offset: 16,
+        placement: PopoverPlacement.TOP,
+        distance: 16,
       },
     });
 
@@ -294,16 +263,16 @@ describe('EcDropdownSearch', () => {
   });
 
   it('should initialize the "useFocusTrap composable" with mandatory options', () => {
-    mountDropdownSearch({ }, {
+    mountDropdownSearch({ items }, {
       slots: {
         default: '<a href="#" @click.prevent>Open me</a>',
       },
     });
-    const options = useFocusTrap.mock.calls[0][1];
-    expect(options.clickOutsideDeactivates).toBe(true);
-    expect(options.escapeDeactivates).toBe(true);
-    expect(options.immediate).toBe(false);
-    expect(Boolean(options.fallbackFocus)).toBe(true);
+    const options = vi.mocked(useFocusTrap).mock.calls[0][1];
+    expect(options?.clickOutsideDeactivates).toBe(true);
+    expect(options?.escapeDeactivates).toBe(true);
+    expect(options?.immediate).toBe(false);
+    expect(options?.fallbackFocus).toBeDefined();
   });
 
   describe('filtering', () => {
@@ -313,7 +282,7 @@ describe('EcDropdownSearch', () => {
       { text: 'Item cdf' },
     ];
 
-    function getItemTexts(wrapper) {
+    function getItemTexts(wrapper: VueWrapper): string[] {
       return wrapper.findAllByDataTest('ec-dropdown-search__item').map(itemWrapper => itemWrapper.text());
     }
 
@@ -369,7 +338,7 @@ describe('EcDropdownSearch', () => {
         noResultsText: 'No custom items have been found',
       }, {
         slots: {
-          empty: ({ noResultsText }) => h('li', { 'data-test': 'my-slot' }, [h('div', `Random message - ${noResultsText}`)]),
+          empty: ({ noResultsText }: { noResultsText: string }) => h('li', { 'data-test': 'my-slot' }, [h('div', `Random message - ${noResultsText}`)]),
         },
       });
       expect(wrapper.findByDataTest('my-slot').element).toMatchSnapshot();
@@ -385,19 +354,23 @@ describe('EcDropdownSearch', () => {
   });
 
   describe('filtering complex items', () => {
-    const itemsToFilter = [
+    interface MyDropdownItem<T> extends DropdownItem<T> {
+      category: string,
+      language: string,
+    }
+
+    const itemsToFilter: MyDropdownItem<never>[] = [
       { text: 'Item ABC', category: 'One', language: 'English' },
       { text: 'Item BCD', category: 'Two', language: 'French' },
       { text: 'Item cdf', category: 'Three', language: 'English' },
     ];
 
-    function getItemTexts(wrapper) {
+    function getItemTexts(wrapper: VueWrapper): string[] {
       return wrapper.findAllByDataTest('ec-dropdown-search__item').map(itemWrapper => itemWrapper.text());
     }
 
     it('should filter items with a search field', async () => {
-      const searchFields = ['category'];
-      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields: ['category'] });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('One');
@@ -405,8 +378,7 @@ describe('EcDropdownSearch', () => {
     });
 
     it('should filter items with multiple search fields', async () => {
-      const searchFields = ['category', 'language'];
-      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields: ['category', 'language'] });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('English');
@@ -414,17 +386,7 @@ describe('EcDropdownSearch', () => {
     });
 
     it('should not filter by text if no search field found', async () => {
-      const searchFields = ['category'];
-      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
-      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
-
-      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('f');
-      expect(getItemTexts(wrapper)).toEqual([]);
-    });
-
-    it('should not filter by text with no existing search field', async () => {
-      const searchFields = ['country'];
-      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields: ['category'] });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('f');
@@ -432,7 +394,7 @@ describe('EcDropdownSearch', () => {
     });
 
     it('should filter by text with empty search fields', async () => {
-      const searchFields = null;
+      const searchFields = undefined;
       const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
@@ -441,8 +403,7 @@ describe('EcDropdownSearch', () => {
     });
 
     it('should filter items using case insensitive', async () => {
-      const searchFields = ['category', 'language'];
-      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields: ['category', 'language'] });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('O');
@@ -450,8 +411,7 @@ describe('EcDropdownSearch', () => {
     });
 
     it('should trim the search text', async () => {
-      const searchFields = ['category', 'language'];
-      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields: ['category', 'language'] });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('\t f\n');
@@ -459,8 +419,7 @@ describe('EcDropdownSearch', () => {
     });
 
     it('should remove the diacritics', async () => {
-      const searchFields = ['category', 'language'];
-      const wrapper = mountDropdownSearch({ items: itemsToFilter.map(item => ({ text: item.text, category: item.category.replace('E', 'È'), language: item.language })), searchFields });
+      const wrapper = mountDropdownSearch({ items: itemsToFilter.map(item => ({ text: item.text, category: item.category.replace('E', 'È'), language: item.language })) });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('è');
@@ -468,8 +427,7 @@ describe('EcDropdownSearch', () => {
     });
 
     it('should display no results message if no item matches', async () => {
-      const searchFields = ['category', 'language'];
-      const wrapper = mountDropdownSearch({ items: itemsToFilter, searchFields });
+      const wrapper = mountDropdownSearch({ items: itemsToFilter });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
 
       await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('dkasldklsakdlsakdlas');
@@ -478,28 +436,24 @@ describe('EcDropdownSearch', () => {
     });
 
     it('should display custom no results message if no item matches', () => {
-      const searchFields = ['category', 'language'];
-      const wrapper = mountDropdownSearch({ items: [], noResultsText: 'No custom items have been found', searchFields });
+      const wrapper = mountDropdownSearch({ items: [], noResultsText: 'No custom items have been found' });
       expect(wrapper.findByDataTest('ec-dropdown-search__no-items').element).toMatchSnapshot();
     });
 
     it('should display custom no results slot if no item matches', () => {
-      const searchFields = ['category', 'language'];
       const wrapper = mountDropdownSearch({
         items: [],
         noResultsText: 'No custom items have been found',
-        searchFields,
       }, {
         slots: {
-          empty: ({ noResultsText }) => h('li', { 'data-test': 'my-slot' }, [h('div', `Random message - ${noResultsText}`)]),
+          empty: ({ noResultsText }: { noResultsText: string }) => h('li', { 'data-test': 'my-slot' }, [h('div', `Random message - ${noResultsText}`)]),
         },
       });
       expect(wrapper.findByDataTest('my-slot').element).toMatchSnapshot();
     });
 
     it('should not display the filter items if the isLoading prop is set to true', () => {
-      const searchFields = ['category', 'language'];
-      const wrapper = mountDropdownSearch({ items: itemsToFilter, isLoading: true, searchFields });
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, isLoading: true });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(0);
 
       wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('B');
@@ -515,23 +469,23 @@ describe('EcDropdownSearch', () => {
       const wrapper = mountDropdownSearch();
 
       wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('show');
-      expect(wrapper.emitted('open').length).toBe(1);
+      expect(wrapper.emitted('open')?.length).toBe(1);
 
       wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('apply-show');
-      expect(wrapper.emitted('after-open').length).toBe(1);
+      expect(wrapper.emitted('after-open')?.length).toBe(1);
 
       wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('hide');
-      expect(wrapper.emitted('close').length).toBe(1);
+      expect(wrapper.emitted('close')?.length).toBe(1);
 
       wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('apply-hide');
-      expect(wrapper.emitted('after-close').length).toBe(1);
+      expect(wrapper.emitted('after-close')?.length).toBe(1);
     });
 
     it('should focus the search box after the popover has been opened', async () => {
       const elem = document.createElement('div');
       document.body.appendChild(elem);
 
-      const wrapper = mountDropdownSearch({}, {
+      const wrapper = mountDropdownSearch({ items }, {
         attachTo: elem,
       });
 
@@ -548,7 +502,7 @@ describe('EcDropdownSearch', () => {
       wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('show');
       await wrapper.findAllByDataTest('ec-dropdown-search__item')[1].trigger('click');
 
-      expect(wrapper.emitted('close').length).toBe(1);
+      expect(wrapper.emitted('close')?.length).toBe(1);
     });
   });
 

@@ -1,14 +1,18 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
 
+import { ZIndexLevel } from '../../enums';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
 
-export default {
+const meta: Meta = {
   title: 'Phone Number Input',
   component: EcPhoneNumberInput,
 };
 
-export const basic = args => ({
+export default meta;
+
+export const basic: StoryFn<typeof EcPhoneNumberInput> = args => ({
   components: { EcPhoneNumberInput },
   setup() {
     return {
@@ -48,7 +52,7 @@ basic.args = {
   note: 'Select country and set number',
   bottomNote: 'Phone number can be up to 14 characters',
   isDisabled: false,
-  level: 'notification',
+  level: ZIndexLevel.NOTIFICATION,
   countries: [
     { areaCode: '+44', text: 'United Kingdom', countryCode: 'GB' },
     { areaCode: '+34', text: 'Spain', countryCode: 'ES' },

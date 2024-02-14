@@ -5,6 +5,7 @@
     :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-popover` : 'ec-popover'"
   >
     <slot />
+    <!-- eslint-disable-next-line vue/no-template-shadow -->
     <template #popper="{ hide, shown }">
       <!-- c8 ignore start -->
       <slot
@@ -35,6 +36,8 @@ const attrs = useAttrs();
 const props = withDefaults(defineProps<PopoverProps>(), {
   popperClass: '',
   autoHide: true,
+  shift: undefined,
+  autoSize: undefined,
 });
 
 const id = getUid();
@@ -50,6 +53,8 @@ const {
   skidding,
   disabled,
   autoHide,
+  shift,
+  autoSize,
 } = toRefs(props);
 const { container: containerInject } = inject(POPOVER_CONTAINER_KEY, { container: ref('body') });
 
@@ -62,6 +67,8 @@ function getOptions() {
     skidding: skidding?.value,
     disabled: disabled?.value,
     autoHide: autoHide?.value,
+    shift: shift?.value,
+    autoSize: autoSize?.value,
     popperClass: `${popperClass.value} ec-popover${level?.value ? ` ec-popover--${level.value}` : ''}`.trim(),
     container: containerInject.value,
     ariaId: `ec-popover-${id}`,

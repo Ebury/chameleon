@@ -18,7 +18,7 @@
       v-bind="{
         shown: isOpen,
         disabled: disabled,
-        placement: 'bottom-start',
+        placement: PopoverPlacement.BOTTOM_START,
         autoSize: true,
         shift: false,
         distance: 8,
@@ -57,7 +57,7 @@
             >
               <ec-icon
                 class="ec-dropdown-search__search-icon"
-                name="simple-search"
+                :name="IconName.SIMPLE_SEARCH"
               />
               <input
                 ref="searchInput"
@@ -74,7 +74,7 @@
             <li
               ref="ctaAreaWrapper"
               v-if="hasCta()"
-              v-ec-tooltip.left="{ content: !!tooltipCta ? tooltipCta : null }"
+              v-ec-tooltip.left="{ content: !!tooltipCta ? tooltipCta : undefined }"
               :class="{
                 'ec-dropdown-search__cta-area': true,
                 'ec-dropdown-search__cta-area--is-focused': isCtaAreaFocused,
@@ -119,7 +119,7 @@
                 :key="item.id || index"
                 ref="itemElements"
                 v-ec-tooltip="{
-                  placement: 'right',
+                  placement: PopoverPlacement.RIGHT,
                   content: item.disabled ? item.disabledReason : '',
                   ...tooltipOptions,
                   ...item.tooltip,
@@ -144,19 +144,23 @@
   </div>
 </template>
 
-<script setup>
+<!-- <script setup lang="ts" generic="TValue = string, TDropdownItem extends DropdownItem<TValue> = DropdownItem<TValue>"> -->
+<script setup lang="ts" generic="TValue, TDropdownItem extends DropdownItem<TValue>">
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
+import type { StyleValue } from 'vue';
 import {
   computed, nextTick, ref, toRaw, useSlots, watch,
 } from 'vue';
 
 import useConfig from '../../composables/use-ec-config';
-import VEcTooltip from '../../directives/ec-tooltip';
-import { KeyCode } from '../../enums';
+import vEcTooltip from '../../directives/ec-tooltip';
+import { KeyboardKey } from '../../enums';
+import { IconName, type Maybe, PopoverPlacement } from '../../main';
 import { removeDiacritics } from '../../utils/diacritics';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
 import EcPopover from '../ec-popover';
+import type { DropdownItem, DropdownSearchProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
@@ -164,77 +168,26 @@ defineOptions({
 
 const config = useConfig();
 
-const emit = defineEmits(['update:modelValue', 'change', 'close', 'open', 'after-close', 'after-open']);
-const props = defineProps({
-  placeholder: {
-    type: String,
-    default: 'Search...',
-  },
-  level: {
-    type: String,
-    validator(value) {
-      return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
-    },
-  },
-  isSearchEnabled: {
-    type: Boolean,
-    default: true,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  items: {
-    type: Array,
-    default: () => ([]),
-  },
-  searchFields: {
-    type: Array,
-  },
-  modelValue: {
-    type: [Object, Array],
-    default: null,
-  },
-  popoverOptions: {
-    type: Object,
-    default: null,
-  },
-  popoverStyle: {
-    type: [Object, Function],
-    default: null,
-  },
-  tooltipOptions: {
-    type: Object,
-    default: null,
-  },
-  maxVisibleItems: {
-    type: Number,
-    default: 4,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  noResultsText: {
-    type: String,
-    default: 'No results found',
-  },
-  tooltipCta: {
-    type: String,
-    default: '',
-  },
-  trapFocus: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<DropdownSearchProps<TValue, TDropdownItem>>(), {
+  placeholder: 'Search...',
+  noResultsText: 'No results found',
+  tooltipCta: '',
+  isSearchEnabled: true,
+  items: () => [],
+  maxVisibleItems: 4,
 });
 
+const emit = defineEmits<{
+  'update:modelValue': [value: TDropdownItem],
+  'change': [value: TDropdownItem],
+  'close': [],
+  'open': [],
+  'after-close': [],
+  'after-open': [],
+}>();
+
 // popover styles
-function getPopoverStyle() {
+function getPopoverStyle(): StyleValue | undefined {
   if (typeof props.popoverStyle === 'function') {
     return props.popoverStyle();
   }
@@ -251,8 +204,8 @@ function hasCta() {
 
 // toggling
 const isOpen = ref(false);
-const popoverWrapper = ref(null);
-const initialFocusedElement = ref(null);
+const popoverWrapper = ref<Maybe<HTMLDivElement>>();
+const initialFocusedElement = ref<Maybe<HTMLElement>>();
 
 function hide() {
   if (isOpen.value) {
@@ -260,7 +213,7 @@ function hide() {
     emit('close');
 
     /* c8 ignore start */
-    if (props.trapFocus === true) {
+    if (props.trapFocus) {
       deactivate(); // deactivate focus trap
     }
     /* c8 ignore stop */
@@ -268,8 +221,8 @@ function hide() {
 }
 
 function show() {
-  if (!isOpen.value) {
-    initialFocusedElement.value = popoverWrapper.value.querySelector(':focus');
+  if (!isOpen.value && popoverWrapper.value) {
+    initialFocusedElement.value = popoverWrapper.value.querySelector<HTMLElement>(':focus');
     blurCta();
     isOpen.value = true;
     emit('open');
@@ -300,7 +253,7 @@ function waitForPopoverFocus() {
 }
 
 /* c8 ignore start */
-function findTabbableElement(element) {
+function findTabbableElement(element: Maybe<ParentNode> | undefined): Maybe<HTMLElement> {
   if (element) {
     return element.querySelector(
       'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
@@ -347,12 +300,12 @@ function focusFirstItem() {
 // search
 const filterText = ref('');
 const isSearchInputFocused = ref(false);
-const searchInput = ref(null);
+const searchInput = ref<Maybe<HTMLInputElement>>(null);
 
 const indexedItems = computed(() => new WeakMap(props.items.map(item => [item, makeIndexText(item, props.searchFields ?? ['text'])])));
 
-function makeIndexText(item, searchFields) {
-  return searchFields.map(searchField => removeDiacritics(item[searchField] ?? '').toLowerCase()).join('\u00A0');
+function makeIndexText(item: TDropdownItem, searchFields: ReadonlyArray<keyof TDropdownItem>): string {
+  return searchFields.map(searchField => removeDiacritics(`${item[searchField] ?? /* c8 ignore next */ ''}`).toLowerCase()).join('\u00A0');
 }
 
 const filteredItems = computed(() => {
@@ -361,15 +314,15 @@ const filteredItems = computed(() => {
     return props.items;
   }
 
-  return props.items.filter((item) => {
-    const indexedText = indexedItems.value.get(item);
+  return props.items.filter((item: TDropdownItem) => {
+    const indexedText = indexedItems.value.get(item) ?? /* c8 ignore next */ '';
     return indexedText.includes(sanitisedText);
   });
 });
 
 const isEmpty = computed(() => props.isSearchEnabled && filteredItems.value.length === 0);
 
-function canFocusSearch() {
+function canFocusSearch(): boolean {
   return props.isSearchEnabled && !isSearchInputFocused.value && !isCtaAreaFocused.value;
 }
 
@@ -380,9 +333,9 @@ function focusSearch() {
 }
 
 // selecting items
-const popoverRef = ref(null);
+const popoverRef = ref<InstanceType<typeof EcPopover>>();
 
-function select(item, options) {
+function select(item: TDropdownItem, options?: { keyboardNavigation: boolean }) {
   emit('update:modelValue', item);
   emit('change', item);
   if (!options || !options.keyboardNavigation) {
@@ -393,24 +346,24 @@ function select(item, options) {
     });
     // selecting an item might affect the position of the popover,
     // e.g. new item moves the trigger down
-    popoverRef.value.update();
+    popoverRef.value?.update();
   }
 }
 
-function isItemSelected(item) {
+function isItemSelected(item: TDropdownItem): boolean {
   return toRaw(item) === toRaw(props.modelValue);
 }
 
-const selectedItemIndex = computed(() => filteredItems.value.indexOf(toRaw(props.modelValue)));
+const selectedItemIndex = computed(() => (props.modelValue ? filteredItems.value.indexOf(toRaw(props.modelValue)) : -1));
 
 // CTA
-const itemsOverflowContainer = ref(null);
+const itemsOverflowContainer = ref<Maybe<HTMLUListElement>>();
 const isCtaAreaFocused = ref(false);
 const { deactivate, activate } = useFocusTrap(itemsOverflowContainer, {
   immediate: false,
   escapeDeactivates: true,
   clickOutsideDeactivates: true,
-  fallbackFocus: /* c8 ignore next */() => popoverWrapper.value,
+  fallbackFocus: /* c8 ignore next */() => popoverWrapper.value || 'body',
 });
 
 function blurCta() {
@@ -434,9 +387,9 @@ function canFocusCta() {
 }
 
 // popover overflow (max-height and scroll position)
-const itemElements = ref([]);
-const searchAreaWrapper = ref(null);
-const ctaAreaWrapper = ref(null);
+const itemElements = ref<HTMLLIElement[]>([]);
+const searchAreaWrapper = ref<Maybe<HTMLLIElement>>();
+const ctaAreaWrapper = ref<Maybe<HTMLLIElement>>();
 const isFirstItemSelectable = computed(() => props.isSearchEnabled || hasCta());
 
 function updateScroll() {
@@ -493,7 +446,7 @@ function setOverflowHeight() {
       finalHeight += ctaAreaWrapper.value.offsetHeight;
     }
 
-    const visibleItems = Array.prototype.slice.call(items, 0, props.maxVisibleItems);
+    const visibleItems = ([] as HTMLLIElement[]).slice.call(items, 0, props.maxVisibleItems);
     finalHeight = visibleItems.reduce((sum, curr) => sum + curr.offsetHeight, finalHeight);
     overflowContainer.style.maxHeight = `${finalHeight}px`;
   } else {
@@ -503,18 +456,18 @@ function setOverflowHeight() {
 
 // keyboard navigation (UP, DOWN arrows)
 function onArrowUpKeyDown() {
-  onArrowKey(KeyCode.ARROW_UP);
+  onArrowKey(KeyboardKey.ARROW_UP);
 }
 
 function onArrowDownKeyDown() {
-  onArrowKey(KeyCode.ARROW_DOWN);
+  onArrowKey(KeyboardKey.ARROW_DOWN);
 }
 
-function onArrowKey(key) {
-  let nextItem;
+function onArrowKey(key: KeyboardKey) {
+  let nextItem: TDropdownItem | undefined;
 
   if (selectedItemIndex.value >= 0) {
-    if (key === KeyCode.ARROW_DOWN) {
+    if (key === KeyboardKey.ARROW_DOWN) {
       nextItem = filteredItems.value.find((item, i) => !item.disabled && i > selectedItemIndex.value);
     } else {
       const reversedItems = filteredItems.value.slice(0, selectedItemIndex.value).reverse();
@@ -530,7 +483,7 @@ function onArrowKey(key) {
 }
 
 // keyboard navigation (tabbing)
-function onTabKeyDown(event) {
+function onTabKeyDown(event: KeyboardEvent) {
   if (isOpen.value) {
     /* c8 ignore start */
     if (canFocusSearch()) {
@@ -571,10 +524,12 @@ function closeViaKeyboardNavigation() {
     loseFocus();
     if (props.isSearchEnabled) {
       const elementToFocus = initialFocusedElement.value;
+      /* c8 ignore start */
       if (elementToFocus && typeof elementToFocus.focus === 'function') {
         elementToFocus.focus();
         initialFocusedElement.value = null;
       }
+      /* c8 ignore stop */
     }
   }
 }
@@ -582,11 +537,11 @@ function closeViaKeyboardNavigation() {
 function loseFocus() {
   if (isSearchInputFocused.value) {
     // if the search is active the focus is lost from the trigger, then it must regain the focus
-    searchInput.value.blur();
+    searchInput.value?.blur();
   } else if (isCtaAreaFocused.value) {
     blurCta();
     const ctaAreaElementFocusable = findTabbableElement(ctaAreaWrapper.value);
-    ctaAreaElementFocusable.blur();
+    ctaAreaElementFocusable?.blur();
   }
 }
 </script>

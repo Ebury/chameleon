@@ -2,12 +2,8 @@
   <ec-input-field
     v-bind="{
       ...$attrs,
-      ...$props,
+      ...inputFieldProps,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-amount-input` : 'ec-amount-input',
-      modelValue: null,
-      locale: null,
-      isMasked: null,
-      currency: null,
     }"
     v-model="inputModel"
     v-ec-amount="numberFormatOptions"
@@ -15,38 +11,34 @@
   />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref, watch } from 'vue';
 
-import VEcAmount from '../../directives/ec-amount/ec-amount';
+import vEcAmount from '../../directives/ec-amount/ec-amount';
 import { format, unFormat } from '../../directives/ec-amount/utils';
+import type { Maybe } from '../../main';
 import { getDecimalSeparator, getGroupingSeparator } from '../../utils/number-format';
 import EcInputField from '../ec-input-field';
+import type { AmountInputProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits<{
+  'update:modelValue': [value: AmountInputProps['modelValue']],
+}>();
 
-const props = defineProps({
-  ...EcInputField.props,
-  modelValue: {
-    validator: prop => typeof prop === 'number' || typeof prop === 'string' || prop === null,
-    required: true,
-    default: null,
-  },
-  isMasked: {
-    type: Boolean,
-    default: false,
-  },
-  locale: {
-    type: String,
-    default: 'en',
-  },
-  currency: {
-    type: String,
-  },
+const props = withDefaults(defineProps<AmountInputProps>(), {
+  modelValue: null,
+  locale: 'en',
+});
+
+const inputFieldProps = computed(() => {
+  const {
+    currency, locale, modelValue, isMasked, ...rest
+  } = props;
+  return rest;
 });
 
 // number format settings
@@ -64,13 +56,13 @@ const numberFormatOptions = computed(() => ({
 
 // models
 const formattedValue = ref('');
-const unformattedValue = ref(null);
+const unformattedValue = ref<Maybe<number>>(null);
 
 const inputModel = computed({
   get() {
     return formattedValue.value;
   },
-  set(newValue) {
+  set(newValue: string) {
     const newValueFormatted = format(newValue, numberFormatOptions.value);
     if (newValueFormatted !== newValue) {
       return;
@@ -85,8 +77,8 @@ const inputModel = computed({
 });
 
 watch([() => props.currency, () => props.locale], () => {
-  if (formattedValue.value) {
-    const formatted = new Intl.NumberFormat(props.locale, { type: 'decimal', maximumFractionDigits: precision.value }).format(unformattedValue.value);
+  if (formattedValue.value && typeof unformattedValue.value === 'number') {
+    const formatted = new Intl.NumberFormat(props.locale, { style: 'decimal', maximumFractionDigits: precision.value }).format(unformattedValue.value);
     formattedValue.value = format(formatted, numberFormatOptions.value);
   }
 });
@@ -120,7 +112,13 @@ watch(() => props.modelValue, (newValue) => {
       return;
     }
 
-    formattedValue.value = newValue;
+    if (newValue === null || typeof newValue !== 'string') {
+      formattedValue.value = '';
+      unformattedValue.value = null;
+      return;
+    }
+
+    formattedValue.value = format(newValue, numberFormatOptions.value);
     unformattedValue.value = +(unFormat(newValue, groupingSeparator.value, decimalSeparator.value));
   } else {
     if (newValue === unformattedValue.value) {
@@ -129,12 +127,17 @@ watch(() => props.modelValue, (newValue) => {
 
     if (!Number.isNaN(newValue) && formattedValue.value !== '-') {
       if (typeof newValue === 'number') {
-        formattedValue.value = new Intl.NumberFormat(props.locale, { type: 'decimal', maximumFractionDigits: precision.value }).format(newValue);
-      } else {
+        formattedValue.value = new Intl.NumberFormat(props.locale, { style: 'decimal', maximumFractionDigits: precision.value }).format(newValue);
+      } else if (typeof newValue === 'string') {
         formattedValue.value = format(newValue, numberFormatOptions.value);
+      } else {
+        formattedValue.value = '';
       }
     }
-    unformattedValue.value = newValue;
+
+    if (typeof newValue !== 'string') {
+      unformattedValue.value = newValue;
+    }
   }
 }, {
   immediate: true,
@@ -144,4 +147,3 @@ watch(() => props.isMasked, (newValue) => {
   emit('update:modelValue', newValue ? formattedValue.value : unformattedValue.value);
 });
 </script>
-

@@ -1,24 +1,28 @@
-import { mount } from '@vue/test-utils';
+import { mount, VueWrapper } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
 import config from '../../config';
 import EcPhoneNumberInput from './ec-phone-number-input.vue';
+import type { PhoneNumberCountry, PhoneNumberProps } from './types';
 
-const countries = [
+const countries: PhoneNumberCountry[] = [
   { areaCode: '+44', text: 'United Kingdom', countryCode: 'GB' },
   { areaCode: '+1 658', text: 'Jamaica', countryCode: 'JM' },
   { areaCode: '+34', text: 'Spain', countryCode: 'ES' },
   { areaCode: '+204', text: 'New Country', countryCode: 'XX' },
-  { areaCode: '+204', text: 'New Country', countryCode: null },
+  { areaCode: '+204', text: 'New Country', countryCode: '' },
 ];
 
 describe('EcPhoneNumberInput', () => {
-  function mountPhoneNumberInput(props) {
+  function mountPhoneNumberInput(props?: Partial<PhoneNumberProps>) {
     return mount(EcPhoneNumberInput, {
       props: {
         countries,
-        modelValue: {},
+        modelValue: {
+          country: null,
+          phoneNumber: '',
+        },
         ...props,
       },
       global: {
@@ -26,24 +30,6 @@ describe('EcPhoneNumberInput', () => {
           vEcTooltip: EcTooltipDirectiveMock,
         },
       },
-    });
-  }
-
-  function mountPhoneNumberInputAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const Component = defineComponent({
-      components: { EcPhoneNumberInput },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount(Component, {
-      props,
-      global: {
-        mocks: {
-          vEcTooltip: EcTooltipDirectiveMock,
-        },
-      },
-      ...mountOpts,
     });
   }
 
@@ -207,19 +193,19 @@ describe('EcPhoneNumberInput', () => {
       const wrapper = mountPhoneNumberInput();
 
       await selectItem(wrapper, 1);
-      expect(wrapper.emitted('open').length).toEqual(1);
-      expect(wrapper.emitted('after-open').length).toEqual(1);
-      expect(wrapper.emitted('change').length).toEqual(1);
-      expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
-      expect(wrapper.emitted('country-change').length).toEqual(1);
+      expect(wrapper.emitted('open')?.length).toEqual(1);
+      expect(wrapper.emitted('after-open')?.length).toEqual(1);
+      expect(wrapper.emitted('change')?.length).toEqual(1);
+      expect(wrapper.emitted('focus')?.length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(1);
+      expect(wrapper.emitted('country-change')?.length).toEqual(1);
       await selectItem(wrapper, 2);
-      expect(wrapper.emitted('open').length).toEqual(2);
-      expect(wrapper.emitted('after-open').length).toEqual(2);
-      expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
-      expect(wrapper.emitted('country-change').length).toEqual(2);
+      expect(wrapper.emitted('open')?.length).toEqual(2);
+      expect(wrapper.emitted('after-open')?.length).toEqual(2);
+      expect(wrapper.emitted('change')?.length).toEqual(2);
+      expect(wrapper.emitted('focus')?.length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(2);
+      expect(wrapper.emitted('country-change')?.length).toEqual(2);
     });
 
     it('should emit update:modelValue event when number is set', async () => {
@@ -227,38 +213,37 @@ describe('EcPhoneNumberInput', () => {
 
       await wrapper.findByDataTest('ec-phone-number-input__number').trigger('focus');
       await wrapper.findByDataTest('ec-phone-number-input__number').setValue('11');
-      expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('change').length).toEqual(1);
-      expect(wrapper.emitted('phone-number-change').length).toEqual(1);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
+      expect(wrapper.emitted('focus')?.length).toEqual(1);
+      expect(wrapper.emitted('change')?.length).toEqual(1);
+      expect(wrapper.emitted('phone-number-change')?.length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(1);
 
       await wrapper.findByDataTest('ec-phone-number-input__number').trigger('focus');
       await wrapper.findByDataTest('ec-phone-number-input__number').setValue('111');
-      expect(wrapper.emitted('focus').length).toEqual(2);
-      expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('phone-number-change').length).toEqual(2);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
+      expect(wrapper.emitted('focus')?.length).toEqual(2);
+      expect(wrapper.emitted('change')?.length).toEqual(2);
+      expect(wrapper.emitted('phone-number-change')?.length).toEqual(2);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(2);
     });
   });
 
   describe('v-model', () => {
     it('should use the v-model with the country and emit the changes', async () => {
-      const wrapper = mountPhoneNumberInputAsTemplate(
-        '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              countries,
-              value: {
-                country: {},
-                phoneNumber: '',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcPhoneNumberInput },
+        data() {
+          return {
+            countries,
+            value: {
+              country: {},
+              phoneNumber: '',
+            },
+          };
         },
-      );
+        template: '<ec-phone-number-input :countries="countries" v-model="value" />',
+      });
 
+      const wrapper = mount(Component);
       await selectItem(wrapper, 0);
       expect(wrapper.vm.value.country).toEqual(countries[0]);
       await selectItem(wrapper, 1);
@@ -266,101 +251,101 @@ describe('EcPhoneNumberInput', () => {
     });
 
     it('should preselect the country item in the dropdown and the number in the input from the v-model', () => {
-      const wrapper = mountPhoneNumberInputAsTemplate(
-        '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              countries,
-              value: {
-                country: countries[0],
-                phoneNumber: '123456789',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcPhoneNumberInput },
+        data() {
+          return {
+            countries,
+            value: {
+              country: countries[0],
+              phoneNumber: '123456789',
+            },
+          };
         },
-      );
+        template: '<ec-phone-number-input :countries="countries" v-model="value" />',
+      });
+
+      const wrapper = mount(Component);
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[0].areaCode);
-      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-phone-number-input__number').element.value).toBe('123456789');
 
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
     });
 
     it('should preselect a country item from the v-model and do not show the image if does not exist', () => {
-      const wrapper = mountPhoneNumberInputAsTemplate(
-        '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              countries,
-              value: {
-                country: countries[3],
-                phoneNumber: '123456789',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcPhoneNumberInput },
+        data() {
+          return {
+            countries,
+            value: {
+              country: countries[3],
+              phoneNumber: '123456789',
+            },
+          };
         },
-      );
+        template: '<ec-phone-number-input :countries="countries" v-model="value" />',
+      });
+
+      const wrapper = mount(Component);
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[3].areaCode);
-      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-phone-number-input__number').element.value).toBe('123456789');
 
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
     });
 
     it('should preselect a country item from the v-model and do not show the image if country code is not set', () => {
-      const wrapper = mountPhoneNumberInputAsTemplate(
-        '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              countries,
-              value: {
-                country: countries[4],
-                phoneNumber: '123456789',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcPhoneNumberInput },
+        data() {
+          return {
+            countries,
+            value: {
+              country: countries[4],
+              phoneNumber: '123456789',
+            },
+          };
         },
-      );
+        template: '<ec-phone-number-input :countries="countries" v-model="value" />',
+      });
+
+      const wrapper = mount(Component);
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[4].areaCode);
-      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('123456789');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-phone-number-input__number').element.value).toBe('123456789');
 
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected').element).toMatchSnapshot();
     });
 
     it('should preselect the country item in the dropdown and the number in the input from the v-model AND mask them when "is-masked" prop is true', () => {
-      const wrapper = mountPhoneNumberInputAsTemplate(
-        '<ec-phone-number-input :is-masked="true" :countries="countries" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              countries,
-              value: {
-                country: countries[1],
-                phoneNumber: '123456789',
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcPhoneNumberInput },
+        data() {
+          return {
+            countries,
+            value: {
+              country: countries[1],
+              phoneNumber: '123456789',
+            },
+          };
         },
-      );
+        template: '<ec-phone-number-input :is-masked="true" :countries="countries" v-model="value" />',
+      });
+
+      const wrapper = mount(Component);
       expect(wrapper.findByDataTest('ec-phone-number-input__countries-selected-area-code').text()).toBe(countries[1].areaCode);
-      expect(wrapper.findByDataTest('ec-phone-number-input__number').element.value).toBe('*******89');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-phone-number-input__number').element.value).toBe('*******89');
     });
 
     it('should use the v-model with the phone number and emit the changes', async () => {
-      const wrapper = mountPhoneNumberInputAsTemplate(
-        '<ec-phone-number-input :countries="countries" v-model="value" />',
-        {},
-        {
-          data() {
-            return { countries, value: { phoneNumber: 0 } };
-          },
+      const Component = defineComponent({
+        components: { EcPhoneNumberInput },
+        data() {
+          return { countries, value: { phoneNumber: '0' } };
         },
-      );
+        template: '<ec-phone-number-input :countries="countries" v-model="value" />',
+      });
+
+      const wrapper = mount(Component);
 
       await wrapper.findByDataTest('ec-phone-number-input__number').setValue('11');
       expect(wrapper.vm.value.phoneNumber).toEqual('11');
@@ -368,7 +353,7 @@ describe('EcPhoneNumberInput', () => {
   });
 });
 
-async function selectItem(wrapper, index) {
+async function selectItem(wrapper: VueWrapper, index: number) {
   await wrapper.findByDataTest('ec-popover-stub').trigger('show');
   await wrapper.findByDataTest('ec-phone-number-input__countries').trigger('mousedown');
   await wrapper.findByDataTest('ec-phone-number-input__countries').trigger('focus');

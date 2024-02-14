@@ -40,4 +40,6 @@ export interface PopoverProps {
   popperClass?: string,
   placement?: PopoverPlacement,
   triggers?: PopoverTrigger[],
+  shift?: boolean,
+  autoSize?: boolean | 'min' | 'max',
 }

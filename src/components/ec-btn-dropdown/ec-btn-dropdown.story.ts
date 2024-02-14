@@ -1,7 +1,9 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { vueRouter } from 'storybook-vue3-router';
 
 import EcBtnDropdown from './ec-btn-dropdown.vue';
+import type { BtnDropdownProps } from './types';
 
 export default {
   title: 'Button Dropdown',
@@ -18,9 +20,11 @@ export default {
       component: { template: '<div></div>' },
     },
   ])],
-};
+} as Meta;
 
-const Template = args => ({
+type EcBtnDropdownStory = StoryFn<BtnDropdownProps>;
+
+const Template: EcBtnDropdownStory = args => ({
   components: {
     EcBtnDropdown,
   },
@@ -135,4 +139,3 @@ allButtonLinksDisabled.args = {
     },
   ],
 };
-

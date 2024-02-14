@@ -13,7 +13,7 @@
       :is-disabled="isBtnDropdownDisabled"
       :is-submit="false"
       is-reverse
-      category="primary"
+      :category="ButtonCategory.PRIMARY"
       is-rounded
       class="ec-btn-dropdown__btn"
       data-test="ec-btn-dropdown__btn"
@@ -62,70 +62,59 @@
         :is-disabled="isBtnPopoverDisabled"
         is-reverse
         is-rounded
-        category="primary"
+        :category="ButtonCategory.PRIMARY"
         :class="{
           'ec-btn-dropdown__dropdown-btn': true,
           'ec-btn-dropdown__dropdown-btn--is-open': isOpen,
         }"
         data-test="ec-btn-dropdown__dropdown-btn"
-        icon="simple-arrow-drop-down"
+        :icon="IconName.SIMPLE_ARROW_DROP_DOWN"
       />
     </ec-dropdown-search>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts" generic="TValue, TBtnDropdownItem extends BtnDropdownItem<TValue>">
+import type { StyleValue } from 'vue';
 import { computed, ref } from 'vue';
 
+import type { Maybe } from '../../../global';
 import EcBtn from '../ec-btn';
+import { ButtonCategory } from '../ec-btn/types';
 import EcDropdownSearch from '../ec-dropdown-search';
+import { IconName } from '../ec-icon/icon-names';
+import { PopoverPlacement, type PopoverProps } from '../ec-popover/types';
+import type { BtnDropdownItem, BtnDropdownProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps({
-  items: {
-    type: Array,
-    default: () => [],
-  },
-  isBtnDropdownDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  buttonText: {
-    type: String,
-    required: true,
-  },
-  listDataTest: {
-    type: String,
-  },
-  href: {
-    type: String,
-  },
-  to: {
-    type: [String, Object],
-  },
+const props = withDefaults(defineProps<BtnDropdownProps<TValue, TBtnDropdownItem>>(), {
+  items: () => ([]),
 });
 
-const emit = defineEmits(['click', 'change']);
+const emit = defineEmits<{
+  'click': [],
+  'change': [value: TBtnDropdownItem],
+}>();
 
 const isOpen = ref(false);
 const isBtnPopoverDisabled = computed(() => props.items.every(item => item.disabled));
-const popoverOptions = {
+const popoverOptions: Partial<PopoverProps> = {
   autoSize: 'min',
-  placement: 'bottom-end',
+  placement: PopoverPlacement.BOTTOM_END,
 };
 
-const popperReference = ref(null);
-function getPopoverStyle() {
+const popperReference = ref<Maybe<HTMLDivElement>>();
+function getPopoverStyle(): StyleValue | undefined {
   if (popperReference.value) {
     return {
       width: `${popperReference.value.offsetWidth}px`,
     };
   }
 
-  return null;
+  return undefined;
 }
 </script>
 

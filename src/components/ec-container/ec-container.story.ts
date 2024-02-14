@@ -3,6 +3,7 @@ import { onMounted, ref } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcDropdownSearch from '../ec-dropdown-search';
+import type { DropdownItem } from '../ec-dropdown-search/types';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/icon-names';
 import EcMainContainer from '../ec-main-container';
@@ -47,12 +48,6 @@ basic.args = {
   isCollapsable: false,
 };
 
-// TODO: use ec-dropdown types after migrating
-type DropdownItem = {
-  text: string,
-  value: string,
-};
-
 type ContainerWithNavigationStory = StoryFn<ContainerProps & {
   isCollapsed: boolean,
   copyrightText: string,
@@ -60,7 +55,7 @@ type ContainerWithNavigationStory = StoryFn<ContainerProps & {
   branding: NavigationBranding,
   footerLinks: NavigationLinkProps[],
   menuLinks: NavigationLinkProps[],
-  clientItems: DropdownItem[],
+  clientItems: DropdownItem<string>[],
 }>;
 
 export const withNavigation: ContainerWithNavigationStory = ({
