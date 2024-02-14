@@ -5,7 +5,7 @@ import type { ZIndexLevel } from '../../enums';
 import type { PopoverProps } from '../ec-popover/types';
 
 export interface DropdownItem<TValue = string> {
-  text: string,
+  text?: string,
   value?: TValue,
   disabled?: boolean,
   disabledReason?: string,
