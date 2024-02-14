@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import flatpickr from 'flatpickr';
 import {
-  onBeforeUnmount, onMounted, ref, useAttrs, watch,
+  onBeforeUnmount, onMounted, onUnmounted, ref, useAttrs, watch,
 } from 'vue';
 
 import type { Maybe } from '../../../global';
@@ -168,18 +168,23 @@ function onBlur(evt: FocusEvent) {
 }
 
 let isTimeoutRunning = false;
+let repositionTimeoutId: ReturnType<typeof setTimeout>;
 // In case the datepicker is open and the user scrolls we need to reposition the datepicker otherwise will appear detached from the input.
 /* c8 ignore start */
 function debouncedFlatpickrReposition() {
   if (!isTimeoutRunning) {
     isTimeoutRunning = true;
-    setTimeout(() => { // TODO: clearTimeout when destroying the component
+    repositionTimeoutId = setTimeout(() => {
       isTimeoutRunning = false;
       // eslint-disable-next-line no-underscore-dangle
       flatpickrInstance?._positionCalendar();
     }, 250);
   }
 }
+
+onUnmounted(() => {
+  clearTimeout(repositionTimeoutId);
+});
 /* c8 ignore stop */
 
 function appendDatepickerHook(existingHook: flatpickr.Options.Hook | flatpickr.Options.Hook[] | undefined, hook: flatpickr.Options.Hook) {
