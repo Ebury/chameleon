@@ -77,7 +77,7 @@ const inputModel = computed({
 });
 
 watch([() => props.currency, () => props.locale], () => {
-  if (formattedValue.value && typeof unformattedValue.value === 'number') {
+  if (formattedValue.value && typeof unformattedValue.value !== null) {
     const formatted = new Intl.NumberFormat(props.locale, { style: 'decimal', maximumFractionDigits: precision.value }).format(unformattedValue.value);
     formattedValue.value = format(formatted, numberFormatOptions.value);
   }
