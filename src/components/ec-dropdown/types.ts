@@ -1,4 +1,6 @@
-import type { DropdownItem, DropdownSearchProps } from '../ec-dropdown-search/types';
+import type { DropdownSearchItem, DropdownSearchProps } from '../ec-dropdown-search/types';
+
+export interface DropdownItem<TValue = string> extends DropdownSearchItem<TValue> {}
 
 export interface DropdownProps<TValue = string, TDropdownItem extends DropdownItem<TValue> = DropdownItem<TValue>> extends DropdownSearchProps<TValue, TDropdownItem> {
   selectedText?: string,

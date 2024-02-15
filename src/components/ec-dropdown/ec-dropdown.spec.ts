@@ -3,9 +3,8 @@ import { vi } from 'vitest';
 import { defineComponent, h } from 'vue';
 import type { ComponentExposed } from 'vue-component-type-helpers';
 
-import type { DropdownItem } from '../ec-dropdown-search/types';
 import EcDropdown from './ec-dropdown.vue';
-import type { DropdownProps } from './types';
+import type { DropdownItem, DropdownProps } from './types';
 
 type EcDropdownExposed = ComponentExposed<typeof EcDropdown>;
 

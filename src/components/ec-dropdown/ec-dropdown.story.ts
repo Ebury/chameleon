@@ -2,9 +2,8 @@ import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
-import type { DropdownItem } from '../ec-dropdown-search/types';
 import EcDropdown from './ec-dropdown.vue';
-import type { DropdownProps } from './types';
+import type { DropdownItem, DropdownProps } from './types';
 
 export default {
   title: 'Dropdown',

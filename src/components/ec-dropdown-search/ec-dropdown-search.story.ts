@@ -4,14 +4,14 @@ import { ref, watchEffect } from 'vue';
 
 import EcIcon from '../ec-icon';
 import EcDropdownSearch from './ec-dropdown-search.vue';
-import type { DropdownItem, DropdownSearchProps } from './types';
+import type { DropdownSearchItem, DropdownSearchProps } from './types';
 
 export default {
   title: 'Dropdown Search',
   component: EcDropdownSearch,
 } as Meta;
 
-const items: DropdownItem<never>[] = [
+const items: DropdownSearchItem<never>[] = [
   { text: 'Item 1' },
   { text: 'Item 2' },
   { text: 'Item 3', disabled: true, disabledReason: 'Is disabled for a reason' },
@@ -21,7 +21,7 @@ const items: DropdownItem<never>[] = [
   { text: 'Item 7' },
 ];
 
-interface MyComplexItem<T> extends DropdownItem<T> {
+interface MyComplexItem<T> extends DropdownSearchItem<T> {
   country: string,
   language: string,
 }
@@ -35,7 +35,7 @@ const complexItems: MyComplexItem<never>[] = [
 
 const searchFields = ['country', 'language'] as const;
 
-type EcDropdownSearchStory = StoryFn<DropdownSearchProps<never, DropdownItem<never>> & {
+type EcDropdownSearchStory = StoryFn<DropdownSearchProps<never, DropdownSearchItem<never>> & {
   paragraphText: string,
 }>;
 

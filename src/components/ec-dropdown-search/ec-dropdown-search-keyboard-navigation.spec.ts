@@ -4,7 +4,7 @@ import { h } from 'vue';
 import type { ComponentExposed } from 'vue-component-type-helpers';
 
 import EcDropdownSearch from './ec-dropdown-search.vue';
-import type { DropdownItem, DropdownSearchProps } from './types';
+import type { DropdownSearchItem, DropdownSearchProps } from './types';
 
 describe('EcDropdownSearch - Keyboard navigation', () => {
   const items = [
@@ -453,7 +453,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
           trapFocus: true,
         }, {
           slots: {
-            item: ({ index, item }: { index: number, item: DropdownItem<never> }) => h('a', { 'data-test': `item-link--${index + 1}`, href: '#' }, `${item.text}`),
+            item: ({ index, item }: { index: number, item: DropdownSearchItem<never> }) => h('a', { 'data-test': `item-link--${index + 1}`, href: '#' }, `${item.text}`),
           },
           attachTo: elem,
         });
@@ -644,7 +644,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
 type EcDropdownSearchExposed = ComponentExposed<typeof EcDropdownSearch>;
 
-function mountDropdownSearch<TValue = string, TDropdownItem extends DropdownItem<TValue> = DropdownItem<TValue>>(props?: DropdownSearchProps<TValue, TDropdownItem>, mountOpts?: ComponentMountingOptions<EcDropdownSearchExposed>) {
+function mountDropdownSearch<TValue = string, TDropdownSearchItem extends DropdownSearchItem<TValue> = DropdownSearchItem<TValue>>(props?: DropdownSearchProps<TValue, TDropdownSearchItem>, mountOpts?: ComponentMountingOptions<EcDropdownSearchExposed>) {
   return mount<ComponentExposed<EcDropdownSearchExposed>>(EcDropdownSearch, {
     props,
     ...mountOpts,

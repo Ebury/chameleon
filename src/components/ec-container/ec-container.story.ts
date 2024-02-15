@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcDropdownSearch from '../ec-dropdown-search';
-import type { DropdownItem } from '../ec-dropdown-search/types';
+import type { DropdownSearchItem } from '../ec-dropdown-search/types';
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/icon-names';
 import EcMainContainer from '../ec-main-container';
@@ -55,7 +55,7 @@ type ContainerWithNavigationStory = StoryFn<ContainerProps & {
   branding: NavigationBranding,
   footerLinks: NavigationLinkProps[],
   menuLinks: NavigationLinkProps[],
-  clientItems: DropdownItem<string>[],
+  clientItems: DropdownSearchItem<string>[],
 }>;
 
 export const withNavigation: ContainerWithNavigationStory = ({

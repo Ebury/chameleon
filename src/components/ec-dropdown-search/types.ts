@@ -4,7 +4,7 @@ import type { TooltipOptions } from '../../directives/ec-tooltip/types';
 import type { ZIndexLevel } from '../../enums';
 import type { PopoverProps } from '../ec-popover/types';
 
-export interface DropdownItem<TValue = string> {
+export interface DropdownSearchItem<TValue = string> {
   text?: string,
   value?: TValue,
   disabled?: boolean,
@@ -13,14 +13,14 @@ export interface DropdownItem<TValue = string> {
   tooltip?: TooltipOptions,
 }
 
-export interface DropdownSearchProps<TValue = string, TDropdownItem extends DropdownItem<TValue> = DropdownItem<TValue>> {
+export interface DropdownSearchProps<TValue = string, TDropdownSearchItem extends DropdownSearchItem<TValue> = DropdownSearchItem<TValue>> {
   placeholder?: string,
   level?: ZIndexLevel,
   isSearchEnabled?: boolean,
   isSensitive?: boolean,
-  items?: TDropdownItem[],
-  searchFields?: ReadonlyArray<keyof TDropdownItem>,
-  modelValue?: TDropdownItem,
+  items?: TDropdownSearchItem[],
+  searchFields?: ReadonlyArray<keyof TDropdownSearchItem>,
+  modelValue?: TDropdownSearchItem,
   popoverOptions?: Partial<PopoverProps>,
   popoverStyle?: StyleValue | (() => StyleValue | undefined),
   tooltipOptions?: TooltipOptions,

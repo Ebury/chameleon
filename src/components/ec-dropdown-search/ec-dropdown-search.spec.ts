@@ -7,19 +7,19 @@ import type { ComponentExposed } from 'vue-component-type-helpers';
 import { TooltipPlacement } from '../../main';
 import { PopoverPlacement } from '../ec-popover/types';
 import EcDropdownSearch from './ec-dropdown-search.vue';
-import type { DropdownItem, DropdownSearchProps } from './types';
+import type { DropdownSearchItem, DropdownSearchProps } from './types';
 
 type EcDropdownSearchExposed = ComponentExposed<typeof EcDropdownSearch>;
 
 describe('EcDropdownSearch', () => {
-  function mountDropdownSearch<TValue = string, TDropdownItem extends DropdownItem<TValue> = DropdownItem<TValue>>(props?: DropdownSearchProps<TValue, TDropdownItem>, mountOpts?: ComponentMountingOptions<EcDropdownSearchExposed>) {
+  function mountDropdownSearch<TValue = string, TDropdownSearchItem extends DropdownSearchItem<TValue> = DropdownSearchItem<TValue>>(props?: DropdownSearchProps<TValue, TDropdownSearchItem>, mountOpts?: ComponentMountingOptions<EcDropdownSearchExposed>) {
     return mount<EcDropdownSearchExposed>(EcDropdownSearch, {
       props,
       ...mountOpts,
     });
   }
 
-  const items: DropdownItem<never>[] = [
+  const items: DropdownSearchItem<never>[] = [
     { id: 1, text: 'Item 1' },
     { id: 2, text: 'Item 2' },
     { id: 3, text: 'Item 3' },
@@ -65,7 +65,7 @@ describe('EcDropdownSearch', () => {
       items,
     }, {
       slots: {
-        items: (props: DropdownItem<never>[]) => h('li', ['Items: ', h('pre', JSON.stringify(props, null, 2))]),
+        items: (props: DropdownSearchItem<never>[]) => h('li', ['Items: ', h('pre', JSON.stringify(props, null, 2))]),
       },
     });
 
@@ -77,7 +77,7 @@ describe('EcDropdownSearch', () => {
       items,
     }, {
       slots: {
-        item: ({ index, item }: { index: number, item: DropdownItem<never> }) => h('div', [h('strong', `${index}.`), `${item.text}`]),
+        item: ({ index, item }: { index: number, item: DropdownSearchItem<never> }) => h('div', [h('strong', `${index}.`), `${item.text}`]),
       },
     });
 
@@ -214,13 +214,13 @@ describe('EcDropdownSearch', () => {
   });
 
   it('should merge given tooltipOptions and item.tooltip prop', () => {
-    const disabledItem: DropdownItem<never> = {
+    const disabledItem: DropdownSearchItem<never> = {
       text: 'Random Item',
       disabled: true,
       disabledReason: 'This reason should not be seen because it\'s overridden by tooltip.content.',
     };
 
-    const overriddenItem: DropdownItem<never> = {
+    const overriddenItem: DropdownSearchItem<never> = {
       ...disabledItem,
       tooltip: {
         content: 'Content overridden by item',
@@ -354,12 +354,12 @@ describe('EcDropdownSearch', () => {
   });
 
   describe('filtering complex items', () => {
-    interface MyDropdownItem<T> extends DropdownItem<T> {
+    interface MyDropdownSearchItem<T> extends DropdownSearchItem<T> {
       category: string,
       language: string,
     }
 
-    const itemsToFilter: MyDropdownItem<never>[] = [
+    const itemsToFilter: MyDropdownSearchItem<never>[] = [
       { text: 'Item ABC', category: 'One', language: 'English' },
       { text: 'Item BCD', category: 'Two', language: 'French' },
       { text: 'Item cdf', category: 'Three', language: 'English' },

@@ -67,10 +67,9 @@
 import { computed, ref, useSlots } from 'vue';
 
 import EcDropdownSearch from '../ec-dropdown-search';
-import type { DropdownItem } from '../ec-dropdown-search/types';
 import { IconName } from '../ec-icon/icon-names';
 import EcInputField from '../ec-input-field';
-import type { DropdownProps } from './types';
+import type { DropdownItem, DropdownProps } from './types';
 
 defineOptions({
   inheritAttrs: false,

@@ -1,9 +1,9 @@
 import type { AnchorHTMLAttributes } from 'vue';
 import type { RouteLocationRaw } from 'vue-router';
 
-import type { DropdownItem } from '../ec-dropdown-search/types';
+import type { DropdownSearchItem } from '../ec-dropdown-search/types';
 
-export interface BtnDropdownItem<TValue = string> extends DropdownItem<TValue> {
+export interface BtnDropdownItem<TValue = string> extends DropdownSearchItem<TValue> {
   href?: string,
   to?: string | RouteLocationRaw,
   attrs?: AnchorHTMLAttributes,

@@ -144,8 +144,7 @@
   </div>
 </template>
 
-<!-- <script setup lang="ts" generic="TValue = string, TDropdownItem extends DropdownItem<TValue> = DropdownItem<TValue>"> -->
-<script setup lang="ts" generic="TValue, TDropdownItem extends DropdownItem<TValue>">
+<script setup lang="ts" generic="TValue, TDropdownSearchItem extends DropdownSearchItem<TValue>">
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap';
 import type { StyleValue } from 'vue';
 import {
@@ -160,7 +159,7 @@ import { removeDiacritics } from '../../utils/diacritics';
 import EcIcon from '../ec-icon';
 import EcLoading from '../ec-loading';
 import EcPopover from '../ec-popover';
-import type { DropdownItem, DropdownSearchProps } from './types';
+import type { DropdownSearchItem, DropdownSearchProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
@@ -168,7 +167,7 @@ defineOptions({
 
 const config = useConfig();
 
-const props = withDefaults(defineProps<DropdownSearchProps<TValue, TDropdownItem>>(), {
+const props = withDefaults(defineProps<DropdownSearchProps<TValue, TDropdownSearchItem>>(), {
   placeholder: 'Search...',
   noResultsText: 'No results found',
   tooltipCta: '',
@@ -178,8 +177,8 @@ const props = withDefaults(defineProps<DropdownSearchProps<TValue, TDropdownItem
 });
 
 const emit = defineEmits<{
-  'update:modelValue': [value: TDropdownItem],
-  'change': [value: TDropdownItem],
+  'update:modelValue': [value: TDropdownSearchItem],
+  'change': [value: TDropdownSearchItem],
   'close': [],
   'open': [],
   'after-close': [],
@@ -304,7 +303,7 @@ const searchInput = ref<Maybe<HTMLInputElement>>(null);
 
 const indexedItems = computed(() => new WeakMap(props.items.map(item => [item, makeIndexText(item, props.searchFields ?? ['text'])])));
 
-function makeIndexText(item: TDropdownItem, searchFields: ReadonlyArray<keyof TDropdownItem>): string {
+function makeIndexText(item: TDropdownSearchItem, searchFields: ReadonlyArray<keyof TDropdownSearchItem>): string {
   return searchFields.map(searchField => removeDiacritics(`${item[searchField] ?? /* c8 ignore next */ ''}`).toLowerCase()).join('\u00A0');
 }
 
@@ -314,7 +313,7 @@ const filteredItems = computed(() => {
     return props.items;
   }
 
-  return props.items.filter((item: TDropdownItem) => {
+  return props.items.filter((item: TDropdownSearchItem) => {
     const indexedText = indexedItems.value.get(item) ?? /* c8 ignore next */ '';
     return indexedText.includes(sanitisedText);
   });
@@ -335,7 +334,7 @@ function focusSearch() {
 // selecting items
 const popoverRef = ref<InstanceType<typeof EcPopover>>();
 
-function select(item: TDropdownItem, options?: { keyboardNavigation: boolean }) {
+function select(item: TDropdownSearchItem, options?: { keyboardNavigation: boolean }) {
   emit('update:modelValue', item);
   emit('change', item);
   if (!options || !options.keyboardNavigation) {
@@ -350,7 +349,7 @@ function select(item: TDropdownItem, options?: { keyboardNavigation: boolean }) 
   }
 }
 
-function isItemSelected(item: TDropdownItem): boolean {
+function isItemSelected(item: TDropdownSearchItem): boolean {
   return toRaw(item) === toRaw(props.modelValue);
 }
 
@@ -464,7 +463,7 @@ function onArrowDownKeyDown() {
 }
 
 function onArrowKey(key: KeyboardKey) {
-  let nextItem: TDropdownItem | undefined;
+  let nextItem: TDropdownSearchItem | undefined;
 
   if (selectedItemIndex.value >= 0) {
     if (key === KeyboardKey.ARROW_DOWN) {

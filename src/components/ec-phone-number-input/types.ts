@@ -2,7 +2,7 @@ import type { InputHTMLAttributes } from 'vue';
 
 import type { Maybe } from '../../../global';
 import type { ZIndexLevel } from '../../enums';
-import type { DropdownItem } from '../ec-dropdown-search/types';
+import type { DropdownItem } from '../ec-dropdown/types';
 
 export interface PhoneNumberCountry {
   areaCode: string,
