@@ -1,24 +1,12 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import EcTextarea from './ec-textarea.vue';
+import type { TextareaProps } from './types';
 
 describe('EcTextarea', () => {
-  function mountTextarea(props, mountOpts) {
+  function mountTextarea(props?: TextareaProps, mountOpts?: ComponentMountingOptions<typeof EcTextarea>) {
     return mount(EcTextarea, {
-      props,
-      ...mountOpts,
-    });
-  }
-
-  function mountTextareaAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const Component = defineComponent({
-      components: { EcTextarea },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount(Component, {
       props,
       ...mountOpts,
     });
@@ -54,19 +42,19 @@ describe('EcTextarea', () => {
   });
 
   it('should set the v-model on the value of the textarea and change when it changes', async () => {
-    const wrapper = mountTextareaAsTemplate(
-      '<ec-textarea v-model="text" />',
-      {},
-      {
-        data() {
-          return { text: '' };
-        },
+    const Component = defineComponent({
+      components: { EcTextarea },
+      data() {
+        return { text: '' };
       },
-    );
+      template: '<ec-textarea v-model="text" />',
+    });
 
-    expect(wrapper.findByDataTest('ec-textarea__textarea').element.value).toBe('');
+    const wrapper = mount(Component);
+
+    expect(wrapper.findByDataTest<HTMLTextAreaElement>('ec-textarea__textarea').element.value).toBe('');
     await wrapper.setData({ text: 'Value Lorem ipsum' });
-    expect(wrapper.findByDataTest('ec-textarea__textarea').element.value).toBe('Value Lorem ipsum');
+    expect(wrapper.findByDataTest<HTMLTextAreaElement>('ec-textarea__textarea').element.value).toBe('Value Lorem ipsum');
   });
 
   it('renders with a placeholder', () => {
@@ -75,9 +63,11 @@ describe('EcTextarea', () => {
   });
 
   it('should render with a custom data test', () => {
-    const wrapper = mountTextareaAsTemplate(
-      '<ec-textarea data-test="custom data test"/>',
-    );
+    const wrapper = mountTextarea({}, {
+      attrs: {
+        'data-test': 'custom data test',
+      },
+    });
 
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -89,19 +79,17 @@ describe('EcTextarea', () => {
   });
 
   it('should give focus to the textarea element inside the component', () => {
-    const elem = document.createElement('div');
-    document.body.appendChild(elem);
+    const element = document.createElement('div');
+    document.body.appendChild(element);
 
-    const wrapper = mountTextareaAsTemplate(
-      '<div><button data-test="test-button" @click="$refs.textarea.focus()">Focus the textarea </button><ec-textarea ref="textarea"></ec-textarea></div>',
-      {},
-      {},
-      {
-        attachTo: elem,
-      },
-    );
+    const Component = defineComponent({
+      components: { EcTextarea },
+      template: '<div><button data-test="test-button" @click="$refs.textarea.focus()">Focus the textarea </button><ec-textarea ref="textarea"></ec-textarea></div>',
+    });
 
-    document.activeElement.blur();
+    const wrapper = mount(Component, { attachTo: element });
+
+    (document.activeElement as HTMLElement).blur();
     expect(document.activeElement).toBe(document.body);
     wrapper.findByDataTest('test-button').trigger('click');
     expect(document.activeElement).toBe(wrapper.findByDataTest('ec-textarea__textarea').element);
@@ -178,21 +166,21 @@ describe('EcTextarea', () => {
 
   describe('@events', () => {
     it('should emit the value when you type on the textarea', async () => {
-      const wrapper = mountTextareaAsTemplate(
-        '<ec-textarea v-model="text" />',
-        {},
-        {
-          data() {
-            return { text: '' };
-          },
+      const Component = defineComponent({
+        components: { EcTextarea },
+        data() {
+          return { text: '' };
         },
-      );
+        template: '<ec-textarea v-model="text" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-textarea__textarea').element.value).toBe('');
+      const wrapper = mount(Component);
+
+      expect(wrapper.findByDataTest<HTMLTextAreaElement>('ec-textarea__textarea').element.value).toBe('');
       await wrapper.findByDataTest('ec-textarea__textarea').setValue('Value lorem ipsum');
       expect(wrapper.vm.text).toBe('Value lorem ipsum');
-      expect(wrapper.findByDataTest('ec-textarea__textarea').element.value).toBe('Value lorem ipsum');
-      expect(wrapper.findComponent(EcTextarea).emitted('update:modelValue').length).toBe(1);
+      expect(wrapper.findByDataTest<HTMLTextAreaElement>('ec-textarea__textarea').element.value).toBe('Value lorem ipsum');
+      expect(wrapper.findComponent(EcTextarea).emitted('update:modelValue')?.length).toBe(1);
     });
   });
 });

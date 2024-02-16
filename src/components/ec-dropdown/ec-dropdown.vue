@@ -35,7 +35,7 @@
       :is-sensitive="isSensitive"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-dropdown__input` : 'ec-dropdown__input'"
       readonly
-      icon="simple-arrow-drop-down"
+      :icon="IconName.SIMPLE_ARROW_DROP_DOWN"
       :is-in-group="isInGroup"
       @focus="onFocus"
       @blur="$emit('blur')"
@@ -63,110 +63,47 @@
   </ec-dropdown-search>
 </template>
 
-<script setup>
+<script setup lang="ts" generic="TValue, TDropdownItem extends DropdownItem<TValue>">
 import { computed, ref, useSlots } from 'vue';
 
 import EcDropdownSearch from '../ec-dropdown-search';
+import { IconName } from '../ec-icon/icon-names';
 import EcInputField from '../ec-input-field';
+import type { DropdownItem, DropdownProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const emit = defineEmits(['update:modelValue', 'change', 'blur', 'focus', 'open', 'close', 'after-open', 'after-close']);
+const emit = defineEmits<{
+  'update:modelValue': [value: TDropdownItem | undefined],
+  'change': [value: TDropdownItem | undefined],
+  'blur': [],
+  'focus': [],
+  'open': [],
+  'close': [],
+  'after-open': [],
+  'after-close': [],
+}>();
 
-const props = defineProps({
-  items: {
-    type: Array,
-    default: () => ([]),
-  },
-  searchFields: {
-    type: Array,
-    default: null,
-  },
-  modelValue: {
-    type: [Object, Array],
-    default: null,
-  },
-  selectedText: {
-    type: String,
-    default: '',
-  },
-  label: {
-    type: String,
-    default: '',
-  },
-  labelTooltip: {
-    type: String,
-    default: '',
-  },
-  level: {
-    type: String,
-    validator(value) {
-      return ['notification', 'modal', 'tooltip', 'level-1', 'level-2', 'level-3'].includes(value);
-    },
-  },
-  errorMessage: {
-    type: String,
-    default: '',
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  placeholder: {
-    type: String,
-    default: '',
-  },
-  searchPlaceholder: {
-    type: String,
-    default: 'Search...',
-  },
-  isSearchEnabled: {
-    type: Boolean,
-    default: false,
-  },
-  noResultsText: {
-    type: String,
-    default: 'No results found',
-  },
-  isInGroup: {
-    type: String,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  id: {
-    type: String,
-  },
-  errorId: {
-    type: String,
-  },
-  popoverOptions: {
-    type: Object,
-    default: null,
-  },
-  popoverStyle: {
-    type: [Object, Function],
-    default: null,
-  },
-  tooltipCta: {
-    type: String,
-    default: '',
-  },
+const props = withDefaults(defineProps<DropdownProps<TValue, TDropdownItem>>(), {
+  items: () => [],
+  selectedText: '',
+  label: '',
+  labelTooltip: '',
+  errorMessage: '',
+  placeholder: '',
+  searchPlaceholder: 'Search...',
+  noResultsText: 'No results found',
+  tooltipCta: '',
 });
 
 // selected value
-const selectedModel = computed({
+const selectedModel = computed<TDropdownItem | undefined>({
   get() {
     return props.modelValue;
   },
-  set(selectedItem) {
+  set(selectedItem: TDropdownItem | undefined) {
     emit('update:modelValue', selectedItem);
     emit('change', selectedItem);
   },
@@ -184,7 +121,7 @@ const selectedTextValue = computed(() => {
 
 // maintaining focus
 const shouldEmitFocus = ref(true);
-const triggerRef = ref(null);
+const triggerRef = ref<InstanceType<typeof EcInputField>>();
 
 function onSelected() {
   // return focus back to the readonly input
@@ -207,7 +144,7 @@ function onFocus() {
 // slots
 const slots = useSlots();
 
-function hasSlot(name) {
+function hasSlot(name: string): boolean {
   return name in slots;
 }
 </script>

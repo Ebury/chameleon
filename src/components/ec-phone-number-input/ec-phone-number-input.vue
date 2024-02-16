@@ -51,15 +51,15 @@
         @blur="countriesHasFocus = false"
         @change="onCountryChange"
         @focus="onFocusCountry"
-        @open="emit(PhoneNumberEvent.OPEN)"
-        @after-open="emit(PhoneNumberEvent.AFTER_OPEN)"
+        @open="emit('open')"
+        @after-open="emit('after-open')"
       >
-        <template #item="{ item }">
+        <template #item="{ item, isSelected }">
           <div class="ec-phone-number-input__countries-item-wrapper">
             <img
-              v-if="getItemProp(item, 'iconPath')"
-              :src="getItemProp(item, 'iconPath')"
-              :alt="getItemProp(item, 'name')"
+              v-if="item.iconPath"
+              :src="item.iconPath"
+              :alt="item.name"
               data-test="ec-phone-number-input__countries-item-flag"
               class="ec-phone-number-input__countries-item-flag"
             >
@@ -67,13 +67,16 @@
               class="ec-phone-number-input__countries-item-name"
               data-test="ec-phone-number-input__countries-item-name"
             >
-              {{ getItemProp(item, 'name') }}
+              {{ item.name }}
             </span>
             <span
-              class="ec-phone-number-input__countries-item-area-code"
+              :class="{
+                'ec-phone-number-input__countries-item-area-code': true,
+                'ec-phone-number-input__countries-item-area-code--is-selected': isSelected,
+              }"
               data-test="ec-phone-number-input__countries-item-area-code"
             >
-              {{ getItemProp(item, 'areaCode') }}
+              {{ item.areaCode }}
             </span>
           </div>
         </template>
@@ -108,7 +111,7 @@
         :placeholder="phoneNumberPlaceholder"
         :autocomplete="autocomplete || undefined"
         @change="onPhoneNumberChange"
-        @focus="emit(PhoneNumberEvent.FOCUS)"
+        @focus="emit('focus')"
       />
     </div>
 
@@ -153,6 +156,7 @@
 <script setup lang="ts">
 // eslint-disable-next-line vue/no-dupe-keys
 import * as countries from 'svg-country-flags/countries.json';
+import type { StyleValue } from 'vue';
 import { computed, ref } from 'vue';
 
 import useConfig from '../../composables/use-ec-config';
@@ -164,26 +168,26 @@ import EcIcon from '../ec-icon';
 import { IconName, IconType } from '../ec-icon/types';
 import EcInputField from '../ec-input-field';
 import { InputFieldType } from '../ec-input-field/types';
+import type { PopoverProps } from '../ec-popover/types';
 import type {
+  PhoneNumberCountry,
   PhoneNumberCountryItem,
-  PhoneNumberEvents,
   PhoneNumberModel,
   PhoneNumberProps,
 } from './types';
-import { PhoneNumberEvent } from './types';
 
 const supportedCountries = new Set(Object.keys(countries));
 
 const config = useConfig();
 
 const emit = defineEmits<{
-  'update:modelValue': [value: PhoneNumberEvents[PhoneNumberEvent.UPDATE_MODEL_VALUE]],
-  'change': [value: PhoneNumberEvents[PhoneNumberEvent.CHANGE]],
+  'update:modelValue': [value: PhoneNumberModel],
+  'change': [],
   'focus': [],
   'open': [],
   'after-open': [],
-  'country-change': [value: PhoneNumberEvents[PhoneNumberEvent.COUNTRY_CHANGE]],
-  'phone-number-change': [value: PhoneNumberEvents[PhoneNumberEvent.PHONE_NUMBER_CHANGE]],
+  'country-change': [value: PhoneNumberCountry | undefined],
+  'phone-number-change': [evt: Event],
 }>();
 
 const props = withDefaults(defineProps<PhoneNumberProps>(), {
@@ -201,7 +205,7 @@ const props = withDefaults(defineProps<PhoneNumberProps>(), {
 const uid = getUid();
 const countriesHasFocus = ref(false);
 
-const popoverOptions = ref({
+const popoverOptions = ref<PopoverProps>({
   autoSize: 'min',
 });
 
@@ -209,26 +213,23 @@ const id = computed(() => `ec-phone-number-input-field-${uid}`);
 
 const errorId = computed(() => (isInvalid.value ? `ec-phone-number-input-${uid}` : undefined));
 
-const countriesItems = computed(() => props.countries.map(country => ({
+const countriesItems = computed(() => props.countries.map<PhoneNumberCountryItem>(country => ({
   areaCode: country.areaCode,
-  iconPath: getCountryFlagPath(country.countryCode),
+  iconPath: getCountryFlagPath(country.countryCode) ?? '',
   id: country.countryCode,
   name: country.text,
   text: `${country.text} ${country.areaCode}`, // the text is only displayed in the tooltip, it's just to make items searchable by area code and name of the country
   value: country,
-} as PhoneNumberCountryItem)));
+})));
 
-const countriesModel = computed({
+const countriesModel = computed<PhoneNumberCountryItem | undefined>({
   get() {
-    return props.modelValue.country;
+    return countriesItems.value.find(item => item.id === props.modelValue.country?.countryCode);
   },
-  set(item) {
-    emit(PhoneNumberEvent.UPDATE_MODEL_VALUE, {
+  set(item: PhoneNumberCountryItem | undefined) {
+    emit('update:modelValue', {
       ...props.modelValue,
-      // TODO correct types when ec-dropdown will be typed
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      country: item.value,
+      country: item?.value ?? /* c8 ignore next */ null,
     });
   },
 });
@@ -242,7 +243,7 @@ const phoneNumberModel = computed({
     return props.modelValue.phoneNumber;
   },
   set(phoneNumber) {
-    emit(PhoneNumberEvent.UPDATE_MODEL_VALUE, {
+    emit('update:modelValue', {
       ...props.modelValue,
       phoneNumber,
     });
@@ -256,47 +257,38 @@ const selectedCountryName = computed(() => props.modelValue?.country?.text);
 const isInvalid = computed(() => !!props.errorMessage);
 const popoverRef = ref<HTMLElement | null>();
 
-function getPopoverStyle() {
+function getPopoverStyle(): StyleValue | undefined {
   if (popoverRef.value) {
     return {
       width: `${popoverRef.value.offsetWidth}px`,
     };
   }
 
-  return null;
+  return undefined;
 }
 
 function onFocusCountry() {
   countriesHasFocus.value = true;
-  emit(PhoneNumberEvent.FOCUS);
+  emit('focus');
 }
 
-function onCountryChange(evt: PhoneNumberModel['country']) {
+function onCountryChange(item: PhoneNumberCountryItem | undefined) {
   countriesHasFocus.value = true;
-  // TODO correct types when ec-dropdown will be typed
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  emit(PhoneNumberEvent.CHANGE, evt);
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  emit(PhoneNumberEvent.COUNTRY_CHANGE, evt);
+  emit('change');
+  emit('country-change', item?.value);
 }
 
 function onPhoneNumberChange(evt: Event) {
-  emit(PhoneNumberEvent.CHANGE, evt as InputEvent);
-  emit(PhoneNumberEvent.PHONE_NUMBER_CHANGE, evt as InputEvent);
+  emit('change');
+  emit('phone-number-change', evt);
 }
 
-function getCountryFlagPath(countryCode: string) {
+function getCountryFlagPath(countryCode: string | undefined): string | null {
   if (!countryCode || !supportedCountries.has(countryCode)) {
     return null;
   }
 
   return `${config.iconsStaticPrefix}icons/country-flags/100/${countryCode.toLowerCase()}.png`;
-}
-
-function getItemProp(item: unknown, prop: keyof PhoneNumberCountryItem) {
-  return (item as PhoneNumberCountryItem)[prop] as string;
 }
 </script>
 
@@ -331,7 +323,7 @@ function getItemProp(item: unknown, prop: keyof PhoneNumberCountryItem) {
     @apply tw-mr-4;
   }
 
-  &__countries-item-area-code {
+  &__countries-item-area-code:not(&__countries-item-area-code--is-selected) {
     @apply tw-text-gray-4;
   }
 

@@ -39,7 +39,7 @@ export interface InputFieldProps {
   leftIcon?: IconName,
   leftIconSize?: number,
   leftIconType?: IconType,
-  isInGroup?: string,
+  isInGroup?: 'left' | 'right',
   id?: string,
   errorId?: string,
   isLoading?: boolean,

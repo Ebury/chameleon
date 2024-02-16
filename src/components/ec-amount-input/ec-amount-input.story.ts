@@ -1,9 +1,11 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
 import EcAmountInput from './ec-amount-input.vue';
+import type { AmountInputProps } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Input Amount',
   component: EcAmountInput,
   argTypes: {
@@ -18,15 +20,17 @@ export default {
   },
 };
 
-const Template = storyArgs => ({
+export default meta;
+
+const Template: StoryFn<typeof EcAmountInput> = storyArgs => ({
   components: { EcAmountInput },
   setup() {
-    const model = ref('');
-    const args = ref({});
+    const model = ref<number | string>('');
+    const args = ref<AmountInputProps>({});
 
     watchEffect(() => {
       const { modelValue, ...rest } = storyArgs;
-      model.value = modelValue;
+      model.value = modelValue ?? '';
       args.value = rest;
     });
 

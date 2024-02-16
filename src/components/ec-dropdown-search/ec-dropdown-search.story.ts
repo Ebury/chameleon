@@ -1,15 +1,17 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
 import EcIcon from '../ec-icon';
 import EcDropdownSearch from './ec-dropdown-search.vue';
+import type { DropdownSearchItem, DropdownSearchProps } from './types';
 
 export default {
   title: 'Dropdown Search',
   component: EcDropdownSearch,
-};
+} as Meta;
 
-const items = [
+const items: DropdownSearchItem<never>[] = [
   { text: 'Item 1' },
   { text: 'Item 2' },
   { text: 'Item 3', disabled: true, disabledReason: 'Is disabled for a reason' },
@@ -19,16 +21,25 @@ const items = [
   { text: 'Item 7' },
 ];
 
-const complexItems = [
+interface MyComplexItem<T> extends DropdownSearchItem<T> {
+  country: string,
+  language: string,
+}
+
+const complexItems: MyComplexItem<never>[] = [
   { text: 'My Item 1', country: 'Spain', language: 'Spanish' },
   { text: 'My Item 2', country: 'England', language: 'English' },
   { text: 'My Item 3', country: 'South Africa', language: 'Xhosa' },
   { text: 'My Item 4', country: 'United States of America', language: 'English' },
 ];
 
-const searchFields = ['country', 'language'];
+const searchFields = ['country', 'language'] as const;
 
-export const all = storyArgs => ({
+type EcDropdownSearchStory = StoryFn<DropdownSearchProps<never, DropdownSearchItem<never>> & {
+  paragraphText: string,
+}>;
+
+export const all: EcDropdownSearchStory = storyArgs => ({
   components: { EcDropdownSearch, EcIcon },
   setup() {
     const paragraphText = ref('');
@@ -72,7 +83,7 @@ export const all = storyArgs => ({
       },
     ];
 
-    const argsComplex = {
+    const argsComplex: DropdownSearchProps<never, MyComplexItem<never>> = {
       noResultsText: 'No results found',
       items: complexItems,
       searchFields,

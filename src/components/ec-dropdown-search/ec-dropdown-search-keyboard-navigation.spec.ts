@@ -1,8 +1,10 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount, VueWrapper } from '@vue/test-utils';
 import { vi } from 'vitest';
 import { h } from 'vue';
+import type { ComponentExposed } from 'vue-component-type-helpers';
 
 import EcDropdownSearch from './ec-dropdown-search.vue';
+import type { DropdownSearchItem, DropdownSearchProps } from './types';
 
 describe('EcDropdownSearch - Keyboard navigation', () => {
   const items = [
@@ -17,7 +19,9 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
   ];
 
   beforeEach(() => {
-    document.activeElement.blur();
+    if (document.activeElement && 'blur' in document.activeElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
     // We need to clean the activeElement because of the jsdom bug.
     // jsdom preserves activeElement between tests even if the element has already been removed from the body
     document.body.innerHTML = '';
@@ -33,7 +37,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
     });
 
@@ -47,7 +51,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
     });
 
@@ -61,7 +65,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
     });
   });
@@ -77,7 +81,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
     });
 
     it('should select the next item when another is already selected', async () => {
@@ -91,7 +95,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
     });
 
     it('should skip those items that are disabled', async () => {
@@ -105,7 +109,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.down');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
     });
 
     it('should not do anything if there is no items', async () => {
@@ -144,7 +148,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
     });
 
@@ -158,7 +162,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
     });
 
@@ -172,7 +176,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
       expect(wrapper.emitted('open')).toBeUndefined();
     });
   });
@@ -188,7 +192,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
     });
 
     it('should select the previous item when another is already selected', async () => {
@@ -202,7 +206,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
     });
 
     it('should skip those items that are disabled', async () => {
@@ -216,7 +220,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.up');
 
-      expect(wrapper.emitted('change')[0]).toEqual([expectedItem]);
+      expect(wrapper.emitted('change')?.[0]).toEqual([expectedItem]);
     });
 
     it('should not do anything if there is no items', async () => {
@@ -252,7 +256,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.esc');
 
-      expect(wrapper.emitted('close').length).toBe(1);
+      expect(wrapper.emitted('close')?.length).toBe(1);
     });
 
     it('should close and do nothing', async () => {
@@ -449,7 +453,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
           trapFocus: true,
         }, {
           slots: {
-            item: ({ index, item }) => h('a', { 'data-test': `item-link--${index + 1}`, href: '#' }, `${item.text}`),
+            item: ({ index, item }: { index: number, item: DropdownSearchItem<never> }) => h('a', { 'data-test': `item-link--${index + 1}`, href: '#' }, `${item.text}`),
           },
           attachTo: elem,
         });
@@ -471,7 +475,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
       await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
 
-      expect(wrapper.emitted('open').length).toBe(1);
+      expect(wrapper.emitted('open')?.length).toBe(1);
     });
   });
 
@@ -489,7 +493,7 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
 
         await wrapper.findByDataTest('ec-dropdown-search').trigger(`keydown.${key}`);
 
-        expect(wrapper.emitted('close').length).toBe(1);
+        expect(wrapper.emitted('close')?.length).toBe(1);
       });
     });
 
@@ -501,15 +505,13 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
           isSearchEnabled: true,
         });
 
-        const focus = vi.fn();
-        const popoverMock = vi.spyOn(HTMLElement.prototype, 'querySelector').mockImplementation(() => ({ focus }));
+        const focus = vi.spyOn(HTMLElement.prototype, 'focus');
         await openDropdown(wrapper);
 
         await wrapper.findByDataTest('ec-dropdown-search__search-input').trigger('keydown.enter');
 
         expect(focus).toHaveBeenCalledTimes(1);
-        expect(wrapper.emitted('close').length).toBe(1);
-        popoverMock.mockRestore();
+        expect(wrapper.emitted('close')?.length).toBe(1);
       });
     });
   });
@@ -640,19 +642,21 @@ describe('EcDropdownSearch - Keyboard navigation', () => {
   });
 });
 
-function mountDropdownSearch(props, mountOpts) {
-  return mount(EcDropdownSearch, {
+type EcDropdownSearchExposed = ComponentExposed<typeof EcDropdownSearch>;
+
+function mountDropdownSearch<TValue = string, TDropdownSearchItem extends DropdownSearchItem<TValue> = DropdownSearchItem<TValue>>(props?: DropdownSearchProps<TValue, TDropdownSearchItem>, mountOpts?: ComponentMountingOptions<EcDropdownSearchExposed>) {
+  return mount<ComponentExposed<EcDropdownSearchExposed>>(EcDropdownSearch, {
     props,
     ...mountOpts,
   });
 }
 
-function mockElementOffsetTop(wrapper, index, value) {
-  vi.spyOn(wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).element, 'offsetTop', 'get').mockReturnValueOnce(value);
+function mockElementOffsetTop(wrapper: VueWrapper, index: number, value: number) {
+  vi.spyOn(wrapper.findByDataTest<HTMLLIElement>(`ec-dropdown-search__item--${index}`).element, 'offsetTop', 'get').mockReturnValueOnce(value);
 }
 
-function mockHtmlElementPosition(options) {
-  vi.spyOn(global.HTMLElement.prototype, 'clientHeight', 'get').mockImplementation(function mockClientHeight() {
+function mockHtmlElementPosition(options?: { offsetHeight?: number, offsetTop?: number, scrollHeight?: number, clientHeight?: number, containerClientHeight?: number }) {
+  vi.spyOn(global.HTMLElement.prototype, 'clientHeight', 'get').mockImplementation(function mockClientHeight(this: HTMLElement) {
     if (this.className.includes('ec-dropdown-search__item-list')) {
       return (options && options.containerClientHeight) || 200;
     }
@@ -666,11 +670,11 @@ function mockHtmlElementPosition(options) {
   vi.spyOn(global.HTMLElement.prototype, 'scrollHeight', 'get').mockImplementation(() => (options && options.scrollHeight) || 400);
 }
 
-async function openDropdown(wrapper) {
+async function openDropdown(wrapper: VueWrapper) {
   expect(wrapper.emitted('open')).toBeUndefined();
   await wrapper.findByDataTest('ec-dropdown-search').trigger('keydown.enter');
   await wrapper.findComponentByDataTest('ec-popover-stub').vm.$emit('apply-show');
-  expect(wrapper.emitted('open').length).toBeGreaterThan(0);
+  expect(wrapper.emitted('open')?.length).toBeGreaterThan(0);
   await waitOnAfterOpenFocus();
 }
 

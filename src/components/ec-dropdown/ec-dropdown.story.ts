@@ -1,7 +1,9 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
 import EcDropdown from './ec-dropdown.vue';
+import type { DropdownItem, DropdownProps } from './types';
 
 export default {
   title: 'Dropdown',
@@ -16,9 +18,9 @@ export default {
       control: { type: 'select' },
     },
   },
-};
+} as Meta;
 
-const defaultItems = [
+const defaultItems: DropdownItem<never>[] = [
   { text: 'Item 1' },
   { text: 'Item 2' },
   { text: 'Item 3', disabled: true, disabledReason: 'Is disabled for a reason' },
@@ -28,7 +30,12 @@ const defaultItems = [
   { text: 'Item 7' },
 ];
 
-const complexItems = [
+interface MyDropdownItem<T> extends DropdownItem<T> {
+  country: string,
+  language: string,
+}
+
+const complexItems: MyDropdownItem<never>[] = [
   { text: 'My Item 1', country: 'Spain', language: 'Spanish' },
   { text: 'My Item 2', country: 'England', language: 'English' },
   { text: 'My Item 3', country: 'South Africa', language: 'Xhosa' },
@@ -37,10 +44,10 @@ const complexItems = [
 
 const searchFields = ['country', 'language'];
 
-const Template = storyArgs => ({
+const Template: StoryFn<DropdownProps<never>> = storyArgs => ({
   components: { EcDropdown },
   setup() {
-    const model = ref('');
+    const model = ref<DropdownItem<never> | undefined>();
     const args = ref({});
 
     watchEffect(() => {
@@ -95,16 +102,16 @@ basic.args = {
   disabled: false,
   isSensitive: false,
   errorMessage: '',
-  modelValue: null,
+  modelValue: undefined,
 };
 
-export const all = args => ({
+export const all: StoryFn = args => ({
   components: { EcDropdown },
   setup() {
-    const itemsIncludingEmpty = ref([{ text: '' }, ...defaultItems]);
-    const selected = ref(null);
-    const disabledModel = ref(defaultItems[1]);
-    const items = ref(defaultItems);
+    const itemsIncludingEmpty = ref<DropdownItem<never>[]>([{ text: '' }, ...defaultItems]);
+    const selected = ref<DropdownItem<never>>();
+    const disabledModel = ref<DropdownItem<never>>(defaultItems[1]);
+    const items = ref<DropdownItem<never>[]>(defaultItems);
 
     return {
       args,
@@ -221,7 +228,7 @@ export const all = args => ({
             label="Single value - with CTA/Loading/Search"
             placeholder="Single value - with CTA/Loading/Search"
             :is-loading="true"
-            tooltip-cta="Radom tooltip cta"
+            tooltip-cta="Random tooltip cta"
             v-model="selected">
             <template #cta>
               <a href="#" @click.prevent="onCta" style="display: block; padding: 8px 16px;">Do something</a>

@@ -1,21 +1,29 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
 import EcTextarea from './ec-textarea.vue';
+import type { TextareaProps } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Textarea',
   component: EcTextarea,
 };
 
-const Template = storyArgs => ({
+export default meta;
+
+type EcTextareaStory = StoryFn<TextareaProps & {
+  placeholder: string
+}>;
+
+const Template: EcTextareaStory = storyArgs => ({
   components: { EcTextarea },
   setup() {
     const model = ref('');
-    const args = ref({});
+    const args = ref<TextareaProps>({});
 
     watchEffect(() => {
       const { modelValue, ...rest } = storyArgs;
-      model.value = modelValue;
+      model.value = modelValue || '';
       args.value = rest;
     });
 
@@ -47,7 +55,14 @@ basic.parameters = {
   visualRegressionTests: { disable: true },
 };
 
-export const all = storyArgs => ({
+type EcTextareaAllStory = StoryFn<TextareaProps & {
+  placeholder: string,
+  disabledLabel: string,
+  errorLabel: string,
+  warningLabel: string,
+}>;
+
+export const all: EcTextareaAllStory = storyArgs => ({
   components: { EcTextarea },
   setup() {
     const disabledLabel = ref('');
@@ -67,7 +82,7 @@ export const all = storyArgs => ({
       disabledLabel.value = disabledLabelFromArgs;
       errorLabel.value = errorLabelFromArgs;
       warningLabel.value = warningLabelFromArgs;
-      errorMessage.value = errorMessageFromArgs;
+      errorMessage.value = errorMessageFromArgs || '';
       args.value = rest;
     });
 

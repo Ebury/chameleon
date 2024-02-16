@@ -2,7 +2,7 @@ import type { InputHTMLAttributes } from 'vue';
 
 import type { Maybe } from '../../../global';
 import type { ZIndexLevel } from '../../enums';
-import type { InputFieldEvents } from '../ec-input-field/types';
+import type { DropdownItem } from '../ec-dropdown/types';
 
 export interface PhoneNumberCountry {
   areaCode: string,
@@ -10,37 +10,15 @@ export interface PhoneNumberCountry {
   countryCode: string
 }
 
-export type PhoneNumberCountryItem = Pick<PhoneNumberCountry, 'areaCode'> & {
+export interface PhoneNumberCountryItem extends DropdownItem<PhoneNumberCountry> {
+  areaCode: string,
   iconPath: string,
-  id: PhoneNumberCountry['countryCode'],
-  name: PhoneNumberCountry['text'],
-  text: string,
-  value: PhoneNumberCountry
-};
+  name: string,
+}
 
 export interface PhoneNumberModel {
-  country: PhoneNumberCountry,
+  country: Maybe<PhoneNumberCountry>,
   phoneNumber: string
-}
-
-export enum PhoneNumberEvent {
-  UPDATE_MODEL_VALUE = 'update:modelValue',
-  CHANGE = 'change',
-  FOCUS = 'focus',
-  OPEN = 'open',
-  AFTER_OPEN = 'after-open',
-  COUNTRY_CHANGE = 'country-change',
-  PHONE_NUMBER_CHANGE = 'phone-number-change',
-}
-
-export interface PhoneNumberEvents {
-  [PhoneNumberEvent.UPDATE_MODEL_VALUE]: PhoneNumberProps['modelValue']
-  [PhoneNumberEvent.CHANGE]: InputFieldEvents['update:modelValue']
-  [PhoneNumberEvent.FOCUS]: undefined
-  [PhoneNumberEvent.OPEN]: undefined
-  [PhoneNumberEvent.AFTER_OPEN]: undefined
-  [PhoneNumberEvent.COUNTRY_CHANGE]: string[]
-  [PhoneNumberEvent.PHONE_NUMBER_CHANGE]: InputFieldEvents['update:modelValue']
 }
 
 export interface PhoneNumberProps {

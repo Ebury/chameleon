@@ -1,8 +1,8 @@
 <template>
   <div
     class="ec-textarea"
-    :class="$attrs.class"
-    :style="$attrs.style"
+    :class="attrs.class"
+    :style="style"
     data-test="ec-textarea"
   >
     <label
@@ -20,8 +20,8 @@
         v-ec-tooltip="{ content: labelTooltip }"
         class="ec-textarea__tooltip"
         data-test="ec-textarea__tooltip"
-        type="interactive"
-        name="simple-info"
+        :type="IconType.INTERACTIVE"
+        :name="IconName.SIMPLE_INFO"
         :size="14"
       />
       </span>
@@ -34,7 +34,7 @@
     </label>
 
     <textarea
-      v-bind="{ ...$attrs, class: null, style: null }"
+      v-bind="{ ...attrs, class: undefined, style: undefined }"
       :id="textareaId"
       ref="textareaRef"
       v-model="textareaModel"
@@ -45,7 +45,7 @@
         [config.sensitiveClass]: isSensitive,
       }"
       :aria-describedby="errorMessageId"
-      :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-textarea__textarea` : 'ec-textarea__textarea'"
+      :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-textarea__textarea` : 'ec-textarea__textarea'"
       :autocomplete="autocomplete"
     />
 
@@ -65,13 +65,18 @@
   </div>
 </template>
 
-<script setup>
-import { computed, ref } from 'vue';
+<script setup lang="ts">
+import {
+  computed, ref, type StyleValue, useAttrs,
+} from 'vue';
 
+import type { Maybe } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
-import VEcTooltip from '../../directives/ec-tooltip';
+import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
+import { IconName, IconType } from '../ec-icon/types';
+import type { TextareaProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
@@ -79,67 +84,34 @@ defineOptions({
 
 const config = useConfig();
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits<{
+  'update:modelValue': [value: string],
+}>();
 
-const props = defineProps({
-  modelValue: {
-    type: String,
-  },
-  rows: {
-    type: Number,
-    default: 4,
-  },
-  label: {
-    default: '',
-    type: String,
-  },
-  labelTooltip: {
-    default: '',
-    type: String,
-  },
-  note: {
-    default: '',
-    type: String,
-  },
-  bottomNote: {
-    default: '',
-    type: String,
-  },
-  errorMessage: {
-    default: '',
-    type: String,
-  },
-  id: {
-    type: String,
-  },
-  errorId: {
-    type: String,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  isWarning: {
-    type: Boolean,
-    default: false,
-  },
-  autocomplete: {
-    type: String,
-    default: null,
-  },
+const props = withDefaults(defineProps<TextareaProps>(), {
+  modelValue: '',
+  rows: 4,
+  label: '',
+  labelTooltip: '',
+  note: '',
+  bottomNote: '',
+  errorMessage: '',
 });
 
 defineExpose({
   focus,
 });
 
+const attrs = useAttrs();
+const style = attrs.style as unknown as StyleValue;
+
 const isInvalid = computed(() => !!props.errorMessage);
 
-const textareaRef = ref(null);
+const textareaRef = ref<Maybe<HTMLTextAreaElement>>();
 
 const uid = getUid();
 const textareaId = computed(() => props.id || `ec-textarea-${uid}`);
-const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-textarea-error-${uid}`) : null));
+const errorMessageId = computed(() => (isInvalid.value ? (props.errorId || `ec-textarea-error-${uid}`) : undefined));
 
 const textareaModel = computed({
   get() {
@@ -151,9 +123,7 @@ const textareaModel = computed({
 });
 
 function focus() {
-  if (textareaRef.value) {
-    textareaRef.value.focus();
-  }
+  textareaRef.value?.focus();
 }
 </script>
 
