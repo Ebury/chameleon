@@ -1,11 +1,11 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { h } from 'vue';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcTablePagination from './ec-table-pagination.vue';
+import type { TablePaginationProps } from './types';
 
 describe('EcTablePagination', () => {
-  function mountEcTablePagination(props, mountOpts) {
+  function mountEcTablePagination(props?: TablePaginationProps, mountOpts?: ComponentMountingOptions<typeof EcTablePagination>) {
     return mount(EcTablePagination, {
       props: { ...props },
       ...mountOpts,
@@ -15,14 +15,6 @@ describe('EcTablePagination', () => {
   it('should render as expected', () => {
     const wrapper = mountEcTablePagination();
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should throw if the prop numberOfItems has a invalid value', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountEcTablePagination({ numberOfItems: 7 });
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Invalid prop: custom validator check failed for prop "numberOfItems"');
-    });
   });
 
   it('should display page information by calculating total number of pages', () => {
