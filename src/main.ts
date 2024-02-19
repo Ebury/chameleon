@@ -81,6 +81,7 @@ export * from './components/ec-radio-btn/types';
 export { default as EcRadioBtnGroup } from './components/ec-radio-btn-group';
 export * from './components/ec-radio-btn-group/types';
 export { default as EcSmartTable } from './components/ec-smart-table';
+export * from './components/ec-smart-table/types';
 export { default as EcSubmenu } from './components/ec-submenu';
 export * from './components/ec-submenu/types';
 export { default as EcSummaryInfo } from './components/ec-summary-info';

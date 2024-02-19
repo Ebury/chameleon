@@ -1,4 +1,5 @@
-import type { SortDirection } from '../../enums';
+import type { Sorting } from '../../composables/use-ec-sorting/types';
+import type { SortDirectionCycle } from '../../enums';
 
 export interface TableHeadColumn {
   name?: string,
@@ -9,12 +10,10 @@ export interface TableHeadColumn {
   tooltip?: string,
   type?: string,
   span?: number,
+  sortCycle?: SortDirectionCycle
 }
 
-export interface TableHeadSort {
-  direction?: SortDirection,
-  column?: string,
-}
+export interface TableHeadSort extends Sorting {}
 
 export enum StickyColumnPosition {
   LEFT = 'left',

@@ -1,16 +1,26 @@
 import { action } from '@storybook/addon-actions';
-import { useFetch } from '@vueuse/core';
+import type { Meta, StoryFn } from '@storybook/vue3';
+import { useFetch, type UseFetchOptions } from '@vueuse/core';
 import {
-  computed, markRaw, onBeforeUnmount, ref,
+  computed, markRaw, onBeforeUnmount, ref, toRefs,
 } from 'vue';
 
+import type { Sorting } from '../../composables/use-ec-sorting/types';
 import { SortDirection, SortDirectionCycle } from '../../enums';
 import EcDateRangeFilter from '../ec-date-range-filter';
 import EcIcon from '../ec-icon';
 import EcOptionCard from '../ec-option-card';
 import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
+import type { TableFilter } from '../ec-table-filter/types';
+import type { TableHeadColumn } from '../ec-table-head/types';
 import EcTextFilter from '../ec-text-filter';
 import EcSmartTable from './ec-smart-table.vue';
+import type { SmartTableFetchPayload, SmartTableProps } from './types';
+
+export default {
+  title: 'Smart Table',
+  component: EcSmartTable,
+} as Meta<typeof EcSmartTable>;
 
 const defaultFilters = [{
   label: 'Payment status',
@@ -20,7 +30,7 @@ const defaultFilters = [{
   isSearchable: false,
   isSelectAll: false,
   selectAllFiltersText: '',
-}, {
+} satisfies TableFilter<typeof EcSyncMultipleValuesFilter>, {
   label: 'Fee type',
   name: 'feeType',
   component: markRaw(EcSyncMultipleValuesFilter),
@@ -28,7 +38,7 @@ const defaultFilters = [{
   isSearchable: false,
   isSelectAll: false,
   selectAllFiltersText: '',
-}, {
+} satisfies TableFilter<typeof EcSyncMultipleValuesFilter>, {
   label: 'Due date',
   name: 'dueDate',
   component: markRaw(EcDateRangeFilter),
@@ -43,14 +53,14 @@ const defaultFilters = [{
     areWeekendsDisabled: true,
   },
   clearText: 'Clear dates',
-  errorMessage: '',
-}, {
+  dateRangeErrorMessage: '',
+} satisfies TableFilter<typeof EcDateRangeFilter>, {
   name: 'text',
   component: EcTextFilter,
   inputProps: {
     placeholder: 'Type here the text to search by',
   },
-}];
+} satisfies TableFilter<typeof EcTextFilter>];
 
 const defaultStretchedFilters = [{
   label: 'Payment status',
@@ -60,7 +70,7 @@ const defaultStretchedFilters = [{
   isSearchable: false,
   isSelectAll: false,
   selectAllFiltersText: '',
-}, {
+} satisfies TableFilter<typeof EcSyncMultipleValuesFilter>, {
   label: 'Fee type',
   name: 'feeType',
   component: markRaw(EcSyncMultipleValuesFilter),
@@ -68,7 +78,7 @@ const defaultStretchedFilters = [{
   isSearchable: false,
   isSelectAll: false,
   selectAllFiltersText: '',
-}, {
+} satisfies TableFilter<typeof EcSyncMultipleValuesFilter>, {
   label: 'Due date',
   name: 'dueDate',
   component: markRaw(EcDateRangeFilter),
@@ -83,8 +93,8 @@ const defaultStretchedFilters = [{
     areWeekendsDisabled: true,
   },
   clearText: 'Clear dates',
-  errorMessage: '',
-}, {
+  dateRangeErrorMessage: '',
+} satisfies TableFilter<typeof EcDateRangeFilter>, {
   name: 'text',
   component: EcTextFilter,
   isFullWidth: true,
@@ -92,9 +102,9 @@ const defaultStretchedFilters = [{
   inputProps: {
     placeholder: 'Type here the text to search by',
   },
-}];
+} satisfies TableFilter<typeof EcTextFilter>];
 
-const columns = [
+const columns: TableHeadColumn[] = [
   {
     name: 'request-details',
     title: 'Request details',
@@ -117,14 +127,14 @@ const columns = [
   },
 ];
 
-const defaultSorts = [
+const defaultSorts: Sorting[] = [
   {
     direction: SortDirection.ASC,
     column: 'request-details',
   },
 ];
 
-const fakeData = [
+const fakeData: string[][] = [
   [
     'Lorem',
     'ipsum',
@@ -139,19 +149,28 @@ const fakeData = [
   ],
 ];
 
-const prefilters = {
+const prefilters: Record<string, Record<string, unknown>> = {
   all: {},
   onlyOverdue: { paymentStatus: [{ text: 'Overdue', value: 'overdue' }], feeType: [{ text: 'Payment', value: 'payment' }] },
   onlyInvoiced: { feeType: [{ text: 'Invoiced', value: 'invoiced' }] },
 };
 
-export default {
-  title: 'Smart Table',
-  component: EcSmartTable,
+type AdditionalPayload = { customProp: string };
+type EcSmartTableStoryProps = SmartTableProps<string[], AdditionalPayload> & {
+  loadingDelay: number,
+  failOnFetch: boolean,
+  fetchEmptyList: boolean,
+  isFilteringEnabled: boolean,
+  fakeData: string[][],
+  prefilter: keyof typeof prefilters,
 };
 
-function useSmartTableFetch(reqInit, { urlBuilder, ...options } = {}) {
-  const url = ref(null);
+type EcSmartTableStory = StoryFn<EcSmartTableStoryProps>;
+type EcSmartTableStoryPayload = SmartTableFetchPayload & AdditionalPayload;
+type UseSmartTableFetchOptions = UseFetchOptions & { urlBuilder: (payload: EcSmartTableStoryPayload) => string };
+
+function useSmartTableFetch(reqInit: RequestInit, { urlBuilder, ...options }: UseSmartTableFetchOptions) {
+  const url = ref<string>('');
 
   const {
     data,
@@ -169,7 +188,7 @@ function useSmartTableFetch(reqInit, { urlBuilder, ...options } = {}) {
     ...options,
   }).json();
 
-  function onFetch(payload) {
+  function onFetch(payload: EcSmartTableStoryPayload) {
     const newUrl = urlBuilder(payload);
 
     abort();
@@ -188,16 +207,8 @@ function useSmartTableFetch(reqInit, { urlBuilder, ...options } = {}) {
   };
 }
 
-function useSmartTableSetup(args) {
-  // sorting
-  const sortCycle = computed(() => (
-    // eslint-disable-next-line no-nested-ternary
-    args.sortCycle === 'lowest first'
-      ? SortDirectionCycle.LOWEST_FIRST
-      : args.sortCycle === 'highest first'
-        ? SortDirectionCycle.HIGHEST_FIRST
-        : null
-  ));
+function useSmartTableSetup(args: EcSmartTableStoryProps) {
+  const { sortCycle } = toRefs(args);
 
   // filters
   const filters = computed(() => (args.isFilteringEnabled ? defaultFilters : null));
@@ -205,10 +216,17 @@ function useSmartTableSetup(args) {
   const selectedFilter = computed(() => prefilters[args.prefilter]);
 
   // fake fetch API
-  function fakeFetch(url, ctx) {
-    const parsedUrl = new URL(url);
+  const fakeFetch: typeof window.fetch = function fakeFetch(input: string | URL | Request, ctx?: RequestInit) {
+    let parsedUrl;
+    if (typeof input === 'string') {
+      parsedUrl = new URL(input);
+    } else if (input instanceof Request) {
+      parsedUrl = new URL(input.url);
+    } else {
+      parsedUrl = input;
+    }
     action('fetching')(parsedUrl.hostname, parsedUrl.pathname, [...parsedUrl.searchParams.entries()]);
-    const numberOfItems = Number(new URL(url).searchParams.get('numberOfItems'));
+    const numberOfItems = Number(parsedUrl.searchParams.get('numberOfItems'));
 
     return new Promise((resolve, reject) => {
       const timeoutId = setTimeout(() => {
@@ -232,20 +250,20 @@ function useSmartTableSetup(args) {
         }
       }, args.loadingDelay);
 
-      ctx.signal.addEventListener('abort', () => {
+      ctx?.signal?.addEventListener('abort', () => {
         action('fetch cancelled')({});
         clearTimeout(timeoutId);
       });
     });
-  }
+  };
 
   // fetch
   function urlBuilder({
     page, numberOfItems, sorts, filter, ...customProps
-  } = {}) {
+  }: EcSmartTableStoryPayload): string {
     const newUrl = new URL('/random/', 'http://example.com');
-    newUrl.searchParams.append('page', page);
-    newUrl.searchParams.append('numberOfItems', numberOfItems);
+    newUrl.searchParams.append('page', `${page}`);
+    newUrl.searchParams.append('numberOfItems', `${numberOfItems}`);
     if (filter && Object.keys(filter).length) {
       newUrl.searchParams.append('filter', JSON.stringify(filter));
     }
@@ -266,20 +284,19 @@ function useSmartTableSetup(args) {
   // infinite scroll
   const infiniteScrollMappedData = ref([...args.fakeData]);
 
-  function getInfiniteScrollMappedData(payload) {
-    // 500ms delay to show the loading icon
+  function getInfiniteScrollMappedData(payload: EcSmartTableStoryPayload) {
     setTimeout(() => {
       if (!payload.sorts.length) {
         payload.sorts = defaultSorts;
       }
 
-      const areSortsDifferent = payload.sorts[0].column !== args.pagination.sorts[0].column
-      || payload.sorts[0].direction !== args.pagination.sorts[0].direction;
+      const areSortsDifferent = payload.sorts[0].column !== args.sorts?.[0].column
+      || payload.sorts[0].direction !== args.sorts?.[0].direction;
 
       if (areSortsDifferent) {
         infiniteScrollMappedData.value = [];
 
-        args.pagination.sorts = payload.sorts.length
+        args.sorts = payload.sorts.length
           ? [{
             column: payload.sorts[0].column,
             direction: payload.sorts[0].direction,
@@ -291,7 +308,7 @@ function useSmartTableSetup(args) {
         ...infiniteScrollMappedData.value,
         ...args.fakeData,
       ];
-    }, 500);
+    }, args.loadingDelay);
   }
 
   return {
@@ -313,7 +330,7 @@ function useSmartTableSetup(args) {
   };
 }
 
-export const basic = args => ({
+export const basic: EcSmartTableStory = args => ({
   components: { EcSmartTable, EcIcon },
   setup() {
     return {
@@ -380,7 +397,7 @@ basic.argTypes = {
     control: { type: 'select' },
   },
   sortCycle: {
-    options: ['lowest first', 'highest first'],
+    options: Object.values(SortDirectionCycle),
     control: { type: 'select' },
   },
   prefilter: {
@@ -396,7 +413,6 @@ basic.args = {
   pagination: {
     page: 2,
     numberOfItems: 5,
-    sorts: defaultSorts,
   },
   isMultiSort: false,
   additionalPayload: { customProp: 'customValue' },
@@ -416,7 +432,7 @@ basic.parameters = {
   },
 };
 
-export const all = args => ({
+export const all: EcSmartTableStory = args => ({
   components: { EcSmartTable, EcIcon, EcOptionCard },
   setup() {
     return {

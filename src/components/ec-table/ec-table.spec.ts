@@ -7,7 +7,7 @@ import { StickyColumnPosition } from '../ec-table-head/types';
 import EcTable from './ec-table.vue';
 import type { TableProps } from './types';
 
-function mountEcTable(props?: Partial<TableProps>, mountOpts?: ComponentMountingOptions<typeof EcTable>) {
+function mountEcTable<TRow extends unknown[]>(props?: Partial<TableProps<TRow>>, mountOpts?: ComponentMountingOptions<typeof EcTable>) {
   return mount(EcTable, {
     props: {
       columns: [
@@ -30,7 +30,7 @@ function mountEcTable(props?: Partial<TableProps>, mountOpts?: ComponentMounting
   });
 }
 
-function mountTableAsTemplate(template: string, props?: Partial<TableProps>, wrapperComponentOpts?: Record<string, unknown>, mountOpts?: ComponentMountingOptions<TableProps>) {
+function mountTableAsTemplate<TRow extends unknown[]>(template: string, props?: Partial<TableProps<TRow>>, wrapperComponentOpts?: Record<string, unknown>, mountOpts?: ComponentMountingOptions<TableProps<TRow>>) {
   const Component = defineComponent({
     components: { EcTable },
     template,

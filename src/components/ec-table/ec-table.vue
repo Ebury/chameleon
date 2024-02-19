@@ -72,24 +72,25 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" generic="TRow extends unknown[]">
 import { useMediaQuery } from '@vueuse/core';
+import type { StyleValue } from 'vue';
 import { computed, useAttrs, useSlots } from 'vue';
 
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
 import type { TableHeadColumn } from '../ec-table-head/types';
-import type { TableEvent, TableEvents, TableProps } from './types';
+import type { TableProps } from './types';
 
 const isInCustomRowThreshold = useMediaQuery('(max-width: 767px)');
 const slots = useSlots();
 const attrs = useAttrs();
 
 const emit = defineEmits<{
-  'sort': [value: TableEvents[TableEvent.SORT]],
+  'sort': [value: TableHeadColumn],
 }>();
 
-const props = withDefaults(defineProps<TableProps>(), {
+const props = withDefaults(defineProps<TableProps<TRow>>(), {
   columns: () => [],
   sorts: () => [],
   data: () => [],
@@ -97,14 +98,12 @@ const props = withDefaults(defineProps<TableProps>(), {
   isTableHeaderHidden: undefined,
 });
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const numberOfColumns = computed(() => (props.columns.length || (props.data[0] && props.data[0].length) || null));
+const numberOfColumns = computed(() => (props.columns.length || props.data?.[0]?.length || undefined));
 const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : undefined));
 const canShowCustomRow = computed(() => (props.isCustomRowShown || (props.isCustomRowShown === undefined && hasSlot('default') && isInCustomRowThreshold.value)));
 const canShowTableHeader = computed(() => (props.isTableHeaderHidden === false || (props.isTableHeaderHidden === undefined && !canShowCustomRow.value)));
 
-function onSort(column: TableEvents[TableEvent.SORT]) {
+function onSort(column: TableHeadColumn) {
   emit('sort', column);
 }
 
@@ -114,24 +113,24 @@ function onRowClick(rowData: { data: unknown, rowIndex: number }) {
   }
 }
 
-function getColumnWidth(column: TableHeadColumn) {
+function getColumnWidth(column: TableHeadColumn): StyleValue | undefined {
   if (column && (column.maxWidth || column.minWidth)) {
     return { maxWidth: column.maxWidth, minWidth: column.minWidth };
   }
   return undefined;
 }
 
-function getStickyColumnClass(colIndex: number) {
+function getStickyColumnClass(colIndex: number): string | undefined {
   if (props.stickyColumn === 'left' && colIndex === 0) {
     return 'ec-table__cell--sticky-left';
   }
   if (props.stickyColumn === 'right' && colIndex === props.columns.length - 1) {
     return 'ec-table__cell--sticky-right';
   }
-  return null;
+  return undefined;
 }
 
-function hasSlot(slotName: string) {
+function hasSlot(slotName: string): boolean {
   return slotName in slots;
 }
 </script>
