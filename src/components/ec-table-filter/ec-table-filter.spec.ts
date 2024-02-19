@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { defineComponent, markRaw } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
@@ -6,6 +6,7 @@ import EcDateRangeFilter from '../ec-date-range-filter';
 import EcSyncMultipleValuesFilter from '../ec-sync-multiple-values-filter';
 import EcTextFilter from '../ec-text-filter';
 import EcTableFilter from './ec-table-filter.vue';
+import type { TableFilter, TableFilterProps } from './types';
 
 const filters = [{
   label: 'Payment status',
@@ -15,7 +16,7 @@ const filters = [{
   isSearchable: false,
   isSelectAll: false,
   selectAllFiltersText: '',
-}, {
+} satisfies TableFilter<typeof EcSyncMultipleValuesFilter>, {
   label: 'Fee type',
   name: 'feeType',
   component: markRaw(EcSyncMultipleValuesFilter),
@@ -23,7 +24,7 @@ const filters = [{
   isSearchable: false,
   isSelectAll: false,
   selectAllFiltersText: '',
-}, {
+} satisfies TableFilter<typeof EcSyncMultipleValuesFilter>, {
   label: 'Due date',
   name: 'dueDate',
   component: markRaw(EcDateRangeFilter),
@@ -36,28 +37,15 @@ const filters = [{
     placeholder: 'dd/mm/yyyy',
   },
   clearText: 'Clear dates',
-}, {
+} satisfies TableFilter<typeof EcDateRangeFilter>, {
   name: 'text',
   component: markRaw(EcTextFilter),
-}];
+} satisfies TableFilter<typeof EcTextFilter>];
 
 const modelValue = { feeType: [{ text: 'Invoiced', value: 'invoiced' }], text: 'Some value' };
 
-function mountEcTableFilter(props, mountOpts) {
+function mountEcTableFilter(props?: TableFilterProps, mountOpts?: ComponentMountingOptions<typeof EcTableFilter>) {
   return mount(EcTableFilter, {
-    props,
-    ...mountOpts,
-  });
-}
-
-function mountEcTableFilterAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  const Component = defineComponent({
-    components: { EcTableFilter },
-    template,
-    ...wrapperComponentOpts,
-  });
-
-  return mount(Component, {
     props,
     ...mountOpts,
   });
@@ -101,18 +89,19 @@ describe('EcTableFilter', () => {
         isHidden: true,
       },
     ];
-    const wrapper = mountEcTableFilterAsTemplate(
-      '<ec-table-filter v-model="value" :filters="filters" />',
-      {},
-      {
-        data() {
-          return {
-            value: {},
-            filters: [...filters, ...hiddenFilters],
-          };
-        },
+
+    const Component = defineComponent({
+      components: { EcTableFilter },
+      data() {
+        return {
+          value: {},
+          filters: [...filters, ...hiddenFilters],
+        };
       },
-    );
+      template: '<ec-table-filter v-model="value" :filters="filters" />',
+    });
+
+    const wrapper = mount(Component);
     const dueDateFilter = wrapper.findByDataTest('ec-table-filter__filter-item-4');
     expect(dueDateFilter.classes()).toContain('ec-table-filter__filter-item--is-hidden');
     expect(dueDateFilter.element).toMatchSnapshot();
@@ -127,53 +116,51 @@ describe('EcTableFilter', () => {
   });
 
   it('should hide the clear filters button when "isClearFiltersButtonHidden" is set', () => {
-    const wrapper = mountEcTableFilterAsTemplate(
-      '<ec-table-filter v-model="value" :filters="filters" />',
-      {
-        isClearFiltersButtonHidden: true,
+    const Component = defineComponent({
+      components: { EcTableFilter },
+      data() {
+        return {
+          value: { feeType: modelValue.feeType },
+          filters,
+        };
       },
-      {
-        data() {
-          return {
-            value: { feeType: modelValue.feeType },
-            filters,
-          };
-        },
-      },
-    );
+      template: '<ec-table-filter v-model="value" :filters="filters" is-clear-filters-button-hidden />',
+    });
+
+    const wrapper = mount(Component);
     const clearFiltersButton = wrapper.findByDataTest('ec-table-filter__clear-filters-button');
     expect(clearFiltersButton.exists()).toBe(false);
   });
 
   it('should hide the clear filters button if there isn\'t any preselected filter', () => {
-    const wrapper = mountEcTableFilterAsTemplate(
-      '<ec-table-filter v-model="value" :filters="filters" />',
-      {},
-      {
-        data() {
-          return {
-            value: {},
-            filters,
-          };
-        },
+    const Component = defineComponent({
+      components: { EcTableFilter },
+      data() {
+        return {
+          value: {},
+          filters,
+        };
       },
-    );
+      template: '<ec-table-filter v-model="value" :filters="filters" />',
+    });
+
+    const wrapper = mount(Component);
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should hide the clear filters button when the user deselect the all the filters manually', async () => {
-    const wrapper = mountEcTableFilterAsTemplate(
-      '<ec-table-filter v-model="value" :filters="filters" :popover-options="{ open: true }" />',
-      {},
-      {
-        data() {
-          return {
-            value: { feeType: modelValue.feeType },
-            filters,
-          };
-        },
+    const Component = defineComponent({
+      components: { EcTableFilter },
+      data() {
+        return {
+          value: { feeType: modelValue.feeType },
+          filters,
+        };
       },
-    );
+      template: '<ec-table-filter v-model="value" :filters="filters" :popover-options="{ open: true }" />',
+    });
+
+    const wrapper = mount(Component);
     await wrapper.findByDataTest('ec-table-filter__filter-item-1').findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__input').setValue(false);
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.findByDataTest('ec-table-filter__clear-filters-button').exists()).toBe(false);
@@ -191,15 +178,15 @@ describe('EcTableFilter', () => {
     const wrapper = mountEcTableFilter({ modelValue, filters });
     await wrapper.findByDataTest('ec-table-filter__filter-item-1').findByDataTest('ec-multiple-values-selection__checkbox-deselect').findByDataTest('ec-checkbox__input').setValue(false);
 
-    expect(wrapper.emitted('update:modelValue').length).toBe(1);
-    expect(wrapper.emitted('change').length).toEqual(1);
+    expect(wrapper.emitted('update:modelValue')?.length).toBe(1);
+    expect(wrapper.emitted('change')?.length).toEqual(1);
   });
 
   it('should emit a change event with the selected filters object when the user select a filter', async () => {
     const wrapper = mountEcTableFilter({ modelValue, filters });
 
     await wrapper.findByDataTest('ec-table-filter__filter-item-0').findByDataTest('ec-checkbox__input').setValue(true);
-    expect(wrapper.emitted('update:modelValue').length).toBe(1);
-    expect(wrapper.emitted('change').length).toBe(1);
+    expect(wrapper.emitted('update:modelValue')?.length).toBe(1);
+    expect(wrapper.emitted('change')?.length).toBe(1);
   });
 });

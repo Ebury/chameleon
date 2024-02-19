@@ -90,6 +90,7 @@ export * from './components/ec-sync-multiple-values-filter/types';
 export { default as EcTable } from './components/ec-table';
 export * from './components/ec-table/types';
 export { default as EcTableFilter } from './components/ec-table-filter';
+export * from './components/ec-table-filter/types';
 export { default as EcTag } from './components/ec-tag';
 export * from './components/ec-tag/types';
 export { default as EcTextFilter } from './components/ec-text-filter';
