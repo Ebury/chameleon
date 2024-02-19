@@ -1,10 +1,11 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { vueRouter } from 'storybook-vue3-router';
 import { ref, watchEffect } from 'vue';
 
 import EcSubmenu from './ec-submenu.vue';
 
-export default {
+const meta: Meta = {
   title: 'Submenu',
   component: EcSubmenu,
   decorators: [
@@ -18,10 +19,12 @@ export default {
   ],
 };
 
-export const basic = storyArgs => ({
+export default meta;
+
+export const basic: StoryFn<typeof EcSubmenu> = storyArgs => ({
   components: { EcSubmenu },
   setup() {
-    const model = ref(0);
+    const model = ref<number | undefined>(0);
     const args = ref({});
 
     watchEffect(() => {

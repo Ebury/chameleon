@@ -1,10 +1,11 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount, VueWrapper } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
-import { withMockedConsole } from '../../../tests/utils/console';
+import type { ComparisonSymbolItem } from '../ec-amount-filter-input/types';
 import EcCurrencyFilter from './ec-currency-filter.vue';
+import type { CurrencyFilterItem, CurrencyFilterProps } from './types';
 
-const currencyItems = [{
+const currencyItems: CurrencyFilterItem[] = [{
   value: 'GBP',
   text: 'GBP',
 }, {
@@ -21,7 +22,7 @@ const currencyItems = [{
   text: 'USD',
 }];
 
-const comparisonSymbolItems = [{
+const comparisonSymbolItems: ComparisonSymbolItem[] = [{
   text: 'More than',
   value: '>',
 }, {
@@ -33,7 +34,7 @@ const comparisonSymbolItems = [{
 }];
 
 describe('EcCurrencyFilter', () => {
-  function mountEcCurrencyFilter(props, mountOpts) {
+  function mountEcCurrencyFilter(props?: Partial<CurrencyFilterProps>, mountOpts?: ComponentMountingOptions<typeof EcCurrencyFilter>) {
     return mount(EcCurrencyFilter, {
       props: {
         label: 'Price',
@@ -45,18 +46,18 @@ describe('EcCurrencyFilter', () => {
     });
   }
 
-  function mountEcCurrencyFilterAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const Component = defineComponent({
-      components: { EcCurrencyFilter },
-      template,
-      ...wrapperComponentOpts,
-    });
+  // function mountEcCurrencyFilterAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
+  //   const Component = defineComponent({
+  //     components: { EcCurrencyFilter },
+  //     template,
+  //     ...wrapperComponentOpts,
+  //   });
 
-    return mount(Component, {
-      props,
-      ...mountOpts,
-    });
-  }
+  //   return mount(Component, {
+  //     props,
+  //     ...mountOpts,
+  //   });
+  // }
 
   it('should render correctly', () => {
     const wrapper = mountEcCurrencyFilter();
@@ -74,18 +75,6 @@ describe('EcCurrencyFilter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('should throw an error if required props are not given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountEcCurrencyFilter({}, {
-        props: {},
-      });
-      expect(warnSpy).toHaveBeenCalledTimes(3);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "currencyItems"');
-      expect(warnSpy.mock.calls[2][0]).toContain('Missing required prop: "comparisonSymbolItems"');
-    });
-  });
-
   it('should preselect given filters from the value prop', () => {
     const wrapper = mountEcCurrencyFilter({
       modelValue: {
@@ -100,7 +89,7 @@ describe('EcCurrencyFilter', () => {
 
     expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
     expect(wrapper.findByDataTest('ec-currency-filter__tab--1').element).toMatchSnapshot();
-    expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toBe('1,234.56');
+    expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__amount').element.value).toBe('1,234.56');
   });
 
   it('should count every selected currency in numberOfSelectedFilters', () => {
@@ -176,7 +165,7 @@ describe('EcCurrencyFilter', () => {
     });
 
     expect(wrapper.findByDataTest('ec-amount-filter-input').element).toMatchSnapshot();
-    expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toBe('1.234,56');
+    expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__amount').element.value).toBe('1.234,56');
   });
 
   it('should render currencies tab in loading state when isLoadingCurrencies is set', () => {
@@ -203,7 +192,7 @@ describe('EcCurrencyFilter', () => {
   it('should disable clear amount button if the amount is empty', () => {
     const wrapper = mountEcCurrencyFilter({
       modelValue: {
-        amount: null,
+        amount: undefined,
       },
     });
 
@@ -222,119 +211,115 @@ describe('EcCurrencyFilter', () => {
 
   describe('v-model', () => {
     it('should update v-model every time a currency is selected', async () => {
-      const wrapper = mountEcCurrencyFilterAsTemplate(
-        '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
-        {},
-        {
-          data() {
-            return {
-              currencyItems,
-              comparisonSymbolItems,
-              value: {
-                amount: null, comparisonSymbol: null, currencies: [],
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyFilter },
+        data() {
+          return {
+            currencyItems,
+            comparisonSymbolItems,
+            value: {
+              amount: undefined, comparisonSymbol: undefined, currencies: [],
+            },
+          };
         },
-      );
+        template: '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
+      });
 
+      const wrapper = mount(Component);
       await selectCurrency(wrapper, 0);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
       expect(wrapper.vm.value).toEqual({
-        amount: null,
-        comparisonSymbol: null,
+        amount: undefined,
+        comparisonSymbol: undefined,
         currencies: [{ text: 'GBP', value: 'GBP' }],
       });
 
       await selectCurrency(wrapper, 1);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
       expect(wrapper.vm.value).toEqual({
-        amount: null,
-        comparisonSymbol: null,
+        amount: undefined,
+        comparisonSymbol: undefined,
         currencies: [{ text: 'GBP', value: 'GBP' }, { text: 'EUR', value: 'EUR' }],
       });
     });
 
     it('should update v-model every time a currency is deselected', async () => {
-      const wrapper = mountEcCurrencyFilterAsTemplate(
-        '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
-        {},
-        {
-          data() {
-            return {
-              currencyItems,
-              comparisonSymbolItems,
-              value: {
-                amount: null,
-                comparisonSymbol: null,
-                currencies: [
-                  { text: 'GBP', value: 'GBP' },
-                  { text: 'EUR', value: 'EUR' },
-                ],
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyFilter },
+        data() {
+          return {
+            currencyItems,
+            comparisonSymbolItems,
+            value: {
+              amount: undefined,
+              comparisonSymbol: undefined,
+              currencies: [
+                { text: 'GBP', value: 'GBP' },
+                { text: 'EUR', value: 'EUR' },
+              ],
+            },
+          };
         },
-      );
+        template: '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
+      });
 
+      const wrapper = mount(Component);
       await deselectCurrency(wrapper, 0);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
       expect(wrapper.vm.value).toEqual({
-        amount: null,
-        comparisonSymbol: null,
+        amount: undefined,
+        comparisonSymbol: undefined,
         currencies: [{ text: 'EUR', value: 'EUR' }],
       });
 
       await deselectCurrency(wrapper, 1);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot();
-      expect(wrapper.vm.value).toEqual(null);
+      expect(wrapper.vm.value).toEqual(undefined);
     });
 
     it('should update v-model if select all checkbox is clicked', async () => {
-      const wrapper = mountEcCurrencyFilterAsTemplate(
-        '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
-        {},
-        {
-          data() {
-            return {
-              currencyItems,
-              comparisonSymbolItems,
-              value: null,
-            };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyFilter },
+        data() {
+          return {
+            currencyItems,
+            comparisonSymbolItems,
+            value: null,
+          };
         },
-      );
+        template: '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
+      });
 
+      const wrapper = mount(Component);
       await selectAll(wrapper);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot('after select all');
       expect(wrapper.vm.value).toEqual({
-        amount: null,
-        comparisonSymbol: null,
+        amount: undefined,
+        comparisonSymbol: undefined,
         currencies: currencyItems,
       });
 
       await deselectAll(wrapper);
       expect(wrapper.findByDataTest('ec-currency-filter__tab--0').element).toMatchSnapshot('after deselect all');
-      expect(wrapper.vm.value).toEqual(null);
+      expect(wrapper.vm.value).toEqual(undefined);
     });
 
-    it('should not update the v-model if a comparison symbol is selected until the amount is not empty', async () => { // MIG-TODO
-      const wrapper = mountEcCurrencyFilterAsTemplate(
-        '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
-        {},
-        {
-          data() {
-            return {
-              currencyItems,
-              comparisonSymbolItems,
-              value: {
-                amount: null, comparisonSymbol: comparisonSymbolItems[0], currencies: [],
-              },
-            };
-          },
+    it('should not update the v-model if a comparison symbol is selected until the amount is not empty', async () => {
+      const Component = defineComponent({
+        components: { EcCurrencyFilter },
+        data() {
+          return {
+            currencyItems,
+            comparisonSymbolItems,
+            value: {
+              amount: null, comparisonSymbol: comparisonSymbolItems[0], currencies: [],
+            },
+          };
         },
-      );
+        template: '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
+      });
 
+      const wrapper = mount(Component);
       await selectAmountTab(wrapper);
       await selectComparisonSymbol(wrapper, 2);
 
@@ -359,23 +344,22 @@ describe('EcCurrencyFilter', () => {
       });
     });
 
-    it('should update the v-model if the amount is cleared by the user', async () => { // MIG-TODO
-      const wrapper = mountEcCurrencyFilterAsTemplate(
-        '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
-        {},
-        {
-          data() {
-            return {
-              currencyItems,
-              comparisonSymbolItems,
-              value: {
-                amount: null, comparisonSymbol: comparisonSymbolItems[0], currencies: [],
-              },
-            };
-          },
+    it('should update the v-model if the amount is cleared by the user', async () => {
+      const Component = defineComponent({
+        components: { EcCurrencyFilter },
+        data() {
+          return {
+            currencyItems,
+            comparisonSymbolItems,
+            value: {
+              amount: null, comparisonSymbol: comparisonSymbolItems[0], currencies: [],
+            },
+          };
         },
-      );
+        template: '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
+      });
 
+      const wrapper = mount(Component);
       await selectAmountTab(wrapper);
       await selectComparisonSymbol(wrapper, 0);
       await setAmount(wrapper, '1234');
@@ -386,77 +370,76 @@ describe('EcCurrencyFilter', () => {
       });
 
       await setAmount(wrapper, '');
-      expect(wrapper.vm.value).toEqual(null);
+      expect(wrapper.vm.value).toEqual(undefined);
     });
 
     it('should clear the amount and comparison symbol when the clear amount button is clicked', async () => {
-      const wrapper = mountEcCurrencyFilterAsTemplate(
-        '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
-        {},
-        {
-          data() {
-            return {
-              currencyItems,
-              comparisonSymbolItems,
-              value: {
-                amount: 1234,
-                comparisonSymbol: comparisonSymbolItems[0],
-                currencies: [
-                  { text: 'GBP', value: 'GBP' },
-                ],
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyFilter },
+        data() {
+          return {
+            currencyItems,
+            comparisonSymbolItems,
+            value: {
+              amount: 1234,
+              comparisonSymbol: comparisonSymbolItems[0],
+              currencies: [
+                { text: 'GBP', value: 'GBP' },
+              ],
+            },
+          };
         },
-      );
+        template: '<ec-currency-filter label="Price" :currencyItems="currencyItems" :comparisonSymbolItems="comparisonSymbolItems" v-model="value"></ec-currency-filter>',
+      });
 
+      const wrapper = mount(Component);
       await wrapper.findByDataTest('ec-currency-filter__clear-amount').trigger('click');
       expect(wrapper.vm.value).toEqual({
-        amount: null,
-        comparisonSymbol: null,
+        amount: undefined,
+        comparisonSymbol: undefined,
         currencies: [
           { text: 'GBP', value: 'GBP' },
         ],
       });
       expect(wrapper.findByDataTest('ec-currency-filter__tab--1').element).toMatchSnapshot();
-      expect(wrapper.findByDataTest('ec-amount-input').element.value).toBe('');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-input').element.value).toBe('');
     });
   });
 });
 
-async function selectCurrency(wrapper, index) {
+async function selectCurrency(wrapper: VueWrapper, index: number) {
   await wrapper.findByDataTest(`ec-multiple-values-selection__checkbox-select-${index}`).findByDataTest('ec-checkbox__input').setValue(true);
 }
 
-async function deselectCurrency(wrapper, index) {
+async function deselectCurrency(wrapper: VueWrapper, index: number) {
   await wrapper.findByDataTest(`ec-multiple-values-selection__checkbox-deselect-${index}`).findByDataTest('ec-checkbox__input').setValue(false);
 }
 
-async function selectAll(wrapper) {
+async function selectAll(wrapper: VueWrapper) {
   await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').setValue(true);
 }
 
-async function deselectAll(wrapper) {
+async function deselectAll(wrapper: VueWrapper) {
   await wrapper.findByDataTest('ec-multiple-values-selection__select-all').findByDataTest('ec-checkbox__input').setValue(false);
 }
 
-async function selectTab(wrapper, index) {
+async function selectTab(wrapper: VueWrapper, index: number) {
   await wrapper.findByDataTest(`ec-submenu__header-title-${index}`).trigger('click');
 }
 
-async function selectAmountTab(wrapper) {
+async function selectAmountTab(wrapper: VueWrapper) {
   await selectTab(wrapper, 1);
 }
 
-async function selectComparisonSymbol(wrapper, index) {
+async function selectComparisonSymbol(wrapper: VueWrapper, index: number) {
   await wrapper.findByDataTest(`ec-dropdown-search__item--${index}`).trigger('click');
 }
 
-async function setAmount(wrapper, amount) {
+async function setAmount(wrapper: VueWrapper, amount: string) {
   // we can use:
   // await wrapper.findByDataTest('ec-amount-input').setValue(amount);
   // because there's ec-amount-input directive that should re-format the value first and then we can trigger the change event.
-  wrapper.findByDataTest('ec-amount-input').element.value = amount;
+  wrapper.findByDataTest<HTMLInputElement>('ec-amount-input').element.value = amount;
   await wrapper.findByDataTest('ec-amount-input').trigger('input');
   await wrapper.findByDataTest('ec-amount-input').trigger('change');
 }

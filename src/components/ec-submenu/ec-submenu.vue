@@ -61,33 +61,24 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { SubmenuProps } from './types';
+
 defineOptions({
   inheritAttrs: false,
 });
 
-defineProps({
-  submenu: {
-    type: Array,
-    required: true,
-  },
-  activeIndex: {
-    type: Number,
-    default: 0,
-  },
-  isFullWidth: {
-    type: Boolean,
-    default: false,
-  },
-  hasHeaderGap: {
-    type: Boolean,
-    default: true,
-  },
+withDefaults(defineProps<SubmenuProps>(), {
+  activeIndex: 0,
+  hasHeaderGap: true,
 });
 
-const emit = defineEmits(['update:activeIndex', 'change']);
+const emit = defineEmits<{
+  'update:activeIndex': [index: number],
+  'change': [index: number],
+}>();
 
-function select(index) {
+function select(index: number) {
   emit('update:activeIndex', index);
   emit('change', index);
 }

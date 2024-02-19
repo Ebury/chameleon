@@ -72,96 +72,50 @@
   </div>
 </template>
 
-<script setup>
-import {
-  computed, ref, watchEffect,
-} from 'vue';
+<script setup lang="ts">
+import { computed, ref, watchEffect } from 'vue';
 
 import EcAmountFilterInput from '../ec-amount-filter-input';
 import EcFilterPopover from '../ec-filter-popover';
 import EcMultipleValuesSelection from '../ec-multiple-values-selection';
+import type { PopoverProps } from '../ec-popover/types';
 import EcSubmenu from '../ec-submenu';
+import type { CurrencyFilterModel, CurrencyFilterProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps({
-  label: {
-    type: String,
-    required: true,
-    default: '',
-  },
-  popoverOptions: {
-    type: Object,
-  },
-  modelValue: {
-    type: Object,
-    default: () => ({
-      currencies: [],
-      comparisonSymbol: null,
-      amount: null,
-    }),
-  },
-  currencyItems: {
-    type: Array,
-    required: true,
-    default: () => ([]),
-  },
-  isLoadingCurrencies: {
-    type: Boolean,
-    default: false,
-  },
-  currenciesEmptyMessage: {
-    type: String,
-  },
-  currenciesErrorMessage: {
-    type: String,
-  },
-  selectAllCurrenciesText: {
-    type: String,
-    default: 'Select all',
-  },
-  currencyTabHeaderText: {
-    type: String,
-    default: 'Currency',
-  },
-  comparisonSymbolItems: {
-    type: Array,
-    required: true,
-    default: () => ([]),
-  },
-  amountTabHeaderText: {
-    type: String,
-    default: 'Amount',
-  },
-  amountPlaceholder: {
-    type: String,
-    default: 'Enter an amount...',
-  },
-  clearAmountText: {
-    type: String,
-    default: 'Clear amount',
-  },
-  locale: {
-    type: String,
-    default: 'en',
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  errorMessage: {
-    type: String,
-  },
+const props = withDefaults(defineProps<CurrencyFilterProps>(), {
+  label: '',
+  modelValue: () => ({
+    currencies: [],
+    comparisonSymbol: undefined,
+    amount: undefined,
+  }),
+  currencyItems: () => ([]),
+  selectAllCurrenciesText: 'Select all',
+  currencyTabHeaderText: 'Currency',
+  comparisonSymbolItems: () => ([]),
+  amountTabHeaderText: 'Amount',
+  amountPlaceholder: 'Enter an amount...',
+  clearAmountText: 'Clear amount',
+  locale: 'en',
 });
+
+const emit = defineEmits<{
+  'update:modelValue': [value: CurrencyFilterModel | undefined],
+  'change': [value: CurrencyFilterModel | undefined],
+}>();
 
 const activeTabIndex = ref(0);
 const disableAutoHide = ref(false);
-const allPopoverOptions = computed(() => ({
+
+const allPopoverOptions = computed<PopoverProps>(() => ({
   autoHide: !disableAutoHide.value, // autoHide of the ec-filter-popover should be disabled while the dropdown in ec-amount-filter-input is open, otherwise selecting value in the dropdown will close this popover too.
   ...props.popoverOptions,
 }));
+
 const submenu = computed(() => [{
   headerTitle: props.currencyTabHeaderText,
   slotName: 'currency',
@@ -191,9 +145,9 @@ const selectedCurrenciesModel = computed({
     });
   },
 });
-const internalAmountModel = ref({
-  comparisonSymbol: null,
-  amount: null,
+const internalAmountModel = ref<Omit<CurrencyFilterModel, 'currencies'>>({
+  comparisonSymbol: undefined,
+  amount: undefined,
 });
 const amountModel = computed({
   get() {
@@ -221,15 +175,15 @@ function onComparisonSymbolChanged() {
 }
 function onClearAmount() {
   update({
-    comparisonSymbol: null,
-    amount: null,
+    comparisonSymbol: undefined,
+    amount: undefined,
   });
 }
-function update(value) {
-  let newValue = {
+function update(value: Partial<CurrencyFilterModel>) {
+  let newValue: CurrencyFilterModel | undefined = {
     currencies: [],
-    amount: null,
-    comparisonSymbol: null,
+    amount: undefined,
+    comparisonSymbol: undefined,
     ...props.modelValue,
     ...value,
   };
@@ -240,8 +194,8 @@ function update(value) {
   //
   // we don't want every complicated filter polluting the logic inside its parent implementation
   // so we rather sort it here.
-  if (newValue.currencies.length === 0 && typeof newValue.amount !== 'number') {
-    newValue = null;
+  if ((!Array.isArray(newValue.currencies) || newValue.currencies.length === 0) && typeof newValue.amount !== 'number') {
+    newValue = undefined;
   }
 
   emit('update:modelValue', newValue);
@@ -253,7 +207,6 @@ watchEffect(() => {
     amount: props.modelValue?.amount,
   };
 });
-const emit = defineEmits(['update:modelValue', 'change']);
 </script>
 
 <style>
