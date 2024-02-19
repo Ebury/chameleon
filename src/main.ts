@@ -6,6 +6,7 @@ export * from './components/ec-amount-filter-input/types';
 export { default as EcAmountInput } from './components/ec-amount-input';
 export * from './components/ec-amount-input/types';
 export { default as EcBadge } from './components/ec-badge';
+export * from './components/ec-badge/types';
 export { default as EcBtn } from './components/ec-btn';
 export * from './components/ec-btn/types';
 export { default as EcBtnDropdown } from './components/ec-btn-dropdown';

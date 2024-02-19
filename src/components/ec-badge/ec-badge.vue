@@ -10,19 +10,11 @@
   </span>
 </template>
 
-<script setup>
-defineProps({
-  type: {
-    type: String,
-    validator(value) {
-      return ['error', 'info', 'success', 'warning'].includes(value);
-    },
-    default: 'info',
-  },
-  value: {
-    type: [String, Number],
-    required: true,
-  },
+<script setup lang="ts">
+import { type BadgeProps, BadgeType } from './types';
+
+withDefaults(defineProps<BadgeProps>(), {
+  type: BadgeType.INFO,
 });
 </script>
 
