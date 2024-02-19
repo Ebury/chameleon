@@ -19,6 +19,7 @@ export * from './components/ec-container/types';
 export { default as EcCurrencyFilter } from './components/ec-currency-filter';
 export { default as EcCurrencyInput } from './components/ec-currency-input';
 export { default as EcDateRangeFilter } from './components/ec-date-range-filter';
+export * from './components/ec-date-range-filter/types';
 export { default as EcDatepicker } from './components/ec-datepicker';
 export * from './components/ec-datepicker/types';
 export { default as EcDonut } from './components/ec-donut';
