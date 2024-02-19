@@ -3,6 +3,16 @@
     v-bind="getOptions()"
     ref="popover"
     :data-test="attrs['data-test'] ? `${attrs['data-test']} ec-popover` : 'ec-popover'"
+    v-on="{
+      'update:shown': (shown: boolean) => emit('update:shown', shown),
+      show: () => emit('show'),
+      'apply-show': () => emit('apply-show'),
+      hide: () => emit('hide'),
+      'apply-hide': () => emit('apply-hide'),
+      'auto-hide': () => emit('auto-hide'),
+      'close-directive': () => emit('close-directive'),
+      resize: () => emit('resize'),
+    }"
   >
     <slot />
     <!-- eslint-disable-next-line vue/no-template-shadow -->
@@ -39,6 +49,17 @@ const props = withDefaults(defineProps<PopoverProps>(), {
   shift: undefined,
   autoSize: undefined,
 });
+
+const emit = defineEmits<{
+  'update:shown': [show: boolean],
+  'show': [],
+  'apply-show': [],
+  'hide': [],
+  'apply-hide': [],
+  'auto-hide': [],
+  'close-directive': [],
+  'resize': [],
+}>();
 
 const id = getUid();
 const popover = ref<InstanceType<typeof FvDropdown>>();

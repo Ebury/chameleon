@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
@@ -43,12 +44,22 @@ const Template: EcPopoverStory = storyArgs => ({
     return {
       args,
       trigger,
+      action,
     };
   },
   template: `
     <div class="tw-flex tw-h-screen">
       <div class="tw-m-auto">
-        <ec-popover v-bind="{ ...args, triggers: [trigger] }">
+        <ec-popover v-bind="{ ...args, triggers: [trigger] }" v-on="{
+          'update:shown': action('update:shown'),
+          'show': action('show'),
+          'apply-show': action('apply-show'),
+          'hide': action('hide'),
+          'apply-hide': action('apply-hide'),
+          'auto-hide': action('auto-hide'),
+          'close-directive': action('close-directive'),
+          'resize': action('resize'),
+        }">
           <button class="ec-btn ec-btn--primary ec-btn--md ec-btn--rounded">Activate popover</button>
           <template #popper="{ hide }">
             <div class="tw-bg-gray-8 tw-border tw-border-solid tw-border-gray-6 tw-p-8 tw-text-center">
