@@ -72,7 +72,7 @@
   </div>
 </template>
 
-<script setup lang="ts" generic="TRow extends unknown[]">
+<script setup lang="ts" generic="TRow extends ReadonlyArray<unknown>">
 import { useMediaQuery } from '@vueuse/core';
 import type { StyleValue } from 'vue';
 import { computed, useAttrs, useSlots } from 'vue';

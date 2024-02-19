@@ -19,7 +19,7 @@ export interface SmartTablePagination {
   numberOfItems?: PageSize,
 }
 
-export interface SmartTableProps<TRow extends unknown[], TAdditionalPayload = never> extends TableProps<TRow> {
+export interface SmartTableProps<TRow extends ReadonlyArray<unknown>, TAdditionalPayload = never> extends TableProps<TRow> {
   errorMessage?: string,
   emptyMessage?: string,
   clearFiltersButtonText?: string,

@@ -115,13 +115,20 @@
           >
             <slot name="footer" />
           </template>
-          <template
-            v-for="(_, name) in (getEcTableSlots() as unknown)"
-            #[name]="slotData"
-          ><slot
-            :name="name"
-            v-bind="slotData"
-          /></template>
+          <!-- pass colX slots to ec-table and bind their types -->
+          <!-- in order to make TS and Vue happy we can't for-loop $slots. We also need to statically cast the content prop so they are type safe. we cannot do TRow[colIndex] because TS can't tell what is the value of colIndex at compile time -->
+          <template #col1="{ content, row }" v-if="hasSlot('col1')"><slot name="col1" v-bind="{ content: (content as TRow[0]), row }" /></template>
+          <template #col2="{ content, row }" v-if="hasSlot('col2')"><slot name="col2" v-bind="{ content: (content as TRow[1]), row }" /></template>
+          <template #col3="{ content, row }" v-if="hasSlot('col3')"><slot name="col3" v-bind="{ content: (content as TRow[2]), row }" /></template>
+          <template #col4="{ content, row }" v-if="hasSlot('col4')"><slot name="col4" v-bind="{ content: (content as TRow[3]), row }" /></template>
+          <template #col5="{ content, row }" v-if="hasSlot('col5')"><slot name="col5" v-bind="{ content: (content as TRow[4]), row }" /></template>
+          <template #col6="{ content, row }" v-if="hasSlot('col6')"><slot name="col6" v-bind="{ content: (content as TRow[5]), row }" /></template>
+          <template #col7="{ content, row }" v-if="hasSlot('col7')"><slot name="col7" v-bind="{ content: (content as TRow[6]), row }" /></template>
+          <template #col8="{ content, row }" v-if="hasSlot('col8')"><slot name="col8" v-bind="{ content: (content as TRow[7]), row }" /></template>
+          <template #col9="{ content, row }" v-if="hasSlot('col9')"><slot name="col9" v-bind="{ content: (content as TRow[8]), row }" /></template>
+          <template #col10="{ content, row }" v-if="hasSlot('col10')"><slot name="col10" v-bind="{ content: (content as TRow[9]), row }" /></template>
+          <template #col11="{ content, row }" v-if="hasSlot('col11')"><slot name="col11" v-bind="{ content: (content as TRow[10]), row }" /></template>
+          <template #col12="{ content, row }" v-if="hasSlot('col12')"><slot name="col12" v-bind="{ content: (content as TRow[11]), row }" /></template>
         </ec-table>
         <div
           ref="tableEndDetector"
@@ -142,7 +149,7 @@
   </div>
 </template>
 
-<script setup lang="ts" generic="TRow extends unknown[], TAdditionalPayload">
+<script setup lang="ts" generic="TRow extends ReadonlyArray<unknown>, TAdditionalPayload">
 import { useIntersectionObserver } from '@vueuse/core';
 import {
   computed, onMounted, ref, unref, useAttrs, useSlots, watch,
@@ -235,17 +242,6 @@ const canShowCustomRow = computed(() => (props.isCustomRowShown || hasSlot('defa
 
 function hasSlot(slotName: string): boolean {
   return slotName in slots;
-}
-
-function getEcTableSlots() {
-  const tableSlots = { ...slots };
-  delete tableSlots.footer;
-  delete tableSlots.error;
-  delete tableSlots.empty;
-  delete tableSlots.actions;
-  delete tableSlots.filter;
-  delete tableSlots.pages;
-  return tableSlots;
 }
 
 // infinite scroll

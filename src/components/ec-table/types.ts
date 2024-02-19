@@ -4,7 +4,7 @@ import { StickyColumnPosition } from '../ec-table-head/types';
 export type { TableHeadColumn, TableHeadSort };
 export { StickyColumnPosition };
 
-export interface TableProps<TRow extends unknown[]> {
+export interface TableProps<TRow extends ReadonlyArray<unknown>> {
   columns?: TableHeadColumn[],
   sorts?: TableHeadSort[],
   data?: TRow[],
