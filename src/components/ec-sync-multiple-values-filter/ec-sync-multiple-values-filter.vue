@@ -31,69 +31,28 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 
 import { removeDiacritics } from '../../utils/diacritics';
 import EcFilterPopover from '../ec-filter-popover';
 import EcMultipleValuesSelection from '../ec-multiple-values-selection';
+import type { MultipleValuesSelectionItem } from '../ec-multiple-values-selection/types';
+import type { SyncMultipleValuesFilterProps } from './types';
 
-const props = defineProps({
-  label: {
-    type: String,
-    required: true,
-    default: '',
-  },
-  modelValue: {
-    type: Array,
-    required: false,
-    default: () => ([]),
-  },
-  items: {
-    type: Array,
-    required: true,
-    default: () => ([]),
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  errorMessage: {
-    type: String,
-  },
-  emptyMessage: {
-    type: String,
-    default: 'No results found',
-  },
-  isSelectAll: {
-    type: Boolean,
-    default: false,
-  },
-  isSearchable: {
-    type: Boolean,
-    default: false,
-  },
-  selectAllFiltersText: {
-    type: String,
-    default: 'Select all',
-  },
-  popoverOptions: {
-    type: Object,
-  },
-  searchFilterPlaceholder: {
-    type: String,
-    default: 'Search...',
-  },
-  isFullHeight: {
-    type: Boolean,
-    default: false,
-  },
-  hasRoundedIcons: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<SyncMultipleValuesFilterProps>(), {
+  label: '',
+  modelValue: () => [],
+  items: () => [],
+  emptyMessage: 'No results found',
+  selectAllFiltersText: 'Select all',
+  searchFilterPlaceholder: 'Search...',
 });
-const emit = defineEmits(['update:modelValue', 'change']);
+
+const emit = defineEmits<{
+  'update:modelValue': [items: MultipleValuesSelectionItem[]],
+  'change': [items: MultipleValuesSelectionItem[]],
+}>();
 
 // item(s) selection
 const selectedFilters = computed({
@@ -109,7 +68,7 @@ const numberOfSelectedFilters = computed(() => selectedFilters.value.length);
 
 // items filtering based on search query
 const searchQuery = ref('');
-function onSearch(newQuery) {
+function onSearch(newQuery: string) {
   searchQuery.value = newQuery;
 }
 
@@ -129,11 +88,11 @@ const filteredItems = computed(() => {
   });
 });
 
-const emptyMessageText = computed(() => (filteredItems.value.length ? null : props.emptyMessage));
+const emptyMessageText = computed(() => (filteredItems.value.length ? undefined : props.emptyMessage));
 
 // focus when opened
-const multipleValuesSelection = ref(null);
+const multipleValuesSelection = ref<InstanceType<typeof EcMultipleValuesSelection>>();
 function onPopoverOpened() {
-  multipleValuesSelection.value.focus();
+  multipleValuesSelection.value?.focus();
 }
 </script>

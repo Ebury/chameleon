@@ -83,6 +83,7 @@ export { default as EcSubmenu } from './components/ec-submenu';
 export { default as EcSummaryInfo } from './components/ec-summary-info';
 export * from './components/ec-summary-info/types';
 export { default as EcSyncMultipleValuesFilter } from './components/ec-sync-multiple-values-filter';
+export * from './components/ec-sync-multiple-values-filter/types';
 export { default as EcTable } from './components/ec-table';
 export * from './components/ec-table/types';
 export { default as EcTableFilter } from './components/ec-table-filter';
