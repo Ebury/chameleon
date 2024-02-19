@@ -2,6 +2,7 @@ export type * from '../global';
 export { default as EcAlert } from './components/ec-alert';
 export * from './components/ec-alert/types';
 export { default as EcAmountFilterInput } from './components/ec-amount-filter-input';
+export * from './components/ec-amount-filter-input/types';
 export { default as EcAmountInput } from './components/ec-amount-input';
 export * from './components/ec-amount-input/types';
 export { default as EcBadge } from './components/ec-badge';
