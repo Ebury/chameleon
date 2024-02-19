@@ -107,7 +107,7 @@ function onSort(column: TableHeadColumn) {
   emit('sort', column);
 }
 
-function onRowClick(rowData: { data: unknown, rowIndex: number }) {
+function onRowClick(rowData: { data: TRow, rowIndex: number }) {
   if (attrs.onRowClick && typeof attrs.onRowClick === 'function') {
     attrs.onRowClick(rowData);
   }

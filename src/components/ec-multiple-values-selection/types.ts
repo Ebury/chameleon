@@ -2,7 +2,7 @@ import type { IconName, IconType } from '../ec-icon/types';
 
 export interface MultipleValuesSelectionItem {
   text: string,
-  value: string | number,
+  value: string,
   icon?: { name: IconName, type?: IconType },
 }
 

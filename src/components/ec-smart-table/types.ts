@@ -9,14 +9,14 @@ export type * from '../ec-table-pagination/types';
 
 export interface SmartTableFetchPayload {
   page: number,
-  numberOfItems: number,
+  numberOfItems: PageSize,
   sorts: Sorting[],
   filter: object,
 }
 
 export interface SmartTablePagination {
-  page?: number,
-  numberOfItems?: PageSize,
+  page: number,
+  numberOfItems: PageSize,
 }
 
 export interface SmartTableProps<TRow extends ReadonlyArray<unknown>, TAdditionalPayload = never> extends TableProps<TRow> {
