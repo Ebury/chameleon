@@ -46,19 +46,6 @@ describe('EcCurrencyFilter', () => {
     });
   }
 
-  // function mountEcCurrencyFilterAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-  //   const Component = defineComponent({
-  //     components: { EcCurrencyFilter },
-  //     template,
-  //     ...wrapperComponentOpts,
-  //   });
-
-  //   return mount(Component, {
-  //     props,
-  //     ...mountOpts,
-  //   });
-  // }
-
   it('should render correctly', () => {
     const wrapper = mountEcCurrencyFilter();
     expect(wrapper.element).toMatchSnapshot();
