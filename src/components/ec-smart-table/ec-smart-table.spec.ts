@@ -37,14 +37,14 @@ describe('EcSmartTable', () => {
     count: lotsOfItems.length,
   };
 
-  function mountEcSmartTable<TRow extends unknown[], TAdditionalPayload>(props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
+  function mountEcSmartTable<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>(props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
     return mount(EcSmartTable, {
       props: { ...props },
       ...mountOpts,
     });
   }
 
-  function mountEcSmartTableWithData<TRow extends unknown[], TAdditionalPayload>({ items, total }: { items: TRow[], total: number }, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
+  function mountEcSmartTableWithData<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>({ items, total }: { items: TRow[], total: number }, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
     return mountEcSmartTable({
       ...props,
       data: items,
@@ -52,7 +52,7 @@ describe('EcSmartTable', () => {
     }, mountOpts);
   }
 
-  function mountEcSmartTableWithError<TRow extends unknown[], TAdditionalPayload>(error: Error, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
+  function mountEcSmartTableWithError<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>(error: Error, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
     return mountEcSmartTable({
       ...props,
       error,

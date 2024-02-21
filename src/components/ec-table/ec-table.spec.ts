@@ -7,7 +7,7 @@ import { StickyColumnPosition } from '../ec-table-head/types';
 import EcTable from './ec-table.vue';
 import type { TableProps } from './types';
 
-function mountEcTable<TRow extends unknown[]>(props?: Partial<TableProps<TRow>>, mountOpts?: ComponentMountingOptions<typeof EcTable>) {
+function mountEcTable<TRow extends ReadonlyArray<unknown>>(props?: Partial<TableProps<TRow>>, mountOpts?: ComponentMountingOptions<typeof EcTable>) {
   return mount(EcTable, {
     props: {
       columns: [
@@ -26,19 +26,6 @@ function mountEcTable<TRow extends unknown[]>(props?: Partial<TableProps<TRow>>,
       ],
       ...props,
     },
-    ...mountOpts,
-  });
-}
-
-function mountTableAsTemplate<TRow extends unknown[]>(template: string, props?: Partial<TableProps<TRow>>, wrapperComponentOpts?: Record<string, unknown>, mountOpts?: ComponentMountingOptions<TableProps<TRow>>) {
-  const Component = defineComponent({
-    components: { EcTable },
-    template,
-    ...wrapperComponentOpts,
-  });
-
-  return mount(Component, {
-    props,
     ...mountOpts,
   });
 }
@@ -102,61 +89,61 @@ describe('EcTable', () => {
   });
 
   it('should have a column align to center if its type is icon', () => {
-    const wrapper = mountTableAsTemplate(
-      '<ec-table :columns="columns" :data="data"/>',
-      {},
-      {
-        data() {
-          return {
-            columns: [
-              {
-                name: 'lorem',
-                title: 'Lorem',
-              },
-              {
-                name: 'ipsum',
-                title: 'Ipsum',
-                type: 'icon',
-              },
-            ],
-            data: [
-              ['foo', 'bar'],
-              ['widgets', 'doodads'],
-            ],
-          };
-        },
+    const Component = defineComponent({
+      components: { EcTable },
+      data() {
+        return {
+          columns: [
+            {
+              name: 'lorem',
+              title: 'Lorem',
+            },
+            {
+              name: 'ipsum',
+              title: 'Ipsum',
+              type: 'icon',
+            },
+          ],
+          data: [
+            ['foo', 'bar'],
+            ['widgets', 'doodads'],
+          ],
+        };
       },
-    );
+      template: '<ec-table :columns="columns" :data="data"/>',
+    });
+
+    const wrapper = mount(Component);
 
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should have a column align to the right if its type is currency', () => {
-    const wrapper = mountTableAsTemplate(
-      '<ec-table :columns="columns" :data="data"/>',
-      {},
-      {
-        data() {
-          return {
-            columns: [
-              {
-                name: 'lorem',
-                title: 'Lorem',
-              },
-              {
-                name: 'ipsum',
-                title: 'Ipsum',
-                type: 'currency',
-              },
-            ],
-            data: [
-              ['foo', 'bar'],
-              ['widgets', 'doodads'],
-            ],
-          };
-        },
+    const Component = defineComponent({
+      components: { EcTable },
+      data() {
+        return {
+          columns: [
+            {
+              name: 'lorem',
+              title: 'Lorem',
+            },
+            {
+              name: 'ipsum',
+              title: 'Ipsum',
+              type: 'currency',
+            },
+          ],
+          data: [
+            ['foo', 'bar'],
+            ['widgets', 'doodads'],
+          ],
+        };
       },
-    );
+      template: '<ec-table :columns="columns" :data="data"/>',
+    });
+
+    const wrapper = mount(Component);
 
     expect(wrapper.element).toMatchSnapshot();
   });
