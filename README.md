@@ -3,7 +3,7 @@
 Chameleon Components is Ebury's vue.js 3.X components library.
 The library is being used for our Vue projects at Ebury, and more components are added regularly.
 
-Also, check out the latest version deployed in [Storybook](https://chameleon.ebury.now.sh/).
+Also, check out the latest version deployed in [Storybook](https://chameleon-ebury.vercel.app/).
 
 1. [Vision](VISION.md)
 1. [Contributing](#contributing)
@@ -60,7 +60,7 @@ import { ComponentName } from '@ebury/chameleon-components';
 
 **NOTE!** If you are going to use `ec-phone-number-input`, you must host icons from `node_modules/svg-country-flags/png100px/` in your project.
 
-For example icon with path `node_modules/svg-country-flags/png100px/gb.png` should be available in your project by url `[your static prefix]icons/country-flags/100/gb.png`. 
+For example icon with path `node_modules/svg-country-flags/png100px/gb.png` should be available in your project by url `[your static prefix]icons/country-flags/100/gb.png`.
 Static prefix could be change by setting up respective `iconsStaticPrefix` property in `src/config.js`.
 
 ## Theming
@@ -68,7 +68,7 @@ Static prefix could be change by setting up respective `iconsStaticPrefix` prope
 The components can use a custom theme. There are four color palettes used by the CSS, two of them can be adjusted via
 CSS variables, e.g. the default blue color is defined as `--ec-key-color-level-4` and can be configured via `--ec-theme-key-color-level-4`.
 
-Check out the list of possible variables in the [storybook colors story](https://chameleon.ebury.now.sh/?path=/story/css-colors-all).
+Check out the list of possible variables in the [storybook colors story](https://chameleon-ebury.vercel.app/?path=/story/css-colors--all).
 
 A few examples of a theme can be found in the [src/styles/themes/](src/styles/themes/) folder.
 
@@ -86,6 +86,10 @@ If you need to support every single locale on the planet, we recommend to polyfi
 [Vue](https://vuejs.org/)
 
 [Vite](https://vitejs.dev/)
+
+### TypeScript
+
+[TypeScript](https://www.typescriptlang.org/)
 
 ### Storybook
 
@@ -114,6 +118,8 @@ If you need to support every single locale on the planet, we recommend to polyfi
 [Bootstrap Grid](https://getbootstrap.com/docs/4.0/layout/grid/)
 
 ### Dependencies
+
+[VueUse](https://vueuse.org/)
 
 [flatpickr](https://flatpickr.js.org/)
 
