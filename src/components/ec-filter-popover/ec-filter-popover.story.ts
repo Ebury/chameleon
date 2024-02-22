@@ -1,24 +1,44 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
 import EcCheckbox from '../ec-checkbox';
+import type { PopoverProps } from '../ec-popover/types';
 import EcFilterPopover from './ec-filter-popover.vue';
+import type { FilterPopoverProps } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Filters/Filter Popover',
   component: EcFilterPopover,
 };
 
-export const all = storyArgs => ({
+export default meta;
+
+type EcFilterPopoverStoryItem = {
+  name: string,
+  selected: boolean,
+};
+
+type EcFilterPopoverStory = StoryFn<FilterPopoverProps & {
+  popoverOptions: PopoverProps,
+  labelOne: string,
+  itemListOne: EcFilterPopoverStoryItem[],
+  labelTwo: string,
+  itemListTwo: EcFilterPopoverStoryItem[],
+  labelThree: string,
+  itemListThree: EcFilterPopoverStoryItem[],
+}>;
+
+export const all: EcFilterPopoverStory = storyArgs => ({
   components: { EcFilterPopover, EcCheckbox },
   setup() {
-    const popoverOptions = ref({});
+    const popoverOptions = ref<PopoverProps>({});
     const labelOne = ref('');
-    const itemListOne = ref([]);
+    const itemListOne = ref<EcFilterPopoverStoryItem[]>([]);
     const labelTwo = ref('');
-    const itemListTwo = ref([]);
+    const itemListTwo = ref<EcFilterPopoverStoryItem[]>([]);
     const labelThree = ref('');
-    const itemListThree = ref([]);
-    const args = ref({});
+    const itemListThree = ref<EcFilterPopoverStoryItem[]>([]);
+    const args = ref<FilterPopoverProps>();
 
     watchEffect(() => {
       const {
@@ -125,41 +145,41 @@ all.args = {
   labelThree: 'Beneficiary',
   itemListOne: [{
     name: 'Test Bank Name',
-    selected: null,
+    selected: false,
   }, {
     name: 'Abindong Insurances',
-    selected: null,
+    selected: false,
   }, {
     name: 'Christopher Li',
-    selected: null,
+    selected: false,
   }, {
     name: 'Albert Simpson',
-    selected: null,
+    selected: false,
   }],
   itemListTwo: [{
     name: 'Not paid',
-    selected: null,
+    selected: false,
   }, {
     name: 'Not paid (Overdue)',
-    selected: null,
+    selected: false,
   }, {
     name: 'Paid',
-    selected: null,
+    selected: false,
   }, {
     name: 'Cancelled',
-    selected: null,
+    selected: false,
   }, {
     name: 'Returned',
-    selected: null,
+    selected: false,
   }],
   itemListThree: [{
     name: 'Item one',
-    selected: null,
+    selected: false,
   }, {
     name: 'Item two',
-    selected: null,
+    selected: false,
   }, {
     name: 'Item three',
-    selected: null,
+    selected: false,
   }],
 };

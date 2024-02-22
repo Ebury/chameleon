@@ -26,21 +26,18 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useSlots } from 'vue';
+
+import type { SmartTableHeadingProps } from './types';
 
 const slots = useSlots();
 
-defineProps({
-  title: String,
-  isResponsive: {
-    type: Boolean,
-    default: true,
-  },
-  hasStretchFilter: Boolean,
+withDefaults(defineProps<SmartTableHeadingProps>(), {
+  isResponsive: true,
 });
 
-function hasSlot(slotName) {
+function hasSlot(slotName: string): boolean {
   return slotName in slots;
 }
 </script>

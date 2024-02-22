@@ -1,12 +1,12 @@
-import { flushPromises, mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, flushPromises, mount } from '@vue/test-utils';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcFilterPopover from './ec-filter-popover.vue';
+import type { FilterPopoverProps } from './types';
 
 const label = 'Test label';
 const numberOfSelectedFilters = 0;
 
-function mountEcFilterPopover(props, mountOpts) {
+function mountEcFilterPopover(props?: FilterPopoverProps, mountOpts?: ComponentMountingOptions<typeof EcFilterPopover>) {
   return mount(EcFilterPopover, {
     props,
     ...mountOpts,
@@ -14,25 +14,9 @@ function mountEcFilterPopover(props, mountOpts) {
 }
 
 describe('EcFilterPopover', () => {
-  it('should throw an error if no label prop were given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountEcFilterPopover({ numberOfSelectedFilters });
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
-    });
-  });
-
   it('should render properly when label prop was given', () => {
     const wrapper = mountEcFilterPopover({ label, numberOfSelectedFilters });
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should throw an error if no numberOfSelectedFilters prop were given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountEcFilterPopover({ label });
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "numberOfSelectedFilters"');
-    });
   });
 
   it('should not display number of selected filters if the value of numberOfSelectedFilters is 0', () => {

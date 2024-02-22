@@ -1,4 +1,4 @@
-import useEcPagination, { DEFAULT_PAGE_SIZE, PAGE_SIZES } from './use-ec-pagination';
+import useEcPagination, { DEFAULT_PAGE_SIZE } from './use-ec-pagination';
 
 describe('useEcPagination', () => {
   it('should initialise properly', () => {
@@ -18,20 +18,12 @@ describe('useEcPagination', () => {
     expect(numberOfItems.value).toBe(5);
   });
 
-  it('should throw an error if number of items is invalid', () => {
-    expect(() => {
-      useEcPagination({
-        initialNumberOfItems: 42,
-      });
-    }).toThrow(`Invalid number of items: 42. Expecting one of: ${PAGE_SIZES}`);
-  });
-
   it('should update the pagination when paginate is called', () => {
     const { page, numberOfItems, paginate } = useEcPagination();
 
-    paginate(5, 20);
+    paginate(5, 50);
     expect(page.value).toBe(5);
-    expect(numberOfItems.value).toBe(20);
+    expect(numberOfItems.value).toBe(50);
   });
 
   it('should ignore undefined values when paginate call updates only the page', () => {
@@ -45,8 +37,8 @@ describe('useEcPagination', () => {
   it('should ignore undefined values when paginate call updates only the number of items', () => {
     const { page, numberOfItems, paginate } = useEcPagination();
 
-    paginate(undefined, 42);
+    paginate(undefined, 50);
     expect(page.value).toBe(1);
-    expect(numberOfItems.value).toBe(42);
+    expect(numberOfItems.value).toBe(50);
   });
 });

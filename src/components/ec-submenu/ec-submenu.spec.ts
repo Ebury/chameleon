@@ -1,10 +1,10 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcSubmenu from './ec-submenu.vue';
+import type { SubmenuItem, SubmenuProps } from './types';
 
-const submenu = [
+const submenu: SubmenuItem[] = [
   {
     headerTitle: 'Submitted Requests (30)',
     slotName: 'menu-item-1-content',
@@ -30,60 +30,15 @@ const slots = {
 };
 
 describe('EcSubmenu', () => {
-  function mountSubmenu(props, mountOpts) {
+  function mountSubmenu(props: SubmenuProps, mountOpts?: ComponentMountingOptions<typeof EcSubmenu>) {
     return mount(EcSubmenu, {
       props: { ...props },
       ...mountOpts,
     });
   }
 
-  function mountSubmenuAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const element = document.createElement('div');
-    document.body.appendChild(element);
-
-    const Component = defineComponent({
-      components: { EcSubmenu },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount(Component, {
-      props,
-      attachTo: element,
-      ...mountOpts,
-    });
-  }
-
-  it('should throw an error if we don\'t pass any content', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mount(EcSubmenu);
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "submenu"');
-    });
-  });
-
-  it('should not render when passing null to submenu', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      const wrapper = mountSubmenu(
-        { submenu: null },
-        {
-          slots,
-        },
-      );
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Expected Array, got Null ');
-      expect(wrapper.findByDataTest('ec-submenu').exists()).toBe(false);
-      expect(wrapper.element).toMatchSnapshot();
-    });
-  });
-
   it('should not render when passing an empty array to submenu', () => {
-    const wrapper = mountSubmenu(
-      { submenu: [] },
-      {
-        slots,
-      },
-    );
+    const wrapper = mountSubmenu({ submenu: [] }, { slots });
 
     expect(wrapper.findByDataTest('ec-submenu').exists()).toBe(false);
     expect(wrapper.element).toMatchSnapshot();
@@ -103,19 +58,21 @@ describe('EcSubmenu', () => {
   });
 
   it('should render the second panel if the second tab is clicked', async () => {
-    const wrapper = mountSubmenuAsTemplate(
-      '<ec-submenu :submenu="submenu" v-model:activeIndex="activeIndex"/>',
-      {},
-      {
-        data() {
-          return {
-            submenu,
-            activeIndex: 0,
-          };
-        },
-      },
-    );
+    const element = document.createElement('div');
+    document.body.appendChild(element);
 
+    const Component = defineComponent({
+      components: { EcSubmenu },
+      data() {
+        return {
+          submenu,
+          activeIndex: 0,
+        };
+      },
+      template: '<ec-submenu :submenu="submenu" v-model:activeIndex="activeIndex"/>',
+    });
+
+    const wrapper = mount(Component, { attachTo: element });
     expect(wrapper.findByDataTest('ec-submenu__panel-0').isVisible()).toBe(true);
     expect(wrapper.findByDataTest('ec-submenu__panel-1').isVisible()).toBe(false);
 
@@ -150,7 +107,7 @@ describe('EcSubmenu', () => {
     );
 
     await wrapper.findByDataTest('ec-submenu__header-title-1').trigger('click');
-    expect(wrapper.emitted('change').length).toBe(1);
-    expect(wrapper.emitted('update:activeIndex').length).toBe(1);
+    expect(wrapper.emitted('change')?.length).toBe(1);
+    expect(wrapper.emitted('update:activeIndex')?.length).toBe(1);
   });
 });

@@ -1,15 +1,16 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import { withMockedConsole } from '../../../tests/utils/console';
 import EcDateRangeFilter from './ec-date-range-filter.vue';
+import type { DateRangeFilterProps } from './types';
 
 const label = 'Due date';
 const modelValue = { from: new Date(2020, 3, 14), to: new Date(2020, 4, 10) };
-const modelValueEmpty = { from: null, to: null };
+const modelValueEmpty = { from: undefined, to: undefined };
 
 describe('EcDateRangeFilter', () => {
-  function mountEcDateRangeFilter(props, mountOpts) {
+  function mountEcDateRangeFilter(props?: DateRangeFilterProps, mountOpts?: ComponentMountingOptions<typeof EcDateRangeFilter>) {
     return mount(EcDateRangeFilter, {
       props: {
         fromDatepickerOptions: {
@@ -22,19 +23,6 @@ describe('EcDateRangeFilter', () => {
         modelValue,
         ...props,
       },
-      ...mountOpts,
-    });
-  }
-
-  function mountEcDateRangeFilterAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const Component = defineComponent({
-      components: { EcDateRangeFilter },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount(Component, {
-      props,
       ...mountOpts,
     });
   }
@@ -93,14 +81,14 @@ describe('EcDateRangeFilter', () => {
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     await wrapper.findByDataTest('ec-date-range-filter__from-input').setValue('2020-11-06');
     await wrapper.findByDataTest('ec-date-range-filter__from-input').trigger('blur');
-    expect(wrapper.emitted('change').length).toBe(1);
+    expect(wrapper.emitted('change')?.length).toBe(1);
   });
 
   it('should emit a change event when the clear dates button is clicked', async () => {
     const wrapper = mountEcDateRangeFilter({ label });
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     wrapper.findByDataTest('ec-date-range-filter__clear-button').trigger('click');
-    expect(wrapper.emitted('change')).toEqual([[null]]);
+    expect(wrapper.emitted('change')).toEqual([[undefined]]);
   });
 
   it('should not emit a change event when there are no value for dates', async () => {
@@ -116,36 +104,36 @@ describe('EcDateRangeFilter', () => {
     await wrapper.findByDataTest('ec-filter-popover__label').trigger('click');
     await wrapper.findByDataTest('ec-date-range-filter__from-input').trigger('blur');
 
-    expect(wrapper.emitted('blur').length).toBe(1);
+    expect(wrapper.emitted('blur')?.length).toBe(1);
   });
 
   it('should update numberOfSelectedFilters when the dates are passed', async () => {
-    const wrapper = mountEcDateRangeFilterAsTemplate(
-      '<ec-date-range-filter :label="label" v-model="value"/>',
-      {},
-      {
-        data() {
-          return { value: modelValueEmpty, label };
-        },
+    const Component = defineComponent({
+      components: { EcDateRangeFilter },
+      data() {
+        return { value: modelValueEmpty, label };
       },
-    );
+      template: '<ec-date-range-filter :label="label" v-model="value"/>',
+    });
+
+    const wrapper = mount(Component);
 
     await wrapper.findByDataTest('ec-date-range-filter__trigger').trigger('click');
     expect(wrapper.findByDataTest('ec-badge').exists()).toBe(false);
 
     await wrapper.findByDataTest('ec-date-range-filter__from-input').setValue('2020-11-06');
     await wrapper.findByDataTest('ec-date-range-filter__from-input').trigger('blur');
-    expect(wrapper.findByDataTest('ec-date-range-filter__from-input').element.value).toBe('2020-11-06');
+    expect(wrapper.findByDataTest<HTMLInputElement>('ec-date-range-filter__from-input').element.value).toBe('2020-11-06');
     expect(wrapper.findByDataTest('ec-badge').text()).toBe('1');
 
     await wrapper.findByDataTest('ec-date-range-filter__to-input').setValue('2020-12-06');
     await wrapper.findByDataTest('ec-date-range-filter__to-input').trigger('blur');
-    expect(wrapper.findByDataTest('ec-date-range-filter__to-input').element.value).toBe('2020-12-06');
+    expect(wrapper.findByDataTest<HTMLInputElement>('ec-date-range-filter__to-input').element.value).toBe('2020-12-06');
     expect(wrapper.findByDataTest('ec-badge').text()).toBe('2');
   });
 
   it('should render if no dates are passed in value prop', () => {
-    const wrapper = mountEcDateRangeFilter({ label, modelValue: null });
+    const wrapper = mountEcDateRangeFilter({ label, modelValue: undefined });
     expect(wrapper.element).toMatchSnapshot();
   });
 });

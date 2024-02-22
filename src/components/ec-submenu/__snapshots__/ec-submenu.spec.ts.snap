@@ -2,8 +2,6 @@
 
 exports[`EcSubmenu > should not render when passing an empty array to submenu 1`] = `<!--v-if-->`;
 
-exports[`EcSubmenu > should not render when passing null to submenu 1`] = `<!--v-if-->`;
-
 exports[`EcSubmenu > should render properly if hasHeaderGap prop is set to false 1`] = `
 <div
   class="ec-submenu"

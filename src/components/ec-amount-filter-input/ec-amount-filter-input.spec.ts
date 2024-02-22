@@ -1,9 +1,10 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount, VueWrapper } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import EcAmountFilterInput from './ec-amount-filter-input.vue';
+import type { AmountFilterInputProps, ComparisonSymbolItem } from './types';
 
-const comparisonSymbolItems = [
+const comparisonSymbolItems: ComparisonSymbolItem[] = [
   {
     text: 'More than',
     value: '>',
@@ -19,26 +20,16 @@ const comparisonSymbolItems = [
 ];
 
 describe('EcAmountFilterInput', () => {
-  function mountAmountFilterInput(props, mountOpts) {
+  function mountAmountFilterInput(props?: Partial<AmountFilterInputProps>, mountOpts?: ComponentMountingOptions<typeof EcAmountFilterInput>) {
     return mount(EcAmountFilterInput, {
       props: {
         comparisonSymbolItems,
-        modelValue: {},
+        modelValue: {
+          comparisonSymbol: undefined,
+          amount: undefined,
+        },
         ...props,
       },
-      ...mountOpts,
-    });
-  }
-
-  function mountAmountFilterInputAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const Component = defineComponent({
-      components: { EcAmountFilterInput },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount(Component, {
-      props,
       ...mountOpts,
     });
   }
@@ -138,10 +129,10 @@ describe('EcAmountFilterInput', () => {
       const wrapper = mountAmountFilterInput({ locale: 'es' });
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('1111,11');
 
-      expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1.111,11');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__amount').element.value).toEqual('1.111,11');
 
       await wrapper.setProps({ locale: 'en' });
-      expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1,111.11');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__amount').element.value).toEqual('1,111.11');
     });
   });
 
@@ -150,23 +141,23 @@ describe('EcAmountFilterInput', () => {
       const wrapper = mountAmountFilterInput();
 
       await selectComparisonSymbol(wrapper, 1);
-      expect(wrapper.emitted('change').length).toEqual(1);
-      expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('open').length).toEqual(1);
-      expect(wrapper.emitted('after-open').length).toEqual(1);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
-      expect(wrapper.emitted('comparison-symbol-change').length).toEqual(1);
-      expect(wrapper.emitted('close').length).toEqual(1);
-      expect(wrapper.emitted('after-close').length).toEqual(1);
+      expect(wrapper.emitted('change')?.length).toEqual(1);
+      expect(wrapper.emitted('focus')?.length).toEqual(1);
+      expect(wrapper.emitted('open')?.length).toEqual(1);
+      expect(wrapper.emitted('after-open')?.length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(1);
+      expect(wrapper.emitted('comparison-symbol-change')?.length).toEqual(1);
+      expect(wrapper.emitted('close')?.length).toEqual(1);
+      expect(wrapper.emitted('after-close')?.length).toEqual(1);
       await selectComparisonSymbol(wrapper, 2);
-      expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('open').length).toEqual(2);
-      expect(wrapper.emitted('after-open').length).toEqual(2);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
-      expect(wrapper.emitted('comparison-symbol-change').length).toEqual(2);
-      expect(wrapper.emitted('close').length).toEqual(2);
-      expect(wrapper.emitted('after-close').length).toEqual(2);
+      expect(wrapper.emitted('change')?.length).toEqual(2);
+      expect(wrapper.emitted('focus')?.length).toEqual(1);
+      expect(wrapper.emitted('open')?.length).toEqual(2);
+      expect(wrapper.emitted('after-open')?.length).toEqual(2);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(2);
+      expect(wrapper.emitted('comparison-symbol-change')?.length).toEqual(2);
+      expect(wrapper.emitted('close')?.length).toEqual(2);
+      expect(wrapper.emitted('after-close')?.length).toEqual(2);
     });
 
     it('should emit the correct events when amount is set', async () => {
@@ -174,36 +165,35 @@ describe('EcAmountFilterInput', () => {
 
       await wrapper.findByDataTest('ec-amount-filter-input__amount').trigger('focus');
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('11');
-      expect(wrapper.emitted('change').length).toEqual(1);
-      expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('amount-change').length).toEqual(1);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
+      expect(wrapper.emitted('change')?.length).toEqual(1);
+      expect(wrapper.emitted('focus')?.length).toEqual(1);
+      expect(wrapper.emitted('amount-change')?.length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(1);
 
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('111');
-      expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('amount-change').length).toEqual(2);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
+      expect(wrapper.emitted('change')?.length).toEqual(2);
+      expect(wrapper.emitted('amount-change')?.length).toEqual(2);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(2);
     });
   });
 
   describe('v-model', () => {
     it('should use the v-model with the comparison symbol and emit the changes', async () => {
-      const wrapper = mountAmountFilterInputAsTemplate(
-        '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              comparisonSymbolItems,
-              value: {
-                comparisonSymbol: null,
-                amount: 0,
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcAmountFilterInput },
+        data() {
+          return {
+            comparisonSymbolItems,
+            value: {
+              comparisonSymbol: undefined,
+              amount: 0,
+            },
+          };
         },
-      );
+        template: '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
+      });
 
+      const wrapper = mount(Component);
       await selectComparisonSymbol(wrapper, 0);
       expect(wrapper.vm.value.comparisonSymbol).toEqual({
         text: comparisonSymbolItems[0].text,
@@ -217,95 +207,91 @@ describe('EcAmountFilterInput', () => {
     });
 
     it('should preselect the comparison symbol and the amount from the v-model', () => {
-      const wrapper = mountAmountFilterInputAsTemplate(
-        '<ec-amount-filter-input :comparison-symbol-items-items="comparisonSymbolItems" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              comparisonSymbolItems,
-              value: {
-                comparisonSymbol: comparisonSymbolItems[2],
-                amount: 1234.56,
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcAmountFilterInput },
+        data() {
+          return {
+            comparisonSymbolItems,
+            value: {
+              comparisonSymbol: comparisonSymbolItems[2],
+              amount: 1234.56,
+            },
+          };
         },
-      );
+        template: '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').element.value).toBe(comparisonSymbolItems[2].value);
-      expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toBe('1,234.56');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__comparison-symbol-selector').element.value).toBe(comparisonSymbolItems[2].value);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__amount').element.value).toBe('1,234.56');
     });
 
     it('should update the v-model correctly when we change the amount', async () => {
-      const wrapper = mountAmountFilterInputAsTemplate(
-        '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              comparisonSymbolItems,
-              value: {
-                comparisonSymbol: comparisonSymbolItems[2],
-                amount: 1234.56,
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcAmountFilterInput },
+        data() {
+          return {
+            comparisonSymbolItems,
+            value: {
+              comparisonSymbol: comparisonSymbolItems[2],
+              amount: 1234.56,
+            },
+          };
         },
-      );
+        template: '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
+      });
 
+      const wrapper = mount(Component);
       await wrapper.findByDataTest('ec-amount-filter-input__amount').setValue('11');
       expect(wrapper.vm.value.amount).toEqual(11);
     });
 
     it('should preserve the amount when we change the comparison symbol', async () => {
-      const wrapper = mountAmountFilterInputAsTemplate(
-        '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              comparisonSymbolItems,
-              value: {
-                comparisonSymbol: comparisonSymbolItems[2],
-                amount: 1234.56,
-              },
-            };
-          },
+      const Component = defineComponent({
+        components: { EcAmountFilterInput },
+        data() {
+          return {
+            comparisonSymbolItems,
+            value: {
+              comparisonSymbol: comparisonSymbolItems[2],
+              amount: 1234.56,
+            },
+          };
         },
-      );
+        template: '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" v-model="value" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1,234.56');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__amount').element.value).toEqual('1,234.56');
       await selectComparisonSymbol(wrapper, 2);
-      expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1,234.56');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__amount').element.value).toEqual('1,234.56');
     });
 
     it('should reflect the changes of locale', async () => {
-      const wrapper = mountAmountFilterInputAsTemplate(
-        '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" :locale="locale" v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              comparisonSymbolItems,
-              value: {
-                comparisonSymbol: comparisonSymbolItems[2],
-                amount: 1234.56,
-              },
-              locale: 'en',
-            };
-          },
+      const Component = defineComponent({
+        components: { EcAmountFilterInput },
+        data() {
+          return {
+            comparisonSymbolItems,
+            value: {
+              comparisonSymbol: comparisonSymbolItems[2],
+              amount: 1234.56,
+            },
+            locale: 'en',
+          };
         },
-      );
+        template: '<ec-amount-filter-input :comparison-symbol-items="comparisonSymbolItems" :locale="locale" v-model="value" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1,234.56');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__amount').element.value).toEqual('1,234.56');
       await wrapper.setData({ locale: 'es' });
-      expect(wrapper.findByDataTest('ec-amount-filter-input__amount').element.value).toEqual('1.234,56');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-amount-filter-input__amount').element.value).toEqual('1.234,56');
     });
   });
 });
 
-async function selectComparisonSymbol(wrapper, index) {
+async function selectComparisonSymbol(wrapper: VueWrapper, index: number) {
   await wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').trigger('mousedown');
   await wrapper.findByDataTest('ec-popover-stub').trigger('show');
   await wrapper.findByDataTest('ec-amount-filter-input__comparison-symbol-selector').trigger('focus');

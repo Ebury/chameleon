@@ -1,22 +1,26 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
 import EcDateRangeFilter from './ec-date-range-filter.vue';
+import type { DateRangeFilterModel } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Filters/Date Range Filter',
   component: EcDateRangeFilter,
 };
 
-const Template = storyArgs => ({
+export default meta;
+
+const Template: StoryFn<typeof EcDateRangeFilter> = storyArgs => ({
   components: { EcDateRangeFilter },
   setup() {
-    const model = ref('');
+    const model = ref<DateRangeFilterModel>({});
     const args = ref({});
 
     watchEffect(() => {
       const { modelValue, ...rest } = storyArgs;
-      model.value = modelValue;
+      model.value = modelValue ?? {};
       args.value = rest;
     });
 
@@ -47,7 +51,7 @@ basic.args = {
   dateRangeErrorMessage: '',
   modelValue: {
     from: new Date(2023, 11, 1),
-    to: null,
+    to: undefined,
   },
   fromDatepickerOptions: {
     label: 'From',

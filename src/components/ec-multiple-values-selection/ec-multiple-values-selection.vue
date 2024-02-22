@@ -10,8 +10,8 @@
       <ec-icon
         class="ec-multiple-values-selection__search-icon"
         data-test="ec-multiple-values-selection__search-icon"
-        name="simple-search"
-        type="interactive"
+        :name="IconName.SIMPLE_SEARCH"
+        :type="IconType.INTERACTIVE"
         :size="20"
       />
       <input
@@ -36,11 +36,10 @@
       class="ec-multiple-values-selection__no-results-wrapper"
     >
       <ec-icon
-        v-if="emptyIcon"
         class="ec-multiple-values-selection__no-results-icon"
         data-test="ec-multiple-values-selection__no-results-icon"
         :name="emptyIcon"
-        type="info"
+        :type="IconType.INFO"
         :size="32"
       />
       <span class="ec-multiple-values-selection__no-results-message">{{ emptyMessage }}</span>
@@ -50,11 +49,10 @@
       class="ec-multiple-values-selection__error-wrapper"
     >
       <ec-icon
-        v-if="errorIcon"
         class="ec-multiple-values-selection__error-icon"
         data-test="ec-multiple-values-selection__error-icon"
         :name="errorIcon"
-        type="error"
+        :type="IconType.ERROR"
         :size="32"
       />
       <span class="ec-multiple-values-selection__error-message">{{ errorMessage }}</span>
@@ -112,63 +110,29 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, nextTick, ref } from 'vue';
 
 import EcCheckbox from '../ec-checkbox';
 import EcIcon from '../ec-icon';
+import { IconName, IconType } from '../ec-icon/types';
 import EcLoadingIcon from '../ec-loading-icon';
+import type { MultipleValuesSelectionItem, MultipleValuesSelectionProps } from './types';
 
-const props = defineProps({
-  items: {
-    type: Array,
-    required: true,
-    default: () => ([]),
-  },
-  modelValue: {
-    type: Array,
-    required: false,
-    default: () => ([]),
-  },
-  isLoading: {
-    type: Boolean,
-    default: false,
-  },
-  errorMessage: {
-    type: String,
-  },
-  errorIcon: {
-    type: String,
-    default: 'simple-error',
-  },
-  emptyMessage: {
-    type: String,
-  },
-  emptyIcon: {
-    type: String,
-    default: 'simple-error',
-  },
-  isSearchable: {
-    type: Boolean,
-  },
-  isSelectAll: {
-    type: Boolean,
-    default: false,
-  },
-  selectAllFiltersText: {
-    type: String,
-    default: 'Select all',
-  },
-  searchFilterPlaceholder: {
-    type: String,
-    default: 'Search...',
-  },
-  hasRoundedIcons: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<MultipleValuesSelectionProps>(), {
+  items: () => [],
+  modelValue: () => [],
+  errorIcon: IconName.SIMPLE_ERROR,
+  emptyIcon: IconName.SIMPLE_ERROR,
+  selectAllFiltersText: 'Select all',
+  searchFilterPlaceholder: 'Search...',
 });
-const emit = defineEmits(['update:modelValue', 'search', 'change']);
+
+const emit = defineEmits<{
+  'update:modelValue': [items: MultipleValuesSelectionItem[]],
+  'change': [items: MultipleValuesSelectionItem[]],
+  'search': [query: string],
+}>();
 
 // search
 const searchQuery = ref('');
@@ -182,11 +146,11 @@ const searchModel = computed({
   },
 });
 
-const searchInputRef = ref(null);
+const searchInputRef = ref<HTMLInputElement>();
 function focus() {
   if (props.isSearchable) {
     nextTick(() => {
-      searchInputRef?.value.focus();
+      searchInputRef.value?.focus();
     });
   }
 }
@@ -197,10 +161,11 @@ const selectedValues = computed(() => new Set(props.modelValue.map(item => item.
 const allFiltersAreSelected = computed(() => props.modelValue.length === props.items.length);
 const atLeastOneFilterIsSelected = computed(() => !allFiltersAreSelected.value && selectedValues.value.size > 0);
 
-function update(items) {
+function update(items: MultipleValuesSelectionItem[]) {
   emit('update:modelValue', items);
   emit('change', items);
 }
+
 function toggleAll() {
   if (allFiltersAreSelected.value) {
     update([]);
@@ -208,15 +173,18 @@ function toggleAll() {
     update(props.items);
   }
 }
-function onSelect(item) {
+
+function onSelect(item: MultipleValuesSelectionItem) {
   const newItems = [...props.modelValue, item];
   update(newItems);
 }
-function onDeselect(item) {
+
+function onDeselect(item: MultipleValuesSelectionItem) {
   const newItems = props.modelValue.filter(selectedItem => selectedItem.value !== item.value);
   update(newItems);
 }
-function isItemChecked(item) {
+
+function isItemChecked(item: MultipleValuesSelectionItem) {
   return selectedValues.value.has(item.value);
 }
 </script>
