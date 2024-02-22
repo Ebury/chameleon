@@ -1,19 +1,22 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
 
 import EcFileDropzone from './ec-file-dropzone.vue';
 
-export default {
+const meta: Meta = {
   title: 'File Dropzone',
   component: EcFileDropzone,
 };
 
-export const basic = args => ({
+export default meta;
+
+export const basic: StoryFn<typeof EcFileDropzone> = args => ({
   components: { EcFileDropzone },
   setup() {
-    const fileList = ref([]);
+    const fileList = ref<File[]>([]);
 
-    function onChange(files) {
+    function onChange(files: File[]) {
       action('change')(files);
       fileList.value = [...files];
     }

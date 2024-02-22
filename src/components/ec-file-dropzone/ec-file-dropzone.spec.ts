@@ -1,10 +1,11 @@
-import { DOMWrapper, mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, DOMWrapper, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 
 import EcFileDropzone from './ec-file-dropzone.vue';
+import type { FileDropzoneProps } from './types';
 
 describe('EcFileDropzone', () => {
-  function mountFileDropzone(props, mountOpts) {
+  function mountFileDropzone(props?: FileDropzoneProps, mountOpts?: ComponentMountingOptions<typeof EcFileDropzone>) {
     return mount(EcFileDropzone, {
       props,
       ...mountOpts,
@@ -121,15 +122,25 @@ describe('EcFileDropzone', () => {
   });
 
   describe('@events', () => {
-    const files = [
-      { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
-      { name: 'file_2.jpg', type: 'image/jpeg', size: 50 },
+    function generateFile(name: string, type: string, size: number): File {
+      return new File(new Array(size).fill('a'), name, { type });
+    }
+
+    function createFileList(files: File[]): FileList {
+      // the proper way would be creating a DataTransfer, add items to it and return the files list but DataTransfer is not implemented in JSDOM,
+      // see https://github.com/jsdom/jsdom/issues/1568
+      return files as unknown as FileList;
+    }
+
+    const files: File[] = [
+      generateFile('file_1.pdf', 'application/pdf', 200),
+      generateFile('file_2.jpg', 'image/jpeg', 50),
     ];
-    const folders = [
-      { name: 'folder_1', type: '', size: 200 },
-      { name: 'folder_2', type: 'folder', size: 0 },
+    const folders: File[] = [
+      generateFile('folder_1', '', 200),
+      generateFile('folder_2', 'folder', 0),
     ];
-    const filesAndFolders = [
+    const filesAndFolders: File[] = [
       ...files,
       ...folders,
     ];
@@ -137,8 +148,8 @@ describe('EcFileDropzone', () => {
     it('@change - should be emitted when items are dropped over it', async () => {
       const wrapper = mountFileDropzone();
       await wrapper.trigger('drop', { dataTransfer: { files: filesAndFolders } });
-      expect(wrapper.emitted('change').length).toBe(1);
-      expect(wrapper.emitted('change')[0]).toEqual([files]);
+      expect(wrapper.emitted('change')?.length).toBe(1);
+      expect(wrapper.emitted('change')?.[0]).toEqual([files]);
     });
 
     it('@change - should not be emitted when a folder is dropped over it', async () => {
@@ -149,18 +160,18 @@ describe('EcFileDropzone', () => {
 
     it('@change - should be emitted when a change event is emitted by its file input field', async () => {
       const wrapper = mountFileDropzone();
-      const filesSpy = vi.spyOn(wrapper.vm.$refs.fileInput, 'files', 'get').mockImplementation(() => filesAndFolders);
+      const filesSpy = vi.spyOn(wrapper.findByDataTest<HTMLInputElement>('ec-file-dropzone__input').element, 'files', 'get').mockImplementation(() => createFileList(filesAndFolders));
 
       await wrapper.findByDataTest('ec-file-dropzone__input').trigger('change');
-      expect(wrapper.emitted('change').length).toBe(1);
-      expect(wrapper.emitted('change')[0]).toEqual([files]);
+      expect(wrapper.emitted('change')?.length).toBe(1);
+      expect(wrapper.emitted('change')?.[0]).toEqual([files]);
 
       filesSpy.mockRestore();
     });
 
     it('@change - should not be emitted when only folders are selected via its file input field', async () => {
       const wrapper = mountFileDropzone();
-      const filesSpy = vi.spyOn(wrapper.vm.$refs.fileInput, 'files', 'get').mockImplementation(() => folders);
+      const filesSpy = vi.spyOn(wrapper.findByDataTest<HTMLInputElement>('ec-file-dropzone__input').element, 'files', 'get').mockImplementation(() => createFileList(folders));
 
       await wrapper.findByDataTest('ec-file-dropzone__input').trigger('change');
       expect(wrapper.emitted('change')).toBeUndefined();
@@ -180,8 +191,8 @@ describe('EcFileDropzone', () => {
 
       await wrapper.trigger('drop', { dataTransfer: { files: filesAndFolders } });
 
-      expect(wrapper.emitted('change').length).toBe(1);
-      expect(wrapper.emitted('change')[0]).toEqual([files]);
+      expect(wrapper.emitted('change')?.length).toBe(1);
+      expect(wrapper.emitted('change')?.[0]).toEqual([files]);
     });
   });
 });

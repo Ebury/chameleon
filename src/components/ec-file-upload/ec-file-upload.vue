@@ -47,43 +47,35 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import EcFileDropzone from '../ec-file-dropzone';
 import EcFileList from '../ec-file-list';
+import type { FileUploadProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const emit = defineEmits(['update:modelValue', 'change']);
+const emit = defineEmits<{
+  'update:modelValue': [items: File[]],
+  'change': [items: File[]],
+}>();
 
-const props = defineProps({
-  modelValue: {
-    type: Array,
-    default: () => ([]),
-  },
-  label: {
-    type: String,
-  },
-  note: {
-    type: String,
-  },
-  isDisabled: {
-    type: Boolean,
-  },
+const props = withDefaults(defineProps<FileUploadProps>(), {
+  modelValue: () => ([]),
 });
 
-function onChange(newFiles) {
+function onChange(newFiles: File[]) {
   const newFilesNames = new Set(newFiles.map(file => file.name));
   const updatedFileList = props.modelValue.filter(prevFile => !newFilesNames.has(prevFile.name));
   update([...updatedFileList, ...newFiles]);
 }
 
-function onDelete(fileToDelete) {
+function onDelete(fileToDelete: File) {
   update(props.modelValue.filter(fileItem => fileItem !== fileToDelete));
 }
 
-function update(items) {
+function update(items: File[]) {
   emit('update:modelValue', items);
   emit('change', items);
 }

@@ -38,14 +38,14 @@
       data-test="ec-file-dropzone__subtitle"
       class="ec-file-dropzone__subtitle"
       :class="{ 'ec-file-dropzone__subtitle--is-disabled': isDisabled }"
-      @click="/* c8 ignore next */ fileInput.click()"
+      @click="/* c8 ignore next */ fileInput?.click()"
     >
       <slot name="subtitle" />
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   computed,
   onBeforeUnmount,
@@ -54,23 +54,22 @@ import {
 } from 'vue';
 
 import EcUploadCloud from '../../images/ec-upload-cloud.vue';
+import type { Maybe } from '../../main';
+import type { FileDropzoneProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const emit = defineEmits(['change']);
+const emit = defineEmits<{
+  'change': [files: File[]],
+}>();
 
-const props = defineProps({
-  isDisabled: {
-    type: Boolean,
-    default: false,
-  },
-});
+const props = defineProps<FileDropzoneProps>();
 
 const dragEnterLeaveEventCounter = ref(0);
-const isNotFolder = file => !!file.type && !!file.size;
-const fileInput = ref(null);
+const isNotFolder = (file: File) => !!file.type && !!file.size;
+const fileInput = ref<Maybe<HTMLInputElement>>();
 
 const isDragging = computed(() => dragEnterLeaveEventCounter.value > 0);
 
@@ -89,16 +88,18 @@ onBeforeUnmount(() => {
 });
 
 function onFileInputChange() {
-  const files = [...fileInput.value.files].filter(isNotFolder);
-  if (files.length) {
-    emit('change', files);
-    fileInput.value.value = '';
+  if (fileInput.value && fileInput.value.files) {
+    const files: File[] = [...fileInput.value.files].filter(isNotFolder);
+    if (files.length) {
+      emit('change', files);
+      fileInput.value.value = '';
+    }
   }
 }
 
-function onComponentDrop(dragEvent) {
-  if (!props.isDisabled) {
-    const files = [...dragEvent.dataTransfer.files].filter(isNotFolder);
+function onComponentDrop(dragEvent: DragEvent) {
+  if (!props.isDisabled && dragEvent.dataTransfer) {
+    const files: File[] = [...dragEvent.dataTransfer.files].filter(isNotFolder);
     if (files.length) {
       emit('change', files);
     }
@@ -106,7 +107,7 @@ function onComponentDrop(dragEvent) {
   disableDragging();
 }
 
-function onDrop(dragEvent) {
+function onDrop(dragEvent: DragEvent) {
   dragEvent.preventDefault();
   disableDragging();
 }
@@ -115,7 +116,7 @@ function onDragenter() {
   dragEnterLeaveEventCounter.value++;
 }
 
-function onDragover(dragEvent) {
+function onDragover(dragEvent: DragEvent) {
   // Necessary for the drop listener to work:
   // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API#define_a_drop_zone
   dragEvent.preventDefault();
