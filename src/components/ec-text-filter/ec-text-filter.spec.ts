@@ -20,7 +20,7 @@ describe('EcTextFilter', () => {
     }
   });
 
-  function mountComponent(props?: TextFilterProps, mountOpts?: ComponentMountingOptions<typeof EcTextFilter>) {
+  function mountEcTextFilter(props?: TextFilterProps, mountOpts?: ComponentMountingOptions<typeof EcTextFilter>) {
     return mount(
       EcTextFilter,
       {
@@ -33,57 +33,39 @@ describe('EcTextFilter', () => {
     );
   }
 
-  function mountInputFieldAsTemplate(
-    template: string,
-    props: TextFilterProps,
-    wrapperComponentOpts: Record<string, unknown>,
-    mountOpts?: ComponentMountingOptions<TextFilterProps>,
-  ) {
-    const Component = defineComponent({
-      components: { EcTextFilter },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount<typeof Component, ComponentMountingOptions<typeof Component>>(Component, {
-      props,
-      ...mountOpts,
-    });
-  }
-
   it('should display properly with the given props', () => {
-    const wrapper = mountComponent();
+    const wrapper = mountEcTextFilter();
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it('should set the v-model on the value of the input and change when it changes', async () => {
-    const wrapper = mountInputFieldAsTemplate(
-      '<ec-text-filter v-model="text" />',
-      {},
-      {
-        data() {
-          return { text: '' };
-        },
+    const Component = defineComponent({
+      components: { EcTextFilter },
+      data() {
+        return { text: '' };
       },
-    );
+      template: '<ec-text-filter v-model="text" />',
+    });
 
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    const wrapper = mount(Component);
+
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('');
     await wrapper.setData({ text: 'some text' });
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('some text');
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('some text');
   });
 
   it('should render close icon depends on modelValue', async () => {
-    const wrapper = mountInputFieldAsTemplate(
-      '<ec-text-filter v-model="text" />',
-      {},
-      {
-        data() {
-          return { text: '' };
-        },
+    const Component = defineComponent({
+      components: { EcTextFilter },
+      data() {
+        return { text: '' };
       },
-    );
+      template: '<ec-text-filter v-model="text" />',
+    });
 
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    const wrapper = mount(Component);
+
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('');
     expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').exists()).toBe(false);
 
     await wrapper.setData({ text: 'some text' });
@@ -92,17 +74,17 @@ describe('EcTextFilter', () => {
   });
 
   it('should emit the value when you write on the input', async () => {
-    const wrapper = mountInputFieldAsTemplate(
-      '<ec-text-filter v-model="text" />',
-      {},
-      {
-        data() {
-          return { text: '' };
-        },
+    const Component = defineComponent({
+      components: { EcTextFilter },
+      data() {
+        return { text: '' };
       },
-    );
+      template: '<ec-text-filter v-model="text" />',
+    });
 
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    const wrapper = mount(Component);
+
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('');
     await wrapper.findByDataTest('ec-input-field__input').setValue('some text');
     clock.tick(300);
     expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.CHANGE]?.[0]).toEqual(['some text']);
@@ -110,17 +92,17 @@ describe('EcTextFilter', () => {
   });
 
   it('should emit the value when you write on the input corresponding to debounceTime', async () => {
-    const wrapper = mountInputFieldAsTemplate(
-      '<ec-text-filter v-model="text" :debounceTime="20"/>',
-      {},
-      {
-        data() {
-          return { text: '' };
-        },
+    const Component = defineComponent({
+      components: { EcTextFilter },
+      data() {
+        return { text: '' };
       },
-    );
+      template: '<ec-text-filter v-model="text" :debounceTime="20"/>',
+    });
 
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    const wrapper = mount(Component);
+
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('');
     await wrapper.findByDataTest('ec-input-field__input').setValue('some text');
     clock.tick(20);
     expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.CHANGE]?.[0]).toEqual(['some text']);
@@ -128,15 +110,15 @@ describe('EcTextFilter', () => {
   });
 
   it('should emit the empty value when you click on close icon', async () => {
-    const wrapper = mountInputFieldAsTemplate(
-      '<ec-text-filter v-model="text" />',
-      {},
-      {
-        data() {
-          return { text: 'some text' };
-        },
+    const Component = defineComponent({
+      components: { EcTextFilter },
+      data() {
+        return { text: 'some text' };
       },
-    );
+      template: '<ec-text-filter v-model="text" />',
+    });
+
+    const wrapper = mount(Component);
 
     await wrapper.findByDataTest('ec-input-field__icon').trigger('click');
     expect(wrapper.findComponent(EcTextFilter).emitted()[TextFilterEvent.CHANGE]?.[0]).toEqual(['']);
@@ -144,7 +126,7 @@ describe('EcTextFilter', () => {
   });
 
   it('should render with a sensitive class when isSensitive prop is set to true', () => {
-    const wrapper = mountComponent({ inputProps: { isSensitive: true } });
+    const wrapper = mountEcTextFilter({ inputProps: { isSensitive: true } });
 
     expect(wrapper.element).toMatchSnapshot();
   });

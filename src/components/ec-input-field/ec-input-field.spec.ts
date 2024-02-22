@@ -7,7 +7,7 @@ import { EcTooltipDirectiveMock } from '../../../tests/mocks/ec-tooltip.mock';
 import { IconName } from '../ec-icon/icon-names';
 import { IconType } from '../ec-icon/types';
 import EcInputField from './ec-input-field.vue';
-import type { InputFieldExpose, InputFieldProps } from './types';
+import type { InputFieldProps } from './types';
 import { InputFieldEvent, InputFieldType } from './types';
 
 describe('EcInputField', () => {
@@ -27,25 +27,6 @@ describe('EcInputField', () => {
         ...mountOpts,
       },
     );
-  }
-
-  function mountInputFieldAsTemplate(
-    template: string,
-    props: InputFieldProps,
-    wrapperComponentOpts: Record<string, unknown>,
-    mountOpts?: ComponentMountingOptions<InputFieldProps>,
-  ) {
-    const Component = defineComponent({
-      components: { EcInputField },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return mount<InputFieldProps, ComponentMountingOptions<InputFieldProps>>(Component as any, {
-      props,
-      ...mountOpts,
-    });
   }
 
   it('should display properly with the given props', () => {
@@ -123,52 +104,52 @@ describe('EcInputField', () => {
   });
 
   it('should set the v-model on the value of the input and change when it changes', async () => {
-    const wrapper = mountInputFieldAsTemplate(
-      '<ec-input-field v-model="text" type="text" />',
-      {},
-      {
-        data() {
-          return { text: '' };
-        },
+    const Component = defineComponent({
+      components: { EcInputField },
+      data() {
+        return { text: '' };
       },
-    );
+      template: '<ec-input-field v-model="text" type="text" />',
+    });
 
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    const wrapper = mount(Component);
+
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('');
     await wrapper.setData({ text: 'some text' });
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('some text');
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('some text');
   });
 
   it('should set the v-model on the value of the input when type is "tel" and change when it changes', async () => {
-    const wrapper = mountInputFieldAsTemplate(
-      '<ec-input-field v-model="text" type="tel" />',
-      {},
-      {
-        data() {
-          return { text: '' };
-        },
+    const Component = defineComponent({
+      components: { EcInputField },
+      data() {
+        return { text: '' };
       },
-    );
+      template: '<ec-input-field v-model="text" type="tel" />',
+    });
 
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    const wrapper = mount(Component);
+
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('');
     await wrapper.setData({ text: '123456789' });
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('123456789');
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('123456789');
   });
 
   it('should emit the value when you write on the input', async () => {
-    const wrapper = mountInputFieldAsTemplate(
-      '<ec-input-field v-model="text" type="text" />',
-      {},
-      {
-        data() {
-          return { text: '' };
-        },
+    const Component = defineComponent({
+      components: { EcInputField },
+      data() {
+        return { text: '' };
       },
-    );
+      template: '<ec-input-field v-model="text" type="text" />',
+    });
 
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    const wrapper = mount(Component);
+
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('');
     await wrapper.findByDataTest('ec-input-field__input').setValue('some text');
     expect(wrapper.findComponent(EcInputField).emitted()[InputFieldEvent.UPDATE_MODEL_VALUE]?.[0]).toEqual(['some text']);
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('some text');
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('some text');
   });
 
   it('should emit an event when we click on the icon', () => {
@@ -293,29 +274,24 @@ describe('EcInputField', () => {
       modelValue: '1234',
     });
 
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('1234');
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('1234');
 
     await wrapper.setProps({
       modelValue: undefined,
     });
 
-    expect((wrapper.findByDataTest('ec-input-field__input').element as HTMLInputElement).value).toBe('');
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-input-field__input').element).value).toBe('');
   });
 
   it('should be focusable from outside', async () => {
     const element = document.createElement('div');
     document.body.appendChild(element);
 
-    const wrapper = mount(
-      EcInputField,
-      {
-        attachTo: element,
-      },
-    );
+    const wrapper = mountInputField({}, { attachTo: element });
 
     (document.activeElement as HTMLElement)?.blur();
     expect(document.activeElement).not.toBe(wrapper.findByDataTest('ec-input-field__input').element);
-    (wrapper.findComponent(EcInputField).vm as unknown as InputFieldExpose).focus();
+    wrapper.findComponent(EcInputField).vm.focus();
 
     await wrapper.vm.$nextTick();
 

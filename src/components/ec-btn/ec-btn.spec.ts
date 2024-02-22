@@ -182,10 +182,12 @@ describe('EcBtn', () => {
     });
 
     it('should render given HTML attributes', () => {
-      const wrapper = mountBtn({
-        formtarget: 'my-form',
-        name: 'test-name',
-      } as ButtonProps);
+      const wrapper = mountBtn({}, {
+        attrs: {
+          formtarget: 'my-form',
+          name: 'test-name',
+        },
+      });
 
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -265,12 +267,12 @@ describe('EcBtn', () => {
 
   describe(':attrs', () => {
     it('should pass custom attributes', () => {
-      const wrapper = mountBtn(
-        {
+      const wrapper = mountBtn({}, {
+        attrs: {
           id: 'my-button',
           'data-test': 'my-custom-button',
-        } as ButtonProps,
-      );
+        },
+      });
 
       expect(wrapper.attributes('id')).toBe('my-button');
       expect(wrapper.attributes('data-test')).toBe('my-custom-button ec-btn');
@@ -279,11 +281,11 @@ describe('EcBtn', () => {
 
     it('should pass a custom event handler', () => {
       const clickSpy = vi.fn();
-      const wrapper = mountBtn(
-        {
+      const wrapper = mountBtn({}, {
+        attrs: {
           onClick: clickSpy,
-        } as ButtonProps,
-      );
+        },
+      });
 
       wrapper.findByDataTest('ec-btn').trigger('click');
       expect(clickSpy).toHaveBeenCalledTimes(1);

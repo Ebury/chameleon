@@ -15,7 +15,7 @@
         disabled: disabled,
         'data-test': 'ec-checkbox__input',
         type: 'checkbox',
-      } as InputHTMLAttributes)"
+      })"
       ref="checkboxInput"
       v-model="inputModel"
       @focus="inputIsFocused = true"
@@ -86,7 +86,6 @@
 <script setup lang="ts">
 import {
   computed,
-  type InputHTMLAttributes,
   onMounted,
   ref,
   type StyleValue,

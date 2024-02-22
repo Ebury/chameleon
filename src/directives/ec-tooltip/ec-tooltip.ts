@@ -21,11 +21,10 @@ function bind(this: ObjectDirective<HTMLElement, string | TooltipOptions>, el: H
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: Partial<DirectiveBinding<string | TooltipOptions>> & { [key: string]: any } = {}) {
   let options: TooltipOptions = {};
-  const type = typeof value;
-  if (type === 'string') {
-    options = { content: value as string };
-  } else if (value && type === 'object') {
-    options = { ...value as TooltipOptions };
+  if (typeof value === 'string') {
+    options = { content: value };
+  } else if (value && typeof value === 'object') {
+    options = { ...value };
   } else {
     options = { content: false };
   }

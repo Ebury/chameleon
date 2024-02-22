@@ -1,6 +1,6 @@
-import type { ComponentMountingOptions, VueWrapper } from '@vue/test-utils';
+import type { ComponentMountingOptions } from '@vue/test-utils';
 import { mount } from '@vue/test-utils';
-import { type ComponentPublicInstance, defineComponent } from 'vue';
+import { defineComponent } from 'vue';
 
 import EcAlert from './ec-alert.vue';
 import type { AlertProps } from './types';
@@ -16,29 +16,6 @@ describe('EcAlert', () => {
           type: AlertType.INFO,
           ...props,
         },
-        ...mountOpts,
-      },
-    );
-  }
-
-  function mountAlertAsTemplate(
-    template: string,
-    wrapperComponentOpts?: Record<string, unknown>,
-    mountOpts?: ComponentMountingOptions<typeof EcAlert>,
-  ) {
-    const element = document.createElement('div');
-    document.body.appendChild(element);
-
-    const Component = defineComponent({
-      components: { EcAlert },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount(
-      Component,
-      {
-        attachTo: element,
         ...mountOpts,
       },
     );
@@ -86,14 +63,15 @@ describe('EcAlert', () => {
   });
 
   it('should dismiss the alert when user clicks on the dismiss icon', async () => {
-    const wrapper = mountAlertAsTemplate(
-      `<ec-alert v-model:open="isOpen" type="${AlertType.INFO}" title="Custom random" dismissable />`,
-      {
-        data() {
-          return { isOpen: true };
-        },
+    const Component = defineComponent({
+      components: { EcAlert },
+      data() {
+        return { isOpen: true };
       },
-    );
+      template: `<ec-alert v-model:open="isOpen" type="${AlertType.INFO}" title="Custom random" dismissable />`,
+    });
+
+    const wrapper = mount(Component);
 
     expect(wrapper.findByDataTest('ec-alert__dismiss-icon').exists()).toBe(true);
     await wrapper.findByDataTest('ec-alert__dismiss-icon').trigger('click');
@@ -113,14 +91,20 @@ describe('EcAlert', () => {
   });
 
   it('should dismiss or show the alert when we change the v-model', async () => {
-    const wrapper = mountAlertAsTemplate(
-      `<ec-alert v-model:open="isOpen" type="${AlertType.INFO}" title="Custom random" dismissable />`,
-      {
-        data() {
-          return { isOpen: true };
-        },
+    const element = document.createElement('div');
+    document.body.appendChild(element);
+
+    const Component = defineComponent({
+      components: { EcAlert },
+      data() {
+        return { isOpen: true };
       },
-    ) as VueWrapper<ComponentPublicInstance<unknown, { isOpen: boolean }>>;
+      template: `<ec-alert v-model:open="isOpen" type="${AlertType.INFO}" title="Custom random" dismissable />`,
+    });
+
+    const wrapper = mount(Component, {
+      attachTo: element,
+    });
 
     expect(wrapper.vm.isOpen).toBe(true);
     expect(wrapper.isVisible()).toBe(true);
