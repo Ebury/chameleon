@@ -16,6 +16,9 @@
         modelValue: modelValue[filter.name],
         name: null,
         component: null,
+        isHidden: null,
+        isFullWidth: null,
+        stretch: null,
       }"
       :key="filter.name"
       :data-test="`ec-table-filter__filter-item ec-table-filter__filter-item-${index}`"
@@ -40,55 +43,40 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
+
+import type { TableFilterProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps({
-  modelValue: {
-    type: Object,
-    default: () => ({}),
-  },
-  filters: {
-    type: Array,
-    required: true,
-  },
-  lessFiltersButtonText: {
-    type: String,
-    default: 'Less filters',
-  },
-  moreFiltersButtonText: {
-    type: String,
-    default: 'More filters',
-  },
-  clearFiltersButtonText: {
-    type: String,
-    default: 'Clear filters',
-  },
-  isClearFiltersButtonHidden: {
-    type: Boolean,
-    default: false,
-  },
-  hasStretchFilter: Boolean,
+const props = withDefaults(defineProps<TableFilterProps>(), {
+  modelValue: () => ({}),
+  filters: () => [],
+  lessFiltersButtonText: 'Less filters',
+  moreFiltersButtonText: 'More filters',
+  clearFiltersButtonText: 'Clear filters',
 });
 
-const emit = defineEmits(['update:modelValue', 'change']);
+const emit = defineEmits<{
+  'update:modelValue': [filter: Record<string, unknown>],
+  'change': [filter: Record<string, unknown>],
+}>();
 
 const hasFilters = computed(() => !!Object.keys(props.modelValue).length);
 
-const hasFullWidthFilter = computed(() => (props.filters ? Object.values(props.filters).some(filter => filter.isFullWidth) : false));
+const hasFullWidthFilter = computed(() => Object.values(props.filters).some(filter => filter.isFullWidth));
 const stretchLayoutColumns = computed(() => (props.filters ? `repeat(${Object.values(props.filters).length - 1}, auto) 1fr auto` : ''));
 
-function update(filters) {
+function update(filters: Record<string, unknown>) {
   emit('update:modelValue', filters);
   emit('change', filters);
 }
 
-function onChange(filterName, value) {
-  if (!value || value.length === 0) {
+function onChange(filterName: string, value: unknown) {
+  if (!value || (Array.isArray(value) && value.length === 0)) {
     const { [filterName]: currentValue, ...otherFilters } = props.modelValue;
 
     update(otherFilters);

@@ -1,8 +1,9 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { reactive } from 'vue';
 
 import EcBadge from './ec-badge.vue';
 
-export default {
+const meta: Meta = {
   title: 'Badge',
   component: EcBadge,
   argTypes: {
@@ -13,7 +14,9 @@ export default {
   },
 };
 
-const Template = args => ({
+export default meta;
+
+const Template: StoryFn<typeof EcBadge> = args => ({
   components: { EcBadge },
   setup() {
     return {
@@ -34,7 +37,7 @@ basic.args = {
   value: '1',
 };
 
-export const all = args => ({
+export const all: StoryFn = args => ({
   components: { EcBadge },
   setup() {
     const badges = reactive([

@@ -1,9 +1,12 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
 
+import type { ComparisonSymbolItem } from '../ec-amount-filter-input/types';
 import EcCurrencyFilter from './ec-currency-filter.vue';
+import type { CurrencyFilterItem } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Filters/Currency Filter',
   component: EcCurrencyFilter,
   argTypes: {
@@ -14,10 +17,12 @@ export default {
   },
 };
 
-const Template = args => ({
+export default meta;
+
+const Template: StoryFn<typeof EcCurrencyFilter> = args => ({
   components: { EcCurrencyFilter },
   setup() {
-    const model = ref(args.value);
+    const model = ref(args.modelValue);
     return {
       args,
       model,
@@ -38,7 +43,7 @@ const Template = args => ({
 
 export const basic = Template.bind({});
 
-const currencyItems = [{
+const currencyItems: CurrencyFilterItem[] = [{
   value: 'GBP',
   text: 'GBP',
 }, {
@@ -70,7 +75,7 @@ const currencyItems = [{
   text: 'CNY',
 }];
 
-const comparisonSymbolItems = [{
+const comparisonSymbolItems: ComparisonSymbolItem[] = [{
   text: 'More than',
   value: '>',
 }, {
@@ -83,10 +88,10 @@ const comparisonSymbolItems = [{
 
 basic.args = {
   label: 'Price',
-  value: {
+  modelValue: {
     currencies: [],
     comparisonSymbol: comparisonSymbolItems[1],
-    amount: null,
+    amount: undefined,
   },
   locale: 'en',
   currencyItems,

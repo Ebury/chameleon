@@ -2,13 +2,14 @@
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/vue3';
 
+import type { Sorting } from '../../composables/use-ec-sorting/types';
 import { SortDirection } from '../../enums';
 import EcIcon from '../ec-icon/ec-icon.vue';
 import EcOptionCard from '../ec-option-card';
 import EcTable from './ec-table.vue';
-import { StickyColumnPosition } from './types';
+import { StickyColumnPosition, type TableHeadColumn, type TableProps } from './types';
 
-const columns = [
+const columns: TableHeadColumn[] = [
   {
     name: 'request-details',
     title: 'Request details',
@@ -40,7 +41,7 @@ const columns = [
   },
 ];
 
-const sorts = [
+const sorts: Sorting[] = [
   {
     direction: SortDirection.ASC,
     column: 'request-details',
@@ -51,7 +52,7 @@ const sorts = [
   },
 ];
 
-const data = [
+const data: string[][] = [
   [
     'Lorem',
     'EUR 100',
@@ -79,7 +80,7 @@ export default {
   },
 } as Meta<typeof EcTable>;
 
-type EcTableStory = StoryFn<typeof EcTable>;
+type EcTableStory = StoryFn<TableProps<string[]>>;
 
 const Template: EcTableStory = args => ({
   components: { EcTable },

@@ -1,16 +1,21 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref, watchEffect } from 'vue';
 
+import { IconName, IconType } from '../ec-icon/types';
+import type { MultipleValuesSelectionItem } from '../ec-multiple-values-selection/types';
 import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
 
-export default {
+const meta: Meta = {
   title: 'Filters/Multiple Values Filter',
   component: EcSyncMultipleValuesFilter,
 };
 
-const Template = storyArgs => ({
+export default meta;
+
+const Template: StoryFn<typeof EcSyncMultipleValuesFilter> = storyArgs => ({
   components: { EcSyncMultipleValuesFilter },
   setup() {
-    const model = ref('');
+    const model = ref<MultipleValuesSelectionItem[]>();
     const args = ref({});
 
     watchEffect(() => {
@@ -34,85 +39,85 @@ const Template = storyArgs => ({
   `,
 });
 
-const items = [{
+const items: MultipleValuesSelectionItem[] = [{
   value: 'Success',
   icon: {
-    name: 'rounded-check',
-    type: 'success',
+    name: IconName.ROUNDED_CHECK,
+    type: IconType.SUCCESS,
   },
   text: 'Success (this text should be too long to display, this is the reason why we have ellipsis)',
 }, {
   value: 'Partially paid',
   icon: {
-    name: 'rounded-partial',
-    type: 'success',
+    name: IconName.ROUNDED_PARTIAL,
+    type: IconType.SUCCESS,
   },
   text: 'Partially paid',
 }, {
   value: 'Cancelled',
   icon: {
-    name: 'rounded-cancelled',
-    type: 'error',
+    name: IconName.ROUNDED_CANCELLED,
+    type: IconType.ERROR,
   },
   text: 'Cancelled',
 }, {
   value: 'Returned',
   icon: {
-    name: 'rounded-returned',
-    type: 'error',
+    name: IconName.ROUNDED_RETURNED,
+    type: IconType.ERROR,
   },
   text: 'Returned',
 }, {
   value: 'Not paid',
   icon: {
-    name: 'rounded-euro',
-    type: 'warning',
+    name: IconName.ROUNDED_EURO,
+    type: IconType.WARNING,
   },
   text: 'Not paid',
 }, {
   value: 'Not paid value date not reached',
   icon: {
-    name: 'rounded-euro',
-    type: 'interactive',
+    name: IconName.ROUNDED_EURO,
+    type: IconType.INTERACTIVE,
   },
   text: 'Not paid (Value date not reached)',
 }, {
   value: 'Random status 1',
   icon: {
-    name: 'currency-aed',
-    type: 'interactive',
+    name: IconName.CURRENCY_AED,
+    type: IconType.INTERACTIVE,
   },
   text: 'Random status 1',
 }, {
   value: 'Random status 2',
   icon: {
-    name: 'currency-gbp',
-    type: 'interactive',
+    name: IconName.CURRENCY_GBP,
+    type: IconType.INTERACTIVE,
   },
   text: 'Random status 2',
 }, {
   value: 'Random status 3',
   icon: {
-    name: 'currency-eur',
-    type: 'interactive',
+    name: IconName.CURRENCY_EUR,
+    type: IconType.INTERACTIVE,
   },
   text: 'Random status 3',
 }, {
   value: 'Random status 4',
   icon: {
-    name: 'currency-usd',
-    type: 'interactive',
+    name: IconName.CURRENCY_USD,
+    type: IconType.INTERACTIVE,
   },
   text: 'Random status 4',
 }, {
   value: 'Random status 5',
   icon: {
-    name: 'currency-rub',
-    type: 'interactive',
+    name: IconName.CURRENCY_RUB,
+    type: IconType.INTERACTIVE,
   },
   text: 'Random status 5',
-},
-];
+}];
+
 export const basic = Template.bind({});
 
 basic.args = {

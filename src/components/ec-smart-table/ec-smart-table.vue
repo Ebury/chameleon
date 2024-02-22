@@ -59,7 +59,7 @@
     </template>
     <template v-else>
       <ec-loading
-        :show="!isInfiniteScrollEnabled && isFetching"
+        :show="!isInfiniteScrollEnabled && !!isFetching"
         :transparent="!isEmpty"
         :class="{ 'tw-my-48 tw-min-h-48': /* c8 ignore next */ isEmpty && isFetching }"
       >
@@ -115,13 +115,20 @@
           >
             <slot name="footer" />
           </template>
-          <template
-            v-for="(_, name) in getEcTableSlots()"
-            #[name]="slotData"
-          ><slot
-            :name="name"
-            v-bind="slotData"
-          /></template>
+          <!-- pass colX slots to ec-table and bind their types -->
+          <!-- in order to make TS and Vue happy we can't for-loop $slots. We also need to statically cast the content prop so they are type safe. we cannot do TRow[colIndex] because TS can't tell what is the value of colIndex at compile time -->
+          <template #col1="{ content, row }" v-if="hasSlot('col1')"><slot name="col1" v-bind="{ content: (content as TRow[0]), row }" /></template>
+          <template #col2="{ content, row }" v-if="hasSlot('col2')"><slot name="col2" v-bind="{ content: (content as TRow[1]), row }" /></template>
+          <template #col3="{ content, row }" v-if="hasSlot('col3')"><slot name="col3" v-bind="{ content: (content as TRow[2]), row }" /></template>
+          <template #col4="{ content, row }" v-if="hasSlot('col4')"><slot name="col4" v-bind="{ content: (content as TRow[3]), row }" /></template>
+          <template #col5="{ content, row }" v-if="hasSlot('col5')"><slot name="col5" v-bind="{ content: (content as TRow[4]), row }" /></template>
+          <template #col6="{ content, row }" v-if="hasSlot('col6')"><slot name="col6" v-bind="{ content: (content as TRow[5]), row }" /></template>
+          <template #col7="{ content, row }" v-if="hasSlot('col7')"><slot name="col7" v-bind="{ content: (content as TRow[6]), row }" /></template>
+          <template #col8="{ content, row }" v-if="hasSlot('col8')"><slot name="col8" v-bind="{ content: (content as TRow[7]), row }" /></template>
+          <template #col9="{ content, row }" v-if="hasSlot('col9')"><slot name="col9" v-bind="{ content: (content as TRow[8]), row }" /></template>
+          <template #col10="{ content, row }" v-if="hasSlot('col10')"><slot name="col10" v-bind="{ content: (content as TRow[9]), row }" /></template>
+          <template #col11="{ content, row }" v-if="hasSlot('col11')"><slot name="col11" v-bind="{ content: (content as TRow[10]), row }" /></template>
+          <template #col12="{ content, row }" v-if="hasSlot('col12')"><slot name="col12" v-bind="{ content: (content as TRow[11]), row }" /></template>
         </ec-table>
         <div
           ref="tableEndDetector"
@@ -129,6 +136,7 @@
           class="ec-smart-table__table-end-detector"
           data-test="ec-smart-table__table-end-detector"
         >
+          <!--  TODO: why does this component reuse styles of a different component?!?! -->
           <ec-icon
             :name="IconName.SIMPLE_LOADING"
             :size="32"
@@ -141,7 +149,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts" generic="TRow extends ReadonlyArray<unknown>, TAdditionalPayload">
 import { useIntersectionObserver } from '@vueuse/core';
 import {
   computed, onMounted, ref, unref, useAttrs, useSlots, watch,
@@ -157,62 +165,26 @@ import EcSmartTableHeading from '../ec-smart-table-heading';
 import EcTable from '../ec-table';
 import EcTableFilter from '../ec-table-filter';
 import EcTablePagination from '../ec-table-pagination';
+import type { SmartTableFetchPayload, SmartTableProps } from './types';
 
 const attrs = useAttrs();
 
-const emit = defineEmits(['update:filter', 'fetch']);
+const emit = defineEmits<{
+  'update:filter': [filters: object],
+  'fetch': [payload: SmartTableFetchPayload & TAdditionalPayload],
+}>();
 
-const props = defineProps({
-  ...EcTable.props,
-  errorMessage: {
-    type: String,
-    default: 'Unexpected error while fetching data',
-  },
-  emptyMessage: {
-    type: String,
-    default: 'No items found',
-  },
-  clearFiltersButtonText: String,
-  itemsPerPageText: String,
-  pagination: Object,
-  isPaginationEnabled: Boolean,
-  filters: {
-    type: Array,
-    default: () => [],
-  },
-  filter: Object,
-  isMultiSort: Boolean,
-  sortCycle: {
-    type: Number,
-    default: () => SortDirectionCycle.LOWEST_FIRST,
-  },
-  additionalPayload: Object,
-  isFetching: Boolean,
-  error: [Error, Object, String],
-  isCustomRowShown: {
-    type: Boolean,
-    default: () => undefined,
-  },
-  isClearFiltersButtonHidden: {
-    type: Boolean,
-    default: false,
-  },
-  isPageSizeHidden: {
-    type: Boolean,
-    default: false,
-  },
-  isTotalHidden: {
-    type: Boolean,
-    default: false,
-  },
-  isResponsive: {
-    type: Boolean,
-    default: true,
-  },
-  isInfiniteScrollEnabled: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<SmartTableProps<TRow, TAdditionalPayload>>(), {
+  columns: () => [],
+  sorts: () => [],
+  data: () => [],
+  filters: () => [],
+  isCustomRowShown: undefined,
+  isTableHeaderHidden: undefined,
+  errorMessage: 'Unexpected error while fetching data',
+  emptyMessage: 'No items found',
+  sortCycle: SortDirectionCycle.LOWEST_FIRST,
+  isResponsive: true,
 });
 
 const hasStretchFilter = computed(() => (Object.values(props.filters).some(filter => filter.stretch)));
@@ -238,10 +210,10 @@ const isFilteringEnabled = computed(() => props.filters?.length > 0);
 const filterModel = ref(unref(props.filter) ?? {});
 
 watch(() => props.filter, () => {
-  filterModel.value = unref(props.filter);
+  filterModel.value = props.filter ??/* c8 ignore next */ {};
 });
 
-function onFilterChanged(filters) {
+function onFilterChanged(filters: object) {
   paginate(1);
   emit('update:filter', filters);
 }
@@ -252,7 +224,7 @@ const payload = computed(() => ({
   numberOfItems: unref(numberOfItems),
   sorts: unref(sorts),
   filter: unref(filterModel),
-  ...unref(props.additionalPayload),
+  ...(props.additionalPayload ?? ({} as TAdditionalPayload)),
 }));
 
 watch(payload, () => {
@@ -261,33 +233,22 @@ watch(payload, () => {
   immediate: !props.isInfiniteScrollEnabled,
 });
 
-const isEmpty = computed(() => (props.data ?? []).length === 0);
+const isEmpty = computed(() => props.data.length === 0);
 
 // slots
 const slots = useSlots();
 
 const canShowCustomRow = computed(() => (props.isCustomRowShown || hasSlot('default')));
 
-function hasSlot(slotName) {
+function hasSlot(slotName: string): boolean {
   return slotName in slots;
-}
-
-function getEcTableSlots() {
-  const tableSlots = { ...slots };
-  delete tableSlots.footer;
-  delete tableSlots.error;
-  delete tableSlots.empty;
-  delete tableSlots.actions;
-  delete tableSlots.filter;
-  delete tableSlots.pages;
-  return tableSlots;
 }
 
 // infinite scroll
 
-const tableEndDetector = ref(null);
+const tableEndDetector = ref<HTMLDivElement>();
 
-const canLoadMore = computed(() => props.data && props.data.length < props.totalRecords);
+const canLoadMore = computed(() => props.data && props.data.length < (props.totalRecords ?? 0));
 
 onMounted(() => {
   const {

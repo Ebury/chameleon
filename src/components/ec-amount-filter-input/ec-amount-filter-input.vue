@@ -79,8 +79,8 @@
         v-ec-tooltip="{ content: errorTooltipMessage }"
         class="ec-amount-filter-input__error-tooltip"
         data-test="ec-amount-filter-input__error-tooltip"
-        type="error"
-        name="simple-error"
+        :type="IconType.ERROR"
+        :name="IconName.SIMPLE_ERROR"
         :size="14"
       />
     </div>
@@ -98,85 +98,51 @@
         v-ec-tooltip="{ content: warningTooltipMessage }"
         class="ec-amount-filter-input__warning-tooltip"
         data-test="ec-amount-filter-input__warning-tooltip"
-        type="warning"
-        name="simple-error"
+        :type="IconType.WARNING"
+        :name="IconName.SIMPLE_ERROR"
         :size="14"
       />
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { StyleValue } from 'vue';
 import { computed, ref } from 'vue';
 
-import VEcTooltip from '../../directives/ec-tooltip';
+import vEcTooltip from '../../directives/ec-tooltip';
 import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
+import { IconName, IconType } from '../ec-icon/types';
+import type { PopoverProps } from '../ec-popover/types';
+import type { AmountFilterInputModel, AmountFilterInputProps, ComparisonSymbolItem } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps({
-  modelValue: {
-    type: Object,
-  },
-  locale: {
-    type: String,
-    default: 'en',
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  label: {
-    type: String,
-  },
-  note: {
-    type: String,
-  },
-  amountPlaceholder: {
-    type: String,
-  },
-  bottomNote: {
-    type: String,
-  },
-  isWarning: {
-    type: Boolean,
-    default: false,
-  },
-  warningTooltipMessage: {
-    type: String,
-  },
-  errorMessage: {
-    type: String,
-  },
-  errorTooltipMessage: {
-    type: String,
-  },
-  comparisonSymbolItems: {
-    type: Array,
-  },
+const props = withDefaults(defineProps<AmountFilterInputProps>(), {
+  locale: 'en',
 });
 
-const emit = defineEmits([
-  'update:modelValue',
-  'change',
-  'amount-change',
-  'comparison-symbol-change',
-  'focus',
-  'open',
-  'close',
-  'after-open',
-  'after-close',
-]);
+const emit = defineEmits<{
+  'update:modelValue': [value: AmountFilterInputModel],
+  'change': [],
+  'amount-change': [event: Event],
+  'comparison-symbol-change': [value: ComparisonSymbolItem | undefined],
+  'focus': [],
+  'open': [],
+  'close': [],
+  'after-open': [],
+  'after-close': [],
+}>();
 
 const uid = getUid();
 const id = computed(() => `ec-amount-filter-input-${uid}`);
 const isInvalid = computed(() => !!props.errorMessage);
-const errorId = computed(() => (isInvalid.value ? `ec-amount-filter-input-${uid}` : null));
+const errorId = computed(() => (isInvalid.value ? `ec-amount-filter-input-${uid}` : undefined));
 
 // amount
 const amountModel = computed({
@@ -187,8 +153,9 @@ const amountModel = computed({
     emit('update:modelValue', { ...props.modelValue, amount: value });
   },
 });
-function onAmountChange(evt) {
-  emit('change', evt);
+
+function onAmountChange(evt: Event) {
+  emit('change');
   emit('amount-change', evt);
 }
 
@@ -201,36 +168,38 @@ const comparisonSymbolModel = computed({
     }
 
     return {
-      value: null,
-      text: null,
+      value: undefined,
+      text: undefined,
     };
   },
   set(value) {
     emit('update:modelValue', { ...props.modelValue, comparisonSymbol: value });
   },
 });
-function onComparisonSymbolChange(evt) {
+
+function onComparisonSymbolChange(item: ComparisonSymbolItem | undefined) {
   comparisonSymbolHasFocus.value = true;
-  emit('change', evt);
-  emit('comparison-symbol-change', evt);
+  emit('change');
+  emit('comparison-symbol-change', item);
 }
+
 function onComparisonSymbolFocus() {
   comparisonSymbolHasFocus.value = true;
   emit('focus');
 }
 
 // popover
-const popoverOptions = {
+const popoverOptions: PopoverProps = {
   autoSize: 'min',
 };
-const popoverWidthReference = ref(null);
-function getPopoverStyle() {
+const popoverWidthReference = ref<HTMLDivElement>();
+function getPopoverStyle(): StyleValue | undefined {
   if (popoverWidthReference.value) {
     return {
       width: `${popoverWidthReference.value.offsetWidth}px`,
     };
   }
-  return null;
+  return undefined;
 }
 </script>
 

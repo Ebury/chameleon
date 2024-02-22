@@ -28,7 +28,7 @@
           {{ selectedPageSizeText }}
           <ec-icon
             class="ec-table-pagination__action-icon"
-            name="simple-chevron-down"
+            :name="IconName.SIMPLE_CHEVRON_DOWN"
             :size="24"
           />
         </button>
@@ -84,7 +84,7 @@
         @click.prevent.stop="emit('change', page - 1, numberOfItems)"
       ><ec-icon
         class="ec-table-pagination__action-icon"
-        name="simple-chevron-left"
+        :name="IconName.SIMPLE_CHEVRON_LEFT"
         :size="24"
       /></button>
       <button
@@ -96,59 +96,38 @@
         @click.prevent.stop="emit('change', page + 1, numberOfItems)"
       ><ec-icon
         class="ec-table-pagination__action-icon"
-        name="simple-chevron-right"
+        :name="IconName.SIMPLE_CHEVRON_RIGHT"
         :size="24"
       /></button>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
 import { DEFAULT_PAGE_SIZE, PAGE_SIZES } from '../../composables/use-ec-pagination';
+import type { PageSize } from '../../composables/use-ec-pagination/types';
 import EcDropdownSearch from '../ec-dropdown-search';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/icon-names';
+import type { PageSizeItem, TablePaginationProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps({
-  page: {
-    type: Number,
-    default: 1,
-  },
-  numberOfItems: {
-    type: Number,
-    default: DEFAULT_PAGE_SIZE,
-    validator(value) {
-      return PAGE_SIZES.includes(value);
-    },
-  },
-  total: {
-    type: Number,
-    default: 0,
-  },
-  itemsPerPageText: {
-    type: String,
-    default: 'Items per page',
-  },
-  isPageSizeHidden: {
-    type: Boolean,
-    default: false,
-  },
-  isTotalHidden: {
-    type: Boolean,
-    default: false,
-  },
-  isResponsive: {
-    type: Boolean,
-    default: true,
-  },
+const props = withDefaults(defineProps<TablePaginationProps>(), {
+  page: 1,
+  numberOfItems: DEFAULT_PAGE_SIZE,
+  total: 0,
+  itemsPerPageText: 'Items per page',
+  isResponsive: true,
 });
 
-const emit = defineEmits(['change']);
+const emit = defineEmits<{
+  'change': [page: number, pageSize: PageSize],
+}>();
 
 const hasPrev = computed(() => props.page > 1);
 
@@ -159,13 +138,13 @@ const totalPages = computed(() => {
   }
   return Math.ceil(props.total / props.numberOfItems);
 });
-const pageSizeItems = computed(() => PAGE_SIZES.map(pageSize => ({ text: pageSize, value: pageSize })));
+const pageSizeItems = computed(() => PAGE_SIZES.map(pageSize => ({ text: `${pageSize}`, value: pageSize } satisfies PageSizeItem)));
 const pageSizeModel = computed({
   get() {
     return pageSizeItems.value.find(item => item.value === props.numberOfItems);
   },
-  set(pageSizeItem) {
-    emit('change', 1, pageSizeItem.value);
+  set(pageSizeItem: PageSizeItem | undefined) {
+    emit('change', 1, pageSizeItem?.value ||/* c8 ignore next */ DEFAULT_PAGE_SIZE);
   },
 });
 const selectedPageSizeText = computed(() => pageSizeModel.value?.text);

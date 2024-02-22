@@ -1,14 +1,18 @@
-import { flushPromises, mount } from '@vue/test-utils';
+import {
+  type ComponentMountingOptions, flushPromises, mount, VueWrapper,
+} from '@vue/test-utils';
 import { vi } from 'vitest';
 import {
   defineComponent, h, markRaw, ref,
 } from 'vue';
 
 import { SortDirection } from '../../enums';
+import { StickyColumnPosition, type TableHeadColumn } from '../ec-table-head/types';
 import EcSmartTable from './ec-smart-table.vue';
+import type { SmartTableProps } from './types';
 
 describe('EcSmartTable', () => {
-  const columns = [
+  const columns: TableHeadColumn[] = [
     { name: 'test1', title: 'Test 1', sortable: true },
     { name: 'test2', title: 'Test 2', sortable: false },
     { name: 'test3', title: 'Test 3', sortable: true },
@@ -33,14 +37,14 @@ describe('EcSmartTable', () => {
     count: lotsOfItems.length,
   };
 
-  function mountEcSmartTable(props, mountOpts) {
+  function mountEcSmartTable<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>(props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
     return mount(EcSmartTable, {
       props: { ...props },
       ...mountOpts,
     });
   }
 
-  function mountEcSmartTableWithData({ items, total }, props, mountOpts) {
+  function mountEcSmartTableWithData<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>({ items, total }: { items: TRow[], total: number }, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
     return mountEcSmartTable({
       ...props,
       data: items,
@@ -48,7 +52,7 @@ describe('EcSmartTable', () => {
     }, mountOpts);
   }
 
-  function mountEcSmartTableWithError(error, props, mountOpts) {
+  function mountEcSmartTableWithError<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>(error: Error, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
     return mountEcSmartTable({
       ...props,
       error,
@@ -61,7 +65,7 @@ describe('EcSmartTable', () => {
   });
 
   it('should render in empty state when data are null', () => {
-    const wrapper = mountEcSmartTable({ columns, data: null });
+    const wrapper = mountEcSmartTable({ columns, data: undefined });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -100,7 +104,7 @@ describe('EcSmartTable', () => {
     const wrapper = mountEcSmartTableWithData(data, {
       columns,
       maxHeight: '100px',
-      stickyColumn: 'left',
+      stickyColumn: StickyColumnPosition.LEFT,
     });
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -129,12 +133,18 @@ describe('EcSmartTable', () => {
   });
 
   describe('#slots', () => {
+    type HeaderActionSlot = { total: number, items: [], error: Error, loading: boolean };
+    type EmptySlot = { emptyMessage: string };
+    type ErrorSlot = { errorMessage: string };
+    type CellSlot<T> = { row: T[], content: T };
+    type DefaultSlot<T> = { row: T[] };
+
     it('should render in empty state by default with the header-actions slot with props', () => {
       const wrapper = mountEcSmartTable({ columns }, {
         slots: {
           'header-actions': ({
             total, items, error, loading,
-          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
+          }: HeaderActionSlot) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -145,7 +155,7 @@ describe('EcSmartTable', () => {
         slots: {
           'header-actions': ({
             total, items, error, loading,
-          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
+          }: HeaderActionSlot) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -154,7 +164,7 @@ describe('EcSmartTable', () => {
     it('should render empty data with custom template', () => {
       const wrapper = mountEcSmartTableWithData(emptyData, { columns }, {
         slots: {
-          empty: ({ emptyMessage }) => h('div', `Custom template - ${emptyMessage}`),
+          empty: ({ emptyMessage }: EmptySlot) => h('div', `Custom template - ${emptyMessage}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -163,7 +173,7 @@ describe('EcSmartTable', () => {
     it('should render empty data with custom template and custom emptyMessage prop', () => {
       const wrapper = mountEcSmartTableWithData(emptyData, { columns, emptyMessage: 'No data' }, {
         slots: {
-          empty: ({ emptyMessage }) => h('div', `Custom template - ${emptyMessage}`),
+          empty: ({ emptyMessage }: EmptySlot) => h('div', `Custom template - ${emptyMessage}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -183,7 +193,7 @@ describe('EcSmartTable', () => {
         slots: {
           'header-actions': ({
             total, items, error, loading,
-          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
+          }: HeaderActionSlot) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -192,10 +202,10 @@ describe('EcSmartTable', () => {
     it('should render empty data with custom template, custom emptyMessage prop and header-actions slot with props', () => {
       const wrapper = mountEcSmartTableWithData(emptyData, { columns, emptyMessage: 'No data' }, {
         slots: {
-          empty: ({ emptyMessage }) => h('div', `Custom template - ${emptyMessage}`),
+          empty: ({ emptyMessage }: EmptySlot) => h('div', `Custom template - ${emptyMessage}`),
           'header-actions': ({
             total, items, error, loading,
-          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
+          }: HeaderActionSlot) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -204,7 +214,7 @@ describe('EcSmartTable', () => {
     it('should render error with custom template', () => {
       const wrapper = mountEcSmartTableWithError(new Error('Random error'), { columns }, {
         slots: {
-          error: ({ errorMessage }) => h('div', `Custom template - ${errorMessage}`),
+          error: ({ errorMessage }: ErrorSlot) => h('div', `Custom template - ${errorMessage}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -213,7 +223,7 @@ describe('EcSmartTable', () => {
     it('should render error with custom template and custom errorMessage prop', () => {
       const wrapper = mountEcSmartTableWithError(new Error('Random error'), { columns, errorMessage: 'Unexpected error' }, {
         slots: {
-          error: ({ errorMessage }) => h('div', `Custom template - ${errorMessage}`),
+          error: ({ errorMessage }: ErrorSlot) => h('div', `Custom template - ${errorMessage}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -222,10 +232,10 @@ describe('EcSmartTable', () => {
     it('should render error with custom template, custom errorMessage prop and header-actions slot with props', () => {
       const wrapper = mountEcSmartTableWithError(new Error('Random error'), { columns, errorMessage: 'Unexpected error' }, {
         slots: {
-          error: ({ errorMessage }) => h('div', `Custom template - ${errorMessage}`),
+          error: ({ errorMessage }: ErrorSlot) => h('div', `Custom template - ${errorMessage}`),
           'header-actions': ({
             total, items, error, loading,
-          }) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
+          }: HeaderActionSlot) => h('div', `Header Actions total: ${total}, items: ${JSON.stringify(items)}, error: ${error}, loading: ${loading}`),
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -234,7 +244,7 @@ describe('EcSmartTable', () => {
     it('should pass ec-table slots', () => {
       const wrapper = mountEcSmartTableWithData(data, { columns }, {
         slots: {
-          col1: props => h('div', `Cell data: ${JSON.stringify(props)}`),
+          col1: (props: CellSlot<number>) => h('div', `Cell data: ${JSON.stringify(props)}`),
         },
       });
       expect(wrapper.findByDataTest('ec-table__row--0').element).toMatchSnapshot();
@@ -253,8 +263,8 @@ describe('EcSmartTable', () => {
         columns,
       }, {
         slots: {
-          default: props => h('div', `Custom row data: ${JSON.stringify(props)}`),
-          col1: props => h('div', `Cell data: ${JSON.stringify(props)}`),
+          default: (props: DefaultSlot<number>) => h('div', `Custom row data: ${JSON.stringify(props)}`),
+          col1: (props: CellSlot<number>) => h('div', `Cell data: ${JSON.stringify(props)}`),
         },
       });
 
@@ -267,8 +277,8 @@ describe('EcSmartTable', () => {
         isCustomRowShown: true,
       }, {
         slots: {
-          default: props => h('div', `Custom row data: ${JSON.stringify(props)}`),
-          col1: props => h('div', `Cell data: ${JSON.stringify(props)}`),
+          default: (props: DefaultSlot<number>) => h('div', `Custom row data: ${JSON.stringify(props)}`),
+          col1: (props: CellSlot<number>) => h('div', `Cell data: ${JSON.stringify(props)}`),
         },
       });
 
@@ -277,7 +287,7 @@ describe('EcSmartTable', () => {
   });
 
   describe('sorting', () => {
-    async function sortColumnByIndex(wrapper, index) {
+    async function sortColumnByIndex(wrapper: VueWrapper, index: number) {
       await wrapper.findByDataTest(`ec-table-head__cell--${index}`).findByDataTest('ec-table-sort__icon').trigger('click');
     }
 
@@ -391,6 +401,8 @@ describe('EcSmartTable', () => {
   });
 
   describe('pagination', () => {
+    type PagesSlot = { page: number, numberOfItems: number, totalPages: number, total: number };
+
     it('should render pagination when it\'s enabled', () => {
       const wrapper = mountEcSmartTableWithData(lotsOfData, { columns, isPaginationEnabled: true });
       expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot();
@@ -427,8 +439,8 @@ describe('EcSmartTable', () => {
 
     it('should include pagination in the fetch payload', () => {
       const wrapper = mountEcSmartTableWithData(lotsOfData, { columns, isPaginationEnabled: true });
-      expect(wrapper.emitted('fetch').length).toBe(1);
-      expect(wrapper.emitted('fetch')[0]).toEqual([{
+      expect(wrapper.emitted('fetch')?.length).toBe(1);
+      expect(wrapper.emitted('fetch')?.[0]).toEqual([{
         filter: {},
         numberOfItems: 10,
         page: 1,
@@ -438,10 +450,10 @@ describe('EcSmartTable', () => {
 
     it('should re-fetch the data when next page is selected', async () => {
       const wrapper = mountEcSmartTableWithData(lotsOfData, { columns, isPaginationEnabled: true });
-      expect(wrapper.emitted('fetch').length).toBe(1);
+      expect(wrapper.emitted('fetch')?.length).toBe(1);
       await wrapper.findByDataTest('ec-table-pagination__action--next').trigger('click');
-      expect(wrapper.emitted('fetch').length).toBe(2);
-      expect(wrapper.emitted('fetch')[1]).toEqual([{
+      expect(wrapper.emitted('fetch')?.length).toBe(2);
+      expect(wrapper.emitted('fetch')?.[1]).toEqual([{
         filter: {},
         numberOfItems: 10,
         page: 2,
@@ -504,7 +516,7 @@ describe('EcSmartTable', () => {
         isPaginationEnabled: true,
       }, {
         slots: {
-          pages(slotProps) {
+          pages(slotProps: PagesSlot) {
             return h('div', `Pages: ${JSON.stringify(slotProps)}`);
           },
         },
@@ -539,7 +551,7 @@ describe('EcSmartTable', () => {
 
     it('should trigger fetch with an empty filters', () => {
       const wrapper = mountEcSmartTableWithData(data, { columns, filters });
-      expect(wrapper.emitted('fetch')[0]).toEqual([{
+      expect(wrapper.emitted('fetch')?.[0]).toEqual([{
         filter: {},
         numberOfItems: 10,
         page: 1,
@@ -554,7 +566,7 @@ describe('EcSmartTable', () => {
 
     it('should trigger fetch with prefilter', () => {
       const wrapper = mountEcSmartTableWithData(data, { columns, filters, filter: prefilter });
-      expect(wrapper.emitted('fetch')[0]).toEqual([{
+      expect(wrapper.emitted('fetch')?.[0]).toEqual([{
         filter: prefilter,
         numberOfItems: 10,
         page: 1,
@@ -568,7 +580,7 @@ describe('EcSmartTable', () => {
         filters,
         filter: prefilter,
       });
-      expect(wrapper.emitted('fetch')[0]).toEqual([{
+      expect(wrapper.emitted('fetch')?.[0]).toEqual([{
         filter: prefilter,
         numberOfItems: 10,
         page: 1,
@@ -577,7 +589,7 @@ describe('EcSmartTable', () => {
       await wrapper.setProps({
         filter: {},
       });
-      expect(wrapper.emitted('fetch')[1]).toEqual([{
+      expect(wrapper.emitted('fetch')?.[1]).toEqual([{
         filter: {},
         numberOfItems: 10,
         page: 1,
@@ -589,7 +601,7 @@ describe('EcSmartTable', () => {
       const wrapper = mountEcSmartTableWithData(data, { columns, filters, filter: prefilter });
       await wrapper.findByDataTest('ec-table-filter__clear-filters-button').trigger('click');
       expect(wrapper.findByDataTest('ec-smart-table__filter').element).toMatchSnapshot();
-      expect(wrapper.emitted('fetch')[1]).toEqual([{
+      expect(wrapper.emitted('fetch')?.[1]).toEqual([{
         filter: {},
         numberOfItems: 10,
         page: 1,
@@ -621,7 +633,7 @@ describe('EcSmartTable', () => {
 
       await wrapper.findByDataTest('ec-table-pagination__action--next').trigger('click');
       expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after loading new page');
-      expect(wrapper.emitted('fetch')[1]).toEqual([{
+      expect(wrapper.emitted('fetch')?.[1]).toEqual([{
         filter: prefilter,
         numberOfItems: 10,
         page: 2,
@@ -630,7 +642,7 @@ describe('EcSmartTable', () => {
 
       await wrapper.findByDataTest('ec-table-filter__clear-filters-button').trigger('click');
       expect(wrapper.findByDataTest('ec-smart-table-pagination').element).toMatchSnapshot('pagination after changing the filters');
-      expect(wrapper.emitted('fetch')[2]).toEqual([{
+      expect(wrapper.emitted('fetch')?.[2]).toEqual([{
         filter: {},
         numberOfItems: 10,
         page: 1,
@@ -661,7 +673,7 @@ describe('EcSmartTable', () => {
       const wrapper = mountEcSmartTableWithData(data, {
         columns, isPaginationEnabled: true, additionalPayload,
       });
-      expect(wrapper.emitted('fetch')[0]).toEqual([{
+      expect(wrapper.emitted('fetch')?.[0]).toEqual([{
         filter: {},
         numberOfItems: 10,
         page: 1,
@@ -676,7 +688,7 @@ describe('EcSmartTable', () => {
         },
       });
 
-      expect(wrapper.emitted('fetch')[1]).toEqual([{
+      expect(wrapper.emitted('fetch')?.[1]).toEqual([{
         filter: {},
         numberOfItems: 10,
         page: 1,
@@ -715,12 +727,11 @@ describe('EcSmartTable', () => {
         unobserve: vi.fn(),
       };
 
-      beforeAll(() => {
-        window.IntersectionObserver = vi.fn(() => IntersectionObserverMock);
-      });
-
-      afterAll(() => {
-        window.IntersectionObserver.mockRestore();
+      beforeEach(() => {
+        // eslint-disable-next-line prefer-arrow-callback
+        vi.stubGlobal('IntersectionObserver', function IntersectionObserver() {
+          return IntersectionObserverMock;
+        });
       });
 
       it('should start observing when the component is mounted', () => {

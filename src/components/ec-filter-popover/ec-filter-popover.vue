@@ -6,7 +6,7 @@
   >
     <ec-popover
       v-bind="popoverOptions"
-      placement="bottom-start"
+      :placement="PopoverPlacement.BOTTOM_START"
       :prevent-overflow="false"
       :distance="8"
       @update:shown="onOpen"
@@ -31,8 +31,8 @@
         <ec-icon
           class="ec-filter-popover__icon"
           :size="16"
-          name="simple-chevron-down"
-          type="interactive"
+          :name="IconName.SIMPLE_CHEVRON_DOWN"
+          :type="IconType.INTERACTIVE"
         />
       </button>
 
@@ -50,38 +50,29 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 import EcBadge from '../ec-badge';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/icon-names';
+import { IconType } from '../ec-icon/types';
 import EcPopover from '../ec-popover';
+import { PopoverPlacement } from '../ec-popover/types';
+import type { FilterPopoverProps } from './types';
 
-defineProps({
-  label: {
-    type: String,
-    required: true,
-    default: '',
-  },
-  numberOfSelectedFilters: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
-  isFullHeight: {
-    type: Boolean,
-    default: false,
-  },
-  popoverOptions: {
-    type: Object,
-  },
+withDefaults(defineProps<FilterPopoverProps>(), {
+  label: '',
+  numberOfSelectedFilters: 0,
 });
 
-const emit = defineEmits(['after-open']);
+const emit = defineEmits<{
+  'after-open': [],
+}>();
 
 const isFilterOpen = ref(false);
 
-function onOpen(isOpen) {
+function onOpen(isOpen: boolean) {
   isFilterOpen.value = isOpen;
 }
 </script>

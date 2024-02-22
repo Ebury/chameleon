@@ -154,11 +154,13 @@ import {
 import useConfig from '../../composables/use-ec-config';
 import vEcTooltip from '../../directives/ec-tooltip';
 import { KeyboardKey } from '../../enums';
-import { IconName, type Maybe, PopoverPlacement } from '../../main';
+import { type Maybe } from '../../main';
 import { removeDiacritics } from '../../utils/diacritics';
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
 import EcLoading from '../ec-loading';
 import EcPopover from '../ec-popover';
+import { PopoverPlacement } from '../ec-popover/types';
 import type { DropdownSearchItem, DropdownSearchProps } from './types';
 
 defineOptions({
