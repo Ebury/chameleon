@@ -1,10 +1,10 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcPrivacyPolicy from './ec-privacy-policy.vue';
+import type { PrivacyPolicyProps } from './types';
 
 describe('EcPrivacyPolicy', () => {
-  function mountPrivacyPolicy(props, mountOpts) {
+  function mountPrivacyPolicy(props?: Partial<PrivacyPolicyProps>, mountOpts?: ComponentMountingOptions<typeof EcPrivacyPolicy>) {
     return mount(EcPrivacyPolicy, {
       props: {
         title: 'Random Title',
@@ -14,15 +14,6 @@ describe('EcPrivacyPolicy', () => {
       ...mountOpts,
     });
   }
-
-  it('should throw if no props were given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mount(EcPrivacyPolicy);
-      expect(warnSpy).toHaveBeenCalledTimes(2);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "title"');
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "buttonText"');
-    });
-  });
 
   it('should display only with a title and the buttonText given', () => {
     const wrapper = mountPrivacyPolicy();
@@ -42,6 +33,6 @@ describe('EcPrivacyPolicy', () => {
   it('should emit an event when the click on the button is fired', () => {
     const wrapper = mountPrivacyPolicy();
     wrapper.findByDataTest('ec-privacy-policy__btn').trigger('click');
-    expect(wrapper.emitted('accept').length).toBe(1);
+    expect(wrapper.emitted('accept')?.length).toBe(1);
   });
 });

@@ -1,31 +1,20 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount, VueWrapper } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
+import { TooltipPlacement } from '../../main';
 import EcCurrencyInput from './ec-currency-input.vue';
+import type { CurrencyInputProps } from './types';
 
 describe('EcCurrencyInput', () => {
   const currencies = ['GBP', 'EUR', 'USD', 'JPY'];
 
-  function mountCurrencyInput(props, mountOpts) {
+  function mountCurrencyInput(props?: CurrencyInputProps, mountOpts?: ComponentMountingOptions<typeof EcCurrencyInput>) {
     return mount(EcCurrencyInput, {
       props: {
         currencies,
         modelValue: {},
         ...props,
       },
-      ...mountOpts,
-    });
-  }
-
-  function mountCurrencyInputAsTemplate(template, props, wrapperComponentOpts, mountOpts) {
-    const Component = defineComponent({
-      components: { EcCurrencyInput },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount(Component, {
-      props,
       ...mountOpts,
     });
   }
@@ -119,7 +108,7 @@ describe('EcCurrencyInput', () => {
       const wrapper = mountCurrencyInput({
         disabledCurrenciesTooltip: {
           content: disabledCurrenciesTooltipMessage,
-          placement: 'left',
+          placement: TooltipPlacement.LEFT,
         },
         isCurrenciesDisabled: true,
       });
@@ -180,10 +169,10 @@ describe('EcCurrencyInput', () => {
       const wrapper = mountCurrencyInput({ locale: 'es' });
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('1111,11');
 
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('1.111,11');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('1.111,11');
 
       await wrapper.setProps({ locale: 'en' });
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('1,111.11');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('1,111.11');
     });
 
     it('should render a loading state when currenciesLoading is set true', () => {
@@ -224,8 +213,8 @@ describe('EcCurrencyInput', () => {
 
   describe('$attrs', () => {
     it('should use data-test attribute to prefix all data-test attributes in nested components', () => {
-      const wrapper = mountCurrencyInput({
-        'data-test': 'my-component',
+      const wrapper = mountCurrencyInput({}, {
+        attrs: { 'data-test': 'my-component' },
       });
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -234,7 +223,8 @@ describe('EcCurrencyInput', () => {
       const wrapper = mountCurrencyInput({
         label: 'Test Input',
         note: 'Test Note',
-        'data-test': 'my-component',
+      }, {
+        attrs: { 'data-test': 'my-component' },
       });
       expect(wrapper.findByDataTest('my-component__label-text').element).toMatchSnapshot('label');
       expect(wrapper.findByDataTest('my-component__note').element).toMatchSnapshot('note');
@@ -244,7 +234,8 @@ describe('EcCurrencyInput', () => {
       const wrapper = mountCurrencyInput({
         errorMessage: 'Test Error Message',
         errorTooltipMessage: 'Test Error Tooltip',
-        'data-test': 'my-component',
+      }, {
+        attrs: { 'data-test': 'my-component' },
       });
       expect(wrapper.findByDataTest('my-component__error-text').element).toMatchSnapshot();
     });
@@ -254,14 +245,15 @@ describe('EcCurrencyInput', () => {
         bottomNote: 'Test Bottom Note',
         warningTooltipMessage: 'Test Warning Tooltip',
         isWarning: true,
-        'data-test': 'my-component',
+      }, {
+        attrs: { 'data-test': 'my-component' },
       });
       expect(wrapper.findByDataTest('my-component__bottom-note').element).toMatchSnapshot();
     });
 
     it('should use data-test attribute with multiple values to prefix all data-test attributes in nested components', () => {
-      const wrapper = mountCurrencyInput({
-        'data-test': 'my-component my-other-component',
+      const wrapper = mountCurrencyInput({}, {
+        attrs: { 'data-test': 'my-component my-other-component' },
       });
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -272,19 +264,19 @@ describe('EcCurrencyInput', () => {
       const wrapper = mountCurrencyInput();
 
       await selectItem(wrapper, 1);
-      expect(wrapper.emitted('open').length).toEqual(1);
-      expect(wrapper.emitted('after-open').length).toEqual(1);
-      expect(wrapper.emitted('change').length).toEqual(1);
-      expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
-      expect(wrapper.emitted('currency-change').length).toEqual(1);
+      expect(wrapper.emitted('open')?.length).toEqual(1);
+      expect(wrapper.emitted('after-open')?.length).toEqual(1);
+      expect(wrapper.emitted('change')?.length).toEqual(1);
+      expect(wrapper.emitted('focus')?.length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(1);
+      expect(wrapper.emitted('currency-change')?.length).toEqual(1);
       await selectItem(wrapper, 2);
-      expect(wrapper.emitted('open').length).toEqual(2);
-      expect(wrapper.emitted('after-open').length).toEqual(2);
-      expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
-      expect(wrapper.emitted('currency-change').length).toEqual(2);
+      expect(wrapper.emitted('open')?.length).toEqual(2);
+      expect(wrapper.emitted('after-open')?.length).toEqual(2);
+      expect(wrapper.emitted('change')?.length).toEqual(2);
+      expect(wrapper.emitted('focus')?.length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(2);
+      expect(wrapper.emitted('currency-change')?.length).toEqual(2);
     });
 
     it('should emit update:modelValue event when amount is set', async () => {
@@ -292,32 +284,31 @@ describe('EcCurrencyInput', () => {
 
       await wrapper.findByDataTest('ec-currency-input__amount').trigger('focus');
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
-      expect(wrapper.emitted('focus').length).toEqual(1);
-      expect(wrapper.emitted('change').length).toEqual(1);
-      expect(wrapper.emitted('amount-change').length).toEqual(1);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(1);
+      expect(wrapper.emitted('focus')?.length).toEqual(1);
+      expect(wrapper.emitted('change')?.length).toEqual(1);
+      expect(wrapper.emitted('amount-change')?.length).toEqual(1);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(1);
 
       await wrapper.findByDataTest('ec-currency-input__amount').trigger('focus');
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('111');
-      expect(wrapper.emitted('focus').length).toEqual(2);
-      expect(wrapper.emitted('change').length).toEqual(2);
-      expect(wrapper.emitted('amount-change').length).toEqual(2);
-      expect(wrapper.emitted('update:modelValue').length).toEqual(2);
+      expect(wrapper.emitted('focus')?.length).toEqual(2);
+      expect(wrapper.emitted('change')?.length).toEqual(2);
+      expect(wrapper.emitted('amount-change')?.length).toEqual(2);
+      expect(wrapper.emitted('update:modelValue')?.length).toEqual(2);
     });
   });
 
   describe('v-model', () => {
     it('should use the v-model with the currency and emit the changes', async () => {
-      const wrapper = mountCurrencyInputAsTemplate(
-        '<ec-currency-input :currencies="currencies" v-model="value" />',
-        {},
-        {
-          data() {
-            return { currencies, value: { currency: '', amount: 0 } };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyInput },
+        data() {
+          return { currencies, value: { currency: '', amount: 0 } };
         },
-      );
+        template: '<ec-currency-input :currencies="currencies" v-model="value" />',
+      });
 
+      const wrapper = mount(Component);
       await selectItem(wrapper, 0);
       expect(wrapper.vm.value.currency).toEqual(currencies[0]);
       await selectItem(wrapper, 1);
@@ -325,137 +316,129 @@ describe('EcCurrencyInput', () => {
     });
 
     it('should preselect the currency item in the dropdown and the amount in the input from the v-model', () => {
-      const wrapper = mountCurrencyInputAsTemplate(
-        '<ec-currency-input :currencies="currencies" v-model="value" />',
-        {},
-        {
-          data() {
-            return { currencies, value: { currency: currencies[1], amount: 1234.56 } };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyInput },
+        data() {
+          return { currencies, value: { currency: currencies[1], amount: 1234.56 } };
         },
-      );
+        template: '<ec-currency-input :currencies="currencies" v-model="value" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-currency-input__currencies').element.value).toBe(currencies[1]);
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toBe('1,234.56');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__currencies').element.value).toBe(currencies[1]);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toBe('1,234.56');
     });
 
     it('should use the v-model with the amount and emit the changes', async () => {
-      const wrapper = mountCurrencyInputAsTemplate(
-        '<ec-currency-input :currencies="currencies" v-model="value" />',
-        {},
-        {
-          data() {
-            return { currencies, value: { amount: 0 } };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyInput },
+        data() {
+          return { currencies, value: { amount: 0 } };
         },
-      );
+        template: '<ec-currency-input :currencies="currencies" v-model="value" />',
+      });
 
+      const wrapper = mount(Component);
       await wrapper.findByDataTest('ec-currency-input__amount').setValue('11');
       expect(wrapper.vm.value.amount).toEqual(11);
     });
 
     it('should not show decimal when currency is JPY', async () => {
-      const wrapper = mountCurrencyInputAsTemplate(
-        '<ec-currency-input :currencies="currencies" v-model="value" />',
-        {},
-        {
-          data() {
-            return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyInput },
+        data() {
+          return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
         },
-      );
+        template: '<ec-currency-input :currencies="currencies" v-model="value" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('11,111.11');
       await selectItem(wrapper, currencies.indexOf('JPY'));
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('11,111');
     });
 
     it('should not add decimal back when switching from JPY back to GBP', async () => {
-      const wrapper = mountCurrencyInputAsTemplate(
-        '<ec-currency-input :currencies="currencies" v-model="value" />',
-        {},
-        {
-          data() {
-            return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyInput },
+        data() {
+          return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
         },
-      );
+        template: '<ec-currency-input :currencies="currencies" v-model="value" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('11,111.11');
       await selectItem(wrapper, currencies.indexOf('JPY'));
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('11,111');
 
       await selectItem(wrapper, currencies.indexOf('GBP'));
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('11,111');
     });
 
     it('should preserve same format when currency changes', async () => {
-      const wrapper = mountCurrencyInputAsTemplate(
-        '<ec-currency-input :currencies="currencies" v-model="value" locale="en" />',
-        {},
-        {
-          data() {
-            return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyInput },
+        data() {
+          return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
         },
-      );
+        template: '<ec-currency-input :currencies="currencies" v-model="value" locale="en" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('11,111.11');
       await selectItem(wrapper, currencies.indexOf('EUR'));
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11,111.11');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('11,111.11');
     });
 
     it('should preserve same format when currency changes and the locale does not use dot as a decimal separator', async () => {
-      const wrapper = mountCurrencyInputAsTemplate(
-        '<ec-currency-input :currencies="currencies" v-model="value" locale="es" />',
-        {},
-        {
-          data() {
-            return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyInput },
+        data() {
+          return { currencies, value: { currency: 'GBP', amount: 11111.11 } };
         },
-      );
+        template: '<ec-currency-input :currencies="currencies" v-model="value" locale="es" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11.111,11');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('11.111,11');
       await selectItem(wrapper, currencies.indexOf('EUR'));
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('11.111,11');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('11.111,11');
     });
 
     it('should preserve empty value in amount when changing currency', async () => {
-      const wrapper = mountCurrencyInputAsTemplate(
-        '<ec-currency-input :currencies="currencies" v-model="value" />',
-        {},
-        {
-          data() {
-            return { currencies, value: { currency: 'GBP' } };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyInput },
+        data() {
+          return { currencies, value: { currency: 'GBP' } };
         },
-      );
+        template: '<ec-currency-input :currencies="currencies" v-model="value" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('');
       await selectItem(wrapper, currencies.indexOf('EUR'));
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('');
     });
 
     it('should preserve empty value in amount when changing locale', async () => {
-      const wrapper = mountCurrencyInputAsTemplate(
-        '<ec-currency-input :currencies="currencies" v-model="value" :locale="locale" />',
-        {},
-        {
-          data() {
-            return { currencies, locale: 'en', value: { currency: 'GBP' } };
-          },
+      const Component = defineComponent({
+        components: { EcCurrencyInput },
+        data() {
+          return { currencies, locale: 'en', value: { currency: 'GBP' } };
         },
-      );
+        template: '<ec-currency-input :currencies="currencies" v-model="value" :locale="locale" />',
+      });
 
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
+      const wrapper = mount(Component);
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('');
       await wrapper.setData({ locale: 'es' });
-      expect(wrapper.findByDataTest('ec-currency-input__amount').element.value).toEqual('');
+      expect(wrapper.findByDataTest<HTMLInputElement>('ec-currency-input__amount').element.value).toEqual('');
     });
   });
 });
 
-async function selectItem(wrapper, index) {
+async function selectItem(wrapper: VueWrapper, index: number) {
   await wrapper.findByDataTest('ec-popover-stub').trigger('show');
   await wrapper.findByDataTest('ec-currency-input__currencies').trigger('mousedown');
   await wrapper.findByDataTest('ec-currency-input__currencies').trigger('focus');

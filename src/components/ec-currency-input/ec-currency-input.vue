@@ -58,7 +58,7 @@
       <ec-amount-input
         v-model="amountModel"
         :locale="locale"
-        :currency="modelValue.currency"
+        :currency="modelValue?.currency"
         :error-id="errorId"
         :error-message="errorMessage"
         :disabled="isAmountDisabled"
@@ -84,8 +84,8 @@
         v-ec-tooltip="{ content: errorTooltipMessage }"
         class="ec-currency-input__error-tooltip"
         :data-test="prefixedDataTest('error-tooltip')"
-        type="error"
-        name="simple-error"
+        :type="IconType.ERROR"
+        :name="IconName.SIMPLE_ERROR"
         :size="14"
       />
     </div>
@@ -102,125 +102,78 @@
         v-ec-tooltip="{ content: warningTooltipMessage }"
         class="ec-currency-input__warning-tooltip"
         :data-test="prefixedDataTest('warning-tooltip')"
-        type="warning"
-        name="simple-error"
+        :type="IconType.WARNING"
+        :name="IconName.SIMPLE_ERROR"
         :size="14"
       />
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { StyleValue } from 'vue';
 import { computed, ref, useAttrs } from 'vue';
 
-import VEcTooltip from '../../directives/ec-tooltip';
-import { TooltipPlacement } from '../../directives/ec-tooltip/types';
+import vEcTooltip from '../../directives/ec-tooltip';
+import { type TooltipOptions, TooltipPlacement } from '../../directives/ec-tooltip/types';
 import { getUid } from '../../utils/uid';
 import EcAmountInput from '../ec-amount-input';
 import EcDropdown from '../ec-dropdown';
 import EcIcon from '../ec-icon';
+import { IconName, IconType } from '../ec-icon/types';
+import type { CurrencyInputCurrencyItem, CurrencyInputModel, CurrencyInputProps } from './types';
 
-const props = defineProps({
-  modelValue: {
-    type: Object,
-  },
-  locale: {
-    type: String,
-    default: 'en',
-  },
-  label: {
-    type: String,
-  },
-  note: {
-    type: String,
-  },
-  bottomNote: {
-    type: String,
-  },
-  warningTooltipMessage: {
-    type: String,
-  },
-  isWarning: {
-    type: Boolean,
-    default: false,
-  },
-  errorMessage: {
-    type: String,
-  },
-  errorTooltipMessage: {
-    type: String,
-  },
-  currencies: {
-    type: Array,
-    default: () => [],
-  },
-  currenciesAreLoading: {
-    type: Boolean,
-    default: false,
-  },
-  disabledCurrenciesTooltip: {
-    type: Object,
-  },
-  isCurrenciesDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isAmountDisabled: {
-    type: Boolean,
-    default: false,
-  },
-  isSensitive: {
-    type: Boolean,
-    default: false,
-  },
-  amountPlaceholder: {
-    type: String,
-  },
-  searchCurrencyPlaceholder: {
-    type: String,
-    default: 'Search...',
-  },
-  noCurrenciesText: {
-    type: String,
-    default: 'No results found',
-  },
+const props = withDefaults(defineProps<CurrencyInputProps>(), {
+  locale: 'en',
+  currencies: () => [],
+  searchCurrencyPlaceholder: 'Search...',
+  noCurrenciesText: 'No results found',
 });
 
-const emit = defineEmits(['update:modelValue', 'change', 'focus', 'amount-change', 'currency-change', 'open', 'after-open']);
+const emit = defineEmits<{
+  'update:modelValue': [value: CurrencyInputModel | undefined],
+  'change': [],
+  'focus': [],
+  'amount-change': [event: Event],
+  'currency-change': [item: CurrencyInputCurrencyItem | undefined],
+  'open': [],
+  'after-open': [],
+}>();
 
 // ids
 const uid = getUid();
-const errorId = computed(() => (props.errorMessage ? `ec-currency-input-field-${uid}` : null));
+const errorId = computed(() => (props.errorMessage ? `ec-currency-input-field-${uid}` : undefined));
 const id = `ec-currency-input-field-${uid}`;
 
 // popover
-const popoverWidthReference = ref(null);
-function getPopoverStyle() {
+const popoverWidthReference = ref<HTMLDivElement>();
+function getPopoverStyle(): StyleValue | undefined {
   if (popoverWidthReference.value) {
     return {
       width: `${popoverWidthReference.value.offsetWidth}px`,
     };
   }
 
-  return null;
+  return undefined;
 }
 
-const currenciesItems = computed(() => props.currencies.map(currency => ({ text: currency, value: currency, id: currency })));
+const currenciesItems = computed(() => props.currencies.map<CurrencyInputCurrencyItem>(currency => ({ text: currency, value: currency, id: currency })));
 
 // models
 const currencyModel = computed({
   get() {
-    return currenciesItems.value.find(item => item.value === props.modelValue.currency);
+    return currenciesItems.value.find(item => item.value === props.modelValue?.currency);
   },
-  set(item) {
-    emit('update:modelValue', { ...props.modelValue, currency: item.value });
+  set(item: CurrencyInputCurrencyItem | undefined) {
+    emit('update:modelValue', { ...props.modelValue, currency: item?.value });
   },
 });
+
 const amountModel = computed({
   get() {
-    return props.modelValue.amount;
+    return props.modelValue?.amount;
   },
-  set(value) {
+  set(value: number | undefined) {
     emit('update:modelValue', { ...props.modelValue, amount: value });
   },
 });
@@ -233,20 +186,22 @@ function onFocusCurrency() {
 }
 
 // onChange
-function onAmountChange(evt) {
-  emit('change', evt);
+function onAmountChange(evt: Event) {
+  emit('change');
   emit('amount-change', evt);
 }
-function onCurrencyChange(evt) {
+
+function onCurrencyChange(item: CurrencyInputCurrencyItem | undefined) {
   currenciesHasFocus.value = true;
-  emit('change', evt);
-  emit('currency-change', evt);
+  emit('change');
+  emit('currency-change', item);
 }
 
 // attributes
 const attrs = useAttrs();
-function prefixedDataTest(dataTestSuffix) {
-  const dataTestPrefix = attrs['data-test'];
+
+function prefixedDataTest(dataTestSuffix: string): string {
+  const dataTestPrefix = attrs['data-test'] as string | undefined;
   if (dataTestPrefix) {
     const dataTestPrefixes = [...dataTestPrefix.split(' '), 'ec-currency-input'];
     return dataTestPrefixes.map(dataTest => `${dataTest}__${dataTestSuffix}`).join(' ');
@@ -255,10 +210,10 @@ function prefixedDataTest(dataTestSuffix) {
   return `ec-currency-input__${dataTestSuffix}`;
 }
 
-const currenciesTooltipOptions = computed(() => {
-  const { content, placement = TooltipPlacement.TOP } = props.disabledCurrenciesTooltip || {};
+const currenciesTooltipOptions = computed<TooltipOptions>(() => {
+  const { content, placement = TooltipPlacement.TOP }: TooltipOptions = props.disabledCurrenciesTooltip || {};
   if (!content) {
-    return null;
+    return {};
   }
   return { content, placement };
 });

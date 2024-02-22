@@ -1,7 +1,7 @@
 <template>
   <ec-popover
     v-bind="{
-      placement: 'bottom-end',
+      placement: PopoverPlacement.BOTTOM_END,
       distance: 10,
       ...popoverOptions,
     }"
@@ -20,7 +20,7 @@
             <li
               v-for="(item, indexList) in list"
               :key="item.text"
-              v-ec-tooltip.left="item.tooltip"
+              v-ec-tooltip.left="item.tooltip ?? {}"
               class="ec-inline-actions__item"
               :data-test="`ec-inline-actions__item ec-inline-actions__item--${index}-${indexList}`"
             >
@@ -43,7 +43,7 @@
                     v-if="item.icon"
                     :name="item.icon"
                     :size="24"
-                    :type="item.iconType ? item.iconType : null"
+                    :type="item.iconType ? item.iconType : undefined"
                     class="ec-inline-actions__icon"
                     data-test="ec-inline-actions__icon"
                     :class="{ 'ec-inline-actions__icon--no-type': !item.iconType || item.disabled }"
@@ -65,36 +65,30 @@
   </ec-popover>
 </template>
 
-<script setup>
-import VEcClosePopover from '../../directives/ec-close-popover';
-import VEcTooltip from '../../directives/ec-tooltip';
+<script setup lang="ts">
+import vEcClosePopover from '../../directives/ec-close-popover';
+import vEcTooltip from '../../directives/ec-tooltip';
 import EcIcon from '../ec-icon';
 import EcPopover from '../ec-popover';
+import { PopoverPlacement } from '../ec-popover/types';
+import type { InlineActionItem, InlineActionsProps } from './types';
 
-defineProps({
-  items: {
-    type: Array,
-    required: true,
-  },
-  popoverOptions: {
-    type: Object,
-  },
-});
+defineProps<InlineActionsProps>();
 
-function doAction(item) {
+function doAction(item: InlineActionItem) {
   return (item.action && !item.disabled) && item.action();
 }
 
-function componentTag(item) {
+function componentTag(item: InlineActionItem) {
   if (item.href) {
     return 'a';
   }
   return 'button';
 }
 
-function getDownloadAttr(item) {
+function getDownloadAttr(item: InlineActionItem): string | undefined {
   if (item.disabled) {
-    return null;
+    return undefined;
   }
   if (!!item.href && !!item.download) {
     return item.download;
@@ -102,15 +96,15 @@ function getDownloadAttr(item) {
   if (!!item.href && item.download === '') {
     return '';
   }
-  return null;
+  return undefined;
 }
 
-function getHrefAttr(item) {
-  return item.href && !item.disabled ? item.href : null;
+function getHrefAttr(item: InlineActionItem): string | undefined {
+  return item.href && !item.disabled ? item.href : undefined;
 }
 
-function getDisabledAttr(item) {
-  return !item.href ? item.disabled : null;
+function getDisabledAttr(item: InlineActionItem): boolean | undefined {
+  return !item.href ? item.disabled : undefined;
 }
 </script>
 

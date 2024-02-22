@@ -55,7 +55,7 @@
         data-test="ec-donut__legend-used"
       >
         <ec-icon
-          name="rounded-notification"
+          :name="IconName.ROUNDED_NOTIFICATION"
           :size="14"
           class="ec-donut__legend-icon ec-donut__legend-icon--used"
         />
@@ -66,7 +66,7 @@
         data-test="ec-donut__legend-remaining"
       >
         <ec-icon
-          name="rounded-notification"
+          :name="IconName.ROUNDED_NOTIFICATION"
           :size="14"
           class="ec-donut__legend-icon ec-donut__legend-icon--remaining"
         />
@@ -76,25 +76,18 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/icon-names';
+import type { DonutProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps({
-  amount: {
-    type: Number,
-    required: true,
-  },
-  used: {
-    type: Number,
-    required: true,
-  },
-});
+const props = defineProps<DonutProps>();
 
 const RADIUS = 48;
 

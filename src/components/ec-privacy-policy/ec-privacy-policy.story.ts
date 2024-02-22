@@ -1,9 +1,10 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 
 import { fixedContainerDecorator } from '../../../.storybook/utils';
 import EcPrivacyPolicy from './ec-privacy-policy.vue';
 
-export default {
+const meta: Meta = {
   title: 'Privacy Policy',
   component: EcPrivacyPolicy,
   decorators: [
@@ -11,7 +12,9 @@ export default {
   ],
 };
 
-const Template = args => ({
+export default meta;
+
+const Template: StoryFn<typeof EcPrivacyPolicy> = args => ({
   components: { EcPrivacyPolicy },
   setup() {
     return {

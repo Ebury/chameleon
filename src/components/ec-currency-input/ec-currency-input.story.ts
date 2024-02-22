@@ -1,9 +1,10 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
 
 import EcCurrencyInput from './ec-currency-input.vue';
 
-export default {
+const meta: Meta = {
   title: 'Currency Input',
   component: EcCurrencyInput,
   argTypes: {
@@ -14,7 +15,9 @@ export default {
   },
 };
 
-export const basic = args => ({
+export default meta;
+
+export const basic: StoryFn<typeof EcCurrencyInput> = args => ({
   components: { EcCurrencyInput },
   setup() {
     const model = ref({});

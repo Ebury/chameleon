@@ -1,14 +1,18 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 
 import EcIcon from '../ec-icon/ec-icon.vue';
+import { IconName, IconType } from '../ec-icon/types';
 import EcInlineActions from './ec-inline-actions.vue';
 
-export default {
+const meta: Meta = {
   title: 'Inline Actions',
   component: EcInlineActions,
 };
 
-const Template = args => ({
+export default meta;
+
+const Template: StoryFn<typeof EcInlineActions> = args => ({
   components: { EcInlineActions, EcIcon },
   setup() {
     return { args };
@@ -32,8 +36,8 @@ basic.args = {
     [
       {
         text: 'First action',
-        iconType: 'warning',
-        icon: 'simple-trade-finance',
+        iconType: IconType.WARNING,
+        icon: IconName.SIMPLE_TRADE_FINANCE,
         tooltip: 'Random tooltip text',
         href: '/example.jpg',
         download: 'example.jpg',
@@ -51,13 +55,13 @@ basic.args = {
         text: 'Authorise',
         disabled: true,
         tooltip: 'Payment has not been executed yet',
-        icon: 'simple-person',
-        iconType: 'warning',
+        icon: IconName.SIMPLE_PERSON,
+        iconType: IconType.WARNING,
       },
     ],
     [
-      { action: action('cancel'), text: 'Cancel', icon: 'simple-block' },
-      { action: action('lorem ipsum'), text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', icon: 'simple-sign-out' },
+      { action: action('cancel'), text: 'Cancel', icon: IconName.SIMPLE_BLOCK },
+      { action: action('lorem ipsum'), text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', icon: IconName.SIMPLE_SIGN_OUT },
     ],
   ],
   popoverOptions: { shown: true },

@@ -1,10 +1,10 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
-import { withMockedConsole } from '../../../tests/utils/console';
 import EcDonut from './ec-donut.vue';
+import type { DonutProps } from './types';
 
 describe('EcDonut', () => {
-  function mountDonut(props, mountOpts) {
+  function mountDonut(props?: Partial<DonutProps>, mountOpts?: ComponentMountingOptions<typeof EcDonut>) {
     return mount(EcDonut, {
       props: {
         used: 20,
@@ -14,15 +14,6 @@ describe('EcDonut', () => {
       ...mountOpts,
     });
   }
-
-  it('should throw if no props were given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mount(EcDonut);
-      expect(warnSpy).toHaveBeenCalledTimes(2);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "amount"');
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "used"');
-    });
-  });
 
   it('should render with custom attributes', () => {
     const wrapper = mountDonut({}, {

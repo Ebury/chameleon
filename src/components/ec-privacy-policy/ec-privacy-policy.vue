@@ -17,19 +17,14 @@
   </div>
 </template>
 
-<script setup>
-defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  buttonText: {
-    type: String,
-    required: true,
-  },
-});
+<script setup lang="ts">
+import type { PrivacyPolicyProps } from './types';
 
-const emit = defineEmits(['accept']);
+defineProps<PrivacyPolicyProps>();
+
+const emit = defineEmits<{
+  'accept': [],
+}>();
 </script>
 
 <style>
