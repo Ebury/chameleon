@@ -542,20 +542,7 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
             class="ec-input-field ec-datepicker ec-date-range-filter__from-input"
             data-test="ec-input-field"
           >
-            <label
-              class="ec-input-field__label"
-              data-test="ec-input-field__label"
-              for="ec-datepicker-1"
-            >
-              <span
-                class="ec-input-field__label-text"
-                data-test="ec-input-field__label-text"
-              >
-                Due date
-                <!--v-if-->
-              </span>
-              <!--v-if-->
-            </label>
+            <!--v-if-->
             <input
               aria-describedby="ec-input-field-error-2"
               autocomplete="off"
@@ -754,20 +741,7 @@ exports[`EcDateRangeFilter > should render properly with an error message when t
             class="ec-input-field ec-datepicker ec-date-range-filter__to-input"
             data-test="ec-input-field"
           >
-            <label
-              class="ec-input-field__label"
-              data-test="ec-input-field__label"
-              for="ec-datepicker-3"
-            >
-              <span
-                class="ec-input-field__label-text"
-                data-test="ec-input-field__label-text"
-              >
-                Due date
-                <!--v-if-->
-              </span>
-              <!--v-if-->
-            </label>
+            <!--v-if-->
             <input
               aria-describedby="ec-input-field-error-4"
               autocomplete="off"

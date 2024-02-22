@@ -1,9 +1,11 @@
 import { action } from '@storybook/addon-actions';
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
 
 import EcAmountFilterInput from './ec-amount-filter-input.vue';
+import type { AmountFilterInputModel } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Filters/Amount Filter Input',
   component: EcAmountFilterInput,
   argTypes: {
@@ -14,12 +16,14 @@ export default {
   },
 };
 
-const Template = args => ({
+export default meta;
+
+const Template: StoryFn<typeof EcAmountFilterInput> = args => ({
   components: {
     EcAmountFilterInput,
   },
   setup() {
-    const value = ref({
+    const value = ref<AmountFilterInputModel>({
       comparisonSymbol: {
         text: 'Equal to',
         value: '=',

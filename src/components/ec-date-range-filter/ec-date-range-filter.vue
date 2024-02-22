@@ -16,13 +16,12 @@
         <div class="ec-date-range-filter__inputs-wrapper">
           <ec-datepicker
             v-bind="{
-              ...$props,
               ...fromDatepickerOptions,
               options: {
                 ...fromDatepickerOptions.options,
                 maxDate: fromDatepickerOptions.options?.maxDate || toValueDate,
               },
-              level: 'modal',
+              level: ZIndexLevel.MODAL,
             }"
             v-model="fromValueDate"
             data-test="ec-date-range-filter__from-input"
@@ -34,13 +33,12 @@
 
           <ec-datepicker
             v-bind="{
-              ...$props,
               ...toDatepickerOptions,
               options: {
                 ...toDatepickerOptions.options,
                 minDate: toDatepickerOptions.options?.minDate || fromValueDate,
               },
-              level: 'modal',
+              level: ZIndexLevel.MODAL,
             }"
             v-model="toValueDate"
             class="ec-date-range-filter__to-input"
@@ -67,52 +65,34 @@
   </ec-filter-popover>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 
+import { ZIndexLevel } from '../../enums';
 import EcDatepicker from '../ec-datepicker';
 import EcFilterPopover from '../ec-filter-popover';
+import type { DateRangeFilterModel, DateRangeFilterProps } from './types';
 
 defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps({
-  label: {
-    type: String,
-    required: true,
-    default: '',
-  },
-  clearText: {
-    type: String,
-    required: false,
-    default: 'Clear dates',
-  },
-  dateRangeErrorMessage: {
-    type: String,
-    required: false,
-    default: '',
-  },
-  popoverOptions: {
-    type: Object,
-  },
-  modelValue: {
-    type: Object,
-  },
-  fromDatepickerOptions: {
-    type: Object,
-    default: () => ({}),
-  },
-  toDatepickerOptions: {
-    type: Object,
-    default: () => ({}),
-  },
+const props = withDefaults(defineProps<DateRangeFilterProps>(), {
+  label: '',
+  clearText: 'Clear dates',
+  dateRangeErrorMessage: '',
+  fromDatepickerOptions: () => ({}),
+  toDatepickerOptions: () => ({}),
 });
 
-const emit = defineEmits(['update:modelValue', 'change', 'blur']);
+const emit = defineEmits<{
+  'update:modelValue': [value: DateRangeFilterModel | undefined],
+  'change': [value: DateRangeFilterModel | undefined],
+  'blur': [],
+}>();
 
 // update selected dates
-function update(newValue) {
+function update(newValue: DateRangeFilterModel | undefined) {
   emit('update:modelValue', newValue);
   emit('change', newValue);
 }
@@ -150,7 +130,7 @@ const numberOfSelectedFilters = computed(() => {
 const isButtonDisabled = computed(() => numberOfSelectedFilters.value <= 0);
 
 function clear() {
-  update(null);
+  update(undefined);
 }
 
 function onBlur() {

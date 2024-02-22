@@ -1,20 +1,18 @@
 <template>
   <ec-icon
-    name="simple-loading"
+    :name="IconName.SIMPLE_LOADING"
     :size="size"
     class="ec-loading-icon"
     data-test="ec-loading-icon"
   />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/icon-names';
+import type { LoadingIconProps } from './types';
 
-defineProps({
-  size: {
-    type: Number,
-  },
-});
+defineProps<LoadingIconProps>();
 </script>
 
 <style>

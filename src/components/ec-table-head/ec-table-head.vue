@@ -50,7 +50,10 @@
 </template>
 
 <script setup lang="ts">
+import type { StyleValue } from 'vue';
+
 import vEcTooltip from '../../directives/ec-tooltip';
+import type { SortDirection } from '../../enums';
 import EcIcon from '../ec-icon';
 import { IconName, IconType } from '../ec-icon/types';
 import EcTableSort from '../ec-table-sort';
@@ -67,7 +70,7 @@ const props = withDefaults(defineProps<TableHeadProps>(), {
   sorts: () => [],
 });
 
-function getSortDirection(column: TableHeadColumn) {
+function getSortDirection(column: TableHeadColumn): SortDirection | undefined {
   return props.sorts.find(sort => sort.column === column.name)?.direction;
 }
 
@@ -75,21 +78,21 @@ function onSort(column: TableHeadColumn) {
   emit('sort', column);
 }
 
-function getWidthStyle(column: TableHeadColumn) {
+function getWidthStyle(column: TableHeadColumn): StyleValue | undefined {
   if (column && (column.maxWidth || column.minWidth)) {
     return { maxWidth: column.maxWidth, minWidth: column.minWidth };
   }
   return undefined;
 }
 
-function getStickyColumnClass(colIndex: number) {
+function getStickyColumnClass(colIndex: number): string | undefined {
   if (props.stickyColumn === 'left' && colIndex === 0) {
     return 'ec-table-head__cell--sticky-left';
   }
   if (props.stickyColumn === 'right' && colIndex === props.columns.length - 1) {
     return 'ec-table-head__cell--sticky-right';
   }
-  return null;
+  return undefined;
 }
 </script>
 

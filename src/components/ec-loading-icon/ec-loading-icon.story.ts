@@ -1,11 +1,15 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
+
 import EcLoadingIcon from './ec-loading-icon.vue';
 
-export default {
+const meta: Meta = {
   title: 'Loading Icon',
   component: EcLoadingIcon,
 };
 
-export const basic = args => ({
+export default meta;
+
+export const basic: StoryFn<typeof EcLoadingIcon> = args => ({
   components: { EcLoadingIcon },
   setup() {
     return { args };

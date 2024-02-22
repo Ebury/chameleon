@@ -1,8 +1,10 @@
+import type { InputHTMLAttributes } from 'vue';
+
 import type { InputFieldProps } from '../ec-input-field/types';
 
 export interface TextFilterProps {
   modelValue?: InputFieldProps['modelValue']
-  inputProps?: InputFieldProps
+  inputProps?: InputFieldProps & InputHTMLAttributes
   debounceTime?: number
 }
 

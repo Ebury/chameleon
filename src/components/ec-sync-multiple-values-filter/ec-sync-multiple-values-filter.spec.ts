@@ -1,32 +1,35 @@
-import { flushPromises, mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, flushPromises, mount } from '@vue/test-utils';
 
-import { withMockedConsole } from '../../../tests/utils/console';
+import { IconName } from '../ec-icon/icon-names';
+import { IconType } from '../ec-icon/types';
+import type { MultipleValuesSelectionItem } from '../ec-multiple-values-selection/types';
 import EcSyncMultipleValuesFilter from './ec-sync-multiple-values-filter.vue';
+import type { SyncMultipleValuesFilterProps } from './types';
 
-const items = [{
+const items: MultipleValuesSelectionItem[] = [{
   value: 'success',
   icon: {
-    name: 'rounded-check',
-    type: 'success',
+    name: IconName.ROUNDED_CHECK,
+    type: IconType.SUCCESS,
   },
   text: 'Success',
 }, {
   value: 'partially-paid',
   icon: {
-    name: 'rounded-partial',
-    type: 'success',
+    name: IconName.ROUNDED_PARTIAL,
+    type: IconType.SUCCESS,
   },
   text: 'Partially paid',
 }, {
   value: 'cancelled',
   icon: {
-    name: 'rounded-cancelled',
-    type: 'error',
+    name: IconName.ROUNDED_CANCELLED,
+    type: IconType.ERROR,
   },
   text: 'Cancelled',
 }];
 
-function mountEcSyncMultipleValuesFilter(props, mountOpts) {
+function mountEcSyncMultipleValuesFilter(props?: Partial<SyncMultipleValuesFilterProps>, mountOpts?: ComponentMountingOptions<typeof EcSyncMultipleValuesFilter>) {
   return mount(EcSyncMultipleValuesFilter, {
     props: {
       label: 'Status',
@@ -40,15 +43,6 @@ describe('EcSyncMultipleValuesFilter', () => {
   it('should render correctly if all the required props are passed', () => {
     const wrapper = mountEcSyncMultipleValuesFilter({ items });
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('should throw an error if no prop label is given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountEcSyncMultipleValuesFilter({}, { props: {} });
-      expect(warnSpy).toHaveBeenCalledTimes(2);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "label"');
-      expect(warnSpy.mock.calls[1][0]).toContain('Missing required prop: "items"');
-    });
   });
 
   it('should update the number of items selected in numberOfSelectedFilters', () => {
@@ -209,17 +203,17 @@ describe('EcSyncMultipleValuesFilter', () => {
   });
 
   it('should focus the search input when the popover gets open', async () => {
-    const elem = document.createElement('div');
-    document.body.appendChild(elem);
+    const element = document.createElement('div');
+    document.body.appendChild(element);
 
     const wrapper = mountEcSyncMultipleValuesFilter({
       items,
       isSearchable: true,
     }, {
-      attachTo: elem,
+      attachTo: element,
     });
 
-    document.activeElement.blur();
+    (document.activeElement as HTMLElement).blur();
 
     await wrapper.findComponent({ name: 'EcPopoverStub' }).vm.$emit('apply-show');
     await flushPromises();

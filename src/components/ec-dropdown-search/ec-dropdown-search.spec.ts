@@ -4,7 +4,7 @@ import { vi } from 'vitest';
 import { defineComponent, h, ref } from 'vue';
 import type { ComponentExposed } from 'vue-component-type-helpers';
 
-import { TooltipPlacement } from '../../main';
+import { TooltipPlacement } from '../../directives/ec-tooltip/types';
 import { PopoverPlacement } from '../ec-popover/types';
 import EcDropdownSearch from './ec-dropdown-search.vue';
 import type { DropdownSearchItem, DropdownSearchProps } from './types';
