@@ -1,24 +1,19 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
 
 import { withMockedConsole } from '../../../tests/utils/console';
+import { IconName, IconType } from '../ec-icon/types';
+import { PopoverPlacement } from '../ec-popover/types';
 import EcInlineActions from './ec-inline-actions.vue';
+import type { InlineActionsProps } from './types';
 
 describe('EcInlineActions', () => {
-  function mountEcInlineActions(props, mountOpts) {
+  function mountEcInlineActions(props?: InlineActionsProps, mountOpts?: ComponentMountingOptions<typeof EcInlineActions>) {
     return mount(EcInlineActions, {
       props,
       ...mountOpts,
     });
   }
-
-  it('should throw if no items prop were given', () => {
-    withMockedConsole((errorSpy, warnSpy) => {
-      mountEcInlineActions();
-      expect(warnSpy).toHaveBeenCalledTimes(1);
-      expect(warnSpy.mock.calls[0][0]).toContain('Missing required prop: "items"');
-    });
-  });
 
   it('should render properly when an item was given', () => {
     const wrapper = mountEcInlineActions({
@@ -174,13 +169,13 @@ describe('EcInlineActions', () => {
     expect(mockCallBack).not.toHaveBeenCalled();
   });
 
-  it('should not throw if action is null', () => {
+  it('should not throw if action is undefined', () => {
     withMockedConsole((errorSpy, warnSpy) => {
       const wrapper = mountEcInlineActions({
         items: [
           [
             {
-              action: null, text: 'test',
+              action: undefined, text: 'test',
             },
           ],
         ],
@@ -198,7 +193,7 @@ describe('EcInlineActions', () => {
       items: [
         [
           {
-            text: 'test', icon: 'simple-block', iconType: 'warning',
+            text: 'test', icon: IconName.SIMPLE_BLOCK, iconType: IconType.WARNING,
           },
         ],
       ],
@@ -211,7 +206,7 @@ describe('EcInlineActions', () => {
       items: [
         [
           {
-            text: 'test', icon: 'simple-block',
+            text: 'test', icon: IconName.SIMPLE_BLOCK,
           },
         ],
       ],
@@ -222,13 +217,13 @@ describe('EcInlineActions', () => {
   it('should render the item with given popover options', () => {
     const wrapper = mountEcInlineActions({
       popoverOptions: {
-        placement: 'top',
+        placement: PopoverPlacement.TOP,
         distance: 20,
       },
       items: [
         [
           {
-            text: 'test', icon: 'simple-block',
+            text: 'test', icon: IconName.SIMPLE_BLOCK,
           },
         ],
       ],

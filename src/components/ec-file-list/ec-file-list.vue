@@ -13,8 +13,8 @@
       <ec-icon
         class="ec-file-list__document-icon"
         data-test="ec-file-list__document-icon"
-        name="simple-document"
-        type="interactive"
+        :name="IconName.SIMPLE_DOCUMENT"
+        :type="IconType.INTERACTIVE"
         :size="20"
       />
 
@@ -37,8 +37,8 @@
         <ec-icon
           class="ec-file-list__delete-icon"
           :data-test="`ec-file-list__delete-icon ec-file-list__delete-icon--${index}`"
-          name="simple-outline-delete"
-          type="interactive"
+          :name="IconName.SIMPLE_OUTLINE_DELETE"
+          :type="IconType.INTERACTIVE"
           :size="18"
         />
       </button>
@@ -46,74 +46,71 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import EcIcon from '../ec-icon';
+import { IconName, IconType } from '../ec-icon/types';
+import type { FileListProps } from './types';
 
-const emit = defineEmits(['delete']);
+const emit = defineEmits<{
+  'delete': [item: File],
+}>();
 
-defineProps({
-  items: {
-    type: Array,
-    default: () => [],
-  },
-  isDeleteDisabled: {
-    type: Boolean,
-    default: false,
-  },
+withDefaults(defineProps<FileListProps>(), {
+  items: () => [],
 });
 
-function onDelete(item) {
+function onDelete(item: File) {
   emit('delete', item);
 }
 </script>
 
 <style>
-  .ec-file-list {
-    &__item {
-      @apply tw-flex tw-flex-row tw-items-center;
-      @apply tw-pb-8;
+.ec-file-list {
+  &__item {
+    @apply tw-flex tw-flex-row tw-items-center;
+    @apply tw-pb-8;
+  }
+
+  &__name {
+    @apply tw-w-full;
+    @apply tw-px-4;
+    @apply tw-text-gray-3;
+    @apply tw-truncate;
+  }
+
+  &__document-icon {
+    @apply tw-w-24 tw-h-24;
+    @apply tw-fill-gray-4;
+  }
+
+  &__delete-btn {
+    @apply tw-cursor-pointer;
+    @apply tw-border-none;
+    @apply tw-bg-transparent;
+    @apply tw-px-0;
+    @apply tw-w-20 tw-h-20;
+    @apply tw-text-gray-4;
+
+    &:focus,
+    &:hover {
+      @apply tw-outline-none;
+      @apply tw-text-key-4;
     }
 
-    &__name {
-      @apply tw-w-full;
-      @apply tw-px-4;
-      @apply tw-text-gray-3;
-      @apply tw-truncate;
-    }
-
-    &__document-icon {
-      @apply tw-w-24 tw-h-24;
-      @apply tw-fill-gray-4;
-    }
-
-    &__delete-btn {
-      @apply tw-cursor-pointer;
-      @apply tw-border-none;
-      @apply tw-bg-transparent;
-      @apply tw-px-0;
-      @apply tw-w-20 tw-h-20;
-      @apply tw-text-gray-4;
+    &:disabled {
+      @apply tw-cursor-default;
+      @apply tw-text-gray-6;
 
       &:focus,
       &:hover {
-        @apply tw-outline-none;
-        @apply tw-text-key-4;
-      }
-
-      &:disabled {
-        @apply tw-cursor-default;
         @apply tw-text-gray-6;
-
-        &:focus,
-        &:hover {
-          @apply tw-text-gray-6;
-        }
       }
-    }
-
-    &__delete-icon {
-      @apply tw-ml-auto;
-      @apply tw-fill-current;
     }
   }
+
+  &__delete-icon {
+    @apply tw-ml-auto;
+    @apply tw-fill-current;
+  }
+}
 </style>

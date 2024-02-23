@@ -1,21 +1,26 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
 import EcFileList from './ec-file-list.vue';
+import type { FileListProps } from './types';
 
 describe('EcFileList', () => {
-  function mountFileList(props, mountOpts) {
+  function mountFileList(props?: FileListProps, mountOpts?: ComponentMountingOptions<typeof EcFileList>) {
     return mount(EcFileList, {
       props,
       ...mountOpts,
     });
   }
 
-  const items = [
-    { name: 'My invoice.pdf' },
-    { name: 'This is a very long file name that is for testing the ellipses.pdf' },
-    { name: 'DOC_123123_2423490802348_12312323.pdf' },
-    { name: 'number_rates_trades.xscl' },
-    { name: 'untitled.pdf' },
+  function generateFile(name: string): File {
+    return new File([], name);
+  }
+
+  const items: File[] = [
+    generateFile('My invoice.pdf'),
+    generateFile('This is a very long file name that is for testing the ellipses.pdf'),
+    generateFile('DOC_123123_2423490802348_12312323.pdf'),
+    generateFile('number_rates_trades.xscl'),
+    generateFile('untitled.pdf'),
   ];
 
   describe(':props', () => {
@@ -39,7 +44,7 @@ describe('EcFileList', () => {
     it('should emit deleted item', async () => {
       const wrapper = mountFileList({ items });
       await wrapper.findByDataTest('ec-file-list__item--1').findByDataTest('ec-file-list__delete-btn--1').trigger('click');
-      expect(wrapper.emitted('delete').length).toBe(1);
+      expect(wrapper.emitted('delete')?.length).toBe(1);
     });
 
     it('should not emit a deleted item if delete disabled is true', async () => {

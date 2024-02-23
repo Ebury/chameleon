@@ -1,6 +1,6 @@
-import { type ComponentMountingOptions, mount, VueWrapper } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { vi } from 'vitest';
-import { type ComponentPublicInstance, defineComponent, ref } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 import EcCheckbox from './ec-checkbox.vue';
 import type { CheckboxProps } from './types';
@@ -8,24 +8,6 @@ import type { CheckboxProps } from './types';
 describe('EcCheckbox', () => {
   function mountCheckbox(props?: CheckboxProps, mountOpts?: ComponentMountingOptions<typeof EcCheckbox>) {
     return mount(EcCheckbox, {
-      props,
-      ...mountOpts,
-    });
-  }
-
-  function mountCheckboxAsTemplate(
-    template: string,
-    props: CheckboxProps,
-    wrapperComponentOpts?: Record<string, unknown>,
-    mountOpts?: ComponentMountingOptions<CheckboxProps>,
-  ) {
-    const Component = defineComponent({
-      components: { EcCheckbox },
-      template,
-      ...wrapperComponentOpts,
-    });
-
-    return mount(Component, {
       props,
       ...mountOpts,
     });
@@ -241,16 +223,16 @@ describe('EcCheckbox', () => {
 
   describe('v-model', () => {
     it('should render the checkbox and toggle v-model value when input is clicked', async () => {
-      const wrapper = mountCheckboxAsTemplate(
-        '<ec-checkbox v-model="checked"></ec-checkbox>',
-        {},
-        {
-          setup() {
-            const checked = ref(true);
-            return { checked };
-          },
+      const Component = defineComponent({
+        components: { EcCheckbox },
+        setup() {
+          const checked = ref(true);
+          return { checked };
         },
-      ) as VueWrapper<ComponentPublicInstance<unknown, { checked: boolean }>>;
+        template: '<ec-checkbox v-model="checked"></ec-checkbox>',
+      });
+
+      const wrapper = mount(Component);
 
       expect(wrapper.findByDataTest('ec-checkbox').exists()).toBe(true);
       expect(wrapper.vm.checked).toBe(true);
@@ -259,16 +241,17 @@ describe('EcCheckbox', () => {
     });
 
     it('should not change the value of v-model if disabled is enabled and user clicks the checkbox', async () => {
-      const wrapper = mountCheckboxAsTemplate(
-        '<ec-checkbox v-model="checked" disabled></ec-checkbox>',
-        {},
-        {
-          setup() {
-            const checked = ref(true);
-            return { checked };
-          },
+      const Component = defineComponent({
+        components: { EcCheckbox },
+        setup() {
+          const checked = ref(true);
+          return { checked };
         },
-      ) as VueWrapper<ComponentPublicInstance<unknown, { checked: boolean }>>;
+        template: '<ec-checkbox v-model="checked" disabled></ec-checkbox>',
+      });
+
+      const wrapper = mount(Component);
+
       expect(wrapper.vm.checked).toBe(true);
       await wrapper.findByDataTest('ec-checkbox__input').setValue(false);
       expect(wrapper.vm.checked).toBe(true);
@@ -277,18 +260,18 @@ describe('EcCheckbox', () => {
     it('should have the icon clickable', async () => {
       const element = document.createElement('div');
       document.body.appendChild(element);
-      const wrapper = mountCheckboxAsTemplate(
-        '<ec-checkbox v-model="model" />',
-        {},
-        {
-          data() {
-            return { model: false };
-          },
+
+      const Component = defineComponent({
+        components: { EcCheckbox },
+        data() {
+          return { model: false };
         },
-        {
-          attachTo: element,
-        },
-      ) as VueWrapper<ComponentPublicInstance<unknown, { model: boolean }>>;
+        template: '<ec-checkbox v-model="model" />',
+      });
+
+      const wrapper = mount(Component, {
+        attachTo: element,
+      });
 
       await wrapper.findByDataTest('ec-checkbox__check-icon-wrapper').trigger('click');
       expect(wrapper.vm.model).toBe(true);

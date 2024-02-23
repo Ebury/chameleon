@@ -107,7 +107,7 @@ describe('EcRadioBtn', () => {
         const wrapper = mountRadioBtn({
           isDisabled: true,
         });
-        const inputElement = (wrapper.findByDataTest('ec-radio-btn__input').element as HTMLInputElement);
+        const inputElement = (wrapper.findByDataTest<HTMLInputElement>('ec-radio-btn__input').element);
         expect(inputElement.disabled).toBe(true);
         expect(inputElement).toMatchSnapshot();
       });
@@ -116,7 +116,7 @@ describe('EcRadioBtn', () => {
         const wrapper = mountRadioBtn({
           isDisabled: true,
         });
-        const icon = (wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element as HTMLInputElement);
+        const icon = (wrapper.findByDataTest<HTMLInputElement>('ec-radio-btn__icon-wrapper').element);
         expect(icon).toMatchSnapshot();
       });
 
@@ -126,7 +126,7 @@ describe('EcRadioBtn', () => {
           modelValue: 'y',
         });
 
-        const inputElement = (wrapper.findByDataTest('ec-radio-btn__input').element as HTMLInputElement);
+        const inputElement = (wrapper.findByDataTest<HTMLInputElement>('ec-radio-btn__input').element);
         expect(inputElement.disabled).toBe(true);
         expect(inputElement.value).toBe('y');
         expect(inputElement).toMatchSnapshot();
@@ -138,7 +138,7 @@ describe('EcRadioBtn', () => {
           modelValue: 'y',
         });
 
-        const icon = (wrapper.findByDataTest('ec-radio-btn__icon-wrapper').element as HTMLInputElement);
+        const icon = (wrapper.findByDataTest<HTMLInputElement>('ec-radio-btn__icon-wrapper').element);
         expect(icon).toMatchSnapshot();
       });
     });
@@ -275,9 +275,9 @@ describe('EcRadioBtn', () => {
 
   describe('focus', () => {
     it('should be focused', async () => {
-      const elem = document.createElement('div');
-      document.body.appendChild(elem);
-      const wrapper = mountRadioBtn({}, { attachTo: elem });
+      const element = document.createElement('div');
+      document.body.appendChild(element);
+      const wrapper = mountRadioBtn({}, { attachTo: element });
 
       await wrapper.findByDataTest('ec-radio-btn__input').trigger('focus');
       expect(document.activeElement).toMatchSnapshot();
@@ -285,9 +285,9 @@ describe('EcRadioBtn', () => {
     });
 
     it('should be checked and focused', async () => {
-      const elem = document.createElement('div');
-      document.body.appendChild(elem);
-      const wrapper = mountRadioBtn({ modelValue: 'y' }, { attachTo: elem });
+      const element = document.createElement('div');
+      document.body.appendChild(element);
+      const wrapper = mountRadioBtn({ modelValue: 'y' }, { attachTo: element });
 
       await wrapper.findByDataTest('ec-radio-btn__input').trigger('focus');
       expect(document.activeElement).toMatchSnapshot();

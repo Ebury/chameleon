@@ -1,33 +1,25 @@
-import { mount } from '@vue/test-utils';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
 import EcFileUpload from './ec-file-upload.vue';
+import type { FileUploadProps } from './types';
 
 describe('EcFileUpload', () => {
-  function mountFileUpload(props, mountOpts) {
+  function mountFileUpload(props?: FileUploadProps, mountOpts?: ComponentMountingOptions<typeof EcFileUpload>) {
     return mount(EcFileUpload, {
       props,
       ...mountOpts,
     });
   }
 
-  const files = [
-    { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
-    { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
-  ];
-
-  function mountFileUploadAsTemplate(template, props, wrapperComponentsOpts, mountOpts) {
-    const Component = defineComponent({
-      components: { EcFileUpload },
-      template,
-      ...wrapperComponentsOpts,
-    });
-
-    return mount(Component, {
-      props,
-      ...mountOpts,
-    });
+  function generateFile(name: string, type: string, size: number): File {
+    return new File(new Array(size).fill('a'), name, { type });
   }
+
+  const files = [
+    generateFile('file_1.pdf', 'application/pdf', 200),
+    generateFile('file_2.pdf', 'application/pdf', 200),
+  ];
 
   describe('$attrs', () => {
     it('should render with custom attributes', () => {
@@ -119,45 +111,43 @@ describe('EcFileUpload', () => {
         .findByDataTest('ec-file-upload__dropzone')
         .trigger('drop', { dataTransfer: { files } });
 
-      expect(wrapper.emitted('change').length).toBe(1);
-      expect(wrapper.emitted('change')[0]).toEqual([files]);
+      expect(wrapper.emitted('change')?.length).toBe(1);
+      expect(wrapper.emitted('change')?.[0]).toEqual([files]);
     });
   });
 
   describe('v-model', () => {
     it('should initialize with a value from the v-model', () => {
-      const wrapper = mountFileUploadAsTemplate(
-        '<ec-file-upload v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              value: [...files],
-            };
-          },
+      const Component = defineComponent({
+        components: { EcFileUpload },
+        data() {
+          return {
+            value: [...files],
+          };
         },
-      );
+        template: '<ec-file-upload v-model="value" />',
+      });
 
+      const wrapper = mount(Component);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('should update the v-model if we delete an item', async () => {
-      const wrapper = mountFileUploadAsTemplate(
-        '<ec-file-upload v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              value: [...files],
-            };
-          },
+      const Component = defineComponent({
+        components: { EcFileUpload },
+        data() {
+          return {
+            value: [...files],
+          };
         },
-      );
+        template: '<ec-file-upload v-model="value" />',
+      });
 
+      const wrapper = mount(Component);
       await wrapper.findByDataTest('ec-file-upload').findByDataTest('ec-file-list__delete-btn--1').trigger('click');
 
       const expectedFiles = [
-        { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
+        files[0],
       ];
 
       expect(wrapper.vm.value).toEqual(expectedFiles);
@@ -165,20 +155,20 @@ describe('EcFileUpload', () => {
     });
 
     it('should update the file list with an extra file whilst keeping previous files', async () => {
-      const wrapper = mountFileUploadAsTemplate(
-        '<ec-file-upload v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              value: [...files],
-            };
-          },
+      const Component = defineComponent({
+        components: { EcFileUpload },
+        data() {
+          return {
+            value: [...files],
+          };
         },
-      );
+        template: '<ec-file-upload v-model="value" />',
+      });
+
+      const wrapper = mount(Component);
 
       const extraFile = [
-        { name: 'file_3.pdf', type: 'application/pdf', size: 200 },
+        generateFile('file_3.pdf', 'image/jpeg', 200),
       ];
 
       await wrapper
@@ -187,29 +177,27 @@ describe('EcFileUpload', () => {
         .trigger('drop', { dataTransfer: { files: extraFile } });
 
       const expectedFiles = [
-        { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
-        { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
-        { name: 'file_3.pdf', type: 'application/pdf', size: 200 },
+        ...files,
+        ...extraFile,
       ];
 
       expect(wrapper.vm.value).toEqual(expectedFiles);
     });
 
     it('should update the file list when we add a file with the same name AND delete the old file', async () => {
-      const wrapper = mountFileUploadAsTemplate(
-        '<ec-file-upload v-model="value" />',
-        {},
-        {
-          data() {
-            return {
-              value: [...files],
-            };
-          },
+      const Component = defineComponent({
+        components: { EcFileUpload },
+        data() {
+          return {
+            value: [...files],
+          };
         },
-      );
+        template: '<ec-file-upload v-model="value" />',
+      });
 
+      const wrapper = mount(Component);
       const extraFile = [
-        { name: 'file_2.pdf', type: 'application/jpg', size: 100 },
+        generateFile('file_2.pdf', 'image/jpeg', 100),
       ];
 
       await wrapper
@@ -218,32 +206,28 @@ describe('EcFileUpload', () => {
         .trigger('drop', { dataTransfer: { files: extraFile } });
 
       const expectedFiles = [
-        { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
-        { name: 'file_2.pdf', type: 'application/jpg', size: 100 },
+        files[0],
+        extraFile[0],
       ];
 
       expect(wrapper.vm.value).toEqual(expectedFiles);
     });
 
     it('should not update the v-model if we try to delete an item when disabled', async () => {
-      const wrapper = mountFileUploadAsTemplate(
-        '<ec-file-upload v-model="value" :is-disabled="true"/>',
-        {},
-        {
-          data() {
-            return {
-              value: [...files],
-            };
-          },
+      const Component = defineComponent({
+        components: { EcFileUpload },
+        data() {
+          return {
+            value: [...files],
+          };
         },
-      );
+        template: '<ec-file-upload v-model="value" :is-disabled="true"/>',
+      });
 
+      const wrapper = mount(Component);
       await wrapper.findByDataTest('ec-file-list__delete-btn--1').trigger('click');
 
-      const expectedFiles = [
-        { name: 'file_1.pdf', type: 'application/pdf', size: 200 },
-        { name: 'file_2.pdf', type: 'application/pdf', size: 200 },
-      ];
+      const expectedFiles = [...files];
 
       expect(wrapper.vm.value).toEqual(expectedFiles);
       expect(wrapper.element).toMatchSnapshot();

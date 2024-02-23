@@ -1,13 +1,21 @@
+import type { Meta, StoryFn } from '@storybook/vue3';
 import { computed, toRefs } from 'vue';
 
 import EcDonut from './ec-donut.vue';
+import type { DonutProps } from './types';
 
-export default {
+const meta: Meta = {
   title: 'Donut',
   component: EcDonut,
 };
 
-export const basic = args => ({
+export default meta;
+
+type EcDonutStory = StoryFn<DonutProps & {
+  currency: string,
+}>;
+
+export const basic: EcDonutStory = args => ({
   components: { EcDonut },
   setup() {
     const {
@@ -26,7 +34,7 @@ export const basic = args => ({
       return amount.value - used.value;
     });
 
-    function currencyFormat(value) {
+    function currencyFormat(value: number): string {
       return new Intl.NumberFormat('en-GB', { style: 'currency', currency: currency.value, currencyDisplay: 'code' }).format(value);
     }
 

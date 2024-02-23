@@ -11,19 +11,6 @@ function mountButtonGroup<TValue = string>(props: ButtonGroupProps<TValue>, moun
   });
 }
 
-function mountButtonGroupAsTemplate(template: string, props: Record<string, unknown>, wrapperComponentOpts: Record<string, unknown>, mountOpts?: ComponentMountingOptions<unknown>) {
-  const Component = defineComponent({
-    components: { EcButtonGroup },
-    template,
-    ...wrapperComponentOpts,
-  });
-
-  return mount<typeof Component, ComponentMountingOptions<typeof Component>>(Component, {
-    props,
-    ...mountOpts,
-  });
-}
-
 describe('EcButtonGroup', () => {
   describe(':props', () => {
     it(':items - should render the button group with two items all on outline', () => {
@@ -51,21 +38,22 @@ describe('EcButtonGroup', () => {
 
   describe('v-model', () => {
     it('should render the button group and change the value when you click on the current not selected', async () => {
-      const wrapper = mountButtonGroupAsTemplate(
-        '<ec-button-group v-model="value" :items="items"></ec-button-group>',
-        {},
-        {
-          data() {
-            return {
-              value: 'yes',
-              items: [
-                { text: 'Yes', value: 'yes' },
-                { text: 'No', value: 'no' },
-              ],
-            };
-          },
+      const Component = defineComponent({
+        components: { EcButtonGroup },
+        data() {
+          return {
+            value: 'yes',
+            items: [
+              { text: 'Yes', value: 'yes' },
+              { text: 'No', value: 'no' },
+            ],
+          };
         },
-      );
+        template: '<ec-button-group v-model="value" :items="items"></ec-button-group>',
+      });
+
+      const wrapper = mount(Component);
+
       expect(wrapper.vm.value).toBe('yes');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBe(false);
       expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBe(true);
@@ -76,21 +64,21 @@ describe('EcButtonGroup', () => {
     });
 
     it('should render the button group without any selected and change the value when you click on the current not selected', async () => {
-      const wrapper = mountButtonGroupAsTemplate(
-        '<ec-button-group v-model="value" :items="items"></ec-button-group>',
-        {},
-        {
-          data() {
-            return {
-              value: '',
-              items: [
-                { text: 'Yes', value: 'yes' },
-                { text: 'No', value: 'no' },
-              ],
-            };
-          },
+      const Component = defineComponent({
+        components: { EcButtonGroup },
+        data() {
+          return {
+            value: '',
+            items: [
+              { text: 'Yes', value: 'yes' },
+              { text: 'No', value: 'no' },
+            ],
+          };
         },
-      );
+        template: '<ec-button-group v-model="value" :items="items"></ec-button-group>',
+      });
+
+      const wrapper = mount(Component);
 
       expect(wrapper.vm.value).toBe('');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBe(true);
@@ -102,21 +90,22 @@ describe('EcButtonGroup', () => {
     });
 
     it('should render the button group and not change when click on the disabled item', async () => {
-      const wrapper = mountButtonGroupAsTemplate(
-        '<ec-button-group v-model="value" :items="items"></ec-button-group>',
-        {},
-        {
-          data() {
-            return {
-              value: 'yes',
-              items: [
-                { text: 'Yes', value: 'yes' },
-                { text: 'No', value: 'no', disabled: true },
-              ],
-            };
-          },
+      const Component = defineComponent({
+        components: { EcButtonGroup },
+        data() {
+          return {
+            value: 'yes',
+            items: [
+              { text: 'Yes', value: 'yes' },
+              { text: 'No', value: 'no', disabled: true },
+            ],
+          };
         },
-      );
+        template: '<ec-button-group v-model="value" :items="items"></ec-button-group>',
+      });
+
+      const wrapper = mount(Component);
+
       expect(wrapper.vm.value).toBe('yes');
       expect(wrapper.findByDataTest('ec-button-group__btn-0').classes('ec-btn--outline')).toBe(false);
       expect(wrapper.findByDataTest('ec-button-group__btn-1').classes('ec-btn--outline')).toBe(true);
