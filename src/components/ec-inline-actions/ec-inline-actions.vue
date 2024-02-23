@@ -43,7 +43,7 @@
                     v-if="item.icon"
                     :name="item.icon"
                     :size="24"
-                    :type="item.iconType ? item.iconType : undefined"
+                    :type="item.iconType"
                     class="ec-inline-actions__icon"
                     data-test="ec-inline-actions__icon"
                     :class="{ 'ec-inline-actions__icon--no-type': !item.iconType || item.disabled }"
