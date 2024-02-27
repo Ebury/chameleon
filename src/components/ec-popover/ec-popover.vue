@@ -48,6 +48,7 @@ const props = withDefaults(defineProps<PopoverProps>(), {
   autoHide: true,
   shift: undefined,
   autoSize: undefined,
+  preventOverflow: undefined,
 });
 
 const emit = defineEmits<{
@@ -76,6 +77,8 @@ const {
   autoHide,
   shift,
   autoSize,
+  preventOverflow,
+  overflowPadding,
 } = toRefs(props);
 const { container: containerInject } = inject(POPOVER_CONTAINER_KEY, { container: ref('body') });
 
@@ -90,6 +93,8 @@ function getOptions() {
     autoHide: autoHide?.value,
     shift: shift?.value,
     autoSize: autoSize?.value,
+    preventOverflow: preventOverflow?.value,
+    overflowPadding: overflowPadding?.value,
     popperClass: `${popperClass.value} ec-popover${level?.value ? ` ec-popover--${level.value}` : ''}`.trim(),
     container: containerInject.value,
     ariaId: `ec-popover-${id}`,

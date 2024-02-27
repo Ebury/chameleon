@@ -48,6 +48,30 @@ exports[`EcPopover component > should merge default options with given additiona
 </v-dropdown-stub>
 `;
 
+exports[`EcPopover component > should pass all props 1`] = `
+<v-dropdown-stub
+  ariaid="ec-popover-1"
+  arrowoverflow="true"
+  autohide="false"
+  autosize="max"
+  container="body"
+  data-test="ec-popover"
+  disabled="true"
+  distance="8"
+  overflowpadding="5"
+  placement="left-end"
+  popperclass="my-test-class ec-popover ec-popover--modal"
+  preventoverflow="true"
+  shift="true"
+  shown="true"
+  skidding="12"
+  triggers="click"
+>
+  
+  
+</v-dropdown-stub>
+`;
+
 exports[`EcPopover component > should pass default options when no additional props are given 1`] = `
 <v-dropdown-stub
   ariaid="ec-popover-1"

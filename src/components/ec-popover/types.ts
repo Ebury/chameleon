@@ -42,4 +42,6 @@ export interface PopoverProps {
   triggers?: PopoverTrigger[],
   shift?: boolean,
   autoSize?: boolean | 'min' | 'max',
+  preventOverflow?: boolean,
+  overflowPadding?: number,
 }

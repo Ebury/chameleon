@@ -1,5 +1,4 @@
 import { type ComponentMountingOptions, mount } from '@vue/test-utils';
-import { vi } from 'vitest';
 import { defineComponent, ref } from 'vue';
 
 import { ZIndexLevel } from '../../enums';
@@ -55,13 +54,14 @@ describe('EcPopover component', () => {
     expect(wrapper.element).toMatchSnapshot('after');
   });
 
-  it('should pass all events to the 3rd party tooltip component', async () => {
-    const showSpy = vi.fn();
-    const wrapper = mountEcPopover({}, {
-      attrs: { onShow: showSpy },
-    });
-    await wrapper.findComponent({ name: 'VDropdown' }).vm.$emit('show');
-    expect(showSpy).toHaveBeenCalledTimes(1);
+  it('should pass all events to the 3rd party tooltip component', () => {
+    const wrapper = mountEcPopover();
+
+    const events = ['update:shown', 'show', 'apply-show', 'hide', 'apply-hide', 'auto-hide', 'close-directive', 'resize'];
+    for (const event of events) {
+      wrapper.findComponent({ name: 'VDropdown' }).vm.$emit(event);
+      expect(wrapper.emitted(event)?.length).toBe(1);
+    }
   });
 
   it('should add the z-index level class if the level was given', () => {
@@ -102,6 +102,30 @@ describe('EcPopover component', () => {
       },
     });
 
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should pass all props', () => {
+    type AllPopoverProps = Required<PopoverProps>;
+
+    const props: AllPopoverProps = {
+      autoHide: false,
+      autoSize: 'max',
+      delay: 200,
+      disabled: true,
+      distance: 8,
+      level: ZIndexLevel.MODAL,
+      overflowPadding: 5,
+      placement: PopoverPlacement.LEFT_END,
+      popperClass: 'my-test-class',
+      preventOverflow: true,
+      shift: true,
+      shown: true,
+      skidding: 12,
+      triggers: [PopoverTrigger.CLICK],
+    };
+
+    const wrapper = mountEcPopover(props);
     expect(wrapper.element).toMatchSnapshot();
   });
 });
