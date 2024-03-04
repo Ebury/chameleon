@@ -8,7 +8,7 @@
       class="ec-user-info__avatar"
       data-test="ec-user-info__avatar"
       :src="user.gravatar"
-      :alt="user.name + ' gravatar'"
+      :alt="`${user.name} gravatar`"
       @click="emit('toggle')"
     >
 
