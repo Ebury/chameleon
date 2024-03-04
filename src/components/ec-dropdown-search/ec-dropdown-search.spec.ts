@@ -13,7 +13,7 @@ type EcDropdownSearchExposed = ComponentExposed<typeof EcDropdownSearch>;
 
 describe('EcDropdownSearch', () => {
   function mountDropdownSearch<TValue = string, TDropdownSearchItem extends DropdownSearchItem<TValue> = DropdownSearchItem<TValue>>(props?: DropdownSearchProps<TValue, TDropdownSearchItem>, mountOpts?: ComponentMountingOptions<EcDropdownSearchExposed>) {
-    return mount<EcDropdownSearchExposed>(EcDropdownSearch, {
+    return mount(EcDropdownSearch, {
       props,
       ...mountOpts,
     });

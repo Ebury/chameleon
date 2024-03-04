@@ -107,7 +107,7 @@ describe('EcTableFilter', () => {
     expect(dueDateFilter.element).toMatchSnapshot();
 
     hiddenFilters[0].isHidden = false;
-    await wrapper.setProps({
+    await wrapper.setData({
       filters: hiddenFilters,
     });
 

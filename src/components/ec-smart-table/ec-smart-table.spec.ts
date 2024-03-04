@@ -5,11 +5,14 @@ import { vi } from 'vitest';
 import {
   defineComponent, h, markRaw, ref,
 } from 'vue';
+import type { ComponentExposed } from 'vue-component-type-helpers';
 
 import { SortDirection } from '../../enums';
 import { StickyColumnPosition, type TableHeadColumn } from '../ec-table-head/types';
 import EcSmartTable from './ec-smart-table.vue';
 import type { SmartTableProps } from './types';
+
+type EcSmartTableComposed = ComponentExposed<typeof EcSmartTable>;
 
 describe('EcSmartTable', () => {
   const columns: TableHeadColumn[] = [
@@ -37,14 +40,14 @@ describe('EcSmartTable', () => {
     count: lotsOfItems.length,
   };
 
-  function mountEcSmartTable<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>(props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
+  function mountEcSmartTable<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>(props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<EcSmartTableComposed>) {
     return mount(EcSmartTable, {
       props: { ...props },
       ...mountOpts,
     });
   }
 
-  function mountEcSmartTableWithData<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>({ items, total }: { items: TRow[], total: number }, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
+  function mountEcSmartTableWithData<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>({ items, total }: { items: TRow[], total: number }, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<EcSmartTableComposed>) {
     return mountEcSmartTable({
       ...props,
       data: items,
@@ -52,7 +55,7 @@ describe('EcSmartTable', () => {
     }, mountOpts);
   }
 
-  function mountEcSmartTableWithError<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>(error: Error, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<typeof EcSmartTable>) {
+  function mountEcSmartTableWithError<TRow extends ReadonlyArray<unknown>, TAdditionalPayload>(error: Error, props?: SmartTableProps<TRow, TAdditionalPayload>, mountOpts?: ComponentMountingOptions<EcSmartTableComposed>) {
     return mountEcSmartTable({
       ...props,
       error,
@@ -251,7 +254,7 @@ describe('EcSmartTable', () => {
     });
 
     it('should render custom row if window width is lower than 768px', () => {
-      window.matchMedia = vi.fn().mockImplementation(query => ({
+      vi.stubGlobal('matchMedia', (query: string) => ({
         matches: query === '(max-width: 767px)',
         media: '',
         onchange: null,

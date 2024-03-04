@@ -53,25 +53,22 @@ exports[`EcTextFilter > should display properly with the given props 1`] = `
 `;
 
 exports[`EcTextFilter > should render close icon depends on modelValue 1`] = `
-DOMWrapper {
-  "isDisabled": [Function],
-  "wrapperElement": <div
-    class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
-    data-test="ec-input-field__icon-wrapper"
+<div
+  class="ec-input-field__icon-wrapper ec-input-field__icon-wrapper--right"
+  data-test="ec-input-field__icon-wrapper"
+>
+  <!--v-if-->
+  <svg
+    class="ec-icon ec-input-field__icon"
+    data-test="ec-input-field__icon"
+    height="20"
+    width="20"
   >
-    <!--v-if-->
-    <svg
-      class="ec-icon ec-input-field__icon"
-      data-test="ec-input-field__icon"
-      height="20"
-      width="20"
-    >
-      <use
-        xlink:href="#ec-simple-close"
-      />
-    </svg>
-  </div>,
-}
+    <use
+      xlink:href="#ec-simple-close"
+    />
+  </svg>
+</div>
 `;
 
 exports[`EcTextFilter > should render with a sensitive class when isSensitive prop is set to true 1`] = `

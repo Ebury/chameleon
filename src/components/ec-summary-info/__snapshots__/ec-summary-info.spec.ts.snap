@@ -28,20 +28,17 @@ exports[`EcSummaryInfo > icon > should render with the given "icon" prop 1`] = `
 `;
 
 exports[`EcSummaryInfo > lineItems > description > when the description has a tooltip > should render with a tooltip 1`] = `
-DOMWrapper {
-  "isDisabled": [Function],
-  "wrapperElement": <svg
-    class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
-    data-ec-tooltip-mock-content="Some tooltip text"
-    data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description ec-mock ec-tooltip-mock"
-    height="14"
-    width="14"
-  >
-    <use
-      xlink:href="#ec-simple-info"
-    />
-  </svg>,
-}
+<svg
+  class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description"
+  data-ec-tooltip-mock-content="Some tooltip text"
+  data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-description ec-mock ec-tooltip-mock"
+  height="14"
+  width="14"
+>
+  <use
+    xlink:href="#ec-simple-info"
+  />
+</svg>
 `;
 
 exports[`EcSummaryInfo > lineItems > description > when the description isSensitive > should render description and tooltip with a sensitive class 1`] = `
@@ -201,20 +198,17 @@ exports[`EcSummaryInfo > lineItems > should render with the not given "lineItems
 `;
 
 exports[`EcSummaryInfo > lineItems > text > when the text has a tooltip > should render with a tooltip 1`] = `
-DOMWrapper {
-  "isDisabled": [Function],
-  "wrapperElement": <svg
-    class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text"
-    data-ec-tooltip-mock-content="Some tooltip text"
-    data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
-    height="14"
-    width="14"
-  >
-    <use
-      xlink:href="#ec-simple-info"
-    />
-  </svg>,
-}
+<svg
+  class="ec-icon ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text"
+  data-ec-tooltip-mock-content="Some tooltip text"
+  data-test="ec-summary-info__content-line-item-icon ec-summary-info__content-line-item-icon-text ec-mock ec-tooltip-mock"
+  height="14"
+  width="14"
+>
+  <use
+    xlink:href="#ec-simple-info"
+  />
+</svg>
 `;
 
 exports[`EcSummaryInfo > should render with custom attributes 1`] = `

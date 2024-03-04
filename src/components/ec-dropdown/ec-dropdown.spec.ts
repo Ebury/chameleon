@@ -10,7 +10,7 @@ type EcDropdownExposed = ComponentExposed<typeof EcDropdown>;
 
 describe('EcDropdown', () => {
   function mountDropdown(props?: DropdownProps, mountOpts?: ComponentMountingOptions<EcDropdownExposed>) {
-    return mount<EcDropdownExposed>(EcDropdown, {
+    return mount(EcDropdown, {
       props,
       ...mountOpts,
     });

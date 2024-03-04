@@ -143,7 +143,7 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.findByDataTest<HTMLButtonElement>('ec-modal__negative-btn').attributes('disabled')).toBeUndefined();
-    expect(wrapper.findByDataTest('ec-modal__negative-btn')).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__negative-btn').element).toMatchSnapshot();
   });
 
   it('should disable the negative button when the "isDisabled" given prop is true', () => {
@@ -158,7 +158,7 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.findByDataTest('ec-modal__negative-btn').attributes('disabled')).toBe('');
-    expect(wrapper.findByDataTest('ec-modal__negative-btn')).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__negative-btn').element).toMatchSnapshot();
   });
 
   it('should render negative button with the loading status if slot is passed', () => {
@@ -264,7 +264,7 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.findByDataTest('ec-modal__positive-btn').attributes('disabled')).toBeUndefined();
-    expect(wrapper.findByDataTest('ec-modal__positive-btn')).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').element).toMatchSnapshot();
   });
 
   it('should disable the positive button when the "isDisabled" given prop is true', () => {
@@ -279,7 +279,7 @@ describe('EcModal', () => {
       },
     });
     expect(wrapper.findByDataTest('ec-modal__positive-btn').attributes('disabled')).toBe('');
-    expect(wrapper.findByDataTest('ec-modal__positive-btn')).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-modal__positive-btn').element).toMatchSnapshot();
   });
 
   it('should emit a "negative" event when clicking on the negative button', () => {
@@ -306,15 +306,30 @@ describe('EcModal', () => {
     expect(wrapper.emitted('update:show')?.length).toBe(1);
   });
 
+  it('should emit a "close" event when clicking on the backdrop but not when clicking on the main content', async () => {
+    const wrapper = mountModal({
+      show: true,
+      isClosable: true,
+    });
+
+    await wrapper.findByDataTest('ec-modal__content').trigger('click');
+    expect(wrapper.emitted('close')).toBeUndefined();
+    expect(wrapper.emitted('update:show')).toBeUndefined();
+
+    await wrapper.findByDataTest('ec-modal').trigger('click');
+    expect(wrapper.emitted('close')?.length).toBe(1);
+    expect(wrapper.emitted('update:show')?.length).toBe(1);
+  });
+
   it('should close the modal if ESC key is pressed and is closable', async () => {
-    const elem = document.createElement('div');
-    document.body.appendChild(elem);
+    const element = document.createElement('div');
+    document.body.appendChild(element);
 
     const wrapper = mountModal({
       show: true,
       isClosable: true,
     }, {
-      attachTo: elem,
+      attachTo: element,
     });
 
     await wrapper.trigger('keyup.Escape');
@@ -323,14 +338,14 @@ describe('EcModal', () => {
   });
 
   it('should not close the modal if ESC key is pressed and is not closable', async () => {
-    const elem = document.createElement('div');
-    document.body.appendChild(elem);
+    const element = document.createElement('div');
+    document.body.appendChild(element);
 
     const wrapper = mountModal({
       show: true,
       isClosable: false,
     }, {
-      attachTo: elem,
+      attachTo: element,
     });
 
     await wrapper.trigger('keyup.Escape');
@@ -339,13 +354,13 @@ describe('EcModal', () => {
   });
 
   it('should not close the modal if key other than ESC is pressed and is closable', async () => {
-    const elem = document.createElement('div');
-    document.body.appendChild(elem);
+    const element = document.createElement('div');
+    document.body.appendChild(element);
     const wrapper = mountModal({
       show: true,
       isClosable: true,
     }, {
-      attachTo: elem,
+      attachTo: element,
     });
 
     await wrapper.trigger('keyup.space');
@@ -359,13 +374,13 @@ describe('EcModal', () => {
 
     expect(addEventListenerSpy).not.toHaveBeenCalled();
 
-    const elem = document.createElement('div');
-    document.body.appendChild(elem);
+    const element = document.createElement('div');
+    document.body.appendChild(element);
 
     const wrapper = mountModal({
       show: true,
     }, {
-      attachTo: elem,
+      attachTo: element,
     });
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);
@@ -383,13 +398,13 @@ describe('EcModal', () => {
 
     expect(addEventListenerSpy).not.toHaveBeenCalled();
 
-    const elem = document.createElement('div');
-    document.body.appendChild(elem);
+    const element = document.createElement('div');
+    document.body.appendChild(element);
 
     const wrapper = mountModal({
       show: true,
     }, {
-      attachTo: elem,
+      attachTo: element,
     });
 
     expect(addEventListenerSpy).toHaveBeenCalledTimes(1);

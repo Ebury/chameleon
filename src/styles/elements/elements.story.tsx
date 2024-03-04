@@ -46,7 +46,7 @@ export const all: StoryFn = () => ({
       </div>
     );
 
-    function renderElement(element: string | JSX.Element): JSX.Element {
+    function renderElement<T>(element: T) {
       if (typeof element === 'string') {
         return (
           <element>{ element }</element>
@@ -55,7 +55,7 @@ export const all: StoryFn = () => ({
       return (element);
     }
 
-    function renderTable(): JSX.Element {
+    function renderTable() {
       return (
         <table>
           <caption>Caption</caption>
@@ -78,7 +78,7 @@ export const all: StoryFn = () => ({
       );
     }
 
-    function renderForm(): JSX.Element {
+    function renderForm() {
       return (
         <form>
           <div>
@@ -145,7 +145,7 @@ export const all: StoryFn = () => ({
       );
     }
 
-    function renderInteractiveElements(): JSX.Element {
+    function renderInteractiveElements() {
       return (
         <details>
           <summary>Details</summary>

@@ -147,7 +147,7 @@ describe('EcSummaryInfo', () => {
             ],
           });
           expect(wrapper.findByDataTest('ec-tooltip-mock').exists()).toBe(true);
-          expect(wrapper.findByDataTest('ec-tooltip-mock')).toMatchSnapshot();
+          expect(wrapper.findByDataTest('ec-tooltip-mock').element).toMatchSnapshot();
         });
 
         it('should render an info icon', () => {
@@ -191,7 +191,7 @@ describe('EcSummaryInfo', () => {
             ],
           });
           expect(wrapper.findByDataTest('ec-tooltip-mock').exists()).toBe(true);
-          expect(wrapper.findByDataTest('ec-tooltip-mock')).toMatchSnapshot();
+          expect(wrapper.findByDataTest('ec-tooltip-mock').element).toMatchSnapshot();
         });
 
         it('should render an info icon', () => {
