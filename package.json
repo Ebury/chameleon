@@ -47,7 +47,7 @@
     "svg-country-flags": "1.2.10",
     "tailwindcss": "3.4.1",
     "type-fest": "4.11.1",
-    "vue": "3.3.13"
+    "vue": "3.3.6"
   },
   "devDependencies": {
     "@sinonjs/fake-timers": "11.2.2",
