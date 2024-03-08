@@ -70,7 +70,7 @@ describe('EcTextFilter', () => {
 
     await wrapper.setData({ text: 'some text' });
 
-    expect(wrapper.findByDataTest('ec-input-field__icon-wrapper')).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-input-field__icon-wrapper').element).toMatchSnapshot();
   });
 
   it('should emit the value when you write on the input', async () => {

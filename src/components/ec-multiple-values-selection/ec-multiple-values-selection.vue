@@ -77,11 +77,11 @@
             v-for="(item, index) in items"
             :key="item.value"
             class="ec-multiple-values-selection__value-wrapper"
-            :data-test="`ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--${ isItemChecked(item) ? 'selected' : 'not-selected' }`"
+            :data-test="`ec-multiple-values-selection__value-wrapper ec-multiple-values-selection__value-wrapper--${isItemChecked(item) ? 'selected' : 'not-selected'}`"
           >
             <ec-checkbox
               class="ec-multiple-values-selection__checkbox"
-              :data-test="`ec-multiple-values-selection__checkbox-${ isItemChecked(item) ? 'deselect' : 'select' } ec-multiple-values-selection__checkbox-${ isItemChecked(item) ? 'deselect' : 'select' }-${index}`"
+              :data-test="`ec-multiple-values-selection__checkbox-${isItemChecked(item) ? 'deselect' : 'select'} ec-multiple-values-selection__checkbox-${isItemChecked(item) ? 'deselect' : 'select'}-${index}`"
               :is-single-line="true"
               :label="item.text"
               :model-value="isItemChecked(item)"

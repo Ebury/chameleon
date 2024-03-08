@@ -44,7 +44,7 @@ describe('EcRadioBtn', () => {
         const inputId = wrapper.findByDataTest('ec-radio-btn__input').attributes('id');
         const labelForAttr = wrapper.findByDataTest('ec-radio-btn__label').attributes('for');
         expect(inputId).toBe(labelForAttr);
-        expect(wrapper.findByDataTest('ec-radio-btn')).toMatchSnapshot();
+        expect(wrapper.findByDataTest('ec-radio-btn').element).toMatchSnapshot();
       });
     });
 

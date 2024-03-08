@@ -17,13 +17,13 @@
     <ec-popover
       v-bind="{
         shown: isOpen,
-        disabled: disabled,
+        disabled,
         placement: PopoverPlacement.BOTTOM_START,
         autoSize: true,
         shift: false,
         distance: 8,
         popperClass: 'ec-dropdown-search__popover',
-        level: level,
+        level,
         ...popoverOptions,
       }"
       ref="popoverRef"

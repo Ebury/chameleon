@@ -10,8 +10,8 @@
     <input
       v-bind="{
         'aria-describedby': `${errorId} ${labelId} ${descriptionId}`,
-        value: value,
-        id: id,
+        value,
+        id,
         disabled: isDisabled,
         type: 'radio',
       }"

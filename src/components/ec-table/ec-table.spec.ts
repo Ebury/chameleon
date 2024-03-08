@@ -232,7 +232,9 @@ describe('EcTable', () => {
       ],
     }, {
       slots: {
-        col2: ({ content }: { content: string }) => h('p', content),
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        col2: ({ content }) => h('p', content),
         footer: '<p>Random text</p>',
       },
     });
@@ -241,7 +243,7 @@ describe('EcTable', () => {
   });
 
   it('should render custom row if window width is lower than 768px', () => {
-    window.matchMedia = vi.fn().mockImplementation(query => ({
+    vi.stubGlobal('matchMedia', (query: string) => ({
       matches: query === '(max-width: 767px)',
       media: '',
       onchange: null,
@@ -348,7 +350,7 @@ describe('EcTable', () => {
 
     expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(true);
     expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(false);
-    await wrapper.setProps({ stickyColumn: 'right' });
+    await wrapper.setProps({ stickyColumn: StickyColumnPosition.RIGHT });
     expect(wrapper.findByDataTest('ec-table__cell--1').classes('ec-table__cell--sticky-right')).toBe(true);
     expect(wrapper.findByDataTest('ec-table__cell--0').classes('ec-table__cell--sticky-left')).toBe(false);
   });

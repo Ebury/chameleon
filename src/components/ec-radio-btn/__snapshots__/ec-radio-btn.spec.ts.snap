@@ -582,60 +582,57 @@ exports[`EcRadioBtn > props > label > should render the radio button without lab
 `;
 
 exports[`EcRadioBtn > props > name > should have a "id" attribute on the input equal to the "for" attribute on the label 1`] = `
-DOMWrapper {
-  "isDisabled": [Function],
-  "wrapperElement": <div
-    class="ec-radio-btn"
-    data-test="ec-radio-btn"
+<div
+  class="ec-radio-btn"
+  data-test="ec-radio-btn"
+>
+  <input
+    aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
+    class="ec-radio-btn__input"
+    data-test="ec-radio-btn__input"
+    id="ec-radio-btn-1"
+    type="radio"
+  />
+  <div
+    class="ec-radio-btn__wrapper"
   >
-    <input
-      aria-describedby="ec-radio-btn-1-error ec-radio-btn-1-label ec-radio-btn-1-description"
-      class="ec-radio-btn__input"
-      data-test="ec-radio-btn__input"
-      id="ec-radio-btn-1"
-      type="radio"
-    />
     <div
-      class="ec-radio-btn__wrapper"
+      class="ec-radio-btn__icon-wrapper"
+      data-test="ec-radio-btn__icon-wrapper"
     >
       <div
-        class="ec-radio-btn__icon-wrapper"
-        data-test="ec-radio-btn__icon-wrapper"
+        class="ec-radio-btn__icon-wrapper-inner"
       >
-        <div
-          class="ec-radio-btn__icon-wrapper-inner"
+        <svg
+          class="ec-icon ec-radio-btn__icon"
+          height="20"
+          width="20"
         >
-          <svg
-            class="ec-icon ec-radio-btn__icon"
-            height="20"
-            width="20"
-          >
-            <use
-              xlink:href="#ec-rounded-notification"
-            />
-          </svg>
-        </div>
-      </div>
-      <div
-        class="ec-radio-btn__text-wrapper"
-        data-test="ec-radio-btn__text-wrapper"
-      >
-        <label
-          class="ec-radio-btn__label"
-          data-test="ec-radio-btn__label"
-          for="ec-radio-btn-1"
-          id="ec-radio-btn-1-label"
-        >
-          
-          Yes
-          
-        </label>
-        <!--v-if-->
+          <use
+            xlink:href="#ec-rounded-notification"
+          />
+        </svg>
       </div>
     </div>
-    <!--v-if-->
-  </div>,
-}
+    <div
+      class="ec-radio-btn__text-wrapper"
+      data-test="ec-radio-btn__text-wrapper"
+    >
+      <label
+        class="ec-radio-btn__label"
+        data-test="ec-radio-btn__label"
+        for="ec-radio-btn-1"
+        id="ec-radio-btn-1-label"
+      >
+        
+        Yes
+        
+      </label>
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>
 `;
 
 exports[`EcRadioBtn > should render properly 1`] = `

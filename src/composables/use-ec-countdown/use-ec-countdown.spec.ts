@@ -154,7 +154,7 @@ describe('useEcCountdown', () => {
     expect(timeUpdatedSpy).toHaveBeenCalledTimes(3);
     expect(timeUpdatedSpy).toHaveBeenLastCalledWith(0);
     expect(timeExpiredSpy).toHaveBeenCalledTimes(1);
-    expect(timeExpiredSpy).toHaveBeenLastCalledWith(undefined);
+    expect(timeExpiredSpy).toHaveBeenLastCalledWith();
 
     // should stop firing events after
     clock.tick(1000);
@@ -162,6 +162,6 @@ describe('useEcCountdown', () => {
     expect(timeUpdatedSpy).toHaveBeenCalledTimes(3);
     expect(timeUpdatedSpy).toHaveBeenLastCalledWith(0);
     expect(timeExpiredSpy).toHaveBeenCalledTimes(1);
-    expect(timeExpiredSpy).toHaveBeenLastCalledWith(undefined);
+    expect(timeExpiredSpy).toHaveBeenLastCalledWith();
   });
 });

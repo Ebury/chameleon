@@ -96,12 +96,13 @@ describe('EcTableHead', () => {
 
   it('the first th should have the ec-table-head__cell--sticky-left class if stickyColumn prop is left and the changes to right when the prop is get changed to right', async () => {
     const wrapper = mountEcTableHead({
-      columns, stickyColumn: StickyColumnPosition.LEFT,
+      columns,
+      stickyColumn: StickyColumnPosition.LEFT,
     });
 
     expect(wrapper.findByDataTest('ec-table-head__cell--0').classes('ec-table-head__cell--sticky-left')).toBe(true);
     expect(wrapper.findByDataTest('ec-table-head__cell--2').classes('ec-table-head__cell--sticky-right')).toBe(false);
-    await wrapper.setProps({ stickyColumn: 'right' });
+    await wrapper.setProps({ stickyColumn: StickyColumnPosition.RIGHT });
     expect(wrapper.findByDataTest('ec-table-head__cell--2').classes('ec-table-head__cell--sticky-right')).toBe(true);
     expect(wrapper.findByDataTest('ec-table-head__cell--0').classes('ec-table-head__cell--sticky-left')).toBe(false);
   });

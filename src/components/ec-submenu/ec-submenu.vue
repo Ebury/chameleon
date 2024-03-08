@@ -52,7 +52,7 @@
           v-for="(menuItem, index) in submenu"
           :key="menuItem.headerTitle"
           v-show="index === activeIndex"
-          :data-test="'ec-submenu__panel-' + index"
+          :data-test="`ec-submenu__panel-${index}`"
         >
           <slot :name="menuItem.slotName" />
         </div>

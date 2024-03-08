@@ -6,16 +6,16 @@
     :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-checkbox` : 'ec-checkbox'"
   >
     <input
-      v-bind="({
+      v-bind="{
         ...$attrs,
         style: undefined,
         class: 'ec-checkbox__input',
-        id: id,
+        id,
         'aria-describedby': errorId,
-        disabled: disabled,
+        disabled,
         'data-test': 'ec-checkbox__input',
         type: 'checkbox',
-      })"
+      }"
       ref="checkboxInput"
       v-model="inputModel"
       @focus="inputIsFocused = true"
