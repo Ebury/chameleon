@@ -375,6 +375,34 @@ describe('EcTable', () => {
     expect(onRowClick.mock.calls[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
   });
 
+  it('should emit the row-click event when you press enter on some row', async () => {
+    const onRowClick = vi.fn();
+    const wrapper = mountEcTable({}, {
+      attrs: {
+        onRowClick,
+      },
+    });
+
+    await wrapper.findByDataTest('ec-table__row--0').trigger('keydown.enter');
+    expect(onRowClick.mock.calls[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
+    await wrapper.findByDataTest('ec-table__row--1').trigger('keydown.enter');
+    expect(onRowClick.mock.calls[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
+  });
+
+  it('should emit the row-click event when you press space on some row', async () => {
+    const onRowClick = vi.fn();
+    const wrapper = mountEcTable({}, {
+      attrs: {
+        onRowClick,
+      },
+    });
+
+    await wrapper.findByDataTest('ec-table__row--0').trigger('keydown.space');
+    expect(onRowClick.mock.calls[0]).toEqual([{ data: ['foo', 'bar'], rowIndex: 0 }]);
+    await wrapper.findByDataTest('ec-table__row--1').trigger('keydown.space');
+    expect(onRowClick.mock.calls[1]).toEqual([{ data: ['widgets', 'doodads'], rowIndex: 1 }]);
+  });
+
   it('should render the style with the min-width on each cell of the column that have the prop given', () => {
     const columns = [
       {
