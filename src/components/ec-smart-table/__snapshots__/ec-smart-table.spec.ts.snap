@@ -32,8 +32,9 @@ exports[`EcSmartTable > #slots > should only render custom row if "isCustomRowSh
             <tbody>
               
               <tr
-                class=""
+                class="ec-table__row"
                 data-test="ec-table__row ec-table__row--0"
+                tabindex="0"
               >
                 <td
                   colspan="3"
@@ -62,8 +63,9 @@ exports[`EcSmartTable > #slots > should only render custom row if "isCustomRowSh
 
 exports[`EcSmartTable > #slots > should pass ec-table slots 1`] = `
 <tr
-  class=""
+  class="ec-table__row"
   data-test="ec-table__row ec-table__row--0"
+  tabindex="0"
 >
   
   <td
@@ -130,8 +132,9 @@ exports[`EcSmartTable > #slots > should render custom row if window width is low
             <tbody>
               
               <tr
-                class=""
+                class="ec-table__row"
                 data-test="ec-table__row ec-table__row--0"
+                tabindex="0"
               >
                 <td
                   colspan="3"
@@ -520,8 +523,9 @@ exports[`EcSmartTable > #slots > should render resolved data properly with the h
             <tbody>
               
               <tr
-                class=""
+                class="ec-table__row"
                 data-test="ec-table__row ec-table__row--0"
+                tabindex="0"
               >
                 
                 <td
@@ -2357,8 +2361,9 @@ exports[`EcSmartTable > should not pass attrs to the ec-table 1`] = `
             <tbody>
               
               <tr
-                class=""
+                class="ec-table__row"
                 data-test="ec-table__row ec-table__row--0"
+                tabindex="0"
               >
                 
                 <td
@@ -2526,8 +2531,9 @@ exports[`EcSmartTable > should pass props to the ec-table 1`] = `
             <tbody>
               
               <tr
-                class=""
+                class="ec-table__row"
                 data-test="ec-table__row ec-table__row--0"
+                tabindex="0"
               >
                 
                 <td
@@ -2571,8 +2577,9 @@ exports[`EcSmartTable > should pass props to the ec-table 1`] = `
 
 exports[`EcSmartTable > should pass row-click event to the ec-table 1`] = `
 <tr
-  class="ec-table__row--is-clickable"
+  class="ec-table__row--is-clickable ec-table__row"
   data-test="ec-table__row ec-table__row--0"
+  tabindex="0"
 >
   
   <td
@@ -2792,8 +2799,9 @@ exports[`EcSmartTable > should render its own title instead of using the one ins
             <tbody>
               
               <tr
-                class=""
+                class="ec-table__row"
                 data-test="ec-table__row ec-table__row--0"
+                tabindex="0"
               >
                 
                 <td
@@ -2960,8 +2968,9 @@ exports[`EcSmartTable > should render resolved data properly 1`] = `
             <tbody>
               
               <tr
-                class=""
+                class="ec-table__row"
                 data-test="ec-table__row ec-table__row--0"
+                tabindex="0"
               >
                 
                 <td
