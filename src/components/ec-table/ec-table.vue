@@ -172,7 +172,7 @@ function hasSlot(slotName: string): boolean {
   }
 
   &__row--is-clickable:hover,
- &__row--is-clickable:focus {
+  &__row--is-clickable:focus {
     @apply tw-bg-gray-7;
     @apply tw-cursor-pointer;
   }

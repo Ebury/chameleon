@@ -56,8 +56,9 @@ exports[`EcTable > should have a column align to center if its type is icon 1`] 
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           <td
@@ -79,8 +80,9 @@ exports[`EcTable > should have a column align to center if its type is icon 1`] 
           
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           
           <td
@@ -165,8 +167,9 @@ exports[`EcTable > should have a column align to the right if its type is curren
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           <td
@@ -188,8 +191,9 @@ exports[`EcTable > should have a column align to the right if its type is curren
           
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           
           <td
@@ -238,8 +242,9 @@ exports[`EcTable > should only render custom row if "isCustomRowShown" is true 1
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           <td
             colspan="2"
@@ -252,8 +257,9 @@ exports[`EcTable > should only render custom row if "isCustomRowShown" is true 1
           </td>
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           <td
             colspan="2"
@@ -329,8 +335,9 @@ exports[`EcTable > should render as expected if provided with data and columns 1
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           <td
@@ -352,8 +359,9 @@ exports[`EcTable > should render as expected if provided with data and columns 1
           
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           
           <td
@@ -438,8 +446,9 @@ exports[`EcTable > should render as expected if provided with data and columns, 
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           <td
@@ -461,8 +470,9 @@ exports[`EcTable > should render as expected if provided with data and columns, 
           
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           
           <td
@@ -527,8 +537,9 @@ exports[`EcTable > should render as expected if provided with data but no column
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           <td
@@ -550,8 +561,9 @@ exports[`EcTable > should render as expected if provided with data but no column
           
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           
           <td
@@ -594,8 +606,9 @@ exports[`EcTable > should render as expected if provided with data but no column
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           <td
@@ -617,8 +630,9 @@ exports[`EcTable > should render as expected if provided with data but no column
           
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           
           <td
@@ -683,8 +697,9 @@ exports[`EcTable > should render as expected if provided with empty row and no c
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           
@@ -779,8 +794,9 @@ exports[`EcTable > should render as expected if provided with rows and columns, 
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           <td
@@ -802,8 +818,9 @@ exports[`EcTable > should render as expected if provided with rows and columns, 
           
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           
           <td
@@ -868,8 +885,9 @@ exports[`EcTable > should render custom row if window width is lower than 768px 
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           <td
             colspan="2"
@@ -882,8 +900,9 @@ exports[`EcTable > should render custom row if window width is lower than 768px 
           </td>
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           <td
             colspan="2"
@@ -959,8 +978,9 @@ exports[`EcTable > should render slots as expected 1`] = `
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           <td
@@ -984,8 +1004,9 @@ exports[`EcTable > should render slots as expected 1`] = `
           
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           
           <td
@@ -1183,8 +1204,9 @@ exports[`EcTable > should render the style with the max-width on each cell of th
       <tbody>
         
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--0"
+          tabindex="0"
         >
           
           <td
@@ -1207,8 +1229,9 @@ exports[`EcTable > should render the style with the max-width on each cell of th
           
         </tr>
         <tr
-          class=""
+          class="ec-table__row"
           data-test="ec-table__row ec-table__row--1"
+          tabindex="0"
         >
           
           <td
