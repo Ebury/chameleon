@@ -25,9 +25,12 @@
           <tr
             v-for="(row, rowIndex) in data"
             :key="rowIndex"
+            tabindex="0"
             :data-test="`ec-table__row ec-table__row--${rowIndex}`"
-            :class="{ 'ec-table__row--is-clickable': !!attrs.onRowClick }"
+            :class="{ 'ec-table__row--is-clickable': !!attrs.onRowClick, 'ec-table__row ': true }"
             @click="onRowClick({ data: row, rowIndex })"
+            @keydown.enter="onRowClick({ data: row, rowIndex })"
+            @keydown.space="onRowClick({ data: row, rowIndex })"
           >
             <td
               v-if="canShowCustomRow"
@@ -159,12 +162,17 @@ function hasSlot(slotName: string): boolean {
 
   border-spacing: 0;
 
+  &__row {
+    @apply tw-outline-0;
+  }
+
   &__title {
     @apply tw-h3;
     @apply tw-pb-16;
   }
 
-  &__row--is-clickable:hover {
+  &__row--is-clickable:hover,
+  &__row--is-clickable:focus {
     @apply tw-bg-gray-7;
     @apply tw-cursor-pointer;
   }
