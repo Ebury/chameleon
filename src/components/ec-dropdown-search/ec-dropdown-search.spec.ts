@@ -201,6 +201,16 @@ describe('EcDropdownSearch', () => {
     expect(wrapper.find('.ec-dropdown-search__item--is-selected').exists()).toBe(false);
   });
 
+  it('should emit search-change', async () => {
+    const wrapper = mountDropdownSearch({ items });
+    expect(wrapper.emitted('search-change')).toBeUndefined();
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-dropdown-search__search-input').element).value).toBe('');
+
+    await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('some text');
+    expect(wrapper.emitted()['search-change']?.[0]).toEqual(['some text']);
+    expect((wrapper.findByDataTest<HTMLInputElement>('ec-dropdown-search__search-input').element).value).toBe('some text');
+  });
+
   it('should add a tooltip for any disabled item', () => {
     const wrapper = mountDropdownSearch({ items });
 

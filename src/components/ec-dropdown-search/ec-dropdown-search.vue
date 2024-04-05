@@ -61,7 +61,7 @@
               />
               <input
                 ref="searchInput"
-                v-model.trim="filterText"
+                v-model.trim="filterTextModel"
                 autocomplete="off"
                 :placeholder="placeholder"
                 class="ec-dropdown-search__search-input"
@@ -185,6 +185,7 @@ const emit = defineEmits<{
   'open': [],
   'after-close': [],
   'after-open': [],
+  'search-change': [value?: string],
 }>();
 
 // popover styles
@@ -300,6 +301,16 @@ function focusFirstItem() {
 
 // search
 const filterText = ref('');
+
+const filterTextModel = computed({
+  get() {
+    return filterText.value;
+  },
+  set(value) {
+    filterText.value = value;
+    emit('search-change', value);
+  },
+});
 const isSearchInputFocused = ref(false);
 const searchInput = ref<Maybe<HTMLInputElement>>(null);
 
