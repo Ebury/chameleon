@@ -188,7 +188,9 @@ function getFocusTrapOptions(): UseFocusTrapOptions {
   return options;
 }
 
-const { deactivate } = useFocusTrap(focusTrapTarget, getFocusTrapOptions());
+const { deactivate, activate } = useFocusTrap(focusTrapTarget, getFocusTrapOptions());
+const focusTrapInterval = setInterval(() => activate(), 300);
+
 watch(() => focusTrapTarget.value, (targetEl) => {
   if (!targetEl) {
     deactivate();
@@ -219,6 +221,7 @@ function onKeyUp(e: KeyboardEvent) {
 }
 onBeforeUnmount(() => {
   document.removeEventListener('keyup', onKeyUp);
+  clearInterval(focusTrapInterval);
 });
 
 // modal footer

@@ -45,6 +45,22 @@ describe('EcModal', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('should remove focus trap activation interval on unmount', () => {
+    const wrapper = mountModal(
+      { show: true },
+      {
+        slots: {
+          main: '<p>Before we can process your application we need you to upload your management accounts. You can do this now or leave it for later.</p>',
+        },
+      },
+    );
+
+    const clearIntervalSpy = vi.spyOn(global, 'clearInterval');
+    wrapper.unmount();
+
+    expect(clearIntervalSpy).toHaveBeenCalledTimes(1);
+  });
+
   it('should render with custom attributes', () => {
     const wrapper = mountModal({
       show: true,
