@@ -185,7 +185,7 @@ const emit = defineEmits<{
   'open': [],
   'after-close': [],
   'after-open': [],
-  'search-change': [value?: string],
+  'search-change': [value: string],
 }>();
 
 // popover styles

@@ -250,6 +250,16 @@ describe('EcDropdown', () => {
       expect(wrapper.emitted('close')?.length).toBe(1);
     });
 
+    it('should emit search-change', async () => {
+      const wrapper = mountDropdown({ items, isSearchEnabled: true });
+      expect(wrapper.emitted('search-change')).toBeUndefined();
+      expect((wrapper.findByDataTest<HTMLInputElement>('ec-dropdown-search__search-input').element).value).toBe('');
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('some text');
+      expect(wrapper.emitted()['search-change']?.[0]).toEqual(['some text']);
+      expect((wrapper.findByDataTest<HTMLInputElement>('ec-dropdown-search__search-input').element).value).toBe('some text');
+    });
+
     it('should not return focus back to readonly input if it already has it', async () => {
       const focusSpy = vi.fn();
 
