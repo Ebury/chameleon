@@ -7,6 +7,7 @@
     :placeholder="searchPlaceholder"
     :no-results-text="noResultsText"
     :is-search-enabled="isSearchEnabled"
+    :is-custom-search-enabled="isCustomSearchEnabled"
     :search-fields="searchFields"
     :disabled="disabled"
     :level="level"

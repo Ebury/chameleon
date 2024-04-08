@@ -17,6 +17,7 @@ export interface DropdownSearchProps<TValue = string, TDropdownSearchItem extend
   placeholder?: string,
   level?: ZIndexLevel,
   isSearchEnabled?: boolean,
+  isCustomSearchEnabled?: boolean,
   isSensitive?: boolean,
   items?: TDropdownSearchItem[],
   searchFields?: ReadonlyArray<keyof TDropdownSearchItem>,

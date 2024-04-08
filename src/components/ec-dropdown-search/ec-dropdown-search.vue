@@ -174,6 +174,7 @@ const props = withDefaults(defineProps<DropdownSearchProps<TValue, TDropdownSear
   noResultsText: 'No results found',
   tooltipCta: '',
   isSearchEnabled: true,
+  isCustomSearchEnabled: false,
   items: () => [],
   maxVisibleItems: 4,
 });
@@ -321,6 +322,10 @@ function makeIndexText(item: TDropdownSearchItem, searchFields: ReadonlyArray<ke
 }
 
 const filteredItems = computed(() => {
+  if (props.isCustomSearchEnabled) {
+    return props.items;
+  }
+
   const sanitisedText = removeDiacritics(filterText.value.toLowerCase());
   if (!sanitisedText) {
     return props.items;
