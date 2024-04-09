@@ -7,6 +7,7 @@
     :placeholder="searchPlaceholder"
     :no-results-text="noResultsText"
     :is-search-enabled="isSearchEnabled"
+    :is-custom-search-enabled="isCustomSearchEnabled"
     :search-fields="searchFields"
     :disabled="disabled"
     :level="level"
@@ -20,6 +21,7 @@
     @close="$emit('close')"
     @after-open="$emit('after-open')"
     @after-close="$emit('after-close')"
+    @search-change="$emit('search-change', $event)"
   >
     <ec-input-field
       :id="id"
@@ -84,6 +86,7 @@ const emit = defineEmits<{
   'close': [],
   'after-open': [],
   'after-close': [],
+  'search-change': [value: string]
 }>();
 
 const props = withDefaults(defineProps<DropdownProps<TValue, TDropdownItem>>(), {

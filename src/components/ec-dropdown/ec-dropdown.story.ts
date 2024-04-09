@@ -64,6 +64,7 @@ const Template: StoryFn<DropdownProps<never>> = storyArgs => ({
       onFocus: action('focus'),
       onOpen: action('open'),
       onClose: action('close'),
+      onSearchChange: action('search-change'),
     };
   },
   template: `
@@ -79,6 +80,7 @@ const Template: StoryFn<DropdownProps<never>> = storyArgs => ({
             focus: onFocus,
             open: onOpen,
             close: onClose,
+            searchChange: onSearchChange
           }"
         >
           <template #cta>

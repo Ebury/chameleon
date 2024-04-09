@@ -101,6 +101,7 @@ export const all: EcDropdownSearchStory = storyArgs => ({
       argsComplex,
       args,
       onChange: action('change'),
+      onSearchChange: action('search-change'),
     };
   },
   template: `
@@ -115,7 +116,7 @@ export const all: EcDropdownSearchStory = storyArgs => ({
             v-bind="args"
             v-model="selectedItem"
             :popover-options="dropdownSearch.popoverOptions"
-            v-on="{ change: onChange }"
+            v-on="{ change: onChange, searchChange: onSearchChange }"
           >
             <a href="#" @click.prevent>
               <span>Open</span>
@@ -137,7 +138,7 @@ export const all: EcDropdownSearchStory = storyArgs => ({
         <ec-dropdown-search
           v-bind="argsComplex"
           v-model="selectedItem"
-          v-on="{ change: onChange }"
+          v-on="{ change: onChange, searchChange: onSearchChange }"
         >
           <a href="#" @click.prevent>
             <span>Open</span>

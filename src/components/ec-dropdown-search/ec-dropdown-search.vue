@@ -61,7 +61,7 @@
               />
               <input
                 ref="searchInput"
-                v-model.trim="filterText"
+                v-model.trim="filterTextModel"
                 autocomplete="off"
                 :placeholder="placeholder"
                 class="ec-dropdown-search__search-input"
@@ -174,6 +174,7 @@ const props = withDefaults(defineProps<DropdownSearchProps<TValue, TDropdownSear
   noResultsText: 'No results found',
   tooltipCta: '',
   isSearchEnabled: true,
+  isCustomSearchEnabled: false,
   items: () => [],
   maxVisibleItems: 4,
 });
@@ -185,6 +186,7 @@ const emit = defineEmits<{
   'open': [],
   'after-close': [],
   'after-open': [],
+  'search-change': [value: string],
 }>();
 
 // popover styles
@@ -300,6 +302,16 @@ function focusFirstItem() {
 
 // search
 const filterText = ref('');
+
+const filterTextModel = computed({
+  get() {
+    return filterText.value;
+  },
+  set(value) {
+    filterText.value = value;
+    emit('search-change', value);
+  },
+});
 const isSearchInputFocused = ref(false);
 const searchInput = ref<Maybe<HTMLInputElement>>(null);
 
@@ -310,6 +322,10 @@ function makeIndexText(item: TDropdownSearchItem, searchFields: ReadonlyArray<ke
 }
 
 const filteredItems = computed(() => {
+  if (props.isCustomSearchEnabled) {
+    return props.items;
+  }
+
   const sanitisedText = removeDiacritics(filterText.value.toLowerCase());
   if (!sanitisedText) {
     return props.items;
