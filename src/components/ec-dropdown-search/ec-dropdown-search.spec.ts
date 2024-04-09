@@ -304,6 +304,14 @@ describe('EcDropdownSearch', () => {
       expect(getItemTexts(wrapper)).toEqual(['Item ABC', 'Item BCD']);
     });
 
+    it('should not filter items if isCustomSearchEnabled is true', async () => {
+      const wrapper = mountDropdownSearch({ items: itemsToFilter, isCustomSearchEnabled: true });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('B');
+      expect(getItemTexts(wrapper)).toEqual(['Item ABC', 'Item BCD', 'Item cdf']);
+    });
+
     it('should filter items using case insensitive', async () => {
       const wrapper = mountDropdownSearch({ items: itemsToFilter });
       expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);

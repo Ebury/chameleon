@@ -260,6 +260,21 @@ describe('EcDropdown', () => {
       expect((wrapper.findByDataTest<HTMLInputElement>('ec-dropdown-search__search-input').element).value).toBe('some text');
     });
 
+    it('should not filter items if isCustomSearchEnabled is true', async () => {
+      const itemsToFilter = [
+        { text: 'Item ABC' },
+        { text: 'Item BCD' },
+        { text: 'Item cdf' },
+      ];
+
+      const wrapper = mountDropdown({ items: itemsToFilter, isCustomSearchEnabled: true, isSearchEnabled: true });
+      expect(wrapper.findAllByDataTest('ec-dropdown-search__item').length).toBe(itemsToFilter.length);
+
+      await wrapper.findByDataTest('ec-dropdown-search__search-input').setValue('B');
+      const itemsText = wrapper.findAllByDataTest('ec-dropdown-search__item').map(itemWrapper => itemWrapper.text());
+      expect(itemsText).toEqual(['Item ABC', 'Item BCD', 'Item cdf']);
+    });
+
     it('should not return focus back to readonly input if it already has it', async () => {
       const focusSpy = vi.fn();
 
