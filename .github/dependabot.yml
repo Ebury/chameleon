@@ -9,7 +9,6 @@ updates:
   versioning-strategy: increase
   reviewers:
   - "corinaper"
-  - "derrick-g"
   - "Alanebury"
   - "stavros-tomas"
   - "wolandec"
