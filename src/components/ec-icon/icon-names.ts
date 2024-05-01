@@ -124,7 +124,7 @@ export enum IconName {
   SIMPLE_COPY = 'simple-copy',
   SIMPLE_COUNTRY = 'simple-country',
   SIMPLE_CURRENCY = 'simple-currency',
-  SIMPLE_DASHBOARD_LIGHT = 'simple-dashboard-light',
+  SIMPLE_DASHBOARD_REVERSE = 'simple-dashboard-reverse',
   SIMPLE_DASHBOARD = 'simple-dashboard',
   SIMPLE_DELETE = 'simple-delete',
   SIMPLE_DOCUMENT = 'simple-document',
