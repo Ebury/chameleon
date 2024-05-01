@@ -138,6 +138,7 @@ export enum IconName {
   SIMPLE_LOADING = 'simple-loading',
   SIMPLE_LOCKER = 'simple-locker',
   SIMPLE_MAIL = 'simple-mail',
+  SIMPLE_MENU = 'simple-menu',
   SIMPLE_MORE = 'simple-more',
   SIMPLE_NUMBERS = 'simple-numbers',
   SIMPLE_OUTLINE_DELETE = 'simple-outline-delete',
