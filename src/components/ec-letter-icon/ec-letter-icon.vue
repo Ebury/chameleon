@@ -37,7 +37,9 @@ const props = withDefaults(defineProps<LetterIconProps>(), {
 });
 
 const firstLetter = computed(() => props.text[0]);
-const fontSize = computed(() => props.size / 2);
+
+// Design request: font-size has to be always half of circle size plus 2 px
+const fontSize = computed(() => props.size / 2 + 2);
 </script>
 
 <style>
