@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EcLetterIcon > should render as expected 1`] = `
+<div
+  class="ec-letter-icon"
+  data-test="ec-letter-icon"
+>
+  <svg
+    class="ec-letter-icon__svg"
+    data-test="ec-letter-icon__svg"
+    height="24"
+    width="24"
+  >
+    <text
+      class="ec-letter-icon__svg__text"
+      data-test="ec-letter-icon__svg__text"
+      dominant-baseline="central"
+      fill="currentColor"
+      font-size="12"
+      text-anchor="middle"
+      x="50%"
+      y="50%"
+    >
+      T
+    </text>
+  </svg>
+</div>
+`;

@@ -1,9 +1,11 @@
 <template>
   <div
+    data-test="ec-letter-icon"
     class="ec-letter-icon"
     :class="{ 'ec-letter-icon--clickable': isClickable }"
   >
     <svg
+      data-test="ec-letter-icon__svg"
       class="ec-letter-icon__svg"
       :width="size"
       :height="size"
@@ -14,7 +16,8 @@
         dominant-baseline="central"
         text-anchor="middle"
         fill="currentColor"
-        class="ec-letter-icon__svg__letter"
+        data-test="ec-letter-icon__svg__text"
+        class="ec-letter-icon__svg__text"
         :font-size="fontSize"
       >
         {{ firstLetter }}
@@ -44,7 +47,7 @@ const fontSize = computed(() => props.size / 2);
   &__svg {
     @apply tw-rounded-1/2 tw-bg-gray-6;
 
-    &__letter {
+    &__text {
       @apply tw-select-none tw-text-gray-2;
     }
   }
@@ -56,7 +59,7 @@ const fontSize = computed(() => props.size / 2);
       .ec-letter-icon__svg {
         @apply tw-bg-gray-2;
 
-        &__letter {
+        &__text {
           @apply tw-text-gray-6;
         }
       }
