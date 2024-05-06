@@ -60,7 +60,7 @@ const fontSize = computed(() => props.size / 2);
         @apply tw-bg-gray-2;
 
         &__text {
-          @apply tw-text-gray-6;
+          @apply tw-text-gray-7;
         }
       }
     }
