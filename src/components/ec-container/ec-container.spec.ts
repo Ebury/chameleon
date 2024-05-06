@@ -25,6 +25,22 @@ describe('EcContainer', () => {
     expect(wrapper.findByDataTest('ec-container__navigation').classes('ec-container__navigation--is-collapsable')).toBe(true);
   });
 
+  it('should not use mobile layout by default', () => {
+    const wrapper = mountEcContainer();
+
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-container').classes('ec-container--mobile-layout')).toBe(false);
+    expect(wrapper.findByDataTest('ec-container__navigation').classes('ec-container__navigation--mobile-layout')).toBe(false);
+  });
+
+  it('should apply mobile layout styles when showMobileLayout is given', () => {
+    const wrapper = mountEcContainer({ showMobileLayout: true });
+
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-container').classes('ec-container--mobile-layout')).toBe(true);
+    expect(wrapper.findByDataTest('ec-container__navigation').classes('ec-container__navigation--mobile-layout')).toBe(true);
+  });
+
   it('should render empty if no slots were given', () => {
     const wrapper = mountEcContainer();
 

@@ -1,5 +1,27 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`EcContainer > should apply mobile layout styles when showMobileLayout is given 1`] = `
+<div
+  class="ec-container ec-container--mobile-layout"
+  data-test="ec-container"
+>
+  <div
+    class="ec-container__navigation ec-container__navigation--mobile-layout"
+    data-test="ec-container__navigation"
+  >
+    
+    
+  </div>
+  <div
+    class="ec-container__content"
+    data-test="ec-container__content"
+  >
+    
+    
+  </div>
+</div>
+`;
+
 exports[`EcContainer > should make the navigation collapsable when isCollapsable is given 1`] = `
 <div
   class="ec-container"
@@ -23,6 +45,28 @@ exports[`EcContainer > should make the navigation collapsable when isCollapsable
 `;
 
 exports[`EcContainer > should not have a collapsable navigation by default 1`] = `
+<div
+  class="ec-container"
+  data-test="ec-container"
+>
+  <div
+    class="ec-container__navigation"
+    data-test="ec-container__navigation"
+  >
+    
+    
+  </div>
+  <div
+    class="ec-container__content"
+    data-test="ec-container__content"
+  >
+    
+    
+  </div>
+</div>
+`;
+
+exports[`EcContainer > should not use mobile layout by default 1`] = `
 <div
   class="ec-container"
   data-test="ec-container"
