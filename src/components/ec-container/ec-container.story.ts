@@ -46,6 +46,7 @@ const Template: StoryFn<typeof EcContainer> = args => ({
 export const basic = Template.bind({});
 basic.args = {
   isCollapsable: false,
+  isResponsive: false,
 };
 
 type ContainerWithNavigationStory = StoryFn<ContainerProps & {
@@ -60,6 +61,7 @@ type ContainerWithNavigationStory = StoryFn<ContainerProps & {
 
 export const withNavigation: ContainerWithNavigationStory = ({
   isCollapsable,
+  isResponsive,
   client,
   clientItems,
   branding,
@@ -89,6 +91,7 @@ export const withNavigation: ContainerWithNavigationStory = ({
 
     return {
       isCollapsable,
+      isResponsive,
       client,
       clientItems,
       branding,
@@ -107,7 +110,7 @@ export const withNavigation: ContainerWithNavigationStory = ({
     EcContainer, EcMainContainer, EcNavigation, EcMenu, EcUserInfo, EcDropdownSearch, EcIcon,
   },
   template: `
-    <ec-container :is-collapsable="isCollapsable">
+    <ec-container :is-collapsable="isCollapsable" :is-responsive="isResponsive">
       <template #navigation>
         <ec-navigation
           :is-collapsed="isCollapsable && isCollapsedFromProps"
@@ -177,6 +180,7 @@ withNavigation.argTypes = {
   footerLinks: { control: 'array' },
   copyrightText: { control: 'text' },
   isCollapsed: { control: 'boolean' },
+  isResponsive: { control: 'boolean' },
 };
 
 withNavigation.args = {
@@ -209,6 +213,7 @@ withNavigation.args = {
   isCollapsable: false,
   copyrightText: 'Copyright text 2019',
   isCollapsed: false,
+  isResponsive: false,
 };
 
 export const withMobileLayout: StoryFn<typeof EcContainer> = args => ({
@@ -230,5 +235,5 @@ export const withMobileLayout: StoryFn<typeof EcContainer> = args => ({
 
 withMobileLayout.args = {
   isCollapsable: false,
-  showMobileLayout: true,
+  isResponsive: true,
 };

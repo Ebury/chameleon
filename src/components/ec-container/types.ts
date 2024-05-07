@@ -1,4 +1,4 @@
 export interface ContainerProps {
   isCollapsable?: boolean,
-  showMobileLayout?: boolean,
+  isResponsive?: boolean,
 }

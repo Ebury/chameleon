@@ -1,14 +1,14 @@
 <template>
   <div
     class="ec-container"
-    :class="{ 'ec-container--mobile-layout': showMobileLayout }"
+    :class="{ 'ec-container--is-responsive': isResponsive }"
     data-test="ec-container"
   >
     <div
       class="ec-container__navigation"
       :class="{
         'ec-container__navigation--is-collapsable': isCollapsable,
-        'ec-container__navigation--mobile-layout': showMobileLayout,
+        'ec-container__navigation--is-responsive': isResponsive,
       }"
       data-test="ec-container__navigation"
     >
@@ -26,7 +26,9 @@
 <script setup lang="ts">
 import type { ContainerProps } from './types';
 
-defineProps<ContainerProps>();
+withDefaults(defineProps<ContainerProps>(), {
+  isResponsive: true,
+});
 </script>
 
 <style>
@@ -34,7 +36,7 @@ defineProps<ContainerProps>();
   @apply tw-flex tw-flex-row tw-items-stretch;
   @apply tw-min-h-screen;
 
-  &--mobile-layout {
+  &--is-responsive {
     @apply tw-flex-col;
   }
 
@@ -45,7 +47,7 @@ defineProps<ContainerProps>();
       flex-basis: 80px;
     }
 
-    &--mobile-layout {
+    &--is-responsive {
       @apply tw-basis-auto;
     }
   }

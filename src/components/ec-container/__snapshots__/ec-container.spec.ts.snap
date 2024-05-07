@@ -1,12 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcContainer > should apply mobile layout styles when showMobileLayout is given 1`] = `
+exports[`EcContainer > should make the navigation collapsable when isCollapsable is given 1`] = `
 <div
-  class="ec-container ec-container--mobile-layout"
+  class="ec-container ec-container--is-responsive"
   data-test="ec-container"
 >
   <div
-    class="ec-container__navigation ec-container__navigation--mobile-layout"
+    class="ec-container__navigation ec-container__navigation--is-collapsable ec-container__navigation--is-responsive"
     data-test="ec-container__navigation"
   >
     
@@ -22,13 +22,13 @@ exports[`EcContainer > should apply mobile layout styles when showMobileLayout i
 </div>
 `;
 
-exports[`EcContainer > should make the navigation collapsable when isCollapsable is given 1`] = `
+exports[`EcContainer > should not apply mobile layout styles when isResponsive is set to false 1`] = `
 <div
   class="ec-container"
   data-test="ec-container"
 >
   <div
-    class="ec-container__navigation ec-container__navigation--is-collapsable"
+    class="ec-container__navigation"
     data-test="ec-container__navigation"
   >
     
@@ -46,33 +46,11 @@ exports[`EcContainer > should make the navigation collapsable when isCollapsable
 
 exports[`EcContainer > should not have a collapsable navigation by default 1`] = `
 <div
-  class="ec-container"
+  class="ec-container ec-container--is-responsive"
   data-test="ec-container"
 >
   <div
-    class="ec-container__navigation"
-    data-test="ec-container__navigation"
-  >
-    
-    
-  </div>
-  <div
-    class="ec-container__content"
-    data-test="ec-container__content"
-  >
-    
-    
-  </div>
-</div>
-`;
-
-exports[`EcContainer > should not use mobile layout by default 1`] = `
-<div
-  class="ec-container"
-  data-test="ec-container"
->
-  <div
-    class="ec-container__navigation"
+    class="ec-container__navigation ec-container__navigation--is-responsive"
     data-test="ec-container__navigation"
   >
     
@@ -90,11 +68,11 @@ exports[`EcContainer > should not use mobile layout by default 1`] = `
 
 exports[`EcContainer > should render empty if no slots were given 1`] = `
 <div
-  class="ec-container"
+  class="ec-container ec-container--is-responsive"
   data-test="ec-container"
 >
   <div
-    class="ec-container__navigation"
+    class="ec-container__navigation ec-container__navigation--is-responsive"
     data-test="ec-container__navigation"
   >
     
@@ -112,11 +90,11 @@ exports[`EcContainer > should render empty if no slots were given 1`] = `
 
 exports[`EcContainer > should render slot for content 1`] = `
 <div
-  class="ec-container"
+  class="ec-container ec-container--is-responsive"
   data-test="ec-container"
 >
   <div
-    class="ec-container__navigation"
+    class="ec-container__navigation ec-container__navigation--is-responsive"
     data-test="ec-container__navigation"
   >
     
@@ -137,17 +115,39 @@ exports[`EcContainer > should render slot for content 1`] = `
 
 exports[`EcContainer > should render slot for navigation 1`] = `
 <div
-  class="ec-container"
+  class="ec-container ec-container--is-responsive"
   data-test="ec-container"
 >
   <div
-    class="ec-container__navigation"
+    class="ec-container__navigation ec-container__navigation--is-responsive"
     data-test="ec-container__navigation"
   >
     
     <div>
       navigation template
     </div>
+    
+  </div>
+  <div
+    class="ec-container__content"
+    data-test="ec-container__content"
+  >
+    
+    
+  </div>
+</div>
+`;
+
+exports[`EcContainer > should use mobile layout by default 1`] = `
+<div
+  class="ec-container ec-container--is-responsive"
+  data-test="ec-container"
+>
+  <div
+    class="ec-container__navigation ec-container__navigation--is-responsive"
+    data-test="ec-container__navigation"
+  >
+    
     
   </div>
   <div
