@@ -32,6 +32,15 @@ describe('EcLetterIcon', () => {
     expect(svgText.text()).toBe('T');
   });
 
+  it('should render the letter as uppercase if the text begins with a lowercase character', () => {
+    const wrapper = mountLetterIcon({
+      text: 'test',
+    });
+
+    const svgText = wrapper.findByDataTest('ec-letter-icon__svg__text');
+    expect(svgText.text()).toBe('T');
+  });
+
   it('should apply new width and height if "size" prop is set', () => {
     const wrapper = mountLetterIcon({
       text: 'Test',

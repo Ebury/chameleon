@@ -37,7 +37,7 @@ const props = withDefaults(defineProps<LetterIconProps>(), {
   isClickable: false,
 });
 
-const firstLetter = computed(() => props.text[0]);
+const firstLetter = computed(() => (props.text[0] ? props.text[0].toUpperCase() : ''));
 
 // Design request: font-size has to be always half of circle size plus 2 px
 const fontSize = computed(() => props.size / 2 + 2);
