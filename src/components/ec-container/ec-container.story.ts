@@ -211,7 +211,7 @@ withNavigation.args = {
   isCollapsed: false,
 };
 
-export const withMobileLayout: StoryFn<typeof EcContainer> = args => ({
+export const withResponsiveLayout: StoryFn<typeof EcContainer> = args => ({
   components: { EcContainer },
   setup() {
     return { args };
@@ -228,7 +228,7 @@ export const withMobileLayout: StoryFn<typeof EcContainer> = args => ({
   `,
 });
 
-withMobileLayout.args = {
+withResponsiveLayout.args = {
   isCollapsable: false,
   isResponsive: true,
 };
