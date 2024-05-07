@@ -1,5 +1,6 @@
 <template>
-  <div
+  <component
+    :is="isClickable ? 'button' : 'div'"
     data-test="ec-letter-icon"
     class="ec-letter-icon"
     :class="{ 'ec-letter-icon--clickable': isClickable }"
@@ -23,7 +24,7 @@
         {{ firstLetter }}
       </text>
     </svg>
-  </div>
+  </component>
 </template>
 
 <script setup lang="ts">
@@ -55,7 +56,7 @@ const fontSize = computed(() => props.size / 2 + 2);
   }
 
   &--clickable {
-    @apply tw-cursor-pointer;
+    @apply tw-cursor-pointer tw-border-0 tw-p-0;
 
     &:hover {
       .ec-letter-icon__svg {

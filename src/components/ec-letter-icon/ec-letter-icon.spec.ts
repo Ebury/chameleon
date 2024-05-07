@@ -43,13 +43,14 @@ describe('EcLetterIcon', () => {
     expect(svg.attributes().height).toBe('48');
   });
 
-  it('should add clickable class if "isClickable" prop is set', () => {
+  it('should use button element and add clickable class if "isClickable" prop is set', () => {
     const wrapper = mountLetterIcon({
       text: 'Test',
       isClickable: true,
     });
 
     const svgContainer = wrapper.findByDataTest('ec-letter-icon');
+    expect(svgContainer.element.tagName).toContain('BUTTON');
     expect(svgContainer.classes()).toContain('ec-letter-icon--clickable');
   });
 });
