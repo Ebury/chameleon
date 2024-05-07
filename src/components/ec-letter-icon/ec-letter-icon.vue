@@ -43,10 +43,10 @@ const letterSize = computed<StyleValue>(() => ({
 
 <style>
 .ec-letter-icon {
-  @apply tw-flex tw-justify-center tw-items-center tw-w-fit tw-rounded-1/2 tw-bg-gray-6;
+  @apply tw-flex tw-justify-center tw-items-center tw-rounded-1/2 tw-bg-gray-6;
 
   &__text {
-    @apply tw-select-none tw-align-middle tw-text-gray-2;
+    @apply tw-select-none tw-text-gray-2;
   }
 
   &--clickable {
