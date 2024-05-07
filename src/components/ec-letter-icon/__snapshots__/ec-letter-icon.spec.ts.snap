@@ -4,25 +4,14 @@ exports[`EcLetterIcon > should render as expected 1`] = `
 <div
   class="ec-letter-icon"
   data-test="ec-letter-icon"
+  style="height: 24px; width: 24px;"
 >
-  <svg
-    class="ec-letter-icon__svg"
-    data-test="ec-letter-icon__svg"
-    height="24"
-    width="24"
+  <span
+    class="ec-letter-icon__text"
+    data-test="ec-letter-icon__text"
+    style="font-size: 14px;"
   >
-    <text
-      class="ec-letter-icon__svg__text"
-      data-test="ec-letter-icon__svg__text"
-      dominant-baseline="central"
-      fill="currentColor"
-      font-size="14"
-      text-anchor="middle"
-      x="50%"
-      y="50%"
-    >
-      T
-    </text>
-  </svg>
+    T
+  </span>
 </div>
 `;

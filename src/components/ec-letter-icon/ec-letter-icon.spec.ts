@@ -28,8 +28,8 @@ describe('EcLetterIcon', () => {
       text: 'Test',
     });
 
-    const svgText = wrapper.findByDataTest('ec-letter-icon__svg__text');
-    expect(svgText.text()).toBe('T');
+    const text = wrapper.findByDataTest('ec-letter-icon__text');
+    expect(text.text()).toBe('T');
   });
 
   it('should render the letter as uppercase if the text begins with a lowercase character', () => {
@@ -37,8 +37,8 @@ describe('EcLetterIcon', () => {
       text: 'test',
     });
 
-    const svgText = wrapper.findByDataTest('ec-letter-icon__svg__text');
-    expect(svgText.text()).toBe('T');
+    const text = wrapper.findByDataTest('ec-letter-icon__text');
+    expect(text.text()).toBe('T');
   });
 
   it('should apply new width and height if "size" prop is set', () => {
@@ -47,9 +47,8 @@ describe('EcLetterIcon', () => {
       size: 48,
     });
 
-    const svg = wrapper.findByDataTest('ec-letter-icon__svg');
-    expect(svg.attributes().width).toBe('48');
-    expect(svg.attributes().height).toBe('48');
+    const container = wrapper.findByDataTest('ec-letter-icon');
+    expect(container.attributes().style).toBe('height: 48px; width: 48px;');
   });
 
   it('should use button element and add clickable class if "isClickable" prop is set', () => {
@@ -58,8 +57,8 @@ describe('EcLetterIcon', () => {
       isClickable: true,
     });
 
-    const svgContainer = wrapper.findByDataTest('ec-letter-icon');
-    expect(svgContainer.element.tagName).toContain('BUTTON');
-    expect(svgContainer.classes()).toContain('ec-letter-icon--clickable');
+    const container = wrapper.findByDataTest('ec-letter-icon');
+    expect(container.element.tagName).toContain('BUTTON');
+    expect(container.classes()).toContain('ec-letter-icon--clickable');
   });
 });
