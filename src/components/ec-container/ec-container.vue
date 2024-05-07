@@ -26,9 +26,7 @@
 <script setup lang="ts">
 import type { ContainerProps } from './types';
 
-withDefaults(defineProps<ContainerProps>(), {
-  isResponsive: true,
-});
+defineProps<ContainerProps>();
 </script>
 
 <style>
