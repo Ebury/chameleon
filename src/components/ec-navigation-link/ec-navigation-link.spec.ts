@@ -55,6 +55,12 @@ describe('EcNavigationLink', () => {
       expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--is-compact')).toBe(true);
     });
 
+    it('should be use light styles when isInLightMode is passed into', () => {
+      const wrapper = mountAsRouterLink({ isInLightMode: true });
+      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--light-mode')).toBe(true);
+    });
+
     it('should pass listeners from parent to the root', () => {
       const clickSpy = vi.fn();
       const wrapper = mountAsRouterLink({}, {
@@ -125,6 +131,12 @@ describe('EcNavigationLink', () => {
       const wrapper = mountAsAnchor({ isCompact: true });
       expect(wrapper.element).toMatchSnapshot();
       expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--is-compact')).toBe(true);
+    });
+
+    it('should be use light styles when isInLightMode is passed into', () => {
+      const wrapper = mountAsAnchor({ isInLightMode: true });
+      expect(wrapper.element).toMatchSnapshot();
+      expect(wrapper.findByDataTest('ec-navigation-link').classes('ec-navigation-link--light-mode')).toBe(true);
     });
 
     it('should pass listeners from parent to the root', () => {
