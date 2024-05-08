@@ -118,7 +118,7 @@ function clearFilters() {
       @apply tw-gap-y-16;
     }
 
-    @media (min-width: 850px) {
+    @media (min-width: 900px) {
       @apply tw-grid-rows-1;
     }
   }
@@ -139,7 +139,7 @@ function clearFilters() {
     &--is-stretched {
       @apply tw-col-start-1 tw-col-end-[-2];
 
-      @media (min-width: 850px) {
+      @media (min-width: 900px) {
         @apply tw-col-auto;
       }
     }

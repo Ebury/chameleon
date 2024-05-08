@@ -111,9 +111,6 @@ function onOpen(isOpen: boolean) {
 
   &__label {
     @apply tw-text-gray-3;
-    @apply tw-truncate;
-
-    max-width: var(--ec-filter-label-width);
   }
 
   &__badge {
