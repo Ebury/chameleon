@@ -41,15 +41,13 @@ describe('EcLetterIcon', () => {
     expect(text.text()).toBe('T');
   });
 
-  it('should render the container even if text is an empty string', () => {
+  it('should not display the icon if text is an empty string', () => {
     const wrapper = mountLetterIcon({
       text: '',
     });
 
     const container = wrapper.findByDataTest('ec-letter-icon');
-    const text = wrapper.findByDataTest('ec-letter-icon__text');
-    expect(container.exists()).toBe(true);
-    expect(text.text()).toBe('');
+    expect(container.exists()).toBe(false);
   });
 
   it('should apply corresponding class if "size" prop is set', () => {

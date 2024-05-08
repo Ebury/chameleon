@@ -1,6 +1,7 @@
 <template>
   <component
     :is="isClickable ? 'button' : 'div'"
+    v-if="text"
     data-test="ec-letter-icon"
     class="ec-letter-icon"
     :class="{
@@ -27,7 +28,7 @@ const props = withDefaults(defineProps<LetterIconProps>(), {
   isClickable: false,
 });
 
-const firstLetter = computed(() => (props.text[0]?.toUpperCase() || ''));
+const firstLetter = computed(() => (props.text[0]?.toUpperCase()));
 </script>
 
 <style>
