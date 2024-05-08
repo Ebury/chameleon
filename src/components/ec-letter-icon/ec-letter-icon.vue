@@ -3,13 +3,14 @@
     :is="isClickable ? 'button' : 'div'"
     data-test="ec-letter-icon"
     class="ec-letter-icon"
-    :class="{ 'ec-letter-icon--clickable': isClickable }"
-    :style="containerSize"
+    :class="{
+      'ec-letter-icon--clickable': isClickable,
+      [`ec-letter-icon--${size}`]: true,
+    }"
   >
     <span
       data-test="ec-letter-icon__text"
       class="ec-letter-icon__text"
-      :style="letterSize"
     >
       {{ firstLetter }}
     </span>
@@ -17,28 +18,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type StyleValue } from 'vue';
+import { computed } from 'vue';
 
-import type { LetterIconProps } from './types';
+import { type LetterIconProps, LetterIconSize } from './types';
 
 const props = withDefaults(defineProps<LetterIconProps>(), {
-  size: 24,
+  size: LetterIconSize.SMALL,
   isClickable: false,
 });
 
 const firstLetter = computed(() => (props.text[0]?.toUpperCase() || ''));
-
-// Design request: font-size has to be always half of circle size plus 2 px
-const fontSize = computed(() => props.size / 2 + 2);
-
-const containerSize = computed<StyleValue>(() => ({
-  height: `${props.size}px`,
-  width: `${props.size}px`,
-}));
-
-const letterSize = computed<StyleValue>(() => ({
-  fontSize: `${fontSize.value}px`,
-}));
 </script>
 
 <style>
@@ -47,6 +36,18 @@ const letterSize = computed<StyleValue>(() => ({
 
   &__text {
     @apply tw-select-none tw-text-gray-2;
+  }
+
+  &--sm {
+    @apply tw-size-24;
+
+    font-size: 14px;
+  }
+
+  &--md {
+    @apply tw-size-32;
+
+    font-size: 18px;
   }
 
   &--clickable {

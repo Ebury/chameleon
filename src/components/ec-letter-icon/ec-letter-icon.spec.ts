@@ -1,7 +1,7 @@
 import { type ComponentMountingOptions, mount } from '@vue/test-utils';
 
 import EcLetterIcon from './ec-letter-icon.vue';
-import type { LetterIconProps } from './types';
+import { type LetterIconProps, LetterIconSize } from './types';
 
 describe('EcLetterIcon', () => {
   function mountLetterIcon(props: LetterIconProps, mountOpts?: ComponentMountingOptions<typeof EcLetterIcon>) {
@@ -52,14 +52,14 @@ describe('EcLetterIcon', () => {
     expect(text.text()).toBe('');
   });
 
-  it('should apply new width and height if "size" prop is set', () => {
+  it('should apply corresponding class if "size" prop is set', () => {
     const wrapper = mountLetterIcon({
       text: 'Test',
-      size: 48,
+      size: LetterIconSize.MEDIUM,
     });
 
     const container = wrapper.findByDataTest('ec-letter-icon');
-    expect(container.attributes().style).toBe('height: 48px; width: 48px;');
+    expect(container.classes()).toContain('ec-letter-icon--md');
   });
 
   it('should use button element and add clickable class if "isClickable" prop is set', () => {

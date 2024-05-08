@@ -1,5 +1,10 @@
 export interface LetterIconProps {
   text: string,
-  size?: number,
+  size?: LetterIconSize,
   isClickable?: boolean,
+}
+
+export enum LetterIconSize {
+  SMALL = 'sm',
+  MEDIUM = 'md',
 }

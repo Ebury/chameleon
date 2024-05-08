@@ -2,14 +2,12 @@
 
 exports[`EcLetterIcon > should render as expected 1`] = `
 <div
-  class="ec-letter-icon"
+  class="ec-letter-icon ec-letter-icon--sm"
   data-test="ec-letter-icon"
-  style="height: 24px; width: 24px;"
 >
   <span
     class="ec-letter-icon__text"
     data-test="ec-letter-icon__text"
-    style="font-size: 14px;"
   >
     T
   </span>

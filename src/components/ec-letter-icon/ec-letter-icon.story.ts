@@ -1,6 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/vue3';
 
 import EcLetterIcon from './ec-letter-icon.vue';
+import { LetterIconSize } from './types';
 
 export default {
   title: 'Letter Icon',
@@ -29,4 +30,11 @@ export const basic = Template.bind({});
 
 basic.args = {
   text: 'Letter Icon',
+};
+
+basic.argTypes = {
+  size: {
+    options: Object.values(LetterIconSize),
+    control: { type: 'select' },
+  },
 };
