@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EcLetterIcon > should render as expected 1`] = `
+<div
+  class="ec-letter-icon ec-letter-icon--sm"
+  data-test="ec-letter-icon"
+>
+  <span
+    class="ec-letter-icon__text"
+    data-test="ec-letter-icon__text"
+  >
+    T
+  </span>
+</div>
+`;

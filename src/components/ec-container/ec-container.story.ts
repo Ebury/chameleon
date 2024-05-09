@@ -210,3 +210,25 @@ withNavigation.args = {
   copyrightText: 'Copyright text 2019',
   isCollapsed: false,
 };
+
+export const withResponsiveLayout: StoryFn<typeof EcContainer> = args => ({
+  components: { EcContainer },
+  setup() {
+    return { args };
+  },
+  template: `
+    <ec-container v-bind="args">
+      <template #navigation>
+        <div class="tw-bg-key-2 tw-text-gray-8 tw-min-h-48">Navigation panel</div>
+      </template>
+      <template #content>
+        <div class="tw-bg-key-6 tw-text-gray-2 tw-min-h-screen">Main content panel</div>
+      </template>
+    </ec-container>
+  `,
+});
+
+withResponsiveLayout.args = {
+  isCollapsable: false,
+  isResponsive: true,
+};
