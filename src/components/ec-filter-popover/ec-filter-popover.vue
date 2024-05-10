@@ -82,7 +82,6 @@ function onOpen(isOpen: boolean) {
 :host {
   --ec-filter-popover-width: 304px;
   --ec-filter-popover-height: 368px;
-  --ec-filter-label-width: 120px;
 }
 
 .ec-filter-popover {
@@ -111,9 +110,6 @@ function onOpen(isOpen: boolean) {
 
   &__label {
     @apply tw-text-gray-3;
-    @apply tw-truncate;
-
-    max-width: var(--ec-filter-label-width);
   }
 
   &__badge {
