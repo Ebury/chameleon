@@ -82,7 +82,6 @@ function onOpen(isOpen: boolean) {
 :host {
   --ec-filter-popover-width: 304px;
   --ec-filter-popover-height: 368px;
-  --ec-filter-label-width: 120px;
 }
 
 .ec-filter-popover {
