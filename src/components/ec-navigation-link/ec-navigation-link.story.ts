@@ -35,3 +35,21 @@ basic.args = {
 basic.parameters = {
   backgrounds: { default: DARK_THEME.name, values: [DARK_THEME] },
 };
+
+export const lightMode: StoryFn<typeof EcNavigationLink> = args => ({
+  components: { EcNavigationLink },
+  setup() {
+    return { args };
+  },
+  template: `
+    <ec-navigation-link v-bind="args" />
+  `,
+});
+
+lightMode.args = {
+  text: 'Trade Finance',
+  iconName: IconName.SIMPLE_TRADE_FINANCE,
+  iconSize: 30,
+  url: '/trade-finance',
+  isInLightMode: true,
+};

@@ -12,4 +12,5 @@ export interface NavigationLinkProps {
   isCollapsed?: boolean,
   isCompact?: boolean,
   target?: string,
+  isInLightMode?: boolean,
 }

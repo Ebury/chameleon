@@ -12,6 +12,7 @@
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
       'ec-navigation-link--is-collapsed': isCollapsed,
+      'ec-navigation-link--light-mode': isInLightMode,
     }"
     :to="url"
   >
@@ -43,6 +44,7 @@
       'ec-navigation-link--is-active': isActive,
       'ec-navigation-link--is-compact': isCompact,
       'ec-navigation-link--is-collapsed': isCollapsed,
+      'ec-navigation-link--light-mode': isInLightMode,
     }"
     :href="url"
     :target="target"
@@ -106,6 +108,14 @@ withDefaults(defineProps<NavigationLinkProps>(), {
 
   &--is-collapsed {
     @apply tw-py-12 tw-px-28;
+  }
+
+  &--light-mode {
+    @apply tw-text-gray-3;
+
+    &:hover {
+      @apply tw-text-gray-2;
+    }
   }
 
   &__icon {
