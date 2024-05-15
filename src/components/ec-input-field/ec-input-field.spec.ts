@@ -35,6 +35,21 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('renders properly with the given prop isInLightMode true', () => {
+    const wrapper = mountInputField({ isInLightMode: true });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly with the given prop isInLightMode true and isDropDownOpen true', () => {
+    const wrapper = mountInputField({ isInLightMode: true, isDropdownOpen: true });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly with the given prop isInLightMode false and isDropDownOpen true', () => {
+    const wrapper = mountInputField({ isInLightMode: false, isDropdownOpen: true });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('renders properly with the given prop autocomplete OFF', () => {
     const wrapper = mountInputField({ autocomplete: 'off' });
     expect(wrapper.findByDataTest('ec-input-field__input').attributes('autocomplete')).toBe('off');
