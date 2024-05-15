@@ -136,7 +136,7 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   isSensitive: false,
   isWarning: false,
   isInLightMode: false,
-  isDropdownOpen: false,
+  isBgColorInverse: false,
 });
 
 const isInvalid = computed(() => !!props.errorMessage);
@@ -160,10 +160,9 @@ const inputClasses = computed(() => {
 
   if (props.isInLightMode) {
     classes.push('ec-input-field__input--light-mode');
-
-    if (props.isDropdownOpen) {
-      classes.push('ec-input-field__input--is-dropdown-open');
-    }
+  }
+  if (props.isBgColorInverse) {
+    classes.push('ec-input-field__input--inverse-bg-color');
   }
   if (props.isInGroup) {
     classes.push(`ec-input-field__input--is-in-group-${props.isInGroup}`);
@@ -285,7 +284,7 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
       }
     }
 
-    &--is-dropdown-open {
+    &--inverse-bg-color {
       @apply tw-bg-gray-8;
     }
   }

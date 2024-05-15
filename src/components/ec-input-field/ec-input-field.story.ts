@@ -205,6 +205,10 @@ export const all: AllInputFieldStory = storyArgs => ({
           <ec-input-field readonly placeholder="My input" left-icon="${IconName.SIMPLE_SEARCH}" :model-value="valueText" label="Input with loading icon" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-loading="true" />
         </div>
 
+        <div class="tw-flex-col-full md:tw-flex-col-4">
+          <ec-input-field placeholder="My input" :model-value="valueText" label="Input in light mode" :is-in-group="isInGroup" :is-sensitive="isSensitive" :is-in-light-mode="true" />
+        </div>
+
         <div class="tw-flex-col-full" />
 
         <div class="tw-flex-col-full md:tw-flex-col-4">

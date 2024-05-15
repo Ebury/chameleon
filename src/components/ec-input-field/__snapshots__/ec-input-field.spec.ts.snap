@@ -346,7 +346,7 @@ exports[`EcInputField > renders properly with the given prop errorMessage 1`] = 
 </div>
 `;
 
-exports[`EcInputField > renders properly with the given prop isInLightMode false and isDropDownOpen true 1`] = `
+exports[`EcInputField > renders properly with the given prop isBgColorInverse true 1`] = `
 <div
   class="ec-input-field"
   data-test="ec-input-field"
@@ -371,7 +371,7 @@ exports[`EcInputField > renders properly with the given prop isInLightMode false
     </span>
   </label>
   <input
-    class="ec-input-field__input"
+    class="ec-input-field__input ec-input-field__input--inverse-bg-color"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"
@@ -408,42 +408,6 @@ exports[`EcInputField > renders properly with the given prop isInLightMode true 
   </label>
   <input
     class="ec-input-field__input ec-input-field__input--light-mode"
-    data-test="ec-input-field__input"
-    id="ec-input-field-1"
-    type="text"
-  />
-  <!--v-if-->
-  <!--v-if-->
-  <!--v-if-->
-</div>
-`;
-
-exports[`EcInputField > renders properly with the given prop isInLightMode true and isDropDownOpen true 1`] = `
-<div
-  class="ec-input-field"
-  data-test="ec-input-field"
->
-  <label
-    class="ec-input-field__label"
-    data-test="ec-input-field__label"
-    for="ec-input-field-1"
-  >
-    <span
-      class="ec-input-field__label-text"
-      data-test="ec-input-field__label-text"
-    >
-      label test
-      <!--v-if-->
-    </span>
-    <span
-      class="ec-input-field__note"
-      data-test="ec-input-field__note"
-    >
-      note test
-    </span>
-  </label>
-  <input
-    class="ec-input-field__input ec-input-field__input--light-mode ec-input-field__input--is-dropdown-open"
     data-test="ec-input-field__input"
     id="ec-input-field-1"
     type="text"

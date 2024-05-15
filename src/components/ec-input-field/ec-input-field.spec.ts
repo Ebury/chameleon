@@ -40,13 +40,8 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('renders properly with the given prop isInLightMode true and isDropDownOpen true', () => {
-    const wrapper = mountInputField({ isInLightMode: true, isDropdownOpen: true });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('renders properly with the given prop isInLightMode false and isDropDownOpen true', () => {
-    const wrapper = mountInputField({ isInLightMode: false, isDropdownOpen: true });
+  it('renders properly with the given prop isBgColorInverse true', () => {
+    const wrapper = mountInputField({ isBgColorInverse: true });
     expect(wrapper.element).toMatchSnapshot();
   });
 
