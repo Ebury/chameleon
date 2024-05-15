@@ -40,6 +40,7 @@
       :icon="isDropdownOpen ? IconName.SIMPLE_CHEVRON_UP : IconName.SIMPLE_CHEVRON_DOWN"
       :is-in-group="isInGroup"
       :is-dropdown-open="isDropdownOpen"
+      :is-in-light-mode="isInLightMode"
       @focus="onFocus"
       @blur="$emit('blur')"
     />

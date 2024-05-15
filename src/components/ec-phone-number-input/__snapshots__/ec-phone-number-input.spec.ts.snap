@@ -99,7 +99,7 @@ exports[`EcPhoneNumberInput > :props > should render in a disabled state 1`] = `
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -353,7 +353,7 @@ exports[`EcPhoneNumberInput > :props > should render in a loading state 1`] = `
         width="24"
       >
         <use
-          xlink:href="#ec-simple-arrow-drop-down"
+          xlink:href="#ec-simple-chevron-down"
         />
       </svg>
     </div>
@@ -492,7 +492,7 @@ exports[`EcPhoneNumberInput > :props > should render with a disabled tooltip mes
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -770,7 +770,7 @@ exports[`EcPhoneNumberInput > :props > should render with a label 1`] = `
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -1047,7 +1047,7 @@ exports[`EcPhoneNumberInput > :props > should render with a note 1`] = `
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -1322,7 +1322,7 @@ exports[`EcPhoneNumberInput > :props > should render with a sensitive class when
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -1623,7 +1623,7 @@ exports[`EcPhoneNumberInput > :props > should render with an error message 1`] =
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -1899,7 +1899,7 @@ exports[`EcPhoneNumberInput > :props > should render with icon static prefix 1`]
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -2165,7 +2165,7 @@ exports[`EcPhoneNumberInput > should render properly 1`] = `
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>

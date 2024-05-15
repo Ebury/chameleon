@@ -151,7 +151,7 @@ exports[`EcCurrencyFilter > should pass down props required by ec-amount-filter-
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -603,7 +603,7 @@ exports[`EcCurrencyFilter > should preselect given filters from the value prop 2
                 width="24"
               >
                 <use
-                  xlink:href="#ec-simple-arrow-drop-down"
+                  xlink:href="#ec-simple-chevron-down"
                 />
               </svg>
             </div>
@@ -1220,7 +1220,7 @@ exports[`EcCurrencyFilter > should render correctly 1`] = `
                           width="24"
                         >
                           <use
-                            xlink:href="#ec-simple-arrow-drop-down"
+                            xlink:href="#ec-simple-chevron-down"
                           />
                         </svg>
                       </div>
@@ -1863,7 +1863,7 @@ exports[`EcCurrencyFilter > should render with custom attributes 1`] = `
                           width="24"
                         >
                           <use
-                            xlink:href="#ec-simple-arrow-drop-down"
+                            xlink:href="#ec-simple-chevron-down"
                           />
                         </svg>
                       </div>
@@ -2010,7 +2010,7 @@ exports[`EcCurrencyFilter > v-model > should clear the amount and comparison sym
                 width="24"
               >
                 <use
-                  xlink:href="#ec-simple-arrow-drop-down"
+                  xlink:href="#ec-simple-chevron-down"
                 />
               </svg>
             </div>

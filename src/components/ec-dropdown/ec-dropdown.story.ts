@@ -247,6 +247,17 @@ export const all: StoryFn = args => ({
             v-model="selected">
           </ec-dropdown>
         </div>
+        <div class="tw-flex-col-4">
+        <ec-dropdown
+          :items="items"
+          :is-search-enabled="true"
+          :is-in-light-mode="true"
+          label="Light mode"
+          placeholder="Light mode"
+          label-tooltip="This is a tooltip"
+          v-model="selected">
+        </ec-dropdown>
+      </div>
         <div class="tw-flex-col-12 tw-p-12">
           Selected value: {{ selected }}
         </div>

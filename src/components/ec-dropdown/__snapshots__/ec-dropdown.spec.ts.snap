@@ -178,7 +178,7 @@ exports[`EcDropdown > :props > should get disabled when disabled prop is set 1`]
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -249,7 +249,7 @@ exports[`EcDropdown > :props > should not show the items when the loading is set
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -376,7 +376,7 @@ exports[`EcDropdown > :props > should render given popover style 1`] = `
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -449,7 +449,7 @@ exports[`EcDropdown > :props > should render given popover style when it is a fu
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -522,7 +522,7 @@ exports[`EcDropdown > :props > should render properly when the labelTooltip prop
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -593,7 +593,7 @@ exports[`EcDropdown > :props > should render with a sensitive class when isSensi
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -696,7 +696,7 @@ exports[`EcDropdown > should render as expected 1`] = `
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>
@@ -778,7 +778,7 @@ exports[`EcDropdown > should use custom attributes 1`] = `
           width="24"
         >
           <use
-            xlink:href="#ec-simple-arrow-drop-down"
+            xlink:href="#ec-simple-chevron-down"
           />
         </svg>
       </div>

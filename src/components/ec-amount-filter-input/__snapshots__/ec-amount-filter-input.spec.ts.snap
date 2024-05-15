@@ -141,7 +141,7 @@ exports[`EcAmountFilterInput > :props > should render with a sensitive class whe
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -289,7 +289,7 @@ exports[`EcAmountFilterInput > attrs > should render with custom attributes 1`] 
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
@@ -414,7 +414,7 @@ exports[`EcAmountFilterInput > should render properly 1`] = `
               width="24"
             >
               <use
-                xlink:href="#ec-simple-arrow-drop-down"
+                xlink:href="#ec-simple-chevron-down"
               />
             </svg>
           </div>
