@@ -46,4 +46,6 @@ export interface InputFieldProps {
   isSensitive?: boolean,
   isWarning?: boolean,
   autocomplete?: string,
+  isInLightMode?: boolean,
+  isDropdownOpen?: boolean,
 }

@@ -135,6 +135,8 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   isLoading: false,
   isSensitive: false,
   isWarning: false,
+  isInLightMode: false,
+  isDropdownOpen: false,
 });
 
 const isInvalid = computed(() => !!props.errorMessage);
@@ -156,6 +158,13 @@ const inputModel = computed<InputFieldProps['modelValue']>({
 const inputClasses = computed(() => {
   const classes = ['ec-input-field__input'];
 
+  if (props.isInLightMode) {
+    classes.push('ec-input-field__input--light-mode');
+
+    if (props.isDropdownOpen) {
+      classes.push('ec-input-field__input--is-dropdown-open');
+    }
+  }
   if (props.isInGroup) {
     classes.push(`ec-input-field__input--is-in-group-${props.isInGroup}`);
   }
@@ -259,6 +268,25 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
     &:read-only,
     &[readonly] {
       @apply tw-truncate;
+    }
+
+    &--light-mode {
+      @apply tw-bg-gray-7;
+      @apply tw-cursor-pointer;
+
+      &:hover,
+      &:focus {
+        @apply tw-bg-gray-6;
+        @apply tw-border-gray-6;
+      }
+
+      &:disabled {
+        @apply tw-cursor-none;
+      }
+    }
+
+    &--is-dropdown-open {
+      @apply tw-bg-gray-8;
     }
   }
 
