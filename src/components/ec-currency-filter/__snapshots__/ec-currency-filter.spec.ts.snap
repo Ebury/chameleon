@@ -131,7 +131,7 @@ exports[`EcCurrencyFilter > should pass down props required by ec-amount-filter-
           <!--v-if-->
           <input
             aria-describedby="ec-amount-filter-input-7"
-            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon my-sensitive-content-test-class"
+            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon my-sensitive-content-test-class tw-cursor-pointer"
             data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-amount-filter-input-7"
             placeholder=""
@@ -583,7 +583,7 @@ exports[`EcCurrencyFilter > should preselect given filters from the value prop 2
           >
             <!--v-if-->
             <input
-              class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+              class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
               data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
               id="ec-amount-filter-input-7"
               placeholder=""
@@ -1200,7 +1200,7 @@ exports[`EcCurrencyFilter > should render correctly 1`] = `
                     >
                       <!--v-if-->
                       <input
-                        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+                        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
                         data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
                         id="ec-amount-filter-input-7"
                         placeholder=""
@@ -1843,7 +1843,7 @@ exports[`EcCurrencyFilter > should render with custom attributes 1`] = `
                     >
                       <!--v-if-->
                       <input
-                        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+                        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
                         data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
                         id="ec-amount-filter-input-7"
                         placeholder=""
@@ -1990,7 +1990,7 @@ exports[`EcCurrencyFilter > v-model > should clear the amount and comparison sym
           >
             <!--v-if-->
             <input
-              class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+              class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
               data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
               id="ec-amount-filter-input-7"
               placeholder=""
