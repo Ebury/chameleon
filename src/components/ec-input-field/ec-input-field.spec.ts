@@ -235,7 +235,7 @@ describe('EcInputField', () => {
   });
 
   it('renders properly when the inputTooltip prop is set', () => {
-    const wrapper = mountInputField({ inputTooltip: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod' }, {
+    const wrapper = mountInputField({ labelTooltip: 'Testing the inputTooltip prop' }, {
       global: {
         mocks: {
           vEcTooltip: EcTooltipDirectiveMock,

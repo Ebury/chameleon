@@ -44,7 +44,7 @@
       v-model="inputModel"
       v-ec-tooltip="{
         placement: PopoverPlacement.RIGHT,
-        content: getInputTooltipContent(),
+        content: inputTooltip,
       }"
       :autocomplete="autocomplete"
     >
@@ -191,18 +191,6 @@ const inputClasses = computed(() => {
 
   return classes;
 });
-
-function getInputTooltipContent() {
-  const input = document.querySelector(`[id='${inputId.value}']`);
-
-  if (!input) {
-    return '';
-  }
-
-  const isTextLongerThanInput = input.scrollWidth > input.clientWidth;
-
-  return isTextLongerThanInput ? props.inputTooltip : '';
-}
 
 const inputRef = ref<Maybe<HTMLInputElement>>(null);
 
