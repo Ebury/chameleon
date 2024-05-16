@@ -131,8 +131,8 @@ exports[`EcCurrencyFilter > should pass down props required by ec-amount-filter-
           <!--v-if-->
           <input
             aria-describedby="ec-amount-filter-input-7"
-            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon my-sensitive-content-test-class"
-            data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
+            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon my-sensitive-content-test-class"
+            data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-amount-filter-input-7"
             placeholder=""
             readonly=""
@@ -211,8 +211,8 @@ exports[`EcCurrencyFilter > should pass down props required by ec-amount-filter-
       <input
         aria-describedby="ec-amount-filter-input-7"
         autocomplete="off"
-        class="ec-input-field__input ec-input-field__input--is-in-group-left ec-input-field__input--has-error my-sensitive-content-test-class"
-        data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left ec-input-field__input--has-error my-sensitive-content-test-class"
+        data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-9"
         placeholder="Enter an amount..."
         type="text"
@@ -583,8 +583,8 @@ exports[`EcCurrencyFilter > should preselect given filters from the value prop 2
           >
             <!--v-if-->
             <input
-              class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-              data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
+              class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+              data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
               id="ec-amount-filter-input-7"
               placeholder=""
               readonly=""
@@ -662,8 +662,8 @@ exports[`EcCurrencyFilter > should preselect given filters from the value prop 2
         <!--v-if-->
         <input
           autocomplete="off"
-          class="ec-input-field__input ec-input-field__input--is-in-group-left"
-          data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
+          class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+          data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
           id="ec-input-field-9"
           placeholder="Enter an amount..."
           type="text"
@@ -698,8 +698,8 @@ exports[`EcCurrencyFilter > should render all given custom texts for amount tab 
 exports[`EcCurrencyFilter > should render all given custom texts for amount tab 2`] = `
 <input
   autocomplete="off"
-  class="ec-input-field__input ec-input-field__input--is-in-group-left"
-  data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
+  class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+  data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
   id="ec-input-field-9"
   placeholder="Custom placeholder text"
   type="text"
@@ -1200,8 +1200,8 @@ exports[`EcCurrencyFilter > should render correctly 1`] = `
                     >
                       <!--v-if-->
                       <input
-                        class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-                        data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
+                        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+                        data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
                         id="ec-amount-filter-input-7"
                         placeholder=""
                         readonly=""
@@ -1279,8 +1279,8 @@ exports[`EcCurrencyFilter > should render correctly 1`] = `
                   <!--v-if-->
                   <input
                     autocomplete="off"
-                    class="ec-input-field__input ec-input-field__input--is-in-group-left"
-                    data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
+                    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+                    data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
                     id="ec-input-field-9"
                     placeholder="Enter an amount..."
                     type="text"
@@ -1843,8 +1843,8 @@ exports[`EcCurrencyFilter > should render with custom attributes 1`] = `
                     >
                       <!--v-if-->
                       <input
-                        class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-                        data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
+                        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+                        data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
                         id="ec-amount-filter-input-7"
                         placeholder=""
                         readonly=""
@@ -1922,8 +1922,8 @@ exports[`EcCurrencyFilter > should render with custom attributes 1`] = `
                   <!--v-if-->
                   <input
                     autocomplete="off"
-                    class="ec-input-field__input ec-input-field__input--is-in-group-left"
-                    data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
+                    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+                    data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
                     id="ec-input-field-9"
                     placeholder="Enter an amount..."
                     type="text"
@@ -1990,8 +1990,8 @@ exports[`EcCurrencyFilter > v-model > should clear the amount and comparison sym
           >
             <!--v-if-->
             <input
-              class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-              data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input"
+              class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+              data-test="ec-amount-filter-input__comparison-symbol-selector ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
               id="ec-amount-filter-input-7"
               placeholder=""
               readonly=""
@@ -2071,8 +2071,8 @@ exports[`EcCurrencyFilter > v-model > should clear the amount and comparison sym
         <!--v-if-->
         <input
           autocomplete="off"
-          class="ec-input-field__input ec-input-field__input--is-in-group-left"
-          data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input"
+          class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+          data-test="ec-amount-filter-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
           id="ec-input-field-9"
           placeholder="Enter an amount..."
           type="text"

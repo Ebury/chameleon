@@ -95,8 +95,8 @@ exports[`EcCurrencyInput > $attrs > should use data-test attribute to prefix all
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-            data-test="my-component__currencies ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
+            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+            data-test="my-component__currencies ec-currency-input__currencies ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-currency-input-field-1"
             placeholder=""
             readonly=""
@@ -200,8 +200,8 @@ exports[`EcCurrencyInput > $attrs > should use data-test attribute to prefix all
       <!--v-if-->
       <input
         autocomplete="off"
-        class="ec-input-field__input ec-input-field__input--is-in-group-left"
-        data-test="my-component__amount ec-currency-input__amount ec-amount-input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+        data-test="my-component__amount ec-currency-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="text"
       />
@@ -246,8 +246,8 @@ exports[`EcCurrencyInput > $attrs > should use data-test attribute with multiple
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-            data-test="my-component__currencies my-other-component__currencies ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
+            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+            data-test="my-component__currencies my-other-component__currencies ec-currency-input__currencies ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-currency-input-field-1"
             placeholder=""
             readonly=""
@@ -351,8 +351,8 @@ exports[`EcCurrencyInput > $attrs > should use data-test attribute with multiple
       <!--v-if-->
       <input
         autocomplete="off"
-        class="ec-input-field__input ec-input-field__input--is-in-group-left"
-        data-test="my-component__amount my-other-component__amount ec-currency-input__amount ec-amount-input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+        data-test="my-component__amount my-other-component__amount ec-currency-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="text"
       />
@@ -385,8 +385,8 @@ exports[`EcCurrencyInput > :props > should render a loading state when currencie
   >
     <!--v-if-->
     <input
-      class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-      data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
+      class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+      data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
       id="ec-currency-input-field-1"
       placeholder=""
       readonly=""
@@ -489,8 +489,8 @@ exports[`EcCurrencyInput > :props > should render the component with the dropdow
 exports[`EcCurrencyInput > :props > should render the component with the input disabled when isAmountDisabled is set true 1`] = `
 <input
   autocomplete="off"
-  class="ec-input-field__input ec-input-field__input--is-in-group-left"
-  data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
+  class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+  data-test="ec-currency-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
   disabled=""
   id="ec-input-field-3"
   type="text"
@@ -584,8 +584,8 @@ exports[`EcCurrencyInput > :props > should render without any currencies if the 
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-        data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+        data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-currency-input-field-1"
         placeholder=""
         readonly=""
@@ -684,8 +684,8 @@ exports[`EcCurrencyInput > should render properly 1`] = `
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-            data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
+            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+            data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-currency-input-field-1"
             placeholder=""
             readonly=""
@@ -789,8 +789,8 @@ exports[`EcCurrencyInput > should render properly 1`] = `
       <!--v-if-->
       <input
         autocomplete="off"
-        class="ec-input-field__input ec-input-field__input--is-in-group-left"
-        data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+        data-test="ec-currency-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="text"
       />
@@ -834,8 +834,8 @@ exports[`EcCurrencyInput > should render with a sensitive class when isSensitive
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon my-sensitive-content-test-class"
-            data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
+            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon my-sensitive-content-test-class"
+            data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-currency-input-field-1"
             placeholder=""
             readonly=""
@@ -939,8 +939,8 @@ exports[`EcCurrencyInput > should render with a sensitive class when isSensitive
       <!--v-if-->
       <input
         autocomplete="off"
-        class="ec-input-field__input ec-input-field__input--is-in-group-left my-sensitive-content-test-class"
-        data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left my-sensitive-content-test-class"
+        data-test="ec-currency-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="text"
       />
@@ -1001,8 +1001,8 @@ exports[`EcCurrencyInput > when the bottom note is defined > should render prope
 
 exports[`EcCurrencyInput > when the disabled currency selector has a tooltip associated > and the currency dropdown is not disabled > should render properly not including the tooltip 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
-  data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input"
+  class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon"
+  data-test="ec-currency-input__currencies ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
   id="ec-currency-input-field-1"
   placeholder=""
   readonly=""
@@ -1071,8 +1071,8 @@ exports[`EcCurrencyInput > when the error message is defined > should render pro
 exports[`EcCurrencyInput > when the placeholder message for the amount input is defined > should render properly 1`] = `
 <input
   autocomplete="off"
-  class="ec-input-field__input ec-input-field__input--is-in-group-left"
-  data-test="ec-currency-input__amount ec-amount-input ec-input-field__input"
+  class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+  data-test="ec-currency-input__amount ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
   id="ec-input-field-3"
   placeholder="Amount Placeholder"
   type="text"

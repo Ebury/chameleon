@@ -42,6 +42,10 @@
       }"
       ref="inputRef"
       v-model="inputModel"
+      v-ec-tooltip="{
+        placement: PopoverPlacement.RIGHT,
+        content: getInputTooltipContent(),
+      }"
       :autocomplete="autocomplete"
     >
     <div
@@ -107,6 +111,7 @@ import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import { IconName, IconType } from '../ec-icon/types';
 import EcLoadingIcon from '../ec-loading-icon';
+import { PopoverPlacement } from '../ec-popover/types';
 import type { InputFieldEvents, InputFieldExpose, InputFieldProps } from './types';
 import { InputFieldEvent, InputFieldType } from './types';
 
@@ -127,6 +132,7 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   type: InputFieldType.TEXT,
   label: '',
   labelTooltip: '',
+  inputTooltip: '',
   note: '',
   bottomNote: '',
   errorMessage: '',
@@ -135,8 +141,8 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   isLoading: false,
   isSensitive: false,
   isWarning: false,
-  isInLightMode: false,
-  isBgColorInverse: false,
+  bgGrayColorLevel: 8,
+  showPointerCursor: false,
 });
 
 const isInvalid = computed(() => !!props.errorMessage);
@@ -158,11 +164,8 @@ const inputModel = computed<InputFieldProps['modelValue']>({
 const inputClasses = computed(() => {
   const classes = ['ec-input-field__input'];
 
-  if (props.isInLightMode) {
-    classes.push('ec-input-field__input--light-mode');
-  }
-  if (props.isBgColorInverse) {
-    classes.push('ec-input-field__input--inverse-bg-color');
+  if (props.bgGrayColorLevel) {
+    classes.push(`tw-bg-gray-${props.bgGrayColorLevel}`);
   }
   if (props.isInGroup) {
     classes.push(`ec-input-field__input--is-in-group-${props.isInGroup}`);
@@ -185,6 +188,18 @@ const inputClasses = computed(() => {
 
   return classes;
 });
+
+function getInputTooltipContent() {
+  const input = document.querySelector(`[id='${inputId.value}']`);
+
+  if (!input) {
+    return '';
+  }
+
+  const isTextLongerThanInput = input.scrollWidth > input.clientWidth;
+
+  return isTextLongerThanInput ? props.inputTooltip : '';
+}
 
 const inputRef = ref<Maybe<HTMLInputElement>>(null);
 
@@ -216,6 +231,7 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
 .ec-input-field {
   @apply tw-w-full;
   @apply tw-relative;
+  @apply tw-cursor-pointer;
 
   &__input {
     @apply tw-body-text tw-text-gray-3;
@@ -223,6 +239,7 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
     @apply tw-py-8 tw-px-12;
     @apply tw-border tw-border-solid tw-border-gray-6;
     @apply tw-max-w-full;
+    @apply tw-cursor-pointer;
 
     width: inherit;
 
@@ -255,8 +272,9 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
       padding-left: var(--ec-input-field-icon-area-size);
     }
 
+    &:hover,
     &:focus {
-      @apply tw-border tw-border-solid tw-border-key-4;
+      @apply tw-border tw-border-solid tw-border-gray-5;
       @apply tw-outline-none;
     }
 
@@ -282,10 +300,6 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
       &:disabled {
         @apply tw-cursor-none;
       }
-    }
-
-    &--inverse-bg-color {
-      @apply tw-bg-gray-8;
     }
   }
 

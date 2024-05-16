@@ -157,8 +157,8 @@ exports[`EcDropdown > :props > should get disabled when disabled prop is set 1`]
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon"
-        data-test="ec-dropdown__input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+        data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
         disabled=""
         id="ec-input-field-1"
         placeholder=""
@@ -229,8 +229,8 @@ exports[`EcDropdown > :props > should not show the items when the loading is set
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon"
-        data-test="ec-dropdown__input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+        data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-1"
         placeholder=""
         readonly=""
@@ -356,8 +356,8 @@ exports[`EcDropdown > :props > should render given popover style 1`] = `
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon"
-        data-test="ec-dropdown__input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+        data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-1"
         placeholder=""
         readonly=""
@@ -429,8 +429,8 @@ exports[`EcDropdown > :props > should render given popover style when it is a fu
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon"
-        data-test="ec-dropdown__input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+        data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-1"
         placeholder=""
         readonly=""
@@ -502,8 +502,8 @@ exports[`EcDropdown > :props > should render properly when the labelTooltip prop
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon"
-        data-test="ec-dropdown__input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+        data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-1"
         placeholder=""
         readonly=""
@@ -573,8 +573,8 @@ exports[`EcDropdown > :props > should render with a sensitive class when isSensi
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon my-sensitive-content-test-class"
-        data-test="ec-dropdown__input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon my-sensitive-content-test-class"
+        data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-1"
         placeholder=""
         readonly=""
@@ -622,8 +622,8 @@ exports[`EcDropdown > :props > should render with a sensitive class when isSensi
 
 exports[`EcDropdown > :props > should use placeholder prop 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--has-icon"
-  data-test="ec-dropdown__input ec-input-field__input"
+  class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+  data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
   id="ec-input-field-1"
   placeholder="Random placeholder"
   readonly=""
@@ -654,8 +654,8 @@ exports[`EcDropdown > :props > should use searchPlaceholder prop if search is en
 
 exports[`EcDropdown > :props > should use the correct class when isInLightMode 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--light-mode ec-input-field__input--has-icon"
-  data-test="ec-dropdown__input ec-input-field__input"
+  class="ec-input-field__input tw-bg-gray-7 ec-input-field__input--has-icon"
+  data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
   id="ec-input-field-1"
   placeholder=""
   readonly=""
@@ -687,8 +687,8 @@ exports[`EcDropdown > should render as expected 1`] = `
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon"
-        data-test="ec-dropdown__input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+        data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-1"
         placeholder=""
         readonly=""
@@ -736,8 +736,8 @@ exports[`EcDropdown > should render as expected 1`] = `
 
 exports[`EcDropdown > should render readonly input as a trigger 1`] = `
 <input
-  class="ec-input-field__input ec-input-field__input--has-icon"
-  data-test="ec-dropdown__input ec-input-field__input"
+  class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+  data-test="ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
   id="ec-input-field-1"
   placeholder=""
   readonly=""
@@ -769,8 +769,8 @@ exports[`EcDropdown > should use custom attributes 1`] = `
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon"
-        data-test="my-data-test ec-dropdown__input ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+        data-test="my-data-test ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
         id="my-id"
         placeholder=""
         readonly=""

@@ -11,8 +11,8 @@ exports[`EcTableFilter > should hide filters with "ec-table-filter__filter-item-
   >
     <!--v-if-->
     <input
-      class="ec-input-field__input ec-input-field__input--has-left-icon"
-      data-test="ec-input-field__input"
+      class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-left-icon"
+      data-test="ec-input-field__input ec-mock ec-tooltip-mock"
       id="ec-input-field-11"
       type="text"
     />
@@ -48,8 +48,8 @@ exports[`EcTableFilter > should hide filters with "ec-table-filter__filter-item-
   >
     <!--v-if-->
     <input
-      class="ec-input-field__input ec-input-field__input--has-left-icon"
-      data-test="ec-input-field__input"
+      class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-left-icon"
+      data-test="ec-input-field__input ec-mock ec-tooltip-mock"
       id="ec-input-field-11"
       type="text"
     />
@@ -512,8 +512,8 @@ exports[`EcTableFilter > should hide the clear filters button if there isn't any
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-6"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -557,8 +557,8 @@ exports[`EcTableFilter > should hide the clear filters button if there isn't any
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-8"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -608,8 +608,8 @@ exports[`EcTableFilter > should hide the clear filters button if there isn't any
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-left-icon"
-        data-test="ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-left-icon"
+        data-test="ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-10"
         type="text"
       />
@@ -1076,8 +1076,8 @@ exports[`EcTableFilter > should hide the clear filters button when the user dese
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-6"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -1121,8 +1121,8 @@ exports[`EcTableFilter > should hide the clear filters button when the user dese
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-8"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -1172,8 +1172,8 @@ exports[`EcTableFilter > should hide the clear filters button when the user dese
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-left-icon"
-        data-test="ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-left-icon"
+        data-test="ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-10"
         type="text"
       />
@@ -1639,8 +1639,8 @@ exports[`EcTableFilter > should render correctly if all the required props are p
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-6"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -1684,8 +1684,8 @@ exports[`EcTableFilter > should render correctly if all the required props are p
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-8"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -1735,8 +1735,8 @@ exports[`EcTableFilter > should render correctly if all the required props are p
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-left-icon"
-        data-test="ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-left-icon"
+        data-test="ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-10"
         type="text"
       />
@@ -2203,8 +2203,8 @@ exports[`EcTableFilter > should render custom attributes 1`] = `
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-6"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -2248,8 +2248,8 @@ exports[`EcTableFilter > should render custom attributes 1`] = `
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-8"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -2299,8 +2299,8 @@ exports[`EcTableFilter > should render custom attributes 1`] = `
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-left-icon"
-        data-test="ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-left-icon"
+        data-test="ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-10"
         type="text"
       />
@@ -2782,8 +2782,8 @@ exports[`EcTableFilter > should render with pre-selected filters if the value pr
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__from-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-6"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -2827,8 +2827,8 @@ exports[`EcTableFilter > should render with pre-selected filters if the value pr
               </label>
               <input
                 autocomplete="off"
-                class="ec-input-field__input ec-input-field__input--has-icon flatpickr-input"
-                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input"
+                class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+                data-test="ec-date-range-filter__to-input ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
                 id="ec-datepicker-8"
                 placeholder="dd/mm/yyyy"
                 type="text"
@@ -2878,8 +2878,8 @@ exports[`EcTableFilter > should render with pre-selected filters if the value pr
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input ec-input-field__input--has-icon ec-input-field__input--has-left-icon"
-        data-test="ec-input-field__input"
+        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon ec-input-field__input--has-left-icon"
+        data-test="ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-10"
         type="text"
       />

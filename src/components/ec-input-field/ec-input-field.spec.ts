@@ -35,13 +35,8 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('renders properly with the given prop isInLightMode true', () => {
-    const wrapper = mountInputField({ isInLightMode: true });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('renders properly with the given prop isBgColorInverse true', () => {
-    const wrapper = mountInputField({ isBgColorInverse: true });
+  it('renders properly with the given prop bgGrayColorLevel', () => {
+    const wrapper = mountInputField({ bgGrayColorLevel: 6 });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -230,6 +225,17 @@ describe('EcInputField', () => {
 
   it('renders properly when the labelTooltip prop is set', () => {
     const wrapper = mountInputField({ labelTooltip: 'Testing the labelTooltip prop' }, {
+      global: {
+        mocks: {
+          vEcTooltip: EcTooltipDirectiveMock,
+        },
+      },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly when the inputTooltip prop is set', () => {
+    const wrapper = mountInputField({ inputTooltip: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod' }, {
       global: {
         mocks: {
           vEcTooltip: EcTooltipDirectiveMock,

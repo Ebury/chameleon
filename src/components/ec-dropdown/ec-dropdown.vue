@@ -16,6 +16,7 @@
     :popover-style="popoverStyle"
     :is-sensitive="isSensitive"
     :tooltip-cta="tooltipCta"
+    :is-in-light-mode="isInLightMode"
     @change="onSelected"
     @open="onOpen"
     @close="onClose"
@@ -30,6 +31,7 @@
       :model-value="selectedTextValue"
       :label="label"
       :label-tooltip="labelTooltip"
+      :input-tooltip="selectedTextValue"
       :error-message="errorMessage"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -39,8 +41,8 @@
       readonly
       :icon="isDropdownOpen ? IconName.SIMPLE_CHEVRON_UP : IconName.SIMPLE_CHEVRON_DOWN"
       :is-in-group="isInGroup"
-      :is-bg-color-inverse="isInLightMode && isDropdownOpen"
-      :is-in-light-mode="isInLightMode"
+      :bg-gray-color-level="(isInLightMode && !isDropdownOpen) ? 7 : 8"
+      :show-pointer-cursor="true"
       @focus="onFocus"
       @blur="$emit('blur')"
     />
