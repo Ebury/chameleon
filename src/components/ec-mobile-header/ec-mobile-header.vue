@@ -1,0 +1,41 @@
+<template>
+  <header
+    v-if="isResponsive"
+    class="ec-mobile-header"
+    data-test="ec-mobile-header"
+  >
+    <div class="ec-mobile-header__logo">
+      <slot name="logo" />
+    </div>
+    <ec-icon
+      class="ec-mobile-header__menu-icon"
+      :name="IconName.SIMPLE_MENU"
+      :size="24"
+    />
+  </header>
+</template>
+
+<script setup lang="ts">
+import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
+import type { MobileHeaderProps } from './types';
+
+defineProps<MobileHeaderProps>();
+</script>
+
+<style>
+.ec-mobile-header {
+  @apply tw-flex tw-flex-row tw-items-center tw-justify-between;
+  @apply tw-w-full;
+  @apply tw-py-16 tw-px-24;
+  @apply tw-bg-gray-7;
+
+  &__logo {
+    @apply tw-h-32;
+  }
+
+  &__menu-icon {
+    @apply tw-fill-key-4;
+  }
+}
+</style>
