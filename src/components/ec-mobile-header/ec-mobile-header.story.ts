@@ -5,7 +5,7 @@ import EcMobileHeader from './ec-mobile-header.vue';
 import type { MobileHeaderProps } from './types';
 
 export default {
-  title: 'Layout/Mobile Header',
+  title: 'Mobile Header',
   component: EcMobileHeader,
 } as Meta<typeof EcMobileHeader>;
 
