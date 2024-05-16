@@ -185,6 +185,9 @@ const inputClasses = computed(() => {
   if (props.isSensitive) {
     classes.push(config.sensitiveClass);
   }
+  if (props.showPointerCursor) {
+    classes.push('tw-cursor-pointer');
+  }
 
   return classes;
 });
@@ -231,7 +234,6 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
 .ec-input-field {
   @apply tw-w-full;
   @apply tw-relative;
-  @apply tw-cursor-pointer;
 
   &__input {
     @apply tw-body-text tw-text-gray-3;
@@ -239,7 +241,6 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
     @apply tw-py-8 tw-px-12;
     @apply tw-border tw-border-solid tw-border-gray-6;
     @apply tw-max-w-full;
-    @apply tw-cursor-pointer;
 
     width: inherit;
 
@@ -285,21 +286,6 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
     &:read-only,
     &[readonly] {
       @apply tw-truncate;
-    }
-
-    &--light-mode {
-      @apply tw-bg-gray-7;
-      @apply tw-cursor-pointer;
-
-      &:hover,
-      &:focus {
-        @apply tw-bg-gray-6;
-        @apply tw-border-gray-6;
-      }
-
-      &:disabled {
-        @apply tw-cursor-none;
-      }
     }
   }
 
