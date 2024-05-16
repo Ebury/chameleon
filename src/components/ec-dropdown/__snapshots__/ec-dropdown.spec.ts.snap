@@ -652,6 +652,17 @@ exports[`EcDropdown > :props > should use searchPlaceholder prop if search is en
 </li>
 `;
 
+exports[`EcDropdown > :props > should use the correct class when isInLightMode 1`] = `
+<input
+  class="ec-input-field__input ec-input-field__input--light-mode ec-input-field__input--has-icon"
+  data-test="ec-dropdown__input ec-input-field__input"
+  id="ec-input-field-1"
+  placeholder=""
+  readonly=""
+  type="text"
+/>
+`;
+
 exports[`EcDropdown > should render as expected 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
