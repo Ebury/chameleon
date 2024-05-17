@@ -42,10 +42,7 @@
       }"
       ref="inputRef"
       v-model="inputModel"
-      v-ec-tooltip="{
-        placement: PopoverPlacement.RIGHT,
-        content: inputTooltip,
-      }"
+      v-ec-tooltip="getInputTooltipOptions()"
       :autocomplete="autocomplete"
     >
     <div
@@ -107,6 +104,7 @@ import {
 import type { Maybe } from '../../../global';
 import useConfig from '../../composables/use-ec-config';
 import vEcTooltip from '../../directives/ec-tooltip';
+import type { TooltipOptions } from '../../directives/ec-tooltip/types';
 import { getUid } from '../../utils/uid';
 import EcIcon from '../ec-icon';
 import { IconName, IconType } from '../ec-icon/types';
@@ -191,6 +189,22 @@ const inputClasses = computed(() => {
 
   return classes;
 });
+
+function getInputTooltipOptions(): TooltipOptions {
+  if (!inputRef.value) {
+    return {};
+  }
+
+  const isTextLongerThanInput = inputRef.value.scrollWidth > inputRef.value.clientWidth;
+  const tooltipContent = isTextLongerThanInput ? props.inputTooltip : '';
+
+  const tooltipProps = {
+    placement: PopoverPlacement.RIGHT,
+    content: tooltipContent,
+  };
+
+  return tooltipProps;
+}
 
 const inputRef = ref<Maybe<HTMLInputElement>>(null);
 
