@@ -1,6 +1,5 @@
 <template>
   <header
-    v-if="isResponsive"
     class="ec-mobile-header"
     data-test="ec-mobile-header"
   >
@@ -18,9 +17,6 @@
 <script setup lang="ts">
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
-import type { MobileHeaderProps } from './types';
-
-defineProps<MobileHeaderProps>();
 </script>
 
 <style>

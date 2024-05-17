@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EcMobileHeader > should render properly if "isResponsive" prop is true 1`] = `
+exports[`EcMobileHeader > should render properly 1`] = `
 <header
   class="ec-mobile-header"
   data-test="ec-mobile-header"
