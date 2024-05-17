@@ -30,7 +30,6 @@ export interface InputFieldProps {
   modelValue?: number | string | Date,
   label?: string,
   labelTooltip?: string,
-  inputTooltip?: string,
   note?: string,
   bottomNote?: string,
   errorMessage?: string,
@@ -48,5 +47,6 @@ export interface InputFieldProps {
   isWarning?: boolean,
   autocomplete?: string,
   bgColorLevel?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
-  showPointerCursor?: boolean
+  showPointerCursor?: boolean,
+  showInputTooltip?: boolean
 }

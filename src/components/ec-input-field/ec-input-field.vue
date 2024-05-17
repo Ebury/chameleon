@@ -42,7 +42,7 @@
       }"
       ref="inputRef"
       v-model="inputModel"
-      v-ec-tooltip.right="inputTooltip"
+      v-ec-tooltip.right="getInputTooltipText()"
       :autocomplete="autocomplete"
     >
     <div
@@ -128,7 +128,6 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   type: InputFieldType.TEXT,
   label: '',
   labelTooltip: '',
-  inputTooltip: '',
   note: '',
   bottomNote: '',
   errorMessage: '',
@@ -139,6 +138,7 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   isWarning: false,
   bgColorLevel: 8,
   showPointerCursor: false,
+  showInputTooltip: false,
 });
 
 const isInvalid = computed(() => !!props.errorMessage);
@@ -188,23 +188,17 @@ const inputClasses = computed(() => {
   return classes;
 });
 
-// function getInputTooltipOptions(): TooltipOptions {
-//   if (!inputRef.value) {
-//     return {};
-//   }
-
-//   const isTextLongerThanInput = inputRef.value.scrollWidth > inputRef.value.clientWidth;
-//   const tooltipContent = isTextLongerThanInput ? props.inputTooltip : '';
-
-//   const tooltipProps = {
-//     placement: PopoverPlacement.RIGHT,
-//     content: tooltipContent,
-//   };
-
-//   return tooltipProps;
-// }
-
 const inputRef = ref<Maybe<HTMLInputElement>>(null);
+
+function getInputTooltipText() {
+  if (!inputRef.value || !props.showInputTooltip || !props.modelValue) {
+    return '';
+  }
+
+  const isTextLongerThanInput = inputRef.value.scrollWidth > inputRef.value.clientWidth;
+
+  return isTextLongerThanInput ? props.modelValue.toString() : '';
+}
 
 function focus() {
   /* c8 ignore next */
