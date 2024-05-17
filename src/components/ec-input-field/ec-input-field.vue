@@ -139,7 +139,7 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   isLoading: false,
   isSensitive: false,
   isWarning: false,
-  bgGrayColorLevel: 8,
+  bgColorLevel: 8,
   showPointerCursor: false,
 });
 
@@ -162,8 +162,8 @@ const inputModel = computed<InputFieldProps['modelValue']>({
 const inputClasses = computed(() => {
   const classes = ['ec-input-field__input'];
 
-  if (props.bgGrayColorLevel) {
-    classes.push(`tw-bg-gray-${props.bgGrayColorLevel}`);
+  if (props.bgColorLevel) {
+    classes.push(`ec-input-field__input--bg-gray-${props.bgColorLevel}`);
   }
   if (props.isInGroup) {
     classes.push(`ec-input-field__input--is-in-group-${props.isInGroup}`);
@@ -184,7 +184,7 @@ const inputClasses = computed(() => {
     classes.push(config.sensitiveClass);
   }
   if (props.showPointerCursor) {
-    classes.push('tw-cursor-pointer');
+    classes.push('ec-input-field__input--cursor-pointer');
   }
 
   return classes;
@@ -273,6 +273,46 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
 
     &--has-left-icon {
       padding-left: var(--ec-input-field-icon-area-size);
+    }
+
+    &--bg-gray-0 {
+      @apply tw-bg-gray-0;
+    }
+
+    &--bg-gray-1 {
+      @apply tw-bg-gray-1;
+    }
+
+    &--bg-gray-2 {
+      @apply tw-bg-gray-2;
+    }
+
+    &--bg-gray-3 {
+      @apply tw-bg-gray-3;
+    }
+
+    &--bg-gray-4 {
+      @apply tw-bg-gray-4;
+    }
+
+    &--bg-gray-5 {
+      @apply tw-bg-gray-5;
+    }
+
+    &--bg-gray-6 {
+      @apply tw-bg-gray-6;
+    }
+
+    &--bg-gray-7 {
+      @apply tw-bg-gray-7;
+    }
+
+    &--bg-gray-8 {
+      @apply tw-bg-gray-8;
+    }
+
+    &--cursor-pointer {
+      @apply tw-cursor-pointer;
     }
 
     &:hover,

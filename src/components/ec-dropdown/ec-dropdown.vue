@@ -41,7 +41,7 @@
       readonly
       :icon="isDropdownOpen ? IconName.SIMPLE_CHEVRON_UP : IconName.SIMPLE_CHEVRON_DOWN"
       :is-in-group="isInGroup"
-      :bg-gray-color-level="(isInLightMode && !isDropdownOpen) ? 7 : 8"
+      :bg-color-level="(isInLightMode && !isDropdownOpen) ? 7 : 8"
       :show-pointer-cursor="true"
       @focus="onFocus"
       @blur="$emit('blur')"

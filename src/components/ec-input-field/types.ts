@@ -47,6 +47,6 @@ export interface InputFieldProps {
   isSensitive?: boolean,
   isWarning?: boolean,
   autocomplete?: string,
-  bgGrayColorLevel?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
+  bgColorLevel?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
   showPointerCursor?: boolean
 }

@@ -8,7 +8,7 @@ exports[`EcAmountInput > should render properly 1`] = `
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -27,7 +27,7 @@ exports[`EcAmountInput > should render with a sensitive class when isSensitive p
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 my-sensitive-content-test-class"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 my-sensitive-content-test-class"
     data-test="ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -46,7 +46,7 @@ exports[`EcAmountInput > should render with custom attributes 1`] = `
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="my-data-test ec-amount-input ec-input-field__input ec-mock ec-tooltip-mock"
     id="test-id"
     type="text"

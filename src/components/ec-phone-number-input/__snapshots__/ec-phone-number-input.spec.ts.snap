@@ -78,7 +78,7 @@ exports[`EcPhoneNumberInput > :props > should render in a disabled state 1`] = `
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
+            class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--cursor-pointer"
             data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             disabled=""
             id="ec-phone-number-input-field-1"
@@ -298,7 +298,7 @@ exports[`EcPhoneNumberInput > :props > should render in a disabled state 1`] = `
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-left"
         data-test="ec-phone-number-input__number ec-input-field__input ec-mock ec-tooltip-mock"
         disabled=""
         id="ec-input-field-3"
@@ -333,7 +333,7 @@ exports[`EcPhoneNumberInput > :props > should render in a loading state 1`] = `
   >
     <!--v-if-->
     <input
-      class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
+      class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--cursor-pointer"
       data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
       id="ec-phone-number-input-field-1"
       placeholder=""
@@ -471,7 +471,7 @@ exports[`EcPhoneNumberInput > :props > should render with a disabled tooltip mes
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
+            class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--cursor-pointer"
             data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             disabled=""
             id="ec-phone-number-input-field-1"
@@ -691,7 +691,7 @@ exports[`EcPhoneNumberInput > :props > should render with a disabled tooltip mes
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-left"
         data-test="ec-phone-number-input__number ec-input-field__input ec-mock ec-tooltip-mock"
         disabled=""
         id="ec-input-field-3"
@@ -750,7 +750,7 @@ exports[`EcPhoneNumberInput > :props > should render with a label 1`] = `
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
+            class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--cursor-pointer"
             data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-phone-number-input-field-1"
             placeholder=""
@@ -969,7 +969,7 @@ exports[`EcPhoneNumberInput > :props > should render with a label 1`] = `
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-left"
         data-test="ec-phone-number-input__number ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="tel"
@@ -1027,7 +1027,7 @@ exports[`EcPhoneNumberInput > :props > should render with a note 1`] = `
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
+            class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--cursor-pointer"
             data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-phone-number-input-field-1"
             placeholder=""
@@ -1246,7 +1246,7 @@ exports[`EcPhoneNumberInput > :props > should render with a note 1`] = `
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-left"
         data-test="ec-phone-number-input__number ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="tel"
@@ -1302,7 +1302,7 @@ exports[`EcPhoneNumberInput > :props > should render with a sensitive class when
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon my-sensitive-content-test-class tw-cursor-pointer"
+            class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon my-sensitive-content-test-class ec-input-field__input--cursor-pointer"
             data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-phone-number-input-field-1"
             placeholder=""
@@ -1521,7 +1521,7 @@ exports[`EcPhoneNumberInput > :props > should render with a sensitive class when
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left my-sensitive-content-test-class"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-left my-sensitive-content-test-class"
         data-test="ec-phone-number-input__number ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="tel"
@@ -1603,7 +1603,7 @@ exports[`EcPhoneNumberInput > :props > should render with an error message 1`] =
           <!--v-if-->
           <input
             aria-describedby="ec-phone-number-input-1"
-            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon tw-cursor-pointer"
+            class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-error ec-input-field__input--has-icon ec-input-field__input--cursor-pointer"
             data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-phone-number-input-field-1"
             placeholder=""
@@ -1823,7 +1823,7 @@ exports[`EcPhoneNumberInput > :props > should render with an error message 1`] =
       <!--v-if-->
       <input
         aria-describedby="ec-phone-number-input-1"
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left ec-input-field__input--has-error"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-left ec-input-field__input--has-error"
         data-test="ec-phone-number-input__number ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="tel"
@@ -1879,7 +1879,7 @@ exports[`EcPhoneNumberInput > :props > should render with icon static prefix 1`]
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
+            class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--cursor-pointer"
             data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-phone-number-input-field-1"
             placeholder=""
@@ -2098,7 +2098,7 @@ exports[`EcPhoneNumberInput > :props > should render with icon static prefix 1`]
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-left"
         data-test="ec-phone-number-input__number ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="tel"
@@ -2145,7 +2145,7 @@ exports[`EcPhoneNumberInput > should render properly 1`] = `
         >
           <!--v-if-->
           <input
-            class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon tw-cursor-pointer"
+            class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-icon ec-input-field__input--cursor-pointer"
             data-test="ec-phone-number-input__countries ec-dropdown__input ec-input-field__input ec-mock ec-tooltip-mock"
             id="ec-phone-number-input-field-1"
             placeholder=""
@@ -2364,7 +2364,7 @@ exports[`EcPhoneNumberInput > should render properly 1`] = `
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-left"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-left"
         data-test="ec-phone-number-input__number ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-3"
         type="tel"

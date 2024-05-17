@@ -35,8 +35,8 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('renders properly with the given prop bgGrayColorLevel', () => {
-    const wrapper = mountInputField({ bgGrayColorLevel: 6 });
+  it('renders properly with the given prop bgColorLevel', () => {
+    const wrapper = mountInputField({ bgColorLevel: 6 });
     expect(wrapper.element).toMatchSnapshot();
   });
 

@@ -252,7 +252,7 @@ exports[`EcInlineInputField > when component is editable > when the component is
       >
         <!--v-if-->
         <input
-          class="ec-input-field__input tw-bg-gray-8"
+          class="ec-input-field__input ec-input-field__input--bg-gray-8"
           data-test="ec-inline-input-field-edit__input ec-input-field__input ec-mock ec-tooltip-mock"
           id="ec-inline-input-field-edit__input-1"
           type="text"
@@ -328,7 +328,7 @@ exports[`EcInlineInputField > when component is editable > when the component is
         <!--v-if-->
         <input
           aria-describedby="ec-input-field-error-2"
-          class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-error"
+          class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-error"
           data-test="ec-inline-input-field-edit__input ec-input-field__input ec-mock ec-tooltip-mock"
           id="ec-inline-input-field-edit__input-1"
           type="text"
@@ -419,7 +419,7 @@ exports[`EcInlineInputField > when component is editable > when the component is
       >
         <!--v-if-->
         <input
-          class="ec-input-field__input tw-bg-gray-8"
+          class="ec-input-field__input ec-input-field__input--bg-gray-8"
           data-test="ec-inline-input-field-edit__input ec-input-field__input ec-mock ec-tooltip-mock"
           id="ec-inline-input-field-edit__input-1"
           type="text"
@@ -494,7 +494,7 @@ exports[`EcInlineInputField > when component is editable > when the component is
       >
         <!--v-if-->
         <input
-          class="ec-input-field__input tw-bg-gray-8 my-sensitive-content-test-class"
+          class="ec-input-field__input ec-input-field__input--bg-gray-8 my-sensitive-content-test-class"
           data-test="ec-inline-input-field-edit__input ec-input-field__input ec-mock ec-tooltip-mock"
           id="ec-inline-input-field-edit__input-1"
           type="text"
@@ -701,7 +701,7 @@ exports[`EcInlineInputField > when component is editable > when the component is
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-loading"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-loading"
         data-test="ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-1"
         readonly=""
@@ -775,7 +775,7 @@ exports[`EcInlineInputField > when component is editable > when the component is
     >
       <!--v-if-->
       <input
-        class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-loading my-sensitive-content-test-class"
+        class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-loading my-sensitive-content-test-class"
         data-test="ec-input-field__input ec-mock ec-tooltip-mock"
         id="ec-input-field-1"
         readonly=""

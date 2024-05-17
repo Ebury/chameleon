@@ -1111,7 +1111,7 @@ exports[`Datepicker > :props > should render as disabled 1`] = `
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     disabled=""
     id="ec-datepicker-1"
@@ -1697,7 +1697,7 @@ exports[`Datepicker > :props > should render with a bottom note 1`] = `
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-datepicker-1"
     type="text"
@@ -1736,7 +1736,7 @@ exports[`Datepicker > :props > should render with a bottom note in a warning sta
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-datepicker-1"
     type="text"
@@ -1788,7 +1788,7 @@ exports[`Datepicker > :props > should render with a label 1`] = `
   </label>
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-datepicker-1"
     type="text"
@@ -1834,7 +1834,7 @@ exports[`Datepicker > :props > should render with a note 1`] = `
   </label>
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-datepicker-1"
     type="text"
@@ -1868,7 +1868,7 @@ exports[`Datepicker > :props > should render with a placeholder 1`] = `
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-datepicker-1"
     placeholder="Datepicker placeholder"
@@ -1904,7 +1904,7 @@ exports[`Datepicker > :props > should render with an error message 1`] = `
   <input
     aria-describedby="ec-input-field-error-2"
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-error ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-error ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-datepicker-1"
     type="text"
@@ -2495,7 +2495,7 @@ exports[`Datepicker > should not pass any additional attributes to the input 1`]
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-datepicker-1"
     type="text"
@@ -3081,7 +3081,7 @@ exports[`Datepicker > should pass the data-test, class and style down to the inp
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
     data-test="my-data-test ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-datepicker-1"
     type="text"
@@ -3115,7 +3115,7 @@ exports[`Datepicker > should render properly 1`] = `
   <!--v-if-->
   <input
     autocomplete="off"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon flatpickr-input"
     data-test="ec-datepicker ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-datepicker-1"
     type="text"

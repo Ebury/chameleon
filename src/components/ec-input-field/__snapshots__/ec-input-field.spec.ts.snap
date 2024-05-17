@@ -26,7 +26,7 @@ exports[`EcInputField > renders properly custom attributes 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="my-data-test ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -62,7 +62,7 @@ exports[`EcInputField > renders properly the icon when disabled 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     disabled=""
     id="ec-input-field-1"
@@ -114,7 +114,7 @@ exports[`EcInputField > renders properly when disabled 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     disabled=""
     id="ec-input-field-1"
@@ -151,7 +151,7 @@ exports[`EcInputField > renders properly when is loading 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-loading"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-loading"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -202,7 +202,7 @@ exports[`EcInputField > renders properly when readonly 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     readonly=""
@@ -239,7 +239,7 @@ exports[`EcInputField > renders properly when the inputTooltip prop is set 1`] =
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -285,7 +285,7 @@ exports[`EcInputField > renders properly when the labelTooltip prop is set 1`] =
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -322,7 +322,7 @@ exports[`EcInputField > renders properly with the errorId from the parent 1`] = 
   </label>
   <input
     aria-describedby="error-id-test"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-error"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-error"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -339,7 +339,7 @@ exports[`EcInputField > renders properly with the errorId from the parent 1`] = 
 </div>
 `;
 
-exports[`EcInputField > renders properly with the given prop bgGrayColorLevel 1`] = `
+exports[`EcInputField > renders properly with the given prop bgColorLevel 1`] = `
 <div
   class="ec-input-field"
   data-test="ec-input-field"
@@ -364,7 +364,7 @@ exports[`EcInputField > renders properly with the given prop bgGrayColorLevel 1`
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-6"
+    class="ec-input-field__input ec-input-field__input--bg-gray-6"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -401,7 +401,7 @@ exports[`EcInputField > renders properly with the given prop errorMessage 1`] = 
   </label>
   <input
     aria-describedby="ec-input-field-error-1"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-error"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-error"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -443,7 +443,7 @@ exports[`EcInputField > renders properly with the id from the parent 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="id-test"
     type="text"
@@ -473,7 +473,7 @@ exports[`EcInputField > renders properly without label 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -504,7 +504,7 @@ exports[`EcInputField > renders properly without note 1`] = `
     <!--v-if-->
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -541,7 +541,7 @@ exports[`EcInputField > renders properly without the error when the prop errorMe
   </label>
   <input
     aria-describedby="ec-input-field-error-1"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-error"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--is-in-group-right ec-input-field__input--has-error"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -577,7 +577,7 @@ exports[`EcInputField > renders with bottom note 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -618,7 +618,7 @@ exports[`EcInputField > renders with the attrs min and max 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     max="10"
@@ -656,7 +656,7 @@ exports[`EcInputField > renders with warning bottom note 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -698,7 +698,7 @@ exports[`EcInputField > renders without bottom note if error message is given 1`
   </label>
   <input
     aria-describedby="ec-input-field-error-1"
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-error"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-error"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -740,7 +740,7 @@ exports[`EcInputField > should display properly with the given props 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -776,7 +776,7 @@ exports[`EcInputField > should render given icon 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-icon"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-icon"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -865,7 +865,7 @@ exports[`EcInputField > should render given left-icon 1`] = `
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8 ec-input-field__input--has-left-icon"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 ec-input-field__input--has-left-icon"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
@@ -951,7 +951,7 @@ exports[`EcInputField > should render with a sensitive class when isSensitive pr
     </span>
   </label>
   <input
-    class="ec-input-field__input tw-bg-gray-8 my-sensitive-content-test-class"
+    class="ec-input-field__input ec-input-field__input--bg-gray-8 my-sensitive-content-test-class"
     data-test="ec-input-field__input ec-mock ec-tooltip-mock"
     id="ec-input-field-1"
     type="text"
