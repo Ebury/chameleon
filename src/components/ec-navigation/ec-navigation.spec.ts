@@ -92,4 +92,12 @@ describe('EcNavigation', () => {
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.findAllByDataTest('ec-navigation__block').length).toBe(5);
   });
+
+  it('should render mobile header if "isResponsive" prop is true', () => {
+    const wrapper = mountNavigation({
+      isResponsive: true,
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
