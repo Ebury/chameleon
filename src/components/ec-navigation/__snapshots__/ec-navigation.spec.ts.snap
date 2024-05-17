@@ -290,15 +290,20 @@ exports[`EcNavigation > should render mobile header if "isResponsive" prop is tr
     />
     
   </div>
-  <svg
-    class="ec-icon ec-mobile-header__menu-icon"
-    height="24"
-    width="24"
+  <button
+    class="ec-mobile-header__menu"
+    type="button"
   >
-    <use
-      xlink:href="#ec-simple-menu"
-    />
-  </svg>
+    <svg
+      class="ec-icon ec-mobile-header__menu__icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-menu"
+      />
+    </svg>
+  </button>
 </header>
 `;
 
