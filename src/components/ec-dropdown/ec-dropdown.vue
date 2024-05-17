@@ -31,7 +31,7 @@
       :model-value="selectedTextValue"
       :label="label"
       :label-tooltip="labelTooltip"
-      :input-tooltip="selectedTextValue"
+      :input-tooltip="getInputTooltipContent()"
       :error-message="errorMessage"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -138,6 +138,17 @@ function onSelected() {
     shouldEmitFocus.value = false;
     triggerRef.value.focus();
   }
+}
+
+function getInputTooltipContent() {
+  const input = triggerRef.value?.inputRef;
+
+  if (!input) {
+    return '';
+  }
+
+  const isTextLongerThanInput = input.scrollWidth > input.clientWidth;
+  return isTextLongerThanInput ? selectedTextValue.value : '';
 }
 
 function onFocus() {

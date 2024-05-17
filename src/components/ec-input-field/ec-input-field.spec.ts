@@ -234,7 +234,7 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('renders properly when the inputTooltip prop is set and text fits in the input', () => {
+  it('renders properly when the inputTooltip prop is set', () => {
     const wrapper = mountInputField({ inputTooltip: 'Testing the inputTooltip' }, {
       global: {
         mocks: {
@@ -242,28 +242,6 @@ describe('EcInputField', () => {
         },
       },
     });
-
-    wrapper.findComponent(EcInputField).vm.focus();
-
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('renders properly when the inputTooltip prop is set and text does Not fit in the input', async () => {
-    const wrapper = mountInputField({ inputTooltip: 'Testing the inputTooltip long' }, {
-      global: {
-        mocks: {
-          vEcTooltip: EcTooltipDirectiveMock,
-        },
-      },
-    });
-
-    const input = wrapper.vm.inputRef;
-
-    if (input) {
-      vi.spyOn(input, 'scrollWidth', 'get').mockImplementation(() => 100);
-    }
-
-    await input?.focus();
 
     expect(wrapper.element).toMatchSnapshot();
   });
