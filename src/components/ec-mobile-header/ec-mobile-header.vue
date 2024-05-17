@@ -6,11 +6,13 @@
     <div class="ec-mobile-header__logo">
       <slot name="logo" />
     </div>
-    <ec-icon
-      class="ec-mobile-header__menu-icon"
-      :name="IconName.SIMPLE_MENU"
-      :size="24"
-    />
+    <button type="button" class="ec-mobile-header__menu">
+      <ec-icon
+        class="ec-mobile-header__menu__icon"
+        :name="IconName.SIMPLE_MENU"
+        :size="24"
+      />
+    </button>
   </header>
 </template>
 
@@ -30,8 +32,13 @@ import { IconName } from '../ec-icon/types';
     @apply tw-h-32;
   }
 
-  &__menu-icon {
-    @apply tw-fill-key-4;
+  &__menu {
+    @apply tw-flex tw-items-center;
+    @apply tw-border-0 tw-p-0 tw-bg-transparent;
+
+    &__icon {
+      @apply tw-fill-key-4;
+    }
   }
 }
 </style>
