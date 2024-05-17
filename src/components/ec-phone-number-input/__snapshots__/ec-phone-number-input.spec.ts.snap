@@ -58,6 +58,7 @@ exports[`EcPhoneNumberInput > :props > should render in a disabled state 1`] = `
     <div
       class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -451,6 +452,7 @@ exports[`EcPhoneNumberInput > :props > should render with a disabled tooltip mes
     <div
       class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -730,6 +732,7 @@ exports[`EcPhoneNumberInput > :props > should render with a label 1`] = `
     <div
       class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -1007,6 +1010,7 @@ exports[`EcPhoneNumberInput > :props > should render with a note 1`] = `
     <div
       class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -1282,6 +1286,7 @@ exports[`EcPhoneNumberInput > :props > should render with a sensitive class when
     <div
       class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -1582,6 +1587,7 @@ exports[`EcPhoneNumberInput > :props > should render with an error message 1`] =
     <div
       class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -1859,6 +1865,7 @@ exports[`EcPhoneNumberInput > :props > should render with icon static prefix 1`]
     <div
       class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -2125,6 +2132,7 @@ exports[`EcPhoneNumberInput > should render properly 1`] = `
     <div
       class="ec-phone-number-input__countries ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"

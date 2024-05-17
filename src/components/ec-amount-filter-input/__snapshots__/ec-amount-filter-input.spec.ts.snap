@@ -101,6 +101,7 @@ exports[`EcAmountFilterInput > :props > should render with a sensitive class whe
     <div
       class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -249,6 +250,7 @@ exports[`EcAmountFilterInput > attrs > should render with custom attributes 1`] 
     <div
       class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -374,6 +376,7 @@ exports[`EcAmountFilterInput > should render properly 1`] = `
     <div
       class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"

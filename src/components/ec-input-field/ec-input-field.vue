@@ -359,7 +359,7 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
   &__icon-wrapper {
     @apply tw-absolute;
     @apply tw-inline-block;
-    @apply tw-text-gray-3 tw-fill-current tw-text-center;
+    @apply tw-text-gray-4 tw-fill-current tw-text-center;
 
     height: var(--ec-input-field-icon-area-size);
     width: var(--ec-input-field-icon-area-size);

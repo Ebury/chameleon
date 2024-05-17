@@ -128,8 +128,7 @@
                 :data-test="`ec-dropdown-search__item ec-dropdown-search__item--${index}`"
                 :class="{
                   'ec-dropdown-search__item': true,
-                  'ec-dropdown-search__item--is-selected': !isInLightMode && isItemSelected(item),
-                  'ec-dropdown-search__item--is-selected-light-mode': isInLightMode && isItemSelected(item),
+                  'ec-dropdown-search__item--is-selected': isItemSelected(item),
                   'ec-dropdown-search__item--is-disabled': item.disabled,
                 }"
                 @click="!item.disabled && select(item)"
@@ -178,7 +177,6 @@ const props = withDefaults(defineProps<DropdownSearchProps<TValue, TDropdownSear
   isCustomSearchEnabled: false,
   items: () => [],
   maxVisibleItems: 4,
-  isInLightMode: false,
 });
 
 const emit = defineEmits<{
@@ -658,12 +656,6 @@ function loseFocus() {
 
     &--is-selected,
     &--is-selected:hover {
-      @apply tw-bg-key-4;
-      @apply tw-text-gray-8;
-    }
-
-    &--is-selected-light-mode,
-    &--is-selected-light-mode:hover {
       @apply tw-bg-key-7;
       @apply tw-text-gray-3;
     }

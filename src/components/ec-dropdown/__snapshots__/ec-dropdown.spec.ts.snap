@@ -137,6 +137,7 @@ exports[`EcDropdown > :props > should get disabled when disabled prop is set 1`]
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
+  is-in-light-mode="false"
 >
   <ec-stub
     autosize="true"
@@ -209,6 +210,7 @@ exports[`EcDropdown > :props > should not show the items when the loading is set
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
+  is-in-light-mode="false"
 >
   <ec-stub
     autosize="true"
@@ -336,6 +338,7 @@ exports[`EcDropdown > :props > should render given popover style 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
+  is-in-light-mode="false"
 >
   <ec-stub
     autosize="true"
@@ -409,6 +412,7 @@ exports[`EcDropdown > :props > should render given popover style when it is a fu
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
+  is-in-light-mode="false"
 >
   <ec-stub
     autosize="true"
@@ -482,6 +486,7 @@ exports[`EcDropdown > :props > should render properly when the labelTooltip prop
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
+  is-in-light-mode="false"
 >
   <ec-stub
     autosize="true"
@@ -553,6 +558,7 @@ exports[`EcDropdown > :props > should render with a sensitive class when isSensi
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
+  is-in-light-mode="false"
 >
   <ec-stub
     autosize="true"
@@ -667,6 +673,7 @@ exports[`EcDropdown > should render as expected 1`] = `
 <div
   class="ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
+  is-in-light-mode="false"
 >
   <ec-stub
     autosize="true"
@@ -749,6 +756,7 @@ exports[`EcDropdown > should use custom attributes 1`] = `
 <div
   class="my-class ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
+  is-in-light-mode="false"
 >
   <ec-stub
     autosize="true"

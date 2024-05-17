@@ -75,6 +75,7 @@ exports[`EcCurrencyInput > $attrs > should use data-test attribute to prefix all
     <div
       class="ec-currency-input__currencies ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -226,6 +227,7 @@ exports[`EcCurrencyInput > $attrs > should use data-test attribute with multiple
     <div
       class="ec-currency-input__currencies ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -564,6 +566,7 @@ exports[`EcCurrencyInput > :props > should render without any currencies if the 
 <div
   class="ec-currency-input__currencies ec-dropdown ec-dropdown-search"
   data-test="ec-dropdown ec-dropdown-search"
+  is-in-light-mode="false"
 >
   <ec-stub
     autosize="min"
@@ -664,6 +667,7 @@ exports[`EcCurrencyInput > should render properly 1`] = `
     <div
       class="ec-currency-input__currencies ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -814,6 +818,7 @@ exports[`EcCurrencyInput > should render with a sensitive class when isSensitive
     <div
       class="ec-currency-input__currencies ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"

@@ -110,6 +110,7 @@ exports[`EcCurrencyFilter > should pass down props required by ec-amount-filter-
     <div
       class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
       data-test="ec-dropdown ec-dropdown-search"
+      is-in-light-mode="false"
     >
       <ec-stub
         autosize="min"
@@ -563,6 +564,7 @@ exports[`EcCurrencyFilter > should preselect given filters from the value prop 2
       <div
         class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
         data-test="ec-dropdown ec-dropdown-search"
+        is-in-light-mode="false"
       >
         <ec-stub
           autosize="min"
@@ -1180,6 +1182,7 @@ exports[`EcCurrencyFilter > should render correctly 1`] = `
                 <div
                   class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
                   data-test="ec-dropdown ec-dropdown-search"
+                  is-in-light-mode="false"
                 >
                   <ec-stub
                     autosize="min"
@@ -1823,6 +1826,7 @@ exports[`EcCurrencyFilter > should render with custom attributes 1`] = `
                 <div
                   class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
                   data-test="ec-dropdown ec-dropdown-search"
+                  is-in-light-mode="false"
                 >
                   <ec-stub
                     autosize="min"
@@ -1970,6 +1974,7 @@ exports[`EcCurrencyFilter > v-model > should clear the amount and comparison sym
       <div
         class="ec-amount-filter-input__comparison-symbol-selector ec-dropdown ec-dropdown-search"
         data-test="ec-dropdown ec-dropdown-search"
+        is-in-light-mode="false"
       >
         <ec-stub
           autosize="min"

@@ -31,5 +31,4 @@ export interface DropdownSearchProps<TValue = string, TDropdownSearchItem extend
   noResultsText?: string,
   tooltipCta?: string,
   trapFocus?: boolean,
-  isInLightMode?: boolean,
 }

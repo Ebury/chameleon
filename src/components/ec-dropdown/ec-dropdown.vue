@@ -103,6 +103,7 @@ const props = withDefaults(defineProps<DropdownProps<TValue, TDropdownItem>>(), 
   searchPlaceholder: 'Search...',
   noResultsText: 'No results found',
   tooltipCta: '',
+  isInLightMode: false,
 });
 
 const isDropdownOpen = ref(false);
