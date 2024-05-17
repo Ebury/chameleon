@@ -229,17 +229,7 @@ exports[`EcInputField > renders properly when the inputTooltip prop is set 1`] =
       data-test="ec-input-field__label-text"
     >
       label test
-      <svg
-        class="ec-icon ec-icon--interactive ec-input-field__tooltip"
-        data-ec-tooltip-mock-content="Testing the inputTooltip prop"
-        data-test="ec-input-field__tooltip ec-mock ec-tooltip-mock"
-        height="14"
-        width="14"
-      >
-        <use
-          xlink:href="#ec-simple-info"
-        />
-      </svg>
+      <!--v-if-->
     </span>
     <span
       class="ec-input-field__note"
