@@ -1,5 +1,16 @@
 <template>
+  <ec-mobile-header v-if="isResponsive">
+    <template #logo>
+      <img
+        class="ec-navigation__mobile-header__logo"
+        :src="branding.logo"
+        :alt="branding.name"
+        data-test="ec-navigation__mobile-header__logo"
+      >
+    </template>
+  </ec-mobile-header>
   <div
+    v-else
     class="ec-navigation"
     :class="{ 'ec-navigation--is-collapsable': isCollapsable, 'ec-navigation--is-collapsed': isCollapsed }"
     v-bind="{
@@ -57,6 +68,7 @@
 </template>
 
 <script setup lang="ts">
+import EcMobileHeader from '../ec-mobile-header/ec-mobile-header.vue';
 import type { NavigationProps } from './types';
 
 defineOptions({
@@ -96,6 +108,12 @@ withDefaults(defineProps<NavigationProps>(), {
 
   &--is-collapsed {
     width: var(--ec-navigation-is-collapsed-width);
+  }
+
+  &__mobile-header {
+    &__logo {
+      @apply tw-h-32;
+    }
   }
 
   &__branding {

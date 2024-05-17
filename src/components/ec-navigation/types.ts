@@ -8,4 +8,5 @@ export interface NavigationProps {
   isCollapsable: boolean,
   branding: NavigationBranding,
   showBrandingLogo?: boolean,
+  isResponsive?: boolean,
 }
