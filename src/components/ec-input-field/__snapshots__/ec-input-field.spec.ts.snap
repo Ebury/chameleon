@@ -214,7 +214,45 @@ exports[`EcInputField > renders properly when readonly 1`] = `
 </div>
 `;
 
-exports[`EcInputField > renders properly when the inputTooltip prop is set 1`] = `
+exports[`EcInputField > renders properly when the inputTooltip prop is set and text does Not fit in the input 1`] = `
+<div
+  class="ec-input-field"
+  data-test="ec-input-field"
+>
+  <label
+    class="ec-input-field__label"
+    data-test="ec-input-field__label"
+    for="ec-input-field-1"
+  >
+    <span
+      class="ec-input-field__label-text"
+      data-test="ec-input-field__label-text"
+    >
+      label test
+      <!--v-if-->
+    </span>
+    <span
+      class="ec-input-field__note"
+      data-test="ec-input-field__note"
+    >
+      note test
+    </span>
+  </label>
+  <input
+    class="ec-input-field__input ec-input-field__input--bg-gray-8"
+    data-ec-tooltip-mock-content="Testing the inputTooltip long"
+    data-ec-tooltip-mock-placement="right"
+    data-test="ec-input-field__input ec-mock ec-tooltip-mock"
+    id="ec-input-field-1"
+    type="text"
+  />
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcInputField > renders properly when the inputTooltip prop is set and text fits in the input 1`] = `
 <div
   class="ec-input-field"
   data-test="ec-input-field"
