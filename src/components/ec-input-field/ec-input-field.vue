@@ -42,6 +42,7 @@
       }"
       ref="inputRef"
       v-model="inputModel"
+      v-ec-tooltip.right="getInputTooltipText()"
       :autocomplete="autocomplete"
     >
     <div
@@ -135,6 +136,9 @@ const props = withDefaults(defineProps<InputFieldProps>(), {
   isLoading: false,
   isSensitive: false,
   isWarning: false,
+  bgColorLevel: 8,
+  showPointerCursor: false,
+  showInputTooltip: false,
 });
 
 const isInvalid = computed(() => !!props.errorMessage);
@@ -156,6 +160,9 @@ const inputModel = computed<InputFieldProps['modelValue']>({
 const inputClasses = computed(() => {
   const classes = ['ec-input-field__input'];
 
+  if (props.bgColorLevel) {
+    classes.push(`ec-input-field__input--bg-gray-${props.bgColorLevel}`);
+  }
   if (props.isInGroup) {
     classes.push(`ec-input-field__input--is-in-group-${props.isInGroup}`);
   }
@@ -174,11 +181,24 @@ const inputClasses = computed(() => {
   if (props.isSensitive) {
     classes.push(config.sensitiveClass);
   }
+  if (props.showPointerCursor) {
+    classes.push('ec-input-field__input--cursor-pointer');
+  }
 
   return classes;
 });
 
 const inputRef = ref<Maybe<HTMLInputElement>>(null);
+
+function getInputTooltipText() {
+  if (!inputRef.value || !props.showInputTooltip || !props.modelValue) {
+    return '';
+  }
+
+  const isTextLongerThanInput = inputRef.value.scrollWidth > inputRef.value.clientWidth;
+
+  return isTextLongerThanInput ? props.modelValue.toString() : '';
+}
 
 function focus() {
   /* c8 ignore next */
@@ -247,8 +267,49 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
       padding-left: var(--ec-input-field-icon-area-size);
     }
 
+    &--bg-gray-0 {
+      @apply tw-bg-gray-0;
+    }
+
+    &--bg-gray-1 {
+      @apply tw-bg-gray-1;
+    }
+
+    &--bg-gray-2 {
+      @apply tw-bg-gray-2;
+    }
+
+    &--bg-gray-3 {
+      @apply tw-bg-gray-3;
+    }
+
+    &--bg-gray-4 {
+      @apply tw-bg-gray-4;
+    }
+
+    &--bg-gray-5 {
+      @apply tw-bg-gray-5;
+    }
+
+    &--bg-gray-6 {
+      @apply tw-bg-gray-6;
+    }
+
+    &--bg-gray-7 {
+      @apply tw-bg-gray-7;
+    }
+
+    &--bg-gray-8 {
+      @apply tw-bg-gray-8;
+    }
+
+    &--cursor-pointer {
+      @apply tw-cursor-pointer;
+    }
+
+    &:hover,
     &:focus {
-      @apply tw-border tw-border-solid tw-border-key-4;
+      @apply tw-border tw-border-solid tw-border-gray-5;
       @apply tw-outline-none;
     }
 
@@ -298,7 +359,7 @@ defineExpose<InputFieldExpose>({ focus, inputRef });
   &__icon-wrapper {
     @apply tw-absolute;
     @apply tw-inline-block;
-    @apply tw-text-gray-3 tw-fill-current tw-text-center;
+    @apply tw-text-gray-4 tw-fill-current tw-text-center;
 
     height: var(--ec-input-field-icon-area-size);
     width: var(--ec-input-field-icon-area-size);

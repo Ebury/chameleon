@@ -35,6 +35,11 @@ describe('EcInputField', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  it('renders properly with the given prop bgColorLevel', () => {
+    const wrapper = mountInputField({ bgColorLevel: 6 });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it('renders properly with the given prop autocomplete OFF', () => {
     const wrapper = mountInputField({ autocomplete: 'off' });
     expect(wrapper.findByDataTest('ec-input-field__input').attributes('autocomplete')).toBe('off');
@@ -226,6 +231,40 @@ describe('EcInputField', () => {
         },
       },
     });
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly when the showInputTooltip prop is true and text fits in the input', () => {
+    const wrapper = mountInputField({ showInputTooltip: true }, {
+      global: {
+        mocks: {
+          vEcTooltip: EcTooltipDirectiveMock,
+        },
+      },
+    });
+
+    wrapper.findComponent(EcInputField).vm.focus();
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('renders properly when the showInputTooltip prop is true and text does Not fit in the input', async () => {
+    const wrapper = mountInputField({ showInputTooltip: true }, {
+      global: {
+        mocks: {
+          vEcTooltip: EcTooltipDirectiveMock,
+        },
+      },
+    });
+
+    const input = wrapper.vm.inputRef;
+
+    if (input) {
+      vi.spyOn(input, 'scrollWidth', 'get').mockImplementation(() => 100);
+    }
+
+    await input?.focus();
+
     expect(wrapper.element).toMatchSnapshot();
   });
 

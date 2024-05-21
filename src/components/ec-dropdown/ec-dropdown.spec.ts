@@ -87,6 +87,11 @@ describe('EcDropdown', () => {
       expect(wrapper.findByDataTest('ec-dropdown-search__search-area').element).toMatchSnapshot();
     });
 
+    it('should use the correct class when isInLightMode', () => {
+      const wrapper = mountDropdown({ isInLightMode: true });
+      expect(wrapper.findByDataTest('ec-input-field__input').element).toMatchSnapshot();
+    });
+
     it('should use placeholder prop', () => {
       const wrapper = mountDropdown({ placeholder: 'Random placeholder' });
       expect(wrapper.findByDataTest('ec-input-field__input').element).toMatchSnapshot();

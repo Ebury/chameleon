@@ -16,9 +16,10 @@
     :popover-style="popoverStyle"
     :is-sensitive="isSensitive"
     :tooltip-cta="tooltipCta"
+    :is-in-light-mode="isInLightMode"
     @change="onSelected"
-    @open="$emit('open')"
-    @close="$emit('close')"
+    @open="onOpen"
+    @close="onClose"
     @after-open="$emit('after-open')"
     @after-close="$emit('after-close')"
     @search-change="$emit('search-change', $event)"
@@ -37,8 +38,11 @@
       :is-sensitive="isSensitive"
       :data-test="$attrs['data-test'] ? `${$attrs['data-test']} ec-dropdown__input` : 'ec-dropdown__input'"
       readonly
-      :icon="IconName.SIMPLE_ARROW_DROP_DOWN"
+      :icon="isDropdownOpen ? IconName.SIMPLE_CHEVRON_UP : IconName.SIMPLE_CHEVRON_DOWN"
       :is-in-group="isInGroup"
+      :bg-color-level="(isInLightMode && !isDropdownOpen) ? 7 : 8"
+      :show-pointer-cursor="true"
+      :show-input-tooltip="true"
       @focus="onFocus"
       @blur="$emit('blur')"
     />
@@ -99,7 +103,10 @@ const props = withDefaults(defineProps<DropdownProps<TValue, TDropdownItem>>(), 
   searchPlaceholder: 'Search...',
   noResultsText: 'No results found',
   tooltipCta: '',
+  isInLightMode: false,
 });
+
+const isDropdownOpen = ref(false);
 
 // selected value
 const selectedModel = computed<TDropdownItem | undefined>({
@@ -142,6 +149,16 @@ function onFocus() {
   } else {
     shouldEmitFocus.value = true;
   }
+}
+
+function onOpen() {
+  emit('open');
+  isDropdownOpen.value = true;
+}
+
+function onClose() {
+  emit('close');
+  isDropdownOpen.value = false;
 }
 
 // slots
