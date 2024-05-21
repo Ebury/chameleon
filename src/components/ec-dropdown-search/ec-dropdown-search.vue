@@ -656,8 +656,8 @@ function loseFocus() {
 
     &--is-selected,
     &--is-selected:hover {
-      @apply tw-bg-key-4;
-      @apply tw-text-gray-8;
+      @apply tw-bg-key-7;
+      @apply tw-text-gray-3;
     }
 
     &--is-disabled,
