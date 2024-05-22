@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EcMobileHeader > should render properly 1`] = `
+<header
+  class="ec-mobile-header"
+  data-test="ec-mobile-header"
+>
+  <div
+    class="ec-mobile-header__logo"
+  >
+    
+    <img
+      src="/test.svg"
+    />
+    
+  </div>
+  <button
+    class="ec-mobile-header__menu"
+    type="button"
+  >
+    <svg
+      class="ec-icon ec-mobile-header__menu__icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-menu"
+      />
+    </svg>
+  </button>
+</header>
+`;

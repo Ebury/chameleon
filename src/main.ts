@@ -62,6 +62,7 @@ export { default as EcMetrolineItem } from './components/ec-metroline/components
 export * from './components/ec-metroline/components/ec-metroline-item/types';
 export { METROLINE_PROVIDE_KEY } from './components/ec-metroline/provide';
 export * from './components/ec-metroline/types';
+export { default as EcMobileHeader } from './components/ec-mobile-header';
 export { default as EcModal } from './components/ec-modal';
 export * from './components/ec-modal/types';
 export { default as EcMultipleValuesSelection } from './components/ec-multiple-values-selection';
