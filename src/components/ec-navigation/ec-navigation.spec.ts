@@ -100,4 +100,12 @@ describe('EcNavigation', () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('should apply light mode CSS classes if "isInLightMode" prop is true', () => {
+    const wrapper = mountNavigation({
+      isInLightMode: true,
+    });
+
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
