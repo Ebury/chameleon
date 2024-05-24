@@ -25,9 +25,6 @@
     <div
       v-if="showBrandingLogo && branding.logo"
       class="ec-navigation__branding"
-      :class="{
-        'ec-navigation__branding--light-mode': isInLightMode,
-      }"
       data-test="ec-navigation__branding"
     >
       <img
@@ -114,6 +111,11 @@ withDefaults(defineProps<NavigationProps>(), {
     @apply tw-bg-gray-7;
     @apply tw-text-gray-3;
     @apply tw-py-32 tw-px-24;
+
+    .ec-navigation__branding {
+      @apply tw-m-0 tw-mb-16 tw-p-0;
+      @apply tw-text-left;
+    }
   }
 
   &--is-collapsable {
@@ -137,11 +139,6 @@ withDefaults(defineProps<NavigationProps>(), {
     @apply tw-py-0 tw-px-24;
     @apply tw-mt-24 tw-mb-8 tw-mx-0;
     @apply tw-text-center;
-
-    &--light-mode {
-      @apply tw-m-0 tw-mb-16 tw-p-0;
-      @apply tw-text-left;
-    }
   }
 
   &__branding-logo {

@@ -6,7 +6,7 @@ exports[`EcNavigation > should apply light mode CSS classes if "isInLightMode" p
   data-test="ec-navigation"
 >
   <div
-    class="ec-navigation__branding ec-navigation__branding--light-mode"
+    class="ec-navigation__branding"
     data-test="ec-navigation__branding"
   >
     <img
