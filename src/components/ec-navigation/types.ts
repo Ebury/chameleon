@@ -9,4 +9,5 @@ export interface NavigationProps {
   branding: NavigationBranding,
   showBrandingLogo?: boolean,
   isResponsive?: boolean,
+  isInLightMode?: boolean,
 }

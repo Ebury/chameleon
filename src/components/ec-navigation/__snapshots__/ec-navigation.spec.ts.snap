@@ -1,5 +1,38 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`EcNavigation > should apply light mode CSS classes if "isInLightMode" prop is true 1`] = `
+<div
+  class="ec-navigation ec-navigation--light-mode"
+  data-test="ec-navigation"
+>
+  <div
+    class="ec-navigation__branding"
+    data-test="ec-navigation__branding"
+  >
+    <img
+      alt="Test Brand"
+      class="ec-navigation__branding-logo"
+      data-test="ec-navigation__branding-logo"
+      src="/img/my-brand.png"
+    />
+  </div>
+  <!--v-if-->
+  <hr
+    class="ec-navigation__separator"
+  />
+  <!--v-if-->
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
 exports[`EcNavigation > should be collapsable when isCollapsable is set 1`] = `
 <div
   class="ec-navigation ec-navigation--is-collapsable"
@@ -16,6 +49,7 @@ exports[`EcNavigation > should be collapsable when isCollapsable is set 1`] = `
       src="/img/my-brand.png"
     />
   </div>
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
   <div
@@ -48,6 +82,7 @@ exports[`EcNavigation > should be collapsed when isCollapsed is set to true 1`] 
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
@@ -78,6 +113,7 @@ exports[`EcNavigation > should be expanded when isCollapsed is set to false 1`] 
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
@@ -98,6 +134,7 @@ exports[`EcNavigation > should not render branding if logo is given in branding 
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
@@ -115,6 +152,7 @@ exports[`EcNavigation > should not render branding if no logo is given in brandi
   class="ec-navigation"
   data-test="ec-navigation"
 >
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
   <!--v-if-->
@@ -146,6 +184,7 @@ exports[`EcNavigation > should only render mandatory slot if no other slots were
       src="/img/my-brand.png"
     />
   </div>
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
   <div
@@ -186,6 +225,7 @@ exports[`EcNavigation > should render all given slots 1`] = `
     </div>
     
   </div>
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__call-to-action"
     data-test="ec-navigation__block ec-navigation__call-to-action"
@@ -261,6 +301,7 @@ exports[`EcNavigation > should render branding logo and name when given 1`] = `
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
@@ -324,6 +365,7 @@ exports[`EcNavigation > should render with custom attributes 1`] = `
       src="/img/my-brand.png"
     />
   </div>
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
   <div
