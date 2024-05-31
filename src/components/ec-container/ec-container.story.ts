@@ -37,7 +37,7 @@ const Template: StoryFn<typeof EcContainer> = args => ({
         <div class="tw-bg-key-2 tw-text-gray-8 tw-min-h-screen">Navigation panel</div>
       </template>
       <template #content>
-        <div class="tw-bg-key-6 tw-text-gray-2 tw-min-h-screen">Main content panel</div>
+        <div class="tw-bg-key-6 tw-text-gray-2 tw-min-h-screen tw-w-screen">Main content panel</div>
       </template>
     </ec-container>
   `,
@@ -222,7 +222,7 @@ export const withResponsiveLayout: StoryFn<typeof EcContainer> = args => ({
         <div class="tw-bg-key-2 tw-text-gray-8 tw-min-h-48">Navigation panel</div>
       </template>
       <template #content>
-        <div class="tw-bg-key-6 tw-text-gray-2 tw-min-h-screen">Main content panel</div>
+        <div class="tw-bg-key-6 tw-text-gray-2 tw-min-h-screen tw-w-screen">Main content panel</div>
       </template>
     </ec-container>
   `,
