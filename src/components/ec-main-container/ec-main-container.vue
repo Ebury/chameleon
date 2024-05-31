@@ -67,7 +67,9 @@ function hasSlot(slotName: string) {
 <style>
 .ec-main-container {
   @apply tw-p-24;
-  @apply tw-min-h-full;
+  @apply tw-min-h-full tw-w-full;
+
+  max-width: var(--ec-main-container-max-width);
 
   &__title {
     @apply tw-h2;
