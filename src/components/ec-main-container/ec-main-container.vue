@@ -65,6 +65,11 @@ function hasSlot(slotName: string) {
 </script>
 
 <style>
+:root,
+:host {
+  --ec-main-container-max-width: 1200px;
+}
+
 .ec-main-container {
   @apply tw-p-24;
   @apply tw-min-h-full tw-w-full;
