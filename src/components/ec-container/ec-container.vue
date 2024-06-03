@@ -51,7 +51,7 @@ defineProps<ContainerProps>();
   }
 
   &__content {
-    @apply tw-flex-1;
+    @apply tw-flex tw-flex-1 tw-justify-center;
     @apply tw-min-w-0;
   }
 }
