@@ -99,7 +99,7 @@ import { IconName } from '../ec-icon/types';
 import EcMobileHeader from '../ec-mobile-header/ec-mobile-header.vue';
 import type { NavigationProps } from './types';
 
-const isMobileMenuOpen = ref(true);
+const isMobileMenuOpen = ref(false);
 
 defineOptions({
   inheritAttrs: false,
@@ -156,11 +156,12 @@ withDefaults(defineProps<NavigationProps>(), {
   }
 
   &__mobile-menu-close-button {
+    @apply tw-fixed;
+    @apply tw-top-16 tw-right-24;
     @apply tw-fill-key-4;
     @apply tw-border-0;
     @apply tw-p-0;
-    @apply tw-bg-none;
-    @apply tw-fixed tw-top-16 tw-right-24;
+    @apply tw-bg-transparent;
 
     &:hover {
       @apply tw-fill-key-3;

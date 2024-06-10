@@ -41,11 +41,19 @@ const emit = defineEmits<{
   }
 
   &__menu {
+    @apply tw-fixed;
+    @apply tw-top-16 tw-right-24;
     @apply tw-flex tw-items-center;
-    @apply tw-border-0 tw-p-0 tw-bg-transparent;
+    @apply tw-border-0 tw-p-0;
+    @apply tw-bg-transparent;
 
     &__icon {
       @apply tw-fill-key-4;
+    }
+
+    &:hover {
+      @apply tw-cursor-pointer;
+      @apply tw-fill-key-3;
     }
   }
 }
