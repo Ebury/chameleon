@@ -41,7 +41,7 @@ const emit = defineEmits<{
   }
 
   &__menu {
-    @apply tw-fixed;
+    @apply tw-absolute;
     @apply tw-top-16 tw-right-24;
     @apply tw-flex tw-items-center;
     @apply tw-border-0 tw-p-0;
