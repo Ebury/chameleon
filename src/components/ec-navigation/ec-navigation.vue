@@ -1,5 +1,8 @@
 <template>
-  <ec-mobile-header v-if="isResponsive">
+  <ec-mobile-header
+    v-if="isResponsive && !isMobileMenuOpen"
+    @open-mobile-menu="isMobileMenuOpen = true"
+  >
     <template #logo>
       <img
         class="ec-navigation__mobile-header__logo"
@@ -16,12 +19,25 @@
       'ec-navigation--is-collapsable': isCollapsable,
       'ec-navigation--is-collapsed': isCollapsed,
       'ec-navigation--light-mode': isInLightMode,
+      'ec-navigation--mobile-mode': isMobileMenuOpen,
     }"
     v-bind="{
       ...$attrs,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-navigation` : 'ec-navigation',
     }"
   >
+    <button
+      v-if="isMobileMenuOpen"
+      type="button"
+      class="ec-navigation__mobile-menu-close-button"
+      @click="isMobileMenuOpen = false"
+    >
+      <ec-icon
+        class="ec-navigation__mobile-menu-close-button"
+        :name="IconName.SIMPLE_CLOSE"
+        :size="24"
+      />
+    </button>
     <div
       v-if="showBrandingLogo && branding.logo"
       class="ec-navigation__branding"
@@ -76,8 +92,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
+import EcIcon from '../ec-icon';
+import { IconName } from '../ec-icon/types';
 import EcMobileHeader from '../ec-mobile-header/ec-mobile-header.vue';
 import type { NavigationProps } from './types';
+
+const isMobileMenuOpen = ref(true);
 
 defineOptions({
   inheritAttrs: false,
@@ -127,6 +149,23 @@ withDefaults(defineProps<NavigationProps>(), {
 
   &--is-collapsed {
     width: var(--ec-navigation-is-collapsed-width);
+  }
+
+  &--mobile-mode {
+    @apply tw-w-screen;
+  }
+
+  &__mobile-menu-close-button {
+    @apply tw-fill-key-4;
+    @apply tw-border-0;
+    @apply tw-p-0;
+    @apply tw-bg-none;
+    @apply tw-fixed tw-top-16 tw-right-24;
+
+    &:hover {
+      @apply tw-fill-key-3;
+      @apply tw-cursor-pointer;
+    }
   }
 
   &__mobile-header {

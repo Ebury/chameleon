@@ -6,7 +6,11 @@
     <div class="ec-mobile-header__logo">
       <slot name="logo" />
     </div>
-    <button type="button" class="ec-mobile-header__menu">
+    <button
+      type="button"
+      class="ec-mobile-header__menu"
+      @click="emit('open-mobile-menu')"
+    >
       <ec-icon
         class="ec-mobile-header__menu__icon"
         :name="IconName.SIMPLE_MENU"
@@ -19,6 +23,10 @@
 <script setup lang="ts">
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
+
+const emit = defineEmits<{
+  'open-mobile-menu': [],
+}>();
 </script>
 
 <style>
