@@ -167,6 +167,10 @@ const zIndexStyle = computed(() => (props.zIndex ? { zIndex: props.zIndex } : nu
 // focus trap
 const focusTrapTarget = ref<Maybe<HTMLDivElement>>(null);
 
+function getFocusTrapContainer(): Maybe<HTMLElement> {
+  return focusTrapTarget.value;
+}
+
 function getFocusTrapOptions(): UseFocusTrapOptions {
   const options: {
     immediate: boolean,
@@ -231,6 +235,10 @@ function hasFooterLeftContent(): boolean {
 function hasFooter(): boolean {
   return hasFooterLeftContent() || hasPositiveButton() || hasNegativeButton();
 }
+
+defineExpose({
+  getFocusTrapContainer,
+});
 </script>
 
 <style>
