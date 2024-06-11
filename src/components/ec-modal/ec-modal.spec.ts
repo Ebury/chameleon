@@ -432,6 +432,19 @@ describe('EcModal', () => {
     expect(removeEventListenerSpy).toHaveBeenCalledWith('keyup', addEventListenerSpy.mock.calls[0][1]);
   });
 
+  describe('defineExpose', () => {
+    it('should return the container that was exposed', () => {
+      const element = document.createElement('div');
+      const wrapper = mountModal({
+        show: true,
+      }, {
+        attachTo: element,
+      });
+      const container = wrapper.vm.getFocusTrapContainer();
+      expect(container).toBe(wrapper.findByDataTest<HTMLElement>('ec-modal__content').element);
+    });
+  });
+
   describe('v-model', () => {
     it('should render the modal when we pass to model true', async () => {
       const Component = defineComponent({
