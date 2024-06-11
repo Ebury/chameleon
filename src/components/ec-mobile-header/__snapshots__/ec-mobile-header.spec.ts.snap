@@ -16,6 +16,7 @@ exports[`EcMobileHeader > should render properly 1`] = `
   </div>
   <button
     class="ec-mobile-header__menu"
+    data-test="ec-mobile-header__menu"
     type="button"
   >
     <svg

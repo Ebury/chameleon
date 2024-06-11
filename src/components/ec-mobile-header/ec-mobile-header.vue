@@ -9,6 +9,7 @@
     <button
       type="button"
       class="ec-mobile-header__menu"
+      data-test="ec-mobile-header__menu"
       @click="emit('open-mobile-menu')"
     >
       <ec-icon

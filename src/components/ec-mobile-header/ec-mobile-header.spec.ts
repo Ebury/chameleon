@@ -19,4 +19,13 @@ describe('EcMobileHeader', () => {
     });
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  describe('@events', () => {
+    it('should emit an event when the mobile menu button is clicked', async () => {
+      const wrapper = mountMobileHeader();
+
+      await wrapper.findByDataTest('ec-mobile-header__menu').trigger('click');
+      expect(wrapper.emitted('open-mobile-menu')?.length).toBe(1);
+    });
+  });
 });
