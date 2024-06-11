@@ -1,5 +1,202 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`EcNavigation > mobile navigation > should close the mobile navigation when the close menu button is clicked > after 1`] = `
+<header
+  class="ec-mobile-header"
+  data-test="ec-mobile-header"
+>
+  <div
+    class="ec-mobile-header__logo"
+  >
+    
+    <img
+      alt="Test Brand"
+      class="ec-navigation__mobile-header__logo"
+      data-test="ec-navigation__mobile-header__logo"
+      src="/img/my-brand.png"
+    />
+    
+  </div>
+  <button
+    class="ec-mobile-header__menu"
+    data-test="ec-mobile-header__menu"
+    type="button"
+  >
+    <svg
+      class="ec-icon ec-mobile-header__menu__icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-menu"
+      />
+    </svg>
+  </button>
+</header>
+`;
+
+exports[`EcNavigation > mobile navigation > should close the mobile navigation when the close menu button is clicked > before 1`] = `
+<div
+  class="ec-navigation ec-navigation--mobile-mode"
+  data-test="ec-navigation"
+>
+  <button
+    class="ec-navigation__mobile-menu-close-button"
+    type="button"
+  >
+    <svg
+      class="ec-icon ec-navigation__mobile-menu-close-button"
+      data-test="ec-navigation__mobile-menu-close-button"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-close"
+      />
+    </svg>
+  </button>
+  <div
+    class="ec-navigation__branding"
+    data-test="ec-navigation__branding"
+  >
+    <img
+      alt="Test Brand"
+      class="ec-navigation__branding-logo"
+      data-test="ec-navigation__branding-logo"
+      src="/img/my-brand.png"
+    />
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcNavigation > mobile navigation > should render mobile header if "isResponsive" prop is true 1`] = `
+<header
+  class="ec-mobile-header"
+  data-test="ec-mobile-header"
+>
+  <div
+    class="ec-mobile-header__logo"
+  >
+    
+    <img
+      alt="Test Brand"
+      class="ec-navigation__mobile-header__logo"
+      data-test="ec-navigation__mobile-header__logo"
+      src="/img/my-brand.png"
+    />
+    
+  </div>
+  <button
+    class="ec-mobile-header__menu"
+    data-test="ec-mobile-header__menu"
+    type="button"
+  >
+    <svg
+      class="ec-icon ec-mobile-header__menu__icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-menu"
+      />
+    </svg>
+  </button>
+</header>
+`;
+
+exports[`EcNavigation > mobile navigation > should show render the mobile navigation when the mobile header menu button is clicked > after 1`] = `
+<div
+  class="ec-navigation ec-navigation--mobile-mode"
+  data-test="ec-navigation"
+>
+  <button
+    class="ec-navigation__mobile-menu-close-button"
+    type="button"
+  >
+    <svg
+      class="ec-icon ec-navigation__mobile-menu-close-button"
+      data-test="ec-navigation__mobile-menu-close-button"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-close"
+      />
+    </svg>
+  </button>
+  <div
+    class="ec-navigation__branding"
+    data-test="ec-navigation__branding"
+  >
+    <img
+      alt="Test Brand"
+      class="ec-navigation__branding-logo"
+      data-test="ec-navigation__branding-logo"
+      src="/img/my-brand.png"
+    />
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcNavigation > mobile navigation > should show render the mobile navigation when the mobile header menu button is clicked > before 1`] = `
+<header
+  class="ec-mobile-header"
+  data-test="ec-mobile-header"
+>
+  <div
+    class="ec-mobile-header__logo"
+  >
+    
+    <img
+      alt="Test Brand"
+      class="ec-navigation__mobile-header__logo"
+      data-test="ec-navigation__mobile-header__logo"
+      src="/img/my-brand.png"
+    />
+    
+  </div>
+  <button
+    class="ec-mobile-header__menu"
+    data-test="ec-mobile-header__menu"
+    type="button"
+  >
+    <svg
+      class="ec-icon ec-mobile-header__menu__icon"
+      height="24"
+      width="24"
+    >
+      <use
+        xlink:href="#ec-simple-menu"
+      />
+    </svg>
+  </button>
+</header>
+`;
+
 exports[`EcNavigation > should apply light mode CSS classes if "isInLightMode" prop is true 1`] = `
 <div
   class="ec-navigation ec-navigation--light-mode"
@@ -321,41 +518,6 @@ exports[`EcNavigation > should render branding logo and name when given 1`] = `
   <!--v-if-->
   <!--v-if-->
 </div>
-`;
-
-exports[`EcNavigation > should render mobile header if "isResponsive" prop is true 1`] = `
-<header
-  class="ec-mobile-header"
-  data-test="ec-mobile-header"
->
-  <div
-    class="ec-mobile-header__logo"
-  >
-    
-    <img
-      alt="Test Brand"
-      class="ec-navigation__mobile-header__logo"
-      data-test="ec-navigation__mobile-header__logo"
-      src="/img/my-brand.png"
-    />
-    
-  </div>
-  <button
-    class="ec-mobile-header__menu"
-    data-test="ec-mobile-header__menu"
-    type="button"
-  >
-    <svg
-      class="ec-icon ec-mobile-header__menu__icon"
-      height="24"
-      width="24"
-    >
-      <use
-        xlink:href="#ec-simple-menu"
-      />
-    </svg>
-  </button>
-</header>
 `;
 
 exports[`EcNavigation > should render with custom attributes 1`] = `

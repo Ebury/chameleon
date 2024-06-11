@@ -93,19 +93,43 @@ describe('EcNavigation', () => {
     expect(wrapper.findAllByDataTest('ec-navigation__block').length).toBe(5);
   });
 
-  it('should render mobile header if "isResponsive" prop is true', () => {
-    const wrapper = mountNavigation({
-      isResponsive: true,
-    });
-
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
   it('should apply light mode CSS classes if "isInLightMode" prop is true', () => {
     const wrapper = mountNavigation({
       isInLightMode: true,
     });
 
     expect(wrapper.element).toMatchSnapshot();
+  });
+
+  describe('mobile navigation', () => {
+    it('should render mobile header if "isResponsive" prop is true', () => {
+      const wrapper = mountNavigation({
+        isResponsive: true,
+      });
+
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
+    it('should show render the mobile navigation when the mobile header menu button is clicked', async () => {
+      const wrapper = mountNavigation({
+        isResponsive: true,
+      });
+
+      expect(wrapper.element).toMatchSnapshot('before');
+      await wrapper.findByDataTest('ec-mobile-header__menu').trigger('click');
+      expect(wrapper.element).toMatchSnapshot('after');
+    });
+
+    it('should close the mobile navigation when the close menu button is clicked', async () => {
+      const wrapper = mountNavigation({
+        isResponsive: true,
+      });
+
+      await wrapper.findByDataTest('ec-mobile-header__menu').trigger('click');
+      expect(wrapper.element).toMatchSnapshot('before');
+
+      await wrapper.findByDataTest('ec-navigation__mobile-menu-close-button').trigger('click');
+      expect(wrapper.element).toMatchSnapshot('after');
+    });
   });
 });

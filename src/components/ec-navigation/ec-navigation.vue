@@ -34,6 +34,7 @@
     >
       <ec-icon
         class="ec-navigation__mobile-menu-close-button"
+        data-test="ec-navigation__mobile-menu-close-button"
         :name="IconName.SIMPLE_CLOSE"
         :size="24"
       />
