@@ -38,7 +38,7 @@ const emit = defineEmits<{
   @apply tw-bg-gray-7;
 
   &__logo {
-    @apply tw-h-32;
+    @apply tw-w-88;
   }
 
   &__menu {

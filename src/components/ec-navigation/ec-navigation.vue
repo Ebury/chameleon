@@ -25,6 +25,7 @@
       ...$attrs,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-navigation` : 'ec-navigation',
     }"
+    @navigation-link-clicked="onNavigationLinkClicked"
   >
     <button
       v-if="isMobileMenuOpen"
@@ -46,6 +47,7 @@
     >
       <img
         class="ec-navigation__branding-logo"
+        :class="{ 'ec-navigation__branding-logo--responsive': isResponsive }"
         :src="branding.logo"
         :alt="branding.name"
         data-test="ec-navigation__branding-logo"
@@ -109,6 +111,12 @@ defineOptions({
 withDefaults(defineProps<NavigationProps>(), {
   showBrandingLogo: true,
 });
+
+function onNavigationLinkClicked() {
+  if (isMobileMenuOpen.value) {
+    isMobileMenuOpen.value = false;
+  }
+}
 </script>
 
 <style>
@@ -184,6 +192,10 @@ withDefaults(defineProps<NavigationProps>(), {
 
   &__branding-logo {
     @apply tw-align-top;
+
+    &--responsive {
+      @apply tw-w-88;
+    }
   }
 
   &__block {
