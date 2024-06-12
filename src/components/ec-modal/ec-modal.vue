@@ -1,6 +1,7 @@
 <template>
   <transition name="ec-modal__fade">
     <div
+      ref="focusTrapTarget"
       v-if="show"
       class="ec-modal"
       :style="zIndexStyle"
@@ -11,7 +12,6 @@
       @click.self="closeModal()"
     >
       <div
-        ref="focusTrapTarget"
         class="ec-modal__content"
         data-test="ec-modal__content"
         :class="{ 'ec-modal--lg': large }"

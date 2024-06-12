@@ -441,7 +441,7 @@ describe('EcModal', () => {
         attachTo: element,
       });
       const container = wrapper.vm.getFocusTrapContainer();
-      expect(container).toBe(wrapper.findByDataTest<HTMLElement>('ec-modal__content').element);
+      expect(container).toBe(wrapper.findByDataTest<HTMLElement>('ec-modal').element);
     });
   });
 
