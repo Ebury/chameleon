@@ -49,6 +49,8 @@ export { default as EcInlineInputField } from './components/ec-inline-input-fiel
 export * from './components/ec-inline-input-field/types';
 export { default as EcInputField } from './components/ec-input-field';
 export * from './components/ec-input-field/types';
+export { default as EcLetterIcon } from './components/ec-letter-icon';
+export * from './components/ec-letter-icon/types';
 export { default as EcLoading } from './components/ec-loading';
 export * from './components/ec-loading/types';
 export { default as EcLoadingIcon } from './components/ec-loading-icon';
