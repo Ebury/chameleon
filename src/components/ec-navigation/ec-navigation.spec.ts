@@ -131,5 +131,25 @@ describe('EcNavigation', () => {
       await wrapper.findByDataTest('ec-navigation__mobile-menu-close-button').trigger('click');
       expect(wrapper.element).toMatchSnapshot('after');
     });
+
+    it('should close the mobile navigation when the slot `onNavigationLinkClicked` binding is triggered', async () => {
+      const wrapper = mountNavigation({
+        isResponsive: true,
+      }, {
+        slots: {
+          menu: `<template #menu="{onNavigationLinkClicked}">
+              <a @click=onNavigationLinkClicked data-test="my-custom-link"></a>
+            </template>`,
+        },
+      });
+
+      // Open mobile menu first
+      await wrapper.findByDataTest('ec-mobile-header__menu').trigger('click');
+      expect(wrapper.element).toMatchSnapshot('before');
+
+      // Close navigation when a menu item is clicked
+      await wrapper.findByDataTest('my-custom-link').trigger('click');
+      expect(wrapper.element).toMatchSnapshot('after');
+    });
   });
 });

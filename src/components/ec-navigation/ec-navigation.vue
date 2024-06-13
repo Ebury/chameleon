@@ -25,71 +25,82 @@
       ...$attrs,
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-navigation` : 'ec-navigation',
     }"
-    @navigation-link-clicked="onNavigationLinkClicked"
   >
-    <button
-      v-if="isMobileMenuOpen"
-      type="button"
-      class="ec-navigation__mobile-menu-close-button"
-      @click="isMobileMenuOpen = false"
-    >
-      <ec-icon
-        class="ec-navigation__mobile-menu-close-button"
-        data-test="ec-navigation__mobile-menu-close-button"
-        :name="IconName.SIMPLE_CLOSE"
-        :size="24"
-      />
-    </button>
-    <div
-      v-if="showBrandingLogo && branding.logo"
-      class="ec-navigation__branding"
-      data-test="ec-navigation__branding"
-    >
-      <img
-        class="ec-navigation__branding-logo"
-        :class="{ 'ec-navigation__branding-logo--responsive': isResponsive }"
-        :src="branding.logo"
-        :alt="branding.name"
-        data-test="ec-navigation__branding-logo"
+    <div :class="{ 'ec-navigation__header': isMobileMenuOpen }">
+      <div
+        v-if="showBrandingLogo && branding.logo"
+        :class="{
+          'ec-navigation__branding--mobile-menu-open': isMobileMenuOpen,
+        }"
+        class="ec-navigation__branding"
+        data-test="ec-navigation__branding"
       >
+        <img
+          class="ec-navigation__branding-logo"
+          :class="{ 'ec-navigation__branding-logo--responsive': isResponsive }"
+          :src="branding.logo"
+          :alt="branding.name"
+          data-test="ec-navigation__branding-logo"
+        >
+      </div>
+
+      <button
+        v-if="isMobileMenuOpen"
+        type="button"
+        class="ec-navigation__mobile-menu-close-button"
+        @click="isMobileMenuOpen = false"
+      >
+        <ec-icon
+          class="ec-navigation__mobile-menu-close-button"
+          data-test="ec-navigation__mobile-menu-close-button"
+          :name="IconName.SIMPLE_CLOSE"
+          :size="24"
+        />
+      </button>
     </div>
+
     <div
       v-if="$slots['user-info']"
       class="ec-navigation__block ec-navigation__user-info"
       data-test="ec-navigation__block ec-navigation__user-info"
     >
-      <slot name="user-info" />
+      <slot name="user-info" v-bind="{ onNavigationLinkClicked }" />
     </div>
+
     <hr
       v-if="isInLightMode"
       class="ec-navigation__separator"
     />
+
     <div
       v-if="$slots['call-to-action']"
       class="ec-navigation__block ec-navigation__call-to-action"
       data-test="ec-navigation__block ec-navigation__call-to-action"
     >
-      <slot name="call-to-action" />
+      <slot name="call-to-action" v-bind="{ onNavigationLinkClicked }" />
     </div>
+
     <div
       class="ec-navigation__block ec-navigation__menu"
       data-test="ec-navigation__block ec-navigation__menu"
     >
-      <slot name="menu" />
+      <slot name="menu" v-bind="{ onNavigationLinkClicked }" />
     </div>
+
     <div
       v-if="$slots['footer-menu']"
       class="ec-navigation__block ec-navigation__footer-menu"
       data-test="ec-navigation__block ec-navigation__footer-menu"
     >
-      <slot name="footer-menu" />
+      <slot name="footer-menu" v-bind="{ onNavigationLinkClicked }" />
     </div>
+
     <div
       v-if="$slots.copyright"
       class="ec-navigation__block ec-navigation__copyright"
       data-test="ec-navigation__block ec-navigation__copyright"
     >
-      <slot name="copyright" />
+      <slot name="copyright" v-bind="{ onNavigationLinkClicked }" />
     </div>
   </div>
 </template>
@@ -138,13 +149,17 @@ function onNavigationLinkClicked() {
   @apply tw-flex tw-flex-col;
   @apply tw-overflow-y-auto tw-overflow-x-hidden;
 
+  &__header {
+    @apply tw-flex tw-justify-between tw-items-center;
+  }
+
   &--light-mode {
     @apply tw-bg-gray-7;
     @apply tw-text-gray-3;
-    @apply tw-py-32 tw-px-24;
+    @apply tw-py-16 tw-px-24;
 
     .ec-navigation__branding {
-      @apply tw-m-0 tw-mb-16 tw-p-0;
+      @apply tw-m-0 tw-p-0;
       @apply tw-text-left;
     }
   }
@@ -165,12 +180,11 @@ function onNavigationLinkClicked() {
   }
 
   &__mobile-menu-close-button {
-    @apply tw-fixed;
-    @apply tw-top-16 tw-right-24;
     @apply tw-fill-key-4;
     @apply tw-border-0;
     @apply tw-p-0;
     @apply tw-bg-transparent;
+    @apply tw-flex tw-items-center;
 
     &:hover {
       @apply tw-fill-key-3;
@@ -180,7 +194,7 @@ function onNavigationLinkClicked() {
 
   &__mobile-header {
     &__logo {
-      @apply tw-h-32;
+      @apply tw-w-88;
     }
   }
 

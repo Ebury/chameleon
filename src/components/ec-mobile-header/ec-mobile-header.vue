@@ -3,7 +3,7 @@
     class="ec-mobile-header"
     data-test="ec-mobile-header"
   >
-    <div class="ec-mobile-header__logo">
+    <div class="tw-leading-reset">
       <slot name="logo" />
     </div>
     <button
@@ -37,13 +37,7 @@ const emit = defineEmits<{
   @apply tw-py-16 tw-px-24;
   @apply tw-bg-gray-7;
 
-  &__logo {
-    @apply tw-w-88;
-  }
-
   &__menu {
-    @apply tw-absolute;
-    @apply tw-top-16 tw-right-24;
     @apply tw-flex tw-items-center;
     @apply tw-border-0 tw-p-0;
     @apply tw-bg-transparent;

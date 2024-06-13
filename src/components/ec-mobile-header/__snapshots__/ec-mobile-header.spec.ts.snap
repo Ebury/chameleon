@@ -6,7 +6,7 @@ exports[`EcMobileHeader > should render properly 1`] = `
   data-test="ec-mobile-header"
 >
   <div
-    class="ec-mobile-header__logo"
+    class="tw-leading-reset"
   >
     
     <img
