@@ -70,4 +70,14 @@ describe('EcLetterIcon', () => {
     expect(container.element.tagName).toContain('BUTTON');
     expect(container.classes()).toContain('ec-letter-icon--clickable');
   });
+
+  it('should add hover styles if "applyHoverStyles" prop is set', () => {
+    const wrapper = mountLetterIcon({
+      text: 'Test',
+      applyHoverStyles: true,
+    });
+
+    const container = wrapper.findByDataTest('ec-letter-icon');
+    expect(container.classes()).toContain('ec-letter-icon--hover-styles');
+  });
 });
