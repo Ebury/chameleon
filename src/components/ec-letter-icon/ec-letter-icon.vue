@@ -6,6 +6,7 @@
     class="ec-letter-icon"
     :class="{
       'ec-letter-icon--clickable': isClickable,
+      'ec-letter-icon--hover-styles': isParentHovered,
       [`ec-letter-icon--${size}`]: true,
     }"
   >
@@ -26,6 +27,7 @@ import { type LetterIconProps, LetterIconSize } from './types';
 const props = withDefaults(defineProps<LetterIconProps>(), {
   size: LetterIconSize.SMALL,
   isClickable: false,
+  isParentHovered: false,
 });
 
 const firstLetter = computed(() => (props.text[0]?.toUpperCase()));
@@ -55,11 +57,15 @@ const firstLetter = computed(() => (props.text[0]?.toUpperCase()));
     @apply tw-cursor-pointer tw-border-0 tw-p-0;
 
     &:hover {
-      @apply tw-bg-gray-2;
+      @apply ec-letter-icon--hover-styles;
+    }
+  }
 
-      .ec-letter-icon__text {
-        @apply tw-text-gray-7;
-      }
+  &--hover-styles {
+    @apply tw-bg-gray-2;
+
+    .ec-letter-icon__text {
+      @apply tw-text-gray-7;
     }
   }
 }
