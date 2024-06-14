@@ -71,10 +71,10 @@ describe('EcLetterIcon', () => {
     expect(container.classes()).toContain('ec-letter-icon--clickable');
   });
 
-  it('should add hover styles if "applyHoverStyles" prop is set', () => {
+  it('should add hover styles if "isParentHovered" prop is set', () => {
     const wrapper = mountLetterIcon({
       text: 'Test',
-      applyHoverStyles: true,
+      isParentHovered: true,
     });
 
     const container = wrapper.findByDataTest('ec-letter-icon');

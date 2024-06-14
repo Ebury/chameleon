@@ -2,7 +2,7 @@ export interface LetterIconProps {
   text: string,
   size?: LetterIconSize,
   isClickable?: boolean,
-  applyHoverStyles?: boolean,
+  isParentHovered?: boolean,
 }
 
 export enum LetterIconSize {

@@ -6,7 +6,7 @@
     class="ec-letter-icon"
     :class="{
       'ec-letter-icon--clickable': isClickable,
-      'ec-letter-icon--hover-styles': applyHoverStyles,
+      'ec-letter-icon--hover-styles': isParentHovered,
       [`ec-letter-icon--${size}`]: true,
     }"
   >
@@ -27,7 +27,7 @@ import { type LetterIconProps, LetterIconSize } from './types';
 const props = withDefaults(defineProps<LetterIconProps>(), {
   size: LetterIconSize.SMALL,
   isClickable: false,
-  applyHoverStyles: false,
+  isParentHovered: false,
 });
 
 const firstLetter = computed(() => (props.text[0]?.toUpperCase()));
