@@ -26,6 +26,7 @@
         :is-collapsed="isCollapsed"
         :is-compact="horizontal"
         v-on="link.on || {}"
+        @navigation-link-clicked="emit('navigation-link-clicked')"
       />
     </li>
   </ul>
@@ -36,6 +37,10 @@ import { computed } from 'vue';
 
 import EcNavigationLink from '../ec-navigation-link';
 import type { MenuLink, MenuProps } from './types';
+
+const emit = defineEmits<{
+  'navigation-link-clicked': [],
+}>();
 
 const props = withDefaults(defineProps<MenuProps>(), {
   links: () => [],

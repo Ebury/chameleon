@@ -30,6 +30,14 @@ const links: MenuLink[] = [
   },
 ];
 
+const routerLink: MenuLink[] = [{
+  url: '/bat',
+  iconName: IconName.SIMPLE_TRADE,
+  text: 'Bat',
+  isRouterLink: true,
+  dataTest: 'test-router-link',
+}];
+
 describe('EcMenu', () => {
   function mountEcMenu(props?: Partial<MenuProps>, mountOpts?: ComponentMountingOptions<typeof EcMenu>) {
     return mount(EcMenu, {
@@ -111,5 +119,14 @@ describe('EcMenu', () => {
 
     await wrapper.findByDataTest('ec-menu__link').trigger('test');
     expect(testSpy).toHaveBeenCalledTimes(1);
+  });
+
+  describe('@events', () => {
+    it('should propagate the event from the navigation link', async () => {
+      const wrapper = mountEcMenu({ links: routerLink });
+      expect(wrapper.element).toMatchSnapshot();
+      await wrapper.findByDataTest('test-router-link').trigger('click');
+      expect(wrapper.emitted('navigation-link-clicked')?.length).toBe(1);
+    });
   });
 });

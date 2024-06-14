@@ -15,6 +15,7 @@
       'ec-navigation-link--light-mode': isInLightMode,
     }"
     :to="url"
+    @click="emit('navigation-link-clicked')"
   >
     <ec-icon
       class="ec-navigation-link__icon"
@@ -68,6 +69,10 @@
 <script setup lang="ts">
 import EcIcon from '../ec-icon/ec-icon.vue';
 import type { NavigationLinkProps } from './types';
+
+const emit = defineEmits<{
+  'navigation-link-clicked': [],
+}>();
 
 defineOptions({
   inheritAttrs: false,
