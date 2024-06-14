@@ -6,7 +6,7 @@ exports[`EcMobileHeader > should render properly 1`] = `
   data-test="ec-mobile-header"
 >
   <div
-    class="ec-mobile-header__logo"
+    class="tw-leading-reset"
   >
     
     <img
@@ -16,6 +16,7 @@ exports[`EcMobileHeader > should render properly 1`] = `
   </div>
   <button
     class="ec-mobile-header__menu"
+    data-test="ec-mobile-header__menu"
     type="button"
   >
     <svg

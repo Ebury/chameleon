@@ -3,10 +3,15 @@
     class="ec-mobile-header"
     data-test="ec-mobile-header"
   >
-    <div class="ec-mobile-header__logo">
+    <div class="tw-leading-reset">
       <slot name="logo" />
     </div>
-    <button type="button" class="ec-mobile-header__menu">
+    <button
+      type="button"
+      class="ec-mobile-header__menu"
+      data-test="ec-mobile-header__menu"
+      @click="emit('open-mobile-menu')"
+    >
       <ec-icon
         class="ec-mobile-header__menu__icon"
         :name="IconName.SIMPLE_MENU"
@@ -19,6 +24,10 @@
 <script setup lang="ts">
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
+
+const emit = defineEmits<{
+  'open-mobile-menu': [],
+}>();
 </script>
 
 <style>
@@ -28,16 +37,18 @@ import { IconName } from '../ec-icon/types';
   @apply tw-py-16 tw-px-24;
   @apply tw-bg-gray-7;
 
-  &__logo {
-    @apply tw-h-32;
-  }
-
   &__menu {
     @apply tw-flex tw-items-center;
-    @apply tw-border-0 tw-p-0 tw-bg-transparent;
+    @apply tw-border-0 tw-p-0;
+    @apply tw-bg-transparent;
 
     &__icon {
       @apply tw-fill-key-4;
+    }
+
+    &:hover {
+      @apply tw-cursor-pointer;
+      @apply tw-fill-key-3;
     }
   }
 }
