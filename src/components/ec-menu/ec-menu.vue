@@ -25,6 +25,7 @@
         class="ec-menu__link"
         :is-collapsed="isCollapsed"
         :is-compact="horizontal"
+        :is-in-light-mode="isInLightMode"
         v-on="link.on || {}"
         @navigation-link-clicked="emit('navigation-link-clicked')"
       />

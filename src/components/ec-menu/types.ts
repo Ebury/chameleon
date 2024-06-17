@@ -11,4 +11,5 @@ export interface MenuProps {
   isCollapsed?: boolean,
   links?: MenuLink[],
   isReversed?: boolean,
+  isInLightMode?:boolean,
 }
