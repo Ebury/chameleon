@@ -49,7 +49,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
     >
       <img
         alt="Test Brand"
-        class="ec-navigation__branding-logo ec-navigation__branding-logo--responsive"
+        class="ec-navigation__branding-logo"
         data-test="ec-navigation__branding-logo"
         src="/img/my-brand.png"
       />
@@ -135,7 +135,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
     >
       <img
         alt="Test Brand"
-        class="ec-navigation__branding-logo ec-navigation__branding-logo--responsive"
+        class="ec-navigation__branding-logo"
         data-test="ec-navigation__branding-logo"
         src="/img/my-brand.png"
       />
@@ -224,7 +224,7 @@ exports[`EcNavigation > mobile navigation > should show render the mobile naviga
     >
       <img
         alt="Test Brand"
-        class="ec-navigation__branding-logo ec-navigation__branding-logo--responsive"
+        class="ec-navigation__branding-logo"
         data-test="ec-navigation__branding-logo"
         src="/img/my-brand.png"
       />
@@ -310,7 +310,7 @@ exports[`EcNavigation > should apply light mode CSS classes if "isInLightMode" p
     >
       <img
         alt="Test Brand"
-        class="ec-navigation__branding-logo"
+        class="ec-navigation__branding-logo ec-navigation__branding-logo--light-mode"
         data-test="ec-navigation__branding-logo"
         src="/img/my-brand.png"
       />
