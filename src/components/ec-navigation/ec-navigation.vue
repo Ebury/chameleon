@@ -38,7 +38,7 @@
       >
         <img
           class="ec-navigation__branding-logo"
-          :class="{ 'ec-navigation__branding-logo--responsive': isResponsive }"
+          :class="{ 'ec-navigation__branding-logo--light-mode': isInLightMode }"
           :src="branding.logo"
           :alt="branding.name"
           data-test="ec-navigation__branding-logo"
@@ -168,6 +168,10 @@ function onNavigationLinkClicked() {
     @apply tw-mt-16 tw-mb-24;
   }
 
+  &__call-to-action {
+    @apply tw-mt-16 tw-mb-8;
+  }
+
   &--light-mode {
     @apply tw-bg-gray-7;
     @apply tw-text-gray-3;
@@ -213,16 +217,18 @@ function onNavigationLinkClicked() {
     @apply tw-py-0 tw-px-24;
     @apply tw-mt-24 tw-mb-8 tw-mx-0;
     @apply tw-text-center;
-  }
 
-  &__branding--light-mode {
-    @apply tw-m-0 tw-p-0;
-    @apply tw-text-left;
+    &--light-mode {
+      @apply tw-m-0 tw-p-0;
+      @apply tw-text-left;
+    }
   }
 
   &__branding-logo {
-    @apply tw-align-top;
-    @apply tw-w-88;
+    &--light-mode {
+      @apply tw-align-top;
+      @apply tw-w-88;
+    }
   }
 
   &__separator {
@@ -239,7 +245,7 @@ function onNavigationLinkClicked() {
   &__copyright {
     @apply tw-caption-text;
     @apply tw-whitespace-nowrap;
-    @apply tw-py-0 tw-px-24;
+    @apply tw-px-24 tw-pt-8 tw-pb-16;
     @apply tw-text-center;
   }
 }
