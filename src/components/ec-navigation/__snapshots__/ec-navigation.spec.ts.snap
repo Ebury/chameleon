@@ -82,6 +82,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -170,6 +171,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -255,6 +257,7 @@ exports[`EcNavigation > mobile navigation > should show render the mobile naviga
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -302,7 +305,7 @@ exports[`EcNavigation > should apply light mode CSS classes if "isInLightMode" p
     class=""
   >
     <div
-      class="ec-navigation__branding"
+      class="ec-navigation__branding--light-mode ec-navigation__branding"
       data-test="ec-navigation__branding"
     >
       <img
@@ -326,6 +329,9 @@ exports[`EcNavigation > should apply light mode CSS classes if "isInLightMode" p
     
     
   </div>
+  <hr
+    class="ec-navigation__separator"
+  />
   <!--v-if-->
   <!--v-if-->
 </div>
@@ -364,6 +370,7 @@ exports[`EcNavigation > should be collapsable when isCollapsable is set 1`] = `
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -398,6 +405,7 @@ exports[`EcNavigation > should be collapsed when isCollapsed is set to true 1`] 
     
     
   </div>
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
 </div>
@@ -436,6 +444,7 @@ exports[`EcNavigation > should be expanded when isCollapsed is set to false 1`] 
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -462,6 +471,7 @@ exports[`EcNavigation > should not render branding if logo is given in branding 
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -486,6 +496,7 @@ exports[`EcNavigation > should not render branding if no logo is given in brandi
     
     
   </div>
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
 </div>
@@ -522,6 +533,7 @@ exports[`EcNavigation > should only render mandatory slot if no other slots were
     
     
   </div>
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
 </div>
@@ -579,6 +591,7 @@ exports[`EcNavigation > should render all given slots 1`] = `
     </div>
     
   </div>
+  <!--v-if-->
   <div
     class="ec-navigation__block ec-navigation__footer-menu"
     data-test="ec-navigation__block ec-navigation__footer-menu"
@@ -649,6 +662,7 @@ exports[`EcNavigation > should render branding logo and name when given 1`] = `
   </div>
   <!--v-if-->
   <!--v-if-->
+  <!--v-if-->
 </div>
 `;
 
@@ -684,6 +698,7 @@ exports[`EcNavigation > should render with custom attributes 1`] = `
     
     
   </div>
+  <!--v-if-->
   <!--v-if-->
   <!--v-if-->
 </div>

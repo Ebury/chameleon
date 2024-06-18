@@ -87,7 +87,7 @@ withDefaults(defineProps<NavigationLinkProps>(), {
 @import '../../styles/tools/transitions.css';
 
 .ec-navigation-link {
-  @apply tw-h6;
+  @apply tw-small-text;
   @apply tw-py-12 tw-px-24;
   @apply tw-flex tw-items-center;
   @apply tw-no-underline;
@@ -99,6 +99,11 @@ withDefaults(defineProps<NavigationLinkProps>(), {
   &:hover {
     @apply tw-text-key-4;
     @apply tw-no-underline;
+    @apply tw-small-strong;
+
+    &.ec-navigation-link--light-mode {
+      @apply tw-text-gray-2;
+    }
   }
 
   &:focus {
@@ -113,14 +118,6 @@ withDefaults(defineProps<NavigationLinkProps>(), {
 
   &--is-collapsed {
     @apply tw-py-12 tw-px-28;
-  }
-
-  &--light-mode {
-    @apply tw-text-gray-3;
-
-    &:hover {
-      @apply tw-text-gray-2;
-    }
   }
 
   &__icon {
@@ -152,6 +149,26 @@ withDefaults(defineProps<NavigationLinkProps>(), {
 
     &:focus {
       background-color: hsla(var(--ec-key-color-level-4), 0.9);
+    }
+
+    &.ec-navigation-link--light-mode {
+      @apply tw-bg-transparent;
+      @apply tw-small-strong;
+
+      &:hover,
+      &:focus {
+        @apply tw-text-gray-2;
+      }
+    }
+  }
+
+  &--light-mode {
+    @apply tw-px-0 tw-py-16;
+    @apply tw-text-gray-3;
+    @apply tw-bg-transparent;
+
+    &:hover {
+      @apply tw-text-gray-2;
     }
   }
 }

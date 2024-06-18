@@ -31,6 +31,7 @@
         v-if="showBrandingLogo && branding.logo"
         :class="{
           'ec-navigation__branding--mobile-menu-open': isMobileMenuOpen,
+          'ec-navigation__branding--light-mode': isInLightMode,
         }"
         class="ec-navigation__branding"
         data-test="ec-navigation__branding"
@@ -61,10 +62,11 @@
 
     <div
       v-if="$slots['user-info']"
+      :class="{ 'ec-navigation__block ec-navigation__user-info--light-mode': isInLightMode }"
       class="ec-navigation__block ec-navigation__user-info"
       data-test="ec-navigation__block ec-navigation__user-info"
     >
-      <slot name="user-info" v-bind="{ onNavigationLinkClicked }" />
+      <slot name="user-info" v-bind="{ onNavigationLinkClicked, isInLightMode }" />
     </div>
 
     <hr
@@ -77,30 +79,35 @@
       class="ec-navigation__block ec-navigation__call-to-action"
       data-test="ec-navigation__block ec-navigation__call-to-action"
     >
-      <slot name="call-to-action" v-bind="{ onNavigationLinkClicked }" />
+      <slot name="call-to-action" v-bind="{ onNavigationLinkClicked, isInLightMode }" />
     </div>
 
     <div
       class="ec-navigation__block ec-navigation__menu"
       data-test="ec-navigation__block ec-navigation__menu"
     >
-      <slot name="menu" v-bind="{ onNavigationLinkClicked }" />
+      <slot name="menu" v-bind="{ onNavigationLinkClicked, isInLightMode }" />
     </div>
+
+    <hr
+      v-if="isInLightMode"
+      class="ec-navigation__separator"
+    />
 
     <div
       v-if="$slots['footer-menu']"
       class="ec-navigation__block ec-navigation__footer-menu"
       data-test="ec-navigation__block ec-navigation__footer-menu"
     >
-      <slot name="footer-menu" v-bind="{ onNavigationLinkClicked }" />
+      <slot name="footer-menu" v-bind="{ onNavigationLinkClicked, isInLightMode }" />
     </div>
 
     <div
-      v-if="$slots.copyright"
+      v-if="$slots.copyright && !isInLightMode"
       class="ec-navigation__block ec-navigation__copyright"
       data-test="ec-navigation__block ec-navigation__copyright"
     >
-      <slot name="copyright" v-bind="{ onNavigationLinkClicked }" />
+      <slot name="copyright" v-bind="{ onNavigationLinkClicked, isInLightMode }" />
     </div>
   </div>
 </template>
@@ -153,15 +160,18 @@ function onNavigationLinkClicked() {
     @apply tw-flex tw-justify-between tw-items-center;
   }
 
+  &__block {
+    @apply tw-mt-8;
+  }
+
+  &__user-info--light-mode {
+    @apply tw-mt-16 tw-mb-24;
+  }
+
   &--light-mode {
     @apply tw-bg-gray-7;
     @apply tw-text-gray-3;
-    @apply tw-py-16 tw-px-24;
-
-    .ec-navigation__branding {
-      @apply tw-m-0 tw-p-0;
-      @apply tw-text-left;
-    }
+    @apply tw-pt-32 tw-px-32 tw-pb-24;
   }
 
   &--is-collapsable {
@@ -176,7 +186,8 @@ function onNavigationLinkClicked() {
   }
 
   &--mobile-mode {
-    @apply tw-w-screen;
+    @apply tw-w-full;
+    @apply tw-pt-16 tw-px-24 tw-pb-8;
   }
 
   &__mobile-menu-close-button {
@@ -204,26 +215,21 @@ function onNavigationLinkClicked() {
     @apply tw-text-center;
   }
 
-  &__branding-logo {
-    @apply tw-align-top;
-
-    &--responsive {
-      @apply tw-w-88;
-    }
+  &__branding--light-mode {
+    @apply tw-m-0 tw-p-0;
+    @apply tw-text-left;
   }
 
-  &__block {
-    @apply tw-mt-16;
-
-    &:last-child {
-      @apply tw-mb-16;
-    }
+  &__branding-logo {
+    @apply tw-align-top;
+    @apply tw-w-88;
   }
 
   &__separator {
     @apply tw-w-full;
-    @apply tw-mt-24 tw-mb-0;
+    @apply tw-my-8;
     @apply tw-border-solid tw-border-gray-6;
+    @apply tw-border-b-0;
   }
 
   &__menu {
