@@ -87,7 +87,7 @@ withDefaults(defineProps<NavigationLinkProps>(), {
 @import '../../styles/tools/transitions.css';
 
 .ec-navigation-link {
-  @apply tw-small-text;
+  @apply tw-h6;
   @apply tw-py-12 tw-px-24;
   @apply tw-flex tw-items-center;
   @apply tw-no-underline;
@@ -163,9 +163,11 @@ withDefaults(defineProps<NavigationLinkProps>(), {
   }
 
   &--light-mode {
+    @apply tw-small-text;
     @apply tw-px-0 tw-py-16;
     @apply tw-text-gray-3;
     @apply tw-bg-transparent;
+    @apply tw-capitalize;
 
     &:hover {
       @apply tw-text-gray-2;
