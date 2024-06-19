@@ -11,7 +11,6 @@ updates:
   - "corinaper"
   - "Alanebury"
   - "stavros-tomas"
-  - "wolandec"
   ignore:
   - dependency-name: cypress
     versions:
