@@ -164,7 +164,7 @@ withDefaults(defineProps<NavigationLinkProps>(), {
 
   &--light-mode {
     @apply tw-small-text;
-    @apply tw-px-0 tw-py-16;
+    @apply tw-p-8;
     @apply tw-text-gray-3;
     @apply tw-bg-transparent;
     @apply tw-capitalize;

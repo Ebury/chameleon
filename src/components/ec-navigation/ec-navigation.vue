@@ -26,7 +26,7 @@
       'data-test': $attrs['data-test'] ? `${$attrs['data-test']} ec-navigation` : 'ec-navigation',
     }"
   >
-    <div :class="{ 'ec-navigation__header': isMobileMenuOpen }">
+    <div :class="{ 'ec-navigation__header': isInLightMode }">
       <div
         v-if="showBrandingLogo && branding.logo"
         :class="{
@@ -62,7 +62,7 @@
 
     <div
       v-if="$slots['user-info']"
-      :class="{ 'ec-navigation__block ec-navigation__user-info--light-mode': isInLightMode }"
+      :class="{ 'ec-navigation__block--light-mode ec-navigation__user-info--light-mode': isInLightMode }"
       class="ec-navigation__block ec-navigation__user-info"
       data-test="ec-navigation__block ec-navigation__user-info"
     >
@@ -76,6 +76,7 @@
 
     <div
       v-if="$slots['call-to-action']"
+      :class="{ 'ec-navigation__block--light-mode': isInLightMode }"
       class="ec-navigation__block ec-navigation__call-to-action"
       data-test="ec-navigation__block ec-navigation__call-to-action"
     >
@@ -83,6 +84,7 @@
     </div>
 
     <div
+      :class="{ 'ec-navigation__block--light-mode ec-navigation__menu--light-mode': isInLightMode }"
       class="ec-navigation__block ec-navigation__menu"
       data-test="ec-navigation__block ec-navigation__menu"
     >
@@ -96,6 +98,7 @@
 
     <div
       v-if="$slots['footer-menu']"
+      :class="{ 'ec-navigation__block--light-mode': isInLightMode }"
       class="ec-navigation__block ec-navigation__footer-menu"
       data-test="ec-navigation__block ec-navigation__footer-menu"
     >
@@ -156,26 +159,35 @@ function onNavigationLinkClicked() {
   @apply tw-flex tw-flex-col;
   @apply tw-overflow-y-auto tw-overflow-x-hidden;
 
+  &--light-mode {
+    @apply tw-bg-gray-7;
+    @apply tw-text-gray-3;
+    @apply tw-p-16;
+
+    @media screen and (min-width: theme('screens.xl')) {
+      @apply tw-pt-32 tw-px-24 tw-pb-24;
+    }
+  }
+
   &__header {
     @apply tw-flex tw-justify-between tw-items-center;
+    @apply tw-mx-8;
   }
 
   &__block {
     @apply tw-mt-8;
+
+    &--light-mode {
+      @apply tw-my-0;
+    }
   }
 
   &__user-info--light-mode {
-    @apply tw-mt-16 tw-mb-24;
+    @apply tw-mt-16 tw-mb-32;
   }
 
   &__call-to-action {
     @apply tw-mt-16 tw-mb-8;
-  }
-
-  &--light-mode {
-    @apply tw-bg-gray-7;
-    @apply tw-text-gray-3;
-    @apply tw-pt-32 tw-px-32 tw-pb-24;
   }
 
   &--is-collapsable {
@@ -191,7 +203,6 @@ function onNavigationLinkClicked() {
 
   &--mobile-mode {
     @apply tw-w-full;
-    @apply tw-pt-16 tw-px-24 tw-pb-8;
   }
 
   &__mobile-menu-close-button {
@@ -219,7 +230,7 @@ function onNavigationLinkClicked() {
     @apply tw-text-center;
 
     &--light-mode {
-      @apply tw-m-0 tw-p-0;
+      @apply tw-m-0 tw-px-0;
       @apply tw-text-left;
     }
   }
@@ -233,13 +244,17 @@ function onNavigationLinkClicked() {
 
   &__separator {
     @apply tw-w-full;
-    @apply tw-my-8;
+    @apply tw-my-0;
     @apply tw-border-solid tw-border-gray-6;
     @apply tw-border-b-0;
   }
 
   &__menu {
     @apply tw-flex-grow;
+
+    &--light-mode {
+      @apply tw-mb-16;
+    }
   }
 
   &__copyright {
