@@ -148,17 +148,13 @@ withDefaults(defineProps<NavigationLinkProps>(), {
     }
 
     &:focus {
-      background-color: hsla(var(--ec-key-color-level-4), 0.9);
+      @apply tw-text-key-4;
     }
 
     &.ec-navigation-link--light-mode {
       @apply tw-bg-transparent;
       @apply tw-small-strong;
-
-      &:hover,
-      &:focus {
-        @apply tw-text-gray-2;
-      }
+      @apply tw-text-gray-2;
     }
   }
 
@@ -169,7 +165,10 @@ withDefaults(defineProps<NavigationLinkProps>(), {
     @apply tw-bg-transparent;
     @apply tw-capitalize;
 
-    &:hover {
+    &:hover,
+    &:focus {
+      @apply tw-small-strong;
+      @apply tw-bg-transparent;
       @apply tw-text-gray-2;
     }
   }
