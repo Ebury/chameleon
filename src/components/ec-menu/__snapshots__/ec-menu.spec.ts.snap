@@ -12,7 +12,7 @@ exports[`EcMenu > @events > should propagate the event from the navigation link 
   >
     <ec-stub
       active-class="ec-navigation-link--is-active"
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link test-router-link ec-navigation-link ec-stub router-link-stub"
       to="/bat"
     >
@@ -58,7 +58,7 @@ exports[`EcMenu > should attach custom listeners passed in the link definition 1
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      class="ec-navigation-link ec-navigation-link--is-collapsed"
       data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
@@ -103,7 +103,7 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
@@ -137,7 +137,7 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link ec-navigation-link"
       href="/bar"
     >
@@ -171,7 +171,7 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link baz ec-navigation-link"
       href="/baz"
     >
@@ -205,7 +205,7 @@ exports[`EcMenu > should not render all items as compact when horizontal is not 
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
@@ -253,7 +253,7 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      class="ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
@@ -287,7 +287,7 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      class="ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link ec-navigation-link"
       href="/bar"
     >
@@ -321,7 +321,7 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      class="ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link baz ec-navigation-link"
       href="/baz"
     >
@@ -355,7 +355,7 @@ exports[`EcMenu > should render all items as compact when is horizontal 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      class="ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
@@ -399,7 +399,7 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      class="ec-navigation-link ec-navigation-link--is-collapsed"
       data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
@@ -434,7 +434,7 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      class="ec-navigation-link ec-navigation-link--is-collapsed"
       data-test="ec-menu__link ec-navigation-link"
       href="/bar"
     >
@@ -469,7 +469,7 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      class="ec-navigation-link ec-navigation-link--is-collapsed"
       data-test="ec-menu__link baz ec-navigation-link"
       href="/baz"
     >
@@ -504,7 +504,7 @@ exports[`EcMenu > should render as collapsed when isCollapsed is passed into 1`]
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-collapsed"
+      class="ec-navigation-link ec-navigation-link--is-collapsed"
       data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
@@ -549,7 +549,7 @@ exports[`EcMenu > should render as expanded by default 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
@@ -583,7 +583,7 @@ exports[`EcMenu > should render as expanded by default 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link ec-navigation-link"
       href="/bar"
     >
@@ -617,7 +617,7 @@ exports[`EcMenu > should render as expanded by default 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link baz ec-navigation-link"
       href="/baz"
     >
@@ -651,7 +651,7 @@ exports[`EcMenu > should render as expanded by default 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link ec-navigation-link"
       href="/bat"
     >
@@ -695,7 +695,7 @@ exports[`EcMenu > should render as expected when set to horizontal 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      class="ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
@@ -739,7 +739,7 @@ exports[`EcMenu > should render as expected when set to isReverse 1`] = `
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link"
+      class="ec-navigation-link"
       data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >
@@ -783,7 +783,7 @@ exports[`EcMenu > should render as expected when set to isReverse and horizontal
     data-test="ec-menu__item"
   >
     <a
-      class="ec-menu__link ec-navigation-link ec-navigation-link--is-compact"
+      class="ec-navigation-link ec-navigation-link--is-compact"
       data-test="ec-menu__link foo ec-navigation-link"
       href="/foo"
     >

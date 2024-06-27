@@ -41,7 +41,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
   data-test="ec-navigation"
 >
   <div
-    class="ec-navigation__header"
+    class=""
   >
     <div
       class="ec-navigation__branding--mobile-menu-open ec-navigation__branding"
@@ -127,7 +127,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
   data-test="ec-navigation"
 >
   <div
-    class="ec-navigation__header"
+    class=""
   >
     <div
       class="ec-navigation__branding--mobile-menu-open ec-navigation__branding"
@@ -216,7 +216,7 @@ exports[`EcNavigation > mobile navigation > should show render the mobile naviga
   data-test="ec-navigation"
 >
   <div
-    class="ec-navigation__header"
+    class=""
   >
     <div
       class="ec-navigation__branding--mobile-menu-open ec-navigation__branding"
@@ -302,7 +302,7 @@ exports[`EcNavigation > should apply light mode CSS classes if "isInLightMode" p
   data-test="ec-navigation"
 >
   <div
-    class=""
+    class="ec-navigation__header"
   >
     <div
       class="ec-navigation__branding--light-mode ec-navigation__branding"
@@ -323,7 +323,7 @@ exports[`EcNavigation > should apply light mode CSS classes if "isInLightMode" p
   />
   <!--v-if-->
   <div
-    class="ec-navigation__block ec-navigation__menu"
+    class="ec-navigation__block--light-mode ec-navigation__menu--light-mode ec-navigation__block ec-navigation__menu"
     data-test="ec-navigation__block ec-navigation__menu"
   >
     

@@ -13,6 +13,7 @@
       v-for="(link, index) of validLinks"
       :key="index"
       class="ec-menu__item"
+      :class="{ 'ec-menu__item--light-mode': isInLightMode }"
       data-test="ec-menu__item"
     >
       <ec-navigation-link
@@ -22,7 +23,6 @@
           dataTest: null,
           'data-test': getLinkDataTest(link),
         }"
-        class="ec-menu__link"
         :is-collapsed="isCollapsed"
         :is-compact="horizontal"
         :is-in-light-mode="isInLightMode"
@@ -92,6 +92,10 @@ function getLinkDataTest(link: MenuLink): string {
         @apply tw-ml-16;
       }
       /* stylelint-enable */
+    }
+
+    &--light-mode {
+      @apply tw-mt-16;
     }
   }
 }
