@@ -1,38 +1,42 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`EcNavigation > mobile navigation > should close the mobile navigation when the close menu button is clicked > after 1`] = `
-<header
-  class="ec-mobile-header"
-  data-test="ec-mobile-header"
+<div
+  class="ec-navigation__mobile-header"
 >
-  <div
-    class="tw-leading-reset"
+  <header
+    class="ec-mobile-header"
+    data-test="ec-mobile-header"
   >
-    
-    <img
-      alt="Test Brand"
-      class="ec-navigation__mobile-header__logo"
-      data-test="ec-navigation__mobile-header__logo"
-      src="/img/my-brand.png"
-    />
-    
-  </div>
-  <button
-    class="ec-mobile-header__menu"
-    data-test="ec-mobile-header__menu"
-    type="button"
-  >
-    <svg
-      class="ec-icon ec-mobile-header__menu__icon"
-      height="24"
-      width="24"
+    <div
+      class="tw-leading-reset"
     >
-      <use
-        xlink:href="#ec-simple-menu"
+      
+      <img
+        alt="Test Brand"
+        class="ec-navigation__mobile-header__logo"
+        data-test="ec-navigation__mobile-header__logo"
+        src="/img/my-brand.png"
       />
-    </svg>
-  </button>
-</header>
+      
+    </div>
+    <button
+      class="ec-mobile-header__menu"
+      data-test="ec-mobile-header__menu"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-mobile-header__menu__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-menu"
+        />
+      </svg>
+    </button>
+  </header>
+</div>
 `;
 
 exports[`EcNavigation > mobile navigation > should close the mobile navigation when the close menu button is clicked > before 1`] = `
@@ -87,38 +91,42 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
 `;
 
 exports[`EcNavigation > mobile navigation > should close the mobile navigation when the slot \`onNavigationLinkClicked\` binding is triggered > after 1`] = `
-<header
-  class="ec-mobile-header"
-  data-test="ec-mobile-header"
+<div
+  class="ec-navigation__mobile-header"
 >
-  <div
-    class="tw-leading-reset"
+  <header
+    class="ec-mobile-header"
+    data-test="ec-mobile-header"
   >
-    
-    <img
-      alt="Test Brand"
-      class="ec-navigation__mobile-header__logo"
-      data-test="ec-navigation__mobile-header__logo"
-      src="/img/my-brand.png"
-    />
-    
-  </div>
-  <button
-    class="ec-mobile-header__menu"
-    data-test="ec-mobile-header__menu"
-    type="button"
-  >
-    <svg
-      class="ec-icon ec-mobile-header__menu__icon"
-      height="24"
-      width="24"
+    <div
+      class="tw-leading-reset"
     >
-      <use
-        xlink:href="#ec-simple-menu"
+      
+      <img
+        alt="Test Brand"
+        class="ec-navigation__mobile-header__logo"
+        data-test="ec-navigation__mobile-header__logo"
+        src="/img/my-brand.png"
       />
-    </svg>
-  </button>
-</header>
+      
+    </div>
+    <button
+      class="ec-mobile-header__menu"
+      data-test="ec-mobile-header__menu"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-mobile-header__menu__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-menu"
+        />
+      </svg>
+    </button>
+  </header>
+</div>
 `;
 
 exports[`EcNavigation > mobile navigation > should close the mobile navigation when the slot \`onNavigationLinkClicked\` binding is triggered > before 1`] = `
@@ -176,38 +184,42 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
 `;
 
 exports[`EcNavigation > mobile navigation > should render mobile header if "isResponsive" prop is true 1`] = `
-<header
-  class="ec-mobile-header"
-  data-test="ec-mobile-header"
+<div
+  class="ec-navigation__mobile-header"
 >
-  <div
-    class="tw-leading-reset"
+  <header
+    class="ec-mobile-header"
+    data-test="ec-mobile-header"
   >
-    
-    <img
-      alt="Test Brand"
-      class="ec-navigation__mobile-header__logo"
-      data-test="ec-navigation__mobile-header__logo"
-      src="/img/my-brand.png"
-    />
-    
-  </div>
-  <button
-    class="ec-mobile-header__menu"
-    data-test="ec-mobile-header__menu"
-    type="button"
-  >
-    <svg
-      class="ec-icon ec-mobile-header__menu__icon"
-      height="24"
-      width="24"
+    <div
+      class="tw-leading-reset"
     >
-      <use
-        xlink:href="#ec-simple-menu"
+      
+      <img
+        alt="Test Brand"
+        class="ec-navigation__mobile-header__logo"
+        data-test="ec-navigation__mobile-header__logo"
+        src="/img/my-brand.png"
       />
-    </svg>
-  </button>
-</header>
+      
+    </div>
+    <button
+      class="ec-mobile-header__menu"
+      data-test="ec-mobile-header__menu"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-mobile-header__menu__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-menu"
+        />
+      </svg>
+    </button>
+  </header>
+</div>
 `;
 
 exports[`EcNavigation > mobile navigation > should show render the mobile navigation when the mobile header menu button is clicked > after 1`] = `
@@ -262,38 +274,42 @@ exports[`EcNavigation > mobile navigation > should show render the mobile naviga
 `;
 
 exports[`EcNavigation > mobile navigation > should show render the mobile navigation when the mobile header menu button is clicked > before 1`] = `
-<header
-  class="ec-mobile-header"
-  data-test="ec-mobile-header"
+<div
+  class="ec-navigation__mobile-header"
 >
-  <div
-    class="tw-leading-reset"
+  <header
+    class="ec-mobile-header"
+    data-test="ec-mobile-header"
   >
-    
-    <img
-      alt="Test Brand"
-      class="ec-navigation__mobile-header__logo"
-      data-test="ec-navigation__mobile-header__logo"
-      src="/img/my-brand.png"
-    />
-    
-  </div>
-  <button
-    class="ec-mobile-header__menu"
-    data-test="ec-mobile-header__menu"
-    type="button"
-  >
-    <svg
-      class="ec-icon ec-mobile-header__menu__icon"
-      height="24"
-      width="24"
+    <div
+      class="tw-leading-reset"
     >
-      <use
-        xlink:href="#ec-simple-menu"
+      
+      <img
+        alt="Test Brand"
+        class="ec-navigation__mobile-header__logo"
+        data-test="ec-navigation__mobile-header__logo"
+        src="/img/my-brand.png"
       />
-    </svg>
-  </button>
-</header>
+      
+    </div>
+    <button
+      class="ec-mobile-header__menu"
+      data-test="ec-mobile-header__menu"
+      type="button"
+    >
+      <svg
+        class="ec-icon ec-mobile-header__menu__icon"
+        height="24"
+        width="24"
+      >
+        <use
+          xlink:href="#ec-simple-menu"
+        />
+      </svg>
+    </button>
+  </header>
+</div>
 `;
 
 exports[`EcNavigation > should apply light mode CSS classes if "isInLightMode" prop is true 1`] = `

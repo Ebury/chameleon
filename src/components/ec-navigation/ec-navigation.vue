@@ -1,17 +1,21 @@
 <template>
-  <ec-mobile-header
+  <div
     v-if="isResponsive && !isMobileMenuOpen"
-    @open-mobile-menu="isMobileMenuOpen = true"
+    class="ec-navigation__mobile-header"
   >
-    <template #logo>
-      <img
-        class="ec-navigation__mobile-header__logo"
-        :src="branding.logo"
-        :alt="branding.name"
-        data-test="ec-navigation__mobile-header__logo"
-      >
-    </template>
-  </ec-mobile-header>
+    <ec-mobile-header
+      @open-mobile-menu="isMobileMenuOpen = true"
+    >
+      <template #logo>
+        <img
+          class="ec-navigation__mobile-header__logo"
+          :src="branding.logo"
+          :alt="branding.name"
+          data-test="ec-navigation__mobile-header__logo"
+        >
+      </template>
+    </ec-mobile-header>
+  </div>
   <div
     v-else
     class="ec-navigation"
@@ -219,8 +223,12 @@ function onNavigationLinkClicked() {
   }
 
   &__mobile-header {
+    &__container {
+      padding-bottom: 68px;
+    }
+
     &__logo {
-      @apply tw-w-88;
+      @apply tw-h-36;
     }
   }
 
@@ -238,7 +246,7 @@ function onNavigationLinkClicked() {
   &__branding-logo {
     &--light-mode {
       @apply tw-align-top;
-      @apply tw-w-88;
+      @apply tw-h-36;
     }
   }
 
