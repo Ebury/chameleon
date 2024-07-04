@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="isResponsive && !isMobileMenuOpen"
-    class="ec-navigation__mobile-header"
+    class="ec-navigation__mobile-header__container"
   >
     <ec-mobile-header
       @open-mobile-menu="isMobileMenuOpen = true"
