@@ -2,7 +2,7 @@
 
 exports[`EcNavigation > mobile navigation > should close the mobile navigation when the close menu button is clicked > after 1`] = `
 <div
-  class="ec-navigation__mobile-header"
+  class="ec-navigation__mobile-header__container"
 >
   <header
     class="ec-mobile-header"
@@ -92,7 +92,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
 
 exports[`EcNavigation > mobile navigation > should close the mobile navigation when the slot \`onNavigationLinkClicked\` binding is triggered > after 1`] = `
 <div
-  class="ec-navigation__mobile-header"
+  class="ec-navigation__mobile-header__container"
 >
   <header
     class="ec-mobile-header"
@@ -185,7 +185,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
 
 exports[`EcNavigation > mobile navigation > should render mobile header if "isResponsive" prop is true 1`] = `
 <div
-  class="ec-navigation__mobile-header"
+  class="ec-navigation__mobile-header__container"
 >
   <header
     class="ec-mobile-header"
@@ -275,7 +275,7 @@ exports[`EcNavigation > mobile navigation > should show render the mobile naviga
 
 exports[`EcNavigation > mobile navigation > should show render the mobile navigation when the mobile header menu button is clicked > before 1`] = `
 <div
-  class="ec-navigation__mobile-header"
+  class="ec-navigation__mobile-header__container"
 >
   <header
     class="ec-mobile-header"
