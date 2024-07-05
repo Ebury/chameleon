@@ -36,6 +36,8 @@ const emit = defineEmits<{
   @apply tw-w-full;
   @apply tw-py-16 tw-px-24;
   @apply tw-bg-gray-7;
+  @apply tw-z-navigation;
+  @apply tw-fixed;
 
   &__menu {
     @apply tw-flex tw-items-center;
