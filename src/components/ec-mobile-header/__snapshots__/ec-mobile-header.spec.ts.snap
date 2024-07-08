@@ -20,7 +20,7 @@ exports[`EcMobileHeader > should render properly 1`] = `
     type="button"
   >
     <svg
-      class="ec-icon ec-mobile-header__menu__icon"
+      class="ec-icon ec-mobile-header__menu-icon"
       height="24"
       width="24"
     >
