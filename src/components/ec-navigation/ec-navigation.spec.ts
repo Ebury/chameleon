@@ -143,13 +143,17 @@ describe('EcNavigation', () => {
         },
       });
 
+      expect(document.body.style.overflow).not.toBe('hidden');
+
       // Open mobile menu first
       await wrapper.findByDataTest('ec-mobile-header__menu').trigger('click');
       expect(wrapper.element).toMatchSnapshot('before');
+      expect(document.body.style.overflow).toBe('hidden');
 
       // Close navigation when a menu item is clicked
       await wrapper.findByDataTest('my-custom-link').trigger('click');
       expect(wrapper.element).toMatchSnapshot('after');
+      expect(document.body.style.overflow).not.toBe('hidden');
     });
   });
 });
