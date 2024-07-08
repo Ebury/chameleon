@@ -273,7 +273,8 @@ function complete() {
 
     @screen md {
       @apply tw-w-auto;
-      @apply tw-ml-auto tw-mr-0; }
+      @apply tw-ml-auto tw-mr-0;
+    }
   }
 }
 </style>
