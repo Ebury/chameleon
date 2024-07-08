@@ -120,7 +120,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useScrollLock } from '@vueuse/core';
+import { ref, watch } from 'vue';
 
 import EcIcon from '../ec-icon';
 import { IconName } from '../ec-icon/types';
@@ -131,6 +132,13 @@ const isMobileMenuOpen = ref(false);
 
 defineOptions({
   inheritAttrs: false,
+});
+
+const scrollLockTarget = ref(document.body);
+const isLocked = useScrollLock(scrollLockTarget);
+
+watch(isMobileMenuOpen, (newValue) => {
+  isLocked.value = newValue;
 });
 
 withDefaults(defineProps<NavigationProps>(), {
