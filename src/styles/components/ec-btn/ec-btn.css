@@ -8,8 +8,6 @@
   @apply tw-whitespace-nowrap tw-overflow-hidden;
   @apply tw-transition-colors tw-duration-150 tw-ease-out;
 
-  max-width: 256px;
-
   &:hover {
     @apply tw-no-underline;
   }

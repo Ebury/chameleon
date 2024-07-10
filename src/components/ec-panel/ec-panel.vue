@@ -131,6 +131,7 @@ function closePanel() {
   max-width: var(--ec-side-panel-max-width);
 
   @apply tw-w-full;
+  @apply tw-z-navigation;
   @apply tw-absolute tw-right-0 tw-top-0;
 
   &__fixed-container {

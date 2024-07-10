@@ -13,7 +13,7 @@
       @click="emit('open-mobile-menu')"
     >
       <ec-icon
-        class="ec-mobile-header__menu__icon"
+        class="ec-mobile-header__menu-icon"
         :name="IconName.SIMPLE_MENU"
         :size="24"
       />
@@ -44,7 +44,7 @@ const emit = defineEmits<{
     @apply tw-border-0 tw-p-0;
     @apply tw-bg-transparent;
 
-    &__icon {
+    &-icon {
       @apply tw-fill-key-4;
     }
 

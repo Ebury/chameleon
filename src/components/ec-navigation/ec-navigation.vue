@@ -1,17 +1,17 @@
 <template>
   <div
     v-if="isResponsive && !isMobileMenuOpen"
-    class="ec-navigation__mobile-header__container"
+    class="ec-navigation__mobile-header-container"
   >
     <ec-mobile-header
       @open-mobile-menu="isMobileMenuOpen = true"
     >
       <template #logo>
         <img
-          class="ec-navigation__mobile-header__logo"
+          class="ec-navigation__mobile-header-logo"
           :src="branding.logo"
           :alt="branding.name"
-          data-test="ec-navigation__mobile-header__logo"
+          data-test="ec-navigation__mobile-header-logo"
         >
       </template>
     </ec-mobile-header>
@@ -231,11 +231,11 @@ function onNavigationLinkClicked() {
   }
 
   &__mobile-header {
-    &__container {
+    &-container {
       padding-bottom: 68px;
     }
 
-    &__logo {
+    &-logo {
       @apply tw-h-36;
     }
   }

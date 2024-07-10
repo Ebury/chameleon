@@ -269,7 +269,12 @@ function complete() {
   }
 
   &__footer-cta {
-    @apply tw-ml-auto tw-mr-0;
+    @apply tw-w-full;
+
+    @screen md {
+      @apply tw-w-auto;
+      @apply tw-ml-auto tw-mr-0;
+    }
   }
 }
 </style>

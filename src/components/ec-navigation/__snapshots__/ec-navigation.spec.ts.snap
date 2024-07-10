@@ -2,7 +2,7 @@
 
 exports[`EcNavigation > mobile navigation > should close the mobile navigation when the close menu button is clicked > after 1`] = `
 <div
-  class="ec-navigation__mobile-header__container"
+  class="ec-navigation__mobile-header-container"
 >
   <header
     class="ec-mobile-header"
@@ -14,8 +14,8 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
       
       <img
         alt="Test Brand"
-        class="ec-navigation__mobile-header__logo"
-        data-test="ec-navigation__mobile-header__logo"
+        class="ec-navigation__mobile-header-logo"
+        data-test="ec-navigation__mobile-header-logo"
         src="/img/my-brand.png"
       />
       
@@ -26,7 +26,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
       type="button"
     >
       <svg
-        class="ec-icon ec-mobile-header__menu__icon"
+        class="ec-icon ec-mobile-header__menu-icon"
         height="24"
         width="24"
       >
@@ -92,7 +92,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
 
 exports[`EcNavigation > mobile navigation > should close the mobile navigation when the slot \`onNavigationLinkClicked\` binding is triggered > after 1`] = `
 <div
-  class="ec-navigation__mobile-header__container"
+  class="ec-navigation__mobile-header-container"
 >
   <header
     class="ec-mobile-header"
@@ -104,8 +104,8 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
       
       <img
         alt="Test Brand"
-        class="ec-navigation__mobile-header__logo"
-        data-test="ec-navigation__mobile-header__logo"
+        class="ec-navigation__mobile-header-logo"
+        data-test="ec-navigation__mobile-header-logo"
         src="/img/my-brand.png"
       />
       
@@ -116,7 +116,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
       type="button"
     >
       <svg
-        class="ec-icon ec-mobile-header__menu__icon"
+        class="ec-icon ec-mobile-header__menu-icon"
         height="24"
         width="24"
       >
@@ -185,7 +185,7 @@ exports[`EcNavigation > mobile navigation > should close the mobile navigation w
 
 exports[`EcNavigation > mobile navigation > should render mobile header if "isResponsive" prop is true 1`] = `
 <div
-  class="ec-navigation__mobile-header__container"
+  class="ec-navigation__mobile-header-container"
 >
   <header
     class="ec-mobile-header"
@@ -197,8 +197,8 @@ exports[`EcNavigation > mobile navigation > should render mobile header if "isRe
       
       <img
         alt="Test Brand"
-        class="ec-navigation__mobile-header__logo"
-        data-test="ec-navigation__mobile-header__logo"
+        class="ec-navigation__mobile-header-logo"
+        data-test="ec-navigation__mobile-header-logo"
         src="/img/my-brand.png"
       />
       
@@ -209,7 +209,7 @@ exports[`EcNavigation > mobile navigation > should render mobile header if "isRe
       type="button"
     >
       <svg
-        class="ec-icon ec-mobile-header__menu__icon"
+        class="ec-icon ec-mobile-header__menu-icon"
         height="24"
         width="24"
       >
@@ -275,7 +275,7 @@ exports[`EcNavigation > mobile navigation > should show render the mobile naviga
 
 exports[`EcNavigation > mobile navigation > should show render the mobile navigation when the mobile header menu button is clicked > before 1`] = `
 <div
-  class="ec-navigation__mobile-header__container"
+  class="ec-navigation__mobile-header-container"
 >
   <header
     class="ec-mobile-header"
@@ -287,8 +287,8 @@ exports[`EcNavigation > mobile navigation > should show render the mobile naviga
       
       <img
         alt="Test Brand"
-        class="ec-navigation__mobile-header__logo"
-        data-test="ec-navigation__mobile-header__logo"
+        class="ec-navigation__mobile-header-logo"
+        data-test="ec-navigation__mobile-header-logo"
         src="/img/my-brand.png"
       />
       
@@ -299,7 +299,7 @@ exports[`EcNavigation > mobile navigation > should show render the mobile naviga
       type="button"
     >
       <svg
-        class="ec-icon ec-mobile-header__menu__icon"
+        class="ec-icon ec-mobile-header__menu-icon"
         height="24"
         width="24"
       >
