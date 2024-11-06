@@ -122,6 +122,11 @@ describe('EcDropdown', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
+    it('should render properly when the bottomNote prop is set', () => {
+      const wrapper = mountDropdown({ bottomNote: 'Testing the bottomNote prop' });
+      expect(wrapper.element).toMatchSnapshot();
+    });
+
     it('should render given popover style', () => {
       const wrapper = mountDropdown({ popoverStyle: { width: '1234px' } });
       expect(wrapper.element).toMatchSnapshot();
