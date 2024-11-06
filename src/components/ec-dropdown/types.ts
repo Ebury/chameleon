@@ -10,6 +10,7 @@ export interface DropdownProps<TValue = string, TDropdownItem extends DropdownIt
   label?: string,
   labelTooltip?: string,
   errorMessage?: string,
+  bottomNote?: string,
   isInGroup?: 'left' | 'right',
   isInLightMode?: boolean,
 }

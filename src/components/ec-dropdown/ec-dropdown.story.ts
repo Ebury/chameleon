@@ -104,6 +104,7 @@ basic.args = {
   disabled: false,
   isSensitive: false,
   errorMessage: '',
+  bottomNote: '',
   modelValue: undefined,
 };
 
