@@ -118,6 +118,7 @@ export enum IconName {
   SIMPLE_CHEVRON_UP = 'simple-chevron-up',
   SIMPLE_CITY = 'simple-city',
   SIMPLE_CLOSE = 'simple-close',
+  SIMPLE_CLOUD_SYNC = 'simple-cloud-sync',
   SIMPLE_CLOUD_UPLOAD = 'simple-cloud-upload',
   SIMPLE_COLLECT = 'simple-collect',
   SIMPLE_CONVERT_AND_PAY = 'simple-convert-and-pay',
