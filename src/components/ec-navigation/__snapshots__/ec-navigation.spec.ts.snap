@@ -195,12 +195,16 @@ exports[`EcNavigation > mobile navigation > should render mobile header if "isRe
       class="tw-leading-reset"
     >
       
-      <img
-        alt="Test Brand"
-        class="ec-navigation__mobile-header-logo"
-        data-test="ec-navigation__mobile-header-logo"
-        src="/img/my-brand.png"
-      />
+      <a
+        href="https://example.com"
+      >
+        <img
+          alt="My Branding"
+          class="ec-navigation__mobile-header-logo"
+          data-test="ec-navigation__mobile-header-logo"
+          src="/img/my.png"
+        />
+      </a>
       
     </div>
     <button
@@ -663,6 +667,65 @@ exports[`EcNavigation > should render branding logo and name when given 1`] = `
         data-test="ec-navigation__branding-logo"
         src="/img/my.png"
       />
+    </div>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+  <div
+    class="ec-navigation__block ec-navigation__menu"
+    data-test="ec-navigation__block ec-navigation__menu"
+  >
+    
+    
+  </div>
+  <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcNavigation > should render branding logo, name and link when given > Branding should have alt, src, href. 1`] = `
+<div
+  class="ec-navigation__branding"
+  data-test="ec-navigation__branding"
+>
+  <a
+    href="https://example.com"
+  >
+    <img
+      alt="My Branding"
+      class="ec-navigation__branding-logo"
+      data-test="ec-navigation__branding-logo"
+      src="/img/my.png"
+    />
+  </a>
+</div>
+`;
+
+exports[`EcNavigation > should render branding logo, name and link when given 1`] = `
+<div
+  class="ec-navigation"
+  data-test="ec-navigation"
+>
+  <div
+    class=""
+  >
+    <div
+      class="ec-navigation__branding"
+      data-test="ec-navigation__branding"
+    >
+      <a
+        href="https://example.com"
+      >
+        <img
+          alt="My Branding"
+          class="ec-navigation__branding-logo"
+          data-test="ec-navigation__branding-logo"
+          src="/img/my.png"
+        />
+      </a>
     </div>
     <!--v-if-->
   </div>

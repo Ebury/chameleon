@@ -1,6 +1,7 @@
 export interface NavigationBranding {
   logo: string,
   name: string,
+  link?: string,
 }
 
 export interface NavigationProps {
