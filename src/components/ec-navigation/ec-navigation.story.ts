@@ -78,6 +78,7 @@ basic.args = {
   branding: {
     name: 'My Branding',
     logo: '/ebury-logo-sm-inverse.png',
+    link: '#',
   },
   isCollapsable: true,
   isCollapsed: false,
@@ -219,6 +220,7 @@ responsive.args = {
   branding: {
     name: 'My Branding',
     logo: '/ebury-logo-sm.png',
+    link: '#',
   },
   isCollapsable: false,
   isCollapsed: false,
