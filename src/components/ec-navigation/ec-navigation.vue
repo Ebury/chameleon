@@ -7,7 +7,19 @@
       @open-mobile-menu="isMobileMenuOpen = true"
     >
       <template #logo>
+        <a
+          v-if="branding.link"
+          :href="branding.link"
+        >
+          <img
+            class="ec-navigation__mobile-header-logo"
+            :src="branding.logo"
+            :alt="branding.name"
+            data-test="ec-navigation__mobile-header-logo"
+          >
+        </a>
         <img
+          v-else
           class="ec-navigation__mobile-header-logo"
           :src="branding.logo"
           :alt="branding.name"
@@ -40,7 +52,20 @@
         class="ec-navigation__branding"
         data-test="ec-navigation__branding"
       >
+        <a
+          v-if="branding.link"
+          :href="branding.link"
+        >
+          <img
+            class="ec-navigation__branding-logo"
+            :class="{ 'ec-navigation__branding-logo--light-mode': isInLightMode }"
+            :src="branding.logo"
+            :alt="branding.name"
+            data-test="ec-navigation__branding-logo"
+          >
+        </a>
         <img
+          v-else
           class="ec-navigation__branding-logo"
           :class="{ 'ec-navigation__branding-logo--light-mode': isInLightMode }"
           :src="branding.logo"
