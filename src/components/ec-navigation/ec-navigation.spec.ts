@@ -49,14 +49,14 @@ describe('EcNavigation', () => {
   });
 
   it('should not render branding if no logo is given in branding object', () => {
-    const wrapper = mountNavigation({ branding: { logo: '', name: 'Test Brand' } });
+    const wrapper = mountNavigation({ branding: { logo: '', name: 'Test Brand', link: 'https://example.com' } });
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.findByDataTest('ec-navigation__branding').exists()).toBe(false);
   });
 
   it('should not render branding if logo is given in branding object but showBrandingLogo is set to false', () => {
     const wrapper = mountNavigation({
-      branding: { logo: '/img/my.png', name: 'Test Brand' },
+      branding: { logo: '/img/my.png', name: 'Test Brand', link: 'https://example.com' },
       showBrandingLogo: false,
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -69,6 +69,14 @@ describe('EcNavigation', () => {
     });
     expect(wrapper.element).toMatchSnapshot();
     expect(wrapper.findByDataTest('ec-navigation__branding').element).toMatchSnapshot('Branding should have alt and src.');
+  });
+
+  it('should render branding logo, name and link when given', () => {
+    const wrapper = mountNavigation({
+      branding: { logo: '/img/my.png', name: 'My Branding', link: 'https://example.com' },
+    });
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.findByDataTest('ec-navigation__branding').element).toMatchSnapshot('Branding should have alt, src, href.');
   });
 
   it('should only render mandatory slot if no other slots were given', () => {
@@ -104,6 +112,7 @@ describe('EcNavigation', () => {
   describe('mobile navigation', () => {
     it('should render mobile header if "isResponsive" prop is true', () => {
       const wrapper = mountNavigation({
+        branding: { logo: '/img/my.png', name: 'My Branding', link: 'https://example.com' },
         isResponsive: true,
       });
 
