@@ -201,6 +201,7 @@ function appendDatepickerHook(existingHook: flatpickr.Options.Hook | flatpickr.O
 function mergeWithDefaultOptions(options: flatpickr.Options.Options): flatpickr.Options.Options {
   const mergedOptions: flatpickr.Options.Options = {
     ...options,
+    disableMobile: true,
     // We need to update the time of "now" every time something changes otherwise flatpickr will only pick it once when imported.
     now: new Date(),
     allowInput: true,
