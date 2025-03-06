@@ -13,6 +13,7 @@ export const flags = [
   "CAD",
   "CDF",
   "CHF",
+  "CLP",
   "CNY",
   "CZK",
   "DKK",
