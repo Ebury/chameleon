@@ -14,6 +14,7 @@ export enum IconName {
   CURRENCY_CAD = 'currency-cad',
   CURRENCY_CDF = 'currency-cdf',
   CURRENCY_CHF = 'currency-chf',
+  CURRENCY_CLP = 'currency-clp',
   CURRENCY_CNY = 'currency-cny',
   CURRENCY_CZK = 'currency-czk',
   CURRENCY_DKK = 'currency-dkk',
