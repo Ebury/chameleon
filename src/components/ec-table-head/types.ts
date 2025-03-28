@@ -10,7 +10,8 @@ export interface TableHeadColumn {
   tooltip?: string,
   type?: string,
   span?: number,
-  sortCycle?: SortDirectionCycle
+  sortCycle?: SortDirectionCycle,
+  isSelect?: boolean,
 }
 
 export interface TableHeadSort extends Sorting {}
@@ -24,6 +25,9 @@ export interface TableHeadProps {
   columns?: TableHeadColumn[],
   sorts?: TableHeadSort[],
   stickyColumn?: StickyColumnPosition,
+  isMultiSelectEnabled?: boolean,
+  allItemsSelected?: boolean,
+  hasAnySelectableRows?: boolean,
 }
 
 export enum TableHeadEvent {

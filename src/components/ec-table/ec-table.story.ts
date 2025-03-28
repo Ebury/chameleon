@@ -119,6 +119,8 @@ export const all: EcTableStory = args => ({
       args,
       onSort: action('sort'),
       onRowClick: action('rowClick'),
+      onSelectItem: action('selectItem'),
+      onSelectAllItems: action('selectAllItems'),
     };
   },
   template: `
@@ -205,6 +207,57 @@ export const all: EcTableStory = args => ({
         </ec-table>
       </div>
     </div>
+    <h2 class="tw-m-24">With multi select enabled</h2>
+    <div class="tw-my-auto tw-mx-20 ec-card" style="width: 90vw">
+      <ec-table
+        v-bind="args"
+        :is-multi-select-enabled="true"
+        :columns="[
+          {
+            isSelect: true
+          },
+          {
+            name: 'request-details',
+            title: 'Request details',
+            sortable: true,
+            minWidth: '200px',
+          },
+          {
+            title: 'Status',
+            type: 'icon',
+            tooltip: 'This is info test',
+          },
+          {
+            name: 'long-text',
+            title: 'Text too long to display',
+            maxWidth: '120px',
+          },
+        ]"
+        :data="[
+          [
+            '1',
+            'Lorem',
+            'dolor',
+            'sit amet, consectetur adipiscing elit. Vestibulum eget ultricies turpis',
+          ],
+          [
+            '2',
+            'foo',
+            'baz',
+            'qux',
+          ],
+          [
+            '3',
+            'baz',
+            'foo',
+            'qux',
+          ],
+        ]"
+        v-on="{ sort: onSort, rowClick: onRowClick, selectItem: onSelectItem, selectAllItems: onSelectAllItems }"
+      >
+      </ec-table>
+    </div>
+  </div>
   `,
 });
 

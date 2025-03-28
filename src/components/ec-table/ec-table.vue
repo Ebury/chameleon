@@ -19,7 +19,13 @@
           :columns="columns"
           :sorts="sorts"
           :sticky-column="stickyColumn"
+          :is-multi-select-enabled="isMultiSelectEnabled"
+          :all-items-selected="allItemsSelected"
+          :has-any-selectable-rows="isMultiSelectEnabled && data.some((row, _) => canItemBeSelected(row[0] as string))"
           @sort="onSort"
+          v-on="{
+            selectAllItems: attrs.onSelectAllItems,
+          }"
         />
         <tbody>
           <tr
@@ -28,9 +34,9 @@
             tabindex="0"
             :data-test="`ec-table__row ec-table__row--${rowIndex}`"
             :class="{ 'ec-table__row--is-clickable': !!attrs.onRowClick, 'ec-table__row ': true }"
-            @click="onRowClick({ data: row, rowIndex })"
-            @keydown.enter="onRowClick({ data: row, rowIndex })"
-            @keydown.space="onRowClick({ data: row, rowIndex })"
+            @click="(ev) => onRowClick(ev, { data: row, rowIndex })"
+            @keydown.enter="(ev) => onRowClick(ev, { data: row, rowIndex })"
+            @keydown.space="(ev) => onRowClick(ev, { data: row, rowIndex })"
           >
             <td
               v-if="canShowCustomRow"
@@ -53,9 +59,18 @@
                   'ec-table__cell--is-type-icon': columns[colIndex]?.type === 'icon',
                   'ec-table__cell--is-type-currency': columns[colIndex]?.type === 'currency',
                   'ec-table__cell--has-max-width': !!columns[colIndex]?.maxWidth,
+                  'ec-table__cell--is-select': isCheckboxContent(colIndex),
                 }]"
             >
+              <ec-checkbox
+                v-if="isCheckboxContent(colIndex) && canItemBeSelected(content as string)"
+                :data-test="`ec-table__select ec-table__select--${colIndex}`"
+                :model-value="selectedItems.has(content as string)"
+                @update:model-value="onSelectItem(content as string)"
+              />
+              <div v-else-if="isCheckboxContent(colIndex)" />
               <slot
+                v-else
                 :name="`col${colIndex + 1}`"
                 :content="content"
                 :row="row"
@@ -80,6 +95,7 @@ import { useMediaQuery } from '@vueuse/core';
 import type { StyleValue } from 'vue';
 import { computed, useAttrs, useSlots } from 'vue';
 
+import EcCheckbox from '../ec-checkbox';
 import EcTableFooter from '../ec-table-footer';
 import EcTableHead from '../ec-table-head';
 import type { TableHeadColumn } from '../ec-table-head/types';
@@ -91,6 +107,7 @@ const attrs = useAttrs();
 
 const emit = defineEmits<{
   'sort': [value: TableHeadColumn],
+  'update:modelValue': [items: string[] | number[]],
 }>();
 
 const props = withDefaults(defineProps<TableProps<TRow>>(), {
@@ -105,12 +122,20 @@ const numberOfColumns = computed(() => (props.columns.length || props.data?.[0]?
 const maxHeightStyle = computed(() => (props.maxHeight ? { maxHeight: `${props.maxHeight}` } : undefined));
 const canShowCustomRow = computed(() => (props.isCustomRowShown || (props.isCustomRowShown === undefined && hasSlot('default') && isInCustomRowThreshold.value)));
 const canShowTableHeader = computed(() => (props.isTableHeaderHidden === false || (props.isTableHeaderHidden === undefined && !canShowCustomRow.value)));
+const canShowMultiSelect = computed(() => props.isMultiSelectEnabled);
+const selectedItems = computed(() => new Set(props.selectedItems));
 
 function onSort(column: TableHeadColumn) {
   emit('sort', column);
 }
 
-function onRowClick(rowData: { data: TRow, rowIndex: number }) {
+function onRowClick(event: Event, rowData: { data: TRow, rowIndex: number }) {
+  if (canShowMultiSelect.value) {
+    const closestTd = (event.target as HTMLElement).closest('td');
+    if (!closestTd || closestTd.classList.contains('ec-table__cell--is-select')) {
+      return;
+    }
+  }
   if (attrs.onRowClick && typeof attrs.onRowClick === 'function') {
     attrs.onRowClick(rowData);
   }
@@ -135,6 +160,20 @@ function getStickyColumnClass(colIndex: number): string | undefined {
 
 function hasSlot(slotName: string): boolean {
   return slotName in slots;
+}
+
+function isCheckboxContent(colIdx: number): boolean {
+  return canShowMultiSelect.value && colIdx === 0;
+}
+
+function canItemBeSelected(selected: string): boolean {
+  return !props.isSelectableCheck || (props.isSelectableCheck && props.isSelectableCheck(selected));
+}
+
+function onSelectItem(selected: string) {
+  if (attrs.onSelectItem && typeof attrs.onSelectItem === 'function') {
+    attrs.onSelectItem(selected);
+  }
 }
 </script>
 

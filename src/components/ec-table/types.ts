@@ -13,5 +13,9 @@ export interface TableProps<TRow extends ReadonlyArray<unknown>> {
   stickyColumn?: StickyColumnPosition,
   title?: string,
   isCustomRowShown?: boolean,
-  isTableHeaderHidden?: boolean
+  isTableHeaderHidden?: boolean,
+  isMultiSelectEnabled?: boolean,
+  selectedItems?: string[],
+  allItemsSelected?: boolean,
+  isSelectableCheck?: (itemId: string) => boolean,
 }

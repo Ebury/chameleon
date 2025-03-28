@@ -149,6 +149,30 @@ const fakeData: string[][] = [
   ],
 ];
 
+const fakeMultiSelectData: string[][] = [
+  [
+    '1234',
+    'Lorem',
+    'ipsum',
+    'dolor',
+    'sit',
+  ],
+  [
+    '2345',
+    'foo',
+    'bar',
+    'baz',
+    'sit',
+  ],
+  [
+    '3456',
+    'foo',
+    'bar',
+    'baz',
+    'sit',
+  ],
+];
+
 const prefilters: Record<string, Record<string, unknown>> = {
   all: {},
   onlyOverdue: { paymentStatus: [{ text: 'Overdue', value: 'overdue' }], feeType: [{ text: 'Payment', value: 'payment' }] },
@@ -311,6 +335,8 @@ function useSmartTableSetup(args: EcSmartTableStoryProps) {
     }, args.loadingDelay);
   }
 
+  const multiSelectData = ref(fakeMultiSelectData);
+
   return {
     data,
     isFetching,
@@ -322,6 +348,7 @@ function useSmartTableSetup(args: EcSmartTableStoryProps) {
     stretchedFilters,
     selectedFilter,
     infiniteScrollMappedData,
+    multiSelectData,
     getInfiniteScrollMappedData,
     onSort: action('sort'),
     onAbort: action('abort'),
@@ -644,6 +671,83 @@ export const all: EcSmartTableStory = args => ({
             isFilteringEnabled: null,
             prefilter: null,
             isResponsive: false,
+          }"
+          v-on="{
+            fetch: onFetch,
+            sort: onSort,
+            abort: onAbort,
+            error: onError,
+          }">
+          <template #header-actions="{ total, items, error, loading }">
+            <a
+              href="#"
+              v-if="!error && !loading"
+              @click.prevent.stop="onDownload">Download all {{ total }} item(s)</a>
+            <a @click.prevent.stop="execute()" href="#">Reload</a>
+          </template>
+          <template #error="{ errorMessage }">
+            <div class="tw-text-center tw-text-error tw-py-48">
+              <div><ec-icon name="simple-error" :size="48" class="tw-fill-error" /></div>
+              {{ errorMessage }}
+            </div>
+          </template>
+          <template #empty="{ emptyMessage }">
+            <div class="tw-text-center tw-py-48">
+              <div><ec-icon name="simple-info" :size="48" /></div>
+              {{ emptyMessage }}
+            </div>
+          </template>
+          <template #footer><div class="tw-text-right">Custom footer info</div></template>
+          <template #pages="{ page, totalPages, total }">{{ page }}&nbsp;of&nbsp;{{ totalPages }} pages ({{ total }}&nbsp;ipsums)</template>
+        </ec-smart-table>
+      </div>
+    </div>
+    <h2 class="tw-m-24">With multiselect enabled</h2>
+    <div class="tw-flex tw-px-20">
+      <div class="tw-my-auto tw-mx-20 tw-w-full ec-card">
+        <ec-smart-table
+          v-bind="{
+            columns: [
+              {
+                isSelect: true,
+              },
+              {
+                name: 'request-details',
+                title: 'Request details',
+                sortable: true,
+              },
+              {
+                name: 'original-amount',
+                title: 'Original amount',
+                sortable: true,
+              },
+              {
+                name: 'repayment-date',
+                title: 'Repayment date',
+                sortable: true,
+              },
+              {
+                title: 'Status',
+                type: 'icon',
+              },
+            ],
+            data: multiSelectData,
+            totalRecords: data?.total ?? 0,
+            isFetching,
+            error,
+            sortCycle,
+            filters,
+            filter: selectedFilter,
+            loadingDelay: null,
+            failOnFetch: null,
+            fakeData: null,
+            fetchEmptyList: null,
+            isFilteringEnabled: null,
+            prefilter: null,
+            isCustomRowShown: false,
+            isPaginationEnabled: false,
+            isInfiniteScrollEnabled: false,
+            isMultiSelectEnabled: true,
           }"
           v-on="{
             fetch: onFetch,
