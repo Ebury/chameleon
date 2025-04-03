@@ -72,10 +72,16 @@
             stickyColumn,
             sorts,
             isCustomRowShown,
+            isMultiSelectEnabled,
+            selectedItems,
+            allItemsSelected,
+            isSelectableCheck,
           }"
           v-on="{
             sort: sortBy,
             rowClick: attrs.onRowClick,
+            selectItem: attrs.onSelectItem,
+            selectAllItems: attrs.onSelectAllItems,
           }"
         >
           <template #default="{ row }" v-if="canShowCustomRow">

@@ -437,4 +437,103 @@ describe('EcTable', () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  describe('multiselect', () => {
+    const columns = [
+      {
+        isSelect: true,
+      },
+      {
+        name: 'lorem',
+        title: 'Lorem',
+      },
+      {
+        name: 'ipsum',
+        title: 'Ipsum',
+      },
+    ];
+    const data = [
+      ['123', 'foo'],
+      ['345', 'bar'],
+      ['456', 'foobar'],
+      ['789', 'barfoo'],
+    ];
+    const onSelectItem = vi.fn();
+    const onSelectAllItems = vi.fn();
+
+    const selectProps = {
+      columns, data, isMultiSelectEnabled: true, selectedItems: ['345'], allItemsSelected: false,
+    };
+    const selectAttrs = { onSelectItem, onSelectAllItems };
+
+    it('should render checkboxes in header and for every row when multi select is enabled', () => {
+      const wrapper = mountEcTable(selectProps, { attrs: selectAttrs });
+
+      const headerCheckbox = wrapper.findAllByDataTest('ec-table-head__select');
+      expect(headerCheckbox.length).toEqual(1);
+      expect(headerCheckbox.at(0)?.findByDataTest('ec-checkbox__check-icon').exists()).toBe(false);
+
+      const rowCheckboxes = wrapper.findAllByDataTest('ec-table__select');
+      expect(rowCheckboxes.length).toEqual(data.length);
+      expect(rowCheckboxes.at(0)?.findByDataTest('ec-checkbox__check-icon').exists()).toBe(false);
+      expect(rowCheckboxes.at(1)?.findByDataTest('ec-checkbox__check-icon').exists()).toBe(true);
+      expect(rowCheckboxes.at(2)?.findByDataTest('ec-checkbox__check-icon').exists()).toBe(false);
+      expect(rowCheckboxes.at(3)?.findByDataTest('ec-checkbox__check-icon').exists()).toBe(false);
+    });
+
+    it('should render checkboxes in header and for certain rows when the isSelectableCheck fn is provided', () => {
+      const isSelectableCheck = vi.fn().mockImplementation((itemId: string) => ['123', '789'].includes(itemId));
+      const wrapper = mountEcTable({
+        ...selectProps,
+        isSelectableCheck,
+        selectedItems: [],
+      }, {
+        attrs: selectAttrs,
+      });
+
+      expect(wrapper.findByDataTest('ec-table-head__select').exists()).toBe(true);
+
+      const rowCheckboxes = wrapper.findAllByDataTest('ec-table__select');
+      expect(rowCheckboxes.length).toEqual(2);
+      expect(rowCheckboxes.at(0)?.findByDataTest('ec-checkbox__check-icon').exists()).toBe(false);
+      expect(rowCheckboxes.at(1)?.findByDataTest('ec-checkbox__check-icon').exists()).toBe(false);
+    });
+
+    it('should only render the header checkbox as disabled when no row items pass isSelectableCheck', () => {
+      const isSelectableCheck = vi.fn().mockImplementation(() => false);
+      const wrapper = mountEcTable({
+        ...selectProps,
+        isSelectableCheck,
+      }, {
+        attrs: selectAttrs,
+      });
+
+      const headerCheckbox = wrapper.findByDataTest('ec-table-head__select');
+      expect(headerCheckbox.exists()).toBe(true);
+      expect(headerCheckbox.findByDataTest<HTMLInputElement>('ec-checkbox__input').element.disabled).toBe(true);
+
+      const rowCheckboxes = wrapper.findAllByDataTest('ec-table__select');
+      expect(rowCheckboxes.length).toEqual(0);
+    });
+
+    it('should call onSelectItem when selecting a row', () => {
+      const wrapper = mountEcTable(selectProps, { attrs: selectAttrs });
+
+      const checkbox = wrapper.findAllByDataTest('ec-table__select').at(0);
+      checkbox?.findByDataTest('ec-checkbox__input').setValue(true);
+      expect(onSelectItem).toHaveBeenCalledWith('123');
+    });
+
+    it('should not call onRowClick on clicking on a checkbox', () => {
+      const onRowClick = vi.fn();
+      const wrapper = mountEcTable(selectProps, { attrs: { ...selectAttrs, onRowClick } });
+
+      const checkbox = wrapper.findAllByDataTest('ec-table__select').at(0);
+      checkbox?.findByDataTest('ec-checkbox__input').setValue(true);
+      expect(onRowClick).not.toHaveBeenCalled();
+
+      checkbox?.findByDataTest('ec-checkbox__check-icon-wrapper').trigger('click');
+      expect(onRowClick).not.toHaveBeenCalled();
+    });
+  });
 });

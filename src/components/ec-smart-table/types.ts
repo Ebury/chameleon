@@ -39,4 +39,8 @@ export interface SmartTableProps<TRow extends ReadonlyArray<unknown>, TAdditiona
   isTotalHidden?: boolean,
   isResponsive?: boolean,
   isInfiniteScrollEnabled?: boolean,
+  isMultiSelectEnabled?: boolean,
+  selectedItems?: string[],
+  allItemsSelected?: boolean,
+  isSelectableCheck?: (itemId: string) => boolean,
 }

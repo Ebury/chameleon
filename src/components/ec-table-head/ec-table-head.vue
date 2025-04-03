@@ -15,7 +15,15 @@
         :colspan="column.span"
         scope="col"
       >
+        <ec-checkbox
+          v-if="props.isMultiSelectEnabled && column.isSelect"
+          :disabled="!props.hasAnySelectableRows"
+          :model-value="props.allItemsSelected"
+          data-test="ec-table-head__select"
+          @update:model-value="onToggleSelectAll()"
+        />
         <span
+          v-else
           class="ec-table-head__cell-wrapper"
           :class="{
             'ec-table-head__cell-wrapper--is-type-icon': column.type === 'icon',
@@ -50,10 +58,11 @@
 </template>
 
 <script setup lang="ts">
-import type { StyleValue } from 'vue';
+import { type StyleValue, useAttrs } from 'vue';
 
 import vEcTooltip from '../../directives/ec-tooltip';
 import type { SortDirection } from '../../enums';
+import EcCheckbox from '../ec-checkbox';
 import EcIcon from '../ec-icon';
 import { IconName, IconType } from '../ec-icon/types';
 import EcTableSort from '../ec-table-sort';
@@ -61,8 +70,11 @@ import type {
   TableHeadColumn, TableHeadEvent, TableHeadEvents, TableHeadProps,
 } from './types';
 
+const attrs = useAttrs();
+
 const emit = defineEmits<{
   'sort': [value: TableHeadEvents[TableHeadEvent.SORT]],
+  'update:modelValue': [],
 }>();
 
 const props = withDefaults(defineProps<TableHeadProps>(), {
@@ -93,6 +105,12 @@ function getStickyColumnClass(colIndex: number): string | undefined {
     return 'ec-table-head__cell--sticky-right';
   }
   return undefined;
+}
+
+function onToggleSelectAll() {
+  if (attrs.onSelectAllItems && typeof attrs.onSelectAllItems === 'function') {
+    attrs.onSelectAllItems();
+  }
 }
 </script>
 

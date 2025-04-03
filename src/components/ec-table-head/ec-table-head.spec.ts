@@ -129,4 +129,59 @@ describe('EcTableHead', () => {
 
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  describe('multiselect', () => {
+    const cols = [
+      {
+        isSelect: true,
+      },
+      {
+        name: 'lorem',
+        title: 'Lorem',
+      },
+      {
+        name: 'ipsum',
+        title: 'Ipsum',
+      },
+    ];
+    const onSelectAllItems = vi.fn();
+
+    const selectProps = {
+      columns: cols, isMultiSelectEnabled: true, allItemsSelected: false, hasAnySelectableRows: true,
+    };
+    const selectAttrs = { onSelectAllItems };
+
+    it('should render checkbox as unchecked when multi select is enabled and allItemsSelected is false', () => {
+      const wrapper = mountEcTableHead(selectProps, { attrs: selectAttrs });
+
+      const headerCheckbox = wrapper.findByDataTest('ec-table-head__select');
+      expect(headerCheckbox.exists()).toBe(true);
+      expect(headerCheckbox.findByDataTest('ec-checkbox__check-icon').exists()).toBe(false);
+    });
+
+    it('should render checkbox as checked when multi select is enabled and allItemsSelected is true', () => {
+      const wrapper = mountEcTableHead({ ...selectProps, allItemsSelected: true }, { attrs: selectAttrs });
+
+      const headerCheckbox = wrapper.findByDataTest('ec-table-head__select');
+      expect(headerCheckbox.exists()).toBe(true);
+      expect(headerCheckbox.findByDataTest('ec-checkbox__check-icon').exists()).toBe(true);
+    });
+
+    it('should render checkbox as disabled unchecked when multi select is enabled and hasAnySelectableRows is false', () => {
+      const wrapper = mountEcTableHead({ ...selectProps, hasAnySelectableRows: false }, { attrs: selectAttrs });
+
+      const headerCheckbox = wrapper.findByDataTest('ec-table-head__select');
+      expect(headerCheckbox.exists()).toBe(true);
+      expect(headerCheckbox.findByDataTest('ec-checkbox__check-icon').exists()).toBe(false);
+      expect(headerCheckbox.findByDataTest<HTMLInputElement>('ec-checkbox__input').element.disabled).toBe(true);
+    });
+
+    it('should call onSelectAllItems when toggling the checkbox', () => {
+      const wrapper = mountEcTableHead(selectProps, { attrs: selectAttrs });
+
+      const headerCheckbox = wrapper.findByDataTest('ec-table-head__select');
+      headerCheckbox.findByDataTest('ec-checkbox__input').setValue(true);
+      expect(onSelectAllItems).toHaveBeenCalledWith();
+    });
+  });
 });
