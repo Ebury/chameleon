@@ -54,7 +54,7 @@ describe('EcTag', () => {
     });
   });
 
-  it('should render with a tooltip', () => {
+  it('should render with a tooltip and use text as content', () => {
     const text = 'Trusted';
 
     const wrapper = mountTag({
@@ -62,6 +62,19 @@ describe('EcTag', () => {
     });
 
     expect(wrapper.findByDataTest('ec-tag').attributes('data-ec-tooltip-mock-content')).toBe(text);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('should render with a tooltip that has a different content', () => {
+    const text = 'Trusted';
+    const tooltipContent = 'Tooltip text';
+
+    const wrapper = mountTag({
+      text,
+      tooltipOptions: { content: tooltipContent },
+    });
+
+    expect(wrapper.findByDataTest('ec-tag').attributes('data-ec-tooltip-mock-content')).toBe(tooltipContent);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

@@ -1,3 +1,4 @@
+import type { TooltipOptions } from '../../directives/ec-tooltip/types';
 import type { IconName, IconType } from '../ec-icon/types';
 
 export interface TagProps {
@@ -5,4 +6,5 @@ export interface TagProps {
   isIconRounded?: boolean,
   iconName?: IconName,
   iconType?: IconType,
+  tooltipOptions?: TooltipOptions,
 }

@@ -1,6 +1,6 @@
 <template>
   <div
-    v-ec-tooltip="{ content: text }"
+    v-ec-tooltip="tagTooltipOptions"
     class="ec-tag"
     data-test="ec-tag"
   >
@@ -22,9 +22,10 @@
 </template>
 
 <script setup lang="ts">
-import { toRefs } from 'vue';
+import { ref, toRefs } from 'vue';
 
 import vEcTooltip from '../../directives/ec-tooltip';
+import { type TooltipOptions } from '../../directives/ec-tooltip/types';
 import EcIcon from '../ec-icon';
 import type { TagProps } from './types';
 
@@ -35,6 +36,8 @@ const props = withDefaults(defineProps<TagProps>(), {
 const {
   iconName, iconType, isIconRounded, text,
 } = toRefs(props);
+
+const tagTooltipOptions = ref<TooltipOptions>({ content: props.text, ...props.tooltipOptions });
 </script>
 
 <style>
