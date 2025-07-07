@@ -91,10 +91,26 @@ exports[`EcTag > :props > should render as expected when we set "is-icon-rounded
 </div>
 `;
 
-exports[`EcTag > should render with a tooltip 1`] = `
+exports[`EcTag > should render with a tooltip and use text as content 1`] = `
 <div
   class="ec-tag"
   data-ec-tooltip-mock-content="Trusted"
+  data-test="ec-tag ec-mock ec-tooltip-mock"
+>
+  <!--v-if-->
+  <div
+    class="ec-tag__text"
+    data-test="ec-tag__text"
+  >
+    Trusted
+  </div>
+</div>
+`;
+
+exports[`EcTag > should render with a tooltip that has a different content 1`] = `
+<div
+  class="ec-tag"
+  data-ec-tooltip-mock-content="Tooltip text"
   data-test="ec-tag ec-mock ec-tooltip-mock"
 >
   <!--v-if-->
