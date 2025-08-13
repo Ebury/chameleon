@@ -1,0 +1,363 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EcSwitch > :props > #slots > #error-message - should render error-message slot instead of error-message prop when both are passed 1`] = `
+<div
+  class="ec-switch"
+  data-test="ec-switch"
+>
+  <input
+    aria-describedby="ec-switch-error-1"
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    id="ec-switch-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper ec-switch__wrapper--error"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title=""
+    >
+      
+      
+      
+    </label>
+  </div>
+  <div
+    class="ec-switch__error-text"
+    data-test="ec-switch__error-text"
+    id="ec-switch-error-1"
+  >
+    
+    Error message coming from slot
+    
+  </div>
+</div>
+`;
+
+exports[`EcSwitch > :props > #slots > #errorMessage - should render the error message slot if passed 1`] = `
+<div
+  class="ec-switch"
+  data-test="ec-switch"
+>
+  <input
+    aria-describedby="ec-switch-error-1"
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    id="ec-switch-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper ec-switch__wrapper--error"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title=""
+    >
+      
+      
+      
+    </label>
+  </div>
+  <div
+    class="ec-switch__error-text"
+    data-test="ec-switch__error-text"
+    id="ec-switch-error-1"
+  >
+    
+    Test error message slot
+    
+  </div>
+</div>
+`;
+
+exports[`EcSwitch > :props > #slots > #label - should render label slot instead of label prop when both are passed 1`] = `
+<div
+  class="ec-switch"
+  data-test="ec-switch"
+>
+  <input
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    id="ec-switch-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title="Label message coming from props"
+    >
+      
+      Label message coming from slot
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcSwitch > :props > #slots > #label - should render the label slot if passed 1`] = `
+<div
+  class="ec-switch"
+  data-test="ec-switch"
+>
+  <input
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    id="ec-switch-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title=""
+    >
+      
+      Test label message slot
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcSwitch > :props > :disabled - should render the switch with a disabled attribute and checked 1`] = `
+<div
+  class="ec-switch"
+  data-test="ec-switch"
+>
+  <input
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    disabled=""
+    id="ec-switch-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper ec-switch__wrapper--checked ec-switch__wrapper--disabled ec-switch__wrapper--checked-and-disabled"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title=""
+    >
+      
+      
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcSwitch > :props > :disabled - should render the switch with a disabled attribute and not checked 1`] = `
+<div
+  class="ec-switch"
+  data-test="ec-switch"
+>
+  <input
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    disabled=""
+    id="ec-switch-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper ec-switch__wrapper--disabled"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title=""
+    >
+      
+      
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcSwitch > :props > :error-message - should render the switch with an error message 1`] = `
+<div
+  class="ec-switch"
+  data-test="ec-switch"
+>
+  <input
+    aria-describedby="ec-switch-error-1"
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    id="ec-switch-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper ec-switch__wrapper--error"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title=""
+    >
+      
+      
+      
+    </label>
+  </div>
+  <div
+    class="ec-switch__error-text"
+    data-test="ec-switch__error-text"
+    id="ec-switch-error-1"
+  >
+    
+    Test error message prop
+    
+  </div>
+</div>
+`;
+
+exports[`EcSwitch > :props > :label - should render the switch with a label 1`] = `
+<div
+  class="ec-switch"
+  data-test="ec-switch"
+>
+  <input
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    id="ec-switch-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title="Test label prop"
+    >
+      
+      Test label prop
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcSwitch > :props > attrs > should pass all non-prop attributes to the hidden switch input 1`] = `
+<div
+  class="ec-switch"
+  data-test="ec-switch"
+>
+  <input
+    aria-label="Random label"
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    id="ec-switch-1"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title=""
+    >
+      
+      
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`EcSwitch > :props > attrs > should render with custom attributes 1`] = `
+<div
+  class="ec-switch my-class"
+  data-test="my-data-test ec-switch"
+  style="top: 0px;"
+>
+  <input
+    class="ec-switch__input"
+    data-test="ec-switch__input"
+    id="ec-switch-1"
+    role="switch"
+    type="checkbox"
+  />
+  <div
+    class="ec-switch__label-switch-wrapper"
+  >
+    <span
+      class="ec-switch__wrapper"
+      data-test="ec-switch__wrapper"
+    />
+    <label
+      class="ec-switch__label"
+      data-test="ec-switch__label"
+      for="ec-switch-1"
+      title=""
+    >
+      
+      
+      
+    </label>
+  </div>
+  <!--v-if-->
+</div>
+`;
