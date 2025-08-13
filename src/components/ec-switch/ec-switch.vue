@@ -176,6 +176,7 @@ const inputModel = computed({
 
     &--checked-and-disabled {
       @apply tw-bg-gray-6;
+      @apply tw-bg-key-7;
 
       &:hover {
         @apply tw-bg-gray-6;
