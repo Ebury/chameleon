@@ -96,6 +96,8 @@ export { default as EcSubmenu } from './components/ec-submenu';
 export * from './components/ec-submenu/types';
 export { default as EcSummaryInfo } from './components/ec-summary-info';
 export * from './components/ec-summary-info/types';
+export { default as EcSwitch } from './components/ec-switch';
+export * from './components/ec-switch/types';
 export { default as EcSyncMultipleValuesFilter } from './components/ec-sync-multiple-values-filter';
 export * from './components/ec-sync-multiple-values-filter/types';
 export { default as EcTable } from './components/ec-table';
