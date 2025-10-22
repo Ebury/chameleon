@@ -125,7 +125,7 @@ const inputModel = computed({
 
   &__wrapper {
     @apply tw-cursor-pointer;
-    @apply tw-bg-gray-7;
+    @apply tw-bg-gray-6;
     @apply tw-w-32 tw-h-16;
     @apply tw-flex-shrink-0;
     @apply tw-flex tw-items-center tw-justify-center;
